@@ -29248,7 +29248,7 @@ postgres/lmgr.ll 193894390
 postgres/load_manifest.ll 214833906
 postgres/local_source.ll 60057487
 postgres/localbuf.ll 206499807
-postgres/localtime.ll 1065099555
+postgres/localtime.ll 1066164741
 postgres/lock.ll 952430242
 postgres/lockcmds.ll 95815503
 postgres/lockfuncs.ll 259081536
@@ -30801,7 +30801,7 @@ qemu/libvhost-user.c.ll 966977663
 qemu/link-test.c.ll 37483546
 qemu/linux-user_elfload.c.ll 645622492
 qemu/linux-user_fd-trans.c.ll 937238882
-qemu/linux-user_linuxload.c.ll 114477099
+qemu/linux-user_linuxload.c.ll 114362588
 qemu/linux-user_main.c.ll 238596903
 qemu/linux-user_mmap.c.ll 392993491
 qemu/linux-user_riscv_signal.c.ll 111938201
