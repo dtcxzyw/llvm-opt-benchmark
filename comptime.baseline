@@ -1356,7 +1356,7 @@ actix-rs/409utvkjqyfhgg14.ll 1561084587
 actix-rs/413tg63jfy9n4nnj.ll 148182273
 actix-rs/42v5lxq3f9icepvb.ll 747998312
 actix-rs/45z75f2t74dui99t.ll 40065036
-actix-rs/47vbyna8d7p4fmvu.ll 54013151
+actix-rs/47vbyna8d7p4fmvu.ll 54067279
 actix-rs/480v48rmerdi0z1s.ll 157755388
 actix-rs/48duj8tg7v09rmpe.ll 331164318
 actix-rs/48s07gwzc9uq6bop.ll 226716396
@@ -22390,7 +22390,7 @@ openjdk/FillRect.ll 44049159
 openjdk/FillSpans.ll 43692342
 openjdk/Finalizer.ll 33727969
 openjdk/Flag.ll 74154081
-openjdk/Float.ll 33436963
+openjdk/Float.ll 33470450
 openjdk/ForeignLinkerSupport.ll 32660966
 openjdk/FourByteAbgr.ll 1070077896
 openjdk/FourByteAbgrPre.ll 1063754230
@@ -25431,7 +25431,7 @@ openmpi/sharedfp_individual_iwrite.ll 68979840
 openmpi/sharedfp_individual_write.ll 66965379
 openmpi/sharedfp_lockedfile.ll 51938084
 openmpi/sharedfp_lockedfile_file_open.ll 89392763
-openmpi/sharedfp_lockedfile_get_position.ll 36788989
+openmpi/sharedfp_lockedfile_get_position.ll 36826013
 openmpi/sharedfp_lockedfile_iread.ll 75676483
 openmpi/sharedfp_lockedfile_iwrite.ll 75571250
 openmpi/sharedfp_lockedfile_read.ll 73189253
