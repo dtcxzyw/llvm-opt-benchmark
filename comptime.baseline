@@ -9721,7 +9721,7 @@ hdf5/H5Tconv_compound.c.ll 324712943
 hdf5/H5Tconv_enum.c.ll 174761206
 hdf5/H5Tconv_float.c.ll 8448313089
 hdf5/H5Tconv_integer.c.ll 24041255211
-hdf5/H5Tconv_reference.c.ll 120351551
+hdf5/H5Tconv_reference.c.ll 120230979
 hdf5/H5Tconv_string.c.ll 119022560
 hdf5/H5Tconv_vlen.c.ll 258161170
 hdf5/H5Tcset.c.ll 66387588
@@ -15965,7 +15965,7 @@ llvm/SanitizerStats.cpp.ll 396275273
 llvm/Sanitizers.cpp.ll 744167992
 llvm/Sarif.cpp.ll 2179915883
 llvm/SarifDiagnostics.cpp.ll 3077933599
-llvm/Scalar.cpp.ll 37725760
+llvm/Scalar.cpp.ll 37687879
 llvm/ScalarEvolution.cpp.ll 33153642672
 llvm/ScalarEvolutionAliasAnalysis.cpp.ll 609074239
 llvm/ScalarEvolutionDivision.cpp.ll 917854352
@@ -17014,7 +17014,7 @@ lvgl/lv_async.ll 44952270
 lvgl/lv_bar.ll 228595652
 lvgl/lv_bin_decoder.ll 259975062
 lvgl/lv_binfont_loader.ll 383980409
-lvgl/lv_button.ll 34558538
+lvgl/lv_button.ll 34523727
 lvgl/lv_buttonmatrix.ll 472504936
 lvgl/lv_cache.ll 115207000
 lvgl/lv_cache_entry.ll 73991070
@@ -23510,7 +23510,7 @@ openjdk/mlib_c_ImageAffine_NN.ll 307769137
 openjdk/mlib_c_ImageConvClearEdge.ll 274646901
 openjdk/mlib_c_ImageConvCopyEdge.ll 412313004
 openjdk/mlib_c_ImageConvVersion.ll 36339233
-openjdk/mlib_c_ImageConv_f.ll 38051902
+openjdk/mlib_c_ImageConv_f.ll 38013726
 openjdk/mlib_c_ImageCopy.ll 422542636
 openjdk/mlib_c_ImageLookUp.ll 117926904
 openjdk/mlib_c_ImageLookUp_f.ll 4086895642
@@ -27750,7 +27750,7 @@ openusd/pointInstancer.cpp.ll 6664186780
 openusd/pointInstancerAdapter.cpp.ll 13440098924
 openusd/points.cpp.ll 353187424
 openusd/pointsAdapter.cpp.ll 1997584685
-openusd/pool.cpp.ll 33846285
+openusd/pool.cpp.ll 33812333
 openusd/portalLight.cpp.ll 856989965
 openusd/portalLightAdapter.cpp.ll 361634903
 openusd/pred_common.c.ll 185430957
@@ -37986,7 +37986,7 @@ wireshark/packet-smtp.c.ll 480455700
 wireshark/packet-sna.c.ll 536944727
 wireshark/packet-sndcp-xid.c.ll 153387473
 wireshark/packet-sndcp.c.ll 74907585
-wireshark/packet-snmp.c.ll 738333327
+wireshark/packet-snmp.c.ll 737594993
 wireshark/packet-snort-config.c.ll 488586515
 wireshark/packet-snort.c.ll 572154813
 wireshark/packet-socketcan.c.ll 219256439
