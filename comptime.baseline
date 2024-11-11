@@ -39208,7 +39208,7 @@ z3/euf_model.cpp.ll 1864017487
 z3/euf_plugin.cpp.ll 112407948
 z3/euf_proof.cpp.ll 1752817274
 z3/euf_proof_checker.cpp.ll 3554930852
-z3/euf_relevancy.cpp.ll 838318619
+z3/euf_relevancy.cpp.ll 839157135
 z3/euf_solver.cpp.ll 3119966783
 z3/euf_specrel_plugin.cpp.ll 398206026
 z3/eval_cmd.cpp.ll 226045988
