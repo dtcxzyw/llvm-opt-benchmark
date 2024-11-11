@@ -22696,15 +22696,15 @@ define linkonce_odr void @_ZN4toml6detail11make_stringIN9__gnu_cxx17__normal_ite
   br label %28
 
 10:                                               ; preds = %3
-  %11 = ptrtoint ptr %2 to i64
-  %12 = ptrtoint ptr %1 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #30
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #30
-  store ptr %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %14, align 8
-  %15 = sub i64 %11, %12
+  store ptr %11, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %12, align 8
+  %13 = ptrtoint ptr %2 to i64
+  %14 = ptrtoint ptr %1 to i64
+  %15 = sub i64 %13, %14
   %16 = icmp ugt i64 %15, 15
   br i1 %16, label %17, label %._crit_edge.i.i
 
@@ -22737,13 +22737,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
 
 .noexc6.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i
   store ptr %24, ptr %0, align 8
-  store i64 %15, ptr %13, align 8
+  store i64 %15, ptr %11, align 8
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc6.i, %10
-  %.pre15.i.i = phi ptr [ %24, %.noexc6.i ], [ %13, %10 ]
+  %.pre15.i.i = phi ptr [ %24, %.noexc6.i ], [ %11, %10 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre15.i.i, ptr align 1 %1, i64 %15, i1 false)
-  store i64 %15, ptr %14, align 8
+  store i64 %15, ptr %12, align 8
   %25 = getelementptr inbounds i8, ptr %.pre15.i.i, i64 %15
   store i8 0, ptr %25, align 1
   br label %27

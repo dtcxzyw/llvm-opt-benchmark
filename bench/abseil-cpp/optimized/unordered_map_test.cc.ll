@@ -25115,9 +25115,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit90:          ; preds = %if.end73, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i89
   store ptr null, ptr %message_.i87, align 8
-  %__first.coerce4.i.i.i.i.i = ptrtoint ptr %values.sroa.0.2 to i64
-  %__last.coerce3.i.i.i.i.i = ptrtoint ptr %values.sroa.7.1 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i.i, %__first.coerce4.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %values.sroa.7.1 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %values.sroa.0.2 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i91 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i91, label %if.then.i.i.i.i.i.i93, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i
 
@@ -82460,9 +82460,9 @@ lpad.i.i.i:                                       ; preds = %for.body.i.i.i
 invoke.cont21:                                    ; preds = %invoke.cont.i.i.i, %.noexc
   %9 = load ptr, ptr %values, align 8, !noalias !1641
   %10 = load ptr, ptr %_M_finish.i, align 8, !noalias !1641
-  %__first.coerce4.i.i.i.i.i = ptrtoint ptr %9 to i64
-  %__last.coerce3.i.i.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i.i, %__first.coerce4.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i
 
@@ -89658,9 +89658,9 @@ invoke.cont17:                                    ; preds = %invoke.cont17.loope
   %6 = phi ptr [ %.pre61, %invoke.cont17.loopexit ], [ %4, %invoke.cont7 ]
   %7 = phi ptr [ %.pre, %invoke.cont17.loopexit ], [ %4, %invoke.cont7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
-  %__first.coerce4.i.i.i.i.i = ptrtoint ptr %7 to i64
-  %__last.coerce3.i.i.i.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i.i, %__first.coerce4.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i
 
@@ -101478,9 +101478,9 @@ lpad.i.i.i:                                       ; preds = %for.body.i.i.i
 invoke.cont21:                                    ; preds = %invoke.cont.i.i.i, %.noexc
   %9 = load ptr, ptr %values, align 8, !noalias !1956
   %10 = load ptr, ptr %_M_finish.i, align 8, !noalias !1956
-  %__first.coerce4.i.i.i.i.i = ptrtoint ptr %9 to i64
-  %__last.coerce3.i.i.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i.i, %__first.coerce4.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i
 
@@ -102274,9 +102274,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit120:         ; preds = %if.end131, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i119
   store ptr null, ptr %message_.i117, align 8
-  %__first.coerce4.i.i.i.i = ptrtoint ptr %values2.sroa.0.0.lcssa to i64
-  %__last.coerce3.i.i.i.i = ptrtoint ptr %values2.sroa.7.0.lcssa to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i, %__first.coerce4.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %values2.sroa.7.0.lcssa to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %values2.sroa.0.0.lcssa to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i123 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i123, label %if.then.i.i.i.i.i125, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i
 
@@ -105012,9 +105012,9 @@ lpad.i.i.i:                                       ; preds = %for.body.i.i.i
 invoke.cont21:                                    ; preds = %invoke.cont.i.i.i, %.noexc
   %9 = load ptr, ptr %values, align 8, !noalias !2027
   %10 = load ptr, ptr %_M_finish.i, align 8, !noalias !2027
-  %__first.coerce4.i.i.i.i.i = ptrtoint ptr %9 to i64
-  %__last.coerce3.i.i.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i.i, %__first.coerce4.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i73.invoke, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i
 
@@ -107837,9 +107837,9 @@ lpad.i.i.i:                                       ; preds = %for.body.i.i.i
 invoke.cont21:                                    ; preds = %invoke.cont.i.i.i, %.noexc
   %9 = load ptr, ptr %values, align 8, !noalias !2075
   %10 = load ptr, ptr %_M_finish.i, align 8, !noalias !2075
-  %__first.coerce4.i.i.i.i.i = ptrtoint ptr %9 to i64
-  %__last.coerce3.i.i.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i.i, %__first.coerce4.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i109.invoke, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i
 
@@ -108448,9 +108448,9 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %if.end106, %_ZNKSt1
   %74 = load ptr, ptr %values, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %74, i64 8
   %75 = load ptr, ptr %_M_finish.i, align 8
-  %__first.coerce4.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %__last.coerce3.i.i.i.i = ptrtoint ptr %75 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i, %__first.coerce4.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %75 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i109.invoke, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i
 
@@ -111203,9 +111203,9 @@ lpad.i.i.i35:                                     ; preds = %for.body.i.i.i32
 invoke.cont48:                                    ; preds = %invoke.cont.i.i.i36, %.noexc39
   %18 = load ptr, ptr %v1, align 8, !noalias !2147
   %19 = load ptr, ptr %_M_finish.i, align 8, !noalias !2147
-  %__first.coerce4.i.i.i.i.i = ptrtoint ptr %18 to i64
-  %__last.coerce3.i.i.i.i.i = ptrtoint ptr %19 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i.i, %__first.coerce4.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %18 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i286.invoke, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i
 
@@ -111545,9 +111545,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   %52 = load ptr, ptr %v2, align 8, !noalias !2164
   %53 = load ptr, ptr %_M_finish.i28, align 8, !noalias !2164
-  %__first.coerce4.i.i.i.i.i71 = ptrtoint ptr %52 to i64
-  %__last.coerce3.i.i.i.i.i72 = ptrtoint ptr %53 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i73 = sub i64 %__last.coerce3.i.i.i.i.i72, %__first.coerce4.i.i.i.i.i71
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i71 = ptrtoint ptr %53 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i72 = ptrtoint ptr %52 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i73 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i71, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i72
   %cmp.i.i.i.i.i.i74 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i73, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i74, label %if.then.i.i.i.i.i.i286.invoke, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i75
 
@@ -111972,9 +111972,9 @@ if.then.i24.i:                                    ; preds = %_ZNSt10_HashtableIi
 invoke.cont106:                                   ; preds = %_ZNSt10_HashtableIiSt4pairIKiiEN4absl18container_internal5AllocIS2_EENSt8__detail10_Select1stENS4_20StatefulTestingEqualENS4_19StatefulTestingHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit.i, %if.then.i24.i
   %106 = load ptr, ptr %v2, align 8, !noalias !2181
   %107 = load ptr, ptr %_M_finish.i28, align 8, !noalias !2181
-  %__first.coerce4.i.i.i.i.i173 = ptrtoint ptr %106 to i64
-  %__last.coerce3.i.i.i.i.i174 = ptrtoint ptr %107 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i175 = sub i64 %__last.coerce3.i.i.i.i.i174, %__first.coerce4.i.i.i.i.i173
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i173 = ptrtoint ptr %107 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i174 = ptrtoint ptr %106 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i175 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i173, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i174
   %cmp.i.i.i.i.i.i176 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i175, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i176, label %if.then.i.i.i.i.i.i286.invoke, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i177
 
@@ -112308,9 +112308,9 @@ _ZN7testing15AssertionResultD2Ev.exit271:         ; preds = %if.end136, %_ZNKSt1
   store ptr null, ptr %message_.i268, align 8
   %138 = load ptr, ptr %v1, align 8, !noalias !2198
   %139 = load ptr, ptr %_M_finish.i, align 8, !noalias !2198
-  %__first.coerce4.i.i.i.i.i274 = ptrtoint ptr %138 to i64
-  %__last.coerce3.i.i.i.i.i275 = ptrtoint ptr %139 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i276 = sub i64 %__last.coerce3.i.i.i.i.i275, %__first.coerce4.i.i.i.i.i274
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i274 = ptrtoint ptr %139 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i275 = ptrtoint ptr %138 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i276 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i274, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i275
   %cmp.i.i.i.i.i.i277 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i276, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i277, label %if.then.i.i.i.i.i.i286.invoke, label %_ZNSt6vectorISt4pairIKiiESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i.i278
 

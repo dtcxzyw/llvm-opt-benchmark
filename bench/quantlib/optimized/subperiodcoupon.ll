@@ -1235,8 +1235,8 @@ invoke.cont55:                                    ; preds = %_ZN8QuantLib12MakeS
 
 if.then:                                          ; preds = %invoke.cont55
   %add.ptr.i = getelementptr inbounds i8, ptr %57, i64 -8
-  %__last.coerce3.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %__last.coerce3.i.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %cmp.i.i.i81 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i81, label %if.then.i.i.i84, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 
@@ -2918,8 +2918,8 @@ invoke.cont50:                                    ; preds = %_ZN8QuantLib12MakeS
 
 if.then:                                          ; preds = %invoke.cont50
   %add.ptr.i = getelementptr inbounds i8, ptr %53, i64 -8
-  %__last.coerce3.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %__last.coerce3.i.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %cmp.i.i.i85 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i85, label %if.then.i.i.i88, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 

@@ -712,7 +712,7 @@ if.then23:                                        ; preds = %land.lhs.true
 if.end27.split.us.split:                          ; preds = %if.end12
   %tracks31.phi.trans.insert = getelementptr inbounds i8, ptr %cue_sheet, i64 152
   %.pre = load ptr, ptr %tracks31.phi.trans.insert, align 8
-  %.pre100 = add i32 %1, -1
+  %.pre99 = add i32 %1, -1
   %invariant.gep = getelementptr inbounds i8, ptr %.pre, i64 23
   br label %for.body.us
 
@@ -725,7 +725,7 @@ for.body.us:                                      ; preds = %for.inc176.us, %if.
   br i1 %cmp36.us, label %if.then38, label %if.end42.us
 
 if.end42.us:                                      ; preds = %for.body.us
-  %cmp94.us = icmp ult i32 %i.076.us, %.pre100
+  %cmp94.us = icmp ult i32 %i.076.us, %.pre99
   br i1 %cmp94.us, label %if.then96.us, label %if.end121.us
 
 if.then96.us:                                     ; preds = %if.end42.us
@@ -745,17 +745,17 @@ if.end107.us:                                     ; preds = %if.then96.us
 
 if.end121.us:                                     ; preds = %if.end42.us
   %gep.phi.trans.insert = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %invariant.gep, i64 %idxprom32.us
-  %.pre99 = load i8, ptr %gep.phi.trans.insert, align 1
-  %cmp12874.us.not = icmp eq i8 %.pre99, 0
+  %.pre98 = load i8, ptr %gep.phi.trans.insert, align 1
+  %cmp12874.us.not = icmp eq i8 %.pre98, 0
   br i1 %cmp12874.us.not, label %for.inc176.us, label %for.body130.lr.ph.us
 
 for.inc176.us:                                    ; preds = %for.inc.us.us, %if.end121.us
   %inc177.us = add nuw i32 %i.076.us, 1
-  %exitcond97.not = icmp eq i32 %inc177.us, %1
-  br i1 %exitcond97.not, label %return, label %for.body.us, !llvm.loop !13
+  %exitcond96.not = icmp eq i32 %inc177.us, %1
+  br i1 %exitcond96.not, label %return, label %for.body.us, !llvm.loop !13
 
 for.body130.lr.ph.us:                             ; preds = %if.end107.us, %if.end121.us
-  %9 = phi i8 [ %.pre99, %if.end121.us ], [ %6, %if.end107.us ]
+  %9 = phi i8 [ %.pre98, %if.end121.us ], [ %6, %if.end107.us ]
   %indices154.us = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre, i64 %idxprom32.us, i32 5
   %wide.trip.count94 = zext i8 %9 to i64
   br label %for.body130.us.us

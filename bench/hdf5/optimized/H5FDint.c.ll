@@ -2240,7 +2240,7 @@ define range(i32 -1, 1) i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1
   %11 = alloca i32, align 4
   %12 = tail call i64 @H5CX_get_dxpl() #12
   %13 = icmp eq i32 %2, 0
-  br i1 %13, label %.thread175, label %14
+  br i1 %13, label %.thread174, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2390,8 +2390,8 @@ define range(i32 -1, 1) i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1
 
 94:                                               ; preds = %74
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %exitcond150.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count143
-  br i1 %exitcond150.not, label %95, label %63
+  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count143
+  br i1 %exitcond149.not, label %95, label %63
 
 95:                                               ; preds = %94
   %96 = load ptr, ptr %21, align 8
@@ -2438,33 +2438,33 @@ define range(i32 -1, 1) i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1
   br i1 %.not.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %118
-  %umax154 = call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count155 = zext i32 %umax154 to i64
+  %umax153 = call i32 @llvm.umax.i32(i32 %2, i32 1)
+  %wide.trip.count154 = zext i32 %umax153 to i64
   br label %119
 
 119:                                              ; preds = %.preheader, %119
-  %indvars.iv151 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next152, %119 ]
+  %indvars.iv150 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next151, %119 ]
   %120 = load i64, ptr %15, align 8
-  %121 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv151
+  %121 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv150
   %122 = load i64, ptr %121, align 8
   %123 = sub i64 %122, %120
   store i64 %123, ptr %121, align 8
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count155
-  br i1 %exitcond156.not, label %.thread, label %119
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
+  %exitcond155.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count154
+  br i1 %exitcond155.not, label %.thread, label %119
 
 .thread:                                          ; preds = %119, %118
   %.not = icmp eq i32 %.093, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread
-  %wide.trip.count160 = zext i32 %.093 to i64
+  %wide.trip.count159 = zext i32 %.093 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %141
-  %indvars.iv157 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next158, %141 ]
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next157, %141 ]
   %.188131 = phi i32 [ %.087, %.lr.ph.preheader ], [ %.3, %141 ]
-  %124 = getelementptr inbounds i64, ptr %.097, i64 %indvars.iv157
+  %124 = getelementptr inbounds i64, ptr %.097, i64 %indvars.iv156
   %125 = load i64, ptr %124, align 8
   %126 = call ptr @H5I_remove(i64 noundef %125) #12
   %127 = icmp eq ptr %126, null
@@ -2478,7 +2478,7 @@ define range(i32 -1, 1) i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1
 
 132:                                              ; preds = %128, %.lr.ph
   %.2 = phi i32 [ -1, %128 ], [ %.188131, %.lr.ph ]
-  %133 = getelementptr inbounds i64, ptr %.095, i64 %indvars.iv157
+  %133 = getelementptr inbounds i64, ptr %.095, i64 %indvars.iv156
   %134 = load i64, ptr %133, align 8
   %135 = call ptr @H5I_remove(i64 noundef %134) #12
   %136 = icmp eq ptr %135, null
@@ -2492,9 +2492,9 @@ define range(i32 -1, 1) i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1
 
 141:                                              ; preds = %132, %137
   %.3 = phi i32 [ -1, %137 ], [ %.2, %132 ]
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %._crit_edge, label %.lr.ph
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+  %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
+  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %141, %.thread
   %.188.lcssa = phi i32 [ %.087, %.thread ], [ %.3, %141 ]
@@ -2507,15 +2507,15 @@ define range(i32 -1, 1) i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1
 
 144:                                              ; preds = %142, %._crit_edge
   %.not109 = icmp eq ptr %.095, %10
-  br i1 %.not109, label %.thread175, label %145
+  br i1 %.not109, label %.thread174, label %145
 
 145:                                              ; preds = %144
   %146 = call ptr @H5MM_xfree(ptr noundef %.095) #12
-  br label %.thread175
+  br label %.thread174
 
-.thread175:                                       ; preds = %8, %145, %144
-  %.188.lcssa174179 = phi i32 [ %.188.lcssa, %145 ], [ %.188.lcssa, %144 ], [ 0, %8 ]
-  ret i32 %.188.lcssa174179
+.thread174:                                       ; preds = %8, %145, %144
+  %.188.lcssa173178 = phi i32 [ %.188.lcssa, %145 ], [ %.188.lcssa, %144 ], [ 0, %8 ]
+  ret i32 %.188.lcssa173178
 }
 
 ; Function Attrs: nounwind uwtable

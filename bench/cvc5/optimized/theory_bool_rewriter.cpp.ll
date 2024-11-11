@@ -1108,8 +1108,8 @@ while.body:                                       ; preds = %while.cond.preheade
   %75 = icmp ult ptr %childList.sroa.11.1.lcssa, %add.ptr.i298
   %.sroa.speculated483 = select i1 %75, ptr %childList.sroa.11.1.lcssa, ptr %add.ptr.i298
   %.sroa.speculated = ptrtoint ptr %.sroa.speculated483 to i64
-  %__first.coerce4.i.i = ptrtoint ptr %cur.sroa.0.0591 to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %.sroa.speculated, %__first.coerce4.i.i
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cur.sroa.0.0591 to i64
+  %sub.ptr.sub.i.i.i.i.i = sub i64 %.sroa.speculated, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i300 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i300, label %if.then.i.i.i305, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
 

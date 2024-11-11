@@ -42052,17 +42052,17 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %3 = alloca %"struct.boost::json::basic_parser<boost::json::detail::handler>::number", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8, !tbaa !243
-  %6 = ptrtoint ptr %5 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #48
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %10, align 8, !tbaa !178
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i64 0, ptr %9, align 8, !tbaa !178
+  %10 = ptrtoint ptr %5 to i64
   %11 = ptrtoint ptr %1 to i64
-  %12 = sub i64 %6, %11
+  %12 = sub i64 %10, %11
   %13 = icmp ugt i64 %12, 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   br i1 %13, label %14, label %41
 
 14:                                               ; preds = %2
@@ -42098,7 +42098,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 30:                                               ; preds = %21
   %31 = zext nneg i16 %27 to i32
   %32 = sub nsw i32 0, %31
-  store i32 %32, ptr %7, align 8, !tbaa !684
+  store i32 %32, ptr %6, align 8, !tbaa !684
   %33 = zext nneg i16 %27 to i64
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !15
@@ -42222,7 +42222,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 .preheader.preheader:                             ; preds = %.thread286
   %.10339 = ptrtoint ptr %.10 to i64
-  %96 = sub i64 %6, %.10339
+  %96 = sub i64 %10, %.10339
   %scevgep = getelementptr i8, ptr %.10, i64 %96
   br label %.preheader
 
@@ -42248,7 +42248,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw i8, ptr %.3274, i64 1
-  store i8 1, ptr %9, align 8, !tbaa !685
+  store i8 1, ptr %8, align 8, !tbaa !685
   br label %107
 
 107:                                              ; preds = %101, %103, %105
@@ -42284,13 +42284,13 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 122:                                              ; preds = %117
   %123 = zext nneg i8 %118 to i32
   %124 = add nsw i32 %123, -48
-  store i32 %124, ptr %8, align 4, !tbaa !686
+  store i32 %124, ptr %7, align 4, !tbaa !686
   %.14333 = getelementptr inbounds nuw i8, ptr %.12, i64 1
   %125 = icmp ult ptr %.14333, %5
   br i1 %125, label %.lr.ph.preheader, label %._crit_edge, !prof !359
 
 .lr.ph.preheader:                                 ; preds = %122
-  %126 = sub i64 %6, %.12340
+  %126 = sub i64 %10, %.12340
   %scevgep341 = getelementptr i8, ptr %.12, i64 %126
   br label %.lr.ph
 
@@ -44316,29 +44316,29 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8, !tbaa !243
-  %7 = ptrtoint ptr %6 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #48
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %11, align 8, !tbaa !178
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  store i8 1, ptr %13, align 1, !tbaa !690
-  %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %7, %14
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i64 0, ptr %10, align 8, !tbaa !178
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  store i8 1, ptr %12, align 1, !tbaa !690
+  %13 = ptrtoint ptr %6 to i64
+  %14 = ptrtoint ptr %11 to i64
+  %15 = sub i64 %13, %14
   %16 = icmp ugt i64 %15, 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %8, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %7, i8 0, i64 9, i1 false)
   br i1 %16, label %17, label %68
 
 17:                                               ; preds = %2
-  %18 = load i8, ptr %12, align 1, !tbaa !15
+  %18 = load i8, ptr %11, align 1, !tbaa !15
   %.not = icmp eq i8 %18, 48
   br i1 %.not, label %38, label %19
 
 19:                                               ; preds = %17
-  %20 = load <16 x i8>, ptr %12, align 1, !tbaa !15
+  %20 = load <16 x i8>, ptr %11, align 1, !tbaa !15
   %21 = add <16 x i8> %20, splat (i8 70)
   %22 = icmp slt <16 x i8> %21, splat (i8 118)
   %23 = bitcast <16 x i1> %22 to i16
@@ -44357,14 +44357,14 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   br label %.thread413
 
 32:                                               ; preds = %26
-  %33 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc) #48
+  %33 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc) #48
   br label %.thread413
 
 .critedge:                                        ; preds = %19
   %34 = zext nneg i16 %24 to i32
   store i64 0, ptr %3, align 8, !tbaa !682
   %35 = zext nneg i16 %24 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %12, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 %35
   %37 = icmp eq i16 %23, 0
   br i1 %37, label %.thread417.split.split.us, label %40
 
@@ -44407,7 +44407,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 59:                                               ; preds = %56
   %60 = sub nsw i32 0, %52
-  store i32 %60, ptr %8, align 8, !tbaa !684
+  store i32 %60, ptr %7, align 8, !tbaa !684
   %61 = zext nneg i16 %51 to i64
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !15
@@ -44421,11 +44421,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   br i1 %or.cond, label %.thread425, label %.thread433
 
 68:                                               ; preds = %2
-  %69 = icmp ult ptr %12, %6
+  %69 = icmp ult ptr %11, %6
   br i1 %69, label %70, label %92, !prof !244
 
 70:                                               ; preds = %68
-  %71 = load i8, ptr %12, align 1, !tbaa !15
+  %71 = load i8, ptr %11, align 1, !tbaa !15
   %.fr571 = freeze i8 %71
   %72 = add i8 %.fr571, -49
   %73 = icmp ult i8 %72, 9
@@ -44458,11 +44458,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   store i8 4, ptr %85, align 8, !tbaa !172
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 1, ptr %86, align 1, !tbaa !173
-  %87 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_6EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %12)
+  %87 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_6EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %11)
   br label %.thread413
 
 88:                                               ; preds = %79
-  %89 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_1) #48
+  %89 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_1) #48
   br label %.thread413
 
 90:                                               ; preds = %77
@@ -44471,7 +44471,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   br label %.thread455
 
 92:                                               ; preds = %68
-  %93 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %12, i8 noundef signext 38, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %93 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %11, i8 noundef signext 38, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %.thread413
 
 .thread417.split.split.us:                        ; preds = %.critedge, %.thread445
@@ -44482,7 +44482,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 .lr.ph.preheader:                                 ; preds = %.thread417.split.split.us
   %.3398560 = ptrtoint ptr %.3398 to i64
-  %95 = sub i64 %7, %.3398560
+  %95 = sub i64 %13, %.3398560
   %scevgep = getelementptr i8, ptr %.3398, i64 %95
   br label %.lr.ph
 
@@ -44516,7 +44516,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 .lr.ph532.preheader:                              ; preds = %106
   %.15565 = ptrtoint ptr %107 to i64
-  %109 = sub i64 %7, %.15565
+  %109 = sub i64 %13, %.15565
   %scevgep566 = getelementptr i8, ptr %107, i64 %109
   br label %.lr.ph532
 
@@ -44645,7 +44645,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 168:                                              ; preds = %164
   %169 = getelementptr inbounds nuw i8, ptr %.8403.sink, i64 2
-  store i8 1, ptr %10, align 8, !tbaa !685
+  store i8 1, ptr %9, align 8, !tbaa !685
   br label %170
 
 170:                                              ; preds = %164, %166, %168
@@ -44681,13 +44681,13 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 185:                                              ; preds = %180
   %186 = zext nneg i8 %181 to i32
   %187 = add nsw i32 %186, -48
-  store i32 %187, ptr %9, align 4, !tbaa !686
+  store i32 %187, ptr %8, align 4, !tbaa !686
   %.23535 = getelementptr inbounds nuw i8, ptr %.21, i64 1
   %188 = icmp ult ptr %.23535, %6
   br i1 %188, label %.lr.ph538.preheader, label %._crit_edge539, !prof !359
 
 .lr.ph538.preheader:                              ; preds = %185
-  %189 = sub i64 %7, %.21568
+  %189 = sub i64 %13, %.21568
   %scevgep569 = getelementptr i8, ptr %.21, i64 %189
   br label %.lr.ph538
 
@@ -46268,17 +46268,17 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %3 = alloca %"struct.boost::json::basic_parser<boost::json::detail::handler>::number", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8, !tbaa !243
-  %6 = ptrtoint ptr %5 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #48
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %10, align 8, !tbaa !178
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i64 0, ptr %9, align 8, !tbaa !178
+  %10 = ptrtoint ptr %5 to i64
   %11 = ptrtoint ptr %1 to i64
-  %12 = sub i64 %6, %11
+  %12 = sub i64 %10, %11
   %13 = icmp ugt i64 %12, 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   br i1 %13, label %14, label %.thread375
 
 14:                                               ; preds = %2
@@ -46325,7 +46325,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 40:                                               ; preds = %38
   %41 = sub nsw i32 0, %35
-  store i32 %41, ptr %7, align 8, !tbaa !684
+  store i32 %41, ptr %6, align 8, !tbaa !684
   %42 = zext nneg i16 %34 to i64
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !15
@@ -46366,7 +46366,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 .lr.ph.preheader:                                 ; preds = %.thread375.split.split.us
   %.2358513533 = ptrtoint ptr %.2358532 to i64
-  %60 = sub i64 %6, %.2358513533
+  %60 = sub i64 %10, %.2358513533
   %scevgep = getelementptr i8, ptr %.2358532, i64 %60
   br label %.lr.ph
 
@@ -46396,20 +46396,20 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 select.unfold398:                                 ; preds = %55
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i32 1, ptr %7, align 8, !tbaa !684
+  store i32 1, ptr %6, align 8, !tbaa !684
   %72 = icmp ult ptr %71, %5
   br i1 %72, label %.lr.ph481.preheader, label %._crit_edge, !prof !359
 
 .lr.ph481.preheader:                              ; preds = %select.unfold398
   %.us-phi470515 = ptrtoint ptr %71 to i64
   %scevgep514 = getelementptr i8, ptr %1, i64 2147483647
-  %73 = sub i64 %6, %.us-phi470515
+  %73 = sub i64 %10, %.us-phi470515
   %scevgep516 = getelementptr i8, ptr %71, i64 %73
-  %.promoted = load i32, ptr %7, align 8, !tbaa !684
+  %.promoted = load i32, ptr %6, align 8, !tbaa !684
   br label %.lr.ph481
 
 ._crit_edge.loopexit:                             ; preds = %90
-  store i32 %storemerge, ptr %7, align 8, !tbaa !684
+  store i32 %storemerge, ptr %6, align 8, !tbaa !684
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %select.unfold398
@@ -46437,12 +46437,12 @@ select.unfold398:                                 ; preds = %55
   br i1 %83, label %.thread408, label %90, !prof !245
 
 .thread408:                                       ; preds = %82
-  store i32 %storemerge547, ptr %7, align 8, !tbaa !684
+  store i32 %storemerge547, ptr %6, align 8, !tbaa !684
   %84 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep514, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #48
   br label %193
 
 85:                                               ; preds = %.lr.ph481
-  store i32 %storemerge547, ptr %7, align 8, !tbaa !684
+  store i32 %storemerge547, ptr %6, align 8, !tbaa !684
   %86 = icmp eq i8 %79, 46
   br i1 %86, label %92, label %87, !prof !244
 
@@ -46487,7 +46487,7 @@ select.unfold398:                                 ; preds = %55
 
 .lr.ph485.preheader:                              ; preds = %104
   %.13518 = ptrtoint ptr %.13 to i64
-  %106 = sub i64 %6, %.13518
+  %106 = sub i64 %10, %.13518
   %scevgep519 = getelementptr i8, ptr %.13, i64 %106
   br label %.lr.ph485
 
@@ -46606,7 +46606,7 @@ select.unfold398:                                 ; preds = %55
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %.us-phi469.sink, i64 2
-  store i8 1, ptr %9, align 8, !tbaa !685
+  store i8 1, ptr %8, align 8, !tbaa !685
   br label %159
 
 159:                                              ; preds = %153, %155, %157
@@ -46642,13 +46642,13 @@ select.unfold398:                                 ; preds = %55
 174:                                              ; preds = %169
   %175 = zext nneg i8 %170 to i32
   %176 = add nsw i32 %175, -48
-  store i32 %176, ptr %8, align 4, !tbaa !686
+  store i32 %176, ptr %7, align 4, !tbaa !686
   %.21488 = getelementptr inbounds nuw i8, ptr %.19, i64 1
   %177 = icmp ult ptr %.21488, %5
   br i1 %177, label %.lr.ph491.preheader, label %._crit_edge492, !prof !359
 
 .lr.ph491.preheader:                              ; preds = %174
-  %178 = sub i64 %6, %.19521
+  %178 = sub i64 %10, %.19521
   %scevgep522 = getelementptr i8, ptr %.19, i64 %178
   br label %.lr.ph491
 

@@ -9698,11 +9698,10 @@ _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EEC
   %_M_finish.i.i.i141 = phi ptr [ %_M_finish.i.i.i137, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %for.body.i.i.i.i.i ]
   %cond.i.i.i.i140 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i, %for.body.i.i.i.i.i ]
   %22 = phi ptr [ null, %invoke.cont.i.thread ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %cond.i.i.i.i140155 = ptrtoint ptr %cond.i.i.i.i140 to i64
-  %__cur.0.lcssa.i.i.i.i.i153 = ptrtoint ptr %22 to i64
+  %add.ptr.i.i.i21142.fr = freeze ptr %add.ptr.i.i.i21142
   store ptr %22, ptr %_M_finish.i.i.i141, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %specific_field.sroa.12, i8 0, i64 32, i1 false)
-  %cmp.not.i = icmp eq ptr %22, %add.ptr.i.i.i21142
+  %cmp.not.i = icmp eq ptr %22, %add.ptr.i.i.i21142.fr
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EEC2ERKS6_.exit
@@ -9734,8 +9733,9 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN6goog
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EEC2ERKS6_.exit
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i21142 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %cond.i.i.i.i140155
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i21142.fr to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cond.i.i.i.i140 to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775776
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
@@ -9787,12 +9787,12 @@ _ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESa
   store i32 -1, ptr %specific_field.sroa.14.0.add.ptr.i.i23.sroa_idx, align 4
   %specific_field.sroa.15.0.add.ptr.i.i23.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i23, i64 88
   store i8 0, ptr %specific_field.sroa.15.0.add.ptr.i.i23.sroa_idx, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i140, %add.ptr.i.i.i21142
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i140, %add.ptr.i.i.i21142.fr
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i, label %for.body.i.i.i.i.i24.preheader
 
 for.body.i.i.i.i.i24.preheader:                   ; preds = %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i
-  %24 = add i64 %__cur.0.lcssa.i.i.i.i.i153, -96
-  %25 = sub i64 %24, %cond.i.i.i.i140155
+  %24 = add i64 %sub.ptr.lhs.cast.i.i.i.i, -96
+  %25 = sub i64 %24, %sub.ptr.rhs.cast.i.i.i.i
   %26 = urem i64 %25, 96
   %27 = sub nuw i64 %25, %26
   %28 = add i64 %27, 96
@@ -9922,16 +9922,16 @@ call12.i.noexc:                                   ; preds = %for.body.i
 
 land.lhs.true26.loopexit:                         ; preds = %for.cond.i
   %.pre = load ptr, ptr %ignored_fields_.i, align 8
-  %.pre156 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !207
-  %.pre157 = load ptr, ptr %slots_.i.i.i.i.i, align 8
-  %.pre158 = ptrtoint ptr %.pre to i64
-  %.pre159 = lshr i64 %.pre158, 12
+  %.pre153 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !207
+  %.pre154 = load ptr, ptr %slots_.i.i.i.i.i, align 8
+  %.pre155 = ptrtoint ptr %.pre to i64
+  %.pre156 = lshr i64 %.pre155, 12
   br label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %land.lhs.true26.loopexit, %if.end.i
-  %shr.i.i.i.i.i.i.i61.pre-phi = phi i64 [ %.pre159, %land.lhs.true26.loopexit ], [ %shr.i.i.i.i.i.i.i, %if.end.i ]
-  %46 = phi ptr [ %.pre157, %land.lhs.true26.loopexit ], [ %33, %if.end.i ]
-  %47 = phi i64 [ %.pre156, %land.lhs.true26.loopexit ], [ %31, %if.end.i ]
+  %shr.i.i.i.i.i.i.i61.pre-phi = phi i64 [ %.pre156, %land.lhs.true26.loopexit ], [ %shr.i.i.i.i.i.i.i, %if.end.i ]
+  %46 = phi ptr [ %.pre154, %land.lhs.true26.loopexit ], [ %33, %if.end.i ]
+  %47 = phi i64 [ %.pre153, %land.lhs.true26.loopexit ], [ %31, %if.end.i ]
   %48 = phi ptr [ %.pre, %land.lhs.true26.loopexit ], [ %29, %if.end.i ]
   call void @llvm.prefetch.p0(ptr %48, i32 0, i32 1, i32 1)
   %49 = ptrtoint ptr %call20 to i64
