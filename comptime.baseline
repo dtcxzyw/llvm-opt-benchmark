@@ -37375,7 +37375,7 @@ wireshark/packet-docsis-vendor.c.ll 277162972
 wireshark/packet-docsis.c.ll 204668125
 wireshark/packet-dof.c.ll 2538557810
 wireshark/packet-doip.c.ll 177802947
-wireshark/packet-dpaux.c.ll 111372428
+wireshark/packet-dpaux.c.ll 111484076
 wireshark/packet-dplay.c.ll 265349774
 wireshark/packet-dpnss.c.ll 166774029
 wireshark/packet-drbd.c.ll 320342147
