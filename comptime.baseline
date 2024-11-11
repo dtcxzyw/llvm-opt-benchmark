@@ -888,7 +888,7 @@ abc/sclUpsize.c.ll 1481572244
 abc/sclUtil.c.ll 239288118
 abc/sfmArea.c.ll 423756021
 abc/sfmCnf.c.ll 240611511
-abc/sfmCore.c.ll 314332741
+abc/sfmCore.c.ll 314647332
 abc/sfmDec.c.ll 2709520791
 abc/sfmLib.c.ll 1311219609
 abc/sfmNtk.c.ll 529514849
@@ -6975,7 +6975,7 @@ faiss/random.cpp.ll 434667474
 faiss/residual_quantizer_encode_steps.cpp.ll 1779097395
 faiss/sorting.cpp.ll 2702789588
 faiss/utils.cpp.ll 1214752453
-flac/alloc.c.ll 35508155
+flac/alloc.c.ll 35543981
 flac/analyze.c.ll 202062703
 flac/bitreader.c.ll 406535991
 flac/bitwriter.c.ll 306901479
@@ -7148,7 +7148,7 @@ folly/FiberManager.cpp.ll 475119677
 folly/File.cpp.ll 1170347528
 folly/FileHandlerFactory.cpp.ll 71167894
 folly/FileUtil.cpp.ll 301563203
-folly/FileUtilDetail.cpp.ll 60250686
+folly/FileUtilDetail.cpp.ll 60311123
 folly/FileWriterFactory.cpp.ll 136922791
 folly/Format.cpp.ll 353686781
 folly/FsUtil.cpp.ll 146813741
@@ -7653,7 +7653,7 @@ git/parse-options-cb.ll 134549093
 git/parse-options.ll 802245767
 git/parse.ll 81915524
 git/patch-id.ll 276242898
-git/patch-ids.ll 83993505
+git/patch-ids.ll 84077506
 git/path.ll 724323263
 git/pathspec.ll 504140232
 git/pkt-line.ll 244196252
@@ -10164,7 +10164,7 @@ hwloc/topology-xml-libxml.ll 146743751
 hwloc/topology-xml-nolibxml.ll 270116003
 hwloc/topology-xml.ll 1935283900
 hwloc/topology.ll 1982307941
-hwloc/traversal.ll 521471864
+hwloc/traversal.ll 521994437
 hyper-rs/14ohts5s89g5xaax.ll 147010101
 hyper-rs/4hz5u2ddz2sd8g08.ll 97882055
 hyper-rs/4lwa0ukf5hd0n1ju.ll 141177635
@@ -12710,7 +12710,7 @@ linux/drm_trace_points.ll 83479958
 linux/drm_vblank.ll 486564047
 linux/drm_vma_manager.ll 77296358
 linux/drm_writeback.ll 82784712
-linux/drop_caches.ll 52714568
+linux/drop_caches.ll 52767294
 linux/ds.ll 625673764
 linux/dsmethod.ll 101734503
 linux/dsmthdat.ll 81264436
@@ -16582,7 +16582,7 @@ logos-rs/4q5grhuqv9ohw567.ll 72442780
 logos-rs/4sppel7aa59faqeu.ll 103122628
 logos-rs/4szz8ppmt4wk9zgz.ll 32428482
 logos-rs/4u2jgzug3prpt2ik.ll 37438953
-logos-rs/4u2zelv1vxljr7xj.ll 34432838
+logos-rs/4u2zelv1vxljr7xj.ll 34467427
 logos-rs/4z0j0o762c48qo7.ll 64297262
 logos-rs/51e3klwwljv15fz2.ll 59028273
 logos-rs/53o1e0uk3yj9weey.ll 84684504
@@ -19434,7 +19434,7 @@ nuttx/fs_files.c.ll 201056635
 nuttx/fs_foreachinode.c.ll 47179460
 nuttx/fs_foreachmountpoint.c.ll 41488699
 nuttx/fs_fstat.c.ll 52904061
-nuttx/fs_inodegetpath.c.ll 37576660
+nuttx/fs_inodegetpath.c.ll 37614322
 nuttx/fs_inoderemove.c.ll 44369414
 nuttx/fs_inodereserve.c.ll 74531368
 nuttx/fs_inodesearch.c.ll 86937852
@@ -20300,7 +20300,7 @@ openblas/dgges.c.ll 154587511
 openblas/dgges3.c.ll 165530391
 openblas/dggesx.c.ll 178664999
 openblas/dggev.c.ll 155816090
-openblas/dggev3.c.ll 171475886
+openblas/dggev3.c.ll 171647707
 openblas/dggevx.c.ll 192068361
 openblas/dggglm.c.ll 76005274
 openblas/dgghd3.c.ll 537107051
@@ -21136,7 +21136,7 @@ opencv/file_input_output.cpp.ll 243061569
 opencv/filestorage.cpp.ll 258873044
 opencv/filesystem.cpp.ll 334716071
 opencv/filter.dispatch.cpp.ll 7243448910
-opencv/filter2D_demo.cpp.ll 70622853
+opencv/filter2D_demo.cpp.ll 70693788
 opencv/filterdemo.cpp.ll 77830101
 opencv/findContours_demo.cpp.ll 192679309
 opencv/find_ellipses.cpp.ll 5631253743
@@ -22406,7 +22406,7 @@ openjdk/GraphicsPrimitiveMgr.ll 199458836
 openjdk/HBShaper.ll 117981024
 openjdk/HBShaper_Panama.ll 52053740
 openjdk/HeadlessToolkit.ll 32476100
-openjdk/HotSpotDiagnostic.ll 33051872
+openjdk/HotSpotDiagnostic.ll 33085058
 openjdk/HotspotThread.ll 34240373
 openjdk/IOUtil.ll 75285029
 openjdk/Index12Gray.ll 755476806
@@ -23062,7 +23062,7 @@ openjdk/gifalloc.ll 166651955
 openjdk/gifdecoder.ll 229015556
 openjdk/globalCounter.ll 87874028
 openjdk/globalDefinitions.ll 72366565
-openjdk/gnome_interface.ll 37711190
+openjdk/gnome_interface.ll 37748919
 openjdk/granularTimer.ll 49927764
 openjdk/graphKit.ll 3399327598
 openjdk/growableArray.ll 48548229
@@ -24417,7 +24417,7 @@ openmpi/ess_base_select.ll 34876083
 openmpi/ess_base_std_prted.ll 177190034
 openmpi/ess_env_component.ll 35834830
 openmpi/ess_env_module.ll 46645870
-openmpi/ess_hnp_component.ll 35834611
+openmpi/ess_hnp_component.ll 35870569
 openmpi/ess_hnp_module.ll 134542836
 openmpi/ess_slurm_component.ll 37358753
 openmpi/ess_slurm_module.ll 56606595
@@ -25071,7 +25071,7 @@ openmpi/osc_sm_passive_target.ll 87644955
 openmpi/output.ll 72937965
 openmpi/p2p_aggregation.ll 361152603
 openmpi/pack.ll 592617665
-openmpi/paint_add_f.ll 33113759
+openmpi/paint_add_f.ll 33146935
 openmpi/palloc.ll 318278214
 openmpi/param.ll 232657087
 openmpi/part_base_frame.ll 75445223
@@ -25127,7 +25127,7 @@ openmpi/pif_posix.ll 148960408
 openmpi/pinfo_delete_f.ll 61204441
 openmpi/pinfo_get_f.ll 81753645
 openmpi/pinfo_get_nthkey_f.ll 70937619
-openmpi/pinfo_get_string_f.ll 84912553
+openmpi/pinfo_get_string_f.ll 84997535
 openmpi/pinfo_get_valuelen_f.ll 61594711
 openmpi/pinfo_set_f.ll 63547615
 openmpi/pinstalldirs_base_components.ll 99559614
@@ -25416,7 +25416,7 @@ openmpi/schizo_ompi_component.ll 34536604
 openmpi/schizo_prte.ll 545862941
 openmpi/schizo_prte_component.ll 34536936
 openmpi/schizo_slurm.ll 87424990
-openmpi/schizo_slurm_component.ll 33165114
+openmpi/schizo_slurm_component.ll 33198293
 openmpi/server.ll 136369006
 openmpi/session.ll 71122052
 openmpi/session_dir.ll 99453885
@@ -31004,7 +31004,7 @@ qemu/ui_console.c.ll 637309661
 qemu/ui_curses.c.ll 341808799
 qemu/ui_cursor.c.ll 228067180
 qemu/ui_dbus-console.c.ll 193429006
-qemu/ui_dbus-listener.c.ll 98025431
+qemu/ui_dbus-listener.c.ll 98123587
 qemu/ui_dbus.c.ll 133196471
 qemu/ui_input-barrier.c.ll 321279285
 qemu/ui_input-legacy.c.ll 93210748
@@ -32579,7 +32579,7 @@ rocksdb/cuckoo_table_factory.cc.ll 569379566
 rocksdb/cuckoo_table_reader.cc.ll 1273174532
 rocksdb/customizable.cc.ll 430427780
 rocksdb/data_block_hash_index.cc.ll 198528805
-rocksdb/data_structure.cc.ll 38241656
+rocksdb/data_structure.cc.ll 38280199
 rocksdb/db_dump_tool.cc.ll 477580252
 rocksdb/db_filesnapshot.cc.ll 878443803
 rocksdb/db_impl.cc.ll 20483757115
@@ -36423,7 +36423,7 @@ wasmtime-rs/1ek285aeb6ytk40d.ll 41292284
 wasmtime-rs/1f0cdl9sv7ergjr2.ll 2307717885
 wasmtime-rs/1f1skdqjemonth3f.ll 7897853204
 wasmtime-rs/1f5p54q9915bq6gz.ll 8498359758
-wasmtime-rs/1ftd44eake5ogxjm.ll 37721295
+wasmtime-rs/1ftd44eake5ogxjm.ll 37759218
 wasmtime-rs/1g9fzsxu6f987i7p.ll 964195368
 wasmtime-rs/1gwewt30lodq91h5.ll 148277929
 wasmtime-rs/1gzboj2l8wur0jva.ll 142570244
