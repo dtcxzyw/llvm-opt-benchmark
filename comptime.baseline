@@ -33727,7 +33727,7 @@ slurm/hilbert.ll 89851275
 slurm/hostlist.ll 1643395069
 slurm/http.ll 103097824
 slurm/info.ll 109523381
-slurm/info_assoc_mgr.ll 247045798
+slurm/info_assoc_mgr.ll 247292911
 slurm/info_job.ll 440487999
 slurm/info_node.ll 181463850
 slurm/info_part.ll 87686484
