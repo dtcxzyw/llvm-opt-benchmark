@@ -28629,7 +28629,7 @@ php/pcre2_extuni.ll 132973375
 php/pcre2_find_bracket.ll 54530899
 php/pcre2_jit_compile.ll 20726433920
 php/pcre2_match.ll 10549466080
-php/pcre2_newline.ll 93939311
+php/pcre2_newline.ll 94033337
 php/pcre2_ord2utf.ll 45283523
 php/pcre2_pattern_info.ll 93943869
 php/pcre2_script_run.ll 153869548
