@@ -2922,10 +2922,10 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %70, %73
   br label %187
 
 .preheader354:                                    ; preds = %_ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit246
-  %.pre548 = load ptr, ptr %175, align 8
-  %.pre549 = load ptr, ptr %17, align 8
+  %.pre550 = load ptr, ptr %175, align 8
+  %.pre551 = load ptr, ptr %17, align 8
   %185 = getelementptr inbounds i8, ptr %17, i64 8
-  %.not481 = icmp eq ptr %.pre548, %.pre549
+  %.not481 = icmp eq ptr %.pre550, %.pre551
   br i1 %.not481, label %._crit_edge478, label %.lr.ph477
 
 .lr.ph477:                                        ; preds = %.preheader354
@@ -3116,11 +3116,11 @@ _ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EE9push_backERKS2_.exit: 
   %265 = ashr exact i64 %264, 5
   %.0125445 = add nsw i64 %265, -1
   %.not143446 = icmp eq i64 %.0125445, 0
-  %.pre544.pre = load ptr, ptr %21, align 8
+  %.pre546.pre = load ptr, ptr %21, align 8
   br i1 %.not143446, label %.critedge, label %.lr.ph449
 
 .lr.ph449:                                        ; preds = %_ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EE9push_backERKS2_.exit
-  %266 = getelementptr inbounds %"struct.cv::SimpleBlobDetectorImpl::Center", ptr %.pre544.pre, i64 %.0121457, i32 1
+  %266 = getelementptr inbounds %"struct.cv::SimpleBlobDetectorImpl::Center", ptr %.pre546.pre, i64 %.0121457, i32 1
   br label %267
 
 267:                                              ; preds = %.lr.ph449, %274
@@ -3186,7 +3186,7 @@ _ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EE9push_backERKS2_.exit: 
   br i1 %282, label %283, label %351
 
 283:                                              ; preds = %.critedge
-  %284 = getelementptr inbounds %"struct.cv::SimpleBlobDetectorImpl::Center", ptr %.pre544.pre, i64 %.0121457, i32 2
+  %284 = getelementptr inbounds %"struct.cv::SimpleBlobDetectorImpl::Center", ptr %.pre546.pre, i64 %.0121457, i32 2
   %285 = load double, ptr %284, align 8
   %286 = load ptr, ptr %258, align 8
   %287 = getelementptr inbounds %"struct.cv::SimpleBlobDetectorImpl::Center", ptr %286, i64 %.0125.lcssa, i32 2
@@ -3321,12 +3321,12 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEE
   %345 = getelementptr inbounds i8, ptr %303, i64 8
   store ptr %344, ptr %345, align 8
   %.pre.pre = load ptr, ptr %21, align 8
-  %.pre545.pre = load ptr, ptr %17, align 8
+  %.pre547.pre = load ptr, ptr %17, align 8
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, %299
-  %.pre545 = phi ptr [ %.pre545.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ], [ %257, %299 ]
-  %.pre = phi ptr [ %.pre.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ], [ %.pre544.pre, %299 ]
+  %.pre547 = phi ptr [ %.pre547.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ], [ %257, %299 ]
+  %.pre = phi ptr [ %.pre.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IiEESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ], [ %.pre546.pre, %299 ]
   %346 = load ptr, ptr %23, align 8
   %347 = getelementptr inbounds %"class.cv::Moments", ptr %346, i64 %.0121457
   %348 = getelementptr inbounds %"class.cv::Moments", ptr %.sroa.0343.0462, i64 %.0124444
@@ -3339,8 +3339,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit: ; preds = %_ZSt4copyIN9__gnu_
   br i1 %exitcond.not, label %.thread352, label %208, !llvm.loop !34
 
 351:                                              ; preds = %.critedge, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit, %292, %290
-  %352 = phi ptr [ %257, %.critedge ], [ %.pre545, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit ], [ %257, %292 ], [ %257, %290 ]
-  %353 = phi ptr [ %.pre544.pre, %.critedge ], [ %.pre, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit ], [ %.pre544.pre, %292 ], [ %.pre544.pre, %290 ]
+  %352 = phi ptr [ %257, %.critedge ], [ %.pre547, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit ], [ %257, %292 ], [ %257, %290 ]
+  %353 = phi ptr [ %.pre546.pre, %.critedge ], [ %.pre, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit ], [ %.pre546.pre, %292 ], [ %.pre546.pre, %290 ]
   %354 = getelementptr inbounds %"struct.cv::SimpleBlobDetectorImpl::Center", ptr %353, i64 %.0121457
   %355 = getelementptr inbounds %"class.std::vector.3", ptr %352, i64 %.0124444
   %356 = load ptr, ptr %355, align 8
@@ -3630,15 +3630,15 @@ _ZNSt6vectorIN2cv7MomentsESaIS1_EE9push_backERKS1_.exit: ; preds = %351, %_ZNSt6
   br i1 %461, label %.preheader355, label %._crit_edge.loopexit, !llvm.loop !45
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIN2cv7MomentsESaIS1_EE9push_backERKS1_.exit
-  %.pre546 = load ptr, ptr %26, align 8
-  %.pre547 = load ptr, ptr %177, align 8
-  %462 = ptrtoint ptr %.pre547 to i64
+  %.pre548 = load ptr, ptr %26, align 8
+  %.pre549 = load ptr, ptr %177, align 8
+  %462 = ptrtoint ptr %.pre549 to i64
   %463 = ptrtoint ptr %.sroa.6340.2 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %193
   %464 = phi i64 [ 0, %193 ], [ %462, %._crit_edge.loopexit ]
-  %465 = phi ptr [ null, %193 ], [ %.pre546, %._crit_edge.loopexit ]
+  %465 = phi ptr [ null, %193 ], [ %.pre548, %._crit_edge.loopexit ]
   %.sroa.6340.1.lcssa = phi i64 [ 0, %193 ], [ %463, %._crit_edge.loopexit ]
   %.sroa.0336.1.lcssa = phi ptr [ null, %193 ], [ %.sroa.0336.2, %._crit_edge.loopexit ]
   %466 = ptrtoint ptr %465 to i64
@@ -4083,7 +4083,7 @@ _ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit252: ; preds =
   br label %711
 
 604:                                              ; preds = %.lr.ph477, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit
-  %605 = phi ptr [ %.pre549, %.lr.ph477 ], [ %665, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
+  %605 = phi ptr [ %.pre551, %.lr.ph477 ], [ %665, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
   %.0104476 = phi i64 [ 0, %.lr.ph477 ], [ %663, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
   %606 = getelementptr inbounds %"class.std::vector.3", ptr %605, i64 %.0104476
   %607 = getelementptr inbounds i8, ptr %606, i64 8
@@ -4102,7 +4102,7 @@ _ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit252: ; preds =
   br i1 %.not482, label %._crit_edge472, label %.lr.ph471.preheader
 
 .lr.ph471.preheader:                              ; preds = %.preheader
-  %umax542 = call i64 @llvm.umax.i64(i64 %613, i64 1)
+  %umax544 = call i64 @llvm.umax.i64(i64 %613, i64 1)
   br label %.lr.ph471
 
 .lr.ph471:                                        ; preds = %.lr.ph471.preheader, %.lr.ph471
@@ -4122,8 +4122,8 @@ _ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit252: ; preds =
   %623 = fadd double %.sroa.6319.0467, %621
   %624 = fadd double %.0103469, %618
   %625 = add nuw i64 %.0102470, 1
-  %exitcond543.not = icmp eq i64 %625, %umax542
-  br i1 %exitcond543.not, label %._crit_edge472, label %.lr.ph471, !llvm.loop !56
+  %exitcond545.not = icmp eq i64 %625, %umax544
+  br i1 %exitcond545.not, label %._crit_edge472, label %.lr.ph471, !llvm.loop !56
 
 .loopexit:                                        ; preds = %653
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -4131,7 +4131,7 @@ _ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit252: ; preds =
   br label %711
 
 .loopexit.split-lp:                               ; preds = %._crit_edge478, %647, %678, %681, %684, %687, %690, %693
-  %.sroa.0343.0.lcssa555 = phi ptr [ %.sroa.0343.0.lcssa554, %._crit_edge478 ], [ %.sroa.0343.5, %647 ], [ %.sroa.0343.0.lcssa554, %678 ], [ %.sroa.0343.0.lcssa554, %681 ], [ %.sroa.0343.0.lcssa554, %684 ], [ %.sroa.0343.0.lcssa554, %687 ], [ %.sroa.0343.0.lcssa554, %690 ], [ %.sroa.0343.0.lcssa554, %693 ]
+  %.sroa.0343.0.lcssa557 = phi ptr [ %.sroa.0343.0.lcssa556, %._crit_edge478 ], [ %.sroa.0343.5, %647 ], [ %.sroa.0343.0.lcssa556, %678 ], [ %.sroa.0343.0.lcssa556, %681 ], [ %.sroa.0343.0.lcssa556, %684 ], [ %.sroa.0343.0.lcssa556, %687 ], [ %.sroa.0343.0.lcssa556, %690 ], [ %.sroa.0343.0.lcssa556, %693 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %711
@@ -4260,7 +4260,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vecto
 
 ._crit_edge478:                                   ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit, %.preheader354.thread, %.preheader354
   %671 = phi ptr [ %161, %.preheader354.thread ], [ %185, %.preheader354 ], [ %185, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
-  %.sroa.0343.0.lcssa554 = phi ptr [ null, %.preheader354.thread ], [ %.sroa.0343.5, %.preheader354 ], [ %.sroa.0343.5, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
+  %.sroa.0343.0.lcssa556 = phi ptr [ null, %.preheader354.thread ], [ %.sroa.0343.5, %.preheader354 ], [ %.sroa.0343.5, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit ]
   %672 = invoke noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %673 unwind label %.loopexit.split-lp
 
@@ -4335,11 +4335,11 @@ _ZNK2cv11_InputArray6getMatEi.exit274:            ; preds = %690, %693
   br label %696
 
 696:                                              ; preds = %.sink.split, %673
-  %.not.i.i.i275 = icmp eq ptr %.sroa.0343.0.lcssa554, null
+  %.not.i.i.i275 = icmp eq ptr %.sroa.0343.0.lcssa556, null
   br i1 %.not.i.i.i275, label %_ZNSt6vectorIN2cv7MomentsESaIS1_EED2Ev.exit276, label %697
 
 697:                                              ; preds = %696
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0343.0.lcssa554) #28
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0343.0.lcssa556) #28
   br label %_ZNSt6vectorIN2cv7MomentsESaIS1_EED2Ev.exit276
 
 _ZNSt6vectorIN2cv7MomentsESaIS1_EED2Ev.exit276:   ; preds = %696, %697
@@ -4398,7 +4398,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIS_IN2c
   ret void
 
 711:                                              ; preds = %.loopexit, %.loopexit.split-lp, %694, %685, %_ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit252
-  %.sroa.0343.6 = phi ptr [ %.sroa.0343.2, %_ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit252 ], [ %.sroa.0343.0.lcssa554, %685 ], [ %.sroa.0343.0.lcssa554, %694 ], [ %.sroa.0343.5, %.loopexit ], [ %.sroa.0343.0.lcssa555, %.loopexit.split-lp ]
+  %.sroa.0343.6 = phi ptr [ %.sroa.0343.2, %_ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit252 ], [ %.sroa.0343.0.lcssa556, %685 ], [ %.sroa.0343.0.lcssa556, %694 ], [ %.sroa.0343.5, %.loopexit ], [ %.sroa.0343.0.lcssa557, %.loopexit.split-lp ]
   %.pn146.pn.pn.pn = phi { ptr, i32 } [ %.pn146.pn.pn, %_ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit252 ], [ %686, %685 ], [ %695, %694 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i289 = icmp eq ptr %.sroa.0343.6, null
   br i1 %.not.i.i.i289, label %_ZNSt6vectorIN2cv7MomentsESaIS1_EED2Ev.exit290, label %712

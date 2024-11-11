@@ -2921,14 +2921,13 @@ if.end7:                                          ; preds = %if.else
   call void @_ZNK6icu_756number4impl15DecimalQuantity18toScientificStringEv(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %numberString, ptr noundef nonnull align 8 dereferenceable(66) %this)
   %fUnion.i = getelementptr inbounds i8, ptr %numberString, i64 8
   %4 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %4 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %5 = and i16 %4, 17
+  %tobool.not.i = icmp eq i16 %5, 0
   br i1 %tobool.not.i, label %if.else.i, label %invoke.cont9
 
 if.else.i:                                        ; preds = %if.end7
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %6 = and i16 %4, 2
+  %tobool6.not.i = icmp eq i16 %6, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -2937,17 +2936,17 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %numberString, i64 24
-  %5 = load ptr, ptr %fArray.i, align 8
+  %7 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.else9.i, %if.then7.i, %if.end7
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %if.end7 ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %7, %if.else9.i ], [ null, %if.end7 ]
   %cmp.i.i = icmp slt i16 %4, 0
-  %6 = ashr i16 %4, 5
-  %shr.i.i = sext i16 %6 to i32
+  %8 = ashr i16 %4, 5
+  %shr.i.i = sext i16 %8 to i32
   %fLength.i = getelementptr inbounds i8, ptr %numberString, i64 12
-  %7 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %7, i32 %shr.i.i
+  %9 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %9, i32 %shr.i.i
   %call12 = invoke noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKtiPi(ptr noundef nonnull align 8 dereferenceable(42) %converter, ptr noundef %retval.0.i, i32 noundef %cond.i, ptr noundef nonnull %count)
           to label %invoke.cont11 unwind label %lpad
 
@@ -2956,10 +2955,10 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   br label %return
 
 lpad:                                             ; preds = %invoke.cont9
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %numberString) #24
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %10
 
 return:                                           ; preds = %entry, %invoke.cont11, %if.then5
   %retval.0 = phi double [ %conv, %if.then5 ], [ %call12, %invoke.cont11 ], [ 0x7FF8000000000000, %entry ]

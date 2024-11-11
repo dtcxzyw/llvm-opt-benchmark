@@ -669,38 +669,38 @@ for.cond.i.backedge:                              ; preds = %while.end.i, %if.th
 
 if.end17.i:                                       ; preds = %if.end9.i
   %18 = load i16, ptr %revents.i, align 2
-  %conv.i = sext i16 %18 to i32
-  %and.i = and i32 %conv.i, 1
-  %tobool19.not.i = icmp eq i32 %and.i, 0
+  %19 = and i16 %18, 1
+  %tobool19.not.i = icmp eq i16 %19, 0
   br i1 %tobool19.not.i, label %if.end21.i, label %accept_thread__wait_for_connection.exit
 
 if.end21.i:                                       ; preds = %if.end17.i
-  %19 = load i16, ptr %revents23.i, align 2
-  %conv24.i = sext i16 %19 to i32
-  %and25.i = and i32 %conv24.i, 1
-  %tobool26.not.i = icmp eq i32 %and25.i, 0
+  %20 = load i16, ptr %revents23.i, align 2
+  %21 = and i16 %20, 1
+  %tobool26.not.i = icmp eq i16 %21, 0
   br i1 %tobool26.not.i, label %if.end35.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end21.i
-  %20 = load ptr, ptr %server_socket.i, align 8
-  %fd_socket29.i = getelementptr inbounds i8, ptr %20, i64 152
-  %21 = load i32, ptr %fd_socket29.i, align 8
-  %call30.i = call i32 @accept(i32 noundef %21, ptr null, ptr noundef null) #12
+  %22 = load ptr, ptr %server_socket.i, align 8
+  %fd_socket29.i = getelementptr inbounds i8, ptr %22, i64 152
+  %23 = load i32, ptr %fd_socket29.i, align 8
+  %call30.i = call i32 @accept(i32 noundef %23, ptr null, ptr noundef null) #12
   %cmp31.i = icmp sgt i32 %call30.i, -1
   br i1 %cmp31.i, label %accept_thread__wait_for_connection.exit, label %for.cond.i.backedge
 
 if.end35.i:                                       ; preds = %if.end21.i
+  %conv24.i = sext i16 %20 to i32
+  %conv.i = sext i16 %18 to i32
   %call36.i = tail call ptr @__errno_location() #13
-  %22 = load i32, ptr %call36.i, align 4
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 703, ptr noundef nonnull @.str.24, i32 noundef %22, i32 noundef %conv.i, i32 noundef %conv24.i) #15
+  %24 = load i32, ptr %call36.i, align 4
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 703, ptr noundef nonnull @.str.24, i32 noundef %24, i32 noundef %conv.i, i32 noundef %conv24.i) #15
   unreachable
 
 accept_thread__wait_for_connection.exit:          ; preds = %if.then.i, %if.end17.i, %if.then27.i
   %retval.0.i = phi i32 [ %call.i10, %if.then.i ], [ -1, %if.end17.i ], [ %call30.i, %if.then27.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pollfd.i)
   %call2 = call i32 @pthread_mutex_lock(ptr noundef nonnull %work_available_mutex) #12
-  %23 = load i32, ptr %shutdown_requested, align 4
-  %tobool.not = icmp eq i32 %23, 0
+  %25 = load i32, ptr %shutdown_requested, align 4
+  %tobool.not = icmp eq i32 %25, 0
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %accept_thread__wait_for_connection.exit
@@ -717,13 +717,13 @@ if.end7:                                          ; preds = %accept_thread__wait
   br i1 %cmp8, label %if.end12, label %if.else
 
 if.else:                                          ; preds = %if.end7
-  %24 = load i32, ptr %back_pos.i, align 4
-  %add.i = add nsw i32 %24, 1
-  %25 = load i32, ptr %queue_size.i, align 8
-  %cmp.i11 = icmp eq i32 %add.i, %25
+  %26 = load i32, ptr %back_pos.i, align 4
+  %add.i = add nsw i32 %26, 1
+  %27 = load i32, ptr %queue_size.i, align 8
+  %cmp.i11 = icmp eq i32 %add.i, %27
   %spec.store.select.i = select i1 %cmp.i11, i32 0, i32 %add.i
-  %26 = load i32, ptr %front_pos.i, align 8
-  %cmp1.i = icmp eq i32 %spec.store.select.i, %26
+  %28 = load i32, ptr %front_pos.i, align 8
+  %cmp1.i = icmp eq i32 %spec.store.select.i, %28
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.else
@@ -731,9 +731,9 @@ if.then2.i:                                       ; preds = %if.else
   br label %fifo_enqueue.exit
 
 if.end3.i:                                        ; preds = %if.else
-  %27 = load ptr, ptr %fifo_fds.i, align 8
-  %idxprom.i = sext i32 %24 to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %27, i64 %idxprom.i
+  %29 = load ptr, ptr %fifo_fds.i, align 8
+  %idxprom.i = sext i32 %26 to i64
+  %arrayidx.i = getelementptr inbounds i32, ptr %29, i64 %idxprom.i
   store i32 %retval.0.i, ptr %arrayidx.i, align 4
   store i32 %spec.store.select.i, ptr %back_pos.i, align 4
   br label %fifo_enqueue.exit

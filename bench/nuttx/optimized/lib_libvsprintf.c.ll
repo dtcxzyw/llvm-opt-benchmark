@@ -347,7 +347,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   br i1 %.not569, label %178, label %151
 
 151:                                              ; preds = %149
-  %.neg171 = select i1 %.not572, i32 -3, i32 -4
+  %.neg175 = select i1 %.not572, i32 -3, i32 -4
   %152 = select i1 %.not572, i32 3, i32 4
   %153 = icmp sgt i32 %.0484, %152
   br i1 %153, label %154, label %.loopexit54
@@ -359,7 +359,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   br i1 %157, label %.preheader53.preheader, label %.loopexit54
 
 .preheader53.preheader:                           ; preds = %154
-  %158 = add i32 %.neg171, %.1452.ph
+  %158 = add i32 %.neg175, %.1452.ph
   br label %.preheader53
 
 .preheader53:                                     ; preds = %.preheader53.preheader, %.preheader53
@@ -482,8 +482,8 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %206 = add nsw i32 %.4480.fr, 1
   %207 = lshr i32 %202, 4
   %208 = and i32 %207, 1
-  %spec.select221 = select i1 %.not573, i32 %208, i32 %206
-  %.2438 = add i32 %.1437, %spec.select221
+  %spec.select225 = select i1 %.not573, i32 %208, i32 %206
+  %.2438 = add i32 %.1437, %spec.select225
   %209 = icmp sgt i32 %.0484, %.2438
   %210 = sub nsw i32 %.0484, %.2438
   %211 = select i1 %209, i32 %210, i32 0
@@ -743,18 +743,18 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   br label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
-  %indvars.iv157 = phi i64 [ %327, %.lr.ph99.preheader ], [ %indvars.iv.next158, %.lr.ph99 ]
+  %indvars.iv161 = phi i64 [ %327, %.lr.ph99.preheader ], [ %indvars.iv.next162, %.lr.ph99 ]
   %.1746897 = phi i32 [ %.16467, %.lr.ph99.preheader ], [ %328, %.lr.ph99 ]
   %328 = add nsw i32 %.1746897, 1
   %329 = load ptr, ptr %6, align 8
-  %330 = add nuw nsw i64 %indvars.iv157, 4294967295
+  %330 = add nuw nsw i64 %indvars.iv161, 4294967295
   %331 = and i64 %330, 4294967295
   %332 = getelementptr inbounds [22 x i8], ptr %4, i64 0, i64 %331
   %333 = load i8, ptr %332, align 1
   %334 = sext i8 %333 to i32
   call void %329(ptr noundef nonnull %0, i32 noundef %334) #5
-  %indvars.iv.next158 = add nsw i64 %indvars.iv157, -1
-  %335 = and i64 %indvars.iv.next158, 255
+  %indvars.iv.next162 = add nsw i64 %indvars.iv161, -1
+  %335 = and i64 %indvars.iv.next162, 255
   %.not580 = icmp eq i64 %335, 0
   br i1 %.not580, label %.loopexit44, label %.lr.ph99, !llvm.loop !12
 
@@ -845,18 +845,18 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   br i1 %378, label %.lr.ph, label %.loopexit56.loopexit, !llvm.loop !13
 
 .loopexit56.loopexit:                             ; preds = %.lr.ph
-  %sext170 = shl i64 %indvars.iv.next, 32
-  %.pre166 = ashr exact i64 %sext170, 32
+  %sext174 = shl i64 %indvars.iv.next, 32
+  %.pre170 = ashr exact i64 %sext174, 32
   br label %.loopexit56
 
 .loopexit56:                                      ; preds = %.loopexit56.loopexit, %371
-  %.pre-phi167 = phi i64 [ %.pre166, %.loopexit56.loopexit ], [ %374, %371 ]
+  %.pre-phi171 = phi i64 [ %.pre170, %.loopexit56.loopexit ], [ %374, %371 ]
   %.18 = phi i32 [ %376, %.loopexit56.loopexit ], [ %.1452.ph, %371 ]
   %379 = trunc i64 %.0474 to i32
   %380 = add i32 %.18, %379
   %381 = load ptr, ptr %10, align 8
   %382 = call i32 %381(ptr noundef %0, ptr noundef nonnull %.0475, i32 noundef %379) #5
-  %383 = call i64 @llvm.usub.sat.i64(i64 %.pre-phi167, i64 %.0474)
+  %383 = call i64 @llvm.usub.sat.i64(i64 %.pre-phi171, i64 %.0474)
   %384 = trunc i64 %383 to i32
   br label %.loopexit44
 
@@ -972,9 +972,9 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %or.cond23 = select i1 %444, i1 %445, i1 false
   %446 = icmp eq i64 %.0423, 0
   %or.cond25 = and i1 %446, %or.cond23
-  br i1 %or.cond25, label %.thread190, label %448
+  br i1 %or.cond25, label %.thread194, label %448
 
-.thread190:                                       ; preds = %439
+.thread194:                                       ; preds = %439
   %447 = and i16 %.0441, -4114
   br label %561
 
@@ -1223,20 +1223,20 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %spec.select607 = select i1 %or.cond604, i16 %560, i16 %554
   br label %561
 
-561:                                              ; preds = %.thread190, %557, %553, %552
-  %.6189 = phi ptr [ %.6, %553 ], [ %.6, %552 ], [ %.6, %557 ], [ %.3, %.thread190 ]
-  %.5418186 = phi i8 [ %.5418, %553 ], [ %.5418, %552 ], [ %.5418, %557 ], [ 0, %.thread190 ]
-  %.2486102835183 = phi i32 [ %.2486102835, %553 ], [ %.2486102835, %552 ], [ %.2486102835, %557 ], [ %.0484, %.thread190 ]
-  %.2478112737181 = phi i32 [ %.2478112737, %553 ], [ %.2478112737, %552 ], [ %.2478112737, %557 ], [ 0, %.thread190 ]
-  %.0469 = phi i8 [ %.5418, %553 ], [ %.5418, %552 ], [ %558, %557 ], [ 0, %.thread190 ]
-  %.16 = phi i16 [ %554, %553 ], [ %.11, %552 ], [ %spec.select607, %557 ], [ %447, %.thread190 ]
+561:                                              ; preds = %.thread194, %557, %553, %552
+  %.6193 = phi ptr [ %.6, %553 ], [ %.6, %552 ], [ %.6, %557 ], [ %.3, %.thread194 ]
+  %.5418190 = phi i8 [ %.5418, %553 ], [ %.5418, %552 ], [ %.5418, %557 ], [ 0, %.thread194 ]
+  %.2486102835187 = phi i32 [ %.2486102835, %553 ], [ %.2486102835, %552 ], [ %.2486102835, %557 ], [ %.0484, %.thread194 ]
+  %.2478112737185 = phi i32 [ %.2478112737, %553 ], [ %.2478112737, %552 ], [ %.2478112737, %557 ], [ 0, %.thread194 ]
+  %.0469 = phi i8 [ %.5418, %553 ], [ %.5418, %552 ], [ %558, %557 ], [ 0, %.thread194 ]
+  %.16 = phi i16 [ %554, %553 ], [ %.11, %552 ], [ %spec.select607, %557 ], [ %447, %.thread194 ]
   %562 = zext i16 %.16 to i32
   %563 = and i32 %562, 16
   %.not555 = icmp eq i32 %563, 0
   br i1 %.not555, label %574, label %564
 
 564:                                              ; preds = %561
-  %565 = zext i8 %.5418186 to i64
+  %565 = zext i8 %.5418190 to i64
   %566 = add nsw i64 %565, -1
   %567 = getelementptr inbounds [22 x i8], ptr %4, i64 0, i64 %566
   %568 = load i8, ptr %567, align 1
@@ -1245,7 +1245,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 
 570:                                              ; preds = %564
   %571 = and i16 %.16, -24593
-  %.pre164 = zext i16 %571 to i32
+  %.pre168 = zext i16 %571 to i32
   br label %577
 
 572:                                              ; preds = %564
@@ -1263,38 +1263,38 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   br label %577
 
 577:                                              ; preds = %574, %572, %570
-  %.pre-phi165 = phi i32 [ %562, %574 ], [ %562, %572 ], [ %.pre164, %570 ]
+  %.pre-phi169 = phi i32 [ %562, %574 ], [ %562, %572 ], [ %.pre168, %570 ]
   %.1470 = phi i8 [ %spec.select606, %574 ], [ %spec.select605, %572 ], [ %.0469, %570 ]
-  %578 = and i32 %.pre-phi165, 8
+  %578 = and i32 %.pre-phi169, 8
   %579 = icmp eq i32 %578, 0
   br i1 %579, label %580, label %..loopexit45_crit_edge
 
 ..loopexit45_crit_edge:                           ; preds = %577
-  %.pre168 = zext i8 %.1470 to i32
+  %.pre172 = zext i8 %.1470 to i32
   br label %.loopexit45
 
 580:                                              ; preds = %577
-  %581 = and i32 %.pre-phi165, 1
+  %581 = and i32 %.pre-phi169, 1
   %.not558 = icmp eq i32 %581, 0
   br i1 %.not558, label %590, label %582
 
 582:                                              ; preds = %580
-  %583 = zext i8 %.5418186 to i32
+  %583 = zext i8 %.5418190 to i32
   %584 = zext i8 %.1470 to i32
-  %585 = icmp sgt i32 %.2486102835183, %584
+  %585 = icmp sgt i32 %.2486102835187, %584
   br i1 %585, label %586, label %590
 
 586:                                              ; preds = %582
-  %587 = add nuw i32 %.2486102835183, %583
+  %587 = add nuw i32 %.2486102835187, %583
   %588 = sub i32 %587, %584
-  %589 = trunc i32 %.2486102835183 to i8
+  %589 = trunc i32 %.2486102835187 to i8
   br label %590
 
 590:                                              ; preds = %582, %586, %580
-  %.6482 = phi i32 [ %588, %586 ], [ %583, %582 ], [ %.2478112737181, %580 ]
+  %.6482 = phi i32 [ %588, %586 ], [ %583, %582 ], [ %.2478112737185, %580 ]
   %.3472 = phi i8 [ %589, %586 ], [ %.1470, %582 ], [ %.1470, %580 ]
   %591 = zext i8 %.3472 to i32
-  %592 = icmp sgt i32 %.2486102835183, %591
+  %592 = icmp sgt i32 %.2486102835187, %591
   br i1 %592, label %.lr.ph103, label %.loopexit45
 
 .lr.ph103:                                        ; preds = %590, %.lr.ph103
@@ -1305,17 +1305,17 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   call void %594(ptr noundef %0, i32 noundef 32) #5
   %595 = add i8 %.4473101, 1
   %596 = zext i8 %595 to i32
-  %597 = icmp samesign ugt i32 %.2486102835183, %596
+  %597 = icmp samesign ugt i32 %.2486102835187, %596
   br i1 %597, label %.lr.ph103, label %.loopexit45, !llvm.loop !14
 
 .loopexit45:                                      ; preds = %.lr.ph103, %..loopexit45_crit_edge, %590
-  %.pre-phi169 = phi i32 [ %.pre168, %..loopexit45_crit_edge ], [ %591, %590 ], [ %596, %.lr.ph103 ]
-  %.5481 = phi i32 [ %.2478112737181, %..loopexit45_crit_edge ], [ %.6482, %590 ], [ %.6482, %.lr.ph103 ]
+  %.pre-phi173 = phi i32 [ %.pre172, %..loopexit45_crit_edge ], [ %591, %590 ], [ %596, %.lr.ph103 ]
+  %.5481 = phi i32 [ %.2478112737185, %..loopexit45_crit_edge ], [ %.6482, %590 ], [ %.6482, %.lr.ph103 ]
   %.20 = phi i32 [ %.1452.ph, %..loopexit45_crit_edge ], [ %.1452.ph, %590 ], [ %593, %.lr.ph103 ]
-  %598 = icmp sgt i32 %.2486102835183, %.pre-phi169
-  %599 = sub nsw i32 %.2486102835183, %.pre-phi169
+  %598 = icmp sgt i32 %.2486102835187, %.pre-phi173
+  %599 = sub nsw i32 %.2486102835187, %.pre-phi173
   %600 = select i1 %598, i32 %599, i32 0
-  %601 = and i32 %.pre-phi165, 16
+  %601 = and i32 %.pre-phi169, 16
   %.not559 = icmp eq i32 %601, 0
   br i1 %.not559, label %611, label %602
 
@@ -1323,28 +1323,28 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %603 = add nsw i32 %.20, 1
   %604 = load ptr, ptr %6, align 8
   call void %604(ptr noundef %0, i32 noundef 48) #5
-  %605 = and i32 %.pre-phi165, 16384
+  %605 = and i32 %.pre-phi169, 16384
   %.not563 = icmp eq i32 %605, 0
   br i1 %.not563, label %620, label %606
 
 606:                                              ; preds = %602
   %607 = add nsw i32 %.20, 2
   %608 = load ptr, ptr %6, align 8
-  %609 = and i32 %.pre-phi165, 8192
+  %609 = and i32 %.pre-phi169, 8192
   %.not564 = icmp eq i32 %609, 0
   %610 = select i1 %.not564, i32 120, i32 88
   call void %608(ptr noundef nonnull %0, i32 noundef %610) #5
   br label %620
 
 611:                                              ; preds = %.loopexit45
-  %612 = and i32 %.pre-phi165, 4102
+  %612 = and i32 %.pre-phi169, 4102
   %.not560 = icmp eq i32 %612, 0
   br i1 %.not560, label %620, label %613
 
 613:                                              ; preds = %611
-  %614 = and i32 %.pre-phi165, 2
+  %614 = and i32 %.pre-phi169, 2
   %.not561 = icmp eq i32 %614, 0
-  %615 = and i32 %.pre-phi165, 4096
+  %615 = and i32 %.pre-phi169, 4096
   %.not562 = icmp eq i32 %615, 0
   %616 = select i1 %.not561, i32 32, i32 43
   %617 = add nsw i32 %.20, 1
@@ -1355,7 +1355,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 
 620:                                              ; preds = %611, %613, %602, %606
   %.22 = phi i32 [ %607, %606 ], [ %603, %602 ], [ %617, %613 ], [ %.20, %611 ]
-  %621 = zext i8 %.5418186 to i32
+  %621 = zext i8 %.5418190 to i32
   %622 = icmp sgt i32 %.5481, %621
   br i1 %622, label %.lr.ph108.preheader, label %.preheader
 
@@ -1369,11 +1369,11 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 
 .preheader:                                       ; preds = %.preheader.loopexit, %620
   %.23.lcssa = phi i32 [ %.22, %620 ], [ %624, %.preheader.loopexit ]
-  %.not565110 = icmp eq i8 %.5418186, 0
+  %.not565110 = icmp eq i8 %.5418190, 0
   br i1 %.not565110, label %.loopexit44, label %.lr.ph113.preheader
 
 .lr.ph113.preheader:                              ; preds = %.preheader
-  %625 = zext i8 %.5418186 to i64
+  %625 = zext i8 %.5418190 to i64
   br label %.lr.ph113
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %.lr.ph108
@@ -1385,11 +1385,11 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   br i1 %628, label %.lr.ph108, label %.preheader.loopexit, !llvm.loop !15
 
 .lr.ph113:                                        ; preds = %.lr.ph113.preheader, %.lr.ph113
-  %indvars.iv160 = phi i64 [ %625, %.lr.ph113.preheader ], [ %631, %.lr.ph113 ]
+  %indvars.iv164 = phi i64 [ %625, %.lr.ph113.preheader ], [ %631, %.lr.ph113 ]
   %.24111 = phi i32 [ %.23.lcssa, %.lr.ph113.preheader ], [ %629, %.lr.ph113 ]
   %629 = add nsw i32 %.24111, 1
   %630 = load ptr, ptr %6, align 8
-  %631 = add nsw i64 %indvars.iv160, -1
+  %631 = add nsw i64 %indvars.iv164, -1
   %632 = getelementptr inbounds [22 x i8], ptr %4, i64 0, i64 %631
   %633 = load i8, ptr %632, align 1
   %634 = sext i8 %633 to i32
@@ -1400,7 +1400,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 .loopexit44:                                      ; preds = %170, %.lr.ph99, %.lr.ph113, %165, %325, %.preheader, %270, %263, %.loopexit56
   %.5489 = phi i32 [ %.8492, %270 ], [ %.8492, %263 ], [ %384, %.loopexit56 ], [ %600, %.preheader ], [ %.8492, %325 ], [ %.4488, %165 ], [ %600, %.lr.ph113 ], [ %.8492, %.lr.ph99 ], [ %.4488, %170 ]
   %.6457 = phi i32 [ %271, %270 ], [ %264, %263 ], [ %380, %.loopexit56 ], [ %.23.lcssa, %.preheader ], [ %.16467, %325 ], [ %.4455, %165 ], [ %629, %.lr.ph113 ], [ %328, %.lr.ph99 ], [ %173, %170 ]
-  %.5 = phi ptr [ %.3, %270 ], [ %.3, %263 ], [ %.3, %.loopexit56 ], [ %.6189, %.preheader ], [ %.3, %325 ], [ %.3, %165 ], [ %.6189, %.lr.ph113 ], [ %.3, %.lr.ph99 ], [ %.3, %170 ]
+  %.5 = phi ptr [ %.3, %270 ], [ %.3, %263 ], [ %.3, %.loopexit56 ], [ %.6193, %.preheader ], [ %.3, %325 ], [ %.3, %165 ], [ %.6193, %.lr.ph113 ], [ %.3, %.lr.ph99 ], [ %.3, %170 ]
   %.not588115 = icmp eq i32 %.5489, 0
   br i1 %.not588115, label %.backedge.outer.backedge, label %.lr.ph118
 

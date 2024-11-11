@@ -1187,20 +1187,20 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
 323:                                              ; preds = %301
   tail call void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator9advanceToES1_(ptr noundef nonnull align 8 dereferenceable(88) %.0157291, i64 %.sroa.0241.0)
   %324 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %293) #12
-  %.pre314 = load ptr, ptr %293, align 8
+  %.pre316 = load ptr, ptr %293, align 8
   br i1 %324, label %.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit186
 
 _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit186: ; preds = %323
-  %325 = getelementptr inbounds nuw i8, ptr %.pre314, i64 12
+  %325 = getelementptr inbounds nuw i8, ptr %.pre316, i64 12
   %326 = load i32, ptr %325, align 4
-  %327 = getelementptr inbounds nuw i8, ptr %.pre314, i64 8
+  %327 = getelementptr inbounds nuw i8, ptr %.pre316, i64 8
   %328 = load i32, ptr %327, align 8
   %329 = icmp ult i32 %326, %328
   br i1 %329, label %330, label %.thread
 
 330:                                              ; preds = %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit186
   %331 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %293) #12
-  %332 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %.pre314, i64 %331
+  %332 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %.pre316, i64 %331
   %333 = getelementptr inbounds i8, ptr %332, i64 -16
   %334 = load ptr, ptr %333, align 8
   %335 = load ptr, ptr %293, align 8
@@ -1225,11 +1225,11 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInf
   br i1 %.not256, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE8iteratormmEv.exit, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %330
-  %.pre313 = load ptr, ptr %293, align 8
+  %.pre315 = load ptr, ptr %293, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %323, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit186
-  %352 = phi ptr [ %.pre313, %..thread_crit_edge ], [ %.pre314, %323 ], [ %.pre314, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit186 ]
+  %352 = phi ptr [ %.pre315, %..thread_crit_edge ], [ %.pre316, %323 ], [ %.pre316, %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit186 ]
   %353 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %293) #12
   %354 = getelementptr inbounds %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %352, i64 %353
   %355 = getelementptr inbounds i8, ptr %354, i64 -4
@@ -1452,11 +1452,11 @@ _ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit199: ; preds = %.p
   %491 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(104) %443) #12
   %492 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %490, i64 %491
   %493 = icmp eq ptr %.0.i194, %492
-  %.pre315 = load ptr, ptr %441, align 8
+  %.pre317 = load ptr, ptr %441, align 8
   br i1 %493, label %.thread251, label %494
 
 494:                                              ; preds = %_ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit199
-  %.0.copyload.i.i.i.i.i.i200 = load i64, ptr %.pre315, align 8
+  %.0.copyload.i.i.i.i.i.i200 = load i64, ptr %.pre317, align 8
   %495 = and i64 %.0.copyload.i.i.i.i.i.i200, -8
   %496 = inttoptr i64 %495 to ptr
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 24
@@ -1471,12 +1471,12 @@ _ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit199: ; preds = %.p
   br i1 %.not258, label %506, label %.thread251
 
 .thread251:                                       ; preds = %_ZN4llvm9LiveRange9advanceToEPNS0_7SegmentENS_9SlotIndexE.exit199, %494
-  %505 = getelementptr inbounds i8, ptr %.pre315, i64 -24
+  %505 = getelementptr inbounds i8, ptr %.pre317, i64 -24
   store ptr %505, ptr %441, align 8
   br label %506
 
 506:                                              ; preds = %.thread251, %494
-  %507 = phi ptr [ %505, %.thread251 ], [ %.pre315, %494 ]
+  %507 = phi ptr [ %505, %.thread251 ], [ %.pre317, %494 ]
   %508 = phi i1 [ true, %.thread251 ], [ false, %494 ]
   %509 = getelementptr inbounds nuw i8, ptr %507, i64 8
   %510 = load i64, ptr %509, align 8

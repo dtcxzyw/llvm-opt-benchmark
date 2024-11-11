@@ -12258,8 +12258,8 @@ rtps_util_dissect_encapsulation_options.exit:     ; preds = %10
   %20 = sext i16 %17 to i32
   %21 = load i32, ptr @ett_rtps_data_encapsulation_options, align 4
   %22 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %2, i32 noundef %16, i32 noundef 2, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.1242, i32 noundef %20) #13
-  %23 = and i32 %20, 28
-  %24 = lshr exact i32 %23, 2
+  %23 = lshr i32 %20, 2
+  %24 = and i32 %23, 7
   %25 = and i16 %17, 3
   %26 = zext nneg i16 %25 to i32
   %27 = load i32, ptr @hf_rtps_encapsulation_options_compression_plugin_class_id, align 4
@@ -12277,7 +12277,7 @@ rtps_util_dissect_encapsulation_options.exit:     ; preds = %10
   %35 = load i32, ptr @hf_rtps_uncompressed_serialized_length, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %35, ptr noundef %2, i32 noundef %.038.i, i32 noundef 4, i32 noundef 0) #13
   %37 = add i32 %3, 8
-  %38 = icmp eq i32 %23, 28
+  %38 = icmp eq i16 %32, 28
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %33
@@ -12299,7 +12299,7 @@ rtps_util_dissect_encapsulation_options.exit:     ; preds = %10
   %.076 = phi i32 [ %.177, %44 ], [ %.038.i, %rtps_util_dissect_encapsulation_options.exit ]
   %.075 = phi i32 [ %46, %44 ], [ 0, %rtps_util_dissect_encapsulation_options.exit ]
   %.074 = phi i32 [ %34, %44 ], [ 0, %rtps_util_dissect_encapsulation_options.exit ]
-  %49 = icmp eq i32 %23, 4
+  %49 = icmp eq i32 %24, 1
   br i1 %49, label %50, label %63
 
 50:                                               ; preds = %47

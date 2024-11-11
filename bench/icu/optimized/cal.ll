@@ -417,8 +417,8 @@ indent.exit.i.i:                                  ; preds = %for.body.i.i.i, %if
   br label %for.body22.i.i
 
 for.body22.i.i:                                   ; preds = %while.end141.i.i, %indent.exit.i.i
-  %indvars.iv334.i.i = phi i64 [ 0, %indent.exit.i.i ], [ %indvars.iv.next335.i.i, %while.end141.i.i ]
-  %arrayidx24.i.i = getelementptr inbounds ptr, ptr %months.i, i64 %indvars.iv334.i.i
+  %indvars.iv336.i.i = phi i64 [ 0, %indent.exit.i.i ], [ %indvars.iv.next337.i.i, %while.end141.i.i ]
+  %arrayidx24.i.i = getelementptr inbounds ptr, ptr %months.i, i64 %indvars.iv336.i.i
   %39 = load ptr, ptr %arrayidx24.i.i, align 16
   %call25.i.i = call i32 @u_strlen_75(ptr noundef %39) #10
   %sub26.i.i = sub nsw i32 %add.i.i, %call25.i.i
@@ -474,7 +474,7 @@ for.body.i154.i.i:                                ; preds = %if.end.i152.i.i, %f
 
 indent.exit162.i.i:                               ; preds = %for.body.i154.i.i, %if.then2.i159.i.i, %indent.exit149.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %c.i150.i.i)
-  %43 = or disjoint i64 %indvars.iv334.i.i, 1
+  %43 = or disjoint i64 %indvars.iv336.i.i, 1
   %arrayidx34.i.i = getelementptr inbounds ptr, ptr %months.i, i64 %43
   %44 = load ptr, ptr %arrayidx34.i.i, align 8
   %call35.i.i = call i32 @u_strlen_75(ptr noundef %44) #10
@@ -549,13 +549,13 @@ for.body.i187.i.i:                                ; preds = %print_days.exit.i.i
   br i1 %exitcond.not.i192.i.i, label %print_days.exit193.loopexit.i.i, label %for.body.i187.i.i, !llvm.loop !10
 
 print_days.exit193.loopexit.i.i:                  ; preds = %for.body.i187.i.i
-  %.pre338.i.i = load ptr, ptr @stdout, align 8
+  %.pre340.i.i = load ptr, ptr @stdout, align 8
   br label %print_days.exit193.i.i
 
 print_days.exit193.i.i:                           ; preds = %print_days.exit193.loopexit.i.i, %print_days.exit.i.i
-  %55 = phi ptr [ %.pre338.i.i, %print_days.exit193.loopexit.i.i ], [ %52, %print_days.exit.i.i ]
+  %55 = phi ptr [ %.pre340.i.i, %print_days.exit193.loopexit.i.i ], [ %52, %print_days.exit.i.i ]
   %call42.i.i = call i32 @putc(i32 noundef 10, ptr noundef %55)
-  %56 = trunc nuw nsw i64 %indvars.iv334.i.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv336.i.i to i32
   call void @ucal_set_75(ptr noundef %call1.i24, i32 noundef 2, i32 noundef %56) #10
   call void @ucal_set_75(ptr noundef %call1.i24, i32 noundef 5, i32 noundef 1) #10
   %57 = trunc nuw nsw i64 %43 to i32
@@ -568,7 +568,7 @@ print_days.exit193.i.i:                           ; preds = %print_days.exit193.
   %call53.i.i = call i32 @ucal_get_75(ptr noundef %call1.i24, i32 noundef 2, ptr noundef nonnull %status) #10
   %call54.i.i = call i32 @ucal_get_75(ptr noundef %call17.i.i, i32 noundef 2, ptr noundef nonnull %status) #10
   %58 = zext i32 %call53.i.i to i64
-  %cmp55304.i.i = icmp eq i64 %indvars.iv334.i.i, %58
+  %cmp55304.i.i = icmp eq i64 %indvars.iv336.i.i, %58
   %59 = zext i32 %call54.i.i to i64
   %cmp57305.i.i = icmp eq i64 %43, %59
   %60 = select i1 %cmp55304.i.i, i1 true, i1 %cmp57305.i.i
@@ -627,7 +627,7 @@ while.cond64.i.i:                                 ; preds = %while.cond64.i.i.pr
   %left_current.2.i.i = phi i32 [ %rem89.i.i, %indent.exit232.i.i ], [ %left_current.2.i.i.ph, %while.cond64.i.i.preheader ]
   %left_month.1.i.i = phi i32 [ %call91.i.i, %indent.exit232.i.i ], [ %left_month.0310.i.i, %while.cond64.i.i.preheader ]
   %62 = zext i32 %left_month.1.i.i to i64
-  %cmp65.i.i = icmp eq i64 %indvars.iv334.i.i, %62
+  %cmp65.i.i = icmp eq i64 %indvars.iv336.i.i, %62
   br i1 %cmp65.i.i, label %while.body66.i.i, label %while.end.i.i
 
 while.body66.i.i:                                 ; preds = %while.cond64.i.i
@@ -725,8 +725,8 @@ for.body99.preheader.i.i:                         ; preds = %while.end.i.i
   br label %for.body99.i.i
 
 for.body99.i.i:                                   ; preds = %indent.exit245.i.i, %for.body99.preheader.i.i
-  %indvars.iv325.i.i = phi i64 [ %69, %for.body99.preheader.i.i ], [ %indvars.iv.next326.i.i, %indent.exit245.i.i ]
-  %arrayidx101.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv325.i.i
+  %indvars.iv327.i.i = phi i64 [ %69, %for.body99.preheader.i.i ], [ %indvars.iv.next328.i.i, %indent.exit245.i.i ]
+  %arrayidx101.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv327.i.i
   %70 = load i32, ptr %arrayidx101.i.i, align 4
   %add102.i.i = add nsw i32 %70, 1
   %71 = load ptr, ptr @stdout, align 8
@@ -753,10 +753,10 @@ for.body.i237.i.i:                                ; preds = %if.end.i235.i.i, %f
 
 indent.exit245.i.i:                               ; preds = %for.body.i237.i.i, %if.then2.i242.i.i, %for.body99.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %c.i233.i.i)
-  %indvars.iv.next326.i.i = add nsw i64 %indvars.iv325.i.i, 1
-  %72 = and i64 %indvars.iv.next326.i.i, 4294967295
-  %exitcond328.not.i.i = icmp eq i64 %72, 7
-  br i1 %exitcond328.not.i.i, label %if.end106.i.i, label %for.body99.i.i, !llvm.loop !13
+  %indvars.iv.next328.i.i = add nsw i64 %indvars.iv327.i.i, 1
+  %72 = and i64 %indvars.iv.next328.i.i, 4294967295
+  %exitcond330.not.i.i = icmp eq i64 %72, 7
+  br i1 %exitcond330.not.i.i, label %if.end106.i.i, label %for.body99.i.i, !llvm.loop !13
 
 if.end106.i.i:                                    ; preds = %indent.exit232.i.i, %indent.exit245.i.i, %while.end.i.i
   %left_month.2291.i.i = phi i32 [ %left_month.1.i.i, %while.end.i.i ], [ %left_month.1.i.i, %indent.exit245.i.i ], [ %call91.i.i, %indent.exit232.i.i ]
@@ -784,12 +784,12 @@ while.body110.i.i:                                ; preds = %while.cond107.i.i
   br i1 %or.cond315.i.i, label %for.body115.preheader.i.i, label %if.end122.i.i
 
 for.body115.preheader.i.i:                        ; preds = %while.body110.i.i
-  %wide.trip.count332.i.i = zext nneg i32 %right_current.1.i.i to i64
+  %wide.trip.count334.i.i = zext nneg i32 %right_current.1.i.i to i64
   br label %for.body115.i.i
 
 for.body115.i.i:                                  ; preds = %indent.exit262.i.i, %for.body115.preheader.i.i
-  %indvars.iv329.i.i = phi i64 [ 0, %for.body115.preheader.i.i ], [ %indvars.iv.next330.i.i, %indent.exit262.i.i ]
-  %arrayidx117.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv329.i.i
+  %indvars.iv331.i.i = phi i64 [ 0, %for.body115.preheader.i.i ], [ %indvars.iv.next332.i.i, %indent.exit262.i.i ]
+  %arrayidx117.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv331.i.i
   %75 = load i32, ptr %arrayidx117.i.i, align 4
   %add118.i.i = add nsw i32 %75, 1
   %76 = load ptr, ptr @stdout, align 8
@@ -816,9 +816,9 @@ for.body.i254.i.i:                                ; preds = %if.end.i252.i.i, %f
 
 indent.exit262.i.i:                               ; preds = %for.body.i254.i.i, %if.then2.i259.i.i, %for.body115.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %c.i250.i.i)
-  %indvars.iv.next330.i.i = add nuw nsw i64 %indvars.iv329.i.i, 1
-  %exitcond333.not.i.i = icmp eq i64 %indvars.iv.next330.i.i, %wide.trip.count332.i.i
-  br i1 %exitcond333.not.i.i, label %if.end122.i.i, label %for.body115.i.i, !llvm.loop !14
+  %indvars.iv.next332.i.i = add nuw nsw i64 %indvars.iv331.i.i, 1
+  %exitcond335.not.i.i = icmp eq i64 %indvars.iv.next332.i.i, %wide.trip.count334.i.i
+  br i1 %exitcond335.not.i.i, label %if.end122.i.i, label %for.body115.i.i, !llvm.loop !14
 
 if.end122.i.i:                                    ; preds = %indent.exit262.i.i, %while.body110.i.i
   %call124.i.i = call i32 @unum_format_75(ptr noundef %call19.i.i, i32 noundef %right_day.1.i.i, ptr noundef nonnull %s.i.i, i32 noundef 64, ptr noundef null, ptr noundef nonnull %status) #10
@@ -864,18 +864,18 @@ indent.exit275.i.i:                               ; preds = %for.body.i267.i.i, 
   br i1 %cmp136.i.i, label %indent.exit275.while.end139_crit_edge.i.i, label %while.cond107.i.i, !llvm.loop !15
 
 indent.exit275.while.end139_crit_edge.i.i:        ; preds = %indent.exit275.i.i
-  %.pre339.i.i = zext i32 %call135.i.i to i64
+  %.pre341.i.i = zext i32 %call135.i.i to i64
   br label %while.end139.i.i
 
 while.end139.i.i:                                 ; preds = %while.cond107.i.i, %indent.exit275.while.end139_crit_edge.i.i
-  %.pre-phi.i.i = phi i64 [ %.pre339.i.i, %indent.exit275.while.end139_crit_edge.i.i ], [ %74, %while.cond107.i.i ]
+  %.pre-phi.i.i = phi i64 [ %.pre341.i.i, %indent.exit275.while.end139_crit_edge.i.i ], [ %74, %while.cond107.i.i ]
   %right_day.2.i.i = phi i32 [ %call134.i.i, %indent.exit275.while.end139_crit_edge.i.i ], [ %right_day.1.i.i, %while.cond107.i.i ]
   %right_current.2.i.i = phi i32 [ 0, %indent.exit275.while.end139_crit_edge.i.i ], [ %right_current.1.i.i, %while.cond107.i.i ]
   %right_month.2.i.i = phi i32 [ %call135.i.i, %indent.exit275.while.end139_crit_edge.i.i ], [ %right_month.1.i.i, %while.cond107.i.i ]
   %81 = load ptr, ptr @stdout, align 8
   %call140.i.i = call i32 @putc(i32 noundef 10, ptr noundef %81)
   %82 = zext i32 %left_month.2291.i.i to i64
-  %cmp55.i.i = icmp eq i64 %indvars.iv334.i.i, %82
+  %cmp55.i.i = icmp eq i64 %indvars.iv336.i.i, %82
   %cmp57.i.i = icmp eq i64 %.pre-phi.i.i, %43
   %83 = select i1 %cmp55.i.i, i1 true, i1 %cmp57.i.i
   br i1 %83, label %while.body.i.i, label %while.end141.i.i, !llvm.loop !16
@@ -883,8 +883,8 @@ while.end139.i.i:                                 ; preds = %while.cond107.i.i, 
 while.end141.i.i:                                 ; preds = %while.end139.i.i, %print_days.exit193.i.i
   %84 = load ptr, ptr @stdout, align 8
   %call142.i.i = call i32 @putc(i32 noundef 10, ptr noundef %84)
-  %indvars.iv.next335.i.i = add nuw nsw i64 %indvars.iv334.i.i, 2
-  %cmp21.i.i = icmp samesign ult i64 %indvars.iv334.i.i, 10
+  %indvars.iv.next337.i.i = add nuw nsw i64 %indvars.iv336.i.i, 2
+  %cmp21.i.i = icmp samesign ult i64 %indvars.iv336.i.i, 10
   br i1 %cmp21.i.i, label %for.body22.i.i, label %for.body.i.i276.i.i, !llvm.loop !17
 
 for.body.i.i276.i.i:                              ; preds = %while.end141.i.i, %for.body.i.i276.i.i

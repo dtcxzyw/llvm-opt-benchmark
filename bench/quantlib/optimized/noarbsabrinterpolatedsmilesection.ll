@@ -12633,8 +12633,8 @@ _ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6
   br i1 %cmp.i.not.i.i, label %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_14NoArbSabrSpecsEE18interpolationErrorEv.exit.loopexit, label %for.body.i.i, !llvm.loop !212
 
 _ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_14NoArbSabrSpecsEE18interpolationErrorEv.exit.loopexit: ; preds = %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_14NoArbSabrSpecsEE5valueEd.exit.i.i
-  %.pre429 = load i64, ptr %xBegin_.i, align 8, !tbaa !3
-  %38 = inttoptr i64 %.pre429 to ptr
+  %.pre431 = load i64, ptr %xBegin_.i, align 8, !tbaa !3
+  %38 = inttoptr i64 %.pre431 to ptr
   br label %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_14NoArbSabrSpecsEE18interpolationErrorEv.exit
 
 _ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_14NoArbSabrSpecsEE18interpolationErrorEv.exit: ; preds = %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_14NoArbSabrSpecsEE18interpolationErrorEv.exit.loopexit, %if.then44
@@ -12786,7 +12786,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp87.not, label %do.body.if.end130_crit_edge, label %if.then88
 
 do.body.if.end130_crit_edge:                      ; preds = %do.body
-  %.pre427 = load ptr, ptr %forward_96, align 8, !tbaa !199
+  %.pre429 = load ptr, ptr %forward_96, align 8, !tbaa !199
   br label %if.end130
 
 if.then88:                                        ; preds = %do.body
@@ -12914,7 +12914,7 @@ for.inc126:                                       ; preds = %invoke.cont115, %if
   br i1 %cmp108, label %invoke.cont115, label %if.end130, !llvm.loop !219
 
 if.end130:                                        ; preds = %for.inc126, %do.body.if.end130_crit_edge, %invoke.cont102
-  %80 = phi ptr [ %.pre427, %do.body.if.end130_crit_edge ], [ %55, %invoke.cont102 ], [ %55, %for.inc126 ]
+  %80 = phi ptr [ %.pre429, %do.body.if.end130_crit_edge ], [ %55, %invoke.cont102 ], [ %55, %for.inc126 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %inversedTransformatedGuess) #28
   %81 = load double, ptr %80, align 8, !tbaa !81
   call void @llvm.experimental.noalias.scope.decl(metadata !220)
@@ -13610,12 +13610,12 @@ for.body217:                                      ; preds = %for.body217.lr.ph, 
   %add.ptr.i266 = getelementptr inbounds nuw double, ptr %171, i64 %i212.0394
   store double %191, ptr %add.ptr.i266, align 8, !tbaa !81
   %inc225 = add nuw i64 %i212.0394, 1
-  %exitcond426.not = icmp eq i64 %inc225, %bestParameters.sroa.11.1
-  br i1 %exitcond426.not, label %for.cond.cleanup216, label %for.body217, !llvm.loop !232
+  %exitcond428.not = icmp eq i64 %inc225, %bestParameters.sroa.11.1
+  br i1 %exitcond428.not, label %for.cond.cleanup216, label %for.body217, !llvm.loop !232
 
 invoke.cont229.loopexit:                          ; preds = %call2.i.i.i224.noexc
-  %.pre428 = load i64, ptr %xBegin_.i134, align 8, !tbaa !3
-  %192 = inttoptr i64 %.pre428 to ptr
+  %.pre430 = load i64, ptr %xBegin_.i134, align 8, !tbaa !3
+  %192 = inttoptr i64 %.pre430 to ptr
   br label %invoke.cont229
 
 invoke.cont229:                                   ; preds = %invoke.cont229.loopexit, %for.cond.cleanup216
@@ -13763,10 +13763,10 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit310
 
 _ZN8QuantLib5ArrayD2Ev.exit310:                   ; preds = %ehcleanup240.thread, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i306, %ehcleanup240
-  %.pn27.pn.pn435 = phi { ptr, i32 } [ %75, %ehcleanup240.thread ], [ %.pn27.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i306 ], [ %.pn27.pn, %ehcleanup240 ]
+  %.pn27.pn.pn437 = phi { ptr, i32 } [ %75, %ehcleanup240.thread ], [ %.pn27.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i306 ], [ %.pn27.pn, %ehcleanup240 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i5153) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %costFunction) #28
-  resume { ptr, i32 } %.pn27.pn.pn435
+  resume { ptr, i32 } %.pn27.pn.pn437
 
 if.end250:                                        ; preds = %_ZN8QuantLib5ArrayD2Ev.exit304, %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_14NoArbSabrSpecsEE21interpolationMaxErrorEv.exit
   ret void

@@ -1860,7 +1860,7 @@ define internal fastcc ptr @pg_get_indexdef_worker(i32 noundef %0, i32 noundef %
   br i1 %.not149, label %20, label %24
 
 20:                                               ; preds = %9
-  br i1 %8, label %250, label %21
+  br i1 %8, label %249, label %21
 
 21:                                               ; preds = %20
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -2029,10 +2029,10 @@ get_relation_name.exit:                           ; preds = %list_head.exit
   %126 = zext i32 %1 to i64
   br label %127
 
-127:                                              ; preds = %.lr.ph, %213
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %213 ]
-  %.0135186 = phi ptr [ %77, %.lr.ph ], [ %.1, %213 ]
-  %.0137184 = phi ptr [ @.str.32, %.lr.ph ], [ @.str.23, %213 ]
+127:                                              ; preds = %.lr.ph, %212
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %212 ]
+  %.0135186 = phi ptr [ %77, %.lr.ph ], [ %.1, %212 ]
+  %.0137184 = phi ptr [ @.str.32, %.lr.ph ], [ @.str.23, %212 ]
   %128 = getelementptr [0 x i16], ptr %110, i64 0, i64 %indvars.iv
   %129 = load i16, ptr %128, align 2
   br i1 %4, label %130, label %133
@@ -2163,19 +2163,19 @@ looks_like_function.exit.thread:                  ; preds = %looks_like_function
 
 172:                                              ; preds = %169, %148
   %.1 = phi ptr [ %.0135186, %148 ], [ %..i, %169 ]
-  br i1 %3, label %213, label %173
+  br i1 %3, label %212, label %173
 
 173:                                              ; preds = %172
   %174 = load i16, ptr %111, align 2
   %175 = sext i16 %174 to i64
   %176 = icmp slt i64 %indvars.iv, %175
-  br i1 %176, label %177, label %213
+  br i1 %176, label %177, label %212
 
 177:                                              ; preds = %173
   %178 = add nuw nsw i64 %indvars.iv, 1
   %179 = icmp eq i64 %178, %126
   %or.cond170 = select i1 %.not156, i1 true, i1 %179
-  br i1 %or.cond170, label %180, label %213
+  br i1 %or.cond170, label %180, label %212
 
 180:                                              ; preds = %177
   %181 = getelementptr [0 x i16], ptr %122, i64 0, i64 %indvars.iv
@@ -2214,140 +2214,139 @@ looks_like_function.exit.thread:                  ; preds = %looks_like_function
 197:                                              ; preds = %196, %191
   %198 = load i8, ptr %125, align 2
   %199 = trunc i8 %198 to i1
-  br i1 %199, label %200, label %207
+  br i1 %199, label %200, label %206
 
 200:                                              ; preds = %197
-  %201 = zext i16 %182 to i32
-  %202 = and i32 %201, 1
-  %.not161 = icmp eq i32 %202, 0
-  br i1 %.not161, label %205, label %203
+  %201 = and i16 %182, 1
+  %.not161 = icmp eq i16 %201, 0
+  br i1 %.not161, label %204, label %202
 
-203:                                              ; preds = %200
+202:                                              ; preds = %200
   call void @appendStringInfoString(ptr noundef nonnull %14, ptr noundef nonnull @.str.185) #11
-  %204 = and i32 %201, 2
-  %.not163 = icmp eq i32 %204, 0
-  br i1 %.not163, label %.sink.split, label %207
+  %203 = and i16 %182, 2
+  %.not163 = icmp eq i16 %203, 0
+  br i1 %.not163, label %.sink.split, label %206
 
-205:                                              ; preds = %200
-  %206 = and i32 %201, 2
-  %.not162 = icmp eq i32 %206, 0
-  br i1 %.not162, label %207, label %.sink.split
+204:                                              ; preds = %200
+  %205 = and i16 %182, 2
+  %.not162 = icmp eq i16 %205, 0
+  br i1 %.not162, label %206, label %.sink.split
 
-.sink.split:                                      ; preds = %205, %203
-  %.str.186.sink = phi ptr [ @.str.186, %203 ], [ @.str.184, %205 ]
+.sink.split:                                      ; preds = %204, %202
+  %.str.186.sink = phi ptr [ @.str.186, %202 ], [ @.str.184, %204 ]
   call void @appendStringInfoString(ptr noundef nonnull %14, ptr noundef nonnull %.str.186.sink) #11
-  br label %207
+  br label %206
 
-207:                                              ; preds = %.sink.split, %203, %205, %197
-  br i1 %.not, label %213, label %208
+206:                                              ; preds = %.sink.split, %202, %204, %197
+  br i1 %.not, label %212, label %207
 
-208:                                              ; preds = %207
-  %209 = getelementptr i32, ptr %2, i64 %indvars.iv
-  %210 = load i32, ptr %209, align 4
-  %211 = load i32, ptr %15, align 4
-  %212 = call fastcc ptr @generate_operator_name(i32 noundef %210, i32 noundef %211, i32 noundef %211)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %14, ptr noundef nonnull @.str.327, ptr noundef %212) #11
-  br label %213
+207:                                              ; preds = %206
+  %208 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %209 = load i32, ptr %208, align 4
+  %210 = load i32, ptr %15, align 4
+  %211 = call fastcc ptr @generate_operator_name(i32 noundef %209, i32 noundef %210, i32 noundef %210)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %14, ptr noundef nonnull @.str.327, ptr noundef %211) #11
+  br label %212
 
-213:                                              ; preds = %177, %172, %173, %208, %207
+212:                                              ; preds = %177, %172, %173, %207, %206
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %214 = load i16, ptr %107, align 4
-  %215 = sext i16 %214 to i64
-  %216 = icmp slt i64 %indvars.iv.next, %215
-  br i1 %216, label %127, label %._crit_edge, !llvm.loop !13
+  %213 = load i16, ptr %107, align 4
+  %214 = sext i16 %213 to i64
+  %215 = icmp slt i64 %indvars.iv.next, %214
+  br i1 %215, label %127, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %213, %130, %106
-  br i1 %3, label %248, label %217
+._crit_edge:                                      ; preds = %212, %130, %106
+  br i1 %3, label %247, label %216
 
-217:                                              ; preds = %._crit_edge
+216:                                              ; preds = %._crit_edge
   call void @appendStringInfoChar(ptr noundef nonnull %14, i8 noundef signext 41) #11
-  %218 = getelementptr inbounds i8, ptr %30, i64 13
-  %219 = load i8, ptr %218, align 1
-  %220 = trunc i8 %219 to i1
-  br i1 %220, label %221, label %222
+  %217 = getelementptr inbounds i8, ptr %30, i64 13
+  %218 = load i8, ptr %217, align 1
+  %219 = trunc i8 %218 to i1
+  br i1 %219, label %220, label %221
 
-221:                                              ; preds = %217
+220:                                              ; preds = %216
   call void @appendStringInfoString(ptr noundef nonnull %14, ptr noundef nonnull @.str.328) #11
-  br label %222
+  br label %221
 
-222:                                              ; preds = %221, %217
-  %223 = call fastcc ptr @flatten_reloptions(i32 noundef %0)
-  %.not164 = icmp eq ptr %223, null
-  br i1 %.not164, label %225, label %224
+221:                                              ; preds = %220, %216
+  %222 = call fastcc ptr @flatten_reloptions(i32 noundef %0)
+  %.not164 = icmp eq ptr %222, null
+  br i1 %.not164, label %224, label %223
 
-224:                                              ; preds = %222
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %14, ptr noundef nonnull @.str.329, ptr noundef nonnull %223) #11
-  call void @pfree(ptr noundef nonnull %223) #11
-  br label %225
+223:                                              ; preds = %221
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %14, ptr noundef nonnull @.str.329, ptr noundef nonnull %222) #11
+  call void @pfree(ptr noundef nonnull %222) #11
+  br label %224
 
-225:                                              ; preds = %224, %222
-  br i1 %5, label %226, label %233
+224:                                              ; preds = %223, %221
+  br i1 %5, label %225, label %232
 
-226:                                              ; preds = %225
-  %227 = call i32 @get_rel_tablespace(i32 noundef %0) #11
-  %.not165 = icmp eq i32 %227, 0
-  br i1 %.not165, label %233, label %228
+225:                                              ; preds = %224
+  %226 = call i32 @get_rel_tablespace(i32 noundef %0) #11
+  %.not165 = icmp eq i32 %226, 0
+  br i1 %.not165, label %232, label %227
 
-228:                                              ; preds = %226
-  br i1 %.not, label %230, label %229
+227:                                              ; preds = %225
+  br i1 %.not, label %229, label %228
 
-229:                                              ; preds = %228
+228:                                              ; preds = %227
   call void @appendStringInfoString(ptr noundef nonnull %14, ptr noundef nonnull @.str.330) #11
-  br label %230
+  br label %229
 
-230:                                              ; preds = %229, %228
-  %231 = call ptr @get_tablespace_name(i32 noundef %227) #11
-  %232 = call ptr @quote_identifier(ptr noundef %231)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %14, ptr noundef nonnull @.str.331, ptr noundef %232) #11
-  br label %233
+229:                                              ; preds = %228, %227
+  %230 = call ptr @get_tablespace_name(i32 noundef %226) #11
+  %231 = call ptr @quote_identifier(ptr noundef %230)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %14, ptr noundef nonnull @.str.331, ptr noundef %231) #11
+  br label %232
 
-233:                                              ; preds = %226, %230, %225
-  %234 = call zeroext i1 @heap_attisnull(ptr noundef nonnull %19, i32 noundef 21, ptr noundef null) #11
-  br i1 %234, label %248, label %.sink.split189
+232:                                              ; preds = %225, %229, %224
+  %233 = call zeroext i1 @heap_attisnull(ptr noundef nonnull %19, i32 noundef 21, ptr noundef null) #11
+  br i1 %233, label %247, label %.sink.split189
 
-.sink.split189:                                   ; preds = %233
-  %235 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %19, i16 noundef signext 21) #11
-  %236 = inttoptr i64 %235 to ptr
-  %237 = call ptr @text_to_cstring(ptr noundef %236) #11
-  %238 = call ptr @stringToNode(ptr noundef %237) #11
-  call void @pfree(ptr noundef %237) #11
+.sink.split189:                                   ; preds = %232
+  %234 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %19, i16 noundef signext 21) #11
+  %235 = inttoptr i64 %234 to ptr
+  %236 = call ptr @text_to_cstring(ptr noundef %235) #11
+  %237 = call ptr @stringToNode(ptr noundef %236) #11
+  call void @pfree(ptr noundef %236) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   call void @initStringInfo(ptr noundef nonnull %10) #11
   store ptr %10, ptr %11, align 8
-  %239 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %82, ptr %239, align 8
-  %240 = getelementptr inbounds i8, ptr %11, i64 16
-  %241 = getelementptr inbounds i8, ptr %11, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, i8 0, i64 16, i1 false)
-  store i8 0, ptr %241, align 4
-  %242 = getelementptr inbounds i8, ptr %11, i64 32
-  store i32 %7, ptr %242, align 8
-  %243 = getelementptr inbounds i8, ptr %11, i64 36
-  store i32 0, ptr %243, align 4
-  %244 = getelementptr inbounds i8, ptr %11, i64 40
+  %238 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %82, ptr %238, align 8
+  %239 = getelementptr inbounds i8, ptr %11, i64 16
+  %240 = getelementptr inbounds i8, ptr %11, i64 44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %239, i8 0, i64 16, i1 false)
+  store i8 0, ptr %240, align 4
+  %241 = getelementptr inbounds i8, ptr %11, i64 32
+  store i32 %7, ptr %241, align 8
+  %242 = getelementptr inbounds i8, ptr %11, i64 36
+  store i32 0, ptr %242, align 4
+  %243 = getelementptr inbounds i8, ptr %11, i64 40
+  store i32 0, ptr %243, align 8
+  %244 = getelementptr inbounds i8, ptr %11, i64 48
   store i32 0, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %11, i64 48
-  store i32 0, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %11, i64 56
-  store ptr null, ptr %246, align 8
-  call fastcc void @get_rule_expr(ptr noundef %238, ptr noundef nonnull %11, i1 noundef zeroext false)
-  %247 = load ptr, ptr %10, align 8
+  %245 = getelementptr inbounds i8, ptr %11, i64 56
+  store ptr null, ptr %245, align 8
+  call fastcc void @get_rule_expr(ptr noundef %237, ptr noundef nonnull %11, i1 noundef zeroext false)
+  %246 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   %.str.333..str.332 = select i1 %.not, ptr @.str.333, ptr @.str.332
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %14, ptr noundef nonnull %.str.333..str.332, ptr noundef %247) #11
-  br label %248
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %14, ptr noundef nonnull %.str.333..str.332, ptr noundef %246) #11
+  br label %247
 
-248:                                              ; preds = %.sink.split189, %233, %._crit_edge
+247:                                              ; preds = %.sink.split189, %232, %._crit_edge
   call void @ReleaseSysCache(ptr noundef nonnull %19) #11
   call void @ReleaseSysCache(ptr noundef nonnull %39) #11
   call void @ReleaseSysCache(ptr noundef nonnull %53) #11
-  %249 = load ptr, ptr %14, align 8
-  br label %250
+  %248 = load ptr, ptr %14, align 8
+  br label %249
 
-250:                                              ; preds = %20, %248
-  %.0 = phi ptr [ %249, %248 ], [ null, %20 ]
+249:                                              ; preds = %20, %247
+  %.0 = phi ptr [ %248, %247 ], [ null, %20 ]
   ret ptr %.0
 }
 

@@ -408,8 +408,8 @@ define dso_local i32 @do_migrate_pages(ptr noundef %0, ptr noundef %1, ptr nound
   %20 = getelementptr inbounds i8, ptr %5, i64 32
   %21 = getelementptr inbounds i8, ptr %5, i64 40
   %22 = getelementptr inbounds i8, ptr %5, i64 56
-  %23 = and i64 %16, 64
-  %24 = icmp eq i64 %23, 0
+  %23 = and i32 %3, 64
+  %24 = icmp eq i32 %23, 0
   %25 = select i1 %24, ptr @queue_pages_walk_ops, ptr @queue_pages_lock_vma_walk_ops
   %26 = ptrtoint ptr %8 to i64
   %27 = icmp eq i64 %10, 0

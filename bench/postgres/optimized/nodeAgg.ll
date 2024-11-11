@@ -3744,10 +3744,10 @@ define dso_local void @ExecReScanAgg(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %102, label %103, label %116
 
 103:                                              ; preds = %.loopexit129
-  %104 = and i64 %99, 7
-  %105 = icmp eq i64 %104, 0
+  %104 = and i32 %98, 7
+  %105 = icmp eq i32 %104, 0
   %106 = icmp ult i32 %98, 1025
-  %or.cond7 = select i1 %105, i1 %106, i1 false
+  %or.cond7 = and i1 %106, %105
   br i1 %or.cond7, label %107, label %116
 
 107:                                              ; preds = %103

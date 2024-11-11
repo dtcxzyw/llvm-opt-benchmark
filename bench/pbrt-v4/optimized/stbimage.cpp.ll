@@ -19360,8 +19360,8 @@ for.body68:                                       ; preds = %if.then57, %for.bod
 
 for.inc78:                                        ; preds = %for.body68, %for.body51
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
-  br i1 %exitcond86.not, label %return, label %for.body51, !llvm.loop !154
+  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
+  br i1 %exitcond87.not, label %return, label %for.body51, !llvm.loop !154
 
 return:                                           ; preds = %for.inc78, %for.end45, %if.then36
   %retval.0 = phi i32 [ 0, %if.then36 ], [ 1, %for.end45 ], [ 1, %for.inc78 ]

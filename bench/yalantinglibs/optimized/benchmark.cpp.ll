@@ -19148,286 +19148,285 @@ if.end.i:                                         ; preds = %entry
   %vec.i.sroa.0.0.copyload = load i8, ptr %2, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 1
   store ptr %add.ptr.i, ptr %0, align 8
-  %conv.i209 = zext i8 %vec.i.sroa.0.0.copyload to i32
-  %and.i = lshr i32 %conv.i209, 4
-  %add.i = and i32 %and.i, 3
-  switch i32 %add.i, label %default.unreachable208 [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb20.i
-    i32 2, label %sw.bb22.i
-    i32 3, label %return
+  %3 = lshr i8 %vec.i.sroa.0.0.copyload, 4
+  %add.i75 = and i8 %3, 3
+  switch i8 %add.i75, label %default.unreachable210 [
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb20.i
+    i8 2, label %sw.bb22.i
+    i8 3, label %return
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %and.i63 = and i32 %conv.i209, 1
-  %tobool.i64.not = icmp eq i32 %and.i63, 0
+  %4 = and i8 %vec.i.sroa.0.0.copyload, 1
+  %tobool.i64.not = icmp eq i8 %4, 0
   br i1 %tobool.i64.not, label %if.else.i, label %if.end.i66
 
 if.end.i66:                                       ; preds = %sw.bb.i
-  %3 = load ptr, ptr %reader_.i, align 8
-  %end.i75 = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %end.i75, align 8
-  %5 = load ptr, ptr %3, align 8
-  %cmp.i79.not = icmp eq ptr %4, %5
-  br i1 %cmp.i79.not, label %return, label %if.end4.i
+  %5 = load ptr, ptr %reader_.i, align 8
+  %end.i77 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %end.i77, align 8
+  %7 = load ptr, ptr %5, align 8
+  %cmp.i81.not = icmp eq ptr %6, %7
+  br i1 %cmp.i81.not, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i66
-  %target.i.0.copyload = load i8, ptr %5, align 1
-  %add.ptr.i81 = getelementptr inbounds i8, ptr %5, i64 1
-  store ptr %add.ptr.i81, ptr %3, align 8
+  %target.i.0.copyload = load i8, ptr %7, align 1
+  %add.ptr.i83 = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %add.ptr.i83, ptr %5, align 8
   %conv5.i = sext i8 %target.i.0.copyload to i32
   store i32 %conv5.i, ptr %item, align 4
   br label %if.else.i
 
 if.else.i:                                        ; preds = %if.end4.i, %sw.bb.i
-  %6 = and i8 %vec.i.sroa.0.0.copyload, 2
-  %tobool.i.i.not = icmp eq i8 %6, 0
+  %8 = and i8 %vec.i.sroa.0.0.copyload, 2
+  %tobool.i.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not, label %if.else.i79, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %7 = load ptr, ptr %reader_.i, align 8
-  %end.i83 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %end.i83, align 8
-  %9 = load ptr, ptr %7, align 8
-  %cmp.i87.not = icmp eq ptr %8, %9
-  br i1 %cmp.i87.not, label %return, label %if.end4.i.i
+  %9 = load ptr, ptr %reader_.i, align 8
+  %end.i85 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %end.i85, align 8
+  %11 = load ptr, ptr %9, align 8
+  %cmp.i89.not = icmp eq ptr %10, %11
+  br i1 %cmp.i89.not, label %return, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %target.i.i.0.copyload = load i8, ptr %9, align 1
-  %add.ptr.i89 = getelementptr inbounds i8, ptr %9, i64 1
-  store ptr %add.ptr.i89, ptr %7, align 8
+  %target.i.i.0.copyload = load i8, ptr %11, align 1
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %11, i64 1
+  store ptr %add.ptr.i91, ptr %9, align 8
   %conv5.i.i = sext i8 %target.i.i.0.copyload to i32
   store i32 %conv5.i.i, ptr %y.i, align 4
   br label %if.else.i79
 
 if.else.i79:                                      ; preds = %if.end4.i.i, %if.else.i
-  %10 = and i8 %vec.i.sroa.0.0.copyload, 4
-  %tobool.i.i109.not = icmp eq i8 %10, 0
+  %12 = and i8 %vec.i.sroa.0.0.copyload, 4
+  %tobool.i.i109.not = icmp eq i8 %12, 0
   br i1 %tobool.i.i109.not, label %if.else.i113, label %if.end.i.i115
 
 if.end.i.i115:                                    ; preds = %if.else.i79
-  %11 = load ptr, ptr %reader_.i, align 8
-  %end.i91 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %end.i91, align 8
-  %13 = load ptr, ptr %11, align 8
-  %cmp.i95.not = icmp eq ptr %12, %13
-  br i1 %cmp.i95.not, label %return, label %if.end4.i.i121
+  %13 = load ptr, ptr %reader_.i, align 8
+  %end.i93 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %end.i93, align 8
+  %15 = load ptr, ptr %13, align 8
+  %cmp.i97.not = icmp eq ptr %14, %15
+  br i1 %cmp.i97.not, label %return, label %if.end4.i.i121
 
 if.end4.i.i121:                                   ; preds = %if.end.i.i115
-  %target.i.i91.0.copyload = load i8, ptr %13, align 1
-  %add.ptr.i97 = getelementptr inbounds i8, ptr %13, i64 1
-  store ptr %add.ptr.i97, ptr %11, align 8
+  %target.i.i91.0.copyload = load i8, ptr %15, align 1
+  %add.ptr.i99 = getelementptr inbounds i8, ptr %15, i64 1
+  store ptr %add.ptr.i99, ptr %13, align 8
   %conv5.i.i122 = sext i8 %target.i.i91.0.copyload to i32
   store i32 %conv5.i.i122, ptr %width.i, align 4
   br label %if.else.i113
 
 if.else.i113:                                     ; preds = %if.end4.i.i121, %if.else.i79
-  %14 = and i8 %vec.i.sroa.0.0.copyload, 8
-  %tobool.i.i149.not = icmp eq i8 %14, 0
+  %16 = and i8 %vec.i.sroa.0.0.copyload, 8
+  %tobool.i.i149.not = icmp eq i8 %16, 0
   br i1 %tobool.i.i149.not, label %return, label %if.end.i.i152
 
 if.end.i.i152:                                    ; preds = %if.else.i113
-  %15 = load ptr, ptr %reader_.i, align 8
-  %end.i99 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %end.i99, align 8
-  %17 = load ptr, ptr %15, align 8
-  %cmp.i103.not = icmp eq ptr %16, %17
-  br i1 %cmp.i103.not, label %return, label %if.end4.i.i158
+  %17 = load ptr, ptr %reader_.i, align 8
+  %end.i101 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %end.i101, align 8
+  %19 = load ptr, ptr %17, align 8
+  %cmp.i105.not = icmp eq ptr %18, %19
+  br i1 %cmp.i105.not, label %return, label %if.end4.i.i158
 
 if.end4.i.i158:                                   ; preds = %if.end.i.i152
-  %target.i.i133.0.copyload = load i8, ptr %17, align 1
-  %add.ptr.i105 = getelementptr inbounds i8, ptr %17, i64 1
-  store ptr %add.ptr.i105, ptr %15, align 8
+  %target.i.i133.0.copyload = load i8, ptr %19, align 1
+  %add.ptr.i107 = getelementptr inbounds i8, ptr %19, i64 1
+  store ptr %add.ptr.i107, ptr %17, align 8
   %conv5.i.i159 = sext i8 %target.i.i133.0.copyload to i32
   br label %return.sink.split
 
 sw.bb20.i:                                        ; preds = %if.end.i
-  %and.i177 = and i32 %conv.i209, 1
-  %tobool.i178.not = icmp eq i32 %and.i177, 0
+  %20 = and i8 %vec.i.sroa.0.0.copyload, 1
+  %tobool.i178.not = icmp eq i8 %20, 0
   br i1 %tobool.i178.not, label %if.else.i36, label %if.end.i180
 
 if.end.i180:                                      ; preds = %sw.bb20.i
-  %18 = load ptr, ptr %reader_.i, align 8
-  %end.i107 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %end.i107, align 8
-  %20 = load ptr, ptr %18, align 8
-  %sub.ptr.lhs.cast.i108 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i109 = ptrtoint ptr %20 to i64
-  %sub.ptr.sub.i110 = sub i64 %sub.ptr.lhs.cast.i108, %sub.ptr.rhs.cast.i109
-  %cmp.i111 = icmp ugt i64 %sub.ptr.sub.i110, 1
-  br i1 %cmp.i111, label %if.end4.i185, label %return
+  %21 = load ptr, ptr %reader_.i, align 8
+  %end.i109 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load ptr, ptr %end.i109, align 8
+  %23 = load ptr, ptr %21, align 8
+  %sub.ptr.lhs.cast.i110 = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i111 = ptrtoint ptr %23 to i64
+  %sub.ptr.sub.i112 = sub i64 %sub.ptr.lhs.cast.i110, %sub.ptr.rhs.cast.i111
+  %cmp.i113 = icmp ugt i64 %sub.ptr.sub.i112, 1
+  br i1 %cmp.i113, label %if.end4.i185, label %return
 
 if.end4.i185:                                     ; preds = %if.end.i180
-  %target.i168.0.copyload = load i16, ptr %20, align 1
-  %add.ptr.i113 = getelementptr inbounds i8, ptr %20, i64 2
-  store ptr %add.ptr.i113, ptr %18, align 8
+  %target.i168.0.copyload = load i16, ptr %23, align 1
+  %add.ptr.i115 = getelementptr inbounds i8, ptr %23, i64 2
+  store ptr %add.ptr.i115, ptr %21, align 8
   %conv5.i186 = sext i16 %target.i168.0.copyload to i32
   store i32 %conv5.i186, ptr %item, align 4
   br label %if.else.i36
 
 if.else.i36:                                      ; preds = %if.end4.i185, %sw.bb20.i
-  %21 = and i8 %vec.i.sroa.0.0.copyload, 2
-  %tobool.i.i214.not = icmp eq i8 %21, 0
+  %24 = and i8 %vec.i.sroa.0.0.copyload, 2
+  %tobool.i.i214.not = icmp eq i8 %24, 0
   br i1 %tobool.i.i214.not, label %if.else.i217, label %if.end.i.i219
 
 if.end.i.i219:                                    ; preds = %if.else.i36
-  %22 = load ptr, ptr %reader_.i, align 8
-  %end.i115 = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load ptr, ptr %end.i115, align 8
-  %24 = load ptr, ptr %22, align 8
-  %sub.ptr.lhs.cast.i116 = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i117 = ptrtoint ptr %24 to i64
-  %sub.ptr.sub.i118 = sub i64 %sub.ptr.lhs.cast.i116, %sub.ptr.rhs.cast.i117
-  %cmp.i119 = icmp ugt i64 %sub.ptr.sub.i118, 1
-  br i1 %cmp.i119, label %if.end4.i.i225, label %return
+  %25 = load ptr, ptr %reader_.i, align 8
+  %end.i117 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %end.i117, align 8
+  %27 = load ptr, ptr %25, align 8
+  %sub.ptr.lhs.cast.i118 = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i119 = ptrtoint ptr %27 to i64
+  %sub.ptr.sub.i120 = sub i64 %sub.ptr.lhs.cast.i118, %sub.ptr.rhs.cast.i119
+  %cmp.i121 = icmp ugt i64 %sub.ptr.sub.i120, 1
+  br i1 %cmp.i121, label %if.end4.i.i225, label %return
 
 if.end4.i.i225:                                   ; preds = %if.end.i.i219
-  %target.i.i195.0.copyload = load i16, ptr %24, align 1
-  %add.ptr.i121 = getelementptr inbounds i8, ptr %24, i64 2
-  store ptr %add.ptr.i121, ptr %22, align 8
+  %target.i.i195.0.copyload = load i16, ptr %27, align 1
+  %add.ptr.i123 = getelementptr inbounds i8, ptr %27, i64 2
+  store ptr %add.ptr.i123, ptr %25, align 8
   %conv5.i.i226 = sext i16 %target.i.i195.0.copyload to i32
   store i32 %conv5.i.i226, ptr %y.i, align 4
   br label %if.else.i217
 
 if.else.i217:                                     ; preds = %if.end4.i.i225, %if.else.i36
-  %25 = and i8 %vec.i.sroa.0.0.copyload, 4
-  %tobool.i.i259.not = icmp eq i8 %25, 0
+  %28 = and i8 %vec.i.sroa.0.0.copyload, 4
+  %tobool.i.i259.not = icmp eq i8 %28, 0
   br i1 %tobool.i.i259.not, label %if.else.i263, label %if.end.i.i265
 
 if.end.i.i265:                                    ; preds = %if.else.i217
-  %26 = load ptr, ptr %reader_.i, align 8
-  %end.i123 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load ptr, ptr %end.i123, align 8
-  %28 = load ptr, ptr %26, align 8
-  %sub.ptr.lhs.cast.i124 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i125 = ptrtoint ptr %28 to i64
-  %sub.ptr.sub.i126 = sub i64 %sub.ptr.lhs.cast.i124, %sub.ptr.rhs.cast.i125
-  %cmp.i127 = icmp ugt i64 %sub.ptr.sub.i126, 1
-  br i1 %cmp.i127, label %if.end4.i.i270, label %return
+  %29 = load ptr, ptr %reader_.i, align 8
+  %end.i125 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load ptr, ptr %end.i125, align 8
+  %31 = load ptr, ptr %29, align 8
+  %sub.ptr.lhs.cast.i126 = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i127 = ptrtoint ptr %31 to i64
+  %sub.ptr.sub.i128 = sub i64 %sub.ptr.lhs.cast.i126, %sub.ptr.rhs.cast.i127
+  %cmp.i129 = icmp ugt i64 %sub.ptr.sub.i128, 1
+  br i1 %cmp.i129, label %if.end4.i.i270, label %return
 
 if.end4.i.i270:                                   ; preds = %if.end.i.i265
-  %target.i.i241.0.copyload = load i16, ptr %28, align 1
-  %add.ptr.i129 = getelementptr inbounds i8, ptr %28, i64 2
-  store ptr %add.ptr.i129, ptr %26, align 8
+  %target.i.i241.0.copyload = load i16, ptr %31, align 1
+  %add.ptr.i131 = getelementptr inbounds i8, ptr %31, i64 2
+  store ptr %add.ptr.i131, ptr %29, align 8
   %conv5.i.i271 = sext i16 %target.i.i241.0.copyload to i32
   store i32 %conv5.i.i271, ptr %width.i, align 4
   br label %if.else.i263
 
 if.else.i263:                                     ; preds = %if.end4.i.i270, %if.else.i217
-  %29 = and i8 %vec.i.sroa.0.0.copyload, 8
-  %tobool.i.i298.not = icmp eq i8 %29, 0
+  %32 = and i8 %vec.i.sroa.0.0.copyload, 8
+  %tobool.i.i298.not = icmp eq i8 %32, 0
   br i1 %tobool.i.i298.not, label %return, label %if.end.i.i301
 
 if.end.i.i301:                                    ; preds = %if.else.i263
-  %30 = load ptr, ptr %reader_.i, align 8
-  %end.i131 = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load ptr, ptr %end.i131, align 8
-  %32 = load ptr, ptr %30, align 8
-  %sub.ptr.lhs.cast.i132 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i133 = ptrtoint ptr %32 to i64
-  %sub.ptr.sub.i134 = sub i64 %sub.ptr.lhs.cast.i132, %sub.ptr.rhs.cast.i133
-  %cmp.i135 = icmp ugt i64 %sub.ptr.sub.i134, 1
-  br i1 %cmp.i135, label %if.end4.i.i306, label %return
+  %33 = load ptr, ptr %reader_.i, align 8
+  %end.i133 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load ptr, ptr %end.i133, align 8
+  %35 = load ptr, ptr %33, align 8
+  %sub.ptr.lhs.cast.i134 = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i135 = ptrtoint ptr %35 to i64
+  %sub.ptr.sub.i136 = sub i64 %sub.ptr.lhs.cast.i134, %sub.ptr.rhs.cast.i135
+  %cmp.i137 = icmp ugt i64 %sub.ptr.sub.i136, 1
+  br i1 %cmp.i137, label %if.end4.i.i306, label %return
 
 if.end4.i.i306:                                   ; preds = %if.end.i.i301
-  %target.i.i282.0.copyload = load i16, ptr %32, align 1
-  %add.ptr.i137 = getelementptr inbounds i8, ptr %32, i64 2
-  store ptr %add.ptr.i137, ptr %30, align 8
+  %target.i.i282.0.copyload = load i16, ptr %35, align 1
+  %add.ptr.i139 = getelementptr inbounds i8, ptr %35, i64 2
+  store ptr %add.ptr.i139, ptr %33, align 8
   %conv5.i.i307 = sext i16 %target.i.i282.0.copyload to i32
   br label %return.sink.split
 
 sw.bb22.i:                                        ; preds = %if.end.i
-  %and.i325 = and i32 %conv.i209, 1
-  %tobool.i326.not = icmp eq i32 %and.i325, 0
+  %36 = and i8 %vec.i.sroa.0.0.copyload, 1
+  %tobool.i326.not = icmp eq i8 %36, 0
   br i1 %tobool.i326.not, label %if.else.i51, label %if.end.i328
 
 if.end.i328:                                      ; preds = %sw.bb22.i
-  %33 = load ptr, ptr %reader_.i, align 8
-  %end.i139 = getelementptr inbounds i8, ptr %33, i64 8
-  %34 = load ptr, ptr %end.i139, align 8
-  %35 = load ptr, ptr %33, align 8
-  %sub.ptr.lhs.cast.i140 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i141 = ptrtoint ptr %35 to i64
-  %sub.ptr.sub.i142 = sub i64 %sub.ptr.lhs.cast.i140, %sub.ptr.rhs.cast.i141
-  %cmp.i143 = icmp ugt i64 %sub.ptr.sub.i142, 3
-  br i1 %cmp.i143, label %if.end4.i333, label %return
+  %37 = load ptr, ptr %reader_.i, align 8
+  %end.i141 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load ptr, ptr %end.i141, align 8
+  %39 = load ptr, ptr %37, align 8
+  %sub.ptr.lhs.cast.i142 = ptrtoint ptr %38 to i64
+  %sub.ptr.rhs.cast.i143 = ptrtoint ptr %39 to i64
+  %sub.ptr.sub.i144 = sub i64 %sub.ptr.lhs.cast.i142, %sub.ptr.rhs.cast.i143
+  %cmp.i145 = icmp ugt i64 %sub.ptr.sub.i144, 3
+  br i1 %cmp.i145, label %if.end4.i333, label %return
 
 if.end4.i333:                                     ; preds = %if.end.i328
-  %target.i316.0.copyload = load i32, ptr %35, align 1
-  %add.ptr.i145 = getelementptr inbounds i8, ptr %35, i64 4
-  store ptr %add.ptr.i145, ptr %33, align 8
+  %target.i316.0.copyload = load i32, ptr %39, align 1
+  %add.ptr.i147 = getelementptr inbounds i8, ptr %39, i64 4
+  store ptr %add.ptr.i147, ptr %37, align 8
   store i32 %target.i316.0.copyload, ptr %item, align 4
   br label %if.else.i51
 
 if.else.i51:                                      ; preds = %if.end4.i333, %sw.bb22.i
-  %36 = and i8 %vec.i.sroa.0.0.copyload, 2
-  %tobool.i.i361.not = icmp eq i8 %36, 0
+  %40 = and i8 %vec.i.sroa.0.0.copyload, 2
+  %tobool.i.i361.not = icmp eq i8 %40, 0
   br i1 %tobool.i.i361.not, label %if.else.i364, label %if.end.i.i366
 
 if.end.i.i366:                                    ; preds = %if.else.i51
-  %37 = load ptr, ptr %reader_.i, align 8
-  %end.i147 = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load ptr, ptr %end.i147, align 8
-  %39 = load ptr, ptr %37, align 8
-  %sub.ptr.lhs.cast.i148 = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i149 = ptrtoint ptr %39 to i64
-  %sub.ptr.sub.i150 = sub i64 %sub.ptr.lhs.cast.i148, %sub.ptr.rhs.cast.i149
-  %cmp.i151 = icmp ugt i64 %sub.ptr.sub.i150, 3
-  br i1 %cmp.i151, label %if.end4.i.i372, label %return
+  %41 = load ptr, ptr %reader_.i, align 8
+  %end.i149 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load ptr, ptr %end.i149, align 8
+  %43 = load ptr, ptr %41, align 8
+  %sub.ptr.lhs.cast.i150 = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i151 = ptrtoint ptr %43 to i64
+  %sub.ptr.sub.i152 = sub i64 %sub.ptr.lhs.cast.i150, %sub.ptr.rhs.cast.i151
+  %cmp.i153 = icmp ugt i64 %sub.ptr.sub.i152, 3
+  br i1 %cmp.i153, label %if.end4.i.i372, label %return
 
 if.end4.i.i372:                                   ; preds = %if.end.i.i366
-  %target.i.i342.0.copyload = load i32, ptr %39, align 1
-  %add.ptr.i153 = getelementptr inbounds i8, ptr %39, i64 4
-  store ptr %add.ptr.i153, ptr %37, align 8
+  %target.i.i342.0.copyload = load i32, ptr %43, align 1
+  %add.ptr.i155 = getelementptr inbounds i8, ptr %43, i64 4
+  store ptr %add.ptr.i155, ptr %41, align 8
   store i32 %target.i.i342.0.copyload, ptr %y.i, align 4
   br label %if.else.i364
 
 if.else.i364:                                     ; preds = %if.end4.i.i372, %if.else.i51
-  %40 = and i8 %vec.i.sroa.0.0.copyload, 4
-  %tobool.i.i407.not = icmp eq i8 %40, 0
+  %44 = and i8 %vec.i.sroa.0.0.copyload, 4
+  %tobool.i.i407.not = icmp eq i8 %44, 0
   br i1 %tobool.i.i407.not, label %if.else.i411, label %if.end.i.i413
 
 if.end.i.i413:                                    ; preds = %if.else.i364
-  %41 = load ptr, ptr %reader_.i, align 8
-  %end.i155 = getelementptr inbounds i8, ptr %41, i64 8
-  %42 = load ptr, ptr %end.i155, align 8
-  %43 = load ptr, ptr %41, align 8
-  %sub.ptr.lhs.cast.i156 = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast.i157 = ptrtoint ptr %43 to i64
-  %sub.ptr.sub.i158 = sub i64 %sub.ptr.lhs.cast.i156, %sub.ptr.rhs.cast.i157
-  %cmp.i159 = icmp ugt i64 %sub.ptr.sub.i158, 3
-  br i1 %cmp.i159, label %if.end4.i.i419, label %return
+  %45 = load ptr, ptr %reader_.i, align 8
+  %end.i157 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = load ptr, ptr %end.i157, align 8
+  %47 = load ptr, ptr %45, align 8
+  %sub.ptr.lhs.cast.i158 = ptrtoint ptr %46 to i64
+  %sub.ptr.rhs.cast.i159 = ptrtoint ptr %47 to i64
+  %sub.ptr.sub.i160 = sub i64 %sub.ptr.lhs.cast.i158, %sub.ptr.rhs.cast.i159
+  %cmp.i161 = icmp ugt i64 %sub.ptr.sub.i160, 3
+  br i1 %cmp.i161, label %if.end4.i.i419, label %return
 
 if.end4.i.i419:                                   ; preds = %if.end.i.i413
-  %target.i.i389.0.copyload = load i32, ptr %43, align 1
-  %add.ptr.i161 = getelementptr inbounds i8, ptr %43, i64 4
-  store ptr %add.ptr.i161, ptr %41, align 8
+  %target.i.i389.0.copyload = load i32, ptr %47, align 1
+  %add.ptr.i163 = getelementptr inbounds i8, ptr %47, i64 4
+  store ptr %add.ptr.i163, ptr %45, align 8
   store i32 %target.i.i389.0.copyload, ptr %width.i, align 4
   br label %if.else.i411
 
 if.else.i411:                                     ; preds = %if.end4.i.i419, %if.else.i364
-  %44 = and i8 %vec.i.sroa.0.0.copyload, 8
-  %tobool.i.i446.not = icmp eq i8 %44, 0
+  %48 = and i8 %vec.i.sroa.0.0.copyload, 8
+  %tobool.i.i446.not = icmp eq i8 %48, 0
   br i1 %tobool.i.i446.not, label %return, label %if.end.i.i449
 
 if.end.i.i449:                                    ; preds = %if.else.i411
-  %45 = load ptr, ptr %reader_.i, align 8
-  %end.i163 = getelementptr inbounds i8, ptr %45, i64 8
-  %46 = load ptr, ptr %end.i163, align 8
-  %47 = load ptr, ptr %45, align 8
-  %sub.ptr.lhs.cast.i164 = ptrtoint ptr %46 to i64
-  %sub.ptr.rhs.cast.i165 = ptrtoint ptr %47 to i64
-  %sub.ptr.sub.i166 = sub i64 %sub.ptr.lhs.cast.i164, %sub.ptr.rhs.cast.i165
-  %cmp.i167 = icmp ugt i64 %sub.ptr.sub.i166, 3
-  br i1 %cmp.i167, label %if.end4.i.i455, label %return
+  %49 = load ptr, ptr %reader_.i, align 8
+  %end.i165 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = load ptr, ptr %end.i165, align 8
+  %51 = load ptr, ptr %49, align 8
+  %sub.ptr.lhs.cast.i166 = ptrtoint ptr %50 to i64
+  %sub.ptr.rhs.cast.i167 = ptrtoint ptr %51 to i64
+  %sub.ptr.sub.i168 = sub i64 %sub.ptr.lhs.cast.i166, %sub.ptr.rhs.cast.i167
+  %cmp.i169 = icmp ugt i64 %sub.ptr.sub.i168, 3
+  br i1 %cmp.i169, label %if.end4.i.i455, label %return
 
 if.end4.i.i455:                                   ; preds = %if.end.i.i449
-  %target.i.i430.0.copyload = load i32, ptr %47, align 1
-  %add.ptr.i169 = getelementptr inbounds i8, ptr %47, i64 4
-  store ptr %add.ptr.i169, ptr %45, align 8
+  %target.i.i430.0.copyload = load i32, ptr %51, align 1
+  %add.ptr.i171 = getelementptr inbounds i8, ptr %51, i64 4
+  store ptr %add.ptr.i171, ptr %49, align 8
   br label %return.sink.split
 
-default.unreachable208:                           ; preds = %if.end.i
+default.unreachable210:                           ; preds = %if.end.i
   unreachable
 
 return.sink.split:                                ; preds = %if.end4.i.i158, %if.end4.i.i306, %if.end4.i.i455
@@ -19458,286 +19457,285 @@ if.end.i.i:                                       ; preds = %entry
   %vec.i.i.sroa.0.0.copyload = load i8, ptr %2, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 1
   store ptr %add.ptr.i, ptr %0, align 8
-  %conv.i.i209 = zext i8 %vec.i.i.sroa.0.0.copyload to i32
-  %and.i.i = lshr i32 %conv.i.i209, 4
-  %add.i.i = and i32 %and.i.i, 3
-  switch i32 %add.i.i, label %default.unreachable208 [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb20.i.i
-    i32 2, label %sw.bb22.i.i
-    i32 3, label %return
+  %3 = lshr i8 %vec.i.i.sroa.0.0.copyload, 4
+  %add.i.i75 = and i8 %3, 3
+  switch i8 %add.i.i75, label %default.unreachable210 [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb20.i.i
+    i8 2, label %sw.bb22.i.i
+    i8 3, label %return
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
-  %and.i54.i = and i32 %conv.i.i209, 1
-  %tobool.i55.i.not = icmp eq i32 %and.i54.i, 0
+  %4 = and i8 %vec.i.i.sroa.0.0.copyload, 1
+  %tobool.i55.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i55.i.not, label %if.else.i.i, label %if.end.i57.i
 
 if.end.i57.i:                                     ; preds = %sw.bb.i.i
-  %3 = load ptr, ptr %reader_.i.i, align 8
-  %end.i75 = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %end.i75, align 8
-  %5 = load ptr, ptr %3, align 8
-  %cmp.i79.not = icmp eq ptr %4, %5
-  br i1 %cmp.i79.not, label %return, label %if.end4.i.i
+  %5 = load ptr, ptr %reader_.i.i, align 8
+  %end.i77 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %end.i77, align 8
+  %7 = load ptr, ptr %5, align 8
+  %cmp.i81.not = icmp eq ptr %6, %7
+  br i1 %cmp.i81.not, label %return, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i57.i
-  %target.i.i.0.copyload = load i8, ptr %5, align 1
-  %add.ptr.i81 = getelementptr inbounds i8, ptr %5, i64 1
-  store ptr %add.ptr.i81, ptr %3, align 8
+  %target.i.i.0.copyload = load i8, ptr %7, align 1
+  %add.ptr.i83 = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %add.ptr.i83, ptr %5, align 8
   %conv5.i.i = sext i8 %target.i.i.0.copyload to i32
   store i32 %conv5.i.i, ptr %item, align 4
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end4.i.i, %sw.bb.i.i
-  %6 = and i8 %vec.i.i.sroa.0.0.copyload, 2
-  %tobool.i.i.i.not = icmp eq i8 %6, 0
+  %8 = and i8 %vec.i.i.sroa.0.0.copyload, 2
+  %tobool.i.i.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.i.i.not, label %if.else.i70.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i
-  %7 = load ptr, ptr %reader_.i.i, align 8
-  %end.i83 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %end.i83, align 8
-  %9 = load ptr, ptr %7, align 8
-  %cmp.i87.not = icmp eq ptr %8, %9
-  br i1 %cmp.i87.not, label %return, label %if.end4.i.i.i
+  %9 = load ptr, ptr %reader_.i.i, align 8
+  %end.i85 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %end.i85, align 8
+  %11 = load ptr, ptr %9, align 8
+  %cmp.i89.not = icmp eq ptr %10, %11
+  br i1 %cmp.i89.not, label %return, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
-  %target.i.i.i.0.copyload = load i8, ptr %9, align 1
-  %add.ptr.i89 = getelementptr inbounds i8, ptr %9, i64 1
-  store ptr %add.ptr.i89, ptr %7, align 8
+  %target.i.i.i.0.copyload = load i8, ptr %11, align 1
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %11, i64 1
+  store ptr %add.ptr.i91, ptr %9, align 8
   %conv5.i.i.i = sext i8 %target.i.i.i.0.copyload to i32
   store i32 %conv5.i.i.i, ptr %y.i, align 4
   br label %if.else.i70.i
 
 if.else.i70.i:                                    ; preds = %if.end4.i.i.i, %if.else.i.i
-  %10 = and i8 %vec.i.i.sroa.0.0.copyload, 4
-  %tobool.i.i100.i.not = icmp eq i8 %10, 0
+  %12 = and i8 %vec.i.i.sroa.0.0.copyload, 4
+  %tobool.i.i100.i.not = icmp eq i8 %12, 0
   br i1 %tobool.i.i100.i.not, label %if.else.i104.i, label %if.end.i.i106.i
 
 if.end.i.i106.i:                                  ; preds = %if.else.i70.i
-  %11 = load ptr, ptr %reader_.i.i, align 8
-  %end.i91 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %end.i91, align 8
-  %13 = load ptr, ptr %11, align 8
-  %cmp.i95.not = icmp eq ptr %12, %13
-  br i1 %cmp.i95.not, label %return, label %if.end4.i.i112.i
+  %13 = load ptr, ptr %reader_.i.i, align 8
+  %end.i93 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %end.i93, align 8
+  %15 = load ptr, ptr %13, align 8
+  %cmp.i97.not = icmp eq ptr %14, %15
+  br i1 %cmp.i97.not, label %return, label %if.end4.i.i112.i
 
 if.end4.i.i112.i:                                 ; preds = %if.end.i.i106.i
-  %target.i.i82.i.0.copyload = load i8, ptr %13, align 1
-  %add.ptr.i97 = getelementptr inbounds i8, ptr %13, i64 1
-  store ptr %add.ptr.i97, ptr %11, align 8
+  %target.i.i82.i.0.copyload = load i8, ptr %15, align 1
+  %add.ptr.i99 = getelementptr inbounds i8, ptr %15, i64 1
+  store ptr %add.ptr.i99, ptr %13, align 8
   %conv5.i.i113.i = sext i8 %target.i.i82.i.0.copyload to i32
   store i32 %conv5.i.i113.i, ptr %width.i, align 4
   br label %if.else.i104.i
 
 if.else.i104.i:                                   ; preds = %if.end4.i.i112.i, %if.else.i70.i
-  %14 = and i8 %vec.i.i.sroa.0.0.copyload, 8
-  %tobool.i.i140.i.not = icmp eq i8 %14, 0
+  %16 = and i8 %vec.i.i.sroa.0.0.copyload, 8
+  %tobool.i.i140.i.not = icmp eq i8 %16, 0
   br i1 %tobool.i.i140.i.not, label %return, label %if.end.i.i143.i
 
 if.end.i.i143.i:                                  ; preds = %if.else.i104.i
-  %15 = load ptr, ptr %reader_.i.i, align 8
-  %end.i99 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %end.i99, align 8
-  %17 = load ptr, ptr %15, align 8
-  %cmp.i103.not = icmp eq ptr %16, %17
-  br i1 %cmp.i103.not, label %return, label %if.end4.i.i149.i
+  %17 = load ptr, ptr %reader_.i.i, align 8
+  %end.i101 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %end.i101, align 8
+  %19 = load ptr, ptr %17, align 8
+  %cmp.i105.not = icmp eq ptr %18, %19
+  br i1 %cmp.i105.not, label %return, label %if.end4.i.i149.i
 
 if.end4.i.i149.i:                                 ; preds = %if.end.i.i143.i
-  %target.i.i124.i.0.copyload = load i8, ptr %17, align 1
-  %add.ptr.i105 = getelementptr inbounds i8, ptr %17, i64 1
-  store ptr %add.ptr.i105, ptr %15, align 8
+  %target.i.i124.i.0.copyload = load i8, ptr %19, align 1
+  %add.ptr.i107 = getelementptr inbounds i8, ptr %19, i64 1
+  store ptr %add.ptr.i107, ptr %17, align 8
   %conv5.i.i150.i = sext i8 %target.i.i124.i.0.copyload to i32
   br label %return.sink.split
 
 sw.bb20.i.i:                                      ; preds = %if.end.i.i
-  %and.i168.i = and i32 %conv.i.i209, 1
-  %tobool.i169.i.not = icmp eq i32 %and.i168.i, 0
+  %20 = and i8 %vec.i.i.sroa.0.0.copyload, 1
+  %tobool.i169.i.not = icmp eq i8 %20, 0
   br i1 %tobool.i169.i.not, label %if.else.i27.i, label %if.end.i171.i
 
 if.end.i171.i:                                    ; preds = %sw.bb20.i.i
-  %18 = load ptr, ptr %reader_.i.i, align 8
-  %end.i107 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %end.i107, align 8
-  %20 = load ptr, ptr %18, align 8
-  %sub.ptr.lhs.cast.i108 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i109 = ptrtoint ptr %20 to i64
-  %sub.ptr.sub.i110 = sub i64 %sub.ptr.lhs.cast.i108, %sub.ptr.rhs.cast.i109
-  %cmp.i111 = icmp ugt i64 %sub.ptr.sub.i110, 1
-  br i1 %cmp.i111, label %if.end4.i176.i, label %return
+  %21 = load ptr, ptr %reader_.i.i, align 8
+  %end.i109 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load ptr, ptr %end.i109, align 8
+  %23 = load ptr, ptr %21, align 8
+  %sub.ptr.lhs.cast.i110 = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i111 = ptrtoint ptr %23 to i64
+  %sub.ptr.sub.i112 = sub i64 %sub.ptr.lhs.cast.i110, %sub.ptr.rhs.cast.i111
+  %cmp.i113 = icmp ugt i64 %sub.ptr.sub.i112, 1
+  br i1 %cmp.i113, label %if.end4.i176.i, label %return
 
 if.end4.i176.i:                                   ; preds = %if.end.i171.i
-  %target.i159.i.0.copyload = load i16, ptr %20, align 1
-  %add.ptr.i113 = getelementptr inbounds i8, ptr %20, i64 2
-  store ptr %add.ptr.i113, ptr %18, align 8
+  %target.i159.i.0.copyload = load i16, ptr %23, align 1
+  %add.ptr.i115 = getelementptr inbounds i8, ptr %23, i64 2
+  store ptr %add.ptr.i115, ptr %21, align 8
   %conv5.i177.i = sext i16 %target.i159.i.0.copyload to i32
   store i32 %conv5.i177.i, ptr %item, align 4
   br label %if.else.i27.i
 
 if.else.i27.i:                                    ; preds = %if.end4.i176.i, %sw.bb20.i.i
-  %21 = and i8 %vec.i.i.sroa.0.0.copyload, 2
-  %tobool.i.i205.i.not = icmp eq i8 %21, 0
+  %24 = and i8 %vec.i.i.sroa.0.0.copyload, 2
+  %tobool.i.i205.i.not = icmp eq i8 %24, 0
   br i1 %tobool.i.i205.i.not, label %if.else.i208.i, label %if.end.i.i210.i
 
 if.end.i.i210.i:                                  ; preds = %if.else.i27.i
-  %22 = load ptr, ptr %reader_.i.i, align 8
-  %end.i115 = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load ptr, ptr %end.i115, align 8
-  %24 = load ptr, ptr %22, align 8
-  %sub.ptr.lhs.cast.i116 = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i117 = ptrtoint ptr %24 to i64
-  %sub.ptr.sub.i118 = sub i64 %sub.ptr.lhs.cast.i116, %sub.ptr.rhs.cast.i117
-  %cmp.i119 = icmp ugt i64 %sub.ptr.sub.i118, 1
-  br i1 %cmp.i119, label %if.end4.i.i216.i, label %return
+  %25 = load ptr, ptr %reader_.i.i, align 8
+  %end.i117 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %end.i117, align 8
+  %27 = load ptr, ptr %25, align 8
+  %sub.ptr.lhs.cast.i118 = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i119 = ptrtoint ptr %27 to i64
+  %sub.ptr.sub.i120 = sub i64 %sub.ptr.lhs.cast.i118, %sub.ptr.rhs.cast.i119
+  %cmp.i121 = icmp ugt i64 %sub.ptr.sub.i120, 1
+  br i1 %cmp.i121, label %if.end4.i.i216.i, label %return
 
 if.end4.i.i216.i:                                 ; preds = %if.end.i.i210.i
-  %target.i.i186.i.0.copyload = load i16, ptr %24, align 1
-  %add.ptr.i121 = getelementptr inbounds i8, ptr %24, i64 2
-  store ptr %add.ptr.i121, ptr %22, align 8
+  %target.i.i186.i.0.copyload = load i16, ptr %27, align 1
+  %add.ptr.i123 = getelementptr inbounds i8, ptr %27, i64 2
+  store ptr %add.ptr.i123, ptr %25, align 8
   %conv5.i.i217.i = sext i16 %target.i.i186.i.0.copyload to i32
   store i32 %conv5.i.i217.i, ptr %y.i, align 4
   br label %if.else.i208.i
 
 if.else.i208.i:                                   ; preds = %if.end4.i.i216.i, %if.else.i27.i
-  %25 = and i8 %vec.i.i.sroa.0.0.copyload, 4
-  %tobool.i.i250.i.not = icmp eq i8 %25, 0
+  %28 = and i8 %vec.i.i.sroa.0.0.copyload, 4
+  %tobool.i.i250.i.not = icmp eq i8 %28, 0
   br i1 %tobool.i.i250.i.not, label %if.else.i254.i, label %if.end.i.i256.i
 
 if.end.i.i256.i:                                  ; preds = %if.else.i208.i
-  %26 = load ptr, ptr %reader_.i.i, align 8
-  %end.i123 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load ptr, ptr %end.i123, align 8
-  %28 = load ptr, ptr %26, align 8
-  %sub.ptr.lhs.cast.i124 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i125 = ptrtoint ptr %28 to i64
-  %sub.ptr.sub.i126 = sub i64 %sub.ptr.lhs.cast.i124, %sub.ptr.rhs.cast.i125
-  %cmp.i127 = icmp ugt i64 %sub.ptr.sub.i126, 1
-  br i1 %cmp.i127, label %if.end4.i.i261.i, label %return
+  %29 = load ptr, ptr %reader_.i.i, align 8
+  %end.i125 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load ptr, ptr %end.i125, align 8
+  %31 = load ptr, ptr %29, align 8
+  %sub.ptr.lhs.cast.i126 = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i127 = ptrtoint ptr %31 to i64
+  %sub.ptr.sub.i128 = sub i64 %sub.ptr.lhs.cast.i126, %sub.ptr.rhs.cast.i127
+  %cmp.i129 = icmp ugt i64 %sub.ptr.sub.i128, 1
+  br i1 %cmp.i129, label %if.end4.i.i261.i, label %return
 
 if.end4.i.i261.i:                                 ; preds = %if.end.i.i256.i
-  %target.i.i232.i.0.copyload = load i16, ptr %28, align 1
-  %add.ptr.i129 = getelementptr inbounds i8, ptr %28, i64 2
-  store ptr %add.ptr.i129, ptr %26, align 8
+  %target.i.i232.i.0.copyload = load i16, ptr %31, align 1
+  %add.ptr.i131 = getelementptr inbounds i8, ptr %31, i64 2
+  store ptr %add.ptr.i131, ptr %29, align 8
   %conv5.i.i262.i = sext i16 %target.i.i232.i.0.copyload to i32
   store i32 %conv5.i.i262.i, ptr %width.i, align 4
   br label %if.else.i254.i
 
 if.else.i254.i:                                   ; preds = %if.end4.i.i261.i, %if.else.i208.i
-  %29 = and i8 %vec.i.i.sroa.0.0.copyload, 8
-  %tobool.i.i289.i.not = icmp eq i8 %29, 0
+  %32 = and i8 %vec.i.i.sroa.0.0.copyload, 8
+  %tobool.i.i289.i.not = icmp eq i8 %32, 0
   br i1 %tobool.i.i289.i.not, label %return, label %if.end.i.i292.i
 
 if.end.i.i292.i:                                  ; preds = %if.else.i254.i
-  %30 = load ptr, ptr %reader_.i.i, align 8
-  %end.i131 = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load ptr, ptr %end.i131, align 8
-  %32 = load ptr, ptr %30, align 8
-  %sub.ptr.lhs.cast.i132 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i133 = ptrtoint ptr %32 to i64
-  %sub.ptr.sub.i134 = sub i64 %sub.ptr.lhs.cast.i132, %sub.ptr.rhs.cast.i133
-  %cmp.i135 = icmp ugt i64 %sub.ptr.sub.i134, 1
-  br i1 %cmp.i135, label %if.end4.i.i297.i, label %return
+  %33 = load ptr, ptr %reader_.i.i, align 8
+  %end.i133 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load ptr, ptr %end.i133, align 8
+  %35 = load ptr, ptr %33, align 8
+  %sub.ptr.lhs.cast.i134 = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i135 = ptrtoint ptr %35 to i64
+  %sub.ptr.sub.i136 = sub i64 %sub.ptr.lhs.cast.i134, %sub.ptr.rhs.cast.i135
+  %cmp.i137 = icmp ugt i64 %sub.ptr.sub.i136, 1
+  br i1 %cmp.i137, label %if.end4.i.i297.i, label %return
 
 if.end4.i.i297.i:                                 ; preds = %if.end.i.i292.i
-  %target.i.i273.i.0.copyload = load i16, ptr %32, align 1
-  %add.ptr.i137 = getelementptr inbounds i8, ptr %32, i64 2
-  store ptr %add.ptr.i137, ptr %30, align 8
+  %target.i.i273.i.0.copyload = load i16, ptr %35, align 1
+  %add.ptr.i139 = getelementptr inbounds i8, ptr %35, i64 2
+  store ptr %add.ptr.i139, ptr %33, align 8
   %conv5.i.i298.i = sext i16 %target.i.i273.i.0.copyload to i32
   br label %return.sink.split
 
 sw.bb22.i.i:                                      ; preds = %if.end.i.i
-  %and.i316.i = and i32 %conv.i.i209, 1
-  %tobool.i317.i.not = icmp eq i32 %and.i316.i, 0
+  %36 = and i8 %vec.i.i.sroa.0.0.copyload, 1
+  %tobool.i317.i.not = icmp eq i8 %36, 0
   br i1 %tobool.i317.i.not, label %if.else.i42.i, label %if.end.i319.i
 
 if.end.i319.i:                                    ; preds = %sw.bb22.i.i
-  %33 = load ptr, ptr %reader_.i.i, align 8
-  %end.i139 = getelementptr inbounds i8, ptr %33, i64 8
-  %34 = load ptr, ptr %end.i139, align 8
-  %35 = load ptr, ptr %33, align 8
-  %sub.ptr.lhs.cast.i140 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i141 = ptrtoint ptr %35 to i64
-  %sub.ptr.sub.i142 = sub i64 %sub.ptr.lhs.cast.i140, %sub.ptr.rhs.cast.i141
-  %cmp.i143 = icmp ugt i64 %sub.ptr.sub.i142, 3
-  br i1 %cmp.i143, label %if.end4.i324.i, label %return
+  %37 = load ptr, ptr %reader_.i.i, align 8
+  %end.i141 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load ptr, ptr %end.i141, align 8
+  %39 = load ptr, ptr %37, align 8
+  %sub.ptr.lhs.cast.i142 = ptrtoint ptr %38 to i64
+  %sub.ptr.rhs.cast.i143 = ptrtoint ptr %39 to i64
+  %sub.ptr.sub.i144 = sub i64 %sub.ptr.lhs.cast.i142, %sub.ptr.rhs.cast.i143
+  %cmp.i145 = icmp ugt i64 %sub.ptr.sub.i144, 3
+  br i1 %cmp.i145, label %if.end4.i324.i, label %return
 
 if.end4.i324.i:                                   ; preds = %if.end.i319.i
-  %target.i307.i.0.copyload = load i32, ptr %35, align 1
-  %add.ptr.i145 = getelementptr inbounds i8, ptr %35, i64 4
-  store ptr %add.ptr.i145, ptr %33, align 8
+  %target.i307.i.0.copyload = load i32, ptr %39, align 1
+  %add.ptr.i147 = getelementptr inbounds i8, ptr %39, i64 4
+  store ptr %add.ptr.i147, ptr %37, align 8
   store i32 %target.i307.i.0.copyload, ptr %item, align 4
   br label %if.else.i42.i
 
 if.else.i42.i:                                    ; preds = %if.end4.i324.i, %sw.bb22.i.i
-  %36 = and i8 %vec.i.i.sroa.0.0.copyload, 2
-  %tobool.i.i352.i.not = icmp eq i8 %36, 0
+  %40 = and i8 %vec.i.i.sroa.0.0.copyload, 2
+  %tobool.i.i352.i.not = icmp eq i8 %40, 0
   br i1 %tobool.i.i352.i.not, label %if.else.i355.i, label %if.end.i.i357.i
 
 if.end.i.i357.i:                                  ; preds = %if.else.i42.i
-  %37 = load ptr, ptr %reader_.i.i, align 8
-  %end.i147 = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load ptr, ptr %end.i147, align 8
-  %39 = load ptr, ptr %37, align 8
-  %sub.ptr.lhs.cast.i148 = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i149 = ptrtoint ptr %39 to i64
-  %sub.ptr.sub.i150 = sub i64 %sub.ptr.lhs.cast.i148, %sub.ptr.rhs.cast.i149
-  %cmp.i151 = icmp ugt i64 %sub.ptr.sub.i150, 3
-  br i1 %cmp.i151, label %if.end4.i.i363.i, label %return
+  %41 = load ptr, ptr %reader_.i.i, align 8
+  %end.i149 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load ptr, ptr %end.i149, align 8
+  %43 = load ptr, ptr %41, align 8
+  %sub.ptr.lhs.cast.i150 = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i151 = ptrtoint ptr %43 to i64
+  %sub.ptr.sub.i152 = sub i64 %sub.ptr.lhs.cast.i150, %sub.ptr.rhs.cast.i151
+  %cmp.i153 = icmp ugt i64 %sub.ptr.sub.i152, 3
+  br i1 %cmp.i153, label %if.end4.i.i363.i, label %return
 
 if.end4.i.i363.i:                                 ; preds = %if.end.i.i357.i
-  %target.i.i333.i.0.copyload = load i32, ptr %39, align 1
-  %add.ptr.i153 = getelementptr inbounds i8, ptr %39, i64 4
-  store ptr %add.ptr.i153, ptr %37, align 8
+  %target.i.i333.i.0.copyload = load i32, ptr %43, align 1
+  %add.ptr.i155 = getelementptr inbounds i8, ptr %43, i64 4
+  store ptr %add.ptr.i155, ptr %41, align 8
   store i32 %target.i.i333.i.0.copyload, ptr %y.i, align 4
   br label %if.else.i355.i
 
 if.else.i355.i:                                   ; preds = %if.end4.i.i363.i, %if.else.i42.i
-  %40 = and i8 %vec.i.i.sroa.0.0.copyload, 4
-  %tobool.i.i398.i.not = icmp eq i8 %40, 0
+  %44 = and i8 %vec.i.i.sroa.0.0.copyload, 4
+  %tobool.i.i398.i.not = icmp eq i8 %44, 0
   br i1 %tobool.i.i398.i.not, label %if.else.i402.i, label %if.end.i.i404.i
 
 if.end.i.i404.i:                                  ; preds = %if.else.i355.i
-  %41 = load ptr, ptr %reader_.i.i, align 8
-  %end.i155 = getelementptr inbounds i8, ptr %41, i64 8
-  %42 = load ptr, ptr %end.i155, align 8
-  %43 = load ptr, ptr %41, align 8
-  %sub.ptr.lhs.cast.i156 = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast.i157 = ptrtoint ptr %43 to i64
-  %sub.ptr.sub.i158 = sub i64 %sub.ptr.lhs.cast.i156, %sub.ptr.rhs.cast.i157
-  %cmp.i159 = icmp ugt i64 %sub.ptr.sub.i158, 3
-  br i1 %cmp.i159, label %if.end4.i.i410.i, label %return
+  %45 = load ptr, ptr %reader_.i.i, align 8
+  %end.i157 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = load ptr, ptr %end.i157, align 8
+  %47 = load ptr, ptr %45, align 8
+  %sub.ptr.lhs.cast.i158 = ptrtoint ptr %46 to i64
+  %sub.ptr.rhs.cast.i159 = ptrtoint ptr %47 to i64
+  %sub.ptr.sub.i160 = sub i64 %sub.ptr.lhs.cast.i158, %sub.ptr.rhs.cast.i159
+  %cmp.i161 = icmp ugt i64 %sub.ptr.sub.i160, 3
+  br i1 %cmp.i161, label %if.end4.i.i410.i, label %return
 
 if.end4.i.i410.i:                                 ; preds = %if.end.i.i404.i
-  %target.i.i380.i.0.copyload = load i32, ptr %43, align 1
-  %add.ptr.i161 = getelementptr inbounds i8, ptr %43, i64 4
-  store ptr %add.ptr.i161, ptr %41, align 8
+  %target.i.i380.i.0.copyload = load i32, ptr %47, align 1
+  %add.ptr.i163 = getelementptr inbounds i8, ptr %47, i64 4
+  store ptr %add.ptr.i163, ptr %45, align 8
   store i32 %target.i.i380.i.0.copyload, ptr %width.i, align 4
   br label %if.else.i402.i
 
 if.else.i402.i:                                   ; preds = %if.end4.i.i410.i, %if.else.i355.i
-  %44 = and i8 %vec.i.i.sroa.0.0.copyload, 8
-  %tobool.i.i437.i.not = icmp eq i8 %44, 0
+  %48 = and i8 %vec.i.i.sroa.0.0.copyload, 8
+  %tobool.i.i437.i.not = icmp eq i8 %48, 0
   br i1 %tobool.i.i437.i.not, label %return, label %if.end.i.i440.i
 
 if.end.i.i440.i:                                  ; preds = %if.else.i402.i
-  %45 = load ptr, ptr %reader_.i.i, align 8
-  %end.i163 = getelementptr inbounds i8, ptr %45, i64 8
-  %46 = load ptr, ptr %end.i163, align 8
-  %47 = load ptr, ptr %45, align 8
-  %sub.ptr.lhs.cast.i164 = ptrtoint ptr %46 to i64
-  %sub.ptr.rhs.cast.i165 = ptrtoint ptr %47 to i64
-  %sub.ptr.sub.i166 = sub i64 %sub.ptr.lhs.cast.i164, %sub.ptr.rhs.cast.i165
-  %cmp.i167 = icmp ugt i64 %sub.ptr.sub.i166, 3
-  br i1 %cmp.i167, label %if.end4.i.i446.i, label %return
+  %49 = load ptr, ptr %reader_.i.i, align 8
+  %end.i165 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = load ptr, ptr %end.i165, align 8
+  %51 = load ptr, ptr %49, align 8
+  %sub.ptr.lhs.cast.i166 = ptrtoint ptr %50 to i64
+  %sub.ptr.rhs.cast.i167 = ptrtoint ptr %51 to i64
+  %sub.ptr.sub.i168 = sub i64 %sub.ptr.lhs.cast.i166, %sub.ptr.rhs.cast.i167
+  %cmp.i169 = icmp ugt i64 %sub.ptr.sub.i168, 3
+  br i1 %cmp.i169, label %if.end4.i.i446.i, label %return
 
 if.end4.i.i446.i:                                 ; preds = %if.end.i.i440.i
-  %target.i.i421.i.0.copyload = load i32, ptr %47, align 1
-  %add.ptr.i169 = getelementptr inbounds i8, ptr %47, i64 4
-  store ptr %add.ptr.i169, ptr %45, align 8
+  %target.i.i421.i.0.copyload = load i32, ptr %51, align 1
+  %add.ptr.i171 = getelementptr inbounds i8, ptr %51, i64 4
+  store ptr %add.ptr.i171, ptr %49, align 8
   br label %return.sink.split
 
-default.unreachable208:                           ; preds = %if.end.i.i
+default.unreachable210:                           ; preds = %if.end.i.i
   unreachable
 
 return.sink.split:                                ; preds = %if.end4.i.i149.i, %if.end4.i.i297.i, %if.end4.i.i446.i
@@ -19768,286 +19766,285 @@ if.end.i.i:                                       ; preds = %entry
   %vec.i.i.sroa.0.0.copyload = load i8, ptr %2, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 1
   store ptr %add.ptr.i, ptr %0, align 8
-  %conv.i.i209 = zext i8 %vec.i.i.sroa.0.0.copyload to i32
-  %and.i.i = lshr i32 %conv.i.i209, 4
-  %add.i.i = and i32 %and.i.i, 3
-  switch i32 %add.i.i, label %default.unreachable208 [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb20.i.i
-    i32 2, label %sw.bb22.i.i
-    i32 3, label %return
+  %3 = lshr i8 %vec.i.i.sroa.0.0.copyload, 4
+  %add.i.i75 = and i8 %3, 3
+  switch i8 %add.i.i75, label %default.unreachable210 [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb20.i.i
+    i8 2, label %sw.bb22.i.i
+    i8 3, label %return
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
-  %and.i54.i = and i32 %conv.i.i209, 1
-  %tobool.i55.i.not = icmp eq i32 %and.i54.i, 0
+  %4 = and i8 %vec.i.i.sroa.0.0.copyload, 1
+  %tobool.i55.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i55.i.not, label %if.else.i.i, label %if.end.i57.i
 
 if.end.i57.i:                                     ; preds = %sw.bb.i.i
-  %3 = load ptr, ptr %reader_.i.i, align 8
-  %end.i75 = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %end.i75, align 8
-  %5 = load ptr, ptr %3, align 8
-  %cmp.i79.not = icmp eq ptr %4, %5
-  br i1 %cmp.i79.not, label %return, label %if.end4.i.i
+  %5 = load ptr, ptr %reader_.i.i, align 8
+  %end.i77 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %end.i77, align 8
+  %7 = load ptr, ptr %5, align 8
+  %cmp.i81.not = icmp eq ptr %6, %7
+  br i1 %cmp.i81.not, label %return, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i57.i
-  %target.i.i.0.copyload = load i8, ptr %5, align 1
-  %add.ptr.i81 = getelementptr inbounds i8, ptr %5, i64 1
-  store ptr %add.ptr.i81, ptr %3, align 8
+  %target.i.i.0.copyload = load i8, ptr %7, align 1
+  %add.ptr.i83 = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %add.ptr.i83, ptr %5, align 8
   %conv5.i.i = sext i8 %target.i.i.0.copyload to i32
   store i32 %conv5.i.i, ptr %item, align 4
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end4.i.i, %sw.bb.i.i
-  %6 = and i8 %vec.i.i.sroa.0.0.copyload, 2
-  %tobool.i.i.i.not = icmp eq i8 %6, 0
+  %8 = and i8 %vec.i.i.sroa.0.0.copyload, 2
+  %tobool.i.i.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.i.i.not, label %if.else.i70.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i
-  %7 = load ptr, ptr %reader_.i.i, align 8
-  %end.i83 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %end.i83, align 8
-  %9 = load ptr, ptr %7, align 8
-  %cmp.i87.not = icmp eq ptr %8, %9
-  br i1 %cmp.i87.not, label %return, label %if.end4.i.i.i
+  %9 = load ptr, ptr %reader_.i.i, align 8
+  %end.i85 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %end.i85, align 8
+  %11 = load ptr, ptr %9, align 8
+  %cmp.i89.not = icmp eq ptr %10, %11
+  br i1 %cmp.i89.not, label %return, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
-  %target.i.i.i.0.copyload = load i8, ptr %9, align 1
-  %add.ptr.i89 = getelementptr inbounds i8, ptr %9, i64 1
-  store ptr %add.ptr.i89, ptr %7, align 8
+  %target.i.i.i.0.copyload = load i8, ptr %11, align 1
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %11, i64 1
+  store ptr %add.ptr.i91, ptr %9, align 8
   %conv5.i.i.i = sext i8 %target.i.i.i.0.copyload to i32
   store i32 %conv5.i.i.i, ptr %y.i, align 4
   br label %if.else.i70.i
 
 if.else.i70.i:                                    ; preds = %if.end4.i.i.i, %if.else.i.i
-  %10 = and i8 %vec.i.i.sroa.0.0.copyload, 4
-  %tobool.i.i100.i.not = icmp eq i8 %10, 0
+  %12 = and i8 %vec.i.i.sroa.0.0.copyload, 4
+  %tobool.i.i100.i.not = icmp eq i8 %12, 0
   br i1 %tobool.i.i100.i.not, label %if.else.i104.i, label %if.end.i.i106.i
 
 if.end.i.i106.i:                                  ; preds = %if.else.i70.i
-  %11 = load ptr, ptr %reader_.i.i, align 8
-  %end.i91 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %end.i91, align 8
-  %13 = load ptr, ptr %11, align 8
-  %cmp.i95.not = icmp eq ptr %12, %13
-  br i1 %cmp.i95.not, label %return, label %if.end4.i.i112.i
+  %13 = load ptr, ptr %reader_.i.i, align 8
+  %end.i93 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %end.i93, align 8
+  %15 = load ptr, ptr %13, align 8
+  %cmp.i97.not = icmp eq ptr %14, %15
+  br i1 %cmp.i97.not, label %return, label %if.end4.i.i112.i
 
 if.end4.i.i112.i:                                 ; preds = %if.end.i.i106.i
-  %target.i.i82.i.0.copyload = load i8, ptr %13, align 1
-  %add.ptr.i97 = getelementptr inbounds i8, ptr %13, i64 1
-  store ptr %add.ptr.i97, ptr %11, align 8
+  %target.i.i82.i.0.copyload = load i8, ptr %15, align 1
+  %add.ptr.i99 = getelementptr inbounds i8, ptr %15, i64 1
+  store ptr %add.ptr.i99, ptr %13, align 8
   %conv5.i.i113.i = sext i8 %target.i.i82.i.0.copyload to i32
   store i32 %conv5.i.i113.i, ptr %width.i, align 4
   br label %if.else.i104.i
 
 if.else.i104.i:                                   ; preds = %if.end4.i.i112.i, %if.else.i70.i
-  %14 = and i8 %vec.i.i.sroa.0.0.copyload, 8
-  %tobool.i.i140.i.not = icmp eq i8 %14, 0
+  %16 = and i8 %vec.i.i.sroa.0.0.copyload, 8
+  %tobool.i.i140.i.not = icmp eq i8 %16, 0
   br i1 %tobool.i.i140.i.not, label %return, label %if.end.i.i143.i
 
 if.end.i.i143.i:                                  ; preds = %if.else.i104.i
-  %15 = load ptr, ptr %reader_.i.i, align 8
-  %end.i99 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %end.i99, align 8
-  %17 = load ptr, ptr %15, align 8
-  %cmp.i103.not = icmp eq ptr %16, %17
-  br i1 %cmp.i103.not, label %return, label %if.end4.i.i149.i
+  %17 = load ptr, ptr %reader_.i.i, align 8
+  %end.i101 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %end.i101, align 8
+  %19 = load ptr, ptr %17, align 8
+  %cmp.i105.not = icmp eq ptr %18, %19
+  br i1 %cmp.i105.not, label %return, label %if.end4.i.i149.i
 
 if.end4.i.i149.i:                                 ; preds = %if.end.i.i143.i
-  %target.i.i124.i.0.copyload = load i8, ptr %17, align 1
-  %add.ptr.i105 = getelementptr inbounds i8, ptr %17, i64 1
-  store ptr %add.ptr.i105, ptr %15, align 8
+  %target.i.i124.i.0.copyload = load i8, ptr %19, align 1
+  %add.ptr.i107 = getelementptr inbounds i8, ptr %19, i64 1
+  store ptr %add.ptr.i107, ptr %17, align 8
   %conv5.i.i150.i = sext i8 %target.i.i124.i.0.copyload to i32
   br label %return.sink.split
 
 sw.bb20.i.i:                                      ; preds = %if.end.i.i
-  %and.i168.i = and i32 %conv.i.i209, 1
-  %tobool.i169.i.not = icmp eq i32 %and.i168.i, 0
+  %20 = and i8 %vec.i.i.sroa.0.0.copyload, 1
+  %tobool.i169.i.not = icmp eq i8 %20, 0
   br i1 %tobool.i169.i.not, label %if.else.i27.i, label %if.end.i171.i
 
 if.end.i171.i:                                    ; preds = %sw.bb20.i.i
-  %18 = load ptr, ptr %reader_.i.i, align 8
-  %end.i107 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %end.i107, align 8
-  %20 = load ptr, ptr %18, align 8
-  %sub.ptr.lhs.cast.i108 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i109 = ptrtoint ptr %20 to i64
-  %sub.ptr.sub.i110 = sub i64 %sub.ptr.lhs.cast.i108, %sub.ptr.rhs.cast.i109
-  %cmp.i111 = icmp ugt i64 %sub.ptr.sub.i110, 1
-  br i1 %cmp.i111, label %if.end4.i176.i, label %return
+  %21 = load ptr, ptr %reader_.i.i, align 8
+  %end.i109 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load ptr, ptr %end.i109, align 8
+  %23 = load ptr, ptr %21, align 8
+  %sub.ptr.lhs.cast.i110 = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i111 = ptrtoint ptr %23 to i64
+  %sub.ptr.sub.i112 = sub i64 %sub.ptr.lhs.cast.i110, %sub.ptr.rhs.cast.i111
+  %cmp.i113 = icmp ugt i64 %sub.ptr.sub.i112, 1
+  br i1 %cmp.i113, label %if.end4.i176.i, label %return
 
 if.end4.i176.i:                                   ; preds = %if.end.i171.i
-  %target.i159.i.0.copyload = load i16, ptr %20, align 1
-  %add.ptr.i113 = getelementptr inbounds i8, ptr %20, i64 2
-  store ptr %add.ptr.i113, ptr %18, align 8
+  %target.i159.i.0.copyload = load i16, ptr %23, align 1
+  %add.ptr.i115 = getelementptr inbounds i8, ptr %23, i64 2
+  store ptr %add.ptr.i115, ptr %21, align 8
   %conv5.i177.i = sext i16 %target.i159.i.0.copyload to i32
   store i32 %conv5.i177.i, ptr %item, align 4
   br label %if.else.i27.i
 
 if.else.i27.i:                                    ; preds = %if.end4.i176.i, %sw.bb20.i.i
-  %21 = and i8 %vec.i.i.sroa.0.0.copyload, 2
-  %tobool.i.i205.i.not = icmp eq i8 %21, 0
+  %24 = and i8 %vec.i.i.sroa.0.0.copyload, 2
+  %tobool.i.i205.i.not = icmp eq i8 %24, 0
   br i1 %tobool.i.i205.i.not, label %if.else.i208.i, label %if.end.i.i210.i
 
 if.end.i.i210.i:                                  ; preds = %if.else.i27.i
-  %22 = load ptr, ptr %reader_.i.i, align 8
-  %end.i115 = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load ptr, ptr %end.i115, align 8
-  %24 = load ptr, ptr %22, align 8
-  %sub.ptr.lhs.cast.i116 = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i117 = ptrtoint ptr %24 to i64
-  %sub.ptr.sub.i118 = sub i64 %sub.ptr.lhs.cast.i116, %sub.ptr.rhs.cast.i117
-  %cmp.i119 = icmp ugt i64 %sub.ptr.sub.i118, 1
-  br i1 %cmp.i119, label %if.end4.i.i216.i, label %return
+  %25 = load ptr, ptr %reader_.i.i, align 8
+  %end.i117 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %end.i117, align 8
+  %27 = load ptr, ptr %25, align 8
+  %sub.ptr.lhs.cast.i118 = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i119 = ptrtoint ptr %27 to i64
+  %sub.ptr.sub.i120 = sub i64 %sub.ptr.lhs.cast.i118, %sub.ptr.rhs.cast.i119
+  %cmp.i121 = icmp ugt i64 %sub.ptr.sub.i120, 1
+  br i1 %cmp.i121, label %if.end4.i.i216.i, label %return
 
 if.end4.i.i216.i:                                 ; preds = %if.end.i.i210.i
-  %target.i.i186.i.0.copyload = load i16, ptr %24, align 1
-  %add.ptr.i121 = getelementptr inbounds i8, ptr %24, i64 2
-  store ptr %add.ptr.i121, ptr %22, align 8
+  %target.i.i186.i.0.copyload = load i16, ptr %27, align 1
+  %add.ptr.i123 = getelementptr inbounds i8, ptr %27, i64 2
+  store ptr %add.ptr.i123, ptr %25, align 8
   %conv5.i.i217.i = sext i16 %target.i.i186.i.0.copyload to i32
   store i32 %conv5.i.i217.i, ptr %y.i, align 4
   br label %if.else.i208.i
 
 if.else.i208.i:                                   ; preds = %if.end4.i.i216.i, %if.else.i27.i
-  %25 = and i8 %vec.i.i.sroa.0.0.copyload, 4
-  %tobool.i.i250.i.not = icmp eq i8 %25, 0
+  %28 = and i8 %vec.i.i.sroa.0.0.copyload, 4
+  %tobool.i.i250.i.not = icmp eq i8 %28, 0
   br i1 %tobool.i.i250.i.not, label %if.else.i254.i, label %if.end.i.i256.i
 
 if.end.i.i256.i:                                  ; preds = %if.else.i208.i
-  %26 = load ptr, ptr %reader_.i.i, align 8
-  %end.i123 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load ptr, ptr %end.i123, align 8
-  %28 = load ptr, ptr %26, align 8
-  %sub.ptr.lhs.cast.i124 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i125 = ptrtoint ptr %28 to i64
-  %sub.ptr.sub.i126 = sub i64 %sub.ptr.lhs.cast.i124, %sub.ptr.rhs.cast.i125
-  %cmp.i127 = icmp ugt i64 %sub.ptr.sub.i126, 1
-  br i1 %cmp.i127, label %if.end4.i.i261.i, label %return
+  %29 = load ptr, ptr %reader_.i.i, align 8
+  %end.i125 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load ptr, ptr %end.i125, align 8
+  %31 = load ptr, ptr %29, align 8
+  %sub.ptr.lhs.cast.i126 = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i127 = ptrtoint ptr %31 to i64
+  %sub.ptr.sub.i128 = sub i64 %sub.ptr.lhs.cast.i126, %sub.ptr.rhs.cast.i127
+  %cmp.i129 = icmp ugt i64 %sub.ptr.sub.i128, 1
+  br i1 %cmp.i129, label %if.end4.i.i261.i, label %return
 
 if.end4.i.i261.i:                                 ; preds = %if.end.i.i256.i
-  %target.i.i232.i.0.copyload = load i16, ptr %28, align 1
-  %add.ptr.i129 = getelementptr inbounds i8, ptr %28, i64 2
-  store ptr %add.ptr.i129, ptr %26, align 8
+  %target.i.i232.i.0.copyload = load i16, ptr %31, align 1
+  %add.ptr.i131 = getelementptr inbounds i8, ptr %31, i64 2
+  store ptr %add.ptr.i131, ptr %29, align 8
   %conv5.i.i262.i = sext i16 %target.i.i232.i.0.copyload to i32
   store i32 %conv5.i.i262.i, ptr %width.i, align 4
   br label %if.else.i254.i
 
 if.else.i254.i:                                   ; preds = %if.end4.i.i261.i, %if.else.i208.i
-  %29 = and i8 %vec.i.i.sroa.0.0.copyload, 8
-  %tobool.i.i289.i.not = icmp eq i8 %29, 0
+  %32 = and i8 %vec.i.i.sroa.0.0.copyload, 8
+  %tobool.i.i289.i.not = icmp eq i8 %32, 0
   br i1 %tobool.i.i289.i.not, label %return, label %if.end.i.i292.i
 
 if.end.i.i292.i:                                  ; preds = %if.else.i254.i
-  %30 = load ptr, ptr %reader_.i.i, align 8
-  %end.i131 = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load ptr, ptr %end.i131, align 8
-  %32 = load ptr, ptr %30, align 8
-  %sub.ptr.lhs.cast.i132 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i133 = ptrtoint ptr %32 to i64
-  %sub.ptr.sub.i134 = sub i64 %sub.ptr.lhs.cast.i132, %sub.ptr.rhs.cast.i133
-  %cmp.i135 = icmp ugt i64 %sub.ptr.sub.i134, 1
-  br i1 %cmp.i135, label %if.end4.i.i297.i, label %return
+  %33 = load ptr, ptr %reader_.i.i, align 8
+  %end.i133 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load ptr, ptr %end.i133, align 8
+  %35 = load ptr, ptr %33, align 8
+  %sub.ptr.lhs.cast.i134 = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i135 = ptrtoint ptr %35 to i64
+  %sub.ptr.sub.i136 = sub i64 %sub.ptr.lhs.cast.i134, %sub.ptr.rhs.cast.i135
+  %cmp.i137 = icmp ugt i64 %sub.ptr.sub.i136, 1
+  br i1 %cmp.i137, label %if.end4.i.i297.i, label %return
 
 if.end4.i.i297.i:                                 ; preds = %if.end.i.i292.i
-  %target.i.i273.i.0.copyload = load i16, ptr %32, align 1
-  %add.ptr.i137 = getelementptr inbounds i8, ptr %32, i64 2
-  store ptr %add.ptr.i137, ptr %30, align 8
+  %target.i.i273.i.0.copyload = load i16, ptr %35, align 1
+  %add.ptr.i139 = getelementptr inbounds i8, ptr %35, i64 2
+  store ptr %add.ptr.i139, ptr %33, align 8
   %conv5.i.i298.i = sext i16 %target.i.i273.i.0.copyload to i32
   br label %return.sink.split
 
 sw.bb22.i.i:                                      ; preds = %if.end.i.i
-  %and.i316.i = and i32 %conv.i.i209, 1
-  %tobool.i317.i.not = icmp eq i32 %and.i316.i, 0
+  %36 = and i8 %vec.i.i.sroa.0.0.copyload, 1
+  %tobool.i317.i.not = icmp eq i8 %36, 0
   br i1 %tobool.i317.i.not, label %if.else.i42.i, label %if.end.i319.i
 
 if.end.i319.i:                                    ; preds = %sw.bb22.i.i
-  %33 = load ptr, ptr %reader_.i.i, align 8
-  %end.i139 = getelementptr inbounds i8, ptr %33, i64 8
-  %34 = load ptr, ptr %end.i139, align 8
-  %35 = load ptr, ptr %33, align 8
-  %sub.ptr.lhs.cast.i140 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i141 = ptrtoint ptr %35 to i64
-  %sub.ptr.sub.i142 = sub i64 %sub.ptr.lhs.cast.i140, %sub.ptr.rhs.cast.i141
-  %cmp.i143 = icmp ugt i64 %sub.ptr.sub.i142, 3
-  br i1 %cmp.i143, label %if.end4.i324.i, label %return
+  %37 = load ptr, ptr %reader_.i.i, align 8
+  %end.i141 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load ptr, ptr %end.i141, align 8
+  %39 = load ptr, ptr %37, align 8
+  %sub.ptr.lhs.cast.i142 = ptrtoint ptr %38 to i64
+  %sub.ptr.rhs.cast.i143 = ptrtoint ptr %39 to i64
+  %sub.ptr.sub.i144 = sub i64 %sub.ptr.lhs.cast.i142, %sub.ptr.rhs.cast.i143
+  %cmp.i145 = icmp ugt i64 %sub.ptr.sub.i144, 3
+  br i1 %cmp.i145, label %if.end4.i324.i, label %return
 
 if.end4.i324.i:                                   ; preds = %if.end.i319.i
-  %target.i307.i.0.copyload = load i32, ptr %35, align 1
-  %add.ptr.i145 = getelementptr inbounds i8, ptr %35, i64 4
-  store ptr %add.ptr.i145, ptr %33, align 8
+  %target.i307.i.0.copyload = load i32, ptr %39, align 1
+  %add.ptr.i147 = getelementptr inbounds i8, ptr %39, i64 4
+  store ptr %add.ptr.i147, ptr %37, align 8
   store i32 %target.i307.i.0.copyload, ptr %item, align 4
   br label %if.else.i42.i
 
 if.else.i42.i:                                    ; preds = %if.end4.i324.i, %sw.bb22.i.i
-  %36 = and i8 %vec.i.i.sroa.0.0.copyload, 2
-  %tobool.i.i352.i.not = icmp eq i8 %36, 0
+  %40 = and i8 %vec.i.i.sroa.0.0.copyload, 2
+  %tobool.i.i352.i.not = icmp eq i8 %40, 0
   br i1 %tobool.i.i352.i.not, label %if.else.i355.i, label %if.end.i.i357.i
 
 if.end.i.i357.i:                                  ; preds = %if.else.i42.i
-  %37 = load ptr, ptr %reader_.i.i, align 8
-  %end.i147 = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load ptr, ptr %end.i147, align 8
-  %39 = load ptr, ptr %37, align 8
-  %sub.ptr.lhs.cast.i148 = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i149 = ptrtoint ptr %39 to i64
-  %sub.ptr.sub.i150 = sub i64 %sub.ptr.lhs.cast.i148, %sub.ptr.rhs.cast.i149
-  %cmp.i151 = icmp ugt i64 %sub.ptr.sub.i150, 3
-  br i1 %cmp.i151, label %if.end4.i.i363.i, label %return
+  %41 = load ptr, ptr %reader_.i.i, align 8
+  %end.i149 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load ptr, ptr %end.i149, align 8
+  %43 = load ptr, ptr %41, align 8
+  %sub.ptr.lhs.cast.i150 = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i151 = ptrtoint ptr %43 to i64
+  %sub.ptr.sub.i152 = sub i64 %sub.ptr.lhs.cast.i150, %sub.ptr.rhs.cast.i151
+  %cmp.i153 = icmp ugt i64 %sub.ptr.sub.i152, 3
+  br i1 %cmp.i153, label %if.end4.i.i363.i, label %return
 
 if.end4.i.i363.i:                                 ; preds = %if.end.i.i357.i
-  %target.i.i333.i.0.copyload = load i32, ptr %39, align 1
-  %add.ptr.i153 = getelementptr inbounds i8, ptr %39, i64 4
-  store ptr %add.ptr.i153, ptr %37, align 8
+  %target.i.i333.i.0.copyload = load i32, ptr %43, align 1
+  %add.ptr.i155 = getelementptr inbounds i8, ptr %43, i64 4
+  store ptr %add.ptr.i155, ptr %41, align 8
   store i32 %target.i.i333.i.0.copyload, ptr %y.i, align 4
   br label %if.else.i355.i
 
 if.else.i355.i:                                   ; preds = %if.end4.i.i363.i, %if.else.i42.i
-  %40 = and i8 %vec.i.i.sroa.0.0.copyload, 4
-  %tobool.i.i398.i.not = icmp eq i8 %40, 0
+  %44 = and i8 %vec.i.i.sroa.0.0.copyload, 4
+  %tobool.i.i398.i.not = icmp eq i8 %44, 0
   br i1 %tobool.i.i398.i.not, label %if.else.i402.i, label %if.end.i.i404.i
 
 if.end.i.i404.i:                                  ; preds = %if.else.i355.i
-  %41 = load ptr, ptr %reader_.i.i, align 8
-  %end.i155 = getelementptr inbounds i8, ptr %41, i64 8
-  %42 = load ptr, ptr %end.i155, align 8
-  %43 = load ptr, ptr %41, align 8
-  %sub.ptr.lhs.cast.i156 = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast.i157 = ptrtoint ptr %43 to i64
-  %sub.ptr.sub.i158 = sub i64 %sub.ptr.lhs.cast.i156, %sub.ptr.rhs.cast.i157
-  %cmp.i159 = icmp ugt i64 %sub.ptr.sub.i158, 3
-  br i1 %cmp.i159, label %if.end4.i.i410.i, label %return
+  %45 = load ptr, ptr %reader_.i.i, align 8
+  %end.i157 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = load ptr, ptr %end.i157, align 8
+  %47 = load ptr, ptr %45, align 8
+  %sub.ptr.lhs.cast.i158 = ptrtoint ptr %46 to i64
+  %sub.ptr.rhs.cast.i159 = ptrtoint ptr %47 to i64
+  %sub.ptr.sub.i160 = sub i64 %sub.ptr.lhs.cast.i158, %sub.ptr.rhs.cast.i159
+  %cmp.i161 = icmp ugt i64 %sub.ptr.sub.i160, 3
+  br i1 %cmp.i161, label %if.end4.i.i410.i, label %return
 
 if.end4.i.i410.i:                                 ; preds = %if.end.i.i404.i
-  %target.i.i380.i.0.copyload = load i32, ptr %43, align 1
-  %add.ptr.i161 = getelementptr inbounds i8, ptr %43, i64 4
-  store ptr %add.ptr.i161, ptr %41, align 8
+  %target.i.i380.i.0.copyload = load i32, ptr %47, align 1
+  %add.ptr.i163 = getelementptr inbounds i8, ptr %47, i64 4
+  store ptr %add.ptr.i163, ptr %45, align 8
   store i32 %target.i.i380.i.0.copyload, ptr %width.i, align 4
   br label %if.else.i402.i
 
 if.else.i402.i:                                   ; preds = %if.end4.i.i410.i, %if.else.i355.i
-  %44 = and i8 %vec.i.i.sroa.0.0.copyload, 8
-  %tobool.i.i437.i.not = icmp eq i8 %44, 0
+  %48 = and i8 %vec.i.i.sroa.0.0.copyload, 8
+  %tobool.i.i437.i.not = icmp eq i8 %48, 0
   br i1 %tobool.i.i437.i.not, label %return, label %if.end.i.i440.i
 
 if.end.i.i440.i:                                  ; preds = %if.else.i402.i
-  %45 = load ptr, ptr %reader_.i.i, align 8
-  %end.i163 = getelementptr inbounds i8, ptr %45, i64 8
-  %46 = load ptr, ptr %end.i163, align 8
-  %47 = load ptr, ptr %45, align 8
-  %sub.ptr.lhs.cast.i164 = ptrtoint ptr %46 to i64
-  %sub.ptr.rhs.cast.i165 = ptrtoint ptr %47 to i64
-  %sub.ptr.sub.i166 = sub i64 %sub.ptr.lhs.cast.i164, %sub.ptr.rhs.cast.i165
-  %cmp.i167 = icmp ugt i64 %sub.ptr.sub.i166, 3
-  br i1 %cmp.i167, label %if.end4.i.i446.i, label %return
+  %49 = load ptr, ptr %reader_.i.i, align 8
+  %end.i165 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = load ptr, ptr %end.i165, align 8
+  %51 = load ptr, ptr %49, align 8
+  %sub.ptr.lhs.cast.i166 = ptrtoint ptr %50 to i64
+  %sub.ptr.rhs.cast.i167 = ptrtoint ptr %51 to i64
+  %sub.ptr.sub.i168 = sub i64 %sub.ptr.lhs.cast.i166, %sub.ptr.rhs.cast.i167
+  %cmp.i169 = icmp ugt i64 %sub.ptr.sub.i168, 3
+  br i1 %cmp.i169, label %if.end4.i.i446.i, label %return
 
 if.end4.i.i446.i:                                 ; preds = %if.end.i.i440.i
-  %target.i.i421.i.0.copyload = load i32, ptr %47, align 1
-  %add.ptr.i169 = getelementptr inbounds i8, ptr %47, i64 4
-  store ptr %add.ptr.i169, ptr %45, align 8
+  %target.i.i421.i.0.copyload = load i32, ptr %51, align 1
+  %add.ptr.i171 = getelementptr inbounds i8, ptr %51, i64 4
+  store ptr %add.ptr.i171, ptr %49, align 8
   br label %return.sink.split
 
-default.unreachable208:                           ; preds = %if.end.i.i
+default.unreachable210:                           ; preds = %if.end.i.i
   unreachable
 
 return.sink.split:                                ; preds = %if.end4.i.i149.i, %if.end4.i.i297.i, %if.end4.i.i446.i
@@ -20078,286 +20075,285 @@ if.end.i.i:                                       ; preds = %entry
   %vec.i.i.sroa.0.0.copyload = load i8, ptr %2, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 1
   store ptr %add.ptr.i, ptr %0, align 8
-  %conv.i.i209 = zext i8 %vec.i.i.sroa.0.0.copyload to i32
-  %and.i.i = lshr i32 %conv.i.i209, 4
-  %add.i.i = and i32 %and.i.i, 3
-  switch i32 %add.i.i, label %default.unreachable208 [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb20.i.i
-    i32 2, label %sw.bb22.i.i
-    i32 3, label %return
+  %3 = lshr i8 %vec.i.i.sroa.0.0.copyload, 4
+  %add.i.i75 = and i8 %3, 3
+  switch i8 %add.i.i75, label %default.unreachable210 [
+    i8 0, label %sw.bb.i.i
+    i8 1, label %sw.bb20.i.i
+    i8 2, label %sw.bb22.i.i
+    i8 3, label %return
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
-  %and.i54.i = and i32 %conv.i.i209, 1
-  %tobool.i55.i.not = icmp eq i32 %and.i54.i, 0
+  %4 = and i8 %vec.i.i.sroa.0.0.copyload, 1
+  %tobool.i55.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i55.i.not, label %if.else.i.i, label %if.end.i57.i
 
 if.end.i57.i:                                     ; preds = %sw.bb.i.i
-  %3 = load ptr, ptr %reader_.i.i, align 8
-  %end.i75 = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %end.i75, align 8
-  %5 = load ptr, ptr %3, align 8
-  %cmp.i79.not = icmp eq ptr %4, %5
-  br i1 %cmp.i79.not, label %return, label %if.end4.i.i
+  %5 = load ptr, ptr %reader_.i.i, align 8
+  %end.i77 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %end.i77, align 8
+  %7 = load ptr, ptr %5, align 8
+  %cmp.i81.not = icmp eq ptr %6, %7
+  br i1 %cmp.i81.not, label %return, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i57.i
-  %target.i.i.0.copyload = load i8, ptr %5, align 1
-  %add.ptr.i81 = getelementptr inbounds i8, ptr %5, i64 1
-  store ptr %add.ptr.i81, ptr %3, align 8
+  %target.i.i.0.copyload = load i8, ptr %7, align 1
+  %add.ptr.i83 = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %add.ptr.i83, ptr %5, align 8
   %conv5.i.i = sext i8 %target.i.i.0.copyload to i32
   store i32 %conv5.i.i, ptr %item, align 4
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end4.i.i, %sw.bb.i.i
-  %6 = and i8 %vec.i.i.sroa.0.0.copyload, 2
-  %tobool.i.i.i.not = icmp eq i8 %6, 0
+  %8 = and i8 %vec.i.i.sroa.0.0.copyload, 2
+  %tobool.i.i.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.i.i.not, label %if.else.i70.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i
-  %7 = load ptr, ptr %reader_.i.i, align 8
-  %end.i83 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %end.i83, align 8
-  %9 = load ptr, ptr %7, align 8
-  %cmp.i87.not = icmp eq ptr %8, %9
-  br i1 %cmp.i87.not, label %return, label %if.end4.i.i.i
+  %9 = load ptr, ptr %reader_.i.i, align 8
+  %end.i85 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %end.i85, align 8
+  %11 = load ptr, ptr %9, align 8
+  %cmp.i89.not = icmp eq ptr %10, %11
+  br i1 %cmp.i89.not, label %return, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
-  %target.i.i.i.0.copyload = load i8, ptr %9, align 1
-  %add.ptr.i89 = getelementptr inbounds i8, ptr %9, i64 1
-  store ptr %add.ptr.i89, ptr %7, align 8
+  %target.i.i.i.0.copyload = load i8, ptr %11, align 1
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %11, i64 1
+  store ptr %add.ptr.i91, ptr %9, align 8
   %conv5.i.i.i = sext i8 %target.i.i.i.0.copyload to i32
   store i32 %conv5.i.i.i, ptr %y.i, align 4
   br label %if.else.i70.i
 
 if.else.i70.i:                                    ; preds = %if.end4.i.i.i, %if.else.i.i
-  %10 = and i8 %vec.i.i.sroa.0.0.copyload, 4
-  %tobool.i.i100.i.not = icmp eq i8 %10, 0
+  %12 = and i8 %vec.i.i.sroa.0.0.copyload, 4
+  %tobool.i.i100.i.not = icmp eq i8 %12, 0
   br i1 %tobool.i.i100.i.not, label %if.else.i104.i, label %if.end.i.i106.i
 
 if.end.i.i106.i:                                  ; preds = %if.else.i70.i
-  %11 = load ptr, ptr %reader_.i.i, align 8
-  %end.i91 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %end.i91, align 8
-  %13 = load ptr, ptr %11, align 8
-  %cmp.i95.not = icmp eq ptr %12, %13
-  br i1 %cmp.i95.not, label %return, label %if.end4.i.i112.i
+  %13 = load ptr, ptr %reader_.i.i, align 8
+  %end.i93 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %end.i93, align 8
+  %15 = load ptr, ptr %13, align 8
+  %cmp.i97.not = icmp eq ptr %14, %15
+  br i1 %cmp.i97.not, label %return, label %if.end4.i.i112.i
 
 if.end4.i.i112.i:                                 ; preds = %if.end.i.i106.i
-  %target.i.i82.i.0.copyload = load i8, ptr %13, align 1
-  %add.ptr.i97 = getelementptr inbounds i8, ptr %13, i64 1
-  store ptr %add.ptr.i97, ptr %11, align 8
+  %target.i.i82.i.0.copyload = load i8, ptr %15, align 1
+  %add.ptr.i99 = getelementptr inbounds i8, ptr %15, i64 1
+  store ptr %add.ptr.i99, ptr %13, align 8
   %conv5.i.i113.i = sext i8 %target.i.i82.i.0.copyload to i32
   store i32 %conv5.i.i113.i, ptr %width.i, align 4
   br label %if.else.i104.i
 
 if.else.i104.i:                                   ; preds = %if.end4.i.i112.i, %if.else.i70.i
-  %14 = and i8 %vec.i.i.sroa.0.0.copyload, 8
-  %tobool.i.i140.i.not = icmp eq i8 %14, 0
+  %16 = and i8 %vec.i.i.sroa.0.0.copyload, 8
+  %tobool.i.i140.i.not = icmp eq i8 %16, 0
   br i1 %tobool.i.i140.i.not, label %return, label %if.end.i.i143.i
 
 if.end.i.i143.i:                                  ; preds = %if.else.i104.i
-  %15 = load ptr, ptr %reader_.i.i, align 8
-  %end.i99 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %end.i99, align 8
-  %17 = load ptr, ptr %15, align 8
-  %cmp.i103.not = icmp eq ptr %16, %17
-  br i1 %cmp.i103.not, label %return, label %if.end4.i.i149.i
+  %17 = load ptr, ptr %reader_.i.i, align 8
+  %end.i101 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %end.i101, align 8
+  %19 = load ptr, ptr %17, align 8
+  %cmp.i105.not = icmp eq ptr %18, %19
+  br i1 %cmp.i105.not, label %return, label %if.end4.i.i149.i
 
 if.end4.i.i149.i:                                 ; preds = %if.end.i.i143.i
-  %target.i.i124.i.0.copyload = load i8, ptr %17, align 1
-  %add.ptr.i105 = getelementptr inbounds i8, ptr %17, i64 1
-  store ptr %add.ptr.i105, ptr %15, align 8
+  %target.i.i124.i.0.copyload = load i8, ptr %19, align 1
+  %add.ptr.i107 = getelementptr inbounds i8, ptr %19, i64 1
+  store ptr %add.ptr.i107, ptr %17, align 8
   %conv5.i.i150.i = sext i8 %target.i.i124.i.0.copyload to i32
   br label %return.sink.split
 
 sw.bb20.i.i:                                      ; preds = %if.end.i.i
-  %and.i168.i = and i32 %conv.i.i209, 1
-  %tobool.i169.i.not = icmp eq i32 %and.i168.i, 0
+  %20 = and i8 %vec.i.i.sroa.0.0.copyload, 1
+  %tobool.i169.i.not = icmp eq i8 %20, 0
   br i1 %tobool.i169.i.not, label %if.else.i27.i, label %if.end.i171.i
 
 if.end.i171.i:                                    ; preds = %sw.bb20.i.i
-  %18 = load ptr, ptr %reader_.i.i, align 8
-  %end.i107 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %end.i107, align 8
-  %20 = load ptr, ptr %18, align 8
-  %sub.ptr.lhs.cast.i108 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i109 = ptrtoint ptr %20 to i64
-  %sub.ptr.sub.i110 = sub i64 %sub.ptr.lhs.cast.i108, %sub.ptr.rhs.cast.i109
-  %cmp.i111 = icmp ugt i64 %sub.ptr.sub.i110, 1
-  br i1 %cmp.i111, label %if.end4.i176.i, label %return
+  %21 = load ptr, ptr %reader_.i.i, align 8
+  %end.i109 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load ptr, ptr %end.i109, align 8
+  %23 = load ptr, ptr %21, align 8
+  %sub.ptr.lhs.cast.i110 = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i111 = ptrtoint ptr %23 to i64
+  %sub.ptr.sub.i112 = sub i64 %sub.ptr.lhs.cast.i110, %sub.ptr.rhs.cast.i111
+  %cmp.i113 = icmp ugt i64 %sub.ptr.sub.i112, 1
+  br i1 %cmp.i113, label %if.end4.i176.i, label %return
 
 if.end4.i176.i:                                   ; preds = %if.end.i171.i
-  %target.i159.i.0.copyload = load i16, ptr %20, align 1
-  %add.ptr.i113 = getelementptr inbounds i8, ptr %20, i64 2
-  store ptr %add.ptr.i113, ptr %18, align 8
+  %target.i159.i.0.copyload = load i16, ptr %23, align 1
+  %add.ptr.i115 = getelementptr inbounds i8, ptr %23, i64 2
+  store ptr %add.ptr.i115, ptr %21, align 8
   %conv5.i177.i = sext i16 %target.i159.i.0.copyload to i32
   store i32 %conv5.i177.i, ptr %item, align 4
   br label %if.else.i27.i
 
 if.else.i27.i:                                    ; preds = %if.end4.i176.i, %sw.bb20.i.i
-  %21 = and i8 %vec.i.i.sroa.0.0.copyload, 2
-  %tobool.i.i205.i.not = icmp eq i8 %21, 0
+  %24 = and i8 %vec.i.i.sroa.0.0.copyload, 2
+  %tobool.i.i205.i.not = icmp eq i8 %24, 0
   br i1 %tobool.i.i205.i.not, label %if.else.i208.i, label %if.end.i.i210.i
 
 if.end.i.i210.i:                                  ; preds = %if.else.i27.i
-  %22 = load ptr, ptr %reader_.i.i, align 8
-  %end.i115 = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load ptr, ptr %end.i115, align 8
-  %24 = load ptr, ptr %22, align 8
-  %sub.ptr.lhs.cast.i116 = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i117 = ptrtoint ptr %24 to i64
-  %sub.ptr.sub.i118 = sub i64 %sub.ptr.lhs.cast.i116, %sub.ptr.rhs.cast.i117
-  %cmp.i119 = icmp ugt i64 %sub.ptr.sub.i118, 1
-  br i1 %cmp.i119, label %if.end4.i.i216.i, label %return
+  %25 = load ptr, ptr %reader_.i.i, align 8
+  %end.i117 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %end.i117, align 8
+  %27 = load ptr, ptr %25, align 8
+  %sub.ptr.lhs.cast.i118 = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i119 = ptrtoint ptr %27 to i64
+  %sub.ptr.sub.i120 = sub i64 %sub.ptr.lhs.cast.i118, %sub.ptr.rhs.cast.i119
+  %cmp.i121 = icmp ugt i64 %sub.ptr.sub.i120, 1
+  br i1 %cmp.i121, label %if.end4.i.i216.i, label %return
 
 if.end4.i.i216.i:                                 ; preds = %if.end.i.i210.i
-  %target.i.i186.i.0.copyload = load i16, ptr %24, align 1
-  %add.ptr.i121 = getelementptr inbounds i8, ptr %24, i64 2
-  store ptr %add.ptr.i121, ptr %22, align 8
+  %target.i.i186.i.0.copyload = load i16, ptr %27, align 1
+  %add.ptr.i123 = getelementptr inbounds i8, ptr %27, i64 2
+  store ptr %add.ptr.i123, ptr %25, align 8
   %conv5.i.i217.i = sext i16 %target.i.i186.i.0.copyload to i32
   store i32 %conv5.i.i217.i, ptr %y.i, align 4
   br label %if.else.i208.i
 
 if.else.i208.i:                                   ; preds = %if.end4.i.i216.i, %if.else.i27.i
-  %25 = and i8 %vec.i.i.sroa.0.0.copyload, 4
-  %tobool.i.i250.i.not = icmp eq i8 %25, 0
+  %28 = and i8 %vec.i.i.sroa.0.0.copyload, 4
+  %tobool.i.i250.i.not = icmp eq i8 %28, 0
   br i1 %tobool.i.i250.i.not, label %if.else.i254.i, label %if.end.i.i256.i
 
 if.end.i.i256.i:                                  ; preds = %if.else.i208.i
-  %26 = load ptr, ptr %reader_.i.i, align 8
-  %end.i123 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load ptr, ptr %end.i123, align 8
-  %28 = load ptr, ptr %26, align 8
-  %sub.ptr.lhs.cast.i124 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i125 = ptrtoint ptr %28 to i64
-  %sub.ptr.sub.i126 = sub i64 %sub.ptr.lhs.cast.i124, %sub.ptr.rhs.cast.i125
-  %cmp.i127 = icmp ugt i64 %sub.ptr.sub.i126, 1
-  br i1 %cmp.i127, label %if.end4.i.i261.i, label %return
+  %29 = load ptr, ptr %reader_.i.i, align 8
+  %end.i125 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load ptr, ptr %end.i125, align 8
+  %31 = load ptr, ptr %29, align 8
+  %sub.ptr.lhs.cast.i126 = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i127 = ptrtoint ptr %31 to i64
+  %sub.ptr.sub.i128 = sub i64 %sub.ptr.lhs.cast.i126, %sub.ptr.rhs.cast.i127
+  %cmp.i129 = icmp ugt i64 %sub.ptr.sub.i128, 1
+  br i1 %cmp.i129, label %if.end4.i.i261.i, label %return
 
 if.end4.i.i261.i:                                 ; preds = %if.end.i.i256.i
-  %target.i.i232.i.0.copyload = load i16, ptr %28, align 1
-  %add.ptr.i129 = getelementptr inbounds i8, ptr %28, i64 2
-  store ptr %add.ptr.i129, ptr %26, align 8
+  %target.i.i232.i.0.copyload = load i16, ptr %31, align 1
+  %add.ptr.i131 = getelementptr inbounds i8, ptr %31, i64 2
+  store ptr %add.ptr.i131, ptr %29, align 8
   %conv5.i.i262.i = sext i16 %target.i.i232.i.0.copyload to i32
   store i32 %conv5.i.i262.i, ptr %width.i, align 4
   br label %if.else.i254.i
 
 if.else.i254.i:                                   ; preds = %if.end4.i.i261.i, %if.else.i208.i
-  %29 = and i8 %vec.i.i.sroa.0.0.copyload, 8
-  %tobool.i.i289.i.not = icmp eq i8 %29, 0
+  %32 = and i8 %vec.i.i.sroa.0.0.copyload, 8
+  %tobool.i.i289.i.not = icmp eq i8 %32, 0
   br i1 %tobool.i.i289.i.not, label %return, label %if.end.i.i292.i
 
 if.end.i.i292.i:                                  ; preds = %if.else.i254.i
-  %30 = load ptr, ptr %reader_.i.i, align 8
-  %end.i131 = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load ptr, ptr %end.i131, align 8
-  %32 = load ptr, ptr %30, align 8
-  %sub.ptr.lhs.cast.i132 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i133 = ptrtoint ptr %32 to i64
-  %sub.ptr.sub.i134 = sub i64 %sub.ptr.lhs.cast.i132, %sub.ptr.rhs.cast.i133
-  %cmp.i135 = icmp ugt i64 %sub.ptr.sub.i134, 1
-  br i1 %cmp.i135, label %if.end4.i.i297.i, label %return
+  %33 = load ptr, ptr %reader_.i.i, align 8
+  %end.i133 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load ptr, ptr %end.i133, align 8
+  %35 = load ptr, ptr %33, align 8
+  %sub.ptr.lhs.cast.i134 = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i135 = ptrtoint ptr %35 to i64
+  %sub.ptr.sub.i136 = sub i64 %sub.ptr.lhs.cast.i134, %sub.ptr.rhs.cast.i135
+  %cmp.i137 = icmp ugt i64 %sub.ptr.sub.i136, 1
+  br i1 %cmp.i137, label %if.end4.i.i297.i, label %return
 
 if.end4.i.i297.i:                                 ; preds = %if.end.i.i292.i
-  %target.i.i273.i.0.copyload = load i16, ptr %32, align 1
-  %add.ptr.i137 = getelementptr inbounds i8, ptr %32, i64 2
-  store ptr %add.ptr.i137, ptr %30, align 8
+  %target.i.i273.i.0.copyload = load i16, ptr %35, align 1
+  %add.ptr.i139 = getelementptr inbounds i8, ptr %35, i64 2
+  store ptr %add.ptr.i139, ptr %33, align 8
   %conv5.i.i298.i = sext i16 %target.i.i273.i.0.copyload to i32
   br label %return.sink.split
 
 sw.bb22.i.i:                                      ; preds = %if.end.i.i
-  %and.i316.i = and i32 %conv.i.i209, 1
-  %tobool.i317.i.not = icmp eq i32 %and.i316.i, 0
+  %36 = and i8 %vec.i.i.sroa.0.0.copyload, 1
+  %tobool.i317.i.not = icmp eq i8 %36, 0
   br i1 %tobool.i317.i.not, label %if.else.i42.i, label %if.end.i319.i
 
 if.end.i319.i:                                    ; preds = %sw.bb22.i.i
-  %33 = load ptr, ptr %reader_.i.i, align 8
-  %end.i139 = getelementptr inbounds i8, ptr %33, i64 8
-  %34 = load ptr, ptr %end.i139, align 8
-  %35 = load ptr, ptr %33, align 8
-  %sub.ptr.lhs.cast.i140 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i141 = ptrtoint ptr %35 to i64
-  %sub.ptr.sub.i142 = sub i64 %sub.ptr.lhs.cast.i140, %sub.ptr.rhs.cast.i141
-  %cmp.i143 = icmp ugt i64 %sub.ptr.sub.i142, 3
-  br i1 %cmp.i143, label %if.end4.i324.i, label %return
+  %37 = load ptr, ptr %reader_.i.i, align 8
+  %end.i141 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load ptr, ptr %end.i141, align 8
+  %39 = load ptr, ptr %37, align 8
+  %sub.ptr.lhs.cast.i142 = ptrtoint ptr %38 to i64
+  %sub.ptr.rhs.cast.i143 = ptrtoint ptr %39 to i64
+  %sub.ptr.sub.i144 = sub i64 %sub.ptr.lhs.cast.i142, %sub.ptr.rhs.cast.i143
+  %cmp.i145 = icmp ugt i64 %sub.ptr.sub.i144, 3
+  br i1 %cmp.i145, label %if.end4.i324.i, label %return
 
 if.end4.i324.i:                                   ; preds = %if.end.i319.i
-  %target.i307.i.0.copyload = load i32, ptr %35, align 1
-  %add.ptr.i145 = getelementptr inbounds i8, ptr %35, i64 4
-  store ptr %add.ptr.i145, ptr %33, align 8
+  %target.i307.i.0.copyload = load i32, ptr %39, align 1
+  %add.ptr.i147 = getelementptr inbounds i8, ptr %39, i64 4
+  store ptr %add.ptr.i147, ptr %37, align 8
   store i32 %target.i307.i.0.copyload, ptr %item, align 4
   br label %if.else.i42.i
 
 if.else.i42.i:                                    ; preds = %if.end4.i324.i, %sw.bb22.i.i
-  %36 = and i8 %vec.i.i.sroa.0.0.copyload, 2
-  %tobool.i.i352.i.not = icmp eq i8 %36, 0
+  %40 = and i8 %vec.i.i.sroa.0.0.copyload, 2
+  %tobool.i.i352.i.not = icmp eq i8 %40, 0
   br i1 %tobool.i.i352.i.not, label %if.else.i355.i, label %if.end.i.i357.i
 
 if.end.i.i357.i:                                  ; preds = %if.else.i42.i
-  %37 = load ptr, ptr %reader_.i.i, align 8
-  %end.i147 = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load ptr, ptr %end.i147, align 8
-  %39 = load ptr, ptr %37, align 8
-  %sub.ptr.lhs.cast.i148 = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i149 = ptrtoint ptr %39 to i64
-  %sub.ptr.sub.i150 = sub i64 %sub.ptr.lhs.cast.i148, %sub.ptr.rhs.cast.i149
-  %cmp.i151 = icmp ugt i64 %sub.ptr.sub.i150, 3
-  br i1 %cmp.i151, label %if.end4.i.i363.i, label %return
+  %41 = load ptr, ptr %reader_.i.i, align 8
+  %end.i149 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load ptr, ptr %end.i149, align 8
+  %43 = load ptr, ptr %41, align 8
+  %sub.ptr.lhs.cast.i150 = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i151 = ptrtoint ptr %43 to i64
+  %sub.ptr.sub.i152 = sub i64 %sub.ptr.lhs.cast.i150, %sub.ptr.rhs.cast.i151
+  %cmp.i153 = icmp ugt i64 %sub.ptr.sub.i152, 3
+  br i1 %cmp.i153, label %if.end4.i.i363.i, label %return
 
 if.end4.i.i363.i:                                 ; preds = %if.end.i.i357.i
-  %target.i.i333.i.0.copyload = load i32, ptr %39, align 1
-  %add.ptr.i153 = getelementptr inbounds i8, ptr %39, i64 4
-  store ptr %add.ptr.i153, ptr %37, align 8
+  %target.i.i333.i.0.copyload = load i32, ptr %43, align 1
+  %add.ptr.i155 = getelementptr inbounds i8, ptr %43, i64 4
+  store ptr %add.ptr.i155, ptr %41, align 8
   store i32 %target.i.i333.i.0.copyload, ptr %y.i, align 4
   br label %if.else.i355.i
 
 if.else.i355.i:                                   ; preds = %if.end4.i.i363.i, %if.else.i42.i
-  %40 = and i8 %vec.i.i.sroa.0.0.copyload, 4
-  %tobool.i.i398.i.not = icmp eq i8 %40, 0
+  %44 = and i8 %vec.i.i.sroa.0.0.copyload, 4
+  %tobool.i.i398.i.not = icmp eq i8 %44, 0
   br i1 %tobool.i.i398.i.not, label %if.else.i402.i, label %if.end.i.i404.i
 
 if.end.i.i404.i:                                  ; preds = %if.else.i355.i
-  %41 = load ptr, ptr %reader_.i.i, align 8
-  %end.i155 = getelementptr inbounds i8, ptr %41, i64 8
-  %42 = load ptr, ptr %end.i155, align 8
-  %43 = load ptr, ptr %41, align 8
-  %sub.ptr.lhs.cast.i156 = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast.i157 = ptrtoint ptr %43 to i64
-  %sub.ptr.sub.i158 = sub i64 %sub.ptr.lhs.cast.i156, %sub.ptr.rhs.cast.i157
-  %cmp.i159 = icmp ugt i64 %sub.ptr.sub.i158, 3
-  br i1 %cmp.i159, label %if.end4.i.i410.i, label %return
+  %45 = load ptr, ptr %reader_.i.i, align 8
+  %end.i157 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = load ptr, ptr %end.i157, align 8
+  %47 = load ptr, ptr %45, align 8
+  %sub.ptr.lhs.cast.i158 = ptrtoint ptr %46 to i64
+  %sub.ptr.rhs.cast.i159 = ptrtoint ptr %47 to i64
+  %sub.ptr.sub.i160 = sub i64 %sub.ptr.lhs.cast.i158, %sub.ptr.rhs.cast.i159
+  %cmp.i161 = icmp ugt i64 %sub.ptr.sub.i160, 3
+  br i1 %cmp.i161, label %if.end4.i.i410.i, label %return
 
 if.end4.i.i410.i:                                 ; preds = %if.end.i.i404.i
-  %target.i.i380.i.0.copyload = load i32, ptr %43, align 1
-  %add.ptr.i161 = getelementptr inbounds i8, ptr %43, i64 4
-  store ptr %add.ptr.i161, ptr %41, align 8
+  %target.i.i380.i.0.copyload = load i32, ptr %47, align 1
+  %add.ptr.i163 = getelementptr inbounds i8, ptr %47, i64 4
+  store ptr %add.ptr.i163, ptr %45, align 8
   store i32 %target.i.i380.i.0.copyload, ptr %width.i, align 4
   br label %if.else.i402.i
 
 if.else.i402.i:                                   ; preds = %if.end4.i.i410.i, %if.else.i355.i
-  %44 = and i8 %vec.i.i.sroa.0.0.copyload, 8
-  %tobool.i.i437.i.not = icmp eq i8 %44, 0
+  %48 = and i8 %vec.i.i.sroa.0.0.copyload, 8
+  %tobool.i.i437.i.not = icmp eq i8 %48, 0
   br i1 %tobool.i.i437.i.not, label %return, label %if.end.i.i440.i
 
 if.end.i.i440.i:                                  ; preds = %if.else.i402.i
-  %45 = load ptr, ptr %reader_.i.i, align 8
-  %end.i163 = getelementptr inbounds i8, ptr %45, i64 8
-  %46 = load ptr, ptr %end.i163, align 8
-  %47 = load ptr, ptr %45, align 8
-  %sub.ptr.lhs.cast.i164 = ptrtoint ptr %46 to i64
-  %sub.ptr.rhs.cast.i165 = ptrtoint ptr %47 to i64
-  %sub.ptr.sub.i166 = sub i64 %sub.ptr.lhs.cast.i164, %sub.ptr.rhs.cast.i165
-  %cmp.i167 = icmp ugt i64 %sub.ptr.sub.i166, 3
-  br i1 %cmp.i167, label %if.end4.i.i446.i, label %return
+  %49 = load ptr, ptr %reader_.i.i, align 8
+  %end.i165 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = load ptr, ptr %end.i165, align 8
+  %51 = load ptr, ptr %49, align 8
+  %sub.ptr.lhs.cast.i166 = ptrtoint ptr %50 to i64
+  %sub.ptr.rhs.cast.i167 = ptrtoint ptr %51 to i64
+  %sub.ptr.sub.i168 = sub i64 %sub.ptr.lhs.cast.i166, %sub.ptr.rhs.cast.i167
+  %cmp.i169 = icmp ugt i64 %sub.ptr.sub.i168, 3
+  br i1 %cmp.i169, label %if.end4.i.i446.i, label %return
 
 if.end4.i.i446.i:                                 ; preds = %if.end.i.i440.i
-  %target.i.i421.i.0.copyload = load i32, ptr %47, align 1
-  %add.ptr.i169 = getelementptr inbounds i8, ptr %47, i64 4
-  store ptr %add.ptr.i169, ptr %45, align 8
+  %target.i.i421.i.0.copyload = load i32, ptr %51, align 1
+  %add.ptr.i171 = getelementptr inbounds i8, ptr %51, i64 4
+  store ptr %add.ptr.i171, ptr %49, align 8
   br label %return.sink.split
 
-default.unreachable208:                           ; preds = %if.end.i.i
+default.unreachable210:                           ; preds = %if.end.i.i
   unreachable
 
 return.sink.split:                                ; preds = %if.end4.i.i149.i, %if.end4.i.i297.i, %if.end4.i.i446.i

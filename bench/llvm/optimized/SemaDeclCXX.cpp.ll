@@ -15541,13 +15541,13 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit54:    ; preds = %60, %69
 86:                                               ; preds = %85
   call fastcc void @_ZL17NoteIndirectBasesRN5clang10ASTContextERN4llvm11SmallPtrSetINS_8QualTypeELj4EEERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %6, i64 %.0.copyload.i.i.i.i.i56)
   %.0.copyload.i.i.i.i.i57.pre = load i64, ptr %7, align 8
-  %.pre120 = and i64 %.0.copyload.i.i.i.i.i57.pre, -16
-  %.pre121 = inttoptr i64 %.pre120 to ptr
+  %.pre121 = and i64 %.0.copyload.i.i.i.i.i57.pre, -16
+  %.pre122 = inttoptr i64 %.pre121 to ptr
   br label %87
 
 87:                                               ; preds = %86, %85
-  %.pre-phi122 = phi ptr [ %.pre121, %86 ], [ %80, %85 ]
-  %88 = load ptr, ptr %.pre-phi122, align 8
+  %.pre-phi123 = phi ptr [ %.pre122, %86 ], [ %80, %85 ]
+  %88 = load ptr, ptr %.pre-phi123, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %89, align 8
   %90 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16

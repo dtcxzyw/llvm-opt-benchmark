@@ -50,8 +50,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0320.ph = phi i32 [ %.2, %256 ], [ 0, %23 ]
   br label %25
 
-25:                                               ; preds = %.outer377, %.loopexit491
-  %.0334 = phi i32 [ %54, %.loopexit491 ], [ %.0334.ph, %.outer377 ]
+25:                                               ; preds = %.outer377, %.loopexit493
+  %.0334 = phi i32 [ %54, %.loopexit493 ], [ %.0334.ph, %.outer377 ]
   %26 = load i32, ptr %0, align 4
   %27 = icmp sgt i32 %.0334, %26
   br i1 %27, label %28, label %29
@@ -83,7 +83,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 37:                                               ; preds = %38, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ %36, %33 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit491, label %38
+  br i1 %exitcond.not, label %.loopexit493, label %38
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds double, ptr %16, i64 %indvars.iv
@@ -107,15 +107,15 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %52 = getelementptr inbounds double, ptr %16, i64 %indvars.iv
   %53 = trunc nsw i64 %indvars.iv to i32
   store double 0.000000e+00, ptr %52, align 8
-  br label %.loopexit491
+  br label %.loopexit493
 
-.loopexit491:                                     ; preds = %37, %51
+.loopexit493:                                     ; preds = %37, %51
   %.1331 = phi i32 [ %53, %51 ], [ %34, %37 ]
   %54 = add nsw i32 %.1331, 1
   %55 = icmp eq i32 %.1331, %.0334
   br i1 %55, label %25, label %56
 
-56:                                               ; preds = %.loopexit491
+56:                                               ; preds = %.loopexit493
   %57 = sub nsw i32 %.1331, %.0334
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %5, align 4
@@ -133,11 +133,11 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %66, label %.sink.split, label %67
 
 .sink.split:                                      ; preds = %64, %56
-  %.sink512 = phi ptr [ %12, %56 ], [ %11, %64 ]
+  %.sink514 = phi ptr [ %12, %56 ], [ %11, %64 ]
   store i32 %58, ptr %5, align 4
-  call void @dlascl_(ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %.sink512, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %59, ptr noundef nonnull %0, ptr noundef nonnull %3)
+  call void @dlascl_(ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %.sink514, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %59, ptr noundef nonnull %0, ptr noundef nonnull %3)
   store i32 %57, ptr %5, align 4
-  call void @dlascl_(ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %.sink512, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %60, ptr noundef nonnull %0, ptr noundef nonnull %3)
+  call void @dlascl_(ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %.sink514, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %60, ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %67
 
 67:                                               ; preds = %.sink.split, %64
@@ -145,21 +145,21 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %69 = add nsw i32 %.1331, -1
   store i32 %69, ptr %5, align 4
   %.not351.not407 = icmp slt i32 %.0334, %.1331
-  %wide.trip.count462 = sext i32 %.1331 to i64
+  %wide.trip.count464 = sext i32 %.1331 to i64
   br i1 %.not351.not407, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %67, %.lr.ph
-  %indvars.iv459 = phi i64 [ %indvars.iv.next460, %.lr.ph ], [ %36, %67 ]
-  %70 = getelementptr inbounds double, ptr %16, i64 %indvars.iv459
+  %indvars.iv460 = phi i64 [ %indvars.iv.next461, %.lr.ph ], [ %36, %67 ]
+  %70 = getelementptr inbounds double, ptr %16, i64 %indvars.iv460
   %71 = load double, ptr %70, align 8
   %72 = fmul double %71, %71
   store double %72, ptr %70, align 8
-  %indvars.iv.next460 = add nsw i64 %indvars.iv459, 1
-  %exitcond463.not = icmp eq i64 %indvars.iv.next460, %wide.trip.count462
-  br i1 %exitcond463.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  %indvars.iv.next461 = add nsw i64 %indvars.iv460, 1
+  %exitcond465.not = icmp eq i64 %indvars.iv.next461, %wide.trip.count464
+  br i1 %exitcond465.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67
-  %73 = getelementptr inbounds double, ptr %17, i64 %wide.trip.count462
+  %73 = getelementptr inbounds double, ptr %17, i64 %wide.trip.count464
   %74 = load double, ptr %73, align 8
   %75 = call noundef double @llvm.fabs.f64(double %74)
   %76 = load double, ptr %59, align 8
@@ -188,18 +188,18 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %84
 
 84:                                               ; preds = %85, %83
-  %indvars.iv464 = phi i64 [ %indvars.iv.next465, %85 ], [ %111, %83 ]
-  %exitcond469.not = icmp eq i64 %indvars.iv464, %wide.trip.count468
-  br i1 %exitcond469.not, label %.thread, label %85
+  %indvars.iv466 = phi i64 [ %indvars.iv.next467, %85 ], [ %111, %83 ]
+  %exitcond471.not = icmp eq i64 %indvars.iv466, %wide.trip.count470
+  br i1 %exitcond471.not, label %.thread, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds double, ptr %16, i64 %indvars.iv464
+  %86 = getelementptr inbounds double, ptr %16, i64 %indvars.iv466
   %87 = load double, ptr %86, align 8
   %88 = call noundef double @llvm.fabs.f64(double %87)
-  %89 = getelementptr inbounds double, ptr %17, i64 %indvars.iv464
+  %89 = getelementptr inbounds double, ptr %17, i64 %indvars.iv466
   %90 = load double, ptr %89, align 8
-  %indvars.iv.next465 = add nsw i64 %indvars.iv464, 1
-  %91 = getelementptr double, ptr %1, i64 %indvars.iv464
+  %indvars.iv.next467 = add nsw i64 %indvars.iv466, 1
+  %91 = getelementptr double, ptr %1, i64 %indvars.iv466
   %92 = load double, ptr %91, align 8
   %93 = fmul double %90, %92
   %94 = call noundef double @llvm.fabs.f64(double %93)
@@ -208,9 +208,9 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %96, label %84, label %97, !llvm.loop !7
 
 97:                                               ; preds = %85
-  %98 = trunc nsw i64 %indvars.iv464 to i32
-  %sext488 = shl i64 %indvars.iv464, 32
-  %99 = ashr exact i64 %sext488, 29
+  %98 = trunc nsw i64 %indvars.iv466 to i32
+  %sext490 = shl i64 %indvars.iv466, 32
+  %99 = ashr exact i64 %sext490, 29
   %100 = getelementptr inbounds i8, ptr %16, i64 %99
   store double 0.000000e+00, ptr %100, align 8
   br label %.thread
@@ -249,8 +249,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %114 = getelementptr inbounds double, ptr %16, i64 %111
   %115 = sext i32 %113 to i64
   %116 = getelementptr inbounds double, ptr %17, i64 %115
-  %smax467 = call i32 @llvm.smax.i32(i32 %.0322, i32 %.1328.ph)
-  %wide.trip.count468 = sext i32 %smax467 to i64
+  %smax469 = call i32 @llvm.smax.i32(i32 %.0322, i32 %.1328.ph)
+  %wide.trip.count470 = sext i32 %smax469 to i64
   br label %82
 
 117:                                              ; preds = %103
@@ -292,16 +292,16 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.lr.ph416
 
 .lr.ph416:                                        ; preds = %.lr.ph416.preheader, %149
-  %indvars.iv470.in = phi i64 [ %136, %.lr.ph416.preheader ], [ %indvars.iv470, %149 ]
+  %indvars.iv472.in = phi i64 [ %136, %.lr.ph416.preheader ], [ %indvars.iv472, %149 ]
   %.0414 = phi double [ 1.000000e+00, %.lr.ph416.preheader ], [ %150, %149 ]
   %.0318413 = phi double [ %139, %.lr.ph416.preheader ], [ %157, %149 ]
   %.0335411 = phi double [ 0.000000e+00, %.lr.ph416.preheader ], [ %151, %149 ]
   %.0337410 = phi double [ %140, %.lr.ph416.preheader ], [ %.1338, %149 ]
-  %indvars.iv470 = add nsw i64 %indvars.iv470.in, -1
-  %142 = getelementptr inbounds double, ptr %16, i64 %indvars.iv470
+  %indvars.iv472 = add nsw i64 %indvars.iv472.in, -1
+  %142 = getelementptr inbounds double, ptr %16, i64 %indvars.iv472
   %143 = load double, ptr %142, align 8
   %144 = fadd double %.0337410, %143
-  %145 = icmp eq i64 %indvars.iv470, %sext
+  %145 = icmp eq i64 %indvars.iv472, %sext
   br i1 %145, label %149, label %146
 
 146:                                              ; preds = %.lr.ph416
@@ -313,7 +313,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 149:                                              ; preds = %146, %.lr.ph416
   %150 = fdiv double %.0337410, %144
   %151 = fdiv double %143, %144
-  %152 = getelementptr inbounds double, ptr %17, i64 %indvars.iv470
+  %152 = getelementptr inbounds double, ptr %17, i64 %indvars.iv472
   %153 = load double, ptr %152, align 8
   %154 = fsub double %153, %135
   %155 = fneg double %.0318413
@@ -329,7 +329,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %164 = fdiv double %163, %150
   %165 = fmul double %.0414, %143
   %.1338 = select i1 %162, double %164, double %165
-  %.not360.not = icmp sgt i64 %indvars.iv470, %111
+  %.not360.not = icmp sgt i64 %indvars.iv472, %111
   br i1 %.not360.not, label %.lr.ph416, label %._crit_edge417, !llvm.loop !8
 
 ._crit_edge417:                                   ; preds = %149, %119
@@ -356,18 +356,18 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %170
 
 170:                                              ; preds = %171, %169
-  %indvars.iv473 = phi i64 [ %indvars.iv.next474, %171 ], [ %196, %169 ]
-  %.not353.not = icmp sgt i64 %indvars.iv473, %81
+  %indvars.iv475 = phi i64 [ %indvars.iv.next476, %171 ], [ %196, %169 ]
+  %.not353.not = icmp sgt i64 %indvars.iv475, %81
   br i1 %.not353.not, label %171, label %.thread367
 
 171:                                              ; preds = %170
-  %indvars.iv.next474 = add nsw i64 %indvars.iv473, -1
-  %172 = getelementptr inbounds double, ptr %16, i64 %indvars.iv.next474
+  %indvars.iv.next476 = add nsw i64 %indvars.iv475, -1
+  %172 = getelementptr inbounds double, ptr %16, i64 %indvars.iv.next476
   %173 = load double, ptr %172, align 8
   %174 = call noundef double @llvm.fabs.f64(double %173)
-  %175 = getelementptr inbounds double, ptr %17, i64 %indvars.iv473
+  %175 = getelementptr inbounds double, ptr %17, i64 %indvars.iv475
   %176 = load double, ptr %175, align 8
-  %177 = getelementptr inbounds double, ptr %17, i64 %indvars.iv.next474
+  %177 = getelementptr inbounds double, ptr %17, i64 %indvars.iv.next476
   %178 = load double, ptr %177, align 8
   %179 = fmul double %176, %178
   %180 = call noundef double @llvm.fabs.f64(double %179)
@@ -376,9 +376,9 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %182, label %170, label %183, !llvm.loop !9
 
 183:                                              ; preds = %171
-  %184 = trunc nsw i64 %indvars.iv473 to i32
-  %sext489 = shl i64 %indvars.iv473, 32
-  %185 = ashr exact i64 %sext489, 29
+  %184 = trunc nsw i64 %indvars.iv475 to i32
+  %sext491 = shl i64 %indvars.iv475, 32
+  %185 = ashr exact i64 %sext491, 29
   %gep433 = getelementptr i8, ptr %invariant.gep, i64 %185
   store double 0.000000e+00, ptr %gep433, align 8
   br label %.thread367
@@ -452,15 +452,15 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not354.not420, label %.lr.ph427, label %._crit_edge428
 
 .lr.ph427:                                        ; preds = %204, %233
-  %indvars.iv476 = phi i64 [ %indvars.iv.next477, %233 ], [ %221, %204 ]
+  %indvars.iv478 = phi i64 [ %indvars.iv.next479, %233 ], [ %221, %204 ]
   %.1425 = phi double [ %234, %233 ], [ 1.000000e+00, %204 ]
   %.1319424 = phi double [ %241, %233 ], [ %224, %204 ]
   %.1336422 = phi double [ %235, %233 ], [ 0.000000e+00, %204 ]
   %.2339421 = phi double [ %.3340, %233 ], [ %225, %204 ]
-  %226 = getelementptr inbounds double, ptr %16, i64 %indvars.iv476
+  %226 = getelementptr inbounds double, ptr %16, i64 %indvars.iv478
   %227 = load double, ptr %226, align 8
   %228 = fadd double %.2339421, %227
-  %229 = icmp eq i64 %indvars.iv476, %221
+  %229 = icmp eq i64 %indvars.iv478, %221
   br i1 %229, label %233, label %230
 
 230:                                              ; preds = %.lr.ph427
@@ -472,8 +472,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 233:                                              ; preds = %230, %.lr.ph427
   %234 = fdiv double %.2339421, %228
   %235 = fdiv double %227, %228
-  %indvars.iv.next477 = add nsw i64 %indvars.iv476, 1
-  %236 = getelementptr double, ptr %1, i64 %indvars.iv476
+  %indvars.iv.next479 = add nsw i64 %indvars.iv478, 1
+  %236 = getelementptr double, ptr %1, i64 %indvars.iv478
   %237 = load double, ptr %236, align 8
   %238 = fsub double %237, %220
   %239 = fneg double %.1319424
@@ -481,7 +481,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %241 = call double @llvm.fmuladd.f64(double %234, double %238, double %240)
   %242 = fsub double %237, %241
   %243 = fadd double %.1319424, %242
-  %244 = getelementptr inbounds double, ptr %17, i64 %indvars.iv476
+  %244 = getelementptr inbounds double, ptr %17, i64 %indvars.iv478
   store double %243, ptr %244, align 8
   %245 = call noundef double @llvm.fabs.f64(double %234)
   %246 = fcmp ogt double %245, 0x10000000000000
@@ -489,8 +489,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %248 = fdiv double %247, %234
   %249 = fmul double %.1425, %227
   %.3340 = select i1 %246, double %248, double %249
-  %exitcond481.not = icmp eq i64 %indvars.iv.next477, %196
-  br i1 %exitcond481.not, label %._crit_edge428, label %.lr.ph427, !llvm.loop !10
+  %exitcond483.not = icmp eq i64 %indvars.iv.next479, %196
+  br i1 %exitcond483.not, label %._crit_edge428, label %.lr.ph427, !llvm.loop !10
 
 ._crit_edge428:                                   ; preds = %233, %204
   %.2339.lcssa = phi double [ %225, %204 ], [ %.3340, %233 ]
@@ -537,12 +537,12 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not364.not434, label %.lr.ph437.preheader, label %.loopexit
 
 .lr.ph437.preheader:                              ; preds = %258
-  %wide.trip.count485 = zext nneg i32 %259 to i64
+  %wide.trip.count487 = zext nneg i32 %259 to i64
   br label %.lr.ph437
 
 .lr.ph437:                                        ; preds = %.lr.ph437.preheader, %267
-  %indvars.iv482 = phi i64 [ 1, %.lr.ph437.preheader ], [ %indvars.iv.next483, %267 ]
-  %260 = getelementptr inbounds double, ptr %16, i64 %indvars.iv482
+  %indvars.iv484 = phi i64 [ 1, %.lr.ph437.preheader ], [ %indvars.iv.next485, %267 ]
+  %260 = getelementptr inbounds double, ptr %16, i64 %indvars.iv484
   %261 = load double, ptr %260, align 8
   %262 = call noundef double @llvm.fabs.f64(double %261)
   %263 = fcmp ogt double %262, 0x10000000000000
@@ -555,9 +555,9 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %267
 
 267:                                              ; preds = %.lr.ph437, %264
-  %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
-  %exitcond486.not = icmp eq i64 %indvars.iv.next483, %wide.trip.count485
-  br i1 %exitcond486.not, label %.loopexit, label %.lr.ph437, !llvm.loop !11
+  %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
+  %exitcond488.not = icmp eq i64 %indvars.iv.next485, %wide.trip.count487
+  br i1 %exitcond488.not, label %.loopexit, label %.lr.ph437, !llvm.loop !11
 
 .loopexit:                                        ; preds = %267, %258, %21, %28, %20
   ret void

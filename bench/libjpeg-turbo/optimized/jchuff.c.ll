@@ -314,8 +314,8 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %.185 = phi i64 [ %.084118, %.lr.ph ], [ %.084., %23 ]
   %.1 = phi i64 [ %.0119, %.lr.ph ], [ %..084, %23 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count
-  br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.backedge
+  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count
+  br i1 %exitcond152.not, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.lr.ph127, %25, %._crit_edge124
   %indvars.iv148.be = phi i64 [ %indvars.iv.next149, %25 ], [ 0, %._crit_edge124 ], [ 0, %.lr.ph127 ]
@@ -330,7 +330,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %26, label %.lr.ph129.preheader, label %27
 
 .lr.ph129.preheader:                              ; preds = %._crit_edge
-  %wide.trip.count155 = zext nneg i32 %.187 to i64
+  %wide.trip.count157 = zext nneg i32 %.187 to i64
   br label %.lr.ph129
 
 27:                                               ; preds = %._crit_edge
@@ -390,8 +390,8 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %63, label %.lr.ph127, label %.lr.ph.backedge, !llvm.loop !12
 
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %72
-  %indvars.iv152 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next153, %72 ]
-  %64 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv152
+  %indvars.iv153 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next154, %72 ]
+  %64 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv153
   %65 = load i32, ptr %64, align 4
   %66 = icmp sgt i32 %65, 32
   br i1 %66, label %67, label %72
@@ -411,33 +411,33 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %75 = load i8, ptr %74, align 1
   %76 = add i8 %75, 1
   store i8 %76, ptr %74, align 1
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %.preheader106.preheader, label %.lr.ph129, !llvm.loop !13
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %exitcond158.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count157
+  br i1 %exitcond158.not, label %.preheader106.preheader, label %.lr.ph129, !llvm.loop !13
 
 .preheader106.preheader:                          ; preds = %72, %.preheader108
   br label %.preheader106
 
 .preheader106:                                    ; preds = %.preheader106.preheader, %.preheader106
-  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.preheader106 ], [ 1, %.preheader106.preheader ]
+  %indvars.iv159 = phi i64 [ %indvars.iv.next160, %.preheader106 ], [ 1, %.preheader106.preheader ]
   %.091130 = phi i32 [ %81, %.preheader106 ], [ 0, %.preheader106.preheader ]
-  %77 = getelementptr inbounds [33 x i32], ptr %5, i64 0, i64 %indvars.iv157
+  %77 = getelementptr inbounds [33 x i32], ptr %5, i64 0, i64 %indvars.iv159
   store i32 %.091130, ptr %77, align 4
-  %78 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv157
+  %78 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv159
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = add nuw nsw i32 %.091130, %80
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next158, 33
-  br i1 %exitcond160.not, label %.preheader104, label %.preheader106, !llvm.loop !14
+  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
+  %exitcond162.not = icmp eq i64 %indvars.iv.next160, 33
+  br i1 %exitcond162.not, label %.preheader104, label %.preheader106, !llvm.loop !14
 
 .preheader104:                                    ; preds = %.preheader106, %._crit_edge135
-  %indvars.iv166 = phi i64 [ %.pre, %._crit_edge135 ], [ 32, %.preheader106 ]
-  %indvars.iv161 = phi i64 [ %indvars.iv.next162, %._crit_edge135 ], [ 30, %.preheader106 ]
-  %82 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv166
+  %indvars.iv168 = phi i64 [ %.pre, %._crit_edge135 ], [ 32, %.preheader106 ]
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %._crit_edge135 ], [ 30, %.preheader106 ]
+  %82 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv168
   %83 = load i8, ptr %82, align 1
   %.not133 = icmp eq i8 %83, 0
-  %.pre = add nsw i64 %indvars.iv166, -1
+  %.pre = add nsw i64 %indvars.iv168, -1
   br i1 %.not133, label %._crit_edge135, label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %.preheader104
@@ -449,21 +449,21 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   br label %87
 
 87:                                               ; preds = %87, %85
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %87 ], [ %indvars.iv161, %85 ]
-  %88 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv163
+  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %87 ], [ %indvars.iv163, %85 ]
+  %88 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 0
-  %indvars.iv.next164 = add nsw i64 %indvars.iv163, -1
+  %indvars.iv.next166 = add nsw i64 %indvars.iv165, -1
   br i1 %90, label %87, label %91, !llvm.loop !15
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv163
+  %92 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
   %93 = add i8 %86, -2
   store i8 %93, ptr %82, align 1
   %94 = load i8, ptr %84, align 1
   %95 = add i8 %94, 1
   store i8 %95, ptr %84, align 1
-  %96 = shl i64 %indvars.iv163, 32
+  %96 = shl i64 %indvars.iv165, 32
   %sext = add i64 %96, 4294967296
   %97 = ashr exact i64 %sext, 32
   %98 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %97
@@ -478,20 +478,20 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not, label %._crit_edge135, label %85, !llvm.loop !16
 
 ._crit_edge135:                                   ; preds = %91, %.preheader104
-  %104 = icmp ugt i64 %indvars.iv166, 17
-  %indvars.iv.next162 = add nsw i64 %indvars.iv161, -1
+  %104 = icmp ugt i64 %indvars.iv168, 17
+  %indvars.iv.next164 = add nsw i64 %indvars.iv163, -1
   br i1 %104, label %.preheader104, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %._crit_edge135, %.preheader
-  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %.preheader ], [ 16, %._crit_edge135 ]
-  %105 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv169
+  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.preheader ], [ 16, %._crit_edge135 ]
+  %105 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv171
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 0
-  %indvars.iv.next170 = add nsw i64 %indvars.iv169, -1
+  %indvars.iv.next172 = add nsw i64 %indvars.iv171, -1
   br i1 %107, label %.preheader, label %108, !llvm.loop !18
 
 108:                                              ; preds = %.preheader
-  %109 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv169
+  %109 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv171
   %110 = add i8 %106, -1
   store i8 %110, ptr %109, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %1, ptr noundef nonnull align 16 dereferenceable(17) %4, i64 17, i1 false)
@@ -501,15 +501,15 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 .lr.ph140:                                        ; preds = %108
   %112 = add nsw i32 %.187, -1
   %113 = getelementptr inbounds i8, ptr %1, i64 17
-  %wide.trip.count175 = zext nneg i32 %112 to i64
+  %wide.trip.count177 = zext nneg i32 %112 to i64
   br label %114
 
 114:                                              ; preds = %.lr.ph140, %114
-  %indvars.iv172 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next173, %114 ]
-  %115 = getelementptr inbounds [257 x i32], ptr %7, i64 0, i64 %indvars.iv172
+  %indvars.iv174 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next175, %114 ]
+  %115 = getelementptr inbounds [257 x i32], ptr %7, i64 0, i64 %indvars.iv174
   %116 = load i32, ptr %115, align 4
   %117 = trunc i32 %116 to i8
-  %118 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv172
+  %118 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv174
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds [33 x i32], ptr %5, i64 0, i64 %120
@@ -519,9 +519,9 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   store i8 %117, ptr %124, align 1
   %125 = add nsw i32 %122, 1
   store i32 %125, ptr %121, align 4
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %._crit_edge141, label %114, !llvm.loop !19
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
+  %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
+  br i1 %exitcond178.not, label %._crit_edge141, label %114, !llvm.loop !19
 
 ._crit_edge141:                                   ; preds = %114, %108
   %126 = getelementptr inbounds i8, ptr %1, i64 276

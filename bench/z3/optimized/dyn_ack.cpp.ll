@@ -11225,11 +11225,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp16.i.i, label %while.body.i.i.preheader, label %if.then3
 
 while.body.i.i.preheader:                         ; preds = %if.end
-  %sub.ptr.div39 = udiv exact i64 %sub.ptr.sub, 24
+  %sub.ptr.div41 = udiv exact i64 %sub.ptr.sub, 24
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end4.i.i
-  %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div39, %while.body.i.i.preheader ]
+  %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div41, %while.body.i.i.preheader ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
   %mul.i.i = mul nuw nsw i64 %storemerge27.i.i, 24

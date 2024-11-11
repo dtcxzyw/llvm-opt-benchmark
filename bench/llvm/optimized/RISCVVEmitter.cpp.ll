@@ -11332,9 +11332,9 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
   %37 = load i64, ptr %.val.i, align 8
   store i64 %37, ptr %34, align 8
   %.not18.i.i.i.i.i.i.i = icmp eq i64 %storemerge26.i.i.i.i.i.i, 1
-  br i1 %.not18.i.i.i.i.i.i.i, label %.thread51.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i.i
+  br i1 %.not18.i.i.i.i.i.i.i, label %.thread53.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i.i
 
-.thread51.i.i.i.i:                                ; preds = %35
+.thread53.i.i.i.i:                                ; preds = %35
   %38 = inttoptr i64 %37 to ptr
   store ptr null, ptr %34, align 8
   store ptr %38, ptr %.val.i, align 8
@@ -11369,8 +11369,8 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
   %42 = getelementptr inbounds %"class.std::unique_ptr.110", ptr %34, i64 %storemerge26.i.i.i.i.i.i
   br label %.lr.ph.i.i.i9.preheader.i.i.i.i
 
-.lr.ph.i.i.i9.preheader.i.i.i.i:                  ; preds = %41, %.thread51.i.i.i.i
-  %43 = phi ptr [ %39, %.thread51.i.i.i.i ], [ %42, %41 ]
+.lr.ph.i.i.i9.preheader.i.i.i.i:                  ; preds = %41, %.thread53.i.i.i.i
+  %43 = phi ptr [ %39, %.thread53.i.i.i.i ], [ %42, %41 ]
   br label %.lr.ph.i.i.i9.i.i.i.i
 
 .lr.ph.i.i.i9.i.i.i.i:                            ; preds = %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i9.preheader.i.i.i.i
@@ -11391,9 +11391,9 @@ _ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_E
   br i1 %.not.i.i.i10.i.i.i.i, label %"_ZN4llvm11stable_sortIRSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESaIS8_EEZN12_GLOBAL__N_110RVVEmitter13createCodeGenERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i9.i.i.i.i, !llvm.loop !21
 
 "_ZN4llvm11stable_sortIRSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESaIS8_EEZN12_GLOBAL__N_110RVVEmitter13createCodeGenERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.i": ; preds = %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i, %.thread.i.i.i.i
-  %.sroa.6.02347.i.i.i.i = phi ptr [ null, %.thread.i.i.i.i ], [ %34, %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i ]
+  %.sroa.6.02349.i.i.i.i = phi ptr [ null, %.thread.i.i.i.i ], [ %34, %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i ]
   %46 = phi i64 [ 0, %.thread.i.i.i.i ], [ %33, %_ZSt8_DestroyISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i ]
-  call void @_ZdlPvm(ptr noundef %.sroa.6.02347.i.i.i.i, i64 noundef %46) #18
+  call void @_ZdlPvm(ptr noundef %.sroa.6.02349.i.i.i.i, i64 noundef %46) #18
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 20, i1 false)
   store i32 16, ptr %47, align 4
@@ -11726,11 +11726,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit76.i:             ; preds = %_ZStneIlSaIlEEbRKSt
   br i1 %.not135.i, label %._crit_edge.loopexit.i, label %51
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit76.i
-  %.pre153.i = load ptr, ptr %24, align 8
+  %.pre155.i = load ptr, ptr %24, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %"_ZN4llvm11stable_sortIRSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESaIS8_EEZN12_GLOBAL__N_110RVVEmitter13createCodeGenERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.thread.i"
-  %212 = phi ptr [ %.pre153.i, %._crit_edge.loopexit.i ], [ %.val53.i, %"_ZN4llvm11stable_sortIRSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESaIS8_EEZN12_GLOBAL__N_110RVVEmitter13createCodeGenERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.thread.i" ]
+  %212 = phi ptr [ %.pre155.i, %._crit_edge.loopexit.i ], [ %.val53.i, %"_ZN4llvm11stable_sortIRSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS5_EESaIS8_EEZN12_GLOBAL__N_110RVVEmitter13createCodeGenERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit.thread.i" ]
   %213 = getelementptr inbounds i8, ptr %212, i64 -8
   %214 = load ptr, ptr %213, align 8
   call void @_Z21emitCodeGenSwitchBodyPKN5clang5RISCV12RVVIntrinsicERN4llvm11raw_ostreamE(ptr noundef %214, ptr noundef nonnull align 8 dereferenceable(48) %1)

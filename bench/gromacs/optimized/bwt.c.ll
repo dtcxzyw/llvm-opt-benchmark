@@ -323,30 +323,30 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr nocapture nou
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %10, i1 false)
-  %wide.trip.count222 = zext nneg i32 %1 to i64
+  %wide.trip.count223 = zext nneg i32 %1 to i64
   br label %.lr.ph190
 
 .lr.ph190:                                        ; preds = %._crit_edge, %70
-  %indvars.iv219 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next220, %70 ]
-  %20 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv219
+  %indvars.iv220 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next221, %70 ]
+  %20 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv220
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %.preheader139.preheader, label %70
 
 .preheader139.preheader:                          ; preds = %.lr.ph190
-  %22 = trunc nuw nsw i64 %indvars.iv219 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv220 to i32
   br label %.preheader139
 
 .preheader141:                                    ; preds = %.loopexit, %.split.us
-  %.4238 = phi i32 [ %.2111155.us, %.split.us ], [ %.4, %.loopexit ]
-  %.4117237 = phi i32 [ %.2115154.us, %.split.us ], [ %.4117, %.loopexit ]
-  %23 = icmp slt i32 %.4238, %.4117237
+  %.4239 = phi i32 [ %.2111155.us, %.split.us ], [ %.4, %.loopexit ]
+  %.4117238 = phi i32 [ %.2115154.us, %.split.us ], [ %.4117, %.loopexit ]
+  %23 = icmp slt i32 %.4239, %.4117238
   br i1 %23, label %.lr.ph184.preheader, label %.critedge.thread
 
 .lr.ph184.preheader:                              ; preds = %.preheader141
-  %24 = sext i32 %.4238 to i64
-  %25 = sext i32 %.4117237 to i64
-  %26 = trunc nuw nsw i64 %indvars.iv219 to i32
+  %24 = sext i32 %.4239 to i64
+  %25 = sext i32 %.4117238 to i64
+  %26 = trunc nuw nsw i64 %indvars.iv220 to i32
   br label %.lr.ph184
 
 .preheader139:                                    ; preds = %.preheader139.preheader, %.loopexit
@@ -429,23 +429,23 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr nocapture nou
   br i1 %54, label %.preheader139, label %.preheader141, !llvm.loop !11
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %57
-  %indvars.iv216 = phi i64 [ %24, %.lr.ph184.preheader ], [ %indvars.iv.next217, %57 ]
+  %indvars.iv217 = phi i64 [ %24, %.lr.ph184.preheader ], [ %indvars.iv.next218, %57 ]
   %.1119183 = phi i32 [ 0, %.lr.ph184.preheader ], [ %64, %57 ]
   %55 = add nsw i32 %.1119183, %26
   %56 = icmp slt i32 %55, %1
   br i1 %56, label %57, label %.critedge
 
 57:                                               ; preds = %.lr.ph184
-  %58 = sub nsw i32 %.4117237, %.1119183
+  %58 = sub nsw i32 %.4117238, %.1119183
   %spec.select136 = tail call i32 @llvm.smin.i32(i32 %58, i32 %1)
   %59 = shl i32 %spec.select136, 8
-  %60 = or i32 %59, %.4238
+  %60 = or i32 %59, %.4239
   %61 = sext i32 %55 to i64
   %62 = getelementptr inbounds i32, ptr %11, i64 %61
   store i32 %60, ptr %62, align 4
-  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, %24
-  %63 = icmp slt i64 %indvars.iv.next217, %25
-  %64 = trunc nsw i64 %indvars.iv216 to i32
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, %24
+  %63 = icmp slt i64 %indvars.iv.next218, %25
+  %64 = trunc nsw i64 %indvars.iv217 to i32
   br i1 %63, label %.lr.ph184, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph184, %57
@@ -455,61 +455,61 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr nocapture nou
   br i1 %65, label %.critedge.thread, label %70
 
 .critedge.thread:                                 ; preds = %.preheader141, %.critedge
-  %.1119.lcssa241 = phi i32 [ %.1119.lcssa.ph, %.critedge ], [ 0, %.preheader141 ]
-  %66 = trunc nuw nsw i64 %indvars.iv219 to i32
-  %67 = add nsw i32 %.1119.lcssa241, %66
+  %.1119.lcssa242 = phi i32 [ %.1119.lcssa.ph, %.critedge ], [ 0, %.preheader141 ]
+  %66 = trunc nuw nsw i64 %indvars.iv220 to i32
+  %67 = add nsw i32 %.1119.lcssa242, %66
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i32, ptr %11, i64 %68
   store i32 257, ptr %69, align 4
   br label %70
 
 70:                                               ; preds = %.lr.ph190, %.critedge.thread, %.critedge
-  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
-  %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
-  br i1 %exitcond223.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !13
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
+  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
+  br i1 %exitcond224.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !13
 
 ._crit_edge191:                                   ; preds = %70
   tail call void @Ptngc_bwt_merge_sort_inner(ptr noundef %8, i32 noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12)
-  %wide.trip.count227 = zext nneg i32 %1 to i64
+  %wide.trip.count228 = zext nneg i32 %1 to i64
   br label %.lr.ph194
 
 .lr.ph194:                                        ; preds = %._crit_edge191, %74
-  %indvars.iv224 = phi i64 [ 0, %._crit_edge191 ], [ %indvars.iv.next225, %74 ]
-  %71 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv224
+  %indvars.iv225 = phi i64 [ 0, %._crit_edge191 ], [ %indvars.iv.next226, %74 ]
+  %71 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv225
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %._crit_edge195.split.loop.exit259, label %74
+  br i1 %73, label %._crit_edge195.split.loop.exit260, label %74
 
 74:                                               ; preds = %.lr.ph194
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
-  br i1 %exitcond228.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !14
+  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
+  br i1 %exitcond229.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !14
 
-._crit_edge195.split.loop.exit259:                ; preds = %.lr.ph194
-  %75 = trunc nuw nsw i64 %indvars.iv224 to i32
+._crit_edge195.split.loop.exit260:                ; preds = %.lr.ph194
+  %75 = trunc nuw nsw i64 %indvars.iv225 to i32
   br label %._crit_edge195
 
-._crit_edge195:                                   ; preds = %74, %._crit_edge195.split.loop.exit259
-  %.2.lcssa = phi i32 [ %75, %._crit_edge195.split.loop.exit259 ], [ %1, %74 ]
+._crit_edge195:                                   ; preds = %74, %._crit_edge195.split.loop.exit260
+  %.2.lcssa = phi i32 [ %75, %._crit_edge195.split.loop.exit260 ], [ %1, %74 ]
   store i32 %.2.lcssa, ptr %3, align 4
   %invariant.gep = getelementptr i8, ptr %0, i64 -4
-  %wide.trip.count232 = zext nneg i32 %1 to i64
+  %wide.trip.count233 = zext nneg i32 %1 to i64
   br label %.lr.ph201
 
 .lr.ph201:                                        ; preds = %._crit_edge195, %.lr.ph201
-  %indvars.iv229 = phi i64 [ 0, %._crit_edge195 ], [ %indvars.iv.next230, %.lr.ph201 ]
-  %76 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv229
+  %indvars.iv230 = phi i64 [ 0, %._crit_edge195 ], [ %indvars.iv.next231, %.lr.ph201 ]
+  %76 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv230
   %77 = load i32, ptr %76, align 4
   %78 = icmp slt i32 %77, 1
   %spec.select137 = select i1 %78, i32 %1, i32 %77
   %79 = sext i32 %spec.select137 to i64
   %gep = getelementptr i32, ptr %invariant.gep, i64 %79
   %80 = load i32, ptr %gep, align 4
-  %81 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv229
+  %81 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv230
   store i32 %80, ptr %81, align 4
-  %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
-  %exitcond233.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count232
-  br i1 %exitcond233.not, label %._crit_edge202, label %.lr.ph201, !llvm.loop !15
+  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
+  %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
+  br i1 %exitcond234.not, label %._crit_edge202, label %.lr.ph201, !llvm.loop !15
 
 ._crit_edge202:                                   ; preds = %.lr.ph201, %._crit_edge.thread
   tail call void @free(ptr noundef %11) #10

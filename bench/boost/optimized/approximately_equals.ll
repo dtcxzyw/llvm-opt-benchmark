@@ -70430,7 +70430,7 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit111.thread: ; preds =
   %331 = icmp eq i64 %.sroa.22.0333, %323
   %332 = getelementptr inbounds nuw i8, ptr %329, i64 %330
   %spec.select = select i1 %331, ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %329
-  %spec.select516 = select i1 %331, ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %332
+  %spec.select531 = select i1 %331, ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %332
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #58
   store ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %34, align 8, !tbaa !12
   store ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %82, align 8, !tbaa !14
@@ -70442,7 +70442,7 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit111.thread: ; preds =
   store ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %84, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37) #58
   store ptr %spec.select, ptr %38, align 8, !tbaa !12
-  store ptr %spec.select516, ptr %85, align 8, !tbaa !14
+  store ptr %spec.select531, ptr %85, align 8, !tbaa !14
   %333 = invoke noundef zeroext i1 @_ZN5boost7runtime3cla6parser21validate_token_formatENS_9unit_test13basic_cstringIKcEERS6_S7_S7_Rb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 1 dereferenceable(1) %37)
           to label %334 unwind label %339
 
@@ -70472,7 +70472,7 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit111.thread: ; preds =
 
 342:                                              ; preds = %337, %341
   %.sroa.0157.2 = phi ptr [ %spec.store.select.i97, %337 ], [ %spec.select, %341 ]
-  %.sroa.13.2 = phi ptr [ %99, %337 ], [ %spec.select516, %341 ]
+  %.sroa.13.2 = phi ptr [ %99, %337 ], [ %spec.select531, %341 ]
   %343 = phi i1 [ true, %337 ], [ false, %341 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #58
@@ -70571,8 +70571,8 @@ _ZNKSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_pt
   br i1 %.not.i.i.i.i.i, label %380, label %379
 
 379:                                              ; preds = %371
-  %.not421 = icmp ult i64 %.fr.i.i.i, %378
-  br i1 %.not421, label %.thread, label %.loopexit
+  %.not436 = icmp ult i64 %.fr.i.i.i, %378
+  br i1 %.not436, label %.thread, label %.loopexit
 
 380:                                              ; preds = %371
   br i1 %.not12.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i
@@ -70594,8 +70594,8 @@ _ZNKSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_pt
   br i1 %.not.i.i.i3.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !297
 
 _ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not422 = icmp slt i8 %381, %382
-  br i1 %.not422, label %.thread, label %.loopexit
+  %.not437 = icmp slt i8 %381, %382
+  br i1 %.not437, label %.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %384, %380, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i, %379
   %388 = getelementptr inbounds nuw i8, ptr %167, i64 169
@@ -166130,7 +166130,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integ
   %177 = sext i32 %110 to i64
   %178 = add nsw i64 %177, 334
   %.not89 = icmp slt i64 %178, %176
-  br i1 %.not89, label %225, label %179
+  br i1 %.not89, label %226, label %179
 
 179:                                              ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit
   %180 = sub nsw i32 %9, %110
@@ -166147,7 +166147,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integ
 182:                                              ; preds = %179
   %183 = and i128 %.sroa.09.0.insert.ext.i, 7
   %184 = icmp eq i128 %183, 0
-  br i1 %184, label %185, label %213
+  br i1 %184, label %185, label %214
 
 185:                                              ; preds = %182
   %186 = lshr i128 %.sroa.09.0.insert.insert.i, 6
@@ -166160,283 +166160,284 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integ
   br i1 %or.cond.i.i, label %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i, label %191
 
 191:                                              ; preds = %185
-  %.not38.i.i = icmp eq i64 %188, 0
-  br i1 %.not38.i.i, label %199, label %192
+  %192 = and i32 %180, 63
+  %.not38.i.i = icmp eq i32 %192, 0
+  br i1 %.not38.i.i, label %200, label %193
 
-192:                                              ; preds = %191
-  %193 = getelementptr i64, ptr %6, i64 %175
-  %194 = getelementptr i8, ptr %193, i64 -8
-  %195 = load i64, ptr %194, align 8, !tbaa !1506
-  %196 = sub nuw nsw i64 64, %188
-  %197 = lshr i64 %195, %196
-  %.not39.i.i = icmp ne i64 %197, 0
-  %198 = zext i1 %.not39.i.i to i64
-  %spec.select.i.i = add i64 %175, %198
-  br label %199
+193:                                              ; preds = %191
+  %194 = getelementptr i64, ptr %6, i64 %175
+  %195 = getelementptr i8, ptr %194, i64 -8
+  %196 = load i64, ptr %195, align 8, !tbaa !1506
+  %197 = sub nuw nsw i64 64, %188
+  %198 = lshr i64 %196, %197
+  %.not39.i.i = icmp ne i64 %198, 0
+  %199 = zext i1 %.not39.i.i to i64
+  %spec.select.i.i = add i64 %175, %199
+  br label %200
 
-199:                                              ; preds = %192, %191
-  %.0.i.i = phi i64 [ %175, %191 ], [ %spec.select.i.i, %192 ]
-  %200 = add i64 %.0.i.i, %187
-  %.sroa.speculated47.i.i = tail call i64 @llvm.umin.i64(i64 %200, i64 11)
+200:                                              ; preds = %193, %191
+  %.0.i.i = phi i64 [ %175, %191 ], [ %spec.select.i.i, %193 ]
+  %201 = add i64 %.0.i.i, %187
+  %.sroa.speculated47.i.i = tail call i64 @llvm.umin.i64(i64 %201, i64 11)
   store i64 %.sroa.speculated47.i.i, ptr %7, align 16, !tbaa !2613
   %.not40.i.i = icmp eq i64 %.sroa.speculated47.i.i, %175
-  br i1 %.not40.i.i, label %204, label %201
+  br i1 %.not40.i.i, label %205, label %202
 
-201:                                              ; preds = %199
-  %202 = getelementptr i64, ptr %6, i64 %.sroa.speculated47.i.i
-  %203 = getelementptr i8, ptr %202, i64 -8
-  store i64 0, ptr %203, align 8, !tbaa !1506
-  br label %204
+202:                                              ; preds = %200
+  %203 = getelementptr i64, ptr %6, i64 %.sroa.speculated47.i.i
+  %204 = getelementptr i8, ptr %203, i64 -8
+  store i64 0, ptr %204, align 8, !tbaa !1506
+  br label %205
 
-204:                                              ; preds = %201, %199
-  %205 = lshr exact i128 %.sroa.09.0.insert.insert.i, 3
-  %206 = trunc i128 %205 to i64
-  %207 = shl nuw nsw i64 %.sroa.speculated47.i.i, 3
-  %.not41.i.i = icmp ugt i64 %207, %206
-  br i1 %.not41.i.i, label %209, label %208
+205:                                              ; preds = %202, %200
+  %206 = lshr exact i128 %.sroa.09.0.insert.insert.i, 3
+  %207 = trunc i128 %206 to i64
+  %208 = shl nuw nsw i64 %.sroa.speculated47.i.i, 3
+  %.not41.i.i = icmp ugt i64 %208, %207
+  br i1 %.not41.i.i, label %210, label %209
 
-208:                                              ; preds = %204
+209:                                              ; preds = %205
   store i64 1, ptr %7, align 16, !tbaa !2613
   store i64 0, ptr %6, align 16, !tbaa !1506
   br label %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i
 
-209:                                              ; preds = %204
-  %210 = sub nuw nsw i64 %207, %206
-  %211 = shl i64 %175, 3
-  %.sroa.speculated.i.i110 = tail call i64 @llvm.umin.i64(i64 %210, i64 %211)
-  %212 = getelementptr inbounds nuw i8, ptr %6, i64 %206
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %212, ptr nonnull align 16 dereferenceable(104) %6, i64 %.sroa.speculated.i.i110, i1 false)
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 dereferenceable(104) %6, i8 0, i64 %206, i1 false)
+210:                                              ; preds = %205
+  %211 = sub nuw nsw i64 %208, %207
+  %212 = shl i64 %175, 3
+  %.sroa.speculated.i.i110 = tail call i64 @llvm.umin.i64(i64 %211, i64 %212)
+  %213 = getelementptr inbounds nuw i8, ptr %6, i64 %207
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %213, ptr nonnull align 16 dereferenceable(104) %6, i64 %.sroa.speculated.i.i110, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 dereferenceable(104) %6, i8 0, i64 %207, i1 false)
   br label %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i
 
-213:                                              ; preds = %182
+214:                                              ; preds = %182
   call void @_ZN5boost14multiprecision8backends18left_shift_genericINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o(ptr noundef nonnull align 16 dereferenceable(104) %6, i64 noundef %.sroa.06.0.extract.trunc, i64 noundef %.sroa.27.0.extract.trunc)
   br label %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i
 
-_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i: ; preds = %213, %209, %208, %185
-  %214 = load i64, ptr %164, align 16, !tbaa !1506
-  %215 = and i64 %214, 268435455
-  store i64 %215, ptr %164, align 16, !tbaa !1506
+_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i: ; preds = %214, %210, %209, %185
+  %215 = load i64, ptr %164, align 16, !tbaa !1506
+  %216 = and i64 %215, 268435455
+  store i64 %216, ptr %164, align 16, !tbaa !1506
   %.promoted.i = load i64, ptr %7, align 16, !tbaa !2613
-  %216 = add i64 %.promoted.i, -1
-  %.not.i13.i = icmp eq i64 %216, 0
+  %217 = add i64 %.promoted.i, -1
+  %.not.i13.i = icmp eq i64 %217, 0
   br i1 %.not.i13.i, label %_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i, %220
-  %217 = phi i64 [ %221, %220 ], [ %216, %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i ]
-  %218 = getelementptr inbounds nuw i64, ptr %6, i64 %217
-  %219 = load i64, ptr %218, align 8, !tbaa !1506
-  %.not5.i.i = icmp eq i64 %219, 0
-  br i1 %.not5.i.i, label %220, label %_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit
+.lr.ph.i:                                         ; preds = %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i, %221
+  %218 = phi i64 [ %222, %221 ], [ %217, %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i ]
+  %219 = getelementptr inbounds nuw i64, ptr %6, i64 %218
+  %220 = load i64, ptr %219, align 8, !tbaa !1506
+  %.not5.i.i = icmp eq i64 %220, 0
+  br i1 %.not5.i.i, label %221, label %_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit
 
-220:                                              ; preds = %.lr.ph.i
-  store i64 %217, ptr %7, align 16, !tbaa !2613
-  %221 = add i64 %217, -1
-  %.not.i.i109 = icmp eq i64 %221, 0
+221:                                              ; preds = %.lr.ph.i
+  store i64 %218, ptr %7, align 16, !tbaa !2613
+  %222 = add i64 %218, -1
+  %.not.i.i109 = icmp eq i64 %222, 0
   br i1 %.not.i.i109, label %_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit, label %.lr.ph.i, !llvm.loop !2615
 
-_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit: ; preds = %.lr.ph.i, %220, %179, %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i
-  %222 = load i32, ptr %8, align 16, !tbaa !263
-  %223 = sub nsw i32 %222, %180
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %223, ptr %224, align 16, !tbaa !263
+_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit: ; preds = %.lr.ph.i, %221, %179, %_ZN5boost14multiprecision8backends15left_shift_byteINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRT_o.exit.i
+  %223 = load i32, ptr %8, align 16, !tbaa !263
+  %224 = sub nsw i32 %223, %180
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %224, ptr %225, align 16, !tbaa !263
   call void @_ZN5boost14multiprecision8backends17subtract_unsignedINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEES6_NS3_ILm334ELm334ELS4_0ELS5_0EvEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(104) %6, ptr noundef nonnull align 16 dereferenceable(104) %6, ptr noundef nonnull align 16 dereferenceable(56) %2) #58
-  br label %292
+  br label %293
 
-225:                                              ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit
-  %226 = add nsw i64 %177, 335
-  %227 = icmp eq i64 %226, %176
-  br i1 %227, label %228, label %244
+226:                                              ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit
+  %227 = add nsw i64 %177, 335
+  %228 = icmp eq i64 %227, %176
+  br i1 %228, label %229, label %245
 
-228:                                              ; preds = %225
-  %229 = tail call noundef i64 @_ZN5boost14multiprecision8backends8eval_lsbILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEmE4typeERKS8_(ptr noundef nonnull align 16 dereferenceable(56) %1)
-  %230 = icmp eq i64 %229, 333
-  br i1 %230, label %231, label %241
+229:                                              ; preds = %226
+  %230 = tail call noundef i64 @_ZN5boost14multiprecision8backends8eval_lsbILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEmE4typeERKS8_(ptr noundef nonnull align 16 dereferenceable(56) %1)
+  %231 = icmp eq i64 %230, 333
+  br i1 %231, label %232, label %242
 
-231:                                              ; preds = %228
-  %232 = tail call noundef i64 @_ZN5boost14multiprecision8backends8eval_lsbILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEmE4typeERKS8_(ptr noundef nonnull align 16 dereferenceable(56) %2)
-  %.not90 = icmp eq i64 %232, 333
-  br i1 %.not90, label %241, label %233
+232:                                              ; preds = %229
+  %233 = tail call noundef i64 @_ZN5boost14multiprecision8backends8eval_lsbILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEmE4typeERKS8_(ptr noundef nonnull align 16 dereferenceable(56) %2)
+  %.not90 = icmp eq i64 %233, 333
+  br i1 %.not90, label %242, label %234
 
-233:                                              ; preds = %231
+234:                                              ; preds = %232
   call void @_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o(ptr noundef nonnull align 16 dereferenceable(104) %6, i64 noundef 1, i64 noundef 0) #58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #58
   store i64 1, ptr %5, align 8, !tbaa !1506
-  %234 = load i64, ptr %6, align 16, !tbaa !1506
-  %.not.i = icmp eq i64 %234, 0
-  br i1 %.not.i, label %237, label %235
+  %235 = load i64, ptr %6, align 16, !tbaa !1506
+  %.not.i = icmp eq i64 %235, 0
+  br i1 %.not.i, label %238, label %236
 
-235:                                              ; preds = %233
-  %236 = add i64 %234, -1
-  store i64 %236, ptr %6, align 16, !tbaa !1506
+236:                                              ; preds = %234
+  %237 = add i64 %235, -1
+  store i64 %237, ptr %6, align 16, !tbaa !1506
   br label %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit
 
-237:                                              ; preds = %233
+238:                                              ; preds = %234
   call void @_ZN5boost14multiprecision8backends17subtract_unsignedINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEES6_EEvRT_RKT0_RKy(ptr noundef nonnull align 16 dereferenceable(104) %6, ptr noundef nonnull align 16 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(8) %5) #58
   br label %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit
 
-_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit: ; preds = %235, %237
+_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit: ; preds = %236, %238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #58
-  %238 = load i32, ptr %8, align 16, !tbaa !263
-  %239 = add nsw i32 %238, -1
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %239, ptr %240, align 16, !tbaa !263
-  br label %292
+  %239 = load i32, ptr %8, align 16, !tbaa !263
+  %240 = add nsw i32 %239, -1
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %240, ptr %241, align 16, !tbaa !263
+  br label %293
 
-241:                                              ; preds = %231, %228
-  %242 = load i32, ptr %8, align 16, !tbaa !263
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %242, ptr %243, align 16, !tbaa !263
-  br label %292
+242:                                              ; preds = %232, %229
+  %243 = load i32, ptr %8, align 16, !tbaa !263
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %243, ptr %244, align 16, !tbaa !263
+  br label %293
 
-244:                                              ; preds = %225
-  %245 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %9, ptr %245, align 16, !tbaa !263
-  br label %292
+245:                                              ; preds = %226
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %9, ptr %246, align 16, !tbaa !263
+  br label %293
 
 _ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit: ; preds = %._ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit_crit_edge, %151, %159
-  %246 = phi i64 [ %.pre148, %._ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit_crit_edge ], [ %150, %151 ], [ %148, %159 ]
-  %.sroa.speculated10.i.i111 = tail call i64 @llvm.umin.i64(i64 %246, i64 11)
+  %247 = phi i64 [ %.pre148, %._ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit_crit_edge ], [ %150, %151 ], [ %148, %159 ]
+  %.sroa.speculated10.i.i111 = tail call i64 @llvm.umin.i64(i64 %247, i64 11)
   store i64 %.sroa.speculated10.i.i111, ptr %7, align 16, !tbaa !2613
-  %247 = shl i64 %246, 3
-  %248 = shl nuw nsw i64 %.sroa.speculated10.i.i111, 3
-  %.sroa.speculated.i.i112 = tail call i64 @llvm.umin.i64(i64 %248, i64 %247)
+  %248 = shl i64 %247, 3
+  %249 = shl nuw nsw i64 %.sroa.speculated10.i.i111, 3
+  %.sroa.speculated.i.i112 = tail call i64 @llvm.umin.i64(i64 %249, i64 %248)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 dereferenceable(104) %6, ptr nonnull align 16 dereferenceable(56) %2, i64 %.sroa.speculated.i.i112, i1 false)
-  %249 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %250 = load i64, ptr %249, align 16, !tbaa !1506
-  %251 = and i64 %250, 268435455
-  store i64 %251, ptr %249, align 16, !tbaa !1506
+  %250 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %251 = load i64, ptr %250, align 16, !tbaa !1506
+  %252 = and i64 %251, 268435455
+  store i64 %252, ptr %250, align 16, !tbaa !1506
   %.promoted.i.i113 = load i64, ptr %7, align 16, !tbaa !2613
-  %252 = add i64 %.promoted.i.i113, -1
-  %.not.i14.i.i114 = icmp eq i64 %252, 0
+  %253 = add i64 %.promoted.i.i113, -1
+  %.not.i14.i.i114 = icmp eq i64 %253, 0
   br i1 %.not.i14.i.i114, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118, label %.lr.ph.i.i115.preheader
 
 .lr.ph.i.i115.preheader:                          ; preds = %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit
-  %253 = getelementptr inbounds nuw i64, ptr %6, i64 %252
-  %254 = load i64, ptr %253, align 8, !tbaa !1506
-  %.not5.i.i.i116134 = icmp eq i64 %254, 0
+  %254 = getelementptr inbounds nuw i64, ptr %6, i64 %253
+  %255 = load i64, ptr %254, align 8, !tbaa !1506
+  %.not5.i.i.i116134 = icmp eq i64 %255, 0
   br i1 %.not5.i.i.i116134, label %.lr.ph, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118.loopexit
 
 .lr.ph.i.i115:                                    ; preds = %.lr.ph
-  %255 = getelementptr inbounds nuw i64, ptr %6, i64 %258
-  %256 = load i64, ptr %255, align 8, !tbaa !1506
-  %.not5.i.i.i116 = icmp eq i64 %256, 0
+  %256 = getelementptr inbounds nuw i64, ptr %6, i64 %259
+  %257 = load i64, ptr %256, align 8, !tbaa !1506
+  %.not5.i.i.i116 = icmp eq i64 %257, 0
   br i1 %.not5.i.i.i116, label %.lr.ph, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118.loopexit, !llvm.loop !2615
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i115.preheader, %.lr.ph.i.i115
-  %257 = phi i64 [ %258, %.lr.ph.i.i115 ], [ %252, %.lr.ph.i.i115.preheader ]
-  %258 = add i64 %257, -1
-  %.not.i.i.i117 = icmp eq i64 %258, 0
+  %258 = phi i64 [ %259, %.lr.ph.i.i115 ], [ %253, %.lr.ph.i.i115.preheader ]
+  %259 = add i64 %258, -1
+  %.not.i.i.i117 = icmp eq i64 %259, 0
   br i1 %.not.i.i.i117, label %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118.loopexit, label %.lr.ph.i.i115, !llvm.loop !2615
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118.loopexit: ; preds = %.lr.ph.i.i115, %.lr.ph, %.lr.ph.i.i115.preheader
-  %259 = phi i64 [ %.promoted.i.i113, %.lr.ph.i.i115.preheader ], [ %257, %.lr.ph.i.i115 ], [ 1, %.lr.ph ]
-  store i64 %259, ptr %7, align 16, !tbaa !2613
+  %260 = phi i64 [ %.promoted.i.i113, %.lr.ph.i.i115.preheader ], [ %258, %.lr.ph.i.i115 ], [ 1, %.lr.ph ]
+  store i64 %260, ptr %7, align 16, !tbaa !2613
   br label %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118
 
 _ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118: ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118.loopexit, %_ZNK5boost14multiprecision8backends15cpp_int_backendILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvE7compareILm334ELm334ELS3_0ELS4_0EvEEiRKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit
-  %260 = sext i32 %110 to i64
-  %261 = sext i32 %9 to i64
-  %262 = add nsw i64 %261, 334
-  %.not = icmp slt i64 %262, %260
-  br i1 %.not, label %270, label %263
+  %261 = sext i32 %110 to i64
+  %262 = sext i32 %9 to i64
+  %263 = add nsw i64 %262, 334
+  %.not = icmp slt i64 %263, %261
+  br i1 %.not, label %271, label %264
 
-263:                                              ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118
-  %264 = sub nsw i32 %9, %110
-  %265 = sub nsw i32 0, %264
-  %.sroa.01.0.extract.trunc = sext i32 %265 to i64
-  %266 = ashr i32 %265, 31
-  %.sroa.22.0.extract.trunc = sext i32 %266 to i64
+264:                                              ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118
+  %265 = sub nsw i32 %9, %110
+  %266 = sub nsw i32 0, %265
+  %.sroa.01.0.extract.trunc = sext i32 %266 to i64
+  %267 = ashr i32 %266, 31
+  %.sroa.22.0.extract.trunc = sext i32 %267 to i64
   call void @_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o(ptr noundef nonnull align 16 dereferenceable(104) %6, i64 noundef %.sroa.01.0.extract.trunc, i64 noundef %.sroa.22.0.extract.trunc) #58
-  %267 = load i32, ptr %109, align 16, !tbaa !263
-  %268 = add nsw i32 %267, %264
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %268, ptr %269, align 16, !tbaa !263
+  %268 = load i32, ptr %109, align 16, !tbaa !263
+  %269 = add nsw i32 %268, %265
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %269, ptr %270, align 16, !tbaa !263
   call void @_ZN5boost14multiprecision8backends17subtract_unsignedINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEES6_NS3_ILm334ELm334ELS4_0ELS5_0EvEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(104) %6, ptr noundef nonnull align 16 dereferenceable(104) %6, ptr noundef nonnull align 16 dereferenceable(56) %1) #58
-  br label %290
+  br label %291
 
-270:                                              ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118
-  %271 = add nsw i64 %261, 335
-  %272 = icmp eq i64 %271, %260
-  br i1 %272, label %273, label %288
+271:                                              ; preds = %_ZN5boost14multiprecision8backends15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEaSILm334ELm334ELS3_0ELS4_0EvEERS5_RKNS2_IXT_EXT0_EXT1_EXT2_ET3_EE.exit118
+  %272 = add nsw i64 %262, 335
+  %273 = icmp eq i64 %272, %261
+  br i1 %273, label %274, label %289
 
-273:                                              ; preds = %270
-  %274 = tail call noundef i64 @_ZN5boost14multiprecision8backends8eval_lsbILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEmE4typeERKS8_(ptr noundef nonnull align 16 dereferenceable(56) %1)
-  %.not87 = icmp eq i64 %274, 333
-  br i1 %.not87, label %285, label %275
+274:                                              ; preds = %271
+  %275 = tail call noundef i64 @_ZN5boost14multiprecision8backends8eval_lsbILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEmE4typeERKS8_(ptr noundef nonnull align 16 dereferenceable(56) %1)
+  %.not87 = icmp eq i64 %275, 333
+  br i1 %.not87, label %286, label %276
 
-275:                                              ; preds = %273
-  %276 = tail call noundef i64 @_ZN5boost14multiprecision8backends8eval_lsbILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEmE4typeERKS8_(ptr noundef nonnull align 16 dereferenceable(56) %2)
-  %.not88 = icmp eq i64 %276, 0
-  br i1 %.not88, label %285, label %277
+276:                                              ; preds = %274
+  %277 = tail call noundef i64 @_ZN5boost14multiprecision8backends8eval_lsbILm334ELm334ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEmE4typeERKS8_(ptr noundef nonnull align 16 dereferenceable(56) %2)
+  %.not88 = icmp eq i64 %277, 0
+  br i1 %.not88, label %286, label %278
 
-277:                                              ; preds = %275
+278:                                              ; preds = %276
   call void @_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o(ptr noundef nonnull align 16 dereferenceable(104) %6, i64 noundef 1, i64 noundef 0) #58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #58
   store i64 1, ptr %4, align 8, !tbaa !1506
-  %278 = load i64, ptr %6, align 16, !tbaa !1506
-  %.not.i92 = icmp eq i64 %278, 0
-  br i1 %.not.i92, label %281, label %279
+  %279 = load i64, ptr %6, align 16, !tbaa !1506
+  %.not.i92 = icmp eq i64 %279, 0
+  br i1 %.not.i92, label %282, label %280
 
-279:                                              ; preds = %277
-  %280 = add i64 %278, -1
-  store i64 %280, ptr %6, align 16, !tbaa !1506
+280:                                              ; preds = %278
+  %281 = add i64 %279, -1
+  store i64 %281, ptr %6, align 16, !tbaa !1506
   br label %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit93
 
-281:                                              ; preds = %277
+282:                                              ; preds = %278
   call void @_ZN5boost14multiprecision8backends17subtract_unsignedINS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEES6_EEvRT_RKT0_RKy(ptr noundef nonnull align 16 dereferenceable(104) %6, ptr noundef nonnull align 16 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #58
   br label %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit93
 
-_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit93: ; preds = %279, %281
+_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit93: ; preds = %280, %282
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #58
-  %282 = load i32, ptr %109, align 16, !tbaa !263
-  %283 = add nsw i32 %282, -1
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %283, ptr %284, align 16, !tbaa !263
-  br label %290
+  %283 = load i32, ptr %109, align 16, !tbaa !263
+  %284 = add nsw i32 %283, -1
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %284, ptr %285, align 16, !tbaa !263
+  br label %291
 
-285:                                              ; preds = %275, %273
-  %286 = load i32, ptr %109, align 16, !tbaa !263
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %286, ptr %287, align 16, !tbaa !263
-  br label %290
+286:                                              ; preds = %276, %274
+  %287 = load i32, ptr %109, align 16, !tbaa !263
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %287, ptr %288, align 16, !tbaa !263
+  br label %291
 
-288:                                              ; preds = %270
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %110, ptr %289, align 16, !tbaa !263
-  br label %290
+289:                                              ; preds = %271
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %110, ptr %290, align 16, !tbaa !263
+  br label %291
 
-290:                                              ; preds = %288, %285, %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit93, %263
-  %291 = xor i8 %142, 1
-  br label %292
+291:                                              ; preds = %289, %286, %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit93, %264
+  %292 = xor i8 %142, 1
+  br label %293
 
-292:                                              ; preds = %_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit, %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit, %241, %244, %290
-  %.0 = phi i8 [ %142, %_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit ], [ %142, %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit ], [ %142, %241 ], [ %142, %244 ], [ %291, %290 ]
+293:                                              ; preds = %_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit, %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit, %242, %245, %291
+  %.0 = phi i8 [ %142, %_ZN5boost14multiprecision8backends15eval_left_shiftILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_o.exit ], [ %142, %_ZN5boost14multiprecision8backends14eval_decrementILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEENSt9enable_ifIXntsr18is_trivial_cpp_intINS1_15cpp_int_backendIXT_EXT0_EXT1_EXT2_ET3_EEEE5valueEvE4typeERS8_.exit ], [ %142, %242 ], [ %142, %245 ], [ %292, %291 ]
   call void @_ZN5boost14multiprecision8backends14copy_and_roundILj100ELNS1_15digit_base_typeE10EviTnT2_Li0ETnS4_Li0ENS1_15cpp_int_backendILm668ELm668ELNS0_16cpp_integer_typeE0ELNS0_18cpp_int_check_typeE0EvEEEEvRNS1_13cpp_bin_floatIXT_EXT0_ET1_S4_XT3_EXT4_EEERT5_l(ptr noundef nonnull align 16 dereferenceable(69) %0, ptr noundef nonnull align 16 dereferenceable(104) %6, i64 noundef 334)
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %294 = load i32, ptr %293, align 16, !tbaa !263
-  %295 = icmp eq i32 %294, 2147482980
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  br i1 %295, label %297, label %298
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %295 = load i32, ptr %294, align 16, !tbaa !263
+  %296 = icmp eq i32 %295, 2147482980
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  br i1 %296, label %298, label %299
 
-297:                                              ; preds = %292
-  store i8 0, ptr %296, align 4, !tbaa !15
+298:                                              ; preds = %293
+  store i8 0, ptr %297, align 4, !tbaa !15
   br label %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EE6negateEv.exit
 
-298:                                              ; preds = %292
-  %299 = load i8, ptr %296, align 4, !tbaa !15, !range !17, !noundef !18
-  %300 = and i8 %.0, 1
-  %.not91 = icmp eq i8 %299, %300
-  %.not.i119 = icmp eq i32 %294, 2147482982
+299:                                              ; preds = %293
+  %300 = load i8, ptr %297, align 4, !tbaa !15, !range !17, !noundef !18
+  %301 = and i8 %.0, 1
+  %.not91 = icmp eq i8 %300, %301
+  %.not.i119 = icmp eq i32 %295, 2147482982
   %or.cond132 = or i1 %.not.i119, %.not91
-  br i1 %or.cond132, label %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EE6negateEv.exit, label %301
+  br i1 %or.cond132, label %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EE6negateEv.exit, label %302
 
-301:                                              ; preds = %298
-  %302 = xor i8 %299, 1
-  store i8 %302, ptr %296, align 4, !tbaa !1490
+302:                                              ; preds = %299
+  %303 = xor i8 %300, 1
+  store i8 %303, ptr %297, align 4, !tbaa !1490
   br label %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EE6negateEv.exit
 
-_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EE6negateEv.exit: ; preds = %85, %84, %79, %75, %73, %71, %38, %37, %32, %28, %26, %24, %297, %298, %301, %56, %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EEaSERKS4_.exit100, %54, %53, %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EEaSERKS4_.exit106, %122, %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EEaSERKS4_.exit104, %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EEaSERKS4_.exit102
+_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EE6negateEv.exit: ; preds = %85, %84, %79, %75, %73, %71, %38, %37, %32, %28, %26, %24, %298, %299, %302, %56, %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EEaSERKS4_.exit100, %54, %53, %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EEaSERKS4_.exit106, %122, %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EEaSERKS4_.exit104, %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EEaSERKS4_.exit102
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #58
   ret void
 }

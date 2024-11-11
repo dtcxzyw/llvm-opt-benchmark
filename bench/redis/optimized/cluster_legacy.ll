@@ -7298,8 +7298,8 @@ clusterDelSlot.exit:                              ; preds = %if.end.i
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   %slots.i52.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 262192
   %arrayidx.i54.phi.trans.insert = getelementptr inbounds [16384 x ptr], ptr %slots.i52.phi.trans.insert, i64 0, i64 %indvars.iv
-  %.pre88 = load ptr, ptr %arrayidx.i54.phi.trans.insert, align 8
-  %28 = icmp eq ptr %.pre88, null
+  %.pre89 = load ptr, ptr %arrayidx.i54.phi.trans.insert, align 8
+  %28 = icmp eq ptr %.pre89, null
   br i1 %28, label %if.end.i57, label %clusterAddSlot.exit
 
 if.end.i57:                                       ; preds = %if.end43, %clusterDelSlot.exit
@@ -7308,11 +7308,11 @@ if.end.i57:                                       ; preds = %if.end43, %clusterD
   %slots1.i = getelementptr inbounds i8, ptr %29, i64 262192
   %arrayidx3.i = getelementptr inbounds [16384 x ptr], ptr %slots1.i, i64 0, i64 %indvars.iv
   store ptr %sender, ptr %arrayidx3.i, align 8
-  %.pre89 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %.pre90 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   br label %clusterAddSlot.exit
 
 clusterAddSlot.exit:                              ; preds = %clusterDelSlot.exit, %if.end.i57
-  %30 = phi ptr [ %.pre, %clusterDelSlot.exit ], [ %.pre89, %if.end.i57 ]
+  %30 = phi ptr [ %.pre, %clusterDelSlot.exit ], [ %.pre90, %if.end.i57 ]
   %todo_before_sleep.i = getelementptr inbounds i8, ptr %30, i64 393352
   %31 = load i32, ptr %todo_before_sleep.i, align 8
   %or.i = or i32 %31, 14
@@ -7414,15 +7414,15 @@ if.end103:                                        ; preds = %do.body99
   %human_nodename110 = getelementptr inbounds i8, ptr %45, i64 2320
   %47 = load ptr, ptr %human_nodename110, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.79, ptr noundef nonnull %name106, ptr noundef %47) #33
-  %.pre90 = load ptr, ptr @myself, align 8
-  %slaveof112.phi.trans.insert = getelementptr inbounds i8, ptr %.pre90, i64 2184
-  %.pre91 = load ptr, ptr %slaveof112.phi.trans.insert, align 8
-  %slaveof113.phi.trans.insert = getelementptr inbounds i8, ptr %.pre91, i64 2184
-  %.pre92 = load ptr, ptr %slaveof113.phi.trans.insert, align 8
+  %.pre91 = load ptr, ptr @myself, align 8
+  %slaveof112.phi.trans.insert = getelementptr inbounds i8, ptr %.pre91, i64 2184
+  %.pre92 = load ptr, ptr %slaveof112.phi.trans.insert, align 8
+  %slaveof113.phi.trans.insert = getelementptr inbounds i8, ptr %.pre92, i64 2184
+  %.pre93 = load ptr, ptr %slaveof113.phi.trans.insert, align 8
   br label %do.end111
 
 do.end111:                                        ; preds = %do.body99, %if.end103
-  %48 = phi ptr [ %45, %do.body99 ], [ %.pre92, %if.end103 ]
+  %48 = phi ptr [ %45, %do.body99 ], [ %.pre93, %if.end103 ]
   tail call void @clusterSetMaster(ptr noundef %48)
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   %todo_before_sleep.i65 = getelementptr inbounds i8, ptr %49, i64 393352
@@ -7446,8 +7446,8 @@ for.body120:                                      ; preds = %for.body120.prehead
   %conv123 = zext i16 %51 to i32
   %call124 = tail call i32 @delKeysInSlot(i32 noundef %conv123)
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
-  br i1 %exitcond87.not, label %if.end130, label %for.body120, !llvm.loop !37
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
+  br i1 %exitcond88.not, label %if.end130, label %for.body120, !llvm.loop !37
 
 if.end130:                                        ; preds = %for.body120, %do.end111, %if.else114, %for.end, %if.end, %do.body, %do.end85
   ret void

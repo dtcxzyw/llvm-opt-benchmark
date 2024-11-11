@@ -156,7 +156,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 _ZNK6vectorImLb0EjE5emptyEv.exit:                 ; preds = %while.cond.preheader, %_ZN6vectorImLb0EjE6shrinkEj.exit105
-  %12 = phi ptr [ %.pre165, %_ZN6vectorImLb0EjE6shrinkEj.exit105 ], [ %.pre, %while.cond.preheader ]
+  %12 = phi ptr [ %.pre167, %_ZN6vectorImLb0EjE6shrinkEj.exit105 ], [ %.pre, %while.cond.preheader ]
   %j.0136 = phi i32 [ %j.1.lcssa, %_ZN6vectorImLb0EjE6shrinkEj.exit105 ], [ 1, %while.cond.preheader ]
   %arrayidx.i28 = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i28, align 4
@@ -223,24 +223,24 @@ for.inc29:                                        ; preds = %for.body21, %if.end
   br i1 %exitcond.not, label %for.end31, label %for.body21, !llvm.loop !6
 
 for.end31:                                        ; preds = %for.inc29
-  %.pre162 = load ptr, ptr %todo, align 8
-  %tobool.not.i = icmp eq ptr %.pre162, null
+  %.pre164 = load ptr, ptr %todo, align 8
+  %tobool.not.i = icmp eq ptr %.pre164, null
   br i1 %tobool.not.i, label %_ZN6vectorImLb0EjE6shrinkEj.exit, label %if.then.i43
 
 if.then.i43:                                      ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit36, %for.end31
-  %k2.0.lcssa169 = phi i32 [ %k2.1, %for.end31 ], [ 0, %_ZNK6vectorImLb0EjE4sizeEv.exit36 ]
-  %23 = phi ptr [ %.pre162, %for.end31 ], [ %17, %_ZNK6vectorImLb0EjE4sizeEv.exit36 ]
+  %k2.0.lcssa171 = phi i32 [ %k2.1, %for.end31 ], [ 0, %_ZNK6vectorImLb0EjE4sizeEv.exit36 ]
+  %23 = phi ptr [ %.pre164, %for.end31 ], [ %17, %_ZNK6vectorImLb0EjE4sizeEv.exit36 ]
   %arrayidx.i44 = getelementptr inbounds i8, ptr %23, i64 -4
-  store i32 %k2.0.lcssa169, ptr %arrayidx.i44, align 4
+  store i32 %k2.0.lcssa171, ptr %arrayidx.i44, align 4
   br label %_ZN6vectorImLb0EjE6shrinkEj.exit
 
 _ZN6vectorImLb0EjE6shrinkEj.exit:                 ; preds = %for.end31, %if.then.i43
-  %k2.0.lcssa170 = phi i32 [ %k2.1, %for.end31 ], [ %k2.0.lcssa169, %if.then.i43 ]
-  %cmp33 = icmp eq i32 %k2.0.lcssa170, 0
+  %k2.0.lcssa172 = phi i32 [ %k2.1, %for.end31 ], [ %k2.0.lcssa171, %if.then.i43 ]
+  %cmp33 = icmp eq i32 %k2.0.lcssa172, 0
   br i1 %cmp33, label %cleanup, label %if.end35
 
 if.end35:                                         ; preds = %_ZN6vectorImLb0EjE6shrinkEj.exit
-  %sub = add i32 %k2.0.lcssa170, -1
+  %sub = add i32 %k2.0.lcssa172, -1
   %24 = load ptr, ptr %todo, align 8
   %idxprom.i46 = zext i32 %sub to i64
   %arrayidx.i47 = getelementptr inbounds i64, ptr %24, i64 %idxprom.i46
@@ -251,7 +251,7 @@ if.end35:                                         ; preds = %_ZN6vectorImLb0EjE6
   br i1 %cmp39, label %for.cond42.preheader, label %for.inc54
 
 for.cond42.preheader:                             ; preds = %if.end35
-  %wide.trip.count160 = zext i32 %k2.0.lcssa170 to i64
+  %wide.trip.count162 = zext i32 %k2.0.lcssa172 to i64
   br label %for.body44
 
 for.body44:                                       ; preds = %for.cond42.preheader, %for.inc50
@@ -293,8 +293,8 @@ for.inc50:                                        ; preds = %.noexc64, %lor.lhs.
   %inc.i59 = add i32 %34, 1
   store i32 %inc.i59, ptr %arrayidx10.i58, align 4
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %cleanup, label %for.body44, !llvm.loop !7
+  %exitcond163.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count162
+  br i1 %exitcond163.not, label %cleanup, label %for.body44, !llvm.loop !7
 
 for.inc54:                                        ; preds = %if.end35
   %inc55 = add nuw i32 %j.1125, 1
@@ -302,12 +302,12 @@ for.inc54:                                        ; preds = %if.end35
   br i1 %exitcond143.not, label %for.end56.loopexit, label %_ZNK6vectorImLb0EjE4sizeEv.exit36, !llvm.loop !8
 
 for.end56.loopexit:                               ; preds = %for.inc54
-  %.pre163 = load ptr, ptr %this, align 8
+  %.pre165 = load ptr, ptr %this, align 8
   br label %for.end56
 
 for.end56:                                        ; preds = %for.end56.loopexit, %_ZNK6vectorImLb0EjE4sizeEv.exit
   %35 = phi ptr [ %12, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ %24, %for.end56.loopexit ]
-  %36 = phi ptr [ %14, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ %.pre163, %for.end56.loopexit ]
+  %36 = phi ptr [ %14, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ %.pre165, %for.end56.loopexit ]
   %j.1.lcssa = phi i32 [ %j.0136, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ %umax, %for.end56.loopexit ]
   %cmp.i.i66 = icmp eq ptr %36, null
   br i1 %cmp.i.i66, label %_ZNK6vectorImLb0EjE4sizeEv.exit76, label %if.end.i.i67
@@ -362,11 +362,11 @@ if.then.i91:                                      ; preds = %lor.lhs.false.i82, 
   %.pre.i92 = load ptr, ptr %this, align 8
   %arrayidx8.phi.trans.insert.i93 = getelementptr inbounds i8, ptr %.pre.i92, i64 -4
   %.pre1.i94 = load i32, ptr %arrayidx8.phi.trans.insert.i93, align 4
-  %.pre164 = load i64, ptr %arrayidx.i78, align 8
+  %.pre166 = load i64, ptr %arrayidx.i78, align 8
   br label %for.inc78
 
 for.inc78:                                        ; preds = %.noexc95, %lor.lhs.false.i82
-  %47 = phi i64 [ %.pre164, %.noexc95 ], [ %43, %lor.lhs.false.i82 ]
+  %47 = phi i64 [ %.pre166, %.noexc95 ], [ %43, %lor.lhs.false.i82 ]
   %48 = phi i32 [ %.pre1.i94, %.noexc95 ], [ %45, %lor.lhs.false.i82 ]
   %49 = phi ptr [ %.pre.i92, %.noexc95 ], [ %44, %lor.lhs.false.i82 ]
   %idx.ext.i87 = zext i32 %48 to i64
@@ -418,8 +418,8 @@ for.end92:                                        ; preds = %for.inc78, %for.bod
 _ZN6vectorImLb0EjE6shrinkEj.exit105:              ; preds = %for.end92
   %arrayidx.i103 = getelementptr inbounds i8, ptr %57, i64 -4
   store i32 %k281.0.lcssa, ptr %arrayidx.i103, align 4
-  %.pre165 = load ptr, ptr %todo, align 8
-  %cmp.i27 = icmp eq ptr %.pre165, null
+  %.pre167 = load ptr, ptr %todo, align 8
+  %cmp.i27 = icmp eq ptr %.pre167, null
   br i1 %cmp.i27, label %_ZN7svectorImjED2Ev.exit, label %_ZNK6vectorImLb0EjE5emptyEv.exit, !llvm.loop !11
 
 cleanup:                                          ; preds = %_ZNK6vectorImLb0EjE5emptyEv.exit, %_ZN6vectorImLb0EjE6shrinkEj.exit, %for.inc50

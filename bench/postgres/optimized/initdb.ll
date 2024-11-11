@@ -4523,7 +4523,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   br i1 %.not85, label %56, label %86
 
 56:                                               ; preds = %55
-  %.lcssa117121 = ptrtoint ptr %31 to i64
+  %.lcssa121123 = ptrtoint ptr %31 to i64
   %57 = getelementptr ptr, ptr %0, i64 %32
   %58 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.176, i32 noundef 35) #20
   %59 = ptrtoint ptr %58 to i64
@@ -4536,8 +4536,8 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %scevgep = getelementptr i8, ptr %31, i64 %59
-  %61 = sub i64 0, %.lcssa117121
-  %scevgep122 = getelementptr i8, ptr %scevgep, i64 %61
+  %61 = sub i64 0, %.lcssa121123
+  %scevgep124 = getelementptr i8, ptr %scevgep, i64 %61
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
@@ -4560,7 +4560,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
 69:                                               ; preds = %64, %67
   %.173 = phi i32 [ %66, %64 ], [ %68, %67 ]
   %70 = getelementptr i8, ptr %.074106, i64 1
-  %exitcond.not = icmp eq ptr %70, %scevgep122
+  %exitcond.not = icmp eq ptr %70, %scevgep124
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %69, %.preheader

@@ -182,21 +182,20 @@ if.then.i:                                        ; preds = %entry
   br label %incref_and_lock.exit
 
 incref_and_lock.exit:                             ; preds = %entry, %if.then.i
-  %conv50 = zext i16 %events to i32
-  %and = and i32 %conv50, 2
-  %tobool = icmp ne i32 %and, 0
+  %4 = and i16 %events, 2
+  %tobool = icmp ne i16 %4, 0
   br i1 %tobool, label %do.body, label %if.end8
 
 do.body:                                          ; preds = %incref_and_lock.exit
   %timeout_read = getelementptr inbounds i8, ptr %bufev, i64 336
-  %4 = load i64, ptr %timeout_read, align 8
-  %tobool2.not = icmp eq i64 %4, 0
+  %5 = load i64, ptr %timeout_read, align 8
+  %tobool2.not = icmp eq i64 %5, 0
   br i1 %tobool2.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %do.body
   %tv_usec = getelementptr inbounds i8, ptr %bufev, i64 344
-  %5 = load i64, ptr %tv_usec, align 8
-  %tobool4.not = icmp eq i64 %5, 0
+  %6 = load i64, ptr %tv_usec, align 8
+  %tobool4.not = icmp eq i64 %6, 0
   br i1 %tobool4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %do.body
@@ -205,27 +204,27 @@ if.then5:                                         ; preds = %lor.lhs.false, %do.
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %lor.lhs.false, %incref_and_lock.exit
-  %and10 = and i32 %conv50, 4
-  %tobool11 = icmp ne i32 %and10, 0
+  %7 = and i16 %events, 4
+  %tobool11 = icmp ne i16 %7, 0
   br i1 %tobool11, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %if.end8
   %output = getelementptr inbounds i8, ptr %bufev, i64 264
-  %6 = load ptr, ptr %output, align 8
-  %call12 = tail call i64 @evbuffer_get_length(ptr noundef %6) #3
+  %8 = load ptr, ptr %output, align 8
+  %call12 = tail call i64 @evbuffer_get_length(ptr noundef %8) #3
   %tobool13.not = icmp eq i64 %call12, 0
   br i1 %tobool13.not, label %if.end27, label %do.body15
 
 do.body15:                                        ; preds = %land.lhs.true
   %timeout_write = getelementptr inbounds i8, ptr %bufev, i64 352
-  %7 = load i64, ptr %timeout_write, align 8
-  %tobool17.not = icmp eq i64 %7, 0
+  %9 = load i64, ptr %timeout_write, align 8
+  %tobool17.not = icmp eq i64 %9, 0
   br i1 %tobool17.not, label %lor.lhs.false18, label %if.then22
 
 lor.lhs.false18:                                  ; preds = %do.body15
   %tv_usec20 = getelementptr inbounds i8, ptr %bufev, i64 360
-  %8 = load i64, ptr %tv_usec20, align 8
-  %tobool21.not = icmp eq i64 %8, 0
+  %10 = load i64, ptr %tv_usec20, align 8
+  %tobool21.not = icmp eq i64 %10, 0
   br i1 %tobool21.not, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %lor.lhs.false18, %do.body15
@@ -240,28 +239,28 @@ if.end27:                                         ; preds = %if.then22, %lor.lhs
 
 land.lhs.true33:                                  ; preds = %if.end27
   %enabled.i = getelementptr inbounds i8, ptr %1, i64 368
-  %9 = load i16, ptr %enabled.i, align 8
-  %10 = and i16 %9, 4
-  %tobool.not.i25 = icmp eq i16 %10, 0
+  %11 = load i16, ptr %enabled.i, align 8
+  %12 = and i16 %11, 4
+  %tobool.not.i25 = icmp eq i16 %12, 0
   br i1 %tobool.not.i25, label %if.end38, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true33
   %enabled4.i = getelementptr inbounds i8, ptr %bev..i, i64 368
-  %11 = load i16, ptr %enabled4.i, align 8
-  %12 = and i16 %11, 2
-  %tobool7.not.i = icmp eq i16 %12, 0
+  %13 = load i16, ptr %enabled4.i, align 8
+  %14 = and i16 %13, 2
+  %tobool7.not.i = icmp eq i16 %14, 0
   br i1 %tobool7.not.i, label %if.end38, label %land.lhs.true8.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
   %read_suspended.i = getelementptr inbounds i8, ptr %bev..i, i64 388
-  %13 = load i16, ptr %read_suspended.i, align 4
-  %tobool10.not.i = icmp eq i16 %13, 0
+  %15 = load i16, ptr %read_suspended.i, align 4
+  %tobool10.not.i = icmp eq i16 %15, 0
   br i1 %tobool10.not.i, label %be_pair_wants_to_talk.exit, label %if.end38
 
 be_pair_wants_to_talk.exit:                       ; preds = %land.lhs.true8.i
   %output.i = getelementptr inbounds i8, ptr %1, i64 264
-  %14 = load ptr, ptr %output.i, align 8
-  %call.i = tail call i64 @evbuffer_get_length(ptr noundef %14) #3
+  %16 = load ptr, ptr %output.i, align 8
+  %call.i = tail call i64 @evbuffer_get_length(ptr noundef %16) #3
   %tobool13.i.not = icmp eq i64 %call.i, 0
   br i1 %tobool13.i.not, label %if.end38, label %if.then36
 
@@ -275,28 +274,28 @@ if.end38:                                         ; preds = %land.lhs.true33, %l
 
 land.lhs.true44:                                  ; preds = %if.end38
   %enabled.i26 = getelementptr inbounds i8, ptr %bev..i, i64 368
-  %15 = load i16, ptr %enabled.i26, align 8
-  %16 = and i16 %15, 4
-  %tobool.not.i27 = icmp eq i16 %16, 0
+  %17 = load i16, ptr %enabled.i26, align 8
+  %18 = and i16 %17, 4
+  %tobool.not.i27 = icmp eq i16 %18, 0
   br i1 %tobool.not.i27, label %if.end50, label %land.lhs.true.i28
 
 land.lhs.true.i28:                                ; preds = %land.lhs.true44
   %enabled4.i29 = getelementptr inbounds i8, ptr %1, i64 368
-  %17 = load i16, ptr %enabled4.i29, align 8
-  %18 = and i16 %17, 2
-  %tobool7.not.i30 = icmp eq i16 %18, 0
+  %19 = load i16, ptr %enabled4.i29, align 8
+  %20 = and i16 %19, 2
+  %tobool7.not.i30 = icmp eq i16 %20, 0
   br i1 %tobool7.not.i30, label %if.end50, label %land.lhs.true8.i31
 
 land.lhs.true8.i31:                               ; preds = %land.lhs.true.i28
   %read_suspended.i32 = getelementptr inbounds i8, ptr %1, i64 388
-  %19 = load i16, ptr %read_suspended.i32, align 4
-  %tobool10.not.i33 = icmp eq i16 %19, 0
+  %21 = load i16, ptr %read_suspended.i32, align 4
+  %tobool10.not.i33 = icmp eq i16 %21, 0
   br i1 %tobool10.not.i33, label %be_pair_wants_to_talk.exit39, label %if.end50
 
 be_pair_wants_to_talk.exit39:                     ; preds = %land.lhs.true8.i31
   %output.i36 = getelementptr inbounds i8, ptr %bev..i, i64 264
-  %20 = load ptr, ptr %output.i36, align 8
-  %call.i37 = tail call i64 @evbuffer_get_length(ptr noundef %20) #3
+  %22 = load ptr, ptr %output.i36, align 8
+  %call.i37 = tail call i64 @evbuffer_get_length(ptr noundef %22) #3
   %tobool13.i38.not = icmp eq i64 %call.i37, 0
   br i1 %tobool13.i38.not, label %if.end50, label %if.then47
 
@@ -305,16 +304,16 @@ if.then47:                                        ; preds = %be_pair_wants_to_ta
   br label %if.end50
 
 if.end50:                                         ; preds = %land.lhs.true44, %land.lhs.true.i28, %land.lhs.true8.i31, %if.then47, %be_pair_wants_to_talk.exit39, %if.end38
-  %21 = load ptr, ptr %be_ops.i, align 8
-  %cmp.i.i41 = icmp eq ptr %21, @bufferevent_ops_pair
+  %23 = load ptr, ptr %be_ops.i, align 8
+  %cmp.i.i41 = icmp eq ptr %23, @bufferevent_ops_pair
   %bev..i.i42 = select i1 %cmp.i.i41, ptr %bufev, ptr null
   %partner.i43 = getelementptr inbounds i8, ptr %bev..i.i42, i64 520
-  %22 = load ptr, ptr %partner.i43, align 8
-  %tobool.not.i44 = icmp eq ptr %22, null
+  %24 = load ptr, ptr %partner.i43, align 8
+  %tobool.not.i44 = icmp eq ptr %24, null
   br i1 %tobool.not.i44, label %decref_and_unlock.exit, label %if.then.i45
 
 if.then.i45:                                      ; preds = %if.end50
-  %call3.i = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %22) #3
+  %call3.i = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %24) #3
   br label %decref_and_unlock.exit
 
 decref_and_unlock.exit:                           ; preds = %if.end50, %if.then.i45
@@ -325,9 +324,8 @@ decref_and_unlock.exit:                           ; preds = %if.end50, %if.then.
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @be_pair_disable(ptr noundef %bev, i16 noundef signext %events) #0 {
 entry:
-  %conv3 = zext i16 %events to i32
-  %and = and i32 %conv3, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %0 = and i16 %events, 2
+  %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -336,8 +334,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %and2 = and i32 %conv3, 4
-  %tobool3.not = icmp eq i32 %and2, 0
+  %1 = and i16 %events, 4
+  %tobool3.not = icmp eq i16 %1, 0
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
@@ -441,9 +439,8 @@ if.then.i:                                        ; preds = %if.end3
 
 incref_and_lock.exit:                             ; preds = %if.end3, %if.then.i
   %4 = load ptr, ptr %partner1, align 8
-  %conv20 = zext i16 %iotype to i32
-  %and = and i32 %conv20, 2
-  %cmp7.not = icmp eq i32 %and, 0
+  %5 = and i16 %iotype, 2
+  %cmp7.not = icmp eq i16 %5, 0
   br i1 %cmp7.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %incref_and_lock.exit
@@ -451,9 +448,9 @@ if.then9:                                         ; preds = %incref_and_lock.exi
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %incref_and_lock.exit
-  %and12 = and i32 %conv20, 4
-  %cmp13.not.not = icmp eq i32 %and12, 0
-  br i1 %cmp13.not.not, label %if.end16, label %if.then15
+  %6 = and i16 %iotype, 4
+  %cmp13.not = icmp eq i16 %6, 0
+  br i1 %cmp13.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end10
   tail call fastcc void @be_pair_transfer(ptr noundef nonnull %bev, ptr noundef %4, i32 noundef 1)
@@ -464,24 +461,22 @@ if.end16:                                         ; preds = %if.then15, %if.end1
   br i1 %cmp17, label %if.then19, label %if.end35
 
 if.then19:                                        ; preds = %if.end16
-  %spec.select = select i1 %cmp7.not, i16 16, i16 18
-  %and12.lobit = lshr exact i32 %and12, 2
-  %5 = trunc nuw nsw i32 %and12.lobit to i16
-  %what.1 = or disjoint i16 %spec.select, %5
+  %what.1.v = select i1 %cmp13.not, i16 16, i16 17
+  %what.1 = or disjoint i16 %what.1.v, %5
   tail call void @bufferevent_run_eventcb_(ptr noundef %4, i16 noundef signext %what.1, i32 noundef 0) #3
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then19, %if.end16
-  %6 = load ptr, ptr %be_ops.i, align 8
-  %cmp.i.i15 = icmp eq ptr %6, @bufferevent_ops_pair
+  %7 = load ptr, ptr %be_ops.i, align 8
+  %cmp.i.i15 = icmp eq ptr %7, @bufferevent_ops_pair
   %bev..i.i16 = select i1 %cmp.i.i15, ptr %bev, ptr null
   %partner.i17 = getelementptr inbounds i8, ptr %bev..i.i16, i64 520
-  %7 = load ptr, ptr %partner.i17, align 8
-  %tobool.not.i18 = icmp eq ptr %7, null
+  %8 = load ptr, ptr %partner.i17, align 8
+  %tobool.not.i18 = icmp eq ptr %8, null
   br i1 %tobool.not.i18, label %decref_and_unlock.exit, label %if.then.i19
 
 if.then.i19:                                      ; preds = %if.end35
-  %call3.i = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %7) #3
+  %call3.i = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %8) #3
   br label %decref_and_unlock.exit
 
 decref_and_unlock.exit:                           ; preds = %if.end35, %if.then.i19

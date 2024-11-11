@@ -2133,8 +2133,8 @@ define linkonce_odr noundef i32 @_ZNSt17_Function_handlerIFjRKN5kitty18static_tr
   %33 = zext i1 %.not.i.i.i.i to i32
   %34 = add i32 %.02139.i.i.i.i, %33
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %exitcond44.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %27
-  br i1 %exitcond44.not.i.i.i.i, label %_ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE2_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !36
+  %exitcond45.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %27
+  br i1 %exitcond45.not.i.i.i.i, label %_ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE2_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !36
 
 _ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE2_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %.lr.ph.i.i.i.i, %26
   %.021.lcssa.i.i.i.i = phi i32 [ 1, %26 ], [ %34, %.lr.ph.i.i.i.i ]
@@ -2797,8 +2797,8 @@ define linkonce_odr noundef i32 @_ZNSt17_Function_handlerIFjRKN5kitty18static_tr
   %33 = zext i1 %.not.i.i.i.i to i32
   %34 = add i32 %.02139.i.i.i.i, %33
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %exitcond43.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %27
-  br i1 %exitcond43.not.i.i.i.i, label %_ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE3_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !50
+  %exitcond44.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %27
+  br i1 %exitcond44.not.i.i.i.i, label %_ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE3_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !50
 
 _ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE3_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %.lr.ph.i.i.i.i, %26
   %.021.lcssa.i.i.i.i = phi i32 [ 1, %26 ], [ %34, %.lr.ph.i.i.i.i ]

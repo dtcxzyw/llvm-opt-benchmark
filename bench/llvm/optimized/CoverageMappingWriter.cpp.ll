@@ -658,17 +658,17 @@ _ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.
   br i1 %77, label %78, label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i
 
 78:                                               ; preds = %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit.thread, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit
-  %.sroa.4.0.i420 = phi i32 [ %76, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit.thread ], [ %.sroa.4.0.extract.trunc.i, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit ]
-  %.sroa.4.0.insert.ext.i = zext i32 %.sroa.4.0.i420 to i64
+  %.sroa.4.0.i422 = phi i32 [ %76, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit.thread ], [ %.sroa.4.0.extract.trunc.i, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit ]
+  %.sroa.4.0.insert.ext.i = zext i32 %.sroa.4.0.i422 to i64
   %79 = getelementptr inbounds %"struct.llvm::coverage::CounterExpression", ptr %59, i64 %.sroa.4.0.insert.ext.i
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, 2
   br label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i
 
 _ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i: ; preds = %78, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit
-  %.sroa.4.0.i421 = phi i32 [ %.sroa.4.0.i420, %78 ], [ %.sroa.4.0.extract.trunc.i, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit ]
+  %.sroa.4.0.i423 = phi i32 [ %.sroa.4.0.i422, %78 ], [ %.sroa.4.0.extract.trunc.i, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit ]
   %.0.i.i = phi i32 [ %81, %78 ], [ %.sroa.0.0.extract.trunc.i.i, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit ]
-  %82 = shl i32 %.sroa.4.0.i421, 2
+  %82 = shl i32 %.sroa.4.0.i423, 2
   %83 = or i32 %.0.i.i, %82
   %84 = zext i32 %83 to i64
   br label %85
@@ -719,17 +719,17 @@ _ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.
   br i1 %100, label %101, label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i159
 
 101:                                              ; preds = %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157.thread, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157
-  %.sroa.4.0.i151425 = phi i32 [ %99, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157.thread ], [ %.sroa.4.0.extract.trunc.i150, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157 ]
-  %.sroa.4.0.insert.ext.i153 = zext i32 %.sroa.4.0.i151425 to i64
+  %.sroa.4.0.i151427 = phi i32 [ %99, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157.thread ], [ %.sroa.4.0.extract.trunc.i150, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157 ]
+  %.sroa.4.0.insert.ext.i153 = zext i32 %.sroa.4.0.i151427 to i64
   %102 = getelementptr inbounds %"struct.llvm::coverage::CounterExpression", ptr %59, i64 %.sroa.4.0.insert.ext.i153
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, 2
   br label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i159
 
 _ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i159: ; preds = %101, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157
-  %.sroa.4.0.i151426 = phi i32 [ %.sroa.4.0.i151425, %101 ], [ %.sroa.4.0.extract.trunc.i150, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157 ]
+  %.sroa.4.0.i151428 = phi i32 [ %.sroa.4.0.i151427, %101 ], [ %.sroa.4.0.extract.trunc.i150, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157 ]
   %.0.i.i160 = phi i32 [ %104, %101 ], [ %.sroa.0.0.extract.trunc.i.i158, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit157 ]
-  %105 = shl i32 %.sroa.4.0.i151426, 2
+  %105 = shl i32 %.sroa.4.0.i151428, 2
   %106 = or i32 %.0.i.i160, %105
   %107 = zext i32 %106 to i64
   br label %108

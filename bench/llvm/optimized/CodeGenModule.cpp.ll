@@ -7638,11 +7638,11 @@ _ZN5clang7CodeGen13CodeGenModule21addCompilerUsedGlobalEPN4llvm11GlobalValueE.ex
   %417 = trunc i64 %413 to i32
   %418 = and i32 %417, 7
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %416, i32 noundef 7, ptr nonnull @.str.13, i64 13, i32 noundef %418) #25
-  %.pre595 = load ptr, ptr %221, align 8
+  %.pre597 = load ptr, ptr %221, align 8
   br label %419
 
 419:                                              ; preds = %415, %.loopexit560
-  %420 = phi ptr [ %.pre595, %415 ], [ %411, %.loopexit560 ]
+  %420 = phi ptr [ %.pre597, %415 ], [ %411, %.loopexit560 ]
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 112
   %422 = load i64, ptr %421, align 8
   %423 = and i64 %422, 562949953421312
@@ -7680,14 +7680,14 @@ _ZN5clang7CodeGen13CodeGenModule21addCompilerUsedGlobalEPN4llvm11GlobalValueE.ex
 440:                                              ; preds = %435
   %441 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %441, i32 noundef 2, ptr nonnull @.str.15, i64 8, i32 noundef 1) #25
-  %.pre596 = load ptr, ptr %221, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre596, i64 120
-  %.pre597 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre598 = load ptr, ptr %221, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre598, i64 120
+  %.pre599 = load i64, ptr %.phi.trans.insert, align 8
   br label %442
 
 442:                                              ; preds = %440, %435
-  %443 = phi i64 [ %.pre597, %440 ], [ %438, %435 ]
-  %444 = phi ptr [ %.pre596, %440 ], [ %436, %435 ]
+  %443 = phi i64 [ %.pre599, %440 ], [ %438, %435 ]
+  %444 = phi ptr [ %.pre598, %440 ], [ %436, %435 ]
   %445 = and i64 %443, 16
   %.not133 = icmp eq i64 %445, 0
   br i1 %.not133, label %448, label %446
@@ -7695,11 +7695,11 @@ _ZN5clang7CodeGen13CodeGenModule21addCompilerUsedGlobalEPN4llvm11GlobalValueE.ex
 446:                                              ; preds = %442
   %447 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %447, i32 noundef 2, ptr nonnull @.str.16, i64 13, i32 noundef 1) #25
-  %.pre598 = load ptr, ptr %221, align 8
+  %.pre600 = load ptr, ptr %221, align 8
   br label %448
 
 448:                                              ; preds = %446, %442
-  %449 = phi ptr [ %.pre598, %446 ], [ %444, %442 ]
+  %449 = phi ptr [ %.pre600, %446 ], [ %444, %442 ]
   %450 = load i64, ptr %449, align 8
   %451 = and i64 %450, 4096
   %.not134 = icmp eq i64 %451, 0
@@ -7711,9 +7711,9 @@ _ZN5clang7CodeGen13CodeGenModule21addCompilerUsedGlobalEPN4llvm11GlobalValueE.ex
   br i1 %.not135, label %455, label %.sink.split
 
 .sink.split:                                      ; preds = %452, %448
-  %.sink658 = phi i32 [ 2, %448 ], [ 1, %452 ]
+  %.sink660 = phi i32 [ 2, %448 ], [ 1, %452 ]
   %454 = load ptr, ptr %212, align 8
-  call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %454, i32 noundef 2, ptr nonnull @.str.17, i64 7, i32 noundef %.sink658) #25
+  call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %454, i32 noundef 2, ptr nonnull @.str.17, i64 7, i32 noundef %.sink660) #25
   br label %455
 
 455:                                              ; preds = %.sink.split, %452
@@ -7888,11 +7888,11 @@ _ZN5clang7CodeGen13CodeGenModule21addCompilerUsedGlobalEPN4llvm11GlobalValueE.ex
   %561 = select i1 %.not141, i32 4, i32 1
   %562 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %562, i32 noundef 1, ptr nonnull @.str.33, i64 13, i32 noundef %561) #25
-  %.pre599 = load i32, ptr %551, align 8
+  %.pre601 = load i32, ptr %551, align 8
   br label %563
 
 563:                                              ; preds = %546, %554
-  %564 = phi i32 [ %553, %546 ], [ %.pre599, %554 ]
+  %564 = phi i32 [ %553, %546 ], [ %.pre601, %554 ]
   %565 = add i32 %564, -27
   %spec.select.i214 = icmp ult i32 %565, 2
   br i1 %spec.select.i214, label %566, label %613
@@ -7923,9 +7923,9 @@ _ZN5clang7CodeGen13CodeGenModule21addCompilerUsedGlobalEPN4llvm11GlobalValueE.ex
   br i1 %586, label %_ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEE9takeErrorEv.exit, label %._ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEE9takeErrorEv.exit.thread_crit_edge
 
 ._ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEE9takeErrorEv.exit.thread_crit_edge: ; preds = %566
-  %.pre600 = load ptr, ptr %29, align 8
+  %.pre602 = load ptr, ptr %29, align 8
   %587 = load ptr, ptr %212, align 8
-  call void @_ZNK4llvm12RISCVISAInfo8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %31, ptr noundef nonnull align 8 dereferenceable(72) %.pre600) #25
+  call void @_ZNK4llvm12RISCVISAInfo8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %31, ptr noundef nonnull align 8 dereferenceable(72) %.pre602) #25
   %588 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #25
   %589 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #25
   %590 = call noundef ptr @_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %575, ptr %588, i64 %589) #25
@@ -8009,11 +8009,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 618:                                              ; preds = %613
   %619 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %619, i32 noundef 4, ptr nonnull @.str.36, i64 13, i32 noundef 1) #25
-  %.pre601 = load ptr, ptr %221, align 8
+  %.pre603 = load ptr, ptr %221, align 8
   br label %620
 
 620:                                              ; preds = %618, %613
-  %621 = phi ptr [ %.pre601, %618 ], [ %614, %613 ]
+  %621 = phi ptr [ %.pre603, %618 ], [ %614, %613 ]
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 80
   %623 = load i64, ptr %622, align 8
   %624 = and i64 %623, 17179869184
@@ -8026,11 +8026,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
   %628 = trunc nuw nsw i64 %627 to i32
   %629 = and i32 %628, 1
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %626, i32 noundef 1, ptr nonnull @.str.37, i64 21, i32 noundef %629) #25
-  %.pre603.pre = load ptr, ptr %221, align 8
+  %.pre605.pre = load ptr, ptr %221, align 8
   br label %630
 
 630:                                              ; preds = %625, %620
-  %.pre603 = phi ptr [ %.pre603.pre, %625 ], [ %621, %620 ]
+  %.pre605 = phi ptr [ %.pre605.pre, %625 ], [ %621, %620 ]
   %631 = load ptr, ptr %228, align 8
   %632 = getelementptr inbounds nuw i8, ptr %631, i64 208
   %.sroa.0.0.copyload.i215 = load i64, ptr %632, align 8
@@ -8040,17 +8040,17 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 
 634:                                              ; preds = %630
   %635 = load ptr, ptr %212, align 8
-  %636 = getelementptr inbounds nuw i8, ptr %.pre603, i64 48
+  %636 = getelementptr inbounds nuw i8, ptr %.pre605, i64 48
   %637 = load i64, ptr %636, align 8
   %638 = lshr i64 %637, 50
   %639 = trunc nuw nsw i64 %638 to i32
   %640 = and i32 %639, 1
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %635, i32 noundef 4, ptr nonnull @.str.38, i64 25, i32 noundef %640) #25
-  %.pre602 = load ptr, ptr %221, align 8
+  %.pre604 = load ptr, ptr %221, align 8
   br label %641
 
 641:                                              ; preds = %634, %630
-  %642 = phi ptr [ %.pre602, %634 ], [ %.pre603, %630 ]
+  %642 = phi ptr [ %.pre604, %634 ], [ %.pre605, %630 ]
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 48
   %644 = load i64, ptr %643, align 8
   %645 = and i64 %644, 562949953421312
@@ -8140,12 +8140,12 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 693:                                              ; preds = %689
   %694 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %694, i32 noundef 4, ptr nonnull @.str.44, i64 28, i32 noundef 1) #25
-  %.pre604 = load ptr, ptr %221, align 8
-  %.pre605 = load i64, ptr %.pre604, align 8
+  %.pre606 = load ptr, ptr %221, align 8
+  %.pre607 = load i64, ptr %.pre606, align 8
   br label %695
 
 695:                                              ; preds = %693, %689
-  %696 = phi i64 [ %.pre605, %693 ], [ %691, %689 ]
+  %696 = phi i64 [ %.pre607, %693 ], [ %691, %689 ]
   %697 = and i64 %696, 2251799813685248
   %.not149 = icmp eq i64 %697, 0
   br i1 %.not149, label %700, label %698
@@ -8163,11 +8163,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
   %705 = getelementptr inbounds i8, ptr %704, i64 576
   %706 = load ptr, ptr %705, align 8
   %707 = call noundef zeroext i1 %706(ptr noundef nonnull align 8 dereferenceable(489) %703, ptr nonnull @.str.46, i64 7) #25
-  %.pre607 = load ptr, ptr %228, align 8
+  %.pre609 = load ptr, ptr %228, align 8
   br i1 %707, label %708, label %714
 
 708:                                              ; preds = %700
-  %709 = getelementptr inbounds nuw i8, ptr %.pre607, i64 200
+  %709 = getelementptr inbounds nuw i8, ptr %.pre609, i64 200
   %710 = load i16, ptr %709, align 8
   %711 = and i16 %710, 3072
   %.not150 = icmp eq i16 %711, 0
@@ -8176,11 +8176,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 712:                                              ; preds = %708
   %713 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %713, i32 noundef 4, ptr nonnull @.str.47, i64 29, i32 noundef 1) #25
-  %.pre606 = load ptr, ptr %228, align 8
+  %.pre608 = load ptr, ptr %228, align 8
   br label %714
 
 714:                                              ; preds = %712, %708, %700
-  %715 = phi ptr [ %.pre606, %712 ], [ %.pre607, %708 ], [ %.pre607, %700 ]
+  %715 = phi ptr [ %.pre608, %712 ], [ %.pre609, %708 ], [ %.pre609, %700 ]
   %716 = getelementptr inbounds nuw i8, ptr %715, i64 208
   %.sroa.0.0.copyload.i223 = load i64, ptr %716, align 8
   %717 = and i64 %.sroa.0.0.copyload.i223, 64
@@ -8215,14 +8215,14 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 727:                                              ; preds = %722
   %728 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %728, i32 noundef 8, ptr nonnull @.str.49, i64 25, i32 noundef 1) #25
-  %.pre608 = load ptr, ptr %228, align 8
-  %.phi.trans.insert609 = getelementptr inbounds nuw i8, ptr %.pre608, i64 168
-  %.pre610 = load i64, ptr %.phi.trans.insert609, align 8
+  %.pre610 = load ptr, ptr %228, align 8
+  %.phi.trans.insert611 = getelementptr inbounds nuw i8, ptr %.pre610, i64 168
+  %.pre612 = load i64, ptr %.phi.trans.insert611, align 8
   br label %729
 
 729:                                              ; preds = %727, %722
-  %730 = phi i64 [ %.pre610, %727 ], [ %725, %722 ]
-  %731 = phi ptr [ %.pre608, %727 ], [ %723, %722 ]
+  %730 = phi i64 [ %.pre612, %727 ], [ %725, %722 ]
+  %731 = phi ptr [ %.pre610, %727 ], [ %723, %722 ]
   %732 = and i64 %730, 2
   %.not152 = icmp eq i64 %732, 0
   br i1 %.not152, label %735, label %733
@@ -8230,14 +8230,14 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 733:                                              ; preds = %729
   %734 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %734, i32 noundef 8, ptr nonnull @.str.50, i64 26, i32 noundef 1) #25
-  %.pre611 = load ptr, ptr %228, align 8
-  %.phi.trans.insert612 = getelementptr inbounds nuw i8, ptr %.pre611, i64 168
-  %.pre613 = load i64, ptr %.phi.trans.insert612, align 8
+  %.pre613 = load ptr, ptr %228, align 8
+  %.phi.trans.insert614 = getelementptr inbounds nuw i8, ptr %.pre613, i64 168
+  %.pre615 = load i64, ptr %.phi.trans.insert614, align 8
   br label %735
 
 735:                                              ; preds = %733, %729
-  %736 = phi i64 [ %.pre613, %733 ], [ %730, %729 ]
-  %737 = phi ptr [ %.pre611, %733 ], [ %731, %729 ]
+  %736 = phi i64 [ %.pre615, %733 ], [ %730, %729 ]
+  %737 = phi ptr [ %.pre613, %733 ], [ %731, %729 ]
   %738 = and i64 %736, 4
   %.not153 = icmp eq i64 %738, 0
   br i1 %.not153, label %741, label %739
@@ -8245,11 +8245,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 739:                                              ; preds = %735
   %740 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %740, i32 noundef 8, ptr nonnull @.str.51, i64 21, i32 noundef 1) #25
-  %.pre614 = load ptr, ptr %228, align 8
+  %.pre616 = load ptr, ptr %228, align 8
   br label %741
 
 741:                                              ; preds = %739, %735
-  %742 = phi ptr [ %.pre614, %739 ], [ %737, %735 ]
+  %742 = phi ptr [ %.pre616, %739 ], [ %737, %735 ]
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 200
   %744 = load i16, ptr %743, align 8
   %745 = and i16 %744, 3072
@@ -8259,13 +8259,13 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 746:                                              ; preds = %741
   %747 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %747, i32 noundef 8, ptr nonnull @.str.52, i64 19, i32 noundef 1) #25
-  %.pre615 = load ptr, ptr %228, align 8
-  %.phi.trans.insert616 = getelementptr inbounds nuw i8, ptr %.pre615, i64 200
-  %.pre617 = load i16, ptr %.phi.trans.insert616, align 8
+  %.pre617 = load ptr, ptr %228, align 8
+  %.phi.trans.insert618 = getelementptr inbounds nuw i8, ptr %.pre617, i64 200
+  %.pre619 = load i16, ptr %.phi.trans.insert618, align 8
   br label %748
 
 748:                                              ; preds = %746, %741
-  %749 = phi i16 [ %.pre617, %746 ], [ %744, %741 ]
+  %749 = phi i16 [ %.pre619, %746 ], [ %744, %741 ]
   %750 = and i16 %749, 3072
   %751 = icmp eq i16 %750, 2048
   br i1 %751, label %752, label %754
@@ -8273,13 +8273,13 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 752:                                              ; preds = %748
   %753 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %753, i32 noundef 8, ptr nonnull @.str.53, i64 23, i32 noundef 1) #25
-  %.pre618 = load ptr, ptr %228, align 8
-  %.phi.trans.insert619 = getelementptr inbounds nuw i8, ptr %.pre618, i64 200
-  %.pre620 = load i16, ptr %.phi.trans.insert619, align 8
+  %.pre620 = load ptr, ptr %228, align 8
+  %.phi.trans.insert621 = getelementptr inbounds nuw i8, ptr %.pre620, i64 200
+  %.pre622 = load i16, ptr %.phi.trans.insert621, align 8
   br label %754
 
 754:                                              ; preds = %752, %748
-  %755 = phi i16 [ %.pre620, %752 ], [ %749, %748 ]
+  %755 = phi i16 [ %.pre622, %752 ], [ %749, %748 ]
   %756 = and i16 %755, 4096
   %757 = icmp eq i16 %756, 0
   br i1 %757, label %760, label %758
@@ -8338,11 +8338,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
   %794 = load ptr, ptr %793, align 8
   %795 = call noundef ptr @_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %794, ptr nonnull @.str.58, i64 10) #25
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(857) %793, i32 noundef 4, ptr nonnull @.str.57, i64 11, ptr noundef %795) #25
-  %.pre621 = load ptr, ptr %221, align 8
+  %.pre623 = load ptr, ptr %221, align 8
   br label %796
 
 796:                                              ; preds = %792, %787
-  %797 = phi ptr [ %.pre621, %792 ], [ %788, %787 ]
+  %797 = phi ptr [ %.pre623, %792 ], [ %788, %787 ]
   %798 = getelementptr inbounds nuw i8, ptr %797, i64 72
   %799 = load i64, ptr %798, align 8
   %.not156 = icmp ult i64 %799, 4294967296
@@ -8356,11 +8356,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
   %802 = lshr i64 %799, 32
   %803 = trunc nuw i64 %802 to i32
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %801, i32 noundef 8, ptr nonnull @.str.59, i64 16, i32 noundef %803) #25
-  %.pre622 = load ptr, ptr %221, align 8
+  %.pre624 = load ptr, ptr %221, align 8
   br label %804
 
 804:                                              ; preds = %800, %796
-  %805 = phi ptr [ %.pre622, %800 ], [ %797, %796 ]
+  %805 = phi ptr [ %.pre624, %800 ], [ %797, %796 ]
   %806 = getelementptr inbounds nuw i8, ptr %805, i64 968
   %807 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %806) #25
   br i1 %807, label %816, label %808
@@ -8400,11 +8400,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
   %831 = icmp ne i8 %830, 0
   %832 = zext i1 %831 to i32
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %827, i32 noundef 4, ptr nonnull @.str.61, i64 16, i32 noundef %832) #25
-  %.pre623 = load ptr, ptr %228, align 8
+  %.pre625 = load ptr, ptr %228, align 8
   br label %833
 
 833:                                              ; preds = %826, %821, %816
-  %834 = phi ptr [ %.pre623, %826 ], [ %817, %821 ], [ %817, %816 ]
+  %834 = phi ptr [ %.pre625, %826 ], [ %817, %821 ], [ %817, %816 ]
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 8
   %836 = load i64, ptr %835, align 8
   %837 = and i64 %836, 70368744177664
@@ -8414,11 +8414,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
 838:                                              ; preds = %833
   %839 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %839, i32 noundef 2, ptr nonnull @.str.62, i64 9, i32 noundef 1) #25
-  %.pre624 = load ptr, ptr %228, align 8
+  %.pre626 = load ptr, ptr %228, align 8
   br label %840
 
 840:                                              ; preds = %838, %833
-  %841 = phi ptr [ %.pre624, %838 ], [ %834, %833 ]
+  %841 = phi ptr [ %.pre626, %838 ], [ %834, %833 ]
   %842 = getelementptr inbounds nuw i8, ptr %841, i64 64
   %843 = load i64, ptr %842, align 8
   %844 = and i64 %843, 4294967295
@@ -8432,14 +8432,14 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
   %847 = load ptr, ptr %212, align 8
   %848 = trunc i64 %843 to i32
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %847, i32 noundef 7, ptr nonnull @.str.63, i64 6, i32 noundef %848) #25
-  %.pre625 = load ptr, ptr %228, align 8
-  %.phi.trans.insert626 = getelementptr inbounds nuw i8, ptr %.pre625, i64 64
-  %.pre627 = load i64, ptr %.phi.trans.insert626, align 8
+  %.pre627 = load ptr, ptr %228, align 8
+  %.phi.trans.insert628 = getelementptr inbounds nuw i8, ptr %.pre627, i64 64
+  %.pre629 = load i64, ptr %.phi.trans.insert628, align 8
   br label %849
 
 849:                                              ; preds = %846, %840
-  %850 = phi i64 [ %.pre627, %846 ], [ %843, %840 ]
-  %851 = phi ptr [ %.pre625, %846 ], [ %841, %840 ]
+  %850 = phi i64 [ %.pre629, %846 ], [ %843, %840 ]
+  %851 = phi ptr [ %.pre627, %846 ], [ %841, %840 ]
   %852 = and i64 %850, 34359738368
   %.not162 = icmp eq i64 %852, 0
   br i1 %.not162, label %856, label %853
@@ -8448,11 +8448,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
   %854 = load ptr, ptr %212, align 8
   %855 = trunc i64 %850 to i32
   call void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857) %854, i32 noundef 7, ptr nonnull @.str.64, i64 13, i32 noundef %855) #25
-  %.pre628 = load ptr, ptr %228, align 8
+  %.pre630 = load ptr, ptr %228, align 8
   br label %856
 
 856:                                              ; preds = %853, %849
-  %857 = phi ptr [ %.pre628, %853 ], [ %851, %849 ]
+  %857 = phi ptr [ %.pre630, %853 ], [ %851, %849 ]
   %858 = getelementptr inbounds nuw i8, ptr %857, i64 40
   %859 = load i64, ptr %858, align 8
   %860 = and i64 %859, 2305843009213693952
@@ -8481,11 +8481,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
   %872 = load i32, ptr %871, align 8
   %873 = add i32 %872, -47
   %spec.select.i234 = icmp ult i32 %873, 2
-  %.pre630 = load ptr, ptr %228, align 8
+  %.pre632 = load ptr, ptr %228, align 8
   br i1 %spec.select.i234, label %874, label %893
 
 874:                                              ; preds = %869
-  %875 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %.pre630) #25
+  %875 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %.pre632) #25
   %876 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %877 = load ptr, ptr %876, align 8
   %878 = udiv i32 %875, 100
@@ -8506,11 +8506,11 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEED2Ev
   %891 = load ptr, ptr %890, align 8
   %892 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %891, ptr nonnull %32, i64 2, i32 noundef 0, i1 noundef zeroext true) #25
   call void @_ZN4llvm11NamedMDNode10addOperandEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(64) %889, ptr noundef %892) #25
-  %.pre629 = load ptr, ptr %228, align 8
+  %.pre631 = load ptr, ptr %228, align 8
   br label %893
 
 893:                                              ; preds = %869, %874, %865, %861
-  %894 = phi ptr [ %.pre630, %869 ], [ %.pre629, %874 ], [ %857, %865 ], [ %857, %861 ]
+  %894 = phi ptr [ %.pre632, %869 ], [ %.pre631, %874 ], [ %857, %865 ], [ %857, %861 ]
   %895 = getelementptr inbounds nuw i8, ptr %894, i64 88
   %896 = load i64, ptr %895, align 8
   %897 = and i64 %896, 512
@@ -8631,11 +8631,11 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit268.thread: ; preds = %
 952:                                              ; preds = %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit268.thread
   %953 = load ptr, ptr %212, align 8
   call void @_ZN4llvm6Module14setRtLibUseGOTEv(ptr noundef nonnull align 8 dereferenceable(857) %953) #25
-  %.pre633.pre = load ptr, ptr %221, align 8
+  %.pre635.pre = load ptr, ptr %221, align 8
   br label %954
 
 954:                                              ; preds = %952, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit268.thread
-  %.pre633 = phi ptr [ %.pre633.pre, %952 ], [ %948, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit268.thread ]
+  %.pre635 = phi ptr [ %.pre635.pre, %952 ], [ %948, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit268.thread ]
   %955 = load ptr, ptr %242, align 8
   %956 = getelementptr inbounds nuw i8, ptr %955, i64 268
   %957 = load i32, ptr %956, align 4
@@ -8643,28 +8643,28 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit268.thread: ; preds = %
   br i1 %958, label %959, label %972
 
 959:                                              ; preds = %954
-  %960 = getelementptr inbounds nuw i8, ptr %.pre633, i64 112
+  %960 = getelementptr inbounds nuw i8, ptr %.pre635, i64 112
   %961 = load i64, ptr %960, align 8
   %962 = load ptr, ptr %212, align 8
   %963 = call noundef zeroext i1 @_ZNK4llvm6Module27getDirectAccessExternalDataEv(ptr noundef nonnull align 8 dereferenceable(857) %962) #25
   %964 = and i64 %961, 8589934592
   %965 = icmp eq i64 %964, 0
   %.not171 = xor i1 %963, %965
-  %.pre632 = load ptr, ptr %221, align 8
+  %.pre634 = load ptr, ptr %221, align 8
   br i1 %.not171, label %972, label %966
 
 966:                                              ; preds = %959
   %967 = load ptr, ptr %212, align 8
-  %968 = getelementptr inbounds nuw i8, ptr %.pre632, i64 112
+  %968 = getelementptr inbounds nuw i8, ptr %.pre634, i64 112
   %969 = load i64, ptr %968, align 8
   %970 = and i64 %969, 8589934592
   %971 = icmp ne i64 %970, 0
   call void @_ZN4llvm6Module27setDirectAccessExternalDataEb(ptr noundef nonnull align 8 dereferenceable(857) %967, i1 noundef zeroext %971) #25
-  %.pre631 = load ptr, ptr %221, align 8
+  %.pre633 = load ptr, ptr %221, align 8
   br label %972
 
 972:                                              ; preds = %966, %959, %954
-  %973 = phi ptr [ %.pre631, %966 ], [ %.pre632, %959 ], [ %.pre633, %954 ]
+  %973 = phi ptr [ %.pre633, %966 ], [ %.pre634, %959 ], [ %.pre635, %954 ]
   %974 = getelementptr inbounds nuw i8, ptr %973, i64 64
   %975 = load i64, ptr %974, align 8
   %976 = and i64 %975, 24
@@ -8677,11 +8677,11 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit268.thread: ; preds = %
   %980 = lshr i32 %979, 3
   %981 = and i32 %980, 3
   call void @_ZN4llvm6Module10setUwtableENS_11UWTableKindE(ptr noundef nonnull align 8 dereferenceable(857) %978, i32 noundef %981) #25
-  %.pre634 = load ptr, ptr %221, align 8
+  %.pre636 = load ptr, ptr %221, align 8
   br label %982
 
 982:                                              ; preds = %977, %972
-  %983 = phi ptr [ %.pre634, %977 ], [ %973, %972 ]
+  %983 = phi ptr [ %.pre636, %977 ], [ %973, %972 ]
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 120
   %985 = load i64, ptr %984, align 8
   %986 = trunc i64 %985 to i32
@@ -8689,27 +8689,27 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit268.thread: ; preds = %
   %988 = and i32 %987, 3
   switch i32 %988, label %default.unreachable [
     i32 3, label %990
-    i32 1, label %.sink.split659
+    i32 1, label %.sink.split661
     i32 2, label %989
     i32 0, label %992
   ]
 
 989:                                              ; preds = %982
-  br label %.sink.split659
+  br label %.sink.split661
 
 990:                                              ; preds = %982
-  br label %.sink.split659
+  br label %.sink.split661
 
 default.unreachable:                              ; preds = %982
   unreachable
 
-.sink.split659:                                   ; preds = %982, %989, %990
-  %.sink660 = phi i32 [ 2, %990 ], [ 1, %989 ], [ 3, %982 ]
+.sink.split661:                                   ; preds = %982, %989, %990
+  %.sink662 = phi i32 [ 2, %990 ], [ 1, %989 ], [ 3, %982 ]
   %991 = load ptr, ptr %212, align 8
-  call void @_ZN4llvm6Module15setFramePointerENS_16FramePointerKindE(ptr noundef nonnull align 8 dereferenceable(857) %991, i32 noundef %.sink660) #25
+  call void @_ZN4llvm6Module15setFramePointerENS_16FramePointerKindE(ptr noundef nonnull align 8 dereferenceable(857) %991, i32 noundef %.sink662) #25
   br label %992
 
-992:                                              ; preds = %.sink.split659, %982
+992:                                              ; preds = %.sink.split661, %982
   call void @_ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv(ptr noundef nonnull align 8 dereferenceable(3600) %0) #25
   %993 = load ptr, ptr %221, align 8
   %994 = load i64, ptr %993, align 8
@@ -8750,11 +8750,11 @@ default.unreachable:                              ; preds = %982
 
 _ZN5clang7CodeGen13CodeGenModule16EmitDeclMetadataEv.exit: ; preds = %1005, %996
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %.pre635 = load ptr, ptr %221, align 8
+  %.pre637 = load ptr, ptr %221, align 8
   br label %1007
 
 1007:                                             ; preds = %_ZN5clang7CodeGen13CodeGenModule16EmitDeclMetadataEv.exit, %992
-  %1008 = phi ptr [ %.pre635, %_ZN5clang7CodeGen13CodeGenModule16EmitDeclMetadataEv.exit ], [ %993, %992 ]
+  %1008 = phi ptr [ %.pre637, %_ZN5clang7CodeGen13CodeGenModule16EmitDeclMetadataEv.exit ], [ %993, %992 ]
   %1009 = getelementptr inbounds nuw i8, ptr %1008, i64 264
   %1010 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1009) #25
   %.not174 = icmp eq i64 %1010, 0
@@ -8804,11 +8804,11 @@ _ZN5clang7CodeGen13CodeGenModule16EmitDeclMetadataEv.exit: ; preds = %1005, %996
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %.pre636 = load ptr, ptr %221, align 8
+  %.pre638 = load ptr, ptr %221, align 8
   br label %1032
 
 1032:                                             ; preds = %1023, %1019
-  %1033 = phi ptr [ %.pre636, %1023 ], [ %1020, %1019 ]
+  %1033 = phi ptr [ %.pre638, %1023 ], [ %1020, %1019 ]
   %1034 = getelementptr inbounds nuw i8, ptr %1033, i64 496
   %1035 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1034) #25
   br i1 %1035, label %1047, label %1036
@@ -8892,11 +8892,11 @@ _ZN5clang7CodeGen13CodeGenModule16EmitDeclMetadataEv.exit: ; preds = %1005, %996
   %1083 = lshr i64 %1080, 32
   %1084 = trunc nuw i64 %1083 to i32
   call void @_ZN4llvm6Module28setStackProtectorGuardOffsetEi(ptr noundef nonnull align 8 dereferenceable(857) %1082, i32 noundef %1084) #25
-  %.pre637 = load ptr, ptr %221, align 8
+  %.pre639 = load ptr, ptr %221, align 8
   br label %1085
 
 1085:                                             ; preds = %1081, %1077
-  %1086 = phi ptr [ %.pre637, %1081 ], [ %1078, %1077 ]
+  %1086 = phi ptr [ %.pre639, %1081 ], [ %1078, %1077 ]
   %1087 = getelementptr inbounds nuw i8, ptr %1086, i64 72
   %1088 = load i64, ptr %1087, align 8
   %1089 = and i64 %1088, 4294967295
@@ -8907,11 +8907,11 @@ _ZN5clang7CodeGen13CodeGenModule16EmitDeclMetadataEv.exit: ; preds = %1005, %996
   %1091 = load ptr, ptr %212, align 8
   %1092 = trunc i64 %1088 to i32
   call void @_ZN4llvm6Module25setOverrideStackAlignmentEj(ptr noundef nonnull align 8 dereferenceable(857) %1091, i32 noundef %1092) #25
-  %.pre638 = load ptr, ptr %221, align 8
+  %.pre640 = load ptr, ptr %221, align 8
   br label %1093
 
 1093:                                             ; preds = %1090, %1085
-  %1094 = phi ptr [ %.pre638, %1090 ], [ %1086, %1085 ]
+  %1094 = phi ptr [ %.pre640, %1090 ], [ %1086, %1085 ]
   %1095 = getelementptr inbounds nuw i8, ptr %1094, i64 112
   %1096 = load i64, ptr %1095, align 8
   %1097 = and i64 %1096, 140737488355328
@@ -9003,33 +9003,33 @@ switch.lookup:                                    ; preds = %_ZN5clang7CodeGen13
   %1147 = and i64 %1145, 7
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1950, i64 0, i64 %1147
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep677 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1951, i64 0, i64 %1146
-  %switch.load678 = load i64, ptr %switch.gep677, align 8
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %switch.load678, %switch.load
+  %switch.gep679 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1951, i64 0, i64 %1146
+  %switch.load680 = load i64, ptr %switch.gep679, align 8
+  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %switch.load680, %switch.load
   %1148 = lshr i64 %.val189, 47
   %1149 = and i64 %1148, 7
   %1150 = and i64 %1148, 7
-  %switch.gep685 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1950, i64 0, i64 %1150
-  %switch.load686 = load i64, ptr %switch.gep685, align 8
-  %switch.gep687 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1951, i64 0, i64 %1149
+  %switch.gep687 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1950, i64 0, i64 %1150
   %switch.load688 = load i64, ptr %switch.gep687, align 8
-  %.sroa.0.0.insert.insert.i24.i = or disjoint i64 %switch.load688, %switch.load686
+  %switch.gep689 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1951, i64 0, i64 %1149
+  %switch.load690 = load i64, ptr %switch.gep689, align 8
+  %.sroa.0.0.insert.insert.i24.i = or disjoint i64 %switch.load690, %switch.load688
   %1151 = lshr i64 %.val189, 50
   %1152 = and i64 %1151, 7
   %1153 = and i64 %1151, 7
-  %switch.gep680 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1950, i64 0, i64 %1153
-  %switch.load681 = load i64, ptr %switch.gep680, align 8
-  %switch.gep682 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1951, i64 0, i64 %1152
+  %switch.gep682 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1950, i64 0, i64 %1153
   %switch.load683 = load i64, ptr %switch.gep682, align 8
-  %.sroa.0.0.insert.insert.i28.i = or disjoint i64 %switch.load683, %switch.load681
+  %switch.gep684 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1951, i64 0, i64 %1152
+  %switch.load685 = load i64, ptr %switch.gep684, align 8
+  %.sroa.0.0.insert.insert.i28.i = or disjoint i64 %switch.load685, %switch.load683
   %1154 = lshr i64 %.val189, 53
   %1155 = and i64 %1154, 7
   %1156 = and i64 %1154, 7
-  %switch.gep690 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1950, i64 0, i64 %1156
-  %switch.load691 = load i64, ptr %switch.gep690, align 8
-  %switch.gep692 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1951, i64 0, i64 %1155
+  %switch.gep692 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1950, i64 0, i64 %1156
   %switch.load693 = load i64, ptr %switch.gep692, align 8
-  %.sroa.0.0.insert.insert.i32.i = or disjoint i64 %switch.load693, %switch.load691
+  %switch.gep694 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule7ReleaseEv.1951, i64 0, i64 %1155
+  %switch.load695 = load i64, ptr %switch.gep694, align 8
+  %.sroa.0.0.insert.insert.i32.i = or disjoint i64 %switch.load695, %switch.load693
   call void @_ZN4llvm6Module13global_valuesEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.2274") align 8 %5, ptr noundef nonnull align 8 dereferenceable(857) %1141) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 64, i1 false)
   %1157 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -9335,7 +9335,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i, %12
   store i8 %1286, ptr %1270, align 8
   %1287 = getelementptr inbounds [10 x i64], ptr %1285, i64 0, i64 %1283
   store i64 2, ptr %1287, align 8
-  br label %.sink.split661
+  br label %.sink.split663
 
 1288:                                             ; preds = %.lr.ph581
   %1289 = load ptr, ptr %.0105579, align 8
@@ -9480,14 +9480,14 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit311:         ; preds = %.lr.ph.i.i.i.i299, 
   store i8 %1353, ptr %1337, align 8
   %1354 = getelementptr inbounds [10 x i64], ptr %1352, i64 0, i64 %1350
   store i64 2, ptr %1354, align 8
-  br label %.sink.split661
+  br label %.sink.split663
 
-.sink.split661:                                   ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit311, %_ZN5clang17DiagnosticBuilderD2Ev.exit
+.sink.split663:                                   ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit311, %_ZN5clang17DiagnosticBuilderD2Ev.exit
   %.sink = phi ptr [ %1265, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ %1332, %_ZN5clang17DiagnosticBuilderD2Ev.exit311 ]
   %1355 = call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(1304) %.sink, i1 noundef zeroext false) #25
   br label %1356
 
-1356:                                             ; preds = %.sink.split661, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit
+1356:                                             ; preds = %.sink.split663, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit
   %1357 = getelementptr inbounds i8, ptr %.0105579, i64 16
   %.not184 = icmp eq ptr %1357, %1261
   br i1 %.not184, label %.loopexit, label %.lr.ph581

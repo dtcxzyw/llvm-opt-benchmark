@@ -23694,11 +23694,11 @@ if.then.i66:                                      ; preds = %while.body.i
   %add.i76 = add i64 %retval.0.i.i74, %conv12.i
   %inc.i77 = add nuw nsw i64 %i.0108.i, 1
   %.pre.i78 = load ptr, ptr %_M_finish.i.i19, align 8
-  %.pre133.i = load ptr, ptr %chunks.i, align 8
-  %.pre135.i = ptrtoint ptr %.pre.i78 to i64
-  %.pre136.i = ptrtoint ptr %.pre133.i to i64
-  %.pre137.i = sub i64 %.pre135.i, %.pre136.i
-  %.pre138.i = ashr exact i64 %.pre137.i, 3
+  %.pre134.i = load ptr, ptr %chunks.i, align 8
+  %.pre136.i = ptrtoint ptr %.pre.i78 to i64
+  %.pre137.i = ptrtoint ptr %.pre134.i to i64
+  %.pre138.i = sub i64 %.pre136.i, %.pre137.i
+  %.pre139.i = ashr exact i64 %.pre138.i, 3
   br label %while.cond.outer.backedge.i
 
 if.end.i:                                         ; preds = %while.body.i
@@ -23818,14 +23818,14 @@ for.end.i:                                        ; preds = %for.cond.i
   br label %while.cond.outer.backedge.i
 
 land.lhs.true.preheader.i:                        ; preds = %if.end77.i, %if.end67.i, %lor.lhs.false60.i, %lor.lhs.false.i61
-  %add.ptr.i88139.i = getelementptr inbounds ptr, ptr %114, i64 %i.1.i59
-  %120 = load ptr, ptr %add.ptr.i88139.i, align 8
-  %sh_offset102140.i = getelementptr inbounds i8, ptr %120, i64 40
-  %x.0.copyload.i89141.i = load i32, ptr %sh_offset102140.i, align 1
-  %sh_size107142.i = getelementptr inbounds i8, ptr %120, i64 44
-  %x.0.copyload.i91143.i = load i32, ptr %sh_size107142.i, align 1
-  %add109144.i = add i32 %x.0.copyload.i91143.i, %x.0.copyload.i89141.i
-  %conv110145.i = zext i32 %add109144.i to i64
+  %add.ptr.i88140.i = getelementptr inbounds ptr, ptr %114, i64 %i.1.i59
+  %120 = load ptr, ptr %add.ptr.i88140.i, align 8
+  %sh_offset102141.i = getelementptr inbounds i8, ptr %120, i64 40
+  %x.0.copyload.i89142.i = load i32, ptr %sh_offset102141.i, align 1
+  %sh_size107143.i = getelementptr inbounds i8, ptr %120, i64 44
+  %x.0.copyload.i91144.i = load i32, ptr %sh_size107143.i, align 1
+  %add109145.i = add i32 %x.0.copyload.i91144.i, %x.0.copyload.i89142.i
+  %conv110146.i = zext i32 %add109145.i to i64
   br label %land.lhs.true.i63
 
 land.lhs.true.i63:                                ; preds = %while.body125.i, %land.lhs.true.preheader.i
@@ -23850,15 +23850,15 @@ while.body125.i:                                  ; preds = %land.rhs.i64
   br i1 %cmp113.i, label %land.lhs.true.i63, label %_ZN4mold3elfL16set_file_offsetsINS0_5ARM32EEElRNS0_7ContextIT_EE.exit, !llvm.loop !481
 
 while.cond.outer.backedge.i:                      ; preds = %land.rhs.i64, %land.lhs.true.i63, %for.end.i, %if.then.i66
-  %sub.ptr.div.i.pre-phi.i = phi i64 [ %sub.ptr.div.i74.i, %for.end.i ], [ %.pre138.i, %if.then.i66 ], [ %sub.ptr.div.i74.i, %land.lhs.true.i63 ], [ %sub.ptr.div.i74.i, %land.rhs.i64 ]
-  %122 = phi ptr [ %114, %for.end.i ], [ %.pre133.i, %if.then.i66 ], [ %114, %land.lhs.true.i63 ], [ %114, %land.rhs.i64 ]
+  %sub.ptr.div.i.pre-phi.i = phi i64 [ %sub.ptr.div.i74.i, %for.end.i ], [ %.pre139.i, %if.then.i66 ], [ %sub.ptr.div.i74.i, %land.lhs.true.i63 ], [ %sub.ptr.div.i74.i, %land.rhs.i64 ]
+  %122 = phi ptr [ %114, %for.end.i ], [ %.pre134.i, %if.then.i66 ], [ %114, %land.lhs.true.i63 ], [ %114, %land.rhs.i64 ]
   %i.0.ph.be.i = phi i64 [ %inc51.i, %for.end.i ], [ %inc.i77, %if.then.i66 ], [ %i.2111.i, %land.lhs.true.i63 ], [ %i.2111.i, %land.rhs.i64 ]
-  %fileoff.0.ph.be.i = phi i64 [ %conv110.i, %for.end.i ], [ %add.i76, %if.then.i66 ], [ %conv110145.i, %land.lhs.true.i63 ], [ %conv110145.i, %land.rhs.i64 ]
+  %fileoff.0.ph.be.i = phi i64 [ %conv110.i, %for.end.i ], [ %add.i76, %if.then.i66 ], [ %conv110146.i, %land.lhs.true.i63 ], [ %conv110146.i, %land.rhs.i64 ]
   %cmp107.i = icmp ult i64 %i.0.ph.be.i, %sub.ptr.div.i.pre-phi.i
   br i1 %cmp107.i, label %while.body.lr.ph.i, label %_ZN4mold3elfL16set_file_offsetsINS0_5ARM32EEElRNS0_7ContextIT_EE.exit, !llvm.loop !479
 
 _ZN4mold3elfL16set_file_offsetsINS0_5ARM32EEElRNS0_7ContextIT_EE.exit: ; preds = %while.cond.outer.backedge.i, %if.then16.i, %while.body125.i, %if.then, %if.end
-  %fileoff.0.ph.lcssa.i = phi i64 [ 0, %if.end ], [ 0, %if.then ], [ %conv110145.i, %while.body125.i ], [ %fileoff.0.ph121.i, %if.then16.i ], [ %fileoff.0.ph.be.i, %while.cond.outer.backedge.i ]
+  %fileoff.0.ph.lcssa.i = phi i64 [ 0, %if.end ], [ 0, %if.then ], [ %conv110146.i, %while.body125.i ], [ %fileoff.0.ph121.i, %if.then16.i ], [ %fileoff.0.ph.be.i, %while.cond.outer.backedge.i ]
   %123 = load ptr, ptr %phdr, align 8
   %tobool.not = icmp eq ptr %123, null
   br i1 %tobool.not, label %if.end13, label %if.then2

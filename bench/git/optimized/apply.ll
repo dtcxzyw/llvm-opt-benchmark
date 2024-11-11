@@ -9645,8 +9645,8 @@ do.cond.i:                                        ; preds = %do.body.i
 do.body.i10:                                      ; preds = %do.cond.i, %do.cond.i14
   %str.addr.0.i11 = phi ptr [ %incdec.ptr.i15, %do.cond.i14 ], [ %timestamp.0, %do.cond.i ]
   %prefix.addr.0.i12.idx = phi i64 [ %prefix.addr.0.i12.add, %do.cond.i14 ], [ 0, %do.cond.i ]
-  %exitcond41 = icmp eq i64 %prefix.addr.0.i12.idx, 11
-  br i1 %exitcond41, label %if.end12, label %do.cond.i14
+  %exitcond43 = icmp eq i64 %prefix.addr.0.i12.idx, 11
+  br i1 %exitcond43, label %if.end12, label %do.cond.i14
 
 do.cond.i14:                                      ; preds = %do.body.i10
   %prefix.addr.0.i12.ptr = getelementptr inbounds i8, ptr @.str.142, i64 %prefix.addr.0.i12.idx

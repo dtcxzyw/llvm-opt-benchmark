@@ -292,8 +292,8 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
   store double %68, ptr %58, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 5, ptr noundef nonnull %57) #4
   %.pre = load i32, ptr %53, align 8
-  %.pre111 = and i32 %.pre, 1
-  %69 = icmp eq i32 %.pre111, 0
+  %.pre110 = and i32 %.pre, 1
+  %69 = icmp eq i32 %.pre110, 0
   br i1 %69, label %.thread, label %70
 
 70:                                               ; preds = %67
@@ -321,9 +321,9 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
   br label %.thread
 
 .thread:                                          ; preds = %10, %81, %67
-  %.0103114 = phi double [ %68, %81 ], [ %68, %67 ], [ -1.000000e+00, %10 ]
+  %.0103113 = phi double [ %68, %81 ], [ %68, %67 ], [ -1.000000e+00, %10 ]
   %.0102 = phi double [ %82, %81 ], [ -1.000000e+00, %67 ], [ -1.000000e+00, %10 ]
-  %83 = fsub double %.0102, %.0103114
+  %83 = fsub double %.0102, %.0103113
   %84 = fcmp ogt double %83, 0.000000e+00
   br i1 %84, label %85, label %96
 

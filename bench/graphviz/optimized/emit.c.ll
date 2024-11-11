@@ -9472,7 +9472,7 @@ style_token.exit.thread:                          ; preds = %.preheader.i, %.pre
   br i1 %11, label %style_token.exit.thread._crit_edge, label %20
 
 style_token.exit.thread._crit_edge:               ; preds = %style_token.exit.thread
-  %.val.i.i30.pr.pre71.pre = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i.i30.pr.pre75.pre = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %44
 
 style_token.exit:                                 ; preds = %3, %3
@@ -9564,14 +9564,14 @@ agxbputc.exit:                                    ; preds = %29, %34
   br label %44
 
 44:                                               ; preds = %style_token.exit.thread._crit_edge, %agxbputc.exit
-  %.val.i.i30.pr.pre71 = phi i8 [ %.val.i.i30.pr.pre71.pre, %style_token.exit.thread._crit_edge ], [ %.val.i, %agxbputc.exit ]
+  %.val.i.i30.pr.pre75 = phi i8 [ %.val.i.i30.pr.pre75.pre, %style_token.exit.thread._crit_edge ], [ %.val.i, %agxbputc.exit ]
   %.2 = phi i64 [ %.021.ph, %style_token.exit.thread._crit_edge ], [ %42, %agxbputc.exit ]
   %45 = icmp eq ptr %.2.i, %.0.i
   br i1 %45, label %agxbput_n.exit, label %agxblen.exit.i29
 
 agxblen.exit.i29:                                 ; preds = %44
-  %.not.i.i27 = icmp eq i8 %.val.i.i30.pr.pre71, -1
-  %46 = zext i8 %.val.i.i30.pr.pre71 to i64
+  %.not.i.i27 = icmp eq i8 %.val.i.i30.pr.pre75, -1
+  %46 = zext i8 %.val.i.i30.pr.pre75 to i64
   %47 = load i64, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 16), align 8
   %48 = load i64, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 8), align 8
   %.0.i30.i = select i1 %.not.i.i27, i64 %47, i64 31
@@ -9586,7 +9586,7 @@ agxblen.exit.i29:                                 ; preds = %44
   br label %52
 
 52:                                               ; preds = %51, %agxblen.exit.i29
-  %.val.i25.i = phi i8 [ %.val.i25.pre.i, %51 ], [ %.val.i.i30.pr.pre71, %agxblen.exit.i29 ]
+  %.val.i25.i = phi i8 [ %.val.i25.pre.i, %51 ], [ %.val.i.i30.pr.pre75, %agxblen.exit.i29 ]
   %.not.i26.i = icmp eq i8 %.val.i25.i, -1
   br i1 %.not.i26.i, label %59, label %53
 
@@ -9612,7 +9612,7 @@ agxblen.exit.i29:                                 ; preds = %44
   br label %agxbput_n.exit
 
 agxbput_n.exit:                                   ; preds = %44, %59, %53
-  %.val.i.i30 = phi i8 [ %58, %53 ], [ %.val.i.i30.pr.pre, %59 ], [ %.val.i.i30.pr.pre71, %44 ]
+  %.val.i.i30 = phi i8 [ %58, %53 ], [ %.val.i.i30.pr.pre, %59 ], [ %.val.i.i30.pr.pre75, %44 ]
   %.not.i.i31 = icmp eq i8 %.val.i.i30, -1
   %65 = load i64, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 8), align 8
   %66 = load i64, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 16), align 8

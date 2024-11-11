@@ -847,14 +847,13 @@ if.end74:                                         ; preds = %cleanup, %if.else
 
 if.end79:                                         ; preds = %if.end74
   %16 = load i16, ptr %fUnion2.i116, align 8
-  %conv1.i = zext i16 %16 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i122 = icmp eq i32 %and.i, 0
+  %17 = and i16 %16, 17
+  %tobool.not.i122 = icmp eq i16 %17, 0
   br i1 %tobool.not.i122, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %if.end79
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %18 = and i16 %16, 2
+  %tobool6.not.i = icmp eq i16 %18, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -863,19 +862,19 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %s2, i64 24
-  %17 = load ptr, ptr %fArray.i, align 8
+  %19 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end79, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %17, %if.else9.i ], [ null, %if.end79 ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %19, %if.else9.i ], [ null, %if.end79 ]
   %cmp.i.i = icmp slt i16 %16, 0
-  %18 = ashr i16 %16, 5
-  %shr.i.i = sext i16 %18 to i32
+  %20 = ashr i16 %16, 5
+  %shr.i.i = sext i16 %20 to i32
   %fLength.i = getelementptr inbounds i8, ptr %s2, i64 12
-  %19 = load i32, ptr %fLength.i, align 4
-  %cond.i123 = select i1 %cmp.i.i, i32 %19, i32 %shr.i.i
-  %cmp84158 = icmp sgt i32 %cond.i123, 0
-  br i1 %cmp84158, label %for.body.lr.ph, label %if.end234
+  %21 = load i32, ptr %fLength.i, align 4
+  %cond.i123 = select i1 %cmp.i.i, i32 %21, i32 %shr.i.i
+  %cmp84157 = icmp sgt i32 %cond.i123, 0
+  br i1 %cmp84157, label %for.body.lr.ph, label %if.end234
 
 for.body.lr.ph:                                   ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %initialValue168 = getelementptr inbounds i8, ptr %profile, i64 96
@@ -885,18 +884,18 @@ for.body.lr.ph:                                   ; preds = %_ZNK6icu_7513Unicod
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end207
-  %b2Index.0165 = phi i32 [ 0, %for.body.lr.ph ], [ %b2Index.1131, %if.end207 ]
-  %ltrPos.0164 = phi i32 [ -1, %for.body.lr.ph ], [ %ltrPos.1, %if.end207 ]
-  %rtlPos.0163 = phi i32 [ -1, %for.body.lr.ph ], [ %rtlPos.1, %if.end207 ]
-  %rightToLeft.0162 = phi i8 [ 0, %for.body.lr.ph ], [ %rightToLeft.1, %if.end207 ]
-  %leftToRight.0161 = phi i8 [ 0, %for.body.lr.ph ], [ %leftToRight.1, %if.end207 ]
-  %firstCharDir.0160 = phi i32 [ 23, %for.body.lr.ph ], [ %firstCharDir.1, %if.end207 ]
-  %direction.0159 = phi i32 [ 23, %for.body.lr.ph ], [ %direction.1, %if.end207 ]
-  %inc = add nsw i32 %b2Index.0165, 1
-  %idxprom = sext i32 %b2Index.0165 to i64
+  %b2Index.0164 = phi i32 [ 0, %for.body.lr.ph ], [ %b2Index.1130, %if.end207 ]
+  %ltrPos.0163 = phi i32 [ -1, %for.body.lr.ph ], [ %ltrPos.1, %if.end207 ]
+  %rtlPos.0162 = phi i32 [ -1, %for.body.lr.ph ], [ %rtlPos.1, %if.end207 ]
+  %rightToLeft.0161 = phi i8 [ 0, %for.body.lr.ph ], [ %rightToLeft.1, %if.end207 ]
+  %leftToRight.0160 = phi i8 [ 0, %for.body.lr.ph ], [ %leftToRight.1, %if.end207 ]
+  %firstCharDir.0159 = phi i32 [ 23, %for.body.lr.ph ], [ %firstCharDir.1, %if.end207 ]
+  %direction.0158 = phi i32 [ 23, %for.body.lr.ph ], [ %direction.1, %if.end207 ]
+  %inc = add nsw i32 %b2Index.0164, 1
+  %idxprom = sext i32 %b2Index.0164 to i64
   %arrayidx = getelementptr inbounds i16, ptr %retval.0.i, i64 %idxprom
-  %20 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %20 to i32
+  %22 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %22 to i32
   %and = and i32 %conv, 64512
   %cmp85 = icmp ne i32 %and, 55296
   %cmp87.not = icmp eq i32 %inc, %cond.i123
@@ -906,14 +905,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 land.lhs.true:                                    ; preds = %for.body
   %idxprom88 = sext i32 %inc to i64
   %arrayidx89 = getelementptr inbounds i16, ptr %retval.0.i, i64 %idxprom88
-  %21 = load i16, ptr %arrayidx89, align 2
-  %conv90 = zext i16 %21 to i32
+  %23 = load i16, ptr %arrayidx89, align 2
+  %conv90 = zext i16 %23 to i32
   %and91 = and i32 %conv90, 64512
   %cmp92 = icmp eq i32 %and91, 56320
   br i1 %cmp92, label %do.body98, label %if.then100
 
 do.body98:                                        ; preds = %land.lhs.true
-  %inc94 = add nsw i32 %b2Index.0165, 2
+  %inc94 = add nsw i32 %b2Index.0164, 2
   %shl = shl nuw nsw i32 %conv, 10
   %add = add nsw i32 %shl, -56613888
   %sub = add nuw nsw i32 %add, %conv90
@@ -921,41 +920,41 @@ do.body98:                                        ; preds = %land.lhs.true
   br i1 %cmp116, label %if.then117, label %if.else166
 
 if.then100:                                       ; preds = %for.body, %land.lhs.true
-  %22 = load ptr, ptr %sprepTrie122, align 8
-  %23 = icmp eq i32 %and, 55296
-  %cond105 = select i1 %23, i32 320, i32 0
+  %24 = load ptr, ptr %sprepTrie122, align 8
+  %25 = icmp eq i32 %and, 55296
+  %cond105 = select i1 %25, i32 320, i32 0
   %shr = lshr i32 %conv, 5
   %add106 = add nuw nsw i32 %cond105, %shr
   %idxprom107 = zext nneg i32 %add106 to i64
-  %arrayidx108 = getelementptr inbounds i16, ptr %22, i64 %idxprom107
-  %24 = load i16, ptr %arrayidx108, align 2
-  %conv109 = zext i16 %24 to i32
+  %arrayidx108 = getelementptr inbounds i16, ptr %24, i64 %idxprom107
+  %26 = load i16, ptr %arrayidx108, align 2
+  %conv109 = zext i16 %26 to i32
   %shl110 = shl nuw nsw i32 %conv109, 2
   %and111 = and i32 %conv, 31
   %add112 = add nuw nsw i32 %shl110, %and111
   %idxprom113 = zext nneg i32 %add112 to i64
-  %arrayidx114 = getelementptr inbounds i16, ptr %22, i64 %idxprom113
-  %25 = load i16, ptr %arrayidx114, align 2
+  %arrayidx114 = getelementptr inbounds i16, ptr %24, i64 %idxprom113
+  %27 = load i16, ptr %arrayidx114, align 2
   br label %do.end173
 
 if.then117:                                       ; preds = %do.body98
   %shr118 = lshr i32 %sub, 10
   %conv120 = add nuw nsw i32 %shr118, 55232
-  %26 = load ptr, ptr %sprepTrie122, align 8
+  %28 = load ptr, ptr %sprepTrie122, align 8
   %shr127 = lshr i32 %conv120, 5
   %idxprom129 = zext nneg i32 %shr127 to i64
-  %arrayidx130 = getelementptr inbounds i16, ptr %26, i64 %idxprom129
-  %27 = load i16, ptr %arrayidx130, align 2
-  %conv131 = zext i16 %27 to i32
+  %arrayidx130 = getelementptr inbounds i16, ptr %28, i64 %idxprom129
+  %29 = load i16, ptr %arrayidx130, align 2
+  %conv131 = zext i16 %29 to i32
   %shl132 = shl nuw nsw i32 %conv131, 2
   %and134 = and i32 %shr118, 31
   %add135 = add nuw nsw i32 %shl132, %and134
   %idxprom136 = zext nneg i32 %add135 to i64
-  %arrayidx137 = getelementptr inbounds i16, ptr %26, i64 %idxprom136
-  %28 = load i16, ptr %arrayidx137, align 2
-  %29 = load ptr, ptr %getFoldingOffset, align 8
-  %conv139 = zext i16 %28 to i32
-  %call141 = invoke noundef i32 %29(i32 noundef %conv139)
+  %arrayidx137 = getelementptr inbounds i16, ptr %28, i64 %idxprom136
+  %30 = load i16, ptr %arrayidx137, align 2
+  %31 = load ptr, ptr %getFoldingOffset, align 8
+  %conv139 = zext i16 %30 to i32
+  %call141 = invoke noundef i32 %31(i32 noundef %conv139)
           to label %invoke.cont140 unwind label %lpad58.loopexit
 
 invoke.cont140:                                   ; preds = %if.then117
@@ -963,37 +962,37 @@ invoke.cont140:                                   ; preds = %if.then117
   br i1 %cmp142, label %if.then143, label %if.else160
 
 if.then143:                                       ; preds = %invoke.cont140
-  %30 = load ptr, ptr %sprepTrie122, align 8
+  %32 = load ptr, ptr %sprepTrie122, align 8
   %and148 = lshr i32 %conv90, 5
   %shr149 = and i32 %and148, 31
   %add150 = add nuw nsw i32 %call141, %shr149
   %idxprom151 = zext nneg i32 %add150 to i64
-  %arrayidx152 = getelementptr inbounds i16, ptr %30, i64 %idxprom151
-  %31 = load i16, ptr %arrayidx152, align 2
-  %conv153 = zext i16 %31 to i32
+  %arrayidx152 = getelementptr inbounds i16, ptr %32, i64 %idxprom151
+  %33 = load i16, ptr %arrayidx152, align 2
+  %conv153 = zext i16 %33 to i32
   %shl154 = shl nuw nsw i32 %conv153, 2
   %and156 = and i32 %conv90, 31
   %add157 = add nuw nsw i32 %shl154, %and156
   %idxprom158 = zext nneg i32 %add157 to i64
-  %arrayidx159 = getelementptr inbounds i16, ptr %30, i64 %idxprom158
-  %32 = load i16, ptr %arrayidx159, align 2
+  %arrayidx159 = getelementptr inbounds i16, ptr %32, i64 %idxprom158
+  %34 = load i16, ptr %arrayidx159, align 2
   br label %do.end173
 
 if.else160:                                       ; preds = %invoke.cont140
-  %33 = load i32, ptr %initialValue168, align 8
-  %conv162 = trunc i32 %33 to i16
+  %35 = load i32, ptr %initialValue168, align 8
+  %conv162 = trunc i32 %35 to i16
   br label %do.end173
 
 if.else166:                                       ; preds = %do.body98
-  %34 = load i32, ptr %initialValue168, align 8
-  %conv169 = trunc i32 %34 to i16
+  %36 = load i32, ptr %initialValue168, align 8
+  %conv169 = trunc i32 %36 to i16
   br label %do.end173
 
 do.end173:                                        ; preds = %if.else166, %if.else160, %if.then143, %if.then100
-  %cmp99135 = phi i32 [ -1, %if.then100 ], [ -2, %if.then143 ], [ -2, %if.else160 ], [ -2, %if.else166 ]
-  %ch.0133 = phi i32 [ %conv, %if.then100 ], [ %sub, %if.then143 ], [ %sub, %if.else160 ], [ %sub, %if.else166 ]
-  %b2Index.1131 = phi i32 [ %inc, %if.then100 ], [ %inc94, %if.then143 ], [ %inc94, %if.else160 ], [ %inc94, %if.else166 ]
-  %result.0 = phi i16 [ %25, %if.then100 ], [ %32, %if.then143 ], [ %conv162, %if.else160 ], [ %conv169, %if.else166 ]
+  %cmp99134 = phi i32 [ -1, %if.then100 ], [ -2, %if.then143 ], [ -2, %if.else160 ], [ -2, %if.else166 ]
+  %ch.0132 = phi i32 [ %conv, %if.then100 ], [ %sub, %if.then143 ], [ %sub, %if.else160 ], [ %sub, %if.else166 ]
+  %b2Index.1130 = phi i32 [ %inc, %if.then100 ], [ %inc94, %if.then143 ], [ %inc94, %if.else160 ], [ %inc94, %if.else166 ]
+  %result.0 = phi i16 [ %27, %if.then100 ], [ %34, %if.then143 ], [ %conv162, %if.else160 ], [ %conv169, %if.else166 ]
   %cmp.i125 = icmp eq i16 %result.0, 0
   br i1 %cmp.i125, label %if.end189, label %if.else.i126
 
@@ -1002,8 +1001,8 @@ if.else.i126:                                     ; preds = %do.end173
   br i1 %cmp2.i, label %_ZL9getValuestRsRa.exit, label %if.else5.i
 
 if.else5.i:                                       ; preds = %if.else.i126
-  %35 = and i16 %result.0, 1
-  %tobool183.not = icmp eq i16 %35, 0
+  %37 = and i16 %result.0, 1
+  %tobool183.not = icmp eq i16 %37, 0
   br i1 %tobool183.not, label %if.end189, label %if.then184
 
 _ZL9getValuestRsRa.exit:                          ; preds = %if.else.i126
@@ -1012,30 +1011,30 @@ _ZL9getValuestRsRa.exit:                          ; preds = %if.else.i126
 
 if.then184:                                       ; preds = %if.else5.i, %_ZL9getValuestRsRa.exit
   store i32 66560, ptr %status, align 4
-  %sub187 = add i32 %b2Index.1131, %cmp99135
+  %sub187 = add i32 %b2Index.1130, %cmp99134
   br label %if.then184.invoke
 
 if.then184.invoke:                                ; preds = %if.then231, %if.then214, %if.then184
-  %36 = phi i32 [ %sub187, %if.then184 ], [ %cond219, %if.then214 ], [ %rtlPos.1, %if.then231 ]
-  invoke void @uprv_syntaxError_75(ptr noundef nonnull %retval.0.i, i32 noundef %36, i32 noundef %cond.i123, ptr noundef %parseError)
+  %38 = phi i32 [ %sub187, %if.then184 ], [ %cond219, %if.then214 ], [ %rtlPos.1, %if.then231 ]
+  invoke void @uprv_syntaxError_75(ptr noundef nonnull %retval.0.i, i32 noundef %38, i32 noundef %cond.i123, ptr noundef %parseError)
           to label %cleanup239 unwind label %lpad58.loopexit.split-lp
 
 if.end189:                                        ; preds = %_ZL9getValuestRsRa.exit, %do.end173, %if.else5.i
-  %37 = load i8, ptr %checkBiDi, align 2
-  %tobool190.not = icmp eq i8 %37, 0
+  %39 = load i8, ptr %checkBiDi, align 2
+  %tobool190.not = icmp eq i8 %39, 0
   br i1 %tobool190.not, label %if.end207, label %if.then191
 
 if.then191:                                       ; preds = %if.end189
-  %call193 = invoke i32 @ubidi_getClass_75(i32 noundef %ch.0133)
+  %call193 = invoke i32 @ubidi_getClass_75(i32 noundef %ch.0132)
           to label %invoke.cont192 unwind label %lpad58.loopexit
 
 invoke.cont192:                                   ; preds = %if.then191
-  %cmp194 = icmp eq i32 %firstCharDir.0160, 23
-  %spec.select = select i1 %cmp194, i32 %call193, i32 %firstCharDir.0160
+  %cmp194 = icmp eq i32 %firstCharDir.0159, 23
+  %spec.select = select i1 %cmp194, i32 %call193, i32 %firstCharDir.0159
   %cmp197 = icmp eq i32 %call193, 0
-  %sub199 = add nsw i32 %b2Index.1131, -1
-  %leftToRight.2 = select i1 %cmp197, i8 1, i8 %leftToRight.0161
-  %ltrPos.2 = select i1 %cmp197, i32 %sub199, i32 %ltrPos.0164
+  %sub199 = add nsw i32 %b2Index.1130, -1
+  %leftToRight.2 = select i1 %cmp197, i8 1, i8 %leftToRight.0160
+  %ltrPos.2 = select i1 %cmp197, i32 %sub199, i32 %ltrPos.0163
   switch i32 %call193, label %if.end207 [
     i32 13, label %if.then204
     i32 1, label %if.then204
@@ -1045,26 +1044,26 @@ if.then204:                                       ; preds = %invoke.cont192, %in
   br label %if.end207
 
 if.end207:                                        ; preds = %invoke.cont192, %if.then204, %if.end189
-  %direction.1 = phi i32 [ %call193, %if.then204 ], [ %call193, %invoke.cont192 ], [ %direction.0159, %if.end189 ]
-  %firstCharDir.1 = phi i32 [ %spec.select, %if.then204 ], [ %spec.select, %invoke.cont192 ], [ %firstCharDir.0160, %if.end189 ]
-  %leftToRight.1 = phi i8 [ %leftToRight.2, %if.then204 ], [ %leftToRight.2, %invoke.cont192 ], [ %leftToRight.0161, %if.end189 ]
-  %rightToLeft.1 = phi i8 [ 1, %if.then204 ], [ %rightToLeft.0162, %invoke.cont192 ], [ %rightToLeft.0162, %if.end189 ]
-  %rtlPos.1 = phi i32 [ %sub199, %if.then204 ], [ %rtlPos.0163, %invoke.cont192 ], [ %rtlPos.0163, %if.end189 ]
-  %ltrPos.1 = phi i32 [ %ltrPos.2, %if.then204 ], [ %ltrPos.2, %invoke.cont192 ], [ %ltrPos.0164, %if.end189 ]
-  %cmp84 = icmp slt i32 %b2Index.1131, %cond.i123
+  %direction.1 = phi i32 [ %call193, %if.then204 ], [ %call193, %invoke.cont192 ], [ %direction.0158, %if.end189 ]
+  %firstCharDir.1 = phi i32 [ %spec.select, %if.then204 ], [ %spec.select, %invoke.cont192 ], [ %firstCharDir.0159, %if.end189 ]
+  %leftToRight.1 = phi i8 [ %leftToRight.2, %if.then204 ], [ %leftToRight.2, %invoke.cont192 ], [ %leftToRight.0160, %if.end189 ]
+  %rightToLeft.1 = phi i8 [ 1, %if.then204 ], [ %rightToLeft.0161, %invoke.cont192 ], [ %rightToLeft.0161, %if.end189 ]
+  %rtlPos.1 = phi i32 [ %sub199, %if.then204 ], [ %rtlPos.0162, %invoke.cont192 ], [ %rtlPos.0162, %if.end189 ]
+  %ltrPos.1 = phi i32 [ %ltrPos.2, %if.then204 ], [ %ltrPos.2, %invoke.cont192 ], [ %ltrPos.0163, %if.end189 ]
+  %cmp84 = icmp slt i32 %b2Index.1130, %cond.i123
   br i1 %cmp84, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %if.end207
-  %38 = icmp ne i8 %rightToLeft.1, 0
+  %40 = icmp ne i8 %rightToLeft.1, 0
   %checkBiDi208 = getelementptr inbounds i8, ptr %profile, i64 126
-  %39 = load i8, ptr %checkBiDi208, align 2
-  %tobool209.not = icmp eq i8 %39, 0
+  %41 = load i8, ptr %checkBiDi208, align 2
+  %tobool209.not = icmp eq i8 %41, 0
   br i1 %tobool209.not, label %if.end234, label %if.then210
 
 if.then210:                                       ; preds = %for.end
-  %40 = icmp ne i8 %leftToRight.1, 0
-  %41 = select i1 %40, i1 %38, i1 false
-  br i1 %41, label %if.then214, label %if.end221
+  %42 = icmp ne i8 %leftToRight.1, 0
+  %43 = select i1 %42, i1 %40, i1 false
+  br i1 %43, label %if.then214, label %if.end221
 
 if.then214:                                       ; preds = %if.then210
   store i32 66562, ptr %status, align 4
@@ -1072,7 +1071,7 @@ if.then214:                                       ; preds = %if.then210
   br label %if.then184.invoke
 
 if.end221:                                        ; preds = %if.then210
-  br i1 %38, label %land.lhs.true223, label %if.end234
+  br i1 %40, label %land.lhs.true223, label %if.end234
 
 land.lhs.true223:                                 ; preds = %if.end221
   switch i32 %firstCharDir.1, label %if.then231 [
@@ -1096,15 +1095,15 @@ if.end234:                                        ; preds = %_ZNK6icu_7513Unicod
           to label %invoke.cont237 unwind label %lpad236
 
 invoke.cont237:                                   ; preds = %if.end234
-  %42 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %42) #17, !srcloc !6
+  %44 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #17, !srcloc !6
   br label %cleanup239
 
 lpad236:                                          ; preds = %if.end234
-  %43 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %44 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #17, !srcloc !6
+  %46 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %46) #17, !srcloc !6
   br label %ehcleanup
 
 cleanup239.critedge:                              ; preds = %invoke.cont61
@@ -1117,7 +1116,7 @@ cleanup239:                                       ; preds = %if.then184.invoke, 
   br label %cleanup240
 
 ehcleanup:                                        ; preds = %lpad58.loopexit, %lpad58.loopexit.split-lp, %lpad236, %lpad64
-  %.pn = phi { ptr, i32 } [ %43, %lpad236 ], [ %14, %lpad64 ], [ %lpad.loopexit, %lpad58.loopexit ], [ %lpad.loopexit.split-lp, %lpad58.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %45, %lpad236 ], [ %14, %lpad64 ], [ %lpad.loopexit, %lpad58.loopexit ], [ %lpad.loopexit.split-lp, %lpad58.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s2) #17
   br label %ehcleanup241
 

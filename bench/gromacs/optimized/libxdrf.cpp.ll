@@ -1929,7 +1929,7 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr nocapture noun
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = getelementptr inbounds i8, ptr %0, i64 12
   %36 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count158 = zext nneg i32 %.152.lcssa to i64
+  %wide.trip.count159 = zext nneg i32 %.152.lcssa to i64
   br label %42
 
 .preheader:                                       ; preds = %31
@@ -1941,7 +1941,7 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr nocapture noun
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   %40 = getelementptr inbounds i8, ptr %0, i64 12
   %41 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count163 = zext nneg i32 %37 to i64
+  %wide.trip.count164 = zext nneg i32 %37 to i64
   br label %96
 
 42:                                               ; preds = %_ZL8sendbitsP10DataBufferii.exit, %.lr.ph121
@@ -1977,8 +1977,8 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr nocapture noun
 
 _ZL8sendbitsP10DataBufferii.exit:                 ; preds = %42, %56
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %._crit_edge122, label %42, !llvm.loop !25
+  %exitcond160.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count159
+  br i1 %exitcond160.not, label %._crit_edge122, label %42, !llvm.loop !25
 
 ._crit_edge122:                                   ; preds = %_ZL8sendbitsP10DataBufferii.exit, %.preheader94
   %63 = sub nsw i32 %1, %32
@@ -2043,8 +2043,8 @@ _ZL8sendbitsP10DataBufferii.exit:                 ; preds = %42, %56
   br i1 %95, label %_ZL8sendbitsP10DataBufferii.exit73.sink.split, label %_ZL8sendbitsP10DataBufferii.exit73
 
 96:                                               ; preds = %_ZL8sendbitsP10DataBufferii.exit82, %.lr.ph124
-  %indvars.iv160 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next161, %_ZL8sendbitsP10DataBufferii.exit82 ]
-  %97 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %indvars.iv160
+  %indvars.iv161 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next162, %_ZL8sendbitsP10DataBufferii.exit82 ]
+  %97 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %indvars.iv161
   %98 = load i32, ptr %97, align 4
   %99 = load i32, ptr %39, align 8
   %100 = load i32, ptr %40, align 4
@@ -2074,9 +2074,9 @@ _ZL8sendbitsP10DataBufferii.exit:                 ; preds = %42, %56
   br label %_ZL8sendbitsP10DataBufferii.exit82
 
 _ZL8sendbitsP10DataBufferii.exit82:               ; preds = %96, %110
-  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %._crit_edge125.loopexit, label %96, !llvm.loop !26
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
+  %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
+  br i1 %exitcond165.not, label %._crit_edge125.loopexit, label %96, !llvm.loop !26
 
 ._crit_edge125.loopexit:                          ; preds = %_ZL8sendbitsP10DataBufferii.exit82
   %117 = zext nneg i32 %37 to i64

@@ -79643,8 +79643,8 @@ for.body.preheader.i175:                          ; preds = %for.cond.preheader.
   %54 = add nuw nsw i32 %umin.i176, 2
   %wide.trip.count.i177 = zext nneg i32 %54 to i64
   %55 = sub i32 %indvars.iv316, %glyph_len.0257
-  %umin320 = tail call i32 @llvm.umin.i32(i32 %indvars.iv79.i144, i32 %55)
-  %56 = add i32 %umin320, 2
+  %umin323 = tail call i32 @llvm.umin.i32(i32 %indvars.iv79.i144, i32 %55)
+  %56 = add i32 %umin323, 2
   br label %for.body.i178
 
 for.body.i178:                                    ; preds = %for.inc.i197, %for.body.preheader.i175
@@ -79740,12 +79740,12 @@ while.end:                                        ; preds = %nk_utf_decode.exit2
   %text_size.sroa.0.2 = select i1 %cmp46, <2 x float> %text_size.sroa.0.0.vec.insert30, <2 x float> %text_size.sroa.0.1
   %tobool50.not = icmp eq ptr %out_offset, null
   %.pre = extractelement <2 x float> %text_size.sroa.0.2, i64 1
-  %.pre321 = fadd float %row_height, %.pre
+  %.pre324 = fadd float %row_height, %.pre
   br i1 %tobool50.not, label %if.end55, label %if.then51
 
 if.then51:                                        ; preds = %while.end
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %line_width.1, i64 0
-  %retval.sroa.0.4.vec.insert.i209 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %.pre321, i64 1
+  %retval.sroa.0.4.vec.insert.i209 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %.pre324, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i209, ptr %out_offset, align 4
   br label %if.end55
 
@@ -79753,7 +79753,7 @@ if.end55:                                         ; preds = %while.end, %if.then
   %cmp56 = fcmp ogt float %line_width.1, 0.000000e+00
   %cmp59 = fcmp oeq float %.pre, 0.000000e+00
   %or.cond2 = select i1 %cmp56, i1 true, i1 %cmp59
-  %text_size.sroa.0.4.vec.insert38 = insertelement <2 x float> %text_size.sroa.0.2, float %.pre321, i64 1
+  %text_size.sroa.0.4.vec.insert38 = insertelement <2 x float> %text_size.sroa.0.2, float %.pre324, i64 1
   %text_size.sroa.0.3 = select i1 %or.cond2, <2 x float> %text_size.sroa.0.4.vec.insert38, <2 x float> %text_size.sroa.0.2
   %idx.ext66 = sext i32 %text_len.0230 to i64
   %add.ptr67 = getelementptr inbounds i8, ptr %begin, i64 %idx.ext66
@@ -79929,8 +79929,8 @@ nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, 
   br i1 %tobool14.not, label %if.end80, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %nk_utf_decode.exit
-  %retval.0.i516 = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
-  %unicode.1515 = phi i32 [ %unicode.1, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i519 = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+  %unicode.1518 = phi i32 [ %unicode.1, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
   %cmp397411427 = icmp sgt i32 %byte_len, 0
   br i1 %cmp397411427, label %while.body.lr.ph.lr.ph.lr.ph, label %if.end80
 
@@ -79949,12 +79949,12 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %while.cond.preheade
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %nk_utf_decode.exit178
-  %glyph_len.0.ph.ph433 = phi i32 [ %retval.0.i516, %while.body.lr.ph.lr.ph.lr.ph ], [ %retval.0.i124, %nk_utf_decode.exit178 ]
+  %glyph_len.0.ph.ph433 = phi i32 [ %retval.0.i519, %while.body.lr.ph.lr.ph.lr.ph ], [ %retval.0.i124, %nk_utf_decode.exit178 ]
   %line_count.0.ph.ph432 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc30, %nk_utf_decode.exit178 ]
   %line_offset.0.ph.ph431 = phi float [ 0.000000e+00, %while.body.lr.ph.lr.ph.lr.ph ], [ %add33, %nk_utf_decode.exit178 ]
   %line.0.ph.ph430 = phi ptr [ %text, %while.body.lr.ph.lr.ph.lr.ph ], [ %add.ptr32, %nk_utf_decode.exit178 ]
   %text_len.0.ph.ph429 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %inc, %nk_utf_decode.exit178 ]
-  %unicode.0.ph.ph428 = phi i32 [ %unicode.1515, %while.body.lr.ph.lr.ph.lr.ph ], [ %unicode.2, %nk_utf_decode.exit178 ]
+  %unicode.0.ph.ph428 = phi i32 [ %unicode.1518, %while.body.lr.ph.lr.ph.lr.ph ], [ %unicode.2, %nk_utf_decode.exit178 ]
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %nk_utf_decode.exit318
@@ -80087,8 +80087,8 @@ for.body.preheader.i145:                          ; preds = %for.cond.preheader.
   %umin.i146 = tail call i32 @llvm.umin.i32(i32 %indvars.iv79.i114, i32 %37)
   %38 = add nuw nsw i32 %umin.i146, 2
   %wide.trip.count.i147 = zext nneg i32 %38 to i64
-  %umin510 = tail call i32 @llvm.umin.i32(i32 %indvars.iv, i32 %indvars.iv79.i114)
-  %39 = add i32 %umin510, 2
+  %umin513 = tail call i32 @llvm.umin.i32(i32 %indvars.iv, i32 %indvars.iv79.i114)
+  %39 = add i32 %umin513, 2
   br label %for.body.i148
 
 for.body.i148:                                    ; preds = %for.inc.i167, %for.body.preheader.i145
@@ -80309,8 +80309,8 @@ if.end47:                                         ; preds = %while.body
   %66 = trunc nsw i64 %indvars.iv495 to i32
   %67 = load ptr, ptr %width, align 8
   %68 = load float, ptr %height, align 8
-  %sext511 = shl i64 %indvars.iv495, 32
-  %idx.ext48 = ashr exact i64 %sext511, 32
+  %sext514 = shl i64 %indvars.iv495, 32
+  %idx.ext48 = ashr exact i64 %sext514, 32
   %add.ptr49 = getelementptr inbounds i8, ptr %text, i64 %idx.ext48
   %69 = load ptr, ptr %font, align 8
   %call50 = tail call float %67(ptr %69, float noundef %68, ptr noundef nonnull %add.ptr49, i32 noundef %glyph_len.0401) #52
@@ -80364,8 +80364,8 @@ for.body.preheader.i285:                          ; preds = %for.cond.preheader.
   %77 = add nuw nsw i32 %umin.i286, 2
   %wide.trip.count.i287 = zext nneg i32 %77 to i64
   %78 = sub i32 %indvars.iv501, %glyph_len.0401
-  %umin505 = tail call i32 @llvm.umin.i32(i32 %indvars.iv79.i254, i32 %78)
-  %79 = add i32 %umin505, 2
+  %umin508 = tail call i32 @llvm.umin.i32(i32 %indvars.iv79.i254, i32 %78)
+  %79 = add i32 %umin508, 2
   br label %for.body.i288
 
 for.body.i288:                                    ; preds = %for.inc.i307, %for.body.preheader.i285

@@ -196,15 +196,15 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   %37 = and i64 %indvars.iv, 1
   %.not41.not = icmp eq i64 %37, 0
   %or.cond = select i1 %15, i1 true, i1 %.not41.not
-  %.pre60 = load ptr, ptr %8, align 8
+  %.pre61 = load ptr, ptr %8, align 8
   br i1 %or.cond, label %42, label %38
 
 38:                                               ; preds = %34
-  %39 = call i32 @xstrcmp(ptr noundef nonnull @.str.5, ptr noundef %.pre60) #12
+  %39 = call i32 @xstrcmp(ptr noundef nonnull @.str.5, ptr noundef %.pre61) #12
   %.not42 = icmp eq i32 %39, 0
-  br i1 %.not42, label %40, label %._crit_edge59
+  br i1 %.not42, label %40, label %._crit_edge60
 
-._crit_edge59:                                    ; preds = %38
+._crit_edge60:                                    ; preds = %38
   %.pre = load ptr, ptr %8, align 8
   br label %42
 
@@ -214,8 +214,8 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   store ptr %41, ptr %8, align 8
   br label %42
 
-42:                                               ; preds = %._crit_edge59, %40, %34
-  %43 = phi ptr [ %.pre, %._crit_edge59 ], [ %41, %40 ], [ %.pre60, %34 ]
+42:                                               ; preds = %._crit_edge60, %40, %34
+  %43 = phi ptr [ %.pre, %._crit_edge60 ], [ %41, %40 ], [ %.pre61, %34 ]
   %44 = load ptr, ptr %5, align 8
   %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
   store ptr %43, ptr %45, align 8
@@ -243,8 +243,8 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
 53:                                               ; preds = %51
   %54 = load ptr, ptr %5, align 8
   call void %.036(i32 noundef %.033.ph, ptr noundef %54) #12, !callees !10
-  %.not62 = icmp eq i32 %.033.ph, 1
-  br i1 %.not62, label %._crit_edge52, label %.lr.ph51.preheader
+  %.not63 = icmp eq i32 %.033.ph, 1
+  br i1 %.not63, label %._crit_edge52, label %.lr.ph51.preheader
 
 .lr.ph51.preheader:                               ; preds = %53
   %wide.trip.count = zext nneg i32 %.033.ph to i64

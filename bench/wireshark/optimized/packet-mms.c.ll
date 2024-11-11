@@ -2714,92 +2714,90 @@ define hidden i32 @dissect_mms_MMSpdu(i1 zeroext %0, ptr noundef %1, i32 noundef
   %8 = load i32, ptr @ett_mms_MMSpdu, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @MMSpdu_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7) #3
   %10 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %10, -1
-  %11 = sext i32 %10 to i64
-  %12 = and i64 %11, 1152921504606846975
-  %.not10 = icmp eq i64 %12, 14
-  %or.cond = or i1 %.not, %.not10
-  br i1 %or.cond, label %64, label %13
+  switch i32 %10, label %11 [
+    i32 -1, label %62
+    i32 14, label %62
+  ]
 
-13:                                               ; preds = %6
-  %14 = getelementptr i8, ptr %3, i64 16
-  %.val = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %.val, i64 408
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr @proto_mms, align 4
-  %18 = getelementptr inbounds i8, ptr %.val, i64 376
-  %19 = load i8, ptr %18, align 8
-  %20 = zext i8 %19 to i32
-  %21 = call ptr @p_get_proto_data(ptr noundef %16, ptr noundef %.val, i32 noundef %17, i32 noundef %20) #3
-  %.not17 = icmp eq ptr %21, null
-  %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  br i1 %.not17, label %59, label %25
+11:                                               ; preds = %6
+  %12 = getelementptr i8, ptr %3, i64 16
+  %.val = load ptr, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %.val, i64 408
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr @proto_mms, align 4
+  %16 = getelementptr inbounds i8, ptr %.val, i64 376
+  %17 = load i8, ptr %16, align 8
+  %18 = zext i8 %17 to i32
+  %19 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %.val, i32 noundef %15, i32 noundef %18) #3
+  %.not = icmp eq ptr %19, null
+  %20 = load ptr, ptr %12, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  br i1 %.not, label %57, label %23
 
-25:                                               ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %22, i64 408
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr @proto_mms, align 4
-  %29 = getelementptr inbounds i8, ptr %22, i64 376
-  %30 = load i8, ptr %29, align 8
-  %31 = zext i8 %30 to i32
-  %32 = call ptr @p_get_proto_data(ptr noundef %27, ptr noundef %22, i32 noundef %28, i32 noundef %31) #3
-  %.not.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i, label %33, label %private_data_get_preCinfo.exit
+23:                                               ; preds = %11
+  %24 = getelementptr inbounds i8, ptr %20, i64 408
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr @proto_mms, align 4
+  %27 = getelementptr inbounds i8, ptr %20, i64 376
+  %28 = load i8, ptr %27, align 8
+  %29 = zext i8 %28 to i32
+  %30 = call ptr @p_get_proto_data(ptr noundef %25, ptr noundef %20, i32 noundef %26, i32 noundef %29) #3
+  %.not.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i, label %31, label %private_data_get_preCinfo.exit
 
-33:                                               ; preds = %25
-  %34 = load ptr, ptr %26, align 8
-  %35 = call noalias ptr @wmem_alloc0(ptr noundef %34, i64 noundef 1034) #3
-  %36 = load ptr, ptr %26, align 8
-  %37 = load i32, ptr @proto_mms, align 4
-  %38 = load i8, ptr %29, align 8
-  %39 = zext i8 %38 to i32
-  call void @p_add_proto_data(ptr noundef %36, ptr noundef nonnull %22, i32 noundef %37, i32 noundef %39, ptr noundef %35) #3
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %24, align 8
+  %33 = call noalias ptr @wmem_alloc0(ptr noundef %32, i64 noundef 1034) #3
+  %34 = load ptr, ptr %24, align 8
+  %35 = load i32, ptr @proto_mms, align 4
+  %36 = load i8, ptr %27, align 8
+  %37 = zext i8 %36 to i32
+  call void @p_add_proto_data(ptr noundef %34, ptr noundef nonnull %20, i32 noundef %35, i32 noundef %37, ptr noundef %33) #3
   br label %private_data_get_preCinfo.exit
 
-private_data_get_preCinfo.exit:                   ; preds = %25, %33
-  %.0.i.i = phi ptr [ %35, %33 ], [ %32, %25 ]
-  %40 = load i32, ptr %7, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %41, i32 1
+private_data_get_preCinfo.exit:                   ; preds = %23, %31
+  %.0.i.i = phi ptr [ %33, %31 ], [ %30, %23 ]
+  %38 = load i32, ptr %7, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %39, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %.val13 = load ptr, ptr %12, align 8
+  %42 = getelementptr inbounds i8, ptr %.val13, i64 408
   %43 = load ptr, ptr %42, align 8
-  %.val14 = load ptr, ptr %14, align 8
-  %44 = getelementptr inbounds i8, ptr %.val14, i64 408
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr @proto_mms, align 4
-  %47 = getelementptr inbounds i8, ptr %.val14, i64 376
-  %48 = load i8, ptr %47, align 8
-  %49 = zext i8 %48 to i32
-  %50 = call ptr @p_get_proto_data(ptr noundef %45, ptr noundef %.val14, i32 noundef %46, i32 noundef %49) #3
-  %.not.i.i15 = icmp eq ptr %50, null
-  br i1 %.not.i.i15, label %51, label %private_data_get_moreCinfo.exit
+  %44 = load i32, ptr @proto_mms, align 4
+  %45 = getelementptr inbounds i8, ptr %.val13, i64 376
+  %46 = load i8, ptr %45, align 8
+  %47 = zext i8 %46 to i32
+  %48 = call ptr @p_get_proto_data(ptr noundef %43, ptr noundef %.val13, i32 noundef %44, i32 noundef %47) #3
+  %.not.i.i14 = icmp eq ptr %48, null
+  br i1 %.not.i.i14, label %49, label %private_data_get_moreCinfo.exit
 
-51:                                               ; preds = %private_data_get_preCinfo.exit
-  %52 = load ptr, ptr %44, align 8
-  %53 = call noalias ptr @wmem_alloc0(ptr noundef %52, i64 noundef 1034) #3
-  %54 = load ptr, ptr %44, align 8
-  %55 = load i32, ptr @proto_mms, align 4
-  %56 = load i8, ptr %47, align 8
-  %57 = zext i8 %56 to i32
-  call void @p_add_proto_data(ptr noundef %54, ptr noundef nonnull %.val14, i32 noundef %55, i32 noundef %57, ptr noundef %53) #3
+49:                                               ; preds = %private_data_get_preCinfo.exit
+  %50 = load ptr, ptr %42, align 8
+  %51 = call noalias ptr @wmem_alloc0(ptr noundef %50, i64 noundef 1034) #3
+  %52 = load ptr, ptr %42, align 8
+  %53 = load i32, ptr @proto_mms, align 4
+  %54 = load i8, ptr %45, align 8
+  %55 = zext i8 %54 to i32
+  call void @p_add_proto_data(ptr noundef %52, ptr noundef nonnull %.val13, i32 noundef %53, i32 noundef %55, ptr noundef %51) #3
   br label %private_data_get_moreCinfo.exit
 
-private_data_get_moreCinfo.exit:                  ; preds = %private_data_get_preCinfo.exit, %51
-  %.0.i.i16 = phi ptr [ %53, %51 ], [ %50, %private_data_get_preCinfo.exit ]
-  %58 = getelementptr inbounds i8, ptr %.0.i.i16, i64 10
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef %.0.i.i, ptr noundef %43, ptr noundef nonnull %58) #3
-  br label %64
+private_data_get_moreCinfo.exit:                  ; preds = %private_data_get_preCinfo.exit, %49
+  %.0.i.i15 = phi ptr [ %51, %49 ], [ %48, %private_data_get_preCinfo.exit ]
+  %56 = getelementptr inbounds i8, ptr %.0.i.i15, i64 10
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef %.0.i.i, ptr noundef %41, ptr noundef nonnull %56) #3
+  br label %62
 
-59:                                               ; preds = %13
-  %60 = load i32, ptr %7, align 4
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %61, i32 1
-  %63 = load ptr, ptr %62, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.15, ptr noundef %63) #3
-  br label %64
+57:                                               ; preds = %11
+  %58 = load i32, ptr %7, align 4
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %59, i32 1
+  %61 = load ptr, ptr %60, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.15, ptr noundef %61) #3
+  br label %62
 
-64:                                               ; preds = %private_data_get_moreCinfo.exit, %59, %6
+62:                                               ; preds = %6, %6, %private_data_get_moreCinfo.exit, %57
   ret i32 %9
 }
 

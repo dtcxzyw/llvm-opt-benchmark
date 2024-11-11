@@ -2359,14 +2359,14 @@ getdbname.exit:                                   ; preds = %49, %51
 .thread:                                          ; preds = %.preheader394
   %103 = call i32 @closedir(ptr noundef nonnull %74)
   %104 = call i32 @access(ptr noundef nonnull @.str.169, i32 noundef 4) #25
-  %.not338560 = icmp eq i32 %104, 0
-  br i1 %.not338560, label %.thread563, label %122
+  %.not338562 = icmp eq i32 %104, 0
+  br i1 %.not338562, label %.thread565, label %122
 
 105:                                              ; preds = %101
   %.not339 = icmp eq i32 %.3, 0
-  br i1 %.not339, label %.thread563, label %106
+  br i1 %.not339, label %.thread565, label %106
 
-.thread563:                                       ; preds = %.thread, %105
+.thread565:                                       ; preds = %.thread, %105
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.170) #25
   br label %513
 
@@ -2391,13 +2391,13 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not341, label %.preheader390, label %119
 
 .preheader390:                                    ; preds = %112, %.preheader390
-  %indvars.iv489 = phi i64 [ %indvars.iv.next490, %.preheader390 ], [ 0, %112 ]
-  %116 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv489
+  %indvars.iv491 = phi i64 [ %indvars.iv.next492, %.preheader390 ], [ 0, %112 ]
+  %116 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv491
   %117 = load ptr, ptr %116, align 8
   call void @free(ptr noundef %117) #25
-  %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
-  %exitcond493.not = icmp eq i64 %indvars.iv.next490, %114
-  br i1 %exitcond493.not, label %118, label %.preheader390
+  %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
+  %exitcond495.not = icmp eq i64 %indvars.iv.next492, %114
+  br i1 %exitcond495.not, label %118, label %.preheader390
 
 118:                                              ; preds = %.preheader390
   call void @free(ptr noundef nonnull %110) #25
@@ -2417,7 +2417,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %or.cond3, label %.preheader391, label %.loopexit392
 
 .preheader391:                                    ; preds = %122, %133
-  %indvars.iv480 = phi i64 [ %indvars.iv.next481, %133 ], [ 0, %122 ]
+  %indvars.iv482 = phi i64 [ %indvars.iv.next483, %133 ], [ 0, %122 ]
   %123 = phi ptr [ %135, %133 ], [ @.str.26, %122 ]
   %124 = phi ptr [ %134, %133 ], [ @dblist, %122 ]
   %.2302410 = phi i32 [ %.3303, %133 ], [ %.0300, %122 ]
@@ -2439,11 +2439,11 @@ getdbname.exit:                                   ; preds = %49, %51
 
 133:                                              ; preds = %.preheader391, %128, %130
   %.3303 = phi i32 [ %.2302410, %128 ], [ %132, %130 ], [ %.2302410, %.preheader391 ]
-  %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
-  %134 = getelementptr inbounds [31 x %struct.dblist_s], ptr @dblist, i64 0, i64 %indvars.iv.next481
+  %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
+  %134 = getelementptr inbounds [31 x %struct.dblist_s], ptr @dblist, i64 0, i64 %indvars.iv.next483
   %135 = load ptr, ptr %134, align 16
-  %exitcond483 = icmp eq i64 %indvars.iv.next481, 30
-  br i1 %exitcond483, label %.loopexit392, label %.preheader391
+  %exitcond485 = icmp eq i64 %indvars.iv.next483, 30
+  br i1 %exitcond485, label %.loopexit392, label %.preheader391
 
 .loopexit392:                                     ; preds = %133, %122
   %.1301 = phi i32 [ %.0300, %122 ], [ %.3303, %133 ]
@@ -2481,17 +2481,17 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not462, label %._crit_edge415, label %.lr.ph414.preheader
 
 .lr.ph414.preheader:                              ; preds = %148
-  %wide.trip.count487 = zext i32 %.1 to i64
+  %wide.trip.count489 = zext i32 %.1 to i64
   br label %.lr.ph414
 
 .lr.ph414:                                        ; preds = %.lr.ph414.preheader, %.lr.ph414
-  %indvars.iv484 = phi i64 [ 0, %.lr.ph414.preheader ], [ %indvars.iv.next485, %.lr.ph414 ]
-  %149 = getelementptr inbounds ptr, ptr %.1290, i64 %indvars.iv484
+  %indvars.iv486 = phi i64 [ 0, %.lr.ph414.preheader ], [ %indvars.iv.next487, %.lr.ph414 ]
+  %149 = getelementptr inbounds ptr, ptr %.1290, i64 %indvars.iv486
   %150 = load ptr, ptr %149, align 8
   call void @free(ptr noundef %150) #25
-  %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
-  %exitcond488.not = icmp eq i64 %indvars.iv.next485, %wide.trip.count487
-  br i1 %exitcond488.not, label %._crit_edge415, label %.lr.ph414
+  %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
+  %exitcond490.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count489
+  br i1 %exitcond490.not, label %._crit_edge415, label %.lr.ph414
 
 ._crit_edge415:                                   ; preds = %.lr.ph414, %148
   call void @free(ptr noundef %.1290) #25
@@ -2539,17 +2539,17 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not463, label %._crit_edge420, label %.lr.ph419.preheader
 
 .lr.ph419.preheader:                              ; preds = %170
-  %wide.trip.count497 = zext i32 %.0288 to i64
+  %wide.trip.count499 = zext i32 %.0288 to i64
   br label %.lr.ph419
 
 .lr.ph419:                                        ; preds = %.lr.ph419.preheader, %.lr.ph419
-  %indvars.iv494 = phi i64 [ 0, %.lr.ph419.preheader ], [ %indvars.iv.next495, %.lr.ph419 ]
-  %171 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv494
+  %indvars.iv496 = phi i64 [ 0, %.lr.ph419.preheader ], [ %indvars.iv.next497, %.lr.ph419 ]
+  %171 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv496
   %172 = load ptr, ptr %171, align 8
   call void @free(ptr noundef %172) #25
-  %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 1
-  %exitcond498.not = icmp eq i64 %indvars.iv.next495, %wide.trip.count497
-  br i1 %exitcond498.not, label %._crit_edge420, label %.lr.ph419
+  %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
+  %exitcond500.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count499
+  br i1 %exitcond500.not, label %._crit_edge420, label %.lr.ph419
 
 ._crit_edge420:                                   ; preds = %.lr.ph419, %170
   call void @free(ptr noundef %.0289) #25
@@ -2635,17 +2635,17 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not472, label %._crit_edge460, label %.lr.ph459.preheader
 
 .lr.ph459.preheader:                              ; preds = %210
-  %wide.trip.count551 = zext i32 %.0288 to i64
+  %wide.trip.count553 = zext i32 %.0288 to i64
   br label %.lr.ph459
 
 .lr.ph459:                                        ; preds = %.lr.ph459.preheader, %.lr.ph459
-  %indvars.iv548 = phi i64 [ 0, %.lr.ph459.preheader ], [ %indvars.iv.next549, %.lr.ph459 ]
-  %211 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv548
+  %indvars.iv550 = phi i64 [ 0, %.lr.ph459.preheader ], [ %indvars.iv.next551, %.lr.ph459 ]
+  %211 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv550
   %212 = load ptr, ptr %211, align 8
   call void @free(ptr noundef %212) #25
-  %indvars.iv.next549 = add nuw nsw i64 %indvars.iv548, 1
-  %exitcond552.not = icmp eq i64 %indvars.iv.next549, %wide.trip.count551
-  br i1 %exitcond552.not, label %._crit_edge460, label %.lr.ph459
+  %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
+  %exitcond554.not = icmp eq i64 %indvars.iv.next551, %wide.trip.count553
+  br i1 %exitcond554.not, label %._crit_edge460, label %.lr.ph459
 
 ._crit_edge460:                                   ; preds = %.lr.ph459, %210
   call void @free(ptr noundef %.0289) #25
@@ -2914,17 +2914,17 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not471, label %._crit_edge456, label %.lr.ph455.preheader
 
 .lr.ph455.preheader:                              ; preds = %329
-  %wide.trip.count546 = zext i32 %.0288 to i64
+  %wide.trip.count548 = zext i32 %.0288 to i64
   br label %.lr.ph455
 
 .lr.ph455:                                        ; preds = %.lr.ph455.preheader, %.lr.ph455
-  %indvars.iv543 = phi i64 [ 0, %.lr.ph455.preheader ], [ %indvars.iv.next544, %.lr.ph455 ]
-  %330 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv543
+  %indvars.iv545 = phi i64 [ 0, %.lr.ph455.preheader ], [ %indvars.iv.next546, %.lr.ph455 ]
+  %330 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv545
   %331 = load ptr, ptr %330, align 8
   call void @free(ptr noundef %331) #25
-  %indvars.iv.next544 = add nuw nsw i64 %indvars.iv543, 1
-  %exitcond547.not = icmp eq i64 %indvars.iv.next544, %wide.trip.count546
-  br i1 %exitcond547.not, label %._crit_edge456, label %.lr.ph455
+  %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 1
+  %exitcond549.not = icmp eq i64 %indvars.iv.next546, %wide.trip.count548
+  br i1 %exitcond549.not, label %._crit_edge456, label %.lr.ph455
 
 ._crit_edge456:                                   ; preds = %.lr.ph455, %329
   call void @free(ptr noundef %.0289) #25
@@ -2949,17 +2949,17 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not54.i, label %._crit_edge452, label %.lr.ph451.preheader
 
 .lr.ph451.preheader:                              ; preds = %337
-  %wide.trip.count541 = zext i32 %.0288 to i64
+  %wide.trip.count543 = zext i32 %.0288 to i64
   br label %.lr.ph451
 
 .lr.ph451:                                        ; preds = %.lr.ph451.preheader, %.lr.ph451
-  %indvars.iv538 = phi i64 [ 0, %.lr.ph451.preheader ], [ %indvars.iv.next539, %.lr.ph451 ]
-  %338 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv538
+  %indvars.iv540 = phi i64 [ 0, %.lr.ph451.preheader ], [ %indvars.iv.next541, %.lr.ph451 ]
+  %338 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv540
   %339 = load ptr, ptr %338, align 8
   call void @free(ptr noundef %339) #25
-  %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538, 1
-  %exitcond542.not = icmp eq i64 %indvars.iv.next539, %wide.trip.count541
-  br i1 %exitcond542.not, label %._crit_edge452, label %.lr.ph451
+  %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
+  %exitcond544.not = icmp eq i64 %indvars.iv.next541, %wide.trip.count543
+  br i1 %exitcond544.not, label %._crit_edge452, label %.lr.ph451
 
 ._crit_edge452:                                   ; preds = %.lr.ph451, %337
   call void @free(ptr noundef %.0289) #25
@@ -2976,17 +2976,17 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not54.i, label %._crit_edge448, label %.lr.ph447.preheader
 
 .lr.ph447.preheader:                              ; preds = %343
-  %wide.trip.count536 = zext i32 %.0288 to i64
+  %wide.trip.count538 = zext i32 %.0288 to i64
   br label %.lr.ph447
 
 .lr.ph447:                                        ; preds = %.lr.ph447.preheader, %.lr.ph447
-  %indvars.iv533 = phi i64 [ 0, %.lr.ph447.preheader ], [ %indvars.iv.next534, %.lr.ph447 ]
-  %344 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv533
+  %indvars.iv535 = phi i64 [ 0, %.lr.ph447.preheader ], [ %indvars.iv.next536, %.lr.ph447 ]
+  %344 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv535
   %345 = load ptr, ptr %344, align 8
   call void @free(ptr noundef %345) #25
-  %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 1
-  %exitcond537.not = icmp eq i64 %indvars.iv.next534, %wide.trip.count536
-  br i1 %exitcond537.not, label %._crit_edge448, label %.lr.ph447
+  %indvars.iv.next536 = add nuw nsw i64 %indvars.iv535, 1
+  %exitcond539.not = icmp eq i64 %indvars.iv.next536, %wide.trip.count538
+  br i1 %exitcond539.not, label %._crit_edge448, label %.lr.ph447
 
 ._crit_edge448:                                   ; preds = %.lr.ph447, %343
   call void @free(ptr noundef %.0289) #25
@@ -3005,17 +3005,17 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not54.i, label %._crit_edge444, label %.lr.ph443.preheader
 
 .lr.ph443.preheader:                              ; preds = %349
-  %wide.trip.count531 = zext i32 %.0288 to i64
+  %wide.trip.count533 = zext i32 %.0288 to i64
   br label %.lr.ph443
 
 .lr.ph443:                                        ; preds = %.lr.ph443.preheader, %.lr.ph443
-  %indvars.iv528 = phi i64 [ 0, %.lr.ph443.preheader ], [ %indvars.iv.next529, %.lr.ph443 ]
-  %352 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv528
+  %indvars.iv530 = phi i64 [ 0, %.lr.ph443.preheader ], [ %indvars.iv.next531, %.lr.ph443 ]
+  %352 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv530
   %353 = load ptr, ptr %352, align 8
   call void @free(ptr noundef %353) #25
-  %indvars.iv.next529 = add nuw nsw i64 %indvars.iv528, 1
-  %exitcond532.not = icmp eq i64 %indvars.iv.next529, %wide.trip.count531
-  br i1 %exitcond532.not, label %._crit_edge444, label %.lr.ph443
+  %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
+  %exitcond534.not = icmp eq i64 %indvars.iv.next531, %wide.trip.count533
+  br i1 %exitcond534.not, label %._crit_edge444, label %.lr.ph443
 
 ._crit_edge444:                                   ; preds = %.lr.ph443, %349
   call void @free(ptr noundef %.0289) #25
@@ -3040,17 +3040,17 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not54.i, label %._crit_edge424, label %.lr.ph423.preheader
 
 .lr.ph423.preheader:                              ; preds = %359
-  %wide.trip.count502 = zext i32 %.0288 to i64
+  %wide.trip.count504 = zext i32 %.0288 to i64
   br label %.lr.ph423
 
 .lr.ph423:                                        ; preds = %.lr.ph423.preheader, %.lr.ph423
-  %indvars.iv499 = phi i64 [ 0, %.lr.ph423.preheader ], [ %indvars.iv.next500, %.lr.ph423 ]
-  %362 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv499
+  %indvars.iv501 = phi i64 [ 0, %.lr.ph423.preheader ], [ %indvars.iv.next502, %.lr.ph423 ]
+  %362 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv501
   %363 = load ptr, ptr %362, align 8
   call void @free(ptr noundef %363) #25
-  %indvars.iv.next500 = add nuw nsw i64 %indvars.iv499, 1
-  %exitcond503.not = icmp eq i64 %indvars.iv.next500, %wide.trip.count502
-  br i1 %exitcond503.not, label %._crit_edge424, label %.lr.ph423
+  %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
+  %exitcond505.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count504
+  br i1 %exitcond505.not, label %._crit_edge424, label %.lr.ph423
 
 ._crit_edge424:                                   ; preds = %.lr.ph423, %359
   call void @free(ptr noundef %.0289) #25
@@ -3060,17 +3060,17 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not54.i, label %.loopexit389, label %.lr.ph427.preheader
 
 .lr.ph427.preheader:                              ; preds = %364
-  %wide.trip.count507 = zext i32 %.0288 to i64
+  %wide.trip.count509 = zext i32 %.0288 to i64
   br label %.lr.ph427
 
 365:                                              ; preds = %.lr.ph427
-  %indvars.iv.next505 = add nuw nsw i64 %indvars.iv504, 1
-  %exitcond508.not = icmp eq i64 %indvars.iv.next505, %wide.trip.count507
-  br i1 %exitcond508.not, label %.loopexit389, label %.lr.ph427
+  %indvars.iv.next507 = add nuw nsw i64 %indvars.iv506, 1
+  %exitcond510.not = icmp eq i64 %indvars.iv.next507, %wide.trip.count509
+  br i1 %exitcond510.not, label %.loopexit389, label %.lr.ph427
 
 .lr.ph427:                                        ; preds = %.lr.ph427.preheader, %365
-  %indvars.iv504 = phi i64 [ 0, %.lr.ph427.preheader ], [ %indvars.iv.next505, %365 ]
-  %366 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv504
+  %indvars.iv506 = phi i64 [ 0, %.lr.ph427.preheader ], [ %indvars.iv.next507, %365 ]
+  %366 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv506
   %367 = load ptr, ptr %366, align 8
   %368 = call i32 @tar_addfile(i32 noundef -1, ptr noundef nonnull %341, ptr noundef %367) #25
   %369 = icmp eq i32 %368, -1
@@ -3083,13 +3083,13 @@ getdbname.exit:                                   ; preds = %49, %51
   br label %373
 
 373:                                              ; preds = %370, %373
-  %indvars.iv509 = phi i64 [ 0, %370 ], [ %indvars.iv.next510, %373 ]
-  %374 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv509
+  %indvars.iv511 = phi i64 [ 0, %370 ], [ %indvars.iv.next512, %373 ]
+  %374 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv511
   %375 = load ptr, ptr %374, align 8
   call void @free(ptr noundef %375) #25
-  %indvars.iv.next510 = add nuw nsw i64 %indvars.iv509, 1
-  %exitcond513.not = icmp eq i64 %indvars.iv.next510, %wide.trip.count507
-  br i1 %exitcond513.not, label %376, label %373
+  %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
+  %exitcond515.not = icmp eq i64 %indvars.iv.next512, %wide.trip.count509
+  br i1 %exitcond515.not, label %376, label %373
 
 376:                                              ; preds = %373
   call void @free(ptr noundef nonnull %.0289) #25
@@ -3100,7 +3100,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %or.cond7, label %.preheader388, label %.loopexit
 
 .preheader388:                                    ; preds = %.loopexit389, %388
-  %indvars.iv514 = phi i64 [ %indvars.iv.next515, %388 ], [ 0, %.loopexit389 ]
+  %indvars.iv516 = phi i64 [ %indvars.iv.next517, %388 ], [ 0, %.loopexit389 ]
   %377 = phi ptr [ %390, %388 ], [ @.str.26, %.loopexit389 ]
   %378 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 4096, ptr noundef nonnull @.str.171, ptr noundef nonnull %17, ptr noundef nonnull %377) #25
   %379 = call i32 @access(ptr noundef nonnull %18, i32 noundef 4) #25
@@ -3119,45 +3119,45 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %.not54.i, label %._crit_edge432, label %.lr.ph431.preheader
 
 .lr.ph431.preheader:                              ; preds = %383
-  %wide.trip.count526 = zext i32 %.0288 to i64
+  %wide.trip.count528 = zext i32 %.0288 to i64
   br label %.lr.ph431
 
 .lr.ph431:                                        ; preds = %.lr.ph431.preheader, %.lr.ph431
-  %indvars.iv523 = phi i64 [ 0, %.lr.ph431.preheader ], [ %indvars.iv.next524, %.lr.ph431 ]
-  %386 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv523
+  %indvars.iv525 = phi i64 [ 0, %.lr.ph431.preheader ], [ %indvars.iv.next526, %.lr.ph431 ]
+  %386 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv525
   %387 = load ptr, ptr %386, align 8
   call void @free(ptr noundef %387) #25
-  %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
-  %exitcond527.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count526
-  br i1 %exitcond527.not, label %._crit_edge432, label %.lr.ph431
+  %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
+  %exitcond529.not = icmp eq i64 %indvars.iv.next526, %wide.trip.count528
+  br i1 %exitcond529.not, label %._crit_edge432, label %.lr.ph431
 
 ._crit_edge432:                                   ; preds = %.lr.ph431, %383
   call void @free(ptr noundef %.0289) #25
   br label %513
 
 388:                                              ; preds = %.preheader388, %380
-  %indvars.iv.next515 = add nuw nsw i64 %indvars.iv514, 1
-  %389 = getelementptr inbounds [31 x %struct.dblist_s], ptr @dblist, i64 0, i64 %indvars.iv.next515
+  %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
+  %389 = getelementptr inbounds [31 x %struct.dblist_s], ptr @dblist, i64 0, i64 %indvars.iv.next517
   %390 = load ptr, ptr %389, align 16
-  %exitcond517 = icmp eq i64 %indvars.iv.next515, 30
-  br i1 %exitcond517, label %.loopexit, label %.preheader388
+  %exitcond519 = icmp eq i64 %indvars.iv.next517, 30
+  br i1 %exitcond519, label %.loopexit, label %.preheader388
 
 .loopexit:                                        ; preds = %388, %.loopexit389
   %391 = call i32 @gzclose(ptr noundef nonnull %341) #25
   br i1 %.not54.i, label %._crit_edge436, label %.lr.ph435.preheader
 
 .lr.ph435.preheader:                              ; preds = %.loopexit
-  %wide.trip.count521 = zext i32 %.0288 to i64
+  %wide.trip.count523 = zext i32 %.0288 to i64
   br label %.lr.ph435
 
 .lr.ph435:                                        ; preds = %.lr.ph435.preheader, %.lr.ph435
-  %indvars.iv518 = phi i64 [ 0, %.lr.ph435.preheader ], [ %indvars.iv.next519, %.lr.ph435 ]
-  %392 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv518
+  %indvars.iv520 = phi i64 [ 0, %.lr.ph435.preheader ], [ %indvars.iv.next521, %.lr.ph435 ]
+  %392 = getelementptr inbounds ptr, ptr %.0289, i64 %indvars.iv520
   %393 = load ptr, ptr %392, align 8
   call void @free(ptr noundef %393) #25
-  %indvars.iv.next519 = add nuw nsw i64 %indvars.iv518, 1
-  %exitcond522.not = icmp eq i64 %indvars.iv.next519, %wide.trip.count521
-  br i1 %exitcond522.not, label %._crit_edge436, label %.lr.ph435
+  %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
+  %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
+  br i1 %exitcond524.not, label %._crit_edge436, label %.lr.ph435
 
 ._crit_edge436:                                   ; preds = %.lr.ph435, %.loopexit
   call void @free(ptr noundef %.0289) #25
@@ -3409,8 +3409,8 @@ getdbname.exit:                                   ; preds = %49, %51
   %. = sext i1 %not. to i32
   br label %513
 
-513:                                              ; preds = %507, %505, %508, %481, %475, %465, %495, %487, %479, %474, %462, %452, %444, %439, %414, %399, %395, %._crit_edge432, %376, %._crit_edge424, %._crit_edge444, %._crit_edge448, %._crit_edge452, %._crit_edge456, %248, %._crit_edge460, %._crit_edge420, %._crit_edge415, %118, %111, %.thread563, %._crit_edge409, %88, %77, %65, %62, %39, %27
-  %.0 = phi i32 [ -1, %39 ], [ -1, %65 ], [ -1, %77 ], [ -1, %._crit_edge409 ], [ -1, %88 ], [ -1, %._crit_edge415 ], [ -1, %._crit_edge456 ], [ -1, %._crit_edge448 ], [ -1, %._crit_edge444 ], [ -1, %376 ], [ -1, %._crit_edge432 ], [ -1, %444 ], [ -1, %452 ], [ -1, %462 ], [ 0, %474 ], [ -1, %479 ], [ -1, %487 ], [ -1, %495 ], [ -1, %439 ], [ -1, %414 ], [ -1, %399 ], [ -1, %395 ], [ -1, %._crit_edge424 ], [ -1, %._crit_edge452 ], [ -1, %248 ], [ -1, %._crit_edge460 ], [ -1, %._crit_edge420 ], [ -1, %118 ], [ -1, %111 ], [ -1, %.thread563 ], [ 50, %62 ], [ -1, %27 ], [ 0, %465 ], [ -1, %475 ], [ -1, %481 ], [ -1, %505 ], [ -1, %507 ], [ %., %508 ]
+513:                                              ; preds = %507, %505, %508, %481, %475, %465, %495, %487, %479, %474, %462, %452, %444, %439, %414, %399, %395, %._crit_edge432, %376, %._crit_edge424, %._crit_edge444, %._crit_edge448, %._crit_edge452, %._crit_edge456, %248, %._crit_edge460, %._crit_edge420, %._crit_edge415, %118, %111, %.thread565, %._crit_edge409, %88, %77, %65, %62, %39, %27
+  %.0 = phi i32 [ -1, %39 ], [ -1, %65 ], [ -1, %77 ], [ -1, %._crit_edge409 ], [ -1, %88 ], [ -1, %._crit_edge415 ], [ -1, %._crit_edge456 ], [ -1, %._crit_edge448 ], [ -1, %._crit_edge444 ], [ -1, %376 ], [ -1, %._crit_edge432 ], [ -1, %444 ], [ -1, %452 ], [ -1, %462 ], [ 0, %474 ], [ -1, %479 ], [ -1, %487 ], [ -1, %495 ], [ -1, %439 ], [ -1, %414 ], [ -1, %399 ], [ -1, %395 ], [ -1, %._crit_edge424 ], [ -1, %._crit_edge452 ], [ -1, %248 ], [ -1, %._crit_edge460 ], [ -1, %._crit_edge420 ], [ -1, %118 ], [ -1, %111 ], [ -1, %.thread565 ], [ 50, %62 ], [ -1, %27 ], [ 0, %465 ], [ -1, %475 ], [ -1, %481 ], [ -1, %505 ], [ -1, %507 ], [ %., %508 ]
   ret i32 %.0
 }
 

@@ -781,7 +781,7 @@ _ZN3gmx11ListOfListsIiEC2Ev.exit:                 ; preds = %247
 253:                                              ; preds = %246
   %.idx = shl nuw nsw i64 %21, 3
   %254 = getelementptr inbounds i8, ptr %.sroa.095.1.lcssa, i64 %.idx
-  br i1 %.not127, label %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread362, label %255
+  br i1 %.not127, label %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread363, label %255
 
 255:                                              ; preds = %253
   %256 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 true)
@@ -970,19 +970,19 @@ _ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit:     ; preds = %_ZSt25__unguarded_l
   %.not38 = icmp eq ptr %335, null
   br i1 %.not38, label %._crit_edge242, label %.lr.ph238.preheader
 
-_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread362: ; preds = %253
+_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread363: ; preds = %253
   %336 = load ptr, ptr @debug, align 8
-  %.not38363 = icmp eq ptr %336, null
-  br i1 %.not38363, label %._crit_edge242, label %.thread364
+  %.not38364 = icmp eq ptr %336, null
+  br i1 %.not38364, label %._crit_edge242, label %.thread365
 
-.thread364:                                       ; preds = %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread362
+.thread365:                                       ; preds = %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread363
   %337 = call i64 @fwrite(ptr nonnull @.str.1, i64 19, i64 1, ptr nonnull %336)
   br label %._crit_edge242
 
 _ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread: ; preds = %303
   %338 = load ptr, ptr @debug, align 8
-  %.not38360 = icmp eq ptr %338, null
-  br i1 %.not38360, label %._crit_edge242, label %.lr.ph238.preheader
+  %.not38361 = icmp eq ptr %338, null
+  br i1 %.not38361, label %._crit_edge242, label %.lr.ph238.preheader
 
 .lr.ph238.preheader:                              ; preds = %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread
   %.sink = phi ptr [ %338, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread ], [ %335, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit ]
@@ -1004,7 +1004,7 @@ _ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread: ; preds = %303
   %exitcond350.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count349
   br i1 %exitcond350.not, label %._crit_edge242, label %.lr.ph238, !llvm.loop !13
 
-._crit_edge242:                                   ; preds = %.lr.ph238, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread362, %.thread364, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread
+._crit_edge242:                                   ; preds = %.lr.ph238, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread363, %.thread365, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %347 = sext i32 %.043.lcssa.i to i64

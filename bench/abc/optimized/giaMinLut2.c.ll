@@ -3509,8 +3509,8 @@ Abc_TtIntersect.exit266:                          ; preds = %.lr.ph.i261
   br label %215
 
 215:                                              ; preds = %204, %Abc_TtIntersect.exit266, %191
-  %.sink469 = phi i32 [ %210, %204 ], [ %214, %Abc_TtIntersect.exit266 ], [ %196, %191 ]
-  store i32 %.sink469, ptr %7, align 4
+  %.sink487 = phi i32 [ %210, %204 ], [ %214, %Abc_TtIntersect.exit266 ], [ %196, %191 ]
+  store i32 %.sink487, ptr %7, align 4
   br i1 %.not161, label %Abc_TtClear.exit, label %216
 
 216:                                              ; preds = %215
@@ -3524,7 +3524,7 @@ Abc_TtIntersect.exit266:                          ; preds = %.lr.ph.i261
   %222 = sub i64 %220, %221
   %223 = lshr exact i64 %222, 3
   %224 = trunc i64 %223 to i32
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %219, i32 noundef %224, i32 noundef %.sink469)
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %219, i32 noundef %224, i32 noundef %.sink487)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %33, %.lr.ph.i209, %.lr.ph18.i230, %.lr.ph18.i194, %.thread288, %.lr.ph.preheader.i177, %.lr.ph.preheader.i, %215, %216, %139, %29

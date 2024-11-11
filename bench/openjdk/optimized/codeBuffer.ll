@@ -2661,11 +2661,11 @@ _ZNK11CodeSection14align_at_startEi.exit:         ; preds = %20, %35, %40
 
 ._crit_edge.loopexit93:                           ; preds = %.lr.ph.split
   %.pre = load ptr, ptr %15, align 8
-  %.pre98 = ptrtoint ptr %.pre to i64
+  %.pre99 = ptrtoint ptr %.pre to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %._crit_edge.loopexit93, %.preheader78
-  %.pre-phi = phi i64 [ %.pre98, %._crit_edge.loopexit93 ], [ %30, %.preheader78 ], [ %30, %.lr.ph.split.us ]
+  %.pre-phi = phi i64 [ %.pre99, %._crit_edge.loopexit93 ], [ %30, %.preheader78 ], [ %30, %.lr.ph.split.us ]
   %.3.lcssa = phi i32 [ %58, %._crit_edge.loopexit93 ], [ %.085, %.preheader78 ], [ %52, %.lr.ph.split.us ]
   %61 = getelementptr inbounds i8, ptr %15, i64 56
   %62 = load ptr, ptr %61, align 8

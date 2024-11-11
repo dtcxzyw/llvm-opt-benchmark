@@ -862,7 +862,7 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
   %30 = load i32, ptr @destroy_job, align 4
   %31 = icmp ne i32 %30, 0
   %or.cond3 = select i1 %29, i1 true, i1 %31
-  br i1 %or.cond3, label %46, label %32
+  br i1 %or.cond3, label %45, label %32
 
 32:                                               ; preds = %25
   %.b35 = load i1, ptr @revoke_job, align 1
@@ -874,49 +874,48 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
     i32 11, label %.backedge.backedge
   ]
 
-.backedge.backedge:                               ; preds = %33, %33, %38
+.backedge.backedge:                               ; preds = %33, %33, %37
   br label %.backedge
 
 34:                                               ; preds = %33
-  %35 = zext i32 %28 to i64
-  %36 = and i64 %35, 2
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %47, label %38
+  %35 = and i32 %28, 2
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %46, label %37
 
-38:                                               ; preds = %34
-  %39 = and i64 %35, 5
-  %or.cond.not = icmp eq i64 %39, 5
-  br i1 %or.cond.not, label %40, label %.backedge.backedge
+37:                                               ; preds = %34
+  %38 = and i32 %28, 5
+  %or.cond.not = icmp eq i32 %38, 5
+  br i1 %or.cond.not, label %39, label %.backedge.backedge
 
-40:                                               ; preds = %38
-  %41 = tail call i32 @get_log_level() #9
-  %42 = icmp sgt i32 %41, 3
-  br i1 %42, label %43, label %53
+39:                                               ; preds = %37
+  %40 = tail call i32 @get_log_level() #9
+  %41 = icmp sgt i32 %40, 3
+  br i1 %41, label %42, label %52
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 120
-  %45 = load ptr, ptr %44, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef %45) #9
-  br label %53
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %44 = load ptr, ptr %43, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef %44) #9
+  br label %52
 
-46:                                               ; preds = %25
+45:                                               ; preds = %25
   %.not39 = icmp eq i32 %30, 0
-  br i1 %.not39, label %.thread48, label %53
+  br i1 %.not39, label %.thread48, label %52
 
-47:                                               ; preds = %34
-  %48 = load i32, ptr %2, align 8
-  %49 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, i32 noundef %48) #9
+46:                                               ; preds = %34
+  %47 = load i32, ptr %2, align 8
+  %48 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, i32 noundef %47) #9
   store i32 1, ptr @destroy_job, align 4
-  br label %53
+  br label %52
 
-.thread48:                                        ; preds = %32, %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 120
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %51) #9
-  br label %53
+.thread48:                                        ; preds = %32, %45
+  %49 = getelementptr inbounds i8, ptr %0, i64 120
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %50) #9
+  br label %52
 
-53:                                               ; preds = %46, %.thread48, %47, %43, %40
-  %.131 = phi i32 [ 1, %43 ], [ 1, %40 ], [ 0, %47 ], [ 0, %.thread48 ], [ 0, %46 ]
+52:                                               ; preds = %45, %.thread48, %46, %42, %39
+  %.131 = phi i32 [ 1, %42 ], [ 1, %39 ], [ 0, %46 ], [ 0, %.thread48 ], [ 0, %45 ]
   store i32 0, ptr @pending_job_id, align 4
   ret i32 %.131
 }

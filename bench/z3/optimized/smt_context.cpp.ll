@@ -7914,9 +7914,9 @@ for.end110:                                       ; preds = %for.inc108
   br i1 %tobool.not.i94, label %_ZN3smt10watch_list14set_end_clauseEPPNS_6clauseE.exit102, label %if.then.i95
 
 if.then.i95:                                      ; preds = %_ZN3smt10watch_list10end_clauseEv.exit, %for.end110
-  %it2.0.lcssa144 = phi ptr [ %it2.2, %for.end110 ], [ %28, %_ZN3smt10watch_list10end_clauseEv.exit ]
+  %it2.0.lcssa146 = phi ptr [ %it2.2, %for.end110 ], [ %28, %_ZN3smt10watch_list10end_clauseEv.exit ]
   %64 = phi ptr [ %.pre, %for.end110 ], [ %28, %_ZN3smt10watch_list10end_clauseEv.exit ]
-  %sub.ptr.lhs.cast.i96 = ptrtoint ptr %it2.0.lcssa144 to i64
+  %sub.ptr.lhs.cast.i96 = ptrtoint ptr %it2.0.lcssa146 to i64
   %sub.ptr.rhs.cast.i97 = ptrtoint ptr %64 to i64
   %sub.ptr.sub.i98 = sub i64 %sub.ptr.lhs.cast.i96, %sub.ptr.rhs.cast.i97
   %conv.i99 = trunc i64 %sub.ptr.sub.i98 to i32

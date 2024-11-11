@@ -23766,11 +23766,11 @@ if.then.i63:                                      ; preds = %while.body.i
   %add.i73 = add i64 %retval.0.i.i71, %conv12.i
   %inc.i74 = add nuw nsw i64 %i.0111.i, 1
   %.pre.i75 = load ptr, ptr %_M_finish.i.i19, align 8
-  %.pre136.i = load ptr, ptr %chunks.i, align 8
-  %.pre138.i = ptrtoint ptr %.pre.i75 to i64
-  %.pre139.i = ptrtoint ptr %.pre136.i to i64
-  %.pre140.i = sub i64 %.pre138.i, %.pre139.i
-  %.pre141.i = ashr exact i64 %.pre140.i, 3
+  %.pre137.i = load ptr, ptr %chunks.i, align 8
+  %.pre139.i = ptrtoint ptr %.pre.i75 to i64
+  %.pre140.i = ptrtoint ptr %.pre137.i to i64
+  %.pre141.i = sub i64 %.pre139.i, %.pre140.i
+  %.pre142.i = ashr exact i64 %.pre141.i, 3
   br label %while.cond.outer.backedge.i
 
 if.end.i:                                         ; preds = %while.body.i
@@ -23922,8 +23922,8 @@ while.body125.i:                                  ; preds = %land.rhs.i59
   br i1 %cmp113.i, label %land.lhs.true.i58, label %_ZN4mold3elfL16set_file_offsetsINS0_6RV32BEEEElRNS0_7ContextIT_EE.exit, !llvm.loop !481
 
 while.cond.outer.backedge.i:                      ; preds = %land.rhs.i59, %land.lhs.true.i58, %for.end.i, %if.then.i63
-  %sub.ptr.div.i.pre-phi.i = phi i64 [ %sub.ptr.div.i74.i, %for.end.i ], [ %.pre141.i, %if.then.i63 ], [ %sub.ptr.div.i74.i, %land.lhs.true.i58 ], [ %sub.ptr.div.i74.i, %land.rhs.i59 ]
-  %163 = phi ptr [ %148, %for.end.i ], [ %.pre136.i, %if.then.i63 ], [ %148, %land.lhs.true.i58 ], [ %148, %land.rhs.i59 ]
+  %sub.ptr.div.i.pre-phi.i = phi i64 [ %sub.ptr.div.i74.i, %for.end.i ], [ %.pre142.i, %if.then.i63 ], [ %sub.ptr.div.i74.i, %land.lhs.true.i58 ], [ %sub.ptr.div.i74.i, %land.rhs.i59 ]
+  %163 = phi ptr [ %148, %for.end.i ], [ %.pre137.i, %if.then.i63 ], [ %148, %land.lhs.true.i58 ], [ %148, %land.rhs.i59 ]
   %i.0.ph.be.i = phi i64 [ %inc51.i, %for.end.i ], [ %inc.i74, %if.then.i63 ], [ %i.2114.i, %land.lhs.true.i58 ], [ %i.2114.i, %land.rhs.i59 ]
   %fileoff.0.ph.be.i = phi i64 [ %conv110.i, %for.end.i ], [ %add.i73, %if.then.i63 ], [ %conv110.i, %land.lhs.true.i58 ], [ %conv110.i, %land.rhs.i59 ]
   %cmp110.i = icmp ult i64 %i.0.ph.be.i, %sub.ptr.div.i.pre-phi.i

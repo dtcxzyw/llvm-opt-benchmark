@@ -2516,14 +2516,13 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510UnicodeSet11containsAllER
 entry:
   %fUnion.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %0 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %1 = and i16 %0, 17
+  %tobool.not.i = icmp eq i16 %1, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %2 = and i16 %0, 2
+  %tobool6.not.i = icmp eq i16 %2, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -2532,24 +2531,24 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
-  %1 = load ptr, ptr %fArray.i, align 8
+  %3 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %1, %if.else9.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %3, %if.else9.i ], [ null, %entry ]
   %cmp.i.i = icmp slt i16 %0, 0
-  %2 = ashr i16 %0, 5
-  %shr.i.i = sext i16 %2 to i32
+  %4 = ashr i16 %0, 5
+  %shr.i.i = sext i16 %4 to i32
   %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
-  %3 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
+  %5 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %5, i32 %shr.i.i
   %call3 = tail call noundef i32 @_ZNK6icu_7510UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %retval.0.i, i32 noundef %cond.i, i32 noundef 1)
-  %4 = load i16, ptr %fUnion.i, align 8
-  %cmp.i.i4 = icmp slt i16 %4, 0
-  %5 = ashr i16 %4, 5
-  %shr.i.i5 = sext i16 %5 to i32
-  %6 = load i32, ptr %fLength.i, align 4
-  %cond.i7 = select i1 %cmp.i.i4, i32 %6, i32 %shr.i.i5
+  %6 = load i16, ptr %fUnion.i, align 8
+  %cmp.i.i4 = icmp slt i16 %6, 0
+  %7 = ashr i16 %6, 5
+  %shr.i.i5 = sext i16 %7 to i32
+  %8 = load i32, ptr %fLength.i, align 4
+  %cond.i7 = select i1 %cmp.i.i4, i32 %8, i32 %shr.i.i5
   %cmp = icmp eq i32 %call3, %cond.i7
   %conv = zext i1 %cmp to i8
   ret i8 %conv
@@ -3031,14 +3030,13 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510UnicodeSet12containsNoneE
 entry:
   %fUnion.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %0 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %1 = and i16 %0, 17
+  %tobool.not.i = icmp eq i16 %1, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %2 = and i16 %0, 2
+  %tobool6.not.i = icmp eq i16 %2, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -3047,24 +3045,24 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
-  %1 = load ptr, ptr %fArray.i, align 8
+  %3 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %1, %if.else9.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %3, %if.else9.i ], [ null, %entry ]
   %cmp.i.i = icmp slt i16 %0, 0
-  %2 = ashr i16 %0, 5
-  %shr.i.i = sext i16 %2 to i32
+  %4 = ashr i16 %0, 5
+  %shr.i.i = sext i16 %4 to i32
   %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
-  %3 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
+  %5 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %5, i32 %shr.i.i
   %call3 = tail call noundef i32 @_ZNK6icu_7510UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %retval.0.i, i32 noundef %cond.i, i32 noundef 0)
-  %4 = load i16, ptr %fUnion.i, align 8
-  %cmp.i.i4 = icmp slt i16 %4, 0
-  %5 = ashr i16 %4, 5
-  %shr.i.i5 = sext i16 %5 to i32
-  %6 = load i32, ptr %fLength.i, align 4
-  %cond.i7 = select i1 %cmp.i.i4, i32 %6, i32 %shr.i.i5
+  %6 = load i16, ptr %fUnion.i, align 8
+  %cmp.i.i4 = icmp slt i16 %6, 0
+  %7 = ashr i16 %6, 5
+  %shr.i.i5 = sext i16 %7 to i32
+  %8 = load i32, ptr %fLength.i, align 4
+  %cond.i7 = select i1 %cmp.i.i4, i32 %8, i32 %shr.i.i5
   %cmp = icmp eq i32 %call3, %cond.i7
   %conv = zext i1 %cmp to i8
   ret i8 %conv

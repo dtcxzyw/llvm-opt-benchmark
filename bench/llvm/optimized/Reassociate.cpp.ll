@@ -9813,7 +9813,7 @@ define dso_local noundef ptr @_ZN4llvm15ReassociatePass11OptimizeMulEPNS_14Binar
   %24 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %14, i64 %indvars.iv.i, i32 1
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %20
-  br i1 %26, label %27, label %.critedge.split.loop.exit95.i
+  br i1 %26, label %27, label %.critedge.split.loop.exit97.i
 
 27:                                               ; preds = %23
   %28 = add i32 %.04964.i, 1
@@ -9821,13 +9821,13 @@ define dso_local noundef ptr @_ZN4llvm15ReassociatePass11OptimizeMulEPNS_14Binar
   %29 = icmp samesign ult i64 %indvars.iv.next.i, %15
   br i1 %29, label %23, label %.critedge.i, !llvm.loop !150
 
-.critedge.split.loop.exit95.i:                    ; preds = %23
+.critedge.split.loop.exit97.i:                    ; preds = %23
   %30 = trunc nuw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %27, %.critedge.split.loop.exit95.i
-  %.154.lcssa.i = phi i32 [ %30, %.critedge.split.loop.exit95.i ], [ %umax.i, %27 ]
-  %.049.lcssa.i = phi i32 [ %.04964.i, %.critedge.split.loop.exit95.i ], [ %28, %27 ]
+.critedge.i:                                      ; preds = %27, %.critedge.split.loop.exit97.i
+  %.154.lcssa.i = phi i32 [ %30, %.critedge.split.loop.exit97.i ], [ %umax.i, %27 ]
+  %.049.lcssa.i = phi i32 [ %.04964.i, %.critedge.split.loop.exit97.i ], [ %28, %27 ]
   %31 = icmp ugt i32 %.049.lcssa.i, 1
   %32 = select i1 %31, i32 %.049.lcssa.i, i32 0
   %spec.select.i = add i32 %32, %.05066.i

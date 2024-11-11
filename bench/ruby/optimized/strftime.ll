@@ -5760,8 +5760,8 @@ define internal fastcc range(i32 0, 306783380) i32 @iso8601wknum(ptr nocapture n
   store i32 %25, ptr %26, align 8
   %27 = sext i32 %20 to i64
   %28 = add nsw i64 %27, 1900
-  %29 = and i64 %27, 3
-  %30 = icmp ne i64 %29, 0
+  %29 = and i32 %20, 3
+  %30 = icmp ne i32 %29, 0
   %31 = srem i64 %28, 100
   %.not.i = icmp eq i64 %31, 0
   %or.cond.i = or i1 %30, %.not.i

@@ -507,8 +507,8 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %158
   br label %._crit_edge213.thread
 
 ._crit_edge213.thread:                            ; preds = %98, %143, %._crit_edge213
-  %.0128.lcssa242 = phi i1 [ %142, %143 ], [ %142, %._crit_edge213 ], [ true, %98 ]
-  %.0130.lcssa241 = phi i1 [ false, %143 ], [ true, %._crit_edge213 ], [ true, %98 ]
+  %.0128.lcssa246 = phi i1 [ %142, %143 ], [ %142, %._crit_edge213 ], [ true, %98 ]
+  %.0130.lcssa245 = phi i1 [ false, %143 ], [ true, %._crit_edge213 ], [ true, %98 ]
   %145 = load ptr, ptr %58, align 8
   %146 = load i32, ptr %59, align 8
   %147 = zext i32 %146 to i64
@@ -520,10 +520,10 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %158
   %152 = zext i32 %151 to i64
   %153 = getelementptr inbounds ptr, ptr %149, i64 %152
   store ptr null, ptr %153, align 8
-  br i1 %.0130.lcssa241, label %154, label %.loopexit
+  br i1 %.0130.lcssa245, label %154, label %.loopexit
 
 154:                                              ; preds = %._crit_edge213.thread
-  br i1 %.0128.lcssa242, label %158, label %155
+  br i1 %.0128.lcssa246, label %158, label %155
 
 155:                                              ; preds = %154
   %156 = icmp ne i32 %.0126, 1024

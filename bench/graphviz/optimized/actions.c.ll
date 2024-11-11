@@ -3364,8 +3364,8 @@ define range(i32 -1, 2) i32 @lockGraph(ptr noundef %0, i32 noundef %1) local_unn
   %6 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef 0) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = zext i8 %8 to i32
-  %10 = and i32 %9, 1
+  %9 = and i8 %8, 1
+  %10 = zext nneg i8 %9 to i32
   %11 = icmp sgt i32 %1, 0
   br i1 %11, label %12, label %14
 
@@ -3376,13 +3376,13 @@ define range(i32 -1, 2) i32 @lockGraph(ptr noundef %0, i32 noundef %1) local_unn
 
 14:                                               ; preds = %5
   %15 = icmp eq i32 %1, 0
-  %16 = icmp ne i32 %10, 0
+  %16 = icmp ne i8 %9, 0
   %or.cond = select i1 %15, i1 %16, i1 false
   br i1 %or.cond, label %17, label %22
 
 17:                                               ; preds = %14
-  %18 = and i32 %9, 2
-  %.not15 = icmp eq i32 %18, 0
+  %18 = and i8 %8, 2
+  %.not15 = icmp eq i8 %18, 0
   br i1 %.not15, label %21, label %19
 
 19:                                               ; preds = %17
@@ -3394,7 +3394,7 @@ define range(i32 -1, 2) i32 @lockGraph(ptr noundef %0, i32 noundef %1) local_unn
   br label %22
 
 22:                                               ; preds = %12, %19, %21, %14, %4
-  %.0 = phi i32 [ -1, %4 ], [ %10, %14 ], [ 1, %21 ], [ 1, %19 ], [ %10, %12 ]
+  %.0 = phi i32 [ -1, %4 ], [ %10, %14 ], [ %10, %21 ], [ %10, %19 ], [ %10, %12 ]
   ret i32 %.0
 }
 

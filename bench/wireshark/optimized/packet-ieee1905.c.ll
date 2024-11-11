@@ -4080,11 +4080,11 @@ dissect_generic_phy_device_info.exit:             ; preds = %359, %404
 426:                                              ; preds = %420
   %427 = load i32, ptr @ett_ipv4_list, align 4
   %428 = call ptr @proto_tree_add_subtree(ptr noundef %91, ptr noundef %0, i32 noundef %424, i32 noundef -1, i32 noundef %427, ptr noundef nonnull %14, ptr noundef nonnull @.str.1584) #11
-  %wide.trip.count18.i382 = zext i8 %421 to i32
+  %wide.trip.count19.i382 = zext i8 %421 to i32
   br label %.outer.split.us.i383
 
 .outer.split.us.i383:                             ; preds = %.outer.i390, %426
-  %indvars.iv15.i384 = phi i32 [ 0, %426 ], [ %indvars.iv.next16.i391, %.outer.i390 ]
+  %indvars.iv16.i384 = phi i32 [ 0, %426 ], [ %indvars.iv.next17.i391, %.outer.i390 ]
   %.063.ph10.i = phi i32 [ %424, %426 ], [ %458, %.outer.i390 ]
   br label %429
 
@@ -4092,7 +4092,7 @@ dissect_generic_phy_device_info.exit:             ; preds = %359, %404
   %.063.us.i = phi i32 [ %438, %429 ], [ %.063.ph10.i, %.outer.split.us.i383 ]
   store ptr null, ptr %15, align 8
   %430 = load i32, ptr @ett_ipv4_info, align 4
-  %431 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %428, ptr noundef %0, i32 noundef %.063.us.i, i32 noundef -1, i32 noundef %430, ptr noundef nonnull %15, ptr noundef nonnull @.str.1585, i32 noundef %indvars.iv15.i384) #11
+  %431 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %428, ptr noundef %0, i32 noundef %.063.us.i, i32 noundef -1, i32 noundef %430, ptr noundef nonnull %15, ptr noundef nonnull @.str.1585, i32 noundef %indvars.iv16.i384) #11
   %432 = load i32, ptr @hf_ieee1905_mac_address, align 4
   %433 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %432, ptr noundef %0, i32 noundef %.063.us.i, i32 noundef 6, i32 noundef 0) #11
   %434 = add i32 %.063.us.i, 6
@@ -4136,9 +4136,9 @@ dissect_generic_phy_device_info.exit:             ; preds = %359, %404
   %459 = load ptr, ptr %15, align 8
   %460 = sub i32 %458, %.063.us.i
   call void @proto_item_set_len(ptr noundef %459, i32 noundef %460) #11
-  %indvars.iv.next16.i391 = add nuw nsw i32 %indvars.iv15.i384, 1
-  %exitcond19.not.i392 = icmp eq i32 %indvars.iv.next16.i391, %wide.trip.count18.i382
-  br i1 %exitcond19.not.i392, label %.outer.split.i393, label %.outer.split.us.i383, !llvm.loop !14
+  %indvars.iv.next17.i391 = add nuw nsw i32 %indvars.iv16.i384, 1
+  %exitcond20.not.i392 = icmp eq i32 %indvars.iv.next17.i391, %wide.trip.count19.i382
+  br i1 %exitcond20.not.i392, label %.outer.split.i393, label %.outer.split.us.i383, !llvm.loop !14
 
 .outer.split.i393:                                ; preds = %.outer.i390
   %461 = load ptr, ptr %14, align 8
@@ -4166,11 +4166,11 @@ dissect_ipv4_type.exit:                           ; preds = %420, %.outer.split.
 469:                                              ; preds = %463
   %470 = load i32, ptr @ett_ipv6_list, align 4
   %471 = call ptr @proto_tree_add_subtree(ptr noundef %91, ptr noundef %0, i32 noundef %467, i32 noundef -1, i32 noundef %470, ptr noundef nonnull %16, ptr noundef nonnull @.str.1592) #11
-  %wide.trip.count18.i = zext i8 %464 to i32
+  %wide.trip.count19.i = zext i8 %464 to i32
   br label %.outer.split.us.i
 
 .outer.split.us.i:                                ; preds = %.outer.i, %469
-  %indvars.iv15.i = phi i32 [ 0, %469 ], [ %indvars.iv.next16.i, %.outer.i ]
+  %indvars.iv16.i = phi i32 [ 0, %469 ], [ %indvars.iv.next17.i, %.outer.i ]
   %.067.ph10.i = phi i32 [ %467, %469 ], [ %504, %.outer.i ]
   br label %472
 
@@ -4178,7 +4178,7 @@ dissect_ipv4_type.exit:                           ; preds = %420, %.outer.split.
   %.067.us.i = phi i32 [ %484, %472 ], [ %.067.ph10.i, %.outer.split.us.i ]
   store ptr null, ptr %17, align 8
   %473 = load i32, ptr @ett_ipv6_info, align 4
-  %474 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %471, ptr noundef %0, i32 noundef %.067.us.i, i32 noundef -1, i32 noundef %473, ptr noundef nonnull %17, ptr noundef nonnull @.str.1593, i32 noundef %indvars.iv15.i) #11
+  %474 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %471, ptr noundef %0, i32 noundef %.067.us.i, i32 noundef -1, i32 noundef %473, ptr noundef nonnull %17, ptr noundef nonnull @.str.1593, i32 noundef %indvars.iv16.i) #11
   %475 = load i32, ptr @hf_ieee1905_ipv6_mac_address, align 4
   %476 = call ptr @proto_tree_add_item(ptr noundef %474, i32 noundef %475, ptr noundef %0, i32 noundef %.067.us.i, i32 noundef 6, i32 noundef 0) #11
   %477 = add i32 %.067.us.i, 6
@@ -4225,9 +4225,9 @@ dissect_ipv4_type.exit:                           ; preds = %420, %.outer.split.
   %505 = load ptr, ptr %17, align 8
   %506 = sub i32 %504, %.067.us.i
   call void @proto_item_set_len(ptr noundef %505, i32 noundef %506) #11
-  %indvars.iv.next16.i = add nuw nsw i32 %indvars.iv15.i, 1
-  %exitcond19.not.i = icmp eq i32 %indvars.iv.next16.i, %wide.trip.count18.i
-  br i1 %exitcond19.not.i, label %.outer.split.i, label %.outer.split.us.i, !llvm.loop !16
+  %indvars.iv.next17.i = add nuw nsw i32 %indvars.iv16.i, 1
+  %exitcond20.not.i = icmp eq i32 %indvars.iv.next17.i, %wide.trip.count19.i
+  br i1 %exitcond20.not.i, label %.outer.split.i, label %.outer.split.us.i, !llvm.loop !16
 
 .outer.split.i:                                   ; preds = %.outer.i
   %507 = load ptr, ptr %16, align 8

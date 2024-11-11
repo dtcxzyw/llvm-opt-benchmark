@@ -4699,29 +4699,29 @@ _ZNSt17_Temporary_bufferIPiiEC2ES0_l.exit.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i233
   br label %.preheader403.us
 
 .preheader403.us:                                 ; preds = %.loopexit.us, %.preheader403.us.preheader
-  %indvars.iv879 = phi i64 [ %indvars.iv.next880.mux, %.loopexit.us ], [ 0, %.preheader403.us.preheader ]
-  %indvars.iv874 = phi i64 [ %indvars.iv.next875.mux, %.loopexit.us ], [ 1, %.preheader403.us.preheader ]
+  %indvars.iv881 = phi i64 [ %indvars.iv.next882.mux, %.loopexit.us ], [ 0, %.preheader403.us.preheader ]
+  %indvars.iv876 = phi i64 [ %indvars.iv.next877.mux, %.loopexit.us ], [ 1, %.preheader403.us.preheader ]
   %.191634.us = phi i1 [ %.292.us.mux, %.loopexit.us ], [ false, %.preheader403.us.preheader ]
   %1952 = load ptr, ptr %35, align 8
-  %1953 = getelementptr inbounds i32, ptr %1952, i64 %indvars.iv879
+  %1953 = getelementptr inbounds i32, ptr %1952, i64 %indvars.iv881
   %1954 = load i32, ptr %1953, align 4
   %1955 = icmp ne i32 %1954, -1
-  %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
-  %1956 = icmp samesign ult i64 %indvars.iv.next880, %183
+  %indvars.iv.next882 = add nuw nsw i64 %indvars.iv881, 1
+  %1956 = icmp samesign ult i64 %indvars.iv.next882, %183
   %or.cond644 = select i1 %1955, i1 %1956, i1 false
   br i1 %or.cond644, label %.lr.ph630.us, label %.loopexit.us
 
 .lr.ph630.us:                                     ; preds = %.preheader403.us, %2162
-  %indvars.iv876 = phi i64 [ %indvars.iv.next877, %2162 ], [ %indvars.iv874, %.preheader403.us ]
+  %indvars.iv878 = phi i64 [ %indvars.iv.next879, %2162 ], [ %indvars.iv876, %.preheader403.us ]
   %.393626.us = phi i1 [ %.494.us, %2162 ], [ %.191634.us, %.preheader403.us ]
   %1957 = load ptr, ptr %35, align 8
-  %1958 = getelementptr inbounds i32, ptr %1957, i64 %indvars.iv876
+  %1958 = getelementptr inbounds i32, ptr %1957, i64 %indvars.iv878
   %1959 = load i32, ptr %1958, align 4
   %1960 = icmp eq i32 %1959, -1
   br i1 %1960, label %2162, label %1961
 
 1961:                                             ; preds = %.lr.ph630.us
-  %1962 = getelementptr inbounds i32, ptr %1957, i64 %indvars.iv879
+  %1962 = getelementptr inbounds i32, ptr %1957, i64 %indvars.iv881
   %1963 = load i32, ptr %1962, align 4
   %1964 = load ptr, ptr %41, align 8
   %1965 = getelementptr inbounds nuw i8, ptr %1964, i64 8
@@ -5060,7 +5060,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMap
   %2131 = getelementptr inbounds nuw i8, ptr %.0.i.i.us, i64 4
   store i32 %1963, ptr %2131, align 4
   %2132 = load ptr, ptr %35, align 8
-  %2133 = getelementptr inbounds i32, ptr %2132, i64 %indvars.iv876
+  %2133 = getelementptr inbounds i32, ptr %2132, i64 %indvars.iv878
   store i32 -1, ptr %2133, align 4
   %2134 = load ptr, ptr %41, align 8
   %2135 = getelementptr inbounds nuw i8, ptr %2134, i64 8
@@ -5105,19 +5105,19 @@ _ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit.us: ; preds = %2
 
 2162:                                             ; preds = %_ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit.us, %1991, %1977, %1961, %.lr.ph630.us
   %.494.us = phi i1 [ %.393626.us, %.lr.ph630.us ], [ %.393626.us, %1961 ], [ %.393626.us, %1977 ], [ %.393626.us, %1991 ], [ true, %_ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit.us ]
-  %indvars.iv.next877 = add nuw nsw i64 %indvars.iv876, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next877 to i32
-  %exitcond878.not = icmp eq i32 %180, %lftr.wideiv
-  br i1 %exitcond878.not, label %.loopexit.us, label %.lr.ph630.us, !llvm.loop !53
+  %indvars.iv.next879 = add nuw nsw i64 %indvars.iv878, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next879 to i32
+  %exitcond880.not = icmp eq i32 %180, %lftr.wideiv
+  br i1 %exitcond880.not, label %.loopexit.us, label %.lr.ph630.us, !llvm.loop !53
 
 .loopexit.us:                                     ; preds = %2162, %.preheader403.us
   %.292.us = phi i1 [ %.191634.us, %.preheader403.us ], [ %.494.us, %2162 ]
-  %indvars.iv.next875 = add nuw nsw i64 %indvars.iv874, 1
-  %exitcond882.not = icmp ne i64 %indvars.iv.next880, %183
-  %brmerge = select i1 %exitcond882.not, i1 true, i1 %.292.us
-  %indvars.iv.next880.mux = select i1 %exitcond882.not, i64 %indvars.iv.next880, i64 0
-  %indvars.iv.next875.mux = select i1 %exitcond882.not, i64 %indvars.iv.next875, i64 1
-  %.292.us.mux = select i1 %exitcond882.not, i1 %.292.us, i1 false
+  %indvars.iv.next877 = add nuw nsw i64 %indvars.iv876, 1
+  %exitcond884.not = icmp ne i64 %indvars.iv.next882, %183
+  %brmerge = select i1 %exitcond884.not, i1 true, i1 %.292.us
+  %indvars.iv.next882.mux = select i1 %exitcond884.not, i64 %indvars.iv.next882, i64 0
+  %indvars.iv.next877.mux = select i1 %exitcond884.not, i64 %indvars.iv.next877, i64 1
+  %.292.us.mux = select i1 %exitcond884.not, i1 %.292.us, i1 false
   br i1 %brmerge, label %.preheader403.us, label %.split.us, !llvm.loop !54
 
 .lr.ph624:                                        ; preds = %"_ZN4llvm11stable_sortIRNS_11SmallVectorIiLj8EEEZN12_GLOBAL__N_113StackColoring20runOnMachineFunctionERNS_15MachineFunctionEE3$_0EEvOT_T0_.exit", %_ZN4llvm4sortIRNS_11SmallVectorINS_9SlotIndexELj4EEEEEvOT_.exit

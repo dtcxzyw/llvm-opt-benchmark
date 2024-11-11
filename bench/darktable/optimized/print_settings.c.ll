@@ -1337,7 +1337,7 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
   %24 = getelementptr inbounds i8, ptr %10, i64 3400
   store <4 x float> %22, ptr %23, align 4, !tbaa !38
   tail call fastcc void @_snap_to_grid(ptr noundef nonnull %10, ptr noundef nonnull %23, ptr noundef nonnull %24)
-  br label %148
+  br label %149
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %10, i64 3412
@@ -1377,7 +1377,7 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
   %48 = getelementptr inbounds [20 x %struct._image_box], ptr %39, i64 0, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %8, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
-  br label %148
+  br label %149
 
 49:                                               ; preds = %30, %25
   %50 = phi i32 [ %27, %25 ], [ %36, %30 ]
@@ -1437,14 +1437,14 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
 
 87:                                               ; preds = %85, %83
   tail call void @dt_control_change_cursor(i32 noundef 58) #21
-  br label %148
+  br label %149
 
 88:                                               ; preds = %49, %29
   %89 = phi i1 [ %51, %49 ], [ true, %29 ]
   %90 = phi i32 [ %50, %49 ], [ %27, %29 ]
   %91 = icmp eq i32 %4, 3
   %92 = and i1 %91, %89
-  br i1 %92, label %93, label %148
+  br i1 %92, label %93, label %149
 
 93:                                               ; preds = %88
   %94 = getelementptr inbounds i8, ptr %10, i64 1352
@@ -1456,12 +1456,12 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
 
 99:                                               ; preds = %93
   store i32 0, ptr %96, align 8, !tbaa !59
-  br label %145
+  br label %146
 
 100:                                              ; preds = %93
   %101 = load ptr, ptr %9, align 8, !tbaa !49
   %102 = icmp eq i32 %90, -1
-  br i1 %102, label %145, label %103
+  br i1 %102, label %146, label %103
 
 103:                                              ; preds = %100
   %104 = icmp slt i32 %90, 19
@@ -1470,85 +1470,86 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %101, i64 1352
   %107 = and i64 %95, 3
-  %108 = icmp eq i64 %107, 3
-  br i1 %108, label %.loopexit4, label %.preheader3
+  %108 = and i32 %90, 3
+  %109 = icmp eq i32 %108, 3
+  br i1 %109, label %.loopexit4, label %.preheader3
 
 .preheader3:                                      ; preds = %105, %.preheader3
-  %109 = phi i64 [ %112, %.preheader3 ], [ %95, %105 ]
-  %110 = phi i64 [ %114, %.preheader3 ], [ 0, %105 ]
-  %111 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %109
-  %112 = add nsw i64 %109, 1
-  %113 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %111, ptr noundef nonnull align 8 dereferenceable(96) %113, i64 96, i1 false)
-  %114 = add i64 %110, 1
-  %115 = xor i64 %114, %107
-  %116 = icmp eq i64 %115, 3
-  br i1 %116, label %.loopexit4, label %.preheader3, !llvm.loop !85
+  %110 = phi i64 [ %113, %.preheader3 ], [ %95, %105 ]
+  %111 = phi i64 [ %115, %.preheader3 ], [ 0, %105 ]
+  %112 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %110
+  %113 = add nsw i64 %110, 1
+  %114 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %113
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %112, ptr noundef nonnull align 8 dereferenceable(96) %114, i64 96, i1 false)
+  %115 = add i64 %111, 1
+  %116 = xor i64 %115, %107
+  %117 = icmp eq i64 %116, 3
+  br i1 %117, label %.loopexit4, label %.preheader3, !llvm.loop !85
 
 .loopexit4:                                       ; preds = %.preheader3, %105
-  %117 = phi i64 [ %95, %105 ], [ %112, %.preheader3 ]
-  %118 = add nsw i64 %95, -16
-  %119 = icmp ult i64 %118, 3
-  br i1 %119, label %.loopexit, label %.preheader
+  %118 = phi i64 [ %95, %105 ], [ %113, %.preheader3 ]
+  %119 = add nsw i64 %95, -16
+  %120 = icmp ult i64 %119, 3
+  br i1 %120, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4, %103
-  %120 = getelementptr inbounds i8, ptr %101, i64 3416
-  store i32 -1, ptr %120, align 8, !tbaa !6
-  %121 = getelementptr inbounds i8, ptr %101, i64 3412
-  store i32 -1, ptr %121, align 4, !tbaa !60
-  %122 = getelementptr inbounds i8, ptr %101, i64 3176
-  tail call void @dt_printing_clear_box(ptr noundef nonnull %122) #21
-  %123 = getelementptr inbounds i8, ptr %101, i64 1344
-  %124 = load i32, ptr %123, align 8, !tbaa !52
-  %125 = add nsw i32 %124, -1
-  store i32 %125, ptr %123, align 8, !tbaa !52
-  %126 = icmp sgt i32 %124, 1
-  br i1 %126, label %138, label %139
+  %121 = getelementptr inbounds i8, ptr %101, i64 3416
+  store i32 -1, ptr %121, align 8, !tbaa !6
+  %122 = getelementptr inbounds i8, ptr %101, i64 3412
+  store i32 -1, ptr %122, align 4, !tbaa !60
+  %123 = getelementptr inbounds i8, ptr %101, i64 3176
+  tail call void @dt_printing_clear_box(ptr noundef nonnull %123) #21
+  %124 = getelementptr inbounds i8, ptr %101, i64 1344
+  %125 = load i32, ptr %124, align 8, !tbaa !52
+  %126 = add nsw i32 %125, -1
+  store i32 %126, ptr %124, align 8, !tbaa !52
+  %127 = icmp sgt i32 %125, 1
+  br i1 %127, label %139, label %140
 
 .preheader:                                       ; preds = %.loopexit4, %.preheader
-  %127 = phi i64 [ %135, %.preheader ], [ %117, %.loopexit4 ]
-  %128 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %127
-  %129 = add nsw i64 %127, 1
-  %130 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %129
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %128, ptr noundef nonnull align 8 dereferenceable(96) %130, i64 96, i1 false)
-  %131 = add nsw i64 %127, 2
-  %132 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %131
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %130, ptr noundef nonnull align 8 dereferenceable(96) %132, i64 96, i1 false)
-  %133 = add nsw i64 %127, 3
-  %134 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %133
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %132, ptr noundef nonnull align 8 dereferenceable(96) %134, i64 96, i1 false)
-  %135 = add nsw i64 %127, 4
-  %136 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %135
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %134, ptr noundef nonnull align 8 dereferenceable(96) %136, i64 96, i1 false)
-  %137 = icmp eq i64 %135, 19
-  br i1 %137, label %.loopexit, label %.preheader
-
-138:                                              ; preds = %.loopexit
-  store i32 0, ptr %121, align 4, !tbaa !60
-  br label %142
+  %128 = phi i64 [ %136, %.preheader ], [ %118, %.loopexit4 ]
+  %129 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %128
+  %130 = add nsw i64 %128, 1
+  %131 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %130
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %129, ptr noundef nonnull align 8 dereferenceable(96) %131, i64 96, i1 false)
+  %132 = add nsw i64 %128, 2
+  %133 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %132
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %131, ptr noundef nonnull align 8 dereferenceable(96) %133, i64 96, i1 false)
+  %134 = add nsw i64 %128, 3
+  %135 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %134
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %133, ptr noundef nonnull align 8 dereferenceable(96) %135, i64 96, i1 false)
+  %136 = add nsw i64 %128, 4
+  %137 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %136
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %135, ptr noundef nonnull align 8 dereferenceable(96) %137, i64 96, i1 false)
+  %138 = icmp eq i64 %136, 19
+  br i1 %138, label %.loopexit, label %.preheader
 
 139:                                              ; preds = %.loopexit
-  %140 = getelementptr inbounds i8, ptr %101, i64 144
-  %141 = load ptr, ptr %140, align 8, !tbaa !75
-  tail call void @gtk_widget_set_sensitive(ptr noundef %141, i32 noundef 0) #21
-  br label %142
+  store i32 0, ptr %122, align 4, !tbaa !60
+  br label %143
 
-142:                                              ; preds = %139, %138
+140:                                              ; preds = %.loopexit
+  %141 = getelementptr inbounds i8, ptr %101, i64 144
+  %142 = load ptr, ptr %141, align 8, !tbaa !75
+  tail call void @gtk_widget_set_sensitive(ptr noundef %142, i32 noundef 0) #21
+  br label %143
+
+143:                                              ; preds = %140, %139
   tail call void @_fill_box_values(ptr noundef nonnull %101)
-  %143 = getelementptr inbounds i8, ptr %101, i64 3432
-  store i32 1, ptr %143, align 8, !tbaa !53
+  %144 = getelementptr inbounds i8, ptr %101, i64 3432
+  store i32 1, ptr %144, align 8, !tbaa !53
   tail call void (...) @dt_control_queue_redraw_center() #21
-  %144 = load i32, ptr %26, align 4, !tbaa !60
-  br label %145
+  %145 = load i32, ptr %26, align 4, !tbaa !60
+  br label %146
 
-145:                                              ; preds = %142, %100, %99
-  %146 = phi i32 [ %144, %142 ], [ -1, %100 ], [ %90, %99 ]
-  store i32 %146, ptr %15, align 8, !tbaa !6
-  %147 = getelementptr inbounds i8, ptr %10, i64 3432
-  store i32 1, ptr %147, align 8, !tbaa !53
-  br label %148
+146:                                              ; preds = %143, %100, %99
+  %147 = phi i32 [ %145, %143 ], [ -1, %100 ], [ %90, %99 ]
+  store i32 %147, ptr %15, align 8, !tbaa !6
+  %148 = getelementptr inbounds i8, ptr %10, i64 3432
+  store i32 1, ptr %148, align 8, !tbaa !53
+  br label %149
 
-148:                                              ; preds = %145, %88, %87, %37, %19
+149:                                              ; preds = %146, %88, %87, %37, %19
   ret i32 0
 }
 
@@ -4688,7 +4689,7 @@ define internal void @_page_delete_area_clicked(ptr nocapture readnone %0, ptr n
   %5 = getelementptr inbounds i8, ptr %4, i64 3416
   %6 = load i32, ptr %5, align 8, !tbaa !6
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %49, label %8
+  br i1 %7, label %50, label %8
 
 8:                                                ; preds = %2
   %9 = icmp slt i32 %6, 19
@@ -4698,76 +4699,77 @@ define internal void @_page_delete_area_clicked(ptr nocapture readnone %0, ptr n
   %11 = getelementptr inbounds i8, ptr %4, i64 1352
   %12 = sext i32 %6 to i64
   %13 = and i64 %12, 3
-  %14 = icmp eq i64 %13, 3
-  br i1 %14, label %.loopexit2, label %.preheader1
+  %14 = and i32 %6, 3
+  %15 = icmp eq i32 %14, 3
+  br i1 %15, label %.loopexit2, label %.preheader1
 
 .preheader1:                                      ; preds = %10, %.preheader1
-  %15 = phi i64 [ %18, %.preheader1 ], [ %12, %10 ]
-  %16 = phi i64 [ %20, %.preheader1 ], [ 0, %10 ]
-  %17 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %15
-  %18 = add nsw i64 %15, 1
-  %19 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %19, i64 96, i1 false)
-  %20 = add i64 %16, 1
-  %21 = xor i64 %20, %13
-  %22 = icmp eq i64 %21, 3
-  br i1 %22, label %.loopexit2, label %.preheader1, !llvm.loop !159
+  %16 = phi i64 [ %19, %.preheader1 ], [ %12, %10 ]
+  %17 = phi i64 [ %21, %.preheader1 ], [ 0, %10 ]
+  %18 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %16
+  %19 = add nsw i64 %16, 1
+  %20 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 96, i1 false)
+  %21 = add i64 %17, 1
+  %22 = xor i64 %21, %13
+  %23 = icmp eq i64 %22, 3
+  br i1 %23, label %.loopexit2, label %.preheader1, !llvm.loop !159
 
 .loopexit2:                                       ; preds = %.preheader1, %10
-  %23 = phi i64 [ %12, %10 ], [ %18, %.preheader1 ]
-  %24 = add nsw i64 %12, -16
-  %25 = icmp ult i64 %24, 3
-  br i1 %25, label %.loopexit, label %.preheader
+  %24 = phi i64 [ %12, %10 ], [ %19, %.preheader1 ]
+  %25 = add nsw i64 %12, -16
+  %26 = icmp ult i64 %25, 3
+  br i1 %26, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit2, %8
   store i32 -1, ptr %5, align 8, !tbaa !6
-  %26 = getelementptr inbounds i8, ptr %4, i64 3412
-  store i32 -1, ptr %26, align 4, !tbaa !60
-  %27 = getelementptr inbounds i8, ptr %4, i64 3176
-  tail call void @dt_printing_clear_box(ptr noundef nonnull %27) #21
-  %28 = getelementptr inbounds i8, ptr %4, i64 1344
-  %29 = load i32, ptr %28, align 8, !tbaa !52
-  %30 = add nsw i32 %29, -1
-  store i32 %30, ptr %28, align 8, !tbaa !52
-  %31 = icmp sgt i32 %29, 1
-  br i1 %31, label %43, label %44
+  %27 = getelementptr inbounds i8, ptr %4, i64 3412
+  store i32 -1, ptr %27, align 4, !tbaa !60
+  %28 = getelementptr inbounds i8, ptr %4, i64 3176
+  tail call void @dt_printing_clear_box(ptr noundef nonnull %28) #21
+  %29 = getelementptr inbounds i8, ptr %4, i64 1344
+  %30 = load i32, ptr %29, align 8, !tbaa !52
+  %31 = add nsw i32 %30, -1
+  store i32 %31, ptr %29, align 8, !tbaa !52
+  %32 = icmp sgt i32 %30, 1
+  br i1 %32, label %44, label %45
 
 .preheader:                                       ; preds = %.loopexit2, %.preheader
-  %32 = phi i64 [ %40, %.preheader ], [ %23, %.loopexit2 ]
-  %33 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %32
-  %34 = add nsw i64 %32, 1
-  %35 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %33, ptr noundef nonnull align 8 dereferenceable(96) %35, i64 96, i1 false)
-  %36 = add nsw i64 %32, 2
-  %37 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %35, ptr noundef nonnull align 8 dereferenceable(96) %37, i64 96, i1 false)
-  %38 = add nsw i64 %32, 3
-  %39 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %39, i64 96, i1 false)
-  %40 = add nsw i64 %32, 4
-  %41 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(96) %41, i64 96, i1 false)
-  %42 = icmp eq i64 %40, 19
-  br i1 %42, label %.loopexit, label %.preheader
-
-43:                                               ; preds = %.loopexit
-  store i32 0, ptr %26, align 4, !tbaa !60
-  br label %47
+  %33 = phi i64 [ %41, %.preheader ], [ %24, %.loopexit2 ]
+  %34 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %33
+  %35 = add nsw i64 %33, 1
+  %36 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %34, ptr noundef nonnull align 8 dereferenceable(96) %36, i64 96, i1 false)
+  %37 = add nsw i64 %33, 2
+  %38 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %36, ptr noundef nonnull align 8 dereferenceable(96) %38, i64 96, i1 false)
+  %39 = add nsw i64 %33, 3
+  %40 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(96) %40, i64 96, i1 false)
+  %41 = add nsw i64 %33, 4
+  %42 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull align 8 dereferenceable(96) %42, i64 96, i1 false)
+  %43 = icmp eq i64 %41, 19
+  br i1 %43, label %.loopexit, label %.preheader
 
 44:                                               ; preds = %.loopexit
-  %45 = getelementptr inbounds i8, ptr %4, i64 144
-  %46 = load ptr, ptr %45, align 8, !tbaa !75
-  tail call void @gtk_widget_set_sensitive(ptr noundef %46, i32 noundef 0) #21
-  br label %47
+  store i32 0, ptr %27, align 4, !tbaa !60
+  br label %48
 
-47:                                               ; preds = %44, %43
+45:                                               ; preds = %.loopexit
+  %46 = getelementptr inbounds i8, ptr %4, i64 144
+  %47 = load ptr, ptr %46, align 8, !tbaa !75
+  tail call void @gtk_widget_set_sensitive(ptr noundef %47, i32 noundef 0) #21
+  br label %48
+
+48:                                               ; preds = %45, %44
   tail call void @_fill_box_values(ptr noundef nonnull %4)
-  %48 = getelementptr inbounds i8, ptr %4, i64 3432
-  store i32 1, ptr %48, align 8, !tbaa !53
+  %49 = getelementptr inbounds i8, ptr %4, i64 3432
+  store i32 1, ptr %49, align 8, !tbaa !53
   tail call void (...) @dt_control_queue_redraw_center() #21
-  br label %49
+  br label %50
 
-49:                                               ; preds = %47, %2
+50:                                               ; preds = %48, %2
   ret void
 }
 

@@ -5698,8 +5698,8 @@ define internal fastcc range(i32 0, 2) i32 @lzx_make_huffman_table(ptr nocapture
   %30 = ashr i32 %29, %23
   store i32 %30, ptr %28, align 4
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
-  br i1 %exitcond87.not, label %.loopexit68, label %.lr.ph, !llvm.loop !35
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
+  br i1 %exitcond88.not, label %.loopexit68, label %.lr.ph, !llvm.loop !35
 
 .loopexit68:                                      ; preds = %.lr.ph, %22, %19
   %31 = shl nuw i32 1, %17
@@ -5714,12 +5714,12 @@ define internal fastcc range(i32 0, 2) i32 @lzx_make_huffman_table(ptr nocapture
   br i1 %38, label %.lr.ph78.preheader, label %.loopexit67
 
 .lr.ph78.preheader:                               ; preds = %.loopexit68
-  %wide.trip.count94 = zext nneg i32 %36 to i64
+  %wide.trip.count95 = zext nneg i32 %36 to i64
   br label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.loopexit
-  %indvars.iv91 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next92, %.loopexit ]
-  %39 = getelementptr inbounds i8, ptr %35, i64 %indvars.iv91
+  %indvars.iv92 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next93, %.loopexit ]
+  %39 = getelementptr inbounds i8, ptr %35, i64 %indvars.iv92
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %.loopexit, label %42
@@ -5747,22 +5747,22 @@ define internal fastcc range(i32 0, 2) i32 @lzx_make_huffman_table(ptr nocapture
   br i1 %56, label %.lr.ph76, label %.loopexit
 
 .lr.ph76:                                         ; preds = %53
-  %57 = trunc i64 %indvars.iv91 to i16
+  %57 = trunc i64 %indvars.iv92 to i16
   %58 = zext nneg i32 %50 to i64
   br label %59
 
 59:                                               ; preds = %.lr.ph76, %59
-  %indvars.iv88 = phi i64 [ %58, %.lr.ph76 ], [ %indvars.iv.next89, %59 ]
-  %indvars.iv.next89 = add nsw i64 %indvars.iv88, -1
-  %60 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv.next89
+  %indvars.iv89 = phi i64 [ %58, %.lr.ph76 ], [ %indvars.iv.next90, %59 ]
+  %indvars.iv.next90 = add nsw i64 %indvars.iv89, -1
+  %60 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv.next90
   store i16 %57, ptr %60, align 2
-  %61 = icmp samesign ugt i64 %indvars.iv88, 1
+  %61 = icmp samesign ugt i64 %indvars.iv89, 1
   br i1 %61, label %59, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %59, %53, %.lr.ph78
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %.loopexit67, label %.lr.ph78, !llvm.loop !37
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
+  br i1 %exitcond96.not, label %.loopexit67, label %.lr.ph78, !llvm.loop !37
 
 .loopexit67:                                      ; preds = %42, %45, %.loopexit, %.loopexit68, %13, %15
   %.054 = phi i32 [ 0, %15 ], [ 0, %13 ], [ 1, %.loopexit68 ], [ 0, %42 ], [ 0, %45 ], [ 1, %.loopexit ]

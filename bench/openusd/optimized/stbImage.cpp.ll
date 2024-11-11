@@ -40808,8 +40808,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi__build_huffmanP13s
 
 .loopexit:                                        ; preds = %62, %50
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond109.not, label %.loopexit65, label %50, !llvm.loop !992
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
+  br i1 %exitcond110.not, label %.loopexit65, label %50, !llvm.loop !992
 
 .loopexit65.sink.split:                           ; preds = %11, %._crit_edge78
   %.str.42.sink = phi ptr [ @.str.42, %._crit_edge78 ], [ @.str.41, %11 ]

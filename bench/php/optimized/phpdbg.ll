@@ -2413,7 +2413,7 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
 
 150:                                              ; preds = %149, %148
   %.not372 = icmp eq ptr %.0253, null
-  br i1 %.not372, label %508, label %.sink.split405
+  br i1 %.not372, label %508, label %.sink.split406
 
 151:                                              ; preds = %133
   %152 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
@@ -2808,7 +2808,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   store i8 0, ptr getelementptr inbounds (i8, ptr @core_globals, i64 482), align 2
   store i1 true, ptr @phpdbg_fully_started, align 1
   %.not356 = icmp eq ptr %.0248, null
-  %.pre401 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %.pre402 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %333
 
 333:                                              ; preds = %369, %332
@@ -2859,7 +2859,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br i1 %354, label %355, label %357
 
 355:                                              ; preds = %353
-  store ptr %.pre401, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %.pre402, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %356 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
   br label %.loopexit
 
@@ -2869,7 +2869,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %369
 
 359:                                              ; preds = %333
-  store ptr %.pre401, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %.pre402, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %360 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %361 = and i64 %360, 262144
   %.not353 = icmp eq i64 %361, 0
@@ -2894,7 +2894,7 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
 369:                                              ; preds = %359, %362, %367, %357
   %.6285 = phi ptr [ %.5284, %357 ], [ %368, %367 ], [ %.5284, %362 ], [ %.5284, %359 ]
   %.5271 = phi i64 [ %.4270, %357 ], [ 1, %367 ], [ 1, %362 ], [ 0, %359 ]
-  store ptr %.pre401, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %.pre402, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   %370 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
   %371 = and i64 %370, 327680
   %.not357 = icmp eq i64 %371, 0
@@ -2934,13 +2934,13 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   br label %.lr.ph392
 
 .lr.ph392:                                        ; preds = %.lr.ph392.preheader, %.lr.ph392
-  %indvars.iv398 = phi i64 [ %380, %.lr.ph392.preheader ], [ %indvars.iv.next399, %.lr.ph392 ]
-  %indvars.iv.next399 = add nsw i64 %indvars.iv398, -1
+  %indvars.iv399 = phi i64 [ %380, %.lr.ph392.preheader ], [ %indvars.iv.next400, %.lr.ph392 ]
+  %indvars.iv.next400 = add nsw i64 %indvars.iv399, -1
   %381 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
-  %382 = getelementptr inbounds ptr, ptr %381, i64 %indvars.iv.next399
+  %382 = getelementptr inbounds ptr, ptr %381, i64 %indvars.iv.next400
   %383 = load ptr, ptr %382, align 8
   call void @_efree(ptr noundef %383) #26
-  %.not360 = icmp eq i64 %indvars.iv.next399, 0
+  %.not360 = icmp eq i64 %indvars.iv.next400, 0
   br i1 %.not360, label %._crit_edge393, label %.lr.ph392
 
 ._crit_edge393:                                   ; preds = %.lr.ph392, %378
@@ -3205,9 +3205,9 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   %.4 = phi ptr [ null, %500 ], [ %.2247, %128 ]
   call void @php_module_shutdown() #26
   call void @sapi_shutdown() #26
-  br i1 %.not336, label %508, label %.sink.split405
+  br i1 %.not336, label %508, label %.sink.split406
 
-.sink.split405:                                   ; preds = %507, %150
+.sink.split406:                                   ; preds = %507, %150
   %.0235.lcssa.sink = phi ptr [ %.0253, %150 ], [ %.0235, %507 ]
   %.1308.ph = phi i32 [ 0, %150 ], [ %.0307, %507 ]
   %.2299.ph = phi ptr [ %.0297, %150 ], [ %.1298, %507 ]
@@ -3219,14 +3219,14 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   call void @free(ptr noundef nonnull %.0235.lcssa.sink) #26
   br label %508
 
-508:                                              ; preds = %.sink.split405, %507, %150
-  %.1308 = phi i32 [ 0, %150 ], [ %.0307, %507 ], [ %.1308.ph, %.sink.split405 ]
-  %.2299 = phi ptr [ %.0297, %150 ], [ %.1298, %507 ], [ %.2299.ph, %.sink.split405 ]
-  %.2281 = phi ptr [ %.0279, %150 ], [ %.1280, %507 ], [ %.2281.ph, %.sink.split405 ]
-  %.4277 = phi ptr [ %.1274, %150 ], [ %.3276, %507 ], [ %.4277.ph, %.sink.split405 ]
-  %.2268 = phi i64 [ %.0266, %150 ], [ %.1267, %507 ], [ %.2268.ph, %.sink.split405 ]
-  %.2250 = phi ptr [ %.0248, %150 ], [ %.1249, %507 ], [ %.2250.ph, %.sink.split405 ]
-  %.5 = phi ptr [ %.2247, %150 ], [ %.4, %507 ], [ %.5.ph, %.sink.split405 ]
+508:                                              ; preds = %.sink.split406, %507, %150
+  %.1308 = phi i32 [ 0, %150 ], [ %.0307, %507 ], [ %.1308.ph, %.sink.split406 ]
+  %.2299 = phi ptr [ %.0297, %150 ], [ %.1298, %507 ], [ %.2299.ph, %.sink.split406 ]
+  %.2281 = phi ptr [ %.0279, %150 ], [ %.1280, %507 ], [ %.2281.ph, %.sink.split406 ]
+  %.4277 = phi ptr [ %.1274, %150 ], [ %.3276, %507 ], [ %.4277.ph, %.sink.split406 ]
+  %.2268 = phi i64 [ %.0266, %150 ], [ %.1267, %507 ], [ %.2268.ph, %.sink.split406 ]
+  %.2250 = phi ptr [ %.0248, %150 ], [ %.1249, %507 ], [ %.2250.ph, %.sink.split406 ]
+  %.5 = phi ptr [ %.2247, %150 ], [ %.4, %507 ], [ %.5.ph, %.sink.split406 ]
   br i1 %.not333, label %510, label %509
 
 509:                                              ; preds = %508

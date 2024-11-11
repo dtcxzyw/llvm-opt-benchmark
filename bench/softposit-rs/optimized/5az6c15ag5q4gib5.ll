@@ -2270,8 +2270,8 @@ define noundef i16 @"_ZN9softposit5p16e14math4log241_$LT$impl$u20$softposit..p16
   %44 = sext i32 %spec.select67 to i64
   %45 = shl nsw i64 %44, 28
   %46 = or i64 %.360, %45
-  %47 = and i64 %44, 32
-  %.not = icmp eq i64 %47, 0
+  %47 = and i32 %.2, 32
+  %.not = icmp eq i32 %47, 0
   %48 = sub nsw i64 17179869184, %46
   %.461 = select i1 %.not, i64 %46, i64 %48
   %49 = icmp ult i64 %.461, 268435456

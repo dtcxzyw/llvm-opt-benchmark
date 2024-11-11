@@ -138,46 +138,45 @@ entry:
   store i8 0, ptr %write_change, align 1
   %read_change = getelementptr inbounds i8, ptr %ch, i64 6
   store i8 0, ptr %read_change, align 2
-  %conv7 = zext i16 %events to i32
-  %and = and i32 %conv7, 4
-  %tobool.not = icmp eq i32 %and, 0
+  %0 = and i16 %events, 4
+  %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i16 %events to i8
-  %1 = and i8 %0, 32
-  %conv4 = or disjoint i8 %1, 1
+  %1 = trunc i16 %events to i8
+  %2 = and i8 %1, 32
+  %conv4 = or disjoint i8 %2, 1
   store i8 %conv4, ptr %write_change, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %and7 = and i32 %conv7, 2
-  %tobool8.not = icmp eq i32 %and7, 0
+  %3 = and i16 %events, 2
+  %tobool8.not = icmp eq i16 %3, 0
   br i1 %tobool8.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %2 = trunc i16 %events to i8
-  %3 = and i8 %2, 32
-  %conv13 = or disjoint i8 %3, 1
+  %4 = trunc i16 %events to i8
+  %5 = and i8 %4, 32
+  %conv13 = or disjoint i8 %5, 1
   store i8 %conv13, ptr %read_change, align 2
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then9, %if.end
-  %and17 = and i32 %conv7, 128
-  %tobool18.not = icmp eq i32 %and17, 0
+  %6 = and i16 %events, 128
+  %tobool18.not = icmp eq i16 %6, 0
   br i1 %tobool18.not, label %if.end25, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %4 = trunc i16 %events to i8
-  %5 = and i8 %4, 32
-  %conv23 = or disjoint i8 %5, 1
+  %7 = trunc i16 %events to i8
+  %8 = and i8 %7, 32
+  %conv23 = or disjoint i8 %8, 1
   store i8 %conv23, ptr %close_change, align 4
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then19, %if.end15
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
-  %6 = load ptr, ptr %evbase, align 8
-  %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %6, ptr noundef nonnull %ch)
+  %9 = load ptr, ptr %evbase, align 8
+  %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %9, ptr noundef nonnull %ch)
   ret i32 %call
 }
 
@@ -194,45 +193,44 @@ entry:
   store i8 0, ptr %write_change, align 1
   %read_change = getelementptr inbounds i8, ptr %ch, i64 6
   store i8 0, ptr %read_change, align 2
-  %conv7 = zext i16 %events to i32
-  %and = and i32 %conv7, 4
-  %tobool.not = icmp eq i32 %and, 0
+  %0 = and i16 %events, 4
+  %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i16 %events to i8
-  %1 = and i8 %0, 32
-  %conv4 = or disjoint i8 %1, 2
+  %1 = trunc i16 %events to i8
+  %2 = and i8 %1, 32
+  %conv4 = or disjoint i8 %2, 2
   store i8 %conv4, ptr %write_change, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %and7 = and i32 %conv7, 2
-  %tobool8.not = icmp eq i32 %and7, 0
+  %3 = and i16 %events, 2
+  %tobool8.not = icmp eq i16 %3, 0
   br i1 %tobool8.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %2 = trunc i16 %events to i8
-  %conv13 = and i8 %2, 34
+  %4 = trunc i16 %events to i8
+  %conv13 = and i8 %4, 34
   store i8 %conv13, ptr %read_change, align 2
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then9, %if.end
-  %and17 = and i32 %conv7, 128
-  %tobool18.not = icmp eq i32 %and17, 0
+  %5 = and i16 %events, 128
+  %tobool18.not = icmp eq i16 %5, 0
   br i1 %tobool18.not, label %if.end25, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %3 = trunc i16 %events to i8
-  %4 = and i8 %3, 32
-  %conv23 = or disjoint i8 %4, 2
+  %6 = trunc i16 %events to i8
+  %7 = and i8 %6, 32
+  %conv23 = or disjoint i8 %7, 2
   store i8 %conv23, ptr %close_change, align 4
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then19, %if.end15
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
-  %5 = load ptr, ptr %evbase, align 8
-  %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %5, ptr noundef nonnull %ch)
+  %8 = load ptr, ptr %evbase, align 8
+  %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %8, ptr noundef nonnull %ch)
   ret i32 %call
 }
 

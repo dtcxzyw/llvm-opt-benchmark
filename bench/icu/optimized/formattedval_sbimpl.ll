@@ -675,13 +675,13 @@ if.end18:                                         ; preds = %if.then7, %land.rhs
   %prevIsSpan.0 = phi i8 [ 0, %if.end ], [ 0, %entry ], [ %10, %land.rhs ], [ 0, %if.then7 ]
   %cmp.i.not = icmp eq i8 %numericField.coerce, 0
   %fCategory.i89.phi.trans.insert = getelementptr inbounds i8, ptr %cfpos, i64 20
-  %.pre304.pre = load i32, ptr %fCategory.i89.phi.trans.insert, align 4
+  %.pre317.pre = load i32, ptr %fCategory.i89.phi.trans.insert, align 4
   br i1 %cmp.i.not, label %if.end30, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
   %11 = lshr i8 %numericField.coerce, 4
   %shr.i = zext nneg i8 %11 to i32
-  %cmp23 = icmp eq i32 %.pre304.pre, %shr.i
+  %cmp23 = icmp eq i32 %.pre317.pre, %shr.i
   br i1 %cmp23, label %land.rhs24, label %if.end30
 
 land.rhs24:                                       ; preds = %if.then20
@@ -709,7 +709,7 @@ for.body.lr.ph:                                   ; preds = %if.end30
   %17 = load i32, ptr %fZero, align 8
   %add42244 = add nsw i32 %16, %17
   %add = add nsw i32 %15, %17
-  %cmp32 = icmp eq i32 %.pre304.pre, 2
+  %cmp32 = icmp eq i32 %.pre317.pre, 2
   %fField.i90 = getelementptr inbounds i8, ptr %cfpos, i64 8
   %18 = load i32, ptr %fField.i90, align 8
   %cmp35 = icmp eq i32 %18, 0
@@ -890,7 +890,7 @@ land.rhs145:                                      ; preds = %land.rhs145.prehead
   %indvars.iv = add nsw i64 %indvars.iv.in, -1
   %arrayidx150 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i116, i64 %indvars.iv
   %agg.tmp146.sroa.0.0.copyload = load i8, ptr %arrayidx150, align 1
-  switch i8 %agg.tmp146.sroa.0.0.copyload, label %for.end.split.loop.exit350 [
+  switch i8 %agg.tmp146.sroa.0.0.copyload, label %for.end.split.loop.exit363 [
     i8 38, label %for.inc
     i8 32, label %for.inc
   ]
@@ -899,12 +899,12 @@ for.inc:                                          ; preds = %land.rhs145, %land.
   %cmp144.not.not = icmp sgt i64 %indvars.iv, %49
   br i1 %cmp144.not.not, label %land.rhs145, label %for.end, !llvm.loop !4
 
-for.end.split.loop.exit350:                       ; preds = %land.rhs145
+for.end.split.loop.exit363:                       ; preds = %land.rhs145
   %51 = trunc nsw i64 %indvars.iv to i32
   br label %for.end
 
-for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit350
-  %j.0.lcssa.ph = phi i32 [ %51, %for.end.split.loop.exit350 ], [ %50, %for.inc ]
+for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit363
+  %j.0.lcssa.ph = phi i32 [ %51, %for.end.split.loop.exit363 ], [ %50, %for.inc ]
   %reass.sub = sub i32 %j.0.lcssa.ph, %43
   %add159 = add i32 %reass.sub, 1
   %sub162 = sub nsw i32 %i.2, %43
@@ -955,9 +955,9 @@ land.rhs192.preheader:                            ; preds = %land.lhs.true183
   br label %land.rhs192
 
 land.rhs192:                                      ; preds = %land.rhs192.preheader, %for.inc200
-  %indvars.iv300.in = phi i64 [ %58, %land.rhs192.preheader ], [ %indvars.iv300, %for.inc200 ]
-  %indvars.iv300 = add nsw i64 %indvars.iv300.in, -1
-  %arrayidx196 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i132, i64 %indvars.iv300
+  %indvars.iv312.in = phi i64 [ %58, %land.rhs192.preheader ], [ %indvars.iv312, %for.inc200 ]
+  %indvars.iv312 = add nsw i64 %indvars.iv312.in, -1
+  %arrayidx196 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i132, i64 %indvars.iv312
   %61 = load i8, ptr %arrayidx196, align 1
   %.mask.i144 = and i8 %61, -16
   %cmp.i145 = icmp eq i8 %.mask.i144, 32
@@ -966,11 +966,11 @@ land.rhs192:                                      ; preds = %land.rhs192.prehead
   br i1 %spec.select.i147, label %for.inc200, label %for.end202.split.loop.exit
 
 for.inc200:                                       ; preds = %land.rhs192
-  %cmp191.not.not = icmp sgt i64 %indvars.iv300, %59
+  %cmp191.not.not = icmp sgt i64 %indvars.iv312, %59
   br i1 %cmp191.not.not, label %land.rhs192, label %for.end202, !llvm.loop !6
 
 for.end202.split.loop.exit:                       ; preds = %land.rhs192
-  %62 = trunc nsw i64 %indvars.iv300 to i32
+  %62 = trunc nsw i64 %indvars.iv312 to i32
   br label %for.end202
 
 for.end202:                                       ; preds = %for.inc200, %for.end202.split.loop.exit
@@ -1001,7 +1001,7 @@ if.then222:                                       ; preds = %land.rhs214
   br i1 %cmp227.not, label %if.end229, label %if.then222.for.end304.loopexit_crit_edge
 
 if.then222.for.end304.loopexit_crit_edge:         ; preds = %if.then222
-  %.pre305.pre = load i32, ptr %fLength, align 4
+  %.pre318.pre = load i32, ptr %fLength, align 4
   br label %for.end304.loopexit
 
 if.end229:                                        ; preds = %if.then222
@@ -1106,13 +1106,13 @@ for.inc303:                                       ; preds = %switch.early.test, 
   br i1 %cmp43.not.not, label %for.body, label %for.end304.loopexit, !llvm.loop !7
 
 for.end304.loopexit:                              ; preds = %for.inc303, %if.then222.for.end304.loopexit_crit_edge
-  %.pre305 = phi i32 [ %.pre305.pre, %if.then222.for.end304.loopexit_crit_edge ], [ %79, %for.inc303 ]
-  %.pre303 = load i32, ptr %fCategory.i89, align 4
+  %.pre318 = phi i32 [ %.pre318.pre, %if.then222.for.end304.loopexit_crit_edge ], [ %79, %for.inc303 ]
+  %.pre316 = load i32, ptr %fCategory.i89, align 4
   br label %for.end304
 
 for.end304:                                       ; preds = %for.end304.loopexit, %if.end30
-  %80 = phi i32 [ %.pre305, %for.end304.loopexit ], [ %16, %if.end30 ]
-  %81 = phi i32 [ %.pre303, %for.end304.loopexit ], [ %.pre304.pre, %if.end30 ]
+  %80 = phi i32 [ %.pre318, %for.end304.loopexit ], [ %16, %if.end30 ]
+  %81 = phi i32 [ %.pre316, %for.end304.loopexit ], [ %.pre317.pre, %if.end30 ]
   %fField.i162 = getelementptr inbounds i8, ptr %cfpos, i64 8
   %82 = load i32, ptr %fField.i162, align 8
   tail call void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %cfpos, i32 noundef %81, i32 noundef %82, i32 noundef %80, i32 noundef %80)

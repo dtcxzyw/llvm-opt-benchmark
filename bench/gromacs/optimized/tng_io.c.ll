@@ -22424,7 +22424,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_frame_gen_data_write(ptr noundef
 tng_output_file_init.exit:                        ; preds = %28, %23
   %32 = load ptr, ptr @stderr, align 8
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 12400) #27
-  br label %457
+  br label %455
 
 34:                                               ; preds = %26, %8
   %35 = phi ptr [ %27, %26 ], [ %19, %8 ]
@@ -22585,14 +22585,14 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %111
 113:                                              ; preds = %tng_block_destroy.exit
   %114 = load ptr, ptr @stderr, align 8
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.1, i32 noundef 12465) #27
-  br label %457
+  br label %455
 
 116:                                              ; preds = %50
   store ptr %17, ptr %16, align 8
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
   store i64 %41, ptr %40, align 8
-  br label %457
+  br label %455
 
 117:                                              ; preds = %tng_block_destroy.exit, %34
   %118 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
@@ -22675,15 +22675,15 @@ tng_block_destroy.exit348:                        ; preds = %136, %151
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
   store i64 %41, ptr %40, align 8
-  br label %457
+  br label %455
 
 152:                                              ; preds = %tng_block_init.exit343
   %153 = load ptr, ptr %18, align 8
   %154 = getelementptr inbounds i8, ptr %118, i64 8
   %155 = load i64, ptr %154, align 8
   %156 = tail call i32 @fseeko64(ptr noundef %153, i64 noundef %155, i32 noundef 1)
-  %.not310 = icmp ne i32 %3, 0
-  br i1 %.not310, label %157, label %216
+  %.not310 = icmp eq i32 %3, 0
+  br i1 %.not310, label %216, label %157
 
 157:                                              ; preds = %152
   %158 = getelementptr inbounds i8, ptr %0, i64 168
@@ -22779,7 +22779,7 @@ tng_block_destroy.exit348:                        ; preds = %136, %151
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
   store i64 %41, ptr %40, align 8
-  br label %457
+  br label %455
 
 .critedge5.thread:                                ; preds = %192, %168, %168, %.critedge5
   %.0284393 = phi i64 [ %.0284.lcssa, %.critedge5 ], [ %.1285, %192 ], [ %.0284397, %168 ], [ %.0284397, %168 ]
@@ -22825,7 +22825,7 @@ tng_block_destroy.exit353:                        ; preds = %209, %212
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
   store i64 %41, ptr %40, align 8
-  br label %457
+  br label %455
 
 213:                                              ; preds = %.critedge5.thread
   %214 = load ptr, ptr %18, align 8
@@ -22842,8 +22842,7 @@ tng_block_destroy.exit353:                        ; preds = %209, %212
 
 .lr.ph405:                                        ; preds = %216
   %220 = getelementptr inbounds i8, ptr %118, i64 16
-  %.not315.not.not = icmp eq i32 %3, 0
-  br i1 %.not315.not.not, label %.lr.ph405.split.us, label %.lr.ph405.split
+  br i1 %.not310, label %.lr.ph405.split.us, label %.lr.ph405.split
 
 .lr.ph405.split.us:                               ; preds = %.lr.ph405, %230
   %221 = load i64, ptr %220, align 8
@@ -22943,7 +22942,7 @@ tng_block_destroy.exit358:                        ; preds = %254, %257
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
   store i64 %41, ptr %40, align 8
-  br label %457
+  br label %455
 
 .critedge9.thread:                                ; preds = %234, %233, %233, %.lr.ph405.split, %223, %222, %222, %.lr.ph405.split.us, %.critedge9
   %258 = load i64, ptr %154, align 8
@@ -22992,7 +22991,7 @@ tng_block_destroy.exit358:                        ; preds = %254, %257
 
 tng_block_destroy.exit364:                        ; preds = %276, %279
   tail call void @free(ptr noundef nonnull %118) #24
-  br label %457
+  br label %455
 
 tng_file_input_numerical.exit:                    ; preds = %.critedge9.thread
   %280 = load ptr, ptr %16, align 8
@@ -23036,354 +23035,351 @@ tng_file_input_numerical.exit:                    ; preds = %.critedge9.thread
 
 tng_block_destroy.exit372:                        ; preds = %293, %296
   tail call void @free(ptr noundef nonnull %118) #24
-  br label %457
+  br label %455
 
 tng_file_input_numerical.exit367:                 ; preds = %tng_file_input_numerical.exit
   %297 = load i8, ptr %15, align 1
   %298 = getelementptr inbounds i8, ptr %12, i64 16
   store i8 %297, ptr %298, align 8
   %299 = load i8, ptr %13, align 1
-  %300 = zext i8 %299 to i32
-  %301 = and i32 %300, 1
-  %.not319 = icmp eq i32 %301, 0
-  br i1 %.not319, label %306, label %302
+  %300 = and i8 %299, 1
+  %.not319 = icmp eq i8 %300, 0
+  br i1 %.not319, label %304, label %301
 
-302:                                              ; preds = %tng_file_input_numerical.exit367
-  %303 = and i32 %300, 2
-  %.not320 = icmp eq i32 %303, 0
-  %or.cond336 = or i1 %.not310, %.not320
-  br i1 %or.cond336, label %304, label %306
+301:                                              ; preds = %tng_file_input_numerical.exit367
+  %302 = icmp ne i32 %3, 0
+  %303 = and i8 %299, 2
+  %.not320 = icmp eq i8 %303, 0
+  %or.cond336 = or i1 %302, %.not320
+  %.not320.not = xor i1 %.not320, true
+  %brmerge = or i1 %.not310, %.not320.not
+  %or.cond386 = and i1 %or.cond336, %brmerge
+  br i1 %or.cond386, label %316, label %304
 
-304:                                              ; preds = %302
-  %305 = and i8 %299, 2
-  %.not321 = icmp eq i8 %305, 0
-  %or.cond386 = and i1 %.not310, %.not321
-  br i1 %or.cond386, label %306, label %318
+304:                                              ; preds = %tng_file_input_numerical.exit367, %301
+  %305 = getelementptr inbounds i8, ptr %118, i64 40
+  %306 = load ptr, ptr %305, align 8
+  %.not16.i374 = icmp eq ptr %306, null
+  br i1 %.not16.i374, label %308, label %307
 
-306:                                              ; preds = %304, %tng_file_input_numerical.exit367, %302
-  %307 = getelementptr inbounds i8, ptr %118, i64 40
-  %308 = load ptr, ptr %307, align 8
-  %.not16.i374 = icmp eq ptr %308, null
-  br i1 %.not16.i374, label %310, label %309
+307:                                              ; preds = %304
+  tail call void @free(ptr noundef nonnull %306) #24
+  store ptr null, ptr %305, align 8
+  br label %308
 
-309:                                              ; preds = %306
-  tail call void @free(ptr noundef nonnull %308) #24
-  store ptr null, ptr %307, align 8
-  br label %310
+308:                                              ; preds = %307, %304
+  %309 = getelementptr inbounds i8, ptr %118, i64 104
+  %310 = load ptr, ptr %309, align 8
+  %.not17.i375 = icmp eq ptr %310, null
+  br i1 %.not17.i375, label %312, label %311
 
-310:                                              ; preds = %309, %306
-  %311 = getelementptr inbounds i8, ptr %118, i64 104
-  %312 = load ptr, ptr %311, align 8
-  %.not17.i375 = icmp eq ptr %312, null
-  br i1 %.not17.i375, label %314, label %313
+311:                                              ; preds = %308
+  tail call void @free(ptr noundef nonnull %310) #24
+  store ptr null, ptr %309, align 8
+  br label %312
 
-313:                                              ; preds = %310
-  tail call void @free(ptr noundef nonnull %312) #24
-  store ptr null, ptr %311, align 8
-  br label %314
+312:                                              ; preds = %311, %308
+  %313 = getelementptr inbounds i8, ptr %118, i64 112
+  %314 = load ptr, ptr %313, align 8
+  %.not18.i376 = icmp eq ptr %314, null
+  br i1 %.not18.i376, label %tng_block_destroy.exit377, label %315
 
-314:                                              ; preds = %313, %310
-  %315 = getelementptr inbounds i8, ptr %118, i64 112
-  %316 = load ptr, ptr %315, align 8
-  %.not18.i376 = icmp eq ptr %316, null
-  br i1 %.not18.i376, label %tng_block_destroy.exit377, label %317
-
-317:                                              ; preds = %314
-  tail call void @free(ptr noundef nonnull %316) #24
+315:                                              ; preds = %312
+  tail call void @free(ptr noundef nonnull %314) #24
   br label %tng_block_destroy.exit377
 
-tng_block_destroy.exit377:                        ; preds = %314, %317
+tng_block_destroy.exit377:                        ; preds = %312, %315
   tail call void @free(ptr noundef nonnull %118) #24
   store ptr %17, ptr %16, align 8
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
   store i64 %41, ptr %40, align 8
-  br label %457
+  br label %455
 
-318:                                              ; preds = %304
-  %319 = load ptr, ptr %16, align 8
-  %320 = call i64 @fread(ptr noundef nonnull %14, i64 noundef 1, i64 noundef 1, ptr noundef %319)
-  %321 = icmp eq i64 %320, 0
-  br i1 %321, label %322, label %tng_file_input_numerical.exit380
+316:                                              ; preds = %301
+  %317 = load ptr, ptr %16, align 8
+  %318 = call i64 @fread(ptr noundef nonnull %14, i64 noundef 1, i64 noundef 1, ptr noundef %317)
+  %319 = icmp eq i64 %318, 0
+  br i1 %319, label %320, label %tng_file_input_numerical.exit380
 
-322:                                              ; preds = %318
-  %323 = load ptr, ptr @stderr, align 8
-  %324 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 12632) #27
+320:                                              ; preds = %316
+  %321 = load ptr, ptr @stderr, align 8
+  %322 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %321, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 12632) #27
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-tng_file_input_numerical.exit380:                 ; preds = %318
-  %325 = getelementptr inbounds i8, ptr %12, i64 40
-  %326 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %325, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12640)
-  %327 = icmp eq i32 %326, 2
-  br i1 %327, label %328, label %329
+tng_file_input_numerical.exit380:                 ; preds = %316
+  %323 = getelementptr inbounds i8, ptr %12, i64 40
+  %324 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %323, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12640)
+  %325 = icmp eq i32 %324, 2
+  br i1 %325, label %326, label %327
 
-328:                                              ; preds = %tng_file_input_numerical.exit380
+326:                                              ; preds = %tng_file_input_numerical.exit380
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-329:                                              ; preds = %tng_file_input_numerical.exit380
-  %330 = getelementptr inbounds i8, ptr %12, i64 56
-  %331 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %330, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12647)
-  %332 = icmp eq i32 %331, 2
-  br i1 %332, label %333, label %334
+327:                                              ; preds = %tng_file_input_numerical.exit380
+  %328 = getelementptr inbounds i8, ptr %12, i64 56
+  %329 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %328, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12647)
+  %330 = icmp eq i32 %329, 2
+  br i1 %330, label %331, label %332
 
-333:                                              ; preds = %329
+331:                                              ; preds = %327
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-334:                                              ; preds = %329
-  %335 = load i64, ptr %330, align 8
-  %.not322 = icmp eq i64 %335, 0
-  %336 = getelementptr inbounds i8, ptr %12, i64 72
-  br i1 %.not322, label %341, label %337
+332:                                              ; preds = %327
+  %333 = load i64, ptr %328, align 8
+  %.not322 = icmp eq i64 %333, 0
+  %334 = getelementptr inbounds i8, ptr %12, i64 72
+  br i1 %.not322, label %339, label %335
 
-337:                                              ; preds = %334
-  %338 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %336, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12657)
-  %339 = icmp eq i32 %338, 2
-  br i1 %339, label %340, label %342
+335:                                              ; preds = %332
+  %336 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %334, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12657)
+  %337 = icmp eq i32 %336, 2
+  br i1 %337, label %338, label %340
 
-340:                                              ; preds = %337
+338:                                              ; preds = %335
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-341:                                              ; preds = %334
-  store double 1.000000e+00, ptr %336, align 8
-  br label %342
+339:                                              ; preds = %332
+  store double 1.000000e+00, ptr %334, align 8
+  br label %340
 
-342:                                              ; preds = %337, %341
-  %343 = load i8, ptr %14, align 1
-  %.not323 = icmp eq i8 %343, 0
-  %344 = getelementptr inbounds i8, ptr %12, i64 24
-  br i1 %.not323, label %354, label %345
+340:                                              ; preds = %335, %339
+  %341 = load i8, ptr %14, align 1
+  %.not323 = icmp eq i8 %341, 0
+  %342 = getelementptr inbounds i8, ptr %12, i64 24
+  br i1 %.not323, label %352, label %343
 
-345:                                              ; preds = %342
-  %346 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %344, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12672)
-  %347 = icmp eq i32 %346, 2
-  br i1 %347, label %348, label %349
+343:                                              ; preds = %340
+  %344 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %342, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12672)
+  %345 = icmp eq i32 %344, 2
+  br i1 %345, label %346, label %347
 
-348:                                              ; preds = %345
+346:                                              ; preds = %343
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-349:                                              ; preds = %345
-  %350 = getelementptr inbounds i8, ptr %12, i64 48
-  %351 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %350, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12680)
-  %352 = icmp eq i32 %351, 2
-  br i1 %352, label %353, label %356
+347:                                              ; preds = %343
+  %348 = getelementptr inbounds i8, ptr %12, i64 48
+  %349 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %348, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12680)
+  %350 = icmp eq i32 %349, 2
+  br i1 %350, label %351, label %354
 
-353:                                              ; preds = %349
+351:                                              ; preds = %347
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-354:                                              ; preds = %342
-  store i64 0, ptr %344, align 8
-  %355 = getelementptr inbounds i8, ptr %12, i64 48
-  store i64 1, ptr %355, align 8
-  br label %356
+352:                                              ; preds = %340
+  store i64 0, ptr %342, align 8
+  %353 = getelementptr inbounds i8, ptr %12, i64 48
+  store i64 1, ptr %353, align 8
+  br label %354
 
-356:                                              ; preds = %349, %354
-  %357 = getelementptr inbounds i8, ptr %0, i64 296
-  %358 = load i64, ptr %357, align 8
-  %359 = getelementptr inbounds i8, ptr %12, i64 32
-  store i64 %358, ptr %359, align 8
-  br i1 %.not310, label %360, label %368
+354:                                              ; preds = %347, %352
+  %355 = getelementptr inbounds i8, ptr %0, i64 296
+  %356 = load i64, ptr %355, align 8
+  %357 = getelementptr inbounds i8, ptr %12, i64 32
+  store i64 %356, ptr %357, align 8
+  br i1 %.not310, label %366, label %358
 
-360:                                              ; preds = %356
-  %361 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12697)
-  %362 = icmp eq i32 %361, 2
-  br i1 %362, label %363, label %364
+358:                                              ; preds = %354
+  %359 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12697)
+  %360 = icmp eq i32 %359, 2
+  br i1 %360, label %361, label %362
 
-363:                                              ; preds = %360
+361:                                              ; preds = %358
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-364:                                              ; preds = %360
-  %365 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12705)
-  %366 = icmp eq i32 %365, 2
-  br i1 %366, label %367, label %368
+362:                                              ; preds = %358
+  %363 = call fastcc i32 @tng_file_input_numerical(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef 8, i8 noundef signext 0, ptr noundef null, i32 noundef 12705)
+  %364 = icmp eq i32 %363, 2
+  br i1 %364, label %365, label %366
 
-367:                                              ; preds = %364
+365:                                              ; preds = %362
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-368:                                              ; preds = %364, %356
+366:                                              ; preds = %362, %354
   store ptr %17, ptr %16, align 8
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
   store i64 %41, ptr %40, align 8
-  %369 = load i8, ptr %298, align 8
-  %switch.tableidx = add i8 %369, -1
-  %370 = icmp ult i8 %switch.tableidx, 3
-  br i1 %370, label %switch.lookup, label %371
+  %367 = load i8, ptr %298, align 8
+  %switch.tableidx = add i8 %367, -1
+  %368 = icmp ult i8 %switch.tableidx, 3
+  br i1 %368, label %switch.lookup, label %369
 
-371:                                              ; preds = %368
-  %372 = load ptr, ptr @stderr, align 8
-  %373 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %372, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.1, i32 noundef 12725) #27
+369:                                              ; preds = %366
+  %370 = load ptr, ptr @stderr, align 8
+  %371 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %370, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.1, i32 noundef 12725) #27
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-switch.lookup:                                    ; preds = %368
-  %374 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.tng_frame_gen_data_write, i64 0, i64 %374
+switch.lookup:                                    ; preds = %366
+  %372 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.tng_frame_gen_data_write, i64 0, i64 %372
   %switch.load = load i64, ptr %switch.gep, align 8
-  %375 = load i64, ptr %325, align 8
-  %376 = getelementptr inbounds i8, ptr %0, i64 288
+  %373 = load i64, ptr %323, align 8
+  %374 = getelementptr inbounds i8, ptr %0, i64 288
+  %375 = load i64, ptr %374, align 8
+  %376 = getelementptr inbounds i8, ptr %12, i64 24
   %377 = load i64, ptr %376, align 8
-  %378 = getelementptr inbounds i8, ptr %12, i64 24
-  %379 = load i64, ptr %378, align 8
-  %380 = call noundef i64 @llvm.smax.i64(i64 %377, i64 %379)
-  %381 = sub nsw i64 %1, %380
-  %382 = getelementptr inbounds i8, ptr %12, i64 48
-  %383 = load i64, ptr %382, align 8
-  %384 = sdiv i64 %381, %383
-  %385 = load i64, ptr %10, align 8
-  %386 = select i1 %.not310, i64 %385, i64 1
-  %.pn324 = mul i64 %375, %switch.load
-  %.pn = mul i64 %.pn324, %384
-  %.4278 = mul i64 %.pn, %386
-  %387 = icmp sgt i64 %.4278, %258
-  br i1 %387, label %388, label %391
+  %378 = call noundef i64 @llvm.smax.i64(i64 %375, i64 %377)
+  %379 = sub nsw i64 %1, %378
+  %380 = getelementptr inbounds i8, ptr %12, i64 48
+  %381 = load i64, ptr %380, align 8
+  %382 = sdiv i64 %379, %381
+  %383 = load i64, ptr %10, align 8
+  %384 = select i1 %.not310, i64 1, i64 %383
+  %.pn324 = mul i64 %373, %switch.load
+  %.pn = mul i64 %.pn324, %382
+  %.4278 = mul i64 %.pn, %384
+  %385 = icmp sgt i64 %.4278, %258
+  br i1 %385, label %386, label %389
 
-388:                                              ; preds = %switch.lookup
-  %389 = load ptr, ptr @stderr, align 8
-  %390 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %389, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.1, i32 noundef 12745) #27
+386:                                              ; preds = %switch.lookup
+  %387 = load ptr, ptr @stderr, align 8
+  %388 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %387, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.1, i32 noundef 12745) #27
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-391:                                              ; preds = %switch.lookup
-  %392 = load ptr, ptr %18, align 8
-  %393 = call i32 @fseeko64(ptr noundef %392, i64 noundef %.4278, i32 noundef 1)
-  %. = select i1 %.not310, i64 %5, i64 1
-  %394 = load i8, ptr %298, align 8
-  %395 = and i8 %394, -3
-  %or.cond13 = icmp eq i8 %395, 1
-  br i1 %or.cond13, label %396, label %414
+389:                                              ; preds = %switch.lookup
+  %390 = load ptr, ptr %18, align 8
+  %391 = call i32 @fseeko64(ptr noundef %390, i64 noundef %.4278, i32 noundef 1)
+  %. = select i1 %.not310, i64 1, i64 %5
+  %392 = load i8, ptr %298, align 8
+  %393 = and i8 %392, -3
+  %or.cond13 = icmp eq i8 %393, 1
+  br i1 %or.cond13, label %394, label %412
 
-396:                                              ; preds = %391
-  %397 = getelementptr inbounds i8, ptr %0, i64 64
-  %398 = load ptr, ptr %397, align 8
-  %.not325 = icmp eq ptr %398, null
-  br i1 %.not325, label %414, label %399
+394:                                              ; preds = %389
+  %395 = getelementptr inbounds i8, ptr %0, i64 64
+  %396 = load ptr, ptr %395, align 8
+  %.not325 = icmp eq ptr %396, null
+  br i1 %.not325, label %412, label %397
 
-399:                                              ; preds = %396
-  %400 = mul nsw i64 %375, %.
-  %401 = mul nsw i64 %400, %switch.load
-  %402 = call noalias ptr @malloc(i64 noundef %401) #26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %402, ptr align 1 %6, i64 %401, i1 false)
-  %403 = icmp sgt i64 %400, 0
-  br i1 %403, label %.lr.ph410, label %._crit_edge
+397:                                              ; preds = %394
+  %398 = mul nsw i64 %373, %.
+  %399 = mul nsw i64 %398, %switch.load
+  %400 = call noalias ptr @malloc(i64 noundef %399) #26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %400, ptr align 1 %6, i64 %399, i1 false)
+  %401 = icmp sgt i64 %398, 0
+  br i1 %401, label %.lr.ph410, label %._crit_edge
 
-.lr.ph410:                                        ; preds = %399, %410
-  %.0282409 = phi i64 [ %411, %410 ], [ 0, %399 ]
-  %404 = load ptr, ptr %397, align 8
-  %405 = getelementptr inbounds i64, ptr %402, i64 %.0282409
-  %406 = call i32 %404(ptr noundef nonnull %0, ptr noundef %405) #24
-  %.not330 = icmp eq i32 %406, 0
-  br i1 %.not330, label %410, label %407
+.lr.ph410:                                        ; preds = %397, %408
+  %.0282409 = phi i64 [ %409, %408 ], [ 0, %397 ]
+  %402 = load ptr, ptr %395, align 8
+  %403 = getelementptr inbounds i64, ptr %400, i64 %.0282409
+  %404 = call i32 %402(ptr noundef nonnull %0, ptr noundef %403) #24
+  %.not330 = icmp eq i32 %404, 0
+  br i1 %.not330, label %408, label %405
 
-407:                                              ; preds = %.lr.ph410
-  %408 = load ptr, ptr @stderr, align 8
-  %409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %408, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 12771) #27
-  br label %410
+405:                                              ; preds = %.lr.ph410
+  %406 = load ptr, ptr @stderr, align 8
+  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %406, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 12771) #27
+  br label %408
 
-410:                                              ; preds = %.lr.ph410, %407
-  %411 = add nuw nsw i64 %.0282409, 1
-  %exitcond.not = icmp eq i64 %411, %400
+408:                                              ; preds = %.lr.ph410, %405
+  %409 = add nuw nsw i64 %.0282409, 1
+  %exitcond.not = icmp eq i64 %409, %398
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph410, !llvm.loop !158
 
-._crit_edge:                                      ; preds = %410, %399
-  %412 = load ptr, ptr %18, align 8
-  %413 = call i64 @fwrite(ptr noundef %402, i64 noundef %400, i64 noundef %switch.load, ptr noundef %412)
-  call void @free(ptr noundef %402) #24
-  br label %438
+._crit_edge:                                      ; preds = %408, %397
+  %410 = load ptr, ptr %18, align 8
+  %411 = call i64 @fwrite(ptr noundef %400, i64 noundef %398, i64 noundef %switch.load, ptr noundef %410)
+  call void @free(ptr noundef %400) #24
+  br label %436
 
-414:                                              ; preds = %391, %396
-  %415 = icmp eq i8 %394, 2
-  br i1 %415, label %416, label %434
+412:                                              ; preds = %389, %394
+  %413 = icmp eq i8 %392, 2
+  br i1 %413, label %414, label %432
 
-416:                                              ; preds = %414
-  %417 = getelementptr inbounds i8, ptr %0, i64 56
-  %418 = load ptr, ptr %417, align 8
-  %.not326 = icmp eq ptr %418, null
-  br i1 %.not326, label %434, label %419
+414:                                              ; preds = %412
+  %415 = getelementptr inbounds i8, ptr %0, i64 56
+  %416 = load ptr, ptr %415, align 8
+  %.not326 = icmp eq ptr %416, null
+  br i1 %.not326, label %432, label %417
 
-419:                                              ; preds = %416
-  %420 = mul nsw i64 %375, %.
-  %421 = mul nsw i64 %420, %switch.load
-  %422 = call noalias ptr @malloc(i64 noundef %421) #26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %422, ptr align 1 %6, i64 %421, i1 false)
-  %423 = icmp sgt i64 %420, 0
-  br i1 %423, label %.lr.ph413, label %._crit_edge414
+417:                                              ; preds = %414
+  %418 = mul nsw i64 %373, %.
+  %419 = mul nsw i64 %418, %switch.load
+  %420 = call noalias ptr @malloc(i64 noundef %419) #26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %420, ptr align 1 %6, i64 %419, i1 false)
+  %421 = icmp sgt i64 %418, 0
+  br i1 %421, label %.lr.ph413, label %._crit_edge414
 
-.lr.ph413:                                        ; preds = %419, %430
-  %.1283411 = phi i64 [ %431, %430 ], [ 0, %419 ]
-  %424 = load ptr, ptr %417, align 8
-  %425 = getelementptr inbounds i32, ptr %422, i64 %.1283411
-  %426 = call i32 %424(ptr noundef nonnull %0, ptr noundef %425) #24
-  %.not327 = icmp eq i32 %426, 0
-  br i1 %.not327, label %430, label %427
+.lr.ph413:                                        ; preds = %417, %428
+  %.1283411 = phi i64 [ %429, %428 ], [ 0, %417 ]
+  %422 = load ptr, ptr %415, align 8
+  %423 = getelementptr inbounds i32, ptr %420, i64 %.1283411
+  %424 = call i32 %422(ptr noundef nonnull %0, ptr noundef %423) #24
+  %.not327 = icmp eq i32 %424, 0
+  br i1 %.not327, label %428, label %425
 
-427:                                              ; preds = %.lr.ph413
-  %428 = load ptr, ptr @stderr, align 8
-  %429 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %428, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 12785) #27
-  br label %430
+425:                                              ; preds = %.lr.ph413
+  %426 = load ptr, ptr @stderr, align 8
+  %427 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %426, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 12785) #27
+  br label %428
 
-430:                                              ; preds = %.lr.ph413, %427
-  %431 = add nuw nsw i64 %.1283411, 1
-  %exitcond422.not = icmp eq i64 %431, %420
+428:                                              ; preds = %.lr.ph413, %425
+  %429 = add nuw nsw i64 %.1283411, 1
+  %exitcond422.not = icmp eq i64 %429, %418
   br i1 %exitcond422.not, label %._crit_edge414, label %.lr.ph413, !llvm.loop !159
 
-._crit_edge414:                                   ; preds = %430, %419
-  %432 = load ptr, ptr %18, align 8
-  %433 = call i64 @fwrite(ptr noundef %422, i64 noundef %420, i64 noundef %switch.load, ptr noundef %432)
-  call void @free(ptr noundef %422) #24
-  br label %438
+._crit_edge414:                                   ; preds = %428, %417
+  %430 = load ptr, ptr %18, align 8
+  %431 = call i64 @fwrite(ptr noundef %420, i64 noundef %418, i64 noundef %switch.load, ptr noundef %430)
+  call void @free(ptr noundef %420) #24
+  br label %436
 
-434:                                              ; preds = %416, %414
-  %435 = mul nsw i64 %375, %.
-  %436 = load ptr, ptr %18, align 8
-  %437 = call i64 @fwrite(ptr noundef %6, i64 noundef %435, i64 noundef %switch.load, ptr noundef %436)
-  br label %438
+432:                                              ; preds = %414, %412
+  %433 = mul nsw i64 %373, %.
+  %434 = load ptr, ptr %18, align 8
+  %435 = call i64 @fwrite(ptr noundef %6, i64 noundef %433, i64 noundef %switch.load, ptr noundef %434)
+  br label %436
 
-438:                                              ; preds = %._crit_edge414, %434, %._crit_edge
-  %439 = load ptr, ptr %18, align 8
-  %440 = call i32 @fflush(ptr noundef %439)
-  %441 = load i64, ptr %376, align 8
-  %442 = sub nsw i64 %1, %441
-  %443 = getelementptr inbounds i8, ptr %0, i64 304
-  %444 = load i64, ptr %443, align 8
-  %.not328 = icmp slt i64 %442, %444
-  br i1 %.not328, label %447, label %445
+436:                                              ; preds = %._crit_edge414, %432, %._crit_edge
+  %437 = load ptr, ptr %18, align 8
+  %438 = call i32 @fflush(ptr noundef %437)
+  %439 = load i64, ptr %374, align 8
+  %440 = sub nsw i64 %1, %439
+  %441 = getelementptr inbounds i8, ptr %0, i64 304
+  %442 = load i64, ptr %441, align 8
+  %.not328 = icmp slt i64 %440, %442
+  br i1 %.not328, label %445, label %443
 
-445:                                              ; preds = %438
-  %446 = add nsw i64 %442, 1
-  store i64 %446, ptr %443, align 8
-  br label %447
+443:                                              ; preds = %436
+  %444 = add nsw i64 %440, 1
+  store i64 %444, ptr %441, align 8
+  br label %445
 
-447:                                              ; preds = %445, %438
-  %448 = icmp eq i8 %7, 1
-  br i1 %448, label %449, label %456
+445:                                              ; preds = %443, %436
+  %446 = icmp eq i8 %7, 1
+  br i1 %446, label %447, label %454
 
-449:                                              ; preds = %447
-  %450 = load i64, ptr %382, align 8
-  %451 = add nsw i64 %450, %1
-  %452 = load i64, ptr %378, align 8
-  %453 = sub i64 %451, %452
-  %454 = load i64, ptr %357, align 8
-  %.not329 = icmp slt i64 %453, %454
-  br i1 %.not329, label %456, label %455
+447:                                              ; preds = %445
+  %448 = load i64, ptr %380, align 8
+  %449 = add nsw i64 %448, %1
+  %450 = load i64, ptr %376, align 8
+  %451 = sub i64 %449, %450
+  %452 = load i64, ptr %355, align 8
+  %.not329 = icmp slt i64 %451, %452
+  br i1 %.not329, label %454, label %453
 
-455:                                              ; preds = %449
+453:                                              ; preds = %447
   call fastcc void @tng_md5_hash_update(ptr noundef nonnull %0, ptr noundef %118, i64 noundef %262, i64 noundef %261)
-  br label %456
+  br label %454
 
-456:                                              ; preds = %455, %449, %447
+454:                                              ; preds = %453, %447, %445
   call fastcc void @tng_block_destroy(ptr noundef %11)
-  br label %457
+  br label %455
 
-457:                                              ; preds = %456, %388, %371, %367, %363, %353, %348, %340, %333, %328, %322, %tng_block_destroy.exit377, %tng_block_destroy.exit372, %tng_block_destroy.exit364, %tng_block_destroy.exit358, %tng_block_destroy.exit353, %197, %tng_block_destroy.exit348, %116, %113, %tng_output_file_init.exit
-  %.0 = phi i32 [ 2, %tng_output_file_init.exit ], [ 2, %113 ], [ 2, %tng_block_destroy.exit348 ], [ 2, %197 ], [ 1, %tng_block_destroy.exit353 ], [ 2, %tng_block_destroy.exit358 ], [ 2, %tng_block_destroy.exit364 ], [ 2, %tng_block_destroy.exit372 ], [ 1, %tng_block_destroy.exit377 ], [ 2, %322 ], [ 2, %328 ], [ 2, %333 ], [ 2, %340 ], [ 2, %348 ], [ 2, %353 ], [ 2, %363 ], [ 2, %367 ], [ 1, %371 ], [ 1, %388 ], [ 0, %456 ], [ %48, %116 ]
+455:                                              ; preds = %454, %386, %369, %365, %361, %351, %346, %338, %331, %326, %320, %tng_block_destroy.exit377, %tng_block_destroy.exit372, %tng_block_destroy.exit364, %tng_block_destroy.exit358, %tng_block_destroy.exit353, %197, %tng_block_destroy.exit348, %116, %113, %tng_output_file_init.exit
+  %.0 = phi i32 [ 2, %tng_output_file_init.exit ], [ 2, %113 ], [ 2, %tng_block_destroy.exit348 ], [ 2, %197 ], [ 1, %tng_block_destroy.exit353 ], [ 2, %tng_block_destroy.exit358 ], [ 2, %tng_block_destroy.exit364 ], [ 2, %tng_block_destroy.exit372 ], [ 1, %tng_block_destroy.exit377 ], [ 2, %320 ], [ 2, %326 ], [ 2, %331 ], [ 2, %338 ], [ 2, %346 ], [ 2, %351 ], [ 2, %361 ], [ 2, %365 ], [ 1, %369 ], [ 1, %386 ], [ 0, %454 ], [ %48, %116 ]
   ret i32 %.0
 }
 

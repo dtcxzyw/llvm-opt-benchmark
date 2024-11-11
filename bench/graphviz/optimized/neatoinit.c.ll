@@ -2290,8 +2290,8 @@ checkExp.exit.i:                                  ; preds = %112, %103
 
 159:                                              ; preds = %155
   %160 = lshr i64 %157, 3
-  %161 = and i64 %157, 7
-  %162 = icmp ne i64 %161, 0
+  %161 = and i32 %156, 7
+  %162 = icmp ne i32 %161, 0
   %163 = zext i1 %162 to i64
   %164 = add nuw nsw i64 %160, %163
   %.not.i.i.i.i = icmp eq i64 %164, 0

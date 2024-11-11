@@ -3584,13 +3584,13 @@ common.resume:                                    ; preds = %698, %922, %931, %3
   br label %1333
 
 1333:                                             ; preds = %._crit_edge456.i.i, %.lr.ph459.i.i
-  %indvars.iv85.i = phi i32 [ %indvars.iv.next86.i, %._crit_edge456.i.i ], [ %1332, %.lr.ph459.i.i ]
+  %indvars.iv86.i = phi i32 [ %indvars.iv.next87.i, %._crit_edge456.i.i ], [ %1332, %.lr.ph459.i.i ]
   %indvars.iv523.i.i = phi i64 [ %indvars.iv.next524.i.i, %._crit_edge456.i.i ], [ %1326, %.lr.ph459.i.i ]
   %indvar.i.i = phi i64 [ %indvar.next.i.i, %._crit_edge456.i.i ], [ 0, %.lr.ph459.i.i ]
   %indvars.iv491.i.i = phi i64 [ %indvars.iv.next492.i.i, %._crit_edge456.i.i ], [ %1329, %.lr.ph459.i.i ]
   %indvars.iv485.i.i = phi i32 [ %indvars.iv.next486.i.i, %._crit_edge456.i.i ], [ %1327, %.lr.ph459.i.i ]
-  %indvars87.i = trunc i64 %indvars.iv523.i.i to i32
-  %smax.i = call i32 @llvm.smax.i32(i32 %indvars87.i, i32 1)
+  %indvars88.i = trunc i64 %indvars.iv523.i.i to i32
+  %smax.i = call i32 @llvm.smax.i32(i32 %indvars88.i, i32 1)
   %1334 = shl i64 %indvar.i.i, 5
   %1335 = sub nsw i64 %1331, %1334
   %scevgep.i.i = getelementptr i8, ptr %1207, i64 %1335
@@ -3721,7 +3721,7 @@ common.resume:                                    ; preds = %698, %922, %931, %3
 .lr.ph431.i.i:                                    ; preds = %1411
   %1413 = sext i32 %1346 to i64
   %1414 = getelementptr inbounds [3 x i32], ptr %1316, i64 0, i64 %1413
-  %1415 = xor i32 %indvars87.i, -1
+  %1415 = xor i32 %indvars88.i, -1
   %1416 = getelementptr inbounds %"class.gmx::BasicVector.102", ptr %63, i64 %indvars.iv523.i.i
   br label %1437
 
@@ -3749,7 +3749,7 @@ common.resume:                                    ; preds = %698, %922, %931, %3
   %1433 = zext i32 %.1311.i.i to i64
   %1434 = shl nuw nsw i64 %1433, 5
   %1435 = zext i32 %1428 to i64
-  %1436 = add i32 %smax.i, %indvars.iv85.i
+  %1436 = add i32 %smax.i, %indvars.iv86.i
   br label %1476
 
 1437:                                             ; preds = %.loopexit412.i.i, %.lr.ph431.i.i
@@ -3766,7 +3766,7 @@ common.resume:                                    ; preds = %698, %922, %931, %3
   %1445 = getelementptr inbounds %"class.gmx::BasicVector.102", ptr %1416, i64 %1443
   store ptr %1416, ptr %64, align 8
   store ptr %1445, ptr %1317, align 8
-  call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %141, i32 noundef %indvars87.i, i32 noundef 0, ptr nonnull %1353, ptr nonnull %1444, ptr noundef nonnull byval(%"class.gmx::ArrayRef.560") align 8 %64)
+  call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %141, i32 noundef %indvars88.i, i32 noundef 0, ptr nonnull %1353, ptr nonnull %1444, ptr noundef nonnull byval(%"class.gmx::ArrayRef.560") align 8 %64)
   br i1 %1440, label %.preheader411.i.i, label %.loopexit412.i.i
 
 .preheader411.critedge.i.i:                       ; preds = %1437
@@ -3777,7 +3777,7 @@ common.resume:                                    ; preds = %698, %922, %931, %3
   %1450 = getelementptr inbounds %"class.gmx::BasicVector.102", ptr %1416, i64 %1448
   store ptr %1416, ptr %64, align 8
   store ptr %1450, ptr %1317, align 8
-  call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %141, i32 noundef %indvars87.i, i32 noundef 0, ptr nonnull %1353, ptr nonnull %1449, ptr noundef nonnull byval(%"class.gmx::ArrayRef.560") align 8 %64)
+  call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %141, i32 noundef %indvars88.i, i32 noundef 0, ptr nonnull %1353, ptr nonnull %1449, ptr noundef nonnull byval(%"class.gmx::ArrayRef.560") align 8 %64)
   br label %.preheader411.i.i
 
 .preheader411.i.i:                                ; preds = %.preheader411.critedge.i.i, %1438
@@ -3835,10 +3835,10 @@ common.resume:                                    ; preds = %698, %922, %931, %3
   %1483 = phi i1 [ true, %1476 ], [ %1481, %1477 ]
   store ptr %60, ptr %65, align 8
   store ptr %1424, ptr %1318, align 8
-  call void @_Z10ddSendrecvIfEvPK12gmx_domdec_tiiN3gmx8ArrayRefIT_EES6_(ptr noundef %141, i32 noundef %indvars87.i, i32 noundef 1, ptr nonnull %59, ptr nonnull %1423, ptr noundef nonnull byval(%"class.gmx::ArrayRef.526") align 8 %65)
+  call void @_Z10ddSendrecvIfEvPK12gmx_domdec_tiiN3gmx8ArrayRefIT_EES6_(ptr noundef %141, i32 noundef %indvars88.i, i32 noundef 1, ptr nonnull %59, ptr nonnull %1423, ptr noundef nonnull byval(%"class.gmx::ArrayRef.526") align 8 %65)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %66, i8 0, i64 12, i1 false)
   %.not338.i.i = icmp eq i32 %.0318453.i.i, 0
-  br i1 %.not338.i.i, label %.loopexit410.i.thread91.i, label %.preheader409.i.i
+  br i1 %.not338.i.i, label %.loopexit410.i.thread92.i, label %.preheader409.i.i
 
 .preheader409.i.i:                                ; preds = %1482
   %1484 = load i32, ptr %1208, align 8
@@ -3896,10 +3896,10 @@ common.resume:                                    ; preds = %698, %922, %931, %3
 .loopexit410.i.i:                                 ; preds = %1511
   br i1 %1427, label %.lr.ph436.preheader.i.split.i, label %._crit_edge437.i.i
 
-.loopexit410.i.thread91.i:                        ; preds = %1482
-  br i1 %1427, label %.lr.ph436.preheader.i.thread92.i, label %._crit_edge437.i.i
+.loopexit410.i.thread92.i:                        ; preds = %1482
+  br i1 %1427, label %.lr.ph436.preheader.i.thread93.i, label %._crit_edge437.i.i
 
-.lr.ph436.preheader.i.thread92.i:                 ; preds = %.loopexit410.i.thread91.i
+.lr.ph436.preheader.i.thread93.i:                 ; preds = %.loopexit410.i.thread92.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %59, ptr noundef nonnull align 16 dereferenceable(1) %60, i64 %1434, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %61, ptr noundef nonnull align 16 dereferenceable(1) %60, i64 %1434, i1 false)
   br label %._crit_edge437.i.i
@@ -3972,7 +3972,7 @@ common.resume:                                    ; preds = %698, %922, %931, %3
   %exitcond500.not.i.us75.i = icmp eq i64 %indvars.iv.next497.i.us74.i, %1433
   br i1 %exitcond500.not.i.us75.i, label %._crit_edge437.i.i, label %.lr.ph436.i.us71.i, !llvm.loop !26
 
-._crit_edge437.i.i:                               ; preds = %.critedge407.i.us73.i, %.lr.ph436.preheader.i.split.i, %.lr.ph436.preheader.i.thread92.i, %.loopexit410.i.thread.i, %.loopexit410.i.thread91.i, %.loopexit410.i.i
+._crit_edge437.i.i:                               ; preds = %.critedge407.i.us73.i, %.lr.ph436.preheader.i.split.i, %.lr.ph436.preheader.i.thread93.i, %.loopexit410.i.thread.i, %.loopexit410.i.thread92.i, %.loopexit410.i.i
   br i1 %1348, label %1559, label %1553
 
 1553:                                             ; preds = %._crit_edge437.i.i
@@ -4103,7 +4103,7 @@ common.resume:                                    ; preds = %698, %922, %931, %3
   %indvars.iv.next492.i.i = add nsw i64 %indvars.iv491.i.i, -1
   %indvar.next.i.i = add nuw nsw i64 %indvar.i.i, 1
   %exitcond527.not.i.i = icmp eq i64 %indvar.next.i.i, %1329
-  %indvars.iv.next86.i = add i32 %indvars.iv85.i, 1
+  %indvars.iv.next87.i = add i32 %indvars.iv86.i, 1
   br i1 %exitcond527.not.i.i, label %._crit_edge460.i.i, label %1333, !llvm.loop !30
 
 ._crit_edge460.i.i:                               ; preds = %._crit_edge456.i.i

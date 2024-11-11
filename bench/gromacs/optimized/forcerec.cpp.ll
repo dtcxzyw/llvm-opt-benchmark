@@ -4700,13 +4700,13 @@ _ZSt8_DestroyIP13bondedtable_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Dest
   %104 = getelementptr inbounds i8, ptr %10, i64 8
   %105 = getelementptr inbounds i8, ptr %10, i64 16
   %106 = getelementptr inbounds i8, ptr %10, i64 24
-  %smax89 = tail call i32 @llvm.smax.i32(i32 %.251, i32 1)
-  %wide.trip.count90 = zext nneg i32 %smax89 to i64
+  %smax91 = tail call i32 @llvm.smax.i32(i32 %.251, i32 1)
+  %wide.trip.count92 = zext nneg i32 %smax91 to i64
   br i1 %102, label %.lr.ph74.split.us, label %.lr.ph74.split
 
 .lr.ph74.split.us:                                ; preds = %.lr.ph74, %114
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %114 ], [ 0, %.lr.ph74 ]
-  %107 = getelementptr inbounds i32, ptr %.2, i64 %indvars.iv86
+  %indvars.iv87 = phi i64 [ %indvars.iv.next88, %114 ], [ 0, %.lr.ph74 ]
+  %107 = getelementptr inbounds i32, ptr %.2, i64 %indvars.iv87
   %108 = load i32, ptr %107, align 4
   %109 = icmp sgt i32 %108, 0
   br i1 %109, label %110, label %114
@@ -4716,14 +4716,14 @@ _ZSt8_DestroyIP13bondedtable_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Dest
           to label %112 unwind label %.loopexit57.split.us
 
 112:                                              ; preds = %110
-  %113 = trunc nuw nsw i64 %indvars.iv86 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv87 to i32
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.47, ptr noundef %6, i32 noundef %113, ptr noundef %111)
           to label %.split.us unwind label %.loopexit57.split.us
 
 114:                                              ; preds = %.lr.ph74.split.us
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond91.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count90
-  br i1 %exitcond91.not, label %._crit_edge75, label %.lr.ph74.split.us, !llvm.loop !54
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %exitcond93.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count92
+  br i1 %exitcond93.not, label %._crit_edge75, label %.lr.ph74.split.us, !llvm.loop !54
 
 .loopexit57.split.us:                             ; preds = %112, %110
   %lpad.loopexit59.us = landingpad { ptr, i32 }
@@ -4809,12 +4809,12 @@ _ZN13bondedtable_taSEOS_.exit:                    ; preds = %130
   br label %.body
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %lpad.loopexit94 = landingpad { ptr, i32 }
+  %lpad.loopexit96 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 .loopexit.loopexit.split-lp:                      ; preds = %126
-  %lpad.loopexit.split-lp95 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp97 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
@@ -4825,8 +4825,8 @@ _ZN13bondedtable_taSEOS_.exit:                    ; preds = %130
 
 _ZN13bondedtable_tD2Ev.exit:                      ; preds = %_ZN3gmxL8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit
   %142 = add nuw nsw i64 %.072, 1
-  %.not104 = icmp slt i64 %142, %101
-  br i1 %.not104, label %.preheader, label %.split.us, !llvm.loop !55
+  %.not106 = icmp slt i64 %142, %101
+  br i1 %.not106, label %.preheader, label %.split.us, !llvm.loop !55
 
 .split.us:                                        ; preds = %_ZN13bondedtable_tD2Ev.exit, %112
   %.us-phi76 = phi i32 [ %113, %112 ], [ %121, %_ZN13bondedtable_tD2Ev.exit ]
@@ -4865,13 +4865,13 @@ _ZN13bondedtable_taSEOS_.exit.thread:             ; preds = %130, %141, %_ZN13bo
   br label %156
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp, %154
-  %.pn = phi { ptr, i32 } [ %155, %154 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit94, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp95, %.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %155, %154 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit96, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp97, %.loopexit.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
   br label %.body
 
 156:                                              ; preds = %.lr.ph74.split, %_ZN13bondedtable_taSEOS_.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count90
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count92
   br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph74.split, !llvm.loop !54
 
 ._crit_edge75:                                    ; preds = %156, %114

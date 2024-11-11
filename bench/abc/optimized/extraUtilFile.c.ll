@@ -1329,13 +1329,13 @@ define void @Extra_FileSort(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv58 = phi i64 [ %indvars.iv.next59.pre-phi, %40 ], [ 0, %._crit_edge ]
   %.141 = phi i32 [ %.2, %40 ], [ 0, %._crit_edge ]
   %.0 = phi i32 [ %.1, %40 ], [ 0, %._crit_edge ]
-  switch i8 %30, label %._crit_edge64 [
+  switch i8 %30, label %._crit_edge65 [
     i8 0, label %41
     i8 10, label %31
   ]
 
-._crit_edge64:                                    ; preds = %29
-  %.pre65 = add nuw nsw i64 %indvars.iv58, 1
+._crit_edge65:                                    ; preds = %29
+  %.pre66 = add nuw nsw i64 %indvars.iv58, 1
   br label %40
 
 31:                                               ; preds = %29
@@ -1351,10 +1351,10 @@ define void @Extra_FileSort(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %39 = trunc nuw i64 %38 to i32
   br label %40
 
-40:                                               ; preds = %._crit_edge64, %31
-  %indvars.iv.next59.pre-phi = phi i64 [ %.pre65, %._crit_edge64 ], [ %38, %31 ]
-  %.2 = phi i32 [ %.141, %._crit_edge64 ], [ %35, %31 ]
-  %.1 = phi i32 [ %.0, %._crit_edge64 ], [ %39, %31 ]
+40:                                               ; preds = %._crit_edge65, %31
+  %indvars.iv.next59.pre-phi = phi i64 [ %.pre66, %._crit_edge65 ], [ %38, %31 ]
+  %.2 = phi i32 [ %.141, %._crit_edge65 ], [ %35, %31 ]
+  %.1 = phi i32 [ %.0, %._crit_edge65 ], [ %39, %31 ]
   %.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.next59.pre-phi
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %29, !llvm.loop !27

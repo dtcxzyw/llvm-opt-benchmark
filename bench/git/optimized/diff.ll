@@ -12160,8 +12160,8 @@ for.body.i.preheader.i.i:                         ; preds = %for.cond.preheader.
 if.then.i.i.i301:                                 ; preds = %while.body16.i.i.i
   %inc22.i.i.i = add nsw i32 %width.0.i.i.i, 1
   %inc23.i.i.i = add i32 %off.1.i.i.i, 1
-  %.pre39.i.i.i = zext i32 %inc23.i.i.i to i64
-  %arrayidx18.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i299, i64 %.pre39.i.i.i
+  %.pre40.i.i.i = zext i32 %inc23.i.i.i to i64
+  %arrayidx18.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i299, i64 %.pre40.i.i.i
   %.pre.pre.i.i.i = load i8, ptr %arrayidx18.phi.trans.insert.phi.trans.insert.i.i.i, align 1
   br label %while.body16.i.i.i.backedge
 
@@ -12213,12 +12213,12 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
   %i.0.lcssa.i.i.i = phi i32 [ %off.1.i.i.i, %for.cond.preheader.i.i.i ], [ %415, %for.end.loopexit.i.i.i ]
   %cmp57.i.i.i = icmp eq i32 %i.0.lcssa.i.i.i, %.pre66.i.i
   %spec.select.i.i.i302 = select i1 %cmp57.i.i.i, i32 -2147483648, i32 %width.0.i.i.i
-  %spec.select47.i.i.i = select i1 %cmp57.i.i.i, i32 %.pre66.i.i, i32 %off.1.i.i.i
+  %spec.select48.i.i.i = select i1 %cmp57.i.i.i, i32 %.pre66.i.i, i32 %off.1.i.i.i
   br label %fill_es_indent_data.exit.i.i
 
 fill_es_indent_data.exit.i.i:                     ; preds = %for.inc.i.i.i, %for.end.i.i.i
   %width.0.lcssa.sink.i.i.i = phi i32 [ %spec.select.i.i.i302, %for.end.i.i.i ], [ -2147483648, %for.inc.i.i.i ]
-  %off.1.lcssa.sink.i.i.i = phi i32 [ %spec.select47.i.i.i, %for.end.i.i.i ], [ %.pre66.i.i, %for.inc.i.i.i ]
+  %off.1.lcssa.sink.i.i.i = phi i32 [ %spec.select48.i.i.i, %for.end.i.i.i ], [ %.pre66.i.i, %for.inc.i.i.i ]
   %416 = getelementptr inbounds i8, ptr %arrayidx.i29.i, i64 20
   store i32 %width.0.lcssa.sink.i.i.i, ptr %416, align 4
   %417 = getelementptr inbounds i8, ptr %arrayidx.i29.i, i64 16

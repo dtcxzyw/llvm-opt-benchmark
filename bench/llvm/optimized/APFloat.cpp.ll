@@ -7547,8 +7547,8 @@ _ZN4llvm5ErrorD2Ev.exit79:                        ; preds = %54
   %66 = zext i8 %52 to i64
   %67 = getelementptr inbounds [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %66
   %68 = load i16, ptr %67, align 2
-  %69 = sext i16 %68 to i32
-  %70 = zext i32 %69 to i64
+  %69 = sext i16 %68 to i64
+  %70 = and i64 %69, 4294967295
   %71 = icmp eq i16 %68, -1
   br i1 %71, label %117, label %72
 
@@ -7585,8 +7585,8 @@ _ZN4llvm5ErrorD2Ev.exit79:                        ; preds = %54
   br label %101
 
 89:                                               ; preds = %85
-  %90 = and i32 %69, 7
-  %or.cond.not.i = icmp eq i32 %90, 0
+  %90 = and i8 %52, -9
+  %or.cond.not.i = icmp eq i8 %90, 48
   br i1 %or.cond.not.i, label %.preheader.i80, label %91
 
 .preheader.i80:                                   ; preds = %89

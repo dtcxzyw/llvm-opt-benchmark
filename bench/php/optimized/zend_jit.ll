@@ -81101,13 +81101,13 @@ jit_CONST_ADDR.exit1047:                          ; preds = %1509, %1517
 1527:                                             ; preds = %1524, %1496
   %.0712 = phi i32 [ %1500, %1496 ], [ %1526, %1524 ]
   %1528 = sext i32 %.0712 to i64
-  %1529 = and i64 %1528, 3
-  %1530 = icmp eq i64 %1529, 1
+  %1529 = and i32 %.0712, 3
+  %1530 = icmp eq i32 %1529, 1
   br i1 %1530, label %1531, label %1546
 
 1531:                                             ; preds = %1527
-  %1532 = and i64 %1528, 252
-  %1533 = icmp eq i64 %1532, 56
+  %1532 = and i32 %.0712, 252
+  %1533 = icmp eq i32 %1532, 56
   %1534 = load ptr, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 184), align 8
   %1535 = icmp ne ptr %1534, null
   %or.cond.i1048 = select i1 %1533, i1 %1535, i1 false

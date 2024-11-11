@@ -877,8 +877,8 @@ if.end:                                           ; preds = %for.body
   %arrayidx13 = getelementptr inbounds [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom12
   store i32 %10, ptr %arrayidx13, align 8
   %events17 = getelementptr inbounds i8, ptr %arrayidx13, i64 4
-  %.103 = select i1 %cmp4.not, i16 1, i16 4
-  store i16 %.103, ptr %events17, align 4
+  %.102 = select i1 %cmp4.not, i16 1, i16 4
+  store i16 %.102, ptr %events17, align 4
   %nfd.2 = add nsw i32 %nfd.048, 1
   %failed_flush = getelementptr inbounds i8, ptr %8, i64 32
   store i8 0, ptr %failed_flush, align 8
@@ -961,9 +961,8 @@ if.end72:                                         ; preds = %if.then51, %land.lh
 
 if.then77:                                        ; preds = %if.end72
   %19 = load i16, ptr %revents, align 2
-  %conv8199 = zext i16 %19 to i32
-  %and82 = and i32 %conv8199, 24
-  %tobool83.not = icmp eq i32 %and82, 0
+  %20 = and i16 %19, 24
+  %tobool83.not = icmp eq i16 %20, 0
   br i1 %tobool83.not, label %if.else85, label %if.then84
 
 if.then84:                                        ; preds = %if.then77
@@ -971,32 +970,32 @@ if.then84:                                        ; preds = %if.then77
   br label %if.end125
 
 if.else85:                                        ; preds = %if.then77
-  %and90 = and i32 %conv8199, 4
-  %tobool91.not = icmp eq i32 %and90, 0
+  %21 = and i16 %19, 4
+  %tobool91.not = icmp eq i16 %21, 0
   br i1 %tobool91.not, label %if.end125, label %if.then92
 
 if.then92:                                        ; preds = %if.else85
   %t = getelementptr inbounds i8, ptr %12, i64 36
-  %20 = load i32, ptr %t, align 4
-  switch i32 %20, label %if.then117 [
+  %22 = load i32, ptr %t, align 4
+  switch i32 %22, label %if.then117 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb96
   ]
 
 sw.bb:                                            ; preds = %if.then92
-  %21 = load i32, ptr %data_size, align 4
-  %conv93 = zext i32 %21 to i64
-  %22 = load ptr, ptr @stderr, align 8
-  %call94 = call i64 @fwrite(ptr noundef nonnull %call74, i64 noundef 1, i64 noundef %conv93, ptr noundef %22) #19
+  %23 = load i32, ptr %data_size, align 4
+  %conv93 = zext i32 %23 to i64
+  %24 = load ptr, ptr @stderr, align 8
+  %call94 = call i64 @fwrite(ptr noundef nonnull %call74, i64 noundef 1, i64 noundef %conv93, ptr noundef %24) #19
   br label %sw.epilog
 
 sw.bb96:                                          ; preds = %if.then92
-  %23 = load ptr, ptr %12, align 8
-  %write = getelementptr inbounds i8, ptr %23, i64 488
-  %24 = load ptr, ptr %write, align 8
-  %25 = load i32, ptr %data_size, align 4
-  %conv99 = zext i32 %25 to i64
-  %call100 = call i64 %24(ptr noundef %23, ptr noundef nonnull %call74, i64 noundef %conv99) #18
+  %25 = load ptr, ptr %12, align 8
+  %write = getelementptr inbounds i8, ptr %25, i64 488
+  %26 = load ptr, ptr %write, align 8
+  %27 = load i32, ptr %data_size, align 4
+  %conv99 = zext i32 %27 to i64
+  %call100 = call i64 %26(ptr noundef %25, ptr noundef nonnull %call74, i64 noundef %conv99) #18
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb96, %sw.bb
@@ -1009,8 +1008,8 @@ sw.epilog:                                        ; preds = %sw.bb96, %sw.bb
 
 if.then104:                                       ; preds = %sw.epilog
   %call105 = tail call ptr @__errno_location() #22
-  %26 = load i32, ptr %call105, align 4
-  %cmp106.not = icmp eq i32 %26, 11
+  %28 = load i32, ptr %call105, align 4
+  %cmp106.not = icmp eq i32 %28, 11
   br i1 %cmp106.not, label %if.end125, label %if.then112
 
 if.then112:                                       ; preds = %if.then104
@@ -1022,8 +1021,8 @@ if.then117:                                       ; preds = %if.then92, %sw.epil
   br label %if.end125
 
 if.else118:                                       ; preds = %sw.epilog
-  %27 = load ptr, ptr %buf73, align 8
-  %call120 = call ptr @bipbuf_poll(ptr noundef %27, i32 noundef %total.0) #18
+  %29 = load ptr, ptr %buf73, align 8
+  %call120 = call ptr @bipbuf_poll(ptr noundef %29, i32 noundef %total.0) #18
   %add = add nsw i32 %flushed.079, %total.0
   br label %if.end125
 

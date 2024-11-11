@@ -179,8 +179,8 @@ for.inc100.loopexit:                              ; preds = %if.end95
 for.inc100:                                       ; preds = %for.inc100.loopexit, %for.body68
   %entries.3 = phi i32 [ %entries.2107, %for.body68 ], [ %sub78, %for.inc100.loopexit ]
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next118, %conv11
-  br i1 %exitcond120.not, label %for.end102, label %for.body68, !llvm.loop !11
+  %exitcond121.not = icmp eq i64 %indvars.iv.next118, %conv11
+  br i1 %exitcond121.not, label %for.end102, label %for.body68, !llvm.loop !11
 
 for.end102:                                       ; preds = %for.inc100
   tail call void @free(ptr noundef %call20) #12
@@ -208,11 +208,11 @@ if.end113:                                        ; preds = %for.end102
   br label %for.body122
 
 for.body122:                                      ; preds = %if.end113, %for.inc135
-  %indvars.iv121 = phi i64 [ 0, %if.end113 ], [ %indvars.iv.next122, %for.inc135 ]
+  %indvars.iv122 = phi i64 [ 0, %if.end113 ], [ %indvars.iv.next123, %for.inc135 ]
   %packed_entry.0114 = phi ptr [ %add.ptr118, %if.end113 ], [ %packed_entry.1.lcssa, %for.inc135 ]
-  %arrayidx124 = getelementptr inbounds ptr, ptr %hash115, i64 %indvars.iv121
+  %arrayidx124 = getelementptr inbounds ptr, ptr %hash115, i64 %indvars.iv122
   store ptr %packed_entry.0114, ptr %arrayidx124, align 8
-  %arrayidx126 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv121
+  %arrayidx126 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv122
   %entry1.5109 = load ptr, ptr %arrayidx126, align 8
   %tobool128.not110 = icmp eq ptr %entry1.5109, null
   br i1 %tobool128.not110, label %for.inc135, label %for.body129
@@ -229,9 +229,9 @@ for.body129:                                      ; preds = %for.body122, %for.b
 
 for.inc135:                                       ; preds = %for.body129, %for.body122
   %packed_entry.1.lcssa = phi ptr [ %packed_entry.0114, %for.body122 ], [ %incdec.ptr130, %for.body129 ]
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond125.not = icmp eq i64 %indvars.iv.next122, %conv11
-  br i1 %exitcond125.not, label %for.end137, label %for.body122, !llvm.loop !13
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
+  %exitcond126.not = icmp eq i64 %indvars.iv.next123, %conv11
+  br i1 %exitcond126.not, label %for.end137, label %for.body122, !llvm.loop !13
 
 for.end137:                                       ; preds = %for.inc135
   %arrayidx139 = getelementptr inbounds ptr, ptr %hash115, i64 %conv11

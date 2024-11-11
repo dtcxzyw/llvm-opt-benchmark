@@ -336,9 +336,9 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   br i1 %cmp15.not.us, label %if.end24.us, label %if.then16.thread
 
 if.then16.thread:                                 ; preds = %while.body.us
-  %conv.i81197 = trunc i64 %subtree_end.0 to i8
-  %arrayidx.i82198 = getelementptr inbounds i8, ptr %subtree.0, i64 15
-  store i8 %conv.i81197, ptr %arrayidx.i82198, align 1
+  %conv.i81198 = trunc i64 %subtree_end.0 to i8
+  %arrayidx.i82199 = getelementptr inbounds i8, ptr %subtree.0, i64 15
+  store i8 %conv.i81198, ptr %arrayidx.i82199, align 1
   br label %return
 
 if.end24.us:                                      ; preds = %while.body.us
@@ -453,11 +453,11 @@ if.then39:                                        ; preds = %while.end
   %inc44 = add i64 %subtree_end.1.lcssa, 1
   %arrayidx45 = getelementptr inbounds [6 x ptr], ptr %edges_, i64 0, i64 %subtree_end.1.lcssa
   store ptr %37, ptr %arrayidx45, align 8
-  %.pre193 = load i64, ptr %37, align 8
+  %.pre194 = load i64, ptr %37, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end, %if.then39
-  %41 = phi i64 [ %.pre193, %if.then39 ], [ %38, %while.end ]
+  %41 = phi i64 [ %.pre194, %if.then39 ], [ %38, %while.end ]
   %subtree_end.3 = phi i64 [ %inc44, %if.then39 ], [ %subtree_end.1.lcssa, %while.end ]
   %cmp48.not = icmp ult i64 %sub, %41
   br i1 %cmp48.not, label %do.end, label %do.body, !llvm.loop !11
@@ -474,17 +474,17 @@ while.body54.preheader:                           ; preds = %do.end
   br label %while.body54
 
 while.body54:                                     ; preds = %while.body54.preheader, %if.end85
-  %indvars.iv190 = phi i64 [ %43, %while.body54.preheader ], [ %indvars.iv.next191, %if.end85 ]
+  %indvars.iv191 = phi i64 [ %43, %while.body54.preheader ], [ %indvars.iv.next192, %if.end85 ]
   %subtree_end.4164 = phi i64 [ %subtree_end.3, %while.body54.preheader ], [ %subtree_end.5, %if.end85 ]
   %subtree.3163 = phi ptr [ %subtree.1.lcssa, %while.body54.preheader ], [ %subtree.4, %if.end85 ]
   %edge.1162 = phi ptr [ %37, %while.body54.preheader ], [ %edge.2, %if.end85 ]
   %index.2161 = phi i64 [ %inc.lcssa, %while.body54.preheader ], [ %index.3, %if.end85 ]
   %length.1160 = phi i64 [ %sub, %while.body54.preheader ], [ %length.2, %if.end85 ]
   %conv56 = trunc i64 %index.2161 to i8
-  %arrayidx59 = getelementptr inbounds [12 x i8], ptr %index_, i64 0, i64 %indvars.iv190
+  %arrayidx59 = getelementptr inbounds [12 x i8], ptr %index_, i64 0, i64 %indvars.iv191
   store i8 %conv56, ptr %arrayidx59, align 1
-  %indvars.iv.next191 = add nsw i64 %indvars.iv190, -1
-  %arrayidx62 = getelementptr inbounds [12 x ptr], ptr %node_, i64 0, i64 %indvars.iv.next191
+  %indvars.iv.next192 = add nsw i64 %indvars.iv191, -1
+  %arrayidx62 = getelementptr inbounds [12 x ptr], ptr %node_, i64 0, i64 %indvars.iv.next192
   store ptr %edge.1162, ptr %arrayidx62, align 8
   %arrayidx.i105 = getelementptr inbounds i8, ptr %edge.1162, i64 14
   %44 = load i8, ptr %arrayidx.i105, align 1
@@ -501,7 +501,7 @@ if.then66:                                        ; preds = %while.body54
   store i32 2, ptr %refcount.i.i.i111, align 4
   %tag.i.i112 = getelementptr inbounds i8, ptr %call.i110, i64 12
   store i8 3, ptr %tag.i.i112, align 4
-  %conv.i.i = trunc i64 %indvars.iv.next191 to i8
+  %conv.i.i = trunc i64 %indvars.iv.next192 to i8
   %storage.i.i113 = getelementptr inbounds i8, ptr %call.i110, i64 13
   store i8 %conv.i.i, ptr %storage.i.i113, align 1
   %arrayidx4.i.i114 = getelementptr inbounds i8, ptr %call.i110, i64 14
@@ -549,7 +549,7 @@ if.end85:                                         ; preds = %while.body75, %if.t
   %edge.2 = phi ptr [ %45, %while.body54 ], [ %45, %if.then66 ], [ %50, %while.body75 ]
   %subtree.4 = phi ptr [ %subtree.3163, %while.body54 ], [ %call.i110, %if.then66 ], [ %call.i110, %while.body75 ]
   %subtree_end.5 = phi i64 [ %subtree_end.4164, %while.body54 ], [ 0, %if.then66 ], [ %inc78, %while.body75 ]
-  %cmp53 = icmp sgt i64 %indvars.iv190, 1
+  %cmp53 = icmp sgt i64 %indvars.iv191, 1
   br i1 %cmp53, label %while.body54, label %while.end86, !llvm.loop !13
 
 while.end86:                                      ; preds = %if.end85, %do.end

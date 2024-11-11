@@ -389,12 +389,12 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZL23new_java_util_
 .lr.ph:                                           ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   %127 = icmp eq ptr %storemerge.i, null
   %128 = getelementptr inbounds i8, ptr %8, i64 8
-  %wide.trip.count80 = zext nneg i32 %.sroa.041.1 to i64
+  %wide.trip.count82 = zext nneg i32 %.sroa.041.1 to i64
   br i1 %127, label %_ZNK6HandleclEv.exit.us, label %_ZNK6HandleclEv.exit
 
 _ZNK6HandleclEv.exit.us:                          ; preds = %.lr.ph, %136
-  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %136 ], [ 0, %.lr.ph ]
-  %129 = getelementptr inbounds ptr, ptr %.sroa.19.1, i64 %indvars.iv77
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %136 ], [ 0, %.lr.ph ]
+  %129 = getelementptr inbounds ptr, ptr %.sroa.19.1, i64 %indvars.iv78
   %130 = load ptr, ptr %129, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValuePK5KlassPK6SymbolS7_(ptr noundef nonnull align 8 dereferenceable(300) %9, ptr noundef nonnull %8, ptr noundef %124, ptr noundef %125, ptr noundef %126) #10
   call void @_ZN16JfrJavaArguments12set_receiverEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(300) %9, ptr noundef null) #10
@@ -409,14 +409,14 @@ _ZNK6HandleclEv.exit.us:                          ; preds = %.lr.ph, %136
   br i1 %or.cond.us, label %.split.us, label %136
 
 136:                                              ; preds = %_ZNK6HandleclEv.exit.us
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge, label %_ZNK6HandleclEv.exit.us, !llvm.loop !10
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count82
+  br i1 %exitcond83.not, label %._crit_edge, label %_ZNK6HandleclEv.exit.us, !llvm.loop !10
 
 137:                                              ; preds = %_ZNK6HandleclEv.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
-  br i1 %exitcond76.not, label %._crit_edge.thread, label %_ZNK6HandleclEv.exit, !llvm.loop !10
+  %exitcond77.not = icmp eq i64 %indvars.iv.next, %wide.trip.count82
+  br i1 %exitcond77.not, label %._crit_edge.thread, label %_ZNK6HandleclEv.exit, !llvm.loop !10
 
 _ZNK6HandleclEv.exit:                             ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.lr.ph ]

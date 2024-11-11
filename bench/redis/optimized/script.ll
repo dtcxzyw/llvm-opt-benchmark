@@ -612,9 +612,8 @@ if.end3:                                          ; preds = %if.end
   %2 = load ptr, ptr @curr_run_ctx, align 8
   %flags = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i32, ptr %flags, align 8
-  %conv9 = zext i32 %3 to i64
-  %and = and i64 %conv9, 1
-  %tobool4.not = icmp eq i64 %and, 0
+  %4 = and i32 %3, 1
+  %tobool4.not = icmp eq i32 %4, 0
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
@@ -623,32 +622,30 @@ if.then5:                                         ; preds = %if.end3
 
 if.end6:                                          ; preds = %if.end3
   %tobool7.not = icmp ne i32 %is_eval, 0
-  %and10 = and i64 %conv9, 128
-  %tobool11.not = icmp eq i64 %and10, 0
+  %5 = and i32 %3, 128
+  %tobool11.not = icmp eq i32 %5, 0
   %or.cond = and i1 %tobool7.not, %tobool11.not
   br i1 %or.cond, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end6
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 264), align 8
-  tail call void @addReplyErrorObject(ptr noundef %c, ptr noundef %4) #10
-  br label %return
-
-if.end13:                                         ; preds = %if.end6
-  %5 = and i32 %3, 128
-  %tobool19.not = icmp eq i32 %5, 0
-  %or.cond8 = or i1 %tobool7.not, %tobool19.not
-  br i1 %or.cond8, label %if.end21, label %if.then20
-
-if.then20:                                        ; preds = %if.end13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 256), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 264), align 8
   tail call void @addReplyErrorObject(ptr noundef %c, ptr noundef %6) #10
   br label %return
 
+if.end13:                                         ; preds = %if.end6
+  %brmerge = or i1 %tobool7.not, %tobool11.not
+  br i1 %brmerge, label %if.end21, label %if.then20
+
+if.then20:                                        ; preds = %if.end13
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 256), align 8
+  tail call void @addReplyErrorObject(ptr noundef %c, ptr noundef %7) #10
+  br label %return
+
 if.end21:                                         ; preds = %if.end13
-  %7 = or i32 %3, 16
-  store i32 %7, ptr %flags, align 8
-  %8 = load ptr, ptr @shared, align 8
-  tail call void @addReply(ptr noundef %c, ptr noundef %8) #10
+  %8 = or i32 %3, 16
+  store i32 %8, ptr %flags, align 8
+  %9 = load ptr, ptr @shared, align 8
+  tail call void @addReply(ptr noundef %c, ptr noundef %9) #10
   br label %return
 
 return:                                           ; preds = %if.end21, %if.then20, %if.then12, %if.then5, %if.then2, %if.then

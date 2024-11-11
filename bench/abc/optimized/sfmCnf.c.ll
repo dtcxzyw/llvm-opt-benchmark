@@ -33,12 +33,12 @@ define void @Sfm_PrintCnf(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br label %16
 
 10:                                               ; preds = %5
-  %11 = sext i8 %7 to i32
-  %12 = and i32 %11, 1
-  %.not = icmp eq i32 %12, 0
-  %13 = select i1 %.not, ptr @.str.3, ptr @.str.2
-  %14 = ashr i32 %11, 1
-  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %13, i32 noundef %14)
+  %11 = and i8 %7, 1
+  %.not = icmp eq i8 %11, 0
+  %12 = select i1 %.not, ptr @.str.3, ptr @.str.2
+  %13 = ashr i8 %7, 1
+  %14 = sext i8 %13 to i32
+  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %12, i32 noundef %14)
   br label %16
 
 16:                                               ; preds = %9, %10

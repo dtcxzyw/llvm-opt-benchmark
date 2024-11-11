@@ -194,9 +194,9 @@ define internal i32 @dissect_imap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 31:                                               ; preds = %24
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.thread462, label %38
+  br i1 %32, label %.thread463, label %38
 
-.thread462:                                       ; preds = %31
+.thread463:                                       ; preds = %31
   store i32 2, ptr %29, align 4
   %33 = getelementptr inbounds i8, ptr %.0315, i64 4
   br label %40
@@ -215,12 +215,12 @@ define internal i32 @dissect_imap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds i8, ptr %.0315, i64 4
-  %.not469 = icmp eq i32 %30, 0
-  br i1 %.not469, label %check_imap_heur.exit.thread, label %40
+  %.not470 = icmp eq i32 %30, 0
+  br i1 %.not470, label %check_imap_heur.exit.thread, label %40
 
-40:                                               ; preds = %.thread462, %38
-  %41 = phi ptr [ %33, %.thread462 ], [ %39, %38 ]
-  %42 = phi i32 [ 2, %.thread462 ], [ %30, %38 ]
+40:                                               ; preds = %.thread463, %38
+  %41 = phi ptr [ %33, %.thread463 ], [ %39, %38 ]
+  %42 = phi i32 [ 2, %.thread463 ], [ %30, %38 ]
   %43 = add nsw i32 %42, -1
   store i32 %43, ptr %41, align 4
   %44 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 5) #6
@@ -1012,12 +1012,12 @@ imap_match_request.exit:                          ; preds = %425, %426, %430, %4
   br i1 %477, label %483, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %proto_item_set_hidden.exit, %._crit_edge
-  %.0305.lcssa465 = phi i32 [ %.1306, %._crit_edge ], [ %59, %proto_item_set_hidden.exit ]
+  %.0305.lcssa466 = phi i32 [ %.1306, %._crit_edge ], [ %59, %proto_item_set_hidden.exit ]
   %478 = load ptr, ptr %53, align 8
   %479 = select i1 %.not342.not.not.not.not.not, ptr @.str, ptr @.str.11
   %480 = getelementptr inbounds i8, ptr %1, i64 408
   %481 = load ptr, ptr %480, align 8
-  %482 = call ptr @tvb_format_text(ptr noundef %481, ptr noundef %0, i32 noundef 0, i32 noundef %.0305.lcssa465) #6
+  %482 = call ptr @tvb_format_text(ptr noundef %481, ptr noundef %0, i32 noundef 0, i32 noundef %.0305.lcssa466) #6
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %478, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef nonnull %479, ptr noundef %482) #6
   br label %483
 

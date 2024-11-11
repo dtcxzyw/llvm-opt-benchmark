@@ -4189,8 +4189,8 @@ sw.epilog250:                                     ; preds = %if.then236, %if.els
   %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3204, %if.end186 ], [ %spec.select155, %sw.bb218 ], [ %spec.select155, %if.then231 ], [ %spec.select155, %if.then226 ], [ %fd.sroa.0.3204, %sw.bb208 ], [ %spec.select154, %if.else195 ], [ %fd.sroa.0.3204, %sw.bb202 ], [ %spec.select155, %if.then236 ]
   %27 = add i32 %fd.sroa.26.0, -4097
   %or.cond1 = icmp ult i32 %27, 2147479550
-  %28 = and i32 %conv187, -33
-  %29 = icmp ne i32 %28, 83
+  %28 = and i8 %c.6, -33
+  %29 = icmp ne i8 %28, 83
   %or.cond3 = and i1 %or.cond1, %29
   %spec.select157 = select i1 %or.cond3, i32 0, i32 %conv187
   br label %if.end264

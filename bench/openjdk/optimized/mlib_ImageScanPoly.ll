@@ -289,19 +289,19 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %178 = tail call double @llvm.fmuladd.f64(double %.0801, double %17, double %167)
   %179 = tail call double @llvm.fmuladd.f64(double %.0801, double %23, double %171)
   %. = select i1 %175, double %176, double %178
-  %.1193 = select i1 %175, double %177, double %179
-  %.1194 = select i1 %175, double %178, double %176
-  %.1195 = select i1 %175, double %179, double %177
-  %.sink = fadd double %159, %.1195
-  %.sink1182 = fadd double %158, %.1194
-  %.sink1183 = fadd double %159, %.1193
-  %.sink1184 = fadd double %158, %.
+  %.1195 = select i1 %175, double %177, double %179
+  %.1196 = select i1 %175, double %178, double %176
+  %.1197 = select i1 %175, double %179, double %177
+  %.sink = fadd double %159, %.1197
+  %.sink1184 = fadd double %158, %.1196
+  %.sink1185 = fadd double %159, %.1195
+  %.sink1186 = fadd double %158, %.
   %180 = getelementptr inbounds i8, ptr %14, i64 16
-  store double %.sink1184, ptr %180, align 16
+  store double %.sink1186, ptr %180, align 16
   %181 = getelementptr inbounds i8, ptr %14, i64 24
-  store double %.sink1183, ptr %181, align 8
+  store double %.sink1185, ptr %181, align 8
   %182 = getelementptr inbounds i8, ptr %14, i64 48
-  store double %.sink1182, ptr %182, align 16
+  store double %.sink1184, ptr %182, align 16
   %183 = getelementptr inbounds i8, ptr %14, i64 56
   store double %.sink, ptr %183, align 8
   br label %184
@@ -658,21 +658,21 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %372 = add i32 %.1842, 1
   br label %373
 
-373:                                              ; preds = %.lr.ph1131, %._crit_edge1186
-  %indvars.iv1171 = phi i64 [ %371, %.lr.ph1131 ], [ %indvars.iv.next1172, %._crit_edge1186 ]
-  %.08211130 = phi i32 [ %348, %.lr.ph1131 ], [ %.1822, %._crit_edge1186 ]
-  %.08241129 = phi i32 [ %353, %.lr.ph1131 ], [ %.1825, %._crit_edge1186 ]
-  %.08471128 = phi i32 [ 0, %.lr.ph1131 ], [ %spec.select972, %._crit_edge1186 ]
-  %374 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1171
+373:                                              ; preds = %.lr.ph1131, %._crit_edge1188
+  %indvars.iv1172 = phi i64 [ %371, %.lr.ph1131 ], [ %indvars.iv.next1173, %._crit_edge1188 ]
+  %.08211130 = phi i32 [ %348, %.lr.ph1131 ], [ %.1822, %._crit_edge1188 ]
+  %.08241129 = phi i32 [ %353, %.lr.ph1131 ], [ %.1825, %._crit_edge1188 ]
+  %.08471128 = phi i32 [ 0, %.lr.ph1131 ], [ %spec.select972, %._crit_edge1188 ]
+  %374 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1172
   %375 = load i32, ptr %374, align 4
-  %376 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1171
+  %376 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1172
   %377 = load i32, ptr %376, align 4
   %378 = tail call i32 @llvm.smax.i32(i32 %375, i32 0)
   %.not942 = icmp slt i32 %377, %.val996
   %379 = select i1 %.not942, i32 %377, i32 %364
   %380 = uitofp nneg i32 %378 to double
   %381 = fadd double %380, 5.000000e-01
-  %382 = trunc nsw i64 %indvars.iv1171 to i32
+  %382 = trunc nsw i64 %indvars.iv1172 to i32
   %383 = sitofp i32 %382 to double
   %384 = fadd double %383, 5.000000e-01
   %385 = sitofp i32 %379 to double
@@ -762,7 +762,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %.0810 = select i1 %432, i32 %370, i32 %spec.select1136
   %.not947 = icmp slt i32 %.1813, %.0815
   %.pre = sub nsw i32 %.1813, %.0815
-  br i1 %.not947, label %._crit_edge1186, label %433
+  br i1 %.not947, label %._crit_edge1188, label %433
 
 433:                                              ; preds = %422
   %434 = mul nsw i32 %.pre, %.08211130
@@ -793,7 +793,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %448 = icmp sge i32 %439, %.0819
   %.not949 = icmp slt i32 %439, %.0817
   %or.cond971 = select i1 %448, i1 %.not949, i1 false
-  br i1 %or.cond971, label %._crit_edge1186, label %449
+  br i1 %or.cond971, label %._crit_edge1188, label %449
 
 449:                                              ; preds = %447
   %450 = icmp sgt i32 %.08241129, 0
@@ -801,34 +801,34 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
 
 451:                                              ; preds = %449
   %452 = add nsw i32 %.08241129, -1
-  br label %._crit_edge1186
+  br label %._crit_edge1188
 
 453:                                              ; preds = %449
   %454 = add nsw i32 %.08241129, 1
-  br label %._crit_edge1186
+  br label %._crit_edge1188
 
-._crit_edge1186:                                  ; preds = %422, %447, %453, %451
+._crit_edge1188:                                  ; preds = %422, %447, %453, %451
   %.1825 = phi i32 [ %.08241129, %447 ], [ %454, %453 ], [ %452, %451 ], [ %.08241129, %422 ]
   %.1822 = phi i32 [ %.2823, %447 ], [ %.2823, %453 ], [ %.2823, %451 ], [ %.08211130, %422 ]
   store i32 %.0815, ptr %374, align 4
   store i32 %.1813, ptr %376, align 4
-  %455 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1171
+  %455 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1172
   store i32 %.0811, ptr %455, align 4
-  %456 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1171
+  %456 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1172
   store i32 %.0810, ptr %456, align 4
   %.not950 = icmp slt i32 %.pre, %.08471128
   %457 = add nsw i32 %.pre, 1
   %spec.select972 = select i1 %.not950, i32 %.08471128, i32 %457
-  %indvars.iv.next1172 = add nsw i64 %indvars.iv1171, 1
-  %lftr.wideiv1174 = trunc i64 %indvars.iv.next1172 to i32
-  %exitcond1175.not = icmp eq i32 %372, %lftr.wideiv1174
-  br i1 %exitcond1175.not, label %.loopexit1084, label %373, !llvm.loop !15
+  %indvars.iv.next1173 = add nsw i64 %indvars.iv1172, 1
+  %lftr.wideiv1176 = trunc i64 %indvars.iv.next1173 to i32
+  %exitcond1177.not = icmp eq i32 %372, %lftr.wideiv1176
+  br i1 %exitcond1177.not, label %.loopexit1084, label %373, !llvm.loop !15
 
-458:                                              ; preds = %.lr.ph1122, %._crit_edge1185
-  %indvars.iv1166 = phi i64 [ %362, %.lr.ph1122 ], [ %indvars.iv.next1167, %._crit_edge1185 ]
-  %.41121 = phi i32 [ %348, %.lr.ph1122 ], [ %.5, %._crit_edge1185 ]
-  %.38271120 = phi i32 [ %353, %.lr.ph1122 ], [ %.4828, %._crit_edge1185 ]
-  %.38501119 = phi i32 [ 0, %.lr.ph1122 ], [ %spec.select989, %._crit_edge1185 ]
+458:                                              ; preds = %.lr.ph1122, %._crit_edge1187
+  %indvars.iv1166 = phi i64 [ %362, %.lr.ph1122 ], [ %indvars.iv.next1167, %._crit_edge1187 ]
+  %.41121 = phi i32 [ %348, %.lr.ph1122 ], [ %.5, %._crit_edge1187 ]
+  %.38271120 = phi i32 [ %353, %.lr.ph1122 ], [ %.4828, %._crit_edge1187 ]
+  %.38501119 = phi i32 [ 0, %.lr.ph1122 ], [ %spec.select989, %._crit_edge1187 ]
   %459 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1166
   %460 = load i32, ptr %459, align 4
   %461 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1166
@@ -927,14 +927,14 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %spec.select1138 = select i1 %.not936, i32 %515, i32 %360
   %.0794 = select i1 %517, i32 %361, i32 %spec.select1138
   %.not937 = icmp slt i32 %.1, %.0797
-  %.pre1187 = sub nsw i32 %.1, %.0797
-  br i1 %.not937, label %._crit_edge1185, label %518
+  %.pre1189 = sub nsw i32 %.1, %.0797
+  br i1 %.not937, label %._crit_edge1187, label %518
 
 518:                                              ; preds = %507
-  %519 = mul nsw i32 %.pre1187, %.41121
+  %519 = mul nsw i32 %.pre1189, %.41121
   %520 = add nsw i32 %.0795, %519
   %521 = ashr i32 %520, %11
-  %522 = mul nsw i32 %.pre1187, %.38271120
+  %522 = mul nsw i32 %.pre1189, %.38271120
   %523 = add nsw i32 %.0794, %522
   %524 = ashr i32 %523, %12
   %525 = icmp sge i32 %521, %.0820
@@ -959,7 +959,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %533 = icmp sge i32 %524, %.0819
   %.not939 = icmp slt i32 %524, %.0817
   %or.cond988 = select i1 %533, i1 %.not939, i1 false
-  br i1 %or.cond988, label %._crit_edge1185, label %534
+  br i1 %or.cond988, label %._crit_edge1187, label %534
 
 534:                                              ; preds = %532
   %535 = icmp sgt i32 %.38271120, 0
@@ -967,13 +967,13 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
 
 536:                                              ; preds = %534
   %537 = add nsw i32 %.38271120, -1
-  br label %._crit_edge1185
+  br label %._crit_edge1187
 
 538:                                              ; preds = %534
   %539 = add nsw i32 %.38271120, 1
-  br label %._crit_edge1185
+  br label %._crit_edge1187
 
-._crit_edge1185:                                  ; preds = %507, %532, %538, %536
+._crit_edge1187:                                  ; preds = %507, %532, %538, %536
   %.4828 = phi i32 [ %.38271120, %532 ], [ %539, %538 ], [ %537, %536 ], [ %.38271120, %507 ]
   %.5 = phi i32 [ %.6, %532 ], [ %.6, %538 ], [ %.6, %536 ], [ %.41121, %507 ]
   store i32 %.0797, ptr %459, align 4
@@ -982,51 +982,51 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   store i32 %.0795, ptr %540, align 4
   %541 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1166
   store i32 %.0794, ptr %541, align 4
-  %.not940 = icmp slt i32 %.pre1187, %.38501119
-  %542 = add nsw i32 %.pre1187, 1
+  %.not940 = icmp slt i32 %.pre1189, %.38501119
+  %542 = add nsw i32 %.pre1189, 1
   %spec.select989 = select i1 %.not940, i32 %.38501119, i32 %542
   %indvars.iv.next1167 = add nsw i64 %indvars.iv1166, 1
-  %lftr.wideiv1169 = trunc i64 %indvars.iv.next1167 to i32
-  %exitcond1170.not = icmp eq i32 %363, %lftr.wideiv1169
-  br i1 %exitcond1170.not, label %.loopexit1084, label %458, !llvm.loop !16
+  %lftr.wideiv1170 = trunc i64 %indvars.iv.next1167 to i32
+  %exitcond1171.not = icmp eq i32 %363, %lftr.wideiv1170
+  br i1 %exitcond1171.not, label %.loopexit1084, label %458, !llvm.loop !16
 
-.loopexit1084:                                    ; preds = %._crit_edge1185, %._crit_edge1186, %.preheader1085, %.preheader1083
-  %.2849 = phi i32 [ 0, %.preheader1083 ], [ 0, %.preheader1085 ], [ %spec.select972, %._crit_edge1186 ], [ %spec.select989, %._crit_edge1185 ]
-  %.2826 = phi i32 [ %353, %.preheader1083 ], [ %353, %.preheader1085 ], [ %.1825, %._crit_edge1186 ], [ %.4828, %._crit_edge1185 ]
-  %.3 = phi i32 [ %348, %.preheader1083 ], [ %348, %.preheader1085 ], [ %.1822, %._crit_edge1186 ], [ %.5, %._crit_edge1185 ]
+.loopexit1084:                                    ; preds = %._crit_edge1187, %._crit_edge1188, %.preheader1085, %.preheader1083
+  %.2849 = phi i32 [ 0, %.preheader1083 ], [ 0, %.preheader1085 ], [ %spec.select972, %._crit_edge1188 ], [ %spec.select989, %._crit_edge1187 ]
+  %.2826 = phi i32 [ %353, %.preheader1083 ], [ %353, %.preheader1085 ], [ %.1825, %._crit_edge1188 ], [ %.4828, %._crit_edge1187 ]
+  %.3 = phi i32 [ %348, %.preheader1083 ], [ %348, %.preheader1085 ], [ %.1822, %._crit_edge1188 ], [ %.5, %._crit_edge1187 ]
   %543 = sext i32 %.0838 to i64
   %544 = sext i32 %.1842 to i64
   br label %545
 
 545:                                              ; preds = %545, %.loopexit1084
-  %indvars.iv1176 = phi i64 [ %indvars.iv.next1177, %545 ], [ %543, %.loopexit1084 ]
-  %546 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1176
+  %indvars.iv1178 = phi i64 [ %indvars.iv.next1179, %545 ], [ %543, %.loopexit1084 ]
+  %546 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1178
   %547 = load i32, ptr %546, align 4
-  %548 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1176
+  %548 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1178
   %549 = load i32, ptr %548, align 4
   %550 = icmp sgt i32 %547, %549
-  %551 = icmp sle i64 %indvars.iv1176, %544
+  %551 = icmp sle i64 %indvars.iv1178, %544
   %552 = select i1 %550, i1 %551, i1 false
-  %indvars.iv.next1177 = add nsw i64 %indvars.iv1176, 1
+  %indvars.iv.next1179 = add nsw i64 %indvars.iv1178, 1
   br i1 %552, label %545, label %553, !llvm.loop !17
 
 553:                                              ; preds = %545
-  %554 = trunc nsw i64 %indvars.iv1176 to i32
+  %554 = trunc nsw i64 %indvars.iv1178 to i32
   %555 = icmp sgt i32 %.1842, %554
   br i1 %555, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %553, %.preheader
-  %indvars.iv1179 = phi i64 [ %indvars.iv.next1180, %.preheader ], [ %544, %553 ]
-  %556 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1179
+  %indvars.iv1181 = phi i64 [ %indvars.iv.next1182, %.preheader ], [ %544, %553 ]
+  %556 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1181
   %557 = load i32, ptr %556, align 4
-  %558 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1179
+  %558 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1181
   %559 = load i32, ptr %558, align 4
   %560 = icmp sgt i32 %557, %559
-  %indvars.iv.next1180 = add nsw i64 %indvars.iv1179, -1
+  %indvars.iv.next1182 = add nsw i64 %indvars.iv1181, -1
   br i1 %560, label %.preheader, label %.loopexit.loopexit, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %561 = trunc nsw i64 %indvars.iv1179 to i32
+  %561 = trunc nsw i64 %indvars.iv1181 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %553

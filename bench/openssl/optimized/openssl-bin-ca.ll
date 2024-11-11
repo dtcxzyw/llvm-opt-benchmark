@@ -319,7 +319,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.297 = private unnamed_addr constant [12 x i8] c"ASN.1 %2d:'\00", align 1
 @.str.298 = private unnamed_addr constant [3 x i8] c"%c\00", align 1
 @.str.299 = private unnamed_addr constant [8 x i8] c"\\0x%02X\00", align 1
-@.str.300 = private unnamed_addr constant [3 x i8] c"^?\00", align 1
 @.str.301 = private unnamed_addr constant [4 x i8] c"^%c\00", align 1
 @.str.302 = private unnamed_addr constant [3 x i8] c"'\0A\00", align 1
 @.str.303 = private unnamed_addr constant [21 x i8] c"template certificate\00", align 1
@@ -4071,38 +4070,28 @@ if.then35.i:                                      ; preds = %for.body29.i
   br label %if.end54.i
 
 if.else38.i:                                      ; preds = %for.body29.i
-  %and.i = and i32 %conv.i, 128
-  %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.else43.i, label %if.then40.i
+  %tobool.not.i = icmp sgt i8 %20, -1
+  %23 = load ptr, ptr @bio_err, align 8
+  br i1 %tobool.not.i, label %if.else49.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.else38.i
-  %23 = load ptr, ptr @bio_err, align 8
   %call42.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef nonnull @.str.299, i32 noundef %conv.i) #12
   br label %if.end54.i
 
-if.else43.i:                                      ; preds = %if.else38.i
-  %cmp45.i = icmp eq i8 %20, -9
-  %24 = load ptr, ptr @bio_err, align 8
-  br i1 %cmp45.i, label %if.then47.i, label %if.else49.i
-
-if.then47.i:                                      ; preds = %if.else43.i
-  %call48.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %24, ptr noundef nonnull @.str.300) #12
-  br label %if.end54.i
-
-if.else49.i:                                      ; preds = %if.else43.i
+if.else49.i:                                      ; preds = %if.else38.i
   %add.i = add nuw nsw i32 %conv.i, 64
-  %call51.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %24, ptr noundef nonnull @.str.301, i32 noundef %add.i) #12
+  %call51.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef nonnull @.str.301, i32 noundef %add.i) #12
   br label %if.end54.i
 
-if.end54.i:                                       ; preds = %if.else49.i, %if.then47.i, %if.then40.i, %if.then35.i
+if.end54.i:                                       ; preds = %if.else49.i, %if.then40.i, %if.then35.i
   %incdec.ptr55.i = getelementptr inbounds i8, ptr %p.024.i, i64 1
   %dec57.i = add nsw i32 %j.125.i, -1
   %cmp28.i = icmp sgt i32 %j.125.i, 1
   br i1 %cmp28.i, label %for.body29.i, label %old_entry_print.exit, !llvm.loop !20
 
 old_entry_print.exit:                             ; preds = %if.end54.i, %if.end26.i
-  %25 = load ptr, ptr @bio_err, align 8
-  %call59.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.302) #12
+  %24 = load ptr, ptr @bio_err, align 8
+  %call59.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %24, ptr noundef nonnull @.str.302) #12
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %buf.i)
   br label %for.inc88
 
@@ -4118,8 +4107,8 @@ for.end90:                                        ; preds = %for.inc88, %if.end8
   br i1 %cmp92, label %if.then94, label %if.end96
 
 if.then94:                                        ; preds = %for.end90
-  %26 = load ptr, ptr @bio_err, align 8
-  %call95 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull @.str.200) #12
+  %25 = load ptr, ptr @bio_err, align 8
+  %call95 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.200) #12
   br label %end
 
 if.end96:                                         ; preds = %for.end90
@@ -4147,16 +4136,16 @@ for.body112:                                      ; preds = %for.cond107.prehead
   %str2.0264 = phi ptr [ %str2.5, %for.inc227 ], [ null, %for.cond107.preheader ]
   %call114 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %policy, i32 noundef %i.2265) #12
   %name115 = getelementptr inbounds i8, ptr %call114, i64 8
-  %27 = load ptr, ptr %name115, align 8
-  %call116 = call i32 @OBJ_txt2nid(ptr noundef %27) #12
+  %26 = load ptr, ptr %name115, align 8
+  %call116 = call i32 @OBJ_txt2nid(ptr noundef %26) #12
   %cmp117 = icmp eq i32 %call116, 0
   br i1 %cmp117, label %if.then119, label %if.end122
 
 if.then119:                                       ; preds = %for.body112
   %name115.le325 = getelementptr inbounds i8, ptr %call114, i64 8
-  %28 = load ptr, ptr @bio_err, align 8
-  %29 = load ptr, ptr %name115.le325, align 8
-  %call121 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.246, ptr noundef %29) #12
+  %27 = load ptr, ptr @bio_err, align 8
+  %28 = load ptr, ptr %name115.le325, align 8
+  %call121 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %27, ptr noundef nonnull @.str.246, ptr noundef %28) #12
   br label %end
 
 if.end122:                                        ; preds = %for.body112
@@ -4182,13 +4171,13 @@ if.else133:                                       ; preds = %for.cond124
 
 if.end135:                                        ; preds = %if.then128, %if.else133
   %tne.0 = phi ptr [ %call134, %if.else133 ], [ null, %if.then128 ]
-  %30 = load ptr, ptr %value, align 8
-  %call136 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(9) @.str.247) #13
+  %29 = load ptr, ptr %value, align 8
+  %call136 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(9) @.str.247) #13
   %cmp137 = icmp eq i32 %call136, 0
   br i1 %cmp137, label %if.end212, label %if.else144
 
 if.else144:                                       ; preds = %if.end135
-  %call146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(9) @.str.248) #13
+  %call146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(9) @.str.248) #13
   %cmp147 = icmp eq i32 %call146, 0
   br i1 %cmp147, label %if.then149, label %if.else157
 
@@ -4198,13 +4187,13 @@ if.then149:                                       ; preds = %if.else144
 
 if.then152:                                       ; preds = %if.then149
   %name115.le = getelementptr inbounds i8, ptr %call114, i64 8
-  %31 = load ptr, ptr @bio_err, align 8
-  %32 = load ptr, ptr %name115.le, align 8
-  %call154 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %31, ptr noundef nonnull @.str.249, ptr noundef %32) #12
+  %30 = load ptr, ptr @bio_err, align 8
+  %31 = load ptr, ptr %name115.le, align 8
+  %call154 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %30, ptr noundef nonnull @.str.249, ptr noundef %31) #12
   br label %end
 
 if.else157:                                       ; preds = %if.else144
-  %call159 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str.250) #13
+  %call159 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(6) @.str.250) #13
   %cmp160 = icmp eq i32 %call159, 0
   br i1 %cmp160, label %if.then162, label %if.else207
 
@@ -4214,9 +4203,9 @@ if.then162:                                       ; preds = %if.else157
 
 if.then165:                                       ; preds = %if.then162
   %name115.le323 = getelementptr inbounds i8, ptr %call114, i64 8
-  %33 = load ptr, ptr @bio_err, align 8
-  %34 = load ptr, ptr %name115.le323, align 8
-  %call167 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef nonnull @.str.251, ptr noundef %34) #12
+  %32 = load ptr, ptr @bio_err, align 8
+  %33 = load ptr, ptr %name115.le323, align 8
+  %call167 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.251, ptr noundef %33) #12
   br label %end
 
 again2:                                           ; preds = %if.then162, %if.then181
@@ -4231,9 +4220,9 @@ again2:                                           ; preds = %if.then162, %if.the
 
 if.then175:                                       ; preds = %again2
   %name115.le321 = getelementptr inbounds i8, ptr %call114, i64 8
-  %35 = load ptr, ptr @bio_err, align 8
-  %36 = load ptr, ptr %name115.le321, align 8
-  %call177 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.252, ptr noundef %36) #12
+  %34 = load ptr, ptr @bio_err, align 8
+  %35 = load ptr, ptr %name115.le321, align 8
+  %call177 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.252, ptr noundef %35) #12
   br label %end
 
 if.end178:                                        ; preds = %again2
@@ -4250,34 +4239,34 @@ if.then181:                                       ; preds = %if.end178
 
 if.then193:                                       ; preds = %if.end178
   %name115.le319 = getelementptr inbounds i8, ptr %call114, i64 8
-  %37 = load ptr, ptr @bio_err, align 8
-  %38 = load ptr, ptr %name115.le319, align 8
+  %36 = load ptr, ptr @bio_err, align 8
+  %37 = load ptr, ptr %name115.le319, align 8
   %cmp195 = icmp eq ptr %str2.3, null
   br i1 %cmp195, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then193
   %data197 = getelementptr inbounds i8, ptr %str2.3, i64 8
-  %39 = load ptr, ptr %data197, align 8
+  %38 = load ptr, ptr %data197, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then193, %cond.false
-  %cond = phi ptr [ %39, %cond.false ], [ @.str.254, %if.then193 ]
+  %cond = phi ptr [ %38, %cond.false ], [ @.str.254, %if.then193 ]
   %cmp198 = icmp eq ptr %str.3, null
   br i1 %cmp198, label %cond.end203, label %cond.false201
 
 cond.false201:                                    ; preds = %cond.end
   %data202 = getelementptr inbounds i8, ptr %str.3, i64 8
-  %40 = load ptr, ptr %data202, align 8
+  %39 = load ptr, ptr %data202, align 8
   br label %cond.end203
 
 cond.end203:                                      ; preds = %cond.end, %cond.false201
-  %cond204 = phi ptr [ %40, %cond.false201 ], [ @.str.254, %cond.end ]
-  %call205 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.253, ptr noundef %38, ptr noundef %cond, ptr noundef %cond204) #12
+  %cond204 = phi ptr [ %39, %cond.false201 ], [ @.str.254, %cond.end ]
+  %call205 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %36, ptr noundef nonnull @.str.253, ptr noundef %37, ptr noundef %cond, ptr noundef %cond204) #12
   br label %end
 
 if.else207:                                       ; preds = %if.else157
-  %41 = load ptr, ptr @bio_err, align 8
-  %call209 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %41, ptr noundef nonnull @.str.255, ptr noundef %30) #12
+  %40 = load ptr, ptr @bio_err, align 8
+  %call209 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %40, ptr noundef nonnull @.str.255, ptr noundef %29) #12
   br label %end
 
 if.end212:                                        ; preds = %if.then181, %if.end135
@@ -4298,8 +4287,8 @@ if.then215:                                       ; preds = %if.then149, %if.end
   br i1 %tobool217.not, label %if.then218, label %if.end221
 
 if.then218:                                       ; preds = %if.then215
-  %42 = load ptr, ptr @bio_err, align 8
-  %call219 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %42, ptr noundef nonnull @.str.200) #12
+  %41 = load ptr, ptr @bio_err, align 8
+  %call219 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %41, ptr noundef nonnull @.str.200) #12
   br label %end
 
 if.end221:                                        ; preds = %if.then215, %if.end212
@@ -4333,8 +4322,8 @@ if.end237:                                        ; preds = %if.then231, %for.en
   br i1 %tobool238.not, label %if.end241, label %if.then239
 
 if.then239:                                       ; preds = %if.end237
-  %43 = load ptr, ptr @bio_err, align 8
-  %call240 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %43, ptr noundef nonnull @.str.256) #12
+  %42 = load ptr, ptr @bio_err, align 8
+  %call240 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %42, ptr noundef nonnull @.str.256) #12
   br label %if.end241
 
 if.end241:                                        ; preds = %if.then239, %if.end237
@@ -4381,8 +4370,8 @@ if.then275:                                       ; preds = %if.end272
   br i1 %tobool278.not, label %end, label %if.end280
 
 if.end280:                                        ; preds = %if.then275
-  %44 = load i32, ptr %tdays, align 4
-  %conv281 = sext i32 %44 to i64
+  %43 = load i32, ptr %tdays, align 4
+  %conv281 = sext i32 %43 to i64
   br label %if.end282
 
 if.end282:                                        ; preds = %if.end280, %if.end272
@@ -4413,8 +4402,8 @@ if.end302:                                        ; preds = %if.then298
   br i1 %tobool304.not, label %if.then305, label %if.end308
 
 if.then305:                                       ; preds = %if.end302
-  %45 = load ptr, ptr @bio_err, align 8
-  %call306 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %45, ptr noundef nonnull @.str.257) #12
+  %44 = load ptr, ptr @bio_err, align 8
+  %call306 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.257) #12
   br label %if.end308
 
 if.end308:                                        ; preds = %if.end302, %if.then305, %if.end291
@@ -4422,30 +4411,30 @@ if.end308:                                        ; preds = %if.end302, %if.then
   br i1 %tobool309.not, label %if.end341, label %if.then310
 
 if.then310:                                       ; preds = %if.end308
-  %46 = load ptr, ptr @extfile_conf, align 8
-  %cmp311.not = icmp eq ptr %46, null
+  %45 = load ptr, ptr @extfile_conf, align 8
+  %cmp311.not = icmp eq ptr %45, null
   br i1 %cmp311.not, label %if.then329, label %if.then313
 
 if.then313:                                       ; preds = %if.then310
   br i1 %tobool238.not, label %if.end317, label %if.then315
 
 if.then315:                                       ; preds = %if.then313
-  %47 = load ptr, ptr @bio_err, align 8
-  %call316 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %47, ptr noundef nonnull @.str.258) #12
+  %46 = load ptr, ptr @bio_err, align 8
+  %call316 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %46, ptr noundef nonnull @.str.258) #12
   %.pre297 = load ptr, ptr @extfile_conf, align 8
   br label %if.end317
 
 if.end317:                                        ; preds = %if.then315, %if.then313
-  %48 = phi ptr [ %.pre297, %if.then315 ], [ %46, %if.then313 ]
-  call void @X509V3_set_nconf(ptr noundef nonnull %ext_ctx, ptr noundef %48) #12
-  %49 = load ptr, ptr @extfile_conf, align 8
-  %call318 = call i32 @X509V3_EXT_add_nconf(ptr noundef %49, ptr noundef nonnull %ext_ctx, ptr noundef nonnull %ext_sect, ptr noundef nonnull %call244) #12
+  %47 = phi ptr [ %.pre297, %if.then315 ], [ %45, %if.then313 ]
+  call void @X509V3_set_nconf(ptr noundef nonnull %ext_ctx, ptr noundef %47) #12
+  %48 = load ptr, ptr @extfile_conf, align 8
+  %call318 = call i32 @X509V3_EXT_add_nconf(ptr noundef %48, ptr noundef nonnull %ext_ctx, ptr noundef nonnull %ext_sect, ptr noundef nonnull %call244) #12
   %tobool319.not = icmp eq i32 %call318, 0
   br i1 %tobool319.not, label %if.then320, label %if.end322
 
 if.then320:                                       ; preds = %if.end317
-  %50 = load ptr, ptr @bio_err, align 8
-  %call321 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %50, ptr noundef nonnull @.str.259, ptr noundef nonnull %ext_sect) #12
+  %49 = load ptr, ptr @bio_err, align 8
+  %call321 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %49, ptr noundef nonnull @.str.259, ptr noundef nonnull %ext_sect) #12
   br label %end
 
 if.end322:                                        ; preds = %if.end317
@@ -4458,8 +4447,8 @@ if.then329:                                       ; preds = %if.then310
   br i1 %tobool331.not, label %if.then332, label %if.end334
 
 if.then332:                                       ; preds = %if.then329
-  %51 = load ptr, ptr @bio_err, align 8
-  %call333 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %51, ptr noundef nonnull @.str.261, ptr noundef nonnull %ext_sect) #12
+  %50 = load ptr, ptr @bio_err, align 8
+  %call333 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %50, ptr noundef nonnull @.str.261, ptr noundef nonnull %ext_sect) #12
   br label %end
 
 if.end334:                                        ; preds = %if.then329
@@ -4467,8 +4456,8 @@ if.end334:                                        ; preds = %if.then329
 
 if.end341.sink.split:                             ; preds = %if.end334, %if.end322
   %.str.260.sink = phi ptr [ @.str.260, %if.end322 ], [ @.str.262, %if.end334 ]
-  %52 = load ptr, ptr @bio_err, align 8
-  %call325 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %52, ptr noundef nonnull %.str.260.sink) #12
+  %51 = load ptr, ptr @bio_err, align 8
+  %call325 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %51, ptr noundef nonnull %.str.260.sink) #12
   br label %if.end341
 
 if.end341:                                        ; preds = %if.end341.sink.split, %if.end322, %if.end334, %if.end308
@@ -4477,16 +4466,16 @@ if.end341:                                        ; preds = %if.end341.sink.spli
   br i1 %tobool343.not, label %if.then344, label %if.end346
 
 if.then344:                                       ; preds = %if.end341
-  %53 = load ptr, ptr @bio_err, align 8
-  %call345 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %53, ptr noundef nonnull @.str.263) #12
+  %52 = load ptr, ptr @bio_err, align 8
+  %call345 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %52, ptr noundef nonnull @.str.263) #12
   br label %end
 
 if.end346:                                        ; preds = %if.end341
   br i1 %tobool238.not, label %if.end350, label %if.then348
 
 if.then348:                                       ; preds = %if.end346
-  %54 = load ptr, ptr @bio_err, align 8
-  %call349 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %54, ptr noundef nonnull @.str.264) #12
+  %53 = load ptr, ptr @bio_err, align 8
+  %call349 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %53, ptr noundef nonnull @.str.264) #12
   br label %if.end350
 
 if.end350:                                        ; preds = %if.then348, %if.end346
@@ -4504,8 +4493,8 @@ while.cond.preheader:                             ; preds = %if.then352
   br i1 %cmp360268, label %while.body, label %while.end
 
 if.then356:                                       ; preds = %if.then352
-  %55 = load ptr, ptr @bio_err, align 8
-  %call357 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %55, ptr noundef nonnull @.str.200) #12
+  %54 = load ptr, ptr @bio_err, align 8
+  %call357 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %54, ptr noundef nonnull @.str.200) #12
   br label %end
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -4532,8 +4521,8 @@ if.end367:                                        ; preds = %while.end, %if.end3
   br i1 %cmp372, label %if.then374, label %if.end376
 
 if.then374:                                       ; preds = %if.end367
-  %56 = load ptr, ptr @bio_err, align 8
-  %call375 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %56, ptr noundef nonnull @.str.200) #12
+  %55 = load ptr, ptr @bio_err, align 8
+  %call375 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %55, ptr noundef nonnull @.str.200) #12
   br label %end
 
 if.end376:                                        ; preds = %if.end367
@@ -4551,75 +4540,75 @@ if.else382:                                       ; preds = %if.end376
 
 if.end385:                                        ; preds = %if.else382, %if.then379
   %call380.sink = phi ptr [ %call383, %if.else382 ], [ %call380, %if.then379 ]
-  %57 = getelementptr inbounds i8, ptr %row, i64 24
-  store ptr %call380.sink, ptr %57, align 8
+  %56 = getelementptr inbounds i8, ptr %row, i64 24
+  store ptr %call380.sink, ptr %56, align 8
   %cmp387 = icmp eq ptr %call380.sink, null
   br i1 %cmp387, label %if.then389, label %if.end391
 
 if.then389:                                       ; preds = %if.end385
-  %58 = load ptr, ptr @bio_err, align 8
-  %call390 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %58, ptr noundef nonnull @.str.200) #12
+  %57 = load ptr, ptr @bio_err, align 8
+  %call390 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %57, ptr noundef nonnull @.str.200) #12
   br label %end
 
 if.end391:                                        ; preds = %if.end385
-  %59 = load ptr, ptr %arrayidx370, align 8
-  %60 = load i8, ptr %59, align 1
-  %cmp395 = icmp eq i8 %60, 0
+  %58 = load ptr, ptr %arrayidx370, align 8
+  %59 = load i8, ptr %58, align 1
+  %cmp395 = icmp eq i8 %59, 0
   br i1 %cmp395, label %if.then397, label %if.end408
 
 if.then397:                                       ; preds = %if.end391
-  call void @CRYPTO_free(ptr noundef nonnull %59, ptr noundef nonnull @.str.198, i32 noundef 1802) #12
-  %61 = load ptr, ptr %57, align 8
-  %call400 = call noalias ptr @CRYPTO_strdup(ptr noundef %61, ptr noundef nonnull @.str.198, i32 noundef 1803) #12
+  call void @CRYPTO_free(ptr noundef nonnull %58, ptr noundef nonnull @.str.198, i32 noundef 1802) #12
+  %60 = load ptr, ptr %56, align 8
+  %call400 = call noalias ptr @CRYPTO_strdup(ptr noundef %60, ptr noundef nonnull @.str.198, i32 noundef 1803) #12
   store ptr %call400, ptr %arrayidx370, align 8
   %cmp403 = icmp eq ptr %call400, null
   br i1 %cmp403, label %if.then405, label %if.end408
 
 if.then405:                                       ; preds = %if.then397
-  %62 = load ptr, ptr @bio_err, align 8
-  %call406 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %62, ptr noundef nonnull @.str.200) #12
+  %61 = load ptr, ptr @bio_err, align 8
+  %call406 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.200) #12
   br label %end
 
 if.end408:                                        ; preds = %if.then397, %if.end391
-  %63 = load i32, ptr %db, align 8
-  %tobool409.not = icmp eq i32 %63, 0
+  %62 = load i32, ptr %db, align 8
+  %tobool409.not = icmp eq i32 %62, 0
   br i1 %tobool409.not, label %if.then422, label %if.then410
 
 if.then410:                                       ; preds = %if.end408
   %db411 = getelementptr inbounds i8, ptr %db, i64 8
-  %64 = load ptr, ptr %db411, align 8
-  %call412 = call ptr @TXT_DB_get_by_index(ptr noundef %64, i32 noundef 5, ptr noundef nonnull %row) #12
+  %63 = load ptr, ptr %db411, align 8
+  %call412 = call ptr @TXT_DB_get_by_index(ptr noundef %63, i32 noundef 5, ptr noundef nonnull %row) #12
   %cmp413.not = icmp eq ptr %call412, null
   br i1 %cmp413.not, label %if.then422, label %if.end419
 
 if.end419:                                        ; preds = %if.then410
-  %65 = load ptr, ptr @bio_err, align 8
-  %66 = load ptr, ptr %arrayidx370, align 8
-  %call417 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %65, ptr noundef nonnull @.str.266, ptr noundef %66) #12
+  %64 = load ptr, ptr @bio_err, align 8
+  %65 = load ptr, ptr %arrayidx370, align 8
+  %call417 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %64, ptr noundef nonnull @.str.266, ptr noundef %65) #12
   br label %if.then436
 
 if.then422:                                       ; preds = %if.then410, %if.end408
   %db423 = getelementptr inbounds i8, ptr %db, i64 8
-  %67 = load ptr, ptr %db423, align 8
-  %call425 = call ptr @TXT_DB_get_by_index(ptr noundef %67, i32 noundef 3, ptr noundef nonnull %row) #12
+  %66 = load ptr, ptr %db423, align 8
+  %call425 = call ptr @TXT_DB_get_by_index(ptr noundef %66, i32 noundef 3, ptr noundef nonnull %row) #12
   %cmp426.not = icmp eq ptr %call425, null
   br i1 %cmp426.not, label %if.end500, label %if.then428
 
 if.then428:                                       ; preds = %if.then422
-  %68 = load ptr, ptr @bio_err, align 8
-  %69 = load ptr, ptr %57, align 8
-  %call430 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %68, ptr noundef nonnull @.str.267, ptr noundef %69) #12
-  %70 = load ptr, ptr @bio_err, align 8
-  %call431 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %70, ptr noundef nonnull @.str.268) #12
+  %67 = load ptr, ptr @bio_err, align 8
+  %68 = load ptr, ptr %56, align 8
+  %call430 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %67, ptr noundef nonnull @.str.267, ptr noundef %68) #12
+  %69 = load ptr, ptr @bio_err, align 8
+  %call431 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %69, ptr noundef nonnull @.str.268) #12
   br label %if.then436
 
 if.then436:                                       ; preds = %if.then428, %if.end419
   %rrow.1.ph = phi ptr [ %call412, %if.end419 ], [ %call425, %if.then428 ]
-  %71 = load ptr, ptr @bio_err, align 8
-  %call437 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %71, ptr noundef nonnull @.str.269) #12
-  %72 = load ptr, ptr %rrow.1.ph, align 8
-  %73 = load i8, ptr %72, align 1
-  switch i8 %73, label %if.else458 [
+  %70 = load ptr, ptr @bio_err, align 8
+  %call437 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %70, ptr noundef nonnull @.str.269) #12
+  %71 = load ptr, ptr %rrow.1.ph, align 8
+  %72 = load i8, ptr %71, align 1
+  switch i8 %72, label %if.else458 [
     i8 69, label %if.end461
     i8 82, label %if.then450
     i8 86, label %if.then457
@@ -4636,105 +4625,105 @@ if.else458:                                       ; preds = %if.then436
 
 if.end461:                                        ; preds = %if.then436, %if.then450, %if.else458, %if.then457
   %p.0 = phi ptr [ @.str.271, %if.then450 ], [ @.str.272, %if.then457 ], [ @.str.273, %if.else458 ], [ @.str.270, %if.then436 ]
-  %74 = load ptr, ptr @bio_err, align 8
-  %call462 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %74, ptr noundef nonnull @.str.274, ptr noundef nonnull %p.0) #12
-  %75 = load ptr, ptr %rrow.1.ph, align 8
-  %76 = load i8, ptr %75, align 1
-  %cmp466 = icmp eq i8 %76, 82
+  %73 = load ptr, ptr @bio_err, align 8
+  %call462 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %73, ptr noundef nonnull @.str.274, ptr noundef nonnull %p.0) #12
+  %74 = load ptr, ptr %rrow.1.ph, align 8
+  %75 = load i8, ptr %74, align 1
+  %cmp466 = icmp eq i8 %75, 82
   br i1 %cmp466, label %if.then468, label %if.end475
 
 if.then468:                                       ; preds = %if.end461
   %arrayidx469 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 8
-  %77 = load ptr, ptr %arrayidx469, align 8
-  %cmp470 = icmp eq ptr %77, null
-  %spec.store.select = select i1 %cmp470, ptr @.str.275, ptr %77
-  %78 = load ptr, ptr @bio_err, align 8
-  %call474 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %78, ptr noundef nonnull @.str.276, ptr noundef nonnull %spec.store.select) #12
+  %76 = load ptr, ptr %arrayidx469, align 8
+  %cmp470 = icmp eq ptr %76, null
+  %spec.store.select = select i1 %cmp470, ptr @.str.275, ptr %76
+  %77 = load ptr, ptr @bio_err, align 8
+  %call474 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.276, ptr noundef nonnull %spec.store.select) #12
   br label %if.end475
 
 if.end475:                                        ; preds = %if.then468, %if.end461
   %arrayidx476 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 8
-  %79 = load ptr, ptr %arrayidx476, align 8
-  %cmp477 = icmp eq ptr %79, null
-  %spec.store.select3 = select i1 %cmp477, ptr @.str.275, ptr %79
-  %80 = load ptr, ptr @bio_err, align 8
-  %call481 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %80, ptr noundef nonnull @.str.277, ptr noundef nonnull %spec.store.select3) #12
+  %78 = load ptr, ptr %arrayidx476, align 8
+  %cmp477 = icmp eq ptr %78, null
+  %spec.store.select3 = select i1 %cmp477, ptr @.str.275, ptr %78
+  %79 = load ptr, ptr @bio_err, align 8
+  %call481 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %79, ptr noundef nonnull @.str.277, ptr noundef nonnull %spec.store.select3) #12
   %arrayidx482 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 24
-  %81 = load ptr, ptr %arrayidx482, align 8
-  %cmp483 = icmp eq ptr %81, null
-  %spec.store.select8 = select i1 %cmp483, ptr @.str.275, ptr %81
-  %82 = load ptr, ptr @bio_err, align 8
-  %call487 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %82, ptr noundef nonnull @.str.278, ptr noundef nonnull %spec.store.select8) #12
+  %80 = load ptr, ptr %arrayidx482, align 8
+  %cmp483 = icmp eq ptr %80, null
+  %spec.store.select8 = select i1 %cmp483, ptr @.str.275, ptr %80
+  %81 = load ptr, ptr @bio_err, align 8
+  %call487 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %81, ptr noundef nonnull @.str.278, ptr noundef nonnull %spec.store.select8) #12
   %arrayidx488 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 32
-  %83 = load ptr, ptr %arrayidx488, align 8
-  %cmp489 = icmp eq ptr %83, null
-  %spec.store.select4 = select i1 %cmp489, ptr @.str.275, ptr %83
-  %84 = load ptr, ptr @bio_err, align 8
-  %call493 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %84, ptr noundef nonnull @.str.279, ptr noundef nonnull %spec.store.select4) #12
+  %82 = load ptr, ptr %arrayidx488, align 8
+  %cmp489 = icmp eq ptr %82, null
+  %spec.store.select4 = select i1 %cmp489, ptr @.str.275, ptr %82
+  %83 = load ptr, ptr @bio_err, align 8
+  %call493 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %83, ptr noundef nonnull @.str.279, ptr noundef nonnull %spec.store.select4) #12
   %arrayidx494 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 40
-  %85 = load ptr, ptr %arrayidx494, align 8
-  %cmp495 = icmp eq ptr %85, null
-  %spec.store.select9 = select i1 %cmp495, ptr @.str.275, ptr %85
-  %86 = load ptr, ptr @bio_err, align 8
-  %call499 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %86, ptr noundef nonnull @.str.280, ptr noundef nonnull %spec.store.select9) #12
+  %84 = load ptr, ptr %arrayidx494, align 8
+  %cmp495 = icmp eq ptr %84, null
+  %spec.store.select9 = select i1 %cmp495, ptr @.str.275, ptr %84
+  %85 = load ptr, ptr @bio_err, align 8
+  %call499 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %85, ptr noundef nonnull @.str.280, ptr noundef nonnull %spec.store.select9) #12
   br label %end
 
 if.end500:                                        ; preds = %if.then422
   br i1 %tobool5.not, label %if.then502, label %if.end505
 
 if.then502:                                       ; preds = %if.end500
-  %87 = load ptr, ptr @bio_err, align 8
-  %call503 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %87, ptr noundef nonnull @.str.281) #12
+  %86 = load ptr, ptr @bio_err, align 8
+  %call503 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %86, ptr noundef nonnull @.str.281) #12
   %or = or i64 %certopt, 520
-  %88 = load ptr, ptr @bio_err, align 8
-  %call504 = call i32 @X509_print_ex(ptr noundef %88, ptr noundef %call244, i64 noundef %nameopt, i64 noundef %or) #12
+  %87 = load ptr, ptr @bio_err, align 8
+  %call504 = call i32 @X509_print_ex(ptr noundef %87, ptr noundef %call244, i64 noundef %nameopt, i64 noundef %or) #12
   br label %if.end505
 
 if.end505:                                        ; preds = %if.then502, %if.end500
+  %88 = load ptr, ptr @bio_err, align 8
+  %call506 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %88, ptr noundef nonnull @.str.282) #12
   %89 = load ptr, ptr @bio_err, align 8
-  %call506 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %89, ptr noundef nonnull @.str.282) #12
-  %90 = load ptr, ptr @bio_err, align 8
   %call507 = call ptr @X509_get0_notAfter(ptr noundef %call244) #12
-  %call508 = call i32 @ASN1_TIME_print_ex(ptr noundef %90, ptr noundef %call507, i64 noundef %dateopt) #12
+  %call508 = call i32 @ASN1_TIME_print_ex(ptr noundef %89, ptr noundef %call507, i64 noundef %dateopt) #12
   %tobool509.not = icmp eq i64 %days.addr.0, 0
   br i1 %tobool509.not, label %if.end512, label %if.then510
 
 if.then510:                                       ; preds = %if.end505
-  %91 = load ptr, ptr @bio_err, align 8
-  %call511 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %91, ptr noundef nonnull @.str.283, i64 noundef %days.addr.0) #12
+  %90 = load ptr, ptr @bio_err, align 8
+  %call511 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %90, ptr noundef nonnull @.str.283, i64 noundef %days.addr.0) #12
   br label %if.end512
 
 if.end512:                                        ; preds = %if.then510, %if.end505
-  %92 = load ptr, ptr @bio_err, align 8
-  %call513 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %92, ptr noundef nonnull @.str.201) #12
+  %91 = load ptr, ptr @bio_err, align 8
+  %call513 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %91, ptr noundef nonnull @.str.201) #12
   %tobool514.not = icmp eq i32 %batch, 0
   br i1 %tobool514.not, label %if.then515, label %if.end539
 
 if.then515:                                       ; preds = %if.end512
+  %92 = load ptr, ptr @bio_err, align 8
+  %call516 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %92, ptr noundef nonnull @.str.284) #12
   %93 = load ptr, ptr @bio_err, align 8
-  %call516 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %93, ptr noundef nonnull @.str.284) #12
-  %94 = load ptr, ptr @bio_err, align 8
-  %call517 = call i64 @BIO_ctrl(ptr noundef %94, i32 noundef 11, i64 noundef 0, ptr noundef null) #12
+  %call517 = call i64 @BIO_ctrl(ptr noundef %93, i32 noundef 11, i64 noundef 0, ptr noundef null) #12
   store i8 0, ptr %buf, align 16
-  %95 = load ptr, ptr @stdin, align 8
-  %call521 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 25, ptr noundef %95)
+  %94 = load ptr, ptr @stdin, align 8
+  %call521 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 25, ptr noundef %94)
   %cmp522 = icmp eq ptr %call521, null
   br i1 %cmp522, label %if.then524, label %if.end526
 
 if.then524:                                       ; preds = %if.then515
-  %96 = load ptr, ptr @bio_err, align 8
-  %call525 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %96, ptr noundef nonnull @.str.285) #12
+  %95 = load ptr, ptr @bio_err, align 8
+  %call525 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %95, ptr noundef nonnull @.str.285) #12
   br label %end
 
 if.end526:                                        ; preds = %if.then515
-  %97 = load i8, ptr %buf, align 16
-  %98 = and i8 %97, -33
-  %or.cond5 = icmp eq i8 %98, 89
+  %96 = load i8, ptr %buf, align 16
+  %97 = and i8 %96, -33
+  %or.cond5 = icmp eq i8 %97, 89
   br i1 %or.cond5, label %if.end539, label %if.then536
 
 if.then536:                                       ; preds = %if.end526
-  %99 = load ptr, ptr @bio_err, align 8
-  %call537 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %99, ptr noundef nonnull @.str.286) #12
+  %98 = load ptr, ptr @bio_err, align 8
+  %call537 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %98, ptr noundef nonnull @.str.286) #12
   br label %end
 
 if.end539:                                        ; preds = %if.end526, %if.end512
@@ -4761,39 +4750,39 @@ if.end552:                                        ; preds = %if.end548
   %call553 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.198, i32 noundef 1910) #12
   store ptr %call553, ptr %row, align 16
   %call555 = call ptr @X509_get0_notAfter(ptr noundef %call244) #12
-  %100 = load i32, ptr %call555, align 8
-  %add = add nsw i32 %100, 1
+  %99 = load i32, ptr %call555, align 8
+  %add = add nsw i32 %99, 1
   %conv557 = sext i32 %add to i64
   %call558 = call ptr @app_malloc(i64 noundef %conv557, ptr noundef nonnull @.str.288) #12
   %arrayidx559 = getelementptr inbounds i8, ptr %row, i64 8
   store ptr %call558, ptr %arrayidx559, align 8
   %data561 = getelementptr inbounds i8, ptr %call555, i64 8
-  %101 = load ptr, ptr %data561, align 8
-  %102 = load i32, ptr %call555, align 8
-  %conv563 = sext i32 %102 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call558, ptr align 1 %101, i64 %conv563, i1 false)
-  %103 = load ptr, ptr %arrayidx559, align 8
-  %104 = load i32, ptr %call555, align 8
-  %idxprom566 = sext i32 %104 to i64
-  %arrayidx567 = getelementptr inbounds i8, ptr %103, i64 %idxprom566
+  %100 = load ptr, ptr %data561, align 8
+  %101 = load i32, ptr %call555, align 8
+  %conv563 = sext i32 %101 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call558, ptr align 1 %100, i64 %conv563, i1 false)
+  %102 = load ptr, ptr %arrayidx559, align 8
+  %103 = load i32, ptr %call555, align 8
+  %idxprom566 = sext i32 %103 to i64
+  %arrayidx567 = getelementptr inbounds i8, ptr %102, i64 %idxprom566
   store i8 0, ptr %arrayidx567, align 1
   %arrayidx568 = getelementptr inbounds i8, ptr %row, i64 16
   store ptr null, ptr %arrayidx568, align 16
   %call569 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.289, ptr noundef nonnull @.str.198, i32 noundef 1916) #12
   %arrayidx570 = getelementptr inbounds i8, ptr %row, i64 32
   store ptr %call569, ptr %arrayidx570, align 16
-  %105 = load ptr, ptr %row, align 16
-  %cmp572 = icmp eq ptr %105, null
+  %104 = load ptr, ptr %row, align 16
+  %cmp572 = icmp eq ptr %104, null
   %cmp576 = icmp eq ptr %call569, null
   %or.cond6 = select i1 %cmp572, i1 true, i1 %cmp576
-  %106 = load ptr, ptr %arrayidx370, align 8
-  %cmp580 = icmp eq ptr %106, null
+  %105 = load ptr, ptr %arrayidx370, align 8
+  %cmp580 = icmp eq ptr %105, null
   %or.cond7 = select i1 %or.cond6, i1 true, i1 %cmp580
   br i1 %or.cond7, label %if.then582, label %if.end584
 
 if.then582:                                       ; preds = %if.end552
-  %107 = load ptr, ptr @bio_err, align 8
-  %call583 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %107, ptr noundef nonnull @.str.200) #12
+  %106 = load ptr, ptr @bio_err, align 8
+  %call583 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %106, ptr noundef nonnull @.str.200) #12
   br label %end
 
 if.end584:                                        ; preds = %if.end552
@@ -4803,9 +4792,9 @@ if.end584:                                        ; preds = %if.end552
 for.body589:                                      ; preds = %if.end584, %for.body589
   %indvars.iv = phi i64 [ 0, %if.end584 ], [ %indvars.iv.next, %for.body589 ]
   %arrayidx591 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 %indvars.iv
-  %108 = load ptr, ptr %arrayidx591, align 8
+  %107 = load ptr, ptr %arrayidx591, align 8
   %arrayidx593 = getelementptr inbounds ptr, ptr %call585, i64 %indvars.iv
-  store ptr %108, ptr %arrayidx593, align 8
+  store ptr %107, ptr %arrayidx593, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %for.end596, label %for.body589, !llvm.loop !24
@@ -4813,19 +4802,19 @@ for.body589:                                      ; preds = %if.end584, %for.bod
 for.end596:                                       ; preds = %for.body589
   %arrayidx597 = getelementptr inbounds i8, ptr %call585, i64 48
   store ptr null, ptr %arrayidx597, align 8
-  %109 = load ptr, ptr %db423, align 8
-  %call599 = call i32 @TXT_DB_insert(ptr noundef %109, ptr noundef nonnull %call585) #12
+  %108 = load ptr, ptr %db423, align 8
+  %call599 = call i32 @TXT_DB_insert(ptr noundef %108, ptr noundef nonnull %call585) #12
   %tobool600.not = icmp eq i32 %call599, 0
   br i1 %tobool600.not, label %if.then601, label %if.end618
 
 if.then601:                                       ; preds = %for.end596
+  %109 = load ptr, ptr @bio_err, align 8
+  %call602 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %109, ptr noundef nonnull @.str.291) #12
   %110 = load ptr, ptr @bio_err, align 8
-  %call602 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %110, ptr noundef nonnull @.str.291) #12
-  %111 = load ptr, ptr @bio_err, align 8
-  %112 = load ptr, ptr %db423, align 8
-  %error = getelementptr inbounds i8, ptr %112, i64 32
-  %113 = load i64, ptr %error, align 8
-  %call604 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %111, ptr noundef nonnull @.str.292, i64 noundef %113) #12
+  %111 = load ptr, ptr %db423, align 8
+  %error = getelementptr inbounds i8, ptr %111, i64 32
+  %112 = load i64, ptr %error, align 8
+  %call604 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %110, ptr noundef nonnull @.str.292, i64 noundef %112) #12
   br label %end
 
 end:                                              ; preds = %while.end, %if.end548, %if.then298, %if.end286, %if.end282, %if.then275, %if.end267, %if.else261, %if.then256, %if.end248, %if.end241, %if.then231, %if.end102, %if.then, %if.then601, %if.then582, %if.then536, %if.then524, %if.end475, %if.then405, %if.then389, %if.then374, %if.then356, %if.then344, %if.then332, %if.then320, %if.then218, %if.else207, %cond.end203, %if.then175, %if.then165, %if.then152, %if.then119, %if.then94, %if.then80, %if.then56
@@ -4839,8 +4828,8 @@ end:                                              ; preds = %while.end, %if.end5
 for.body612:                                      ; preds = %end, %for.body612
   %indvars.iv292 = phi i64 [ 0, %end ], [ %indvars.iv.next293, %for.body612 ]
   %arrayidx614 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 %indvars.iv292
-  %114 = load ptr, ptr %arrayidx614, align 8
-  call void @CRYPTO_free(ptr noundef %114, ptr noundef nonnull @.str.198, i32 noundef 1938) #12
+  %113 = load ptr, ptr %arrayidx614, align 8
+  call void @CRYPTO_free(ptr noundef %113, ptr noundef nonnull @.str.198, i32 noundef 1938) #12
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next293, 6
   br i1 %exitcond295.not, label %if.end618, label %for.body612, !llvm.loop !25

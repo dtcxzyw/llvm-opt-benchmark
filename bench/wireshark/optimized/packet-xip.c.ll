@@ -470,8 +470,8 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
 xia_are_edges_valid.exit.i.i:                     ; preds = %52, %65, %.split.us.i.i.i
   %.5.i.i = phi i32 [ %.3.i.i, %.split.us.i.i.i ], [ %68, %65 ], [ %55, %52 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond83.not.i.i = icmp eq i64 %indvars.iv.next.i, %35
-  br i1 %exitcond83.not.i.i, label %._crit_edge.i.i, label %42, !llvm.loop !9
+  %exitcond84.not.i.i = icmp eq i64 %indvars.iv.next.i, %35
+  br i1 %exitcond84.not.i.i, label %._crit_edge.i.i, label %42, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %xia_are_edges_valid.exit.i.i
   %71 = add nsw i32 %.125.i.i, -1

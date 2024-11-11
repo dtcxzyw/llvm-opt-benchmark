@@ -694,7 +694,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
 366:                                              ; preds = %364
   %indvars.iv.next386.i.i = add nsw i64 %indvars.iv385.i.i, 1
   %.not.i.i = icmp slt i64 %indvars.iv385.i.i, %348
-  br i1 %.not.i.i, label %351, label %.outer250._crit_edge.loopexit.split.loop.exit467.i.i
+  br i1 %.not.i.i, label %351, label %.outer250._crit_edge.loopexit.split.loop.exit469.i.i
 
 .outer250._crit_edge.loopexit335.i.i:             ; preds = %.outer250.i.i
   %367 = trunc nsw i64 %indvars.iv.next389.i.i to i32
@@ -705,15 +705,15 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   %369 = trunc nsw i64 %indvars.iv385.i.i to i32
   br label %.outer250._crit_edge.i.i
 
-.outer250._crit_edge.loopexit.split.loop.exit467.i.i: ; preds = %366
+.outer250._crit_edge.loopexit.split.loop.exit469.i.i: ; preds = %366
   %smax.le.i.i = tail call i32 @llvm.smax.i32(i32 %.1.ph293.i.i, i32 %.0227.i.i)
   %370 = add i32 %smax.le.i.i, 1
   %371 = trunc nsw i64 %indvars.iv388.i.i to i32
   br label %.outer250._crit_edge.i.i
 
-.outer250._crit_edge.i.i:                         ; preds = %.outer250._crit_edge.loopexit.split.loop.exit467.i.i, %.outer250._crit_edge.loopexit.split.loop.exit.i.i, %.outer250._crit_edge.loopexit335.i.i, %346
-  %.1230.ph.lcssa.i.i = phi i32 [ %.0229.i.i, %346 ], [ %367, %.outer250._crit_edge.loopexit335.i.i ], [ %368, %.outer250._crit_edge.loopexit.split.loop.exit.i.i ], [ %371, %.outer250._crit_edge.loopexit.split.loop.exit467.i.i ]
-  %.1.lcssa.i.i = phi i32 [ %.0.i.i, %346 ], [ %363, %.outer250._crit_edge.loopexit335.i.i ], [ %369, %.outer250._crit_edge.loopexit.split.loop.exit.i.i ], [ %370, %.outer250._crit_edge.loopexit.split.loop.exit467.i.i ]
+.outer250._crit_edge.i.i:                         ; preds = %.outer250._crit_edge.loopexit.split.loop.exit469.i.i, %.outer250._crit_edge.loopexit.split.loop.exit.i.i, %.outer250._crit_edge.loopexit335.i.i, %346
+  %.1230.ph.lcssa.i.i = phi i32 [ %.0229.i.i, %346 ], [ %367, %.outer250._crit_edge.loopexit335.i.i ], [ %368, %.outer250._crit_edge.loopexit.split.loop.exit.i.i ], [ %371, %.outer250._crit_edge.loopexit.split.loop.exit469.i.i ]
+  %.1.lcssa.i.i = phi i32 [ %.0.i.i, %346 ], [ %363, %.outer250._crit_edge.loopexit335.i.i ], [ %369, %.outer250._crit_edge.loopexit.split.loop.exit.i.i ], [ %370, %.outer250._crit_edge.loopexit.split.loop.exit469.i.i ]
   %372 = icmp sgt i32 %.1.lcssa.i.i, %.0227.i.i
   br i1 %372, label %.critedge.i.i, label %.lr.ph299.preheader.i.i
 
@@ -841,17 +841,17 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   br label %.lr.ph328.i.i
 
 .lr.ph328.i.i:                                    ; preds = %.lr.ph328.i.i, %.lr.ph328.preheader.i.i
-  %indvars.iv406.i.i = phi i64 [ %424, %.lr.ph328.preheader.i.i ], [ %indvars.iv.next407.i.i, %.lr.ph328.i.i ]
-  %indvars.iv404.i.i = phi i64 [ %423, %.lr.ph328.preheader.i.i ], [ %indvars.iv.next405.i.i, %.lr.ph328.i.i ]
+  %indvars.iv408.i.i = phi i64 [ %424, %.lr.ph328.preheader.i.i ], [ %indvars.iv.next409.i.i, %.lr.ph328.i.i ]
+  %indvars.iv406.i.i = phi i64 [ %423, %.lr.ph328.preheader.i.i ], [ %indvars.iv.next407.i.i, %.lr.ph328.i.i ]
   %.0233326.i.i = phi i32 [ %.249.i.i, %.lr.ph328.preheader.i.i ], [ %429, %.lr.ph328.i.i ]
-  %indvars.iv.next405.i.i = add nsw i64 %indvars.iv404.i.i, 1
-  %425 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv406.i.i
+  %indvars.iv.next407.i.i = add nsw i64 %indvars.iv406.i.i, 1
+  %425 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv408.i.i
   %426 = load i32, ptr %425, align 4
-  %427 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next405.i.i
+  %427 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next407.i.i
   %428 = load i32, ptr %427, align 4
   store i32 %428, ptr %425, align 4
   store i32 %426, ptr %427, align 4
-  %indvars.iv.next407.i.i = add nsw i64 %indvars.iv406.i.i, 1
+  %indvars.iv.next409.i.i = add nsw i64 %indvars.iv408.i.i, 1
   %429 = add nsw i32 %.0233326.i.i, -1
   %430 = icmp samesign ugt i32 %.0233326.i.i, 1
   br i1 %430, label %.lr.ph328.i.i, label %._crit_edge329.i.i, !llvm.loop !23
@@ -885,7 +885,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   br label %445
 
 445:                                              ; preds = %444, %441
-  %.pre-phi411.i.i = phi i32 [ %442, %444 ], [ %.pre-phi.i.i, %441 ]
+  %.pre-phi413.i.i = phi i32 [ %442, %444 ], [ %.pre-phi.i.i, %441 ]
   %.sroa.857.1.i.i = phi i32 [ %432, %444 ], [ %.sroa.857.0.i.i, %441 ]
   %.sroa.19.0.i.i = phi i32 [ %.sroa.8.0.i.i, %444 ], [ %434, %441 ]
   %.sroa.8.1.i.i = phi i32 [ %434, %444 ], [ %.sroa.8.0.i.i, %441 ]
@@ -893,7 +893,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   %.sroa.6.1.i.i = phi i32 [ %436, %444 ], [ %247, %441 ]
   %.sroa.1964.0.i.i = phi i32 [ %.sroa.857.0.i.i, %444 ], [ %432, %441 ]
   %446 = sub nsw i32 %.sroa.039.0.i.i, %.sroa.052.0.i.i
-  %447 = icmp slt i32 %446, %.pre-phi411.i.i
+  %447 = icmp slt i32 %446, %.pre-phi413.i.i
   br i1 %447, label %448, label %449
 
 448:                                              ; preds = %445
@@ -917,8 +917,8 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   store i32 %.sroa.8.2.i.i, ptr %452, align 4
   %453 = getelementptr inbounds [100 x i32], ptr %4, i64 0, i64 %450
   store i32 %.sroa.6.2.i.i, ptr %453, align 4
-  %sext412.i.i = add i64 %sext.i.i, 4294967296
-  %454 = ashr exact i64 %sext412.i.i, 32
+  %sext414.i.i = add i64 %sext.i.i, 4294967296
+  %454 = ashr exact i64 %sext414.i.i, 32
   %455 = getelementptr inbounds [100 x i32], ptr %2, i64 0, i64 %454
   store i32 %.sroa.1964.0.i.i, ptr %455, align 4
   %456 = getelementptr inbounds [100 x i32], ptr %3, i64 0, i64 %454
@@ -1807,7 +1807,7 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
 241:                                              ; preds = %239
   %indvars.iv.next310.i = add nsw i64 %indvars.iv309.i, 1
   %.not.i = icmp slt i64 %indvars.iv309.i, %224
-  br i1 %.not.i, label %227, label %.outer190._crit_edge.loopexit.split.loop.exit378.i
+  br i1 %.not.i, label %227, label %.outer190._crit_edge.loopexit.split.loop.exit384.i
 
 .outer190._crit_edge.loopexit265.i:               ; preds = %.outer190.i
   %242 = trunc nsw i64 %indvars.iv.next313.i to i32
@@ -1818,15 +1818,15 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   %244 = trunc nsw i64 %indvars.iv309.i to i32
   br label %.outer190._crit_edge.i
 
-.outer190._crit_edge.loopexit.split.loop.exit378.i: ; preds = %241
+.outer190._crit_edge.loopexit.split.loop.exit384.i: ; preds = %241
   %smax.le.i = tail call i32 @llvm.smax.i32(i32 %.1.ph222.i, i32 %.0169.i)
   %245 = add i32 %smax.le.i, 1
   %246 = trunc nsw i64 %indvars.iv312.i to i32
   br label %.outer190._crit_edge.i
 
-.outer190._crit_edge.i:                           ; preds = %.outer190._crit_edge.loopexit.split.loop.exit378.i, %.outer190._crit_edge.loopexit.split.loop.exit.i, %.outer190._crit_edge.loopexit265.i, %222
-  %.1175.ph.lcssa.i = phi i32 [ %.0174.i, %222 ], [ %242, %.outer190._crit_edge.loopexit265.i ], [ %243, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %246, %.outer190._crit_edge.loopexit.split.loop.exit378.i ]
-  %.1.lcssa.i = phi i32 [ %.0.i, %222 ], [ %238, %.outer190._crit_edge.loopexit265.i ], [ %244, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %245, %.outer190._crit_edge.loopexit.split.loop.exit378.i ]
+.outer190._crit_edge.i:                           ; preds = %.outer190._crit_edge.loopexit.split.loop.exit384.i, %.outer190._crit_edge.loopexit.split.loop.exit.i, %.outer190._crit_edge.loopexit265.i, %222
+  %.1175.ph.lcssa.i = phi i32 [ %.0174.i, %222 ], [ %242, %.outer190._crit_edge.loopexit265.i ], [ %243, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %246, %.outer190._crit_edge.loopexit.split.loop.exit384.i ]
+  %.1.lcssa.i = phi i32 [ %.0.i, %222 ], [ %238, %.outer190._crit_edge.loopexit265.i ], [ %244, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %245, %.outer190._crit_edge.loopexit.split.loop.exit384.i ]
   %247 = icmp sgt i32 %.1.lcssa.i, %.0169.i
   br i1 %247, label %.critedge.i, label %.lr.ph228.preheader.i
 
@@ -1920,17 +1920,17 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   br label %.lr.ph251.i
 
 .lr.ph251.i:                                      ; preds = %.lr.ph251.i, %.lr.ph251.preheader.i
-  %indvars.iv323.i = phi i64 [ %286, %.lr.ph251.preheader.i ], [ %indvars.iv.next324.i, %.lr.ph251.i ]
-  %indvars.iv321.i = phi i64 [ %285, %.lr.ph251.preheader.i ], [ %indvars.iv.next322.i, %.lr.ph251.i ]
+  %indvars.iv327.i = phi i64 [ %286, %.lr.ph251.preheader.i ], [ %indvars.iv.next328.i, %.lr.ph251.i ]
+  %indvars.iv323.i = phi i64 [ %285, %.lr.ph251.preheader.i ], [ %indvars.iv.next324.i, %.lr.ph251.i ]
   %.0171249.i = phi i32 [ %..i, %.lr.ph251.preheader.i ], [ %291, %.lr.ph251.i ]
-  %287 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv323.i
+  %287 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv327.i
   %288 = load i32, ptr %287, align 4
-  %289 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv321.i
+  %289 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv323.i
   %290 = load i32, ptr %289, align 4
   store i32 %290, ptr %287, align 4
   store i32 %288, ptr %289, align 4
+  %indvars.iv.next328.i = add nsw i64 %indvars.iv327.i, 1
   %indvars.iv.next324.i = add nsw i64 %indvars.iv323.i, 1
-  %indvars.iv.next322.i = add nsw i64 %indvars.iv321.i, 1
   %291 = add nsw i32 %.0171249.i, -1
   %292 = icmp samesign ugt i32 %.0171249.i, 1
   br i1 %292, label %.lr.ph251.i, label %._crit_edge252.i, !llvm.loop !49
@@ -1949,17 +1949,17 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   br label %.lr.ph257.i
 
 .lr.ph257.i:                                      ; preds = %.lr.ph257.i, %.lr.ph257.preheader.i
-  %indvars.iv330.i = phi i64 [ %298, %.lr.ph257.preheader.i ], [ %indvars.iv.next331.i, %.lr.ph257.i ]
-  %indvars.iv328.i = phi i64 [ %297, %.lr.ph257.preheader.i ], [ %indvars.iv.next329.i, %.lr.ph257.i ]
+  %indvars.iv336.i = phi i64 [ %298, %.lr.ph257.preheader.i ], [ %indvars.iv.next337.i, %.lr.ph257.i ]
+  %indvars.iv334.i = phi i64 [ %297, %.lr.ph257.preheader.i ], [ %indvars.iv.next335.i, %.lr.ph257.i ]
   %.0166255.i = phi i32 [ %.189.i, %.lr.ph257.preheader.i ], [ %303, %.lr.ph257.i ]
-  %indvars.iv.next329.i = add nsw i64 %indvars.iv328.i, 1
-  %299 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv330.i
+  %indvars.iv.next335.i = add nsw i64 %indvars.iv334.i, 1
+  %299 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv336.i
   %300 = load i32, ptr %299, align 4
-  %301 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next329.i
+  %301 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next335.i
   %302 = load i32, ptr %301, align 4
   store i32 %302, ptr %299, align 4
   store i32 %300, ptr %301, align 4
-  %indvars.iv.next331.i = add nsw i64 %indvars.iv330.i, 1
+  %indvars.iv.next337.i = add nsw i64 %indvars.iv336.i, 1
   %303 = add nsw i32 %.0166255.i, -1
   %304 = icmp samesign ugt i32 %.0166255.i, 1
   br i1 %304, label %.lr.ph257.i, label %._crit_edge258.i, !llvm.loop !50
@@ -1987,10 +1987,10 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   br label %318
 
 318:                                              ; preds = %317, %316
-  %.lcssa342.sink.i = phi i32 [ %152, %317 ], [ %309, %316 ]
-  %.sink389.i = phi i32 [ %307, %317 ], [ %154, %316 ]
-  store i32 %.lcssa342.sink.i, ptr %314, align 4
-  store i32 %.sink389.i, ptr %315, align 4
+  %.lcssa348.sink.i = phi i32 [ %152, %317 ], [ %309, %316 ]
+  %.sink395.i = phi i32 [ %307, %317 ], [ %154, %316 ]
+  store i32 %.lcssa348.sink.i, ptr %314, align 4
+  store i32 %.sink395.i, ptr %315, align 4
   %.1181.i = add nuw nsw i32 %206, 1
   br label %.outer191.backedge.i
 

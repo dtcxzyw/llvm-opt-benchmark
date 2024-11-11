@@ -2196,8 +2196,8 @@ ddDissolveGroup.exit:                             ; preds = %.preheader172
   %108 = add nsw i32 %.06476.us.i, %87
   %109 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %108) #10
   %110 = add nuw i32 %.06476.us.i, 1
-  %exitcond91.i = icmp eq i32 %.06476.us.i, %107
-  br i1 %exitcond91.i, label %.preheader.i, label %.preheader70.us.i, !llvm.loop !44
+  %exitcond93.i = icmp eq i32 %.06476.us.i, %107
+  br i1 %exitcond93.i, label %.preheader.i, label %.preheader70.us.i, !llvm.loop !44
 
 .preheader70.i:                                   ; preds = %._crit_edge.i, %.preheader70.preheader.i
   %.05978.i = phi i32 [ %118, %._crit_edge.i ], [ %68, %.preheader70.preheader.i ]
@@ -2227,8 +2227,8 @@ ddDissolveGroup.exit:                             ; preds = %.preheader172
   %117 = add nsw i32 %.06476.i, %87
   %118 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %117) #10
   %119 = add nuw i32 %.06476.i, 1
-  %exitcond90.i = icmp eq i32 %.06476.i, %106
-  br i1 %exitcond90.i, label %.preheader.i, label %.preheader70.i, !llvm.loop !44
+  %exitcond91.i = icmp eq i32 %.06476.i, %106
+  br i1 %exitcond91.i, label %.preheader.i, label %.preheader70.i, !llvm.loop !44
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.26380.i = phi i32 [ %124, %.lr.ph.i ], [ %95, %.preheader.i ]
@@ -2240,8 +2240,8 @@ ddDissolveGroup.exit:                             ; preds = %.preheader172
   store i32 %120, ptr %123, align 4
   %124 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.26380.i) #10
   %125 = add nuw nsw i32 %.16579.i, 1
-  %exitcond92.not.i = icmp eq i32 %125, %103
-  br i1 %exitcond92.not.i, label %._crit_edge81.i, label %.lr.ph.i, !llvm.loop !46
+  %exitcond94.not.i = icmp eq i32 %125, %103
+  br i1 %exitcond94.not.i, label %._crit_edge81.i, label %.lr.ph.i, !llvm.loop !46
 
 ._crit_edge81.i:                                  ; preds = %.lr.ph.i, %.preheader.i, %101
   %.263.lcssa.i = phi i32 [ %95, %.preheader.i ], [ %95, %101 ], [ %124, %.lr.ph.i ]
@@ -2263,8 +2263,8 @@ ddDissolveGroup.exit:                             ; preds = %.preheader172
   store i32 %131, ptr %134, align 4
   %135 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.283.i) #10
   %136 = add nuw nsw i32 %.26682.i, 1
-  %exitcond93.not.i = icmp eq i32 %136, %102
-  br i1 %exitcond93.not.i, label %.sink.split, label %.lr.ph85.i, !llvm.loop !47
+  %exitcond95.not.i = icmp eq i32 %136, %102
+  br i1 %exitcond95.not.i, label %.sink.split, label %.lr.ph85.i, !llvm.loop !47
 
 .sink.split:                                      ; preds = %.lr.ph85.i, %._crit_edge81.i, %ddDissolveGroup.exit
   %.2.lcssa.i.sink = phi i32 [ %68, %ddDissolveGroup.exit ], [ %129, %._crit_edge81.i ], [ %135, %.lr.ph85.i ]
@@ -2634,8 +2634,8 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
   br label %.preheader104
 
 .preheader104.us.preheader:                       ; preds = %.preheader104.lr.ph
-  %reass.sub145 = sub i32 %.091, %2
-  %21 = add i32 %reass.sub145, 1
+  %reass.sub147 = sub i32 %.091, %2
+  %21 = add i32 %reass.sub147, 1
   br label %.preheader104.us
 
 .preheader104.us:                                 ; preds = %.preheader104.us.preheader, %.preheader104.us
@@ -2643,8 +2643,8 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
   %22 = add nsw i32 %.095116.us, %2
   %23 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %22) #10
   %24 = add nuw i32 %.095116.us, 1
-  %exitcond142 = icmp eq i32 %.095116.us, %21
-  br i1 %exitcond142, label %.preheader, label %.preheader104.us, !llvm.loop !56
+  %exitcond144 = icmp eq i32 %.095116.us, %21
+  br i1 %exitcond144, label %.preheader, label %.preheader104.us, !llvm.loop !56
 
 .preheader104:                                    ; preds = %.preheader104.preheader, %._crit_edge
   %.089118 = phi i32 [ %32, %._crit_edge ], [ %1, %.preheader104.preheader ]
@@ -2676,8 +2676,8 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
   %31 = add nsw i32 %.095116, %2
   %32 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %31) #10
   %33 = add nuw i32 %.095116, 1
-  %exitcond141 = icmp eq i32 %.095116, %20
-  br i1 %exitcond141, label %.preheader, label %.preheader104, !llvm.loop !56
+  %exitcond142 = icmp eq i32 %.095116, %20
+  br i1 %exitcond142, label %.preheader, label %.preheader104, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.294125 = phi i32 [ %38, %.lr.ph ], [ %9, %.preheader ]
@@ -2689,12 +2689,12 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %34, ptr %37, align 4
   %38 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.294125) #10
   %39 = add nuw nsw i32 %.196124, 1
-  %exitcond143.not = icmp eq i32 %39, %17
-  br i1 %exitcond143.not, label %._crit_edge126, label %.lr.ph, !llvm.loop !58
+  %exitcond145.not = icmp eq i32 %39, %17
+  br i1 %exitcond145.not, label %._crit_edge126, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge126:                                   ; preds = %.lr.ph, %15, %.preheader
-  %.0.lcssa149 = phi i32 [ %.0.lcssa, %.preheader ], [ -1, %15 ], [ %.0.lcssa, %.lr.ph ]
-  %.086.lcssa148 = phi i32 [ %.086.lcssa, %.preheader ], [ -1, %15 ], [ %.086.lcssa, %.lr.ph ]
+  %.0.lcssa151 = phi i32 [ %.0.lcssa, %.preheader ], [ -1, %15 ], [ %.0.lcssa, %.lr.ph ]
+  %.086.lcssa150 = phi i32 [ %.086.lcssa, %.preheader ], [ -1, %15 ], [ %.086.lcssa, %.lr.ph ]
   %.294.lcssa = phi i32 [ %9, %.preheader ], [ %9, %15 ], [ %38, %.lr.ph ]
   %40 = load ptr, ptr %5, align 8
   %41 = sext i32 %.294.lcssa to i64
@@ -2714,8 +2714,8 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %45, ptr %48, align 4
   %49 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.2129) #10
   %50 = add nuw nsw i32 %.297128, 1
-  %exitcond144.not = icmp eq i32 %50, %16
-  br i1 %exitcond144.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !59
+  %exitcond146.not = icmp eq i32 %50, %16
+  br i1 %exitcond146.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !59
 
 ._crit_edge132:                                   ; preds = %.lr.ph131, %._crit_edge126
   %.2.lcssa = phi i32 [ %43, %._crit_edge126 ], [ %49, %.lr.ph131 ]
@@ -2728,9 +2728,9 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %55, label %.loopexit105, label %56
 
 56:                                               ; preds = %._crit_edge132
-  store i32 %.086.lcssa148, ptr %54, align 8
+  store i32 %.086.lcssa150, ptr %54, align 8
   %57 = getelementptr inbounds i8, ptr %54, i64 4
-  store i32 %.0.lcssa149, ptr %57, align 4
+  store i32 %.0.lcssa151, ptr %57, align 4
   %58 = getelementptr inbounds i8, ptr %54, i64 8
   store i32 0, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 228

@@ -466,8 +466,8 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 173:                                              ; preds = %167, %160, %153, %149, %139, %129, %110
   %.2.i = phi i32 [ %121, %110 ], [ %131, %129 ], [ %138, %139 ], [ %138, %149 ], [ %154, %153 ], [ %161, %160 ], [ %.1236.i, %167 ]
   %indvars.iv.next259.i = add nuw nsw i64 %indvars.iv258.i, 1
-  %exitcond261.not.i = icmp eq i64 %indvars.iv.next259.i, %wide.trip.count.i
-  br i1 %exitcond261.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  %exitcond262.not.i = icmp eq i64 %indvars.iv.next259.i, %wide.trip.count.i
+  br i1 %exitcond262.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %173, %99
   %.1.lcssa.i = phi i32 [ 8, %99 ], [ %.2.i, %173 ]
@@ -492,19 +492,19 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.lr.ph239.i
 
 .lr.ph239.i:                                      ; preds = %183, %.lr.ph239.preheader.i
-  %indvars.iv262.i = phi i64 [ %179, %.lr.ph239.preheader.i ], [ %indvars.iv.next263.i, %183 ]
-  %181 = getelementptr [48 x i16], ptr %6, i64 0, i64 %indvars.iv262.i
+  %indvars.iv263.i = phi i64 [ %179, %.lr.ph239.preheader.i ], [ %indvars.iv.next264.i, %183 ]
+  %181 = getelementptr [48 x i16], ptr %6, i64 0, i64 %indvars.iv263.i
   %182 = load i16, ptr %181, align 2
   %.not216.i = icmp eq i16 %182, -1
   br i1 %.not216.i, label %184, label %183
 
 183:                                              ; preds = %.lr.ph239.i
-  %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next263.i, %180
+  %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next264.i, %180
   br i1 %exitcond.not, label %.critedge.i, label %.lr.ph239.i, !llvm.loop !8
 
 184:                                              ; preds = %.lr.ph239.i
-  %185 = trunc nuw i64 %indvars.iv262.i to i8
+  %185 = trunc nuw i64 %indvars.iv263.i to i8
   %186 = call zeroext i8 @tvb_get_guint8(ptr noundef %56, i32 noundef %.3245.i) #6
   %187 = zext i8 %186 to i32
   %.not218.i = icmp sgt i8 %186, -1
@@ -522,7 +522,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %195 = zext i8 %192 to i32
   %196 = or disjoint i32 %194, %195
   %197 = trunc nuw nsw i32 %196 to i16
-  %198 = and i64 %indvars.iv262.i, 255
+  %198 = and i64 %indvars.iv263.i, 255
   %199 = getelementptr [48 x i16], ptr %6, i64 0, i64 %198
   store i16 %197, ptr %199, align 2
   %200 = add nuw i8 %185, 1
@@ -550,7 +550,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %213 = zext nneg i32 %212 to i64
   %214 = getelementptr [48 x i16], ptr %6, i64 0, i64 %213
   %215 = load i16, ptr %214, align 2
-  %216 = and i64 %indvars.iv262.i, 255
+  %216 = and i64 %indvars.iv263.i, 255
   %217 = getelementptr [48 x i16], ptr %6, i64 0, i64 %216
   store i16 %215, ptr %217, align 2
   %218 = add nuw i8 %185, 1

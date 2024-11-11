@@ -82958,19 +82958,19 @@ land.lhs.true.i:                                  ; preds = %dest_gpr.exit.i
   %ext_zca.i = getelementptr inbounds i8, ptr %3, i64 7
   %4 = load i8, ptr %ext_zca.i, align 1
   %tobool.i = trunc i8 %4 to i1
-  %and.i = and i64 %conv, 3
-  %cmp.not.i = icmp eq i64 %and.i, 0
+  %5 = and i32 %a.0.val, 3
+  %cmp.not.i = icmp eq i32 %5, 0
   %or.cond.i = or i1 %cmp.not.i, %tobool.i
   br i1 %or.cond.i, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
   %call3.i = tail call ptr @tcg_temp_new_i64() #13
   %pc_next.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  %5 = load i64, ptr %pc_next.i.i, align 8
-  %add.i.i = add i64 %5, %conv
+  %6 = load i64, ptr %pc_next.i.i, align 8
+  %add.i.i = add i64 %6, %conv
   %pc_save.i.i = getelementptr inbounds i8, ptr %ctx, i64 64
-  %6 = load i64, ptr %pc_save.i.i, align 8
-  %cmp.not.i.i = icmp eq i64 %6, -1
+  %7 = load i64, ptr %pc_save.i.i, align 8
+  %cmp.not.i.i = icmp eq i64 %7, -1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.end.i15.i
 
 if.else.i.i:                                      ; preds = %if.then2.i
@@ -82978,17 +82978,17 @@ if.else.i.i:                                      ; preds = %if.then2.i
   unreachable
 
 if.end.i15.i:                                     ; preds = %if.then2.i
-  %7 = load ptr, ptr %ctx, align 8
-  %cflags.i.i.i = getelementptr inbounds i8, ptr %7, i64 20
-  %8 = load atomic i32, ptr %cflags.i.i.i monotonic, align 4
-  %and.i16.i = and i32 %8, 131072
+  %8 = load ptr, ptr %ctx, align 8
+  %cflags.i.i.i = getelementptr inbounds i8, ptr %8, i64 20
+  %9 = load atomic i32, ptr %cflags.i.i.i monotonic, align 4
+  %and.i16.i = and i32 %9, 131072
   %tobool.not.i.i = icmp eq i32 %and.i16.i, 0
   br i1 %tobool.not.i.i, label %if.else4.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i15.i
-  %9 = load ptr, ptr @cpu_pc, align 8
-  %sub.i.i = sub i64 %add.i.i, %6
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3.i, ptr noundef %9, i64 noundef %sub.i.i) #13
+  %10 = load ptr, ptr @cpu_pc, align 8
+  %sub.i.i = sub i64 %add.i.i, %7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3.i, ptr noundef %10, i64 noundef %sub.i.i) #13
   br label %gen_pc_plus_diff.exit.i
 
 if.else4.i.i:                                     ; preds = %if.end.i15.i
@@ -82996,20 +82996,20 @@ if.else4.i.i:                                     ; preds = %if.end.i15.i
   br label %gen_pc_plus_diff.exit.i
 
 gen_pc_plus_diff.exit.i:                          ; preds = %if.else4.i.i, %if.then2.i.i
-  %10 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %call3.i, ptr noundef %10, i64 noundef 4960) #13
+  %11 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i64(ptr noundef %call3.i, ptr noundef %11, i64 noundef 4960) #13
   tail call fastcc void @generate_exception(ptr noundef nonnull %ctx, i32 noundef 0)
   br label %gen_jal.exit
 
 if.end4.i:                                        ; preds = %land.lhs.true.i, %dest_gpr.exit.i
   %cur_insn_len.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  %11 = load i64, ptr %cur_insn_len.i, align 8
+  %12 = load i64, ptr %cur_insn_len.i, align 8
   %pc_next.i17.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  %12 = load i64, ptr %pc_next.i17.i, align 8
-  %add.i18.i = add i64 %12, %11
+  %13 = load i64, ptr %pc_next.i17.i, align 8
+  %add.i18.i = add i64 %13, %12
   %pc_save.i19.i = getelementptr inbounds i8, ptr %ctx, i64 64
-  %13 = load i64, ptr %pc_save.i19.i, align 8
-  %cmp.not.i20.i = icmp eq i64 %13, -1
+  %14 = load i64, ptr %pc_save.i19.i, align 8
+  %cmp.not.i20.i = icmp eq i64 %14, -1
   br i1 %cmp.not.i20.i, label %if.else.i28.i, label %if.end.i21.i
 
 if.else.i28.i:                                    ; preds = %if.end4.i
@@ -83017,17 +83017,17 @@ if.else.i28.i:                                    ; preds = %if.end4.i
   unreachable
 
 if.end.i21.i:                                     ; preds = %if.end4.i
-  %14 = load ptr, ptr %ctx, align 8
-  %cflags.i.i22.i = getelementptr inbounds i8, ptr %14, i64 20
-  %15 = load atomic i32, ptr %cflags.i.i22.i monotonic, align 4
-  %and.i23.i = and i32 %15, 131072
+  %15 = load ptr, ptr %ctx, align 8
+  %cflags.i.i22.i = getelementptr inbounds i8, ptr %15, i64 20
+  %16 = load atomic i32, ptr %cflags.i.i22.i monotonic, align 4
+  %and.i23.i = and i32 %16, 131072
   %tobool.not.i24.i = icmp eq i32 %and.i23.i, 0
   br i1 %tobool.not.i24.i, label %if.else4.i27.i, label %if.then2.i25.i
 
 if.then2.i25.i:                                   ; preds = %if.end.i21.i
-  %16 = load ptr, ptr @cpu_pc, align 8
-  %sub.i26.i = sub i64 %add.i18.i, %13
-  tail call void @tcg_gen_addi_i64(ptr noundef %retval.0.i.i, ptr noundef %16, i64 noundef %sub.i26.i) #13
+  %17 = load ptr, ptr @cpu_pc, align 8
+  %sub.i26.i = sub i64 %add.i18.i, %14
+  tail call void @tcg_gen_addi_i64(ptr noundef %retval.0.i.i, ptr noundef %17, i64 noundef %sub.i26.i) #13
   br label %gen_pc_plus_diff.exit29.i
 
 if.else4.i27.i:                                   ; preds = %if.end.i21.i
@@ -83039,8 +83039,8 @@ gen_pc_plus_diff.exit29.i:                        ; preds = %if.else4.i27.i, %if
 
 if.then.i31.i:                                    ; preds = %gen_pc_plus_diff.exit29.i
   %ol.i.i = getelementptr inbounds i8, ptr %ctx, i64 120
-  %17 = load i32, ptr %ol.i.i, align 8
-  switch i32 %17, label %do.body.i.i [
+  %18 = load i32, ptr %ol.i.i, align 8
+  switch i32 %18, label %do.body.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb1.i.i
     i32 3, label %sw.bb1.i.i
@@ -83049,15 +83049,15 @@ if.then.i31.i:                                    ; preds = %gen_pc_plus_diff.ex
 sw.bb.i.i:                                        ; preds = %if.then.i31.i
   %idxprom.i32.i = sext i32 %a.4.val to i64
   %arrayidx.i33.i = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom.i32.i
-  %18 = load ptr, ptr %arrayidx.i33.i, align 8
-  tail call void @tcg_gen_ext32s_i64(ptr noundef %18, ptr noundef %retval.0.i.i) #13
+  %19 = load ptr, ptr %arrayidx.i33.i, align 8
+  tail call void @tcg_gen_ext32s_i64(ptr noundef %19, ptr noundef %retval.0.i.i) #13
   br label %sw.epilog.i.i
 
 sw.bb1.i.i:                                       ; preds = %if.then.i31.i, %if.then.i31.i
   %idxprom2.i.i = sext i32 %a.4.val to i64
   %arrayidx3.i.i = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom2.i.i
-  %19 = load ptr, ptr %arrayidx3.i.i, align 8
-  tail call void @tcg_gen_mov_i64(ptr noundef %19, ptr noundef %retval.0.i.i) #13
+  %20 = load ptr, ptr %arrayidx3.i.i, align 8
+  tail call void @tcg_gen_mov_i64(ptr noundef %20, ptr noundef %retval.0.i.i) #13
   br label %sw.epilog.i.i
 
 do.body.i.i:                                      ; preds = %if.then.i31.i
@@ -83066,17 +83066,17 @@ do.body.i.i:                                      ; preds = %if.then.i31.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb1.i.i, %sw.bb.i.i
   %misa_mxl_max.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
-  %20 = load i32, ptr %misa_mxl_max.i.i, align 8
-  %cmp4.i.i = icmp eq i32 %20, 3
+  %21 = load i32, ptr %misa_mxl_max.i.i, align 8
+  %cmp4.i.i = icmp eq i32 %21, 3
   br i1 %cmp4.i.i, label %if.then5.i.i, label %gen_set_gpr.exit.i
 
 if.then5.i.i:                                     ; preds = %sw.epilog.i.i
   %idxprom6.i.i = sext i32 %a.4.val to i64
   %arrayidx7.i.i = getelementptr [32 x ptr], ptr @cpu_gprh, i64 0, i64 %idxprom6.i.i
-  %21 = load ptr, ptr %arrayidx7.i.i, align 8
+  %22 = load ptr, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom6.i.i
-  %22 = load ptr, ptr %arrayidx9.i.i, align 8
-  tail call void @tcg_gen_sari_i64(ptr noundef %21, ptr noundef %22, i64 noundef 63) #13
+  %23 = load ptr, ptr %arrayidx9.i.i, align 8
+  tail call void @tcg_gen_sari_i64(ptr noundef %22, ptr noundef %23, i64 noundef 63) #13
   br label %gen_set_gpr.exit.i
 
 gen_set_gpr.exit.i:                               ; preds = %if.then5.i.i, %sw.epilog.i.i, %gen_pc_plus_diff.exit29.i

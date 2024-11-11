@@ -341,8 +341,8 @@ opal_util_keyval_yy_create_buffer.exit:           ; preds = %40
   %128 = getelementptr inbounds [93 x i16], ptr @yy_acclist, i64 0, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = sext i16 %129 to i32
-  %131 = and i32 %130, 16384
-  %132 = icmp ne i32 %131, 0
+  %131 = and i16 %129, 16384
+  %132 = icmp ne i16 %131, 0
   %133 = icmp ne i32 %116, 0
   %or.cond = select i1 %132, i1 true, i1 %133
   br i1 %or.cond, label %134, label %138
@@ -357,8 +357,8 @@ opal_util_keyval_yy_create_buffer.exit:           ; preds = %40
   br label %155
 
 138:                                              ; preds = %126
-  %139 = and i32 %130, 8192
-  %.not87 = icmp eq i32 %139, 0
+  %139 = and i16 %129, 8192
+  %.not87 = icmp eq i16 %139, 0
   br i1 %.not87, label %143, label %140
 
 140:                                              ; preds = %138

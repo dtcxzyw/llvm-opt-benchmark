@@ -287,25 +287,23 @@ if.else.i27.i:                                    ; preds = %if.end.i.i.i
 if.then19.i.i:                                    ; preds = %if.else.i27.i
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 1
   %14 = load i8, ptr %arrayidx21.i.i, align 1
-  %conv22.i.i = sext i8 %14 to i32
-  %15 = and i32 %conv22.i.i, 192
-  %.not43.i.i = icmp eq i32 %15, 128
+  %.not43.i.i = icmp slt i8 %14, -64
   call void @llvm.assume(i1 %.not43.i.i)
   %arrayidx32.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 2
-  %16 = load i8, ptr %arrayidx32.i.i, align 1
-  %conv3383.i.i = zext i8 %16 to i32
-  %17 = and i32 %conv3383.i.i, 192
-  %.not44.i.i = icmp eq i32 %17, 128
+  %15 = load i8, ptr %arrayidx32.i.i, align 1
+  %.not44.i.i = icmp slt i8 %15, -64
   call void @llvm.assume(i1 %.not44.i.i)
   %add.ptr45.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 3
   %and46.i.i = shl nsw i32 %conv.i.i, 12
   %shl47.i.i = and i32 %and46.i.i, 61440
-  %and48.i.i = shl nsw i32 %conv22.i.i, 6
-  %shl49.i.i = and i32 %and48.i.i, 4032
+  %16 = and i8 %14, 63
+  %and48.i.i = zext nneg i8 %16 to i32
+  %shl49.i.i = shl nuw nsw i32 %and48.i.i, 6
   %or50.i.i = or disjoint i32 %shl49.i.i, %shl47.i.i
   %cmp53.i.i = icmp samesign ugt i32 %or50.i.i, 2047
   call void @llvm.assume(i1 %cmp53.i.i)
-  %and51.i.i = and i32 %conv3383.i.i, 63
+  %17 = and i8 %15, 63
+  %and51.i.i = zext nneg i8 %17 to i32
   %or52.i.i = or disjoint i32 %or50.i.i, %and51.i.i
   br label %_ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i
 
@@ -315,31 +313,28 @@ if.else68.i.i:                                    ; preds = %if.else.i27.i
   call void @llvm.assume(i1 %cmp70.i.i)
   %arrayidx73.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 1
   %18 = load i8, ptr %arrayidx73.i.i, align 1
-  %conv74.i.i = sext i8 %18 to i32
-  %19 = and i32 %conv74.i.i, 192
-  %.not.i.i = icmp eq i32 %19, 128
+  %.not.i.i = icmp slt i8 %18, -64
   call void @llvm.assume(i1 %.not.i.i)
   %arrayidx87.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 2
-  %20 = load i8, ptr %arrayidx87.i.i, align 1
-  %conv88.i.i = sext i8 %20 to i32
-  %21 = and i32 %conv88.i.i, 192
-  %.not41.i.i = icmp eq i32 %21, 128
+  %19 = load i8, ptr %arrayidx87.i.i, align 1
+  %.not41.i.i = icmp slt i8 %19, -64
   call void @llvm.assume(i1 %.not41.i.i)
   %arrayidx100.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 3
-  %22 = load i8, ptr %arrayidx100.i.i, align 1
-  %conv10184.i.i = zext i8 %22 to i32
-  %23 = and i32 %conv10184.i.i, 192
-  %.not42.i.i = icmp eq i32 %23, 128
+  %20 = load i8, ptr %arrayidx100.i.i, align 1
+  %.not42.i.i = icmp slt i8 %20, -64
   call void @llvm.assume(i1 %.not42.i.i)
   %add.ptr113.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 4
   %and114.i.i = shl nsw i32 %conv.i.i, 18
   %shl115.i.i = and i32 %and114.i.i, 1835008
-  %and116.i.i = shl nsw i32 %conv74.i.i, 12
-  %shl117.i.i = and i32 %and116.i.i, 258048
+  %21 = and i8 %18, 63
+  %and116.i.i = zext nneg i8 %21 to i32
+  %shl117.i.i = shl nuw nsw i32 %and116.i.i, 12
   %or118.i.i = or disjoint i32 %shl117.i.i, %shl115.i.i
-  %and119.i.i = shl nsw i32 %conv88.i.i, 6
-  %shl120.i.i = and i32 %and119.i.i, 4032
-  %and122.i.i = and i32 %conv10184.i.i, 63
+  %22 = and i8 %19, 63
+  %and119.i.i = zext nneg i8 %22 to i32
+  %shl120.i.i = shl nuw nsw i32 %and119.i.i, 6
+  %23 = and i8 %20, 63
+  %and122.i.i = zext nneg i8 %23 to i32
   %24 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %24, %or118.i.i
   %cmp124.i.i = icmp samesign ugt i32 %or118.i.i, 65535
@@ -4582,25 +4577,23 @@ if.else.i27.i:                                    ; preds = %if.end.i.i.i
 if.then19.i.i:                                    ; preds = %if.else.i27.i
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 1
   %14 = load i8, ptr %arrayidx21.i.i, align 1
-  %conv22.i.i = sext i8 %14 to i32
-  %15 = and i32 %conv22.i.i, 192
-  %.not43.i.i = icmp eq i32 %15, 128
+  %.not43.i.i = icmp slt i8 %14, -64
   call void @llvm.assume(i1 %.not43.i.i)
   %arrayidx32.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 2
-  %16 = load i8, ptr %arrayidx32.i.i, align 1
-  %conv3383.i.i = zext i8 %16 to i32
-  %17 = and i32 %conv3383.i.i, 192
-  %.not44.i.i = icmp eq i32 %17, 128
+  %15 = load i8, ptr %arrayidx32.i.i, align 1
+  %.not44.i.i = icmp slt i8 %15, -64
   call void @llvm.assume(i1 %.not44.i.i)
   %add.ptr45.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 3
   %and46.i.i = shl nsw i32 %conv.i.i, 12
   %shl47.i.i = and i32 %and46.i.i, 61440
-  %and48.i.i = shl nsw i32 %conv22.i.i, 6
-  %shl49.i.i = and i32 %and48.i.i, 4032
+  %16 = and i8 %14, 63
+  %and48.i.i = zext nneg i8 %16 to i32
+  %shl49.i.i = shl nuw nsw i32 %and48.i.i, 6
   %or50.i.i = or disjoint i32 %shl49.i.i, %shl47.i.i
   %cmp53.i.i = icmp samesign ugt i32 %or50.i.i, 2047
   call void @llvm.assume(i1 %cmp53.i.i)
-  %and51.i.i = and i32 %conv3383.i.i, 63
+  %17 = and i8 %15, 63
+  %and51.i.i = zext nneg i8 %17 to i32
   %or52.i.i = or disjoint i32 %or50.i.i, %and51.i.i
   br label %_ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i
 
@@ -4610,31 +4603,28 @@ if.else68.i.i:                                    ; preds = %if.else.i27.i
   call void @llvm.assume(i1 %cmp70.i.i)
   %arrayidx73.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 1
   %18 = load i8, ptr %arrayidx73.i.i, align 1
-  %conv74.i.i = sext i8 %18 to i32
-  %19 = and i32 %conv74.i.i, 192
-  %.not.i.i = icmp eq i32 %19, 128
+  %.not.i.i = icmp slt i8 %18, -64
   call void @llvm.assume(i1 %.not.i.i)
   %arrayidx87.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 2
-  %20 = load i8, ptr %arrayidx87.i.i, align 1
-  %conv88.i.i = sext i8 %20 to i32
-  %21 = and i32 %conv88.i.i, 192
-  %.not41.i.i = icmp eq i32 %21, 128
+  %19 = load i8, ptr %arrayidx87.i.i, align 1
+  %.not41.i.i = icmp slt i8 %19, -64
   call void @llvm.assume(i1 %.not41.i.i)
   %arrayidx100.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 3
-  %22 = load i8, ptr %arrayidx100.i.i, align 1
-  %conv10184.i.i = zext i8 %22 to i32
-  %23 = and i32 %conv10184.i.i, 192
-  %.not42.i.i = icmp eq i32 %23, 128
+  %20 = load i8, ptr %arrayidx100.i.i, align 1
+  %.not42.i.i = icmp slt i8 %20, -64
   call void @llvm.assume(i1 %.not42.i.i)
   %add.ptr113.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 4
   %and114.i.i = shl nsw i32 %conv.i.i, 18
   %shl115.i.i = and i32 %and114.i.i, 1835008
-  %and116.i.i = shl nsw i32 %conv74.i.i, 12
-  %shl117.i.i = and i32 %and116.i.i, 258048
+  %21 = and i8 %18, 63
+  %and116.i.i = zext nneg i8 %21 to i32
+  %shl117.i.i = shl nuw nsw i32 %and116.i.i, 12
   %or118.i.i = or disjoint i32 %shl117.i.i, %shl115.i.i
-  %and119.i.i = shl nsw i32 %conv88.i.i, 6
-  %shl120.i.i = and i32 %and119.i.i, 4032
-  %and122.i.i = and i32 %conv10184.i.i, 63
+  %22 = and i8 %19, 63
+  %and119.i.i = zext nneg i8 %22 to i32
+  %shl120.i.i = shl nuw nsw i32 %and119.i.i, 6
+  %23 = and i8 %20, 63
+  %and122.i.i = zext nneg i8 %23 to i32
   %24 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %24, %or118.i.i
   %cmp124.i.i = icmp samesign ugt i32 %or118.i.i, 65535
@@ -4920,25 +4910,23 @@ if.else.i20.i:                                    ; preds = %if.end.i.i.i
 if.then19.i.i:                                    ; preds = %if.else.i20.i
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 1
   %12 = load i8, ptr %arrayidx21.i.i, align 1
-  %conv22.i.i = sext i8 %12 to i32
-  %13 = and i32 %conv22.i.i, 192
-  %.not43.i.i = icmp eq i32 %13, 128
+  %.not43.i.i = icmp slt i8 %12, -64
   call void @llvm.assume(i1 %.not43.i.i)
   %arrayidx32.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 2
-  %14 = load i8, ptr %arrayidx32.i.i, align 1
-  %conv3383.i.i = zext i8 %14 to i32
-  %15 = and i32 %conv3383.i.i, 192
-  %.not44.i.i = icmp eq i32 %15, 128
+  %13 = load i8, ptr %arrayidx32.i.i, align 1
+  %.not44.i.i = icmp slt i8 %13, -64
   call void @llvm.assume(i1 %.not44.i.i)
   %add.ptr45.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 3
   %and46.i.i = shl nsw i32 %conv.i.i, 12
   %shl47.i.i = and i32 %and46.i.i, 61440
-  %and48.i.i = shl nsw i32 %conv22.i.i, 6
-  %shl49.i.i = and i32 %and48.i.i, 4032
+  %14 = and i8 %12, 63
+  %and48.i.i = zext nneg i8 %14 to i32
+  %shl49.i.i = shl nuw nsw i32 %and48.i.i, 6
   %or50.i.i = or disjoint i32 %shl49.i.i, %shl47.i.i
   %cmp53.i.i = icmp samesign ugt i32 %or50.i.i, 2047
   call void @llvm.assume(i1 %cmp53.i.i)
-  %and51.i.i = and i32 %conv3383.i.i, 63
+  %15 = and i8 %13, 63
+  %and51.i.i = zext nneg i8 %15 to i32
   %or52.i.i = or disjoint i32 %or50.i.i, %and51.i.i
   br label %_ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i
 
@@ -4948,31 +4936,28 @@ if.else68.i.i:                                    ; preds = %if.else.i20.i
   call void @llvm.assume(i1 %cmp70.i.i)
   %arrayidx73.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 1
   %16 = load i8, ptr %arrayidx73.i.i, align 1
-  %conv74.i.i = sext i8 %16 to i32
-  %17 = and i32 %conv74.i.i, 192
-  %.not.i.i = icmp eq i32 %17, 128
+  %.not.i.i = icmp slt i8 %16, -64
   call void @llvm.assume(i1 %.not.i.i)
   %arrayidx87.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 2
-  %18 = load i8, ptr %arrayidx87.i.i, align 1
-  %conv88.i.i = sext i8 %18 to i32
-  %19 = and i32 %conv88.i.i, 192
-  %.not41.i.i = icmp eq i32 %19, 128
+  %17 = load i8, ptr %arrayidx87.i.i, align 1
+  %.not41.i.i = icmp slt i8 %17, -64
   call void @llvm.assume(i1 %.not41.i.i)
   %arrayidx100.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 3
-  %20 = load i8, ptr %arrayidx100.i.i, align 1
-  %conv10184.i.i = zext i8 %20 to i32
-  %21 = and i32 %conv10184.i.i, 192
-  %.not42.i.i = icmp eq i32 %21, 128
+  %18 = load i8, ptr %arrayidx100.i.i, align 1
+  %.not42.i.i = icmp slt i8 %18, -64
   call void @llvm.assume(i1 %.not42.i.i)
   %add.ptr113.i.i = getelementptr inbounds i8, ptr %begin8.addr.i.0.i, i64 4
   %and114.i.i = shl nsw i32 %conv.i.i, 18
   %shl115.i.i = and i32 %and114.i.i, 1835008
-  %and116.i.i = shl nsw i32 %conv74.i.i, 12
-  %shl117.i.i = and i32 %and116.i.i, 258048
+  %19 = and i8 %16, 63
+  %and116.i.i = zext nneg i8 %19 to i32
+  %shl117.i.i = shl nuw nsw i32 %and116.i.i, 12
   %or118.i.i = or disjoint i32 %shl117.i.i, %shl115.i.i
-  %and119.i.i = shl nsw i32 %conv88.i.i, 6
-  %shl120.i.i = and i32 %and119.i.i, 4032
-  %and122.i.i = and i32 %conv10184.i.i, 63
+  %20 = and i8 %17, 63
+  %and119.i.i = zext nneg i8 %20 to i32
+  %shl120.i.i = shl nuw nsw i32 %and119.i.i, 6
+  %21 = and i8 %18, 63
+  %and122.i.i = zext nneg i8 %21 to i32
   %22 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %22, %or118.i.i
   %cmp124.i.i = icmp samesign ugt i32 %or118.i.i, 65535

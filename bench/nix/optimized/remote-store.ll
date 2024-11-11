@@ -7744,11 +7744,11 @@ _ZN3nix21SubstitutablePathInfoD2Ev.exit:          ; preds = %_ZNSt3setIN3nix9Sto
 
 ._crit_edge.loopexit:                             ; preds = %212
   %.pre = load ptr, ptr %30, align 8
-  %.pre161 = load i64, ptr %201, align 8
+  %.pre162 = load i64, ptr %201, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %196
-  %215 = phi i64 [ %.pre161, %._crit_edge.loopexit ], [ 0, %196 ]
+  %215 = phi i64 [ %.pre162, %._crit_edge.loopexit ], [ 0, %196 ]
   %216 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %191, %196 ]
   %217 = load ptr, ptr %0, align 8
   %218 = getelementptr i8, ptr %217, i64 -32

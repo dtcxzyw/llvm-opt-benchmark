@@ -1072,14 +1072,13 @@ invoke.cont7:                                     ; preds = %if.end5
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end5, %invoke.cont7
-  %conv1.i = zext i16 %.pre to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %7 = and i16 %.pre, 17
+  %tobool.not.i = icmp eq i16 %7, 0
   br i1 %tobool.not.i, label %if.else.i, label %cleanup
 
 if.else.i:                                        ; preds = %if.end9
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %8 = and i16 %.pre, 2
+  %tobool6.not.i = icmp eq i16 %8, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -1088,11 +1087,11 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %readOnlyAlias, i64 24
-  %7 = load ptr, ptr %fArray.i, align 8
+  %9 = load ptr, ptr %fArray.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else9.i, %if.then7.i, %if.end9, %if.end
-  %retval.1 = phi ptr [ null, %if.end ], [ %fBuffer.i, %if.then7.i ], [ %7, %if.else9.i ], [ null, %if.end9 ]
+  %retval.1 = phi ptr [ null, %if.end ], [ %fBuffer.i, %if.then7.i ], [ %9, %if.else9.i ], [ null, %if.end9 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %readOnlyAlias) #17
   br label %return
 

@@ -2136,15 +2136,15 @@ while.cond61.preheader:                           ; preds = %land.lhs.true, %whi
   br label %while.cond61
 
 while.cond61:                                     ; preds = %while.cond61.preheader, %while.cond61
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %while.cond61 ], [ %idxprom31, %while.cond61.preheader ]
-  %arrayidx63 = getelementptr inbounds i8, ptr %in, i64 %indvars.iv56
+  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %while.cond61 ], [ %idxprom31, %while.cond61.preheader ]
+  %arrayidx63 = getelementptr inbounds i8, ptr %in, i64 %indvars.iv58
   %8 = load i8, ptr %arrayidx63, align 1
   %cmp.i44.not = icmp eq i8 %8, 47
-  %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
+  %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
   br i1 %cmp.i44.not, label %while.cond61, label %while.end69, !llvm.loop !23
 
 while.end69:                                      ; preds = %while.cond61
-  %arrayidx63.le = getelementptr inbounds i8, ptr %in, i64 %indvars.iv56
+  %arrayidx63.le = getelementptr inbounds i8, ptr %in, i64 %indvars.iv58
   store i64 0, ptr getelementptr inbounds (i8, ptr @remove_leading_path.buf, i64 8), align 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @remove_leading_path.buf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %9, @strbuf_slopbuf

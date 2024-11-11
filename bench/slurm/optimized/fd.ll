@@ -739,8 +739,8 @@ define ptr @poll_revents_to_str(i16 noundef signext %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = sext i16 %0 to i32
-  %4 = and i32 %3, 1
-  %.not = icmp eq i32 %4, 0
+  %4 = and i16 %0, 1
+  %.not = icmp eq i16 %4, 0
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
@@ -748,8 +748,8 @@ define ptr @poll_revents_to_str(i16 noundef signext %0) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = and i32 %3, 2
-  %.not8 = icmp eq i32 %7, 0
+  %7 = and i16 %0, 2
+  %.not8 = icmp eq i16 %7, 0
   br i1 %.not8, label %11, label %8
 
 8:                                                ; preds = %6
@@ -760,8 +760,8 @@ define ptr @poll_revents_to_str(i16 noundef signext %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %8, %6
-  %12 = and i32 %3, 4
-  %.not10 = icmp eq i32 %12, 0
+  %12 = and i16 %0, 4
+  %.not10 = icmp eq i16 %12, 0
   br i1 %.not10, label %16, label %13
 
 13:                                               ; preds = %11
@@ -772,8 +772,8 @@ define ptr @poll_revents_to_str(i16 noundef signext %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %13, %11
-  %17 = and i32 %3, 16
-  %.not12 = icmp eq i32 %17, 0
+  %17 = and i16 %0, 16
+  %.not12 = icmp eq i16 %17, 0
   br i1 %.not12, label %21, label %18
 
 18:                                               ; preds = %16
@@ -784,8 +784,8 @@ define ptr @poll_revents_to_str(i16 noundef signext %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %18, %16
-  %22 = and i32 %3, 32
-  %.not14 = icmp eq i32 %22, 0
+  %22 = and i16 %0, 32
+  %.not14 = icmp eq i16 %22, 0
   br i1 %.not14, label %26, label %23
 
 23:                                               ; preds = %21
@@ -796,32 +796,32 @@ define ptr @poll_revents_to_str(i16 noundef signext %0) local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %23, %21
-  %27 = and i32 %3, 8
-  %.not16 = icmp eq i32 %27, 0
-  br i1 %.not16, label %31, label %28
+  %27 = and i16 %0, 8
+  %.not16 = icmp eq i16 %27, 0
+  br i1 %.not16, label %30, label %.thread
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %2, align 8
-  %.not17 = icmp eq ptr %29, null
-  %30 = select i1 %.not17, ptr @.str.18, ptr @.str.17
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.22, ptr noundef nonnull %30) #10
-  br label %31
+.thread:                                          ; preds = %26
+  %28 = load ptr, ptr %2, align 8
+  %.not17 = icmp eq ptr %28, null
+  %29 = select i1 %.not17, ptr @.str.18, ptr @.str.17
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.22, ptr noundef nonnull %29) #10
+  br label %32
 
-31:                                               ; preds = %28, %26
+30:                                               ; preds = %26
   %.not18 = icmp eq i16 %0, 0
-  br i1 %.not18, label %32, label %33
+  br i1 %.not18, label %31, label %32
 
-32:                                               ; preds = %31
+31:                                               ; preds = %30
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.23) #10
-  br label %34
+  br label %33
 
-33:                                               ; preds = %31
+32:                                               ; preds = %.thread, %30
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.24, i32 noundef %3) #10
-  br label %34
+  br label %33
 
-34:                                               ; preds = %33, %32
-  %35 = load ptr, ptr %2, align 8
-  ret ptr %35
+33:                                               ; preds = %32, %31
+  %34 = load ptr, ptr %2, align 8
+  ret ptr %34
 }
 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2

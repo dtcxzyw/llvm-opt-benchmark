@@ -12521,19 +12521,19 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
   br label %.preheader81.outer, !llvm.loop !100
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.lr.ph ], [ %33, %.preheader ]
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph ], [ %33, %.preheader ]
   %39 = phi i8 [ %43, %.lr.ph ], [ %35, %.preheader ]
-  %40 = sub nsw i64 %indvars.iv85, %33
+  %40 = sub nsw i64 %indvars.iv86, %33
   %41 = getelementptr inbounds [255 x i8], ptr %5, i64 0, i64 %40
   store i8 %39, ptr %41, align 1
-  %indvars.iv.next86 = add nsw i64 %indvars.iv85, 1
-  %42 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next86
+  %indvars.iv.next87 = add nsw i64 %indvars.iv86, 1
+  %42 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next87
   %43 = load i8, ptr %42, align 1
   %.not80 = icmp eq i8 %43, 0
   br i1 %.not80, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %44 = trunc nsw i64 %indvars.iv.next86 to i32
+  %44 = trunc nsw i64 %indvars.iv.next87 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

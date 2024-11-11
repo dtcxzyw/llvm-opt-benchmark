@@ -3385,8 +3385,8 @@ _ZN2cvL25icvGradientOfHistogram256INS_10AutoBufferIiLm256EEEEEvRKT_RS3_.exit.i: 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %304 = phi ptr [ %305, %.lr.ph.i ], [ %297, %.lr.ph.preheader.i ]
   %indvars.iv.next167.i239 = phi i64 [ %indvars.iv.next167.i, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
-  %exitcond169.not.i = icmp eq i64 %indvars.iv.next167.i239, %wide.trip.count.i
-  br i1 %exitcond169.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
+  %exitcond170.not.i = icmp eq i64 %indvars.iv.next167.i239, %wide.trip.count.i
+  br i1 %exitcond170.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv.next167.i239, 1
@@ -3438,22 +3438,22 @@ _ZN2cvL25icvGradientOfHistogram256INS_10AutoBufferIiLm256EEEEEvRKT_RS3_.exit.i: 
   br label %.lr.ph155.i
 
 .lr.ph155.i:                                      ; preds = %.lr.ph155.i, %.lr.ph155.preheader.i
-  %indvars.iv170.i = phi i64 [ %328, %.lr.ph155.preheader.i ], [ %indvars.iv.next171.i, %.lr.ph155.i ]
+  %indvars.iv171.i = phi i64 [ %328, %.lr.ph155.preheader.i ], [ %indvars.iv.next172.i, %.lr.ph155.i ]
   %.173152.i = phi i32 [ %.072.i, %.lr.ph155.preheader.i ], [ %spec.select135.i, %.lr.ph155.i ]
   %.380151.i = phi i32 [ %.279.i, %.lr.ph155.preheader.i ], [ %spec.select.i, %.lr.ph155.i ]
-  %329 = getelementptr inbounds i32, ptr %297, i64 %indvars.iv170.i
+  %329 = getelementptr inbounds i32, ptr %297, i64 %indvars.iv171.i
   %330 = load i32, ptr %329, align 4
   %331 = sext i32 %330 to i64
   %332 = getelementptr inbounds i32, ptr %265, i64 %331
   %333 = load i32, ptr %332, align 4
   %.not104.i = icmp slt i32 %333, %.173152.i
-  %334 = trunc nuw i64 %indvars.iv170.i to i32
+  %334 = trunc nuw i64 %indvars.iv171.i to i32
   %spec.select.i = select i1 %.not104.i, i32 %.380151.i, i32 %334
   %spec.select135.i = call i32 @llvm.smax.i32(i32 %333, i32 %.173152.i)
-  %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next171.i to i32
-  %exitcond173.not.i = icmp eq i32 %.196.i, %lftr.wideiv.i
-  br i1 %exitcond173.not.i, label %._crit_edge156.i, label %.lr.ph155.i, !llvm.loop !35
+  %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next172.i to i32
+  %exitcond175.not.i = icmp eq i32 %.196.i, %lftr.wideiv.i
+  br i1 %exitcond175.not.i, label %._crit_edge156.i, label %.lr.ph155.i, !llvm.loop !35
 
 ._crit_edge156.i:                                 ; preds = %.lr.ph155.i, %326
   %.380.lcssa.i = phi i32 [ %.279.i, %326 ], [ %spec.select.i, %.lr.ph155.i ]
@@ -3560,8 +3560,8 @@ _ZN2cv10AutoBufferIiLm256EED2Ev.exit121.i:        ; preds = %368, %_ZN2cv10AutoB
   %369 = load ptr, ptr %7, align 8
   %.not.i.i122.i = icmp eq ptr %369, %149
   %370 = icmp eq ptr %369, null
-  %or.cond179.i = or i1 %.not.i.i122.i, %370
-  br i1 %or.cond179.i, label %393, label %371
+  %or.cond181.i = or i1 %.not.i.i122.i, %370
+  br i1 %or.cond181.i, label %393, label %371
 
 371:                                              ; preds = %_ZN2cv10AutoBufferIiLm256EED2Ev.exit121.i
   call void @_ZdaPv(ptr noundef nonnull %369) #36
@@ -3626,8 +3626,8 @@ _ZN2cv10AutoBufferIiLm256EED2Ev.exit129.i:        ; preds = %387, %_ZN2cv10AutoB
   %388 = load ptr, ptr %7, align 8
   %.not.i.i130.i = icmp eq ptr %388, %149
   %389 = icmp eq ptr %388, null
-  %or.cond180.i = or i1 %.not.i.i130.i, %389
-  br i1 %or.cond180.i, label %.body, label %390
+  %or.cond182.i = or i1 %.not.i.i130.i, %389
+  br i1 %or.cond182.i, label %.body, label %390
 
 390:                                              ; preds = %_ZN2cv10AutoBufferIiLm256EED2Ev.exit129.i
   call void @_ZdaPv(ptr noundef nonnull %388) #36

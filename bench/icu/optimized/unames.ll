@@ -3372,8 +3372,8 @@ if.then24.i:                                      ; preds = %lor.lhs.false.i, %f
 
 for.inc29.i:                                      ; preds = %if.then24.i, %lor.lhs.false.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond6.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond6.not.i, label %_ZL13charSetToUSetPjPK9USetAdder.exit, label %for.body15.i, !llvm.loop !56
+  %exitcond7.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond7.not.i, label %_ZL13charSetToUSetPjPK9USetAdder.exit, label %for.body15.i, !llvm.loop !56
 
 _ZL13charSetToUSetPjPK9USetAdder.exit:            ; preds = %for.inc29.i, %entry, %for.end.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %us.i)

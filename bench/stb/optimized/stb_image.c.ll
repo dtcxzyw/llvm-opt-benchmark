@@ -10677,8 +10677,8 @@ for.body80:                                       ; preds = %if.then68, %for.bod
 
 for.inc90:                                        ; preds = %for.body80, %for.body61
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
-  br i1 %exitcond90.not, label %return, label %for.body61, !llvm.loop !88
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
+  br i1 %exitcond91.not, label %return, label %for.body61, !llvm.loop !88
 
 return.sink.split:                                ; preds = %for.body3, %while.end
   %.str.6.sink = phi ptr [ @.str.6, %while.end ], [ @.str.5, %for.body3 ]

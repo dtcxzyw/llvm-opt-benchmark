@@ -2739,11 +2739,11 @@ for.end45.i:                                      ; preds = %for.body41.i, %land
 while.body.preheader.i:                           ; preds = %for.cond33.preheader.i, %for.end45.i
   %add4787.i = phi i64 [ %add47.i, %for.end45.i ], [ %k.063.i, %for.cond33.preheader.i ]
   %reps31.0.lcssa86.i = phi i32 [ %reps31.0.lcssa.i, %for.end45.i ], [ 1, %for.cond33.preheader.i ]
-  %cmp50.i130 = icmp ult i32 %reps31.0.lcssa86.i, %shl.i69
-  br i1 %cmp50.i130, label %if.then52.i, label %if.else60.i
+  %cmp50.i132 = icmp ult i32 %reps31.0.lcssa86.i, %shl.i69
+  br i1 %cmp50.i132, label %if.then52.i, label %if.else60.i
 
 if.then52.i:                                      ; preds = %if.else60.i, %while.body.preheader.i
-  %.lcssa121 = phi i64 [ %27, %while.body.preheader.i ], [ %inc70.i, %if.else60.i ]
+  %.lcssa123 = phi i64 [ %27, %while.body.preheader.i ], [ %inc70.i, %if.else60.i ]
   %reps31.170.i.lcssa = phi i32 [ %reps31.0.lcssa86.i, %while.body.preheader.i ], [ %sub69.i, %if.else60.i ]
   %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %reps31.170.i.lcssa, i1 true)
   %xor.i.i73 = xor i32 %32, 31
@@ -2751,23 +2751,23 @@ if.then52.i:                                      ; preds = %if.else60.i, %while
   %sub.i74 = add i32 %shl55.neg.i, %reps31.170.i.lcssa
   %shl56.i = shl i32 %sub.i74, 9
   %add57.i = or disjoint i32 %shl56.i, %xor.i.i73
-  %arrayidx58.i = getelementptr inbounds i32, ptr %call, i64 %.lcssa121
+  %arrayidx58.i = getelementptr inbounds i32, ptr %call, i64 %.lcssa123
   store i32 %add57.i, ptr %arrayidx58.i, align 4, !alias.scope !46, !noalias !49
   br label %if.end71.sink.split.i
 
 if.else60.i:                                      ; preds = %while.body.preheader.i, %if.else60.i
-  %reps31.170.i131 = phi i32 [ %sub69.i, %if.else60.i ], [ %reps31.0.lcssa86.i, %while.body.preheader.i ]
+  %reps31.170.i133 = phi i32 [ %sub69.i, %if.else60.i ], [ %reps31.0.lcssa86.i, %while.body.preheader.i ]
   %33 = phi i64 [ %inc70.i, %if.else60.i ], [ %27, %while.body.preheader.i ]
   %arrayidx66.i = getelementptr inbounds i32, ptr %call, i64 %33
   store i32 %add65.i, ptr %arrayidx66.i, align 4, !alias.scope !46, !noalias !49
-  %reass.sub.i = sub nuw i32 %reps31.170.i131, %shl.i69
+  %reass.sub.i = sub nuw i32 %reps31.170.i133, %shl.i69
   %sub69.i = add nuw i32 %reass.sub.i, 1
   %inc70.i = add i64 %33, 1
   %cmp50.i = icmp ult i32 %sub69.i, %shl.i69
   br i1 %cmp50.i, label %if.then52.i, label %if.else60.i
 
 if.end71.sink.split.i:                            ; preds = %if.then52.i, %if.then.i71
-  %.lcssa.sink.i = phi i64 [ %.lcssa121, %if.then52.i ], [ %27, %if.then.i71 ]
+  %.lcssa.sink.i = phi i64 [ %.lcssa123, %if.then52.i ], [ %27, %if.then.i71 ]
   %i.4.ph.i = phi i64 [ %add4787.i, %if.then52.i ], [ %inc29.i, %if.then.i71 ]
   %inc59.i = add i64 %.lcssa.sink.i, 1
   br label %if.end71.i
@@ -2835,11 +2835,11 @@ if.end16:                                         ; preds = %if.then13, %for.end
   %conv17 = zext nneg i32 %26 to i64
   %add = add i64 %num_clusters, %conv17
   tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %arena, i64 noundef %add, i64 noundef %add, ptr noundef %tree, ptr noundef nonnull %depths2, ptr noundef nonnull %bits4, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
-  %.pre111 = load i64, ptr %storage_ix, align 8
+  %.pre113 = load i64, ptr %storage_ix, align 8
   br i1 %cmp796.not, label %for.end43, label %for.body23
 
 for.body23:                                       ; preds = %if.end16, %for.inc41
-  %42 = phi i64 [ %51, %for.inc41 ], [ %.pre111, %if.end16 ]
+  %42 = phi i64 [ %51, %for.inc41 ], [ %.pre113, %if.end16 ]
   %i.199 = phi i64 [ %inc42, %for.inc41 ], [ 0, %if.end16 ]
   %arrayidx24 = getelementptr inbounds i32, ptr %call, i64 %i.199
   %43 = load i32, ptr %arrayidx24, align 4
@@ -2885,11 +2885,11 @@ if.then37:                                        ; preds = %for.body23
 for.inc41:                                        ; preds = %for.body23, %if.then37
   %51 = phi i64 [ %add.i69, %for.body23 ], [ %add.i56, %if.then37 ]
   %inc42 = add nuw i64 %i.199, 1
-  %exitcond110.not = icmp eq i64 %inc42, %num_rle_symbols.1
-  br i1 %exitcond110.not, label %for.end43, label %for.body23, !llvm.loop !58
+  %exitcond112.not = icmp eq i64 %inc42, %num_rle_symbols.1
+  br i1 %exitcond112.not, label %for.end43, label %for.body23, !llvm.loop !58
 
 for.end43:                                        ; preds = %for.inc41, %if.end16
-  %52 = phi i64 [ %.pre111, %if.end16 ], [ %51, %for.inc41 ]
+  %52 = phi i64 [ %.pre113, %if.end16 ], [ %51, %for.inc41 ]
   %shr.i = lshr i64 %52, 3
   %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
   %53 = load i8, ptr %arrayidx.i, align 1

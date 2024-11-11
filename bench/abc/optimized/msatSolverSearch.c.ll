@@ -315,19 +315,19 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67
-  %indvars.iv86 = phi i64 [ %indvars.iv, %.lr.ph67.preheader ], [ %indvars.iv.next87, %.lr.ph67 ]
-  %indvars.iv83 = phi i64 [ %42, %.lr.ph67.preheader ], [ %indvars.iv.next84, %.lr.ph67 ]
-  %43 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv86
+  %indvars.iv92 = phi i64 [ %indvars.iv, %.lr.ph67.preheader ], [ %indvars.iv.next93, %.lr.ph67 ]
+  %indvars.iv89 = phi i64 [ %42, %.lr.ph67.preheader ], [ %indvars.iv.next90, %.lr.ph67 ]
+  %43 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv92
   %44 = load ptr, ptr %43, align 8
-  %indvars.iv.next84 = add nsw i64 %indvars.iv83, 1
-  %45 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv83
+  %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
+  %45 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv89
   store ptr %44, ptr %45, align 8
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
-  br i1 %exitcond92.not, label %._crit_edge68.loopexit, label %.lr.ph67, !llvm.loop !7
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
+  br i1 %exitcond100.not, label %._crit_edge68.loopexit, label %.lr.ph67, !llvm.loop !7
 
 ._crit_edge68.loopexit:                           ; preds = %.lr.ph67
-  %46 = trunc nsw i64 %indvars.iv.next84 to i32
+  %46 = trunc nsw i64 %indvars.iv.next90 to i32
   br label %._crit_edge68
 
 ._crit_edge68:                                    ; preds = %._crit_edge68.loopexit, %38

@@ -1309,8 +1309,8 @@ define internal fastcc void @beautify_leaves(i32 noundef range(i32 1, -214748364
 
 14:                                               ; preds = %3
   %15 = lshr i64 %12, 3
-  %16 = and i64 %12, 7
-  %17 = icmp ne i64 %16, 0
+  %16 = and i32 %7, 7
+  %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i64
   %19 = add nuw nsw i64 %15, %18
   %.not.i.i = icmp eq i64 %19, 0

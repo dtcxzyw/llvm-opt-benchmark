@@ -2888,26 +2888,23 @@ define hidden i32 @dissect_p1_Credentials(i1 zeroext %0, ptr noundef %1, i32 nou
   %8 = load i32, ptr @ett_p1_Credentials, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Credentials_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7) #4
   %10 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %10, -1
-  br i1 %.not, label %21, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %19
+    i32 3, label %19
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = and i64 %12, 1152921504606846975
-  %.not7 = icmp eq i64 %13, 3
-  br i1 %.not7, label %21, label %14
-
-14:                                               ; preds = %11
-  %15 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %16) #4
-  br label %21
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
+  br label %19
 
-21:                                               ; preds = %14, %11, %6
+19:                                               ; preds = %6, %6, %11
   ret i32 %9
 }
 
@@ -2923,26 +2920,23 @@ define hidden i32 @dissect_p1_InitiatorCredentials(i1 zeroext %0, ptr noundef %1
   %8 = load i32, ptr @ett_p1_Credentials, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Credentials_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7) #4
   %10 = load i32, ptr %7, align 4
-  %.not.i = icmp eq i32 %10, -1
-  br i1 %.not.i, label %dissect_p1_Credentials.exit, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %dissect_p1_Credentials.exit
+    i32 3, label %dissect_p1_Credentials.exit
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = and i64 %12, 1152921504606846975
-  %.not7.i = icmp eq i64 %13, 3
-  br i1 %.not7.i, label %dissect_p1_Credentials.exit, label %14
-
-14:                                               ; preds = %11
-  %15 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %16) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
   br label %dissect_p1_Credentials.exit
 
-dissect_p1_Credentials.exit:                      ; preds = %6, %11, %14
+dissect_p1_Credentials.exit:                      ; preds = %6, %6, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   ret i32 %9
 }
@@ -2973,26 +2967,23 @@ define hidden i32 @dissect_p1_ResponderCredentials(i1 zeroext %0, ptr noundef %1
   %8 = load i32, ptr @ett_p1_Credentials, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Credentials_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7) #4
   %10 = load i32, ptr %7, align 4
-  %.not.i = icmp eq i32 %10, -1
-  br i1 %.not.i, label %dissect_p1_Credentials.exit, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %dissect_p1_Credentials.exit
+    i32 3, label %dissect_p1_Credentials.exit
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = and i64 %12, 1152921504606846975
-  %.not7.i = icmp eq i64 %13, 3
-  br i1 %.not7.i, label %dissect_p1_Credentials.exit, label %14
-
-14:                                               ; preds = %11
-  %15 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %16) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
   br label %dissect_p1_Credentials.exit
 
-dissect_p1_Credentials.exit:                      ; preds = %6, %11, %14
+dissect_p1_Credentials.exit:                      ; preds = %6, %6, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   ret i32 %9
 }
@@ -3824,52 +3815,48 @@ p1_initialize_content_globals.exit:               ; preds = %4, %10
   %31 = load i32, ptr @ett_p1_MTS_APDU, align 4
   %32 = call i32 @dissect_ber_choice(ptr noundef nonnull %6, ptr noundef %.0, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MTS_APDU_choice, i32 noundef %30, i32 noundef %31, ptr noundef nonnull %5) #4
   %33 = load i32, ptr %5, align 4
-  %.not.i = icmp eq i32 %33, -1
-  br i1 %.not.i, label %dissect_p1_MTS_APDU.exit, label %34
+  switch i32 %33, label %34 [
+    i32 -1, label %dissect_p1_MTS_APDU.exit
+    i32 3, label %dissect_p1_MTS_APDU.exit
+    i32 0, label %dissect_p1_MTS_APDU.exit
+  ]
 
 34:                                               ; preds = %26
   %35 = sext i32 %33 to i64
-  %36 = and i64 %35, 1152921504606846975
-  %37 = icmp ne i64 %36, 3
-  %38 = icmp ne i32 %33, 0
-  %or.cond.i = and i1 %38, %37
-  br i1 %or.cond.i, label %39, label %dissect_p1_MTS_APDU.exit
-
-39:                                               ; preds = %34
-  %40 = getelementptr [4 x %struct._value_string], ptr @p1_MTS_APDU_vals, i64 0, i64 %35, i32 1
+  %36 = getelementptr [4 x %struct._value_string], ptr @p1_MTS_APDU_vals, i64 0, i64 %35, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %6, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %41) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %37) #4
   br label %dissect_p1_MTS_APDU.exit
 
-dissect_p1_MTS_APDU.exit:                         ; preds = %26, %34, %39
+dissect_p1_MTS_APDU.exit:                         ; preds = %26, %26, %26, %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %46 = load ptr, ptr %7, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %p1_initialize_content_globals.exit12
+  %42 = load ptr, ptr %7, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %p1_initialize_content_globals.exit12
 
-48:                                               ; preds = %dissect_p1_MTS_APDU.exit
-  %49 = getelementptr inbounds i8, ptr %6, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 408
-  %52 = load ptr, ptr %51, align 8
-  %53 = call noalias ptr @wmem_alloc0(ptr noundef %52, i64 noundef 32) #4
-  store ptr %53, ptr %7, align 8
+44:                                               ; preds = %dissect_p1_MTS_APDU.exit
+  %45 = getelementptr inbounds i8, ptr %6, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 408
+  %48 = load ptr, ptr %47, align 8
+  %49 = call noalias ptr @wmem_alloc0(ptr noundef %48, i64 noundef 32) #4
+  store ptr %49, ptr %7, align 8
   br label %p1_initialize_content_globals.exit12
 
-p1_initialize_content_globals.exit12:             ; preds = %dissect_p1_MTS_APDU.exit, %48
-  %54 = phi ptr [ %53, %48 ], [ %46, %dissect_p1_MTS_APDU.exit ]
+p1_initialize_content_globals.exit12:             ; preds = %dissect_p1_MTS_APDU.exit, %44
+  %50 = phi ptr [ %49, %44 ], [ %42, %dissect_p1_MTS_APDU.exit ]
   store ptr null, ptr %17, align 8
   store ptr null, ptr %18, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  store ptr null, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %54, i64 16
-  store i32 0, ptr %56, align 8
-  %57 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  ret i32 %57
+  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr null, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  store i32 0, ptr %52, align 8
+  %53 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  ret i32 %53
 }
 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -3883,28 +3870,24 @@ define internal i32 @dissect_p1_MTS_APDU(i1 zeroext %0, ptr noundef %1, i32 noun
   %8 = load i32, ptr @ett_p1_MTS_APDU, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @MTS_APDU_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7) #4
   %10 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %10, -1
-  br i1 %.not, label %23, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %19
+    i32 3, label %19
+    i32 0, label %19
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = and i64 %12, 1152921504606846975
-  %14 = icmp ne i64 %13, 3
-  %15 = icmp ne i32 %10, 0
-  %or.cond = and i1 %15, %14
-  br i1 %or.cond, label %16, label %23
-
-16:                                               ; preds = %11
-  %17 = getelementptr [4 x %struct._value_string], ptr @p1_MTS_APDU_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr [4 x %struct._value_string], ptr @p1_MTS_APDU_vals, i64 0, i64 %12, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %18) #4
-  br label %23
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
+  br label %19
 
-23:                                               ; preds = %16, %11, %6
+19:                                               ; preds = %6, %6, %6, %11
   ret i32 %9
 }
 
@@ -7992,26 +7975,23 @@ define internal i32 @dissect_p1_ReportType(i1 zeroext %0, ptr noundef %1, i32 no
   %8 = load i32, ptr @ett_p1_ReportType, align 4
   %9 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @ReportType_choice, i32 noundef %5, i32 noundef %8, ptr noundef nonnull %7) #4
   %10 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %10, -1
-  br i1 %.not, label %21, label %11
+  switch i32 %10, label %11 [
+    i32 -1, label %19
+    i32 2, label %19
+  ]
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = and i64 %12, 1152921504606846975
-  %.not7 = icmp eq i64 %13, 2
-  br i1 %.not7, label %21, label %14
-
-14:                                               ; preds = %11
-  %15 = getelementptr [3 x %struct._value_string], ptr @p1_ReportType_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr [3 x %struct._value_string], ptr @p1_ReportType_vals, i64 0, i64 %12, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %16) #4
-  br label %21
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
+  br label %19
 
-21:                                               ; preds = %14, %11, %6
+19:                                               ; preds = %6, %6, %11
   ret i32 %9
 }
 

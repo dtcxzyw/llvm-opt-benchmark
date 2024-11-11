@@ -913,14 +913,13 @@ if.then:                                          ; preds = %entry
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   store i32 %cond.i, ptr %length, align 4
   %5 = load i16, ptr %fUnion.i.i, align 8
-  %conv1.i = zext i16 %5 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %6 = and i16 %5, 17
+  %tobool.not.i = icmp eq i16 %6, 0
   br i1 %tobool.not.i, label %if.else.i, label %return
 
 if.else.i:                                        ; preds = %if.then
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %7 = and i16 %5, 2
+  %tobool6.not.i = icmp eq i16 %7, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -929,7 +928,7 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %call2, i64 24
-  %6 = load ptr, ptr %fArray.i, align 8
+  %8 = load ptr, ptr %fArray.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -937,7 +936,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.else9.i, %if.then7.i, %if.then, %if.end
-  %retval.0 = phi ptr [ @_ZZ16ucol_getRules_75E4_NUL, %if.end ], [ %fBuffer.i, %if.then7.i ], [ %6, %if.else9.i ], [ null, %if.then ]
+  %retval.0 = phi ptr [ @_ZZ16ucol_getRules_75E4_NUL, %if.end ], [ %fBuffer.i, %if.then7.i ], [ %8, %if.else9.i ], [ null, %if.then ]
   ret ptr %retval.0
 }
 

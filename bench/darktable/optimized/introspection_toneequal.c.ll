@@ -8695,8 +8695,8 @@ define internal fastcc void @display_luminance_mask(ptr noalias nocapture nounde
   %41 = icmp ugt i64 %37, 1152921504606846975
   %42 = and i64 %26, 2305843009213693944
   %43 = icmp eq i64 %42, %26
-  %44 = and i64 %26, 1
-  %45 = icmp eq i64 %44, 0
+  %44 = and i32 %25, 1
+  %45 = icmp eq i32 %44, 0
   br label %46
 
 46:                                               ; preds = %.loopexit, %35

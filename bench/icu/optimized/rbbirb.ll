@@ -393,14 +393,13 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %rulesLengthInUTF8, align 4
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %7 to i32
-  %and.i56 = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i56, 0
+  %8 = and i16 %7, 17
+  %tobool.not.i = icmp eq i16 %8, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %if.end
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %9 = and i16 %7, 2
+  %tobool6.not.i = icmp eq i16 %9, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -409,37 +408,37 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %this, i64 64
-  %8 = load ptr, ptr %fArray.i, align 8
+  %10 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %8, %if.else9.i ], [ null, %if.end ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %10, %if.else9.i ], [ null, %if.end ]
   %cmp.i.i = icmp slt i16 %7, 0
-  %9 = ashr i16 %7, 5
-  %shr.i.i = sext i16 %9 to i32
+  %11 = ashr i16 %7, 5
+  %shr.i.i = sext i16 %11 to i32
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 52
-  %10 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %10, i32 %shr.i.i
-  %11 = load ptr, ptr %fStatus, align 8
-  %call20 = call ptr @u_strToUTF8WithSub_75(ptr noundef null, i32 noundef 0, ptr noundef nonnull %rulesLengthInUTF8, ptr noundef %retval.0.i, i32 noundef %cond.i, i32 noundef 65533, ptr noundef null, ptr noundef %11)
-  %12 = load ptr, ptr %fStatus, align 8
-  store i32 0, ptr %12, align 4
-  %13 = load i32, ptr %rulesLengthInUTF8, align 4
-  %14 = and i32 %13, -8
-  %and.i58 = add nsw i32 %14, 8
+  %12 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %12, i32 %shr.i.i
+  %13 = load ptr, ptr %fStatus, align 8
+  %call20 = call ptr @u_strToUTF8WithSub_75(ptr noundef null, i32 noundef 0, ptr noundef nonnull %rulesLengthInUTF8, ptr noundef %retval.0.i, i32 noundef %cond.i, i32 noundef 65533, ptr noundef null, ptr noundef %13)
+  %14 = load ptr, ptr %fStatus, align 8
+  store i32 0, ptr %14, align 4
+  %15 = load i32, ptr %rulesLengthInUTF8, align 4
+  %16 = and i32 %15, -8
+  %and.i57 = add nsw i32 %16, 8
   %add23 = add nsw i32 %and.i, 80
   %add24 = add nsw i32 %and.i51, %add23
   %add25 = add i32 %and.i53, %add24
   %add26 = add i32 %add25, %and.i55
-  %add27 = add nsw i32 %add26, %and.i58
+  %add27 = add nsw i32 %add26, %and.i57
   %conv28 = sext i32 %add27 to i64
   %call29 = call noalias ptr @uprv_malloc_75(i64 noundef %conv28) #11
   %cmp = icmp eq ptr %call29, null
   br i1 %cmp, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-  %15 = load ptr, ptr %fStatus, align 8
-  store i32 7, ptr %15, align 4
+  %17 = load ptr, ptr %fStatus, align 8
+  store i32 7, ptr %17, align 4
   br label %return
 
 if.end32:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
@@ -455,8 +454,8 @@ if.end32:                                         ; preds = %_ZNK6icu_7513Unicod
   store i8 0, ptr %arrayidx39, align 1
   %fLength = getelementptr inbounds i8, ptr %call29, i64 8
   store i32 %add27, ptr %fLength, align 4
-  %16 = load ptr, ptr %fSetBuilder, align 8
-  %call41 = call noundef i32 @_ZNK6icu_7514RBBISetBuilder20getNumCharCategoriesEv(ptr noundef nonnull align 8 dereferenceable(53) %16)
+  %18 = load ptr, ptr %fSetBuilder, align 8
+  %call41 = call noundef i32 @_ZNK6icu_7514RBBISetBuilder20getNumCharCategoriesEv(ptr noundef nonnull align 8 dereferenceable(53) %18)
   %fCatCount = getelementptr inbounds i8, ptr %call29, i64 12
   store i32 %call41, ptr %fCatCount, align 4
   %fFTable = getelementptr inbounds i8, ptr %call29, i64 16
@@ -477,89 +476,88 @@ if.end32:                                         ; preds = %_ZNK6icu_7513Unicod
   store i32 %and.i55, ptr %fStatusTableLen, align 4
   %fRuleSource = getelementptr inbounds i8, ptr %call29, i64 40
   store i32 %add26, ptr %fRuleSource, align 4
-  %17 = load i32, ptr %rulesLengthInUTF8, align 4
+  %19 = load i32, ptr %rulesLengthInUTF8, align 4
   %fRuleSourceLen = getelementptr inbounds i8, ptr %call29, i64 44
-  store i32 %17, ptr %fRuleSourceLen, align 4
+  store i32 %19, ptr %fRuleSourceLen, align 4
   %fReserved = getelementptr inbounds i8, ptr %call29, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %fReserved, i8 0, i64 24, i1 false)
-  %18 = load ptr, ptr %fForwardTable, align 8
+  %20 = load ptr, ptr %fForwardTable, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call29, i64 80
-  call void @_ZN6icu_7516RBBITableBuilder11exportTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %18, ptr noundef nonnull %add.ptr)
-  %19 = load ptr, ptr %fForwardTable, align 8
-  %20 = load i32, ptr %fRTable, align 4
-  %idx.ext57 = zext i32 %20 to i64
+  call void @_ZN6icu_7516RBBITableBuilder11exportTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %20, ptr noundef nonnull %add.ptr)
+  %21 = load ptr, ptr %fForwardTable, align 8
+  %22 = load i32, ptr %fRTable, align 4
+  %idx.ext57 = zext i32 %22 to i64
   %add.ptr58 = getelementptr inbounds i8, ptr %call29, i64 %idx.ext57
-  call void @_ZN6icu_7516RBBITableBuilder15exportSafeTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %19, ptr noundef nonnull %add.ptr58)
-  %21 = load ptr, ptr %fSetBuilder, align 8
-  %22 = load i32, ptr %fTrie, align 4
-  %idx.ext61 = zext i32 %22 to i64
+  call void @_ZN6icu_7516RBBITableBuilder15exportSafeTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %21, ptr noundef nonnull %add.ptr58)
+  %23 = load ptr, ptr %fSetBuilder, align 8
+  %24 = load i32, ptr %fTrie, align 4
+  %idx.ext61 = zext i32 %24 to i64
   %add.ptr62 = getelementptr inbounds i8, ptr %call29, i64 %idx.ext61
-  call void @_ZN6icu_7514RBBISetBuilder13serializeTrieEPh(ptr noundef nonnull align 8 dereferenceable(53) %21, ptr noundef nonnull %add.ptr62)
-  %23 = load i32, ptr %fStatusTable, align 4
-  %idx.ext64 = zext i32 %23 to i64
+  call void @_ZN6icu_7514RBBISetBuilder13serializeTrieEPh(ptr noundef nonnull align 8 dereferenceable(53) %23, ptr noundef nonnull %add.ptr62)
+  %25 = load i32, ptr %fStatusTable, align 4
+  %idx.ext64 = zext i32 %25 to i64
   %add.ptr65 = getelementptr inbounds i8, ptr %call29, i64 %idx.ext64
-  %24 = load ptr, ptr %fRuleStatusVals, align 8
-  %count.i5980 = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load i32, ptr %count.i5980, align 8
-  %cmp6881 = icmp sgt i32 %25, 0
-  br i1 %cmp6881, label %for.body, label %for.end
+  %26 = load ptr, ptr %fRuleStatusVals, align 8
+  %count.i5876 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load i32, ptr %count.i5876, align 8
+  %cmp6877 = icmp sgt i32 %27, 0
+  br i1 %cmp6877, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end32, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end32 ]
-  %26 = phi ptr [ %28, %for.body ], [ %24, %if.end32 ]
-  %27 = trunc nuw nsw i64 %indvars.iv to i32
-  %call70 = call noundef i32 @_ZNK6icu_757UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %26, i32 noundef %27)
+  %28 = phi ptr [ %30, %for.body ], [ %26, %if.end32 ]
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
+  %call70 = call noundef i32 @_ZNK6icu_757UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %29)
   %arrayidx71 = getelementptr inbounds i32, ptr %add.ptr65, i64 %indvars.iv
   store i32 %call70, ptr %arrayidx71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load ptr, ptr %fRuleStatusVals, align 8
-  %count.i59 = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load i32, ptr %count.i59, align 8
-  %30 = sext i32 %29 to i64
-  %cmp68 = icmp slt i64 %indvars.iv.next, %30
+  %30 = load ptr, ptr %fRuleStatusVals, align 8
+  %count.i58 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load i32, ptr %count.i58, align 8
+  %32 = sext i32 %31 to i64
+  %cmp68 = icmp slt i64 %indvars.iv.next, %32
   br i1 %cmp68, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %if.end32
-  %31 = load i32, ptr %fRuleSource, align 4
-  %idx.ext73 = zext i32 %31 to i64
+  %33 = load i32, ptr %fRuleSource, align 4
+  %idx.ext73 = zext i32 %33 to i64
   %add.ptr74 = getelementptr inbounds i8, ptr %call29, i64 %idx.ext73
-  %32 = load i16, ptr %fUnion.i, align 8
-  %conv1.i61 = zext i16 %32 to i32
-  %and.i62 = and i32 %conv1.i61, 17
-  %tobool.not.i63 = icmp eq i32 %and.i62, 0
-  br i1 %tobool.not.i63, label %if.else.i65, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit72
+  %34 = load i16, ptr %fUnion.i, align 8
+  %35 = and i16 %34, 17
+  %tobool.not.i60 = icmp eq i16 %35, 0
+  br i1 %tobool.not.i60, label %if.else.i62, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit68
 
-if.else.i65:                                      ; preds = %for.end
-  %and5.i66 = and i32 %conv1.i61, 2
-  %tobool6.not.i67 = icmp eq i32 %and5.i66, 0
-  br i1 %tobool6.not.i67, label %if.else9.i70, label %if.then7.i68
+if.else.i62:                                      ; preds = %for.end
+  %36 = and i16 %34, 2
+  %tobool6.not.i63 = icmp eq i16 %36, 0
+  br i1 %tobool6.not.i63, label %if.else9.i66, label %if.then7.i64
 
-if.then7.i68:                                     ; preds = %if.else.i65
-  %fBuffer.i69 = getelementptr inbounds i8, ptr %this, i64 50
-  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit72
+if.then7.i64:                                     ; preds = %if.else.i62
+  %fBuffer.i65 = getelementptr inbounds i8, ptr %this, i64 50
+  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit68
 
-if.else9.i70:                                     ; preds = %if.else.i65
-  %fArray.i71 = getelementptr inbounds i8, ptr %this, i64 64
-  %33 = load ptr, ptr %fArray.i71, align 8
-  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit72
+if.else9.i66:                                     ; preds = %if.else.i62
+  %fArray.i67 = getelementptr inbounds i8, ptr %this, i64 64
+  %37 = load ptr, ptr %fArray.i67, align 8
+  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit68
 
-_ZNK6icu_7513UnicodeString9getBufferEv.exit72:    ; preds = %for.end, %if.then7.i68, %if.else9.i70
-  %retval.0.i64 = phi ptr [ %fBuffer.i69, %if.then7.i68 ], [ %33, %if.else9.i70 ], [ null, %for.end ]
-  %cmp.i.i74 = icmp slt i16 %32, 0
-  %34 = ashr i16 %32, 5
-  %shr.i.i75 = sext i16 %34 to i32
-  %35 = load i32, ptr %fLength.i, align 4
-  %cond.i77 = select i1 %cmp.i.i74, i32 %35, i32 %shr.i.i75
-  %36 = load ptr, ptr %fStatus, align 8
-  %call80 = call ptr @u_strToUTF8WithSub_75(ptr noundef nonnull %add.ptr74, i32 noundef %and.i58, ptr noundef nonnull %rulesLengthInUTF8, ptr noundef %retval.0.i64, i32 noundef %cond.i77, i32 noundef 65533, ptr noundef null, ptr noundef %36)
-  %37 = load ptr, ptr %fStatus, align 8
-  %38 = load i32, ptr %37, align 4
-  %cmp.i78 = icmp slt i32 %38, 1
-  %call29. = select i1 %cmp.i78, ptr %call29, ptr null
+_ZNK6icu_7513UnicodeString9getBufferEv.exit68:    ; preds = %for.end, %if.then7.i64, %if.else9.i66
+  %retval.0.i61 = phi ptr [ %fBuffer.i65, %if.then7.i64 ], [ %37, %if.else9.i66 ], [ null, %for.end ]
+  %cmp.i.i70 = icmp slt i16 %34, 0
+  %38 = ashr i16 %34, 5
+  %shr.i.i71 = sext i16 %38 to i32
+  %39 = load i32, ptr %fLength.i, align 4
+  %cond.i73 = select i1 %cmp.i.i70, i32 %39, i32 %shr.i.i71
+  %40 = load ptr, ptr %fStatus, align 8
+  %call80 = call ptr @u_strToUTF8WithSub_75(ptr noundef nonnull %add.ptr74, i32 noundef %and.i57, ptr noundef nonnull %rulesLengthInUTF8, ptr noundef %retval.0.i61, i32 noundef %cond.i73, i32 noundef 65533, ptr noundef null, ptr noundef %40)
+  %41 = load ptr, ptr %fStatus, align 8
+  %42 = load i32, ptr %41, align 4
+  %cmp.i74 = icmp slt i32 %42, 1
+  %call29. = select i1 %cmp.i74, ptr %call29, ptr null
   br label %return
 
-return:                                           ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit72, %entry, %if.then30
-  %retval.0 = phi ptr [ null, %if.then30 ], [ null, %entry ], [ %call29., %_ZNK6icu_7513UnicodeString9getBufferEv.exit72 ]
+return:                                           ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit68, %entry, %if.then30
+  %retval.0 = phi ptr [ null, %if.then30 ], [ null, %entry ], [ %call29., %_ZNK6icu_7513UnicodeString9getBufferEv.exit68 ]
   ret ptr %retval.0
 }
 

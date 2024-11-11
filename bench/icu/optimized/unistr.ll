@@ -696,121 +696,118 @@ if.end10:                                         ; preds = %if.then5.if.end10_c
   %6 = load i32, ptr %fCapacity.i, align 8
   %cond.i43 = select i1 %tobool.not.i42, i32 %6, i32 27
   %sub = sub nsw i32 %cond.i43, %cond.i
-  %cmp13.not = icmp sgt i32 %srcLength.addr.0, %sub
-  br i1 %cmp13.not, label %if.else, label %land.lhs.true
+  %cmp13.not = icmp sle i32 %srcLength.addr.0, %sub
+  %7 = and i16 %2, 25
+  %tobool.not.i45 = icmp eq i16 %7, 0
+  %or.cond112 = and i1 %tobool.not.i45, %cmp13.not
+  br i1 %or.cond112, label %land.rhs.i, label %if.else
 
-land.lhs.true:                                    ; preds = %if.end10
-  %conv1.i = zext i16 %2 to i32
-  %and.i = and i32 %conv1.i, 25
-  %tobool.not.i45 = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i45, label %land.rhs.i, label %if.else
-
-land.rhs.i:                                       ; preds = %land.lhs.true
-  %and5.i = and i32 %conv1.i, 4
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+land.rhs.i:                                       ; preds = %if.end10
+  %8 = and i16 %2, 4
+  %tobool6.not.i = icmp eq i16 %8, 0
   br i1 %tobool6.not.i, label %if.then16, label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit
 
 _ZNK6icu_7513UnicodeString16isBufferWritableEv.exit: ; preds = %land.rhs.i
   %fArray.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load ptr, ptr %fArray.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 -4
-  %8 = load atomic i32, ptr %add.ptr.i.i acquire, align 4
-  %cmp.i.not = icmp eq i32 %8, 1
+  %9 = load ptr, ptr %fArray.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 -4
+  %10 = load atomic i32, ptr %add.ptr.i.i acquire, align 4
+  %cmp.i.not = icmp eq i32 %10, 1
   br i1 %cmp.i.not, label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit.if.then16_crit_edge, label %if.else
 
 _ZNK6icu_7513UnicodeString16isBufferWritableEv.exit.if.then16_crit_edge: ; preds = %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit
-  %.pre118.pre = load i16, ptr %fUnion.i, align 8
+  %.pre116.pre = load i16, ptr %fUnion.i, align 8
   br label %if.then16
 
 if.then16:                                        ; preds = %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit.if.then16_crit_edge, %land.rhs.i
-  %.pre118 = phi i16 [ %.pre118.pre, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit.if.then16_crit_edge ], [ %2, %land.rhs.i ]
+  %.pre116 = phi i16 [ %.pre116.pre, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit.if.then16_crit_edge ], [ %2, %land.rhs.i ]
   %add = add nsw i32 %cond.i, %srcLength.addr.0
   store i32 %add, ptr %newLength, align 4
   %cmp17 = icmp slt i32 %srcLength.addr.0, 5
   br i1 %cmp17, label %if.then18, label %if.then16.if.end74_crit_edge
 
 if.then16.if.end74_crit_edge:                     ; preds = %if.then16
-  %.pre121 = sext i32 %cond.i to i64
+  %.pre119 = sext i32 %cond.i to i64
   br label %if.end74
 
 if.then18:                                        ; preds = %if.then16
-  %9 = and i16 %.pre118, 2
-  %tobool.not.i47 = icmp eq i16 %9, 0
+  %11 = and i16 %.pre116, 2
+  %tobool.not.i47 = icmp eq i16 %11, 0
   %fBuffer.i = getelementptr inbounds i8, ptr %this, i64 10
   %fArray.i = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %fArray.i, align 8
-  %cond.i48 = select i1 %tobool.not.i47, ptr %10, ptr %fBuffer.i
-  %11 = load i16, ptr %add.ptr, align 2
+  %12 = load ptr, ptr %fArray.i, align 8
+  %cond.i48 = select i1 %tobool.not.i47, ptr %12, ptr %fBuffer.i
+  %13 = load i16, ptr %add.ptr, align 2
   %idxprom = sext i32 %cond.i to i64
   %arrayidx20 = getelementptr inbounds i16, ptr %cond.i48, i64 %idxprom
-  store i16 %11, ptr %arrayidx20, align 2
+  store i16 %13, ptr %arrayidx20, align 2
   %cmp21 = icmp sgt i32 %srcLength.addr.0, 1
   br i1 %cmp21, label %if.end27, label %if.end41
 
 if.end27:                                         ; preds = %if.then18
   %arrayidx23 = getelementptr inbounds i8, ptr %add.ptr, i64 2
-  %12 = load i16, ptr %arrayidx23, align 2
+  %14 = load i16, ptr %arrayidx23, align 2
   %arrayidx26 = getelementptr i8, ptr %arrayidx20, i64 2
-  store i16 %12, ptr %arrayidx26, align 2
+  store i16 %14, ptr %arrayidx26, align 2
   %cmp28.not = icmp eq i32 %srcLength.addr.0, 2
   br i1 %cmp28.not, label %if.end41, label %if.end34
 
 if.end34:                                         ; preds = %if.end27
   %arrayidx30 = getelementptr inbounds i8, ptr %add.ptr, i64 4
-  %13 = load i16, ptr %arrayidx30, align 2
+  %15 = load i16, ptr %arrayidx30, align 2
   %arrayidx33 = getelementptr i8, ptr %arrayidx20, i64 4
-  store i16 %13, ptr %arrayidx33, align 2
+  store i16 %15, ptr %arrayidx33, align 2
   %cmp35 = icmp eq i32 %srcLength.addr.0, 4
   br i1 %cmp35, label %if.then36, label %if.end41
 
 if.then36:                                        ; preds = %if.end34
   %arrayidx37 = getelementptr inbounds i8, ptr %add.ptr, i64 6
-  %14 = load i16, ptr %arrayidx37, align 2
+  %16 = load i16, ptr %arrayidx37, align 2
   %arrayidx40 = getelementptr i8, ptr %arrayidx20, i64 6
-  store i16 %14, ptr %arrayidx40, align 2
+  store i16 %16, ptr %arrayidx40, align 2
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then18, %if.end27, %if.then36, %if.end34
   %cmp.i49 = icmp slt i32 %add, 1024
-  %15 = load i16, ptr %fUnion.i, align 8
+  %17 = load i16, ptr %fUnion.i, align 8
   br i1 %cmp.i49, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end41
-  %16 = and i16 %15, 31
+  %18 = and i16 %17, 31
   %len.tr.i.i = trunc i32 %add to i16
-  %17 = shl i16 %len.tr.i.i, 5
-  %conv2.i.i = or disjoint i16 %16, %17
+  %19 = shl i16 %len.tr.i.i, 5
+  %conv2.i.i = or disjoint i16 %18, %19
   store i16 %conv2.i.i, ptr %fUnion.i, align 8
   br label %return
 
 if.else.i:                                        ; preds = %if.end41
-  %or.i = or i16 %15, -32
+  %or.i = or i16 %17, -32
   store i16 %or.i, ptr %fUnion.i, align 8
   store i32 %add, ptr %fLength.i, align 4
   br label %return
 
-if.else:                                          ; preds = %land.lhs.true, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit, %if.end10
+if.else:                                          ; preds = %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit, %if.end10
   %call43 = call signext i8 @uprv_add32_overflow_75(i32 noundef %cond.i, i32 noundef %srcLength.addr.0, ptr noundef nonnull %newLength)
   %tobool44.not = icmp eq i8 %call43, 0
-  %18 = load i16, ptr %fUnion.i, align 8
+  %20 = load i16, ptr %fUnion.i, align 8
   br i1 %tobool44.not, label %if.end46, label %if.then45
 
 if.then45:                                        ; preds = %if.else
-  %19 = and i16 %18, 4
-  %tobool.not.i.i = icmp eq i16 %19, 0
+  %21 = and i16 %20, 4
+  %tobool.not.i.i = icmp eq i16 %21, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then45
   %fArray.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %fArray.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 -4
-  %21 = atomicrmw sub ptr %add.ptr.i.i.i, i32 1 seq_cst, align 4
-  %cmp.i.i53 = icmp eq i32 %21, 1
+  %22 = load ptr, ptr %fArray.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 -4
+  %23 = atomicrmw sub ptr %add.ptr.i.i.i, i32 1 seq_cst, align 4
+  %cmp.i.i53 = icmp eq i32 %23, 1
   br i1 %cmp.i.i53, label %if.then.i.i, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %22 = load ptr, ptr %fArray.i.i.i, align 8
-  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %22, i64 -4
+  %24 = load ptr, ptr %fArray.i.i.i, align 8
+  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %24, i64 -4
   call void @uprv_free_75(ptr noundef nonnull %add.ptr.i.i56)
   br label %_ZN6icu_7513UnicodeString10setToBogusEv.exit
 
@@ -822,159 +819,158 @@ _ZN6icu_7513UnicodeString10setToBogusEv.exit:     ; preds = %if.then45, %land.lh
   br label %return
 
 if.end46:                                         ; preds = %if.else
-  %23 = and i16 %18, 2
-  %tobool.not.i58 = icmp eq i16 %23, 0
+  %25 = and i16 %20, 2
+  %tobool.not.i58 = icmp eq i16 %25, 0
   %fBuffer.i59 = getelementptr inbounds i8, ptr %this, i64 10
   %fArray.i60 = getelementptr inbounds i8, ptr %this, i64 24
-  %24 = load ptr, ptr %fArray.i60, align 8
-  %cond.i61 = select i1 %tobool.not.i58, ptr %24, ptr %fBuffer.i59
-  %conv1.i63 = zext i16 %18 to i32
-  %and.i64 = and i32 %conv1.i63, 25
-  %tobool.not.i65 = icmp eq i32 %and.i64, 0
-  br i1 %tobool.not.i65, label %land.rhs.i67, label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74.thread
+  %26 = load ptr, ptr %fArray.i60, align 8
+  %cond.i61 = select i1 %tobool.not.i58, ptr %26, ptr %fBuffer.i59
+  %27 = and i16 %20, 25
+  %tobool.not.i63 = icmp eq i16 %27, 0
+  br i1 %tobool.not.i63, label %land.rhs.i65, label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71.thread
 
-_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74.thread: ; preds = %if.end46
-  %idx.ext55127 = sext i32 %cond.i to i64
+_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71.thread: ; preds = %if.end46
+  %idx.ext55125 = sext i32 %cond.i to i64
   br label %if.end68
 
-land.rhs.i67:                                     ; preds = %if.end46
-  %and5.i68 = and i32 %conv1.i63, 4
-  %tobool6.not.i69 = icmp eq i32 %and5.i68, 0
-  br i1 %tobool6.not.i69, label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74, label %lor.rhs.i70
+land.rhs.i65:                                     ; preds = %if.end46
+  %28 = and i16 %20, 4
+  %tobool6.not.i66 = icmp eq i16 %28, 0
+  br i1 %tobool6.not.i66, label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71, label %lor.rhs.i67
 
-lor.rhs.i70:                                      ; preds = %land.rhs.i67
-  %add.ptr.i.i72 = getelementptr inbounds i8, ptr %24, i64 -4
-  %25 = load atomic i32, ptr %add.ptr.i.i72 acquire, align 4
-  %cmp.i73 = icmp eq i32 %25, 1
-  br label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74
+lor.rhs.i67:                                      ; preds = %land.rhs.i65
+  %add.ptr.i.i69 = getelementptr inbounds i8, ptr %26, i64 -4
+  %29 = load atomic i32, ptr %add.ptr.i.i69 acquire, align 4
+  %cmp.i70 = icmp eq i32 %29, 1
+  br label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71
 
-_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74: ; preds = %land.rhs.i67, %lor.rhs.i70
-  %conv7.i66 = phi i1 [ true, %land.rhs.i67 ], [ %cmp.i73, %lor.rhs.i70 ]
+_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71: ; preds = %land.rhs.i65, %lor.rhs.i67
+  %conv7.i64 = phi i1 [ true, %land.rhs.i65 ], [ %cmp.i70, %lor.rhs.i67 ]
   %idx.ext51 = sext i32 %srcLength.addr.0 to i64
   %add.ptr52 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext51
   %cmp53 = icmp ult ptr %cond.i61, %add.ptr52
-  %or.cond39 = select i1 %conv7.i66, i1 %cmp53, i1 false
+  %or.cond39 = select i1 %conv7.i64, i1 %cmp53, i1 false
   %idx.ext55 = sext i32 %cond.i to i64
   %add.ptr56 = getelementptr inbounds i16, ptr %cond.i61, i64 %idx.ext55
   %cmp57 = icmp ult ptr %add.ptr, %add.ptr56
   %or.cond40 = select i1 %or.cond39, i1 %cmp57, i1 false
   br i1 %or.cond40, label %if.then58, label %if.end68
 
-if.then58:                                        ; preds = %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74
+if.then58:                                        ; preds = %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71
   call void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %copy, ptr noundef %add.ptr, i32 noundef %srcLength.addr.0)
-  %fUnion.i75 = getelementptr inbounds i8, ptr %copy, i64 8
-  %26 = load i16, ptr %fUnion.i75, align 8
-  %conv2.i76116 = and i16 %26, 1
-  %tobool60.not = icmp eq i16 %conv2.i76116, 0
+  %fUnion.i72 = getelementptr inbounds i8, ptr %copy, i64 8
+  %30 = load i16, ptr %fUnion.i72, align 8
+  %conv2.i73114 = and i16 %30, 1
+  %tobool60.not = icmp eq i16 %conv2.i73114, 0
   br i1 %tobool60.not, label %if.end63, label %if.then61
 
 if.then61:                                        ; preds = %if.then58
-  %27 = load i16, ptr %fUnion.i, align 8
-  %28 = and i16 %27, 4
-  %tobool.not.i.i78 = icmp eq i16 %28, 0
-  br i1 %tobool.not.i.i78, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit87, label %land.lhs.true.i.i79
+  %31 = load i16, ptr %fUnion.i, align 8
+  %32 = and i16 %31, 4
+  %tobool.not.i.i75 = icmp eq i16 %32, 0
+  br i1 %tobool.not.i.i75, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit84, label %land.lhs.true.i.i76
 
-land.lhs.true.i.i79:                              ; preds = %if.then61
-  %29 = load ptr, ptr %fArray.i60, align 8
-  %add.ptr.i.i.i81 = getelementptr inbounds i8, ptr %29, i64 -4
-  %30 = atomicrmw sub ptr %add.ptr.i.i.i81, i32 1 seq_cst, align 4
-  %cmp.i.i82 = icmp eq i32 %30, 1
-  br i1 %cmp.i.i82, label %if.then.i.i85, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit87
+land.lhs.true.i.i76:                              ; preds = %if.then61
+  %33 = load ptr, ptr %fArray.i60, align 8
+  %add.ptr.i.i.i78 = getelementptr inbounds i8, ptr %33, i64 -4
+  %34 = atomicrmw sub ptr %add.ptr.i.i.i78, i32 1 seq_cst, align 4
+  %cmp.i.i79 = icmp eq i32 %34, 1
+  br i1 %cmp.i.i79, label %if.then.i.i82, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit84
 
-if.then.i.i85:                                    ; preds = %land.lhs.true.i.i79
-  %31 = load ptr, ptr %fArray.i60, align 8
-  %add.ptr.i.i86 = getelementptr inbounds i8, ptr %31, i64 -4
-  invoke void @uprv_free_75(ptr noundef nonnull %add.ptr.i.i86)
-          to label %_ZN6icu_7513UnicodeString10setToBogusEv.exit87 unwind label %lpad
+if.then.i.i82:                                    ; preds = %land.lhs.true.i.i76
+  %35 = load ptr, ptr %fArray.i60, align 8
+  %add.ptr.i.i83 = getelementptr inbounds i8, ptr %35, i64 -4
+  invoke void @uprv_free_75(ptr noundef nonnull %add.ptr.i.i83)
+          to label %_ZN6icu_7513UnicodeString10setToBogusEv.exit84 unwind label %lpad
 
-_ZN6icu_7513UnicodeString10setToBogusEv.exit87:   ; preds = %if.then.i.i85, %if.then61, %land.lhs.true.i.i79
+_ZN6icu_7513UnicodeString10setToBogusEv.exit84:   ; preds = %if.then.i.i82, %if.then61, %land.lhs.true.i.i76
   store i16 1, ptr %fUnion.i, align 8
   store ptr null, ptr %fArray.i60, align 8
   store i32 0, ptr %fCapacity.i, align 8
   br label %cleanup
 
-lpad:                                             ; preds = %if.then.i.i85, %if.end63
-  %32 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %if.then.i.i82, %if.end63
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %copy) #24
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %36
 
 if.end63:                                         ; preds = %if.then58
-  %33 = and i16 %26, 2
-  %tobool.not.i89 = icmp eq i16 %33, 0
-  %fBuffer.i90 = getelementptr inbounds i8, ptr %copy, i64 10
-  %fArray.i91 = getelementptr inbounds i8, ptr %copy, i64 24
-  %34 = load ptr, ptr %fArray.i91, align 8
-  %cond.i92 = select i1 %tobool.not.i89, ptr %34, ptr %fBuffer.i90
-  %call67 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %cond.i92, i32 noundef 0, i32 noundef %srcLength.addr.0)
+  %37 = and i16 %30, 2
+  %tobool.not.i86 = icmp eq i16 %37, 0
+  %fBuffer.i87 = getelementptr inbounds i8, ptr %copy, i64 10
+  %fArray.i88 = getelementptr inbounds i8, ptr %copy, i64 24
+  %38 = load ptr, ptr %fArray.i88, align 8
+  %cond.i89 = select i1 %tobool.not.i86, ptr %38, ptr %fBuffer.i87
+  %call67 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %cond.i89, i32 noundef 0, i32 noundef %srcLength.addr.0)
           to label %cleanup unwind label %lpad
 
-cleanup:                                          ; preds = %_ZN6icu_7513UnicodeString10setToBogusEv.exit87, %if.end63
-  %retval.1 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit87 ], [ %call67, %if.end63 ]
+cleanup:                                          ; preds = %_ZN6icu_7513UnicodeString10setToBogusEv.exit84, %if.end63
+  %retval.1 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit84 ], [ %call67, %if.end63 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %copy) #24
   br label %return
 
-if.end68:                                         ; preds = %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74.thread, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74
-  %idx.ext55131 = phi i64 [ %idx.ext55127, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74.thread ], [ %idx.ext55, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit74 ]
-  %35 = load i32, ptr %newLength, align 4
-  %shr.i = ashr i32 %35, 2
+if.end68:                                         ; preds = %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71.thread, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71
+  %idx.ext55129 = phi i64 [ %idx.ext55125, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71.thread ], [ %idx.ext55, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit71 ]
+  %39 = load i32, ptr %newLength, align 4
+  %shr.i = ashr i32 %39, 2
   %add.i = add nsw i32 %shr.i, 128
-  %sub.i = sub nsw i32 2147483637, %35
+  %sub.i = sub nsw i32 2147483637, %39
   %cmp.not.i = icmp sgt i32 %add.i, %sub.i
-  %add1.i = add nsw i32 %add.i, %35
+  %add1.i = add nsw i32 %add.i, %39
   %retval.0.i = select i1 %cmp.not.i, i32 2147483637, i32 %add1.i
-  %call70 = call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %35, i32 noundef %retval.0.i, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
+  %call70 = call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %39, i32 noundef %retval.0.i, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0)
   %tobool71.not = icmp eq i8 %call70, 0
   br i1 %tobool71.not, label %return, label %if.end68.if.end74_crit_edge
 
 if.end68.if.end74_crit_edge:                      ; preds = %if.end68
-  %.pre117 = load i16, ptr %fUnion.i, align 8
+  %.pre115 = load i16, ptr %fUnion.i, align 8
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then16.if.end74_crit_edge, %if.end68.if.end74_crit_edge
-  %idx.ext76.pre-phi = phi i64 [ %.pre121, %if.then16.if.end74_crit_edge ], [ %idx.ext55131, %if.end68.if.end74_crit_edge ]
-  %36 = phi i16 [ %.pre118, %if.then16.if.end74_crit_edge ], [ %.pre117, %if.end68.if.end74_crit_edge ]
-  %37 = and i16 %36, 2
-  %tobool.not.i94 = icmp eq i16 %37, 0
-  %fBuffer.i95 = getelementptr inbounds i8, ptr %this, i64 10
-  %fArray.i96 = getelementptr inbounds i8, ptr %this, i64 24
-  %38 = load ptr, ptr %fArray.i96, align 8
-  %cond.i97 = select i1 %tobool.not.i94, ptr %38, ptr %fBuffer.i95
-  %add.ptr77 = getelementptr inbounds i16, ptr %cond.i97, i64 %idx.ext76.pre-phi
+  %idx.ext76.pre-phi = phi i64 [ %.pre119, %if.then16.if.end74_crit_edge ], [ %idx.ext55129, %if.end68.if.end74_crit_edge ]
+  %40 = phi i16 [ %.pre116, %if.then16.if.end74_crit_edge ], [ %.pre115, %if.end68.if.end74_crit_edge ]
+  %41 = and i16 %40, 2
+  %tobool.not.i91 = icmp eq i16 %41, 0
+  %fBuffer.i92 = getelementptr inbounds i8, ptr %this, i64 10
+  %fArray.i93 = getelementptr inbounds i8, ptr %this, i64 24
+  %42 = load ptr, ptr %fArray.i93, align 8
+  %cond.i94 = select i1 %tobool.not.i91, ptr %42, ptr %fBuffer.i92
+  %add.ptr77 = getelementptr inbounds i16, ptr %cond.i94, i64 %idx.ext76.pre-phi
   %cmp78.not = icmp ne ptr %add.ptr, %add.ptr77
-  %cmp.i98 = icmp sgt i32 %srcLength.addr.0, 0
-  %or.cond115 = and i1 %cmp.i98, %cmp78.not
-  br i1 %or.cond115, label %do.body.i, label %if.end80
+  %cmp.i95 = icmp sgt i32 %srcLength.addr.0, 0
+  %or.cond113 = and i1 %cmp.i95, %cmp78.not
+  br i1 %or.cond113, label %do.body.i, label %if.end80
 
 do.body.i:                                        ; preds = %if.end74
-  %39 = shl nuw i32 %srcLength.addr.0, 1
-  %mul.i = zext i32 %39 to i64
+  %43 = shl nuw i32 %srcLength.addr.0, 1
+  %mul.i = zext i32 %43 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr77, ptr readonly align 2 %add.ptr, i64 %mul.i, i1 false)
-  %.pre119 = load i16, ptr %fUnion.i, align 8
+  %.pre117 = load i16, ptr %fUnion.i, align 8
   br label %if.end80
 
 if.end80:                                         ; preds = %do.body.i, %if.end74
-  %40 = phi i16 [ %.pre119, %do.body.i ], [ %36, %if.end74 ]
-  %41 = load i32, ptr %newLength, align 4
-  %cmp.i99 = icmp slt i32 %41, 1024
-  br i1 %cmp.i99, label %if.then.i104, label %if.else.i101
+  %44 = phi i16 [ %.pre117, %do.body.i ], [ %40, %if.end74 ]
+  %45 = load i32, ptr %newLength, align 4
+  %cmp.i96 = icmp slt i32 %45, 1024
+  br i1 %cmp.i96, label %if.then.i101, label %if.else.i98
 
-if.then.i104:                                     ; preds = %if.end80
-  %42 = and i16 %40, 31
-  %len.tr.i.i105 = trunc i32 %41 to i16
-  %43 = shl i16 %len.tr.i.i105, 5
-  %conv2.i.i106 = or disjoint i16 %42, %43
-  store i16 %conv2.i.i106, ptr %fUnion.i, align 8
+if.then.i101:                                     ; preds = %if.end80
+  %46 = and i16 %44, 31
+  %len.tr.i.i102 = trunc i32 %45 to i16
+  %47 = shl i16 %len.tr.i.i102, 5
+  %conv2.i.i103 = or disjoint i16 %46, %47
+  store i16 %conv2.i.i103, ptr %fUnion.i, align 8
   br label %return
 
-if.else.i101:                                     ; preds = %if.end80
-  %or.i102 = or i16 %40, -32
-  store i16 %or.i102, ptr %fUnion.i, align 8
-  store i32 %41, ptr %fLength.i, align 4
+if.else.i98:                                      ; preds = %if.end80
+  %or.i99 = or i16 %44, -32
+  store i16 %or.i99, ptr %fUnion.i, align 8
+  store i32 %45, ptr %fLength.i, align 4
   br label %return
 
-return:                                           ; preds = %if.else.i101, %if.then.i104, %if.else.i, %if.then.i, %if.end68, %if.then5, %entry, %cleanup, %_ZN6icu_7513UnicodeString10setToBogusEv.exit
-  %retval.0 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit ], [ %retval.1, %cleanup ], [ %this, %entry ], [ %this, %if.then5 ], [ %this, %if.end68 ], [ %this, %if.then.i ], [ %this, %if.else.i ], [ %this, %if.then.i104 ], [ %this, %if.else.i101 ]
+return:                                           ; preds = %if.else.i98, %if.then.i101, %if.else.i, %if.then.i, %if.end68, %if.then5, %entry, %cleanup, %_ZN6icu_7513UnicodeString10setToBogusEv.exit
+  %retval.0 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit ], [ %retval.1, %cleanup ], [ %this, %entry ], [ %this, %if.then5 ], [ %this, %if.end68 ], [ %this, %if.then.i ], [ %this, %if.else.i ], [ %this, %if.then.i101 ], [ %this, %if.else.i98 ]
   ret ptr %retval.0
 }
 
@@ -1331,25 +1327,22 @@ entry:
 
 if.end4:                                          ; preds = %entry
   %tobool5.not = icmp eq i8 %forceClone, 0
-  br i1 %tobool5.not, label %lor.lhs.false, label %if.then18
+  %4 = and i16 %0, 8
+  %tobool6.not = icmp eq i16 %4, 0
+  %or.cond = and i1 %tobool5.not, %tobool6.not
+  br i1 %or.cond, label %lor.lhs.false7, label %if.then18
 
-lor.lhs.false:                                    ; preds = %if.end4
-  %conv101 = zext i16 %0 to i32
-  %and = and i32 %conv101, 8
-  %tobool6.not = icmp eq i32 %and, 0
-  br i1 %tobool6.not, label %lor.lhs.false7, label %if.then18
-
-lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %and11 = and i32 %conv101, 4
-  %tobool12.not = icmp eq i32 %and11, 0
+lor.lhs.false7:                                   ; preds = %if.end4
+  %5 = and i16 %0, 4
+  %tobool12.not = icmp eq i16 %5, 0
   br i1 %tobool12.not, label %lor.lhs.false15, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false7
   %fArray.i = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load ptr, ptr %fArray.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 -4
-  %5 = load atomic i32, ptr %add.ptr.i acquire, align 4
-  %cmp14 = icmp sgt i32 %5, 1
+  %6 = load ptr, ptr %fArray.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 -4
+  %7 = load atomic i32, ptr %add.ptr.i acquire, align 4
+  %cmp14 = icmp sgt i32 %7, 1
   br i1 %cmp14, label %if.then18, label %land.lhs.true.lor.lhs.false15_crit_edge
 
 land.lhs.true.lor.lhs.false15_crit_edge:          ; preds = %land.lhs.true
@@ -1357,37 +1350,36 @@ land.lhs.true.lor.lhs.false15_crit_edge:          ; preds = %land.lhs.true
   br label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %land.lhs.true.lor.lhs.false15_crit_edge, %lor.lhs.false7
-  %6 = phi i16 [ %.pre99, %land.lhs.true.lor.lhs.false15_crit_edge ], [ %0, %lor.lhs.false7 ]
-  %7 = and i16 %6, 2
-  %tobool.not.i29 = icmp eq i16 %7, 0
+  %8 = phi i16 [ %.pre99, %land.lhs.true.lor.lhs.false15_crit_edge ], [ %0, %lor.lhs.false7 ]
+  %9 = and i16 %8, 2
+  %tobool.not.i29 = icmp eq i16 %9, 0
   %fCapacity.i30 = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load i32, ptr %fCapacity.i30, align 8
-  %cond.i31 = select i1 %tobool.not.i29, i32 %8, i32 27
+  %10 = load i32, ptr %fCapacity.i30, align 8
+  %cond.i31 = select i1 %tobool.not.i29, i32 %10, i32 27
   %cmp17 = icmp sgt i32 %newCapacity.addr.0, %cond.i31
   br i1 %cmp17, label %if.then18, label %return
 
-if.then18:                                        ; preds = %lor.lhs.false15, %land.lhs.true, %lor.lhs.false, %if.end4
+if.then18:                                        ; preds = %lor.lhs.false15, %land.lhs.true, %if.end4
   %cmp19 = icmp slt i32 %growCapacity, 0
   br i1 %cmp19, label %if.end26, label %if.else
 
 if.else:                                          ; preds = %if.then18
   %cmp21 = icmp slt i32 %newCapacity.addr.0, 28
-  %9 = tail call i32 @llvm.umin.i32(i32 %growCapacity, i32 27)
-  %spec.store.select = select i1 %cmp21, i32 %9, i32 %growCapacity
+  %11 = tail call i32 @llvm.umin.i32(i32 %growCapacity, i32 27)
+  %spec.store.select = select i1 %cmp21, i32 %11, i32 %growCapacity
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then18, %if.else
   %growCapacity.addr.0 = phi i32 [ %spec.store.select, %if.else ], [ %newCapacity.addr.0, %if.then18 ]
-  %10 = load i16, ptr %fUnion.i26, align 8
-  %cmp.i.i = icmp slt i16 %10, 0
-  %11 = ashr i16 %10, 5
-  %shr.i.i = sext i16 %11 to i32
+  %12 = load i16, ptr %fUnion.i26, align 8
+  %cmp.i.i = icmp slt i16 %12, 0
+  %13 = ashr i16 %12, 5
+  %shr.i.i = sext i16 %13 to i32
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 12
-  %12 = load i32, ptr %fLength.i, align 4
-  %cond.i32 = select i1 %cmp.i.i, i32 %12, i32 %shr.i.i
-  %conv30102 = zext i16 %10 to i32
-  %and31 = and i32 %conv30102, 2
-  %tobool32.not = icmp eq i32 %and31, 0
+  %14 = load i32, ptr %fLength.i, align 4
+  %cond.i32 = select i1 %cmp.i.i, i32 %14, i32 %shr.i.i
+  %15 = and i16 %12, 2
+  %tobool32.not = icmp eq i16 %15, 0
   br i1 %tobool32.not, label %if.else43, label %if.then33
 
 if.then33:                                        ; preds = %if.end26
@@ -1402,18 +1394,18 @@ if.then37:                                        ; preds = %if.then33
 
 do.body.i:                                        ; preds = %if.then37
   %fBuffer = getelementptr inbounds i8, ptr %this, i64 10
-  %13 = shl nuw i32 %cond.i32, 1
-  %mul.i = zext i32 %13 to i64
+  %16 = shl nuw i32 %cond.i32, 1
+  %mul.i = zext i32 %16 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %oldStackBuffer, ptr nonnull readonly align 2 %fBuffer, i64 %mul.i, i1 false)
   br label %if.end.i
 
 if.else43:                                        ; preds = %if.end26
   %fArray = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %fArray, align 8
+  %17 = load ptr, ptr %fArray, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then33, %if.else43
-  %oldArray.0 = phi ptr [ %14, %if.else43 ], [ null, %if.then33 ]
+  %oldArray.0 = phi ptr [ %17, %if.else43 ], [ null, %if.then33 ]
   %cmp.i34 = icmp slt i32 %growCapacity.addr.0, 28
   br i1 %cmp.i34, label %if.then53, label %if.end.i
 
@@ -1424,8 +1416,8 @@ if.end.i:                                         ; preds = %if.then37, %do.body
 
 if.then3.i:                                       ; preds = %if.end.i
   %inc.i = shl nuw i32 %growCapacity.addr.0, 1
-  %15 = zext i32 %inc.i to i64
-  %add4.i = add nuw nsw i64 %15, 21
+  %18 = zext i32 %inc.i to i64
+  %add4.i = add nuw nsw i64 %18, 21
   %and.i = and i64 %add4.i, 8589934576
   %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %and.i) #26
   %cmp5.not.i = icmp eq ptr %call.i, null
@@ -1462,8 +1454,8 @@ if.end.i39:                                       ; preds = %land.lhs.true50
 
 if.then3.i46:                                     ; preds = %if.end.i39
   %inc.i47 = shl nuw i32 %newCapacity.addr.0, 1
-  %16 = zext i32 %inc.i47 to i64
-  %add4.i48 = add nuw nsw i64 %16, 21
+  %19 = zext i32 %inc.i47 to i64
+  %add4.i48 = add nuw nsw i64 %19, 21
   %and.i49 = and i64 %add4.i48, 8589934576
   %call.i50 = tail call noalias ptr @uprv_malloc_75(i64 noundef %and.i49) #26
   %cmp5.not.i51 = icmp eq ptr %call.i50, null
@@ -1492,11 +1484,11 @@ if.then53:                                        ; preds = %land.lhs.true50, %i
   br i1 %tobool54.not, label %if.else64, label %if.then55
 
 if.then55:                                        ; preds = %if.then53
-  %17 = and i16 %.sink, 2
-  %tobool.not.i64 = icmp eq i16 %17, 0
+  %20 = and i16 %.sink, 2
+  %tobool.not.i64 = icmp eq i16 %20, 0
   %fCapacity.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i32, ptr %fCapacity.i65, align 8
-  %cond.i66 = select i1 %tobool.not.i64, i32 %18, i32 27
+  %21 = load i32, ptr %fCapacity.i65, align 8
+  %cond.i66 = select i1 %tobool.not.i64, i32 %21, i32 27
   %spec.select = tail call i32 @llvm.smin.i32(i32 %cond.i66, i32 %cond.i32)
   %cmp60.not = icmp eq ptr %oldArray.09095, null
   br i1 %cmp60.not, label %if.end63, label %if.then61
@@ -1507,31 +1499,31 @@ if.then61:                                        ; preds = %if.then55
 
 do.body.i73:                                      ; preds = %if.then61
   %fArray.i69 = getelementptr inbounds i8, ptr %this, i64 24
-  %19 = load ptr, ptr %fArray.i69, align 8
+  %22 = load ptr, ptr %fArray.i69, align 8
   %fBuffer.i = getelementptr inbounds i8, ptr %this, i64 10
-  %cond.i70 = select i1 %tobool.not.i64, ptr %19, ptr %fBuffer.i
-  %20 = shl nuw i32 %spec.select, 1
-  %mul.i75 = zext i32 %20 to i64
+  %cond.i70 = select i1 %tobool.not.i64, ptr %22, ptr %fBuffer.i
+  %23 = shl nuw i32 %spec.select, 1
+  %mul.i75 = zext i32 %23 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i70, ptr nonnull readonly align 2 %oldArray.09095, i64 %mul.i75, i1 false)
   %.pre100 = load i16, ptr %fUnion.i26, align 8
   br label %if.end63
 
 if.end63:                                         ; preds = %do.body.i73, %if.then55
-  %21 = phi i16 [ %.pre100, %do.body.i73 ], [ %.sink, %if.then55 ]
+  %24 = phi i16 [ %.pre100, %do.body.i73 ], [ %.sink, %if.then55 ]
   %cmp.i77 = icmp slt i32 %spec.select, 1024
   br i1 %cmp.i77, label %if.then.i81, label %if.else.i
 
 if.then.i81:                                      ; preds = %if.then61, %if.end63
-  %22 = phi i16 [ %21, %if.end63 ], [ %.sink, %if.then61 ]
-  %23 = and i16 %22, 31
+  %25 = phi i16 [ %24, %if.end63 ], [ %.sink, %if.then61 ]
+  %26 = and i16 %25, 31
   %len.tr.i.i = trunc i32 %spec.select to i16
-  %24 = shl i16 %len.tr.i.i, 5
-  %conv2.i.i = or disjoint i16 %23, %24
+  %27 = shl i16 %len.tr.i.i, 5
+  %conv2.i.i = or disjoint i16 %26, %27
   store i16 %conv2.i.i, ptr %fUnion.i26, align 8
   br label %if.end65
 
 if.else.i:                                        ; preds = %if.end63
-  %or.i = or i16 %21, -32
+  %or.i = or i16 %24, -32
   store i16 %or.i, ptr %fUnion.i26, align 8
   store i32 %spec.select, ptr %fLength.i, align 4
   br label %if.end65
@@ -1541,14 +1533,14 @@ if.else64:                                        ; preds = %if.then53
   br label %if.end65
 
 if.end65:                                         ; preds = %if.else.i, %if.then.i81, %if.else64
-  %and67 = and i32 %conv30102, 4
-  %tobool68.not = icmp eq i32 %and67, 0
+  %28 = and i16 %12, 4
+  %tobool68.not = icmp eq i16 %28, 0
   br i1 %tobool68.not, label %return, label %if.then69
 
 if.then69:                                        ; preds = %if.end65
   %add.ptr = getelementptr inbounds i8, ptr %oldArray.09095, i64 -4
-  %25 = atomicrmw sub ptr %add.ptr, i32 1 seq_cst, align 4
-  %cmp71 = icmp eq i32 %25, 1
+  %29 = atomicrmw sub ptr %add.ptr, i32 1 seq_cst, align 4
+  %cmp71 = icmp eq i32 %29, 1
   br i1 %cmp71, label %if.then72, label %return
 
 if.then72:                                        ; preds = %if.then69
@@ -1571,21 +1563,21 @@ if.then83:                                        ; preds = %if.else79
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then83, %if.else79
-  %26 = phi ptr [ %oldArray.091, %if.then83 ], [ null, %if.else79 ]
-  store i16 %10, ptr %fUnion.i26, align 8
-  %27 = and i16 %10, 4
-  %tobool.not.i.i = icmp eq i16 %27, 0
+  %30 = phi ptr [ %oldArray.091, %if.then83 ], [ null, %if.else79 ]
+  store i16 %12, ptr %fUnion.i26, align 8
+  %31 = and i16 %12, 4
+  %tobool.not.i.i = icmp eq i16 %31, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end86
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 -4
-  %28 = atomicrmw sub ptr %add.ptr.i.i.i, i32 1 seq_cst, align 4
-  %cmp.i.i85 = icmp eq i32 %28, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %30, i64 -4
+  %32 = atomicrmw sub ptr %add.ptr.i.i.i, i32 1 seq_cst, align 4
+  %cmp.i.i85 = icmp eq i32 %32, 1
   br i1 %cmp.i.i85, label %if.then.i.i, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %29 = load ptr, ptr %fArray17.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %29, i64 -4
+  %33 = load ptr, ptr %fArray17.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %33, i64 -4
   call void @uprv_free_75(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6icu_7513UnicodeString10setToBogusEv.exit
 
@@ -2979,14 +2971,13 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 if.end:                                           ; preds = %entry
   %4 = load i16, ptr %fUnion.i.i, align 8
-  %conv1.i = zext i16 %4 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %5 = and i16 %4, 17
+  %tobool.not.i = icmp eq i16 %5, 0
   br i1 %tobool.not.i, label %if.else.i, label %invoke.cont5
 
 if.else.i:                                        ; preds = %if.end
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %6 = and i16 %4, 2
+  %tobool6.not.i = icmp eq i16 %6, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -2995,16 +2986,16 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load ptr, ptr %fArray.i, align 8
+  %7 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.else9.i, %if.then7.i, %if.end
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %if.end ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %7, %if.else9.i ], [ null, %if.end ]
   %cmp.i.i10 = icmp slt i16 %4, 0
-  %6 = ashr i16 %4, 5
-  %shr.i.i11 = sext i16 %6 to i32
-  %7 = load i32, ptr %fLength.i, align 4
-  %cond.i13 = select i1 %cmp.i.i10, i32 %7, i32 %shr.i.i11
+  %8 = ashr i16 %4, 5
+  %shr.i.i11 = sext i16 %8 to i32
+  %9 = load i32, ptr %fLength.i, align 4
+  %cond.i13 = select i1 %cmp.i.i10, i32 %9, i32 %shr.i.i11
   store i32 0, ptr %i, align 4
   %cmp27 = icmp eq i32 %cond.i13, 0
   br i1 %cmp27, label %if.then7, label %if.end10.lr.ph
@@ -3020,28 +3011,28 @@ if.then7:                                         ; preds = %if.end26, %invoke.c
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end26
-  %8 = phi i32 [ 0, %if.end10.lr.ph ], [ %19, %if.end26 ]
+  %10 = phi i32 [ 0, %if.end10.lr.ph ], [ %21, %if.end26 ]
   %prev.028 = phi i32 [ 0, %if.end10.lr.ph ], [ %prev.1, %if.end26 ]
-  %inc = add nsw i32 %8, 1
+  %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
+  %idxprom = sext i32 %10 to i64
   %arrayidx = getelementptr inbounds i16, ptr %retval.0.i, i64 %idxprom
-  %9 = load i16, ptr %arrayidx, align 2
-  %cmp11 = icmp eq i16 %9, 92
+  %11 = load i16, ptr %arrayidx, align 2
+  %cmp11 = icmp eq i16 %11, 92
   br i1 %cmp11, label %if.then12, label %if.end26
 
 if.then12:                                        ; preds = %if.end10
-  %sub14 = sub nsw i32 %8, %prev.028
+  %sub14 = sub nsw i32 %10, %prev.028
   %call.i15 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull %retval.0.i, i32 noundef %prev.028, i32 noundef %sub14)
           to label %invoke.cont15 unwind label %lpad.loopexit
 
 invoke.cont15:                                    ; preds = %if.then12
-  %10 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i.i = icmp slt i16 %10, 0
-  %11 = ashr i16 %10, 5
-  %shr.i.i.i = sext i16 %11 to i32
-  %12 = load i32, ptr %fLength.i, align 4
-  %cond.i.i = select i1 %cmp.i.i.i, i32 %12, i32 %shr.i.i.i
+  %12 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i.i = icmp slt i16 %12, 0
+  %13 = ashr i16 %12, 5
+  %shr.i.i.i = sext i16 %13 to i32
+  %14 = load i32, ptr %fLength.i, align 4
+  %cond.i.i = select i1 %cmp.i.i.i, i32 %14, i32 %shr.i.i.i
   %call2.i17 = invoke noundef i32 @u_unescapeAt_75(ptr noundef nonnull @_ZL20UnicodeString_charAtiPv, ptr noundef nonnull align 4 dereferenceable(4) %i, i32 noundef %cond.i.i, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %invoke.cont17 unwind label %lpad.loopexit
 
@@ -3050,11 +3041,11 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   br i1 %cmp19, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %invoke.cont17
-  %13 = load i16, ptr %fUnion.i, align 8
-  %conv2.i3.i = and i16 %13, 1
+  %15 = load i16, ptr %fUnion.i, align 8
+  %conv2.i3.i = and i16 %15, 1
   %tobool.not.i19 = icmp eq i16 %conv2.i3.i, 0
-  %14 = and i16 %13, 30
-  %storemerge.i = select i1 %tobool.not.i19, i16 %14, i16 2
+  %16 = and i16 %15, 30
+  %storemerge.i = select i1 %tobool.not.i19, i16 %16, i16 2
   store i16 %storemerge.i, ptr %fUnion.i, align 8
   br label %nrvo.skipdtor
 
@@ -3074,12 +3065,12 @@ if.else.i20:                                      ; preds = %if.end23
 
 if.then4.i:                                       ; preds = %if.else.i20
   %shr.i = lshr i32 %call2.i17, 10
-  %15 = trunc nuw i32 %shr.i to i16
-  %conv6.i = add nuw nsw i16 %15, -10304
+  %17 = trunc nuw i32 %shr.i to i16
+  %conv6.i = add nuw nsw i16 %17, -10304
   store i16 %conv6.i, ptr %buffer.i, align 2
-  %16 = trunc i32 %call2.i17 to i16
-  %17 = and i16 %16, 1023
-  %conv10.i = or disjoint i16 %17, -9216
+  %18 = trunc i32 %call2.i17 to i16
+  %19 = and i16 %18, 1023
+  %conv10.i = or disjoint i16 %19, -9216
   store i16 %conv10.i, ptr %arrayidx13.i, align 2
   br label %cond.false.i
 
@@ -3090,13 +3081,13 @@ cond.false.i:                                     ; preds = %if.then4.i, %if.the
 
 invoke.cont24:                                    ; preds = %if.else.i20, %cond.false.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i)
-  %18 = load i32, ptr %i, align 4
+  %20 = load i32, ptr %i, align 4
   br label %if.end26
 
 if.end26:                                         ; preds = %invoke.cont24, %if.end10
-  %19 = phi i32 [ %18, %invoke.cont24 ], [ %inc, %if.end10 ]
-  %prev.1 = phi i32 [ %18, %invoke.cont24 ], [ %prev.028, %if.end10 ]
-  %cmp = icmp eq i32 %19, %cond.i13
+  %21 = phi i32 [ %20, %invoke.cont24 ], [ %inc, %if.end10 ]
+  %prev.1 = phi i32 [ %20, %invoke.cont24 ], [ %prev.028, %if.end10 ]
+  %cmp = icmp eq i32 %21, %cond.i13
   br i1 %cmp, label %if.then7, label %if.end10, !llvm.loop !10
 
 nrvo.skipdtor:                                    ; preds = %if.then7, %if.then20, %entry
@@ -4118,14 +4109,13 @@ entry:
   %sub.i = sub nsw i32 %cond.i.i, %start.addr.0
   %spec.select11 = tail call i32 @llvm.smin.i32(i32 %len, i32 %sub.i)
   %len.addr.1 = select i1 %cmp5.i, i32 0, i32 %spec.select11
-  %conv1.i = zext i16 %0 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %3 = and i16 %0, 17
+  %tobool.not.i = icmp eq i16 %3, 0
   br i1 %tobool.not.i, label %if.else.i2, label %if.then
 
 if.else.i2:                                       ; preds = %entry
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %4 = and i16 %0, 2
+  %tobool6.not.i = icmp eq i16 %4, 0
   br i1 %tobool6.not.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7: ; preds = %if.else.i2
@@ -4134,8 +4124,8 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7: ; preds = %if.else.i2
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.else.i2
   %fArray.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load ptr, ptr %fArray.i, align 8
-  %cmp = icmp eq ptr %3, null
+  %5 = load ptr, ptr %fArray.i, align 8
+  %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
@@ -4144,7 +4134,7 @@ if.then:                                          ; preds = %entry, %_ZNK6icu_75
 
 if.end:                                           ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7, %if.then, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %len.addr.0 = phi i32 [ -2, %if.then ], [ %len.addr.1, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %len.addr.1, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7 ]
-  %array.0 = phi ptr [ %fBuffer, %if.then ], [ %3, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %fBuffer.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7 ]
+  %array.0 = phi ptr [ %fBuffer, %if.then ], [ %5, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %fBuffer.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7 ]
   %idx.ext = sext i32 %start.addr.0 to i64
   %add.ptr = getelementptr inbounds i16, ptr %array.0, i64 %idx.ext
   store ptr %add.ptr, ptr %agg.tmp, align 8
@@ -4152,16 +4142,16 @@ if.end:                                           ; preds = %_ZNK6icu_7513Unicod
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #24, !srcloc !14
+  %6 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #24, !srcloc !14
   ret void
 
 lpad:                                             ; preds = %if.end
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #24, !srcloc !14
-  resume { ptr, i32 } %5
+  %8 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #24, !srcloc !14
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4174,14 +4164,13 @@ entry:
   %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %fLength.i.i, align 4
   store i32 0, ptr %errorCode, align 4
-  %conv1.i = zext i16 %0 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %2 = and i16 %0, 17
+  %tobool.not.i = icmp eq i16 %2, 0
   br i1 %tobool.not.i, label %if.else.i1, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i1:                                       ; preds = %entry
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %3 = and i16 %0, 2
+  %tobool6.not.i = icmp eq i16 %3, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i1
@@ -4190,27 +4179,27 @@ if.then7.i:                                       ; preds = %if.else.i1
 
 if.else9.i:                                       ; preds = %if.else.i1
   %fArray.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %fArray.i, align 8
+  %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %2, %if.else9.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %4, %if.else9.i ], [ null, %entry ]
   %cmp5.i = icmp slt i32 %len, 0
   %cmp.i.i.i = icmp slt i16 %0, 0
-  %3 = ashr i16 %0, 5
-  %shr.i.i.i = sext i16 %3 to i32
+  %5 = ashr i16 %0, 5
+  %shr.i.i.i = sext i16 %5 to i32
   %cond.i.i = select i1 %cmp.i.i.i, i32 %1, i32 %shr.i.i.i
   %cmp.i = icmp slt i32 %start, 0
   %spec.select4 = tail call i32 @llvm.smin.i32(i32 %start, i32 %cond.i.i)
-  %4 = select i1 %cmp.i, i32 0, i32 %spec.select4
-  %sub.i = sub nsw i32 %cond.i.i, %4
+  %6 = select i1 %cmp.i, i32 0, i32 %spec.select4
+  %sub.i = sub nsw i32 %cond.i.i, %6
   %spec.select5 = tail call i32 @llvm.smin.i32(i32 %len, i32 %sub.i)
   %len.addr.0 = select i1 %cmp5.i, i32 0, i32 %spec.select5
-  %idx.ext = sext i32 %4 to i64
+  %idx.ext = sext i32 %6 to i64
   %add.ptr = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext
   %call2 = call ptr @u_strToUTF8WithSub_75(ptr noundef %target, i32 noundef %capacity, ptr noundef nonnull %length8, ptr noundef %add.ptr, i32 noundef %len.addr.0, i32 noundef 65533, ptr noundef null, ptr noundef nonnull %errorCode)
-  %5 = load i32, ptr %length8, align 4
-  ret i32 %5
+  %7 = load i32, ptr %length8, align 4
+  ret i32 %7
 }
 
 declare ptr @u_strToUTF8WithSub_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
@@ -4235,14 +4224,13 @@ if.end:                                           ; preds = %entry
   %fLength.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %fLength.i.i.i, align 4
   store i32 0, ptr %errorCode.i, align 4
-  %conv1.i.i = zext i16 %0 to i32
-  %and.i.i = and i32 %conv1.i.i, 17
-  %tobool.not.i.i = icmp eq i32 %and.i.i, 0
+  %2 = and i16 %0, 17
+  %tobool.not.i.i = icmp eq i16 %2, 0
   br i1 %tobool.not.i.i, label %if.else.i1.i, label %_ZNK6icu_7513UnicodeString6toUTF8EiiPci.exit
 
 if.else.i1.i:                                     ; preds = %if.end
-  %and5.i.i = and i32 %conv1.i.i, 2
-  %tobool6.not.i.i = icmp eq i32 %and5.i.i, 0
+  %3 = and i16 %0, 2
+  %tobool6.not.i.i = icmp eq i16 %3, 0
   br i1 %tobool6.not.i.i, label %if.else9.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.else.i1.i
@@ -4251,32 +4239,32 @@ if.then7.i.i:                                     ; preds = %if.else.i1.i
 
 if.else9.i.i:                                     ; preds = %if.else.i1.i
   %fArray.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %fArray.i.i, align 8
+  %4 = load ptr, ptr %fArray.i.i, align 8
   br label %_ZNK6icu_7513UnicodeString6toUTF8EiiPci.exit
 
 _ZNK6icu_7513UnicodeString6toUTF8EiiPci.exit:     ; preds = %if.end, %if.then7.i.i, %if.else9.i.i
-  %retval.0.i.i = phi ptr [ %fBuffer.i.i, %if.then7.i.i ], [ %2, %if.else9.i.i ], [ null, %if.end ]
+  %retval.0.i.i = phi ptr [ %fBuffer.i.i, %if.then7.i.i ], [ %4, %if.else9.i.i ], [ null, %if.end ]
   %cmp5.i.i = icmp slt i32 %len, 0
   %cmp.i.i.i.i = icmp slt i16 %0, 0
-  %3 = ashr i16 %0, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
+  %5 = ashr i16 %0, 5
+  %shr.i.i.i.i = sext i16 %5 to i32
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %1, i32 %shr.i.i.i.i
   %cmp.i.i = icmp slt i32 %start, 0
   %spec.select4.i = tail call i32 @llvm.smin.i32(i32 %start, i32 %cond.i.i.i)
-  %4 = select i1 %cmp.i.i, i32 0, i32 %spec.select4.i
-  %sub.i.i = sub nsw i32 %cond.i.i.i, %4
+  %6 = select i1 %cmp.i.i, i32 0, i32 %spec.select4.i
+  %sub.i.i = sub nsw i32 %cond.i.i.i, %6
   %spec.select5.i = tail call i32 @llvm.smin.i32(i32 %len, i32 %sub.i.i)
   %len.addr.0.i = select i1 %cmp5.i.i, i32 0, i32 %spec.select5.i
-  %idx.ext.i = sext i32 %4 to i64
+  %idx.ext.i = sext i32 %6 to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %retval.0.i.i, i64 %idx.ext.i
   %call2.i = call ptr @u_strToUTF8WithSub_75(ptr noundef %target, i32 noundef %cond, ptr noundef nonnull %length8.i, ptr noundef %add.ptr.i, i32 noundef %len.addr.0.i, i32 noundef 65533, ptr noundef null, ptr noundef nonnull %errorCode.i)
-  %5 = load i32, ptr %length8.i, align 4
+  %7 = load i32, ptr %length8.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length8.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errorCode.i)
   br label %return
 
 return:                                           ; preds = %entry, %_ZNK6icu_7513UnicodeString6toUTF8EiiPci.exit
-  %retval.0 = phi i32 [ %5, %_ZNK6icu_7513UnicodeString6toUTF8EiiPci.exit ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %7, %_ZNK6icu_7513UnicodeString6toUTF8EiiPci.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -4384,14 +4372,13 @@ if.then:                                          ; preds = %entry
   store i32 0, ptr %errorCode, align 4
   %4 = load i32, ptr %capacity, align 4
   %5 = load i16, ptr %fUnion.i.i, align 8
-  %conv1.i = zext i16 %5 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %6 = and i16 %5, 17
+  %tobool.not.i = icmp eq i16 %6, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %if.then
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %7 = and i16 %5, 2
+  %tobool6.not.i = icmp eq i16 %7, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -4400,68 +4387,67 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load ptr, ptr %fArray.i, align 8
+  %8 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.then, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %6, %if.else9.i ], [ null, %if.then ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %8, %if.else9.i ], [ null, %if.then ]
   %call5 = call ptr @u_strToUTF8WithSub_75(ptr noundef %call3, i32 noundef %4, ptr noundef nonnull %length8, ptr noundef %retval.0.i, i32 noundef %cond.i, i32 noundef 65533, ptr noundef null, ptr noundef nonnull %errorCode)
-  %7 = load i32, ptr %errorCode, align 4
-  %cmp6.not = icmp eq i32 %7, 15
+  %9 = load i32, ptr %errorCode, align 4
+  %cmp6.not = icmp eq i32 %9, 15
   br i1 %cmp6.not, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-  %8 = load i32, ptr %length8, align 4
-  %conv = sext i32 %8 to i64
+  %10 = load i32, ptr %length8, align 4
+  %conv = sext i32 %10 to i64
   %call8 = call noalias ptr @uprv_malloc_75(i64 noundef %conv) #26
   %cmp9.not = icmp eq ptr %call8, null
   br i1 %cmp9.not, label %if.end24, label %if.then10
 
 if.then10:                                        ; preds = %if.then7
   store i32 0, ptr %errorCode, align 4
-  %9 = load i32, ptr %length8, align 4
-  %10 = load i16, ptr %fUnion.i.i, align 8
-  %conv1.i13 = zext i16 %10 to i32
-  %and.i14 = and i32 %conv1.i13, 17
-  %tobool.not.i15 = icmp eq i32 %and.i14, 0
-  br i1 %tobool.not.i15, label %if.else.i17, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit24
+  %11 = load i32, ptr %length8, align 4
+  %12 = load i16, ptr %fUnion.i.i, align 8
+  %13 = and i16 %12, 17
+  %tobool.not.i13 = icmp eq i16 %13, 0
+  br i1 %tobool.not.i13, label %if.else.i15, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit21
 
-if.else.i17:                                      ; preds = %if.then10
-  %and5.i18 = and i32 %conv1.i13, 2
-  %tobool6.not.i19 = icmp eq i32 %and5.i18, 0
-  br i1 %tobool6.not.i19, label %if.else9.i22, label %if.then7.i20
+if.else.i15:                                      ; preds = %if.then10
+  %14 = and i16 %12, 2
+  %tobool6.not.i16 = icmp eq i16 %14, 0
+  br i1 %tobool6.not.i16, label %if.else9.i19, label %if.then7.i17
 
-if.then7.i20:                                     ; preds = %if.else.i17
-  %fBuffer.i21 = getelementptr inbounds i8, ptr %this, i64 10
-  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit24
+if.then7.i17:                                     ; preds = %if.else.i15
+  %fBuffer.i18 = getelementptr inbounds i8, ptr %this, i64 10
+  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit21
 
-if.else9.i22:                                     ; preds = %if.else.i17
-  %fArray.i23 = getelementptr inbounds i8, ptr %this, i64 24
-  %11 = load ptr, ptr %fArray.i23, align 8
-  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit24
+if.else9.i19:                                     ; preds = %if.else.i15
+  %fArray.i20 = getelementptr inbounds i8, ptr %this, i64 24
+  %15 = load ptr, ptr %fArray.i20, align 8
+  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit21
 
-_ZNK6icu_7513UnicodeString9getBufferEv.exit24:    ; preds = %if.then10, %if.then7.i20, %if.else9.i22
-  %retval.0.i16 = phi ptr [ %fBuffer.i21, %if.then7.i20 ], [ %11, %if.else9.i22 ], [ null, %if.then10 ]
-  %call12 = call ptr @u_strToUTF8WithSub_75(ptr noundef nonnull %call8, i32 noundef %9, ptr noundef nonnull %length8, ptr noundef %retval.0.i16, i32 noundef %cond.i, i32 noundef 65533, ptr noundef null, ptr noundef nonnull %errorCode)
+_ZNK6icu_7513UnicodeString9getBufferEv.exit21:    ; preds = %if.then10, %if.then7.i17, %if.else9.i19
+  %retval.0.i14 = phi ptr [ %fBuffer.i18, %if.then7.i17 ], [ %15, %if.else9.i19 ], [ null, %if.then10 ]
+  %call12 = call ptr @u_strToUTF8WithSub_75(ptr noundef nonnull %call8, i32 noundef %11, ptr noundef nonnull %length8, ptr noundef %retval.0.i14, i32 noundef %cond.i, i32 noundef 65533, ptr noundef null, ptr noundef nonnull %errorCode)
   %.pre = load i32, ptr %errorCode, align 4
   br label %if.end13
 
-if.end13:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit24, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-  %12 = phi i32 [ %.pre, %_ZNK6icu_7513UnicodeString9getBufferEv.exit24 ], [ %7, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
-  %utf8.0 = phi ptr [ %call8, %_ZNK6icu_7513UnicodeString9getBufferEv.exit24 ], [ %call3, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
-  %cmp.i = icmp sgt i32 %12, 0
+if.end13:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit21, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
+  %16 = phi i32 [ %.pre, %_ZNK6icu_7513UnicodeString9getBufferEv.exit21 ], [ %9, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %utf8.0 = phi ptr [ %call8, %_ZNK6icu_7513UnicodeString9getBufferEv.exit21 ], [ %call3, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %cmp.i = icmp sgt i32 %16, 0
   br i1 %cmp.i, label %if.end20, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %13 = load i32, ptr %length8, align 4
+  %17 = load i32, ptr %length8, align 4
   %vtable16 = load ptr, ptr %sink, align 8
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 16
-  %14 = load ptr, ptr %vfn17, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %utf8.0, i32 noundef %13)
+  %18 = load ptr, ptr %vfn17, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %utf8.0, i32 noundef %17)
   %vtable18 = load ptr, ptr %sink, align 8
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 32
-  %15 = load ptr, ptr %vfn19, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %sink)
+  %19 = load ptr, ptr %vfn19, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %sink)
   br i1 %cmp6.not, label %if.then22, label %if.end24
 
 if.end20:                                         ; preds = %if.end13
@@ -4487,14 +4473,13 @@ entry:
 if.then:                                          ; preds = %entry
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %1 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %2 = and i16 %1, 17
+  %tobool.not.i = icmp eq i16 %2, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %if.then
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %3 = and i16 %1, 2
+  %tobool6.not.i = icmp eq i16 %3, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -4503,24 +4488,24 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load ptr, ptr %fArray.i, align 8
+  %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.then, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %2, %if.else9.i ], [ null, %if.then ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %4, %if.else9.i ], [ null, %if.then ]
   %cmp.i.i = icmp slt i16 %1, 0
-  %3 = ashr i16 %1, 5
-  %shr.i.i = sext i16 %3 to i32
+  %5 = ashr i16 %1, 5
+  %shr.i.i = sext i16 %5 to i32
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 12
-  %4 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
+  %6 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   %call4 = call ptr @u_strToUTF32WithSub_75(ptr noundef %utf32, i32 noundef %capacity, ptr noundef nonnull %length32, ptr noundef %retval.0.i, i32 noundef %cond.i, i32 noundef 65533, ptr noundef null, ptr noundef nonnull %errorCode)
   %.pre = load i32, ptr %length32, align 4
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit, %entry
-  %5 = phi i32 [ %.pre, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ 0, %entry ]
-  ret i32 %5
+  %7 = phi i32 [ %.pre, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ 0, %entry ]
+  ret i32 %7
 }
 
 declare ptr @u_strToUTF32WithSub_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
@@ -5057,27 +5042,26 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then5, label %if.end24
 
 if.then5:                                         ; preds = %if.end
-  %conv24 = zext i16 %0 to i32
-  %and = and i32 %conv24, 8
-  %tobool6.not = icmp eq i32 %and, 0
+  %7 = and i16 %0, 8
+  %tobool6.not = icmp eq i16 %7, 0
   br i1 %tobool6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
   %idxprom = sext i32 %cond.i13 to i64
   %arrayidx = getelementptr inbounds i16, ptr %cond.i, i64 %idxprom
-  %7 = load i16, ptr %arrayidx, align 2
-  %cmp9 = icmp eq i16 %7, 0
+  %8 = load i16, ptr %arrayidx, align 2
+  %cmp9 = icmp eq i16 %8, 0
   br i1 %cmp9, label %return, label %land.lhs.true
 
 if.else:                                          ; preds = %if.then5
-  %and15 = and i32 %conv24, 4
-  %cmp16 = icmp eq i32 %and15, 0
+  %9 = and i16 %0, 4
+  %cmp16 = icmp eq i16 %9, 0
   br i1 %cmp16, label %return.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 -4
-  %8 = load atomic i32, ptr %add.ptr.i acquire, align 4
-  %cmp18 = icmp eq i32 %8, 1
+  %10 = load atomic i32, ptr %add.ptr.i acquire, align 4
+  %cmp18 = icmp eq i32 %10, 1
   br i1 %cmp18, label %return.sink.split, label %land.lhs.true
 
 if.end24:                                         ; preds = %if.end
@@ -5091,11 +5075,11 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %if.
   br i1 %tobool27.not, label %return, label %if.then28
 
 if.then28:                                        ; preds = %land.lhs.true
-  %9 = load i16, ptr %fUnion.i, align 8
-  %10 = and i16 %9, 2
-  %tobool.not.i19 = icmp eq i16 %10, 0
-  %11 = load ptr, ptr %fArray.i, align 8
-  %cond.i22 = select i1 %tobool.not.i19, ptr %11, ptr %fBuffer.i
+  %11 = load i16, ptr %fUnion.i, align 8
+  %12 = and i16 %11, 2
+  %tobool.not.i19 = icmp eq i16 %12, 0
+  %13 = load ptr, ptr %fArray.i, align 8
+  %cond.i22 = select i1 %tobool.not.i19, ptr %13, ptr %fBuffer.i
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.else, %lor.lhs.false, %if.then28
@@ -5657,20 +5641,19 @@ if.end36:                                         ; preds = %if.end31
   %fArray.i83 = getelementptr inbounds i8, ptr %this, i64 24
   %18 = load ptr, ptr %fArray.i83, align 8
   %cond.i84 = select i1 %tobool.not.i82, ptr %18, ptr %fBuffer.i
-  %conv1.i = zext i16 %12 to i32
-  %and.i = and i32 %conv1.i, 25
-  %tobool.not.i86 = icmp eq i32 %and.i, 0
+  %19 = and i16 %12, 25
+  %tobool.not.i86 = icmp eq i16 %19, 0
   br i1 %tobool.not.i86, label %land.rhs.i, label %if.end58
 
 land.rhs.i:                                       ; preds = %if.end36
-  %and5.i = and i32 %conv1.i, 4
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %20 = and i16 %12, 4
+  %tobool6.not.i = icmp eq i16 %20, 0
   br i1 %tobool6.not.i, label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
   %add.ptr.i.i87 = getelementptr inbounds i8, ptr %18, i64 -4
-  %19 = load atomic i32, ptr %add.ptr.i.i87 acquire, align 4
-  %cmp.i88 = icmp eq i32 %19, 1
+  %21 = load atomic i32, ptr %add.ptr.i.i87 acquire, align 4
+  %cmp.i88 = icmp eq i32 %21, 1
   br label %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit
 
 _ZNK6icu_7513UnicodeString16isBufferWritableEv.exit: ; preds = %land.rhs.i, %lor.rhs.i
@@ -5688,27 +5671,27 @@ _ZNK6icu_7513UnicodeString16isBufferWritableEv.exit: ; preds = %land.rhs.i, %lor
 if.then48:                                        ; preds = %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit
   call void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %copy, ptr noundef %srcChars.addr.0, i32 noundef %srcLength.addr.0)
   %fUnion.i89 = getelementptr inbounds i8, ptr %copy, i64 8
-  %20 = load i16, ptr %fUnion.i89, align 8
-  %conv2.i90172 = and i16 %20, 1
+  %22 = load i16, ptr %fUnion.i89, align 8
+  %conv2.i90172 = and i16 %22, 1
   %tobool50.not = icmp eq i16 %conv2.i90172, 0
   br i1 %tobool50.not, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %if.then48
-  %21 = load i16, ptr %fUnion.i, align 8
-  %22 = and i16 %21, 4
-  %tobool.not.i.i92 = icmp eq i16 %22, 0
+  %23 = load i16, ptr %fUnion.i, align 8
+  %24 = and i16 %23, 4
+  %tobool.not.i.i92 = icmp eq i16 %24, 0
   br i1 %tobool.not.i.i92, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit101, label %land.lhs.true.i.i93
 
 land.lhs.true.i.i93:                              ; preds = %if.then51
-  %23 = load ptr, ptr %fArray.i83, align 8
-  %add.ptr.i.i.i95 = getelementptr inbounds i8, ptr %23, i64 -4
-  %24 = atomicrmw sub ptr %add.ptr.i.i.i95, i32 1 seq_cst, align 4
-  %cmp.i.i96 = icmp eq i32 %24, 1
+  %25 = load ptr, ptr %fArray.i83, align 8
+  %add.ptr.i.i.i95 = getelementptr inbounds i8, ptr %25, i64 -4
+  %26 = atomicrmw sub ptr %add.ptr.i.i.i95, i32 1 seq_cst, align 4
+  %cmp.i.i96 = icmp eq i32 %26, 1
   br i1 %cmp.i.i96, label %if.then.i.i99, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit101
 
 if.then.i.i99:                                    ; preds = %land.lhs.true.i.i93
-  %25 = load ptr, ptr %fArray.i83, align 8
-  %add.ptr.i.i100 = getelementptr inbounds i8, ptr %25, i64 -4
+  %27 = load ptr, ptr %fArray.i83, align 8
+  %add.ptr.i.i100 = getelementptr inbounds i8, ptr %27, i64 -4
   invoke void @uprv_free_75(ptr noundef nonnull %add.ptr.i.i100)
           to label %_ZN6icu_7513UnicodeString10setToBogusEv.exit101 unwind label %lpad
 
@@ -5720,18 +5703,18 @@ _ZN6icu_7513UnicodeString10setToBogusEv.exit101:  ; preds = %if.then.i.i99, %if.
   br label %cleanup
 
 lpad:                                             ; preds = %if.then.i.i99, %if.end53
-  %26 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %copy) #24
-  resume { ptr, i32 } %26
+  resume { ptr, i32 } %28
 
 if.end53:                                         ; preds = %if.then48
-  %27 = and i16 %20, 2
-  %tobool.not.i103 = icmp eq i16 %27, 0
+  %29 = and i16 %22, 2
+  %tobool.not.i103 = icmp eq i16 %29, 0
   %fBuffer.i104 = getelementptr inbounds i8, ptr %copy, i64 10
   %fArray.i105 = getelementptr inbounds i8, ptr %copy, i64 24
-  %28 = load ptr, ptr %fArray.i105, align 8
-  %cond.i106 = select i1 %tobool.not.i103, ptr %28, ptr %fBuffer.i104
+  %30 = load ptr, ptr %fArray.i105, align 8
+  %cond.i106 = select i1 %tobool.not.i103, ptr %30, ptr %fBuffer.i104
   %call57 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %start.addr.2, i32 noundef %length.addr.1, ptr noundef %cond.i106, i32 noundef 0, i32 noundef %srcLength.addr.0)
           to label %cleanup unwind label %lpad
 
@@ -5741,9 +5724,9 @@ cleanup:                                          ; preds = %_ZN6icu_7513Unicode
   br label %return
 
 if.end58:                                         ; preds = %if.end36, %_ZNK6icu_7513UnicodeString16isBufferWritableEv.exit
-  %29 = load i16, ptr %fUnion.i, align 8
-  %30 = and i16 %29, 2
-  %tobool63 = icmp ne i16 %30, 0
+  %31 = load i16, ptr %fUnion.i, align 8
+  %32 = and i16 %31, 2
+  %tobool63 = icmp ne i16 %32, 0
   %cmp65 = icmp sgt i32 %add, 27
   %or.cond1 = select i1 %tobool63, i1 %cmp65, i1 false
   br i1 %or.cond1, label %if.then66, label %if.end69
@@ -5766,11 +5749,11 @@ if.end69:                                         ; preds = %if.then66, %if.end5
   br i1 %tobool72.not, label %return, label %if.end74
 
 if.end74:                                         ; preds = %if.end69
-  %31 = load i16, ptr %fUnion.i, align 8
-  %32 = and i16 %31, 2
-  %tobool.not.i109 = icmp eq i16 %32, 0
-  %33 = load ptr, ptr %fArray.i83, align 8
-  %cond.i112 = select i1 %tobool.not.i109, ptr %33, ptr %fBuffer.i
+  %33 = load i16, ptr %fUnion.i, align 8
+  %34 = and i16 %33, 2
+  %tobool.not.i109 = icmp eq i16 %34, 0
+  %35 = load ptr, ptr %fArray.i83, align 8
+  %cond.i112 = select i1 %tobool.not.i109, ptr %35, ptr %fBuffer.i
   %cmp76.not = icmp eq ptr %cond.i112, %oldArray.0
   br i1 %cmp76.not, label %if.else82, label %if.then77
 
@@ -5779,8 +5762,8 @@ if.then77:                                        ; preds = %if.end74
   br i1 %cmp.i113, label %do.body.i, label %_ZL12us_arrayCopyPKDsiPDsii.exit
 
 do.body.i:                                        ; preds = %if.then77
-  %34 = shl nuw i32 %start.addr.2, 1
-  %mul.i = zext i32 %34 to i64
+  %36 = shl nuw i32 %start.addr.2, 1
+  %mul.i = zext i32 %36 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i112, ptr readonly align 2 %oldArray.0, i64 %mul.i, i1 false)
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit
 
@@ -5808,8 +5791,8 @@ if.end90.sink.split:                              ; preds = %if.then84, %_ZL12us
   %add.ptr.i121 = getelementptr inbounds i16, ptr %cond.i112, i64 %idx.ext.i120
   %idx.ext1.i122 = sext i32 %add85.sink to i64
   %add.ptr2.i123 = getelementptr inbounds i16, ptr %oldArray.0, i64 %idx.ext1.i122
-  %35 = shl nuw i32 %sub88.sink, 1
-  %mul.i124 = zext i32 %35 to i64
+  %37 = shl nuw i32 %sub88.sink, 1
+  %mul.i124 = zext i32 %37 to i64
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %add.ptr.i121, ptr noundef nonnull readonly align 2 dereferenceable(1) %add.ptr2.i123, i64 %mul.i124, i1 false)
   br label %if.end90
 
@@ -5820,37 +5803,37 @@ if.end90:                                         ; preds = %if.end90.sink.split
 do.body.i127:                                     ; preds = %if.end90
   %idx.ext.i128 = sext i32 %start.addr.2 to i64
   %add.ptr.i129 = getelementptr inbounds i16, ptr %cond.i112, i64 %idx.ext.i128
-  %36 = shl nuw i32 %srcLength.addr.0, 1
-  %mul.i131 = zext i32 %36 to i64
+  %38 = shl nuw i32 %srcLength.addr.0, 1
+  %mul.i131 = zext i32 %38 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i129, ptr readonly align 2 %srcChars.addr.0, i64 %mul.i131, i1 false)
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit132
 
 _ZL12us_arrayCopyPKDsiPDsii.exit132:              ; preds = %if.end90, %do.body.i127
   %cmp.i133 = icmp slt i32 %add, 1024
-  %37 = load i16, ptr %fUnion.i, align 8
+  %39 = load i16, ptr %fUnion.i, align 8
   br i1 %cmp.i133, label %if.then.i138, label %if.else.i135
 
 if.then.i138:                                     ; preds = %_ZL12us_arrayCopyPKDsiPDsii.exit132
-  %38 = and i16 %37, 31
+  %40 = and i16 %39, 31
   %len.tr.i.i139 = trunc i32 %add to i16
-  %39 = shl i16 %len.tr.i.i139, 5
-  %conv2.i.i140 = or disjoint i16 %38, %39
+  %41 = shl i16 %len.tr.i.i139, 5
+  %conv2.i.i140 = or disjoint i16 %40, %41
   br label %_ZN6icu_7513UnicodeString9setLengthEi.exit141
 
 if.else.i135:                                     ; preds = %_ZL12us_arrayCopyPKDsiPDsii.exit132
-  %or.i136 = or i16 %37, -32
+  %or.i136 = or i16 %39, -32
   store i32 %add, ptr %fLength.i, align 4
   br label %_ZN6icu_7513UnicodeString9setLengthEi.exit141
 
 _ZN6icu_7513UnicodeString9setLengthEi.exit141:    ; preds = %if.then.i138, %if.else.i135
   %or.i136.sink = phi i16 [ %conv2.i.i140, %if.then.i138 ], [ %or.i136, %if.else.i135 ]
   store i16 %or.i136.sink, ptr %fUnion.i, align 8
-  %40 = load ptr, ptr %bufferToDelete, align 8
-  %tobool91.not = icmp eq ptr %40, null
+  %42 = load ptr, ptr %bufferToDelete, align 8
+  %tobool91.not = icmp eq ptr %42, null
   br i1 %tobool91.not, label %return, label %if.then92
 
 if.then92:                                        ; preds = %_ZN6icu_7513UnicodeString9setLengthEi.exit141
-  call void @uprv_free_75(ptr noundef nonnull %40)
+  call void @uprv_free_75(ptr noundef nonnull %42)
   br label %return
 
 return:                                           ; preds = %if.else.i48, %if.then.i, %_ZN6icu_7513UnicodeString9setLengthEi.exit141, %if.then92, %if.end69, %entry, %cleanup, %_ZN6icu_7513UnicodeString10setToBogusEv.exit, %if.then19, %_ZN6icu_7513UnicodeString9setLengthEi.exit69

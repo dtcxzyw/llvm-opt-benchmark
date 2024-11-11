@@ -5632,11 +5632,11 @@ _ZN2cv8ximgproc15EdgeDrawingImpl3NFAEdi.exit:     ; preds = %.lr.ph.i, %._crit_e
   br label %67
 
 67:                                               ; preds = %.lr.ph86, %67
-  %indvars.iv96 = phi i64 [ %66, %.lr.ph86 ], [ %indvars.iv.next97, %67 ]
+  %indvars.iv98 = phi i64 [ %66, %.lr.ph86 ], [ %indvars.iv.next99, %67 ]
   %68 = load ptr, ptr %10, align 8
   %69 = getelementptr inbounds %"class.std::vector.17", ptr %68, i64 %11
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %"class.cv::Point_", ptr %70, i64 %indvars.iv96
+  %71 = getelementptr inbounds %"class.cv::Point_", ptr %70, i64 %indvars.iv98
   %72 = getelementptr inbounds i8, ptr %71, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = load i32, ptr %71, align 4
@@ -5647,16 +5647,16 @@ _ZN2cv8ximgproc15EdgeDrawingImpl3NFAEdi.exit:     ; preds = %.lr.ph.i, %._crit_e
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr %75, i64 %79
   store i8 -1, ptr %80, align 1
-  %indvars.iv.next97 = add nsw i64 %indvars.iv96, 1
-  %lftr.wideiv99 = trunc i64 %indvars.iv.next97 to i32
-  %exitcond100.not = icmp eq i32 %17, %lftr.wideiv99
-  br i1 %exitcond100.not, label %.loopexit, label %67, !llvm.loop !78
+  %indvars.iv.next99 = add nsw i64 %indvars.iv98, 1
+  %lftr.wideiv101 = trunc i64 %indvars.iv.next99 to i32
+  %exitcond102.not = icmp eq i32 %17, %lftr.wideiv101
+  br i1 %exitcond102.not, label %.loopexit, label %67, !llvm.loop !78
 
 81:                                               ; preds = %.preheader74, %83
   %indvars.iv90 = phi i64 [ %62, %.preheader74 ], [ %indvars.iv.next91, %83 ]
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, -1
   %82 = icmp sgt i64 %indvars.iv.next91, %63
-  br i1 %82, label %83, label %.split.loop.exit104
+  br i1 %82, label %83, label %.split.loop.exit106
 
 83:                                               ; preds = %81
   %84 = load ptr, ptr %59, align 8
@@ -5675,16 +5675,16 @@ _ZN2cv8ximgproc15EdgeDrawingImpl3NFAEdi.exit:     ; preds = %.lr.ph.i, %._crit_e
 
 .split.loop.exit:                                 ; preds = %83
   %95 = trunc nsw i64 %indvars.iv.next91 to i32
-  br label %.split.loop.exit104
+  br label %.split.loop.exit106
 
-.split.loop.exit104:                              ; preds = %81, %.split.loop.exit
+.split.loop.exit106:                              ; preds = %81, %.split.loop.exit
   %.063.lcssa = phi i32 [ %95, %.split.loop.exit ], [ %smin, %81 ]
   %96 = add i32 %.058.lcssa, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 %96)
   br label %97
 
-97:                                               ; preds = %99, %.split.loop.exit104
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %99 ], [ %62, %.split.loop.exit104 ]
+97:                                               ; preds = %99, %.split.loop.exit106
+  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %99 ], [ %62, %.split.loop.exit106 ]
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
   %98 = icmp slt i64 %indvars.iv.next94, %18
   br i1 %98, label %99, label %tailrecurse
@@ -7604,7 +7604,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit: ; preds = %50, 
   br i1 %.not91, label %34, label %.preheader, !llvm.loop !107
 
 .preheader:                                       ; preds = %75, %109
-  %.2196 = phi i32 [ %79, %109 ], [ %.080, %75 ]
+  %.2197 = phi i32 [ %79, %109 ], [ %.080, %75 ]
   %113 = phi double [ %111, %109 ], [ %36, %75 ]
   %114 = phi double [ %110, %109 ], [ %35, %75 ]
   %115 = fcmp oeq double %114, 0.000000e+00
@@ -7684,10 +7684,10 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit: ; preds =
   br label %156
 
 156:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit
-  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101 ], [ %155, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit ]
-  %157 = getelementptr inbounds double, ptr %.1156, i64 %indvars.iv189
+  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101 ], [ %155, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit ]
+  %157 = getelementptr inbounds double, ptr %.1156, i64 %indvars.iv190
   %158 = load double, ptr %157, align 8
-  %159 = getelementptr inbounds double, ptr %.171155, i64 %indvars.iv189
+  %159 = getelementptr inbounds double, ptr %.171155, i64 %indvars.iv190
   %160 = load double, ptr %159, align 8
   br i1 %31, label %161, label %167
 
@@ -7720,11 +7720,11 @@ _ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101: ; preds = %1
   %176 = tail call double @llvm.fmuladd.f64(double %173, double %173, double %175)
   %sqrt.i100 = tail call noundef double @llvm.sqrt.f64(double %176)
   %177 = fcmp ogt double %sqrt.i100, %32
-  %indvars.iv.next190 = add nsw i64 %indvars.iv189, -1
+  %indvars.iv.next191 = add nsw i64 %indvars.iv190, -1
   br i1 %177, label %156, label %178, !llvm.loop !109
 
 178:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101
-  %179 = trunc nsw i64 %indvars.iv189 to i32
+  %179 = trunc nsw i64 %indvars.iv190 to i32
   br i1 %31, label %180, label %186
 
 180:                                              ; preds = %178
@@ -7877,7 +7877,7 @@ _ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit: ; preds = %201, %_ZNSt
 
 .loopexit:                                        ; preds = %34, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit
   %229 = phi i32 [ %29, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104 ], [ %.pre, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit ], [ %29, %34 ]
-  %.181 = phi i32 [ %.2196, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104 ], [ %228, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit ], [ %.080, %34 ]
+  %.181 = phi i32 [ %.2197, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104 ], [ %228, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit ], [ %.080, %34 ]
   %230 = sub nsw i32 %.179154, %.181
   %231 = sext i32 %.181 to i64
   %232 = getelementptr inbounds double, ptr %.1156, i64 %231

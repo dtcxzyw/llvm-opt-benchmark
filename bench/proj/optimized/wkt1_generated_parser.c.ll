@@ -397,24 +397,24 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   br i1 %.not211, label %132, label %.thread248.thread
 
 .thread248.thread:                                ; preds = %33, %.thread248
-  %.4220238290 = phi ptr [ %.4220238, %.thread248 ], [ %5, %33 ]
-  %.0181240288 = phi i32 [ %.0181240, %.thread248 ], [ 1, %33 ]
-  %.4159246287 = phi ptr [ %.4159246, %.thread248 ], [ %24, %33 ]
-  call void @free(ptr noundef %.4159246287)
+  %.4220238292 = phi ptr [ %.4220238, %.thread248 ], [ %5, %33 ]
+  %.0181240290 = phi i32 [ %.0181240, %.thread248 ], [ 1, %33 ]
+  %.4159246289 = phi ptr [ %.4159246, %.thread248 ], [ %24, %33 ]
+  call void @free(ptr noundef %.4159246289)
   br label %132
 
 132:                                              ; preds = %.thread248.thread, %.thread248
-  %.4220238291 = phi ptr [ %.4220238290, %.thread248.thread ], [ %.4220238, %.thread248 ]
-  %.0181240289 = phi i32 [ %.0181240288, %.thread248.thread ], [ %.0181240, %.thread248 ]
-  %.not212 = icmp eq ptr %.4220238291, %5
+  %.4220238293 = phi ptr [ %.4220238292, %.thread248.thread ], [ %.4220238, %.thread248 ]
+  %.0181240291 = phi i32 [ %.0181240290, %.thread248.thread ], [ %.0181240, %.thread248 ]
+  %.not212 = icmp eq ptr %.4220238293, %5
   br i1 %.not212, label %134, label %133
 
 133:                                              ; preds = %132
-  call void @free(ptr noundef %.4220238291)
+  call void @free(ptr noundef %.4220238293)
   br label %134
 
 134:                                              ; preds = %133, %132
-  ret i32 %.0181240289
+  ret i32 %.0181240291
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

@@ -1576,8 +1576,8 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %11, %_ZN14ZReentran
   br label %_ZN8ZBarrier16remap_generationE8zpointer.exit.i.i.i
 
 56:                                               ; preds = %51
-  %57 = and i64 %31, 48
-  %58 = icmp eq i64 %57, 48
+  %57 = and i32 %30, 48
+  %58 = icmp eq i32 %57, 48
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56

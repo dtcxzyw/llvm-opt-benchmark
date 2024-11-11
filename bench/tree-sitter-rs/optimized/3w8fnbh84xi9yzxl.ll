@@ -2930,7 +2930,7 @@ define internal fastcc void @"_ZN21tree_sitter_highlight22HighlightIter$LT$F$GT$
 .loopexit:                                        ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h392593bb3c282ec2E.exit20", %55, %58, %"_ZN4core5tuple69_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2lt17hf882b06303ad3afeE.exit"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.not14 = icmp eq i64 %.066, 0
-  br i1 %.not14, label %.loopexit.thread, label %.loopexit.thread108
+  br i1 %.not14, label %.loopexit.thread, label %.loopexit.thread116
 
 51:                                               ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h392593bb3c282ec2E.exit20"
   %.sroa.029.0.copyload = load i64, ptr %6, align 8
@@ -2958,21 +2958,21 @@ define internal fastcc void @"_ZN21tree_sitter_highlight22HighlightIter$LT$F$GT$
 61:                                               ; preds = %55, %58, %"_ZN4core5tuple69_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2lt17hf882b06303ad3afeE.exit"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %62 = add nuw i64 %47, 1
-  %exitcond105.not = icmp eq i64 %62, %30
-  br i1 %exitcond105.not, label %.loopexit.thread108, label %46
+  %exitcond113.not = icmp eq i64 %62, %30
+  br i1 %exitcond113.not, label %.loopexit.thread116, label %46
 
-.loopexit.thread108:                              ; preds = %61, %.loopexit
+.loopexit.thread116:                              ; preds = %61, %.loopexit
   %63 = phi i64 [ %47, %.loopexit ], [ %30, %61 ]
-  %.039111 = phi i64 [ %.066, %.loopexit ], [ %47, %61 ]
-  %.not33 = icmp ult i64 %.039111, %30
+  %.039119 = phi i64 [ %.066, %.loopexit ], [ %47, %61 ]
+  %.not33 = icmp ult i64 %.039119, %30
   br i1 %.not33, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left17h13089b056feed92bE.exit", label %64
 
-64:                                               ; preds = %.loopexit.thread108
+64:                                               ; preds = %.loopexit.thread116
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %63, i64 noundef %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.acc7b537c0cd5c83cdbe6cf00ab05d05.60) #16, !noalias !390
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left17h13089b056feed92bE.exit": ; preds = %.loopexit.thread108
-  call void @_ZN4core5slice6rotate10ptr_rotate17h29ae7a7b7549c908E(i64 noundef 1, ptr noundef nonnull %13, i64 noundef %.039111)
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left17h13089b056feed92bE.exit": ; preds = %.loopexit.thread116
+  call void @_ZN4core5slice6rotate10ptr_rotate17h29ae7a7b7549c908E(i64 noundef 1, ptr noundef nonnull %13, i64 noundef %.039119)
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %32, %.loopexit, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left17h13089b056feed92bE.exit"

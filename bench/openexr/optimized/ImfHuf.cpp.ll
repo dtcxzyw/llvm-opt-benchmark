@@ -122,12 +122,12 @@ for.end.i:                                        ; preds = %for.inc.i, %for.con
   %arrayidx24.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %idxprom23.i
   store ptr %arrayidx18.i, ptr %arrayidx24.i, align 8
   %inc25.i = add i32 %nf.0.lcssa.i, 1
-  %idxprom31.i = sext i32 %inc25.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %call.i4445.i to i64
   %cmp.i.i.i = icmp slt i32 %nf.0.lcssa.i, 1
   br i1 %cmp.i.i.i, label %invoke.cont33.i, label %if.end.split.i.i.i
 
 if.end.split.i.i.i:                               ; preds = %for.end.i
+  %idxprom31.i = zext nneg i32 %inc25.i to i64
   %sub.i.i.i = add nsw i64 %idxprom31.i, -2
   %div11.i.i.i = lshr i64 %sub.i.i.i, 1
   %add.ptr9.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %div11.i.i.i
@@ -171,8 +171,8 @@ while.cond.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx5__ops
 
 while.end.i.i.i.i:                                ; preds = %while.cond.i.i.i.i, %if.end.split.i.i.i
   %__secondChild.0.lcssa.i.i.i.i = phi i64 [ %div11.i.i.i, %if.end.split.i.i.i ], [ %13, %while.cond.i.i.i.i ]
-  %14 = and i64 %idxprom31.i, 1
-  %cmp5.i.i.i.i = icmp eq i64 %14, 0
+  %14 = and i32 %nf.0.lcssa.i, 1
+  %cmp5.i.i.i.i = icmp ne i32 %14, 0
   %div7.i.i.i.i = ashr exact i64 %sub.i.i.i, 1
   %cmp8.i.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i.i, %div7.i.i.i.i
   %or.cond.i.i.i = select i1 %cmp5.i.i.i.i, i1 %cmp8.i.i.i.i, i1 false

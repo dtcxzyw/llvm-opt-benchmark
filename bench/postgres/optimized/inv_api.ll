@@ -904,8 +904,8 @@ getdatafield.exit:                                ; preds = %99
   br i1 %125, label %126, label %.loopexit146.sink.split
 
 126:                                              ; preds = %119
-  %127 = and i64 %122, 7
-  %128 = icmp eq i64 %127, 0
+  %127 = and i32 %121, 7
+  %128 = icmp eq i32 %127, 0
   %129 = icmp ult i32 %121, 1025
   %or.cond3 = and i1 %129, %128
   br i1 %or.cond3, label %130, label %.loopexit146.sink.split
@@ -1244,8 +1244,8 @@ getdatafield.exit:                                ; preds = %78
   br i1 %102, label %103, label %.loopexit103.sink.split
 
 103:                                              ; preds = %96
-  %104 = and i64 %99, 7
-  %105 = icmp eq i64 %104, 0
+  %104 = and i32 %98, 7
+  %105 = icmp eq i32 %104, 0
   %106 = icmp ult i32 %98, 1025
   %or.cond5 = and i1 %106, %105
   br i1 %or.cond5, label %107, label %.loopexit103.sink.split

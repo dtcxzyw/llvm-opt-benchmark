@@ -44,14 +44,13 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %4 = load i16, ptr %fUnion.i.i, align 8
-  %conv1.i = zext i16 %4 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %5 = and i16 %4, 17
+  %tobool.not.i = icmp eq i16 %5, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %if.then3
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %6 = and i16 %4, 2
+  %tobool6.not.i = icmp eq i16 %6, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -60,17 +59,17 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %str, i64 24
-  %5 = load ptr, ptr %fArray.i, align 8
+  %7 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.then3, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %if.then3 ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %7, %if.else9.i ], [ null, %if.then3 ]
   store ptr %retval.0.i, ptr %us, align 8
   %cmp.i.i6 = icmp slt i16 %4, 0
-  %6 = ashr i16 %4, 5
-  %shr.i.i7 = sext i16 %6 to i32
-  %7 = load i32, ptr %fLength.i, align 4
-  %cond.i9 = select i1 %cmp.i.i6, i32 %7, i32 %shr.i.i7
+  %8 = ashr i16 %4, 5
+  %shr.i.i7 = sext i16 %8 to i32
+  %9 = load i32, ptr %fLength.i, align 4
+  %cond.i9 = select i1 %cmp.i.i6, i32 %9, i32 %shr.i.i7
   %idx.ext = sext i32 %cond.i9 to i64
   %add.ptr = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext
   %add.ptr6 = getelementptr inbounds i8, ptr %buffer, i64 199
@@ -80,10 +79,10 @@ do.body:                                          ; preds = %do.cond, %_ZNK6icu_
   store i32 0, ptr %errorCode, align 4
   store ptr %buffer, ptr %s, align 8
   call void @ucnv_fromUnicode_75(ptr noundef %call1, ptr noundef nonnull %s, ptr noundef nonnull %add.ptr6, ptr noundef nonnull %us, ptr noundef %add.ptr, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %errorCode)
-  %8 = load ptr, ptr %s, align 8
-  store i8 0, ptr %8, align 1
-  %9 = load ptr, ptr %s, align 8
-  %cmp9 = icmp ugt ptr %9, %buffer
+  %10 = load ptr, ptr %s, align 8
+  store i8 0, ptr %10, align 1
+  %11 = load ptr, ptr %s, align 8
+  %cmp9 = icmp ugt ptr %11, %buffer
   br i1 %cmp9, label %if.then10, label %do.cond
 
 if.then10:                                        ; preds = %do.body
@@ -91,8 +90,8 @@ if.then10:                                        ; preds = %do.body
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body, %if.then10
-  %10 = load i32, ptr %errorCode, align 4
-  %cmp13 = icmp eq i32 %10, 15
+  %12 = load i32, ptr %errorCode, align 4
+  %cmp13 = icmp eq i32 %12, 15
   br i1 %cmp13, label %do.body, label %do.end, !llvm.loop !4
 
 do.end:                                           ; preds = %do.cond

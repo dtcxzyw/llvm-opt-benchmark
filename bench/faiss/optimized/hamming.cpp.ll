@@ -20061,8 +20061,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i:      ; preds = %.noexc70.i.i.i, %_Z
   %68 = phi i64 [ %2, %.lr.ph.i.i.i ], [ %101, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %69 = phi ptr [ null, %.lr.ph.i.i.i ], [ %102, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %.062115.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %103, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
-  %.idx128 = mul i64 %.062115.i.i.i, 132
-  %70 = getelementptr inbounds i8, ptr %.sroa.0102.0.i.i.i, i64 %.idx128
+  %.idx135 = mul i64 %.062115.i.i.i, 132
+  %70 = getelementptr inbounds i8, ptr %.sroa.0102.0.i.i.i, i64 %.idx135
   %.reass.i.i.i = mul i64 %invariant.op.i.i.i, %.062115.i.i.i
   %71 = getelementptr inbounds i64, ptr %61, i64 %.reass.i.i.i
   %72 = mul i64 %.062115.i.i.i, %63
@@ -20217,8 +20217,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %108, %1
   %111 = phi i64 [ %.pre159.i.i.i, %.preheader114.loopexit.i.i.i ], [ %109, %._crit_edge.i.i.i ]
   %.not138.i.i.i = icmp eq i64 %111, 0
   %.pre160.i.i.i = load ptr, ptr %48, align 8, !noalias !467
-  %.not129 = icmp eq i64 %4, 0
-  %or.cond = or i1 %.not138.i.i.i, %.not129
+  %.not136 = icmp eq i64 %4, 0
+  %or.cond = or i1 %.not138.i.i.i, %.not136
   br i1 %or.cond, label %._crit_edge131.i.i.i, label %.preheader.lr.ph.us.i.i.i
 
 .preheader.lr.ph.us.i.i.i:                        ; preds = %.preheader114.i.i.i, %._crit_edge128.us.i.i.i
@@ -20227,7 +20227,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %108, %1
   %113 = getelementptr inbounds %"struct.faiss::HCounterState", ptr %.pre160.i.i.i, i64 %.059129.us.i.i.i
   %114 = load ptr, ptr %113, align 8, !noalias !469
   %115 = getelementptr inbounds i8, ptr %113, i64 8
-  %invariant.gep185 = getelementptr i32, ptr %6, i64 %112
+  %invariant.gep192 = getelementptr i32, ptr %6, i64 %112
   br label %.preheader.us.i.i.i
 
 ._crit_edge128.us.i.i.i:                          ; preds = %.lr.ph127.us.i.i.i, %..preheader113_crit_edge.us.i.i.i
@@ -20237,8 +20237,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %108, %1
 
 .lr.ph127.us.i.i.i:                               ; preds = %.lr.ph127.us.i.i.i.preheader, %.lr.ph127.us.i.i.i
   %indvars.iv155.i.i.i = phi i64 [ %indvars.iv.next156.i.i.i, %.lr.ph127.us.i.i.i ], [ %.pre-phi.i.i.i, %.lr.ph127.us.i.i.i.preheader ]
-  %gep188 = getelementptr i32, ptr %invariant.gep187, i64 %indvars.iv155.i.i.i
-  store i32 2147483647, ptr %gep188, align 4, !alias.scope !463, !noalias !478
+  %gep195 = getelementptr i32, ptr %invariant.gep194, i64 %indvars.iv155.i.i.i
+  store i32 2147483647, ptr %gep195, align 4, !alias.scope !463, !noalias !478
   %indvars.iv.next156.i.i.i = add nuw nsw i64 %indvars.iv155.i.i.i, 1
   %117 = icmp ugt i64 %4, %indvars.iv.next156.i.i.i
   br i1 %117, label %.lr.ph127.us.i.i.i, label %._crit_edge128.us.i.i.i, !llvm.loop !479
@@ -20261,8 +20261,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %108, %1
 122:                                              ; preds = %.lr.ph121.us.i.i.i, %122
   %indvars.iv147.i.i.i = phi i64 [ %129, %.lr.ph121.us.i.i.i ], [ %indvars.iv.next148.i.i.i, %122 ]
   %indvars.iv145.i.i.i = phi i64 [ 0, %.lr.ph121.us.i.i.i ], [ %indvars.iv.next146.i.i.i, %122 ]
-  %gep186 = getelementptr i32, ptr %invariant.gep185, i64 %indvars.iv147.i.i.i
-  store i32 %136, ptr %gep186, align 4, !alias.scope !463, !noalias !478
+  %gep193 = getelementptr i32, ptr %invariant.gep192, i64 %indvars.iv147.i.i.i
+  store i32 %136, ptr %gep193, align 4, !alias.scope !463, !noalias !478
   %indvars.iv.next148.i.i.i = add i64 %indvars.iv147.i.i.i, 1
   %indvars.iv.next146.i.i.i = add nuw nsw i64 %indvars.iv145.i.i.i, 1
   %123 = icmp samesign ult i64 %indvars.iv.next146.i.i.i, %135
@@ -20289,14 +20289,14 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %108, %1
   %136 = trunc nuw nsw i64 %indvars.iv152.i.i.i to i32
   %137 = add i64 %112, %129
   %138 = shl i64 %137, 3
-  %scevgep107 = getelementptr i8, ptr %7, i64 %138
+  %scevgep112 = getelementptr i8, ptr %7, i64 %138
   %139 = xor i64 %129, -1
   %140 = add i64 %4, %139
   %141 = add nsw i64 %135, -1
-  %umin108 = call i64 @llvm.umin.i64(i64 %140, i64 %141)
-  %142 = shl nuw nsw i64 %umin108, 3
+  %umin113 = call i64 @llvm.umin.i64(i64 %140, i64 %141)
+  %142 = shl nuw nsw i64 %umin113, 3
   %143 = add nuw nsw i64 %142, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep107, ptr noundef nonnull align 8 dereferenceable(1) %134, i64 %143, i1 false), !noalias !482
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep112, ptr noundef nonnull align 8 dereferenceable(1) %134, i64 %143, i1 false), !noalias !482
   br label %122
 
 ..preheader113_crit_edge.us.i.i.i:                ; preds = %._crit_edge122.us.i.i.i
@@ -20305,13 +20305,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %108, %1
 .lr.ph127.us.i.i.i.preheader:                     ; preds = %..preheader113_crit_edge.us.i.i.i
   %144 = add i64 %112, %.pre-phi.i.i.i
   %145 = shl i64 %144, 3
-  %scevgep109 = getelementptr i8, ptr %7, i64 %145
+  %scevgep115 = getelementptr i8, ptr %7, i64 %145
   %146 = add nsw i64 %.pre-phi.i.i.i, 1
-  %umax110 = call i64 @llvm.umax.i64(i64 %4, i64 %146)
-  %147 = sub i64 %umax110, %.pre-phi.i.i.i
+  %umax116 = call i64 @llvm.umax.i64(i64 %4, i64 %146)
+  %147 = sub i64 %umax116, %.pre-phi.i.i.i
   %148 = shl i64 %147, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep109, i8 -1, i64 %148, i1 false), !alias.scope !465, !noalias !483
-  %invariant.gep187 = getelementptr i32, ptr %6, i64 %112
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep115, i8 -1, i64 %148, i1 false), !alias.scope !465, !noalias !483
+  %invariant.gep194 = getelementptr i32, ptr %6, i64 %112
   br label %.lr.ph127.us.i.i.i
 
 .lr.ph118.i.i.i:                                  ; preds = %._crit_edge.i.i.i, %.lr.ph118.i.i.i
@@ -20424,8 +20424,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i:    ; preds = %.noexc70.i.i65.i, %
   %172 = phi i64 [ %2, %.lr.ph.i.i71.i ], [ %205, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %173 = phi ptr [ null, %.lr.ph.i.i71.i ], [ %206, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %.062112.i.i.i = phi i64 [ 0, %.lr.ph.i.i71.i ], [ %207, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
-  %.idx125 = mul i64 %.062112.i.i.i, 260
-  %174 = getelementptr inbounds i8, ptr %.sroa.0100.0.i.i.i, i64 %.idx125
+  %.idx132 = mul i64 %.062112.i.i.i, 260
+  %174 = getelementptr inbounds i8, ptr %.sroa.0100.0.i.i.i, i64 %.idx132
   %.reass.i.i73.i = mul i64 %invariant.op.i.i70.i, %.062112.i.i.i
   %175 = getelementptr inbounds i64, ptr %165, i64 %.reass.i.i73.i
   %176 = mul i64 %.062112.i.i.i, %167
@@ -20580,9 +20580,9 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i: ; preds = %212,
   %215 = phi i64 [ %.pre156.i.i.i, %.preheader111.loopexit.i.i.i ], [ %213, %._crit_edge.i.i82.i ]
   %.not135.i.i.i = icmp eq i64 %215, 0
   %.pre157.i.i.i = load ptr, ptr %42, align 8, !noalias !493
-  %.not126 = icmp eq i64 %4, 0
-  %or.cond193 = or i1 %.not135.i.i.i, %.not126
-  br i1 %or.cond193, label %._crit_edge128.i.i.i, label %.preheader.lr.ph.us.i.i93.i
+  %.not133 = icmp eq i64 %4, 0
+  %or.cond200 = or i1 %.not135.i.i.i, %.not133
+  br i1 %or.cond200, label %._crit_edge128.i.i.i, label %.preheader.lr.ph.us.i.i93.i
 
 .preheader.lr.ph.us.i.i93.i:                      ; preds = %.preheader111.i.i.i, %._crit_edge125.us.i.i.i
   %.059126.us.i.i.i = phi i64 [ %220, %._crit_edge125.us.i.i.i ], [ 0, %.preheader111.i.i.i ]
@@ -20590,7 +20590,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i: ; preds = %212,
   %217 = getelementptr inbounds %"struct.faiss::HCounterState.16", ptr %.pre157.i.i.i, i64 %.059126.us.i.i.i
   %218 = load ptr, ptr %217, align 8, !noalias !495
   %219 = getelementptr inbounds i8, ptr %217, i64 8
-  %invariant.gep181 = getelementptr i32, ptr %6, i64 %216
+  %invariant.gep188 = getelementptr i32, ptr %6, i64 %216
   br label %.preheader.us.i.i94.i
 
 ._crit_edge125.us.i.i.i:                          ; preds = %.lr.ph124.us.i.i.i, %..preheader110_crit_edge.us.i.i.i
@@ -20600,8 +20600,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i: ; preds = %212,
 
 .lr.ph124.us.i.i.i:                               ; preds = %.lr.ph124.us.i.i.i.preheader, %.lr.ph124.us.i.i.i
   %indvars.iv152.i.i97.i = phi i64 [ %indvars.iv.next153.i.i98.i, %.lr.ph124.us.i.i.i ], [ %.pre-phi.i.i95.i, %.lr.ph124.us.i.i.i.preheader ]
-  %gep184 = getelementptr i32, ptr %invariant.gep183, i64 %indvars.iv152.i.i97.i
-  store i32 2147483647, ptr %gep184, align 4, !alias.scope !489, !noalias !504
+  %gep191 = getelementptr i32, ptr %invariant.gep190, i64 %indvars.iv152.i.i97.i
+  store i32 2147483647, ptr %gep191, align 4, !alias.scope !489, !noalias !504
   %indvars.iv.next153.i.i98.i = add nuw nsw i64 %indvars.iv152.i.i97.i, 1
   %221 = icmp ugt i64 %4, %indvars.iv.next153.i.i98.i
   br i1 %221, label %.lr.ph124.us.i.i.i, label %._crit_edge125.us.i.i.i, !llvm.loop !505
@@ -20624,8 +20624,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i: ; preds = %212,
 226:                                              ; preds = %.lr.ph118.us.i.i.i, %226
   %indvars.iv144.i.i.i = phi i64 [ %233, %.lr.ph118.us.i.i.i ], [ %indvars.iv.next145.i.i.i, %226 ]
   %indvars.iv142.i.i.i = phi i64 [ 0, %.lr.ph118.us.i.i.i ], [ %indvars.iv.next143.i.i.i, %226 ]
-  %gep182 = getelementptr i32, ptr %invariant.gep181, i64 %indvars.iv144.i.i.i
-  store i32 %240, ptr %gep182, align 4, !alias.scope !489, !noalias !504
+  %gep189 = getelementptr i32, ptr %invariant.gep188, i64 %indvars.iv144.i.i.i
+  store i32 %240, ptr %gep189, align 4, !alias.scope !489, !noalias !504
   %indvars.iv.next145.i.i.i = add i64 %indvars.iv144.i.i.i, 1
   %indvars.iv.next143.i.i.i = add nuw nsw i64 %indvars.iv142.i.i.i, 1
   %227 = icmp samesign ult i64 %indvars.iv.next143.i.i.i, %239
@@ -20652,14 +20652,14 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i: ; preds = %212,
   %240 = trunc nuw nsw i64 %indvars.iv149.i.i.i to i32
   %241 = add i64 %216, %233
   %242 = shl i64 %241, 3
-  %scevgep103 = getelementptr i8, ptr %7, i64 %242
+  %scevgep107 = getelementptr i8, ptr %7, i64 %242
   %243 = xor i64 %233, -1
   %244 = add i64 %4, %243
   %245 = add nsw i64 %239, -1
-  %umin104 = call i64 @llvm.umin.i64(i64 %244, i64 %245)
-  %246 = shl nuw nsw i64 %umin104, 3
+  %umin108 = call i64 @llvm.umin.i64(i64 %244, i64 %245)
+  %246 = shl nuw nsw i64 %umin108, 3
   %247 = add nuw nsw i64 %246, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep103, ptr noundef nonnull align 8 dereferenceable(1) %238, i64 %247, i1 false), !noalias !508
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep107, ptr noundef nonnull align 8 dereferenceable(1) %238, i64 %247, i1 false), !noalias !508
   br label %226
 
 ..preheader110_crit_edge.us.i.i.i:                ; preds = %._crit_edge119.us.i.i.i
@@ -20668,13 +20668,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i106.i: ; preds = %212,
 .lr.ph124.us.i.i.i.preheader:                     ; preds = %..preheader110_crit_edge.us.i.i.i
   %248 = add i64 %216, %.pre-phi.i.i95.i
   %249 = shl i64 %248, 3
-  %scevgep105 = getelementptr i8, ptr %7, i64 %249
+  %scevgep110 = getelementptr i8, ptr %7, i64 %249
   %250 = add nsw i64 %.pre-phi.i.i95.i, 1
-  %umax106 = call i64 @llvm.umax.i64(i64 %4, i64 %250)
-  %251 = sub i64 %umax106, %.pre-phi.i.i95.i
+  %umax111 = call i64 @llvm.umax.i64(i64 %4, i64 %250)
+  %251 = sub i64 %umax111, %.pre-phi.i.i95.i
   %252 = shl i64 %251, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep105, i8 -1, i64 %252, i1 false), !alias.scope !491, !noalias !509
-  %invariant.gep183 = getelementptr i32, ptr %6, i64 %216
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep110, i8 -1, i64 %252, i1 false), !alias.scope !491, !noalias !509
+  %invariant.gep190 = getelementptr i32, ptr %6, i64 %216
   br label %.lr.ph124.us.i.i.i
 
 .lr.ph115.i.i.i:                                  ; preds = %._crit_edge.i.i82.i, %.lr.ph115.i.i.i
@@ -20777,8 +20777,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i127.i:   ; preds = %.noexc70.i.i126.i, 
   %276 = phi i64 [ %2, %.lr.ph.i.i133.i ], [ %311, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %277 = phi ptr [ null, %.lr.ph.i.i133.i ], [ %312, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %.062115.i.i135.i = phi i64 [ 0, %.lr.ph.i.i133.i ], [ %313, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
-  %.idx122 = mul i64 %.062115.i.i135.i, 516
-  %278 = getelementptr inbounds i8, ptr %.sroa.0102.0.i.i128.i, i64 %.idx122
+  %.idx129 = mul i64 %.062115.i.i135.i, 516
+  %278 = getelementptr inbounds i8, ptr %.sroa.0102.0.i.i128.i, i64 %.idx129
   %.reass.i.i136.i = mul i64 %invariant.op.i.i132.i, %.062115.i.i135.i
   %279 = getelementptr inbounds i64, ptr %269, i64 %.reass.i.i136.i
   %280 = mul i64 %.062115.i.i135.i, %271
@@ -20939,9 +20939,9 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i: ; preds = %318,
   %321 = phi i64 [ %.pre159.i.i151.i, %.preheader114.loopexit.i.i150.i ], [ %319, %._crit_edge.i.i145.i ]
   %.not138.i.i153.i = icmp eq i64 %321, 0
   %.pre160.i.i154.i = load ptr, ptr %36, align 8, !noalias !518
-  %.not123 = icmp eq i64 %4, 0
-  %or.cond194 = or i1 %.not138.i.i153.i, %.not123
-  br i1 %or.cond194, label %._crit_edge131.i.i168.i, label %.preheader.lr.ph.us.i.i173.i
+  %.not130 = icmp eq i64 %4, 0
+  %or.cond201 = or i1 %.not138.i.i153.i, %.not130
+  br i1 %or.cond201, label %._crit_edge131.i.i168.i, label %.preheader.lr.ph.us.i.i173.i
 
 .preheader.lr.ph.us.i.i173.i:                     ; preds = %.preheader114.i.i152.i, %._crit_edge128.us.i.i183.i
   %.059129.us.i.i174.i = phi i64 [ %326, %._crit_edge128.us.i.i183.i ], [ 0, %.preheader114.i.i152.i ]
@@ -20949,7 +20949,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i: ; preds = %318,
   %323 = getelementptr inbounds %"struct.faiss::HCounterState.23", ptr %.pre160.i.i154.i, i64 %.059129.us.i.i174.i
   %324 = load ptr, ptr %323, align 8, !noalias !520
   %325 = getelementptr inbounds i8, ptr %323, i64 8
-  %invariant.gep177 = getelementptr i32, ptr %6, i64 %322
+  %invariant.gep184 = getelementptr i32, ptr %6, i64 %322
   br label %.preheader.us.i.i175.i
 
 ._crit_edge128.us.i.i183.i:                       ; preds = %.lr.ph127.us.i.i185.i, %..preheader113_crit_edge.us.i.i182.i
@@ -20959,8 +20959,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i: ; preds = %318,
 
 .lr.ph127.us.i.i185.i:                            ; preds = %.lr.ph127.us.i.i185.i.preheader, %.lr.ph127.us.i.i185.i
   %indvars.iv155.i.i186.i = phi i64 [ %indvars.iv.next156.i.i187.i, %.lr.ph127.us.i.i185.i ], [ %.pre-phi.i.i179.i, %.lr.ph127.us.i.i185.i.preheader ]
-  %gep180 = getelementptr i32, ptr %invariant.gep179, i64 %indvars.iv155.i.i186.i
-  store i32 2147483647, ptr %gep180, align 4, !alias.scope !514, !noalias !529
+  %gep187 = getelementptr i32, ptr %invariant.gep186, i64 %indvars.iv155.i.i186.i
+  store i32 2147483647, ptr %gep187, align 4, !alias.scope !514, !noalias !529
   %indvars.iv.next156.i.i187.i = add nuw nsw i64 %indvars.iv155.i.i186.i, 1
   %327 = icmp ugt i64 %4, %indvars.iv.next156.i.i187.i
   br i1 %327, label %.lr.ph127.us.i.i185.i, label %._crit_edge128.us.i.i183.i, !llvm.loop !530
@@ -20983,8 +20983,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i: ; preds = %318,
 332:                                              ; preds = %.lr.ph121.us.i.i188.i, %332
   %indvars.iv147.i.i189.i = phi i64 [ %339, %.lr.ph121.us.i.i188.i ], [ %indvars.iv.next148.i.i191.i, %332 ]
   %indvars.iv145.i.i190.i = phi i64 [ 0, %.lr.ph121.us.i.i188.i ], [ %indvars.iv.next146.i.i192.i, %332 ]
-  %gep178 = getelementptr i32, ptr %invariant.gep177, i64 %indvars.iv147.i.i189.i
-  store i32 %346, ptr %gep178, align 4, !alias.scope !514, !noalias !529
+  %gep185 = getelementptr i32, ptr %invariant.gep184, i64 %indvars.iv147.i.i189.i
+  store i32 %346, ptr %gep185, align 4, !alias.scope !514, !noalias !529
   %indvars.iv.next148.i.i191.i = add i64 %indvars.iv147.i.i189.i, 1
   %indvars.iv.next146.i.i192.i = add nuw nsw i64 %indvars.iv145.i.i190.i, 1
   %333 = icmp samesign ult i64 %indvars.iv.next146.i.i192.i, %345
@@ -21011,14 +21011,14 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i: ; preds = %318,
   %346 = trunc nuw nsw i64 %indvars.iv152.i.i176.i to i32
   %347 = add i64 %322, %339
   %348 = shl i64 %347, 3
-  %scevgep99 = getelementptr i8, ptr %7, i64 %348
+  %scevgep102 = getelementptr i8, ptr %7, i64 %348
   %349 = xor i64 %339, -1
   %350 = add i64 %4, %349
   %351 = add nsw i64 %345, -1
-  %umin100 = call i64 @llvm.umin.i64(i64 %350, i64 %351)
-  %352 = shl nuw nsw i64 %umin100, 3
+  %umin103 = call i64 @llvm.umin.i64(i64 %350, i64 %351)
+  %352 = shl nuw nsw i64 %umin103, 3
   %353 = add nuw nsw i64 %352, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep99, ptr noundef nonnull align 8 dereferenceable(1) %344, i64 %353, i1 false), !noalias !533
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep102, ptr noundef nonnull align 8 dereferenceable(1) %344, i64 %353, i1 false), !noalias !533
   br label %332
 
 ..preheader113_crit_edge.us.i.i182.i:             ; preds = %._crit_edge122.us.i.i178.i
@@ -21027,13 +21027,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i202.i: ; preds = %318,
 .lr.ph127.us.i.i185.i.preheader:                  ; preds = %..preheader113_crit_edge.us.i.i182.i
   %354 = add i64 %322, %.pre-phi.i.i179.i
   %355 = shl i64 %354, 3
-  %scevgep101 = getelementptr i8, ptr %7, i64 %355
+  %scevgep105 = getelementptr i8, ptr %7, i64 %355
   %356 = add nsw i64 %.pre-phi.i.i179.i, 1
-  %umax102 = call i64 @llvm.umax.i64(i64 %4, i64 %356)
-  %357 = sub i64 %umax102, %.pre-phi.i.i179.i
+  %umax106 = call i64 @llvm.umax.i64(i64 %4, i64 %356)
+  %357 = sub i64 %umax106, %.pre-phi.i.i179.i
   %358 = shl i64 %357, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep101, i8 -1, i64 %358, i1 false), !alias.scope !516, !noalias !534
-  %invariant.gep179 = getelementptr i32, ptr %6, i64 %322
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep105, i8 -1, i64 %358, i1 false), !alias.scope !516, !noalias !534
+  %invariant.gep186 = getelementptr i32, ptr %6, i64 %322
   br label %.lr.ph127.us.i.i185.i
 
 .lr.ph118.i.i147.i:                               ; preds = %._crit_edge.i.i145.i, %.lr.ph118.i.i147.i
@@ -21136,8 +21136,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i223.i:   ; preds = %.noexc70.i.i222.i, 
   %382 = phi i64 [ %2, %.lr.ph.i.i228.i ], [ %420, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %383 = phi ptr [ null, %.lr.ph.i.i228.i ], [ %421, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %.062120.i.i.i = phi i64 [ 0, %.lr.ph.i.i228.i ], [ %422, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
-  %.idx119 = mul i64 %.062120.i.i.i, 644
-  %384 = getelementptr inbounds i8, ptr %.sroa.0107.0.i.i.i, i64 %.idx119
+  %.idx126 = mul i64 %.062120.i.i.i, 644
+  %384 = getelementptr inbounds i8, ptr %.sroa.0107.0.i.i.i, i64 %.idx126
   %.reass.i.i230.i = mul i64 %invariant.op.i.i227.i, %.062120.i.i.i
   %385 = getelementptr inbounds i64, ptr %375, i64 %.reass.i.i230.i
   %386 = mul i64 %.062120.i.i.i, %377
@@ -21305,9 +21305,9 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i: ; preds = %427,
   %430 = phi i64 [ %.pre164.i.i.i, %.preheader119.loopexit.i.i.i ], [ %428, %._crit_edge.i.i239.i ]
   %.not143.i.i.i = icmp eq i64 %430, 0
   %.pre165.i.i.i = load ptr, ptr %30, align 8, !noalias !543
-  %.not120 = icmp eq i64 %4, 0
-  %or.cond195 = or i1 %.not143.i.i.i, %.not120
-  br i1 %or.cond195, label %._crit_edge136.i.i.i, label %.preheader.lr.ph.us.i.i250.i
+  %.not127 = icmp eq i64 %4, 0
+  %or.cond202 = or i1 %.not143.i.i.i, %.not127
+  br i1 %or.cond202, label %._crit_edge136.i.i.i, label %.preheader.lr.ph.us.i.i250.i
 
 .preheader.lr.ph.us.i.i250.i:                     ; preds = %.preheader119.i.i.i, %._crit_edge133.us.i.i.i
   %.059134.us.i.i.i = phi i64 [ %435, %._crit_edge133.us.i.i.i ], [ 0, %.preheader119.i.i.i ]
@@ -21315,7 +21315,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i: ; preds = %427,
   %432 = getelementptr inbounds %"struct.faiss::HCounterState.30", ptr %.pre165.i.i.i, i64 %.059134.us.i.i.i
   %433 = load ptr, ptr %432, align 8, !noalias !545
   %434 = getelementptr inbounds i8, ptr %432, i64 8
-  %invariant.gep173 = getelementptr i32, ptr %6, i64 %431
+  %invariant.gep180 = getelementptr i32, ptr %6, i64 %431
   br label %.preheader.us.i.i251.i
 
 ._crit_edge133.us.i.i.i:                          ; preds = %.lr.ph132.us.i.i.i, %..preheader118_crit_edge.us.i.i.i
@@ -21325,8 +21325,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i: ; preds = %427,
 
 .lr.ph132.us.i.i.i:                               ; preds = %.lr.ph132.us.i.i.i.preheader, %.lr.ph132.us.i.i.i
   %indvars.iv160.i.i.i = phi i64 [ %indvars.iv.next161.i.i.i, %.lr.ph132.us.i.i.i ], [ %.pre-phi.i.i252.i, %.lr.ph132.us.i.i.i.preheader ]
-  %gep176 = getelementptr i32, ptr %invariant.gep175, i64 %indvars.iv160.i.i.i
-  store i32 2147483647, ptr %gep176, align 4, !alias.scope !539, !noalias !554
+  %gep183 = getelementptr i32, ptr %invariant.gep182, i64 %indvars.iv160.i.i.i
+  store i32 2147483647, ptr %gep183, align 4, !alias.scope !539, !noalias !554
   %indvars.iv.next161.i.i.i = add nuw nsw i64 %indvars.iv160.i.i.i, 1
   %436 = icmp ugt i64 %4, %indvars.iv.next161.i.i.i
   br i1 %436, label %.lr.ph132.us.i.i.i, label %._crit_edge133.us.i.i.i, !llvm.loop !555
@@ -21349,8 +21349,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i: ; preds = %427,
 441:                                              ; preds = %.lr.ph126.us.i.i.i, %441
   %indvars.iv152.i.i254.i = phi i64 [ %448, %.lr.ph126.us.i.i.i ], [ %indvars.iv.next153.i.i255.i, %441 ]
   %indvars.iv150.i.i.i = phi i64 [ 0, %.lr.ph126.us.i.i.i ], [ %indvars.iv.next151.i.i.i, %441 ]
-  %gep174 = getelementptr i32, ptr %invariant.gep173, i64 %indvars.iv152.i.i254.i
-  store i32 %455, ptr %gep174, align 4, !alias.scope !539, !noalias !554
+  %gep181 = getelementptr i32, ptr %invariant.gep180, i64 %indvars.iv152.i.i254.i
+  store i32 %455, ptr %gep181, align 4, !alias.scope !539, !noalias !554
   %indvars.iv.next153.i.i255.i = add i64 %indvars.iv152.i.i254.i, 1
   %indvars.iv.next151.i.i.i = add nuw nsw i64 %indvars.iv150.i.i.i, 1
   %442 = icmp samesign ult i64 %indvars.iv.next151.i.i.i, %454
@@ -21377,14 +21377,14 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i: ; preds = %427,
   %455 = trunc nuw nsw i64 %indvars.iv157.i.i.i to i32
   %456 = add i64 %431, %448
   %457 = shl i64 %456, 3
-  %scevgep95 = getelementptr i8, ptr %7, i64 %457
+  %scevgep97 = getelementptr i8, ptr %7, i64 %457
   %458 = xor i64 %448, -1
   %459 = add i64 %4, %458
   %460 = add nsw i64 %454, -1
-  %umin96 = call i64 @llvm.umin.i64(i64 %459, i64 %460)
-  %461 = shl nuw nsw i64 %umin96, 3
+  %umin98 = call i64 @llvm.umin.i64(i64 %459, i64 %460)
+  %461 = shl nuw nsw i64 %umin98, 3
   %462 = add nuw nsw i64 %461, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep95, ptr noundef nonnull align 8 dereferenceable(1) %453, i64 %462, i1 false), !noalias !558
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep97, ptr noundef nonnull align 8 dereferenceable(1) %453, i64 %462, i1 false), !noalias !558
   br label %441
 
 ..preheader118_crit_edge.us.i.i.i:                ; preds = %._crit_edge127.us.i.i.i
@@ -21393,13 +21393,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i263.i: ; preds = %427,
 .lr.ph132.us.i.i.i.preheader:                     ; preds = %..preheader118_crit_edge.us.i.i.i
   %463 = add i64 %431, %.pre-phi.i.i252.i
   %464 = shl i64 %463, 3
-  %scevgep97 = getelementptr i8, ptr %7, i64 %464
+  %scevgep100 = getelementptr i8, ptr %7, i64 %464
   %465 = add nsw i64 %.pre-phi.i.i252.i, 1
-  %umax98 = call i64 @llvm.umax.i64(i64 %4, i64 %465)
-  %466 = sub i64 %umax98, %.pre-phi.i.i252.i
+  %umax101 = call i64 @llvm.umax.i64(i64 %4, i64 %465)
+  %466 = sub i64 %umax101, %.pre-phi.i.i252.i
   %467 = shl i64 %466, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep97, i8 -1, i64 %467, i1 false), !alias.scope !541, !noalias !559
-  %invariant.gep175 = getelementptr i32, ptr %6, i64 %431
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep100, i8 -1, i64 %467, i1 false), !alias.scope !541, !noalias !559
+  %invariant.gep182 = getelementptr i32, ptr %6, i64 %431
   br label %.lr.ph132.us.i.i.i
 
 .lr.ph123.i.i.i:                                  ; preds = %._crit_edge.i.i239.i, %.lr.ph123.i.i.i
@@ -21502,8 +21502,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i282.i:   ; preds = %.noexc70.i.i281.i, 
   %491 = phi i64 [ %2, %.lr.ph.i.i287.i ], [ %530, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %492 = phi ptr [ null, %.lr.ph.i.i287.i ], [ %531, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
   %.062119.i.i.i = phi i64 [ 0, %.lr.ph.i.i287.i ], [ %532, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE9push_backEOS3_.exit.i.i.i ]
-  %.idx116 = mul i64 %.062119.i.i.i, 1028
-  %493 = getelementptr inbounds i8, ptr %.sroa.0106.0.i.i.i, i64 %.idx116
+  %.idx123 = mul i64 %.062119.i.i.i, 1028
+  %493 = getelementptr inbounds i8, ptr %.sroa.0106.0.i.i.i, i64 %.idx123
   %.reass.i.i289.i = mul i64 %invariant.op.i.i286.i, %.062119.i.i.i
   %494 = getelementptr inbounds i64, ptr %484, i64 %.reass.i.i289.i
   %495 = mul i64 %.062119.i.i.i, %486
@@ -21676,9 +21676,9 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i: ; preds = %537,
   %540 = phi i64 [ %.pre163.i.i.i, %.preheader118.loopexit.i.i.i ], [ %538, %._crit_edge.i.i300.i ]
   %.not142.i.i302.i = icmp eq i64 %540, 0
   %.pre164.i.i303.i = load ptr, ptr %24, align 8, !noalias !568
-  %.not117 = icmp eq i64 %4, 0
-  %or.cond196 = or i1 %.not142.i.i302.i, %.not117
-  br i1 %or.cond196, label %._crit_edge135.i.i.i, label %.preheader.lr.ph.us.i.i314.i
+  %.not124 = icmp eq i64 %4, 0
+  %or.cond203 = or i1 %.not142.i.i302.i, %.not124
+  br i1 %or.cond203, label %._crit_edge135.i.i.i, label %.preheader.lr.ph.us.i.i314.i
 
 .preheader.lr.ph.us.i.i314.i:                     ; preds = %.preheader118.i.i.i, %._crit_edge132.us.i.i.i
   %.059133.us.i.i.i = phi i64 [ %545, %._crit_edge132.us.i.i.i ], [ 0, %.preheader118.i.i.i ]
@@ -21686,7 +21686,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i: ; preds = %537,
   %542 = getelementptr inbounds %"struct.faiss::HCounterState.37", ptr %.pre164.i.i303.i, i64 %.059133.us.i.i.i
   %543 = load ptr, ptr %542, align 8, !noalias !570
   %544 = getelementptr inbounds i8, ptr %542, i64 8
-  %invariant.gep169 = getelementptr i32, ptr %6, i64 %541
+  %invariant.gep176 = getelementptr i32, ptr %6, i64 %541
   br label %.preheader.us.i.i315.i
 
 ._crit_edge132.us.i.i.i:                          ; preds = %.lr.ph131.us.i.i.i, %..preheader117_crit_edge.us.i.i.i
@@ -21696,8 +21696,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i: ; preds = %537,
 
 .lr.ph131.us.i.i.i:                               ; preds = %.lr.ph131.us.i.i.i.preheader, %.lr.ph131.us.i.i.i
   %indvars.iv159.i.i.i = phi i64 [ %indvars.iv.next160.i.i.i, %.lr.ph131.us.i.i.i ], [ %.pre-phi.i.i316.i, %.lr.ph131.us.i.i.i.preheader ]
-  %gep172 = getelementptr i32, ptr %invariant.gep171, i64 %indvars.iv159.i.i.i
-  store i32 2147483647, ptr %gep172, align 4, !alias.scope !564, !noalias !579
+  %gep179 = getelementptr i32, ptr %invariant.gep178, i64 %indvars.iv159.i.i.i
+  store i32 2147483647, ptr %gep179, align 4, !alias.scope !564, !noalias !579
   %indvars.iv.next160.i.i.i = add nuw nsw i64 %indvars.iv159.i.i.i, 1
   %546 = icmp ugt i64 %4, %indvars.iv.next160.i.i.i
   br i1 %546, label %.lr.ph131.us.i.i.i, label %._crit_edge132.us.i.i.i, !llvm.loop !580
@@ -21720,8 +21720,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i: ; preds = %537,
 551:                                              ; preds = %.lr.ph125.us.i.i.i, %551
   %indvars.iv151.i.i.i = phi i64 [ %558, %.lr.ph125.us.i.i.i ], [ %indvars.iv.next152.i.i.i, %551 ]
   %indvars.iv149.i.i318.i = phi i64 [ 0, %.lr.ph125.us.i.i.i ], [ %indvars.iv.next150.i.i319.i, %551 ]
-  %gep170 = getelementptr i32, ptr %invariant.gep169, i64 %indvars.iv151.i.i.i
-  store i32 %565, ptr %gep170, align 4, !alias.scope !564, !noalias !579
+  %gep177 = getelementptr i32, ptr %invariant.gep176, i64 %indvars.iv151.i.i.i
+  store i32 %565, ptr %gep177, align 4, !alias.scope !564, !noalias !579
   %indvars.iv.next152.i.i.i = add i64 %indvars.iv151.i.i.i, 1
   %indvars.iv.next150.i.i319.i = add nuw nsw i64 %indvars.iv149.i.i318.i, 1
   %552 = icmp samesign ult i64 %indvars.iv.next150.i.i319.i, %564
@@ -21748,14 +21748,14 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i: ; preds = %537,
   %565 = trunc nuw nsw i64 %indvars.iv156.i.i.i to i32
   %566 = add i64 %541, %558
   %567 = shl i64 %566, 3
-  %scevgep91 = getelementptr i8, ptr %7, i64 %567
+  %scevgep92 = getelementptr i8, ptr %7, i64 %567
   %568 = xor i64 %558, -1
   %569 = add i64 %4, %568
   %570 = add nsw i64 %564, -1
-  %umin92 = call i64 @llvm.umin.i64(i64 %569, i64 %570)
-  %571 = shl nuw nsw i64 %umin92, 3
+  %umin93 = call i64 @llvm.umin.i64(i64 %569, i64 %570)
+  %571 = shl nuw nsw i64 %umin93, 3
   %572 = add nuw nsw i64 %571, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep91, ptr noundef nonnull align 8 dereferenceable(1) %563, i64 %572, i1 false), !noalias !583
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep92, ptr noundef nonnull align 8 dereferenceable(1) %563, i64 %572, i1 false), !noalias !583
   br label %551
 
 ..preheader117_crit_edge.us.i.i.i:                ; preds = %._crit_edge126.us.i.i.i
@@ -21764,13 +21764,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i328.i: ; preds = %537,
 .lr.ph131.us.i.i.i.preheader:                     ; preds = %..preheader117_crit_edge.us.i.i.i
   %573 = add i64 %541, %.pre-phi.i.i316.i
   %574 = shl i64 %573, 3
-  %scevgep93 = getelementptr i8, ptr %7, i64 %574
+  %scevgep95 = getelementptr i8, ptr %7, i64 %574
   %575 = add nsw i64 %.pre-phi.i.i316.i, 1
-  %umax94 = call i64 @llvm.umax.i64(i64 %4, i64 %575)
-  %576 = sub i64 %umax94, %.pre-phi.i.i316.i
+  %umax96 = call i64 @llvm.umax.i64(i64 %4, i64 %575)
+  %576 = sub i64 %umax96, %.pre-phi.i.i316.i
   %577 = shl i64 %576, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep93, i8 -1, i64 %577, i1 false), !alias.scope !566, !noalias !584
-  %invariant.gep171 = getelementptr i32, ptr %6, i64 %541
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep95, i8 -1, i64 %577, i1 false), !alias.scope !566, !noalias !584
+  %invariant.gep178 = getelementptr i32, ptr %6, i64 %541
   br label %.lr.ph131.us.i.i.i
 
 .lr.ph122.i.i.i:                                  ; preds = %._crit_edge.i.i300.i, %.lr.ph122.i.i.i
@@ -22072,8 +22072,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i396.i: ; preds = %655,
   %.not150.i.i.i = icmp eq i64 %658, 0
   %.pre172.i.i.i = load ptr, ptr %18, align 8, !noalias !593
   %.not = icmp eq i64 %4, 0
-  %or.cond197 = or i1 %.not150.i.i.i, %.not
-  br i1 %or.cond197, label %._crit_edge143.i.i.i, label %.preheader.lr.ph.us.i.i381.i
+  %or.cond204 = or i1 %.not150.i.i.i, %.not
+  br i1 %or.cond204, label %._crit_edge143.i.i.i, label %.preheader.lr.ph.us.i.i381.i
 
 .preheader.lr.ph.us.i.i381.i:                     ; preds = %.preheader126.i.i.i, %._crit_edge140.us.i.i.i
   %.059141.us.i.i.i = phi i64 [ %663, %._crit_edge140.us.i.i.i ], [ 0, %.preheader126.i.i.i ]
@@ -22091,8 +22091,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i396.i: ; preds = %655,
 
 .lr.ph139.us.i.i.i:                               ; preds = %.lr.ph139.us.i.i.i.preheader, %.lr.ph139.us.i.i.i
   %indvars.iv167.i.i.i = phi i64 [ %indvars.iv.next168.i.i.i, %.lr.ph139.us.i.i.i ], [ %.pre-phi.i.i383.i, %.lr.ph139.us.i.i.i.preheader ]
-  %gep168 = getelementptr i32, ptr %invariant.gep167, i64 %indvars.iv167.i.i.i
-  store i32 2147483647, ptr %gep168, align 4, !alias.scope !589, !noalias !604
+  %gep175 = getelementptr i32, ptr %invariant.gep174, i64 %indvars.iv167.i.i.i
+  store i32 2147483647, ptr %gep175, align 4, !alias.scope !589, !noalias !604
   %indvars.iv.next168.i.i.i = add nuw nsw i64 %indvars.iv167.i.i.i, 1
   %664 = icmp ugt i64 %4, %indvars.iv.next168.i.i.i
   br i1 %664, label %.lr.ph139.us.i.i.i, label %._crit_edge140.us.i.i.i, !llvm.loop !605
@@ -22159,13 +22159,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i396.i: ; preds = %655,
 .lr.ph139.us.i.i.i.preheader:                     ; preds = %..preheader125_crit_edge.us.i.i.i
   %691 = add i64 %659, %.pre-phi.i.i383.i
   %692 = shl i64 %691, 3
-  %scevgep90 = getelementptr i8, ptr %7, i64 %692
+  %scevgep91 = getelementptr i8, ptr %7, i64 %692
   %693 = add nsw i64 %.pre-phi.i.i383.i, 1
   %umax = call i64 @llvm.umax.i64(i64 %4, i64 %693)
   %694 = sub i64 %umax, %.pre-phi.i.i383.i
   %695 = shl i64 %694, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep90, i8 -1, i64 %695, i1 false), !alias.scope !591, !noalias !609
-  %invariant.gep167 = getelementptr i32, ptr %6, i64 %659
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep91, i8 -1, i64 %695, i1 false), !alias.scope !591, !noalias !609
+  %invariant.gep174 = getelementptr i32, ptr %6, i64 %659
   br label %.lr.ph139.us.i.i.i
 
 .lr.ph130.i.i370.i:                               ; preds = %._crit_edge.i.i369.i, %.lr.ph130.i.i370.i
@@ -22453,7 +22453,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i: ; preds = %764,
   %773 = getelementptr inbounds %"struct.faiss::HCounterState.51", ptr %.pre162.i.i.i, i64 %.059131.us.i.i.i
   %774 = load ptr, ptr %773, align 8, !noalias !619
   %775 = getelementptr inbounds i8, ptr %773, i64 8
-  %invariant.gep189 = getelementptr i32, ptr %6, i64 %772
+  %invariant.gep196 = getelementptr i32, ptr %6, i64 %772
   br label %.preheader.us.i.i453.i
 
 ._crit_edge130.us.i.i.i:                          ; preds = %.lr.ph129.us.i.i.i, %..preheader115_crit_edge.us.i.i.i
@@ -22463,8 +22463,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i: ; preds = %764,
 
 .lr.ph129.us.i.i.i:                               ; preds = %.lr.ph129.us.i.i.i.preheader, %.lr.ph129.us.i.i.i
   %indvars.iv157.i.i456.i = phi i64 [ %indvars.iv.next158.i.i457.i, %.lr.ph129.us.i.i.i ], [ %.pre-phi.i.i454.i, %.lr.ph129.us.i.i.i.preheader ]
-  %gep192 = getelementptr i32, ptr %invariant.gep191, i64 %indvars.iv157.i.i456.i
-  store i32 2147483647, ptr %gep192, align 4, !alias.scope !611, !noalias !627
+  %gep199 = getelementptr i32, ptr %invariant.gep198, i64 %indvars.iv157.i.i456.i
+  store i32 2147483647, ptr %gep199, align 4, !alias.scope !611, !noalias !627
   %indvars.iv.next158.i.i457.i = add nuw nsw i64 %indvars.iv157.i.i456.i, 1
   %777 = icmp ugt i64 %4, %indvars.iv.next158.i.i457.i
   br i1 %777, label %.lr.ph129.us.i.i.i, label %._crit_edge130.us.i.i.i, !llvm.loop !628
@@ -22487,8 +22487,8 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i: ; preds = %764,
 782:                                              ; preds = %.lr.ph123.us.i.i.i, %782
   %indvars.iv149.i.i458.i = phi i64 [ %789, %.lr.ph123.us.i.i.i ], [ %indvars.iv.next150.i.i460.i, %782 ]
   %indvars.iv147.i.i459.i = phi i64 [ 0, %.lr.ph123.us.i.i.i ], [ %indvars.iv.next148.i.i461.i, %782 ]
-  %gep190 = getelementptr i32, ptr %invariant.gep189, i64 %indvars.iv149.i.i458.i
-  store i32 %796, ptr %gep190, align 4, !alias.scope !611, !noalias !627
+  %gep197 = getelementptr i32, ptr %invariant.gep196, i64 %indvars.iv149.i.i458.i
+  store i32 %796, ptr %gep197, align 4, !alias.scope !611, !noalias !627
   %indvars.iv.next150.i.i460.i = add i64 %indvars.iv149.i.i458.i, 1
   %indvars.iv.next148.i.i461.i = add nuw nsw i64 %indvars.iv147.i.i459.i, 1
   %783 = icmp samesign ult i64 %indvars.iv.next148.i.i461.i, %795
@@ -22515,14 +22515,14 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i: ; preds = %764,
   %796 = trunc nuw nsw i64 %indvars.iv154.i.i.i to i32
   %797 = add i64 %772, %789
   %798 = shl i64 %797, 3
-  %scevgep111 = getelementptr i8, ptr %7, i64 %798
+  %scevgep117 = getelementptr i8, ptr %7, i64 %798
   %799 = xor i64 %789, -1
   %800 = add i64 %4, %799
   %801 = add nsw i64 %795, -1
-  %umin112 = call i64 @llvm.umin.i64(i64 %800, i64 %801)
-  %802 = shl nuw nsw i64 %umin112, 3
+  %umin118 = call i64 @llvm.umin.i64(i64 %800, i64 %801)
+  %802 = shl nuw nsw i64 %umin118, 3
   %803 = add nuw nsw i64 %802, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep111, ptr noundef nonnull align 8 dereferenceable(1) %794, i64 %803, i1 false), !noalias !611
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep117, ptr noundef nonnull align 8 dereferenceable(1) %794, i64 %803, i1 false), !noalias !611
   br label %782
 
 ..preheader115_crit_edge.us.i.i.i:                ; preds = %._crit_edge124.us.i.i.i
@@ -22531,13 +22531,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i470.i: ; preds = %764,
 .lr.ph129.us.i.i.i.preheader:                     ; preds = %..preheader115_crit_edge.us.i.i.i
   %804 = add i64 %772, %.pre-phi.i.i454.i
   %805 = shl i64 %804, 3
-  %scevgep113 = getelementptr i8, ptr %7, i64 %805
+  %scevgep120 = getelementptr i8, ptr %7, i64 %805
   %806 = add nsw i64 %.pre-phi.i.i454.i, 1
-  %umax114 = call i64 @llvm.umax.i64(i64 %4, i64 %806)
-  %807 = sub i64 %umax114, %.pre-phi.i.i454.i
+  %umax121 = call i64 @llvm.umax.i64(i64 %4, i64 %806)
+  %807 = sub i64 %umax121, %.pre-phi.i.i454.i
   %808 = shl i64 %807, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep113, i8 -1, i64 %808, i1 false), !alias.scope !614, !noalias !631
-  %invariant.gep191 = getelementptr i32, ptr %6, i64 %772
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep120, i8 -1, i64 %808, i1 false), !alias.scope !614, !noalias !631
+  %invariant.gep198 = getelementptr i32, ptr %6, i64 %772
   br label %.lr.ph129.us.i.i.i
 
 .lr.ph132.split.i.i.i:                            ; preds = %.lr.ph132.i.i.i

@@ -3094,18 +3094,18 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu13calendar_impl12get_
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6icu_708Calendar11getTimeZoneEv(ptr noundef nonnull align 8 dereferenceable(610) %7)
-          to label %9 unwind label %41
+          to label %9 unwind label %40
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %10)
-          to label %_ZNK6icu_708TimeZone5getIDERNS_13UnicodeStringE.exit unwind label %41
+          to label %_ZNK6icu_708TimeZone5getIDERNS_13UnicodeStringE.exit unwind label %40
 
 _ZNK6icu_708TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   invoke void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10cpcvt_typeE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 0)
-          to label %.noexc unwind label %43
+          to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %_ZNK6icu_708TimeZone5getIDERNS_13UnicodeStringE.exit
   %13 = load ptr, ptr %4, align 8, !tbaa !70
@@ -3123,81 +3123,80 @@ _ZNK6icu_708TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %18, ptr %19, align 8, !tbaa !72
   %20 = load i16, ptr %5, align 8, !tbaa !15, !noalias !75
-  %21 = zext i16 %20 to i32
-  %22 = and i32 %21, 17
-  %.not.i.i = icmp eq i32 %22, 0
-  br i1 %.not.i.i, label %23, label %_ZNK6icu_7013UnicodeString9getBufferEv.exit.i
+  %21 = and i16 %20, 17
+  %.not.i.i = icmp eq i16 %21, 0
+  br i1 %.not.i.i, label %22, label %_ZNK6icu_7013UnicodeString9getBufferEv.exit.i
 
-23:                                               ; preds = %17
-  %24 = and i32 %21, 2
-  %.not2.i.i = icmp eq i32 %24, 0
-  br i1 %.not2.i.i, label %27, label %25
+22:                                               ; preds = %17
+  %23 = and i16 %20, 2
+  %.not2.i.i = icmp eq i16 %23, 0
+  br i1 %.not2.i.i, label %26, label %24
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 10
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 10
   br label %_ZNK6icu_7013UnicodeString9getBufferEv.exit.i
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !15, !noalias !75
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %28 = load ptr, ptr %27, align 8, !tbaa !15, !noalias !75
   br label %_ZNK6icu_7013UnicodeString9getBufferEv.exit.i
 
-_ZNK6icu_7013UnicodeString9getBufferEv.exit.i:    ; preds = %27, %25, %17
-  %.0.i.i = phi ptr [ %26, %25 ], [ %29, %27 ], [ null, %17 ]
-  %30 = icmp slt i16 %20, 0
-  %31 = ashr i16 %20, 5
-  %32 = sext i16 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %34 = load i32, ptr %33, align 4, !noalias !75
-  %35 = select i1 %30, i32 %34, i32 %32
-  invoke void @_ZNK5boost6locale8impl_icu5uconv2goIcEENSt7__cxx1112basic_stringIT_St11char_traitsIS6_ESaIS6_EEEPKDsii(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef %.0.i.i, i32 noundef %35, i32 noundef %18)
-          to label %_ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013UnicodeStringE.exit unwind label %45
+_ZNK6icu_7013UnicodeString9getBufferEv.exit.i:    ; preds = %26, %24, %17
+  %.0.i.i = phi ptr [ %25, %24 ], [ %28, %26 ], [ null, %17 ]
+  %29 = icmp slt i16 %20, 0
+  %30 = ashr i16 %20, 5
+  %31 = sext i16 %30 to i32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %33 = load i32, ptr %32, align 4, !noalias !75
+  %34 = select i1 %29, i32 %33, i32 %31
+  invoke void @_ZNK5boost6locale8impl_icu5uconv2goIcEENSt7__cxx1112basic_stringIT_St11char_traitsIS6_ESaIS6_EEEPKDsii(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef %.0.i.i, i32 noundef %34, i32 noundef %18)
+          to label %_ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013UnicodeStringE.exit unwind label %44
 
 _ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013UnicodeStringE.exit: ; preds = %_ZNK6icu_7013UnicodeString9getBufferEv.exit.i
-  %36 = load ptr, ptr %4, align 8, !tbaa !70
-  %.not.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i.i, label %_ZN5boost6locale8impl_icu17icu_std_converterIcLi1EED2Ev.exit, label %37
+  %35 = load ptr, ptr %4, align 8, !tbaa !70
+  %.not.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i, label %_ZN5boost6locale8impl_icu17icu_std_converterIcLi1EED2Ev.exit, label %36
 
-37:                                               ; preds = %_ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013UnicodeStringE.exit
-  invoke void @ucnv_close_70(ptr noundef nonnull %36)
-          to label %_ZN5boost6locale8impl_icu17icu_std_converterIcLi1EED2Ev.exit unwind label %38
+36:                                               ; preds = %_ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013UnicodeStringE.exit
+  invoke void @ucnv_close_70(ptr noundef nonnull %35)
+          to label %_ZN5boost6locale8impl_icu17icu_std_converterIcLi1EED2Ev.exit unwind label %37
 
-38:                                               ; preds = %37
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %36
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #31
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #31
   unreachable
 
-_ZN5boost6locale8impl_icu17icu_std_converterIcLi1EED2Ev.exit: ; preds = %_ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013UnicodeStringE.exit, %37
+_ZN5boost6locale8impl_icu17icu_std_converterIcLi1EED2Ev.exit: ; preds = %_ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013UnicodeStringE.exit, %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #29
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #29
   ret void
 
-41:                                               ; preds = %9, %2
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %9, %2
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  br label %46
 
-43:                                               ; preds = %_ZNK6icu_708TimeZone5getIDERNS_13UnicodeStringE.exit
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZNK6icu_708TimeZone5getIDERNS_13UnicodeStringE.exit
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-45:                                               ; preds = %_ZNK6icu_7013UnicodeString9getBufferEv.exit.i
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZNK6icu_7013UnicodeString9getBufferEv.exit.i
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6locale8impl_icu17icu_std_converterIcLi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #29
   br label %.body
 
-.body:                                            ; preds = %43, %15, %45
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ], [ %16, %15 ]
+.body:                                            ; preds = %42, %15, %44
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
-  br label %47
+  br label %46
 
-47:                                               ; preds = %.body, %41
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %42, %41 ]
+46:                                               ; preds = %.body, %40
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %41, %40 ]
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #29
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #29
   resume { ptr, i32 } %.pn.pn

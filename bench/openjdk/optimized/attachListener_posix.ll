@@ -475,8 +475,8 @@ _ZN15AttachOperation7set_argEiPc.exit:            ; preds = %84
 91:                                               ; preds = %81, %_ZN15AttachOperation7set_argEiPc.exit
   %.sroa.0.388 = phi ptr [ %spec.select, %81 ], [ %spec.select.i69, %_ZN15AttachOperation7set_argEiPc.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond98.not, label %92, label %78, !llvm.loop !14
+  %exitcond99.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond99.not, label %92, label %78, !llvm.loop !14
 
 92:                                               ; preds = %91
   store i32 %0, ptr %77, align 4

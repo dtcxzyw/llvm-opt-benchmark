@@ -1705,14 +1705,13 @@ _ZN6icu_7515MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit: ; preds = %entry, %cal
 do.body:                                          ; preds = %_ZN6icu_7515MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit
   %9 = load ptr, ptr %this, align 8
   %10 = load i16, ptr %fUnion.i.i, align 8
-  %conv1.i = zext i16 %10 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %11 = and i16 %10, 17
+  %tobool.not.i = icmp eq i16 %11, 0
   br i1 %tobool.not.i, label %if.else.i, label %invoke.cont10
 
 if.else.i:                                        ; preds = %do.body
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %12 = and i16 %10, 2
+  %tobool6.not.i = icmp eq i16 %12, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -1721,28 +1720,28 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %text, i64 24
-  %11 = load ptr, ptr %fArray.i, align 8
+  %13 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %do.body, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %11, %if.else9.i ], [ null, %do.body ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %13, %if.else9.i ], [ null, %do.body ]
   %cmp.i.i8 = icmp slt i16 %10, 0
-  %12 = ashr i16 %10, 5
-  %shr.i.i9 = sext i16 %12 to i32
-  %13 = load i32, ptr %fLength.i, align 4
-  %cond.i11 = select i1 %cmp.i.i8, i32 %13, i32 %shr.i.i9
+  %14 = ashr i16 %10, 5
+  %shr.i.i9 = sext i16 %14 to i32
+  %15 = load i32, ptr %fLength.i, align 4
+  %cond.i11 = select i1 %cmp.i.i8, i32 %15, i32 %shr.i.i9
   %conv = sext i32 %cond.i11 to i64
   %mul = shl nsw i64 %conv, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %9, ptr align 2 %retval.0.i, i64 %mul, i1 false)
-  %14 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i13 = icmp slt i16 %14, 0
-  %15 = ashr i16 %14, 5
-  %shr.i.i14 = sext i16 %15 to i32
-  %16 = load i32, ptr %fLength.i, align 4
-  %cond.i16 = select i1 %cmp.i.i13, i32 %16, i32 %shr.i.i14
+  %16 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i13 = icmp slt i16 %16, 0
+  %17 = ashr i16 %16, 5
+  %shr.i.i14 = sext i16 %17 to i32
+  %18 = load i32, ptr %fLength.i, align 4
+  %cond.i16 = select i1 %cmp.i.i13, i32 %18, i32 %shr.i.i14
   %conv12 = sext i32 %cond.i16 to i64
-  %17 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds i16, ptr %17, i64 %conv12
+  %19 = load ptr, ptr %this, align 8
+  %arrayidx.i = getelementptr inbounds i16, ptr %19, i64 %conv12
   store i16 0, ptr %arrayidx.i, align 2
   br label %return
 
@@ -2262,20 +2261,20 @@ if.end:                                           ; preds = %entry
   br label %for.body
 
 do.body.preheader:                                ; preds = %for.inc
-  %cmp107208 = icmp sgt i32 %numAffixMatchers.1, 1
+  %cmp107206 = icmp sgt i32 %numAffixMatchers.1, 1
   %fPrefix.i160 = getelementptr inbounds i8, ptr %temp, i64 8
-  br i1 %cmp107208, label %do.body.us.preheader, label %for.cond142.preheader
+  br i1 %cmp107206, label %do.body.us.preheader, label %for.cond142.preheader
 
 do.body.us.preheader:                             ; preds = %do.body.preheader
   %wide.trip.count = zext nneg i32 %numAffixMatchers.1 to i64
   br label %for.body108.us
 
 for.body108.us:                                   ; preds = %for.inc137.us, %do.body.us.preheader
-  %indvars.iv214 = phi i64 [ %indvars.iv.next215.mux, %for.inc137.us ], [ 1, %do.body.us.preheader ]
-  %madeChanges.0209.us = phi i1 [ %madeChanges.1.us.mux, %for.inc137.us ], [ false, %do.body.us.preheader ]
-  %0 = add nsw i64 %indvars.iv214, -1
+  %indvars.iv = phi i64 [ %indvars.iv.next.mux, %for.inc137.us ], [ 1, %do.body.us.preheader ]
+  %madeChanges.0207.us = phi i1 [ %madeChanges.1.us.mux, %for.inc137.us ], [ false, %do.body.us.preheader ]
+  %0 = add nsw i64 %indvars.iv, -1
   %arrayidx111.us = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %0
-  %arrayidx114.us = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %indvars.iv214
+  %arrayidx114.us = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %indvars.iv
   %call116.us = invoke noundef signext i8 @_ZNK6icu_758numparse4impl12AffixMatcher9compareToERKS2_(ptr noundef nonnull align 8 dereferenceable(28) %arrayidx111.us, ptr noundef nonnull align 8 dereferenceable(28) %arrayidx114.us)
           to label %invoke.cont115.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
 
@@ -2294,114 +2293,114 @@ if.then119.us:                                    ; preds = %invoke.cont115.us
   br label %for.inc137.us
 
 for.inc137.us:                                    ; preds = %if.then119.us, %invoke.cont115.us
-  %madeChanges.1.us = phi i1 [ true, %if.then119.us ], [ %madeChanges.0209.us, %invoke.cont115.us ]
-  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %exitcond217.not = icmp ne i64 %indvars.iv.next215, %wide.trip.count
-  %brmerge = select i1 %exitcond217.not, i1 true, i1 %madeChanges.1.us
-  %indvars.iv.next215.mux = select i1 %exitcond217.not, i64 %indvars.iv.next215, i64 1
-  %madeChanges.1.us.mux = select i1 %exitcond217.not, i1 %madeChanges.1.us, i1 false
+  %madeChanges.1.us = phi i1 [ true, %if.then119.us ], [ %madeChanges.0207.us, %invoke.cont115.us ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond213.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %brmerge = select i1 %exitcond213.not, i1 true, i1 %madeChanges.1.us
+  %indvars.iv.next.mux = select i1 %exitcond213.not, i64 %indvars.iv.next, i64 1
+  %madeChanges.1.us.mux = select i1 %exitcond213.not, i1 %madeChanges.1.us, i1 false
   br i1 %brmerge, label %for.body108.us, label %for.cond142.preheader, !llvm.loop !19
 
 lpad.loopexit.split-lp.loopexit.split.us:         ; preds = %for.body108.us
-  %lpad.loopexit190.us = landingpad { ptr, i32 }
+  %lpad.loopexit188.us = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %indvars.iv = phi i32 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %numAffixMatchers.0207 = phi i32 [ 0, %if.end ], [ %numAffixMatchers.1, %for.inc ]
-  %numAffixPatternMatchers.0206 = phi i32 [ 0, %if.end ], [ %numAffixPatternMatchers.1, %for.inc ]
-  %posPrefix.0205 = phi ptr [ null, %if.end ], [ %posPrefix.1, %for.inc ]
-  %posSuffix.0204 = phi ptr [ null, %if.end ], [ %posSuffix.1, %for.inc ]
-  %div184185 = lshr i32 %indvars.iv, 1
-  %div.sext = and i32 %div184185, 127
-  %1 = and i32 %indvars.iv, 1
-  %cmp5 = icmp ne i32 %1, 0
+  %numAffixMatchers.0205 = phi i32 [ 0, %if.end ], [ %numAffixMatchers.1, %for.inc ]
+  %numAffixPatternMatchers.0204 = phi i32 [ 0, %if.end ], [ %numAffixPatternMatchers.1, %for.inc ]
+  %posPrefix.0203 = phi ptr [ null, %if.end ], [ %posPrefix.1, %for.inc ]
+  %posSuffix.0202 = phi ptr [ null, %if.end ], [ %posSuffix.1, %for.inc ]
+  %typeInt.0201 = phi i8 [ 0, %if.end ], [ %inc105, %for.inc ]
+  %1 = lshr i8 %typeInt.0201, 1
+  %div = zext nneg i8 %1 to i32
+  %2 = and i8 %typeInt.0201, 1
+  %cmp5 = icmp ne i8 %2, 0
   br i1 %cmp5, label %land.lhs.true, label %if.end15
 
 land.lhs.true:                                    ; preds = %for.body
   %vtable = load ptr, ptr %patternInfo, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %2 = load ptr, ptr %vfn, align 8
-  %call7 = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo)
+  %3 = load ptr, ptr %vfn, align 8
+  %call7 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %land.lhs.true
   br i1 %call7, label %land.lhs.true11, label %for.inc
 
 lpad.loopexit:                                    ; preds = %for.body144
-  %lpad.loopexit188 = landingpad { ptr, i32 }
+  %lpad.loopexit186 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end5.i151, %if.end5.i137, %if.end5.i125, %if.end5.i, %land.lhs.true11, %if.then95, %if.then82, %if.end64, %invoke.cont38, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit, %invoke.cont29, %if.end27, %land.lhs.true
-  %lpad.loopexit.split-lp191 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp189 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit.split.us, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit188, %lpad.loopexit ], [ %lpad.loopexit190.us, %lpad.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp191, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit186, %lpad.loopexit ], [ %lpad.loopexit188.us, %lpad.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp189, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %sb) #17
   resume { ptr, i32 } %lpad.phi
 
 land.lhs.true11:                                  ; preds = %invoke.cont
-  %3 = load ptr, ptr %fTokenWarehouse, align 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %fTokenWarehouse, align 8
   %5 = load ptr, ptr %4, align 8
-  %call.i62 = invoke noundef zeroext i1 @_ZNK6icu_756number4impl15CurrencySymbols22hasEmptyCurrencySymbolEv(ptr noundef nonnull align 8 dereferenceable(232) %5)
+  %6 = load ptr, ptr %5, align 8
+  %call.i62 = invoke noundef zeroext i1 @_ZNK6icu_756number4impl15CurrencySymbols22hasEmptyCurrencySymbolEv(ptr noundef nonnull align 8 dereferenceable(232) %6)
           to label %invoke.cont12 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont12:                                    ; preds = %land.lhs.true11
   br i1 %call.i62, label %if.end15, label %for.inc
 
 if.end15:                                         ; preds = %for.body, %invoke.cont12
-  %cmp16 = icmp samesign ugt i32 %indvars.iv, 1
+  %cmp16 = icmp samesign ugt i8 %typeInt.0201, 1
   %or.cond57 = or i1 %cmp19.not, %cmp16
   br i1 %or.cond57, label %if.end21, label %for.inc
 
 if.end21:                                         ; preds = %if.end15
-  %6 = and i32 %indvars.iv, 6
-  %cmp22 = icmp eq i32 %6, 2
+  %7 = and i8 %typeInt.0201, 6
+  %cmp22 = icmp eq i8 %7, 2
   %or.cond58 = and i1 %cmp19.not, %cmp22
   br i1 %or.cond58, label %for.inc, label %if.end27
 
 if.end27:                                         ; preds = %if.end21
   store i8 0, ptr %hasPrefix, align 1
-  invoke void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo, i1 noundef zeroext true, i32 noundef %div.sext, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %cmp5, ptr noundef nonnull align 8 dereferenceable(64) %sb)
+  invoke void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo, i1 noundef zeroext true, i32 noundef %div, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %cmp5, ptr noundef nonnull align 8 dereferenceable(64) %sb)
           to label %invoke.cont29 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont29:                                    ; preds = %if.end27
-  %7 = load ptr, ptr %fTokenWarehouse, align 8
-  invoke void @_ZN6icu_758numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr nonnull sret(%"class.icu_75::numparse::impl::AffixPatternMatcher") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %sb, ptr noundef nonnull align 8 dereferenceable(1288) %7, i32 noundef %parseFlags, ptr noundef nonnull %hasPrefix, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %8 = load ptr, ptr %fTokenWarehouse, align 8
+  invoke void @_ZN6icu_758numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr nonnull sret(%"class.icu_75::numparse::impl::AffixPatternMatcher") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %sb, ptr noundef nonnull align 8 dereferenceable(1288) %8, i32 noundef %parseFlags, ptr noundef nonnull %hasPrefix, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont31 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  %idxprom = sext i32 %numAffixPatternMatchers.0206 to i64
+  %idxprom = sext i32 %numAffixPatternMatchers.0204 to i64
   %arrayidx = getelementptr inbounds [12 x %"class.icu_75::numparse::impl::AffixPatternMatcher"], ptr %fAffixPatternMatchers, i64 0, i64 %idxprom
   %fMatchers.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
-  %8 = load i8, ptr %needToRelease.i.i.i.i, align 4
-  %tobool.not.i.i.i.i = icmp eq i8 %8, 0
+  %9 = load i8, ptr %needToRelease.i.i.i.i, align 4
+  %tobool.not.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont31
-  %9 = load ptr, ptr %fMatchers.i.i, align 8
-  invoke void @uprv_free_75(ptr noundef %9)
+  %10 = load ptr, ptr %fMatchers.i.i, align 8
+  invoke void @uprv_free_75(ptr noundef %10)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i.i, %invoke.cont31
-  %10 = load i32, ptr %capacity.i.i.i, align 8
+  %11 = load i32, ptr %capacity.i.i.i, align 8
   %capacity2.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  store i32 %10, ptr %capacity2.i.i.i, align 8
-  %11 = load i8, ptr %needToRelease.i.i.i, align 4
-  store i8 %11, ptr %needToRelease.i.i.i.i, align 4
-  %12 = load ptr, ptr %fMatchers2.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %12, %stackArray.i.i.i
+  store i32 %11, ptr %capacity2.i.i.i, align 8
+  %12 = load i8, ptr %needToRelease.i.i.i, align 4
+  store i8 %12, ptr %needToRelease.i.i.i.i, align 4
+  %13 = load ptr, ptr %fMatchers2.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %13, %stackArray.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i.i
   %stackArray4.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %conv.i.i.i = sext i32 %10 to i64
+  %conv.i.i.i = sext i32 %11 to i64
   %mul.i.i.i = shl nsw i64 %conv.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray4.i.i.i, ptr nonnull align 8 %stackArray.i.i.i, i64 %mul.i.i.i, i1 false)
   br label %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
@@ -2413,107 +2412,107 @@ if.else.i.i.i:                                    ; preds = %invoke.cont.i.i.i
   br label %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #19
   unreachable
 
 _ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %.sink = phi ptr [ %stackArray4.i.i.i, %if.then.i.i.i ], [ %12, %if.else.i.i.i ]
+  %.sink = phi ptr [ %stackArray4.i.i.i, %if.then.i.i.i ], [ %13, %if.else.i.i.i ]
   store ptr %.sink, ptr %fMatchers.i.i, align 8
-  %15 = load i32, ptr %fMatchersLen.i.i, align 8
+  %16 = load i32, ptr %fMatchersLen.i.i, align 8
   %fMatchersLen4.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
-  store i32 %15, ptr %fMatchersLen4.i.i, align 8
+  store i32 %16, ptr %fMatchersLen4.i.i, align 8
   %fPattern.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %needToRelease.i.i.i2.i = getelementptr inbounds i8, ptr %arrayidx, i64 68
-  %16 = load i8, ptr %needToRelease.i.i.i2.i, align 4
-  %tobool.not.i.i.i3.i = icmp eq i8 %16, 0
+  %17 = load i8, ptr %needToRelease.i.i.i2.i, align 4
+  %tobool.not.i.i.i3.i = icmp eq i8 %17, 0
   br i1 %tobool.not.i.i.i3.i, label %invoke.cont.i.i6.i, label %if.then.i.i.i4.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
-  %17 = load ptr, ptr %fPattern.i, align 8
-  invoke void @uprv_free_75(ptr noundef %17)
+  %18 = load ptr, ptr %fPattern.i, align 8
+  invoke void @uprv_free_75(ptr noundef %18)
           to label %invoke.cont.i.i6.i unwind label %terminate.lpad.i.i5.i
 
 invoke.cont.i.i6.i:                               ; preds = %if.then.i.i.i4.i, %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
-  %18 = load i32, ptr %capacity.i.i7.i, align 8
+  %19 = load i32, ptr %capacity.i.i7.i, align 8
   %capacity2.i.i8.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
-  store i32 %18, ptr %capacity2.i.i8.i, align 8
-  %19 = load i8, ptr %needToRelease.i.i9.i, align 4
-  store i8 %19, ptr %needToRelease.i.i.i2.i, align 4
-  %20 = load ptr, ptr %fPattern2.i, align 8
-  %cmp.i.i11.i = icmp eq ptr %20, %stackArray.i.i10.i
+  store i32 %19, ptr %capacity2.i.i8.i, align 8
+  %20 = load i8, ptr %needToRelease.i.i9.i, align 4
+  store i8 %20, ptr %needToRelease.i.i.i2.i, align 4
+  %21 = load ptr, ptr %fPattern2.i, align 8
+  %cmp.i.i11.i = icmp eq ptr %21, %stackArray.i.i10.i
   br i1 %cmp.i.i11.i, label %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit, label %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread
 
 _ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread: ; preds = %invoke.cont.i.i6.i
-  store ptr %20, ptr %fPattern.i, align 8
+  store ptr %21, ptr %fPattern.i, align 8
   store ptr %stackArray.i.i10.i, ptr %fPattern2.i, align 8
   store i32 4, ptr %capacity.i.i7.i, align 8
   store i8 0, ptr %needToRelease.i.i9.i, align 4
   br label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i
 
 terminate.lpad.i.i5.i:                            ; preds = %if.then.i.i.i4.i
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #19
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #19
   unreachable
 
 _ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit: ; preds = %invoke.cont.i.i6.i
   %stackArray4.i.i14.i = getelementptr inbounds i8, ptr %arrayidx, i64 70
   store ptr %stackArray4.i.i14.i, ptr %fPattern.i, align 8
-  %conv.i.i15.i = sext i32 %18 to i64
+  %conv.i.i15.i = sext i32 %19 to i64
   %mul.i.i16.i = shl nsw i64 %conv.i.i15.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %stackArray4.i.i14.i, ptr nonnull align 2 %stackArray.i.i10.i, i64 %mul.i.i16.i, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl19AffixPatternMatcherE, i64 16), ptr %ref.tmp, align 8
-  %tobool.not.i.i.i.i64 = icmp eq i8 %19, 0
+  %tobool.not.i.i.i.i64 = icmp eq i8 %20, 0
   br i1 %tobool.not.i.i.i.i64, label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, label %if.then.i.i.i.i65
 
 if.then.i.i.i.i65:                                ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit
-  invoke void @uprv_free_75(ptr noundef %20)
+  invoke void @uprv_free_75(ptr noundef %21)
           to label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i unwind label %terminate.lpad.i.i.i67
 
 terminate.lpad.i.i.i67:                           ; preds = %if.then.i.i.i.i65
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #19
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #19
   unreachable
 
 _ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i: ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread, %if.then.i.i.i.i65, %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i64 16), ptr %ref.tmp, align 8
-  %25 = load i8, ptr %needToRelease.i.i.i, align 4
-  %tobool.not.i.i.i2.i = icmp eq i8 %25, 0
+  %26 = load i8, ptr %needToRelease.i.i.i, align 4
+  %tobool.not.i.i.i2.i = icmp eq i8 %26, 0
   br i1 %tobool.not.i.i.i2.i, label %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i
-  %26 = load ptr, ptr %fMatchers2.i.i, align 8
-  invoke void @uprv_free_75(ptr noundef %26)
+  %27 = load ptr, ptr %fMatchers2.i.i, align 8
+  invoke void @uprv_free_75(ptr noundef %27)
           to label %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit unwind label %terminate.lpad.i.i4.i
 
 terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i3.i
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #19
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #19
   unreachable
 
 _ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit: ; preds = %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, %if.then.i.i.i3.i
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp) #17
-  %29 = load i8, ptr %hasPrefix, align 1
-  %tobool33 = trunc i8 %29 to i1
-  %tobool33.mask = and i8 %29, 1
+  %30 = load i8, ptr %hasPrefix, align 1
+  %tobool33 = trunc i8 %30 to i1
+  %tobool33.mask = and i8 %30, 1
   %inc = zext nneg i8 %tobool33.mask to i32
-  %spec.select = add nsw i32 %numAffixPatternMatchers.0206, %inc
+  %spec.select = add nsw i32 %numAffixPatternMatchers.0204, %inc
   %spec.select59 = select i1 %tobool33, ptr %arrayidx, ptr null
   store i8 0, ptr %hasSuffix, align 1
-  invoke void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo, i1 noundef zeroext false, i32 noundef %div.sext, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %cmp5, ptr noundef nonnull align 8 dereferenceable(64) %sb)
+  invoke void @_ZN6icu_756number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo, i1 noundef zeroext false, i32 noundef %div, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %cmp5, ptr noundef nonnull align 8 dereferenceable(64) %sb)
           to label %invoke.cont38 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont38:                                    ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit
-  %30 = load ptr, ptr %fTokenWarehouse, align 8
-  invoke void @_ZN6icu_758numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr nonnull sret(%"class.icu_75::numparse::impl::AffixPatternMatcher") align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(64) %sb, ptr noundef nonnull align 8 dereferenceable(1288) %30, i32 noundef %parseFlags, ptr noundef nonnull %hasSuffix, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %31 = load ptr, ptr %fTokenWarehouse, align 8
+  invoke void @_ZN6icu_758numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr nonnull sret(%"class.icu_75::numparse::impl::AffixPatternMatcher") align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(64) %sb, ptr noundef nonnull align 8 dereferenceable(1288) %31, i32 noundef %parseFlags, ptr noundef nonnull %hasSuffix, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont41 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %invoke.cont38
@@ -2521,28 +2520,28 @@ invoke.cont41:                                    ; preds = %invoke.cont38
   %arrayidx44 = getelementptr inbounds [12 x %"class.icu_75::numparse::impl::AffixPatternMatcher"], ptr %fAffixPatternMatchers, i64 0, i64 %idxprom43
   %fMatchers.i.i69 = getelementptr inbounds i8, ptr %arrayidx44, i64 8
   %needToRelease.i.i.i.i71 = getelementptr inbounds i8, ptr %arrayidx44, i64 20
-  %31 = load i8, ptr %needToRelease.i.i.i.i71, align 4
-  %tobool.not.i.i.i.i72 = icmp eq i8 %31, 0
+  %32 = load i8, ptr %needToRelease.i.i.i.i71, align 4
+  %tobool.not.i.i.i.i72 = icmp eq i8 %32, 0
   br i1 %tobool.not.i.i.i.i72, label %invoke.cont.i.i.i75, label %if.then.i.i.i.i73
 
 if.then.i.i.i.i73:                                ; preds = %invoke.cont41
-  %32 = load ptr, ptr %fMatchers.i.i69, align 8
-  invoke void @uprv_free_75(ptr noundef %32)
+  %33 = load ptr, ptr %fMatchers.i.i69, align 8
+  invoke void @uprv_free_75(ptr noundef %33)
           to label %invoke.cont.i.i.i75 unwind label %terminate.lpad.i.i.i74
 
 invoke.cont.i.i.i75:                              ; preds = %if.then.i.i.i.i73, %invoke.cont41
-  %33 = load i32, ptr %capacity.i.i.i76, align 8
+  %34 = load i32, ptr %capacity.i.i.i76, align 8
   %capacity2.i.i.i77 = getelementptr inbounds i8, ptr %arrayidx44, i64 16
-  store i32 %33, ptr %capacity2.i.i.i77, align 8
-  %34 = load i8, ptr %needToRelease.i.i.i78, align 4
-  store i8 %34, ptr %needToRelease.i.i.i.i71, align 4
-  %35 = load ptr, ptr %fMatchers2.i.i70, align 8
-  %cmp.i.i.i80 = icmp eq ptr %35, %stackArray.i.i.i79
+  store i32 %34, ptr %capacity2.i.i.i77, align 8
+  %35 = load i8, ptr %needToRelease.i.i.i78, align 4
+  store i8 %35, ptr %needToRelease.i.i.i.i71, align 4
+  %36 = load ptr, ptr %fMatchers2.i.i70, align 8
+  %cmp.i.i.i80 = icmp eq ptr %36, %stackArray.i.i.i79
   br i1 %cmp.i.i.i80, label %if.then.i.i.i102, label %if.else.i.i.i81
 
 if.then.i.i.i102:                                 ; preds = %invoke.cont.i.i.i75
   %stackArray4.i.i.i103 = getelementptr inbounds i8, ptr %arrayidx44, i64 24
-  %conv.i.i.i104 = sext i32 %33 to i64
+  %conv.i.i.i104 = sext i32 %34 to i64
   %mul.i.i.i105 = shl nsw i64 %conv.i.i.i104, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %stackArray4.i.i.i103, ptr nonnull align 8 %stackArray.i.i.i79, i64 %mul.i.i.i105, i1 false)
   br label %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i82
@@ -2554,97 +2553,97 @@ if.else.i.i.i81:                                  ; preds = %invoke.cont.i.i.i75
   br label %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i82
 
 terminate.lpad.i.i.i74:                           ; preds = %if.then.i.i.i.i73
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #19
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #19
   unreachable
 
 _ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i82: ; preds = %if.else.i.i.i81, %if.then.i.i.i102
-  %.sink223 = phi ptr [ %stackArray4.i.i.i103, %if.then.i.i.i102 ], [ %35, %if.else.i.i.i81 ]
-  store ptr %.sink223, ptr %fMatchers.i.i69, align 8
-  %38 = load i32, ptr %fMatchersLen.i.i83, align 8
+  %.sink220 = phi ptr [ %stackArray4.i.i.i103, %if.then.i.i.i102 ], [ %36, %if.else.i.i.i81 ]
+  store ptr %.sink220, ptr %fMatchers.i.i69, align 8
+  %39 = load i32, ptr %fMatchersLen.i.i83, align 8
   %fMatchersLen4.i.i84 = getelementptr inbounds i8, ptr %arrayidx44, i64 48
-  store i32 %38, ptr %fMatchersLen4.i.i84, align 8
+  store i32 %39, ptr %fMatchersLen4.i.i84, align 8
   %fPattern.i85 = getelementptr inbounds i8, ptr %arrayidx44, i64 56
   %needToRelease.i.i.i2.i87 = getelementptr inbounds i8, ptr %arrayidx44, i64 68
-  %39 = load i8, ptr %needToRelease.i.i.i2.i87, align 4
-  %tobool.not.i.i.i3.i88 = icmp eq i8 %39, 0
+  %40 = load i8, ptr %needToRelease.i.i.i2.i87, align 4
+  %tobool.not.i.i.i3.i88 = icmp eq i8 %40, 0
   br i1 %tobool.not.i.i.i3.i88, label %invoke.cont.i.i6.i91, label %if.then.i.i.i4.i89
 
 if.then.i.i.i4.i89:                               ; preds = %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i82
-  %40 = load ptr, ptr %fPattern.i85, align 8
-  invoke void @uprv_free_75(ptr noundef %40)
+  %41 = load ptr, ptr %fPattern.i85, align 8
+  invoke void @uprv_free_75(ptr noundef %41)
           to label %invoke.cont.i.i6.i91 unwind label %terminate.lpad.i.i5.i90
 
 invoke.cont.i.i6.i91:                             ; preds = %if.then.i.i.i4.i89, %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i82
-  %41 = load i32, ptr %capacity.i.i7.i92, align 8
+  %42 = load i32, ptr %capacity.i.i7.i92, align 8
   %capacity2.i.i8.i93 = getelementptr inbounds i8, ptr %arrayidx44, i64 64
-  store i32 %41, ptr %capacity2.i.i8.i93, align 8
-  %42 = load i8, ptr %needToRelease.i.i9.i94, align 4
-  store i8 %42, ptr %needToRelease.i.i.i2.i87, align 4
-  %43 = load ptr, ptr %fPattern2.i86, align 8
-  %cmp.i.i11.i96 = icmp eq ptr %43, %stackArray.i.i10.i95
+  store i32 %42, ptr %capacity2.i.i8.i93, align 8
+  %43 = load i8, ptr %needToRelease.i.i9.i94, align 4
+  store i8 %43, ptr %needToRelease.i.i.i2.i87, align 4
+  %44 = load ptr, ptr %fPattern2.i86, align 8
+  %cmp.i.i11.i96 = icmp eq ptr %44, %stackArray.i.i10.i95
   br i1 %cmp.i.i11.i96, label %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106, label %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106.thread
 
 _ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106.thread: ; preds = %invoke.cont.i.i6.i91
-  store ptr %43, ptr %fPattern.i85, align 8
+  store ptr %44, ptr %fPattern.i85, align 8
   store ptr %stackArray.i.i10.i95, ptr %fPattern2.i86, align 8
   store i32 4, ptr %capacity.i.i7.i92, align 8
   store i8 0, ptr %needToRelease.i.i9.i94, align 4
   br label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i112
 
 terminate.lpad.i.i5.i90:                          ; preds = %if.then.i.i.i4.i89
-  %44 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #19
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #19
   unreachable
 
 _ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106: ; preds = %invoke.cont.i.i6.i91
   %stackArray4.i.i14.i99 = getelementptr inbounds i8, ptr %arrayidx44, i64 70
   store ptr %stackArray4.i.i14.i99, ptr %fPattern.i85, align 8
-  %conv.i.i15.i100 = sext i32 %41 to i64
+  %conv.i.i15.i100 = sext i32 %42 to i64
   %mul.i.i16.i101 = shl nsw i64 %conv.i.i15.i100, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %stackArray4.i.i14.i99, ptr nonnull align 2 %stackArray.i.i10.i95, i64 %mul.i.i16.i101, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl19AffixPatternMatcherE, i64 16), ptr %ref.tmp39, align 8
-  %tobool.not.i.i.i.i108 = icmp eq i8 %42, 0
+  %tobool.not.i.i.i.i108 = icmp eq i8 %43, 0
   br i1 %tobool.not.i.i.i.i108, label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i112, label %if.then.i.i.i.i109
 
 if.then.i.i.i.i109:                               ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106
-  invoke void @uprv_free_75(ptr noundef %43)
+  invoke void @uprv_free_75(ptr noundef %44)
           to label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i112 unwind label %terminate.lpad.i.i.i111
 
 terminate.lpad.i.i.i111:                          ; preds = %if.then.i.i.i.i109
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #19
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #19
   unreachable
 
 _ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i112: ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106.thread, %if.then.i.i.i.i109, %_ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i64 16), ptr %ref.tmp39, align 8
-  %48 = load i8, ptr %needToRelease.i.i.i78, align 4
-  %tobool.not.i.i.i2.i114 = icmp eq i8 %48, 0
+  %49 = load i8, ptr %needToRelease.i.i.i78, align 4
+  %tobool.not.i.i.i2.i114 = icmp eq i8 %49, 0
   br i1 %tobool.not.i.i.i2.i114, label %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118, label %if.then.i.i.i3.i115
 
 if.then.i.i.i3.i115:                              ; preds = %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i112
-  %49 = load ptr, ptr %fMatchers2.i.i70, align 8
-  invoke void @uprv_free_75(ptr noundef %49)
+  %50 = load ptr, ptr %fMatchers2.i.i70, align 8
+  invoke void @uprv_free_75(ptr noundef %50)
           to label %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 unwind label %terminate.lpad.i.i4.i117
 
 terminate.lpad.i.i4.i117:                         ; preds = %if.then.i.i.i3.i115
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #19
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #19
   unreachable
 
 _ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118: ; preds = %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i112, %if.then.i.i.i3.i115
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp39) #17
-  %52 = load i8, ptr %hasSuffix, align 1
-  %tobool46 = trunc i8 %52 to i1
-  %tobool46.mask = and i8 %52, 1
+  %53 = load i8, ptr %hasSuffix, align 1
+  %tobool46 = trunc i8 %53 to i1
+  %tobool46.mask = and i8 %53, 1
   %inc49 = zext nneg i8 %tobool46.mask to i32
   %spec.select60 = add nsw i32 %spec.select, %inc49
   %spec.select61 = select i1 %tobool46, ptr %arrayidx44, ptr null
@@ -2652,7 +2651,7 @@ _ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118: ; preds = %_ZN6icu_75
 
 if.else:                                          ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118
   %not.tobool33 = xor i1 %tobool33, true
-  %cmp1.i = icmp eq ptr %posPrefix.0205, null
+  %cmp1.i = icmp eq ptr %posPrefix.0203, null
   %or.cond.i = and i1 %cmp1.i, %not.tobool33
   br i1 %or.cond.i, label %land.lhs.true59, label %if.end.i
 
@@ -2662,7 +2661,7 @@ if.end.i:                                         ; preds = %if.else
 
 if.end5.i:                                        ; preds = %if.end.i
   %fPattern.i.i = getelementptr inbounds i8, ptr %spec.select59, i64 56
-  %fPattern2.i.i = getelementptr inbounds i8, ptr %posPrefix.0205, i64 56
+  %fPattern2.i.i = getelementptr inbounds i8, ptr %posPrefix.0203, i64 56
   %call.i.i119 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i)
           to label %invoke.cont57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2671,7 +2670,7 @@ invoke.cont57:                                    ; preds = %if.end5.i
 
 land.lhs.true59:                                  ; preds = %if.else, %invoke.cont57
   %not.tobool46 = xor i1 %tobool46, true
-  %cmp1.i121 = icmp eq ptr %posSuffix.0204, null
+  %cmp1.i121 = icmp eq ptr %posSuffix.0202, null
   %or.cond.i122 = and i1 %cmp1.i121, %not.tobool46
   br i1 %or.cond.i122, label %for.inc, label %if.end.i123
 
@@ -2681,7 +2680,7 @@ if.end.i123:                                      ; preds = %land.lhs.true59
 
 if.end5.i125:                                     ; preds = %if.end.i123
   %fPattern.i.i126 = getelementptr inbounds i8, ptr %spec.select61, i64 56
-  %fPattern2.i.i127 = getelementptr inbounds i8, ptr %posSuffix.0204, i64 56
+  %fPattern2.i.i127 = getelementptr inbounds i8, ptr %posSuffix.0202, i64 56
   %call.i.i130 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i126, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i127)
           to label %invoke.cont60 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2689,16 +2688,16 @@ invoke.cont60:                                    ; preds = %if.end5.i125
   br i1 %call.i.i130, label %for.inc, label %if.end64
 
 if.end64:                                         ; preds = %if.end.i123, %if.end.i, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118, %invoke.cont57, %invoke.cont60
-  %posSuffix.2 = phi ptr [ %posSuffix.0204, %invoke.cont60 ], [ %posSuffix.0204, %invoke.cont57 ], [ %spec.select61, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posSuffix.0204, %if.end.i ], [ %posSuffix.0204, %if.end.i123 ]
-  %posPrefix.2 = phi ptr [ %posPrefix.0205, %invoke.cont60 ], [ %posPrefix.0205, %invoke.cont57 ], [ %spec.select59, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posPrefix.0205, %if.end.i ], [ %posPrefix.0205, %if.end.i123 ]
-  %cmp65 = icmp eq i32 %6, 4
+  %posSuffix.2 = phi ptr [ %posSuffix.0202, %invoke.cont60 ], [ %posSuffix.0202, %invoke.cont57 ], [ %spec.select61, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posSuffix.0202, %if.end.i ], [ %posSuffix.0202, %if.end.i123 ]
+  %posPrefix.2 = phi ptr [ %posPrefix.0203, %invoke.cont60 ], [ %posPrefix.0203, %invoke.cont57 ], [ %spec.select59, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posPrefix.0203, %if.end.i ], [ %posPrefix.0203, %if.end.i123 ]
+  %cmp65 = icmp eq i8 %7, 4
   %cond66 = zext i1 %cmp65 to i32
   invoke void @_ZN6icu_758numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp67, ptr noundef %spec.select59, ptr noundef %spec.select61, i32 noundef %cond66)
           to label %invoke.cont68 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont68:                                    ; preds = %if.end64
-  %inc69 = add nsw i32 %numAffixMatchers.0207, 1
-  %idxprom70 = sext i32 %numAffixMatchers.0207 to i64
+  %inc69 = add nsw i32 %numAffixMatchers.0205, 1
+  %idxprom70 = sext i32 %numAffixMatchers.0205 to i64
   %fPrefix.i = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %idxprom70, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fPrefix.i, ptr noundef nonnull align 8 dereferenceable(20) %fPrefix2.i, i64 20, i1 false)
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp67) #17
@@ -2708,8 +2707,8 @@ invoke.cont68:                                    ; preds = %if.end64
 
 if.then78:                                        ; preds = %invoke.cont68
   %cmp1.i133 = icmp ne ptr %posPrefix.2, null
-  %or.cond224.not = select i1 %cmp16, i1 %cmp1.i133, i1 false
-  br i1 %or.cond224.not, label %if.end5.i137, label %if.then82
+  %or.cond221.not = select i1 %cmp16, i1 %cmp1.i133, i1 false
+  br i1 %or.cond221.not, label %if.end5.i137, label %if.then82
 
 if.end5.i137:                                     ; preds = %if.then78
   %fPattern.i.i138 = getelementptr inbounds i8, ptr %spec.select59, i64 56
@@ -2725,7 +2724,7 @@ if.then82:                                        ; preds = %invoke.cont80, %if.
           to label %if.end90 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.end90:                                         ; preds = %if.then82
-  %inc86 = add nsw i32 %numAffixMatchers.0207, 2
+  %inc86 = add nsw i32 %numAffixMatchers.0205, 2
   %idxprom87 = sext i32 %inc69 to i64
   %fPrefix.i144 = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %idxprom87, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fPrefix.i144, ptr noundef nonnull align 8 dereferenceable(20) %fPrefix2.i145, i64 20, i1 false)
@@ -2760,35 +2759,35 @@ invoke.cont97:                                    ; preds = %if.then95
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true59, %if.end21, %if.end15, %invoke.cont68, %invoke.cont97, %invoke.cont93, %invoke.cont60, %invoke.cont12, %invoke.cont
-  %posSuffix.1 = phi ptr [ %posSuffix.2, %invoke.cont97 ], [ %posSuffix.2, %invoke.cont93 ], [ %posSuffix.2, %invoke.cont68 ], [ %posSuffix.0204, %invoke.cont60 ], [ %posSuffix.0204, %invoke.cont12 ], [ %posSuffix.0204, %invoke.cont ], [ %posSuffix.0204, %if.end15 ], [ %posSuffix.0204, %if.end21 ], [ null, %land.lhs.true59 ]
-  %posPrefix.1 = phi ptr [ %posPrefix.2, %invoke.cont97 ], [ %posPrefix.2, %invoke.cont93 ], [ %posPrefix.2, %invoke.cont68 ], [ %posPrefix.0205, %invoke.cont60 ], [ %posPrefix.0205, %invoke.cont12 ], [ %posPrefix.0205, %invoke.cont ], [ %posPrefix.0205, %if.end15 ], [ %posPrefix.0205, %if.end21 ], [ %posPrefix.0205, %land.lhs.true59 ]
-  %numAffixPatternMatchers.1 = phi i32 [ %spec.select60, %invoke.cont97 ], [ %spec.select60, %invoke.cont93 ], [ %spec.select60, %invoke.cont68 ], [ %spec.select60, %invoke.cont60 ], [ %numAffixPatternMatchers.0206, %invoke.cont12 ], [ %numAffixPatternMatchers.0206, %invoke.cont ], [ %numAffixPatternMatchers.0206, %if.end15 ], [ %numAffixPatternMatchers.0206, %if.end21 ], [ %spec.select60, %land.lhs.true59 ]
-  %numAffixMatchers.1 = phi i32 [ %inc99, %invoke.cont97 ], [ %numAffixMatchers.2179, %invoke.cont93 ], [ %inc69, %invoke.cont68 ], [ %numAffixMatchers.0207, %invoke.cont60 ], [ %numAffixMatchers.0207, %invoke.cont12 ], [ %numAffixMatchers.0207, %invoke.cont ], [ %numAffixMatchers.0207, %if.end15 ], [ %numAffixMatchers.0207, %if.end21 ], [ %numAffixMatchers.0207, %land.lhs.true59 ]
-  %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %indvars.iv.next, 6
+  %posSuffix.1 = phi ptr [ %posSuffix.2, %invoke.cont97 ], [ %posSuffix.2, %invoke.cont93 ], [ %posSuffix.2, %invoke.cont68 ], [ %posSuffix.0202, %invoke.cont60 ], [ %posSuffix.0202, %invoke.cont12 ], [ %posSuffix.0202, %invoke.cont ], [ %posSuffix.0202, %if.end15 ], [ %posSuffix.0202, %if.end21 ], [ null, %land.lhs.true59 ]
+  %posPrefix.1 = phi ptr [ %posPrefix.2, %invoke.cont97 ], [ %posPrefix.2, %invoke.cont93 ], [ %posPrefix.2, %invoke.cont68 ], [ %posPrefix.0203, %invoke.cont60 ], [ %posPrefix.0203, %invoke.cont12 ], [ %posPrefix.0203, %invoke.cont ], [ %posPrefix.0203, %if.end15 ], [ %posPrefix.0203, %if.end21 ], [ %posPrefix.0203, %land.lhs.true59 ]
+  %numAffixPatternMatchers.1 = phi i32 [ %spec.select60, %invoke.cont97 ], [ %spec.select60, %invoke.cont93 ], [ %spec.select60, %invoke.cont68 ], [ %spec.select60, %invoke.cont60 ], [ %numAffixPatternMatchers.0204, %invoke.cont12 ], [ %numAffixPatternMatchers.0204, %invoke.cont ], [ %numAffixPatternMatchers.0204, %if.end15 ], [ %numAffixPatternMatchers.0204, %if.end21 ], [ %spec.select60, %land.lhs.true59 ]
+  %numAffixMatchers.1 = phi i32 [ %inc99, %invoke.cont97 ], [ %numAffixMatchers.2179, %invoke.cont93 ], [ %inc69, %invoke.cont68 ], [ %numAffixMatchers.0205, %invoke.cont60 ], [ %numAffixMatchers.0205, %invoke.cont12 ], [ %numAffixMatchers.0205, %invoke.cont ], [ %numAffixMatchers.0205, %if.end15 ], [ %numAffixMatchers.0205, %if.end21 ], [ %numAffixMatchers.0205, %land.lhs.true59 ]
+  %inc105 = add nuw nsw i8 %typeInt.0201, 1
+  %exitcond.not = icmp eq i8 %inc105, 6
   br i1 %exitcond.not, label %do.body.preheader, label %for.body, !llvm.loop !20
 
 for.cond142.preheader:                            ; preds = %for.inc137.us, %do.body.preheader
-  %cmp143211 = icmp sgt i32 %numAffixMatchers.1, 0
-  br i1 %cmp143211, label %for.body144.preheader, label %for.end153
+  %cmp143209 = icmp sgt i32 %numAffixMatchers.1, 0
+  br i1 %cmp143209, label %for.body144.preheader, label %for.end153
 
 for.body144.preheader:                            ; preds = %for.cond142.preheader
-  %wide.trip.count221 = zext nneg i32 %numAffixMatchers.1 to i64
+  %wide.trip.count218 = zext nneg i32 %numAffixMatchers.1 to i64
   br label %for.body144
 
 for.body144:                                      ; preds = %for.body144.preheader, %for.inc151
-  %indvars.iv218 = phi i64 [ 0, %for.body144.preheader ], [ %indvars.iv.next219, %for.inc151 ]
-  %arrayidx147 = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %indvars.iv218
+  %indvars.iv214 = phi i64 [ 0, %for.body144.preheader ], [ %indvars.iv.next215, %for.inc151 ]
+  %arrayidx147 = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %indvars.iv214
   %vtable148 = load ptr, ptr %output, align 8
   %vfn149 = getelementptr inbounds i8, ptr %vtable148, i64 16
-  %53 = load ptr, ptr %vfn149, align 8
-  invoke void %53(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx147)
+  %54 = load ptr, ptr %vfn149, align 8
+  invoke void %54(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx147)
           to label %for.inc151 unwind label %lpad.loopexit
 
 for.inc151:                                       ; preds = %for.body144
-  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
-  br i1 %exitcond222.not, label %for.end153, label %for.body144, !llvm.loop !21
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
+  %exitcond219.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count218
+  br i1 %exitcond219.not, label %for.end153, label %for.body144, !llvm.loop !21
 
 for.end153:                                       ; preds = %for.inc151, %for.cond142.preheader
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %sb) #17

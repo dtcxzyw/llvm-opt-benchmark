@@ -6182,8 +6182,8 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIfS2_IiiE
   %359 = lshr i64 %358, 1
   %360 = add nsw i64 %355, -1
   %361 = sdiv i64 %360, 2
-  %362 = and i64 %355, 1
-  %363 = icmp eq i64 %362, 0
+  %362 = and i32 %354, 1
+  %363 = icmp eq i32 %362, 0
   %364 = ashr exact i64 %358, 1
   %365 = or disjoint i64 %358, 1
   %366 = getelementptr inbounds %"struct.std::pair.80", ptr %.sroa.0216.0.lcssa437, i64 %365
@@ -6303,8 +6303,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfS2_IiiEESt6vectorIS4_
   %424 = add nsw i64 %355, -1
   %425 = sdiv i64 %424, 2
   %426 = icmp sgt i32 %354, 2
-  %427 = and i64 %355, 1
-  %428 = icmp eq i64 %427, 0
+  %427 = and i32 %354, 1
+  %428 = icmp eq i32 %427, 0
   %429 = add nsw i64 %355, -2
   %430 = ashr exact i64 %429, 1
   %431 = or disjoint i64 %429, 1

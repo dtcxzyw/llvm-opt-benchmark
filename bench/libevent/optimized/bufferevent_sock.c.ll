@@ -17,9 +17,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @be_socket_enable(ptr noundef %bufev, i16 noundef signext %event) #0 {
 entry:
-  %conv5 = zext i16 %event to i32
-  %and = and i32 %conv5, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %0 = and i16 %event, 2
+  %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -30,8 +29,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %and3 = and i32 %conv5, 4
-  %tobool4.not = icmp eq i32 %and3, 0
+  %1 = and i16 %event, 4
+  %tobool4.not = icmp eq i16 %1, 0
   br i1 %tobool4.not, label %if.end10, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
@@ -52,9 +51,8 @@ return:                                           ; preds = %land.lhs.true5, %la
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @be_socket_disable(ptr noundef %bufev, i16 noundef signext %event) #0 {
 entry:
-  %conv4 = zext i16 %event to i32
-  %and = and i32 %conv4, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %0 = and i16 %event, 2
+  %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -64,15 +62,15 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.then, %entry
-  %and5 = and i32 %conv4, 4
-  %tobool6.not = icmp eq i32 %and5, 0
+  %1 = and i16 %event, 4
+  %tobool6.not = icmp eq i16 %1, 0
   br i1 %tobool6.not, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
   %connecting = getelementptr inbounds i8, ptr %bufev, i64 384
   %bf.load = load i8, ptr %connecting, align 8
-  %0 = and i8 %bf.load, 8
-  %tobool7.not = icmp eq i8 %0, 0
+  %2 = and i8 %bf.load, 8
+  %tobool7.not = icmp eq i8 %2, 0
   br i1 %tobool7.not, label %if.then8, label %if.end14
 
 if.then8:                                         ; preds = %land.lhs.true

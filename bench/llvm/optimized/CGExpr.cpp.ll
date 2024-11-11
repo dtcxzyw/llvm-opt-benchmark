@@ -20670,8 +20670,8 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %_ZN5clang7CodeGen15
   %82 = load i64, ptr %81, align 8
   %83 = and i64 %82, 206158430208
   %.not29 = icmp ne i64 %83, 0
-  %84 = and i64 %57, 48
-  %85 = icmp eq i64 %84, 16
+  %84 = and i32 %54, 3
+  %85 = icmp eq i32 %84, 1
   %or.cond = and i1 %85, %.not29
   br i1 %or.cond, label %86, label %_ZN5clang10Qualifiers13addQualifiersES0_.exit
 

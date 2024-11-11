@@ -14,8 +14,8 @@ define noalias noundef ptr @Extra_BitMatrixStart(i32 noundef %0) local_unnamed_a
   store i32 31, ptr %4, align 4
   %5 = sext i32 %0 to i64
   %6 = lshr i64 %5, 5
-  %7 = and i64 %5, 31
-  %8 = icmp ne i64 %7, 0
+  %7 = and i32 %0, 31
+  %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i64
   %10 = add nuw nsw i64 %6, %9
   %11 = trunc i64 %10 to i32

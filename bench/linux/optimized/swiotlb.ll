@@ -1974,61 +1974,59 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   br i1 %68, label %.loopexit6, label %.preheader5
 
 .loopexit6:                                       ; preds = %.preheader5, %65
-  %69 = phi i32 [ %66, %65 ], [ %76, %.preheader5 ]
+  %69 = phi i32 [ %66, %65 ], [ %75, %.preheader5 ]
   %70 = add nsw i32 %31, -1
-  %71 = sext i32 %70 to i64
-  %72 = and i64 %71, 127
-  %73 = icmp eq i64 %72, 127
-  br i1 %73, label %.loopexit, label %.preheader
+  %71 = and i32 %70, 127
+  %72 = icmp eq i32 %71, 127
+  br i1 %72, label %.loopexit, label %.preheader
 
 .preheader5:                                      ; preds = %65, %.preheader5
-  %74 = phi i32 [ %84, %.preheader5 ], [ %67, %65 ]
-  %75 = phi i32 [ %76, %.preheader5 ], [ %66, %65 ]
-  %76 = add i32 %75, 1
-  %77 = load ptr, ptr %32, align 8
-  %78 = sext i32 %74 to i64
-  %79 = getelementptr %struct.io_tlb_slot, ptr %77, i64 %78, i32 2
-  store i32 %76, ptr %79, align 8
-  %80 = load ptr, ptr %32, align 8
-  %81 = getelementptr %struct.io_tlb_slot, ptr %80, i64 %78
-  store i64 -1, ptr %81, align 8
-  %82 = load ptr, ptr %32, align 8
-  %83 = getelementptr %struct.io_tlb_slot, ptr %82, i64 %78, i32 1
-  store i64 0, ptr %83, align 8
-  %84 = add i32 %74, -1
-  %85 = icmp slt i32 %84, %31
-  br i1 %85, label %.loopexit6, label %.preheader5, !llvm.loop !55
+  %73 = phi i32 [ %83, %.preheader5 ], [ %67, %65 ]
+  %74 = phi i32 [ %75, %.preheader5 ], [ %66, %65 ]
+  %75 = add i32 %74, 1
+  %76 = load ptr, ptr %32, align 8
+  %77 = sext i32 %73 to i64
+  %78 = getelementptr %struct.io_tlb_slot, ptr %76, i64 %77, i32 2
+  store i32 %75, ptr %78, align 8
+  %79 = load ptr, ptr %32, align 8
+  %80 = getelementptr %struct.io_tlb_slot, ptr %79, i64 %77
+  store i64 -1, ptr %80, align 8
+  %81 = load ptr, ptr %32, align 8
+  %82 = getelementptr %struct.io_tlb_slot, ptr %81, i64 %77, i32 1
+  store i64 0, ptr %82, align 8
+  %83 = add i32 %73, -1
+  %84 = icmp slt i32 %83, %31
+  br i1 %84, label %.loopexit6, label %.preheader5, !llvm.loop !55
 
-.preheader:                                       ; preds = %.loopexit6, %93
-  %86 = phi i64 [ %96, %93 ], [ %71, %.loopexit6 ]
-  %87 = phi i32 [ %95, %93 ], [ %70, %.loopexit6 ]
-  %88 = phi i32 [ %94, %93 ], [ %69, %.loopexit6 ]
-  %89 = load ptr, ptr %32, align 8
-  %90 = getelementptr %struct.io_tlb_slot, ptr %89, i64 %86, i32 2
-  %91 = load i32, ptr %90, align 8
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.loopexit, label %93
+.preheader:                                       ; preds = %.loopexit6, %92
+  %85 = phi i32 [ %94, %92 ], [ %70, %.loopexit6 ]
+  %86 = phi i32 [ %93, %92 ], [ %69, %.loopexit6 ]
+  %87 = sext i32 %85 to i64
+  %88 = load ptr, ptr %32, align 8
+  %89 = getelementptr %struct.io_tlb_slot, ptr %88, i64 %87, i32 2
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %.loopexit, label %92
 
-93:                                               ; preds = %.preheader
-  %94 = add i32 %88, 1
-  store i32 %94, ptr %90, align 8
-  %95 = add i32 %87, -1
-  %96 = sext i32 %95 to i64
-  %97 = and i64 %96, 127
-  %98 = icmp eq i64 %97, 127
-  br i1 %98, label %.loopexit, label %.preheader, !llvm.loop !56
+92:                                               ; preds = %.preheader
+  %93 = add i32 %86, 1
+  store i32 %93, ptr %89, align 8
+  %94 = add i32 %85, -1
+  %95 = and i32 %94, 127
+  %96 = icmp eq i32 %95, 127
+  br i1 %96, label %.loopexit, label %.preheader, !llvm.loop !56
 
-.loopexit:                                        ; preds = %93, %.preheader, %.loopexit6
-  %99 = shl i64 %40, 32
-  %100 = ashr exact i64 %99, 32
-  %101 = load i64, ptr %47, align 8
-  %102 = sub i64 %101, %100
-  store i64 %102, ptr %47, align 8
+.loopexit:                                        ; preds = %92, %.preheader, %.loopexit6
+  %97 = shl i64 %40, 32
+  %98 = ashr exact i64 %97, 32
+  %99 = load i64, ptr %47, align 8
+  %100 = sub i64 %99, %98
+  store i64 %100, ptr %47, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %54, i64 noundef %55) #21
-  %103 = load ptr, ptr %13, align 8
-  %104 = and i64 %40, 4294967295
-  %105 = getelementptr inbounds i8, ptr %103, i64 88
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %105, i64 %104, ptr elementtype(i64) %105) #21, !srcloc !57
+  %101 = load ptr, ptr %13, align 8
+  %102 = and i64 %40, 4294967295
+  %103 = getelementptr inbounds i8, ptr %101, i64 88
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %103, i64 %102, ptr elementtype(i64) %103) #21, !srcloc !57
   ret void
 }
 

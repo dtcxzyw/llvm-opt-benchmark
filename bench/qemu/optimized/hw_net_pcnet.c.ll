@@ -3233,10 +3233,10 @@ if.end108:                                        ; preds = %if.else, %pcnet_tmd
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @pcnet_transmit(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %xda.i116 = alloca %struct.anon.7, align 4
-  %xda10.i117 = alloca %struct.anon.8, align 4
-  %xda.i94 = alloca %struct.anon.6, align 4
-  %xda.i79 = alloca %struct.anon.7, align 4
+  %xda.i115 = alloca %struct.anon.7, align 4
+  %xda10.i116 = alloca %struct.anon.8, align 4
+  %xda.i93 = alloca %struct.anon.6, align 4
+  %xda.i78 = alloca %struct.anon.7, align 4
   %xda10.i = alloca %struct.anon.8, align 4
   %xda.i = alloca %struct.anon.6, align 4
   %tmd = alloca %struct.pcnet_TMD, align 4
@@ -3260,22 +3260,22 @@ if.end:                                           ; preds = %entry
   %conv = zext i16 %0 to i32
   %tx_busy = getelementptr inbounds i8, ptr %s, i64 13008
   store i32 1, ptr %tx_busy, align 16
-  %arrayidx.i95 = getelementptr i8, ptr %s, i64 8564
-  %phys_mem_read.i97 = getelementptr inbounds i8, ptr %s, i64 12984
-  %dma_opaque.i98 = getelementptr inbounds i8, ptr %s, i64 13000
-  %misc17.i102 = getelementptr inbounds i8, ptr %tmd311, i64 8
-  %length.i105 = getelementptr inbounds i8, ptr %xda.i94, i64 4
-  %length4.i106 = getelementptr inbounds i8, ptr %tmd311, i64 4
-  %status.i109 = getelementptr inbounds i8, ptr %tmd311, i64 6
-  %status9.i110 = getelementptr inbounds i8, ptr %xda.i94, i64 6
-  %res.i114 = getelementptr inbounds i8, ptr %tmd311, i64 12
-  %length16.i122 = getelementptr inbounds i8, ptr %xda10.i117, i64 4
-  %status19.i124 = getelementptr inbounds i8, ptr %xda10.i117, i64 6
-  %misc22.i126 = getelementptr inbounds i8, ptr %xda10.i117, i64 8
-  %res24.i128 = getelementptr inbounds i8, ptr %xda10.i117, i64 12
-  %phys_mem_write35.i131 = getelementptr inbounds i8, ptr %s, i64 12992
-  %length6.i141 = getelementptr inbounds i8, ptr %xda.i116, i64 4
-  %status9.i145 = getelementptr inbounds i8, ptr %xda.i116, i64 6
+  %arrayidx.i94 = getelementptr i8, ptr %s, i64 8564
+  %phys_mem_read.i96 = getelementptr inbounds i8, ptr %s, i64 12984
+  %dma_opaque.i97 = getelementptr inbounds i8, ptr %s, i64 13000
+  %misc17.i101 = getelementptr inbounds i8, ptr %tmd311, i64 8
+  %length.i104 = getelementptr inbounds i8, ptr %xda.i93, i64 4
+  %length4.i105 = getelementptr inbounds i8, ptr %tmd311, i64 4
+  %status.i108 = getelementptr inbounds i8, ptr %tmd311, i64 6
+  %status9.i109 = getelementptr inbounds i8, ptr %xda.i93, i64 6
+  %res.i113 = getelementptr inbounds i8, ptr %tmd311, i64 12
+  %length16.i121 = getelementptr inbounds i8, ptr %xda10.i116, i64 4
+  %status19.i123 = getelementptr inbounds i8, ptr %xda10.i116, i64 6
+  %misc22.i125 = getelementptr inbounds i8, ptr %xda10.i116, i64 8
+  %res24.i127 = getelementptr inbounds i8, ptr %xda10.i116, i64 12
+  %phys_mem_write35.i130 = getelementptr inbounds i8, ptr %s, i64 12992
+  %length6.i140 = getelementptr inbounds i8, ptr %xda.i115, i64 4
+  %status9.i144 = getelementptr inbounds i8, ptr %xda.i115, i64 6
   %arrayidx338 = getelementptr i8, ptr %s, i64 8274
   %arrayidx16 = getelementptr i8, ptr %s, i64 8336
   %misc17.i = getelementptr inbounds i8, ptr %tmd, i64 8
@@ -3296,8 +3296,8 @@ if.end:                                           ; preds = %entry
   %status19.i = getelementptr inbounds i8, ptr %xda10.i, i64 6
   %misc22.i = getelementptr inbounds i8, ptr %xda10.i, i64 8
   %res24.i = getelementptr inbounds i8, ptr %xda10.i, i64 12
-  %length6.i = getelementptr inbounds i8, ptr %xda.i79, i64 4
-  %status9.i92 = getelementptr inbounds i8, ptr %xda.i79, i64 6
+  %length6.i = getelementptr inbounds i8, ptr %xda.i78, i64 4
+  %status9.i91 = getelementptr inbounds i8, ptr %xda.i78, i64 6
   %arrayidx265 = getelementptr i8, ptr %s, i64 8278
   %arrayidx289 = getelementptr i8, ptr %s, i64 8416
   br label %txagain.outer
@@ -3316,7 +3316,7 @@ txagain:                                          ; preds = %txagain.outer, %if.
   br i1 %tobool9.not, label %if.else306, label %if.then10
 
 if.then10:                                        ; preds = %txagain
-  %3 = load i16, ptr %arrayidx.i95, align 4
+  %3 = load i16, ptr %arrayidx.i94, align 4
   %4 = and i16 %3, 256
   %tobool14.not = icmp eq i16 %4, 0
   br i1 %tobool14.not, label %if.then.i, label %if.else.i
@@ -3332,8 +3332,8 @@ if.then.i:                                        ; preds = %if.then10
   %11 = shl nuw nsw i64 %10, 16
   %or34 = or disjoint i64 %11, %conv23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i)
-  %12 = load ptr, ptr %phys_mem_read.i97, align 8
-  %13 = load ptr, ptr %dma_opaque.i98, align 8
+  %12 = load ptr, ptr %phys_mem_read.i96, align 8
+  %13 = load ptr, ptr %dma_opaque.i97, align 8
   call void %12(ptr noundef %13, i64 noundef range(i64 0, 4294967296) %or34, ptr noundef nonnull %xda.i, i32 noundef 8, i32 noundef 0) #11
   %14 = load i32, ptr %xda.i, align 4
   %and1.i = and i32 %14, 16777215
@@ -3355,10 +3355,10 @@ if.else.i:                                        ; preds = %if.then10
   %18 = load i32, ptr %arrayidx16, align 4
   %19 = zext i32 %18 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i)
-  %20 = load ptr, ptr %phys_mem_read.i97, align 8
-  %21 = load ptr, ptr %dma_opaque.i98, align 8
+  %20 = load ptr, ptr %phys_mem_read.i96, align 8
+  %21 = load ptr, ptr %dma_opaque.i97, align 8
   call void %20(ptr noundef %21, i64 noundef range(i64 0, 4294967296) %19, ptr noundef nonnull %tmd, i32 noundef 16, i32 noundef 0) #11
-  %22 = load i16, ptr %arrayidx.i95, align 4
+  %22 = load i16, ptr %arrayidx.i94, align 4
   %23 = and i16 %22, 255
   %cmp.i = icmp eq i16 %23, 3
   br i1 %cmp.i, label %if.then24.i, label %pcnet_tmd_load.exit
@@ -3379,7 +3379,7 @@ pcnet_tmd_load.exit:                              ; preds = %if.then.i, %if.else
 
 if.then39:                                        ; preds = %pcnet_tmd_load.exit
   store i32 0, ptr %xmit_pos, align 4
-  %28 = load i16, ptr %arrayidx.i95, align 4
+  %28 = load i16, ptr %arrayidx.i94, align 4
   %29 = and i16 %28, 256
   %tobool45.not = icmp eq i16 %29, 0
   br i1 %tobool45.not, label %cond.false55, label %cond.true46
@@ -3469,9 +3469,9 @@ if.then139:                                       ; preds = %if.end130
   br label %txdone
 
 if.end141:                                        ; preds = %if.end130
-  %53 = load ptr, ptr %phys_mem_read.i97, align 8
-  %54 = load ptr, ptr %dma_opaque.i98, align 8
-  %55 = load i16, ptr %arrayidx.i95, align 4
+  %53 = load ptr, ptr %phys_mem_read.i96, align 8
+  %54 = load ptr, ptr %dma_opaque.i97, align 8
+  %55 = load i16, ptr %arrayidx.i94, align 4
   %56 = and i16 %55, 256
   %tobool146.not = icmp eq i16 %56, 0
   %57 = load i32, ptr %tmd, align 4
@@ -3499,9 +3499,8 @@ cond.end156:                                      ; preds = %if.end141, %cond.fa
   %add167 = add i32 %62, %sub134
   store i32 %add167, ptr %xmit_pos, align 4
   %63 = load i16, ptr %status.i, align 2
-  %conv169170 = zext i16 %63 to i32
-  %64 = and i32 %conv169170, 256
-  %tobool172.not = icmp eq i32 %64, 0
+  %64 = and i16 %63, 256
+  %tobool172.not = icmp eq i16 %64, 0
   br i1 %tobool172.not, label %txdone, label %if.end174
 
 if.end174:                                        ; preds = %cond.end156
@@ -3511,12 +3510,12 @@ if.end174:                                        ; preds = %cond.end156
   br i1 %tobool179.not, label %if.else, label %if.then180
 
 if.then180:                                       ; preds = %if.end174
-  %67 = load i16, ptr %arrayidx.i95, align 4
+  %67 = load i16, ptr %arrayidx.i94, align 4
   %68 = and i16 %67, 255
   %cmp185 = icmp eq i16 %68, 1
-  %69 = lshr i32 %conv169170, 13
-  %.lobit78 = and i32 %69, 1
-  %lnot.ext194 = xor i32 %.lobit78, 1
+  %69 = and i16 %63, 8192
+  %tobool192.not = icmp eq i16 %69, 0
+  %lnot.ext194 = zext i1 %tobool192.not to i32
   %add_crc.3 = select i1 %cmp185, i32 %lnot.ext194, i32 %add_crc.1
   %tobool196.not = icmp eq i32 %add_crc.3, 0
   %cond197 = select i1 %tobool196.not, i32 2, i32 1
@@ -3556,12 +3555,12 @@ txdone:                                           ; preds = %cond.end156, %if.en
   %add_crc.2 = phi i32 [ %add_crc.1, %if.end125 ], [ %add_crc.1, %if.then139 ], [ %add_crc.4, %if.end214 ], [ %add_crc.1, %cond.end156 ], [ %add_crc.1, %if.then103 ]
   %and228 = and i16 %78, 32767
   store i16 %and228, ptr %status.i, align 2
-  %79 = load i16, ptr %arrayidx.i95, align 4
+  %79 = load i16, ptr %arrayidx.i94, align 4
   %80 = and i16 %79, 256
   %tobool236.not = icmp eq i16 %80, 0
-  br i1 %tobool236.not, label %if.then.i85, label %if.else.i82
+  br i1 %tobool236.not, label %if.then.i84, label %if.else.i81
 
-if.then.i85:                                      ; preds = %txdone
+if.then.i84:                                      ; preds = %txdone
   %81 = load i16, ptr %arrayidx16, align 4
   %conv249 = zext i16 %81 to i64
   %82 = load i16, ptr %arrayidx25, align 2
@@ -3571,30 +3570,30 @@ if.then.i85:                                      ; preds = %txdone
   %86 = zext i16 %85 to i64
   %87 = shl nuw nsw i64 %86, 16
   %or260 = or disjoint i64 %87, %conv249
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i79)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i78)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %xda10.i)
   %88 = load i32, ptr %tmd, align 4
-  %and1.i86 = and i32 %88, 16777215
+  %and1.i85 = and i32 %88, 16777215
   %89 = and i16 %78, 32512
   %and3.i = zext nneg i16 %89 to i32
-  %shl.i88 = shl nuw nsw i32 %and3.i, 16
-  %or.i = or disjoint i32 %and1.i86, %shl.i88
-  store i32 %or.i, ptr %xda.i79, align 4
+  %shl.i87 = shl nuw nsw i32 %and3.i, 16
+  %or.i = or disjoint i32 %and1.i85, %shl.i87
+  store i32 %or.i, ptr %xda.i78, align 4
   %90 = load i16, ptr %length4.i, align 4
   store i16 %90, ptr %length6.i, align 4
   %91 = load i32, ptr %misc17.i, align 4
-  %shr.i91 = lshr i32 %91, 16
-  %conv7.i = trunc nuw i32 %shr.i91 to i16
-  store i16 %conv7.i, ptr %status9.i92, align 2
-  %92 = load ptr, ptr %phys_mem_write35.i131, align 16
-  %93 = load ptr, ptr %dma_opaque.i98, align 8
-  call void %92(ptr noundef %93, i64 noundef range(i64 0, 4294967296) %or260, ptr noundef nonnull %xda.i79, i32 noundef 8, i32 noundef 0) #11
+  %shr.i90 = lshr i32 %91, 16
+  %conv7.i = trunc nuw i32 %shr.i90 to i16
+  store i16 %conv7.i, ptr %status9.i91, align 2
+  %92 = load ptr, ptr %phys_mem_write35.i130, align 16
+  %93 = load ptr, ptr %dma_opaque.i97, align 8
+  call void %92(ptr noundef %93, i64 noundef range(i64 0, 4294967296) %or260, ptr noundef nonnull %xda.i78, i32 noundef 8, i32 noundef 0) #11
   br label %pcnet_tmd_store.exit
 
-if.else.i82:                                      ; preds = %txdone
+if.else.i81:                                      ; preds = %txdone
   %94 = load i32, ptr %arrayidx16, align 4
   %95 = zext i32 %94 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i79)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i78)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %xda10.i)
   %96 = load i32, ptr %tmd, align 4
   store i32 %96, ptr %xda10.i, align 4
@@ -3606,22 +3605,22 @@ if.else.i82:                                      ; preds = %txdone
   %99 = load i32, ptr %res.i, align 4
   store i32 %99, ptr %res24.i, align 4
   %100 = and i16 %79, 255
-  %cmp.i84 = icmp eq i16 %100, 3
-  br i1 %cmp.i84, label %if.then30.i, label %if.end.i
+  %cmp.i83 = icmp eq i16 %100, 3
+  br i1 %cmp.i83, label %if.then30.i, label %if.end.i
 
-if.then30.i:                                      ; preds = %if.else.i82
+if.then30.i:                                      ; preds = %if.else.i81
   store i32 %98, ptr %xda10.i, align 4
   store i32 %96, ptr %misc22.i, align 4
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then30.i, %if.else.i82
-  %101 = load ptr, ptr %phys_mem_write35.i131, align 16
-  %102 = load ptr, ptr %dma_opaque.i98, align 8
+if.end.i:                                         ; preds = %if.then30.i, %if.else.i81
+  %101 = load ptr, ptr %phys_mem_write35.i130, align 16
+  %102 = load ptr, ptr %dma_opaque.i97, align 8
   call void %101(ptr noundef %102, i64 noundef range(i64 0, 4294967296) %95, ptr noundef nonnull %xda10.i, i32 noundef 16, i32 noundef 0) #11
   br label %pcnet_tmd_store.exit
 
-pcnet_tmd_store.exit:                             ; preds = %if.then.i85, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xda.i79)
+pcnet_tmd_store.exit:                             ; preds = %if.then.i84, %if.end.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xda.i78)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xda10.i)
   %103 = load i16, ptr %arrayidx265, align 2
   %tobool268.not = icmp sgt i16 %103, -1
@@ -3669,105 +3668,105 @@ if.else306:                                       ; preds = %txagain
   br i1 %cmp308, label %if.then310, label %if.end355
 
 if.then310:                                       ; preds = %if.else306
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i94)
-  %112 = load i16, ptr %arrayidx.i95, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i93)
+  %112 = load i16, ptr %arrayidx.i94, align 4
   %113 = and i16 %112, 256
-  %tobool.not.i96 = icmp eq i16 %113, 0
-  %114 = load ptr, ptr %phys_mem_read.i97, align 8
-  %115 = load ptr, ptr %dma_opaque.i98, align 8
-  br i1 %tobool.not.i96, label %if.then.i103, label %if.else.i99
+  %tobool.not.i95 = icmp eq i16 %113, 0
+  %114 = load ptr, ptr %phys_mem_read.i96, align 8
+  %115 = load ptr, ptr %dma_opaque.i97, align 8
+  br i1 %tobool.not.i95, label %if.then.i102, label %if.else.i98
 
-if.then.i103:                                     ; preds = %if.then310
-  call void %114(ptr noundef %115, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %xda.i94, i32 noundef 8, i32 noundef 0) #11
-  %116 = load i32, ptr %xda.i94, align 4
-  %and1.i104 = and i32 %116, 16777215
-  store i32 %and1.i104, ptr %tmd311, align 4
-  %117 = load i16, ptr %length.i105, align 4
-  store i16 %117, ptr %length4.i106, align 4
-  %shr.i107 = lshr i32 %116, 16
-  %118 = trunc nuw i32 %shr.i107 to i16
-  %conv8.i108 = and i16 %118, -256
-  store i16 %conv8.i108, ptr %status.i109, align 2
-  %119 = load i16, ptr %status9.i110, align 2
-  %conv11.i111 = zext i16 %119 to i32
-  %shl.i112 = shl nuw i32 %conv11.i111, 16
-  store i32 0, ptr %res.i114, align 4
-  %.pre168 = load i16, ptr %arrayidx.i95, align 4
-  br label %pcnet_tmd_load.exit115
+if.then.i102:                                     ; preds = %if.then310
+  call void %114(ptr noundef %115, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %xda.i93, i32 noundef 8, i32 noundef 0) #11
+  %116 = load i32, ptr %xda.i93, align 4
+  %and1.i103 = and i32 %116, 16777215
+  store i32 %and1.i103, ptr %tmd311, align 4
+  %117 = load i16, ptr %length.i104, align 4
+  store i16 %117, ptr %length4.i105, align 4
+  %shr.i106 = lshr i32 %116, 16
+  %118 = trunc nuw i32 %shr.i106 to i16
+  %conv8.i107 = and i16 %118, -256
+  store i16 %conv8.i107, ptr %status.i108, align 2
+  %119 = load i16, ptr %status9.i109, align 2
+  %conv11.i110 = zext i16 %119 to i32
+  %shl.i111 = shl nuw i32 %conv11.i110, 16
+  store i32 0, ptr %res.i113, align 4
+  %.pre167 = load i16, ptr %arrayidx.i94, align 4
+  br label %pcnet_tmd_load.exit114
 
-if.else.i99:                                      ; preds = %if.then310
+if.else.i98:                                      ; preds = %if.then310
   call void %114(ptr noundef %115, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %tmd311, i32 noundef 16, i32 noundef 0) #11
-  %120 = load i16, ptr %arrayidx.i95, align 4
+  %120 = load i16, ptr %arrayidx.i94, align 4
   %121 = and i16 %120, 255
-  %cmp.i100 = icmp eq i16 %121, 3
-  %.pre167 = load i32, ptr %misc17.i102, align 4
-  %.pre169 = load i32, ptr %tmd311, align 4
-  br i1 %cmp.i100, label %if.then24.i101, label %pcnet_tmd_load.exit115
+  %cmp.i99 = icmp eq i16 %121, 3
+  %.pre166 = load i32, ptr %misc17.i101, align 4
+  %.pre168 = load i32, ptr %tmd311, align 4
+  br i1 %cmp.i99, label %if.then24.i100, label %pcnet_tmd_load.exit114
 
-if.then24.i101:                                   ; preds = %if.else.i99
-  store i32 %.pre167, ptr %tmd311, align 4
-  br label %pcnet_tmd_load.exit115
+if.then24.i100:                                   ; preds = %if.else.i98
+  store i32 %.pre166, ptr %tmd311, align 4
+  br label %pcnet_tmd_load.exit114
 
-pcnet_tmd_load.exit115:                           ; preds = %if.then.i103, %if.else.i99, %if.then24.i101
-  %122 = phi i32 [ %and1.i104, %if.then.i103 ], [ %.pre169, %if.else.i99 ], [ %.pre167, %if.then24.i101 ]
-  %123 = phi i16 [ %.pre168, %if.then.i103 ], [ %120, %if.else.i99 ], [ %120, %if.then24.i101 ]
-  %124 = phi i32 [ %shl.i112, %if.then.i103 ], [ %.pre167, %if.else.i99 ], [ %.pre169, %if.then24.i101 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xda.i94)
+pcnet_tmd_load.exit114:                           ; preds = %if.then.i102, %if.else.i98, %if.then24.i100
+  %122 = phi i32 [ %and1.i103, %if.then.i102 ], [ %.pre168, %if.else.i98 ], [ %.pre166, %if.then24.i100 ]
+  %123 = phi i16 [ %.pre167, %if.then.i102 ], [ %120, %if.else.i98 ], [ %120, %if.then24.i100 ]
+  %124 = phi i32 [ %shl.i111, %if.then.i102 ], [ %.pre166, %if.else.i98 ], [ %.pre168, %if.then24.i100 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xda.i93)
   %or318 = or i32 %124, -1073741824
-  store i32 %or318, ptr %misc17.i102, align 4
-  %125 = load i16, ptr %status.i109, align 2
+  store i32 %or318, ptr %misc17.i101, align 4
+  %125 = load i16, ptr %status.i108, align 2
   %126 = and i16 %125, 16383
   %and328 = or disjoint i16 %126, 16384
-  store i16 %and328, ptr %status.i109, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i116)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %xda10.i117)
+  store i16 %and328, ptr %status.i108, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xda.i115)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %xda10.i116)
   %127 = and i16 %123, 256
-  %tobool.not.i119 = icmp eq i16 %127, 0
-  br i1 %tobool.not.i119, label %if.then.i134, label %if.else.i120
+  %tobool.not.i118 = icmp eq i16 %127, 0
+  br i1 %tobool.not.i118, label %if.then.i133, label %if.else.i119
 
-if.then.i134:                                     ; preds = %pcnet_tmd_load.exit115
-  %and1.i135 = and i32 %122, 16777215
+if.then.i133:                                     ; preds = %pcnet_tmd_load.exit114
+  %and1.i134 = and i32 %122, 16777215
   %128 = and i16 %and328, 32512
-  %and3.i137 = zext nneg i16 %128 to i32
-  %shl.i138 = shl nuw nsw i32 %and3.i137, 16
-  %or.i139 = or disjoint i32 %and1.i135, %shl.i138
-  store i32 %or.i139, ptr %xda.i116, align 4
-  %129 = load i16, ptr %length4.i106, align 4
-  store i16 %129, ptr %length6.i141, align 4
-  %shr.i143 = lshr i32 %or318, 16
-  %conv7.i144 = trunc nuw i32 %shr.i143 to i16
-  store i16 %conv7.i144, ptr %status9.i145, align 2
-  %130 = load ptr, ptr %phys_mem_write35.i131, align 16
-  %131 = load ptr, ptr %dma_opaque.i98, align 8
-  call void %130(ptr noundef %131, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %xda.i116, i32 noundef 8, i32 noundef 0) #11
-  br label %pcnet_tmd_store.exit148
+  %and3.i136 = zext nneg i16 %128 to i32
+  %shl.i137 = shl nuw nsw i32 %and3.i136, 16
+  %or.i138 = or disjoint i32 %and1.i134, %shl.i137
+  store i32 %or.i138, ptr %xda.i115, align 4
+  %129 = load i16, ptr %length4.i105, align 4
+  store i16 %129, ptr %length6.i140, align 4
+  %shr.i142 = lshr i32 %or318, 16
+  %conv7.i143 = trunc nuw i32 %shr.i142 to i16
+  store i16 %conv7.i143, ptr %status9.i144, align 2
+  %130 = load ptr, ptr %phys_mem_write35.i130, align 16
+  %131 = load ptr, ptr %dma_opaque.i97, align 8
+  call void %130(ptr noundef %131, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %xda.i115, i32 noundef 8, i32 noundef 0) #11
+  br label %pcnet_tmd_store.exit147
 
-if.else.i120:                                     ; preds = %pcnet_tmd_load.exit115
-  store i32 %122, ptr %xda10.i117, align 4
-  %132 = load i16, ptr %length4.i106, align 4
-  store i16 %132, ptr %length16.i122, align 4
-  store i16 %and328, ptr %status19.i124, align 2
-  store i32 %or318, ptr %misc22.i126, align 4
-  %133 = load i32, ptr %res.i114, align 4
-  store i32 %133, ptr %res24.i128, align 4
+if.else.i119:                                     ; preds = %pcnet_tmd_load.exit114
+  store i32 %122, ptr %xda10.i116, align 4
+  %132 = load i16, ptr %length4.i105, align 4
+  store i16 %132, ptr %length16.i121, align 4
+  store i16 %and328, ptr %status19.i123, align 2
+  store i32 %or318, ptr %misc22.i125, align 4
+  %133 = load i32, ptr %res.i113, align 4
+  store i32 %133, ptr %res24.i127, align 4
   %134 = and i16 %123, 255
-  %cmp.i129 = icmp eq i16 %134, 3
-  br i1 %cmp.i129, label %if.then30.i133, label %if.end.i130
+  %cmp.i128 = icmp eq i16 %134, 3
+  br i1 %cmp.i128, label %if.then30.i132, label %if.end.i129
 
-if.then30.i133:                                   ; preds = %if.else.i120
-  store i32 %or318, ptr %xda10.i117, align 4
-  store i32 %122, ptr %misc22.i126, align 4
-  br label %if.end.i130
+if.then30.i132:                                   ; preds = %if.else.i119
+  store i32 %or318, ptr %xda10.i116, align 4
+  store i32 %122, ptr %misc22.i125, align 4
+  br label %if.end.i129
 
-if.end.i130:                                      ; preds = %if.then30.i133, %if.else.i120
-  %135 = load ptr, ptr %phys_mem_write35.i131, align 16
-  %136 = load ptr, ptr %dma_opaque.i98, align 8
-  call void %135(ptr noundef %136, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %xda10.i117, i32 noundef 16, i32 noundef 0) #11
-  br label %pcnet_tmd_store.exit148
+if.end.i129:                                      ; preds = %if.then30.i132, %if.else.i119
+  %135 = load ptr, ptr %phys_mem_write35.i130, align 16
+  %136 = load ptr, ptr %dma_opaque.i97, align 8
+  call void %135(ptr noundef %136, i64 noundef range(i64 0, 4294967296) %xmit_cxda.0.ph, ptr noundef nonnull %xda10.i116, i32 noundef 16, i32 noundef 0) #11
+  br label %pcnet_tmd_store.exit147
 
-pcnet_tmd_store.exit148:                          ; preds = %if.then.i134, %if.end.i130
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xda.i116)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xda10.i117)
+pcnet_tmd_store.exit147:                          ; preds = %if.then.i133, %if.end.i129
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xda.i115)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %xda10.i116)
   %137 = load i16, ptr %csr, align 4
   %138 = or i16 %137, 512
   store i16 %138, ptr %csr, align 4
@@ -3776,12 +3775,12 @@ pcnet_tmd_store.exit148:                          ; preds = %if.then.i134, %if.e
   %tobool341.not = icmp eq i16 %140, 0
   br i1 %tobool341.not, label %if.then342, label %if.else348
 
-if.then342:                                       ; preds = %pcnet_tmd_store.exit148
+if.then342:                                       ; preds = %pcnet_tmd_store.exit147
   %141 = and i16 %138, -17
   store i16 %141, ptr %csr, align 4
   br label %if.end355
 
-if.else348:                                       ; preds = %pcnet_tmd_store.exit148
+if.else348:                                       ; preds = %pcnet_tmd_store.exit147
   %tobool350.not = icmp eq i32 %count.0, 0
   br i1 %tobool350.not, label %if.end355, label %txagain
 

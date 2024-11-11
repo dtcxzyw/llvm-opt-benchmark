@@ -5086,8 +5086,8 @@ mbedtls_mpi_bitlen.exit248:                       ; preds = %89, %mbedtls_clz.ex
 
 218:                                              ; preds = %.lr.ph318, %217
   %219 = add nuw i64 %.3317, 1
-  %exitcond337.not = icmp eq i64 %219, %.0128.ph
-  br i1 %exitcond337.not, label %._crit_edge, label %.lr.ph318, !llvm.loop !60
+  %exitcond339.not = icmp eq i64 %219, %.0128.ph
+  br i1 %exitcond339.not, label %._crit_edge, label %.lr.ph318, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %218, %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)

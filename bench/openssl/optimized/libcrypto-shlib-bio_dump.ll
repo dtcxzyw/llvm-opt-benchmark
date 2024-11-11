@@ -118,12 +118,12 @@ if.end66.lr.ph:                                   ; preds = %if.end56
 if.end66:                                         ; preds = %if.end66.lr.ph, %for.inc96
   %indvars.iv74 = phi i64 [ 0, %if.end66.lr.ph ], [ %indvars.iv.next75, %for.inc96 ]
   %n.365 = phi i32 [ %n.2, %if.end66.lr.ph ], [ %n.4, %for.inc96 ]
-  %conv67 = sext i32 %n.365 to i64
-  %8 = and i64 %conv67, -2
-  %cmp69.not = icmp eq i64 %8, 288
+  %8 = and i32 %n.365, -2
+  %cmp69.not = icmp eq i32 %8, 288
   br i1 %cmp69.not, label %for.inc96, label %if.then71
 
 if.then71:                                        ; preds = %if.end66
+  %conv67 = sext i32 %n.365 to i64
   %add.ptr76 = getelementptr inbounds i8, ptr %add.ptr74, i64 %indvars.iv74
   %9 = load i8, ptr %add.ptr76, align 1
   %10 = add i8 %9, -32
@@ -148,12 +148,16 @@ for.inc96:                                        ; preds = %if.end66, %if.then7
 
 for.end98:                                        ; preds = %for.inc96, %if.end56
   %n.3.lcssa = phi i32 [ %n.2, %if.end56 ], [ %n.4, %for.inc96 ]
-  %conv99 = sext i32 %n.3.lcssa to i64
-  %12 = and i64 %conv99, -2
-  %cmp101.not = icmp eq i64 %12, 288
-  br i1 %cmp101.not, label %if.end109, label %if.then103
+  %12 = and i32 %n.3.lcssa, -2
+  %cmp101.not = icmp eq i32 %12, 288
+  br i1 %cmp101.not, label %for.end98.if.end109_crit_edge, label %if.then103
+
+for.end98.if.end109_crit_edge:                    ; preds = %for.end98
+  %.pre = zext nneg i32 %n.3.lcssa to i64
+  br label %if.end109
 
 if.then103:                                       ; preds = %for.end98
+  %conv99 = sext i32 %n.3.lcssa to i64
   %inc104 = add nsw i32 %n.3.lcssa, 1
   %arrayidx106 = getelementptr inbounds [289 x i8], ptr %buf, i64 0, i64 %conv99
   store i8 10, ptr %arrayidx106, align 1
@@ -162,8 +166,8 @@ if.then103:                                       ; preds = %for.end98
   store i8 0, ptr %arrayidx108, align 1
   br label %if.end109
 
-if.end109:                                        ; preds = %if.then103, %for.end98
-  %conv111.pre-phi = phi i64 [ %idxprom107, %if.then103 ], [ %conv99, %for.end98 ]
+if.end109:                                        ; preds = %for.end98.if.end109_crit_edge, %if.then103
+  %conv111.pre-phi = phi i64 [ %.pre, %for.end98.if.end109_crit_edge ], [ %idxprom107, %if.then103 ]
   %call112 = call i32 %cb(ptr noundef nonnull %buf, i64 noundef %conv111.pre-phi, ptr noundef %u) #6
   %cmp113 = icmp slt i32 %call112, 0
   br i1 %cmp113, label %return, label %if.end116

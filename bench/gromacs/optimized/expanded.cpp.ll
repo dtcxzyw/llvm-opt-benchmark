@@ -2476,7 +2476,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i: ; p
   %1042 = getelementptr inbounds double, ptr %21, i64 %indvars.iv441.i
   %1043 = load double, ptr %1042, align 8
   %1044 = fcmp ult double %1043, %1041
-  br i1 %1044, label %1045, label %.loopexit.loopexit.split.loop.exit465.i
+  br i1 %1044, label %1045, label %.loopexit.loopexit.split.loop.exit467.i
 
 1045:                                             ; preds = %.lr.ph395.i
   %1046 = fsub double %1041, %1043
@@ -2640,7 +2640,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i: 
   %1154 = phi i64 [ %1151, %1072 ], [ %.pre.i.i.i.i261.i, %._crit_edge.i.i.i.i257.i ]
   %1155 = phi i32 [ 1, %1072 ], [ %1071, %._crit_edge.i.i.i.i257.i ]
   store i32 %1155, ptr %797, align 8
-  %.pre457.i = load double, ptr %1068, align 8
+  %.pre459.i = load double, ptr %1068, align 8
   br i1 %.not36.i.i139, label %._crit_edge380.i, label %.lr.ph379.i
 
 .lr.ph379.i:                                      ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i
@@ -2659,7 +2659,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i: 
   %.1214378.i = phi float [ %1160, %.lr.ph379.i ], [ %.2215.i, %1173 ]
   %1165 = getelementptr inbounds double, ptr %21, i64 %indvars.iv428.i
   %1166 = load double, ptr %1165, align 8
-  %1167 = fdiv double %1166, %.pre457.i
+  %1167 = fdiv double %1166, %.pre459.i
   %1168 = fptrunc double %1167 to float
   %.not247.i = icmp eq i64 %indvars.iv428.i, %1161
   br i1 %.not247.i, label %1173, label %1169
@@ -2684,15 +2684,15 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i: 
 
 ._crit_edge380.loopexit.i:                        ; preds = %1173, %._crit_edge380.loopexit.split.loop.exit.i
   %.0217.lcssa.ph.i = phi i32 [ %1174, %._crit_edge380.loopexit.split.loop.exit.i ], [ %1163, %1173 ]
-  %.pre458.i = zext nneg i32 %.0217.lcssa.ph.i to i64
+  %.pre460.i = zext nneg i32 %.0217.lcssa.ph.i to i64
   br label %._crit_edge380.i
 
 ._crit_edge380.i:                                 ; preds = %._crit_edge380.loopexit.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i
-  %.pre-phi.i = phi i64 [ %.pre458.i, %._crit_edge380.loopexit.i ], [ %920, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i ]
+  %.pre-phi.i = phi i64 [ %.pre460.i, %._crit_edge380.loopexit.i ], [ %920, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i ]
   %.0217.lcssa.i = phi i32 [ %.0217.lcssa.ph.i, %._crit_edge380.loopexit.i ], [ %.0212.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i ]
   %1175 = getelementptr inbounds double, ptr %820, i64 %.pre-phi.i
   %1176 = load double, ptr %1175, align 8
-  %1177 = fdiv double %.pre457.i, %1176
+  %1177 = fdiv double %.pre459.i, %1176
   %1178 = fptrunc double %1177 to float
   %1179 = fcmp olt float %1178, 1.000000e+00
   %.3207.i = select i1 %1179, float %1178, float 1.000000e+00
@@ -2845,13 +2845,13 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i: 
   %exitcond435.not.i = icmp eq i64 %indvars.iv.next432.i, %wide.trip.count434.i
   br i1 %exitcond435.not.i, label %.loopexit.i158, label %.lr.ph386.i, !llvm.loop !48
 
-.loopexit.loopexit.split.loop.exit465.i:          ; preds = %.lr.ph395.i
+.loopexit.loopexit.split.loop.exit467.i:          ; preds = %.lr.ph395.i
   %1287 = trunc nuw nsw i64 %indvars.iv441.i to i32
   br label %.loopexit.i158
 
-.loopexit.i158:                                   ; preds = %1283, %1045, %.loopexit.loopexit.split.loop.exit465.i, %1273, %._crit_edge371.thread.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i156
-  %.3222.i = phi i32 [ %.0200405.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i156 ], [ %.0212.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i ], [ %.4223.i, %1273 ], [ %.0200405.i, %._crit_edge371.thread.i ], [ %1287, %.loopexit.loopexit.split.loop.exit465.i ], [ %1040, %1045 ], [ %.4223.i, %1283 ]
-  %.1205.i = phi float [ %.0204403.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i156 ], [ %.0204403.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i ], [ %.2206.i, %1273 ], [ %.0204403.i, %._crit_edge371.thread.i ], [ %.0204403.i, %.loopexit.loopexit.split.loop.exit465.i ], [ %.0204403.i, %1045 ], [ %.5209.i, %1283 ]
+.loopexit.i158:                                   ; preds = %1283, %1045, %.loopexit.loopexit.split.loop.exit467.i, %1273, %._crit_edge371.thread.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i156
+  %.3222.i = phi i32 [ %.0200405.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i156 ], [ %.0212.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i ], [ %.4223.i, %1273 ], [ %.0200405.i, %._crit_edge371.thread.i ], [ %1287, %.loopexit.loopexit.split.loop.exit467.i ], [ %1040, %1045 ], [ %.4223.i, %1283 ]
+  %.1205.i = phi float [ %.0204403.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i156 ], [ %.0204403.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i ], [ %.2206.i, %1273 ], [ %.0204403.i, %._crit_edge371.thread.i ], [ %.0204403.i, %.loopexit.loopexit.split.loop.exit467.i ], [ %.0204403.i, %1045 ], [ %.5209.i, %1283 ]
   %1288 = icmp sgt i32 %.3222.i, %.0216.i
   br i1 %1288, label %1289, label %1554
 
@@ -2874,29 +2874,29 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i: 
 .lr.ph414.i:                                      ; preds = %1294
   %1301 = getelementptr inbounds i8, ptr %4, i64 32
   %1302 = add nuw nsw i32 %.0216.i, 1
-  %wide.trip.count455.i = zext nneg i32 %1302 to i64
+  %wide.trip.count457.i = zext nneg i32 %1302 to i64
   br label %1303
 
 1303:                                             ; preds = %1303, %.lr.ph414.i
-  %indvars.iv452.i = phi i64 [ %920, %.lr.ph414.i ], [ %indvars.iv.next453.i, %1303 ]
+  %indvars.iv453.i = phi i64 [ %920, %.lr.ph414.i ], [ %indvars.iv.next454.i, %1303 ]
   %.0202412.i = phi i32 [ %1300, %.lr.ph414.i ], [ %1317, %1303 ]
   %1304 = sext i32 %.0202412.i to i64
   %1305 = getelementptr inbounds i8, ptr %1299, i64 %1304
-  %1306 = getelementptr inbounds float, ptr %19, i64 %indvars.iv452.i
+  %1306 = getelementptr inbounds float, ptr %19, i64 %indvars.iv453.i
   %1307 = load float, ptr %1306, align 4
   %1308 = fpext float %1307 to double
-  %1309 = getelementptr inbounds double, ptr %21, i64 %indvars.iv452.i
+  %1309 = getelementptr inbounds double, ptr %21, i64 %indvars.iv453.i
   %1310 = load double, ptr %1309, align 8
   %1311 = load ptr, ptr %1301, align 8
-  %1312 = getelementptr inbounds float, ptr %1311, i64 %indvars.iv452.i
+  %1312 = getelementptr inbounds float, ptr %1311, i64 %indvars.iv453.i
   %1313 = load float, ptr %1312, align 4
   %1314 = fpext float %1313 to double
-  %1315 = trunc nuw nsw i64 %indvars.iv452.i to i32
+  %1315 = trunc nuw nsw i64 %indvars.iv453.i to i32
   %1316 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1305, ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %1315, double noundef %1308, double noundef %1310, double noundef %1314) #21
   %1317 = add nsw i32 %1316, %.0202412.i
-  %indvars.iv.next453.i = add nuw nsw i64 %indvars.iv452.i, 1
-  %exitcond456.not.i = icmp eq i64 %indvars.iv.next453.i, %wide.trip.count455.i
-  br i1 %exitcond456.not.i, label %._crit_edge415.i, label %1303, !llvm.loop !49
+  %indvars.iv.next454.i = add nuw nsw i64 %indvars.iv453.i, 1
+  %exitcond458.not.i = icmp eq i64 %indvars.iv.next454.i, %wide.trip.count457.i
+  br i1 %exitcond458.not.i, label %._crit_edge415.i, label %1303, !llvm.loop !49
 
 ._crit_edge415.i:                                 ; preds = %1303, %1294
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(124) @.str.24, i8 noundef zeroext 2)
@@ -3066,7 +3066,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit280.i: 
   %1434 = getelementptr inbounds double, ptr %819, i64 %1422
   store double 1.000000e+00, ptr %1434, align 8
   %1435 = fpext float %.7.i to double
-  br label %.sink.split473.i
+  br label %.sink.split475.i
 
 1436:                                             ; preds = %1418
   %1437 = fcmp ogt float %1425, 0.000000e+00
@@ -3086,12 +3086,12 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit280.i: 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1442, %1438
-  %.sink472.i = phi float [ %1425, %1442 ], [ %1439, %1438 ]
-  %.sink468.i = phi double [ %1444, %1442 ], [ 1.000000e+00, %1438 ]
-  %1445 = call noundef float @expf(float noundef %.sink472.i) #21
+  %.sink474.i = phi float [ %1425, %1442 ], [ %1439, %1438 ]
+  %.sink470.i = phi double [ %1444, %1442 ], [ 1.000000e+00, %1438 ]
+  %1445 = call noundef float @expf(float noundef %.sink474.i) #21
   %1446 = fpext float %1445 to double
   %1447 = fadd double %1446, 1.000000e+00
-  %1448 = fdiv double %.sink468.i, %1447
+  %1448 = fdiv double %.sink470.i, %1447
   %1449 = fptrunc double %1448 to float
   br label %1450
 
@@ -3108,19 +3108,19 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit280.i: 
   store double %1457, ptr %1455, align 8
   %1458 = getelementptr inbounds double, ptr %819, i64 %1422
   store double 1.000000e+00, ptr %1458, align 8
-  br label %.sink.split473.i
+  br label %.sink.split475.i
 
-.sink.split473.i:                                 ; preds = %1450, %1431
-  %.sink474.i = phi double [ 1.000000e+00, %1450 ], [ %1435, %1431 ]
+.sink.split475.i:                                 ; preds = %1450, %1431
+  %.sink476.i = phi double [ 1.000000e+00, %1450 ], [ %1435, %1431 ]
   %.8.ph.i = phi float [ %.9.i, %1450 ], [ %.7.i, %1431 ]
   %1459 = getelementptr inbounds double, ptr %819, i64 %1419
-  store double %.sink474.i, ptr %1459, align 8
+  store double %.sink476.i, ptr %1459, align 8
   %.pre = load i32, ptr %797, align 8
   br label %1460
 
-1460:                                             ; preds = %.sink.split473.i, %1418
-  %1461 = phi i32 [ %1408, %1418 ], [ %.pre, %.sink.split473.i ]
-  %.8.i = phi float [ %.0204403.i, %1418 ], [ %.8.ph.i, %.sink.split473.i ]
+1460:                                             ; preds = %.sink.split475.i, %1418
+  %1461 = phi i32 [ %1408, %1418 ], [ %.pre, %.sink.split475.i ]
+  %.8.i = phi float [ %.0204403.i, %1418 ], [ %.8.ph.i, %.sink.split475.i ]
   %1462 = icmp ugt i32 %1461, 1
   br i1 %1462, label %1464, label %._crit_edge.i.i.i.i281.i
 

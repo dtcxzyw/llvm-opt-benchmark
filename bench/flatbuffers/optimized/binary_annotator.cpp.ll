@@ -5253,7 +5253,7 @@ ehcleanup593:                                     ; preds = %ehcleanup591, %ehcl
   br label %ehcleanup634
 
 for.end595:                                       ; preds = %for.inc594, %if.end79, %for.end
-  %fields.sroa.0.0.lcssa18191839 = phi ptr [ %fields.sroa.0.1, %for.end ], [ null, %if.end79 ], [ %fields.sroa.0.1, %for.inc594 ]
+  %fields.sroa.0.0.lcssa18211841 = phi ptr [ %fields.sroa.0.1, %for.end ], [ null, %if.end79 ], [ %fields.sroa.0.1, %for.inc594 ]
   %412 = load ptr, ptr %_M_finish.i.i334, align 8
   %add.ptr.i.i1534 = getelementptr inbounds i8, ptr %412, i64 -160
   %413 = load i64, ptr %add.ptr.i.i1534, align 8
@@ -5527,11 +5527,11 @@ if.then.i.i.i1649:                                ; preds = %invoke.cont.i1647
 
 _ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i1647, %if.then.i.i.i1649
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp622) #31
-  %tobool.not.i.i.i1651 = icmp eq ptr %fields.sroa.0.0.lcssa18191839, null
+  %tobool.not.i.i.i1651 = icmp eq ptr %fields.sroa.0.0.lcssa18211841, null
   br i1 %tobool.not.i.i.i1651, label %cleanup635, label %if.then.i.i.i1652
 
 if.then.i.i.i1652:                                ; preds = %_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %fields.sroa.0.0.lcssa18191839) #32
+  call void @_ZdlPv(ptr noundef nonnull %fields.sroa.0.0.lcssa18211841) #32
   br label %cleanup635
 
 cleanup635:                                       ; preds = %if.then.i.i.i1652, %_ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EED2Ev.exit, %invoke.cont76
@@ -5592,7 +5592,7 @@ ehcleanup632:                                     ; preds = %lpad629, %lpad627
   br label %ehcleanup634
 
 ehcleanup634:                                     ; preds = %lpad94.loopexit, %lpad94.loopexit.split-lp, %lpad.i1624, %ehcleanup632, %ehcleanup619, %ehcleanup593
-  %fields.sroa.0.01778 = phi ptr [ %fields.sroa.0.1, %ehcleanup593 ], [ %fields.sroa.0.0.lcssa18191839, %ehcleanup632 ], [ %fields.sroa.0.0.lcssa18191839, %ehcleanup619 ], [ %fields.sroa.0.0.lcssa18191839, %lpad.i1624 ], [ %fields.sroa.0.01801, %lpad94.loopexit ], [ %fields.sroa.0.01801, %lpad94.loopexit.split-lp ]
+  %fields.sroa.0.01778 = phi ptr [ %fields.sroa.0.1, %ehcleanup593 ], [ %fields.sroa.0.0.lcssa18211841, %ehcleanup632 ], [ %fields.sroa.0.0.lcssa18211841, %ehcleanup619 ], [ %fields.sroa.0.0.lcssa18211841, %lpad.i1624 ], [ %fields.sroa.0.01801, %lpad94.loopexit ], [ %fields.sroa.0.01801, %lpad94.loopexit.split-lp ]
   %.pn171 = phi { ptr, i32 } [ %.pn154.pn.pn, %ehcleanup593 ], [ %.pn143, %ehcleanup632 ], [ %.pn141, %ehcleanup619 ], [ %436, %lpad.i1624 ], [ %lpad.loopexit1712, %lpad94.loopexit ], [ %lpad.loopexit.split-lp1713, %lpad94.loopexit.split-lp ]
   %tobool.not.i.i.i1672 = icmp eq ptr %fields.sroa.0.01778, null
   br i1 %tobool.not.i.i.i1672, label %ehcleanup636, label %if.then.i.i.i1673

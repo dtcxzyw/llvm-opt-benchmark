@@ -165,34 +165,34 @@ define dso_local noundef i64 @array_in(ptr nocapture noundef readonly %0) local_
   br i1 %.not, label %46, label %34
 
 34:                                               ; preds = %.thread, %33
-  %.0119275 = phi ptr [ %31, %.thread ], [ %22, %33 ]
-  %35 = getelementptr inbounds i8, ptr %.0119275, i64 4
-  %36 = getelementptr inbounds i8, ptr %.0119275, i64 6
-  %37 = getelementptr inbounds i8, ptr %.0119275, i64 7
-  %38 = getelementptr inbounds i8, ptr %.0119275, i64 8
-  %39 = getelementptr inbounds i8, ptr %.0119275, i64 12
-  %40 = getelementptr inbounds i8, ptr %.0119275, i64 16
+  %.0119276 = phi ptr [ %31, %.thread ], [ %22, %33 ]
+  %35 = getelementptr inbounds i8, ptr %.0119276, i64 4
+  %36 = getelementptr inbounds i8, ptr %.0119276, i64 6
+  %37 = getelementptr inbounds i8, ptr %.0119276, i64 7
+  %38 = getelementptr inbounds i8, ptr %.0119276, i64 8
+  %39 = getelementptr inbounds i8, ptr %.0119276, i64 12
+  %40 = getelementptr inbounds i8, ptr %.0119276, i64 16
   tail call void @get_type_io_data(i32 noundef %14, i32 noundef 0, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40) #17
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %.0119275, i64 24
+  %42 = getelementptr inbounds i8, ptr %.0119276, i64 24
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
   tail call void @fmgr_info_cxt(i32 noundef %41, ptr noundef nonnull %42, ptr noundef %45) #17
-  store i32 %14, ptr %.0119275, align 8
+  store i32 %14, ptr %.0119276, align 8
   br label %46
 
 46:                                               ; preds = %34, %33
-  %.0119276 = phi ptr [ %.0119275, %34 ], [ %22, %33 ]
-  %47 = getelementptr inbounds i8, ptr %.0119276, i64 4
+  %.0119277 = phi ptr [ %.0119276, %34 ], [ %22, %33 ]
+  %47 = getelementptr inbounds i8, ptr %.0119277, i64 4
   %48 = load i16, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %.0119276, i64 6
+  %49 = getelementptr inbounds i8, ptr %.0119277, i64 6
   %50 = load i8, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.0119276, i64 7
+  %51 = getelementptr inbounds i8, ptr %.0119277, i64 7
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %.0119276, i64 8
+  %53 = getelementptr inbounds i8, ptr %.0119277, i64 8
   %54 = load i8, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %.0119276, i64 12
+  %55 = getelementptr inbounds i8, ptr %.0119277, i64 12
   %56 = load i32, ptr %55, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 -1, i64 24, i1 false)
   br label %57
@@ -282,10 +282,10 @@ define dso_local noundef i64 @array_in(ptr nocapture noundef readonly %0) local_
 95:                                               ; preds = %90
   %96 = load ptr, ptr %4, align 8
   %97 = icmp eq ptr %96, %93
-  br i1 %97, label %98, label %._crit_edge271
+  br i1 %97, label %98, label %._crit_edge272
 
-._crit_edge271:                                   ; preds = %95
-  %.pre272 = load i8, ptr %96, align 1
+._crit_edge272:                                   ; preds = %95
+  %.pre273 = load i8, ptr %96, align 1
   br label %107
 
 98:                                               ; preds = %95
@@ -305,10 +305,10 @@ define dso_local noundef i64 @array_in(ptr nocapture noundef readonly %0) local_
   store i32 %106, ptr %5, align 4
   br label %107
 
-107:                                              ; preds = %._crit_edge271, %104
-  %108 = phi i32 [ %91, %._crit_edge271 ], [ 1, %104 ]
-  %109 = phi i8 [ %.pre272, %._crit_edge271 ], [ %88, %104 ]
-  %110 = phi ptr [ %96, %._crit_edge271 ], [ %79, %104 ]
+107:                                              ; preds = %._crit_edge272, %104
+  %108 = phi i32 [ %91, %._crit_edge272 ], [ 1, %104 ]
+  %109 = phi i8 [ %.pre273, %._crit_edge272 ], [ %88, %104 ]
+  %110 = phi ptr [ %96, %._crit_edge272 ], [ %79, %104 ]
   %.not50.i = icmp eq i8 %109, 93
   br i1 %.not50.i, label %117, label %111
 
@@ -454,7 +454,7 @@ ReadArrayDimensions.exit.thread:                  ; preds = %76, %90, %ReadArray
 
 176:                                              ; preds = %168, %152
   %.0170 = phi ptr [ %64, %152 ], [ %storemerge, %168 ]
-  %177 = getelementptr inbounds i8, ptr %.0119276, i64 24
+  %177 = getelementptr inbounds i8, ptr %.0119277, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %178 = icmp ne i64 %indvars.iv.i, 0
@@ -1058,8 +1058,8 @@ ReadArrayStr.exit:                                ; preds = %356
   %.1117 = phi i32 [ %453, %451 ], [ %.0116224, %393 ]
   %.1 = phi i1 [ %.0115225, %451 ], [ true, %393 ]
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
-  %exitcond269.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count
-  br i1 %exitcond269.not, label %._crit_edge, label %393, !llvm.loop !12
+  %exitcond270.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count
+  br i1 %exitcond270.not, label %._crit_edge, label %393, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %461
   br i1 %.1, label %462, label %._crit_edge.thread
@@ -1074,17 +1074,17 @@ ReadArrayStr.exit:                                ; preds = %356
   br label %472
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.0116.lcssa280 = phi i32 [ %.1117, %._crit_edge ], [ 0, %.preheader ]
+  %.0116.lcssa281 = phi i32 [ %.1117, %._crit_edge ], [ 0, %.preheader ]
   %469 = shl i32 %.1.i, 3
   %470 = add i32 %469, 23
   %471 = and i32 %470, -8
   br label %472
 
 472:                                              ; preds = %._crit_edge.thread, %462
-  %.0116.lcssa279 = phi i32 [ %.1117, %462 ], [ %.0116.lcssa280, %._crit_edge.thread ]
+  %.0116.lcssa280 = phi i32 [ %.1117, %462 ], [ %.0116.lcssa281, %._crit_edge.thread ]
   %.0118 = phi i32 [ %468, %462 ], [ 0, %._crit_edge.thread ]
   %.pn228 = phi i32 [ %468, %462 ], [ %471, %._crit_edge.thread ]
-  %.2 = add i32 %.0116.lcssa279, %.pn228
+  %.2 = add i32 %.0116.lcssa280, %.pn228
   %473 = sext i32 %.2 to i64
   %474 = call ptr @palloc0(i64 noundef %473) #17
   %475 = shl i32 %.2, 2

@@ -453,51 +453,51 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
 
 .outer:                                           ; preds = %8, %3
   %.051.ph = phi i32 [ %12, %8 ], [ 8, %3 ]
-  %.048.ph = phi i32 [ %.048.ph211, %8 ], [ 1, %3 ]
-  %.045.ph = phi i32 [ %.045.ph218, %8 ], [ 20, %3 ]
-  %.043.ph = phi i32 [ %.043.ph224, %8 ], [ 0, %3 ]
-  %.041.ph = phi i32 [ %.041.ph229, %8 ], [ 0, %3 ]
-  %.039.ph = phi i32 [ %.039.ph233, %8 ], [ 0, %3 ]
+  %.048.ph = phi i32 [ %.048.ph216, %8 ], [ 1, %3 ]
+  %.045.ph = phi i32 [ %.045.ph223, %8 ], [ 20, %3 ]
+  %.043.ph = phi i32 [ %.043.ph229, %8 ], [ 0, %3 ]
+  %.041.ph = phi i32 [ %.041.ph234, %8 ], [ 0, %3 ]
+  %.039.ph = phi i32 [ %.039.ph238, %8 ], [ 0, %3 ]
   %.0.ph = phi i32 [ %.0, %8 ], [ 0, %3 ]
-  br label %.outer210
+  br label %.outer215
 
-.outer210:                                        ; preds = %.outer, %17
-  %.048.ph211 = phi i32 [ %.048.ph, %.outer ], [ %21, %17 ]
-  %.045.ph212 = phi i32 [ %.045.ph, %.outer ], [ %.045.ph218, %17 ]
-  %.043.ph213 = phi i32 [ %.043.ph, %.outer ], [ %.043.ph224, %17 ]
-  %.041.ph214 = phi i32 [ %.041.ph, %.outer ], [ %.041.ph229, %17 ]
-  %.039.ph215 = phi i32 [ %.039.ph, %.outer ], [ %.039.ph233, %17 ]
-  %.0.ph216 = phi i32 [ %.0.ph, %.outer ], [ %.0, %17 ]
-  br label %.outer217
+.outer215:                                        ; preds = %.outer, %17
+  %.048.ph216 = phi i32 [ %.048.ph, %.outer ], [ %21, %17 ]
+  %.045.ph217 = phi i32 [ %.045.ph, %.outer ], [ %.045.ph223, %17 ]
+  %.043.ph218 = phi i32 [ %.043.ph, %.outer ], [ %.043.ph229, %17 ]
+  %.041.ph219 = phi i32 [ %.041.ph, %.outer ], [ %.041.ph234, %17 ]
+  %.039.ph220 = phi i32 [ %.039.ph, %.outer ], [ %.039.ph238, %17 ]
+  %.0.ph221 = phi i32 [ %.0.ph, %.outer ], [ %.0, %17 ]
+  br label %.outer222
 
-.outer217:                                        ; preds = %.outer210, %26
-  %.045.ph218 = phi i32 [ %.045.ph212, %.outer210 ], [ %30, %26 ]
-  %.043.ph219 = phi i32 [ %.043.ph213, %.outer210 ], [ %.043.ph224, %26 ]
-  %.041.ph220 = phi i32 [ %.041.ph214, %.outer210 ], [ %.041.ph229, %26 ]
-  %.039.ph221 = phi i32 [ %.039.ph215, %.outer210 ], [ %.039.ph233, %26 ]
-  %.0.ph222 = phi i32 [ %.0.ph216, %.outer210 ], [ %.0, %26 ]
-  br label %.outer223
-
-.outer223:                                        ; preds = %.outer217, %35
-  %.043.ph224 = phi i32 [ %.043.ph219, %.outer217 ], [ %39, %35 ]
-  %.041.ph225 = phi i32 [ %.041.ph220, %.outer217 ], [ %.041.ph229, %35 ]
-  %.039.ph226 = phi i32 [ %.039.ph221, %.outer217 ], [ %.039.ph233, %35 ]
-  %.0.ph227 = phi i32 [ %.0.ph222, %.outer217 ], [ %.0, %35 ]
+.outer222:                                        ; preds = %.outer215, %26
+  %.045.ph223 = phi i32 [ %.045.ph217, %.outer215 ], [ %30, %26 ]
+  %.043.ph224 = phi i32 [ %.043.ph218, %.outer215 ], [ %.043.ph229, %26 ]
+  %.041.ph225 = phi i32 [ %.041.ph219, %.outer215 ], [ %.041.ph234, %26 ]
+  %.039.ph226 = phi i32 [ %.039.ph220, %.outer215 ], [ %.039.ph238, %26 ]
+  %.0.ph227 = phi i32 [ %.0.ph221, %.outer215 ], [ %.0, %26 ]
   br label %.outer228
 
-.outer228:                                        ; preds = %.outer223, %42
-  %.041.ph229 = phi i32 [ %.041.ph225, %.outer223 ], [ %43, %42 ]
-  %.039.ph230 = phi i32 [ %.039.ph226, %.outer223 ], [ %.039.ph233, %42 ]
-  %.0.ph231 = phi i32 [ %.0.ph227, %.outer223 ], [ %.0, %42 ]
-  br label %.outer232
+.outer228:                                        ; preds = %.outer222, %35
+  %.043.ph229 = phi i32 [ %.043.ph224, %.outer222 ], [ %39, %35 ]
+  %.041.ph230 = phi i32 [ %.041.ph225, %.outer222 ], [ %.041.ph234, %35 ]
+  %.039.ph231 = phi i32 [ %.039.ph226, %.outer222 ], [ %.039.ph238, %35 ]
+  %.0.ph232 = phi i32 [ %.0.ph227, %.outer222 ], [ %.0, %35 ]
+  br label %.outer233
 
-.outer232:                                        ; preds = %.outer228, %44
-  %.039.ph233 = phi i32 [ %.039.ph230, %.outer228 ], [ %45, %44 ]
-  %.0.ph234 = phi i32 [ %.0.ph231, %.outer228 ], [ %.0, %44 ]
+.outer233:                                        ; preds = %.outer228, %42
+  %.041.ph234 = phi i32 [ %.041.ph230, %.outer228 ], [ %43, %42 ]
+  %.039.ph235 = phi i32 [ %.039.ph231, %.outer228 ], [ %.039.ph238, %42 ]
+  %.0.ph236 = phi i32 [ %.0.ph232, %.outer228 ], [ %.0, %42 ]
+  br label %.outer237
+
+.outer237:                                        ; preds = %.outer233, %44
+  %.039.ph238 = phi i32 [ %.039.ph235, %.outer233 ], [ %45, %44 ]
+  %.0.ph239 = phi i32 [ %.0.ph236, %.outer233 ], [ %.0, %44 ]
   br label %4
 
-4:                                                ; preds = %.outer232, %46
-  %.0 = phi i32 [ %47, %46 ], [ %.0.ph234, %.outer232 ]
+4:                                                ; preds = %.outer237, %46
+  %.0 = phi i32 [ %47, %46 ], [ %.0.ph239, %.outer237 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.43) #8
   switch i32 %5, label %.loopexit [
     i32 -1, label %48
@@ -538,7 +538,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer210, !llvm.loop !12
+  br i1 %23, label %.loopexit, label %.outer215, !llvm.loop !12
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -553,7 +553,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer217, !llvm.loop !12
+  br i1 %32, label %.loopexit, label %.outer222, !llvm.loop !12
 
 33:                                               ; preds = %4
   %34 = load i32, ptr @globalUtilOptind, align 4
@@ -568,22 +568,22 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr @globalUtilOptind, align 4
   %41 = icmp slt i32 %39, 0
-  br i1 %41, label %.loopexit, label %.outer223, !llvm.loop !12
+  br i1 %41, label %.loopexit, label %.outer228, !llvm.loop !12
 
 42:                                               ; preds = %4
-  %43 = xor i32 %.041.ph229, 1
-  br label %.outer228, !llvm.loop !12
+  %43 = xor i32 %.041.ph234, 1
+  br label %.outer233, !llvm.loop !12
 
 44:                                               ; preds = %4
-  %45 = xor i32 %.039.ph233, 1
-  br label %.outer232, !llvm.loop !12
+  %45 = xor i32 %.039.ph238, 1
+  br label %.outer237, !llvm.loop !12
 
 46:                                               ; preds = %4
   %47 = xor i32 %.0, 1
   br label %4, !llvm.loop !12
 
 48:                                               ; preds = %4
-  %.not69 = icmp eq i32 %.041.ph229, 0
+  %.not69 = icmp eq i32 %.041.ph234, 0
   br i1 %.not69, label %50, label %49
 
 49:                                               ; preds = %48
@@ -591,7 +591,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
   br label %58
 
 50:                                               ; preds = %48
-  %.not70 = icmp eq i32 %.039.ph233, 0
+  %.not70 = icmp eq i32 %.039.ph238, 0
   br i1 %.not70, label %53, label %51
 
 51:                                               ; preds = %50
@@ -600,18 +600,18 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
 
 53:                                               ; preds = %50
   %54 = tail call i32 @Gia_ManRandom(i32 noundef 1) #8
-  %.not = icmp eq i32 %.043.ph224, 0
+  %.not = icmp eq i32 %.043.ph229, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53, %.lr.ph
   %.038116 = phi i32 [ %56, %.lr.ph ], [ 0, %53 ]
   %55 = tail call i32 @Gia_ManRandom(i32 noundef 0) #8
   %56 = add nuw nsw i32 %.038116, 1
-  %exitcond.not = icmp eq i32 %56, %.043.ph224
+  %exitcond.not = icmp eq i32 %56, %.043.ph229
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %53
-  %57 = tail call ptr @Pla_ManGenerate(i32 noundef %.051.ph, i32 noundef %.048.ph211, i32 noundef %.045.ph218, i32 noundef %.0) #8
+  %57 = tail call ptr @Pla_ManGenerate(i32 noundef %.051.ph, i32 noundef %.048.ph216, i32 noundef %.045.ph223, i32 noundef %.0) #8
   br label %58
 
 58:                                               ; preds = %51, %._crit_edge, %49
@@ -629,19 +629,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr nocapture noundef %0, i3
 
 .loopexit:                                        ; preds = %17, %35, %4, %26, %8, %.loopexit.sink.split
   %.152 = phi i32 [ %.051.ph, %.loopexit.sink.split ], [ %.051.ph, %17 ], [ %.051.ph, %35 ], [ %.051.ph, %4 ], [ %.051.ph, %26 ], [ %12, %8 ]
-  %.149 = phi i32 [ %.048.ph211, %.loopexit.sink.split ], [ %.048.ph211, %26 ], [ %.048.ph211, %4 ], [ %.048.ph211, %35 ], [ %21, %17 ], [ %.048.ph211, %8 ]
-  %.146 = phi i32 [ %.045.ph218, %.loopexit.sink.split ], [ %.045.ph218, %35 ], [ %.045.ph218, %4 ], [ %30, %26 ], [ %.045.ph218, %17 ], [ %.045.ph218, %8 ]
-  %.144 = phi i32 [ %.043.ph224, %.loopexit.sink.split ], [ %.043.ph224, %4 ], [ %39, %35 ], [ %.043.ph224, %26 ], [ %.043.ph224, %17 ], [ %.043.ph224, %8 ]
+  %.149 = phi i32 [ %.048.ph216, %.loopexit.sink.split ], [ %.048.ph216, %26 ], [ %.048.ph216, %4 ], [ %.048.ph216, %35 ], [ %21, %17 ], [ %.048.ph216, %8 ]
+  %.146 = phi i32 [ %.045.ph223, %.loopexit.sink.split ], [ %.045.ph223, %35 ], [ %.045.ph223, %4 ], [ %30, %26 ], [ %.045.ph223, %17 ], [ %.045.ph223, %8 ]
+  %.144 = phi i32 [ %.043.ph229, %.loopexit.sink.split ], [ %.043.ph229, %4 ], [ %39, %35 ], [ %.043.ph229, %26 ], [ %.043.ph229, %17 ], [ %.043.ph229, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.48)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.49)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.50, i32 noundef %.152)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.51, i32 noundef %.149)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.52, i32 noundef %.146)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.53, i32 noundef %.144)
-  %.not75 = icmp eq i32 %.041.ph229, 0
+  %.not75 = icmp eq i32 %.041.ph234, 0
   %60 = select i1 %.not75, ptr @.str.20, ptr @.str.19
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.54, ptr noundef nonnull %60)
-  %.not76 = icmp eq i32 %.039.ph233, 0
+  %.not76 = icmp eq i32 %.039.ph238, 0
   %61 = select i1 %.not76, ptr @.str.20, ptr @.str.19
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.55, ptr noundef nonnull %61)
   %.not77 = icmp eq i32 %.0, 0

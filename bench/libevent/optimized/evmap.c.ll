@@ -1042,7 +1042,6 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local range(i32 -1, 1) i32 @event_changelist_add_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
 entry:
   %changelist1 = getelementptr inbounds i8, ptr %base, i64 16
-  %conv15 = zext i16 %events to i32
   %0 = trunc i16 %events to i8
   %1 = and i8 %0, 56
   %conv2 = or disjoint i8 %1, 1
@@ -1099,8 +1098,8 @@ event_changelist_get_or_construct.exit:           ; preds = %entry
 
 if.end:                                           ; preds = %event_changelist_get_or_construct.exit.thread11, %event_changelist_get_or_construct.exit
   %retval.0.i14 = phi ptr [ %arrayidx.i, %event_changelist_get_or_construct.exit.thread11 ], [ %arrayidx13.i, %event_changelist_get_or_construct.exit ]
-  %and4 = and i32 %conv15, 10
-  %tobool5.not = icmp eq i32 %and4, 0
+  %11 = and i16 %events, 10
+  %tobool5.not = icmp eq i16 %11, 0
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end
@@ -1109,8 +1108,8 @@ if.then6:                                         ; preds = %if.end
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end
-  %and9 = and i32 %conv15, 4
-  %tobool10.not = icmp eq i32 %and9, 0
+  %12 = and i16 %events, 4
+  %tobool10.not = icmp eq i16 %12, 0
   br i1 %tobool10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
@@ -1119,8 +1118,8 @@ if.then11:                                        ; preds = %if.end7
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end7
-  %and14 = and i32 %conv15, 128
-  %tobool15.not = icmp eq i32 %and14, 0
+  %13 = and i16 %events, 128
+  %tobool15.not = icmp eq i16 %13, 0
   br i1 %tobool15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
@@ -1137,7 +1136,6 @@ return:                                           ; preds = %if.then2.i, %if.end
 define dso_local range(i32 -1, 1) i32 @event_changelist_del_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
 entry:
   %changelist1 = getelementptr inbounds i8, ptr %base, i64 16
-  %conv21 = zext i16 %events to i32
   %0 = trunc i16 %events to i8
   %1 = and i8 %0, 32
   %conv2 = or disjoint i8 %1, 2
@@ -1194,48 +1192,48 @@ event_changelist_get_or_construct.exit:           ; preds = %entry
 
 if.end:                                           ; preds = %event_changelist_get_or_construct.exit.thread17, %event_changelist_get_or_construct.exit
   %retval.0.i20 = phi ptr [ %arrayidx.i, %event_changelist_get_or_construct.exit.thread17 ], [ %arrayidx13.i, %event_changelist_get_or_construct.exit ]
-  %and4 = and i32 %conv21, 10
-  %tobool5.not = icmp eq i32 %and4, 0
+  %11 = and i16 %events, 10
+  %tobool5.not = icmp eq i16 %11, 0
   br i1 %tobool5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %old_events = getelementptr inbounds i8, ptr %retval.0.i20, i64 4
-  %11 = load i16, ptr %old_events, align 4
-  %12 = and i16 %11, 10
-  %tobool9.not = icmp eq i16 %12, 0
+  %12 = load i16, ptr %old_events, align 4
+  %13 = and i16 %12, 10
+  %tobool9.not = icmp eq i16 %13, 0
   %read_change = getelementptr inbounds i8, ptr %retval.0.i20, i64 6
   %.conv2 = select i1 %tobool9.not, i8 0, i8 %conv2
   store i8 %.conv2, ptr %read_change, align 2
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then6, %if.end
-  %and15 = and i32 %conv21, 4
-  %tobool16.not = icmp eq i32 %and15, 0
+  %14 = and i16 %events, 4
+  %tobool16.not = icmp eq i16 %14, 0
   br i1 %tobool16.not, label %if.end26, label %if.then17
 
 if.then17:                                        ; preds = %if.end13
   %old_events18 = getelementptr inbounds i8, ptr %retval.0.i20, i64 4
-  %13 = load i16, ptr %old_events18, align 4
-  %14 = and i16 %13, 4
-  %tobool21.not = icmp eq i16 %14, 0
+  %15 = load i16, ptr %old_events18, align 4
+  %16 = and i16 %15, 4
+  %tobool21.not = icmp eq i16 %16, 0
   %write_change = getelementptr inbounds i8, ptr %retval.0.i20, i64 7
-  %.conv223 = select i1 %tobool21.not, i8 0, i8 %conv2
-  store i8 %.conv223, ptr %write_change, align 1
+  %.conv222 = select i1 %tobool21.not, i8 0, i8 %conv2
+  store i8 %.conv222, ptr %write_change, align 1
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then17, %if.end13
-  %and28 = and i32 %conv21, 128
-  %tobool29.not = icmp eq i32 %and28, 0
+  %17 = and i16 %events, 128
+  %tobool29.not = icmp eq i16 %17, 0
   br i1 %tobool29.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %if.end26
   %old_events31 = getelementptr inbounds i8, ptr %retval.0.i20, i64 4
-  %15 = load i16, ptr %old_events31, align 4
-  %16 = and i16 %15, 128
-  %tobool34.not = icmp eq i16 %16, 0
+  %18 = load i16, ptr %old_events31, align 4
+  %19 = and i16 %18, 128
+  %tobool34.not = icmp eq i16 %19, 0
   %close_change = getelementptr inbounds i8, ptr %retval.0.i20, i64 8
-  %.conv224 = select i1 %tobool34.not, i8 0, i8 %conv2
-  store i8 %.conv224, ptr %close_change, align 4
+  %.conv223 = select i1 %tobool34.not, i8 0, i8 %conv2
+  store i8 %.conv223, ptr %close_change, align 4
   br label %return
 
 return:                                           ; preds = %if.then30, %if.then2.i, %if.end26, %event_changelist_get_or_construct.exit

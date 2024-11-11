@@ -484,8 +484,8 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
 
 154:                                              ; preds = %156
   %155 = add nuw nsw i32 %.0189266, 1
-  %exitcond281.not = icmp eq i32 %155, %.5
-  br i1 %exitcond281.not, label %.loopexit, label %156, !llvm.loop !8
+  %exitcond282.not = icmp eq i32 %155, %.5
+  br i1 %exitcond282.not, label %.loopexit, label %156, !llvm.loop !8
 
 156:                                              ; preds = %150, %154
   %.0189266 = phi i32 [ 0, %150 ], [ %155, %154 ]

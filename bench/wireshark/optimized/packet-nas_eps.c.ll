@@ -5737,7 +5737,7 @@ define internal fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef
   %16 = zext i8 %15 to i32
   %17 = call ptr @try_val_to_str_idx_ext(i32 noundef %16, ptr noundef nonnull @nas_msg_esm_strings_ext, ptr noundef nonnull %5) #10
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %30, label %18
+  br i1 %.not.i, label %29, label %18
 
 18:                                               ; preds = %4
   %19 = load i32, ptr @hf_nas_eps_msg_esm_type, align 4
@@ -5751,32 +5751,31 @@ define internal fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef
   call void @col_append_sep_str(ptr noundef %25, i32 noundef 25, ptr noundef null, ptr noundef nonnull %17) #10
   %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0) #10
   %27 = add nuw nsw i32 %3, 3
-  %28 = and i64 %21, 2305843009213693951
-  %29 = icmp eq i64 %28, 27
-  br i1 %29, label %32, label %38
+  %28 = icmp eq i32 %20, 27
+  br i1 %28, label %31, label %37
 
-30:                                               ; preds = %4
+29:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %31 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_nas_eps_unknown_msg_type, ptr noundef %0, i32 noundef %14, i32 noundef 1, ptr noundef nonnull @.str.917, i32 noundef %16) #10
-  br label %40
+  %30 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_nas_eps_unknown_msg_type, ptr noundef %0, i32 noundef %14, i32 noundef 1, ptr noundef nonnull @.str.917, i32 noundef %16) #10
+  br label %39
 
-32:                                               ; preds = %18
-  %33 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %27) #10
-  %.not38 = icmp eq i32 %33, 0
-  br i1 %.not38, label %40, label %34
+31:                                               ; preds = %18
+  %32 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %27) #10
+  %.not38 = icmp eq i32 %32, 0
+  br i1 %.not38, label %39, label %33
 
-34:                                               ; preds = %32
-  %35 = load i32, ptr @hf_nas_eps_msg_elems, align 4
-  %36 = sub i32 %6, %27
-  %37 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %27, i32 noundef %36, i32 noundef 0) #10
-  br label %40
+33:                                               ; preds = %31
+  %34 = load i32, ptr @hf_nas_eps_msg_elems, align 4
+  %35 = sub i32 %6, %27
+  %36 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %27, i32 noundef %35, i32 noundef 0) #10
+  br label %39
 
-38:                                               ; preds = %18
-  %39 = sub i32 %6, %27
-  call void %23(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %1, i32 noundef %27, i32 noundef %39) #10
-  br label %40
+37:                                               ; preds = %18
+  %38 = sub i32 %6, %27
+  call void %23(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %1, i32 noundef %27, i32 noundef %38) #10
+  br label %39
 
-40:                                               ; preds = %32, %34, %38, %30
+39:                                               ; preds = %31, %33, %37, %29
   ret void
 }
 

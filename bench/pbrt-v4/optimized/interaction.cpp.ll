@@ -3046,22 +3046,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_11Di
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 3
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 16
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -12805,22 +12802,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_17Co
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 3
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 60
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -12896,22 +12890,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_19Co
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 3
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 84
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -12978,22 +12969,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_13Co
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 3
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 40
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -13357,22 +13345,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_14Di
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 3
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 12
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -13976,22 +13961,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_11Di
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 3
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 16
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -14056,22 +14038,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_23Di
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 3
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 32
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -14136,22 +14115,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_8Hai
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 3
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 76
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -14650,22 +14626,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_12Me
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 7
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 7
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -8
   %conv7.i = add i32 %reass.sub, 8
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 40
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -14991,22 +14964,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_18Th
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 3
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 4
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
@@ -15071,22 +15041,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_15Ta
 entry:
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 7
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 7
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -8
   %conv7.i = add i32 %reass.sub, 8
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
+  %conv9.pre-phi.i = sext i32 %2 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 80
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8

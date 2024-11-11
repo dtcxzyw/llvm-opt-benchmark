@@ -2124,7 +2124,7 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit:   ; preds = %31, %33
   %42 = phi ptr [ %36, %.lr.ph.lr.ph ], [ %226, %225 ]
   %.1183279 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %160, %225 ]
   %.1185278 = phi ptr [ %2, %.lr.ph.lr.ph ], [ %.6, %225 ]
-  %.1183279314 = ptrtoint ptr %.1183279 to i64
+  %.1183279316 = ptrtoint ptr %.1183279 to i64
   %.0172280 = getelementptr inbounds i8, ptr %.1183279, i64 1
   %.pn235274.pn.in = load i64, ptr %.0172280, align 1
   br label %43
@@ -2189,9 +2189,9 @@ _ZL21LZ4_putPositionOnHashPKhjPv11tableType_tS0_.exit: ; preds = %_ZL21LZ4_getPo
   br i1 %66, label %.loopexit, label %43, !llvm.loop !19
 
 .preheader:                                       ; preds = %61
-  %.0176256.lcssa313 = ptrtoint ptr %.0176256 to i64
-  %67 = trunc i64 %.1183279314 to i32
-  %68 = trunc i64 %.0176256.lcssa313 to i32
+  %.0176256.lcssa317319 = ptrtoint ptr %.0176256 to i64
+  %67 = trunc i64 %.1183279316 to i32
+  %68 = trunc i64 %.0176256.lcssa317319 to i32
   %reass.sub = sub i32 %68, %67
   %69 = add i32 %reass.sub, -270
   br label %70
@@ -2218,7 +2218,7 @@ _ZL21LZ4_putPositionOnHashPKhjPv11tableType_tS0_.exit: ; preds = %_ZL21LZ4_getPo
 
 .critedge2:                                       ; preds = %70, %73
   %79 = ptrtoint ptr %.1173 to i64
-  %80 = sub i64 %79, %.1183279314
+  %80 = sub i64 %79, %.1183279316
   %81 = trunc i64 %80 to i32
   %82 = getelementptr inbounds i8, ptr %.1185278, i64 1
   %83 = add i32 %81, 240
@@ -2249,12 +2249,12 @@ _ZL21LZ4_putPositionOnHashPKhjPv11tableType_tS0_.exit: ; preds = %_ZL21LZ4_getPo
   %scevgep = getelementptr i8, ptr %.1185278, i64 2
   %98 = udiv i32 %indvars.iv, 255
   %99 = zext nneg i32 %98 to i64
-  %scevgep315 = getelementptr i8, ptr %scevgep, i64 %99
+  %scevgep320 = getelementptr i8, ptr %scevgep, i64 %99
   %100 = urem i32 %indvars.iv, 255
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph262.preheader, %92
-  %.2186.lcssa = phi ptr [ %82, %92 ], [ %scevgep315, %.lr.ph262.preheader ]
+  %.2186.lcssa = phi ptr [ %82, %92 ], [ %scevgep320, %.lr.ph262.preheader ]
   %.0170.lcssa = phi i32 [ %93, %92 ], [ %100, %.lr.ph262.preheader ]
   %101 = trunc nuw i32 %.0170.lcssa to i8
   %102 = getelementptr inbounds i8, ptr %.2186.lcssa, i64 1
@@ -2401,13 +2401,13 @@ _ZL9LZ4_countPKhS0_S0_.exit:                      ; preds = %123, %141, %143
   %169 = add nuw nsw i64 %168, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %115, i8 -1, i64 %169, i1 false)
   %.neg = mul i64 %168, -255
-  %scevgep316 = getelementptr i8, ptr %.4, i64 3
+  %scevgep321 = getelementptr i8, ptr %.4, i64 3
   %170 = add i64 %.neg, %167
-  %scevgep317 = getelementptr i8, ptr %scevgep316, i64 %168
+  %scevgep322 = getelementptr i8, ptr %scevgep321, i64 %168
   br label %._crit_edge269
 
 ._crit_edge269:                                   ; preds = %.lr.ph268.preheader, %162
-  %.5.lcssa = phi ptr [ %115, %162 ], [ %scevgep317, %.lr.ph268.preheader ]
+  %.5.lcssa = phi ptr [ %115, %162 ], [ %scevgep322, %.lr.ph268.preheader ]
   %.1.lcssa = phi i64 [ %165, %162 ], [ %170, %.lr.ph268.preheader ]
   %171 = trunc nuw i64 %.1.lcssa to i8
   %172 = getelementptr inbounds i8, ptr %.5.lcssa, i64 1
@@ -2557,13 +2557,13 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit216: ; preds = %202, %206
   %253 = add nuw nsw i64 %252, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %231, i8 -1, i64 %253, i1 false)
   %254 = add nuw nsw i64 %252, 2
-  %.neg319 = mul i64 %252, -255
-  %scevgep318 = getelementptr i8, ptr %.0184, i64 %254
-  %255 = add i64 %.neg319, %251
+  %.neg324 = mul i64 %252, -255
+  %scevgep323 = getelementptr i8, ptr %.0184, i64 %254
+  %255 = add i64 %.neg324, %251
   br label %._crit_edge288
 
 ._crit_edge288:                                   ; preds = %.lr.ph287.preheader, %248
-  %.7.lcssa = phi ptr [ %231, %248 ], [ %scevgep318, %.lr.ph287.preheader ]
+  %.7.lcssa = phi ptr [ %231, %248 ], [ %scevgep323, %.lr.ph287.preheader ]
   %.0.lcssa = phi i64 [ %249, %248 ], [ %255, %.lr.ph287.preheader ]
   %256 = trunc nuw i64 %.0.lcssa to i8
   %257 = getelementptr inbounds i8, ptr %.7.lcssa, i64 1

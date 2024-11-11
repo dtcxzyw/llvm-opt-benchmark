@@ -1765,33 +1765,33 @@ for.end:                                          ; preds = %for.body
   %call15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %conv14)
   %5 = getelementptr i8, ptr %s, i64 274
   %be_buffer_size = getelementptr inbounds i8, ptr %s, i64 4568
-  %buffer.val22 = load i32, ptr %5, align 1
-  %6 = tail call i32 @llvm.bswap.i32(i32 %buffer.val22)
-  %conv1923 = zext i32 %6 to i64
+  %buffer.val21 = load i32, ptr %5, align 1
+  %6 = tail call i32 @llvm.bswap.i32(i32 %buffer.val21)
+  %conv1922 = zext i32 %6 to i64
   %7 = load i64, ptr %be_buffer_size, align 8
-  %cond24 = tail call i64 @llvm.umin.i64(i64 %7, i64 %conv1923)
-  %cmp2225.not = icmp eq i64 %cond24, 0
-  br i1 %cmp2225.not, label %for.end41, label %for.body24.lr.ph
+  %cond23 = tail call i64 @llvm.umin.i64(i64 %7, i64 %conv1922)
+  %cmp2224.not = icmp eq i64 %cond23, 0
+  br i1 %cmp2224.not, label %for.end41, label %for.body24.lr.ph
 
 for.body24.lr.ph:                                 ; preds = %for.end
   %buffer = getelementptr inbounds i8, ptr %s, i64 272
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.body24
-  %conv1727 = phi i64 [ 0, %for.body24.lr.ph ], [ %conv17, %for.body24 ]
-  %idx.126 = phi i32 [ 0, %for.body24.lr.ph ], [ %inc40, %for.body24 ]
+  %conv1726 = phi i64 [ 0, %for.body24.lr.ph ], [ %conv17, %for.body24 ]
+  %idx.125 = phi i32 [ 0, %for.body24.lr.ph ], [ %inc40, %for.body24 ]
   %8 = load i16, ptr %rw_offset, align 16
   %conv26 = zext i16 %8 to i32
-  %cmp27 = icmp eq i32 %idx.126, %conv26
+  %cmp27 = icmp eq i32 %idx.125, %conv26
   %cond29 = select i1 %cmp27, i32 62, i32 32
-  %arrayidx32 = getelementptr [4096 x i8], ptr %buffer, i64 0, i64 %conv1727
+  %arrayidx32 = getelementptr [4096 x i8], ptr %buffer, i64 0, i64 %conv1726
   %9 = load i8, ptr %arrayidx32, align 1
   %conv33 = zext i8 %9 to i32
-  %and34 = and i32 %idx.126, 15
+  %and34 = and i32 %idx.125, 15
   %cmp35 = icmp eq i32 %and34, 15
   %cond37 = select i1 %cmp35, ptr @.str.22, ptr @.str.23
   %call38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %cond29, i32 noundef %conv33, ptr noundef nonnull %cond37)
-  %inc40 = add i32 %idx.126, 1
+  %inc40 = add i32 %idx.125, 1
   %conv17 = sext i32 %inc40 to i64
   %buffer.val = load i32, ptr %5, align 1
   %10 = tail call i32 @llvm.bswap.i32(i32 %buffer.val)

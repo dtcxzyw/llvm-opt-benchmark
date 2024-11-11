@@ -5715,8 +5715,8 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
   %157 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %156, <4 x float> %152)
   %158 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %156, <4 x float> %153)
   %159 = add nuw i64 %.0266384, 1
-  %exitcond389.not = icmp eq i64 %159, %.0.i328
-  br i1 %exitcond389.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !104
+  %exitcond390.not = icmp eq i64 %159, %.0.i328
+  br i1 %exitcond390.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %160 = bitcast <4 x float> %158 to <4 x i32>

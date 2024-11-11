@@ -3050,8 +3050,8 @@ define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i
   %116 = or i1 %113, %115
   %117 = and i64 %8, 4611686018427387896
   %118 = icmp eq i64 %117, %8
-  %119 = and i64 %8, 1
-  %120 = icmp eq i64 %119, 0
+  %119 = and i32 %3, 1
+  %120 = icmp eq i32 %119, 0
   %121 = icmp samesign ult i64 %86, 32
   %122 = and i64 %86, 4294967264
   %123 = icmp eq i64 %86, %122

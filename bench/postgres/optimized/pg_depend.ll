@@ -73,12 +73,12 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
 
 22:                                               ; preds = %19
   %23 = icmp slt i32 %.06984, %10
-  br i1 %23, label %24, label %._crit_edge89
+  br i1 %23, label %24, label %._crit_edge90
 
-._crit_edge89:                                    ; preds = %22
+._crit_edge90:                                    ; preds = %22
   %.phi.trans.insert = sext i32 %.085 to i64
-  %.phi.trans.insert90 = getelementptr ptr, ptr %13, i64 %.phi.trans.insert
-  %.pre = load ptr, ptr %.phi.trans.insert90, align 8
+  %.phi.trans.insert91 = getelementptr ptr, ptr %13, i64 %.phi.trans.insert
+  %.pre = load ptr, ptr %.phi.trans.insert91, align 8
   br label %30
 
 24:                                               ; preds = %22
@@ -90,10 +90,10 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   %29 = add nsw i32 %.06984, 1
   br label %30
 
-30:                                               ; preds = %._crit_edge89, %24
-  %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge89 ], [ %27, %24 ]
-  %31 = phi ptr [ %.pre, %._crit_edge89 ], [ %26, %24 ]
-  %.2 = phi i32 [ %.06984, %._crit_edge89 ], [ %29, %24 ]
+30:                                               ; preds = %._crit_edge90, %24
+  %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge90 ], [ %27, %24 ]
+  %31 = phi ptr [ %.pre, %._crit_edge90 ], [ %26, %24 ]
+  %.2 = phi i32 [ %.06984, %._crit_edge90 ], [ %29, %24 ]
   %32 = getelementptr ptr, ptr %13, i64 %.pre-phi
   %33 = getelementptr inbounds i8, ptr %31, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -182,12 +182,12 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %9, ptr noundef nonnull %13, i32 noundef %10, ptr noundef %.276) #6
   %95 = add nuw nsw i32 %.07282, 1
   %96 = getelementptr i8, ptr %.07183, i64 12
-  %exitcond.not94 = icmp eq i32 %95, %2
-  br i1 %exitcond.not94, label %.thread98, label %.outer, !llvm.loop !5
+  %exitcond.not95 = icmp eq i32 %95, %2
+  br i1 %exitcond.not95, label %.thread99, label %.outer, !llvm.loop !5
 
 97:                                               ; preds = %92
   %98 = icmp sgt i32 %.1, 0
-  br i1 %98, label %99, label %.thread98
+  br i1 %98, label %99, label %.thread99
 
 99:                                               ; preds = %97
   %100 = icmp eq ptr %.07481.ph, null
@@ -200,25 +200,25 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
 103:                                              ; preds = %101, %99
   %.4 = phi ptr [ %102, %101 ], [ %.07481.ph, %99 ]
   tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %9, ptr noundef %13, i32 noundef %.1, ptr noundef %.4) #6
-  br label %.thread98
+  br label %.thread99
 
-.thread98:                                        ; preds = %.thread, %103, %97
-  %.17096102 = phi i32 [ %.170, %103 ], [ %.170, %97 ], [ %.2, %.thread ]
+.thread99:                                        ; preds = %.thread, %103, %97
+  %.17097103 = phi i32 [ %.170, %103 ], [ %.170, %97 ], [ %.2, %.thread ]
   %.3 = phi ptr [ %.4, %103 ], [ %.07481.ph, %97 ], [ %.276, %.thread ]
   %.not = icmp eq ptr %.3, null
   br i1 %.not, label %105, label %104
 
-104:                                              ; preds = %.thread98
+104:                                              ; preds = %.thread99
   tail call void @CatalogCloseIndexes(ptr noundef nonnull %.3) #6
   br label %105
 
-105:                                              ; preds = %104, %.thread98
+105:                                              ; preds = %104, %.thread99
   tail call void @table_close(ptr noundef %9, i32 noundef 3) #6
-  %106 = icmp sgt i32 %.17096102, 0
+  %106 = icmp sgt i32 %.17097103, 0
   br i1 %106, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %105
-  %wide.trip.count = zext nneg i32 %.17096102 to i64
+  %wide.trip.count = zext nneg i32 %.17097103 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -227,8 +227,8 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   %108 = load ptr, ptr %107, align 8
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %108) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  %exitcond89.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %105
   tail call void @pfree(ptr noundef %13) #6

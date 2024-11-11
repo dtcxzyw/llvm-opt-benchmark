@@ -4716,7 +4716,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture 
   br i1 %81, label %.loopexit, label %.preheader224
 
 .preheader224:                                    ; preds = %70, %._crit_edge
-  %.0171.lcssa304 = phi i64 [ 0, %._crit_edge ], [ %74, %70 ]
+  %.0171.lcssa306 = phi i64 [ 0, %._crit_edge ], [ %74, %70 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 20660
   %83 = getelementptr inbounds i8, ptr %0, i64 20144
   %84 = getelementptr inbounds i8, ptr %0, i64 20664
@@ -4733,7 +4733,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture 
   %.0183.ph = phi i64 [ %.3186, %._crit_edge259 ], [ %15, %.preheader224 ]
   %.0179.ph = phi ptr [ %.2181, %._crit_edge259 ], [ %31, %.preheader224 ]
   %.0175.ph = phi ptr [ %.2177, %._crit_edge259 ], [ %22, %.preheader224 ]
-  %.1172.ph = phi i64 [ %210, %._crit_edge259 ], [ %.0171.lcssa304, %.preheader224 ]
+  %.1172.ph = phi i64 [ %210, %._crit_edge259 ], [ %.0171.lcssa306, %.preheader224 ]
   %.0167.ph = phi i64 [ %116, %._crit_edge259 ], [ 0, %.preheader224 ]
   br label %90
 
@@ -4974,22 +4974,22 @@ define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture 
 
 .lr.ph265:                                        ; preds = %176, %214
   %storemerge = phi i64 [ %216, %214 ], [ 4, %176 ]
-  %.2189.lcssa308314 = phi i32 [ %215, %214 ], [ 0, %176 ]
-  %.6.lcssa309313 = phi i64 [ %210, %214 ], [ %.2173, %176 ]
+  %.2189.lcssa310316 = phi i32 [ %215, %214 ], [ 0, %176 ]
+  %.6.lcssa311315 = phi i64 [ %210, %214 ], [ %.2173, %176 ]
   store i64 %storemerge, ptr %64, align 8
   %217 = getelementptr inbounds i8, ptr %0, i64 20008
-  %218 = zext nneg i32 %.2189.lcssa308314 to i64
-  %scevgep299 = getelementptr i8, ptr %4, i64 %218
-  %narrow = sub nuw nsw i32 4, %.2189.lcssa308314
+  %218 = zext nneg i32 %.2189.lcssa310316 to i64
+  %scevgep300 = getelementptr i8, ptr %4, i64 %218
+  %narrow = sub nuw nsw i32 4, %.2189.lcssa310316
   %219 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %217, ptr align 1 %scevgep299, i64 %219, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %217, ptr align 1 %scevgep300, i64 %219, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %112, %109, %.lr.ph265
   %.3198 = phi ptr [ %.6201, %.lr.ph265 ], [ %.2197, %109 ], [ %.2197, %112 ]
   %.1192 = phi i64 [ %.3194, %.lr.ph265 ], [ %.0191.ph, %109 ], [ %.0191.ph, %112 ]
   %.1184 = phi i64 [ %.3186, %.lr.ph265 ], [ %.0183.ph, %109 ], [ %.0183.ph, %112 ]
-  %.4 = phi i64 [ %.6.lcssa309313, %.lr.ph265 ], [ %98, %109 ], [ %.2173, %112 ]
+  %.4 = phi i64 [ %.6.lcssa311315, %.lr.ph265 ], [ %98, %109 ], [ %.2173, %112 ]
   %.3 = phi i64 [ %116, %.lr.ph265 ], [ %110, %109 ], [ %.1, %112 ]
   %220 = load i64, ptr %5, align 8
   %221 = sub i64 %220, %.3

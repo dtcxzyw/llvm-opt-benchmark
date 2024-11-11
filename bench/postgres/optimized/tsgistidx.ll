@@ -299,8 +299,8 @@ thread-pre-split:                                 ; preds = %._crit_edge103, %qu
   br i1 %101, label %102, label %.loopexit.i.sink.split
 
 102:                                              ; preds = %84
-  %103 = and i64 %98, 7
-  %104 = icmp eq i64 %103, 0
+  %103 = and i32 %13, 7
+  %104 = icmp eq i32 %103, 0
   %105 = icmp ult i32 %13, 1025
   %or.cond3.i = and i1 %105, %104
   br i1 %or.cond3.i, label %106, label %.loopexit.i.sink.split
@@ -969,8 +969,8 @@ define dso_local i64 @gtsvector_penalty(ptr nocapture noundef readonly %0) local
   br i1 %40, label %41, label %.loopexit.i.sink.split
 
 41:                                               ; preds = %28
-  %42 = and i64 %29, 7
-  %43 = icmp eq i64 %42, 0
+  %42 = and i32 %19, 7
+  %43 = icmp eq i32 %42, 0
   %44 = icmp ult i32 %19, 1025
   %or.cond3.i = and i1 %44, %43
   br i1 %or.cond3.i, label %45, label %.loopexit.i.sink.split
@@ -1226,8 +1226,8 @@ define dso_local i64 @gtsvector_picksplit(ptr nocapture noundef readonly %0) loc
   br i1 %64, label %65, label %.loopexit.i.sink.split.i
 
 65:                                               ; preds = %51
-  %66 = and i64 %61, 7
-  %67 = icmp eq i64 %66, 0
+  %66 = and i32 %16, 7
+  %67 = icmp eq i32 %66, 0
   %68 = icmp ult i32 %16, 1025
   %or.cond3.i.i = and i1 %68, %67
   br i1 %or.cond3.i.i, label %69, label %.loopexit.i.sink.split.i
@@ -1302,8 +1302,8 @@ fillcache.exit:                                   ; preds = %80, %.loopexit.i.i,
 
 .lr.ph328:                                        ; preds = %fillcache.exit
   %101 = sext i32 %16 to i64
-  %102 = and i64 %101, 7
-  %103 = icmp ne i64 %102, 0
+  %102 = and i32 %16, 7
+  %103 = icmp ne i32 %102, 0
   %104 = icmp ugt i32 %16, 1024
   %or.cond3.i.i243.not352 = or i1 %104, %103
   %105 = shl i32 %16, 3
@@ -1646,8 +1646,8 @@ gtsvector_alloc.exit257:                          ; preds = %gtsvector_alloc.exi
   br i1 %286, label %287, label %.loopexit.i.sink.split.i259
 
 287:                                              ; preds = %273
-  %288 = and i64 %283, 7
-  %289 = icmp eq i64 %288, 0
+  %288 = and i32 %16, 7
+  %289 = icmp eq i32 %288, 0
   %290 = icmp ult i32 %16, 1025
   %or.cond3.i.i267 = and i1 %290, %289
   br i1 %or.cond3.i.i267, label %291, label %.loopexit.i.sink.split.i259

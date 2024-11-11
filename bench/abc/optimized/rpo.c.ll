@@ -1093,8 +1093,8 @@ Kit_TruthIsEqual.exit.thread:                     ; preds = %31, %23
   %.0154222 = phi i32 [ 0, %.lr.ph226 ], [ %.1155, %.loopexit213 ]
   %96 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8
-  %.not259 = icmp eq ptr %97, null
-  br i1 %.not259, label %.loopexit213, label %.lr.ph219
+  %.not260 = icmp eq ptr %97, null
+  br i1 %.not260, label %.loopexit213, label %.lr.ph219
 
 .lr.ph219:                                        ; preds = %95
   %98 = shl nuw nsw i64 %indvars.iv, 4

@@ -16877,8 +16877,8 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 if.end:                                           ; preds = %entry
   %2 = add nsw i8 %raw, -97
   %3 = icmp ult i8 %2, 26
-  %sub.i = add nsw i8 %raw, -32
-  %retval.i.0 = select i1 %3, i8 %sub.i, i8 %raw
+  %narrow = add nsw i8 %raw, -32
+  %retval.i.0 = select i1 %3, i8 %narrow, i8 %raw
   %4 = xor i8 %retval.i.0, 64
   ret i8 %4
 

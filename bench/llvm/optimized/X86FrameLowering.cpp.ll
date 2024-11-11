@@ -24948,7 +24948,7 @@ _ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EEC2EmRKS2_.exit: ; pr
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EEC2EmRKS2_.exit
   %.pre = load i32, ptr %17, align 8
-  %.pre128 = load ptr, ptr %8, align 8
+  %.pre130 = load ptr, ptr %8, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -24963,14 +24963,14 @@ _ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EEC2EmRKS2_.exit: ; pr
   store i32 %33, ptr %35, align 4
   %36 = add i32 %.pre, %33
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %.pre128, i64 %37, i32 2
+  %38 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %.pre130, i64 %37, i32 2
   %.sroa.0.0.copyload.i = load i8, ptr %38, align 8
   %39 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.083.0, i64 %34, i32 3
   store i8 %.sroa.0.0.copyload.i, ptr %39, align 4
   %40 = load i32, ptr %.097, align 4
   %41 = add i32 %.pre, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %.pre128, i64 %42, i32 1
+  %43 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %.pre130, i64 %42, i32 1
   %44 = load i64, ptr %43, align 8
   %45 = trunc i64 %44 to i32
   %46 = icmp eq i32 %45, 0

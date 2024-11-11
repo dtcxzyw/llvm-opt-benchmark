@@ -2287,10 +2287,10 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_request(i32 noundef %0, ptr
 
 456:                                              ; preds = %451
   %457 = and i32 %322, 8
-  %.not260.i = icmp eq i32 %457, 0
+  %.not258.i = icmp eq i32 %457, 0
   %458 = getelementptr inbounds i8, ptr %1, i64 668
   %459 = load i32, ptr %458, align 4
-  br i1 %.not260.i, label %462, label %460
+  br i1 %.not258.i, label %462, label %460
 
 460:                                              ; preds = %456
   %461 = call i32 @killpg(i32 noundef %459, i32 noundef %452) #13

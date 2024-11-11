@@ -2272,26 +2272,26 @@ _ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit357.i:    ; preds = %965, %977
   br label %987
 
 987:                                              ; preds = %987, %.noexc153
-  %indvars.iv616.i = phi i64 [ %985, %.noexc153 ], [ %indvars.iv.next617.i, %987 ]
-  %988 = getelementptr inbounds i32, ptr %.1513.i, i64 %indvars.iv616.i
+  %indvars.iv617.i = phi i64 [ %985, %.noexc153 ], [ %indvars.iv.next618.i, %987 ]
+  %988 = getelementptr inbounds i32, ptr %.1513.i, i64 %indvars.iv617.i
   %989 = load i32, ptr %988, align 4
   %990 = sext i32 %989 to i64
   %991 = getelementptr inbounds float, ptr %.1519.i, i64 %990
   %992 = load float, ptr %991, align 4
   %993 = call noundef float @logf(float noundef %992) #17
-  %994 = sub nsw i64 %indvars.iv616.i, %985
+  %994 = sub nsw i64 %indvars.iv617.i, %985
   %995 = getelementptr inbounds float, ptr %983, i64 %994
   store float %993, ptr %995, align 4
-  %996 = getelementptr inbounds float, ptr %.1516.i, i64 %indvars.iv616.i
+  %996 = getelementptr inbounds float, ptr %.1516.i, i64 %indvars.iv617.i
   %997 = load float, ptr %996, align 4
   %998 = call noundef float @llvm.fabs.f32(float %997)
   %999 = call noundef float @logf(float noundef %998) #17
   %1000 = getelementptr inbounds float, ptr %984, i64 %994
   store float %999, ptr %1000, align 4
-  %indvars.iv.next617.i = add nsw i64 %indvars.iv616.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next617.i to i32
-  %exitcond619.not.i = icmp eq i32 %986, %lftr.wideiv.i
-  br i1 %exitcond619.not.i, label %1001, label %987, !llvm.loop !29
+  %indvars.iv.next618.i = add nsw i64 %indvars.iv617.i, 1
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next618.i to i32
+  %exitcond621.not.i = icmp eq i32 %986, %lftr.wideiv.i
+  br i1 %exitcond621.not.i, label %1001, label %987, !llvm.loop !29
 
 1001:                                             ; preds = %987
   invoke void @_Z10lsq_y_ax_biPfS_S_S_S_S_(i32 noundef %980, ptr noundef nonnull %983, ptr noundef nonnull %984, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %8)
@@ -2514,23 +2514,23 @@ _ZL7calcepsfffffb.exit365.i:                      ; preds = %1085, %1082
 .noexc158:                                        ; preds = %.noexc157
   %1160 = sext i32 %.1292.i to i64
   %1161 = add i32 %.1290.i, 1
-  %wide.trip.count623.i = zext i32 %1161 to i64
+  %wide.trip.count627.i = zext i32 %1161 to i64
   br label %1162
 
 1162:                                             ; preds = %1162, %.noexc158
-  %indvars.iv620.i = phi i64 [ %1142, %.noexc158 ], [ %indvars.iv.next621.i, %1162 ]
-  %1163 = getelementptr inbounds float, ptr %.1519.i, i64 %indvars.iv620.i
+  %indvars.iv623.i = phi i64 [ %1142, %.noexc158 ], [ %indvars.iv.next624.i, %1162 ]
+  %1163 = getelementptr inbounds float, ptr %.1519.i, i64 %indvars.iv623.i
   %1164 = load float, ptr %1163, align 4
-  %1165 = sub nuw nsw i64 %indvars.iv620.i, %1160
+  %1165 = sub nuw nsw i64 %indvars.iv623.i, %1160
   %1166 = getelementptr inbounds float, ptr %1158, i64 %1165
   store float %1164, ptr %1166, align 4
-  %1167 = getelementptr inbounds float, ptr %.1501.i, i64 %indvars.iv620.i
+  %1167 = getelementptr inbounds float, ptr %.1501.i, i64 %indvars.iv623.i
   %1168 = load float, ptr %1167, align 4
   %1169 = getelementptr inbounds float, ptr %1159, i64 %1165
   store float %1168, ptr %1169, align 4
-  %indvars.iv.next621.i = add nuw nsw i64 %indvars.iv620.i, 1
-  %exitcond624.not.i = icmp eq i64 %indvars.iv.next621.i, %wide.trip.count623.i
-  br i1 %exitcond624.not.i, label %1170, label %1162, !llvm.loop !30
+  %indvars.iv.next624.i = add nuw nsw i64 %indvars.iv623.i, 1
+  %exitcond628.not.i = icmp eq i64 %indvars.iv.next624.i, %wide.trip.count627.i
+  br i1 %exitcond628.not.i, label %1170, label %1162, !llvm.loop !30
 
 1170:                                             ; preds = %1162
   invoke void @_Z10lsq_y_ax_biPfS_S_S_S_S_(i32 noundef %1155, ptr noundef nonnull %1158, ptr noundef nonnull %1159, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %8)

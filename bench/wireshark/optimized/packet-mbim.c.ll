@@ -14050,7 +14050,7 @@ define internal fastcc void @mbim_dissect_packet_service_info(ptr noundef %0, pt
   %51 = load i32, ptr @preferred_mbim_extended_version, align 4
   %52 = icmp sgt i32 %51, 2
   %or.cond5 = select i1 %50, i1 %52, i1 false
-  br i1 %or.cond5, label %53, label %84
+  br i1 %or.cond5, label %53, label %83
 
 53:                                               ; preds = %44, %.thread
   %.074 = phi i32 [ %47, %44 ], [ %.073, %.thread ]
@@ -14065,46 +14065,45 @@ define internal fastcc void @mbim_dissect_packet_service_info(ptr noundef %0, pt
   %62 = add i32 %.074, 6
   %63 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %62, i32 noundef -2147483648) #10
   %64 = sext i16 %63 to i32
-  %65 = and i32 %64, 32768
-  %.not.i = icmp eq i32 %65, 0
-  %66 = load i32, ptr @hf_mbim_ms_plmn_mnc, align 4
-  br i1 %.not.i, label %70, label %67
+  %.not.i = icmp sgt i16 %63, -1
+  %65 = load i32, ptr @hf_mbim_ms_plmn_mnc, align 4
+  br i1 %.not.i, label %69, label %66
 
-67:                                               ; preds = %53
-  %68 = and i32 %64, 32767
-  %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %59, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %64, ptr noundef nonnull @.str.2552, i32 noundef %68) #10
+66:                                               ; preds = %53
+  %67 = and i32 %64, 32767
+  %68 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %59, i32 noundef %65, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %64, ptr noundef nonnull @.str.2552, i32 noundef %67) #10
   br label %mbim_dissect_ms_plmn.exit
 
-70:                                               ; preds = %53
-  %71 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %59, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %64, ptr noundef nonnull @.str.2553, i32 noundef %64) #10
+69:                                               ; preds = %53
+  %70 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %59, i32 noundef %65, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %64, ptr noundef nonnull @.str.2553, i32 noundef %64) #10
   br label %mbim_dissect_ms_plmn.exit
 
-mbim_dissect_ms_plmn.exit:                        ; preds = %67, %70
-  %72 = add i32 %.074, 8
-  %73 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef -2147483648) #10
-  %75 = add i32 %.074, 12
+mbim_dissect_ms_plmn.exit:                        ; preds = %66, %69
+  %71 = add i32 %.074, 8
+  %72 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef -2147483648) #10
+  %74 = add i32 %.074, 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  store i32 %75, ptr %7, align 4
-  %76 = sub i32 %75, %3
-  %77 = icmp slt i32 %76, %5
-  br i1 %77, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit
+  store i32 %74, ptr %7, align 4
+  %75 = sub i32 %74, %3
+  %76 = icmp slt i32 %75, %5
+  br i1 %76, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit
 
 .lr.ph.i:                                         ; preds = %mbim_dissect_ms_plmn.exit, %.lr.ph.i
-  %78 = phi i32 [ %81, %.lr.ph.i ], [ %75, %mbim_dissect_ms_plmn.exit ]
-  %79 = load i32, ptr @ett_mbim_pair_list, align 4
-  %80 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %78, i32 noundef 0, i32 noundef %79, ptr noundef null, ptr noundef nonnull @.str.2579) #10
-  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %80, ptr noundef %7)
-  %81 = load i32, ptr %7, align 4
-  %82 = sub i32 %81, %3
-  %83 = icmp slt i32 %82, %5
-  br i1 %83, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit, !llvm.loop !10
+  %77 = phi i32 [ %80, %.lr.ph.i ], [ %74, %mbim_dissect_ms_plmn.exit ]
+  %78 = load i32, ptr @ett_mbim_pair_list, align 4
+  %79 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %77, i32 noundef 0, i32 noundef %78, ptr noundef null, ptr noundef nonnull @.str.2579) #10
+  call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %79, ptr noundef %7)
+  %80 = load i32, ptr %7, align 4
+  %81 = sub i32 %80, %3
+  %82 = icmp slt i32 %81, %5
+  br i1 %82, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit, !llvm.loop !10
 
 mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %mbim_dissect_ms_plmn.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %84
+  br label %83
 
-84:                                               ; preds = %.thread, %mbim_dissect_tlv_ie_list.exit
+83:                                               ; preds = %.thread, %mbim_dissect_tlv_ie_list.exit
   ret void
 }
 
@@ -18445,10 +18444,10 @@ define internal fastcc range(i32 0, 2) i32 @mbim_dissect_ms_single_tai(ptr nound
   %12 = add i32 %11, 1
   store i32 %12, ptr %3, align 4
   %13 = load i32, ptr %7, align 4
-  switch i32 %13, label %72 [
+  switch i32 %13, label %70 [
     i32 0, label %14
     i32 1, label %14
-    i32 2, label %42
+    i32 2, label %41
   ]
 
 14:                                               ; preds = %4, %4
@@ -18458,110 +18457,108 @@ define internal fastcc range(i32 0, 2) i32 @mbim_dissect_ms_single_tai(ptr nound
   %17 = add i32 %11, 3
   %18 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %17, i32 noundef -2147483648) #10
   %19 = sext i16 %18 to i32
-  %20 = and i32 %19, 32768
-  %.not.i.i = icmp eq i32 %20, 0
-  %21 = load i32, ptr @hf_mbim_ms_plmn_mnc, align 4
-  br i1 %.not.i.i, label %25, label %22
+  %.not.i.i = icmp sgt i16 %18, -1
+  %20 = load i32, ptr @hf_mbim_ms_plmn_mnc, align 4
+  br i1 %.not.i.i, label %24, label %21
 
-22:                                               ; preds = %14
-  %23 = and i32 %19, 32767
-  %24 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %19, ptr noundef nonnull @.str.2552, i32 noundef %23) #10
+21:                                               ; preds = %14
+  %22 = and i32 %19, 32767
+  %23 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %19, ptr noundef nonnull @.str.2552, i32 noundef %22) #10
   br label %mbim_dissect_ms_plmn.exit.i
 
-25:                                               ; preds = %14
-  %26 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %19, ptr noundef nonnull @.str.2553, i32 noundef %19) #10
+24:                                               ; preds = %14
+  %25 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %19, ptr noundef nonnull @.str.2553, i32 noundef %19) #10
   br label %mbim_dissect_ms_plmn.exit.i
 
-mbim_dissect_ms_plmn.exit.i:                      ; preds = %25, %22
-  %27 = load i32, ptr %3, align 4
-  %28 = add i32 %27, 4
-  store i32 %28, ptr %3, align 4
-  %29 = load i32, ptr @hf_mbim_ms_tai_list_single_plmn_tac_element, align 4
-  %30 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #10
-  %31 = load i32, ptr %3, align 4
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %3, align 4
-  %33 = load i32, ptr %6, align 4
-  %.not.i = icmp eq i32 %33, 0
+mbim_dissect_ms_plmn.exit.i:                      ; preds = %24, %21
+  %26 = load i32, ptr %3, align 4
+  %27 = add i32 %26, 4
+  store i32 %27, ptr %3, align 4
+  %28 = load i32, ptr @hf_mbim_ms_tai_list_single_plmn_tac_element, align 4
+  %29 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #10
+  %30 = load i32, ptr %3, align 4
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %3, align 4
+  %32 = load i32, ptr %6, align 4
+  %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %mbim_dissect_ms_tai_list_single_plmn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %mbim_dissect_ms_plmn.exit.i, %.lr.ph.i
-  %34 = phi i32 [ %38, %.lr.ph.i ], [ %32, %mbim_dissect_ms_plmn.exit.i ]
-  %.01.i = phi i32 [ %39, %.lr.ph.i ], [ 0, %mbim_dissect_ms_plmn.exit.i ]
-  %35 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef -2147483648) #10
-  %37 = load i32, ptr %3, align 4
-  %38 = add i32 %37, 4
-  store i32 %38, ptr %3, align 4
-  %39 = add nuw i32 %.01.i, 1
-  %40 = load i32, ptr %6, align 4
-  %41 = icmp ult i32 %39, %40
-  br i1 %41, label %.lr.ph.i, label %mbim_dissect_ms_tai_list_single_plmn.exit, !llvm.loop !78
+  %33 = phi i32 [ %37, %.lr.ph.i ], [ %31, %mbim_dissect_ms_plmn.exit.i ]
+  %.01.i = phi i32 [ %38, %.lr.ph.i ], [ 0, %mbim_dissect_ms_plmn.exit.i ]
+  %34 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
+  %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef -2147483648) #10
+  %36 = load i32, ptr %3, align 4
+  %37 = add i32 %36, 4
+  store i32 %37, ptr %3, align 4
+  %38 = add nuw i32 %.01.i, 1
+  %39 = load i32, ptr %6, align 4
+  %40 = icmp ult i32 %38, %39
+  br i1 %40, label %.lr.ph.i, label %mbim_dissect_ms_tai_list_single_plmn.exit, !llvm.loop !78
 
 mbim_dissect_ms_tai_list_single_plmn.exit:        ; preds = %.lr.ph.i, %mbim_dissect_ms_plmn.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %74
+  br label %72
 
-42:                                               ; preds = %4
+41:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %43 = load i32, ptr @hf_mbim_ms_tai_list_multi_plmn_tai_element, align 4
-  %44 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #10
-  %45 = load i32, ptr %3, align 4
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %3, align 4
-  %47 = load i32, ptr %5, align 4
-  %.not.i16 = icmp eq i32 %47, 0
+  %42 = load i32, ptr @hf_mbim_ms_tai_list_multi_plmn_tai_element, align 4
+  %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #10
+  %44 = load i32, ptr %3, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %3, align 4
+  %46 = load i32, ptr %5, align 4
+  %.not.i16 = icmp eq i32 %46, 0
   br i1 %.not.i16, label %mbim_dissect_ms_tai_list_multi_plmn.exit, label %.lr.ph.i17
 
-.lr.ph.i17:                                       ; preds = %42, %mbim_dissect_ms_plmn.exit.i19
-  %.02.i = phi i32 [ %49, %mbim_dissect_ms_plmn.exit.i19 ], [ 0, %42 ]
-  %storemerge1.i = phi i32 [ %69, %mbim_dissect_ms_plmn.exit.i19 ], [ %46, %42 ]
-  %48 = load i32, ptr @ett_mbim_pair_list, align 4
-  %49 = add nuw i32 %.02.i, 1
-  %50 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %storemerge1.i, i32 noundef 0, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.2554, i32 noundef %49) #10
-  %51 = load i32, ptr %3, align 4
-  %52 = load i32, ptr @hf_mbim_ms_plmn_mcc, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef 2, i32 noundef -2147483648) #10
-  %54 = add i32 %51, 2
-  %55 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %54, i32 noundef -2147483648) #10
-  %56 = sext i16 %55 to i32
-  %57 = and i32 %56, 32768
-  %.not.i.i18 = icmp eq i32 %57, 0
-  %58 = load i32, ptr @hf_mbim_ms_plmn_mnc, align 4
-  br i1 %.not.i.i18, label %62, label %59
+.lr.ph.i17:                                       ; preds = %41, %mbim_dissect_ms_plmn.exit.i19
+  %.02.i = phi i32 [ %48, %mbim_dissect_ms_plmn.exit.i19 ], [ 0, %41 ]
+  %storemerge1.i = phi i32 [ %67, %mbim_dissect_ms_plmn.exit.i19 ], [ %45, %41 ]
+  %47 = load i32, ptr @ett_mbim_pair_list, align 4
+  %48 = add nuw i32 %.02.i, 1
+  %49 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %storemerge1.i, i32 noundef 0, i32 noundef %47, ptr noundef null, ptr noundef nonnull @.str.2554, i32 noundef %48) #10
+  %50 = load i32, ptr %3, align 4
+  %51 = load i32, ptr @hf_mbim_ms_plmn_mcc, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 2, i32 noundef -2147483648) #10
+  %53 = add i32 %50, 2
+  %54 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %53, i32 noundef -2147483648) #10
+  %55 = sext i16 %54 to i32
+  %.not.i.i18 = icmp sgt i16 %54, -1
+  %56 = load i32, ptr @hf_mbim_ms_plmn_mnc, align 4
+  br i1 %.not.i.i18, label %60, label %57
 
-59:                                               ; preds = %.lr.ph.i17
-  %60 = and i32 %56, 32767
-  %61 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %50, i32 noundef %58, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef %56, ptr noundef nonnull @.str.2552, i32 noundef %60) #10
+57:                                               ; preds = %.lr.ph.i17
+  %58 = and i32 %55, 32767
+  %59 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %49, i32 noundef %56, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef %55, ptr noundef nonnull @.str.2552, i32 noundef %58) #10
   br label %mbim_dissect_ms_plmn.exit.i19
 
-62:                                               ; preds = %.lr.ph.i17
-  %63 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %50, i32 noundef %58, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef %56, ptr noundef nonnull @.str.2553, i32 noundef %56) #10
+60:                                               ; preds = %.lr.ph.i17
+  %61 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %49, i32 noundef %56, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef %55, ptr noundef nonnull @.str.2553, i32 noundef %55) #10
   br label %mbim_dissect_ms_plmn.exit.i19
 
-mbim_dissect_ms_plmn.exit.i19:                    ; preds = %62, %59
-  %64 = load i32, ptr %3, align 4
-  %65 = add i32 %64, 4
-  store i32 %65, ptr %3, align 4
-  %66 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef -2147483648) #10
-  %68 = load i32, ptr %3, align 4
-  %69 = add i32 %68, 4
-  store i32 %69, ptr %3, align 4
-  %70 = load i32, ptr %5, align 4
-  %71 = icmp ult i32 %49, %70
-  br i1 %71, label %.lr.ph.i17, label %mbim_dissect_ms_tai_list_multi_plmn.exit, !llvm.loop !79
+mbim_dissect_ms_plmn.exit.i19:                    ; preds = %60, %57
+  %62 = load i32, ptr %3, align 4
+  %63 = add i32 %62, 4
+  store i32 %63, ptr %3, align 4
+  %64 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef -2147483648) #10
+  %66 = load i32, ptr %3, align 4
+  %67 = add i32 %66, 4
+  store i32 %67, ptr %3, align 4
+  %68 = load i32, ptr %5, align 4
+  %69 = icmp ult i32 %48, %68
+  br i1 %69, label %.lr.ph.i17, label %mbim_dissect_ms_tai_list_multi_plmn.exit, !llvm.loop !79
 
-mbim_dissect_ms_tai_list_multi_plmn.exit:         ; preds = %mbim_dissect_ms_plmn.exit.i19, %42
+mbim_dissect_ms_tai_list_multi_plmn.exit:         ; preds = %mbim_dissect_ms_plmn.exit.i19, %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %74
+  br label %72
 
-72:                                               ; preds = %4
-  %73 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_mbim_unexpected_msg, ptr noundef %0, i32 noundef %12, i32 noundef 1) #10
-  br label %74
+70:                                               ; preds = %4
+  %71 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_mbim_unexpected_msg, ptr noundef %0, i32 noundef %12, i32 noundef 1) #10
+  br label %72
 
-74:                                               ; preds = %mbim_dissect_ms_tai_list_single_plmn.exit, %mbim_dissect_ms_tai_list_multi_plmn.exit, %72
-  %.0 = phi i32 [ 0, %72 ], [ 1, %mbim_dissect_ms_tai_list_multi_plmn.exit ], [ 1, %mbim_dissect_ms_tai_list_single_plmn.exit ]
+72:                                               ; preds = %mbim_dissect_ms_tai_list_single_plmn.exit, %mbim_dissect_ms_tai_list_multi_plmn.exit, %70
+  %.0 = phi i32 [ 0, %70 ], [ 1, %mbim_dissect_ms_tai_list_multi_plmn.exit ], [ 1, %mbim_dissect_ms_tai_list_single_plmn.exit ]
   ret i32 %.0
 }
 

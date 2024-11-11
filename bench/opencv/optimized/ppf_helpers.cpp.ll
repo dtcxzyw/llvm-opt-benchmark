@@ -2138,24 +2138,24 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 .lr.ph110:                                        ; preds = %191
   %193 = getelementptr inbounds i8, ptr %0, i64 16
   %194 = getelementptr inbounds i8, ptr %0, i64 72
-  %wide.trip.count157 = zext nneg i32 %.053 to i64
-  %wide.trip.count151 = zext nneg i32 %188 to i64
+  %wide.trip.count189 = zext nneg i32 %.053 to i64
+  %wide.trip.count167 = zext nneg i32 %188 to i64
   %195 = icmp slt i32 %188, %.051
   br i1 %.not, label %.lr.ph110.split.us, label %.lr.ph110.split
 
 .lr.ph110.split.us:                               ; preds = %.lr.ph110, %._crit_edge.us
-  %indvars.iv154 = phi i64 [ %indvars.iv.next155, %._crit_edge.us ], [ 0, %.lr.ph110 ]
+  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %._crit_edge.us ], [ 0, %.lr.ph110 ]
   %196 = load ptr, ptr %193, align 8
   %197 = load ptr, ptr %194, align 8
   %198 = load i64, ptr %197, align 8
-  %199 = mul i64 %198, %indvars.iv154
+  %199 = mul i64 %198, %indvars.iv178
   %200 = getelementptr inbounds i8, ptr %196, i64 %199
   br label %204
 
 ._crit_edge.us:                                   ; preds = %202, %.preheader.us
-  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
-  %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
-  br i1 %exitcond158.not, label %._crit_edge111, label %.lr.ph110.split.us, !llvm.loop !12
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %exitcond190.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count189
+  br i1 %exitcond190.not, label %._crit_edge111, label %.lr.ph110.split.us, !llvm.loop !12
 
 .lr.ph.us:                                        ; preds = %.preheader.us, %202
   %.1107.us = phi i32 [ %203, %202 ], [ %188, %.preheader.us ]
@@ -2164,19 +2164,19 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 202:                                              ; preds = %.lr.ph.us
   %203 = add nuw nsw i32 %.1107.us, 1
-  %exitcond153.not = icmp eq i32 %203, %.051
-  br i1 %exitcond153.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !13
+  %exitcond177.not = icmp eq i32 %203, %.051
+  br i1 %exitcond177.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !13
 
 204:                                              ; preds = %207, %.lr.ph110.split.us
-  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %207 ], [ 0, %.lr.ph110.split.us ]
-  %205 = getelementptr inbounds float, ptr %200, i64 %indvars.iv148
+  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %207 ], [ 0, %.lr.ph110.split.us ]
+  %205 = getelementptr inbounds float, ptr %200, i64 %indvars.iv164
   %206 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERf(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %205)
           to label %207 unwind label %.loopexit.split-lp.loopexit.split.us
 
 207:                                              ; preds = %204
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %.preheader.us, label %204, !llvm.loop !14
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
+  br i1 %exitcond168.not, label %.preheader.us, label %204, !llvm.loop !14
 
 .preheader.us:                                    ; preds = %207
   br i1 %195, label %.lr.ph.us, label %._crit_edge.us
@@ -2192,11 +2192,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body
 
 .lr.ph110.split:                                  ; preds = %.lr.ph110, %237
-  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %237 ], [ 0, %.lr.ph110 ]
+  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %237 ], [ 0, %.lr.ph110 ]
   %208 = load ptr, ptr %193, align 8
   %209 = load ptr, ptr %194, align 8
   %210 = load i64, ptr %209, align 8
-  %211 = mul i64 %210, %indvars.iv143
+  %211 = mul i64 %210, %indvars.iv151
   %212 = getelementptr inbounds i8, ptr %208, i64 %211
   br label %213
 
@@ -2211,7 +2211,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 216:                                              ; preds = %213
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count151
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count167
   br i1 %exitcond.not, label %.preheader, label %213, !llvm.loop !14
 
 217:                                              ; preds = %189
@@ -2227,8 +2227,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 220:                                              ; preds = %.lr.ph
   %221 = add nuw nsw i32 %.1107, 1
-  %exitcond142.not = icmp eq i32 %221, %.051
-  br i1 %exitcond142.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  %exitcond150.not = icmp eq i32 %221, %.051
+  br i1 %exitcond150.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %220, %.preheader
   %222 = getelementptr inbounds i8, ptr %212, i64 12
@@ -2255,9 +2255,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %237
 
 237:                                              ; preds = %233, %._crit_edge
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count157
-  br i1 %exitcond147.not, label %._crit_edge111, label %.lr.ph110.split, !llvm.loop !12
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %exitcond163.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count189
+  br i1 %exitcond163.not, label %._crit_edge111, label %.lr.ph110.split, !llvm.loop !12
 
 ._crit_edge111:                                   ; preds = %237, %._crit_edge.us, %191
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #32

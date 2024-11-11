@@ -2126,8 +2126,8 @@ tailrecurse:                                      ; preds = %tailrecurse, %4
   br i1 %.not81, label %._crit_edge79, label %.lr.ph78
 
 .preheader.thread:                                ; preds = %6
-  %.not8186 = icmp eq i64 %.tr, 0
-  br i1 %.not8186, label %._crit_edge79, label %.lr.ph78.split
+  %.not8189 = icmp eq i64 %.tr, 0
+  br i1 %.not8189, label %._crit_edge79, label %.lr.ph78.split
 
 .lr.ph78:                                         ; preds = %.preheader
   %12 = icmp ugt i64 %.157, 1
@@ -2149,8 +2149,8 @@ tailrecurse:                                      ; preds = %tailrecurse, %4
 18:                                               ; preds = %15, %._crit_edge.us
   %.155.us = phi i64 [ %16, %15 ], [ %.05476.us, %._crit_edge.us ]
   %19 = add nuw i64 %.05377.us, 1
-  %exitcond84.not = icmp eq i64 %19, %.tr
-  br i1 %exitcond84.not, label %._crit_edge79, label %.lr.ph74.us, !llvm.loop !42
+  %exitcond87.not = icmp eq i64 %19, %.tr
+  br i1 %exitcond87.not, label %._crit_edge79, label %.lr.ph74.us, !llvm.loop !42
 
 20:                                               ; preds = %.lr.ph74.us, %20
   %.04873.us = phi i64 [ %.157, %.lr.ph74.us ], [ %..048.us, %20 ]
@@ -2218,8 +2218,8 @@ tailrecurse:                                      ; preds = %tailrecurse, %4
   %47 = phi i64 [ %45, %43 ], [ %39, %38 ]
   %.155 = phi i64 [ %44, %43 ], [ %.05476, %38 ]
   %48 = add nuw i64 %.05377, 1
-  %exitcond83.not = icmp eq i64 %48, %.tr
-  br i1 %exitcond83.not, label %._crit_edge79, label %38, !llvm.loop !42
+  %exitcond85.not = icmp eq i64 %48, %.tr
+  br i1 %exitcond85.not, label %._crit_edge79, label %38, !llvm.loop !42
 
 ._crit_edge79:                                    ; preds = %18, %46, %.preheader.thread, %.preheader
   %.054.lcssa = phi i64 [ 0, %.preheader ], [ 0, %.preheader.thread ], [ %.155, %46 ], [ %.155.us, %18 ]

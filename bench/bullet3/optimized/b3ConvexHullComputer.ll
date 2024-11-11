@@ -5652,8 +5652,8 @@ for.end:                                          ; preds = %invoke.cont146
   br i1 %cmp155, label %if.end157, label %if.then3.i.i.i287
 
 if.end157:                                        ; preds = %for.cond.preheader, %for.end
-  %minDist.0.lcssa627 = phi float [ %minDist.1, %for.end ], [ 0x47EFFFFFE0000000, %for.cond.preheader ]
-  %mul159 = fmul float %clampAmount, %minDist.0.lcssa627
+  %minDist.0.lcssa630 = phi float [ %minDist.1, %for.end ], [ 0x47EFFFFFE0000000, %for.cond.preheader ]
+  %mul159 = fmul float %clampAmount, %minDist.0.lcssa630
   %cmp.i262 = fcmp olt float %amount, %mul159
   %.sroa.speculated = select i1 %cmp.i262, float %amount, float %mul159
   br label %if.end162
@@ -5664,7 +5664,7 @@ if.end162:                                        ; preds = %if.end157, %invoke.
   br i1 %cmp165604, label %for.body166.preheader, label %cleanup
 
 for.body166.preheader:                            ; preds = %if.end162
-  %wide.trip.count618 = zext nneg i32 %faces.sroa.0.1 to i64
+  %wide.trip.count620 = zext nneg i32 %faces.sroa.0.1 to i64
   br label %for.body166
 
 invoke.cont182.lr.ph:                             ; preds = %for.body166
@@ -5672,13 +5672,13 @@ invoke.cont182.lr.ph:                             ; preds = %for.body166
   %m_data.i.i273 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %m_size.i.i274 = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   %m_capacity.i.i275 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %wide.trip.count623 = zext nneg i32 %faces.sroa.0.1 to i64
+  %wide.trip.count626 = zext nneg i32 %faces.sroa.0.1 to i64
   br label %invoke.cont182
 
 for.body166:                                      ; preds = %for.body166.preheader, %for.body166
-  %indvars.iv615 = phi i64 [ 0, %for.body166.preheader ], [ %indvars.iv.next616, %for.body166 ]
+  %indvars.iv616 = phi i64 [ 0, %for.body166.preheader ], [ %indvars.iv.next617, %for.body166 ]
   %seed.0605 = phi i32 [ 243703, %for.body166.preheader ], [ %add, %for.body166 ]
-  %arrayidx.i265 = getelementptr inbounds ptr, ptr %faces.sroa.16.2, i64 %indvars.iv615
+  %arrayidx.i265 = getelementptr inbounds ptr, ptr %faces.sroa.16.2, i64 %indvars.iv616
   %rem = urem i32 %seed.0605, %faces.sroa.0.1
   %idxprom.i267 = zext nneg i32 %rem to i64
   %arrayidx.i268 = getelementptr inbounds ptr, ptr %faces.sroa.16.2, i64 %idxprom.i267
@@ -5686,20 +5686,20 @@ for.body166:                                      ; preds = %for.body166.prehead
   %101 = load ptr, ptr %arrayidx.i268, align 8
   store ptr %101, ptr %arrayidx.i265, align 8
   store ptr %100, ptr %arrayidx.i268, align 8
-  %indvars.iv.next616 = add nuw nsw i64 %indvars.iv615, 1
+  %indvars.iv.next617 = add nuw nsw i64 %indvars.iv616, 1
   %mul174 = mul i32 %seed.0605, 1664525
   %add = add i32 %mul174, 1013904223
-  %exitcond619.not = icmp eq i64 %indvars.iv.next616, %wide.trip.count618
-  br i1 %exitcond619.not, label %invoke.cont182.lr.ph, label %for.body166, !llvm.loop !49
+  %exitcond621.not = icmp eq i64 %indvars.iv.next617, %wide.trip.count620
+  br i1 %exitcond621.not, label %invoke.cont182.lr.ph, label %for.body166, !llvm.loop !49
 
 for.cond177:                                      ; preds = %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEED2Ev.exit
-  %indvars.iv.next621 = add nuw nsw i64 %indvars.iv620, 1
-  %exitcond624.not = icmp eq i64 %indvars.iv.next621, %wide.trip.count623
-  br i1 %exitcond624.not, label %if.then3.i.i.i287, label %invoke.cont182, !llvm.loop !50
+  %indvars.iv.next623 = add nuw nsw i64 %indvars.iv622, 1
+  %exitcond627.not = icmp eq i64 %indvars.iv.next623, %wide.trip.count626
+  br i1 %exitcond627.not, label %if.then3.i.i.i287, label %invoke.cont182, !llvm.loop !50
 
 invoke.cont182:                                   ; preds = %invoke.cont182.lr.ph, %for.cond177
-  %indvars.iv620 = phi i64 [ 0, %invoke.cont182.lr.ph ], [ %indvars.iv.next621, %for.cond177 ]
-  %arrayidx.i271 = getelementptr inbounds ptr, ptr %faces.sroa.16.2, i64 %indvars.iv620
+  %indvars.iv622 = phi i64 [ 0, %invoke.cont182.lr.ph ], [ %indvars.iv.next623, %for.cond177 ]
+  %arrayidx.i271 = getelementptr inbounds ptr, ptr %faces.sroa.16.2, i64 %indvars.iv622
   %102 = load ptr, ptr %arrayidx.i271, align 8
   store i8 1, ptr %m_ownsMemory.i.i272, align 8
   store ptr null, ptr %m_data.i.i273, align 8

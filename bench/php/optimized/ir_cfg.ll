@@ -3049,7 +3049,7 @@ define hidden noundef i32 @ir_find_loops(ptr nocapture noundef %0) local_unnamed
   br label %.preheader437
 
 .preheader437:                                    ; preds = %.preheader437.backedge, %.preheader437.preheader
-  %.sroa.13.2 = phi i32 [ 1, %.preheader437.preheader ], [ %.sroa.13.2.be584, %.preheader437.backedge ]
+  %.sroa.13.2 = phi i32 [ 1, %.preheader437.preheader ], [ %.sroa.13.2.be586, %.preheader437.backedge ]
   %.1359 = phi i32 [ 1, %.preheader437.preheader ], [ %.1359.be, %.preheader437.backedge ]
   %38 = add i32 %.sroa.13.2, -1
   %39 = zext i32 %38 to i64
@@ -3102,7 +3102,7 @@ define hidden noundef i32 @ir_find_loops(ptr nocapture noundef %0) local_unnamed
   br label %.preheader437.backedge
 
 .preheader437.backedge:                           ; preds = %.backedge439, %.loopexit436
-  %.sroa.13.2.be584 = phi i32 [ %.sroa.13.2.be, %.backedge439 ], [ %38, %.loopexit436 ]
+  %.sroa.13.2.be586 = phi i32 [ %.sroa.13.2.be, %.backedge439 ], [ %38, %.loopexit436 ]
   %.1359.be = phi i32 [ %.2360, %.backedge439 ], [ %93, %.loopexit436 ]
   br label %.preheader437
 
@@ -3229,9 +3229,9 @@ define hidden noundef i32 @ir_find_loops(ptr nocapture noundef %0) local_unnamed
   br i1 %exitcond519.not, label %.loopexit435, label %.lr.ph483
 
 113:                                              ; preds = %.lr.ph490, %.loopexit431
-  %indvars.iv520 = phi i64 [ %101, %.lr.ph490 ], [ %114, %.loopexit431 ]
-  %114 = add nsw i64 %indvars.iv520, -1
-  %115 = getelementptr i32, ptr %30, i64 %indvars.iv520
+  %indvars.iv521 = phi i64 [ %101, %.lr.ph490 ], [ %114, %.loopexit431 ]
+  %114 = add nsw i64 %indvars.iv521, -1
+  %115 = getelementptr i32, ptr %30, i64 %indvars.iv521
   %116 = load i32, ptr %115, align 4
   %117 = zext i32 %116 to i64
   %118 = getelementptr inbounds %struct._ir_block, ptr %3, i64 %117
@@ -3457,12 +3457,12 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
   br i1 %.not405.not, label %.loopexit, label %.lr.ph493.preheader
 
 .lr.ph493.preheader:                              ; preds = %._crit_edge491
-  %wide.trip.count526 = zext i32 %.0353485 to i64
+  %wide.trip.count528 = zext i32 %.0353485 to i64
   br label %.lr.ph493
 
 .lr.ph493:                                        ; preds = %.lr.ph493.preheader, %251
-  %indvars.iv523 = phi i64 [ 1, %.lr.ph493.preheader ], [ %indvars.iv.next524, %251 ]
-  %232 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv523
+  %indvars.iv524 = phi i64 [ 1, %.lr.ph493.preheader ], [ %indvars.iv.next525, %251 ]
+  %232 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv524
   %233 = load i32, ptr %232, align 4
   %234 = zext i32 %233 to i64
   %235 = getelementptr inbounds %struct._ir_block, ptr %3, i64 %234
@@ -3493,9 +3493,9 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
   br label %251
 
 251:                                              ; preds = %.lr.ph493, %248, %238
-  %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
-  %exitcond527.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count526
-  br i1 %exitcond527.not, label %.loopexit, label %.lr.ph493
+  %indvars.iv.next525 = add nuw nsw i64 %indvars.iv524, 1
+  %exitcond529.not = icmp eq i64 %indvars.iv.next525, %wide.trip.count528
+  br i1 %exitcond529.not, label %.loopexit, label %.lr.ph493
 
 .loopexit:                                        ; preds = %251, %.preheader433, %._crit_edge491
   tail call void @_efree(ptr noundef %25) #13

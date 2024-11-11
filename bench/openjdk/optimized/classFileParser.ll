@@ -15125,9 +15125,9 @@ define internal fastcc noundef ptr @_ZL20skip_over_field_namePKcbj(ptr noundef %
   br i1 %or.cond72, label %48, label %switch.early.test
 
 switch.early.test:                                ; preds = %26
-  switch i32 %24, label %30 [
-    i32 95, label %48
-    i32 36, label %48
+  switch i8 %.fr71, label %30 [
+    i8 95, label %48
+    i8 36, label %48
   ]
 
 30:                                               ; preds = %switch.early.test
@@ -15138,7 +15138,7 @@ switch.early.test:                                ; preds = %26
   br i1 %or.cond17, label %48, label %33
 
 33:                                               ; preds = %30
-  %34 = icmp eq i32 %24, 47
+  %34 = icmp eq i8 %.fr71, 47
   %or.cond20 = and i1 %1, %34
   br i1 %or.cond20, label %35, label %.loopexit
 

@@ -180,7 +180,7 @@ GifMakeMapObject.exit:                            ; preds = %21
   br i1 %27, label %.lr.ph, label %GifMakeMapObject.exit..preheader91_crit_edge
 
 GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.exit
-  %.pre135 = sext i32 %4 to i64
+  %.pre136 = sext i32 %4 to i64
   br label %.preheader91
 
 .lr.ph:                                           ; preds = %GifMakeMapObject.exit
@@ -188,7 +188,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
   br label %35
 
 .preheader91:                                     ; preds = %35, %GifMakeMapObject.exit..preheader91_crit_edge
-  %.pre-phi = phi i64 [ %.pre135, %GifMakeMapObject.exit..preheader91_crit_edge ], [ %29, %35 ]
+  %.pre-phi = phi i64 [ %.pre136, %GifMakeMapObject.exit..preheader91_crit_edge ], [ %29, %35 ]
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   %31 = getelementptr %struct.GifColorType, ptr %.pre, i64 %.pre-phi
   %32 = getelementptr i8, ptr %31, i64 -3
@@ -248,12 +248,12 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
   %.177106 = phi i32 [ %.076.lcssa, %.preheader90.lr.ph ], [ %.2, %71 ]
   %56 = load i32, ptr %0, align 8
   %57 = icmp sgt i32 %56, 0
-  %.pre134 = load ptr, ptr %55, align 8
+  %.pre135 = load ptr, ptr %55, align 8
   br i1 %57, label %.lr.ph105, label %._crit_edge
 
 .lr.ph105:                                        ; preds = %.preheader90
   %58 = load ptr, ptr %30, align 8
-  %59 = getelementptr inbounds %struct.GifColorType, ptr %.pre134, i64 %indvars.iv125
+  %59 = getelementptr inbounds %struct.GifColorType, ptr %.pre135, i64 %indvars.iv125
   %wide.trip.count = zext nneg i32 %56 to i64
   br label %60
 
@@ -276,7 +276,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
 ._crit_edge:                                      ; preds = %63, %.preheader90
   %66 = sext i32 %.177106 to i64
   %67 = getelementptr inbounds %struct.GifColorType, ptr %16, i64 %66
-  %68 = getelementptr inbounds %struct.GifColorType, ptr %.pre134, i64 %indvars.iv125
+  %68 = getelementptr inbounds %struct.GifColorType, ptr %.pre135, i64 %indvars.iv125
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %67, ptr noundef nonnull align 1 dereferenceable(3) %68, i64 3, i1 false)
   %69 = add nsw i32 %.177106, 1
   %70 = trunc i32 %.177106 to i8

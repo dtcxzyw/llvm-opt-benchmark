@@ -1159,9 +1159,9 @@ while.body5.lr.ph:                                ; preds = %while.cond3.prehead
   br label %while.body5
 
 while.body5:                                      ; preds = %while.body5.lr.ph, %_ZN6vectorIjLb0EjE9push_backEOj.exit
-  %indvars.iv384 = phi i64 [ %8, %while.body5.lr.ph ], [ %indvars.iv.next385, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
+  %indvars.iv386 = phi i64 [ %8, %while.body5.lr.ph ], [ %indvars.iv.next387, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
   %9 = load ptr, ptr %m_as.i, align 8
-  %arrayidx.i47 = getelementptr inbounds %class.mpz, ptr %9, i64 %indvars.iv384
+  %arrayidx.i47 = getelementptr inbounds %class.mpz, ptr %9, i64 %indvars.iv386
   %10 = load ptr, ptr %m_buffer.i, align 8
   %cmp.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i, label %if.then.i.i53, label %lor.lhs.false.i.i
@@ -1252,7 +1252,7 @@ _ZN14numeral_bufferI3mpz11mpq_managerILb0EEE4backEv.exit68: ; preds = %_ZN14nume
   %arrayidx.i1.i.i67 = getelementptr inbounds %class.mpz, ptr %24, i64 %retval.0.i.i.i66
   call void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i1.i.i60361, ptr noundef nonnull align 8 dereferenceable(16) %b2, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i1.i.i67)
   %28 = load ptr, ptr %m_xs.i, align 8
-  %arrayidx.i70 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv384
+  %arrayidx.i70 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv386
   %29 = load i32, ptr %arrayidx.i70, align 4
   %30 = load ptr, ptr %m_var_buffer, align 8
   %cmp.i = icmp eq ptr %30, null
@@ -1284,10 +1284,10 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %lor.lhs.false.i, %i
   %36 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %36, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
-  %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
-  %lftr.wideiv387 = trunc i64 %indvars.iv.next385 to i32
-  %exitcond388.not = icmp eq i32 %7, %lftr.wideiv387
-  br i1 %exitcond388.not, label %while.end82, label %while.body5, !llvm.loop !20
+  %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
+  %lftr.wideiv389 = trunc i64 %indvars.iv.next387 to i32
+  %exitcond390.not = icmp eq i32 %7, %lftr.wideiv389
+  br i1 %exitcond390.not, label %while.end82, label %while.body5, !llvm.loop !20
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end81
   %i1.0376 = phi i32 [ 0, %if.end.lr.ph ], [ %i1.2, %if.end81 ]

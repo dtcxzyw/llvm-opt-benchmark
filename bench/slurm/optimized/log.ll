@@ -3503,9 +3503,8 @@ define internal void @_log_printf(ptr nocapture noundef readonly %0, ptr noundef
 23:                                               ; preds = %._crit_edge.i
   %24 = getelementptr inbounds i8, ptr %5, i64 6
   %25 = load i16, ptr %24, align 2
-  %26 = zext i16 %25 to i32
-  %27 = and i32 %26, 16
-  %.not.i = icmp eq i32 %27, 0
+  %26 = and i16 %25, 16
+  %.not.i = icmp eq i16 %26, 0
   br i1 %.not.i, label %_fd_writeable.exit, label %_fd_writeable.exit.thread
 
 _fd_writeable.exit.thread:                        ; preds = %17, %._crit_edge.i, %23
@@ -3513,39 +3512,39 @@ _fd_writeable.exit.thread:                        ; preds = %17, %._crit_edge.i,
   br label %.thread
 
 _fd_writeable.exit:                               ; preds = %23
-  %28 = and i32 %26, 44
-  %or.cond8.not.i = icmp eq i32 %28, 4
+  %27 = and i16 %25, 44
+  %or.cond8.not.i = icmp eq i16 %27, 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %or.cond8.not.i, label %29, label %.thread
+  br i1 %or.cond8.not.i, label %28, label %.thread
 
-29:                                               ; preds = %_fd_writeable.exit
+28:                                               ; preds = %_fd_writeable.exit
   call void @llvm.va_start.p0(ptr nonnull %6)
-  %30 = getelementptr inbounds i8, ptr %0, i64 57
-  %31 = load i8, ptr %30, align 1
-  %32 = trunc i8 %31 to i1
-  %33 = icmp ne ptr %1, null
-  %or.cond = and i1 %33, %32
-  br i1 %or.cond, label %34, label %40
+  %29 = getelementptr inbounds i8, ptr %0, i64 57
+  %30 = load i8, ptr %29, align 1
+  %31 = trunc i8 %30 to i1
+  %32 = icmp ne ptr %1, null
+  %or.cond = and i1 %32, %31
+  br i1 %or.cond, label %33, label %39
 
-34:                                               ; preds = %29
-  %35 = call ptr @vxstrfmt(ptr noundef %3, ptr noundef nonnull %6)
-  store ptr %35, ptr %7, align 8
-  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #26
-  %37 = trunc i64 %36 to i32
-  %38 = call i32 @cbuf_write(ptr noundef nonnull %1, ptr noundef %35, i32 noundef %37, ptr noundef nonnull %8) #19
-  %39 = call i32 @cbuf_read_to_fd(ptr noundef nonnull %1, i32 noundef %10, i32 noundef -1) #19
+33:                                               ; preds = %28
+  %34 = call ptr @vxstrfmt(ptr noundef %3, ptr noundef nonnull %6)
+  store ptr %34, ptr %7, align 8
+  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #26
+  %36 = trunc i64 %35 to i32
+  %37 = call i32 @cbuf_write(ptr noundef nonnull %1, ptr noundef %34, i32 noundef %36, ptr noundef nonnull %8) #19
+  %38 = call i32 @cbuf_read_to_fd(ptr noundef nonnull %1, i32 noundef %10, i32 noundef -1) #19
   call void @slurm_xfree(ptr noundef nonnull %7) #19
-  br label %42
+  br label %41
 
-40:                                               ; preds = %29
-  %41 = call i32 @vfprintf(ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %6) #19
-  br label %42
+39:                                               ; preds = %28
+  %40 = call i32 @vfprintf(ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %6) #19
+  br label %41
 
-42:                                               ; preds = %40, %34
+41:                                               ; preds = %39, %33
   call void @llvm.va_end.p0(ptr nonnull %6)
   br label %.thread
 
-.thread:                                          ; preds = %4, %_fd_writeable.exit.thread, %_fd_writeable.exit, %9, %42
+.thread:                                          ; preds = %4, %_fd_writeable.exit.thread, %_fd_writeable.exit, %9, %41
   ret void
 }
 

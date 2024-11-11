@@ -1270,14 +1270,13 @@ define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20
 entry:
   %fUnion.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %0 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %1 = and i16 %0, 17
+  %tobool.not.i = icmp eq i16 %1, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %2 = and i16 %0, 2
+  %tobool6.not.i = icmp eq i16 %2, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -1286,19 +1285,19 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
-  %1 = load ptr, ptr %fArray.i, align 8
+  %3 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %1, %if.else9.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %3, %if.else9.i ], [ null, %entry ]
   %cmp.i.i = icmp slt i16 %0, 0
-  %2 = ashr i16 %0, 5
-  %shr.i.i = sext i16 %2 to i32
+  %4 = ashr i16 %0, 5
+  %shr.i.i = sext i16 %4 to i32
   %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
-  %3 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
-  %4 = load i32, ptr %errorCode, align 4
-  %cmp.i.i2 = icmp slt i32 %4, 1
+  %5 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %5, i32 %shr.i.i
+  %6 = load i32, ptr %errorCode, align 4
+  %cmp.i.i2 = icmp slt i32 %6, 1
   br i1 %cmp.i.i2, label %if.end.i, label %_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
@@ -1312,25 +1311,25 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %len.i = getelementptr inbounds i8, ptr %this, i64 56
-  %5 = load i32, ptr %len.i, align 8
+  %7 = load i32, ptr %len.i, align 8
   %add.i = add i32 %cond.i, 1
-  %add6.i = add i32 %add.i, %5
+  %add6.i = add i32 %add.i, %7
   %call7.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add6.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool8.not.i = icmp eq i8 %call7.i, 0
   br i1 %tobool8.not.i, label %_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %6 = load ptr, ptr %this, align 8
-  %7 = load i32, ptr %len.i, align 8
-  %idx.ext.i = sext i32 %7 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i
+  %8 = load ptr, ptr %this, align 8
+  %9 = load i32, ptr %len.i, align 8
+  %idx.ext.i = sext i32 %9 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %idx.ext.i
   tail call void @u_UCharsToChars_75(ptr noundef %retval.0.i, ptr noundef %add.ptr.i, i32 noundef %cond.i)
-  %8 = load i32, ptr %len.i, align 8
-  %add13.i = add nsw i32 %8, %cond.i
+  %10 = load i32, ptr %len.i, align 8
+  %add13.i = add nsw i32 %10, %cond.i
   store i32 %add13.i, ptr %len.i, align 8
   %conv.i = sext i32 %add13.i to i64
-  %9 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 %conv.i
+  %11 = load ptr, ptr %this, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %11, i64 %conv.i
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode.exit
 

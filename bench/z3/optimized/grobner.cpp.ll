@@ -9313,9 +9313,9 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
-  %indvars.iv101 = phi i64 [ %5, %for.body.preheader ], [ %indvars.iv.next102, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ]
+  %indvars.iv103 = phi i64 [ %5, %for.body.preheader ], [ %indvars.iv.next104, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ]
   %6 = load ptr, ptr %m_vars2, align 8
-  %arrayidx.i28 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv101
+  %arrayidx.i28 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv103
   %7 = load ptr, ptr %rest2, align 8
   %cmp.i29 = icmp eq ptr %7, null
   br i1 %cmp.i29, label %if.then.i, label %lor.lhs.false.i
@@ -9347,10 +9347,10 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %lor.lhs.false.i, %i
   %14 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %14, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %lftr.wideiv104 = trunc i64 %indvars.iv.next102 to i32
-  %exitcond105.not = icmp eq i32 %retval.0.i26, %lftr.wideiv104
-  br i1 %exitcond105.not, label %return, label %for.body, !llvm.loop !41
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %lftr.wideiv106 = trunc i64 %indvars.iv.next104 to i32
+  %exitcond107.not = icmp eq i32 %retval.0.i26, %lftr.wideiv106
+  br i1 %exitcond107.not, label %return, label %for.body, !llvm.loop !41
 
 if.end9:                                          ; preds = %if.end9.lr.ph, %if.end41
   %found_M.091 = phi i8 [ 0, %if.end9.lr.ph ], [ %found_M.1, %if.end41 ]

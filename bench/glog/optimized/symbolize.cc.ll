@@ -1053,7 +1053,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
 .lr.ph197.preheader.i.i:                          ; preds = %.preheader.i.i
   %259 = sub i64 0, %254
   %scevgep240.i.i = getelementptr i8, ptr %253, i64 %259
-  %scevgep242.i.i = getelementptr i8, ptr %scevgep240.i.i, i64 %127
+  %scevgep254.i.i = getelementptr i8, ptr %scevgep240.i.i, i64 %127
   br label %.lr.ph197.i.i
 
 .lr.ph197.i.i:                                    ; preds = %266, %.lr.ph197.preheader.i.i
@@ -1074,11 +1074,11 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
 266:                                              ; preds = %264, %262
   %.1.i.i = phi i32 [ %263, %262 ], [ %.0195.i.i, %264 ]
   %storemerge49.i.i = getelementptr inbounds i8, ptr %storemerge49196.i.i, i64 1
-  %exitcond243.not.i.i = icmp eq ptr %storemerge49.i.i, %scevgep242.i.i
-  br i1 %exitcond243.not.i.i, label %._crit_edge.i.i, label %.lr.ph197.i.i, !llvm.loop !17
+  %exitcond255.not.i.i = icmp eq ptr %storemerge49.i.i, %scevgep254.i.i
+  br i1 %exitcond255.not.i.i, label %._crit_edge.i.i, label %.lr.ph197.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %266, %264, %.preheader.i.i
-  %storemerge49.lcssa.i.i = phi ptr [ %storemerge49194.i.i, %.preheader.i.i ], [ %storemerge49196.i.i, %264 ], [ %scevgep242.i.i, %266 ]
+  %storemerge49.lcssa.i.i = phi ptr [ %storemerge49194.i.i, %.preheader.i.i ], [ %storemerge49196.i.i, %264 ], [ %scevgep254.i.i, %266 ]
   %267 = icmp eq ptr %storemerge49.lcssa.i.i, %126
   br i1 %267, label %.loopexit144.i.i, label %268
 

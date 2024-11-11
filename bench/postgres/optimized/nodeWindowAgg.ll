@@ -3091,10 +3091,10 @@ define dso_local void @ExecReScanWindowAgg(ptr nocapture noundef %0) local_unnam
   br i1 %80, label %81, label %94
 
 81:                                               ; preds = %.loopexit58
-  %82 = and i64 %77, 7
-  %83 = icmp eq i64 %82, 0
+  %82 = and i32 %76, 7
+  %83 = icmp eq i32 %82, 0
   %84 = icmp ult i32 %76, 1025
-  %or.cond7 = select i1 %83, i1 %84, i1 false
+  %or.cond7 = and i1 %84, %83
   br i1 %or.cond7, label %85, label %94
 
 85:                                               ; preds = %81

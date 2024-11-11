@@ -4737,7 +4737,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %48
-  br i1 %21, label %._crit_edge117, label %53
+  br i1 %21, label %._crit_edge125, label %53
 
 53:                                               ; preds = %52
   %54 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !52
@@ -4749,9 +4749,9 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !117
   %60 = and i32 %59, 1
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %._crit_edge117, label %.loopexit
+  br i1 %61, label %._crit_edge125, label %.loopexit
 
-._crit_edge117:                                   ; preds = %52, %53
+._crit_edge125:                                   ; preds = %52, %53
   %62 = phi i32 [ %59, %53 ], [ 0, %52 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
   store i64 0, ptr %13, align 8, !annotation !47
@@ -4783,9 +4783,9 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %83 = icmp eq i32 %81, 0
   br label %84
 
-84:                                               ; preds = %710, %._crit_edge117
-  %85 = phi ptr [ %74, %._crit_edge117 ], [ %711, %710 ]
-  %86 = phi i64 [ %34, %._crit_edge117 ], [ %96, %710 ]
+84:                                               ; preds = %710, %._crit_edge125
+  %85 = phi ptr [ %74, %._crit_edge125 ], [ %711, %710 ]
+  %86 = phi i64 [ %34, %._crit_edge125 ], [ %96, %710 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %87 = load volatile i64, ptr %85, align 8
@@ -5875,12 +5875,12 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !136
   %720 = load volatile i32, ptr %719, align 4
   %721 = icmp eq i32 %720, %62
-  %.pre116 = load i32, ptr %14, align 4
+  %.pre124 = load i32, ptr %14, align 4
   br i1 %721, label %822, label %722
 
 722:                                              ; preds = %717
-  %723 = sext i32 %.pre116 to i64
-  %724 = icmp eq i32 %.pre116, 0
+  %723 = sext i32 %.pre124 to i64
+  %724 = icmp eq i32 %.pre124, 0
   br i1 %724, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %722, %818
@@ -6036,7 +6036,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   br i1 %821, label %.preheader, label %.loopexit, !llvm.loop !137
 
 822:                                              ; preds = %._crit_edge, %717
-  %823 = phi i32 [ %.pre, %._crit_edge ], [ %.pre116, %717 ]
+  %823 = phi i32 [ %.pre, %._crit_edge ], [ %.pre124, %717 ]
   %824 = sext i32 %823 to i64
   br label %.loopexit
 

@@ -104,8 +104,8 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i32
   %40 = icmp sgt i16 %38, 0
-  %41 = and i32 %39, 1
-  %.not87 = icmp eq i32 %41, 0
+  %41 = and i16 %38, 1
+  %.not87 = icmp eq i16 %41, 0
   %or.cond = and i1 %40, %.not87
   br i1 %or.cond, label %45, label %42
 

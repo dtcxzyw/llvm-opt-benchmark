@@ -11834,8 +11834,8 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %21, %28
   %63 = getelementptr inbounds i8, ptr %62, i64 -4
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = and i64 %65, 31
-  %.not73 = icmp ne i64 %66, 0
+  %66 = and i32 %64, 31
+  %.not73 = icmp ne i32 %66, 0
   %or.cond78.not = and i1 %7, %.not73
   br i1 %or.cond78.not, label %75, label %67
 

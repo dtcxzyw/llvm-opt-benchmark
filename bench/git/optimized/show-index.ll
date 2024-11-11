@@ -171,8 +171,8 @@ if.else.i55:                                      ; preds = %for.body51
   %call63 = call ptr @hash_to_hex(ptr noundef nonnull %add.ptr) #7
   %call64 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %15, ptr noundef %call63)
   %inc66 = add nuw i32 %i.190, 1
-  %exitcond108.not = icmp eq i32 %inc66, %12
-  br i1 %exitcond108.not, label %if.end166, label %for.body51, !llvm.loop !8
+  %exitcond109.not = icmp eq i32 %inc66, %12
+  br i1 %exitcond109.not, label %if.end166, label %for.body51, !llvm.loop !8
 
 if.else68:                                        ; preds = %for.end
   %conv69 = zext i32 %12 to i64
@@ -186,15 +186,15 @@ for.body75.lr.ph:                                 ; preds = %if.else68
   br label %for.body75
 
 for.body75:                                       ; preds = %for.body75.lr.ph, %if.end84
-  %indvars.iv109 = phi i64 [ 0, %for.body75.lr.ph ], [ %indvars.iv.next110, %if.end84 ]
-  %arrayidx77 = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv109
+  %indvars.iv110 = phi i64 [ 0, %for.body75.lr.ph ], [ %indvars.iv.next111, %if.end84 ]
+  %arrayidx77 = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv110
   %16 = load ptr, ptr @stdin, align 8
   %call80 = call i64 @fread(ptr noundef %arrayidx77, i64 noundef %conv79, i64 noundef 1, ptr noundef %16)
   %cmp81.not = icmp eq i64 %call80, 1
   br i1 %cmp81.not, label %if.end84, label %if.then83
 
 if.then83:                                        ; preds = %for.body75
-  %17 = trunc nuw nsw i64 %indvars.iv109 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv110 to i32
   call void (ptr, ...) @die(ptr noundef nonnull @.str.10, i32 noundef %17, i32 noundef %12) #8
   unreachable
 
@@ -208,54 +208,54 @@ if.end84:                                         ; preds = %for.body75
   %conv.i = trunc i64 %sub.ptr.div.i to i32
   %algo = getelementptr inbounds i8, ptr %arrayidx77, i64 32
   store i32 %conv.i, ptr %algo, align 4
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next110, %conv69
-  br i1 %exitcond112.not, label %for.body96, label %for.body75, !llvm.loop !9
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %conv69
+  br i1 %exitcond114.not, label %for.body96, label %for.body75, !llvm.loop !9
 
 for.body96:                                       ; preds = %if.end84, %for.inc104
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %for.inc104 ], [ 0, %if.end84 ]
-  %crc = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv113, i32 1
+  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %for.inc104 ], [ 0, %if.end84 ]
+  %crc = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv115, i32 1
   %20 = load ptr, ptr @stdin, align 8
   %call99 = call i64 @fread(ptr noundef nonnull %crc, i64 noundef 4, i64 noundef 1, ptr noundef %20)
   %cmp100.not = icmp eq i64 %call99, 1
   br i1 %cmp100.not, label %for.inc104, label %if.then102
 
 if.then102:                                       ; preds = %for.body96
-  %21 = trunc nuw nsw i64 %indvars.iv113 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv115 to i32
   call void (ptr, ...) @die(ptr noundef nonnull @.str.11, i32 noundef %21, i32 noundef %12) #8
   unreachable
 
 for.inc104:                                       ; preds = %for.body96
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %conv69
-  br i1 %exitcond117.not, label %for.body110, label %for.body96, !llvm.loop !10
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond120.not = icmp eq i64 %indvars.iv.next116, %conv69
+  br i1 %exitcond120.not, label %for.body110, label %for.body96, !llvm.loop !10
 
 for.body124.lr.ph:                                ; preds = %for.inc118
   %arrayidx149 = getelementptr inbounds i8, ptr %off64, i64 4
   br label %for.body124
 
 for.body110:                                      ; preds = %for.inc104, %for.inc118
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %for.inc118 ], [ 0, %for.inc104 ]
-  %off = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv118, i32 2
+  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %for.inc118 ], [ 0, %for.inc104 ]
+  %off = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv121, i32 2
   %22 = load ptr, ptr @stdin, align 8
   %call113 = call i64 @fread(ptr noundef nonnull %off, i64 noundef 4, i64 noundef 1, ptr noundef %22)
   %cmp114.not = icmp eq i64 %call113, 1
   br i1 %cmp114.not, label %for.inc118, label %if.then116
 
 if.then116:                                       ; preds = %for.body110
-  %23 = trunc nuw nsw i64 %indvars.iv118 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv121 to i32
   call void (ptr, ...) @die(ptr noundef nonnull @.str.12, i32 noundef %23, i32 noundef %12) #8
   unreachable
 
 for.inc118:                                       ; preds = %for.body110
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %conv69
-  br i1 %exitcond122.not, label %for.body124.lr.ph, label %for.body110, !llvm.loop !11
+  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+  %exitcond126.not = icmp eq i64 %indvars.iv.next122, %conv69
+  br i1 %exitcond126.not, label %for.body124.lr.ph, label %for.body110, !llvm.loop !11
 
 for.body124:                                      ; preds = %for.body124.lr.ph, %if.end153
-  %indvars.iv123 = phi i64 [ 0, %for.body124.lr.ph ], [ %indvars.iv.next124, %if.end153 ]
+  %indvars.iv127 = phi i64 [ 0, %for.body124.lr.ph ], [ %indvars.iv.next128, %if.end153 ]
   %off64_nr.098 = phi i32 [ 0, %for.body124.lr.ph ], [ %off64_nr.1, %if.end153 ]
-  %arrayidx128 = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv123
+  %arrayidx128 = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv127
   %off129 = getelementptr inbounds i8, ptr %arrayidx128, i64 40
   %24 = load i32, ptr %off129, align 4
   %25 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %24) #9, !srcloc !5
@@ -305,9 +305,9 @@ if.end153:                                        ; preds = %if.else.i65, %if.th
   %31 = load i32, ptr %crc160, align 4
   %32 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %31) #9, !srcloc !5
   %call162 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %offset125.0, ptr noundef %call157, i32 noundef %32)
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %conv69
-  br i1 %exitcond127.not, label %for.end165, label %for.body124, !llvm.loop !12
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond132.not = icmp eq i64 %indvars.iv.next128, %conv69
+  br i1 %exitcond132.not, label %for.end165, label %for.body124, !llvm.loop !12
 
 for.end165:                                       ; preds = %if.end153, %if.else68
   call void @free(ptr noundef %call71) #7

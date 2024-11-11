@@ -1166,7 +1166,7 @@ lor.rhs:                                          ; preds = %if.then
 
 land.rhs:                                         ; preds = %lor.rhs
   %18 = lshr i8 %15, 1
-  %19 = and i8 %18, 1
+  %.lobit = and i8 %18, 1
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true11, %_ZNK6icu_7513UnicodeString7compareEiiRKS0_.exit
@@ -1182,19 +1182,19 @@ lor.lhs.false39:                                  ; preds = %land.lhs.true37
 
 land.lhs.true41:                                  ; preds = %lor.lhs.false39
   %keyLength42 = getelementptr inbounds i8, ptr %this, i64 120
-  %20 = load i32, ptr %keyLength42, align 8
+  %19 = load i32, ptr %keyLength42, align 8
   %keyLength43 = getelementptr inbounds i8, ptr %r2, i64 120
-  %21 = load i32, ptr %keyLength43, align 8
-  %cmp44.not = icmp sgt i32 %20, %21
+  %20 = load i32, ptr %keyLength43, align 8
+  %cmp44.not = icmp sgt i32 %19, %20
   br i1 %cmp44.not, label %return, label %land.rhs45
 
 land.rhs45:                                       ; preds = %land.lhs.true41, %land.lhs.true37
   %cmp46 = icmp eq i8 %retval.0.i.i, 0
-  %22 = zext i1 %cmp46 to i8
+  %21 = zext i1 %cmp46 to i8
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false39, %land.lhs.true41, %land.rhs45, %if.then, %land.rhs, %lor.rhs
-  %retval.0 = phi i8 [ 1, %if.then ], [ 0, %lor.rhs ], [ %19, %land.rhs ], [ 0, %land.lhs.true41 ], [ 0, %lor.lhs.false39 ], [ 0, %if.end ], [ %22, %land.rhs45 ]
+  %retval.0 = phi i8 [ 1, %if.then ], [ 0, %lor.rhs ], [ %.lobit, %land.rhs ], [ 0, %land.lhs.true41 ], [ 0, %lor.lhs.false39 ], [ 0, %if.end ], [ %21, %land.rhs45 ]
   ret i8 %retval.0
 }
 

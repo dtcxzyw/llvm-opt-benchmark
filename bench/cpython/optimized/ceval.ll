@@ -2554,11 +2554,11 @@ if.end18:                                         ; preds = %start_frame, %if.el
   %instr_ptr19 = getelementptr inbounds i8, ptr %frame.addr.2, i64 56
   %21 = load ptr, ptr %instr_ptr19, align 8
   %stacktop.i.phi.trans.insert = getelementptr inbounds i8, ptr %frame.addr.2, i64 64
-  %.pre11827 = load i32, ptr %stacktop.i.phi.trans.insert, align 8
+  %.pre11965 = load i32, ptr %stacktop.i.phi.trans.insert, align 8
   br label %resume_frame
 
 resume_frame:                                     ; preds = %TARGET_YIELD_VALUE, %if.end9788, %if.end7086, %if.end7058, %Py_INCREF.exit21352, %if.end18
-  %22 = phi i32 [ %.pre11827, %if.end18 ], [ %inc.i8174, %if.end7058 ], [ %inc.i8160, %Py_INCREF.exit21352 ], [ %inc.i8189, %if.end7086 ], [ %inc.i8616, %TARGET_YIELD_VALUE ], [ %inc.i8464, %if.end9788 ]
+  %22 = phi i32 [ %.pre11965, %if.end18 ], [ %inc.i8174, %if.end7058 ], [ %inc.i8160, %Py_INCREF.exit21352 ], [ %inc.i8189, %if.end7086 ], [ %inc.i8616, %TARGET_YIELD_VALUE ], [ %inc.i8464, %if.end9788 ]
   %next_instr.0 = phi ptr [ %21, %if.end18 ], [ %add.ptr7068, %if.end7058 ], [ %add.ptr7047, %Py_INCREF.exit21352 ], [ %add.ptr7098, %if.end7086 ], [ %add.ptr11859, %TARGET_YIELD_VALUE ], [ %add.ptr9802, %if.end9788 ]
   %frame.addr.3 = phi ptr [ %frame.addr.2, %if.end18 ], [ %1416, %if.end7058 ], [ %1409, %Py_INCREF.exit21352 ], [ %1425, %if.end7086 ], [ %2309, %TARGET_YIELD_VALUE ], [ %1944, %if.end9788 ]
   %localsplus.i = getelementptr inbounds i8, ptr %frame.addr.3, i64 72
@@ -2970,14 +2970,14 @@ TARGET_BINARY_OP:                                 ; preds = %indirectgoto
   store ptr %next_instr.1, ptr %instr_ptr225, align 8
   %add.ptr226 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx229.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
-  %.pre11830 = load ptr, ptr %arrayidx229.phi.trans.insert, align 8
+  %.pre11968 = load ptr, ptr %arrayidx229.phi.trans.insert, align 8
   %arrayidx230.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
-  %.pre11831 = load ptr, ptr %arrayidx230.phi.trans.insert, align 8
+  %.pre11969 = load ptr, ptr %arrayidx230.phi.trans.insert, align 8
   br label %PRED_45
 
 PRED_45:                                          ; preds = %if.end716, %TARGET_BINARY_OP_SUBTRACT_INT, %if.end651, %TARGET_BINARY_OP_SUBTRACT_FLOAT, %if.end593, %TARGET_BINARY_OP_MULTIPLY_INT, %if.end529, %TARGET_BINARY_OP_MULTIPLY_FLOAT, %if.end482, %if.end477, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE, %if.end420, %TARGET_BINARY_OP_ADD_UNICODE, %if.end362, %TARGET_BINARY_OP_ADD_INT, %if.end302, %TARGET_BINARY_OP_ADD_FLOAT, %TARGET_BINARY_OP
-  %82 = phi ptr [ %172, %if.end716 ], [ %172, %TARGET_BINARY_OP_SUBTRACT_INT ], [ %158, %if.end651 ], [ %158, %TARGET_BINARY_OP_SUBTRACT_FLOAT ], [ %150, %if.end593 ], [ %150, %TARGET_BINARY_OP_MULTIPLY_INT ], [ %136, %if.end529 ], [ %136, %TARGET_BINARY_OP_MULTIPLY_FLOAT ], [ %117, %if.end420 ], [ %117, %TARGET_BINARY_OP_ADD_UNICODE ], [ %109, %if.end362 ], [ %109, %TARGET_BINARY_OP_ADD_INT ], [ %95, %if.end302 ], [ %95, %TARGET_BINARY_OP_ADD_FLOAT ], [ %.pre11831, %TARGET_BINARY_OP ], [ %125, %if.end482 ], [ %125, %if.end477 ], [ %125, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE ]
-  %83 = phi ptr [ %171, %if.end716 ], [ %171, %TARGET_BINARY_OP_SUBTRACT_INT ], [ %157, %if.end651 ], [ %157, %TARGET_BINARY_OP_SUBTRACT_FLOAT ], [ %149, %if.end593 ], [ %149, %TARGET_BINARY_OP_MULTIPLY_INT ], [ %135, %if.end529 ], [ %135, %TARGET_BINARY_OP_MULTIPLY_FLOAT ], [ %116, %if.end420 ], [ %116, %TARGET_BINARY_OP_ADD_UNICODE ], [ %108, %if.end362 ], [ %108, %TARGET_BINARY_OP_ADD_INT ], [ %94, %if.end302 ], [ %94, %TARGET_BINARY_OP_ADD_FLOAT ], [ %.pre11830, %TARGET_BINARY_OP ], [ %124, %if.end482 ], [ %124, %if.end477 ], [ %124, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE ]
+  %82 = phi ptr [ %172, %if.end716 ], [ %172, %TARGET_BINARY_OP_SUBTRACT_INT ], [ %158, %if.end651 ], [ %158, %TARGET_BINARY_OP_SUBTRACT_FLOAT ], [ %150, %if.end593 ], [ %150, %TARGET_BINARY_OP_MULTIPLY_INT ], [ %136, %if.end529 ], [ %136, %TARGET_BINARY_OP_MULTIPLY_FLOAT ], [ %117, %if.end420 ], [ %117, %TARGET_BINARY_OP_ADD_UNICODE ], [ %109, %if.end362 ], [ %109, %TARGET_BINARY_OP_ADD_INT ], [ %95, %if.end302 ], [ %95, %TARGET_BINARY_OP_ADD_FLOAT ], [ %.pre11969, %TARGET_BINARY_OP ], [ %125, %if.end482 ], [ %125, %if.end477 ], [ %125, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE ]
+  %83 = phi ptr [ %171, %if.end716 ], [ %171, %TARGET_BINARY_OP_SUBTRACT_INT ], [ %157, %if.end651 ], [ %157, %TARGET_BINARY_OP_SUBTRACT_FLOAT ], [ %149, %if.end593 ], [ %149, %TARGET_BINARY_OP_MULTIPLY_INT ], [ %135, %if.end529 ], [ %135, %TARGET_BINARY_OP_MULTIPLY_FLOAT ], [ %116, %if.end420 ], [ %116, %TARGET_BINARY_OP_ADD_UNICODE ], [ %108, %if.end362 ], [ %108, %TARGET_BINARY_OP_ADD_INT ], [ %94, %if.end302 ], [ %94, %TARGET_BINARY_OP_ADD_FLOAT ], [ %.pre11968, %TARGET_BINARY_OP ], [ %124, %if.end482 ], [ %124, %if.end477 ], [ %124, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE ]
   %next_instr.4 = phi ptr [ %add.ptr706, %if.end716 ], [ %add.ptr706, %TARGET_BINARY_OP_SUBTRACT_INT ], [ %add.ptr641, %if.end651 ], [ %add.ptr641, %TARGET_BINARY_OP_SUBTRACT_FLOAT ], [ %add.ptr583, %if.end593 ], [ %add.ptr583, %TARGET_BINARY_OP_MULTIPLY_INT ], [ %add.ptr519, %if.end529 ], [ %add.ptr519, %TARGET_BINARY_OP_MULTIPLY_FLOAT ], [ %add.ptr410, %if.end420 ], [ %add.ptr410, %TARGET_BINARY_OP_ADD_UNICODE ], [ %add.ptr352, %if.end362 ], [ %add.ptr352, %TARGET_BINARY_OP_ADD_INT ], [ %add.ptr295, %if.end302 ], [ %add.ptr295, %TARGET_BINARY_OP_ADD_FLOAT ], [ %add.ptr226, %TARGET_BINARY_OP ], [ %add.ptr468, %if.end482 ], [ %add.ptr468, %if.end477 ], [ %add.ptr468, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE ]
   %arrayidx229 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %arrayidx230 = getelementptr i8, ptr %stack_pointer.0, i64 -16
@@ -3757,14 +3757,14 @@ TARGET_BINARY_SUBSCR:                             ; preds = %indirectgoto
   store ptr %next_instr.1, ptr %instr_ptr820, align 8
   %add.ptr821 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx827.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
-  %.pre11828 = load ptr, ptr %arrayidx827.phi.trans.insert, align 8
+  %.pre11966 = load ptr, ptr %arrayidx827.phi.trans.insert, align 8
   %arrayidx828.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
-  %.pre11829 = load ptr, ptr %arrayidx828.phi.trans.insert, align 8
+  %.pre11967 = load ptr, ptr %arrayidx828.phi.trans.insert, align 8
   br label %PRED_5
 
 PRED_5:                                           ; preds = %if.end977, %if.end1155, %if.end1151, %if.end1146, %TARGET_BINARY_SUBSCR_TUPLE_INT, %PyUnicode_READ_CHAR.exit, %if.end1079, %if.end1075, %if.end1070, %TARGET_BINARY_SUBSCR_STR_INT, %if.end1013, %if.end1009, %if.end1004, %TARGET_BINARY_SUBSCR_LIST_INT, %_PyThreadState_HasStackSpace.exit, %if.end971, %if.end967, %if.end962, %TARGET_BINARY_SUBSCR_GETITEM, %TARGET_BINARY_SUBSCR_DICT, %TARGET_BINARY_SUBSCR
-  %190 = phi ptr [ %265, %if.end1155 ], [ %265, %if.end1151 ], [ %265, %if.end1146 ], [ %265, %TARGET_BINARY_SUBSCR_TUPLE_INT ], [ %243, %if.end1079 ], [ %243, %PyUnicode_READ_CHAR.exit ], [ %243, %if.end1075 ], [ %243, %if.end1070 ], [ %243, %TARGET_BINARY_SUBSCR_STR_INT ], [ %228, %if.end1013 ], [ %228, %if.end1009 ], [ %228, %if.end1004 ], [ %228, %TARGET_BINARY_SUBSCR_LIST_INT ], [ %213, %TARGET_BINARY_SUBSCR_GETITEM ], [ %213, %if.end967 ], [ %213, %if.end971 ], [ %213, %_PyThreadState_HasStackSpace.exit ], [ %213, %if.end962 ], [ %202, %TARGET_BINARY_SUBSCR_DICT ], [ %.pre11829, %TARGET_BINARY_SUBSCR ], [ %213, %if.end977 ]
-  %191 = phi ptr [ %264, %if.end1155 ], [ %264, %if.end1151 ], [ %264, %if.end1146 ], [ %264, %TARGET_BINARY_SUBSCR_TUPLE_INT ], [ %242, %if.end1079 ], [ %242, %PyUnicode_READ_CHAR.exit ], [ %242, %if.end1075 ], [ %242, %if.end1070 ], [ %242, %TARGET_BINARY_SUBSCR_STR_INT ], [ %227, %if.end1013 ], [ %227, %if.end1009 ], [ %227, %if.end1004 ], [ %227, %TARGET_BINARY_SUBSCR_LIST_INT ], [ %212, %TARGET_BINARY_SUBSCR_GETITEM ], [ %212, %if.end967 ], [ %212, %if.end971 ], [ %212, %_PyThreadState_HasStackSpace.exit ], [ %212, %if.end962 ], [ %201, %TARGET_BINARY_SUBSCR_DICT ], [ %.pre11828, %TARGET_BINARY_SUBSCR ], [ %212, %if.end977 ]
+  %190 = phi ptr [ %265, %if.end1155 ], [ %265, %if.end1151 ], [ %265, %if.end1146 ], [ %265, %TARGET_BINARY_SUBSCR_TUPLE_INT ], [ %243, %if.end1079 ], [ %243, %PyUnicode_READ_CHAR.exit ], [ %243, %if.end1075 ], [ %243, %if.end1070 ], [ %243, %TARGET_BINARY_SUBSCR_STR_INT ], [ %228, %if.end1013 ], [ %228, %if.end1009 ], [ %228, %if.end1004 ], [ %228, %TARGET_BINARY_SUBSCR_LIST_INT ], [ %213, %TARGET_BINARY_SUBSCR_GETITEM ], [ %213, %if.end967 ], [ %213, %if.end971 ], [ %213, %_PyThreadState_HasStackSpace.exit ], [ %213, %if.end962 ], [ %202, %TARGET_BINARY_SUBSCR_DICT ], [ %.pre11967, %TARGET_BINARY_SUBSCR ], [ %213, %if.end977 ]
+  %191 = phi ptr [ %264, %if.end1155 ], [ %264, %if.end1151 ], [ %264, %if.end1146 ], [ %264, %TARGET_BINARY_SUBSCR_TUPLE_INT ], [ %242, %if.end1079 ], [ %242, %PyUnicode_READ_CHAR.exit ], [ %242, %if.end1075 ], [ %242, %if.end1070 ], [ %242, %TARGET_BINARY_SUBSCR_STR_INT ], [ %227, %if.end1013 ], [ %227, %if.end1009 ], [ %227, %if.end1004 ], [ %227, %TARGET_BINARY_SUBSCR_LIST_INT ], [ %212, %TARGET_BINARY_SUBSCR_GETITEM ], [ %212, %if.end967 ], [ %212, %if.end971 ], [ %212, %_PyThreadState_HasStackSpace.exit ], [ %212, %if.end962 ], [ %201, %TARGET_BINARY_SUBSCR_DICT ], [ %.pre11966, %TARGET_BINARY_SUBSCR ], [ %212, %if.end977 ]
   %next_instr.7 = phi ptr [ %add.ptr1137, %if.end1155 ], [ %add.ptr1137, %if.end1151 ], [ %add.ptr1137, %if.end1146 ], [ %add.ptr1137, %TARGET_BINARY_SUBSCR_TUPLE_INT ], [ %add.ptr1061, %if.end1079 ], [ %add.ptr1061, %PyUnicode_READ_CHAR.exit ], [ %add.ptr1061, %if.end1075 ], [ %add.ptr1061, %if.end1070 ], [ %add.ptr1061, %TARGET_BINARY_SUBSCR_STR_INT ], [ %add.ptr995, %if.end1013 ], [ %add.ptr995, %if.end1009 ], [ %add.ptr995, %if.end1004 ], [ %add.ptr995, %TARGET_BINARY_SUBSCR_LIST_INT ], [ %add.ptr954, %TARGET_BINARY_SUBSCR_GETITEM ], [ %add.ptr954, %if.end967 ], [ %add.ptr954, %if.end971 ], [ %add.ptr954, %_PyThreadState_HasStackSpace.exit ], [ %add.ptr954, %if.end962 ], [ %add.ptr893, %TARGET_BINARY_SUBSCR_DICT ], [ %add.ptr821, %TARGET_BINARY_SUBSCR ], [ %add.ptr954, %if.end977 ]
   %arrayidx827 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %arrayidx828 = getelementptr i8, ptr %stack_pointer.0, i64 -16
@@ -5250,7 +5250,7 @@ Py_INCREF.exit21376:                              ; preds = %Py_INCREF.exit21384
   br i1 %cmp193510757, label %for.body1937.preheader, label %for.end1946
 
 for.body1937.preheader:                           ; preds = %Py_INCREF.exit21376
-  %wide.trip.count11809 = zext nneg i32 %oparg.0 to i64
+  %wide.trip.count11947 = zext nneg i32 %oparg.0 to i64
   br label %for.body1937
 
 for.body1937:                                     ; preds = %for.body1937.preheader, %for.body1937
@@ -5260,8 +5260,8 @@ for.body1937:                                     ; preds = %for.body1937.prehea
   %indvars.iv.next11807 = add nuw nsw i64 %indvars.iv11806, 1
   %arrayidx1943 = getelementptr [1 x ptr], ptr %localsplus1931, i64 0, i64 %indvars.iv.next11807
   store ptr %382, ptr %arrayidx1943, align 8
-  %exitcond11810.not = icmp eq i64 %indvars.iv.next11807, %wide.trip.count11809
-  br i1 %exitcond11810.not, label %for.end1946, label %for.body1937, !llvm.loop !17
+  %exitcond11948.not = icmp eq i64 %indvars.iv.next11807, %wide.trip.count11947
+  br i1 %exitcond11948.not, label %for.end1946, label %for.body1937, !llvm.loop !17
 
 for.end1946:                                      ; preds = %for.body1937, %Py_INCREF.exit21376
   %return_offset1952 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
@@ -6671,15 +6671,15 @@ TARGET_CALL_KW:                                   ; preds = %indirectgoto
   %instr_ptr2993 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
   store ptr %next_instr.1, ptr %instr_ptr2993, align 8
   %add.ptr2994 = getelementptr i8, ptr %next_instr.1, i64 2
-  %.pre11832 = sub i32 -2, %oparg.0
-  %.pre11833 = sext i32 %.pre11832 to i64
-  %.pre11834 = sub i32 -3, %oparg.0
-  %.pre11835 = sext i32 %.pre11834 to i64
+  %.pre11970 = sub i32 -2, %oparg.0
+  %.pre11971 = sext i32 %.pre11970 to i64
+  %.pre11972 = sub i32 -3, %oparg.0
+  %.pre11973 = sext i32 %.pre11972 to i64
   br label %PRED_57
 
 PRED_57:                                          ; preds = %cond.end6520, %TARGET_CALL_KW
-  %idxprom3009.pre-phi = phi i64 [ %idxprom6509, %cond.end6520 ], [ %.pre11835, %TARGET_CALL_KW ]
-  %idxprom3006.pre-phi = phi i64 [ %idxprom6500, %cond.end6520 ], [ %.pre11833, %TARGET_CALL_KW ]
+  %idxprom3009.pre-phi = phi i64 [ %idxprom6509, %cond.end6520 ], [ %.pre11973, %TARGET_CALL_KW ]
+  %idxprom3006.pre-phi = phi i64 [ %idxprom6500, %cond.end6520 ], [ %.pre11971, %TARGET_CALL_KW ]
   %next_instr.10 = phi ptr [ %add.ptr6496, %cond.end6520 ], [ %add.ptr2994, %TARGET_CALL_KW ]
   %arrayidx3001 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %584 = load ptr, ptr %arrayidx3001, align 8
@@ -8725,14 +8725,14 @@ TARGET_COMPARE_OP:                                ; preds = %indirectgoto
   store ptr %next_instr.1, ptr %instr_ptr4600, align 8
   %add.ptr4601 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx4607.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
-  %.pre11822 = load ptr, ptr %arrayidx4607.phi.trans.insert, align 8
+  %.pre11960 = load ptr, ptr %arrayidx4607.phi.trans.insert, align 8
   %arrayidx4608.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
-  %.pre11823 = load ptr, ptr %arrayidx4608.phi.trans.insert, align 8
+  %.pre11961 = load ptr, ptr %arrayidx4608.phi.trans.insert, align 8
   br label %PRED_58
 
 PRED_58:                                          ; preds = %if.end4848, %TARGET_COMPARE_OP_STR, %if.end4783, %if.end4779, %if.end4774, %TARGET_COMPARE_OP_INT, %if.end4710, %TARGET_COMPARE_OP_FLOAT, %TARGET_COMPARE_OP
-  %893 = phi ptr [ %931, %if.end4848 ], [ %931, %TARGET_COMPARE_OP_STR ], [ %919, %if.end4783 ], [ %919, %if.end4779 ], [ %919, %if.end4774 ], [ %919, %TARGET_COMPARE_OP_INT ], [ %909, %if.end4710 ], [ %909, %TARGET_COMPARE_OP_FLOAT ], [ %.pre11823, %TARGET_COMPARE_OP ]
-  %894 = phi ptr [ %930, %if.end4848 ], [ %930, %TARGET_COMPARE_OP_STR ], [ %918, %if.end4783 ], [ %918, %if.end4779 ], [ %918, %if.end4774 ], [ %918, %TARGET_COMPARE_OP_INT ], [ %908, %if.end4710 ], [ %908, %TARGET_COMPARE_OP_FLOAT ], [ %.pre11822, %TARGET_COMPARE_OP ]
+  %893 = phi ptr [ %931, %if.end4848 ], [ %931, %TARGET_COMPARE_OP_STR ], [ %919, %if.end4783 ], [ %919, %if.end4779 ], [ %919, %if.end4774 ], [ %919, %TARGET_COMPARE_OP_INT ], [ %909, %if.end4710 ], [ %909, %TARGET_COMPARE_OP_FLOAT ], [ %.pre11961, %TARGET_COMPARE_OP ]
+  %894 = phi ptr [ %930, %if.end4848 ], [ %930, %TARGET_COMPARE_OP_STR ], [ %918, %if.end4783 ], [ %918, %if.end4779 ], [ %918, %if.end4774 ], [ %918, %TARGET_COMPARE_OP_INT ], [ %908, %if.end4710 ], [ %908, %TARGET_COMPARE_OP_FLOAT ], [ %.pre11960, %TARGET_COMPARE_OP ]
   %next_instr.12 = phi ptr [ %add.ptr4838, %if.end4848 ], [ %add.ptr4838, %TARGET_COMPARE_OP_STR ], [ %add.ptr4764, %if.end4783 ], [ %add.ptr4764, %if.end4779 ], [ %add.ptr4764, %if.end4774 ], [ %add.ptr4764, %TARGET_COMPARE_OP_INT ], [ %add.ptr4700, %if.end4710 ], [ %add.ptr4700, %TARGET_COMPARE_OP_FLOAT ], [ %add.ptr4601, %TARGET_COMPARE_OP ]
   %arrayidx4607 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %arrayidx4608 = getelementptr i8, ptr %stack_pointer.0, i64 -16
@@ -10105,11 +10105,11 @@ TARGET_FOR_ITER:                                  ; preds = %indirectgoto
   store ptr %next_instr.1, ptr %instr_ptr5651, align 8
   %add.ptr5652 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx5655.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
-  %.pre11819 = load ptr, ptr %arrayidx5655.phi.trans.insert, align 8
+  %.pre11957 = load ptr, ptr %arrayidx5655.phi.trans.insert, align 8
   br label %PRED_72
 
 PRED_72:                                          ; preds = %TARGET_FOR_ITER_TUPLE, %TARGET_FOR_ITER_RANGE, %TARGET_FOR_ITER_LIST, %if.end5739, %if.end5734, %TARGET_FOR_ITER_GEN, %TARGET_FOR_ITER
-  %1093 = phi ptr [ %1139, %TARGET_FOR_ITER_TUPLE ], [ %1131, %TARGET_FOR_ITER_RANGE ], [ %1116, %TARGET_FOR_ITER_LIST ], [ %1108, %TARGET_FOR_ITER_GEN ], [ %1108, %if.end5734 ], [ %1108, %if.end5739 ], [ %.pre11819, %TARGET_FOR_ITER ]
+  %1093 = phi ptr [ %1139, %TARGET_FOR_ITER_TUPLE ], [ %1131, %TARGET_FOR_ITER_RANGE ], [ %1116, %TARGET_FOR_ITER_LIST ], [ %1108, %TARGET_FOR_ITER_GEN ], [ %1108, %if.end5734 ], [ %1108, %if.end5739 ], [ %.pre11957, %TARGET_FOR_ITER ]
   %next_instr.14 = phi ptr [ %add.ptr5911, %TARGET_FOR_ITER_TUPLE ], [ %add.ptr5845, %TARGET_FOR_ITER_RANGE ], [ %add.ptr5762, %TARGET_FOR_ITER_LIST ], [ %add.ptr5727, %TARGET_FOR_ITER_GEN ], [ %add.ptr5727, %if.end5734 ], [ %add.ptr5727, %if.end5739 ], [ %add.ptr5652, %TARGET_FOR_ITER ]
   %arrayidx5655 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %arrayidx5657 = getelementptr i8, ptr %next_instr.1, i64 2
@@ -12991,7 +12991,7 @@ if.then7412:                                      ; preds = %do.body7397
   br i1 %tobool7414.not, label %do.body7417, label %if.then7412.if.then7462_crit_edge
 
 if.then7412.if.then7462_crit_edge:                ; preds = %if.then7412
-  %.pre11818 = load ptr, ptr %attr, align 8
+  %.pre11956 = load ptr, ptr %attr, align 8
   br label %if.then7462
 
 do.body7417:                                      ; preds = %if.then7412
@@ -13055,7 +13055,7 @@ if.end7458:                                       ; preds = %do.end7453
   br label %if.end7464
 
 if.then7462:                                      ; preds = %if.then7412.if.then7462_crit_edge, %do.end7431
-  %1486 = phi ptr [ %1480, %do.end7431 ], [ %.pre11818, %if.then7412.if.then7462_crit_edge ]
+  %1486 = phi ptr [ %1480, %do.end7431 ], [ %.pre11956, %if.then7412.if.then7462_crit_edge ]
   %self_or_null7376.0.ph = phi ptr [ null, %do.end7431 ], [ %1470, %if.then7412.if.then7462_crit_edge ]
   store ptr %1486, ptr %arrayidx7377, align 8
   store ptr %self_or_null7376.0.ph, ptr %stack_pointer.0, align 8
@@ -14508,7 +14508,7 @@ if.end8499:                                       ; preds = %if.then8488
 
 if.end.i21238:                                    ; preds = %if.end8499
   store i32 %add.i21236, ptr %call8491, align 8
-  %.pre11817 = load ptr, ptr %res8443, align 8
+  %.pre11955 = load ptr, ptr %res8443, align 8
   br label %if.end8521
 
 if.else8500:                                      ; preds = %land.lhs.true8483, %do.body8466
@@ -14539,7 +14539,7 @@ if.then8518:                                      ; preds = %if.end8515
   br label %error
 
 if.end8521:                                       ; preds = %if.end8506, %if.end8515, %if.end.i21238, %if.end8499
-  %1675 = phi ptr [ %1671, %if.end8506 ], [ %1673, %if.end8515 ], [ %.pre11817, %if.end.i21238 ], [ %call8491, %if.end8499 ]
+  %1675 = phi ptr [ %1671, %if.end8506 ], [ %1673, %if.end8515 ], [ %.pre11955, %if.end.i21238 ], [ %call8491, %if.end8499 ]
   store ptr %1675, ptr %stack_pointer.0, align 8
   %and8523 = and i32 %oparg.0, 1
   %tobool8524.not = icmp eq i32 %and8523, 0
@@ -14873,11 +14873,11 @@ if.end8781:                                       ; preds = %do.body8758
 if.then8789:                                      ; preds = %if.then8768
   store ptr %1708, ptr %stack, align 16
   store ptr %1711, ptr %arrayinit.element, align 8
-  %conv878411841 = zext nneg i32 %and8770 to i64
-  %call878511842 = call ptr @PyObject_Vectorcall(ptr noundef %1709, ptr noundef nonnull %stack, i64 noundef %conv878411841, ptr noundef null) #15
+  %conv878411979 = zext nneg i32 %and8770 to i64
+  %call878511980 = call ptr @PyObject_Vectorcall(ptr noundef %1709, ptr noundef nonnull %stack, i64 noundef %conv878411979, ptr noundef null) #15
   %tobool8792.not = icmp eq i32 %and8770, 0
   %cond8796 = select i1 %tobool8792.not, ptr @_PyInstrumentation_MISSING, ptr %1708
-  %cmp8797 = icmp eq ptr %call878511842, null
+  %cmp8797 = icmp eq ptr %call878511980, null
   br i1 %cmp8797, label %if.then8799, label %if.else8800
 
 if.then8799:                                      ; preds = %if.then8789
@@ -14890,27 +14890,27 @@ if.else8800:                                      ; preds = %if.then8789
   br i1 %cmp8803, label %if.then8811, label %do.body8832
 
 if.then8811:                                      ; preds = %if.else8800
-  %1712 = load i64, ptr %call878511842, align 8
+  %1712 = load i64, ptr %call878511980, align 8
   %1713 = and i64 %1712, 2147483648
   %cmp.i20389.not = icmp eq i64 %1713, 0
   br i1 %cmp.i20389.not, label %if.end8817, label %do.body8832
 
 if.end8817:                                       ; preds = %if.then8811
   %dec8818 = add i64 %1712, -1
-  store i64 %dec8818, ptr %call878511842, align 8
+  store i64 %dec8818, ptr %call878511980, align 8
   %cmp8819 = icmp eq i64 %dec8818, 0
   br i1 %cmp8819, label %if.then8821, label %do.body8832
 
 if.then8821:                                      ; preds = %if.end8817
-  %1714 = getelementptr i8, ptr %call878511842, i64 8
+  %1714 = getelementptr i8, ptr %call878511980, i64 8
   %call8785.val = load ptr, ptr %1714, align 8
   %tp_dealloc8824 = getelementptr inbounds i8, ptr %call8785.val, i64 48
   %1715 = load ptr, ptr %tp_dealloc8824, align 8
-  call void %1715(ptr noundef nonnull %call878511842) #15
+  call void %1715(ptr noundef nonnull %call878511980) #15
   br label %do.body8832
 
 do.body8832:                                      ; preds = %if.end8781, %if.else8800, %if.end8817, %if.then8821, %if.then8811, %if.then8799
-  %super.0 = phi ptr [ null, %if.then8799 ], [ null, %if.then8811 ], [ null, %if.then8821 ], [ null, %if.end8817 ], [ %call878511842, %if.else8800 ], [ %call8785, %if.end8781 ]
+  %super.0 = phi ptr [ null, %if.then8799 ], [ null, %if.then8811 ], [ null, %if.then8821 ], [ null, %if.end8817 ], [ %call878511980, %if.else8800 ], [ %call8785, %if.end8781 ]
   %1716 = load i64, ptr %1709, align 8
   %1717 = and i64 %1716, 2147483648
   %cmp.i20385.not = icmp eq i64 %1717, 0
@@ -16533,11 +16533,11 @@ TARGET_SEND:                                      ; preds = %indirectgoto
   %instr_ptr9828 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
   store ptr %next_instr.1, ptr %instr_ptr9828, align 8
   %arrayidx9835.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
-  %.pre11816 = load ptr, ptr %arrayidx9835.phi.trans.insert, align 8
+  %.pre11954 = load ptr, ptr %arrayidx9835.phi.trans.insert, align 8
   br label %PRED_104
 
 PRED_104:                                         ; preds = %if.end9960, %if.end9970, %TARGET_SEND_GEN, %TARGET_SEND
-  %1956 = phi ptr [ %1980, %if.end9960 ], [ %1980, %if.end9970 ], [ %1980, %TARGET_SEND_GEN ], [ %.pre11816, %TARGET_SEND ]
+  %1956 = phi ptr [ %1980, %if.end9960 ], [ %1980, %if.end9970 ], [ %1980, %TARGET_SEND_GEN ], [ %.pre11954, %TARGET_SEND ]
   %next_instr.22 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx9837 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx9837.val = load i16, ptr %arrayidx9837, align 2
@@ -16992,11 +16992,11 @@ TARGET_STORE_ATTR:                                ; preds = %indirectgoto
   store ptr %next_instr.1, ptr %instr_ptr10169, align 8
   %add.ptr10170 = getelementptr i8, ptr %next_instr.1, i64 10
   %arrayidx10175.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
-  %.pre11815 = load ptr, ptr %arrayidx10175.phi.trans.insert, align 8
+  %.pre11953 = load ptr, ptr %arrayidx10175.phi.trans.insert, align 8
   br label %PRED_108
 
 PRED_108:                                         ; preds = %if.end10489, %if.else10478, %if.end10469, %if.then10458, %if.end10438, %if.end10424, %TARGET_STORE_ATTR_WITH_HINT, %TARGET_STORE_ATTR_SLOT, %if.end10266, %TARGET_STORE_ATTR_INSTANCE_VALUE, %TARGET_STORE_ATTR
-  %2016 = phi ptr [ %2057, %TARGET_STORE_ATTR_WITH_HINT ], [ %2057, %if.end10424 ], [ %2057, %if.end10438 ], [ %2057, %if.then10458 ], [ %2057, %if.end10469 ], [ %2057, %if.else10478 ], [ %2057, %if.end10489 ], [ %2045, %TARGET_STORE_ATTR_SLOT ], [ %2031, %TARGET_STORE_ATTR_INSTANCE_VALUE ], [ %2031, %if.end10266 ], [ %.pre11815, %TARGET_STORE_ATTR ]
+  %2016 = phi ptr [ %2057, %TARGET_STORE_ATTR_WITH_HINT ], [ %2057, %if.end10424 ], [ %2057, %if.end10438 ], [ %2057, %if.then10458 ], [ %2057, %if.end10469 ], [ %2057, %if.else10478 ], [ %2057, %if.end10489 ], [ %2045, %TARGET_STORE_ATTR_SLOT ], [ %2031, %TARGET_STORE_ATTR_INSTANCE_VALUE ], [ %2031, %if.end10266 ], [ %.pre11953, %TARGET_STORE_ATTR ]
   %next_instr.24 = phi ptr [ %add.ptr10407, %TARGET_STORE_ATTR_WITH_HINT ], [ %add.ptr10407, %if.end10424 ], [ %add.ptr10407, %if.end10438 ], [ %add.ptr10407, %if.then10458 ], [ %add.ptr10407, %if.end10469 ], [ %add.ptr10407, %if.else10478 ], [ %add.ptr10407, %if.end10489 ], [ %add.ptr10336, %TARGET_STORE_ATTR_SLOT ], [ %add.ptr10253, %TARGET_STORE_ATTR_INSTANCE_VALUE ], [ %add.ptr10253, %if.end10266 ], [ %add.ptr10170, %TARGET_STORE_ATTR ]
   %arrayidx10177 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx10177.val = load i16, ptr %arrayidx10177, align 2
@@ -17935,11 +17935,11 @@ TARGET_STORE_SUBSCR:                              ; preds = %indirectgoto
   store ptr %next_instr.1, ptr %instr_ptr10947, align 8
   %add.ptr10948 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx10955.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
-  %.pre11826 = load ptr, ptr %arrayidx10955.phi.trans.insert, align 8
+  %.pre11964 = load ptr, ptr %arrayidx10955.phi.trans.insert, align 8
   br label %PRED_39
 
 PRED_39:                                          ; preds = %if.end11097, %if.end11093, %if.end11088, %TARGET_STORE_SUBSCR_LIST_INT, %TARGET_STORE_SUBSCR_DICT, %TARGET_STORE_SUBSCR
-  %2171 = phi ptr [ %2187, %TARGET_STORE_SUBSCR_DICT ], [ %2195, %if.end11097 ], [ %2195, %if.end11093 ], [ %2195, %if.end11088 ], [ %2195, %TARGET_STORE_SUBSCR_LIST_INT ], [ %.pre11826, %TARGET_STORE_SUBSCR ]
+  %2171 = phi ptr [ %2187, %TARGET_STORE_SUBSCR_DICT ], [ %2195, %if.end11097 ], [ %2195, %if.end11093 ], [ %2195, %if.end11088 ], [ %2195, %TARGET_STORE_SUBSCR_LIST_INT ], [ %.pre11964, %TARGET_STORE_SUBSCR ]
   %next_instr.25 = phi ptr [ %add.ptr11035, %TARGET_STORE_SUBSCR_DICT ], [ %add.ptr11077, %if.end11097 ], [ %add.ptr11077, %if.end11093 ], [ %add.ptr11077, %if.end11088 ], [ %add.ptr11077, %TARGET_STORE_SUBSCR_LIST_INT ], [ %add.ptr10948, %TARGET_STORE_SUBSCR ]
   %arrayidx10954 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2172 = load ptr, ptr %arrayidx10954, align 8
@@ -18206,11 +18206,11 @@ TARGET_TO_BOOL:                                   ; preds = %indirectgoto
   store ptr %next_instr.1, ptr %instr_ptr11185, align 8
   %add.ptr11186 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx11191.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
-  %.pre11825 = load ptr, ptr %arrayidx11191.phi.trans.insert, align 8
+  %.pre11963 = load ptr, ptr %arrayidx11191.phi.trans.insert, align 8
   br label %PRED_40
 
 PRED_40:                                          ; preds = %TARGET_TO_BOOL_STR, %TARGET_TO_BOOL_NONE, %TARGET_TO_BOOL_LIST, %TARGET_TO_BOOL_INT, %TARGET_TO_BOOL_BOOL, %TARGET_TO_BOOL_ALWAYS_TRUE, %TARGET_TO_BOOL
-  %2215 = phi ptr [ %2221, %TARGET_TO_BOOL_ALWAYS_TRUE ], [ %2227, %TARGET_TO_BOOL_BOOL ], [ %2229, %TARGET_TO_BOOL_INT ], [ %2235, %TARGET_TO_BOOL_LIST ], [ %2241, %TARGET_TO_BOOL_NONE ], [ %2242, %TARGET_TO_BOOL_STR ], [ %.pre11825, %TARGET_TO_BOOL ]
+  %2215 = phi ptr [ %2221, %TARGET_TO_BOOL_ALWAYS_TRUE ], [ %2227, %TARGET_TO_BOOL_BOOL ], [ %2229, %TARGET_TO_BOOL_INT ], [ %2235, %TARGET_TO_BOOL_LIST ], [ %2241, %TARGET_TO_BOOL_NONE ], [ %2242, %TARGET_TO_BOOL_STR ], [ %.pre11963, %TARGET_TO_BOOL ]
   %next_instr.26 = phi ptr [ %add.ptr11244, %TARGET_TO_BOOL_ALWAYS_TRUE ], [ %add.ptr11282, %TARGET_TO_BOOL_BOOL ], [ %add.ptr11299, %TARGET_TO_BOOL_INT ], [ %add.ptr11337, %TARGET_TO_BOOL_LIST ], [ %add.ptr11374, %TARGET_TO_BOOL_NONE ], [ %add.ptr11392, %TARGET_TO_BOOL_STR ], [ %add.ptr11186, %TARGET_TO_BOOL ]
   %arrayidx11191 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %arrayidx11193 = getelementptr i8, ptr %next_instr.1, i64 2
@@ -18615,11 +18615,11 @@ TARGET_UNPACK_SEQUENCE:                           ; preds = %indirectgoto
   store ptr %next_instr.1, ptr %instr_ptr11563, align 8
   %add.ptr11564 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx11568.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
-  %.pre11814 = load ptr, ptr %arrayidx11568.phi.trans.insert, align 8
+  %.pre11952 = load ptr, ptr %arrayidx11568.phi.trans.insert, align 8
   br label %PRED_117
 
 PRED_117:                                         ; preds = %if.end11745, %TARGET_UNPACK_SEQUENCE_TWO_TUPLE, %if.end11688, %TARGET_UNPACK_SEQUENCE_TUPLE, %if.end11633, %TARGET_UNPACK_SEQUENCE_LIST, %TARGET_UNPACK_SEQUENCE
-  %2263 = phi ptr [ %2269, %if.end11633 ], [ %2269, %TARGET_UNPACK_SEQUENCE_LIST ], [ %2279, %if.end11688 ], [ %2279, %TARGET_UNPACK_SEQUENCE_TUPLE ], [ %2288, %if.end11745 ], [ %2288, %TARGET_UNPACK_SEQUENCE_TWO_TUPLE ], [ %.pre11814, %TARGET_UNPACK_SEQUENCE ]
+  %2263 = phi ptr [ %2269, %if.end11633 ], [ %2269, %TARGET_UNPACK_SEQUENCE_LIST ], [ %2279, %if.end11688 ], [ %2279, %TARGET_UNPACK_SEQUENCE_TUPLE ], [ %2288, %if.end11745 ], [ %2288, %TARGET_UNPACK_SEQUENCE_TWO_TUPLE ], [ %.pre11952, %TARGET_UNPACK_SEQUENCE ]
   %next_instr.27 = phi ptr [ %add.ptr11624, %if.end11633 ], [ %add.ptr11624, %TARGET_UNPACK_SEQUENCE_LIST ], [ %add.ptr11679, %if.end11688 ], [ %add.ptr11679, %TARGET_UNPACK_SEQUENCE_TUPLE ], [ %add.ptr11736, %if.end11745 ], [ %add.ptr11736, %TARGET_UNPACK_SEQUENCE_TWO_TUPLE ], [ %add.ptr11564, %TARGET_UNPACK_SEQUENCE ]
   %arrayidx11570 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx11570.val = load i16, ptr %arrayidx11570, align 2
@@ -22934,7 +22934,7 @@ if.end14422:                                      ; preds = %if.then14411
 
 if.end.i21134:                                    ; preds = %if.end14422
   store i32 %add.i21132, ptr %call14414, align 8
-  %.pre11821 = load ptr, ptr %res14390, align 8
+  %.pre11959 = load ptr, ptr %res14390, align 8
   br label %if.end14444
 
 if.else14423:                                     ; preds = %land.lhs.true14406, %sw.bb14389
@@ -22965,7 +22965,7 @@ if.then14441:                                     ; preds = %if.end14438
   br label %error_tier_two
 
 if.end14444:                                      ; preds = %if.end14429, %if.end14438, %if.end.i21134, %if.end14422
-  %2951 = phi ptr [ %2947, %if.end14429 ], [ %2949, %if.end14438 ], [ %.pre11821, %if.end.i21134 ], [ %call14414, %if.end14422 ]
+  %2951 = phi ptr [ %2947, %if.end14429 ], [ %2949, %if.end14438 ], [ %.pre11959, %if.end.i21134 ], [ %call14414, %if.end14422 ]
   store ptr %2951, ptr %stack_pointer.11, align 8
   %and14446 = and i32 %conv14394, 1
   %tobool14447.not = icmp eq i32 %and14446, 0
@@ -24318,7 +24318,7 @@ if.then15589:                                     ; preds = %sw.bb15572
   br i1 %tobool15591.not, label %do.body15594, label %if.then15589.if.then15639_crit_edge
 
 if.then15589.if.then15639_crit_edge:              ; preds = %if.then15589
-  %.pre11820 = load ptr, ptr %attr15574, align 8
+  %.pre11958 = load ptr, ptr %attr15574, align 8
   br label %if.then15639
 
 do.body15594:                                     ; preds = %if.then15589
@@ -24382,7 +24382,7 @@ if.end15635:                                      ; preds = %do.end15630
   br label %if.end15641
 
 if.then15639:                                     ; preds = %if.then15589.if.then15639_crit_edge, %do.end15608
-  %3193 = phi ptr [ %3187, %do.end15608 ], [ %.pre11820, %if.then15589.if.then15639_crit_edge ]
+  %3193 = phi ptr [ %3187, %do.end15608 ], [ %.pre11958, %if.then15589.if.then15639_crit_edge ]
   %self_or_null15575.0.ph = phi ptr [ null, %do.end15608 ], [ %3180, %if.then15589.if.then15639_crit_edge ]
   store ptr %3193, ptr %arrayidx15579, align 8
   store ptr %self_or_null15575.0.ph, ptr %stack_pointer.11, align 8
@@ -28432,11 +28432,11 @@ sw.bb18914:                                       ; preds = %for.cond12062
   %3905 = load ptr, ptr %arrayidx18920, align 8
   %arrayidx18921 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3906 = load ptr, ptr %arrayidx18921, align 8
-  %switch.tableidx13849 = add nsw i16 %3904, -1
-  %3907 = sext i16 %switch.tableidx13849 to i64
-  %switch.gep13850 = getelementptr inbounds [8 x i64], ptr @switch.table._PyEval_EvalFrameDefault.53, i64 0, i64 %3907
-  %switch.load13851 = load i64, ptr %switch.gep13850, align 8
-  %func_defaults18930 = getelementptr inbounds i8, ptr %3905, i64 %switch.load13851
+  %switch.tableidx13987 = add nsw i16 %3904, -1
+  %3907 = sext i16 %switch.tableidx13987 to i64
+  %switch.gep13988 = getelementptr inbounds [8 x i64], ptr @switch.table._PyEval_EvalFrameDefault.53, i64 0, i64 %3907
+  %switch.load13989 = load i64, ptr %switch.gep13988, align 8
+  %func_defaults18930 = getelementptr inbounds i8, ptr %3905, i64 %switch.load13989
   store ptr %3906, ptr %func_defaults18930, align 8
   store ptr %3905, ptr %arrayidx18921, align 8
   br label %for.cond12062.backedge

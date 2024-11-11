@@ -58100,75 +58100,426 @@ vext_vx_rm_2.exit:                                ; preds = %for.body.i75.i, %fo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsmul_vv_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #1 {
+define dso_local void @helper_vsmul_vv_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #1 {
 entry:
-  tail call fastcc void @vext_vv_rm_2(ptr noundef %vd, ptr noundef %v0, ptr noundef %vs1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vsmul_vv_b, i32 noundef 1)
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vsmul_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
-entry:
-  %idx.ext = sext i32 %i to i64
-  %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
-  %0 = load i8, ptr %add.ptr, align 1
-  %add.ptr2 = getelementptr i8, ptr %vs2, i64 %idx.ext
-  %1 = load i8, ptr %add.ptr2, align 1
-  %conv1.i = sext i8 %1 to i16
-  %conv3.i = sext i8 %0 to i16
-  %mul.i = mul nsw i16 %conv1.i, %conv3.i
-  %conv56.i = zext i16 %mul.i to i64
-  switch i32 %vxrm, label %get_round.exit.i [
-    i32 0, label %if.then14.i.i
-    i32 1, label %if.then17.i.i
-    i32 3, label %if.then38.i.i
+  %shr.i.i1.i.i = lshr i32 %desc, 10
+  %and.i.i.i = and i32 %shr.i.i1.i.i, 1
+  %vl1.i = getelementptr inbounds i8, ptr %env, i64 4624
+  %0 = load i64, ptr %vl1.i, align 16
+  %conv.i = trunc i64 %0 to i32
+  %1 = getelementptr i8, ptr %env, i64 4640
+  %env.val.i = load i64, ptr %1, align 16
+  %shr.i.i.i43.i = lshr i32 %desc, 16
+  %and.i.i44.i = and i32 %shr.i.i.i43.i, 1
+  %vxrm.i = getelementptr inbounds i8, ptr %env, i64 4608
+  %2 = load i64, ptr %vxrm.i, align 16
+  %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
+  %3 = load i64, ptr %vstart.i95.i, align 8
+  %conv.i96.i = trunc i64 %3 to i32
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
+  switch i64 %2, label %sw.default.i [
+    i64 0, label %sw.bb.i
+    i64 1, label %sw.bb5.i
+    i64 2, label %sw.bb6.i
   ]
 
-if.then14.i.i:                                    ; preds = %entry
-  %2 = lshr i16 %mul.i, 6
-  %conv9.i.i = and i16 %2, 1
-  br label %get_round.exit.i
+sw.bb.i:                                          ; preds = %entry
+  br i1 %cmp11.i97.i, label %for.body.lr.ph.i.i, label %vext_vv_rm_2.exit
 
-if.then17.i.i:                                    ; preds = %entry
-  %and.i33.i.i = and i64 %conv56.i, 63
-  %3 = lshr i16 %mul.i, 6
-  %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
-  %4 = and i16 %mul.i, 128
-  %5 = icmp ne i16 %4, 0
-  %6 = or i1 %5, %cmp26.i.i
-  %7 = and i16 %3, 1
-  %and.i.i = select i1 %6, i16 %7, i16 0
-  br label %get_round.exit.i
+for.body.lr.ph.i.i:                               ; preds = %sw.bb.i
+  %tobool.not.i.i = icmp eq i32 %and.i.i.i, 0
+  %vxsat.i.i113 = getelementptr inbounds i8, ptr %env, i64 4616
+  br i1 %tobool.not.i.i, label %for.body.us.i.i, label %for.body.i.i
 
-if.then38.i.i:                                    ; preds = %entry
-  %and.i25.i.i = and i64 %conv56.i, 127
-  %8 = and i64 %conv56.i, 128
-  %tobool.not.i.i = icmp eq i64 %8, 0
-  %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
-  %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
-  %conv42.i.i = zext i1 %and4116.i.i to i16
-  br label %get_round.exit.i
+for.body.us.i.i:                                  ; preds = %for.body.lr.ph.i.i, %for.inc.us.i.i
+  %i.012.us.i.i = phi i32 [ %add.us.i.i, %for.inc.us.i.i ], [ %conv.i96.i, %for.body.lr.ph.i.i ]
+  %div.i.us.i.i = sdiv i32 %i.012.us.i.i, 64
+  %rem.i.us.i.i = srem i32 %i.012.us.i.i, 64
+  %idxprom.i.us.i.i = sext i32 %div.i.us.i.i to i64
+  %arrayidx.i.us.i.i = getelementptr i64, ptr %v0, i64 %idxprom.i.us.i.i
+  %4 = load i64, ptr %arrayidx.i.us.i.i, align 8
+  %sh_prom.i.us.i.i = zext nneg i32 %rem.i.us.i.i to i64
+  %5 = shl nuw i64 1, %sh_prom.i.us.i.i
+  %6 = and i64 %5, %4
+  %tobool2.not.us.i.i = icmp eq i64 %6, 0
+  %add.us.i.i = add nuw i32 %i.012.us.i.i, 1
+  br i1 %tobool2.not.us.i.i, label %if.then.us.i.i, label %if.end.us.i.i
 
-get_round.exit.i:                                 ; preds = %if.then38.i.i, %if.then17.i.i, %if.then14.i.i, %entry
-  %retval.0.i.i = phi i16 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ]
-  %9 = ashr i16 %mul.i, 7
-  %add.i = add nsw i16 %retval.0.i.i, %9
-  %cmp.i = icmp sgt i16 %add.i, 127
-  br i1 %cmp.i, label %if.then.i, label %if.else16.i
+if.end.us.i.i:                                    ; preds = %for.body.us.i.i
+  %idx.ext.i99 = sext i32 %i.012.us.i.i to i64
+  %add.ptr.i100 = getelementptr i8, ptr %vs1, i64 %idx.ext.i99
+  %7 = load i8, ptr %add.ptr.i100, align 1
+  %add.ptr2.i101 = getelementptr i8, ptr %vs2, i64 %idx.ext.i99
+  %8 = load i8, ptr %add.ptr2.i101, align 1
+  %conv1.i.i102 = sext i8 %8 to i16
+  %conv3.i.i103 = sext i8 %7 to i16
+  %mul.i.i104 = mul nsw i16 %conv1.i.i102, %conv3.i.i103
+  %9 = lshr i16 %mul.i.i104, 6
+  %conv9.i.i.i105 = and i16 %9, 1
+  %10 = ashr i16 %mul.i.i104, 7
+  %add.i.i106 = add nsw i16 %conv9.i.i.i105, %10
+  %cmp.i.i107 = icmp sgt i16 %add.i.i106, 127
+  br i1 %cmp.i.i107, label %if.then.i.i112, label %if.else16.i.i108
 
-if.then.i:                                        ; preds = %get_round.exit.i
-  %vxsat.i = getelementptr inbounds i8, ptr %env, i64 4616
-  store i64 1, ptr %vxsat.i, align 8
-  br label %vsmul8.exit
+if.then.i.i112:                                   ; preds = %if.end.us.i.i
+  store i64 1, ptr %vxsat.i.i113, align 8
+  br label %do_vsmul_vv_b.exit114
 
-if.else16.i:                                      ; preds = %get_round.exit.i
-  %conv17.i = trunc i16 %add.i to i8
-  br label %vsmul8.exit
+if.else16.i.i108:                                 ; preds = %if.end.us.i.i
+  %conv17.i.i109 = trunc i16 %add.i.i106 to i8
+  br label %do_vsmul_vv_b.exit114
 
-vsmul8.exit:                                      ; preds = %if.then.i, %if.else16.i
-  %retval.0.i = phi i8 [ 127, %if.then.i ], [ %conv17.i, %if.else16.i ]
-  %add.ptr4 = getelementptr i8, ptr %vd, i64 %idx.ext
-  store i8 %retval.0.i, ptr %add.ptr4, align 1
+do_vsmul_vv_b.exit114:                            ; preds = %if.then.i.i112, %if.else16.i.i108
+  %retval.0.i.i110 = phi i8 [ 127, %if.then.i.i112 ], [ %conv17.i.i109, %if.else16.i.i108 ]
+  %add.ptr4.i111 = getelementptr i8, ptr %vd, i64 %idx.ext.i99
+  store i8 %retval.0.i.i110, ptr %add.ptr4.i111, align 1
+  br label %for.inc.us.i.i
+
+if.then.us.i.i:                                   ; preds = %for.body.us.i.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  br label %for.inc.us.i.i
+
+for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsmul_vv_b.exit114
+  %exitcond14.not.i.i = icmp eq i32 %add.us.i.i, %conv.i
+  br i1 %exitcond14.not.i.i, label %vext_vv_rm_2.exit, label %for.body.us.i.i, !llvm.loop !236
+
+for.body.i.i:                                     ; preds = %for.body.lr.ph.i.i, %do_vsmul_vv_b.exit98
+  %i.012.i.i = phi i32 [ %inc.i.i, %do_vsmul_vv_b.exit98 ], [ %conv.i96.i, %for.body.lr.ph.i.i ]
+  %idx.ext.i84 = sext i32 %i.012.i.i to i64
+  %add.ptr.i85 = getelementptr i8, ptr %vs1, i64 %idx.ext.i84
+  %11 = load i8, ptr %add.ptr.i85, align 1
+  %add.ptr2.i86 = getelementptr i8, ptr %vs2, i64 %idx.ext.i84
+  %12 = load i8, ptr %add.ptr2.i86, align 1
+  %conv1.i.i87 = sext i8 %12 to i16
+  %conv3.i.i88 = sext i8 %11 to i16
+  %mul.i.i89 = mul nsw i16 %conv1.i.i87, %conv3.i.i88
+  %13 = lshr i16 %mul.i.i89, 6
+  %conv9.i.i.i = and i16 %13, 1
+  %14 = ashr i16 %mul.i.i89, 7
+  %add.i.i90 = add nsw i16 %conv9.i.i.i, %14
+  %cmp.i.i91 = icmp sgt i16 %add.i.i90, 127
+  br i1 %cmp.i.i91, label %if.then.i.i96, label %if.else16.i.i92
+
+if.then.i.i96:                                    ; preds = %for.body.i.i
+  store i64 1, ptr %vxsat.i.i113, align 8
+  br label %do_vsmul_vv_b.exit98
+
+if.else16.i.i92:                                  ; preds = %for.body.i.i
+  %conv17.i.i93 = trunc i16 %add.i.i90 to i8
+  br label %do_vsmul_vv_b.exit98
+
+do_vsmul_vv_b.exit98:                             ; preds = %if.then.i.i96, %if.else16.i.i92
+  %retval.0.i.i94 = phi i8 [ 127, %if.then.i.i96 ], [ %conv17.i.i93, %if.else16.i.i92 ]
+  %add.ptr4.i95 = getelementptr i8, ptr %vd, i64 %idx.ext.i84
+  store i8 %retval.0.i.i94, ptr %add.ptr4.i95, align 1
+  %inc.i.i = add i32 %i.012.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %conv.i
+  br i1 %exitcond.not.i.i, label %vext_vv_rm_2.exit, label %for.body.i.i, !llvm.loop !236
+
+sw.bb5.i:                                         ; preds = %entry
+  br i1 %cmp11.i97.i, label %for.body.lr.ph.i48.i, label %vext_vv_rm_2.exit
+
+for.body.lr.ph.i48.i:                             ; preds = %sw.bb5.i
+  %tobool.not.i49.i = icmp eq i32 %and.i.i.i, 0
+  %vxsat.i.i82 = getelementptr inbounds i8, ptr %env, i64 4616
+  br i1 %tobool.not.i49.i, label %for.body.us.i54.i, label %for.body.i50.i
+
+for.body.us.i54.i:                                ; preds = %for.body.lr.ph.i48.i, %for.inc.us.i64.i
+  %i.012.us.i55.i = phi i32 [ %add.us.i62.i, %for.inc.us.i64.i ], [ %conv.i96.i, %for.body.lr.ph.i48.i ]
+  %div.i.us.i56.i = sdiv i32 %i.012.us.i55.i, 64
+  %rem.i.us.i57.i = srem i32 %i.012.us.i55.i, 64
+  %idxprom.i.us.i58.i = sext i32 %div.i.us.i56.i to i64
+  %arrayidx.i.us.i59.i = getelementptr i64, ptr %v0, i64 %idxprom.i.us.i58.i
+  %15 = load i64, ptr %arrayidx.i.us.i59.i, align 8
+  %sh_prom.i.us.i60.i = zext nneg i32 %rem.i.us.i57.i to i64
+  %16 = shl nuw i64 1, %sh_prom.i.us.i60.i
+  %17 = and i64 %16, %15
+  %tobool2.not.us.i61.i = icmp eq i64 %17, 0
+  %add.us.i62.i = add nuw i32 %i.012.us.i55.i, 1
+  br i1 %tobool2.not.us.i61.i, label %if.then.us.i66.i, label %if.end.us.i63.i
+
+if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
+  %idx.ext.i67 = sext i32 %i.012.us.i55.i to i64
+  %add.ptr.i68 = getelementptr i8, ptr %vs1, i64 %idx.ext.i67
+  %18 = load i8, ptr %add.ptr.i68, align 1
+  %add.ptr2.i69 = getelementptr i8, ptr %vs2, i64 %idx.ext.i67
+  %19 = load i8, ptr %add.ptr2.i69, align 1
+  %conv1.i.i70 = sext i8 %19 to i16
+  %conv3.i.i71 = sext i8 %18 to i16
+  %mul.i.i72 = mul nsw i16 %conv1.i.i70, %conv3.i.i71
+  %20 = lshr i16 %mul.i.i72, 6
+  %21 = and i16 %mul.i.i72, 191
+  %.not.i.i73 = icmp eq i16 %21, 0
+  %22 = and i16 %20, 1
+  %and.i.i.i74 = select i1 %.not.i.i73, i16 0, i16 %22
+  %23 = ashr i16 %mul.i.i72, 7
+  %add.i.i75 = add nsw i16 %and.i.i.i74, %23
+  %cmp.i.i76 = icmp sgt i16 %add.i.i75, 127
+  br i1 %cmp.i.i76, label %if.then.i.i81, label %if.else16.i.i77
+
+if.then.i.i81:                                    ; preds = %if.end.us.i63.i
+  store i64 1, ptr %vxsat.i.i82, align 8
+  br label %do_vsmul_vv_b.exit83
+
+if.else16.i.i77:                                  ; preds = %if.end.us.i63.i
+  %conv17.i.i78 = trunc i16 %add.i.i75 to i8
+  br label %do_vsmul_vv_b.exit83
+
+do_vsmul_vv_b.exit83:                             ; preds = %if.then.i.i81, %if.else16.i.i77
+  %retval.0.i.i79 = phi i8 [ 127, %if.then.i.i81 ], [ %conv17.i.i78, %if.else16.i.i77 ]
+  %add.ptr4.i80 = getelementptr i8, ptr %vd, i64 %idx.ext.i67
+  store i8 %retval.0.i.i79, ptr %add.ptr4.i80, align 1
+  br label %for.inc.us.i64.i
+
+if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  br label %for.inc.us.i64.i
+
+for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsmul_vv_b.exit83
+  %exitcond14.not.i65.i = icmp eq i32 %add.us.i62.i, %conv.i
+  br i1 %exitcond14.not.i65.i, label %vext_vv_rm_2.exit, label %for.body.us.i54.i, !llvm.loop !236
+
+for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.i, %do_vsmul_vv_b.exit66
+  %i.012.i51.i = phi i32 [ %inc.i52.i, %do_vsmul_vv_b.exit66 ], [ %conv.i96.i, %for.body.lr.ph.i48.i ]
+  %idx.ext.i51 = sext i32 %i.012.i51.i to i64
+  %add.ptr.i52 = getelementptr i8, ptr %vs1, i64 %idx.ext.i51
+  %24 = load i8, ptr %add.ptr.i52, align 1
+  %add.ptr2.i53 = getelementptr i8, ptr %vs2, i64 %idx.ext.i51
+  %25 = load i8, ptr %add.ptr2.i53, align 1
+  %conv1.i.i54 = sext i8 %25 to i16
+  %conv3.i.i55 = sext i8 %24 to i16
+  %mul.i.i56 = mul nsw i16 %conv1.i.i54, %conv3.i.i55
+  %26 = lshr i16 %mul.i.i56, 6
+  %27 = and i16 %mul.i.i56, 191
+  %.not.i.i = icmp eq i16 %27, 0
+  %28 = and i16 %26, 1
+  %and.i.i.i57 = select i1 %.not.i.i, i16 0, i16 %28
+  %29 = ashr i16 %mul.i.i56, 7
+  %add.i.i58 = add nsw i16 %and.i.i.i57, %29
+  %cmp.i.i59 = icmp sgt i16 %add.i.i58, 127
+  br i1 %cmp.i.i59, label %if.then.i.i64, label %if.else16.i.i60
+
+if.then.i.i64:                                    ; preds = %for.body.i50.i
+  store i64 1, ptr %vxsat.i.i82, align 8
+  br label %do_vsmul_vv_b.exit66
+
+if.else16.i.i60:                                  ; preds = %for.body.i50.i
+  %conv17.i.i61 = trunc i16 %add.i.i58 to i8
+  br label %do_vsmul_vv_b.exit66
+
+do_vsmul_vv_b.exit66:                             ; preds = %if.then.i.i64, %if.else16.i.i60
+  %retval.0.i.i62 = phi i8 [ 127, %if.then.i.i64 ], [ %conv17.i.i61, %if.else16.i.i60 ]
+  %add.ptr4.i63 = getelementptr i8, ptr %vd, i64 %idx.ext.i51
+  store i8 %retval.0.i.i62, ptr %add.ptr4.i63, align 1
+  %inc.i52.i = add i32 %i.012.i51.i, 1
+  %exitcond.not.i53.i = icmp eq i32 %inc.i52.i, %conv.i
+  br i1 %exitcond.not.i53.i, label %vext_vv_rm_2.exit, label %for.body.i50.i, !llvm.loop !236
+
+sw.bb6.i:                                         ; preds = %entry
+  br i1 %cmp11.i97.i, label %for.body.lr.ph.i73.i, label %vext_vv_rm_2.exit
+
+for.body.lr.ph.i73.i:                             ; preds = %sw.bb6.i
+  %tobool.not.i74.i = icmp eq i32 %and.i.i.i, 0
+  %vxsat.i.i49 = getelementptr inbounds i8, ptr %env, i64 4616
+  br i1 %tobool.not.i74.i, label %for.body.us.i79.i, label %for.body.i75.i
+
+for.body.us.i79.i:                                ; preds = %for.body.lr.ph.i73.i, %for.inc.us.i89.i
+  %i.012.us.i80.i = phi i32 [ %add.us.i87.i, %for.inc.us.i89.i ], [ %conv.i96.i, %for.body.lr.ph.i73.i ]
+  %div.i.us.i81.i = sdiv i32 %i.012.us.i80.i, 64
+  %rem.i.us.i82.i = srem i32 %i.012.us.i80.i, 64
+  %idxprom.i.us.i83.i = sext i32 %div.i.us.i81.i to i64
+  %arrayidx.i.us.i84.i = getelementptr i64, ptr %v0, i64 %idxprom.i.us.i83.i
+  %30 = load i64, ptr %arrayidx.i.us.i84.i, align 8
+  %sh_prom.i.us.i85.i = zext nneg i32 %rem.i.us.i82.i to i64
+  %31 = shl nuw i64 1, %sh_prom.i.us.i85.i
+  %32 = and i64 %31, %30
+  %tobool2.not.us.i86.i = icmp eq i64 %32, 0
+  %add.us.i87.i = add nuw i32 %i.012.us.i80.i, 1
+  br i1 %tobool2.not.us.i86.i, label %if.then.us.i91.i, label %if.end.us.i88.i
+
+if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
+  %idx.ext.i36 = sext i32 %i.012.us.i80.i to i64
+  %add.ptr.i37 = getelementptr i8, ptr %vs1, i64 %idx.ext.i36
+  %33 = load i8, ptr %add.ptr.i37, align 1
+  %add.ptr2.i38 = getelementptr i8, ptr %vs2, i64 %idx.ext.i36
+  %34 = load i8, ptr %add.ptr2.i38, align 1
+  %conv1.i.i39 = sext i8 %34 to i16
+  %conv3.i.i40 = sext i8 %33 to i16
+  %mul.i.i41 = mul nsw i16 %conv1.i.i39, %conv3.i.i40
+  %35 = ashr i16 %mul.i.i41, 7
+  %cmp.i.i43 = icmp sgt i16 %35, 127
+  br i1 %cmp.i.i43, label %if.then.i.i48, label %if.else16.i.i44
+
+if.then.i.i48:                                    ; preds = %if.end.us.i88.i
+  store i64 1, ptr %vxsat.i.i49, align 8
+  br label %do_vsmul_vv_b.exit50
+
+if.else16.i.i44:                                  ; preds = %if.end.us.i88.i
+  %conv17.i.i45 = trunc i16 %35 to i8
+  br label %do_vsmul_vv_b.exit50
+
+do_vsmul_vv_b.exit50:                             ; preds = %if.then.i.i48, %if.else16.i.i44
+  %retval.0.i.i46 = phi i8 [ 127, %if.then.i.i48 ], [ %conv17.i.i45, %if.else16.i.i44 ]
+  %add.ptr4.i47 = getelementptr i8, ptr %vd, i64 %idx.ext.i36
+  store i8 %retval.0.i.i46, ptr %add.ptr4.i47, align 1
+  br label %for.inc.us.i89.i
+
+if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  br label %for.inc.us.i89.i
+
+for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsmul_vv_b.exit50
+  %exitcond14.not.i90.i = icmp eq i32 %add.us.i87.i, %conv.i
+  br i1 %exitcond14.not.i90.i, label %vext_vv_rm_2.exit, label %for.body.us.i79.i, !llvm.loop !236
+
+for.body.i75.i:                                   ; preds = %for.body.lr.ph.i73.i, %do_vsmul_vv_b.exit35
+  %i.012.i76.i = phi i32 [ %inc.i77.i, %do_vsmul_vv_b.exit35 ], [ %conv.i96.i, %for.body.lr.ph.i73.i ]
+  %idx.ext.i21 = sext i32 %i.012.i76.i to i64
+  %add.ptr.i22 = getelementptr i8, ptr %vs1, i64 %idx.ext.i21
+  %36 = load i8, ptr %add.ptr.i22, align 1
+  %add.ptr2.i23 = getelementptr i8, ptr %vs2, i64 %idx.ext.i21
+  %37 = load i8, ptr %add.ptr2.i23, align 1
+  %conv1.i.i24 = sext i8 %37 to i16
+  %conv3.i.i25 = sext i8 %36 to i16
+  %mul.i.i26 = mul nsw i16 %conv1.i.i24, %conv3.i.i25
+  %38 = ashr i16 %mul.i.i26, 7
+  %cmp.i.i28 = icmp sgt i16 %38, 127
+  br i1 %cmp.i.i28, label %if.then.i.i33, label %if.else16.i.i29
+
+if.then.i.i33:                                    ; preds = %for.body.i75.i
+  store i64 1, ptr %vxsat.i.i49, align 8
+  br label %do_vsmul_vv_b.exit35
+
+if.else16.i.i29:                                  ; preds = %for.body.i75.i
+  %conv17.i.i30 = trunc i16 %38 to i8
+  br label %do_vsmul_vv_b.exit35
+
+do_vsmul_vv_b.exit35:                             ; preds = %if.then.i.i33, %if.else16.i.i29
+  %retval.0.i.i31 = phi i8 [ 127, %if.then.i.i33 ], [ %conv17.i.i30, %if.else16.i.i29 ]
+  %add.ptr4.i32 = getelementptr i8, ptr %vd, i64 %idx.ext.i21
+  store i8 %retval.0.i.i31, ptr %add.ptr4.i32, align 1
+  %inc.i77.i = add i32 %i.012.i76.i, 1
+  %exitcond.not.i78.i = icmp eq i32 %inc.i77.i, %conv.i
+  br i1 %exitcond.not.i78.i, label %vext_vv_rm_2.exit, label %for.body.i75.i, !llvm.loop !236
+
+sw.default.i:                                     ; preds = %entry
+  br i1 %cmp11.i97.i, label %for.body.lr.ph.i98.i, label %vext_vv_rm_2.exit
+
+for.body.lr.ph.i98.i:                             ; preds = %sw.default.i
+  %tobool.not.i99.i = icmp eq i32 %and.i.i.i, 0
+  %vxsat.i.i19 = getelementptr inbounds i8, ptr %env, i64 4616
+  br i1 %tobool.not.i99.i, label %for.body.us.i104.i, label %for.body.i100.i
+
+for.body.us.i104.i:                               ; preds = %for.body.lr.ph.i98.i, %for.inc.us.i114.i
+  %i.012.us.i105.i = phi i32 [ %add.us.i112.i, %for.inc.us.i114.i ], [ %conv.i96.i, %for.body.lr.ph.i98.i ]
+  %div.i.us.i106.i = sdiv i32 %i.012.us.i105.i, 64
+  %rem.i.us.i107.i = srem i32 %i.012.us.i105.i, 64
+  %idxprom.i.us.i108.i = sext i32 %div.i.us.i106.i to i64
+  %arrayidx.i.us.i109.i = getelementptr i64, ptr %v0, i64 %idxprom.i.us.i108.i
+  %39 = load i64, ptr %arrayidx.i.us.i109.i, align 8
+  %sh_prom.i.us.i110.i = zext nneg i32 %rem.i.us.i107.i to i64
+  %40 = shl nuw i64 1, %sh_prom.i.us.i110.i
+  %41 = and i64 %40, %39
+  %tobool2.not.us.i111.i = icmp eq i64 %41, 0
+  %add.us.i112.i = add nuw i32 %i.012.us.i105.i, 1
+  br i1 %tobool2.not.us.i111.i, label %if.then.us.i116.i, label %if.end.us.i113.i
+
+if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
+  %idx.ext.i2 = sext i32 %i.012.us.i105.i to i64
+  %add.ptr.i3 = getelementptr i8, ptr %vs1, i64 %idx.ext.i2
+  %42 = load i8, ptr %add.ptr.i3, align 1
+  %add.ptr2.i4 = getelementptr i8, ptr %vs2, i64 %idx.ext.i2
+  %43 = load i8, ptr %add.ptr2.i4, align 1
+  %conv1.i.i5 = sext i8 %43 to i16
+  %conv3.i.i6 = sext i8 %42 to i16
+  %mul.i.i7 = mul nsw i16 %conv1.i.i5, %conv3.i.i6
+  %44 = and i16 %mul.i.i7, 128
+  %tobool.not.i.i.i8 = icmp eq i16 %44, 0
+  %45 = and i16 %mul.i.i7, 127
+  %cmp39.i.i.i9 = icmp ne i16 %45, 0
+  %and4116.i.i.i10 = and i1 %tobool.not.i.i.i8, %cmp39.i.i.i9
+  %conv42.i.i.i11 = zext i1 %and4116.i.i.i10 to i16
+  %46 = ashr i16 %mul.i.i7, 7
+  %add.i.i12 = add nsw i16 %46, %conv42.i.i.i11
+  %cmp.i.i13 = icmp sgt i16 %add.i.i12, 127
+  br i1 %cmp.i.i13, label %if.then.i.i18, label %if.else16.i.i14
+
+if.then.i.i18:                                    ; preds = %if.end.us.i113.i
+  store i64 1, ptr %vxsat.i.i19, align 8
+  br label %do_vsmul_vv_b.exit20
+
+if.else16.i.i14:                                  ; preds = %if.end.us.i113.i
+  %conv17.i.i15 = trunc i16 %add.i.i12 to i8
+  br label %do_vsmul_vv_b.exit20
+
+do_vsmul_vv_b.exit20:                             ; preds = %if.then.i.i18, %if.else16.i.i14
+  %retval.0.i.i16 = phi i8 [ 127, %if.then.i.i18 ], [ %conv17.i.i15, %if.else16.i.i14 ]
+  %add.ptr4.i17 = getelementptr i8, ptr %vd, i64 %idx.ext.i2
+  store i8 %retval.0.i.i16, ptr %add.ptr4.i17, align 1
+  br label %for.inc.us.i114.i
+
+if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  br label %for.inc.us.i114.i
+
+for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsmul_vv_b.exit20
+  %exitcond14.not.i115.i = icmp eq i32 %add.us.i112.i, %conv.i
+  br i1 %exitcond14.not.i115.i, label %vext_vv_rm_2.exit, label %for.body.us.i104.i, !llvm.loop !236
+
+for.body.i100.i:                                  ; preds = %for.body.lr.ph.i98.i, %do_vsmul_vv_b.exit
+  %i.012.i101.i = phi i32 [ %inc.i102.i, %do_vsmul_vv_b.exit ], [ %conv.i96.i, %for.body.lr.ph.i98.i ]
+  %idx.ext.i = sext i32 %i.012.i101.i to i64
+  %add.ptr.i = getelementptr i8, ptr %vs1, i64 %idx.ext.i
+  %47 = load i8, ptr %add.ptr.i, align 1
+  %add.ptr2.i = getelementptr i8, ptr %vs2, i64 %idx.ext.i
+  %48 = load i8, ptr %add.ptr2.i, align 1
+  %conv1.i.i = sext i8 %48 to i16
+  %conv3.i.i = sext i8 %47 to i16
+  %mul.i.i = mul nsw i16 %conv1.i.i, %conv3.i.i
+  %49 = and i16 %mul.i.i, 128
+  %tobool.not.i.i.i = icmp eq i16 %49, 0
+  %50 = and i16 %mul.i.i, 127
+  %cmp39.i.i.i = icmp ne i16 %50, 0
+  %and4116.i.i.i = and i1 %tobool.not.i.i.i, %cmp39.i.i.i
+  %conv42.i.i.i = zext i1 %and4116.i.i.i to i16
+  %51 = ashr i16 %mul.i.i, 7
+  %add.i.i1 = add nsw i16 %51, %conv42.i.i.i
+  %cmp.i.i = icmp sgt i16 %add.i.i1, 127
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else16.i.i
+
+if.then.i.i:                                      ; preds = %for.body.i100.i
+  store i64 1, ptr %vxsat.i.i19, align 8
+  br label %do_vsmul_vv_b.exit
+
+if.else16.i.i:                                    ; preds = %for.body.i100.i
+  %conv17.i.i = trunc i16 %add.i.i1 to i8
+  br label %do_vsmul_vv_b.exit
+
+do_vsmul_vv_b.exit:                               ; preds = %if.then.i.i, %if.else16.i.i
+  %retval.0.i.i = phi i8 [ 127, %if.then.i.i ], [ %conv17.i.i, %if.else16.i.i ]
+  %add.ptr4.i = getelementptr i8, ptr %vd, i64 %idx.ext.i
+  store i8 %retval.0.i.i, ptr %add.ptr4.i, align 1
+  %inc.i102.i = add i32 %i.012.i101.i, 1
+  %exitcond.not.i103.i = icmp eq i32 %inc.i102.i, %conv.i
+  br i1 %exitcond.not.i103.i, label %vext_vv_rm_2.exit, label %for.body.i100.i, !llvm.loop !236
+
+vext_vv_rm_2.exit:                                ; preds = %do_vsmul_vv_b.exit35, %for.inc.us.i89.i, %do_vsmul_vv_b.exit66, %for.inc.us.i64.i, %do_vsmul_vv_b.exit98, %for.inc.us.i.i, %do_vsmul_vv_b.exit, %for.inc.us.i114.i, %sw.bb.i, %sw.bb5.i, %sw.bb6.i, %sw.default.i
+  store i64 0, ptr %vstart.i95.i, align 8
+  %shr.i.i.i.i = lshr i32 %desc, 14
+  %and.i.i42.i = and i32 %shr.i.i.i.i, 1
+  %and.i.i.i.i = shl i32 %desc, 3
+  %mul.i.i.i = and i32 %and.i.i.i.i, 2040
+  %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 8
+  %52 = trunc i64 %env.val.i to i32
+  %53 = lshr i32 %52, 3
+  %sh_prom.i.i = and i32 %53, 7
+  %54 = shl i32 %desc, 18
+  %shr.i1.i.i.i = ashr i32 %54, 29
+  %add.i.i = sub nsw i32 %shr.i1.i.i.i, %sh_prom.i.i
+  %cond.i.i = tail call i32 @llvm.smax.i32(i32 %add.i.i, i32 0)
+  %shl17.i.i = shl nuw nsw i32 %add.i.i.i, %cond.i.i
+  %shl17.i.fr.i = freeze i32 %shl17.i.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i42.i, i32 noundef %conv.i, i32 noundef %shl17.i.fr.i) #10
   ret void
 }
 
@@ -58190,9 +58541,8 @@ entry:
   %conv.i = sext i16 %1 to i32
   %conv1.i = sext i16 %0 to i32
   %mul.i = mul nsw i32 %conv.i, %conv1.i
-  %conv26.i = zext i32 %mul.i to i64
-  %shr.i20.i.i = lshr i64 %conv26.i, 14
-  %and.i21.i.i = and i64 %shr.i20.i.i, 1
+  %2 = lshr i32 %mul.i, 14
+  %3 = and i32 %2, 1
   switch i32 %vxrm, label %get_round.exit.i [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
@@ -58200,30 +58550,28 @@ entry:
   ]
 
 if.then14.i.i:                                    ; preds = %entry
-  %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i32
   br label %get_round.exit.i
 
 if.then17.i.i:                                    ; preds = %entry
-  %and.i33.i.i = and i64 %conv26.i, 16383
-  %2 = trunc nuw nsw i64 %and.i21.i.i to i32
-  %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
+  %4 = and i32 %mul.i, 16383
+  %cmp26.i.i = icmp ne i32 %4, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %3 = lshr i32 %mul.i, 15
-  %or.i.i = or i32 %3, %conv27.i.i
-  %and.i.i = and i32 %or.i.i, %2
+  %5 = lshr i32 %mul.i, 15
+  %or.i.i = or i32 %5, %conv27.i.i
+  %and.i.i = and i32 %or.i.i, %3
   br label %get_round.exit.i
 
 if.then38.i.i:                                    ; preds = %entry
-  %and.i25.i.i = and i64 %conv26.i, 32767
-  %4 = and i64 %conv26.i, 32768
-  %tobool.not.i.i = icmp eq i64 %4, 0
-  %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
+  %6 = and i32 %mul.i, 32768
+  %tobool.not.i.i = icmp eq i32 %6, 0
+  %7 = and i32 %mul.i, 32767
+  %cmp39.i.i = icmp ne i32 %7, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i32
   br label %get_round.exit.i
 
 get_round.exit.i:                                 ; preds = %if.then38.i.i, %if.then17.i.i, %if.then14.i.i, %entry
-  %retval.0.i.i = phi i32 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ]
+  %retval.0.i.i = phi i32 [ %3, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ]
   %shr.i = ashr i32 %mul.i, 15
   %add.i = add nsw i32 %retval.0.i.i, %shr.i
   %cmp.i = icmp sgt i32 %add.i, 32767
@@ -58409,75 +58757,414 @@ vsmul64.exit:                                     ; preds = %if.then.i, %get_rou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsmul_vx_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc) local_unnamed_addr #1 {
+define dso_local void @helper_vsmul_vx_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, i64 noundef %s1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #1 {
 entry:
-  tail call fastcc void @vext_vx_rm_2(ptr noundef %vd, ptr noundef %v0, i64 noundef %s1, ptr noundef %vs2, ptr noundef %env, i32 noundef %desc, ptr noundef nonnull @do_vsmul_vx_b, i32 noundef 1)
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vsmul_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
-entry:
-  %idx.ext = sext i32 %i to i64
-  %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
-  %0 = load i8, ptr %add.ptr, align 1
-  %conv = trunc i64 %s1 to i16
-  %conv1.i = sext i8 %0 to i16
-  %sext = shl i16 %conv, 8
-  %conv3.i = ashr exact i16 %sext, 8
-  %mul.i = mul nsw i16 %conv3.i, %conv1.i
-  %conv56.i = zext i16 %mul.i to i64
-  switch i32 %vxrm, label %get_round.exit.i [
-    i32 0, label %if.then14.i.i
-    i32 1, label %if.then17.i.i
-    i32 3, label %if.then38.i.i
+  %shr.i.i1.i.i = lshr i32 %desc, 10
+  %and.i.i.i = and i32 %shr.i.i1.i.i, 1
+  %vl1.i = getelementptr inbounds i8, ptr %env, i64 4624
+  %0 = load i64, ptr %vl1.i, align 16
+  %conv.i = trunc i64 %0 to i32
+  %1 = getelementptr i8, ptr %env, i64 4640
+  %env.val.i = load i64, ptr %1, align 16
+  %shr.i.i.i43.i = lshr i32 %desc, 16
+  %and.i.i44.i = and i32 %shr.i.i.i43.i, 1
+  %vxrm.i = getelementptr inbounds i8, ptr %env, i64 4608
+  %2 = load i64, ptr %vxrm.i, align 16
+  %vstart.i95.i = getelementptr inbounds i8, ptr %env, i64 4632
+  %3 = load i64, ptr %vstart.i95.i, align 8
+  %conv.i96.i = trunc i64 %3 to i32
+  %cmp11.i97.i = icmp ugt i32 %conv.i, %conv.i96.i
+  switch i64 %2, label %sw.default.i [
+    i64 0, label %sw.bb.i
+    i64 1, label %sw.bb5.i
+    i64 2, label %sw.bb6.i
   ]
 
-if.then14.i.i:                                    ; preds = %entry
-  %1 = lshr i16 %mul.i, 6
-  %conv9.i.i = and i16 %1, 1
-  br label %get_round.exit.i
+sw.bb.i:                                          ; preds = %entry
+  br i1 %cmp11.i97.i, label %for.body.lr.ph.i.i, label %vext_vx_rm_2.exit
 
-if.then17.i.i:                                    ; preds = %entry
-  %and.i33.i.i = and i64 %conv56.i, 63
-  %2 = lshr i16 %mul.i, 6
-  %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
-  %3 = and i16 %mul.i, 128
-  %4 = icmp ne i16 %3, 0
-  %5 = or i1 %4, %cmp26.i.i
-  %6 = and i16 %2, 1
-  %and.i.i = select i1 %5, i16 %6, i16 0
-  br label %get_round.exit.i
+for.body.lr.ph.i.i:                               ; preds = %sw.bb.i
+  %tobool.not.i.i = icmp eq i32 %and.i.i.i, 0
+  %conv.i108 = trunc i64 %s1 to i16
+  %sext.i110 = shl i16 %conv.i108, 8
+  %conv3.i.i111 = ashr exact i16 %sext.i110, 8
+  %vxsat.i.i121 = getelementptr inbounds i8, ptr %env, i64 4616
+  br i1 %tobool.not.i.i, label %for.body.us.i.i, label %for.body.i.i
 
-if.then38.i.i:                                    ; preds = %entry
-  %and.i25.i.i = and i64 %conv56.i, 127
-  %7 = and i64 %conv56.i, 128
-  %tobool.not.i.i = icmp eq i64 %7, 0
-  %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
-  %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
-  %conv42.i.i = zext i1 %and4116.i.i to i16
-  br label %get_round.exit.i
+for.body.us.i.i:                                  ; preds = %for.body.lr.ph.i.i, %for.inc.us.i.i
+  %i.012.us.i.i = phi i32 [ %add.us.i.i, %for.inc.us.i.i ], [ %conv.i96.i, %for.body.lr.ph.i.i ]
+  %div.i.us.i.i = sdiv i32 %i.012.us.i.i, 64
+  %rem.i.us.i.i = srem i32 %i.012.us.i.i, 64
+  %idxprom.i.us.i.i = sext i32 %div.i.us.i.i to i64
+  %arrayidx.i.us.i.i = getelementptr i64, ptr %v0, i64 %idxprom.i.us.i.i
+  %4 = load i64, ptr %arrayidx.i.us.i.i, align 8
+  %sh_prom.i.us.i.i = zext nneg i32 %rem.i.us.i.i to i64
+  %5 = shl nuw i64 1, %sh_prom.i.us.i.i
+  %6 = and i64 %5, %4
+  %tobool2.not.us.i.i = icmp eq i64 %6, 0
+  %add.us.i.i = add nuw i32 %i.012.us.i.i, 1
+  br i1 %tobool2.not.us.i.i, label %if.then.us.i.i, label %if.end.us.i.i
 
-get_round.exit.i:                                 ; preds = %if.then38.i.i, %if.then17.i.i, %if.then14.i.i, %entry
-  %retval.0.i.i = phi i16 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ]
-  %8 = ashr i16 %mul.i, 7
-  %add.i = add nsw i16 %retval.0.i.i, %8
-  %cmp.i = icmp sgt i16 %add.i, 127
-  br i1 %cmp.i, label %if.then.i, label %if.else16.i
+if.end.us.i.i:                                    ; preds = %for.body.us.i.i
+  %idx.ext.i106 = sext i32 %i.012.us.i.i to i64
+  %add.ptr.i107 = getelementptr i8, ptr %vs2, i64 %idx.ext.i106
+  %7 = load i8, ptr %add.ptr.i107, align 1
+  %conv1.i.i109 = sext i8 %7 to i16
+  %mul.i.i112 = mul nsw i16 %conv3.i.i111, %conv1.i.i109
+  %8 = lshr i16 %mul.i.i112, 6
+  %conv9.i.i.i113 = and i16 %8, 1
+  %9 = ashr i16 %mul.i.i112, 7
+  %add.i.i114 = add nsw i16 %conv9.i.i.i113, %9
+  %cmp.i.i115 = icmp sgt i16 %add.i.i114, 127
+  br i1 %cmp.i.i115, label %if.then.i.i120, label %if.else16.i.i116
 
-if.then.i:                                        ; preds = %get_round.exit.i
-  %vxsat.i = getelementptr inbounds i8, ptr %env, i64 4616
-  store i64 1, ptr %vxsat.i, align 8
-  br label %vsmul8.exit
+if.then.i.i120:                                   ; preds = %if.end.us.i.i
+  store i64 1, ptr %vxsat.i.i121, align 8
+  br label %do_vsmul_vx_b.exit122
 
-if.else16.i:                                      ; preds = %get_round.exit.i
-  %conv17.i = trunc i16 %add.i to i8
-  br label %vsmul8.exit
+if.else16.i.i116:                                 ; preds = %if.end.us.i.i
+  %conv17.i.i117 = trunc i16 %add.i.i114 to i8
+  br label %do_vsmul_vx_b.exit122
 
-vsmul8.exit:                                      ; preds = %if.then.i, %if.else16.i
-  %retval.0.i = phi i8 [ 127, %if.then.i ], [ %conv17.i, %if.else16.i ]
-  %add.ptr2 = getelementptr i8, ptr %vd, i64 %idx.ext
-  store i8 %retval.0.i, ptr %add.ptr2, align 1
+do_vsmul_vx_b.exit122:                            ; preds = %if.then.i.i120, %if.else16.i.i116
+  %retval.0.i.i118 = phi i8 [ 127, %if.then.i.i120 ], [ %conv17.i.i117, %if.else16.i.i116 ]
+  %add.ptr2.i119 = getelementptr i8, ptr %vd, i64 %idx.ext.i106
+  store i8 %retval.0.i.i118, ptr %add.ptr2.i119, align 1
+  br label %for.inc.us.i.i
+
+if.then.us.i.i:                                   ; preds = %for.body.us.i.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i.i, i32 noundef %add.us.i.i) #10
+  br label %for.inc.us.i.i
+
+for.inc.us.i.i:                                   ; preds = %if.then.us.i.i, %do_vsmul_vx_b.exit122
+  %exitcond14.not.i.i = icmp eq i32 %add.us.i.i, %conv.i
+  br i1 %exitcond14.not.i.i, label %vext_vx_rm_2.exit, label %for.body.us.i.i, !llvm.loop !237
+
+for.body.i.i:                                     ; preds = %for.body.lr.ph.i.i, %do_vsmul_vx_b.exit105
+  %i.012.i.i = phi i32 [ %inc.i.i, %do_vsmul_vx_b.exit105 ], [ %conv.i96.i, %for.body.lr.ph.i.i ]
+  %idx.ext.i90 = sext i32 %i.012.i.i to i64
+  %add.ptr.i91 = getelementptr i8, ptr %vs2, i64 %idx.ext.i90
+  %10 = load i8, ptr %add.ptr.i91, align 1
+  %conv1.i.i93 = sext i8 %10 to i16
+  %mul.i.i96 = mul nsw i16 %conv3.i.i111, %conv1.i.i93
+  %11 = lshr i16 %mul.i.i96, 6
+  %conv9.i.i.i = and i16 %11, 1
+  %12 = ashr i16 %mul.i.i96, 7
+  %add.i.i97 = add nsw i16 %conv9.i.i.i, %12
+  %cmp.i.i98 = icmp sgt i16 %add.i.i97, 127
+  br i1 %cmp.i.i98, label %if.then.i.i103, label %if.else16.i.i99
+
+if.then.i.i103:                                   ; preds = %for.body.i.i
+  store i64 1, ptr %vxsat.i.i121, align 8
+  br label %do_vsmul_vx_b.exit105
+
+if.else16.i.i99:                                  ; preds = %for.body.i.i
+  %conv17.i.i100 = trunc i16 %add.i.i97 to i8
+  br label %do_vsmul_vx_b.exit105
+
+do_vsmul_vx_b.exit105:                            ; preds = %if.then.i.i103, %if.else16.i.i99
+  %retval.0.i.i101 = phi i8 [ 127, %if.then.i.i103 ], [ %conv17.i.i100, %if.else16.i.i99 ]
+  %add.ptr2.i102 = getelementptr i8, ptr %vd, i64 %idx.ext.i90
+  store i8 %retval.0.i.i101, ptr %add.ptr2.i102, align 1
+  %inc.i.i = add i32 %i.012.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i, %conv.i
+  br i1 %exitcond.not.i.i, label %vext_vx_rm_2.exit, label %for.body.i.i, !llvm.loop !237
+
+sw.bb5.i:                                         ; preds = %entry
+  br i1 %cmp11.i97.i, label %for.body.lr.ph.i48.i, label %vext_vx_rm_2.exit
+
+for.body.lr.ph.i48.i:                             ; preds = %sw.bb5.i
+  %tobool.not.i49.i = icmp eq i32 %and.i.i.i, 0
+  %conv.i74 = trunc i64 %s1 to i16
+  %sext.i76 = shl i16 %conv.i74, 8
+  %conv3.i.i77 = ashr exact i16 %sext.i76, 8
+  %vxsat.i.i88 = getelementptr inbounds i8, ptr %env, i64 4616
+  br i1 %tobool.not.i49.i, label %for.body.us.i54.i, label %for.body.i50.i
+
+for.body.us.i54.i:                                ; preds = %for.body.lr.ph.i48.i, %for.inc.us.i64.i
+  %i.012.us.i55.i = phi i32 [ %add.us.i62.i, %for.inc.us.i64.i ], [ %conv.i96.i, %for.body.lr.ph.i48.i ]
+  %div.i.us.i56.i = sdiv i32 %i.012.us.i55.i, 64
+  %rem.i.us.i57.i = srem i32 %i.012.us.i55.i, 64
+  %idxprom.i.us.i58.i = sext i32 %div.i.us.i56.i to i64
+  %arrayidx.i.us.i59.i = getelementptr i64, ptr %v0, i64 %idxprom.i.us.i58.i
+  %13 = load i64, ptr %arrayidx.i.us.i59.i, align 8
+  %sh_prom.i.us.i60.i = zext nneg i32 %rem.i.us.i57.i to i64
+  %14 = shl nuw i64 1, %sh_prom.i.us.i60.i
+  %15 = and i64 %14, %13
+  %tobool2.not.us.i61.i = icmp eq i64 %15, 0
+  %add.us.i62.i = add nuw i32 %i.012.us.i55.i, 1
+  br i1 %tobool2.not.us.i61.i, label %if.then.us.i66.i, label %if.end.us.i63.i
+
+if.end.us.i63.i:                                  ; preds = %for.body.us.i54.i
+  %idx.ext.i72 = sext i32 %i.012.us.i55.i to i64
+  %add.ptr.i73 = getelementptr i8, ptr %vs2, i64 %idx.ext.i72
+  %16 = load i8, ptr %add.ptr.i73, align 1
+  %conv1.i.i75 = sext i8 %16 to i16
+  %mul.i.i78 = mul nsw i16 %conv3.i.i77, %conv1.i.i75
+  %17 = lshr i16 %mul.i.i78, 6
+  %18 = and i16 %mul.i.i78, 191
+  %.not.i.i79 = icmp eq i16 %18, 0
+  %19 = and i16 %17, 1
+  %and.i.i.i80 = select i1 %.not.i.i79, i16 0, i16 %19
+  %20 = ashr i16 %mul.i.i78, 7
+  %add.i.i81 = add nsw i16 %and.i.i.i80, %20
+  %cmp.i.i82 = icmp sgt i16 %add.i.i81, 127
+  br i1 %cmp.i.i82, label %if.then.i.i87, label %if.else16.i.i83
+
+if.then.i.i87:                                    ; preds = %if.end.us.i63.i
+  store i64 1, ptr %vxsat.i.i88, align 8
+  br label %do_vsmul_vx_b.exit89
+
+if.else16.i.i83:                                  ; preds = %if.end.us.i63.i
+  %conv17.i.i84 = trunc i16 %add.i.i81 to i8
+  br label %do_vsmul_vx_b.exit89
+
+do_vsmul_vx_b.exit89:                             ; preds = %if.then.i.i87, %if.else16.i.i83
+  %retval.0.i.i85 = phi i8 [ 127, %if.then.i.i87 ], [ %conv17.i.i84, %if.else16.i.i83 ]
+  %add.ptr2.i86 = getelementptr i8, ptr %vd, i64 %idx.ext.i72
+  store i8 %retval.0.i.i85, ptr %add.ptr2.i86, align 1
+  br label %for.inc.us.i64.i
+
+if.then.us.i66.i:                                 ; preds = %for.body.us.i54.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i55.i, i32 noundef %add.us.i62.i) #10
+  br label %for.inc.us.i64.i
+
+for.inc.us.i64.i:                                 ; preds = %if.then.us.i66.i, %do_vsmul_vx_b.exit89
+  %exitcond14.not.i65.i = icmp eq i32 %add.us.i62.i, %conv.i
+  br i1 %exitcond14.not.i65.i, label %vext_vx_rm_2.exit, label %for.body.us.i54.i, !llvm.loop !237
+
+for.body.i50.i:                                   ; preds = %for.body.lr.ph.i48.i, %do_vsmul_vx_b.exit71
+  %i.012.i51.i = phi i32 [ %inc.i52.i, %do_vsmul_vx_b.exit71 ], [ %conv.i96.i, %for.body.lr.ph.i48.i ]
+  %idx.ext.i55 = sext i32 %i.012.i51.i to i64
+  %add.ptr.i56 = getelementptr i8, ptr %vs2, i64 %idx.ext.i55
+  %21 = load i8, ptr %add.ptr.i56, align 1
+  %conv1.i.i58 = sext i8 %21 to i16
+  %mul.i.i61 = mul nsw i16 %conv3.i.i77, %conv1.i.i58
+  %22 = lshr i16 %mul.i.i61, 6
+  %23 = and i16 %mul.i.i61, 191
+  %.not.i.i = icmp eq i16 %23, 0
+  %24 = and i16 %22, 1
+  %and.i.i.i62 = select i1 %.not.i.i, i16 0, i16 %24
+  %25 = ashr i16 %mul.i.i61, 7
+  %add.i.i63 = add nsw i16 %and.i.i.i62, %25
+  %cmp.i.i64 = icmp sgt i16 %add.i.i63, 127
+  br i1 %cmp.i.i64, label %if.then.i.i69, label %if.else16.i.i65
+
+if.then.i.i69:                                    ; preds = %for.body.i50.i
+  store i64 1, ptr %vxsat.i.i88, align 8
+  br label %do_vsmul_vx_b.exit71
+
+if.else16.i.i65:                                  ; preds = %for.body.i50.i
+  %conv17.i.i66 = trunc i16 %add.i.i63 to i8
+  br label %do_vsmul_vx_b.exit71
+
+do_vsmul_vx_b.exit71:                             ; preds = %if.then.i.i69, %if.else16.i.i65
+  %retval.0.i.i67 = phi i8 [ 127, %if.then.i.i69 ], [ %conv17.i.i66, %if.else16.i.i65 ]
+  %add.ptr2.i68 = getelementptr i8, ptr %vd, i64 %idx.ext.i55
+  store i8 %retval.0.i.i67, ptr %add.ptr2.i68, align 1
+  %inc.i52.i = add i32 %i.012.i51.i, 1
+  %exitcond.not.i53.i = icmp eq i32 %inc.i52.i, %conv.i
+  br i1 %exitcond.not.i53.i, label %vext_vx_rm_2.exit, label %for.body.i50.i, !llvm.loop !237
+
+sw.bb6.i:                                         ; preds = %entry
+  br i1 %cmp11.i97.i, label %for.body.lr.ph.i73.i, label %vext_vx_rm_2.exit
+
+for.body.lr.ph.i73.i:                             ; preds = %sw.bb6.i
+  %tobool.not.i74.i = icmp eq i32 %and.i.i.i, 0
+  %conv.i41 = trunc i64 %s1 to i16
+  %sext.i43 = shl i16 %conv.i41, 8
+  %conv3.i.i44 = ashr exact i16 %sext.i43, 8
+  %vxsat.i.i53 = getelementptr inbounds i8, ptr %env, i64 4616
+  br i1 %tobool.not.i74.i, label %for.body.us.i79.i, label %for.body.i75.i
+
+for.body.us.i79.i:                                ; preds = %for.body.lr.ph.i73.i, %for.inc.us.i89.i
+  %i.012.us.i80.i = phi i32 [ %add.us.i87.i, %for.inc.us.i89.i ], [ %conv.i96.i, %for.body.lr.ph.i73.i ]
+  %div.i.us.i81.i = sdiv i32 %i.012.us.i80.i, 64
+  %rem.i.us.i82.i = srem i32 %i.012.us.i80.i, 64
+  %idxprom.i.us.i83.i = sext i32 %div.i.us.i81.i to i64
+  %arrayidx.i.us.i84.i = getelementptr i64, ptr %v0, i64 %idxprom.i.us.i83.i
+  %26 = load i64, ptr %arrayidx.i.us.i84.i, align 8
+  %sh_prom.i.us.i85.i = zext nneg i32 %rem.i.us.i82.i to i64
+  %27 = shl nuw i64 1, %sh_prom.i.us.i85.i
+  %28 = and i64 %27, %26
+  %tobool2.not.us.i86.i = icmp eq i64 %28, 0
+  %add.us.i87.i = add nuw i32 %i.012.us.i80.i, 1
+  br i1 %tobool2.not.us.i86.i, label %if.then.us.i91.i, label %if.end.us.i88.i
+
+if.end.us.i88.i:                                  ; preds = %for.body.us.i79.i
+  %idx.ext.i39 = sext i32 %i.012.us.i80.i to i64
+  %add.ptr.i40 = getelementptr i8, ptr %vs2, i64 %idx.ext.i39
+  %29 = load i8, ptr %add.ptr.i40, align 1
+  %conv1.i.i42 = sext i8 %29 to i16
+  %mul.i.i45 = mul nsw i16 %conv3.i.i44, %conv1.i.i42
+  %30 = ashr i16 %mul.i.i45, 7
+  %cmp.i.i47 = icmp sgt i16 %30, 127
+  br i1 %cmp.i.i47, label %if.then.i.i52, label %if.else16.i.i48
+
+if.then.i.i52:                                    ; preds = %if.end.us.i88.i
+  store i64 1, ptr %vxsat.i.i53, align 8
+  br label %do_vsmul_vx_b.exit54
+
+if.else16.i.i48:                                  ; preds = %if.end.us.i88.i
+  %conv17.i.i49 = trunc i16 %30 to i8
+  br label %do_vsmul_vx_b.exit54
+
+do_vsmul_vx_b.exit54:                             ; preds = %if.then.i.i52, %if.else16.i.i48
+  %retval.0.i.i50 = phi i8 [ 127, %if.then.i.i52 ], [ %conv17.i.i49, %if.else16.i.i48 ]
+  %add.ptr2.i51 = getelementptr i8, ptr %vd, i64 %idx.ext.i39
+  store i8 %retval.0.i.i50, ptr %add.ptr2.i51, align 1
+  br label %for.inc.us.i89.i
+
+if.then.us.i91.i:                                 ; preds = %for.body.us.i79.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i80.i, i32 noundef %add.us.i87.i) #10
+  br label %for.inc.us.i89.i
+
+for.inc.us.i89.i:                                 ; preds = %if.then.us.i91.i, %do_vsmul_vx_b.exit54
+  %exitcond14.not.i90.i = icmp eq i32 %add.us.i87.i, %conv.i
+  br i1 %exitcond14.not.i90.i, label %vext_vx_rm_2.exit, label %for.body.us.i79.i, !llvm.loop !237
+
+for.body.i75.i:                                   ; preds = %for.body.lr.ph.i73.i, %do_vsmul_vx_b.exit38
+  %i.012.i76.i = phi i32 [ %inc.i77.i, %do_vsmul_vx_b.exit38 ], [ %conv.i96.i, %for.body.lr.ph.i73.i ]
+  %idx.ext.i23 = sext i32 %i.012.i76.i to i64
+  %add.ptr.i24 = getelementptr i8, ptr %vs2, i64 %idx.ext.i23
+  %31 = load i8, ptr %add.ptr.i24, align 1
+  %conv1.i.i26 = sext i8 %31 to i16
+  %mul.i.i29 = mul nsw i16 %conv3.i.i44, %conv1.i.i26
+  %32 = ashr i16 %mul.i.i29, 7
+  %cmp.i.i31 = icmp sgt i16 %32, 127
+  br i1 %cmp.i.i31, label %if.then.i.i36, label %if.else16.i.i32
+
+if.then.i.i36:                                    ; preds = %for.body.i75.i
+  store i64 1, ptr %vxsat.i.i53, align 8
+  br label %do_vsmul_vx_b.exit38
+
+if.else16.i.i32:                                  ; preds = %for.body.i75.i
+  %conv17.i.i33 = trunc i16 %32 to i8
+  br label %do_vsmul_vx_b.exit38
+
+do_vsmul_vx_b.exit38:                             ; preds = %if.then.i.i36, %if.else16.i.i32
+  %retval.0.i.i34 = phi i8 [ 127, %if.then.i.i36 ], [ %conv17.i.i33, %if.else16.i.i32 ]
+  %add.ptr2.i35 = getelementptr i8, ptr %vd, i64 %idx.ext.i23
+  store i8 %retval.0.i.i34, ptr %add.ptr2.i35, align 1
+  %inc.i77.i = add i32 %i.012.i76.i, 1
+  %exitcond.not.i78.i = icmp eq i32 %inc.i77.i, %conv.i
+  br i1 %exitcond.not.i78.i, label %vext_vx_rm_2.exit, label %for.body.i75.i, !llvm.loop !237
+
+sw.default.i:                                     ; preds = %entry
+  br i1 %cmp11.i97.i, label %for.body.lr.ph.i98.i, label %vext_vx_rm_2.exit
+
+for.body.lr.ph.i98.i:                             ; preds = %sw.default.i
+  %tobool.not.i99.i = icmp eq i32 %and.i.i.i, 0
+  %conv.i5 = trunc i64 %s1 to i16
+  %sext.i7 = shl i16 %conv.i5, 8
+  %conv3.i.i8 = ashr exact i16 %sext.i7, 8
+  %vxsat.i.i21 = getelementptr inbounds i8, ptr %env, i64 4616
+  br i1 %tobool.not.i99.i, label %for.body.us.i104.i, label %for.body.i100.i
+
+for.body.us.i104.i:                               ; preds = %for.body.lr.ph.i98.i, %for.inc.us.i114.i
+  %i.012.us.i105.i = phi i32 [ %add.us.i112.i, %for.inc.us.i114.i ], [ %conv.i96.i, %for.body.lr.ph.i98.i ]
+  %div.i.us.i106.i = sdiv i32 %i.012.us.i105.i, 64
+  %rem.i.us.i107.i = srem i32 %i.012.us.i105.i, 64
+  %idxprom.i.us.i108.i = sext i32 %div.i.us.i106.i to i64
+  %arrayidx.i.us.i109.i = getelementptr i64, ptr %v0, i64 %idxprom.i.us.i108.i
+  %33 = load i64, ptr %arrayidx.i.us.i109.i, align 8
+  %sh_prom.i.us.i110.i = zext nneg i32 %rem.i.us.i107.i to i64
+  %34 = shl nuw i64 1, %sh_prom.i.us.i110.i
+  %35 = and i64 %34, %33
+  %tobool2.not.us.i111.i = icmp eq i64 %35, 0
+  %add.us.i112.i = add nuw i32 %i.012.us.i105.i, 1
+  br i1 %tobool2.not.us.i111.i, label %if.then.us.i116.i, label %if.end.us.i113.i
+
+if.end.us.i113.i:                                 ; preds = %for.body.us.i104.i
+  %idx.ext.i3 = sext i32 %i.012.us.i105.i to i64
+  %add.ptr.i4 = getelementptr i8, ptr %vs2, i64 %idx.ext.i3
+  %36 = load i8, ptr %add.ptr.i4, align 1
+  %conv1.i.i6 = sext i8 %36 to i16
+  %mul.i.i9 = mul nsw i16 %conv3.i.i8, %conv1.i.i6
+  %37 = and i16 %mul.i.i9, 128
+  %tobool.not.i.i.i10 = icmp eq i16 %37, 0
+  %38 = and i16 %mul.i.i9, 127
+  %cmp39.i.i.i11 = icmp ne i16 %38, 0
+  %and4116.i.i.i12 = and i1 %tobool.not.i.i.i10, %cmp39.i.i.i11
+  %conv42.i.i.i13 = zext i1 %and4116.i.i.i12 to i16
+  %39 = ashr i16 %mul.i.i9, 7
+  %add.i.i14 = add nsw i16 %39, %conv42.i.i.i13
+  %cmp.i.i15 = icmp sgt i16 %add.i.i14, 127
+  br i1 %cmp.i.i15, label %if.then.i.i20, label %if.else16.i.i16
+
+if.then.i.i20:                                    ; preds = %if.end.us.i113.i
+  store i64 1, ptr %vxsat.i.i21, align 8
+  br label %do_vsmul_vx_b.exit22
+
+if.else16.i.i16:                                  ; preds = %if.end.us.i113.i
+  %conv17.i.i17 = trunc i16 %add.i.i14 to i8
+  br label %do_vsmul_vx_b.exit22
+
+do_vsmul_vx_b.exit22:                             ; preds = %if.then.i.i20, %if.else16.i.i16
+  %retval.0.i.i18 = phi i8 [ 127, %if.then.i.i20 ], [ %conv17.i.i17, %if.else16.i.i16 ]
+  %add.ptr2.i19 = getelementptr i8, ptr %vd, i64 %idx.ext.i3
+  store i8 %retval.0.i.i18, ptr %add.ptr2.i19, align 1
+  br label %for.inc.us.i114.i
+
+if.then.us.i116.i:                                ; preds = %for.body.us.i104.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef range(i32 0, 256) %and.i.i44.i, i32 noundef %i.012.us.i105.i, i32 noundef %add.us.i112.i) #10
+  br label %for.inc.us.i114.i
+
+for.inc.us.i114.i:                                ; preds = %if.then.us.i116.i, %do_vsmul_vx_b.exit22
+  %exitcond14.not.i115.i = icmp eq i32 %add.us.i112.i, %conv.i
+  br i1 %exitcond14.not.i115.i, label %vext_vx_rm_2.exit, label %for.body.us.i104.i, !llvm.loop !237
+
+for.body.i100.i:                                  ; preds = %for.body.lr.ph.i98.i, %do_vsmul_vx_b.exit
+  %i.012.i101.i = phi i32 [ %inc.i102.i, %do_vsmul_vx_b.exit ], [ %conv.i96.i, %for.body.lr.ph.i98.i ]
+  %idx.ext.i = sext i32 %i.012.i101.i to i64
+  %add.ptr.i = getelementptr i8, ptr %vs2, i64 %idx.ext.i
+  %40 = load i8, ptr %add.ptr.i, align 1
+  %conv1.i.i = sext i8 %40 to i16
+  %mul.i.i = mul nsw i16 %conv3.i.i8, %conv1.i.i
+  %41 = and i16 %mul.i.i, 128
+  %tobool.not.i.i.i = icmp eq i16 %41, 0
+  %42 = and i16 %mul.i.i, 127
+  %cmp39.i.i.i = icmp ne i16 %42, 0
+  %and4116.i.i.i = and i1 %tobool.not.i.i.i, %cmp39.i.i.i
+  %conv42.i.i.i = zext i1 %and4116.i.i.i to i16
+  %43 = ashr i16 %mul.i.i, 7
+  %add.i.i2 = add nsw i16 %43, %conv42.i.i.i
+  %cmp.i.i = icmp sgt i16 %add.i.i2, 127
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else16.i.i
+
+if.then.i.i:                                      ; preds = %for.body.i100.i
+  store i64 1, ptr %vxsat.i.i21, align 8
+  br label %do_vsmul_vx_b.exit
+
+if.else16.i.i:                                    ; preds = %for.body.i100.i
+  %conv17.i.i = trunc i16 %add.i.i2 to i8
+  br label %do_vsmul_vx_b.exit
+
+do_vsmul_vx_b.exit:                               ; preds = %if.then.i.i, %if.else16.i.i
+  %retval.0.i.i = phi i8 [ 127, %if.then.i.i ], [ %conv17.i.i, %if.else16.i.i ]
+  %add.ptr2.i = getelementptr i8, ptr %vd, i64 %idx.ext.i
+  store i8 %retval.0.i.i, ptr %add.ptr2.i, align 1
+  %inc.i102.i = add i32 %i.012.i101.i, 1
+  %exitcond.not.i103.i = icmp eq i32 %inc.i102.i, %conv.i
+  br i1 %exitcond.not.i103.i, label %vext_vx_rm_2.exit, label %for.body.i100.i, !llvm.loop !237
+
+vext_vx_rm_2.exit:                                ; preds = %do_vsmul_vx_b.exit38, %for.inc.us.i89.i, %do_vsmul_vx_b.exit71, %for.inc.us.i64.i, %do_vsmul_vx_b.exit105, %for.inc.us.i.i, %do_vsmul_vx_b.exit, %for.inc.us.i114.i, %sw.bb.i, %sw.bb5.i, %sw.bb6.i, %sw.default.i
+  store i64 0, ptr %vstart.i95.i, align 8
+  %shr.i.i.i.i = lshr i32 %desc, 14
+  %and.i.i42.i = and i32 %shr.i.i.i.i, 1
+  %and.i.i.i.i = shl i32 %desc, 3
+  %mul.i.i.i = and i32 %and.i.i.i.i, 2040
+  %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 8
+  %44 = trunc i64 %env.val.i to i32
+  %45 = lshr i32 %44, 3
+  %sh_prom.i.i = and i32 %45, 7
+  %46 = shl i32 %desc, 18
+  %shr.i1.i.i.i = ashr i32 %46, 29
+  %add.i.i = sub nsw i32 %shr.i1.i.i.i, %sh_prom.i.i
+  %cond.i.i = tail call i32 @llvm.smax.i32(i32 %add.i.i, i32 0)
+  %shl17.i.i = shl nuw nsw i32 %add.i.i.i, %cond.i.i
+  %shl17.i.fr.i = freeze i32 %shl17.i.i
+  tail call void @vext_set_elems_1s(ptr noundef %vd, i32 noundef %and.i.i42.i, i32 noundef %conv.i, i32 noundef %shl17.i.fr.i) #10
   ret void
 }
 
@@ -58499,9 +59186,8 @@ entry:
   %sext = shl i32 %conv, 16
   %conv1.i = ashr exact i32 %sext, 16
   %mul.i = mul nsw i32 %conv1.i, %conv.i
-  %conv26.i = zext i32 %mul.i to i64
-  %shr.i20.i.i = lshr i64 %conv26.i, 14
-  %and.i21.i.i = and i64 %shr.i20.i.i, 1
+  %1 = lshr i32 %mul.i, 14
+  %2 = and i32 %1, 1
   switch i32 %vxrm, label %get_round.exit.i [
     i32 0, label %if.then14.i.i
     i32 1, label %if.then17.i.i
@@ -58509,30 +59195,28 @@ entry:
   ]
 
 if.then14.i.i:                                    ; preds = %entry
-  %conv9.i.i = trunc nuw nsw i64 %and.i21.i.i to i32
   br label %get_round.exit.i
 
 if.then17.i.i:                                    ; preds = %entry
-  %and.i33.i.i = and i64 %conv26.i, 16383
-  %1 = trunc nuw nsw i64 %and.i21.i.i to i32
-  %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
+  %3 = and i32 %mul.i, 16383
+  %cmp26.i.i = icmp ne i32 %3, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %2 = lshr i32 %mul.i, 15
-  %or.i.i = or i32 %2, %conv27.i.i
-  %and.i.i = and i32 %or.i.i, %1
+  %4 = lshr i32 %mul.i, 15
+  %or.i.i = or i32 %4, %conv27.i.i
+  %and.i.i = and i32 %or.i.i, %2
   br label %get_round.exit.i
 
 if.then38.i.i:                                    ; preds = %entry
-  %and.i25.i.i = and i64 %conv26.i, 32767
-  %3 = and i64 %conv26.i, 32768
-  %tobool.not.i.i = icmp eq i64 %3, 0
-  %cmp39.i.i = icmp ne i64 %and.i25.i.i, 0
+  %5 = and i32 %mul.i, 32768
+  %tobool.not.i.i = icmp eq i32 %5, 0
+  %6 = and i32 %mul.i, 32767
+  %cmp39.i.i = icmp ne i32 %6, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
   %conv42.i.i = zext i1 %and4116.i.i to i32
   br label %get_round.exit.i
 
 get_round.exit.i:                                 ; preds = %if.then38.i.i, %if.then17.i.i, %if.then14.i.i, %entry
-  %retval.0.i.i = phi i32 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ]
+  %retval.0.i.i = phi i32 [ %2, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ], [ %conv42.i.i, %if.then38.i.i ], [ 0, %entry ]
   %shr.i = ashr i32 %mul.i, 15
   %add.i = add nsw i32 %retval.0.i.i, %shr.i
   %cmp.i = icmp sgt i32 %add.i, 32767

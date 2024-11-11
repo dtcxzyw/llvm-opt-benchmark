@@ -39247,8 +39247,8 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit.i:         ; preds = %_ZNK4llvm3EVT8isVec
   br i1 %.not.i193, label %.thread.i, label %.thread269
 
 .thread269:                                       ; preds = %109
-  %.pre346 = add i16 %.pr.i, -137
-  %110 = icmp ult i16 %.pre346, 53
+  %.pre347 = add i16 %.pr.i, -137
+  %110 = icmp ult i16 %.pre347, 53
   br i1 %110, label %111, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i
 
 111:                                              ; preds = %.thread269
@@ -39257,7 +39257,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit.i:         ; preds = %_ZNK4llvm3EVT8isVec
   br label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i
 
 _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %106, %111, %.thread269
-  %.0163291349 = phi i32 [ %.0163293, %111 ], [ %.0163293, %.thread269 ], [ %.0163.lcssa, %106 ]
+  %.0163291350 = phi i32 [ %.0163293, %111 ], [ %.0163293, %.thread269 ], [ %.0163.lcssa, %106 ]
   %112 = phi i16 [ %.pre.i.i, %111 ], [ %.pr.i, %.thread269 ], [ %.sroa.0.0.copyload.i.i178.fr, %106 ]
   %113 = zext i16 %112 to i64
   %114 = add nsw i64 %113, -1
@@ -39272,7 +39272,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %106, %111, %.thread
   br label %_ZNK4llvm3EVT20getVectorNumElementsEv.exit
 
 _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %.thread.i, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i, %103, %_ZNK4llvm3EVT8isVectorEv.exit
-  %.0163290 = phi i32 [ %.0163294, %_ZNK4llvm3EVT8isVectorEv.exit ], [ %.0163.lcssa, %103 ], [ %.0163291349, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i ], [ %.0163292, %.thread.i ]
+  %.0163290 = phi i32 [ %.0163294, %_ZNK4llvm3EVT8isVectorEv.exit ], [ %.0163.lcssa, %103 ], [ %.0163291350, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i ], [ %.0163292, %.thread.i ]
   %119 = phi i32 [ 1, %_ZNK4llvm3EVT8isVectorEv.exit ], [ 1, %103 ], [ %117, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i ], [ %118, %.thread.i ]
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
 
@@ -39676,14 +39676,14 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit245: ; preds = %244, %247
   br label %.lr.ph317
 
 .lr.ph317:                                        ; preds = %.lr.ph317.preheader, %.lr.ph317
-  %indvars.iv341 = phi i64 [ %249, %.lr.ph317.preheader ], [ %indvars.iv.next342, %.lr.ph317 ]
+  %indvars.iv342 = phi i64 [ %249, %.lr.ph317.preheader ], [ %indvars.iv.next343, %.lr.ph317 ]
   %251 = load ptr, ptr %2, align 8
-  %252 = getelementptr inbounds %"class.llvm::SDValue", ptr %251, i64 %indvars.iv341
+  %252 = getelementptr inbounds %"class.llvm::SDValue", ptr %251, i64 %indvars.iv342
   store ptr %.fca.0.extract6, ptr %252, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %252, i64 8
   store i32 %.fca.1.extract7, ptr %.sroa.214.0..sroa_idx, align 8
-  %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
-  %253 = icmp samesign ult i64 %indvars.iv.next342, %250
+  %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
+  %253 = icmp samesign ult i64 %indvars.iv.next343, %250
   br i1 %253, label %.lr.ph317, label %.loopexit, !llvm.loop !218
 
 .loopexit:                                        ; preds = %.lr.ph317, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit245, %_ZNK4llvm3EVT20getVectorNumElementsEv.exit243

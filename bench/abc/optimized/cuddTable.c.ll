@@ -1061,8 +1061,8 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %95, label %96, label %.preheader566
 
 .preheader566:                                    ; preds = %86
-  %.not685 = icmp eq i32 %88, 31
-  br i1 %.not685, label %._crit_edge, label %.lr.ph
+  %.not688 = icmp eq i32 %88, 31
+  br i1 %.not688, label %._crit_edge, label %.lr.ph
 
 96:                                               ; preds = %86
   %97 = load ptr, ptr %44, align 8
@@ -1166,57 +1166,57 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   %127 = zext i32 %.0436 to i64
   %128 = shl nuw nsw i64 %127, 3
   %.not603 = icmp eq i32 %.0436, 0
-  %wide.trip.count622 = zext i32 %0 to i64
+  %wide.trip.count623 = zext i32 %0 to i64
   br label %129
 
 .preheader564:                                    ; preds = %._crit_edge572, %._crit_edge
   %.not604 = icmp eq i32 %1, 0
   %.pre = shl i32 %.0436, 2
-  %.pre681 = zext i32 %.0436 to i64
-  %.pre683 = shl nuw nsw i64 %.pre681, 3
+  %.pre684 = zext i32 %.0436 to i64
+  %.pre686 = shl nuw nsw i64 %.pre684, 3
   br i1 %.not604, label %._crit_edge581, label %.lr.ph580
 
 .lr.ph580:                                        ; preds = %.preheader564
   %.not605 = icmp eq i32 %.0436, 0
-  %wide.trip.count638 = zext i32 %1 to i64
+  %wide.trip.count640 = zext i32 %1 to i64
   br label %188
 
 129:                                              ; preds = %.lr.ph575, %._crit_edge572
-  %indvars.iv627 = phi i32 [ 0, %.lr.ph575 ], [ %indvars.iv.next628, %._crit_edge572 ]
-  %indvars.iv619 = phi i64 [ 0, %.lr.ph575 ], [ %indvars.iv.next620, %._crit_edge572 ]
+  %indvars.iv628 = phi i32 [ 0, %.lr.ph575 ], [ %indvars.iv.next629, %._crit_edge572 ]
+  %indvars.iv620 = phi i64 [ 0, %.lr.ph575 ], [ %indvars.iv.next621, %._crit_edge572 ]
   %130 = load ptr, ptr %44, align 8
-  %131 = getelementptr inbounds %struct.DdSubtable, ptr %130, i64 %indvars.iv619, i32 2
+  %131 = getelementptr inbounds %struct.DdSubtable, ptr %130, i64 %indvars.iv620, i32 2
   store i32 %.0436, ptr %131, align 4
   %132 = load ptr, ptr %44, align 8
-  %133 = getelementptr inbounds %struct.DdSubtable, ptr %132, i64 %indvars.iv619, i32 1
+  %133 = getelementptr inbounds %struct.DdSubtable, ptr %132, i64 %indvars.iv620, i32 1
   store i32 %24, ptr %133, align 8
   %134 = load ptr, ptr %44, align 8
-  %135 = getelementptr inbounds %struct.DdSubtable, ptr %134, i64 %indvars.iv619, i32 3
+  %135 = getelementptr inbounds %struct.DdSubtable, ptr %134, i64 %indvars.iv620, i32 3
   store i32 0, ptr %135, align 8
   %136 = load ptr, ptr %44, align 8
-  %137 = getelementptr inbounds %struct.DdSubtable, ptr %136, i64 %indvars.iv619, i32 5
+  %137 = getelementptr inbounds %struct.DdSubtable, ptr %136, i64 %indvars.iv620, i32 5
   store i32 0, ptr %137, align 8
   %138 = load ptr, ptr %44, align 8
-  %139 = getelementptr inbounds %struct.DdSubtable, ptr %138, i64 %indvars.iv619, i32 4
+  %139 = getelementptr inbounds %struct.DdSubtable, ptr %138, i64 %indvars.iv620, i32 4
   store i32 %126, ptr %139, align 4
   %140 = load ptr, ptr %44, align 8
-  %141 = getelementptr inbounds %struct.DdSubtable, ptr %140, i64 %indvars.iv619, i32 7
+  %141 = getelementptr inbounds %struct.DdSubtable, ptr %140, i64 %indvars.iv620, i32 7
   store i32 0, ptr %141, align 8
   %142 = load ptr, ptr %44, align 8
-  %143 = getelementptr inbounds %struct.DdSubtable, ptr %142, i64 %indvars.iv619, i32 8
+  %143 = getelementptr inbounds %struct.DdSubtable, ptr %142, i64 %indvars.iv620, i32 8
   store i32 0, ptr %143, align 4
   %144 = load ptr, ptr %44, align 8
-  %145 = getelementptr inbounds %struct.DdSubtable, ptr %144, i64 %indvars.iv619, i32 9
+  %145 = getelementptr inbounds %struct.DdSubtable, ptr %144, i64 %indvars.iv620, i32 9
   store i32 0, ptr %145, align 8
   %146 = load ptr, ptr %44, align 8
-  %147 = getelementptr inbounds %struct.DdSubtable, ptr %146, i64 %indvars.iv619, i32 10
+  %147 = getelementptr inbounds %struct.DdSubtable, ptr %146, i64 %indvars.iv620, i32 10
   store i32 0, ptr %147, align 4
   %148 = load ptr, ptr %44, align 8
-  %149 = getelementptr inbounds %struct.DdSubtable, ptr %148, i64 %indvars.iv619, i32 11
+  %149 = getelementptr inbounds %struct.DdSubtable, ptr %148, i64 %indvars.iv620, i32 11
   store i32 0, ptr %149, align 8
   %150 = tail call noalias ptr @malloc(i64 noundef %128) #13
   %151 = load ptr, ptr %44, align 8
-  %152 = getelementptr inbounds %struct.DdSubtable, ptr %151, i64 %indvars.iv619
+  %152 = getelementptr inbounds %struct.DdSubtable, ptr %151, i64 %indvars.iv620
   store ptr %150, ptr %152, align 8
   %153 = icmp eq ptr %150, null
   br i1 %153, label %.preheader, label %.preheader565
@@ -1225,17 +1225,17 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not603, label %._crit_edge572, label %.lr.ph571
 
 .preheader:                                       ; preds = %129
-  %.not611 = icmp eq i64 %indvars.iv619, 0
+  %.not611 = icmp eq i64 %indvars.iv620, 0
   br i1 %.not611, label %._crit_edge601, label %.lr.ph600.preheader
 
 .lr.ph600.preheader:                              ; preds = %.preheader
-  %wide.trip.count630 = zext i32 %indvars.iv627 to i64
+  %wide.trip.count631 = zext i32 %indvars.iv628 to i64
   br label %.lr.ph600
 
 .lr.ph600:                                        ; preds = %.lr.ph600.preheader, %160
-  %indvars.iv624 = phi i64 [ 0, %.lr.ph600.preheader ], [ %indvars.iv.next625, %160 ]
+  %indvars.iv625 = phi i64 [ 0, %.lr.ph600.preheader ], [ %indvars.iv.next626, %160 ]
   %154 = load ptr, ptr %44, align 8
-  %155 = getelementptr inbounds %struct.DdSubtable, ptr %154, i64 %indvars.iv624
+  %155 = getelementptr inbounds %struct.DdSubtable, ptr %154, i64 %indvars.iv625
   %156 = load ptr, ptr %155, align 8
   %.not530 = icmp eq ptr %156, null
   br i1 %.not530, label %160, label %157
@@ -1243,14 +1243,14 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 157:                                              ; preds = %.lr.ph600
   tail call void @free(ptr noundef nonnull %156) #14
   %158 = load ptr, ptr %44, align 8
-  %159 = getelementptr inbounds %struct.DdSubtable, ptr %158, i64 %indvars.iv624
+  %159 = getelementptr inbounds %struct.DdSubtable, ptr %158, i64 %indvars.iv625
   store ptr null, ptr %159, align 8
   br label %160
 
 160:                                              ; preds = %157, %.lr.ph600
-  %indvars.iv.next625 = add nuw nsw i64 %indvars.iv624, 1
-  %exitcond631.not = icmp eq i64 %indvars.iv.next625, %wide.trip.count630
-  br i1 %exitcond631.not, label %._crit_edge601, label %.lr.ph600, !llvm.loop !26
+  %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
+  %exitcond632.not = icmp eq i64 %indvars.iv.next626, %wide.trip.count631
+  br i1 %exitcond632.not, label %._crit_edge601, label %.lr.ph600, !llvm.loop !26
 
 ._crit_edge601:                                   ; preds = %160, %.preheader
   %161 = load ptr, ptr %44, align 8
@@ -1335,38 +1335,38 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 ._crit_edge572:                                   ; preds = %.lr.ph571, %.preheader565
   %183 = load ptr, ptr %58, align 8
-  %184 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv619
-  %185 = trunc nuw nsw i64 %indvars.iv619 to i32
+  %184 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv620
+  %185 = trunc nuw nsw i64 %indvars.iv620 to i32
   store i32 %185, ptr %184, align 4
   %186 = load ptr, ptr %63, align 8
-  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv619
+  %187 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv620
   store i32 %185, ptr %187, align 4
-  %indvars.iv.next620 = add nuw nsw i64 %indvars.iv619, 1
-  %exitcond623.not = icmp eq i64 %indvars.iv.next620, %wide.trip.count622
-  %indvars.iv.next628 = add nuw i32 %indvars.iv627, 1
-  br i1 %exitcond623.not, label %.preheader564, label %129, !llvm.loop !28
+  %indvars.iv.next621 = add nuw nsw i64 %indvars.iv620, 1
+  %exitcond624.not = icmp eq i64 %indvars.iv.next621, %wide.trip.count623
+  %indvars.iv.next629 = add nuw i32 %indvars.iv628, 1
+  br i1 %exitcond624.not, label %.preheader564, label %129, !llvm.loop !28
 
 188:                                              ; preds = %.lr.ph580, %._crit_edge578
-  %indvars.iv648 = phi i32 [ 0, %.lr.ph580 ], [ %indvars.iv.next649, %._crit_edge578 ]
-  %indvars.iv635 = phi i64 [ 0, %.lr.ph580 ], [ %indvars.iv.next636, %._crit_edge578 ]
+  %indvars.iv650 = phi i32 [ 0, %.lr.ph580 ], [ %indvars.iv.next651, %._crit_edge578 ]
+  %indvars.iv637 = phi i64 [ 0, %.lr.ph580 ], [ %indvars.iv.next638, %._crit_edge578 ]
   %189 = load ptr, ptr %52, align 8
-  %190 = getelementptr inbounds %struct.DdSubtable, ptr %189, i64 %indvars.iv635, i32 2
+  %190 = getelementptr inbounds %struct.DdSubtable, ptr %189, i64 %indvars.iv637, i32 2
   store i32 %.0436, ptr %190, align 4
   %191 = load ptr, ptr %52, align 8
-  %192 = getelementptr inbounds %struct.DdSubtable, ptr %191, i64 %indvars.iv635, i32 1
+  %192 = getelementptr inbounds %struct.DdSubtable, ptr %191, i64 %indvars.iv637, i32 1
   store i32 %24, ptr %192, align 8
   %193 = load ptr, ptr %52, align 8
-  %194 = getelementptr inbounds %struct.DdSubtable, ptr %193, i64 %indvars.iv635, i32 3
+  %194 = getelementptr inbounds %struct.DdSubtable, ptr %193, i64 %indvars.iv637, i32 3
   store i32 0, ptr %194, align 8
   %195 = load ptr, ptr %52, align 8
-  %196 = getelementptr inbounds %struct.DdSubtable, ptr %195, i64 %indvars.iv635, i32 5
+  %196 = getelementptr inbounds %struct.DdSubtable, ptr %195, i64 %indvars.iv637, i32 5
   store i32 0, ptr %196, align 8
   %197 = load ptr, ptr %52, align 8
-  %198 = getelementptr inbounds %struct.DdSubtable, ptr %197, i64 %indvars.iv635, i32 4
+  %198 = getelementptr inbounds %struct.DdSubtable, ptr %197, i64 %indvars.iv637, i32 4
   store i32 %.pre, ptr %198, align 4
-  %199 = tail call noalias ptr @malloc(i64 noundef %.pre683) #13
+  %199 = tail call noalias ptr @malloc(i64 noundef %.pre686) #13
   %200 = load ptr, ptr %52, align 8
-  %201 = getelementptr inbounds %struct.DdSubtable, ptr %200, i64 %indvars.iv635
+  %201 = getelementptr inbounds %struct.DdSubtable, ptr %200, i64 %indvars.iv637
   store ptr %199, ptr %201, align 8
   %202 = icmp eq ptr %199, null
   br i1 %202, label %.preheader560, label %.preheader563
@@ -1375,20 +1375,20 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not605, label %._crit_edge578, label %.lr.ph577.preheader
 
 .lr.ph577.preheader:                              ; preds = %.preheader563
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %199, i8 0, i64 %.pre683, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %199, i8 0, i64 %.pre686, i1 false)
   br label %._crit_edge578
 
 .preheader560:                                    ; preds = %188
   br i1 %.not602, label %._crit_edge594, label %.lr.ph593.preheader
 
 .lr.ph593.preheader:                              ; preds = %.preheader560
-  %wide.trip.count643 = zext i32 %0 to i64
+  %wide.trip.count645 = zext i32 %0 to i64
   br label %.lr.ph593
 
 .lr.ph593:                                        ; preds = %.lr.ph593.preheader, %209
-  %indvars.iv640 = phi i64 [ 0, %.lr.ph593.preheader ], [ %indvars.iv.next641, %209 ]
+  %indvars.iv642 = phi i64 [ 0, %.lr.ph593.preheader ], [ %indvars.iv.next643, %209 ]
   %203 = load ptr, ptr %44, align 8
-  %204 = getelementptr inbounds %struct.DdSubtable, ptr %203, i64 %indvars.iv640
+  %204 = getelementptr inbounds %struct.DdSubtable, ptr %203, i64 %indvars.iv642
   %205 = load ptr, ptr %204, align 8
   %.not522 = icmp eq ptr %205, null
   br i1 %.not522, label %209, label %206
@@ -1396,14 +1396,14 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 206:                                              ; preds = %.lr.ph593
   tail call void @free(ptr noundef nonnull %205) #14
   %207 = load ptr, ptr %44, align 8
-  %208 = getelementptr inbounds %struct.DdSubtable, ptr %207, i64 %indvars.iv640
+  %208 = getelementptr inbounds %struct.DdSubtable, ptr %207, i64 %indvars.iv642
   store ptr null, ptr %208, align 8
   br label %209
 
 209:                                              ; preds = %206, %.lr.ph593
-  %indvars.iv.next641 = add nuw nsw i64 %indvars.iv640, 1
-  %exitcond644.not = icmp eq i64 %indvars.iv.next641, %wide.trip.count643
-  br i1 %exitcond644.not, label %._crit_edge594, label %.lr.ph593, !llvm.loop !29
+  %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
+  %exitcond646.not = icmp eq i64 %indvars.iv.next643, %wide.trip.count645
+  br i1 %exitcond646.not, label %._crit_edge594, label %.lr.ph593, !llvm.loop !29
 
 ._crit_edge594:                                   ; preds = %209, %.preheader560
   %210 = load ptr, ptr %44, align 8
@@ -1416,17 +1416,17 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br label %212
 
 212:                                              ; preds = %._crit_edge594, %211
-  %.not610 = icmp eq i64 %indvars.iv635, 0
+  %.not610 = icmp eq i64 %indvars.iv637, 0
   br i1 %.not610, label %._crit_edge598, label %.lr.ph597.preheader
 
 .lr.ph597.preheader:                              ; preds = %212
-  %wide.trip.count651 = zext i32 %indvars.iv648 to i64
+  %wide.trip.count653 = zext i32 %indvars.iv650 to i64
   br label %.lr.ph597
 
 .lr.ph597:                                        ; preds = %.lr.ph597.preheader, %219
-  %indvars.iv645 = phi i64 [ 0, %.lr.ph597.preheader ], [ %indvars.iv.next646, %219 ]
+  %indvars.iv647 = phi i64 [ 0, %.lr.ph597.preheader ], [ %indvars.iv.next648, %219 ]
   %213 = load ptr, ptr %52, align 8
-  %214 = getelementptr inbounds %struct.DdSubtable, ptr %213, i64 %indvars.iv645
+  %214 = getelementptr inbounds %struct.DdSubtable, ptr %213, i64 %indvars.iv647
   %215 = load ptr, ptr %214, align 8
   %.not521 = icmp eq ptr %215, null
   br i1 %.not521, label %219, label %216
@@ -1434,14 +1434,14 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 216:                                              ; preds = %.lr.ph597
   tail call void @free(ptr noundef nonnull %215) #14
   %217 = load ptr, ptr %52, align 8
-  %218 = getelementptr inbounds %struct.DdSubtable, ptr %217, i64 %indvars.iv645
+  %218 = getelementptr inbounds %struct.DdSubtable, ptr %217, i64 %indvars.iv647
   store ptr null, ptr %218, align 8
   br label %219
 
 219:                                              ; preds = %216, %.lr.ph597
-  %indvars.iv.next646 = add nuw nsw i64 %indvars.iv645, 1
-  %exitcond652.not = icmp eq i64 %indvars.iv.next646, %wide.trip.count651
-  br i1 %exitcond652.not, label %._crit_edge598, label %.lr.ph597, !llvm.loop !30
+  %indvars.iv.next648 = add nuw nsw i64 %indvars.iv647, 1
+  %exitcond654.not = icmp eq i64 %indvars.iv.next648, %wide.trip.count653
+  br i1 %exitcond654.not, label %._crit_edge598, label %.lr.ph597, !llvm.loop !30
 
 ._crit_edge598:                                   ; preds = %219, %212
   %220 = load ptr, ptr %52, align 8
@@ -1508,16 +1508,16 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 ._crit_edge578:                                   ; preds = %.lr.ph577.preheader, %.preheader563
   %238 = load ptr, ptr %69, align 8
-  %239 = getelementptr inbounds i32, ptr %238, i64 %indvars.iv635
-  %240 = trunc nuw nsw i64 %indvars.iv635 to i32
+  %239 = getelementptr inbounds i32, ptr %238, i64 %indvars.iv637
+  %240 = trunc nuw nsw i64 %indvars.iv637 to i32
   store i32 %240, ptr %239, align 4
   %241 = load ptr, ptr %74, align 8
-  %242 = getelementptr inbounds i32, ptr %241, i64 %indvars.iv635
+  %242 = getelementptr inbounds i32, ptr %241, i64 %indvars.iv637
   store i32 %240, ptr %242, align 4
-  %indvars.iv.next636 = add nuw nsw i64 %indvars.iv635, 1
-  %exitcond639.not = icmp eq i64 %indvars.iv.next636, %wide.trip.count638
-  %indvars.iv.next649 = add nuw i32 %indvars.iv648, 1
-  br i1 %exitcond639.not, label %._crit_edge581, label %188, !llvm.loop !31
+  %indvars.iv.next638 = add nuw nsw i64 %indvars.iv637, 1
+  %exitcond641.not = icmp eq i64 %indvars.iv.next638, %wide.trip.count640
+  %indvars.iv.next651 = add nuw i32 %indvars.iv650, 1
+  br i1 %exitcond641.not, label %._crit_edge581, label %188, !llvm.loop !31
 
 ._crit_edge581:                                   ; preds = %._crit_edge578, %.preheader564
   %243 = getelementptr inbounds i8, ptr %5, i64 168
@@ -1531,7 +1531,7 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   store i32 0, ptr %247, align 8
   %248 = getelementptr inbounds i8, ptr %5, i64 188
   store i32 %.pre, ptr %248, align 4
-  %249 = tail call noalias ptr @malloc(i64 noundef %.pre683) #13
+  %249 = tail call noalias ptr @malloc(i64 noundef %.pre686) #13
   store ptr %249, ptr %243, align 8
   %250 = icmp eq ptr %249, null
   br i1 %250, label %.preheader561, label %.preheader562
@@ -1541,20 +1541,20 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not606, label %._crit_edge584, label %.lr.ph583.preheader
 
 .lr.ph583.preheader:                              ; preds = %.preheader562
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %249, i8 0, i64 %.pre683, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %249, i8 0, i64 %.pre686, i1 false)
   br label %._crit_edge584
 
 .preheader561:                                    ; preds = %._crit_edge581
   br i1 %.not602, label %._crit_edge587, label %.lr.ph586.preheader
 
 .lr.ph586.preheader:                              ; preds = %.preheader561
-  %wide.trip.count659 = zext i32 %0 to i64
+  %wide.trip.count662 = zext i32 %0 to i64
   br label %.lr.ph586
 
 .lr.ph586:                                        ; preds = %.lr.ph586.preheader, %257
-  %indvars.iv656 = phi i64 [ 0, %.lr.ph586.preheader ], [ %indvars.iv.next657, %257 ]
+  %indvars.iv659 = phi i64 [ 0, %.lr.ph586.preheader ], [ %indvars.iv.next660, %257 ]
   %251 = load ptr, ptr %44, align 8
-  %252 = getelementptr inbounds %struct.DdSubtable, ptr %251, i64 %indvars.iv656
+  %252 = getelementptr inbounds %struct.DdSubtable, ptr %251, i64 %indvars.iv659
   %253 = load ptr, ptr %252, align 8
   %.not513 = icmp eq ptr %253, null
   br i1 %.not513, label %257, label %254
@@ -1562,14 +1562,14 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 254:                                              ; preds = %.lr.ph586
   tail call void @free(ptr noundef nonnull %253) #14
   %255 = load ptr, ptr %44, align 8
-  %256 = getelementptr inbounds %struct.DdSubtable, ptr %255, i64 %indvars.iv656
+  %256 = getelementptr inbounds %struct.DdSubtable, ptr %255, i64 %indvars.iv659
   store ptr null, ptr %256, align 8
   br label %257
 
 257:                                              ; preds = %254, %.lr.ph586
-  %indvars.iv.next657 = add nuw nsw i64 %indvars.iv656, 1
-  %exitcond660.not = icmp eq i64 %indvars.iv.next657, %wide.trip.count659
-  br i1 %exitcond660.not, label %._crit_edge587, label %.lr.ph586, !llvm.loop !32
+  %indvars.iv.next660 = add nuw nsw i64 %indvars.iv659, 1
+  %exitcond663.not = icmp eq i64 %indvars.iv.next660, %wide.trip.count662
+  br i1 %exitcond663.not, label %._crit_edge587, label %.lr.ph586, !llvm.loop !32
 
 ._crit_edge587:                                   ; preds = %257, %.preheader561
   %258 = load ptr, ptr %44, align 8
@@ -1585,13 +1585,13 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not604, label %._crit_edge591, label %.lr.ph590.preheader
 
 .lr.ph590.preheader:                              ; preds = %260
-  %wide.trip.count664 = zext i32 %1 to i64
+  %wide.trip.count667 = zext i32 %1 to i64
   br label %.lr.ph590
 
 .lr.ph590:                                        ; preds = %.lr.ph590.preheader, %267
-  %indvars.iv661 = phi i64 [ 0, %.lr.ph590.preheader ], [ %indvars.iv.next662, %267 ]
+  %indvars.iv664 = phi i64 [ 0, %.lr.ph590.preheader ], [ %indvars.iv.next665, %267 ]
   %261 = load ptr, ptr %52, align 8
-  %262 = getelementptr inbounds %struct.DdSubtable, ptr %261, i64 %indvars.iv661
+  %262 = getelementptr inbounds %struct.DdSubtable, ptr %261, i64 %indvars.iv664
   %263 = load ptr, ptr %262, align 8
   %.not512 = icmp eq ptr %263, null
   br i1 %.not512, label %267, label %264
@@ -1599,14 +1599,14 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
 264:                                              ; preds = %.lr.ph590
   tail call void @free(ptr noundef nonnull %263) #14
   %265 = load ptr, ptr %52, align 8
-  %266 = getelementptr inbounds %struct.DdSubtable, ptr %265, i64 %indvars.iv661
+  %266 = getelementptr inbounds %struct.DdSubtable, ptr %265, i64 %indvars.iv664
   store ptr null, ptr %266, align 8
   br label %267
 
 267:                                              ; preds = %264, %.lr.ph590
-  %indvars.iv.next662 = add nuw nsw i64 %indvars.iv661, 1
-  %exitcond665.not = icmp eq i64 %indvars.iv.next662, %wide.trip.count664
-  br i1 %exitcond665.not, label %._crit_edge591, label %.lr.ph590, !llvm.loop !33
+  %indvars.iv.next665 = add nuw nsw i64 %indvars.iv664, 1
+  %exitcond668.not = icmp eq i64 %indvars.iv.next665, %wide.trip.count667
+  br i1 %exitcond668.not, label %._crit_edge591, label %.lr.ph590, !llvm.loop !33
 
 ._crit_edge591:                                   ; preds = %267, %260
   %268 = load ptr, ptr %52, align 8

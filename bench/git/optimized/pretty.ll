@@ -4442,14 +4442,14 @@ if.then22.i:                                      ; preds = %do.body.i.i
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %do.cond.i.i, %if.then22.i
-  %scevgep62.i = getelementptr i8, ptr %add.ptr.i108, i64 10
+  %scevgep66.i = getelementptr i8, ptr %add.ptr.i108, i64 10
   br label %do.body.i30.i
 
 do.body.i30.i:                                    ; preds = %do.cond.i34.i, %if.end25.i
   %str.addr.0.i31.i = phi ptr [ %add.ptr.i108, %if.end25.i ], [ %incdec.ptr.i35.i, %do.cond.i34.i ]
   %prefix.addr.0.i32.idx.i = phi i64 [ 0, %if.end25.i ], [ %prefix.addr.0.i32.add.i, %do.cond.i34.i ]
-  %exitcond63.i = icmp eq i64 %prefix.addr.0.i32.idx.i, 10
-  br i1 %exitcond63.i, label %land.lhs.true.i, label %do.cond.i34.i
+  %exitcond67.i = icmp eq i64 %prefix.addr.0.i32.idx.i, 10
+  br i1 %exitcond67.i, label %land.lhs.true.i, label %do.cond.i34.i
 
 do.cond.i34.i:                                    ; preds = %do.body.i30.i
   %prefix.addr.0.i32.ptr.i = getelementptr inbounds i8, ptr @.str.82, i64 %prefix.addr.0.i32.idx.i
@@ -4470,7 +4470,7 @@ if.then34.i:                                      ; preds = %land.lhs.true.i
   %add35.i = add nsw i32 %ret.1.i43.i, 80
   %conv36.i = sext i32 %add35.i to i64
   tail call void @strbuf_grow(ptr noundef %sb, i64 noundef %conv36.i) #18
-  tail call void @pp_user_info(ptr noundef nonnull %pp, ptr noundef nonnull @.str.8, ptr noundef %sb, ptr noundef %scevgep62.i, ptr noundef %call)
+  tail call void @pp_user_info(ptr noundef nonnull %pp, ptr noundef nonnull @.str.8, ptr noundef %sb, ptr noundef %scevgep66.i, ptr noundef %call)
   br label %for.cond.outer.i.backedge
 
 for.cond.outer.i.backedge:                        ; preds = %do.cond.i34.i, %if.then34.i, %land.lhs.true.i

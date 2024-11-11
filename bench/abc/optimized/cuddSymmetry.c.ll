@@ -2232,8 +2232,8 @@ ddSymmGroupMoveBackward.exit:                     ; preds = %22
   %50 = add nsw i32 %.06176.i, %21
   %.reass.i = add i32 %invariant.op.i, %.06176.i
   %51 = add nuw i32 %.06176.i, 1
-  %exitcond95.i = icmp eq i32 %.06176.i, %42
-  br i1 %exitcond95.i, label %.preheader.i, label %.preheader68.i, !llvm.loop !57
+  %exitcond96.i = icmp eq i32 %.06176.i, %42
+  br i1 %exitcond96.i, label %.preheader.i, label %.preheader68.i, !llvm.loop !57
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %43, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -2244,8 +2244,8 @@ ddSymmGroupMoveBackward.exit:                     ; preds = %22
   %54 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %54, ptr %53, align 4
   %55 = add nuw nsw i32 %.16281.i, 1
-  %exitcond97.not.i = icmp eq i32 %55, %39
-  br i1 %exitcond97.not.i, label %._crit_edge83.i, label %.lr.ph.i, !llvm.loop !58
+  %exitcond98.not.i = icmp eq i32 %55, %39
+  br i1 %exitcond98.not.i, label %._crit_edge83.i, label %.lr.ph.i, !llvm.loop !58
 
 ._crit_edge83.i:                                  ; preds = %.lr.ph.i, %.preheader.i, %37
   %.258.lcssa.i = phi i32 [ %31, %.preheader.i ], [ %31, %37 ], [ %54, %.lr.ph.i ]
@@ -2262,16 +2262,16 @@ ddSymmGroupMoveBackward.exit:                     ; preds = %22
   br label %.lr.ph88.i
 
 .lr.ph88.i:                                       ; preds = %.lr.ph88.i, %.lr.ph88.preheader.i
-  %indvars.iv98.i = phi i64 [ %61, %.lr.ph88.preheader.i ], [ %indvars.iv.next99.i, %.lr.ph88.i ]
+  %indvars.iv99.i = phi i64 [ %61, %.lr.ph88.preheader.i ], [ %indvars.iv.next100.i, %.lr.ph88.i ]
   %.26385.i = phi i32 [ 0, %.lr.ph88.preheader.i ], [ %65, %.lr.ph88.i ]
-  %indvars.iv.next99.i = add nsw i64 %indvars.iv98.i, 1
+  %indvars.iv.next100.i = add nsw i64 %indvars.iv99.i, 1
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.DdSubtable, ptr %62, i64 %indvars.iv98.i, i32 6
-  %64 = trunc nsw i64 %indvars.iv.next99.i to i32
+  %63 = getelementptr inbounds %struct.DdSubtable, ptr %62, i64 %indvars.iv99.i, i32 6
+  %64 = trunc nsw i64 %indvars.iv.next100.i to i32
   store i32 %64, ptr %63, align 4
   %65 = add nuw nsw i32 %.26385.i, 1
-  %exitcond101.not.i = icmp eq i32 %65, %38
-  br i1 %exitcond101.not.i, label %._crit_edge89.i, label %.lr.ph88.i, !llvm.loop !59
+  %exitcond102.not.i = icmp eq i32 %65, %38
+  br i1 %exitcond102.not.i, label %._crit_edge89.i, label %.lr.ph88.i, !llvm.loop !59
 
 ._crit_edge89.i:                                  ; preds = %.lr.ph88.i, %._crit_edge83.i
   %.2.lcssa.i = phi i32 [ %59, %._crit_edge83.i ], [ %64, %.lr.ph88.i ]
@@ -2649,8 +2649,8 @@ define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 
   %28 = add nsw i32 %.078100, %2
   %.reass = add i32 %.078100, %invariant.op
   %29 = add nuw i32 %.078100, 1
-  %exitcond127 = icmp eq i32 %.078100, %20
-  br i1 %exitcond127, label %.preheader, label %.preheader86, !llvm.loop !69
+  %exitcond128 = icmp eq i32 %.078100, %20
+  br i1 %exitcond128, label %.preheader, label %.preheader86, !llvm.loop !69
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2661,13 +2661,13 @@ define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 
   %32 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %32, ptr %31, align 4
   %33 = add nuw nsw i32 %.179111, 1
-  %exitcond129.not = icmp eq i32 %33, %17
-  br i1 %exitcond129.not, label %._crit_edge113, label %.lr.ph, !llvm.loop !70
+  %exitcond130.not = icmp eq i32 %33, %17
+  br i1 %exitcond130.not, label %._crit_edge113, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge113:                                   ; preds = %.lr.ph, %15, %.preheader
-  %.0.lcssa139 = phi i32 [ %.0.lcssa, %.preheader ], [ -1, %15 ], [ %.0.lcssa, %.lr.ph ]
-  %.067.lcssa138 = phi i32 [ %.067.lcssa, %.preheader ], [ -1, %15 ], [ %.067.lcssa, %.lr.ph ]
-  %.076.lcssa137 = phi i32 [ %.076.lcssa, %.preheader ], [ -1, %15 ], [ %.076.lcssa, %.lr.ph ]
+  %.0.lcssa140 = phi i32 [ %.0.lcssa, %.preheader ], [ -1, %15 ], [ %.0.lcssa, %.lr.ph ]
+  %.067.lcssa139 = phi i32 [ %.067.lcssa, %.preheader ], [ -1, %15 ], [ %.067.lcssa, %.lr.ph ]
+  %.076.lcssa138 = phi i32 [ %.076.lcssa, %.preheader ], [ -1, %15 ], [ %.076.lcssa, %.lr.ph ]
   %.275.lcssa = phi i32 [ %9, %.preheader ], [ %9, %15 ], [ %32, %.lr.ph ]
   %34 = load ptr, ptr %5, align 8
   %35 = sext i32 %.275.lcssa to i64
@@ -2682,16 +2682,16 @@ define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 
   br label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %.lr.ph118
-  %indvars.iv130 = phi i64 [ %39, %.lr.ph118.preheader ], [ %indvars.iv.next131, %.lr.ph118 ]
+  %indvars.iv131 = phi i64 [ %39, %.lr.ph118.preheader ], [ %indvars.iv.next132, %.lr.ph118 ]
   %.280115 = phi i32 [ 0, %.lr.ph118.preheader ], [ %43, %.lr.ph118 ]
-  %indvars.iv.next131 = add nsw i64 %indvars.iv130, 1
+  %indvars.iv.next132 = add nsw i64 %indvars.iv131, 1
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.DdSubtable, ptr %40, i64 %indvars.iv130, i32 6
-  %42 = trunc nsw i64 %indvars.iv.next131 to i32
+  %41 = getelementptr inbounds %struct.DdSubtable, ptr %40, i64 %indvars.iv131, i32 6
+  %42 = trunc nsw i64 %indvars.iv.next132 to i32
   store i32 %42, ptr %41, align 4
   %43 = add nuw nsw i32 %.280115, 1
-  %exitcond133.not = icmp eq i32 %43, %16
-  br i1 %exitcond133.not, label %._crit_edge119, label %.lr.ph118, !llvm.loop !71
+  %exitcond134.not = icmp eq i32 %43, %16
+  br i1 %exitcond134.not, label %._crit_edge119, label %.lr.ph118, !llvm.loop !71
 
 ._crit_edge119:                                   ; preds = %.lr.ph118, %._crit_edge113
   %.2.lcssa = phi i32 [ %37, %._crit_edge113 ], [ %42, %.lr.ph118 ]
@@ -2704,11 +2704,11 @@ define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 
   br i1 %48, label %.loopexit, label %49
 
 49:                                               ; preds = %._crit_edge119
-  store i32 %.067.lcssa138, ptr %47, align 8
+  store i32 %.067.lcssa139, ptr %47, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 4
-  store i32 %.0.lcssa139, ptr %50, align 4
+  store i32 %.0.lcssa140, ptr %50, align 4
   %51 = getelementptr inbounds i8, ptr %47, i64 12
-  store i32 %.076.lcssa137, ptr %51, align 4
+  store i32 %.076.lcssa138, ptr %51, align 4
   %52 = load ptr, ptr %3, align 8
   %53 = getelementptr inbounds i8, ptr %47, i64 16
   store ptr %52, ptr %53, align 8
@@ -2716,7 +2716,7 @@ define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %._crit_edge119, %49
-  %.069 = phi i32 [ %.076.lcssa137, %49 ], [ 0, %._crit_edge119 ], [ 0, %22 ]
+  %.069 = phi i32 [ %.076.lcssa138, %49 ], [ 0, %._crit_edge119 ], [ 0, %22 ]
   ret i32 %.069
 }
 

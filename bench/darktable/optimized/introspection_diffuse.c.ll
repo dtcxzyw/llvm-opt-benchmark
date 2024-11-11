@@ -1550,8 +1550,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %748 = or i1 %745, %747
   %749 = and i64 %665, 2305843009213693944
   %750 = icmp eq i64 %749, %665
-  %751 = and i64 %665, 1
-  %752 = icmp eq i64 %751, 0
+  %751 = and i32 %664, 1
+  %752 = icmp eq i32 %751, 0
   %753 = select i1 %734, i1 true, i1 %748
   br label %781
 

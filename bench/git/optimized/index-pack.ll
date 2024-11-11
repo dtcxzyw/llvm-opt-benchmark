@@ -1592,15 +1592,15 @@ sw.epilog.i.i:                                    ; preds = %while.end38.i.i, %s
   store i8 %conv61.i.i, ptr %hdr_size.i.i, align 8
   %169 = load i64, ptr %size10.i.i, align 8
   %170 = load i8, ptr %type.i.i, align 1
-  %conv66.i.i = sext i8 %170 to i32
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %stream.i.i.i)
   call void @llvm.lifetime.start.p0(i64 2400, ptr nonnull %c.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %hdr.i.i.i)
-  %171 = and i32 %conv66.i.i, -2
-  %.not.i.i.i = icmp eq i32 %171, 6
+  %171 = and i8 %170, -2
+  %.not.i.i.i = icmp eq i8 %171, 6
   br i1 %.not.i.i.i, label %if.else8.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.epilog.i.i
+  %conv66.i.i = sext i8 %170 to i32
   %call1.i.i.i = call i32 @format_object_header(ptr noundef nonnull %hdr.i.i.i, i64 noundef 32, i32 noundef range(i32 -128, 128) %conv66.i.i, i64 noundef %169) #23
   %172 = load ptr, ptr @the_repository, align 8
   %hash_algo.i33.i.i = getelementptr inbounds i8, ptr %172, i64 256

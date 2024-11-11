@@ -83,14 +83,13 @@ sw.bb:                                            ; preds = %if.then1
   %call.i = tail call noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56) %res, ptr noundef %2)
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %res, i64 64
   %3 = load i16, ptr %fUnion.i.i.i, align 8
-  %conv1.i.i.i = zext i16 %3 to i32
-  %and.i.i.i = and i32 %conv1.i.i.i, 17
-  %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
+  %4 = and i16 %3, 17
+  %tobool.not.i.i.i = icmp eq i16 %4, 0
   br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %_ZNK18StringBaseResource9getBufferEv.exit.i
 
 if.else.i.i.i:                                    ; preds = %sw.bb
-  %and5.i.i.i = and i32 %conv1.i.i.i, 2
-  %tobool6.not.i.i.i = icmp eq i32 %and5.i.i.i, 0
+  %5 = and i16 %3, 2
+  %tobool6.not.i.i.i = icmp eq i16 %5, 0
   br i1 %tobool6.not.i.i.i, label %if.else9.i.i.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
@@ -99,19 +98,19 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
 
 if.else9.i.i.i:                                   ; preds = %if.else.i.i.i
   %fArray.i.i.i = getelementptr inbounds i8, ptr %res, i64 80
-  %4 = load ptr, ptr %fArray.i.i.i, align 8
+  %6 = load ptr, ptr %fArray.i.i.i, align 8
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i
 
 _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %if.else9.i.i.i, %if.then7.i.i.i, %sw.bb
-  %retval.0.i.i.i = phi ptr [ %fBuffer.i.i.i, %if.then7.i.i.i ], [ %4, %if.else9.i.i.i ], [ null, %sw.bb ]
+  %retval.0.i.i.i = phi ptr [ %fBuffer.i.i.i, %if.then7.i.i.i ], [ %6, %if.else9.i.i.i ], [ null, %sw.bb ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %retval.0.i.i.i) #9, !srcloc !5
-  %5 = load i16, ptr %fUnion.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %5, 0
-  %6 = ashr i16 %5, 5
-  %shr.i.i.i.i = sext i16 %6 to i32
+  %7 = load i16, ptr %fUnion.i.i.i, align 8
+  %cmp.i.i.i.i = icmp slt i16 %7, 0
+  %8 = ashr i16 %7, 5
+  %shr.i.i.i.i = sext i16 %8 to i32
   %fLength.i.i.i = getelementptr inbounds i8, ptr %res, i64 68
-  %7 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %7, i32 %shr.i.i.i.i
+  %9 = load i32, ptr %fLength.i.i.i, align 4
+  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %9, i32 %shr.i.i.i.i
   %mul.i.i = shl nsw i32 %cond.i.i.i, 3
   %conv.i.i = zext i32 %mul.i.i to i64
   %calloc.i.i = tail call ptr @calloc(i64 1, i64 %conv.i.i)
@@ -135,15 +134,15 @@ if.end.i.i:                                       ; preds = %_ZNK18StringBaseRes
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %str.i.i.i, i64 2
-  %8 = zext nneg i32 %cond.i.i.i to i64
+  %10 = zext nneg i32 %cond.i.i.i to i64
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end174.i.i.i, %while.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %if.end174.i.i.i ]
   %j.0108.i.i.i = phi i32 [ 0, %while.body.lr.ph.i.i.i ], [ %j.1.i.i.i, %if.end174.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds i16, ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i
-  %9 = load i16, ptr %arrayidx.i.i.i, align 2
-  switch i16 %9, label %if.else115.i.i.i [
+  %11 = load i16, ptr %arrayidx.i.i.i, align 2
+  switch i16 %11, label %if.else115.i.i.i [
     i16 10, label %if.then.i.i.i
     i16 13, label %if.then9.i.i.i
     i16 34, label %if.then21.i.i.i
@@ -174,8 +173,8 @@ if.then12.i.i.i:                                  ; preds = %if.then9.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %while.body.i.i.i
   %arrayidx23.i.i.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 -2
-  %10 = load i16, ptr %arrayidx23.i.i.i, align 2
-  switch i16 %10, label %if.then45.i.i.i [
+  %12 = load i16, ptr %arrayidx23.i.i.i, align 2
+  switch i16 %12, label %if.then45.i.i.i [
     i16 39, label %if.then26.i.i.i
     i16 92, label %if.then64.i.i.i
   ]
@@ -189,8 +188,8 @@ if.then29.i.i.i:                                  ; preds = %if.then26.i.i.i
   %strlen97.i.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %calloc.i.i)
   %endptr98.i.i.i = getelementptr inbounds i8, ptr %calloc.i.i, i64 %strlen97.i.i.i
   store i16 92, ptr %endptr98.i.i.i, align 1
-  %11 = sext i32 %j.0108.i.i.i to i64
-  %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %11
+  %13 = sext i32 %j.0108.i.i.i to i64
+  %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %13
   store i8 34, ptr %gep.i.i.i, align 1
   br label %if.end174.i.i.i
 
@@ -203,8 +202,8 @@ if.then48.i.i.i:                                  ; preds = %if.then45.i.i.i
   %strlen95.i.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %calloc.i.i)
   %endptr96.i.i.i = getelementptr inbounds i8, ptr %calloc.i.i, i64 %strlen95.i.i.i
   store i16 92, ptr %endptr96.i.i.i, align 1
-  %12 = sext i32 %j.0108.i.i.i to i64
-  %gep105.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %12
+  %14 = sext i32 %j.0108.i.i.i to i64
+  %gep105.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %14
   store i8 34, ptr %gep105.i.i.i, align 1
   br label %if.end174.i.i.i
 
@@ -216,14 +215,14 @@ if.then64.i.i.i:                                  ; preds = %if.then21.i.i.i
   br label %if.end174.i.i.i
 
 if.then78.i.i.i:                                  ; preds = %while.body.i.i.i
-  %13 = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %cmp80.i.i.i = icmp samesign ult i64 %13, %8
+  %15 = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %cmp80.i.i.i = icmp samesign ult i64 %15, %10
   br i1 %cmp80.i.i.i, label %if.then81.i.i.i, label %if.else108.i.i.i
 
 if.then81.i.i.i:                                  ; preds = %if.then78.i.i.i
-  %arrayidx84.i.i.i = getelementptr inbounds i16, ptr %retval.0.i.i.i, i64 %13
-  %14 = load i16, ptr %arrayidx84.i.i.i, align 2
-  switch i16 %14, label %sw.default.i.i.i [
+  %arrayidx84.i.i.i = getelementptr inbounds i16, ptr %retval.0.i.i.i, i64 %15
+  %16 = load i16, ptr %arrayidx84.i.i.i, align 2
+  switch i16 %16, label %sw.default.i.i.i [
     i16 44, label %sw.bb.i.i.i
     i16 33, label %sw.bb.i.i.i
     i16 63, label %sw.bb.i.i.i
@@ -288,8 +287,8 @@ if.end112.i.i.i:                                  ; preds = %if.then110.i.i.i, %
   br label %if.end174.i.i.i
 
 if.else115.i.i.i:                                 ; preds = %while.body.i.i.i
-  %15 = add i16 %9, -32
-  %or.cond.i.i.i = icmp ult i16 %15, 95
+  %17 = add i16 %11, -32
+  %or.cond.i.i.i = icmp ult i16 %17, 95
   br i1 %or.cond.i.i.i, label %if.then124.i.i.i, label %if.else134.i.i.i
 
 if.then124.i.i.i:                                 ; preds = %if.else115.i.i.i
@@ -297,7 +296,7 @@ if.then124.i.i.i:                                 ; preds = %if.else115.i.i.i
   br i1 %cmp125.i.i.i, label %if.then126.i.i.i, label %if.end132.i.i.i
 
 if.then126.i.i.i:                                 ; preds = %if.then124.i.i.i
-  %conv129.i.i.i = trunc nuw i16 %9 to i8
+  %conv129.i.i.i = trunc nuw i16 %11 to i8
   %idxprom130.i.i.i = sext i32 %j.0108.i.i.i to i64
   %arrayidx131.i.i.i = getelementptr inbounds i8, ptr %calloc.i.i, i64 %idxprom130.i.i.i
   store i8 %conv129.i.i.i, ptr %arrayidx131.i.i.i, align 1
@@ -308,16 +307,16 @@ if.end132.i.i.i:                                  ; preds = %if.then126.i.i.i, %
   br label %if.end174.i.i.i
 
 if.else134.i.i.i:                                 ; preds = %if.else115.i.i.i
-  %16 = load ptr, ptr @_ZL3enc, align 8
-  %17 = load i8, ptr %16, align 1
-  %cmp136.i.i.i = icmp eq i8 %17, 0
-  %cmp140.i.i.i = icmp eq i16 %9, 0
+  %18 = load ptr, ptr @_ZL3enc, align 8
+  %19 = load i8, ptr %18, align 1
+  %cmp136.i.i.i = icmp eq i8 %19, 0
+  %cmp140.i.i.i = icmp eq i16 %11, 0
   %or.cond103.i.i.i = or i1 %cmp140.i.i.i, %cmp136.i.i.i
   br i1 %or.cond103.i.i.i, label %if.then141.i.i.i, label %if.else155.i.i.i
 
 if.then141.i.i.i:                                 ; preds = %if.else134.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %str.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.18, i64 3, i1 false) #9
-  %conv146.i.i.i = zext i16 %9 to i32
+  %conv146.i.i.i = zext i16 %11 to i32
   %call147.i.i.i = call i32 @itostr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef %conv146.i.i.i, i32 noundef 16, i32 noundef 4)
   %add148.i.i.i = add nsw i32 %j.0108.i.i.i, 6
   %cmp149.i.i.i = icmp slt i32 %add148.i.i.i, %mul.i.i
@@ -329,10 +328,10 @@ if.then150.i.i.i:                                 ; preds = %if.then141.i.i.i
 
 if.else155.i.i.i:                                 ; preds = %if.else134.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %dest.i.i.i, i8 0, i64 30, i1 false)
-  %18 = load ptr, ptr @_ZL4conv, align 8
-  %call158.i.i.i = call i32 @ucnv_fromUChars_75(ptr noundef %18, ptr noundef nonnull %dest.i.i.i, i32 noundef 30, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 1, ptr noundef nonnull %status)
-  %19 = load i32, ptr %status, align 4
-  %cmp.i.i.i4.i = icmp slt i32 %19, 1
+  %20 = load ptr, ptr @_ZL4conv, align 8
+  %call158.i.i.i = call i32 @ucnv_fromUChars_75(ptr noundef %20, ptr noundef nonnull %dest.i.i.i, i32 noundef 30, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 1, ptr noundef nonnull %status)
+  %21 = load i32, ptr %status, align 4
+  %cmp.i.i.i4.i = icmp slt i32 %21, 1
   br i1 %cmp.i.i.i4.i, label %if.end161.i.i.i, label %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i
 
 if.end161.i.i.i:                                  ; preds = %if.else155.i.i.i
@@ -347,30 +346,30 @@ if.then164.i.i.i:                                 ; preds = %if.end161.i.i.i
 if.end174.i.i.i:                                  ; preds = %if.then164.i.i.i, %if.end161.i.i.i, %if.then150.i.i.i, %if.then141.i.i.i, %if.end132.i.i.i, %if.end112.i.i.i, %if.end106.i.i.i, %if.then95.i.i.i, %sw.bb92.i.i.i, %if.then88.i.i.i, %sw.bb.i.i.i, %if.then64.i.i.i, %if.then48.i.i.i, %if.then45.i.i.i, %if.then29.i.i.i, %if.then26.i.i.i, %if.then12.i.i.i, %if.then9.i.i.i, %if.then3.i.i.i, %if.then.i.i.i
   %j.1.i.i.i = phi i32 [ %inc.i.i.i, %if.then64.i.i.i ], [ %inc107.i.i.i, %if.end106.i.i.i ], [ %add113.i.i.i, %if.end112.i.i.i ], [ %inc133.i.i.i, %if.end132.i.i.i ], [ %add.i.i.i, %if.then3.i.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %add10.i.i.i, %if.then12.i.i.i ], [ %add10.i.i.i, %if.then9.i.i.i ], [ %add27.i.i.i, %if.then29.i.i.i ], [ %add27.i.i.i, %if.then26.i.i.i ], [ %add46.i.i.i, %if.then48.i.i.i ], [ %add46.i.i.i, %if.then45.i.i.i ], [ %add86.i.i.i, %if.then88.i.i.i ], [ %add86.i.i.i, %sw.bb.i.i.i ], [ %add93.i.i.i, %if.then95.i.i.i ], [ %add93.i.i.i, %sw.bb92.i.i.i ], [ %add148.i.i.i, %if.then150.i.i.i ], [ %add148.i.i.i, %if.then141.i.i.i ], [ %add162.i.i.i, %if.then164.i.i.i ], [ %add162.i.i.i, %if.end161.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %8
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %10
   br i1 %exitcond.not.i.i.i, label %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i, label %while.body.i.i.i, !llvm.loop !6
 
 _ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i: ; preds = %if.end174.i.i.i, %if.else155.i.i.i, %if.end.i.i
   %retval.0.i.i3.i = phi i32 [ 0, %if.end.i.i ], [ 0, %if.else155.i.i.i ], [ %j.1.i.i.i, %if.end174.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %str.i.i.i)
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %dest.i.i.i)
-  %20 = load ptr, ptr @_ZL3out, align 8
-  %21 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i.i.i = icmp slt i32 %21, 0
+  %22 = load ptr, ptr @_ZL3out, align 8
+  %23 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i.i.i = icmp slt i32 %23, 0
   br i1 %cmp.not2.i.i.i, label %_ZL10write_tabsP11_FileStream.exit.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i, %for.body.i.i.i
   %i.03.i.i.i = phi i32 [ %inc.i62.i.i, %for.body.i.i.i ], [ 0, %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i ]
-  %call.i.i.i = call i32 @T_FileStream_write(ptr noundef %20, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i.i.i = call i32 @T_FileStream_write(ptr noundef %22, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i62.i.i = add nuw nsw i32 %i.03.i.i.i, 1
-  %22 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i.i.i = icmp slt i32 %i.03.i.i.i, %22
+  %24 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i.i.i = icmp slt i32 %i.03.i.i.i, %24
   br i1 %cmp.not.not.i.i.i, label %for.body.i.i.i, label %_ZL10write_tabsP11_FileStream.exit.i.i, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit.i.i:           ; preds = %for.body.i.i.i, %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i
-  %23 = phi i32 [ %21, %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i ], [ %22, %for.body.i.i.i ]
-  %24 = load i32, ptr %status, align 4
-  %cmp.i63.i.i = icmp slt i32 %24, 1
+  %25 = phi i32 [ %23, %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i ], [ %24, %for.body.i.i.i ]
+  %26 = load i32, ptr %status, align 4
+  %cmp.i63.i.i = icmp slt i32 %26, 1
   br i1 %cmp.i63.i.i, label %if.end10.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %_ZL10write_tabsP11_FileStream.exit.i.i
@@ -378,7 +377,7 @@ if.then9.i.i:                                     ; preds = %_ZL10write_tabsP11_
   br label %return
 
 if.end10.i.i:                                     ; preds = %_ZL10write_tabsP11_FileStream.exit.i.i
-  %mul11.i.i = shl nsw i32 %23, 2
+  %mul11.i.i = shl nsw i32 %25, 2
   %add.i.i = add i32 %mul11.i.i, %retval.0.i.i3.i
   %cmp12.i.i = icmp ugt i32 %add.i.i, %columnCount.0.i.i.i
   br i1 %cmp12.i.i, label %while.cond.preheader.i.i, label %if.else100.i.i
@@ -389,8 +388,8 @@ while.cond.preheader.i.i:                         ; preds = %if.end10.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %if.end97.i.i
   %len.079.i.i = phi i32 [ %add98.pre-phi.i.i, %if.end97.i.i ], [ 0, %while.cond.preheader.i.i ]
-  %25 = load i32, ptr @_ZL8tabCount, align 4
-  %mul16.i.i = shl nsw i32 %25, 2
+  %27 = load i32, ptr @_ZL8tabCount, align 4
+  %mul16.i.i = shl nsw i32 %27, 2
   %sub.i.i = sub i32 %columnCount.0.i.i.i, %mul16.i.i
   %sub17.i.i = add i32 %sub.i.i, -5
   %idx.ext.i.i = zext i32 %len.079.i.i to i64
@@ -407,8 +406,8 @@ if.then20.i.i:                                    ; preds = %while.body.i.i
 
 while.body.i65.i.i:                               ; preds = %if.end.i.i.i, %if.then20.i.i
   %tSourceEnd.010.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %add.ptr.i64.i.i, %if.then20.i.i ]
-  %26 = load i8, ptr %tSourceEnd.010.i.i.i, align 1
-  %cmp2.i66.i.i = icmp eq i8 %26, 92
+  %28 = load i8, ptr %tSourceEnd.010.i.i.i, align 1
+  %cmp2.i66.i.i = icmp eq i8 %28, 92
   br i1 %cmp2.i66.i.i, label %_ZL6strrchPKcjc.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i65.i.i
@@ -435,8 +434,8 @@ while.cond25.i.i:                                 ; preds = %_ZL6strrchPKcjc.exi
 while.body27.i.i:                                 ; preds = %while.cond25.i.i
   %idxprom.i.i = and i64 %indvars.iv.next.i.i, 2147483647
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idxprom.i.i
-  %27 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp29.i.i = icmp eq i8 %27, 92
+  %29 = load i8, ptr %arrayidx.i.i, align 1
+  %cmp29.i.i = icmp eq i8 %29, 92
   br i1 %cmp29.i.i, label %while.cond25.i.i, label %while.end.i.i, !llvm.loop !10
 
 while.end.i.i:                                    ; preds = %while.body27.i.i, %while.cond25.i.i
@@ -447,8 +446,8 @@ while.end.i.i:                                    ; preds = %while.body27.i.i, %
   %add38.i.i = add i32 %rem.i.i, %retval.0.i67.i.i
   %idxprom39.i.i = zext i32 %add38.i.i to i64
   %arrayidx40.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idxprom39.i.i
-  %28 = load i8, ptr %arrayidx40.i.i, align 1
-  %cmp42.i.i = icmp eq i8 %28, 117
+  %30 = load i8, ptr %arrayidx40.i.i, align 1
+  %cmp42.i.i = icmp eq i8 %30, 117
   %cond.i.i = select i1 %cmp42.i.i, i32 6, i32 2
   %sub43.i.i = sub i32 %sub17.i.i, %spec.select.i.i
   %cmp44.i.i = icmp ult i32 %sub43.i.i, %cond.i.i
@@ -458,8 +457,8 @@ while.end.i.i:                                    ; preds = %while.body27.i.i, %
 
 if.end49.i.i:                                     ; preds = %while.end.i.i, %_ZL6strrchPKcjc.exit.i.i, %while.body.i.i
   %add14.0.i.i = phi i32 [ %sub17.i.i, %while.body.i.i ], [ %sub17.i.i, %_ZL6strrchPKcjc.exit.i.i ], [ %spec.select61.i.i, %while.end.i.i ]
-  %29 = load ptr, ptr @_ZL3out, align 8
-  %call50.i.i = call i32 @T_FileStream_write(ptr noundef %29, ptr noundef nonnull @.str.10, i32 noundef 1)
+  %31 = load ptr, ptr @_ZL3out, align 8
+  %call50.i.i = call i32 @T_FileStream_write(ptr noundef %31, ptr noundef nonnull @.str.10, i32 noundef 1)
   %add51.i.i = add i32 %add14.0.i.i, %len.079.i.i
   %cmp52.i.i = icmp ult i32 %add51.i.i, %retval.0.i.i3.i
   br i1 %cmp52.i.i, label %while.cond54.preheader.i.i, label %if.else94.i.i
@@ -472,15 +471,15 @@ while.body56.i.i:                                 ; preds = %while.cond54.prehea
   %indvars.iv81.i.i = phi i64 [ %indvars.iv.next82.i.i, %if.end86.i.i ], [ 0, %while.cond54.preheader.i.i ]
   %add14.176.i.i = phi i32 [ %add14.2.i.i, %if.end86.i.i ], [ %add14.0.i.i, %while.cond54.preheader.i.i ]
   %add.ptr58.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %indvars.iv81.i.i
-  %30 = load i8, ptr %add.ptr58.i.i, align 1
-  %sub60.i.i = add i8 %30, 62
+  %32 = load i8, ptr %add.ptr58.i.i, align 1
+  %sub60.i.i = add i8 %32, 62
   %cmp63.i.i = icmp ult i8 %sub60.i.i, 51
   br i1 %cmp63.i.i, label %cond.end.i.i, label %if.end86.i.i
 
 cond.end.i.i:                                     ; preds = %while.body56.i.i
-  %cmp75.i.i = icmp samesign ugt i8 %30, -33
+  %cmp75.i.i = icmp samesign ugt i8 %32, -33
   %conv76.i.i = zext i1 %cmp75.i.i to i32
-  %cmp80.i.i = icmp samesign ugt i8 %30, -17
+  %cmp80.i.i = icmp samesign ugt i8 %32, -17
   %conv81.i.i = zext i1 %cmp80.i.i to i32
   %add82.i.i = add i32 %add14.176.i.i, 1
   %add83.i.i = add i32 %add82.i.i, %conv81.i.i
@@ -490,37 +489,37 @@ cond.end.i.i:                                     ; preds = %while.body56.i.i
 if.end86.i.i:                                     ; preds = %cond.end.i.i, %while.body56.i.i
   %add14.2.i.i = phi i32 [ %add85.i.i, %cond.end.i.i ], [ %add14.176.i.i, %while.body56.i.i ]
   %indvars.iv.next82.i.i = add nuw nsw i64 %indvars.iv81.i.i, 1
-  %31 = zext i32 %add14.2.i.i to i64
-  %cmp55.i.i = icmp samesign ult i64 %indvars.iv.next82.i.i, %31
+  %33 = zext i32 %add14.2.i.i to i64
+  %cmp55.i.i = icmp samesign ult i64 %indvars.iv.next82.i.i, %33
   br i1 %cmp55.i.i, label %while.body56.i.i, label %while.end87.i.i, !llvm.loop !11
 
 while.end87.i.i:                                  ; preds = %if.end86.i.i, %while.cond54.preheader.i.i
   %add14.1.lcssa.i.i = phi i32 [ 0, %while.cond54.preheader.i.i ], [ %add14.2.i.i, %if.end86.i.i ]
-  %32 = load ptr, ptr @_ZL3out, align 8
-  %call88.i.i = call i32 @T_FileStream_write(ptr noundef %32, ptr noundef nonnull %add.ptr.i.i, i32 noundef %add14.1.lcssa.i.i)
+  %34 = load ptr, ptr @_ZL3out, align 8
+  %call88.i.i = call i32 @T_FileStream_write(ptr noundef %34, ptr noundef nonnull %add.ptr.i.i, i32 noundef %add14.1.lcssa.i.i)
   %add89.i.i = add i32 %add14.1.lcssa.i.i, %len.079.i.i
   %cmp90.i.i = icmp ult i32 %add89.i.i, %retval.0.i.i3.i
   br i1 %cmp90.i.i, label %if.then91.i.i, label %if.end97.i.i
 
 if.then91.i.i:                                    ; preds = %while.end87.i.i
-  %33 = load ptr, ptr @_ZL3out, align 8
-  %call92.i.i = call i32 @T_FileStream_write(ptr noundef %33, ptr noundef nonnull @.str.11, i32 noundef 4)
-  %34 = load ptr, ptr @_ZL3out, align 8
-  %35 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i68.i.i = icmp slt i32 %35, 0
+  %35 = load ptr, ptr @_ZL3out, align 8
+  %call92.i.i = call i32 @T_FileStream_write(ptr noundef %35, ptr noundef nonnull @.str.11, i32 noundef 4)
+  %36 = load ptr, ptr @_ZL3out, align 8
+  %37 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i68.i.i = icmp slt i32 %37, 0
   br i1 %cmp.not2.i68.i.i, label %if.end97.i.i, label %for.body.i69.i.i
 
 for.body.i69.i.i:                                 ; preds = %if.then91.i.i, %for.body.i69.i.i
   %i.03.i70.i.i = phi i32 [ %inc.i72.i.i, %for.body.i69.i.i ], [ 0, %if.then91.i.i ]
-  %call.i71.i.i = call i32 @T_FileStream_write(ptr noundef %34, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i71.i.i = call i32 @T_FileStream_write(ptr noundef %36, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i72.i.i = add nuw nsw i32 %i.03.i70.i.i, 1
-  %36 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i73.i.i = icmp slt i32 %i.03.i70.i.i, %36
+  %38 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i73.i.i = icmp slt i32 %i.03.i70.i.i, %38
   br i1 %cmp.not.not.i73.i.i, label %for.body.i69.i.i, label %if.end97.i.i, !llvm.loop !8
 
 if.else94.i.i:                                    ; preds = %if.end49.i.i
-  %37 = load ptr, ptr @_ZL3out, align 8
-  %call96.i.i = call i32 @T_FileStream_write(ptr noundef %37, ptr noundef nonnull %add.ptr.i.i, i32 noundef %sub18.i.i)
+  %39 = load ptr, ptr @_ZL3out, align 8
+  %call96.i.i = call i32 @T_FileStream_write(ptr noundef %39, ptr noundef nonnull %add.ptr.i.i, i32 noundef %sub18.i.i)
   br label %if.end97.i.i
 
 if.end97.i.i:                                     ; preds = %for.body.i69.i.i, %if.else94.i.i, %if.then91.i.i, %while.end87.i.i
@@ -529,15 +528,15 @@ if.end97.i.i:                                     ; preds = %for.body.i69.i.i, %
   br i1 %cmp15.i.i, label %while.body.i.i, label %if.then105.i.i, !llvm.loop !12
 
 if.else100.i.i:                                   ; preds = %if.end10.i.i
-  %38 = load ptr, ptr @_ZL3out, align 8
-  %call101.i.i = call i32 @T_FileStream_write(ptr noundef %38, ptr noundef nonnull @.str.10, i32 noundef 1)
-  %39 = load ptr, ptr @_ZL3out, align 8
-  %call102.i.i = call i32 @T_FileStream_write(ptr noundef %39, ptr noundef nonnull %calloc.i.i, i32 noundef %retval.0.i.i3.i)
+  %40 = load ptr, ptr @_ZL3out, align 8
+  %call101.i.i = call i32 @T_FileStream_write(ptr noundef %40, ptr noundef nonnull @.str.10, i32 noundef 1)
+  %41 = load ptr, ptr @_ZL3out, align 8
+  %call102.i.i = call i32 @T_FileStream_write(ptr noundef %41, ptr noundef nonnull %calloc.i.i, i32 noundef %retval.0.i.i3.i)
   br label %if.then105.i.i
 
 if.then105.i.i:                                   ; preds = %if.end97.i.i, %if.else100.i.i, %while.cond.preheader.i.i
-  %40 = load ptr, ptr @_ZL3out, align 8
-  %call106.i.i = call i32 @T_FileStream_write(ptr noundef %40, ptr noundef nonnull @.str.12, i32 noundef 3)
+  %42 = load ptr, ptr @_ZL3out, align 8
+  %call106.i.i = call i32 @T_FileStream_write(ptr noundef %42, ptr noundef nonnull @.str.12, i32 noundef 3)
   call void @uprv_free_75(ptr noundef nonnull %calloc.i.i)
   br label %return
 
@@ -548,20 +547,20 @@ sw.bb2:                                           ; preds = %if.then1
 
 sw.bb6:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %buf.i)
-  %41 = load ptr, ptr @_ZL8srBundle, align 8
-  %call.i17 = tail call noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56) %res, ptr noundef %41)
+  %43 = load ptr, ptr @_ZL8srBundle, align 8
+  %call.i17 = tail call noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56) %res, ptr noundef %43)
   store i8 0, ptr %buf.i, align 16
-  %42 = load ptr, ptr @_ZL3out, align 8
-  %43 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i.i = icmp slt i32 %43, 0
+  %44 = load ptr, ptr @_ZL3out, align 8
+  %45 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i.i = icmp slt i32 %45, 0
   br i1 %cmp.not2.i.i, label %_ZL10write_tabsP11_FileStream.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %sw.bb6, %for.body.i.i
   %i.03.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %sw.bb6 ]
-  %call.i.i = tail call i32 @T_FileStream_write(ptr noundef %42, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i.i = tail call i32 @T_FileStream_write(ptr noundef %44, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i.i = add nuw nsw i32 %i.03.i.i, 1
-  %44 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i.i = icmp slt i32 %i.03.i.i, %44
+  %46 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i.i = icmp slt i32 %i.03.i.i, %46
   br i1 %cmp.not.not.i.i, label %for.body.i.i, label %_ZL10write_tabsP11_FileStream.exit.i, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit.i:             ; preds = %for.body.i.i, %sw.bb6
@@ -580,12 +579,12 @@ land.lhs.true.i:                                  ; preds = %_ZL10write_tabsP11_
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %call4.i = tail call i32 @T_FileStream_write(ptr noundef %.pre9.i, ptr noundef nonnull @.str.21, i32 noundef 14)
-  %45 = load i32, ptr @_ZL8tabCount, align 4
-  %inc.i = add nsw i32 %45, 1
+  %47 = load i32, ptr @_ZL8tabCount, align 4
+  %inc.i = add nsw i32 %47, 1
   store i32 %inc.i, ptr @_ZL8tabCount, align 4
   %fCount.i = getelementptr inbounds i8, ptr %res, i64 56
-  %46 = load i64, ptr %fCount.i, align 8
-  %cmp62.not.i = icmp eq i64 %46, 0
+  %48 = load i64, ptr %fCount.i, align 8
+  %cmp62.not.i = icmp eq i64 %48, 0
   br i1 %cmp62.not.i, label %if.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
@@ -595,47 +594,47 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
 for.body.i:                                       ; preds = %_ZL10write_tabsP11_FileStream.exit20.i, %for.body.lr.ph.i
   %conv54.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv5.i, %_ZL10write_tabsP11_FileStream.exit20.i ]
   %i.03.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc14.i, %_ZL10write_tabsP11_FileStream.exit20.i ]
-  %47 = load ptr, ptr @_ZL3out, align 8
-  %48 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i14.i = icmp slt i32 %48, 0
+  %49 = load ptr, ptr @_ZL3out, align 8
+  %50 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i14.i = icmp slt i32 %50, 0
   br i1 %cmp.not2.i14.i, label %_ZL10write_tabsP11_FileStream.exit20.i, label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.body.i, %for.body.i15.i
   %i.03.i16.i = phi i32 [ %inc.i18.i, %for.body.i15.i ], [ 0, %for.body.i ]
-  %call.i17.i = call i32 @T_FileStream_write(ptr noundef %47, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i17.i = call i32 @T_FileStream_write(ptr noundef %49, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i18.i = add nuw nsw i32 %i.03.i16.i, 1
-  %49 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i19.i = icmp slt i32 %i.03.i16.i, %49
+  %51 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i19.i = icmp slt i32 %i.03.i16.i, %51
   br i1 %cmp.not.not.i19.i, label %for.body.i15.i, label %_ZL10write_tabsP11_FileStream.exit20.i, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit20.i:           ; preds = %for.body.i15.i, %for.body.i
-  %50 = load ptr, ptr %fArray.i, align 8
-  %arrayidx7.i = getelementptr inbounds i32, ptr %50, i64 %conv54.i
-  %51 = load i32, ptr %arrayidx7.i, align 4
-  %call8.i = call i32 @itostr(ptr noundef nonnull %buf.i, i32 noundef %51, i32 noundef 10, i32 noundef 0)
-  %52 = load ptr, ptr @_ZL3out, align 8
-  %call9.i = call i32 @T_FileStream_write(ptr noundef %52, ptr noundef nonnull @.str.10, i32 noundef 1)
-  %53 = load ptr, ptr @_ZL3out, align 8
-  %call11.i = call i32 @T_FileStream_write(ptr noundef %53, ptr noundef nonnull %buf.i, i32 noundef %call8.i)
+  %52 = load ptr, ptr %fArray.i, align 8
+  %arrayidx7.i = getelementptr inbounds i32, ptr %52, i64 %conv54.i
+  %53 = load i32, ptr %arrayidx7.i, align 4
+  %call8.i = call i32 @itostr(ptr noundef nonnull %buf.i, i32 noundef %53, i32 noundef 10, i32 noundef 0)
   %54 = load ptr, ptr @_ZL3out, align 8
-  %call12.i = call i32 @T_FileStream_write(ptr noundef %54, ptr noundef nonnull @.str.23, i32 noundef 2)
+  %call9.i = call i32 @T_FileStream_write(ptr noundef %54, ptr noundef nonnull @.str.10, i32 noundef 1)
   %55 = load ptr, ptr @_ZL3out, align 8
-  %call13.i = call i32 @T_FileStream_write(ptr noundef %55, ptr noundef nonnull @.str.24, i32 noundef 1)
+  %call11.i = call i32 @T_FileStream_write(ptr noundef %55, ptr noundef nonnull %buf.i, i32 noundef %call8.i)
+  %56 = load ptr, ptr @_ZL3out, align 8
+  %call12.i = call i32 @T_FileStream_write(ptr noundef %56, ptr noundef nonnull @.str.23, i32 noundef 2)
+  %57 = load ptr, ptr @_ZL3out, align 8
+  %call13.i = call i32 @T_FileStream_write(ptr noundef %57, ptr noundef nonnull @.str.24, i32 noundef 1)
   %inc14.i = add i32 %i.03.i, 1
   %conv5.i = zext i32 %inc14.i to i64
-  %56 = load i64, ptr %fCount.i, align 8
-  %cmp6.i = icmp ugt i64 %56, %conv5.i
+  %58 = load i64, ptr %fCount.i, align 8
+  %cmp6.i = icmp ugt i64 %58, %conv5.i
   br i1 %cmp6.i, label %for.body.i, label %if.endthread-pre-split.i, !llvm.loop !13
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %_ZL10write_tabsP11_FileStream.exit.if.else_crit_edge.i
-  %57 = phi ptr [ %.pre.i, %_ZL10write_tabsP11_FileStream.exit.if.else_crit_edge.i ], [ %.pre9.i, %land.lhs.true.i ]
-  %call17.i = tail call i32 @T_FileStream_write(ptr noundef %57, ptr noundef nonnull @.str.20, i32 noundef 12)
-  %58 = load i32, ptr @_ZL8tabCount, align 4
-  %inc18.i = add nsw i32 %58, 1
+  %59 = phi ptr [ %.pre.i, %_ZL10write_tabsP11_FileStream.exit.if.else_crit_edge.i ], [ %.pre9.i, %land.lhs.true.i ]
+  %call17.i = tail call i32 @T_FileStream_write(ptr noundef %59, ptr noundef nonnull @.str.20, i32 noundef 12)
+  %60 = load i32, ptr @_ZL8tabCount, align 4
+  %inc18.i = add nsw i32 %60, 1
   store i32 %inc18.i, ptr @_ZL8tabCount, align 4
   %fCount21.i = getelementptr inbounds i8, ptr %res, i64 56
-  %59 = load i64, ptr %fCount21.i, align 8
-  %cmp225.not.i = icmp eq i64 %59, 0
+  %61 = load i64, ptr %fCount21.i, align 8
+  %cmp225.not.i = icmp eq i64 %61, 0
   br i1 %cmp225.not.i, label %if.end.i, label %for.body23.lr.ph.i
 
 for.body23.lr.ph.i:                               ; preds = %if.else.i
@@ -645,32 +644,32 @@ for.body23.lr.ph.i:                               ; preds = %if.else.i
 for.body23.i:                                     ; preds = %_ZL10write_tabsP11_FileStream.exit27.i, %for.body23.lr.ph.i
   %conv207.i = phi i64 [ 0, %for.body23.lr.ph.i ], [ %conv20.i, %_ZL10write_tabsP11_FileStream.exit27.i ]
   %i.16.i = phi i32 [ 0, %for.body23.lr.ph.i ], [ %inc33.i, %_ZL10write_tabsP11_FileStream.exit27.i ]
-  %60 = load ptr, ptr @_ZL3out, align 8
-  %61 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i21.i = icmp slt i32 %61, 0
+  %62 = load ptr, ptr @_ZL3out, align 8
+  %63 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i21.i = icmp slt i32 %63, 0
   br i1 %cmp.not2.i21.i, label %_ZL10write_tabsP11_FileStream.exit27.i, label %for.body.i22.i
 
 for.body.i22.i:                                   ; preds = %for.body23.i, %for.body.i22.i
   %i.03.i23.i = phi i32 [ %inc.i25.i, %for.body.i22.i ], [ 0, %for.body23.i ]
-  %call.i24.i = call i32 @T_FileStream_write(ptr noundef %60, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i24.i = call i32 @T_FileStream_write(ptr noundef %62, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i25.i = add nuw nsw i32 %i.03.i23.i, 1
-  %62 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i26.i = icmp slt i32 %i.03.i23.i, %62
+  %64 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i26.i = icmp slt i32 %i.03.i23.i, %64
   br i1 %cmp.not.not.i26.i, label %for.body.i22.i, label %_ZL10write_tabsP11_FileStream.exit27.i, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit27.i:           ; preds = %for.body.i22.i, %for.body23.i
-  %63 = load ptr, ptr %fArray25.i, align 8
-  %arrayidx27.i = getelementptr inbounds i32, ptr %63, i64 %conv207.i
-  %64 = load i32, ptr %arrayidx27.i, align 4
-  %call28.i = call i32 @itostr(ptr noundef nonnull %buf.i, i32 noundef %64, i32 noundef 10, i32 noundef 0)
-  %65 = load ptr, ptr @_ZL3out, align 8
-  %call30.i = call i32 @T_FileStream_write(ptr noundef %65, ptr noundef nonnull %buf.i, i32 noundef %call28.i)
-  %66 = load ptr, ptr @_ZL3out, align 8
-  %call31.i = call i32 @T_FileStream_write(ptr noundef %66, ptr noundef nonnull @.str.25, i32 noundef 2)
+  %65 = load ptr, ptr %fArray25.i, align 8
+  %arrayidx27.i = getelementptr inbounds i32, ptr %65, i64 %conv207.i
+  %66 = load i32, ptr %arrayidx27.i, align 4
+  %call28.i = call i32 @itostr(ptr noundef nonnull %buf.i, i32 noundef %66, i32 noundef 10, i32 noundef 0)
+  %67 = load ptr, ptr @_ZL3out, align 8
+  %call30.i = call i32 @T_FileStream_write(ptr noundef %67, ptr noundef nonnull %buf.i, i32 noundef %call28.i)
+  %68 = load ptr, ptr @_ZL3out, align 8
+  %call31.i = call i32 @T_FileStream_write(ptr noundef %68, ptr noundef nonnull @.str.25, i32 noundef 2)
   %inc33.i = add i32 %i.16.i, 1
   %conv20.i = zext i32 %inc33.i to i64
-  %67 = load i64, ptr %fCount21.i, align 8
-  %cmp22.i = icmp ugt i64 %67, %conv20.i
+  %69 = load i64, ptr %fCount21.i, align 8
+  %cmp22.i = icmp ugt i64 %69, %conv20.i
   br i1 %cmp22.i, label %for.body23.i, label %if.endthread-pre-split.i, !llvm.loop !14
 
 if.endthread-pre-split.i:                         ; preds = %_ZL10write_tabsP11_FileStream.exit20.i, %_ZL10write_tabsP11_FileStream.exit27.i
@@ -678,19 +677,19 @@ if.endthread-pre-split.i:                         ; preds = %_ZL10write_tabsP11_
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.endthread-pre-split.i, %if.else.i, %if.then.i
-  %68 = phi i32 [ %.pr.i, %if.endthread-pre-split.i ], [ %inc.i, %if.then.i ], [ %inc18.i, %if.else.i ]
-  %dec.i = add nsw i32 %68, -1
+  %70 = phi i32 [ %.pr.i, %if.endthread-pre-split.i ], [ %inc.i, %if.then.i ], [ %inc18.i, %if.else.i ]
+  %dec.i = add nsw i32 %70, -1
   store i32 %dec.i, ptr @_ZL8tabCount, align 4
-  %69 = load ptr, ptr @_ZL3out, align 8
-  %cmp.not2.i28.i = icmp slt i32 %68, 1
+  %71 = load ptr, ptr @_ZL3out, align 8
+  %cmp.not2.i28.i = icmp slt i32 %70, 1
   br i1 %cmp.not2.i28.i, label %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit, label %for.body.i29.i
 
 for.body.i29.i:                                   ; preds = %if.end.i, %for.body.i29.i
   %i.03.i30.i = phi i32 [ %inc.i32.i, %for.body.i29.i ], [ 0, %if.end.i ]
-  %call.i31.i = call i32 @T_FileStream_write(ptr noundef %69, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i31.i = call i32 @T_FileStream_write(ptr noundef %71, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i32.i = add nuw nsw i32 %i.03.i30.i, 1
-  %70 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i33.i = icmp slt i32 %i.03.i30.i, %70
+  %72 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i33.i = icmp slt i32 %i.03.i30.i, %72
   br i1 %cmp.not.not.i33.i, label %for.body.i29.i, label %_ZL10write_tabsP11_FileStream.exit34.loopexit.i, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit34.loopexit.i:  ; preds = %for.body.i29.i
@@ -698,8 +697,8 @@ _ZL10write_tabsP11_FileStream.exit34.loopexit.i:  ; preds = %for.body.i29.i
   br label %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit
 
 _ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit: ; preds = %if.end.i, %_ZL10write_tabsP11_FileStream.exit34.loopexit.i
-  %71 = phi ptr [ %.pre10.i, %_ZL10write_tabsP11_FileStream.exit34.loopexit.i ], [ %69, %if.end.i ]
-  %call35.i = call i32 @T_FileStream_write(ptr noundef %71, ptr noundef nonnull @.str.26, i32 noundef 3)
+  %73 = phi ptr [ %.pre10.i, %_ZL10write_tabsP11_FileStream.exit34.loopexit.i ], [ %71, %if.end.i ]
+  %call35.i = call i32 @T_FileStream_write(ptr noundef %73, ptr noundef nonnull @.str.26, i32 noundef 3)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %buf.i)
   br label %return
 
@@ -707,24 +706,24 @@ sw.bb7:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %byteBuffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %byteBuffer.i, i8 0, i64 100, i1 false)
   %fLength.i = getelementptr inbounds i8, ptr %res, i64 56
-  %72 = load i32, ptr %fLength.i, align 8
-  %cmp.i18 = icmp sgt i32 %72, 0
+  %74 = load i32, ptr %fLength.i, align 8
+  %cmp.i18 = icmp sgt i32 %74, 0
   br i1 %cmp.i18, label %if.then.i20, label %if.else37.i
 
 if.then.i20:                                      ; preds = %sw.bb7
   %fData.i = getelementptr inbounds i8, ptr %res, i64 64
-  %73 = load ptr, ptr %fData.i, align 8
-  %74 = load ptr, ptr @_ZL3out, align 8
-  %75 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i.i21 = icmp slt i32 %75, 0
+  %75 = load ptr, ptr %fData.i, align 8
+  %76 = load ptr, ptr @_ZL3out, align 8
+  %77 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i.i21 = icmp slt i32 %77, 0
   br i1 %cmp.not2.i.i21, label %for.body.preheader.i, label %for.body.i.i22
 
 for.body.i.i22:                                   ; preds = %if.then.i20, %for.body.i.i22
   %i.03.i.i23 = phi i32 [ %inc.i.i25, %for.body.i.i22 ], [ 0, %if.then.i20 ]
-  %call.i.i24 = tail call i32 @T_FileStream_write(ptr noundef %74, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i.i24 = tail call i32 @T_FileStream_write(ptr noundef %76, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i.i25 = add nuw nsw i32 %i.03.i.i23, 1
-  %76 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i.i26 = icmp slt i32 %i.03.i.i23, %76
+  %78 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i.i26 = icmp slt i32 %i.03.i.i23, %78
   br i1 %cmp.not.not.i.i26, label %for.body.i.i22, label %_ZL10write_tabsP11_FileStream.exit.loopexit.i, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit.loopexit.i:    ; preds = %for.body.i.i22
@@ -732,55 +731,55 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i:    ; preds = %for.body.i.i22
   br label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit.i, %if.then.i20
-  %77 = phi ptr [ %.pre4.i, %_ZL10write_tabsP11_FileStream.exit.loopexit.i ], [ %74, %if.then.i20 ]
-  %call1.i27 = tail call i32 @T_FileStream_write(ptr noundef %77, ptr noundef nonnull @.str.27, i32 noundef 12)
-  %78 = load ptr, ptr @_ZL3out, align 8
-  %call2.i = tail call i32 @T_FileStream_write(ptr noundef %78, ptr noundef nonnull @.str.24, i32 noundef 1)
-  %79 = load i32, ptr @_ZL8tabCount, align 4
-  %inc.i28 = add nsw i32 %79, 1
+  %79 = phi ptr [ %.pre4.i, %_ZL10write_tabsP11_FileStream.exit.loopexit.i ], [ %76, %if.then.i20 ]
+  %call1.i27 = tail call i32 @T_FileStream_write(ptr noundef %79, ptr noundef nonnull @.str.27, i32 noundef 12)
+  %80 = load ptr, ptr @_ZL3out, align 8
+  %call2.i = tail call i32 @T_FileStream_write(ptr noundef %80, ptr noundef nonnull @.str.24, i32 noundef 1)
+  %81 = load i32, ptr @_ZL8tabCount, align 4
+  %inc.i28 = add nsw i32 %81, 1
   store i32 %inc.i28, ptr @_ZL8tabCount, align 4
-  %wide.trip.count.i = zext nneg i32 %72 to i64
+  %wide.trip.count.i = zext nneg i32 %74 to i64
   br label %for.body.i29
 
 for.body.i29:                                     ; preds = %for.body.i29.backedge, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.i.be, %for.body.i29.backedge ]
-  %80 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %rem.i = and i32 %80, 15
+  %82 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %rem.i = and i32 %82, 15
   %cmp4.i = icmp eq i32 %rem.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %if.end.i30
 
 if.then5.i:                                       ; preds = %for.body.i29
-  %81 = load ptr, ptr @_ZL3out, align 8
-  %82 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i16.i = icmp slt i32 %82, 0
+  %83 = load ptr, ptr @_ZL3out, align 8
+  %84 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i16.i = icmp slt i32 %84, 0
   br i1 %cmp.not2.i16.i, label %if.end.i30, label %for.body.i17.i
 
 for.body.i17.i:                                   ; preds = %if.then5.i, %for.body.i17.i
   %i.03.i18.i = phi i32 [ %inc.i20.i, %for.body.i17.i ], [ 0, %if.then5.i ]
-  %call.i19.i = call i32 @T_FileStream_write(ptr noundef %81, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i19.i = call i32 @T_FileStream_write(ptr noundef %83, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i20.i = add nuw nsw i32 %i.03.i18.i, 1
-  %83 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i21.i = icmp slt i32 %i.03.i18.i, %83
+  %85 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i21.i = icmp slt i32 %i.03.i18.i, %85
   br i1 %cmp.not.not.i21.i, label %for.body.i17.i, label %if.end.i30, !llvm.loop !8
 
 if.end.i30:                                       ; preds = %for.body.i17.i, %if.then5.i, %for.body.i29
-  %arrayidx.i = getelementptr inbounds i8, ptr %73, i64 %indvars.iv.i
-  %84 = load i8, ptr %arrayidx.i, align 1
-  %conv6.i = zext i8 %84 to i32
+  %arrayidx.i = getelementptr inbounds i8, ptr %75, i64 %indvars.iv.i
+  %86 = load i8, ptr %arrayidx.i, align 1
+  %conv6.i = zext i8 %86 to i32
   %sub.i = or disjoint i32 %conv6.i, -256
-  %cmp76.i = icmp slt i8 %84, 0
+  %cmp76.i = icmp slt i8 %86, 0
   %sub.sink.i = select i1 %cmp76.i, i32 %sub.i, i32 %conv6.i
   %call17.i31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %byteBuffer.i, i64 noundef 100, ptr noundef nonnull @.str.28, i32 noundef %sub.sink.i) #9
-  %85 = load ptr, ptr @_ZL3out, align 8
+  %87 = load ptr, ptr @_ZL3out, align 8
   %call21.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %byteBuffer.i) #10
   %conv22.i = trunc i64 %call21.i to i32
-  %call23.i = call i32 @T_FileStream_write(ptr noundef %85, ptr noundef nonnull %byteBuffer.i, i32 noundef %conv22.i)
+  %call23.i = call i32 @T_FileStream_write(ptr noundef %87, ptr noundef nonnull %byteBuffer.i, i32 noundef %conv22.i)
   %cmp25.i = icmp eq i32 %rem.i, 15
   br i1 %cmp25.i, label %for.inc.i, label %for.inc.i.thread
 
 for.inc.i:                                        ; preds = %if.end.i30
-  %86 = load ptr, ptr @_ZL3out, align 8
-  %call27.i = call i32 @T_FileStream_write(ptr noundef %86, ptr noundef nonnull @.str.24, i32 noundef 1)
+  %88 = load ptr, ptr @_ZL3out, align 8
+  %call27.i = call i32 @T_FileStream_write(ptr noundef %88, ptr noundef nonnull @.str.24, i32 noundef 1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %if.end35.i, label %for.body.i29.backedge
@@ -795,24 +794,24 @@ for.inc.i.thread:                                 ; preds = %if.end.i30
   br i1 %exitcond.not.i111, label %if.then33.i, label %for.body.i29.backedge
 
 if.then33.i:                                      ; preds = %for.inc.i.thread
-  %87 = load ptr, ptr @_ZL3out, align 8
-  %call34.i = call i32 @T_FileStream_write(ptr noundef %87, ptr noundef nonnull @.str.24, i32 noundef 1)
+  %89 = load ptr, ptr @_ZL3out, align 8
+  %call34.i = call i32 @T_FileStream_write(ptr noundef %89, ptr noundef nonnull @.str.24, i32 noundef 1)
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %for.inc.i, %if.then33.i
-  %88 = load i32, ptr @_ZL8tabCount, align 4
-  %dec.i32 = add nsw i32 %88, -1
+  %90 = load i32, ptr @_ZL8tabCount, align 4
+  %dec.i32 = add nsw i32 %90, -1
   store i32 %dec.i32, ptr @_ZL8tabCount, align 4
-  %89 = load ptr, ptr @_ZL3out, align 8
-  %cmp.not2.i23.i = icmp slt i32 %88, 1
+  %91 = load ptr, ptr @_ZL3out, align 8
+  %cmp.not2.i23.i = icmp slt i32 %90, 1
   br i1 %cmp.not2.i23.i, label %_ZL10write_tabsP11_FileStream.exit29.i, label %for.body.i24.i
 
 for.body.i24.i:                                   ; preds = %if.end35.i, %for.body.i24.i
   %i.03.i25.i = phi i32 [ %inc.i27.i, %for.body.i24.i ], [ 0, %if.end35.i ]
-  %call.i26.i = call i32 @T_FileStream_write(ptr noundef %89, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i26.i = call i32 @T_FileStream_write(ptr noundef %91, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i27.i = add nuw nsw i32 %i.03.i25.i, 1
-  %90 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i28.i = icmp slt i32 %i.03.i25.i, %90
+  %92 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i28.i = icmp slt i32 %i.03.i25.i, %92
   br i1 %cmp.not.not.i28.i, label %for.body.i24.i, label %_ZL10write_tabsP11_FileStream.exit29.loopexit.i, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit29.loopexit.i:  ; preds = %for.body.i24.i
@@ -820,22 +819,22 @@ _ZL10write_tabsP11_FileStream.exit29.loopexit.i:  ; preds = %for.body.i24.i
   br label %_ZL10write_tabsP11_FileStream.exit29.i
 
 _ZL10write_tabsP11_FileStream.exit29.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit29.loopexit.i, %if.end35.i
-  %91 = phi ptr [ %.pre5.i, %_ZL10write_tabsP11_FileStream.exit29.loopexit.i ], [ %89, %if.end35.i ]
-  %call36.i = call i32 @T_FileStream_write(ptr noundef %91, ptr noundef nonnull @.str.26, i32 noundef 3)
+  %93 = phi ptr [ %.pre5.i, %_ZL10write_tabsP11_FileStream.exit29.loopexit.i ], [ %91, %if.end35.i ]
+  %call36.i = call i32 @T_FileStream_write(ptr noundef %93, ptr noundef nonnull @.str.26, i32 noundef 3)
   br label %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit
 
 if.else37.i:                                      ; preds = %sw.bb7
-  %92 = load ptr, ptr @_ZL3out, align 8
-  %93 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i30.i = icmp slt i32 %93, 0
+  %94 = load ptr, ptr @_ZL3out, align 8
+  %95 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i30.i = icmp slt i32 %95, 0
   br i1 %cmp.not2.i30.i, label %_ZL10write_tabsP11_FileStream.exit36.i, label %for.body.i31.i
 
 for.body.i31.i:                                   ; preds = %if.else37.i, %for.body.i31.i
   %i.03.i32.i = phi i32 [ %inc.i34.i, %for.body.i31.i ], [ 0, %if.else37.i ]
-  %call.i33.i = tail call i32 @T_FileStream_write(ptr noundef %92, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i33.i = tail call i32 @T_FileStream_write(ptr noundef %94, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i34.i = add nuw nsw i32 %i.03.i32.i, 1
-  %94 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i35.i = icmp slt i32 %i.03.i32.i, %94
+  %96 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i35.i = icmp slt i32 %i.03.i32.i, %96
   br i1 %cmp.not.not.i35.i, label %for.body.i31.i, label %_ZL10write_tabsP11_FileStream.exit36.loopexit.i, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit36.loopexit.i:  ; preds = %for.body.i31.i
@@ -843,10 +842,10 @@ _ZL10write_tabsP11_FileStream.exit36.loopexit.i:  ; preds = %for.body.i31.i
   br label %_ZL10write_tabsP11_FileStream.exit36.i
 
 _ZL10write_tabsP11_FileStream.exit36.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit36.loopexit.i, %if.else37.i
-  %95 = phi ptr [ %.pre.i19, %_ZL10write_tabsP11_FileStream.exit36.loopexit.i ], [ %92, %if.else37.i ]
-  %call40.i = tail call i32 @T_FileStream_write(ptr noundef %95, ptr noundef nonnull @.str.27, i32 noundef 12)
-  %96 = load ptr, ptr @_ZL3out, align 8
-  %call41.i = tail call i32 @T_FileStream_write(ptr noundef %96, ptr noundef nonnull @.str.26, i32 noundef 3)
+  %97 = phi ptr [ %.pre.i19, %_ZL10write_tabsP11_FileStream.exit36.loopexit.i ], [ %94, %if.else37.i ]
+  %call40.i = tail call i32 @T_FileStream_write(ptr noundef %97, ptr noundef nonnull @.str.27, i32 noundef 12)
+  %98 = load ptr, ptr @_ZL3out, align 8
+  %call41.i = tail call i32 @T_FileStream_write(ptr noundef %98, ptr noundef nonnull @.str.26, i32 noundef 3)
   br label %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit
 
 _ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit: ; preds = %_ZL10write_tabsP11_FileStream.exit29.i, %_ZL10write_tabsP11_FileStream.exit36.i
@@ -856,17 +855,17 @@ _ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit: ; preds = %_ZL10write
 sw.bb8:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %buf.i33)
   store i8 0, ptr %buf.i33, align 16
-  %97 = load ptr, ptr @_ZL3out, align 8
-  %98 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i.i34 = icmp slt i32 %98, 0
+  %99 = load ptr, ptr @_ZL3out, align 8
+  %100 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i.i34 = icmp slt i32 %100, 0
   br i1 %cmp.not2.i.i34, label %_ZL14int_write_javaPK11IntResourceP10UErrorCode.exit, label %for.body.i.i35
 
 for.body.i.i35:                                   ; preds = %sw.bb8, %for.body.i.i35
   %i.03.i.i36 = phi i32 [ %inc.i.i38, %for.body.i.i35 ], [ 0, %sw.bb8 ]
-  %call.i.i37 = tail call i32 @T_FileStream_write(ptr noundef %97, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i.i37 = tail call i32 @T_FileStream_write(ptr noundef %99, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i.i38 = add nuw nsw i32 %i.03.i.i36, 1
-  %99 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i.i39 = icmp slt i32 %i.03.i.i36, %99
+  %101 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i.i39 = icmp slt i32 %i.03.i.i36, %101
   br i1 %cmp.not.not.i.i39, label %for.body.i.i35, label %_ZL10write_tabsP11_FileStream.exit.loopexit.i40, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit.loopexit.i40:  ; preds = %for.body.i.i35
@@ -874,22 +873,22 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i40:  ; preds = %for.body.i.i35
   br label %_ZL14int_write_javaPK11IntResourceP10UErrorCode.exit
 
 _ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %sw.bb8, %_ZL10write_tabsP11_FileStream.exit.loopexit.i40
-  %100 = phi ptr [ %.pre.i41, %_ZL10write_tabsP11_FileStream.exit.loopexit.i40 ], [ %97, %sw.bb8 ]
-  %call1.i43 = tail call i32 @T_FileStream_write(ptr noundef %100, ptr noundef nonnull @.str.29, i32 noundef 12)
+  %102 = phi ptr [ %.pre.i41, %_ZL10write_tabsP11_FileStream.exit.loopexit.i40 ], [ %99, %sw.bb8 ]
+  %call1.i43 = tail call i32 @T_FileStream_write(ptr noundef %102, ptr noundef nonnull @.str.29, i32 noundef 12)
   %fValue.i = getelementptr inbounds i8, ptr %res, i64 56
-  %101 = load i32, ptr %fValue.i, align 8
-  %call2.i44 = call i32 @itostr(ptr noundef nonnull %buf.i33, i32 noundef %101, i32 noundef 10, i32 noundef 0)
-  %102 = load ptr, ptr @_ZL3out, align 8
-  %call4.i45 = call i32 @T_FileStream_write(ptr noundef %102, ptr noundef nonnull %buf.i33, i32 noundef %call2.i44)
-  %103 = load ptr, ptr @_ZL3out, align 8
-  %call5.i = call i32 @T_FileStream_write(ptr noundef %103, ptr noundef nonnull @.str.30, i32 noundef 3)
+  %103 = load i32, ptr %fValue.i, align 8
+  %call2.i44 = call i32 @itostr(ptr noundef nonnull %buf.i33, i32 noundef %103, i32 noundef 10, i32 noundef 0)
+  %104 = load ptr, ptr @_ZL3out, align 8
+  %call4.i45 = call i32 @T_FileStream_write(ptr noundef %104, ptr noundef nonnull %buf.i33, i32 noundef %call2.i44)
+  %105 = load ptr, ptr @_ZL3out, align 8
+  %call5.i = call i32 @T_FileStream_write(ptr noundef %105, ptr noundef nonnull @.str.30, i32 noundef 3)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %buf.i33)
   br label %return
 
 if.end.i47:                                       ; preds = %if.then1
   %fCount.i48 = getelementptr inbounds i8, ptr %res, i64 56
-  %104 = load i32, ptr %fCount.i48, align 8
-  %cmp.not.i49 = icmp eq i32 %104, 0
+  %106 = load i32, ptr %fCount.i48, align 8
+  %cmp.not.i49 = icmp eq i32 %106, 0
   br i1 %cmp.not.i49, label %if.else29.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i47
@@ -907,22 +906,22 @@ while.cond.i:                                     ; preds = %while.body.i
 while.body.i:                                     ; preds = %if.then1.i, %while.cond.i
   %current.0.i118 = phi ptr [ %current.0.i, %while.cond.i ], [ %current.0.i116, %if.then1.i ]
   %fType.i = getelementptr inbounds i8, ptr %current.0.i118, i64 8
-  %105 = load i8, ptr %fType.i, align 8
-  %cmp.i82.not = icmp eq i8 %105, 0
+  %107 = load i8, ptr %fType.i, align 8
+  %cmp.i82.not = icmp eq i8 %107, 0
   br i1 %cmp.i82.not, label %while.cond.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %while.body.i
-  %106 = load ptr, ptr @_ZL3out, align 8
-  tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %106)
-  %107 = load ptr, ptr @_ZL3out, align 8
-  %call12.i50 = tail call i32 @T_FileStream_write(ptr noundef %107, ptr noundef nonnull @.str.32, i32 noundef 14)
-  br label %if.end17.i
-
-if.else.i55:                                      ; preds = %while.cond.i, %if.then1.i
   %108 = load ptr, ptr @_ZL3out, align 8
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %108)
   %109 = load ptr, ptr @_ZL3out, align 8
-  %call15.i = tail call i32 @T_FileStream_write(ptr noundef %109, ptr noundef nonnull @.str.31, i32 noundef 16)
+  %call12.i50 = tail call i32 @T_FileStream_write(ptr noundef %109, ptr noundef nonnull @.str.32, i32 noundef 14)
+  br label %if.end17.i
+
+if.else.i55:                                      ; preds = %while.cond.i, %if.then1.i
+  %110 = load ptr, ptr @_ZL3out, align 8
+  tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %110)
+  %111 = load ptr, ptr @_ZL3out, align 8
+  %call15.i = tail call i32 @T_FileStream_write(ptr noundef %111, ptr noundef nonnull @.str.31, i32 noundef 16)
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.else.i55, %if.then9.i
@@ -932,45 +931,45 @@ if.end17.i:                                       ; preds = %if.else.i55, %if.th
   br i1 %cmp2.not.not.i117, label %while.end26.i, label %while.body20.i
 
 while.body20.i:                                   ; preds = %if.end17.i, %if.end24.i
-  %current.1.i120 = phi ptr [ %111, %if.end24.i ], [ %current.0.i116, %if.end17.i ]
+  %current.1.i120 = phi ptr [ %113, %if.end24.i ], [ %current.0.i116, %if.end17.i ]
   tail call void @_Z14res_write_javaP9SResourceP10UErrorCode(ptr noundef nonnull %current.1.i120, ptr noundef nonnull %status)
-  %110 = load i32, ptr %status, align 4
-  %cmp.i80 = icmp slt i32 %110, 1
+  %112 = load i32, ptr %status, align 4
+  %cmp.i80 = icmp slt i32 %112, 1
   br i1 %cmp.i80, label %if.end24.i, label %return
 
 if.end24.i:                                       ; preds = %while.body20.i
   %fNext25.i = getelementptr inbounds i8, ptr %current.1.i120, i64 32
-  %111 = load ptr, ptr %fNext25.i, align 8
-  %cmp19.not.i = icmp eq ptr %111, null
+  %113 = load ptr, ptr %fNext25.i, align 8
+  %cmp19.not.i = icmp eq ptr %113, null
   br i1 %cmp19.not.i, label %while.end26.i, label %while.body20.i, !llvm.loop !17
 
 while.end26.i:                                    ; preds = %if.end24.i, %if.end17.i
-  %112 = load ptr, ptr @_ZL3out, align 8
-  %call27.i52 = tail call i32 @T_FileStream_write(ptr noundef %112, ptr noundef nonnull @.str.24, i32 noundef 1)
-  %113 = load i32, ptr @_ZL8tabCount, align 4
-  %dec.i53 = add nsw i32 %113, -1
-  store i32 %dec.i53, ptr @_ZL8tabCount, align 4
   %114 = load ptr, ptr @_ZL3out, align 8
-  tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %114)
-  %115 = load ptr, ptr @_ZL3out, align 8
-  %call28.i54 = tail call i32 @T_FileStream_write(ptr noundef %115, ptr noundef nonnull @.str.26, i32 noundef 3)
-  br label %return
-
-if.else29.i:                                      ; preds = %if.end.i47
+  %call27.i52 = tail call i32 @T_FileStream_write(ptr noundef %114, ptr noundef nonnull @.str.24, i32 noundef 1)
+  %115 = load i32, ptr @_ZL8tabCount, align 4
+  %dec.i53 = add nsw i32 %115, -1
+  store i32 %dec.i53, ptr @_ZL8tabCount, align 4
   %116 = load ptr, ptr @_ZL3out, align 8
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %116)
   %117 = load ptr, ptr @_ZL3out, align 8
-  %call32.i = tail call i32 @T_FileStream_write(ptr noundef %117, ptr noundef nonnull @.str.31, i32 noundef 16)
+  %call28.i54 = tail call i32 @T_FileStream_write(ptr noundef %117, ptr noundef nonnull @.str.26, i32 noundef 3)
+  br label %return
+
+if.else29.i:                                      ; preds = %if.end.i47
   %118 = load ptr, ptr @_ZL3out, align 8
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %118)
   %119 = load ptr, ptr @_ZL3out, align 8
-  %call33.i = tail call i32 @T_FileStream_write(ptr noundef %119, ptr noundef nonnull @.str.26, i32 noundef 3)
+  %call32.i = tail call i32 @T_FileStream_write(ptr noundef %119, ptr noundef nonnull @.str.31, i32 noundef 16)
+  %120 = load ptr, ptr @_ZL3out, align 8
+  tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %120)
+  %121 = load ptr, ptr @_ZL3out, align 8
+  %call33.i = tail call i32 @T_FileStream_write(ptr noundef %121, ptr noundef nonnull @.str.26, i32 noundef 3)
   br label %return
 
 if.end.i58:                                       ; preds = %if.then1
   %fCount.i59 = getelementptr inbounds i8, ptr %res, i64 56
-  %120 = load i32, ptr %fCount.i59, align 8
-  %cmp.not.i60 = icmp eq i32 %120, 0
+  %122 = load i32, ptr %fCount.i59, align 8
+  %cmp.not.i60 = icmp eq i32 %122, 0
   br i1 %cmp.not.i60, label %if.else.i77, label %if.then1.i61
 
 if.then1.i61:                                     ; preds = %if.end.i58
@@ -978,37 +977,37 @@ if.then1.i61:                                     ; preds = %if.end.i58
   br i1 %.b.i, label %if.then3.i, label %if.end7.i
 
 if.then3.i:                                       ; preds = %if.then1.i61
-  %121 = load ptr, ptr @_ZL3out, align 8
-  tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %121)
-  %122 = load ptr, ptr @_ZL3out, align 8
-  %call6.i = tail call i32 @T_FileStream_write(ptr noundef %122, ptr noundef nonnull @.str.33, i32 noundef 16)
-  %123 = load i32, ptr @_ZL8tabCount, align 4
-  %inc.i76 = add nsw i32 %123, 1
+  %123 = load ptr, ptr @_ZL3out, align 8
+  tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %123)
+  %124 = load ptr, ptr @_ZL3out, align 8
+  %call6.i = tail call i32 @T_FileStream_write(ptr noundef %124, ptr noundef nonnull @.str.33, i32 noundef 16)
+  %125 = load i32, ptr @_ZL8tabCount, align 4
+  %inc.i76 = add nsw i32 %125, 1
   store i32 %inc.i76, ptr @_ZL8tabCount, align 4
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then3.i, %if.then1.i61
   store i1 true, ptr @_ZL5start, align 1
   %fFirst.i62 = getelementptr inbounds i8, ptr %res, i64 64
-  %124 = load ptr, ptr %fFirst.i62, align 8
-  %cmp8.not.i114 = icmp eq ptr %124, null
+  %126 = load ptr, ptr %fFirst.i62, align 8
+  %cmp8.not.i114 = icmp eq ptr %126, null
   br i1 %cmp8.not.i114, label %while.end.i74, label %while.body.i65
 
 while.body.i65:                                   ; preds = %if.end7.i, %_ZL10write_tabsP11_FileStream.exit
-  %current.0.i64115 = phi ptr [ %138, %_ZL10write_tabsP11_FileStream.exit ], [ %124, %if.end7.i ]
-  %125 = load ptr, ptr @_ZL8srBundle, align 8
-  %call9.i66 = tail call noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56) %current.0.i64115, ptr noundef %125)
-  %126 = load ptr, ptr @_ZL3out, align 8
-  %127 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not2.i100 = icmp slt i32 %127, 0
+  %current.0.i64115 = phi ptr [ %140, %_ZL10write_tabsP11_FileStream.exit ], [ %126, %if.end7.i ]
+  %127 = load ptr, ptr @_ZL8srBundle, align 8
+  %call9.i66 = tail call noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56) %current.0.i64115, ptr noundef %127)
+  %128 = load ptr, ptr @_ZL3out, align 8
+  %129 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not2.i100 = icmp slt i32 %129, 0
   br i1 %cmp.not2.i100, label %_ZL10write_tabsP11_FileStream.exit107, label %for.body.i101
 
 for.body.i101:                                    ; preds = %while.body.i65, %for.body.i101
   %i.03.i102 = phi i32 [ %inc.i104, %for.body.i101 ], [ 0, %while.body.i65 ]
-  %call.i103 = tail call i32 @T_FileStream_write(ptr noundef %126, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i103 = tail call i32 @T_FileStream_write(ptr noundef %128, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i104 = add nuw nsw i32 %i.03.i102, 1
-  %128 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i105 = icmp slt i32 %i.03.i102, %128
+  %130 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i105 = icmp slt i32 %i.03.i102, %130
   br i1 %cmp.not.not.i105, label %for.body.i101, label %_ZL10write_tabsP11_FileStream.exit107.loopexit, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit107.loopexit:   ; preds = %for.body.i101
@@ -1016,21 +1015,21 @@ _ZL10write_tabsP11_FileStream.exit107.loopexit:   ; preds = %for.body.i101
   br label %_ZL10write_tabsP11_FileStream.exit107
 
 _ZL10write_tabsP11_FileStream.exit107:            ; preds = %_ZL10write_tabsP11_FileStream.exit107.loopexit, %while.body.i65
-  %129 = phi ptr [ %.pre, %_ZL10write_tabsP11_FileStream.exit107.loopexit ], [ %126, %while.body.i65 ]
-  %call10.i = tail call i32 @T_FileStream_write(ptr noundef %129, ptr noundef nonnull @.str.34, i32 noundef 2)
-  %130 = load i32, ptr @_ZL8tabCount, align 4
-  %inc11.i = add nsw i32 %130, 1
+  %131 = phi ptr [ %.pre, %_ZL10write_tabsP11_FileStream.exit107.loopexit ], [ %128, %while.body.i65 ]
+  %call10.i = tail call i32 @T_FileStream_write(ptr noundef %131, ptr noundef nonnull @.str.34, i32 noundef 2)
+  %132 = load i32, ptr @_ZL8tabCount, align 4
+  %inc11.i = add nsw i32 %132, 1
   store i32 %inc11.i, ptr @_ZL8tabCount, align 4
-  %131 = load ptr, ptr @_ZL3out, align 8
-  %cmp.not2.i92 = icmp slt i32 %130, -1
+  %133 = load ptr, ptr @_ZL3out, align 8
+  %cmp.not2.i92 = icmp slt i32 %132, -1
   br i1 %cmp.not2.i92, label %_ZL10write_tabsP11_FileStream.exit99, label %for.body.i93
 
 for.body.i93:                                     ; preds = %_ZL10write_tabsP11_FileStream.exit107, %for.body.i93
   %i.03.i94 = phi i32 [ %inc.i96, %for.body.i93 ], [ 0, %_ZL10write_tabsP11_FileStream.exit107 ]
-  %call.i95 = tail call i32 @T_FileStream_write(ptr noundef %131, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i95 = tail call i32 @T_FileStream_write(ptr noundef %133, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i96 = add nuw nsw i32 %i.03.i94, 1
-  %132 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i97 = icmp slt i32 %i.03.i94, %132
+  %134 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i97 = icmp slt i32 %i.03.i94, %134
   br i1 %cmp.not.not.i97, label %for.body.i93, label %_ZL10write_tabsP11_FileStream.exit99, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit99:             ; preds = %for.body.i93, %_ZL10write_tabsP11_FileStream.exit107
@@ -1038,40 +1037,40 @@ _ZL10write_tabsP11_FileStream.exit99:             ; preds = %for.body.i93, %_ZL1
   br i1 %cmp12.not.i, label %if.end20.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %_ZL10write_tabsP11_FileStream.exit99
-  %133 = load ptr, ptr @_ZL3out, align 8
-  %call14.i = tail call i32 @T_FileStream_write(ptr noundef %133, ptr noundef nonnull @.str.10, i32 noundef 1)
-  %134 = load ptr, ptr @_ZL3out, align 8
+  %135 = load ptr, ptr @_ZL3out, align 8
+  %call14.i = tail call i32 @T_FileStream_write(ptr noundef %135, ptr noundef nonnull @.str.10, i32 noundef 1)
+  %136 = load ptr, ptr @_ZL3out, align 8
   %call15.i67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call9.i66) #10
   %conv16.i = trunc i64 %call15.i67 to i32
-  %call17.i68 = tail call i32 @T_FileStream_write(ptr noundef %134, ptr noundef nonnull %call9.i66, i32 noundef %conv16.i)
-  %135 = load ptr, ptr @_ZL3out, align 8
-  %call18.i = tail call i32 @T_FileStream_write(ptr noundef %135, ptr noundef nonnull @.str.12, i32 noundef 2)
-  %136 = load ptr, ptr @_ZL3out, align 8
-  %call19.i = tail call i32 @T_FileStream_write(ptr noundef %136, ptr noundef nonnull @.str.24, i32 noundef 1)
+  %call17.i68 = tail call i32 @T_FileStream_write(ptr noundef %136, ptr noundef nonnull %call9.i66, i32 noundef %conv16.i)
+  %137 = load ptr, ptr @_ZL3out, align 8
+  %call18.i = tail call i32 @T_FileStream_write(ptr noundef %137, ptr noundef nonnull @.str.12, i32 noundef 2)
+  %138 = load ptr, ptr @_ZL3out, align 8
+  %call19.i = tail call i32 @T_FileStream_write(ptr noundef %138, ptr noundef nonnull @.str.24, i32 noundef 1)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then13.i, %_ZL10write_tabsP11_FileStream.exit99
   tail call void @_Z14res_write_javaP9SResourceP10UErrorCode(ptr noundef nonnull %current.0.i64115, ptr noundef nonnull %status)
-  %137 = load i32, ptr %status, align 4
-  %cmp.i90 = icmp slt i32 %137, 1
+  %139 = load i32, ptr %status, align 4
+  %cmp.i90 = icmp slt i32 %139, 1
   br i1 %cmp.i90, label %if.end24.i71, label %return
 
 if.end24.i71:                                     ; preds = %if.end20.i
   %fNext.i72 = getelementptr inbounds i8, ptr %current.0.i64115, i64 32
-  %138 = load ptr, ptr %fNext.i72, align 8
-  %139 = load i32, ptr @_ZL8tabCount, align 4
-  %dec.i73 = add nsw i32 %139, -1
+  %140 = load ptr, ptr %fNext.i72, align 8
+  %141 = load i32, ptr @_ZL8tabCount, align 4
+  %dec.i73 = add nsw i32 %141, -1
   store i32 %dec.i73, ptr @_ZL8tabCount, align 4
-  %140 = load ptr, ptr @_ZL3out, align 8
-  %cmp.not2.i = icmp slt i32 %139, 1
+  %142 = load ptr, ptr @_ZL3out, align 8
+  %cmp.not2.i = icmp slt i32 %141, 1
   br i1 %cmp.not2.i, label %_ZL10write_tabsP11_FileStream.exit, label %for.body.i85
 
 for.body.i85:                                     ; preds = %if.end24.i71, %for.body.i85
   %i.03.i86 = phi i32 [ %inc.i88, %for.body.i85 ], [ 0, %if.end24.i71 ]
-  %call.i87 = tail call i32 @T_FileStream_write(ptr noundef %140, ptr noundef nonnull @.str.19, i32 noundef 4)
+  %call.i87 = tail call i32 @T_FileStream_write(ptr noundef %142, ptr noundef nonnull @.str.19, i32 noundef 4)
   %inc.i88 = add nuw nsw i32 %i.03.i86, 1
-  %141 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp.not.not.i = icmp slt i32 %i.03.i86, %141
+  %143 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp.not.not.i = icmp slt i32 %i.03.i86, %143
   br i1 %cmp.not.not.i, label %for.body.i85, label %_ZL10write_tabsP11_FileStream.exit.loopexit, !llvm.loop !8
 
 _ZL10write_tabsP11_FileStream.exit.loopexit:      ; preds = %for.body.i85
@@ -1079,34 +1078,34 @@ _ZL10write_tabsP11_FileStream.exit.loopexit:      ; preds = %for.body.i85
   br label %_ZL10write_tabsP11_FileStream.exit
 
 _ZL10write_tabsP11_FileStream.exit:               ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit, %if.end24.i71
-  %142 = phi ptr [ %.pre123, %_ZL10write_tabsP11_FileStream.exit.loopexit ], [ %140, %if.end24.i71 ]
-  %call26.i = tail call i32 @T_FileStream_write(ptr noundef %142, ptr noundef nonnull @.str.26, i32 noundef 3)
-  %cmp8.not.i = icmp eq ptr %138, null
+  %144 = phi ptr [ %.pre123, %_ZL10write_tabsP11_FileStream.exit.loopexit ], [ %142, %if.end24.i71 ]
+  %call26.i = tail call i32 @T_FileStream_write(ptr noundef %144, ptr noundef nonnull @.str.26, i32 noundef 3)
+  %cmp8.not.i = icmp eq ptr %140, null
   br i1 %cmp8.not.i, label %while.end.i74, label %while.body.i65, !llvm.loop !18
 
 while.end.i74:                                    ; preds = %_ZL10write_tabsP11_FileStream.exit, %if.end7.i
-  %143 = load i32, ptr @_ZL8tabCount, align 4
-  %cmp27.i = icmp sgt i32 %143, 4
+  %145 = load i32, ptr @_ZL8tabCount, align 4
+  %cmp27.i = icmp sgt i32 %145, 4
   br i1 %cmp27.i, label %if.then28.i, label %return
 
 if.then28.i:                                      ; preds = %while.end.i74
-  %dec29.i = add nsw i32 %143, -1
+  %dec29.i = add nsw i32 %145, -1
   store i32 %dec29.i, ptr @_ZL8tabCount, align 4
-  %144 = load ptr, ptr @_ZL3out, align 8
-  tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %144)
-  %145 = load ptr, ptr @_ZL3out, align 8
-  %call30.i75 = tail call i32 @T_FileStream_write(ptr noundef %145, ptr noundef nonnull @.str.26, i32 noundef 3)
-  br label %return
-
-if.else.i77:                                      ; preds = %if.end.i58
   %146 = load ptr, ptr @_ZL3out, align 8
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %146)
   %147 = load ptr, ptr @_ZL3out, align 8
-  %call34.i78 = tail call i32 @T_FileStream_write(ptr noundef %147, ptr noundef nonnull @.str.33, i32 noundef 16)
+  %call30.i75 = tail call i32 @T_FileStream_write(ptr noundef %147, ptr noundef nonnull @.str.26, i32 noundef 3)
+  br label %return
+
+if.else.i77:                                      ; preds = %if.end.i58
   %148 = load ptr, ptr @_ZL3out, align 8
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %148)
   %149 = load ptr, ptr @_ZL3out, align 8
-  %call35.i79 = tail call i32 @T_FileStream_write(ptr noundef %149, ptr noundef nonnull @.str.26, i32 noundef 3)
+  %call34.i78 = tail call i32 @T_FileStream_write(ptr noundef %149, ptr noundef nonnull @.str.33, i32 noundef 16)
+  %150 = load ptr, ptr @_ZL3out, align 8
+  tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %150)
+  %151 = load ptr, ptr @_ZL3out, align 8
+  %call35.i79 = tail call i32 @T_FileStream_write(ptr noundef %151, ptr noundef nonnull @.str.26, i32 noundef 3)
   br label %return
 
 if.end11:                                         ; preds = %if.then1, %if.end

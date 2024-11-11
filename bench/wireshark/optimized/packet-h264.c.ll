@@ -2223,12 +2223,12 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 47:                                               ; preds = %30
   %48 = and i8 %42, 64
   %.not111 = icmp eq i8 %48, 0
-  br i1 %.not111, label %282, label %49
+  br i1 %.not111, label %281, label %49
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %10, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.578) #6
-  br label %282
+  br label %281
 
 .split110:                                        ; preds = %4, %.split
   %.sink = phi i32 [ 2, %.split ], [ 1, %4 ]
@@ -2247,7 +2247,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
     i8 8, label %89
     i8 14, label %90
     i8 19, label %94
-    i8 31, label %230
+    i8 31, label %229
     i8 30, label %167
     i8 26, label %132
     i8 27, label %132
@@ -2470,174 +2470,173 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %184 = load i32, ptr @hf_h264_pacsi_e, align 4
   %185 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %184, ptr noundef %0, i32 noundef %168, i32 noundef 1, i32 noundef 0) #6
   %186 = add nuw nsw i32 %168, 1
-  %187 = zext i8 %169 to i32
-  %188 = and i32 %187, 64
-  %.not.i117 = icmp eq i32 %188, 0
-  br i1 %.not.i117, label %196, label %189
+  %187 = and i8 %169, 64
+  %.not.i117 = icmp eq i8 %187, 0
+  br i1 %.not.i117, label %195, label %188
 
-189:                                              ; preds = %167
-  %190 = load i32, ptr @hf_h264_pacsi_tl0picidx, align 4
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %190, ptr noundef %0, i32 noundef %186, i32 noundef 1, i32 noundef 0) #6
-  %192 = add nuw nsw i32 %168, 2
-  %193 = load i32, ptr @hf_h264_pacsi_idrpicid, align 4
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef 2, i32 noundef 0) #6
-  %195 = add nuw nsw i32 %168, 4
-  br label %196
+188:                                              ; preds = %167
+  %189 = load i32, ptr @hf_h264_pacsi_tl0picidx, align 4
+  %190 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %189, ptr noundef %0, i32 noundef %186, i32 noundef 1, i32 noundef 0) #6
+  %191 = add nuw nsw i32 %168, 2
+  %192 = load i32, ptr @hf_h264_pacsi_idrpicid, align 4
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef 2, i32 noundef 0) #6
+  %194 = add nuw nsw i32 %168, 4
+  br label %195
 
-196:                                              ; preds = %189, %167
-  %.077.i = phi i32 [ %195, %189 ], [ %186, %167 ]
-  %197 = and i32 %187, 32
-  %.not80.i = icmp eq i32 %197, 0
-  br i1 %.not80.i, label %202, label %198
+195:                                              ; preds = %188, %167
+  %.077.i = phi i32 [ %194, %188 ], [ %186, %167 ]
+  %196 = and i8 %169, 32
+  %.not80.i = icmp eq i8 %196, 0
+  br i1 %.not80.i, label %201, label %197
 
-198:                                              ; preds = %196
-  %199 = load i32, ptr @hf_h264_pacsi_donc, align 4
-  %200 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %199, ptr noundef %0, i32 noundef %.077.i, i32 noundef 2, i32 noundef 0) #6
-  %201 = add nuw nsw i32 %.077.i, 2
-  br label %202
+197:                                              ; preds = %195
+  %198 = load i32, ptr @hf_h264_pacsi_donc, align 4
+  %199 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %198, ptr noundef %0, i32 noundef %.077.i, i32 noundef 2, i32 noundef 0) #6
+  %200 = add nuw nsw i32 %.077.i, 2
+  br label %201
 
-202:                                              ; preds = %198, %196
-  %.178.i = phi i32 [ %201, %198 ], [ %.077.i, %196 ]
-  %203 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.178.i) #6
-  %204 = icmp sgt i32 %203, 0
-  br i1 %204, label %205, label %207
+201:                                              ; preds = %197, %195
+  %.178.i = phi i32 [ %200, %197 ], [ %.077.i, %195 ]
+  %202 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.178.i) #6
+  %203 = icmp sgt i32 %202, 0
+  br i1 %203, label %204, label %206
 
-205:                                              ; preds = %202
-  %206 = load ptr, ptr %10, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %206, i32 noundef 25, ptr noundef nonnull @.str.606) #6
-  br label %207
+204:                                              ; preds = %201
+  %205 = load ptr, ptr %10, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %205, i32 noundef 25, ptr noundef nonnull @.str.606) #6
+  br label %206
 
-207:                                              ; preds = %205, %202
-  %208 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.178.i) #6
-  %209 = icmp sgt i32 %208, 0
-  br i1 %209, label %.lr.ph131, label %._crit_edge
+206:                                              ; preds = %204, %201
+  %207 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.178.i) #6
+  %208 = icmp sgt i32 %207, 0
+  br i1 %208, label %.lr.ph131, label %._crit_edge
 
-.lr.ph131:                                        ; preds = %207, %221
-  %.2.i118130 = phi i32 [ %225, %221 ], [ %.178.i, %207 ]
-  %210 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2.i118130) #6
-  %211 = load i32, ptr @hf_h264_nalu_size, align 4
-  %212 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %211, ptr noundef %0, i32 noundef %.2.i118130, i32 noundef 2, i32 noundef 0) #6
-  %213 = add i32 %.2.i118130, 2
-  %214 = zext i16 %210 to i32
-  %215 = icmp eq i16 %210, 0
-  br i1 %215, label %.thread, label %216
+.lr.ph131:                                        ; preds = %206, %220
+  %.2.i118130 = phi i32 [ %224, %220 ], [ %.178.i, %206 ]
+  %209 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2.i118130) #6
+  %210 = load i32, ptr @hf_h264_nalu_size, align 4
+  %211 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %210, ptr noundef %0, i32 noundef %.2.i118130, i32 noundef 2, i32 noundef 0) #6
+  %212 = add i32 %.2.i118130, 2
+  %213 = zext i16 %209 to i32
+  %214 = icmp eq i16 %209, 0
+  br i1 %214, label %.thread, label %215
 
-216:                                              ; preds = %.lr.ph131
-  %217 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %213) #6
-  %218 = icmp slt i32 %217, %214
-  br i1 %218, label %.thread, label %221
+215:                                              ; preds = %.lr.ph131
+  %216 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %212) #6
+  %217 = icmp slt i32 %216, %213
+  br i1 %217, label %.thread, label %220
 
-.thread:                                          ; preds = %.lr.ph131, %216
-  %219 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %0, i32 noundef %.2.i118130, i32 noundef 2) #6
-  %220 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %213) #6
+.thread:                                          ; preds = %.lr.ph131, %215
+  %218 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %0, i32 noundef %.2.i118130, i32 noundef 2) #6
+  %219 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %212) #6
   br label %._crit_edge
 
-221:                                              ; preds = %216
-  %222 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %213) #6
-  %223 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %213, i32 noundef %222, i32 noundef %214) #6
-  %224 = tail call i32 @dissect_h264(ptr noundef %223, ptr noundef %1, ptr noundef %53, ptr poison)
-  %225 = add i32 %213, %214
-  %226 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %225) #6
-  %227 = icmp sgt i32 %226, 0
-  br i1 %227, label %.lr.ph131, label %._crit_edge, !llvm.loop !16
+220:                                              ; preds = %215
+  %221 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %212) #6
+  %222 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %212, i32 noundef %221, i32 noundef %213) #6
+  %223 = tail call i32 @dissect_h264(ptr noundef %222, ptr noundef %1, ptr noundef %53, ptr poison)
+  %224 = add i32 %212, %213
+  %225 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %224) #6
+  %226 = icmp sgt i32 %225, 0
+  br i1 %226, label %.lr.ph131, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %221, %.thread, %207
-  br i1 %204, label %228, label %dissect_h264_prefix.exit
+._crit_edge:                                      ; preds = %220, %.thread, %206
+  br i1 %203, label %227, label %dissect_h264_prefix.exit
 
-228:                                              ; preds = %._crit_edge
-  %229 = load ptr, ptr %10, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.607) #6
+227:                                              ; preds = %._crit_edge
+  %228 = load ptr, ptr %10, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %228, i32 noundef 25, ptr noundef nonnull @.str.607) #6
   br label %dissect_h264_prefix.exit
 
-230:                                              ; preds = %.split110
-  %231 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %51, i32 noundef 0, i32 noundef 5) #6
-  %232 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %51, i32 noundef 5, i32 noundef 1) #6
-  %233 = load i32, ptr @hf_h264_nal_extension_subtype, align 4
-  %234 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %233, ptr noundef %51, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
-  %235 = load i32, ptr @hf_h264_nal_extension_j, align 4
-  %236 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %235, ptr noundef %51, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
-  %237 = load i32, ptr @hf_h264_nal_extension_k, align 4
-  %238 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %237, ptr noundef %51, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
-  %239 = load i32, ptr @hf_h264_nal_extension_l, align 4
-  %240 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %239, ptr noundef %51, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
-  %241 = load ptr, ptr %10, align 8
-  %242 = zext i8 %231 to i32
-  %243 = tail call ptr @val_to_str(i32 noundef %242, ptr noundef nonnull @h264_subtype_summary_values, ptr noundef nonnull @.str.609) #6
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %241, i32 noundef 25, ptr noundef nonnull @.str.608, ptr noundef %243) #6
-  %244 = icmp eq i8 %231, 2
-  br i1 %244, label %.preheader, label %dissect_h264_prefix.exit
+229:                                              ; preds = %.split110
+  %230 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %51, i32 noundef 0, i32 noundef 5) #6
+  %231 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %51, i32 noundef 5, i32 noundef 1) #6
+  %232 = load i32, ptr @hf_h264_nal_extension_subtype, align 4
+  %233 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %232, ptr noundef %51, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %234 = load i32, ptr @hf_h264_nal_extension_j, align 4
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %234, ptr noundef %51, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %236 = load i32, ptr @hf_h264_nal_extension_k, align 4
+  %237 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %236, ptr noundef %51, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %238 = load i32, ptr @hf_h264_nal_extension_l, align 4
+  %239 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %238, ptr noundef %51, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %240 = load ptr, ptr %10, align 8
+  %241 = zext i8 %230 to i32
+  %242 = tail call ptr @val_to_str(i32 noundef %241, ptr noundef nonnull @h264_subtype_summary_values, ptr noundef nonnull @.str.609) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %240, i32 noundef 25, ptr noundef nonnull @.str.608, ptr noundef %242) #6
+  %243 = icmp eq i8 %230, 2
+  br i1 %243, label %.preheader, label %dissect_h264_prefix.exit
 
-.preheader:                                       ; preds = %230
-  %245 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef 1) #6
-  %246 = icmp sgt i32 %245, 0
-  br i1 %246, label %.lr.ph134, label %dissect_h264_prefix.exit
+.preheader:                                       ; preds = %229
+  %244 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef 1) #6
+  %245 = icmp sgt i32 %244, 0
+  br i1 %245, label %.lr.ph134, label %dissect_h264_prefix.exit
 
 .lr.ph134:                                        ; preds = %.preheader
-  %.not.i121 = icmp eq i8 %232, 0
-  br label %247
+  %.not.i121 = icmp eq i8 %231, 0
+  br label %246
 
-247:                                              ; preds = %.lr.ph134, %278
-  %.0.i120133 = phi i32 [ 1, %.lr.ph134 ], [ %.2.i124, %278 ]
-  %.068.i132 = phi i8 [ 1, %.lr.ph134 ], [ %249, %278 ]
-  %248 = load i32, ptr @ett_h264_ni_mtap, align 4
-  %249 = add i8 %.068.i132, 1
-  %250 = zext i8 %.068.i132 to i32
-  %251 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %53, ptr noundef %51, i32 noundef %.0.i120133, i32 noundef 1, i32 noundef %248, ptr noundef null, ptr noundef nonnull @.str.610, i32 noundef %250) #6
-  %252 = load i32, ptr @hf_h264_nalu_size, align 4
-  %253 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %51, i32 noundef %.0.i120133, i32 noundef 2, i32 noundef 0) #6
-  %254 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %51, i32 noundef %.0.i120133) #6
-  %255 = add i32 %.0.i120133, 2
-  %256 = load i32, ptr @hf_h264_ts_offset16, align 4
-  %257 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %256, ptr noundef %51, i32 noundef %255, i32 noundef 2, i32 noundef 0) #6
-  %258 = add i32 %.0.i120133, 4
-  br i1 %.not.i121, label %263, label %259
+246:                                              ; preds = %.lr.ph134, %277
+  %.0.i120133 = phi i32 [ 1, %.lr.ph134 ], [ %.2.i124, %277 ]
+  %.068.i132 = phi i8 [ 1, %.lr.ph134 ], [ %248, %277 ]
+  %247 = load i32, ptr @ett_h264_ni_mtap, align 4
+  %248 = add i8 %.068.i132, 1
+  %249 = zext i8 %.068.i132 to i32
+  %250 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %53, ptr noundef %51, i32 noundef %.0.i120133, i32 noundef 1, i32 noundef %247, ptr noundef null, ptr noundef nonnull @.str.610, i32 noundef %249) #6
+  %251 = load i32, ptr @hf_h264_nalu_size, align 4
+  %252 = tail call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %51, i32 noundef %.0.i120133, i32 noundef 2, i32 noundef 0) #6
+  %253 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %51, i32 noundef %.0.i120133) #6
+  %254 = add i32 %.0.i120133, 2
+  %255 = load i32, ptr @hf_h264_ts_offset16, align 4
+  %256 = tail call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %255, ptr noundef %51, i32 noundef %254, i32 noundef 2, i32 noundef 0) #6
+  %257 = add i32 %.0.i120133, 4
+  br i1 %.not.i121, label %262, label %258
 
-259:                                              ; preds = %247
-  %260 = load i32, ptr @hf_h264_don, align 4
-  %261 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %260, ptr noundef %51, i32 noundef %258, i32 noundef 2, i32 noundef 0) #6
-  %262 = add i32 %.0.i120133, 6
-  br label %263
+258:                                              ; preds = %246
+  %259 = load i32, ptr @hf_h264_don, align 4
+  %260 = tail call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %259, ptr noundef %51, i32 noundef %257, i32 noundef 2, i32 noundef 0) #6
+  %261 = add i32 %.0.i120133, 6
+  br label %262
 
-263:                                              ; preds = %259, %247
-  %.1.i122 = phi i32 [ %262, %259 ], [ %258, %247 ]
-  %264 = zext i16 %254 to i32
-  %265 = icmp eq i16 %254, 0
-  br i1 %265, label %269, label %266
+262:                                              ; preds = %258, %246
+  %.1.i122 = phi i32 [ %261, %258 ], [ %257, %246 ]
+  %263 = zext i16 %253 to i32
+  %264 = icmp eq i16 %253, 0
+  br i1 %264, label %268, label %265
 
-266:                                              ; preds = %263
-  %267 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
-  %268 = icmp slt i32 %267, %264
-  br i1 %268, label %269, label %274
+265:                                              ; preds = %262
+  %266 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
+  %267 = icmp slt i32 %266, %263
+  br i1 %267, label %268, label %273
 
-269:                                              ; preds = %266, %263
-  %270 = load ptr, ptr %10, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %270, i32 noundef 25, ptr noundef nonnull @.str.604) #6
-  %271 = tail call ptr @proto_tree_add_expert(ptr noundef %251, ptr noundef %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %51, i32 noundef %.0.i120133, i32 noundef 2) #6
+268:                                              ; preds = %265, %262
+  %269 = load ptr, ptr %10, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.604) #6
+  %270 = tail call ptr @proto_tree_add_expert(ptr noundef %250, ptr noundef %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %51, i32 noundef %.0.i120133, i32 noundef 2) #6
+  %271 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %270, ptr noundef nonnull @.str.605, i32 noundef %263, i32 noundef %271) #6
   %272 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef nonnull @.str.605, i32 noundef %264, i32 noundef %272) #6
-  %273 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
-  br label %278
+  br label %277
 
-274:                                              ; preds = %266
-  %275 = tail call i32 @tvb_captured_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
-  %276 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %51, i32 noundef %.1.i122, i32 noundef %275, i32 noundef %264) #6
-  %277 = tail call i32 @dissect_h264(ptr noundef %276, ptr noundef %1, ptr noundef %251, ptr poison)
-  br label %278
+273:                                              ; preds = %265
+  %274 = tail call i32 @tvb_captured_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
+  %275 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %51, i32 noundef %.1.i122, i32 noundef %274, i32 noundef %263) #6
+  %276 = tail call i32 @dissect_h264(ptr noundef %275, ptr noundef %1, ptr noundef %250, ptr poison)
+  br label %277
 
-278:                                              ; preds = %274, %269
-  %.pn.i123 = phi i32 [ %273, %269 ], [ %264, %274 ]
+277:                                              ; preds = %273, %268
+  %.pn.i123 = phi i32 [ %272, %268 ], [ %263, %273 ]
   %.2.i124 = add i32 %.pn.i123, %.1.i122
-  %279 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef %.2.i124) #6
-  %280 = icmp sgt i32 %279, 0
-  br i1 %280, label %247, label %dissect_h264_prefix.exit, !llvm.loop !17
+  %278 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef %.2.i124) #6
+  %279 = icmp sgt i32 %278, 0
+  br i1 %279, label %246, label %dissect_h264_prefix.exit, !llvm.loop !17
 
-dissect_h264_prefix.exit:                         ; preds = %129, %164, %278, %108, %132, %.preheader, %.split110, %230, %228, %._crit_edge, %92, %90, %94, %89, %87, %86, %76, %70, %64, %54
+dissect_h264_prefix.exit:                         ; preds = %129, %164, %277, %108, %132, %.preheader, %.split110, %229, %227, %._crit_edge, %92, %90, %94, %89, %87, %86, %76, %70, %64, %54
   tail call void @decrement_dissection_depth(ptr noundef %1) #6
-  %281 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %282
+  %280 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
+  br label %281
 
-282:                                              ; preds = %47, %49, %dissect_h264_prefix.exit
-  %.0 = phi i32 [ %281, %dissect_h264_prefix.exit ], [ 1, %49 ], [ 1, %47 ]
+281:                                              ; preds = %47, %49, %dissect_h264_prefix.exit
+  %.0 = phi i32 [ %280, %dissect_h264_prefix.exit ], [ 1, %49 ], [ 1, %47 ]
   ret i32 %.0
 }
 

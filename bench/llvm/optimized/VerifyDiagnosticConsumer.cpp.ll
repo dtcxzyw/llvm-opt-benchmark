@@ -485,7 +485,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %120, %122
   store i32 %123, ptr %121, align 4
-  br label %187
+  br label %183
 
 124:                                              ; preds = %1
   %125 = load ptr, ptr %5, align 8
@@ -493,112 +493,108 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 44
   %129 = load i8, ptr %128, align 4
-  %130 = lshr i8 %129, 4
-  %131 = xor i8 %130, -1
-  %132 = zext i8 %131 to i32
-  %133 = and i32 %132, 8
-  %.not12 = icmp eq i32 %133, 0
-  br i1 %.not12, label %145, label %134
+  %.not12.not = icmp sgt i8 %129, -1
+  br i1 %.not12.not, label %130, label %141
 
-134:                                              ; preds = %124
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
+130:                                              ; preds = %124
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %140 = load ptr, ptr %139, align 8
-  %141 = tail call fastcc noundef i32 @_ZL15PrintUnexpectedRN5clang17DiagnosticsEngineEPNS_13SourceManagerEN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISE_SaISE_EEEESK_PKc(ptr noundef nonnull align 8 dereferenceable(1304) %125, ptr noundef null, ptr %138, ptr %140, ptr noundef nonnull @.str)
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %143 = load i32, ptr %142, align 4
-  %144 = add i32 %143, %141
-  store i32 %144, ptr %142, align 4
-  br label %145
+  %137 = tail call fastcc noundef i32 @_ZL15PrintUnexpectedRN5clang17DiagnosticsEngineEPNS_13SourceManagerEN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISE_SaISE_EEEESK_PKc(ptr noundef nonnull align 8 dereferenceable(1304) %125, ptr noundef null, ptr %134, ptr %136, ptr noundef nonnull @.str)
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %139 = load i32, ptr %138, align 4
+  %140 = add i32 %139, %137
+  store i32 %140, ptr %138, align 4
+  br label %141
 
-145:                                              ; preds = %134, %124
-  %146 = and i32 %132, 4
-  %.not13 = icmp eq i32 %146, 0
-  br i1 %.not13, label %159, label %147
+141:                                              ; preds = %130, %124
+  %142 = and i8 %129, 64
+  %.not13.not = icmp eq i8 %142, 0
+  br i1 %.not13.not, label %143, label %155
 
-147:                                              ; preds = %145
-  %148 = load ptr, ptr %5, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 48
+143:                                              ; preds = %141
+  %144 = load ptr, ptr %5, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 48
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %150, i64 48
-  %154 = load ptr, ptr %153, align 8
-  %155 = tail call fastcc noundef i32 @_ZL15PrintUnexpectedRN5clang17DiagnosticsEngineEPNS_13SourceManagerEN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISE_SaISE_EEEESK_PKc(ptr noundef nonnull align 8 dereferenceable(1304) %148, ptr noundef null, ptr %152, ptr %154, ptr noundef nonnull @.str.1)
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %157 = load i32, ptr %156, align 4
-  %158 = add i32 %157, %155
-  store i32 %158, ptr %156, align 4
-  br label %159
+  %151 = tail call fastcc noundef i32 @_ZL15PrintUnexpectedRN5clang17DiagnosticsEngineEPNS_13SourceManagerEN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISE_SaISE_EEEESK_PKc(ptr noundef nonnull align 8 dereferenceable(1304) %144, ptr noundef null, ptr %148, ptr %150, ptr noundef nonnull @.str.1)
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %153 = load i32, ptr %152, align 4
+  %154 = add i32 %153, %151
+  store i32 %154, ptr %152, align 4
+  br label %155
 
-159:                                              ; preds = %147, %145
-  %160 = and i32 %132, 2
-  %.not14 = icmp eq i32 %160, 0
-  br i1 %.not14, label %173, label %161
+155:                                              ; preds = %143, %141
+  %156 = and i8 %129, 32
+  %.not14.not = icmp eq i8 %156, 0
+  br i1 %.not14.not, label %157, label %169
 
-161:                                              ; preds = %159
-  %162 = load ptr, ptr %5, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 48
+157:                                              ; preds = %155
+  %158 = load ptr, ptr %5, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 64
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 72
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 64
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 72
-  %168 = load ptr, ptr %167, align 8
-  %169 = tail call fastcc noundef i32 @_ZL15PrintUnexpectedRN5clang17DiagnosticsEngineEPNS_13SourceManagerEN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISE_SaISE_EEEESK_PKc(ptr noundef nonnull align 8 dereferenceable(1304) %162, ptr noundef null, ptr %166, ptr %168, ptr noundef nonnull @.str.2)
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %171 = load i32, ptr %170, align 4
-  %172 = add i32 %171, %169
-  store i32 %172, ptr %170, align 4
-  br label %173
+  %165 = tail call fastcc noundef i32 @_ZL15PrintUnexpectedRN5clang17DiagnosticsEngineEPNS_13SourceManagerEN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISE_SaISE_EEEESK_PKc(ptr noundef nonnull align 8 dereferenceable(1304) %158, ptr noundef null, ptr %162, ptr %164, ptr noundef nonnull @.str.2)
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %167 = load i32, ptr %166, align 4
+  %168 = add i32 %167, %165
+  store i32 %168, ptr %166, align 4
+  br label %169
 
-173:                                              ; preds = %161, %159
-  %174 = and i32 %132, 1
-  %.not15 = icmp eq i32 %174, 0
-  br i1 %.not15, label %187, label %175
+169:                                              ; preds = %157, %155
+  %170 = and i8 %129, 16
+  %.not15.not = icmp eq i8 %170, 0
+  br i1 %.not15.not, label %171, label %183
 
-175:                                              ; preds = %173
-  %176 = load ptr, ptr %5, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 48
+171:                                              ; preds = %169
+  %172 = load ptr, ptr %5, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 88
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 96
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 88
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %178, i64 96
-  %182 = load ptr, ptr %181, align 8
-  %183 = tail call fastcc noundef i32 @_ZL15PrintUnexpectedRN5clang17DiagnosticsEngineEPNS_13SourceManagerEN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISE_SaISE_EEEESK_PKc(ptr noundef nonnull align 8 dereferenceable(1304) %176, ptr noundef null, ptr %180, ptr %182, ptr noundef nonnull @.str.3)
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %185 = load i32, ptr %184, align 4
-  %186 = add i32 %185, %183
-  store i32 %186, ptr %184, align 4
-  br label %187
+  %179 = tail call fastcc noundef i32 @_ZL15PrintUnexpectedRN5clang17DiagnosticsEngineEPNS_13SourceManagerEN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISE_SaISE_EEEESK_PKc(ptr noundef nonnull align 8 dereferenceable(1304) %172, ptr noundef null, ptr %176, ptr %178, ptr noundef nonnull @.str.3)
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %181 = load i32, ptr %180, align 4
+  %182 = add i32 %181, %179
+  store i32 %182, ptr %180, align 4
+  br label %183
 
-187:                                              ; preds = %173, %175, %76
-  %188 = load ptr, ptr %5, align 8
-  %189 = icmp ne i64 %10, 0
-  call void @_ZN5clang17DiagnosticsEngine9setClientEPNS_18DiagnosticConsumerEb(ptr noundef nonnull align 8 dereferenceable(1304) %188, ptr noundef %8, i1 noundef zeroext %189) #20
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %191 = call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %191, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang20TextDiagnosticBufferE, i64 16), ptr %191, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %192, i8 0, i64 120, i1 false)
-  %193 = load ptr, ptr %190, align 8
-  store ptr %191, ptr %190, align 8
-  %.not.i.i = icmp eq ptr %193, null
+183:                                              ; preds = %169, %171, %76
+  %184 = load ptr, ptr %5, align 8
+  %185 = icmp ne i64 %10, 0
+  call void @_ZN5clang17DiagnosticsEngine9setClientEPNS_18DiagnosticConsumerEb(ptr noundef nonnull align 8 dereferenceable(1304) %184, ptr noundef %8, i1 noundef zeroext %185) #20
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %187 = call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %187, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang20TextDiagnosticBufferE, i64 16), ptr %187, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %188, i8 0, i64 120, i1 false)
+  %189 = load ptr, ptr %186, align 8
+  store ptr %187, ptr %186, align 8
+  %.not.i.i = icmp eq ptr %189, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5clang18DiagnosticConsumerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang20TextDiagnosticBufferEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN5clang20TextDiagnosticBufferEEclEPS1_.exit.i.i: ; preds = %187
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 8
-  %196 = load ptr, ptr %195, align 8
-  call void %196(ptr noundef nonnull align 8 dereferenceable(136) %193) #20
+_ZNKSt14default_deleteIN5clang20TextDiagnosticBufferEEclEPS1_.exit.i.i: ; preds = %183
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 8
+  %192 = load ptr, ptr %191, align 8
+  call void %192(ptr noundef nonnull align 8 dereferenceable(136) %189) #20
   br label %_ZNSt10unique_ptrIN5clang18DiagnosticConsumerESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5clang18DiagnosticConsumerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5clang20TextDiagnosticBufferEEclEPS1_.exit.i.i, %187
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @_ZN5clang24VerifyDiagnosticConsumer12ExpectedData5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %197)
+_ZNSt10unique_ptrIN5clang18DiagnosticConsumerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5clang20TextDiagnosticBufferEEclEPS1_.exit.i.i, %183
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  call void @_ZN5clang24VerifyDiagnosticConsumer12ExpectedData5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %193)
   ret void
 }
 

@@ -2882,13 +2882,13 @@ _ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i: ; preds = %_ZNSt6vect
 494:                                              ; preds = %._crit_edge60.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.05.0.lcssa.i) #22, !noalias !31
   %.pre = load ptr, ptr %10, align 8
-  %.pre300 = load ptr, ptr %310, align 8
-  %.pre301 = load ptr, ptr %309, align 8
+  %.pre301 = load ptr, ptr %310, align 8
+  %.pre302 = load ptr, ptr %309, align 8
   br label %_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.exit
 
 _ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.exit: ; preds = %494, %._crit_edge60.i
-  %495 = phi ptr [ %.pre301, %494 ], [ %479, %._crit_edge60.i ]
-  %496 = phi ptr [ %.pre300, %494 ], [ %480, %._crit_edge60.i ]
+  %495 = phi ptr [ %.pre302, %494 ], [ %479, %._crit_edge60.i ]
+  %496 = phi ptr [ %.pre301, %494 ], [ %480, %._crit_edge60.i ]
   %497 = phi ptr [ %.pre, %494 ], [ %481, %._crit_edge60.i ]
   %498 = load ptr, ptr %286, align 8
   %499 = getelementptr inbounds i8, ptr %498, i64 2336
@@ -2931,11 +2931,11 @@ _ZN3gmx11ListOfListsIiED2Ev.exit.preheader:       ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZN3gmx11ListOfListsIiED2Ev.exit
 
 _ZN3gmx11ListOfListsIiED2Ev.exit:                 ; preds = %_ZN3gmx11ListOfListsIiED2Ev.exit.preheader, %_ZN15InteractionListaSEOS_.exit
-  %indvars.iv296 = phi i64 [ %indvars.iv.next297, %_ZN15InteractionListaSEOS_.exit ], [ 0, %_ZN3gmx11ListOfListsIiED2Ev.exit.preheader ]
-  %514 = getelementptr inbounds [94 x %struct.InteractionList], ptr %161, i64 0, i64 %indvars.iv296
+  %indvars.iv297 = phi i64 [ %indvars.iv.next298, %_ZN15InteractionListaSEOS_.exit ], [ 0, %_ZN3gmx11ListOfListsIiED2Ev.exit.preheader ]
+  %514 = getelementptr inbounds [94 x %struct.InteractionList], ptr %161, i64 0, i64 %indvars.iv297
   %515 = load ptr, ptr %286, align 8
   %516 = getelementptr inbounds i8, ptr %515, i64 80
-  %517 = getelementptr inbounds [94 x %struct.InteractionList], ptr %516, i64 0, i64 %indvars.iv296
+  %517 = getelementptr inbounds [94 x %struct.InteractionList], ptr %516, i64 0, i64 %indvars.iv297
   %518 = load ptr, ptr %517, align 8
   %519 = getelementptr inbounds i8, ptr %517, i64 8
   %520 = getelementptr inbounds i8, ptr %517, i64 16
@@ -2956,9 +2956,9 @@ _ZN3gmx11ListOfListsIiED2Ev.exit:                 ; preds = %_ZN3gmx11ListOfList
   br label %_ZN15InteractionListaSEOS_.exit
 
 _ZN15InteractionListaSEOS_.exit:                  ; preds = %_ZN3gmx11ListOfListsIiED2Ev.exit, %526
-  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %exitcond299.not = icmp eq i64 %indvars.iv.next297, 94
-  br i1 %exitcond299.not, label %527, label %_ZN3gmx11ListOfListsIiED2Ev.exit, !llvm.loop !36
+  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
+  %exitcond300.not = icmp eq i64 %indvars.iv.next298, 94
+  br i1 %exitcond300.not, label %527, label %_ZN3gmx11ListOfListsIiED2Ev.exit, !llvm.loop !36
 
 527:                                              ; preds = %_ZN15InteractionListaSEOS_.exit
   %528 = getelementptr inbounds i8, ptr %2, i64 136

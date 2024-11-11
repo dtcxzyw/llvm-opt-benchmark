@@ -2218,14 +2218,13 @@ if.then7:                                         ; preds = %if.end
   store i32 4, ptr %providerProperties, align 8
   %fUnion.i23 = getelementptr inbounds i8, ptr %s, i64 8
   %4 = load i16, ptr %fUnion.i23, align 8
-  %conv1.i = zext i16 %4 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %5 = and i16 %4, 17
+  %tobool.not.i = icmp eq i16 %5, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %if.then7
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %6 = and i16 %4, 2
+  %tobool6.not.i = icmp eq i16 %6, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -2234,20 +2233,20 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
-  %5 = load ptr, ptr %fArray.i, align 8
+  %7 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.then7, %if.then7.i, %if.else9.i
-  %retval.0.i24 = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %if.then7 ]
+  %retval.0.i24 = phi ptr [ %fBuffer.i, %if.then7.i ], [ %7, %if.else9.i ], [ null, %if.then7 ]
   %chunkContents = getelementptr inbounds i8, ptr %call4, i64 48
   store ptr %retval.0.i24, ptr %chunkContents, align 8
-  %6 = load i16, ptr %fUnion.i23, align 8
-  %cmp.i.i25 = icmp slt i16 %6, 0
-  %7 = ashr i16 %6, 5
-  %shr.i.i = sext i16 %7 to i32
+  %8 = load i16, ptr %fUnion.i23, align 8
+  %cmp.i.i25 = icmp slt i16 %8, 0
+  %9 = ashr i16 %8, 5
+  %shr.i.i = sext i16 %9 to i32
   %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
-  %8 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i25, i32 %8, i32 %shr.i.i
+  %10 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i25, i32 %10, i32 %shr.i.i
   %chunkLength = getelementptr inbounds i8, ptr %call4, i64 44
   store i32 %cond.i, ptr %chunkLength, align 4
   %chunkNativeStart = getelementptr inbounds i8, ptr %call4, i64 32
@@ -4882,14 +4881,13 @@ invoke.cont:                                      ; preds = %if.end18
   %shr.i.i41 = sext i16 %8 to i32
   %9 = load i32, ptr %fLength.i, align 4
   %cond.i43 = select i1 %cmp.i.i40, i32 %9, i32 %shr.i.i41
-  %conv1.i = zext i16 %7 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %10 = and i16 %7, 17
+  %tobool.not.i = icmp eq i16 %10, 0
   br i1 %tobool.not.i, label %if.else.i44, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i44:                                      ; preds = %invoke.cont
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %11 = and i16 %7, 2
+  %tobool6.not.i = icmp eq i16 %11, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i44
@@ -4898,11 +4896,11 @@ if.then7.i:                                       ; preds = %if.else.i44
 
 if.else9.i:                                       ; preds = %if.else.i44
   %fArray.i = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = load ptr, ptr %fArray.i, align 8
+  %12 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %invoke.cont, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %10, %if.else9.i ], [ null, %invoke.cont ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %12, %if.else9.i ], [ null, %invoke.cont ]
   %chunkContents = getelementptr inbounds i8, ptr %ut, i64 48
   store ptr %retval.0.i, ptr %chunkContents, align 8
   %chunkLength = getelementptr inbounds i8, ptr %ut, i64 44
@@ -4919,10 +4917,10 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %invoke.cont, %if.th
   br label %return
 
 lpad:                                             ; preds = %if.end18
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %src) #14, !srcloc !16
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 return:                                           ; preds = %entry, %_ZNK6icu_7513UnicodeString9getBufferEv.exit, %if.then5
   %retval.0 = phi i32 [ 0, %if.then5 ], [ %sub23, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ 0, %entry ]
@@ -5013,14 +5011,13 @@ if.else:                                          ; preds = %if.end10
 if.end19:                                         ; preds = %if.end.i, %if.then.i, %if.else
   %start32.1 = phi i32 [ %conv.i44, %if.else ], [ %spec.select, %if.then.i ], [ %spec.select, %if.end.i ]
   %12 = load i16, ptr %fUnion.i.i, align 8
-  %conv1.i = zext i16 %12 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %13 = and i16 %12, 17
+  %tobool.not.i = icmp eq i16 %13, 0
   br i1 %tobool.not.i, label %if.else.i61, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i61:                                      ; preds = %if.end19
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %14 = and i16 %12, 2
+  %tobool6.not.i = icmp eq i16 %14, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i61
@@ -5029,11 +5026,11 @@ if.then7.i:                                       ; preds = %if.else.i61
 
 if.else9.i:                                       ; preds = %if.else.i61
   %fArray.i = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %fArray.i, align 8
+  %15 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end19, %if.then7.i, %if.else9.i
-  %retval.0.i60 = phi ptr [ %fBuffer.i, %if.then7.i ], [ %13, %if.else9.i ], [ null, %if.end19 ]
+  %retval.0.i60 = phi ptr [ %fBuffer.i, %if.then7.i ], [ %15, %if.else9.i ], [ null, %if.end19 ]
   %chunkContents = getelementptr inbounds i8, ptr %ut, i64 48
   store ptr %retval.0.i60, ptr %chunkContents, align 8
   br i1 %tobool11.not, label %if.end29, label %if.then23
@@ -5041,8 +5038,8 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end19, %if.then7
 if.then23:                                        ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %sub24 = sub nsw i32 %conv.i48, %start32.1
   %chunkLength = getelementptr inbounds i8, ptr %ut, i64 44
-  %14 = load i32, ptr %chunkLength, align 4
-  %add25 = add nsw i32 %14, %sub24
+  %16 = load i32, ptr %chunkLength, align 4
+  %add25 = add nsw i32 %16, %sub24
   store i32 %add25, ptr %chunkLength, align 4
   %conv27 = sext i32 %add25 to i64
   %chunkNativeLimit = getelementptr inbounds i8, ptr %ut, i64 16

@@ -764,8 +764,8 @@ for.inc212:                                       ; preds = %for.body195, %invok
   %56 = phi ptr [ %54, %invoke.cont207 ], [ %48, %for.body195 ]
   %inside.2 = phi i8 [ %frombool210, %invoke.cont207 ], [ %inside.1263, %for.body195 ]
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
-  %exitcond274.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count
-  br i1 %exitcond274.not, label %invoke.cont218, label %for.body195, !llvm.loop !8
+  %exitcond275.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count
+  br i1 %exitcond275.not, label %invoke.cont218, label %for.body195, !llvm.loop !8
 
 invoke.cont218:                                   ; preds = %for.inc212, %if.end191
   %57 = phi ptr [ %20, %if.end191 ], [ %55, %for.inc212 ]
@@ -825,9 +825,9 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 
 eh.resume.sink.split:                             ; preds = %lpad22, %lpad
-  %.sink277 = phi ptr [ %4, %lpad ], [ %18, %lpad22 ]
+  %.sink278 = phi ptr [ %4, %lpad ], [ %18, %lpad22 ]
   %.pn.ph = phi { ptr, i32 } [ %3, %lpad ], [ %lpad.phi, %lpad22 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink277) #11
+  call void @_ZdlPv(ptr noundef nonnull %.sink278) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad22, %lpad
@@ -1282,8 +1282,8 @@ for.inc212:                                       ; preds = %for.body195, %invok
   %56 = phi ptr [ %54, %invoke.cont207 ], [ %48, %for.body195 ]
   %inside.2 = phi i8 [ %frombool210, %invoke.cont207 ], [ %inside.1263, %for.body195 ]
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
-  %exitcond274.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count
-  br i1 %exitcond274.not, label %invoke.cont218, label %for.body195, !llvm.loop !11
+  %exitcond275.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count
+  br i1 %exitcond275.not, label %invoke.cont218, label %for.body195, !llvm.loop !11
 
 invoke.cont218:                                   ; preds = %for.inc212, %if.end191
   %57 = phi ptr [ %20, %if.end191 ], [ %55, %for.inc212 ]
@@ -1343,9 +1343,9 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 
 eh.resume.sink.split:                             ; preds = %lpad22, %lpad
-  %.sink277 = phi ptr [ %4, %lpad ], [ %18, %lpad22 ]
+  %.sink278 = phi ptr [ %4, %lpad ], [ %18, %lpad22 ]
   %.pn.ph = phi { ptr, i32 } [ %3, %lpad ], [ %lpad.phi, %lpad22 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink277) #11
+  call void @_ZdlPv(ptr noundef nonnull %.sink278) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad22, %lpad

@@ -394,34 +394,33 @@ define internal i32 @dissect_rp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.042, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.76, ptr noundef nonnull %27) #4
   %30 = icmp ult i32 %8, 2
   %or.cond = select i1 %12, i1 true, i1 %30
-  br i1 %or.cond, label %46, label %31
+  br i1 %or.cond, label %45, label %31
 
 31:                                               ; preds = %26
   %32 = load i32, ptr %5, align 4
-  %33 = sext i32 %32 to i64
-  %34 = and i64 %33, 2305843009213693951
-  %35 = icmp eq i64 %34, 7
-  br i1 %35, label %36, label %40
+  %33 = icmp eq i32 %32, 7
+  br i1 %33, label %34, label %38
 
-36:                                               ; preds = %31
-  %37 = load i32, ptr @hf_gsm_a_rp_message_elements, align 4
-  %38 = add i32 %8, -1
-  %39 = call ptr @proto_tree_add_item(ptr noundef %.042, i32 noundef %37, ptr noundef %0, i32 noundef 1, i32 noundef %38, i32 noundef 0) #4
-  br label %44
+34:                                               ; preds = %31
+  %35 = load i32, ptr @hf_gsm_a_rp_message_elements, align 4
+  %36 = add i32 %8, -1
+  %37 = call ptr @proto_tree_add_item(ptr noundef %.042, i32 noundef %35, ptr noundef %0, i32 noundef 1, i32 noundef %36, i32 noundef 0) #4
+  br label %43
 
-40:                                               ; preds = %31
-  %41 = getelementptr [8 x ptr], ptr @rp_msg_fcn, i64 0, i64 %33
-  %42 = load ptr, ptr %41, align 8
-  %43 = add i32 %8, -1
-  call void %42(ptr noundef %0, ptr noundef %.042, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %43) #4
-  br label %44
+38:                                               ; preds = %31
+  %39 = sext i32 %32 to i64
+  %40 = getelementptr [8 x ptr], ptr @rp_msg_fcn, i64 0, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %42 = add i32 %8, -1
+  call void %41(ptr noundef %0, ptr noundef %.042, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %42) #4
+  br label %43
 
-44:                                               ; preds = %40, %36
-  %45 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %46
+43:                                               ; preds = %38, %34
+  %44 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  br label %45
 
-46:                                               ; preds = %26, %44
-  %.0 = phi i32 [ %45, %44 ], [ 1, %26 ]
+45:                                               ; preds = %26, %43
+  %.0 = phi i32 [ %44, %43 ], [ 1, %26 ]
   ret i32 %.0
 }
 

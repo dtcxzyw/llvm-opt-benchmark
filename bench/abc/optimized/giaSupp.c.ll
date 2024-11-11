@@ -630,11 +630,11 @@ Vec_IntFill.exit:                                 ; preds = %158, %Vec_IntGrow.e
 178:                                              ; preds = %172
   %179 = load ptr, ptr %167, align 8
   %180 = icmp slt i64 %indvars.iv160, %171
-  %.sink170.in = select i1 %180, ptr %2, ptr %170
+  %.sink171.in = select i1 %180, ptr %2, ptr %170
   %181 = select i1 %180, i64 0, i64 %171
   %.sink = sub nsw i64 %indvars.iv160, %181
-  %.sink170 = load ptr, ptr %.sink170.in, align 8
-  %182 = getelementptr i8, ptr %.sink170, i64 8
+  %.sink171 = load ptr, ptr %.sink171.in, align 8
+  %182 = getelementptr i8, ptr %.sink171, i64 8
   %.val106 = load ptr, ptr %182, align 8
   %183 = getelementptr inbounds i32, ptr %.val106, i64 %.sink
   %184 = load i32, ptr %183, align 4
@@ -718,8 +718,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .preheader:                                       ; preds = %._crit_edge, %.critedge4
   %218 = phi i1 [ true, %._crit_edge ], [ false, %.critedge4 ]
-  %indvars.iv166 = phi i64 [ 0, %._crit_edge ], [ 1, %.critedge4 ]
-  %219 = getelementptr inbounds [2 x ptr], ptr %52, i64 0, i64 %indvars.iv166
+  %indvars.iv167 = phi i64 [ 0, %._crit_edge ], [ 1, %.critedge4 ]
+  %219 = getelementptr inbounds [2 x ptr], ptr %52, i64 0, i64 %indvars.iv167
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr i8, ptr %220, i64 4
   %.val99146 = load i32, ptr %221, align 4
@@ -727,11 +727,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %222, label %.lr.ph148, label %.critedge4
 
 .lr.ph148:                                        ; preds = %.preheader, %.lr.ph148
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph148 ], [ 0, %.preheader ]
+  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.lr.ph148 ], [ 0, %.preheader ]
   %223 = phi ptr [ %233, %.lr.ph148 ], [ %220, %.preheader ]
   %224 = getelementptr i8, ptr %223, i64 8
   %.val107 = load ptr, ptr %224, align 8
-  %225 = getelementptr inbounds i32, ptr %.val107, i64 %indvars.iv163
+  %225 = getelementptr inbounds i32, ptr %.val107, i64 %indvars.iv164
   %226 = load i32, ptr %225, align 4
   %227 = load ptr, ptr %46, align 8
   %228 = load ptr, ptr %5, align 8
@@ -741,12 +741,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %231 = getelementptr inbounds ptr, ptr %.val116, i64 %230
   %232 = load ptr, ptr %231, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %227, ptr noundef %232) #15
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %233 = load ptr, ptr %219, align 8
   %234 = getelementptr i8, ptr %233, i64 4
   %.val99 = load i32, ptr %234, align 4
   %235 = sext i32 %.val99 to i64
-  %236 = icmp slt i64 %indvars.iv.next164, %235
+  %236 = icmp slt i64 %indvars.iv.next165, %235
   br i1 %236, label %.lr.ph148, label %.critedge4, !llvm.loop !12
 
 .critedge4:                                       ; preds = %.lr.ph148, %.preheader

@@ -59,8 +59,8 @@ entry:
   %old_value.i = alloca i64, align 8
   %tobool = icmp ne i64 %write_mask, 0
   %conv.i = sext i32 %csrno to i64
-  %0 = and i64 %conv.i, 3072
-  %cmp.i = icmp eq i64 %0, 3072
+  %0 = and i32 %csrno, 3072
+  %cmp.i = icmp eq i32 %0, 3072
   %arrayidx.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i
   %min_priv_ver.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %1 = load i32, ptr %min_priv_ver.i, align 8
@@ -164,8 +164,8 @@ entry:
   %coerce.sroa.0.0.extract.trunc = trunc i128 %write_mask to i64
   %cmp.i = icmp ne i128 %write_mask, 0
   %conv.i = sext i32 %csrno to i64
-  %0 = and i64 %conv.i, 3072
-  %cmp.i14 = icmp eq i64 %0, 3072
+  %0 = and i32 %csrno, 3072
+  %cmp.i14 = icmp eq i32 %0, 3072
   %arrayidx.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i
   %min_priv_ver.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %1 = load i32, ptr %min_priv_ver.i, align 8

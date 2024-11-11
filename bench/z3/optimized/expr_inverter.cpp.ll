@@ -8360,7 +8360,7 @@ if.end16:                                         ; preds = %for.end
   %m23 = getelementptr inbounds i8, ptr %this, i64 8
   %m_domain.i21 = getelementptr inbounds i8, ptr %3, i64 48
   %9 = zext i32 %target.0.lcssa to i64
-  %wide.trip.count87 = zext i32 %4 to i64
+  %wide.trip.count89 = zext i32 %4 to i64
   br label %for.body20
 
 for.body20:                                       ; preds = %if.end16, %for.inc29
@@ -8505,18 +8505,18 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i48:    ; preds = %.noexc57, %for.end.
   br label %for.inc29
 
 for.inc29:                                        ; preds = %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i48, %entry.if.end_crit_edge.i53, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i, %entry.if.end_crit_edge.i
-  %.sink98 = phi i32 [ %10, %entry.if.end_crit_edge.i ], [ %.pre1.i, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i ], [ %16, %entry.if.end_crit_edge.i53 ], [ %.pre1.i49, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i48 ]
+  %.sink100 = phi i32 [ %10, %entry.if.end_crit_edge.i ], [ %.pre1.i, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i ], [ %16, %entry.if.end_crit_edge.i53 ], [ %.pre1.i49, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i48 ]
   %.sink = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call.i.i20, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i ], [ %.pre.i54, %entry.if.end_crit_edge.i53 ], [ %call.i.i56, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i48 ]
   %call26.sink = phi ptr [ %t, %entry.if.end_crit_edge.i ], [ %t, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i ], [ %call26, %entry.if.end_crit_edge.i53 ], [ %call26, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i48 ]
-  %idx.ext.i50 = zext i32 %.sink98 to i64
+  %idx.ext.i50 = zext i32 %.sink100 to i64
   %add.ptr.i51 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i50
   store ptr %call26.sink, ptr %add.ptr.i51, align 8
   %20 = load i32, ptr %m_pos.i.i, align 8
   %storemerge = add i32 %20, 1
   store i32 %storemerge, ptr %m_pos.i.i, align 8
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %for.end31, label %for.body20, !llvm.loop !24
+  %exitcond90.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count89
+  br i1 %exitcond90.not, label %for.end31, label %for.body20, !llvm.loop !24
 
 for.end31:                                        ; preds = %for.inc29
   %.pre = load ptr, ptr %new_args, align 8

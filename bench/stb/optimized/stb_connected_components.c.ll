@@ -1812,8 +1812,8 @@ for.body541:                                      ; preds = %for.body541.lr.ph, 
   %max_adjacent = getelementptr inbounds i8, ptr %arrayidx543, i64 5
   store i8 0, ptr %max_adjacent, align 1
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
-  %exitcond375.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count
-  br i1 %exitcond375.not, label %for.cond550.preheader, label %for.body541, !llvm.loop !34
+  %exitcond376.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count
+  br i1 %exitcond376.not, label %for.cond550.preheader, label %for.body541, !llvm.loop !34
 
 for.cond554.preheader:                            ; preds = %for.cond550.preheader, %for.cond554.preheader
   %indvar = phi i64 [ 0, %for.cond550.preheader ], [ %indvar.next, %for.cond554.preheader ]
@@ -1823,8 +1823,8 @@ for.cond554.preheader:                            ; preds = %for.cond550.prehead
   %gep = getelementptr i8, ptr %invariant.gep, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %scevgep, ptr noundef nonnull align 2 dereferenceable(64) %gep, i64 64, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond382.not = icmp eq i64 %indvar.next, 32
-  br i1 %exitcond382.not, label %for.end574, label %for.cond554.preheader, !llvm.loop !35
+  %exitcond383.not = icmp eq i64 %indvar.next, 32
+  br i1 %exitcond383.not, label %for.end574, label %for.cond554.preheader, !llvm.loop !35
 
 for.end574:                                       ; preds = %for.cond554.preheader
   %63 = load i8, ptr %num_edge_clumps, align 2
@@ -1845,14 +1845,14 @@ for.body582.lr.ph:                                ; preds = %for.end574
   br label %for.body582
 
 for.body582:                                      ; preds = %for.body582.lr.ph, %for.body582
-  %indvars.iv383 = phi i64 [ %65, %for.body582.lr.ph ], [ %indvars.iv.next384, %for.body582 ]
-  %67 = trunc nuw nsw i64 %indvars.iv383 to i32
+  %indvars.iv384 = phi i64 [ %65, %for.body582.lr.ph ], [ %indvars.iv.next385, %for.body582 ]
+  %67 = trunc nuw nsw i64 %indvars.iv384 to i32
   %bf.value589 = and i32 %67, 4095
   %bf.set591 = or disjoint i32 %bf.value589, %bf.set587
-  %arrayidx594 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump592, i64 0, i64 %indvars.iv383
+  %arrayidx594 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump592, i64 0, i64 %indvars.iv384
   store i32 %bf.set591, ptr %arrayidx594, align 4
-  %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
-  %cmp580 = icmp slt i64 %indvars.iv.next384, %66
+  %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
+  %cmp580 = icmp slt i64 %indvars.iv.next385, %66
   br i1 %cmp580, label %for.body582, label %for.end597, !llvm.loop !36
 
 for.end597:                                       ; preds = %for.body582, %for.end574

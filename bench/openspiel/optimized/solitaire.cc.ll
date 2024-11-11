@@ -5755,8 +5755,8 @@ _ZN10open_spiel9solitaire7TableauD2Ev.exit:       ; preds = %_ZNSt6vectorIN10ope
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit99: ; preds = %_ZN10open_spiel9solitaire7TableauD2Ev.exit, %283
   %286 = add nuw nsw i32 %storemerge237, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond275.not = icmp eq i32 %indvars.iv.next, 9
-  br i1 %exitcond275.not, label %.preheader, label %.preheader169, !llvm.loop !58
+  %exitcond276.not = icmp eq i32 %indvars.iv.next, 9
+  br i1 %exitcond276.not, label %.preheader, label %.preheader169, !llvm.loop !58
 
 .loopexit179:                                     ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4CardEEE8allocateERS3_m.exit.i.i.i.i, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4CardEEE8allocateERS3_m.exit.i.i.i.i.i.i.i.i.i, %276
   %lpad.loopexit181 = landingpad { ptr, i32 }
@@ -5823,8 +5823,8 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit99: ; preds = %_ZN10o
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit108: ; preds = %303
   call void @_ZdlPvm(ptr noundef nonnull %300, i64 noundef 20) #34
   %305 = add nuw nsw i32 %.016238, 1
-  %exitcond276.not = icmp eq i32 %305, 25
-  br i1 %exitcond276.not, label %307, label %298, !llvm.loop !59
+  %exitcond277.not = icmp eq i32 %305, 25
+  br i1 %exitcond277.not, label %307, label %298, !llvm.loop !59
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit111: ; preds = %303
   %306 = landingpad { ptr, i32 }

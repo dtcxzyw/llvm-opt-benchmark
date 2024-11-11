@@ -4989,17 +4989,17 @@ if.then91:                                        ; preds = %lor.lhs.false, %if.
   unreachable
 
 for.body96:                                       ; preds = %for.body96.lr.ph, %for.body96
-  %indvars.iv257 = phi i64 [ %idxprom32, %for.body96.lr.ph ], [ %indvars.iv.next258, %for.body96 ]
+  %indvars.iv264 = phi i64 [ %idxprom32, %for.body96.lr.ph ], [ %indvars.iv.next265, %for.body96 ]
   %43 = load ptr, ptr %prefix, align 8
-  %arrayidx98 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv257
+  %arrayidx98 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv264
   %44 = load ptr, ptr %arrayidx98, align 8
-  %45 = icmp eq i64 %indvars.iv257, %idxprom32
+  %45 = icmp eq i64 %indvars.iv264, %idxprom32
   %conv100 = zext i1 %45 to i32
   call void @verify_filename(ptr noundef %43, ptr noundef %44, i32 noundef %conv100) #25
-  %indvars.iv.next258 = add nsw i64 %indvars.iv257, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next258 to i32
-  %exitcond260.not = icmp eq i32 %argc.addr.0170, %lftr.wideiv
-  br i1 %exitcond260.not, label %for.end103, label %for.body96, !llvm.loop !29
+  %indvars.iv.next265 = add nsw i64 %indvars.iv264, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next265 to i32
+  %exitcond267.not = icmp eq i32 %argc.addr.0170, %lftr.wideiv
+  br i1 %exitcond267.not, label %for.end103, label %for.body96, !llvm.loop !29
 
 for.end103:                                       ; preds = %for.body96, %for.cond93.preheader
   call void @strvec_pushv(ptr noundef nonnull %prune_data, ptr noundef nonnull %arrayidx33) #25

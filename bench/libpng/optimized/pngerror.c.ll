@@ -750,8 +750,8 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 
 37:                                               ; preds = %32, %16
   %.1.i = phi i32 [ %30, %16 ], [ %34, %32 ]
-  %.not10.i = icmp eq i32 %.0391.i, 0
-  br i1 %.not10.i, label %38, label %8, !llvm.loop !17
+  %.not11.i = icmp eq i32 %.0391.i, 0
+  br i1 %.not11.i, label %38, label %8, !llvm.loop !17
 
 38:                                               ; preds = %37
   %39 = icmp eq ptr %1, null
@@ -778,7 +778,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
   %49 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
   %50 = load i8, ptr %49, align 1
   %.not.i = icmp eq i8 %50, 0
-  br i1 %.not.i, label %.critedge.split.loop.exit11.i, label %51
+  br i1 %.not.i, label %.critedge.split.loop.exit12.i, label %51
 
 51:                                               ; preds = %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -788,12 +788,12 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 195
   br i1 %exitcond.not.i, label %.critedge.i, label %48, !llvm.loop !18
 
-.critedge.split.loop.exit11.i:                    ; preds = %48
+.critedge.split.loop.exit12.i:                    ; preds = %48
   %53 = trunc nsw i64 %indvars.iv5.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %51, %.critedge.split.loop.exit11.i
-  %.2.lcssa.i = phi i32 [ %53, %.critedge.split.loop.exit11.i ], [ %47, %51 ]
+.critedge.i:                                      ; preds = %51, %.critedge.split.loop.exit12.i
+  %.2.lcssa.i = phi i32 [ %53, %.critedge.split.loop.exit12.i ], [ %47, %51 ]
   %54 = sext i32 %.2.lcssa.i to i64
   %55 = getelementptr inbounds i8, ptr %3, i64 %54
   store i8 0, ptr %55, align 1
@@ -1019,8 +1019,8 @@ define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noun
 
 32:                                               ; preds = %27, %11
   %.1 = phi i32 [ %25, %11 ], [ %29, %27 ]
-  %.not10 = icmp eq i32 %.0391, 0
-  br i1 %.not10, label %33, label %3, !llvm.loop !17
+  %.not11 = icmp eq i32 %.0391, 0
+  br i1 %.not11, label %33, label %3, !llvm.loop !17
 
 33:                                               ; preds = %32
   %34 = icmp eq ptr %1, null
@@ -1047,7 +1047,7 @@ define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noun
   %44 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %.critedge.split.loop.exit11, label %46
+  br i1 %.not, label %.critedge.split.loop.exit12, label %46
 
 46:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1057,12 +1057,12 @@ define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noun
   %exitcond.not = icmp eq i64 %indvars.iv.next, 195
   br i1 %exitcond.not, label %.critedge, label %43, !llvm.loop !18
 
-.critedge.split.loop.exit11:                      ; preds = %43
+.critedge.split.loop.exit12:                      ; preds = %43
   %48 = trunc nsw i64 %indvars.iv5 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %46, %.critedge.split.loop.exit11
-  %.2.lcssa = phi i32 [ %48, %.critedge.split.loop.exit11 ], [ %42, %46 ]
+.critedge:                                        ; preds = %46, %.critedge.split.loop.exit12
+  %.2.lcssa = phi i32 [ %48, %.critedge.split.loop.exit12 ], [ %42, %46 ]
   %49 = sext i32 %.2.lcssa to i64
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
   store i8 0, ptr %50, align 1

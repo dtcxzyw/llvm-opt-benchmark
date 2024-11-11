@@ -575,8 +575,8 @@ for.body25.lr.ph:                                 ; preds = %for.cond22.preheade
 
 for.cond22:                                       ; preds = %for.body25
   %inc50 = add nuw i64 %i.164, 1
-  %exitcond69.not = icmp eq i64 %inc50, %5
-  br i1 %exitcond69.not, label %for.end51, label %for.body25, !llvm.loop !11
+  %exitcond71.not = icmp eq i64 %inc50, %5
+  br i1 %exitcond71.not, label %for.end51, label %for.body25, !llvm.loop !11
 
 for.body25:                                       ; preds = %for.body25.lr.ph, %for.cond22
   %i.164 = phi i64 [ 0, %for.body25.lr.ph ], [ %inc50, %for.cond22 ]
@@ -643,8 +643,8 @@ sw.bb54:                                          ; preds = %for.cond17
 
 for.cond74:                                       ; preds = %if.end98
   %inc113 = add nuw i64 %i.262, 1
-  %exitcond68.not = icmp eq i64 %inc113, %num_pkts.0
-  br i1 %exitcond68.not, label %for.inc115, label %for.body76, !llvm.loop !12
+  %exitcond70.not = icmp eq i64 %inc113, %num_pkts.0
+  br i1 %exitcond70.not, label %for.inc115, label %for.body76, !llvm.loop !12
 
 for.body76:                                       ; preds = %for.body76.lr.ph, %for.cond74
   %i.262 = phi i64 [ 0, %for.body76.lr.ph ], [ %inc113, %for.cond74 ]

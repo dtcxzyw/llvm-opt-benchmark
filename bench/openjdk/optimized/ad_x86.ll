@@ -5360,9 +5360,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 369:                                              ; preds = %368
   %370 = or disjoint i32 %57, 1
   %371 = icmp eq i32 %370, %54
-  %372 = or i32 %66, %57
-  %373 = and i32 %372, 1
-  %374 = icmp eq i32 %373, 0
+  %372 = or i16 %65, %56
+  %373 = and i16 %372, 1
+  %374 = icmp eq i16 %373, 0
   %or.cond372 = select i1 %374, i1 %371, i1 false
   %375 = or disjoint i32 %66, 1
   %376 = icmp eq i32 %375, %63
@@ -5495,9 +5495,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 431:                                              ; preds = %368
   %432 = or disjoint i32 %57, 1
   %433 = icmp eq i32 %432, %54
-  %434 = or i32 %66, %57
-  %435 = and i32 %434, 1
-  %436 = icmp eq i32 %435, 0
+  %434 = or i16 %65, %56
+  %435 = and i16 %434, 1
+  %436 = icmp eq i16 %435, 0
   %or.cond378 = select i1 %436, i1 %433, i1 false
   %437 = or disjoint i32 %66, 1
   %438 = icmp eq i32 %437, %63
@@ -5569,9 +5569,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 468:                                              ; preds = %368
   %469 = or disjoint i32 %57, 1
   %470 = icmp eq i32 %469, %54
-  %471 = or i32 %66, %57
-  %472 = and i32 %471, 1
-  %473 = icmp eq i32 %472, 0
+  %471 = or i16 %65, %56
+  %472 = and i16 %471, 1
+  %473 = icmp eq i16 %472, 0
   %or.cond384 = select i1 %473, i1 %470, i1 false
   %474 = or disjoint i32 %66, 1
   %475 = icmp eq i32 %474, %63
@@ -5643,9 +5643,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 505:                                              ; preds = %368
   %506 = or disjoint i32 %57, 1
   %507 = icmp eq i32 %506, %54
-  %508 = or i32 %66, %57
-  %509 = and i32 %508, 1
-  %510 = icmp eq i32 %509, 0
+  %508 = or i16 %65, %56
+  %509 = and i16 %508, 1
+  %510 = icmp eq i16 %509, 0
   %or.cond390 = select i1 %510, i1 %507, i1 false
   %511 = or disjoint i32 %66, 1
   %512 = icmp eq i32 %511, %63
@@ -5695,9 +5695,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 529:                                              ; preds = %528
   %530 = or disjoint i32 %57, 1
   %531 = icmp eq i32 %530, %54
-  %532 = or i32 %66, %57
-  %533 = and i32 %532, 1
-  %534 = icmp eq i32 %533, 0
+  %532 = or i16 %65, %56
+  %533 = and i16 %532, 1
+  %534 = icmp eq i16 %533, 0
   %or.cond396 = select i1 %534, i1 %531, i1 false
   %535 = or disjoint i32 %66, 1
   %536 = icmp eq i32 %535, %63
@@ -5769,9 +5769,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 566:                                              ; preds = %528
   %567 = or disjoint i32 %57, 1
   %568 = icmp eq i32 %567, %54
-  %569 = or i32 %66, %57
-  %570 = and i32 %569, 1
-  %571 = icmp eq i32 %570, 0
+  %569 = or i16 %65, %56
+  %570 = and i16 %569, 1
+  %571 = icmp eq i16 %570, 0
   %or.cond402 = select i1 %571, i1 %568, i1 false
   %572 = or disjoint i32 %66, 1
   %573 = icmp eq i32 %572, %63
@@ -5820,9 +5820,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 594:                                              ; preds = %528
   %595 = or disjoint i32 %57, 1
   %596 = icmp eq i32 %595, %54
-  %597 = or i32 %66, %57
-  %598 = and i32 %597, 1
-  %599 = icmp eq i32 %598, 0
+  %597 = or i16 %65, %56
+  %598 = and i16 %597, 1
+  %599 = icmp eq i16 %598, 0
   %or.cond408 = select i1 %599, i1 %596, i1 false
   %600 = or disjoint i32 %66, 1
   %601 = icmp eq i32 %600, %63
@@ -5871,9 +5871,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 622:                                              ; preds = %528
   %623 = or disjoint i32 %57, 1
   %624 = icmp eq i32 %623, %54
-  %625 = or i32 %66, %57
-  %626 = and i32 %625, 1
-  %627 = icmp eq i32 %626, 0
+  %625 = or i16 %65, %56
+  %626 = and i16 %625, 1
+  %627 = icmp eq i16 %626, 0
   %or.cond414 = select i1 %627, i1 %624, i1 false
   br i1 %or.cond414, label %628, label %641
 
@@ -5917,9 +5917,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 644:                                              ; preds = %643
   %645 = or disjoint i32 %57, 1
   %646 = icmp eq i32 %645, %54
-  %647 = or i32 %66, %57
-  %648 = and i32 %647, 1
-  %649 = icmp eq i32 %648, 0
+  %647 = or i16 %65, %56
+  %648 = and i16 %647, 1
+  %649 = icmp eq i16 %648, 0
   %or.cond418 = select i1 %649, i1 %646, i1 false
   %650 = or disjoint i32 %66, 1
   %651 = icmp eq i32 %650, %63
@@ -5991,9 +5991,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 681:                                              ; preds = %643
   %682 = or disjoint i32 %57, 1
   %683 = icmp eq i32 %682, %54
-  %684 = or i32 %66, %57
-  %685 = and i32 %684, 1
-  %686 = icmp eq i32 %685, 0
+  %684 = or i16 %65, %56
+  %685 = and i16 %684, 1
+  %686 = icmp eq i16 %685, 0
   %or.cond424 = select i1 %686, i1 %683, i1 false
   %687 = or disjoint i32 %66, 1
   %688 = icmp eq i32 %687, %63
@@ -6042,9 +6042,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 709:                                              ; preds = %643
   %710 = or disjoint i32 %57, 1
   %711 = icmp eq i32 %710, %54
-  %712 = or i32 %66, %57
-  %713 = and i32 %712, 1
-  %714 = icmp eq i32 %713, 0
+  %712 = or i16 %65, %56
+  %713 = and i16 %712, 1
+  %714 = icmp eq i16 %713, 0
   %or.cond430 = select i1 %714, i1 %711, i1 false
   %715 = or disjoint i32 %66, 1
   %716 = icmp eq i32 %715, %63
@@ -6101,9 +6101,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 738:                                              ; preds = %737
   %739 = or disjoint i32 %57, 1
   %740 = icmp eq i32 %739, %54
-  %741 = or i32 %66, %57
-  %742 = and i32 %741, 1
-  %743 = icmp eq i32 %742, 0
+  %741 = or i16 %65, %56
+  %742 = and i16 %741, 1
+  %743 = icmp eq i16 %742, 0
   %or.cond436 = select i1 %743, i1 %740, i1 false
   %744 = or disjoint i32 %66, 1
   %745 = icmp eq i32 %744, %63
@@ -6145,9 +6145,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 761:                                              ; preds = %737
   %762 = or disjoint i32 %57, 1
   %763 = icmp eq i32 %762, %54
-  %764 = or i32 %66, %57
-  %765 = and i32 %764, 1
-  %766 = icmp eq i32 %765, 0
+  %764 = or i16 %65, %56
+  %765 = and i16 %764, 1
+  %766 = icmp eq i16 %765, 0
   %or.cond442 = select i1 %766, i1 %763, i1 false
   br i1 %or.cond442, label %767, label %780
 
@@ -6183,9 +6183,9 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 782:                                              ; preds = %737
   %783 = or disjoint i32 %57, 1
   %784 = icmp eq i32 %783, %54
-  %785 = or i32 %66, %57
-  %786 = and i32 %785, 1
-  %787 = icmp eq i32 %786, 0
+  %785 = or i16 %65, %56
+  %786 = and i16 %785, 1
+  %787 = icmp eq i16 %786, 0
   %or.cond446 = select i1 %787, i1 %784, i1 false
   br i1 %or.cond446, label %788, label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 

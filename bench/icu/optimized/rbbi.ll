@@ -1136,14 +1136,13 @@ entry:
   %fSCharIter = getelementptr inbounds i8, ptr %this, i64 696
   %fUnion.i = getelementptr inbounds i8, ptr %newText, i64 8
   %2 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %2 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %3 = and i16 %2, 17
+  %tobool.not.i = icmp eq i16 %3, 0
   br i1 %tobool.not.i, label %if.else.i, label %invoke.cont
 
 if.else.i:                                        ; preds = %entry
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %4 = and i16 %2, 2
+  %tobool6.not.i = icmp eq i16 %4, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -1152,51 +1151,51 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %newText, i64 24
-  %3 = load ptr, ptr %fArray.i, align 8
+  %5 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else9.i, %if.then7.i, %entry
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %3, %if.else9.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %entry ]
   store ptr %retval.0.i, ptr %agg.tmp, align 8
   %cmp.i.i = icmp slt i16 %2, 0
-  %4 = ashr i16 %2, 5
-  %shr.i.i = sext i16 %4 to i32
+  %6 = ashr i16 %2, 5
+  %shr.i.i = sext i16 %6 to i32
   %fLength.i = getelementptr inbounds i8, ptr %newText, i64 12
-  %5 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %5, i32 %shr.i.i
+  %7 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %7, i32 %shr.i.i
   invoke void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32) %fSCharIter, ptr noundef nonnull %agg.tmp, i32 noundef %cond.i)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #16, !srcloc !4
+  %8 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #16, !srcloc !4
   %fCharIter = getelementptr inbounds i8, ptr %this, i64 688
-  %7 = load ptr, ptr %fCharIter, align 8
-  %cmp.not = icmp eq ptr %7, %fSCharIter
-  %isnull = icmp eq ptr %7, null
+  %9 = load ptr, ptr %fCharIter, align 8
+  %cmp.not = icmp eq ptr %9, %fSCharIter
+  %isnull = icmp eq ptr %9, null
   %or.cond = or i1 %cmp.not, %isnull
   br i1 %or.cond, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont4
-  %vtable = load ptr, ptr %7, align 8
+  %vtable = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %8 = load ptr, ptr %vfn, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
+  %10 = load ptr, ptr %vfn, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #16, !srcloc !4
-  resume { ptr, i32 } %9
+  %12 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #16, !srcloc !4
+  resume { ptr, i32 } %11
 
 if.end:                                           ; preds = %delete.notnull, %invoke.cont4
   store ptr %fSCharIter, ptr %fCharIter, align 8
   %vtable9 = load ptr, ptr %this, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 80
-  %11 = load ptr, ptr %vfn10, align 8
-  %call11 = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(745) %this)
+  %13 = load ptr, ptr %vfn10, align 8
+  %call11 = call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(745) %this)
   ret void
 }
 

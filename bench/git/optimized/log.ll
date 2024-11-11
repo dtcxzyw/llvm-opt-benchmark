@@ -3101,8 +3101,8 @@ for.end564:                                       ; preds = %strbuf_addch.exit12
 
 if.end567:                                        ; preds = %for.end564
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.99, i64 noundef 4) #20
-  %.pre389 = load i64, ptr getelementptr inbounds (i8, ptr @extra_cc, i64 8), align 8
-  %44 = icmp eq i64 %.pre389, 0
+  %.pre392 = load i64, ptr getelementptr inbounds (i8, ptr @extra_cc, i64 8), align 8
+  %44 = icmp eq i64 %.pre392, 0
   br i1 %44, label %for.end587, label %for.body572.lr.ph
 
 for.body572.lr.ph:                                ; preds = %if.end567
@@ -4431,11 +4431,11 @@ if.end952:                                        ; preds = %get_base_commit.exi
 
 if.end967.thread:                                 ; preds = %if.end952
   %200 = load i32, ptr %just_numbers, align 4
-  %numbered_files401 = getelementptr inbounds i8, ptr %rev, i64 368
-  store i32 %200, ptr %numbered_files401, align 8
+  %numbered_files404 = getelementptr inbounds i8, ptr %rev, i64 368
+  store i32 %200, ptr %numbered_files404, align 8
   %201 = load ptr, ptr @fmt_patch_suffix, align 8
-  %patch_suffix402 = getelementptr inbounds i8, ptr %rev, i64 360
-  store ptr %201, ptr %patch_suffix402, align 8
+  %patch_suffix405 = getelementptr inbounds i8, ptr %rev, i64 360
+  store ptr %201, ptr %patch_suffix405, align 8
   br label %if.end984
 
 if.end961:                                        ; preds = %if.end952
@@ -4443,18 +4443,18 @@ if.end961:                                        ; preds = %if.end952
   %ref_message_ids = getelementptr inbounds i8, ptr %rev, i64 456
   store ptr %call959, ptr %ref_message_ids, align 8
   call void @string_list_init_dup(ptr noundef %call959) #20
-  %.pre390 = load ptr, ptr %in_reply_to, align 8
-  %tobool962.not = icmp eq ptr %.pre390, null
+  %.pre393 = load ptr, ptr %in_reply_to, align 8
+  %tobool962.not = icmp eq ptr %.pre393, null
   br i1 %tobool962.not, label %if.end967, label %if.then963
 
 if.then963:                                       ; preds = %if.end961
-  %202 = load i8, ptr %.pre390, align 1
+  %202 = load i8, ptr %.pre393, align 1
   %tobool.not15.i = icmp eq i8 %202, 0
   br i1 %tobool.not15.i, label %if.then21.i229, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then963, %while.body.i231
   %203 = phi i8 [ %207, %while.body.i231 ], [ %202, %if.then963 ]
-  %m.016.i = phi ptr [ %incdec.ptr.i232, %while.body.i231 ], [ %.pre390, %if.then963 ]
+  %m.016.i = phi ptr [ %incdec.ptr.i232, %while.body.i231 ], [ %.pre393, %if.then963 ]
   %idxprom.i225 = zext i8 %203 to i64
   %arrayidx.i226 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i225
   %204 = load i8, ptr %arrayidx.i226, align 1
@@ -4493,7 +4493,7 @@ while.end19.i:                                    ; preds = %while.body8.i
 
 if.then21.i229:                                   ; preds = %while.body.i231, %while.end19.i, %if.then963
   %call.i230 = call fastcc ptr @_(ptr noundef nonnull @.str.255)
-  call void (ptr, ...) @die(ptr noundef %call.i230, ptr noundef nonnull %.pre390) #22
+  call void (ptr, ...) @die(ptr noundef %call.i230, ptr noundef nonnull %.pre393) #22
   unreachable
 
 if.end22.i:                                       ; preds = %while.end19.i
@@ -4520,14 +4520,14 @@ clean_message_id.exit:                            ; preds = %if.then26.i, %if.en
   br label %if.end967
 
 if.end967:                                        ; preds = %clean_message_id.exit, %if.end961
-  %.pr400 = load i32, ptr %cover_letter, align 4
+  %.pr403 = load i32, ptr %cover_letter, align 4
   %213 = load i32, ptr %just_numbers, align 4
   %numbered_files = getelementptr inbounds i8, ptr %rev, i64 368
   store i32 %213, ptr %numbered_files, align 8
   %214 = load ptr, ptr @fmt_patch_suffix, align 8
   %patch_suffix = getelementptr inbounds i8, ptr %rev, i64 360
   store ptr %214, ptr %patch_suffix, align 8
-  %tobool968.not = icmp eq i32 %.pr400, 0
+  %tobool968.not = icmp eq i32 %.pr403, 0
   br i1 %tobool968.not, label %if.end984, label %if.then969
 
 if.then969:                                       ; preds = %if.end967
@@ -5062,7 +5062,7 @@ print_signature.exit:                             ; preds = %make_cover_letter.e
   br label %if.end984
 
 if.end984:                                        ; preds = %if.end967.thread, %print_signature.exit, %if.end967
-  %numbered_files404 = phi ptr [ %numbered_files, %print_signature.exit ], [ %numbered_files, %if.end967 ], [ %numbered_files401, %if.end967.thread ]
+  %numbered_files407 = phi ptr [ %numbered_files, %print_signature.exit ], [ %numbered_files, %if.end967 ], [ %numbered_files404, %if.end967.thread ]
   %total.0 = phi i32 [ %inc981, %print_signature.exit ], [ %118, %if.end967 ], [ %118, %if.end967.thread ]
   %290 = load i32, ptr @do_signoff, align 4
   %add_signoff = getelementptr inbounds i8, ptr %rev, i64 464
@@ -5097,18 +5097,18 @@ while.body995.lr.ph:                              ; preds = %if.end990
   %ref_message_ids1011 = getelementptr inbounds i8, ptr %rev, i64 456
   %file1056 = getelementptr inbounds i8, ptr %rev, i64 1920
   %mime_boundary1057 = getelementptr inbounds i8, ptr %rev, i64 352
-  %sext394 = shl i64 %indvars.iv382, 32
-  %293 = ashr exact i64 %sext394, 32
+  %sext397 = shl i64 %indvars.iv382, 32
+  %293 = ashr exact i64 %sext397, 32
   %294 = sext i32 %total.0 to i64
-  %.pre391 = load ptr, ptr %progress, align 8
+  %.pre394 = load ptr, ptr %progress, align 8
   br label %while.body995
 
 while.body995:                                    ; preds = %while.body995.lr.ph, %if.end1074
-  %indvars.iv385 = phi i64 [ %293, %while.body995.lr.ph ], [ %indvars.iv.next386, %if.end1074 ]
-  %indvars.iv.next386 = add nsw i64 %indvars.iv385, -1
-  %295 = sub nsw i64 %294, %indvars.iv.next386
-  call void @display_progress(ptr noundef %.pre391, i64 noundef %295) #20
-  %arrayidx999 = getelementptr inbounds ptr, ptr %list.0.ph331, i64 %indvars.iv.next386
+  %indvars.iv388 = phi i64 [ %293, %while.body995.lr.ph ], [ %indvars.iv.next389, %if.end1074 ]
+  %indvars.iv.next389 = add nsw i64 %indvars.iv388, -1
+  %295 = sub nsw i64 %294, %indvars.iv.next389
+  call void @display_progress(ptr noundef %.pre394, i64 noundef %295) #20
+  %arrayidx999 = getelementptr inbounds ptr, ptr %list.0.ph331, i64 %indvars.iv.next389
   %296 = load ptr, ptr %arrayidx999, align 8
   %297 = load i32, ptr %start_number, align 4
   %298 = trunc nsw i64 %295 to i32
@@ -5126,11 +5126,11 @@ if.then1005:                                      ; preds = %while.body995
 
 if.then1007:                                      ; preds = %if.then1005
   %cmp1008 = icmp eq i32 %299, 1
-  %.pre392 = load ptr, ptr %ref_message_ids1011, align 8
+  %.pre395 = load ptr, ptr %ref_message_ids1011, align 8
   br i1 %cmp1008, label %land.lhs.true1010, label %if.else1023
 
 land.lhs.true1010:                                ; preds = %if.then1007
-  %nr1012 = getelementptr inbounds i8, ptr %.pre392, i64 8
+  %nr1012 = getelementptr inbounds i8, ptr %.pre395, i64 8
   %301 = load i64, ptr %nr1012, align 8
   %cmp1013.not = icmp eq i64 %301, 0
   br i1 %cmp1013.not, label %if.else1023, label %land.lhs.true1015
@@ -5147,7 +5147,7 @@ if.then1021:                                      ; preds = %land.lhs.true1015
   br label %if.end1028
 
 if.else1023:                                      ; preds = %land.lhs.true1015, %land.lhs.true1010, %if.then1007
-  %call1026 = call ptr @string_list_append_nodup(ptr noundef %.pre392, ptr noundef nonnull %300) #20
+  %call1026 = call ptr @string_list_append_nodup(ptr noundef %.pre395, ptr noundef nonnull %300) #20
   br label %if.end1028
 
 if.end1028:                                       ; preds = %if.then1021, %if.else1023, %if.then1005
@@ -5172,7 +5172,7 @@ if.end1032:                                       ; preds = %if.end1028, %while.
   br i1 %tobool1033.not, label %if.end1045, label %land.lhs.true1034
 
 land.lhs.true1034:                                ; preds = %if.end1032
-  %305 = load i32, ptr %numbered_files404, align 8
+  %305 = load i32, ptr %numbered_files407, align 8
   %tobool1036.not = icmp eq i32 %305, 0
   %cond1040 = select i1 %tobool1036.not, ptr %296, ptr null
   %306 = load i32, ptr %quiet, align 4
@@ -5256,7 +5256,7 @@ if.then1070:                                      ; preds = %if.end1068
   br label %if.end1074
 
 if.end1074:                                       ; preds = %if.then1070, %if.end1068
-  %cmp993 = icmp sgt i64 %indvars.iv385, 1
+  %cmp993 = icmp sgt i64 %indvars.iv388, 1
   br i1 %cmp993, label %while.body995, label %while.end1075, !llvm.loop !29
 
 while.end1075:                                    ; preds = %if.end1074, %if.end990
@@ -5302,11 +5302,11 @@ done:                                             ; preds = %stop_progress.exit,
 
 if.then1083:                                      ; preds = %done
   call void @string_list_clear(ptr noundef nonnull %323, i32 noundef 0) #20
-  %.pre393 = load ptr, ptr %ref_message_ids1081, align 8
+  %.pre396 = load ptr, ptr %ref_message_ids1081, align 8
   br label %if.end1085
 
 if.end1085:                                       ; preds = %if.then1083, %done
-  %324 = phi ptr [ %.pre393, %if.then1083 ], [ null, %done ]
+  %324 = phi ptr [ %.pre396, %if.then1083 ], [ null, %done ]
   call void @free(ptr noundef %324) #20
   call void @release_revisions(ptr noundef nonnull %rev) #20
   ret i32 0

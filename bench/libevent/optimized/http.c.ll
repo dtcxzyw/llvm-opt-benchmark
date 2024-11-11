@@ -3630,9 +3630,8 @@ if.then36:                                        ; preds = %land.lhs.true28
   br label %if.end78
 
 if.end38:                                         ; preds = %sw.epilog
-  %conv3932 = zext i16 %what to i32
-  %and40 = and i32 %conv3932, 64
-  %tobool41.not = icmp eq i32 %and40, 0
+  %11 = and i16 %what, 64
+  %tobool41.not = icmp eq i16 %11, 0
   br i1 %tobool41.not, label %if.else, label %if.then42
 
 if.then42:                                        ; preds = %if.end38
@@ -3640,13 +3639,13 @@ if.then42:                                        ; preds = %if.end38
   br label %if.end78
 
 if.else:                                          ; preds = %if.end38
-  %and44 = and i32 %conv3932, 48
-  %tobool45.not = icmp eq i32 %and44, 0
+  %12 = and i16 %what, 48
+  %tobool45.not = icmp eq i16 %12, 0
   br i1 %tobool45.not, label %if.else70, label %if.then46
 
 if.then46:                                        ; preds = %if.else
-  %and48 = and i32 %conv3932, 2
-  %tobool49.not = icmp eq i32 %and48, 0
+  %13 = and i16 %what, 2
+  %tobool49.not = icmp eq i16 %13, 0
   %and52 = and i32 %7, 16
   %tobool53.not = icmp eq i32 %and52, 0
   %or.cond31 = or i1 %tobool49.not, %tobool53.not
@@ -3667,21 +3666,21 @@ if.end.i:                                         ; preds = %if.then54
   %kind.i = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %kind.i, align 8
   %bufev.i = getelementptr inbounds i8, ptr %arg, i64 16
-  %11 = load ptr, ptr %bufev.i, align 8
-  %call.i = tail call ptr @bufferevent_get_output(ptr noundef %11) #19
+  %14 = load ptr, ptr %bufev.i, align 8
+  %call.i = tail call ptr @bufferevent_get_output(ptr noundef %14) #19
   %call3.i = tail call i32 @evbuffer_unfreeze(ptr noundef %call.i, i32 noundef 1) #19
   %call4.i = tail call i64 @evbuffer_get_length(ptr noundef %call.i) #19
   %call5.i = tail call i32 @evbuffer_drain(ptr noundef %call.i, i64 noundef %call4.i) #19
   %call6.i = tail call i32 @evbuffer_freeze(ptr noundef %call.i, i32 noundef 1) #19
   tail call void @evhttp_start_read_(ptr noundef nonnull %arg)
-  %12 = load i32, ptr %flags, align 8
-  %or.i = or i32 %12, 2097152
+  %15 = load i32, ptr %flags, align 8
+  %or.i = or i32 %15, 2097152
   store i32 %or.i, ptr %flags, align 8
   br label %if.end78
 
 if.end55:                                         ; preds = %if.then46
-  %and57 = and i32 %conv3932, 1
-  %tobool58.not = icmp eq i32 %and57, 0
+  %16 = and i16 %what, 1
+  %tobool58.not = icmp eq i16 %16, 0
   %brmerge = or i1 %tobool58.not, %tobool53.not
   br i1 %brmerge, label %if.end69, label %land.lhs.true63
 
@@ -3693,9 +3692,9 @@ land.lhs.true63:                                  ; preds = %if.end55
 
 if.then67:                                        ; preds = %land.lhs.true63
   %base = getelementptr inbounds i8, ptr %arg, i64 384
-  %13 = load ptr, ptr %base, align 8
+  %17 = load ptr, ptr %base, align 8
   %read_more_deferred_cb = getelementptr inbounds i8, ptr %arg, i64 344
-  %call68 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %13, ptr noundef nonnull %read_more_deferred_cb) #19
+  %call68 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %17, ptr noundef nonnull %read_more_deferred_cb) #19
   br label %if.end78
 
 if.end69:                                         ; preds = %if.end55, %land.lhs.true63

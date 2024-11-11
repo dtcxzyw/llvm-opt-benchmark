@@ -2134,12 +2134,12 @@ for.body.lr.ph.i.i41.i:                           ; preds = %for.body.i33.i
   br label %for.body.i.i42.i
 
 for.body.i.i42.i:                                 ; preds = %for.inc71.i.i.i, %for.body.lr.ph.i.i41.i
-  %indvars.iv56.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i41.i ], [ %indvars.iv.next57.i.i.i, %for.inc71.i.i.i ]
+  %indvars.iv57.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i41.i ], [ %indvars.iv.next58.i.i.i, %for.inc71.i.i.i ]
   %179 = phi i32 [ %177, %for.body.lr.ph.i.i41.i ], [ %191, %for.inc71.i.i.i ]
   %dest.050.i.i.i = phi i32 [ 0, %for.body.lr.ph.i.i41.i ], [ %dest.1.i.i.i, %for.inc71.i.i.i ]
   %prev_lineno.049.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i41.i ], [ %prev_lineno.1.i.i.i, %for.inc71.i.i.i ]
   %180 = load ptr, ptr %b_instr.i.i.i, align 8
-  %arrayidx.i.i43.i = getelementptr %struct._PyCfgInstruction, ptr %180, i64 %indvars.iv56.i.i.i
+  %arrayidx.i.i43.i = getelementptr %struct._PyCfgInstruction, ptr %180, i64 %indvars.iv57.i.i.i
   %i_loc.i.i44.i = getelementptr inbounds i8, ptr %arrayidx.i.i43.i, i64 8
   %181 = load i32, ptr %i_loc.i.i44.i, align 8
   %182 = load i32, ptr %arrayidx.i.i43.i, align 8
@@ -2155,11 +2155,11 @@ if.then.i.i57.i:                                  ; preds = %for.body.i.i42.i
 if.end10.i.i.i:                                   ; preds = %if.then.i.i57.i
   %sub.i.i59.i = add nsw i32 %179, -1
   %183 = sext i32 %sub.i.i59.i to i64
-  %cmp12.i.i.i = icmp slt i64 %indvars.iv56.i.i.i, %183
+  %cmp12.i.i.i = icmp slt i64 %indvars.iv57.i.i.i, %183
   br i1 %cmp12.i.i.i, label %if.then13.i.i.i, label %while.cond.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.end10.i.i.i
-  %184 = add nuw nsw i64 %indvars.iv56.i.i.i, 1
+  %184 = add nuw nsw i64 %indvars.iv57.i.i.i, 1
   %i_loc17.i.i.i = getelementptr %struct._PyCfgInstruction, ptr %180, i64 %184, i32 2
   %185 = load i32, ptr %i_loc17.i.i.i, align 8
   %cmp19.i.i.i = icmp eq i32 %185, %181
@@ -2219,7 +2219,7 @@ for.end.i.i62.i:                                  ; preds = %for.cond39.i.i.i, %
 
 if.end60.i.i.i:                                   ; preds = %while.cond.i.i.i, %for.end.i.i62.i, %if.end21.i.i69.i, %for.body.i.i42.i
   %190 = zext i32 %dest.050.i.i.i to i64
-  %cmp61.not.i.i.i = icmp eq i64 %indvars.iv56.i.i.i, %190
+  %cmp61.not.i.i.i = icmp eq i64 %indvars.iv57.i.i.i, %190
   br i1 %cmp61.not.i.i.i, label %if.end69.i.i.i, label %if.then62.i.i.i
 
 if.then62.i.i.i:                                  ; preds = %if.end60.i.i.i
@@ -2235,10 +2235,10 @@ if.end69.i.i.i:                                   ; preds = %if.then62.i.i.i, %i
 for.inc71.i.i.i:                                  ; preds = %if.end69.i.i.i, %for.end.i.i62.i, %if.then23.i.i.i, %if.then13.i.i.i, %if.then.i.i57.i
   %prev_lineno.1.i.i.i = phi i32 [ %prev_lineno.049.i.i.i, %if.then.i.i57.i ], [ %prev_lineno.049.i.i.i, %if.then13.i.i.i ], [ %prev_lineno.049.i.i.i, %if.then23.i.i.i ], [ %181, %if.end69.i.i.i ], [ %prev_lineno.049.i.i.i, %for.end.i.i62.i ]
   %dest.1.i.i.i = phi i32 [ %dest.050.i.i.i, %if.then.i.i57.i ], [ %dest.050.i.i.i, %if.then13.i.i.i ], [ %dest.050.i.i.i, %if.then23.i.i.i ], [ %inc70.i.i.i, %if.end69.i.i.i ], [ %dest.050.i.i.i, %for.end.i.i62.i ]
-  %indvars.iv.next57.i.i.i = add nuw nsw i64 %indvars.iv56.i.i.i, 1
+  %indvars.iv.next58.i.i.i = add nuw nsw i64 %indvars.iv57.i.i.i, 1
   %191 = load i32, ptr %b_iused.i.i.i, align 8
   %192 = sext i32 %191 to i64
-  %cmp.i.i46.i = icmp slt i64 %indvars.iv.next57.i.i.i, %192
+  %cmp.i.i46.i = icmp slt i64 %indvars.iv.next58.i.i.i, %192
   br i1 %cmp.i.i46.i, label %for.body.i.i42.i, label %remove_redundant_nops.exit.i.i, !llvm.loop !37
 
 remove_redundant_nops.exit.i.i:                   ; preds = %for.inc71.i.i.i
@@ -5787,12 +5787,12 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc71
-  %indvars.iv56 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next57, %for.inc71 ]
+  %indvars.iv57 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next58, %for.inc71 ]
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %13, %for.inc71 ]
   %dest.050 = phi i32 [ 0, %for.body.lr.ph ], [ %dest.1, %for.inc71 ]
   %prev_lineno.049 = phi i32 [ -1, %for.body.lr.ph ], [ %prev_lineno.1, %for.inc71 ]
   %2 = load ptr, ptr %b_instr, align 8
-  %arrayidx = getelementptr %struct._PyCfgInstruction, ptr %2, i64 %indvars.iv56
+  %arrayidx = getelementptr %struct._PyCfgInstruction, ptr %2, i64 %indvars.iv57
   %i_loc = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i32, ptr %i_loc, align 8
   %4 = load i32, ptr %arrayidx, align 8
@@ -5808,11 +5808,11 @@ if.then:                                          ; preds = %for.body
 if.end10:                                         ; preds = %if.then
   %sub = add nsw i32 %1, -1
   %5 = sext i32 %sub to i64
-  %cmp12 = icmp slt i64 %indvars.iv56, %5
+  %cmp12 = icmp slt i64 %indvars.iv57, %5
   br i1 %cmp12, label %if.then13, label %while.cond
 
 if.then13:                                        ; preds = %if.end10
-  %6 = add nuw nsw i64 %indvars.iv56, 1
+  %6 = add nuw nsw i64 %indvars.iv57, 1
   %i_loc17 = getelementptr %struct._PyCfgInstruction, ptr %2, i64 %6, i32 2
   %7 = load i32, ptr %i_loc17, align 8
   %cmp19 = icmp eq i32 %7, %3
@@ -5872,7 +5872,7 @@ for.end:                                          ; preds = %for.cond39, %for.bo
 
 if.end60:                                         ; preds = %while.cond, %if.end21, %for.end, %for.body
   %12 = zext i32 %dest.050 to i64
-  %cmp61.not = icmp eq i64 %indvars.iv56, %12
+  %cmp61.not = icmp eq i64 %indvars.iv57, %12
   br i1 %cmp61.not, label %if.end69, label %if.then62
 
 if.then62:                                        ; preds = %if.end60
@@ -5888,10 +5888,10 @@ if.end69:                                         ; preds = %if.then62, %if.end6
 for.inc71:                                        ; preds = %for.end, %if.then13, %if.then, %if.end69, %if.then23
   %prev_lineno.1 = phi i32 [ %prev_lineno.049, %if.then ], [ %prev_lineno.049, %if.then13 ], [ %prev_lineno.049, %if.then23 ], [ %3, %if.end69 ], [ %prev_lineno.049, %for.end ]
   %dest.1 = phi i32 [ %dest.050, %if.then ], [ %dest.050, %if.then13 ], [ %dest.050, %if.then23 ], [ %inc70, %if.end69 ], [ %dest.050, %for.end ]
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %13 = load i32, ptr %b_iused, align 8
   %14 = sext i32 %13 to i64
-  %cmp = icmp slt i64 %indvars.iv.next57, %14
+  %cmp = icmp slt i64 %indvars.iv.next58, %14
   br i1 %cmp, label %for.body, label %for.end73, !llvm.loop !37
 
 for.end73:                                        ; preds = %for.inc71, %entry

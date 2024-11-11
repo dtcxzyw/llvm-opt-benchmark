@@ -1319,11 +1319,11 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
   br i1 %.not86, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader74
-  %scevgep93 = getelementptr i8, ptr %16, i64 %82
-  %scevgep95 = getelementptr i8, ptr %69, i64 %82
-  %narrow110 = xor i32 %.2, 15
-  %73 = zext nneg i32 %narrow110 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep93, ptr noundef nonnull align 1 dereferenceable(1) %scevgep95, i64 %73, i1 false)
+  %scevgep94 = getelementptr i8, ptr %16, i64 %82
+  %scevgep96 = getelementptr i8, ptr %69, i64 %82
+  %narrow112 = xor i32 %.2, 15
+  %73 = zext nneg i32 %narrow112 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep94, ptr noundef nonnull align 1 dereferenceable(1) %scevgep96, i64 %73, i1 false)
   br label %.loopexit
 
 74:                                               ; preds = %64, %81
@@ -1370,15 +1370,15 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
 
 .lr.ph85.preheader:                               ; preds = %.preheader
   %91 = zext nneg i32 %.4.lcssa to i64
-  %scevgep104 = getelementptr i8, ptr %9, i64 %91
-  %scevgep105 = getelementptr i8, ptr %10, i64 %91
+  %scevgep106 = getelementptr i8, ptr %9, i64 %91
+  %scevgep107 = getelementptr i8, ptr %10, i64 %91
   %narrow = sub nuw nsw i32 16, %.4.lcssa
   %92 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep104, ptr align 1 %scevgep105, i64 %92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep106, ptr align 1 %scevgep107, i64 %92, i1 false)
   br label %._crit_edge
 
 .lr.ph83:                                         ; preds = %.loopexit, %99
-  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %99 ], [ 0, %.loopexit ]
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %99 ], [ 0, %.loopexit ]
   %.482 = phi i32 [ %107, %99 ], [ %.0, %.loopexit ]
   %93 = icmp ugt i32 %.482, 15
   br i1 %93, label %94, label %99
@@ -1399,15 +1399,15 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
   %100 = zext nneg i32 %.5 to i64
   %101 = getelementptr [16 x i8], ptr %10, i64 0, i64 %100
   %102 = load i8, ptr %101, align 1
-  %103 = getelementptr i8, ptr %4, i64 %indvars.iv99
+  %103 = getelementptr i8, ptr %4, i64 %indvars.iv101
   %104 = load i8, ptr %103, align 1
   %105 = xor i8 %104, %102
   %106 = getelementptr [16 x i8], ptr %9, i64 0, i64 %100
   store i8 %105, ptr %106, align 1
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %107 = add nuw nsw i32 %.5, 1
-  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %28
-  br i1 %exitcond103.not, label %.preheader, label %.lr.ph83, !llvm.loop !13
+  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %28
+  br i1 %exitcond105.not, label %.preheader, label %.lr.ph83, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph85.preheader, %.preheader
   %108 = load ptr, ptr %12, align 8

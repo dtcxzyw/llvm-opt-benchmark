@@ -1822,28 +1822,28 @@ common.resume:                                    ; preds = %_ZNSt6vectorIN2cv6P
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %31 = zext nneg i32 %17 to i64
-  %wide.trip.count179 = zext nneg i32 %18 to i64
+  %wide.trip.count180 = zext nneg i32 %18 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge162.us
-  %indvars.iv176 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next177, %._crit_edge162.us ]
-  %32 = mul nuw nsw i64 %indvars.iv176, %31
+  %indvars.iv177 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next178, %._crit_edge162.us ]
+  %32 = mul nuw nsw i64 %indvars.iv177, %31
   br label %33
 
 33:                                               ; preds = %.preheader.us, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit152.us
-  %indvars.iv171 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next172, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit152.us ]
+  %indvars.iv172 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next173, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit152.us ]
   %34 = load ptr, ptr %21, align 8
   %35 = load ptr, ptr %22, align 8
   %36 = load i64, ptr %35, align 8
-  %37 = mul i64 %36, %indvars.iv176
+  %37 = mul i64 %36, %indvars.iv177
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv171
+  %39 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv172
   %40 = load i8, ptr %39, align 1
   %.not.us = icmp eq i8 %40, 0
   br i1 %.not.us, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit152.us, label %41
 
 41:                                               ; preds = %33
-  %42 = add nuw nsw i64 %indvars.iv171, %32
+  %42 = add nuw nsw i64 %indvars.iv172, %32
   %43 = trunc nuw i64 %42 to i32
   store i32 %43, ptr %5, align 16
   br label %109
@@ -1859,8 +1859,8 @@ common.resume:                                    ; preds = %_ZNSt6vectorIN2cv6P
   br i1 %47, label %.split166.us.invoke, label %48
 
 48:                                               ; preds = %45
-  %.not181 = icmp eq i32 %.1.us, 0
-  br i1 %.not181, label %._crit_edge.us, label %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.us
+  %.not182 = icmp eq i32 %.1.us, 0
+  br i1 %.not182, label %._crit_edge.us, label %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.us
 
 _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.us: ; preds = %48
   %49 = shl nuw nsw i64 %46, 3
@@ -2281,14 +2281,14 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit.us: ; preds = %_ZNSt6v
   br i1 %263, label %109, label %44, !llvm.loop !35
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit152.us: ; preds = %77, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit.us, %44, %33
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %31
-  br i1 %exitcond175.not, label %._crit_edge162.us, label %33, !llvm.loop !36
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %exitcond176.not = icmp eq i64 %indvars.iv.next173, %31
+  br i1 %exitcond176.not, label %._crit_edge162.us, label %33, !llvm.loop !36
 
 ._crit_edge162.us:                                ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit152.us
-  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %._crit_edge164, label %.preheader.us, !llvm.loop !37
+  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
+  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
+  br i1 %exitcond181.not, label %._crit_edge164, label %.preheader.us, !llvm.loop !37
 
 .loopexit.split-lp.loopexit.split.us:             ; preds = %75, %_ZNSt16allocator_traitsISaIN2cv6Point_IiEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i.us, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.us
   %lpad.loopexit153.us = landingpad { ptr, i32 }

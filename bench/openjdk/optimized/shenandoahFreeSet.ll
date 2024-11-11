@@ -2582,8 +2582,8 @@ _ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit.us: ; p
   %114 = getelementptr inbounds i8, ptr %.0.i80.us, i64 48
   store ptr %113, ptr %114, align 8
   %115 = add i64 %.06395.us, 1
-  %exitcond103.not = icmp eq i64 %.06395.us, %.165
-  br i1 %exitcond103.not, label %._crit_edge, label %.lr.ph96.split.us, !llvm.loop !24
+  %exitcond107.not = icmp eq i64 %.06395.us, %.165
+  br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph96.split.us, !llvm.loop !24
 
 .lr.ph96.split:                                   ; preds = %.lr.ph96, %139
   %.06395 = phi i64 [ %146, %139 ], [ %.1.ph, %.lr.ph96 ]

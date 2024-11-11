@@ -4918,9 +4918,9 @@ define ptr @env_array_user_default(ptr noundef %0, i32 noundef %1, i32 noundef %
   %59 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef nonnull %58, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i1 noundef zeroext true)
   %60 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %21) #18
   %61 = icmp slt i32 %60, 0
-  br i1 %61, label %63, label %._crit_edge113
+  br i1 %61, label %63, label %._crit_edge117
 
-._crit_edge113:                                   ; preds = %53
+._crit_edge117:                                   ; preds = %53
   %.pre = load i64, ptr %21, align 8
   %62 = trunc i64 %.pre to i32
   br label %65
@@ -4930,8 +4930,8 @@ define ptr @env_array_user_default(ptr noundef %0, i32 noundef %1, i32 noundef %
   store i64 4096, ptr %21, align 8
   br label %65
 
-65:                                               ; preds = %._crit_edge113, %63
-  %66 = phi i32 [ %62, %._crit_edge113 ], [ 4096, %63 ]
+65:                                               ; preds = %._crit_edge117, %63
+  %66 = phi i32 [ %62, %._crit_edge117 ], [ 4096, %63 ]
   %67 = getelementptr inbounds i8, ptr %16, i64 20
   store i32 %66, ptr %67, align 4
   %68 = call ptr @mmap(ptr noundef null, i64 noundef 1048576, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #18
@@ -4992,37 +4992,37 @@ _clone_env_child.exit:                            ; preds = %65
   %100 = getelementptr inbounds i8, ptr %19, i64 6
   %101 = call i32 @gettimeofday(ptr noundef nonnull %18, ptr noundef null) #18
   %102 = load i64, ptr %18, align 8
-  %.neg108123130 = sub i64 %96, %102
-  %.neg109124131 = trunc i64 %.neg108123130 to i32
+  %.neg112127134 = sub i64 %96, %102
+  %.neg113128135 = trunc i64 %.neg112127134 to i32
   %103 = load i64, ptr %97, align 8
   %104 = sub nsw i64 %103, %99
-  %.neg125132 = sdiv i64 %104, -1000
-  %105 = trunc i64 %.neg125132 to i32
-  %reass.add126133 = add i32 %.050, %.neg109124131
-  %reass.mul127134 = mul i32 %reass.add126133, 1000
-  %106 = add i32 %reass.mul127134, %105
+  %.neg129136 = sdiv i64 %104, -1000
+  %105 = trunc i64 %.neg129136 to i32
+  %reass.add130137 = add i32 %.050, %.neg113128135
+  %reass.mul131138 = mul i32 %reass.add130137, 1000
+  %106 = add i32 %reass.mul131138, %105
   %107 = icmp slt i32 %106, 1
-  br i1 %107, label %.outer._crit_edge, label %.lr.ph128
+  br i1 %107, label %.outer._crit_edge, label %.lr.ph132
 
 .outer:                                           ; preds = %162
-  %108 = add nuw nsw i32 %.051.ph135, %170
+  %108 = add nuw nsw i32 %.051.ph139, %170
   %109 = call i32 @gettimeofday(ptr noundef nonnull %18, ptr noundef null) #18
   %110 = load i64, ptr %18, align 8
-  %.neg108123 = sub i64 %96, %110
-  %.neg109124 = trunc i64 %.neg108123 to i32
+  %.neg112127 = sub i64 %96, %110
+  %.neg113128 = trunc i64 %.neg112127 to i32
   %111 = load i64, ptr %97, align 8
   %112 = sub nsw i64 %111, %99
-  %.neg125 = sdiv i64 %112, -1000
-  %113 = trunc i64 %.neg125 to i32
-  %reass.add126 = add i32 %.050, %.neg109124
-  %reass.mul127 = mul i32 %reass.add126, 1000
-  %114 = add i32 %reass.mul127, %113
+  %.neg129 = sdiv i64 %112, -1000
+  %113 = trunc i64 %.neg129 to i32
+  %reass.add130 = add i32 %.050, %.neg113128
+  %reass.mul131 = mul i32 %reass.add130, 1000
+  %114 = add i32 %reass.mul131, %113
   %115 = icmp slt i32 %114, 1
-  br i1 %115, label %.outer._crit_edge, label %.lr.ph128
+  br i1 %115, label %.outer._crit_edge, label %.lr.ph132
 
-.lr.ph128:                                        ; preds = %88, %.outer
+.lr.ph132:                                        ; preds = %88, %.outer
   %116 = phi i32 [ %114, %.outer ], [ %106, %88 ]
-  %.051.ph135 = phi i32 [ %108, %.outer ], [ 0, %88 ]
+  %.051.ph139 = phi i32 [ %108, %.outer ], [ 0, %88 ]
   br label %123
 
 .outer._crit_edge:                                ; preds = %.outer, %136, %88
@@ -5039,8 +5039,8 @@ _clone_env_child.exit:                            ; preds = %65
   %122 = call i32 @kill(i32 noundef %121, i32 noundef 9) #18
   br label %176
 
-123:                                              ; preds = %.lr.ph128, %136
-  %124 = phi i32 [ %116, %.lr.ph128 ], [ %142, %136 ]
+123:                                              ; preds = %.lr.ph132, %136
+  %124 = phi i32 [ %116, %.lr.ph132 ], [ %142, %136 ]
   %125 = call i32 @poll(ptr noundef nonnull %19, i64 noundef 1, i32 noundef %124) #18
   store i32 %125, ptr %15, align 4
   %126 = icmp slt i32 %125, 1
@@ -5070,13 +5070,13 @@ _clone_env_child.exit:                            ; preds = %65
 136:                                              ; preds = %133, %133
   %137 = call i32 @gettimeofday(ptr noundef nonnull %18, ptr noundef null) #18
   %138 = load i64, ptr %18, align 8
-  %.neg108 = sub i64 %96, %138
-  %.neg109 = trunc i64 %.neg108 to i32
+  %.neg112 = sub i64 %96, %138
+  %.neg113 = trunc i64 %.neg112 to i32
   %139 = load i64, ptr %97, align 8
   %140 = sub nsw i64 %139, %99
   %.neg = sdiv i64 %140, -1000
   %141 = trunc i64 %.neg to i32
-  %reass.add = add i32 %.050, %.neg109
+  %reass.add = add i32 %.050, %.neg113
   %reass.mul = mul i32 %reass.add, 1000
   %142 = add i32 %reass.mul, %141
   %143 = icmp slt i32 %142, 1
@@ -5088,19 +5088,19 @@ _clone_env_child.exit:                            ; preds = %65
 
 146:                                              ; preds = %123
   %147 = load i16, ptr %100, align 2
-  %148 = sext i16 %147 to i32
-  %149 = and i32 %148, 1
-  %.not69 = icmp eq i32 %149, 0
-  br i1 %.not69, label %150, label %158
+  %148 = and i16 %147, 1
+  %.not69 = icmp eq i16 %148, 0
+  br i1 %.not69, label %149, label %158
 
-150:                                              ; preds = %146
-  %151 = and i32 %148, 16
-  %.not70 = icmp eq i32 %151, 0
+149:                                              ; preds = %146
+  %150 = sext i16 %147 to i32
+  %151 = and i16 %147, 16
+  %.not70 = icmp eq i16 %151, 0
   br i1 %.not70, label %152, label %176
 
-152:                                              ; preds = %150
-  %153 = and i32 %148, 8
-  %.not71 = icmp eq i32 %153, 0
+152:                                              ; preds = %149
+  %153 = and i16 %147, 8
+  %.not71 = icmp eq i16 %153, 0
   br i1 %.not71, label %156, label %154
 
 154:                                              ; preds = %152
@@ -5108,11 +5108,11 @@ _clone_env_child.exit:                            ; preds = %65
   br label %176
 
 156:                                              ; preds = %152
-  %157 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.206, i32 noundef %148) #18
+  %157 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.206, i32 noundef %150) #18
   br label %176
 
 158:                                              ; preds = %146
-  %159 = icmp eq i32 %.051.ph135, 262144
+  %159 = icmp eq i32 %.051.ph139, 262144
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %158
@@ -5120,10 +5120,10 @@ _clone_env_child.exit:                            ; preds = %65
   br label %176
 
 162:                                              ; preds = %158
-  %163 = sub nsw i32 262144, %.051.ph135
+  %163 = sub nsw i32 262144, %.051.ph139
   %164 = load i32, ptr %14, align 4
   %165 = load ptr, ptr %10, align 8
-  %166 = zext nneg i32 %.051.ph135 to i64
+  %166 = zext nneg i32 %.051.ph139 to i64
   %167 = getelementptr inbounds i8, ptr %165, i64 %166
   %168 = sext i32 %163 to i64
   %169 = call i64 @read(i32 noundef %164, ptr noundef %167, i64 noundef %168) #18
@@ -5140,8 +5140,8 @@ _clone_env_child.exit:                            ; preds = %65
   %175 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.208) #18
   br label %176
 
-176:                                              ; preds = %172, %150, %156, %154, %129, %132, %174, %160, %144, %120
-  %.not73 = phi i1 [ true, %120 ], [ true, %132 ], [ true, %129 ], [ true, %144 ], [ true, %160 ], [ true, %174 ], [ true, %154 ], [ true, %156 ], [ false, %150 ], [ false, %172 ]
+176:                                              ; preds = %172, %149, %156, %154, %129, %132, %174, %160, %144, %120
+  %.not73 = phi i1 [ true, %120 ], [ true, %132 ], [ true, %129 ], [ true, %144 ], [ true, %160 ], [ true, %174 ], [ true, %154 ], [ true, %156 ], [ false, %149 ], [ false, %172 ]
   %177 = load i32, ptr %14, align 4
   %178 = call i32 @close(i32 noundef %177) #18
   %179 = load ptr, ptr %58, align 8
@@ -5216,12 +5216,12 @@ env_array_free.exit:                              ; preds = %176, %._crit_edge.i
 201:                                              ; preds = %.loopexit99
   %202 = load ptr, ptr %10, align 8
   %203 = call ptr @strtok_r(ptr noundef %202, ptr noundef nonnull @.str.180, ptr noundef nonnull %7) #18
-  %.not74103 = icmp eq ptr %203, null
-  br i1 %.not74103, label %.critedge, label %.lr.ph
+  %.not74107 = icmp eq ptr %203, null
+  br i1 %.not74107, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %201, %205
-  %.052104 = phi ptr [ %206, %205 ], [ %203, %201 ]
-  %204 = call i32 @xstrncmp(ptr noundef nonnull %.052104, ptr noundef nonnull @.str.186, i64 noundef 29) #18
+  %.052108 = phi ptr [ %206, %205 ], [ %203, %201 ]
+  %204 = call i32 @xstrncmp(ptr noundef nonnull %.052108, ptr noundef nonnull @.str.186, i64 noundef 29) #18
   %.not75 = icmp eq i32 %204, 0
   br i1 %.not75, label %210, label %205
 
@@ -5246,24 +5246,24 @@ env_array_free.exit:                              ; preds = %176, %._crit_edge.i
   %212 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.180, ptr noundef nonnull %7) #18
   %213 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 262144, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2259, ptr noundef nonnull @__func__.env_array_user_default) #18
   store ptr %213, ptr %9, align 8
-  %.not77105 = icmp eq ptr %212, null
-  br i1 %.not77105, label %._crit_edge, label %.lr.ph107
+  %.not77109 = icmp eq ptr %212, null
+  br i1 %.not77109, label %._crit_edge, label %.lr.ph111
 
-.lr.ph107:                                        ; preds = %210, %_env_array_entry_splitter.exit.thread
-  %.1106 = phi ptr [ %270, %_env_array_entry_splitter.exit.thread ], [ %212, %210 ]
-  %214 = call i32 @xstrncmp(ptr noundef nonnull %.1106, ptr noundef nonnull @.str.187, i64 noundef 29) #18
+.lr.ph111:                                        ; preds = %210, %_env_array_entry_splitter.exit.thread
+  %.1110 = phi ptr [ %270, %_env_array_entry_splitter.exit.thread ], [ %212, %210 ]
+  %214 = call i32 @xstrncmp(ptr noundef nonnull %.1110, ptr noundef nonnull @.str.187, i64 noundef 29) #18
   %.not78 = icmp eq i32 %214, 0
   br i1 %.not78, label %279, label %215
 
-215:                                              ; preds = %.lr.ph107
+215:                                              ; preds = %.lr.ph111
   %216 = load ptr, ptr %9, align 8
-  %217 = call ptr @xstrchr(ptr noundef nonnull %.1106, i32 noundef 61) #18
+  %217 = call ptr @xstrchr(ptr noundef nonnull %.1110, i32 noundef 61) #18
   %218 = icmp eq ptr %217, null
   br i1 %218, label %_env_array_entry_splitter.exit.thread, label %219
 
 219:                                              ; preds = %215
   %220 = ptrtoint ptr %217 to i64
-  %221 = ptrtoint ptr %.1106 to i64
+  %221 = ptrtoint ptr %.1110 to i64
   %222 = sub i64 %220, %221
   %223 = trunc i64 %222 to i32
   %224 = add i32 %223, 1
@@ -5272,7 +5272,7 @@ env_array_free.exit:                              ; preds = %176, %._crit_edge.i
 
 226:                                              ; preds = %219
   %227 = sext i32 %224 to i64
-  %228 = call i64 @strlcpy(ptr noundef nonnull %8, ptr noundef nonnull dereferenceable(1) %.1106, i64 noundef %227) #18
+  %228 = call i64 @strlcpy(ptr noundef nonnull %8, ptr noundef nonnull dereferenceable(1) %.1110, i64 noundef %227) #18
   %229 = getelementptr inbounds i8, ptr %217, i64 1
   %230 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %229) #19
   %231 = trunc i64 %230 to i32
@@ -5304,7 +5304,7 @@ _discard_env.exit:                                ; preds = %239
   br i1 %247, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %244, %265
-  %248 = phi ptr [ %.pre114, %265 ], [ %245, %244 ]
+  %248 = phi ptr [ %.pre118, %265 ], [ %245, %244 ]
   br label %249
 
 249:                                              ; preds = %256, %.preheader
@@ -5338,33 +5338,33 @@ _bracket_cnt.exit:                                ; preds = %249
 258:                                              ; preds = %_bracket_cnt.exit
   %259 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.180, ptr noundef nonnull %7) #18
   %.not81 = icmp eq ptr %259, null
-  %.pre115.pre = load ptr, ptr %9, align 8
+  %.pre119.pre = load ptr, ptr %9, align 8
   br i1 %.not81, label %.loopexit, label %260
 
 260:                                              ; preds = %258
-  %261 = call i64 @strlen(ptr nonnull dereferenceable(1) %.pre115.pre)
+  %261 = call i64 @strlen(ptr nonnull dereferenceable(1) %.pre119.pre)
   %262 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %259) #19
   %263 = add i64 %262, %261
   %264 = icmp ugt i64 %263, 262142
   br i1 %264, label %.loopexit, label %265
 
 265:                                              ; preds = %260
-  %endptr = getelementptr inbounds i8, ptr %.pre115.pre, i64 %261
+  %endptr = getelementptr inbounds i8, ptr %.pre119.pre, i64 %261
   store i16 10, ptr %endptr, align 1
   %266 = load ptr, ptr %9, align 8
   %267 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %266, ptr noundef nonnull dereferenceable(1) %259) #18
-  %.pre114 = load ptr, ptr %9, align 8
+  %.pre118 = load ptr, ptr %9, align 8
   br label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %_bracket_cnt.exit, %258, %260, %244
-  %268 = phi ptr [ %245, %244 ], [ %248, %_bracket_cnt.exit ], [ %.pre115.pre, %258 ], [ %.pre115.pre, %260 ]
+  %268 = phi ptr [ %245, %244 ], [ %248, %_bracket_cnt.exit ], [ %.pre119.pre, %258 ], [ %.pre119.pre, %260 ]
   %269 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef %268, i1 noundef zeroext true)
   br label %_env_array_entry_splitter.exit.thread
 
 _env_array_entry_splitter.exit.thread:            ; preds = %234, %239, %226, %219, %215, %.loopexit, %_discard_env.exit
   %270 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.180, ptr noundef nonnull %7) #18
   %.not77 = icmp eq ptr %270, null
-  br i1 %.not77, label %._crit_edge, label %.lr.ph107, !llvm.loop !28
+  br i1 %.not77, label %._crit_edge, label %.lr.ph111, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_env_array_entry_splitter.exit.thread, %210
   call void @slurm_xfree(ptr noundef nonnull %9) #18
@@ -5401,7 +5401,7 @@ env_array_free.exit92:                            ; preds = %._crit_edge, %._cri
   %278 = call fastcc ptr @_load_env_cache(ptr noundef %0)
   br label %281
 
-279:                                              ; preds = %.lr.ph107
+279:                                              ; preds = %.lr.ph111
   call void @slurm_xfree(ptr noundef nonnull %9) #18
   call void @slurm_xfree(ptr noundef nonnull %10) #18
   %280 = load ptr, ptr %11, align 8

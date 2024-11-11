@@ -623,8 +623,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %272 = getelementptr inbounds [2144 x i16], ptr @_ZL10yy_acclist, i64 0, i64 %271
   %273 = load i16, ptr %272, align 2
   %274 = sext i16 %273 to i32
-  %275 = and i32 %274, 16384
-  %276 = icmp ne i32 %275, 0
+  %275 = and i16 %273, 16384
+  %276 = icmp ne i16 %275, 0
   %277 = load i32, ptr @_ZL26yy_looking_for_trail_begin, align 4
   %278 = icmp ne i32 %277, 0
   %or.cond = select i1 %276, i1 true, i1 %278
@@ -640,8 +640,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %299
 
 283:                                              ; preds = %270
-  %284 = and i32 %274, 8192
-  %.not1602 = icmp eq i32 %284, 0
+  %284 = and i16 %273, 8192
+  %.not1602 = icmp eq i16 %284, 0
   br i1 %.not1602, label %288, label %285
 
 285:                                              ; preds = %283

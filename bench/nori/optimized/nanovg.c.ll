@@ -43889,8 +43889,8 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr nocapture no
 
 .loopexit:                                        ; preds = %61, %49
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count
-  br i1 %exitcond104.not, label %.loopexit63, label %49, !llvm.loop !264
+  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count
+  br i1 %exitcond105.not, label %.loopexit63, label %49, !llvm.loop !264
 
 .loopexit63:                                      ; preds = %.loopexit, %46, %39
   %.0 = phi i32 [ 0, %39 ], [ 1, %46 ], [ 1, %.loopexit ]

@@ -45,28 +45,27 @@ define internal range(i32 -1, 1) i32 @poll_add(ptr nocapture noundef readonly %b
 entry:
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
-  %conv25 = zext i16 %events to i32
-  %and = and i32 %conv25, 134
-  %tobool.not = icmp eq i32 %and, 0
+  %1 = and i16 %events, 134
+  %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %nfds = getelementptr inbounds i8, ptr %0, i64 4
-  %1 = load i32, ptr %nfds, align 4
-  %add = add nsw i32 %1, 1
-  %2 = load i32, ptr %0, align 8
-  %cmp.not = icmp slt i32 %add, %2
+  %2 = load i32, ptr %nfds, align 4
+  %add = add nsw i32 %2, 1
+  %3 = load i32, ptr %0, align 8
+  %cmp.not = icmp slt i32 %add, %3
   br i1 %cmp.not, label %if.end17, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %cmp4 = icmp slt i32 %2, 32
-  %mul = shl nuw nsw i32 %2, 1
+  %cmp4 = icmp slt i32 %3, 32
+  %mul = shl nuw nsw i32 %3, 1
   %tmp_event_count.0 = select i1 %cmp4, i32 32, i32 %mul
   %event_set = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %event_set, align 8
+  %4 = load ptr, ptr %event_set, align 8
   %conv9 = zext nneg i32 %tmp_event_count.0 to i64
   %mul10 = shl nuw nsw i64 %conv9, 3
-  %call = tail call ptr @event_mm_realloc_(ptr noundef %3, i64 noundef %mul10) #6
+  %call = tail call ptr @event_mm_realloc_(ptr noundef %4, i64 noundef %mul10) #6
   %cmp11 = icmp eq ptr %call, null
   br i1 %cmp11, label %if.then13, label %if.end14
 
@@ -82,26 +81,26 @@ if.end14:                                         ; preds = %if.then2
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end14, %if.end
-  %4 = load i32, ptr %idx_, align 4
-  %cmp18 = icmp sgt i32 %4, 0
+  %5 = load i32, ptr %idx_, align 4
+  %cmp18 = icmp sgt i32 %5, 0
   br i1 %cmp18, label %if.then20, label %if.else22
 
 if.then20:                                        ; preds = %if.end17
   %event_set21 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load ptr, ptr %event_set21, align 8
-  %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr %struct.pollfd, ptr %5, i64 %6
-  %arrayidx = getelementptr i8, ptr %7, i64 -8
+  %6 = load ptr, ptr %event_set21, align 8
+  %7 = zext nneg i32 %5 to i64
+  %8 = getelementptr %struct.pollfd, ptr %6, i64 %7
+  %arrayidx = getelementptr i8, ptr %8, i64 -8
   br label %if.end31
 
 if.else22:                                        ; preds = %if.end17
-  %8 = load i32, ptr %nfds, align 4
-  %inc = add nsw i32 %8, 1
+  %9 = load i32, ptr %nfds, align 4
+  %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %nfds, align 4
   %event_set24 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load ptr, ptr %event_set24, align 8
-  %idxprom25 = sext i32 %8 to i64
-  %arrayidx26 = getelementptr inbounds %struct.pollfd, ptr %9, i64 %idxprom25
+  %10 = load ptr, ptr %event_set24, align 8
+  %idxprom25 = sext i32 %9 to i64
+  %arrayidx26 = getelementptr inbounds %struct.pollfd, ptr %10, i64 %idxprom25
   %events27 = getelementptr inbounds i8, ptr %arrayidx26, i64 4
   store i16 0, ptr %events27, align 4
   store i32 %fd, ptr %arrayidx26, align 4
@@ -112,39 +111,39 @@ if.end31:                                         ; preds = %if.else22, %if.then
   %pfd.0 = phi ptr [ %arrayidx, %if.then20 ], [ %arrayidx26, %if.else22 ]
   %revents = getelementptr inbounds i8, ptr %pfd.0, i64 6
   store i16 0, ptr %revents, align 2
-  %and33 = and i32 %conv25, 4
-  %tobool34.not = icmp eq i32 %and33, 0
+  %11 = and i16 %events, 4
+  %tobool34.not = icmp eq i16 %11, 0
   br i1 %tobool34.not, label %if.end39, label %if.then35
 
 if.then35:                                        ; preds = %if.end31
   %events36 = getelementptr inbounds i8, ptr %pfd.0, i64 4
-  %10 = load i16, ptr %events36, align 4
-  %11 = or i16 %10, 4
-  store i16 %11, ptr %events36, align 4
+  %12 = load i16, ptr %events36, align 4
+  %13 = or i16 %12, 4
+  store i16 %13, ptr %events36, align 4
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then35, %if.end31
-  %and41 = and i32 %conv25, 2
-  %tobool42.not = icmp eq i32 %and41, 0
+  %14 = and i16 %events, 2
+  %tobool42.not = icmp eq i16 %14, 0
   br i1 %tobool42.not, label %if.end48, label %if.then43
 
 if.then43:                                        ; preds = %if.end39
   %events44 = getelementptr inbounds i8, ptr %pfd.0, i64 4
-  %12 = load i16, ptr %events44, align 4
-  %13 = or i16 %12, 1
-  store i16 %13, ptr %events44, align 4
+  %15 = load i16, ptr %events44, align 4
+  %16 = or i16 %15, 1
+  store i16 %16, ptr %events44, align 4
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then43, %if.end39
-  %and50 = and i32 %conv25, 128
-  %tobool51.not = icmp eq i32 %and50, 0
+  %17 = and i16 %events, 128
+  %tobool51.not = icmp eq i16 %17, 0
   br i1 %tobool51.not, label %return, label %if.then52
 
 if.then52:                                        ; preds = %if.end48
   %events53 = getelementptr inbounds i8, ptr %pfd.0, i64 4
-  %14 = load i16, ptr %events53, align 4
-  %15 = or i16 %14, 8192
-  store i16 %15, ptr %events53, align 4
+  %18 = load i16, ptr %events53, align 4
+  %19 = or i16 %18, 8192
+  store i16 %19, ptr %events53, align 4
   br label %return
 
 return:                                           ; preds = %if.end48, %if.then52, %entry, %if.then13
@@ -157,84 +156,83 @@ define internal range(i32 -1, 1) i32 @poll_del(ptr noundef %base, i32 %fd, i16 s
 entry:
   %evbase = getelementptr inbounds i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
-  %conv21 = zext i16 %events to i32
-  %and = and i32 %conv21, 134
-  %tobool.not = icmp eq i32 %and, 0
+  %1 = and i16 %events, 134
+  %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %idx_, align 4
-  %cmp = icmp slt i32 %1, 1
+  %2 = load i32, ptr %idx_, align 4
+  %cmp = icmp slt i32 %2, 1
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %sub = add nsw i32 %1, -1
+  %sub = add nsw i32 %2, -1
   %event_set = getelementptr inbounds i8, ptr %0, i64 16
-  %2 = load ptr, ptr %event_set, align 8
+  %3 = load ptr, ptr %event_set, align 8
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds %struct.pollfd, ptr %2, i64 %idxprom
-  %and5 = and i32 %conv21, 2
-  %tobool6.not = icmp eq i32 %and5, 0
+  %arrayidx = getelementptr inbounds %struct.pollfd, ptr %3, i64 %idxprom
+  %4 = and i16 %events, 2
+  %tobool6.not = icmp eq i16 %4, 0
   br i1 %tobool6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end3
   %events8 = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %3 = load i16, ptr %events8, align 4
-  %4 = and i16 %3, -2
-  store i16 %4, ptr %events8, align 4
+  %5 = load i16, ptr %events8, align 4
+  %6 = and i16 %5, -2
+  store i16 %6, ptr %events8, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then7, %if.end3
-  %and14 = and i32 %conv21, 4
-  %tobool15.not = icmp eq i32 %and14, 0
+  %7 = and i16 %events, 4
+  %tobool15.not = icmp eq i16 %7, 0
   br i1 %tobool15.not, label %if.end21, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
   %events17 = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %5 = load i16, ptr %events17, align 4
-  %6 = and i16 %5, -5
-  store i16 %6, ptr %events17, align 4
+  %8 = load i16, ptr %events17, align 4
+  %9 = and i16 %8, -5
+  store i16 %9, ptr %events17, align 4
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %if.end12
-  %and23 = and i32 %conv21, 128
-  %tobool24.not = icmp eq i32 %and23, 0
+  %10 = and i16 %events, 128
+  %tobool24.not = icmp eq i16 %10, 0
   %events31.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %.pre = load i16, ptr %events31.phi.trans.insert, align 4
   br i1 %tobool24.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %if.end21
-  %7 = and i16 %.pre, -8193
-  store i16 %7, ptr %events31.phi.trans.insert, align 4
+  %11 = and i16 %.pre, -8193
+  store i16 %11, ptr %events31.phi.trans.insert, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end21, %if.then25
-  %8 = phi i16 [ %7, %if.then25 ], [ %.pre, %if.end21 ]
-  %tobool32.not = icmp eq i16 %8, 0
+  %12 = phi i16 [ %11, %if.then25 ], [ %.pre, %if.end21 ]
+  %tobool32.not = icmp eq i16 %12, 0
   br i1 %tobool32.not, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.end30
   store i32 0, ptr %idx_, align 4
   %nfds = getelementptr inbounds i8, ptr %0, i64 4
-  %9 = load i32, ptr %nfds, align 4
-  %dec = add nsw i32 %9, -1
+  %13 = load i32, ptr %nfds, align 4
+  %dec = add nsw i32 %13, -1
   store i32 %dec, ptr %nfds, align 4
-  %cmp37.not = icmp eq i32 %1, %9
+  %cmp37.not = icmp eq i32 %2, %13
   br i1 %cmp37.not, label %return, label %if.then39
 
 if.then39:                                        ; preds = %if.end34
-  %10 = load ptr, ptr %event_set, align 8
-  %arrayidx42 = getelementptr inbounds %struct.pollfd, ptr %10, i64 %idxprom
+  %14 = load ptr, ptr %event_set, align 8
+  %arrayidx42 = getelementptr inbounds %struct.pollfd, ptr %14, i64 %idxprom
   %idxprom45 = sext i32 %dec to i64
-  %arrayidx46 = getelementptr inbounds %struct.pollfd, ptr %10, i64 %idxprom45
-  %11 = load i64, ptr %arrayidx46, align 4
-  store i64 %11, ptr %arrayidx42, align 4
+  %arrayidx46 = getelementptr inbounds %struct.pollfd, ptr %14, i64 %idxprom45
+  %15 = load i64, ptr %arrayidx46, align 4
+  store i64 %15, ptr %arrayidx42, align 4
   %io = getelementptr inbounds i8, ptr %base, i64 808
-  %12 = load ptr, ptr %event_set, align 8
-  %arrayidx49 = getelementptr inbounds %struct.pollfd, ptr %12, i64 %idxprom
-  %13 = load i32, ptr %arrayidx49, align 4
-  %call = tail call ptr @evmap_io_get_fdinfo_(ptr noundef nonnull %io, i32 noundef %13) #6
-  store i32 %1, ptr %call, align 4
+  %16 = load ptr, ptr %event_set, align 8
+  %arrayidx49 = getelementptr inbounds %struct.pollfd, ptr %16, i64 %idxprom
+  %17 = load i32, ptr %arrayidx49, align 4
+  %call = tail call ptr @evmap_io_get_fdinfo_(ptr noundef nonnull %io, i32 noundef %17) #6
+  store i32 %2, ptr %call, align 4
   br label %return
 
 return:                                           ; preds = %if.end34, %if.then39, %if.end30, %if.end, %entry
@@ -370,8 +368,8 @@ for.body:                                         ; preds = %if.end68, %for.inc
 
 if.end79:                                         ; preds = %for.body
   %conv76 = sext i16 %14 to i32
-  %and = and i32 %conv76, 56
-  %tobool80.not = icmp eq i32 %and, 0
+  %15 = and i16 %14, 56
+  %tobool80.not = icmp eq i16 %15, 0
   %or = or i32 %conv76, 5
   %spec.select = select i1 %tobool80.not, i32 %conv76, i32 %or
   %and83 = shl nsw i32 %spec.select, 1
@@ -379,15 +377,15 @@ if.end79:                                         ; preds = %for.body
   %and88 = and i32 %spec.select, 4
   %res.1 = or disjoint i32 %res.0, %and88
   %and93 = lshr i32 %spec.select, 6
-  %15 = and i32 %and93, 128
-  %res.2 = or disjoint i32 %res.1, %15
+  %16 = and i32 %and93, 128
+  %res.2 = or disjoint i32 %res.1, %16
   %cmp98 = icmp eq i32 %res.2, 0
   br i1 %cmp98, label %for.inc, label %if.end101
 
 if.end101:                                        ; preds = %if.end79
-  %16 = load i32, ptr %arrayidx, align 4
+  %17 = load i32, ptr %arrayidx, align 4
   %conv104 = trunc nuw nsw i32 %res.2 to i16
-  tail call void @evmap_io_active_(ptr noundef %base, i32 noundef %16, i16 noundef signext %conv104) #6
+  tail call void @evmap_io_active_(ptr noundef %base, i32 noundef %17, i16 noundef signext %conv104) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end79, %for.body, %if.end101

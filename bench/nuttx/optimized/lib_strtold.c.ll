@@ -260,13 +260,13 @@ switch.lookup:
 
 ._crit_edge.i:                                    ; preds = %86, %64
   %.2160.lcssa.i = phi ptr [ %87, %86 ], [ %.2160178.i, %64 ]
+  %.3114.in.lcssa.i = phi i8 [ %88, %86 ], [ %.3114.in179.i, %64 ]
   %.1106.lcssa.i = phi i32 [ %.2107.i, %86 ], [ %.1106181.i, %64 ]
   %.3103.lcssa.i = phi i32 [ %.4104.i, %86 ], [ %.3103182.i, %64 ]
   %.094.lcssa.i = phi i32 [ %.296.i, %86 ], [ %.094183.i, %64 ]
   %.089.lcssa.i = phi x86_fp80 [ %.291.i, %86 ], [ %.089184.i, %64 ]
   %.284.lcssa.i = phi i64 [ %.3.i, %86 ], [ %.284186.i, %64 ]
   %.080.lcssa.i = phi i64 [ %.181.i, %86 ], [ %.080187.i, %64 ]
-  %.3114.lcssa.i = phi i32 [ %.3114.i, %86 ], [ %.3114188.i, %64 ]
   %.not122.i = icmp eq i32 %.3103.lcssa.i, 0
   br i1 %.not122.i, label %93, label %95
 
@@ -275,13 +275,13 @@ switch.lookup:
   br i1 %.not122241.i, label %93, label %.lr.ph210.preheader.i
 
 93:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.1106.lcssa244.i = phi i32 [ %.0105.i, %._crit_edge.thread.i ], [ %.1106.lcssa.i, %._crit_edge.i ]
+  %.1106.lcssa245.i = phi i32 [ %.0105.i, %._crit_edge.thread.i ], [ %.1106.lcssa.i, %._crit_edge.i ]
   %.2160.lcssa242.i = phi ptr [ %.0158.i, %._crit_edge.thread.i ], [ %.2160.lcssa.i, %._crit_edge.i ]
   %.not124.i = icmp eq ptr %1, null
   br i1 %.not124.i, label %hexfloat.exit, label %94
 
 94:                                               ; preds = %93
-  %.not123.i = icmp eq i32 %.1106.lcssa244.i, 0
+  %.not123.i = icmp eq i32 %.1106.lcssa245.i, 0
   %spec.select132.v.i = select i1 %.not123.i, i64 -1, i64 -2
   %spec.select132.i = getelementptr inbounds i8, ptr %.2160.lcssa242.i, i64 %spec.select132.v.i
   store ptr %spec.select132.i, ptr %1, align 8
@@ -296,15 +296,15 @@ switch.lookup:
 .lr.ph210.preheader.i:                            ; preds = %._crit_edge.thread.i, %95
   %spec.select133269.i = phi i64 [ %spec.select133.i, %95 ], [ %.082.i, %._crit_edge.thread.i ]
   %.2160.lcssa243267.i = phi ptr [ %.2160.lcssa.i, %95 ], [ %.0158.i, %._crit_edge.thread.i ]
-  %.094.lcssa246265.i = phi i32 [ %.094.lcssa.i, %95 ], [ 0, %._crit_edge.thread.i ]
-  %.089.lcssa247264.i = phi x86_fp80 [ %.089.lcssa.i, %95 ], [ 0xK00000000000000000000, %._crit_edge.thread.i ]
-  %.080.lcssa249262.i = phi i64 [ %.080.lcssa.i, %95 ], [ 0, %._crit_edge.thread.i ]
-  %.3114.lcssa250261.i = phi i32 [ %.3114.lcssa.i, %95 ], [ %.3114177.i, %._crit_edge.thread.i ]
+  %.3114.in.lcssa244265.i = phi i8 [ %.3114.in.lcssa.i, %95 ], [ %.1112.in.i, %._crit_edge.thread.i ]
+  %.094.lcssa247263.i = phi i32 [ %.094.lcssa.i, %95 ], [ 0, %._crit_edge.thread.i ]
+  %.089.lcssa248262.i = phi x86_fp80 [ %.089.lcssa.i, %95 ], [ 0xK00000000000000000000, %._crit_edge.thread.i ]
+  %.080.lcssa250260.i = phi i64 [ %.080.lcssa.i, %95 ], [ 0, %._crit_edge.thread.i ]
   br label %.lr.ph210.i
 
 .lr.ph210.i:                                      ; preds = %.lr.ph210.i, %.lr.ph210.preheader.i
-  %.2208.i = phi i64 [ %98, %.lr.ph210.i ], [ %.080.lcssa249262.i, %.lr.ph210.preheader.i ]
-  %.397207.i = phi i32 [ %97, %.lr.ph210.i ], [ %.094.lcssa246265.i, %.lr.ph210.preheader.i ]
+  %.2208.i = phi i64 [ %98, %.lr.ph210.i ], [ %.080.lcssa250260.i, %.lr.ph210.preheader.i ]
+  %.397207.i = phi i32 [ %97, %.lr.ph210.i ], [ %.094.lcssa247263.i, %.lr.ph210.preheader.i ]
   %97 = shl i32 %.397207.i, 4
   %98 = add i64 %.2208.i, 1
   %exitcond.not.i = icmp eq i64 %98, 8
@@ -313,11 +313,11 @@ switch.lookup:
 ._crit_edge211.i:                                 ; preds = %.lr.ph210.i, %95
   %spec.select133268.i = phi i64 [ %spec.select133.i, %95 ], [ %spec.select133269.i, %.lr.ph210.i ]
   %.2160.lcssa243266.i = phi ptr [ %.2160.lcssa.i, %95 ], [ %.2160.lcssa243267.i, %.lr.ph210.i ]
-  %.089.lcssa247263.i = phi x86_fp80 [ %.089.lcssa.i, %95 ], [ %.089.lcssa247264.i, %.lr.ph210.i ]
-  %.3114.lcssa250260.i = phi i32 [ %.3114.lcssa.i, %95 ], [ %.3114.lcssa250261.i, %.lr.ph210.i ]
+  %.3114.in.lcssa244264.i = phi i8 [ %.3114.in.lcssa.i, %95 ], [ %.3114.in.lcssa244265.i, %.lr.ph210.i ]
+  %.089.lcssa248261.i = phi x86_fp80 [ %.089.lcssa.i, %95 ], [ %.089.lcssa248262.i, %.lr.ph210.i ]
   %.397.lcssa.i = phi i32 [ %.094.lcssa.i, %95 ], [ %97, %.lr.ph210.i ]
-  %99 = and i32 %.3114.lcssa250260.i, -33
-  %100 = icmp eq i32 %99, 80
+  %99 = and i8 %.3114.in.lcssa244264.i, -33
+  %100 = icmp eq i8 %99, 80
   br i1 %100, label %101, label %122
 
 101:                                              ; preds = %._crit_edge211.i
@@ -424,7 +424,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
 
 .lr.ph216.i:                                      ; preds = %.preheader.i, %.lr.ph216.i
   %.1215.i = phi i64 [ %146, %.lr.ph216.i ], [ %129, %.preheader.i ]
-  %.392214.i = phi x86_fp80 [ %.493.i, %.lr.ph216.i ], [ %.089.lcssa247263.i, %.preheader.i ]
+  %.392214.i = phi x86_fp80 [ %.493.i, %.lr.ph216.i ], [ %.089.lcssa248261.i, %.preheader.i ]
   %.498213.i = phi i32 [ %.599.i, %.lr.ph216.i ], [ %.397.lcssa.i, %.preheader.i ]
   %143 = fcmp oge x86_fp80 %.392214.i, 0xK3FFE8000000000000000
   %reass.add.i = shl nuw i32 %.498213.i, 1
@@ -439,7 +439,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
 
 ._crit_edge217.i:                                 ; preds = %.lr.ph216.i, %.preheader.i
   %.498.lcssa.i = phi i32 [ %.397.lcssa.i, %.preheader.i ], [ %.599.i, %.lr.ph216.i ]
-  %.392.lcssa.i = phi x86_fp80 [ %.089.lcssa247263.i, %.preheader.i ], [ %.493.i, %.lr.ph216.i ]
+  %.392.lcssa.i = phi x86_fp80 [ %.089.lcssa248261.i, %.preheader.i ], [ %.493.i, %.lr.ph216.i ]
   %.1.lcssa.i = phi i64 [ %129, %.preheader.i ], [ %146, %.lr.ph216.i ]
   %148 = zext nneg i32 %switch.load to i64
   %narrow221.i = sub nsw i32 32, %switch.load327

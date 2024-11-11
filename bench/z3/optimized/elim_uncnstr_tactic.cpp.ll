@@ -17414,15 +17414,15 @@ _Z15get_array_arityPK4sort.exit:                  ; preds = %cond.false.i.i93
   br i1 %cmp36243.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cond.false.i.i93, %if.end34, %_Z15get_array_arityPK4sort.exit
-  %cond.i.i99267 = phi i32 [ %41, %_Z15get_array_arityPK4sort.exit ], [ -1, %if.end34 ], [ -1, %cond.false.i.i93 ]
+  %cond.i.i99269 = phi i32 [ %41, %_Z15get_array_arityPK4sort.exit ], [ -1, %if.end34 ], [ -1, %cond.false.i.i93 ]
   %m_parameters.i.i.i101 = getelementptr inbounds i8, ptr %6, i64 8
   %42 = load ptr, ptr %m_parameters.i.i.i101, align 8
-  %wide.trip.count261 = zext i32 %cond.i.i99267 to i64
+  %wide.trip.count263 = zext i32 %cond.i.i99269 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv258 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next259, %for.inc ]
-  %arrayidx.i.i.i.i102 = getelementptr inbounds %class.parameter, ptr %42, i64 %indvars.iv258
+  %indvars.iv260 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next261, %for.inc ]
+  %arrayidx.i.i.i.i102 = getelementptr inbounds %class.parameter, ptr %42, i64 %indvars.iv260
   %_M_index.i.i.i.i.i103 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i102, i64 8
   %43 = load i8, ptr %_M_index.i.i.i.i.i103, align 8
   %cmp.not.i.i.i.i104 = icmp eq i8 %43, 1
@@ -17451,13 +17451,13 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit114:   ; preds = %_Z16get_array_domai
   ]
 
 for.inc:                                          ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit114
-  %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
-  %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
-  br i1 %exitcond262.not, label %for.end, label %for.body, !llvm.loop !60
+  %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
+  %exitcond264.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count263
+  br i1 %exitcond264.not, label %for.end, label %for.body, !llvm.loop !60
 
 for.end:                                          ; preds = %for.inc, %_Z15get_array_arityPK4sort.exit
-  %cmp36243.not270 = phi i1 [ true, %_Z15get_array_arityPK4sort.exit ], [ false, %for.inc ]
-  %cond.i.i99268 = phi i32 [ 0, %_Z15get_array_arityPK4sort.exit ], [ %cond.i.i99267, %for.inc ]
+  %cmp36243.not272 = phi i1 [ true, %_Z15get_array_arityPK4sort.exit ], [ false, %for.inc ]
+  %cond.i.i99270 = phi i32 [ 0, %_Z15get_array_arityPK4sort.exit ], [ %cond.i.i99269, %for.inc ]
   %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %new_args, i64 16
   store ptr %m_initial_buffer.i.i, ptr %new_args, align 8
   %m_pos.i.i = getelementptr inbounds i8, ptr %new_args, i64 8
@@ -17468,10 +17468,10 @@ for.end:                                          ; preds = %for.inc, %_Z15get_a
           to label %for.cond45.preheader unwind label %lpad42.loopexit.split-lp
 
 for.cond45.preheader:                             ; preds = %for.end
-  br i1 %cmp36243.not270, label %for.cond45.preheader.invoke.cont63_crit_edge, label %invoke.cont49
+  br i1 %cmp36243.not272, label %for.cond45.preheader.invoke.cont63_crit_edge, label %invoke.cont49
 
 for.cond45.preheader.invoke.cont63_crit_edge:     ; preds = %for.cond45.preheader
-  %.pre264 = load i32, ptr %m_pos.i.i, align 8
+  %.pre266 = load i32, ptr %m_pos.i.i, align 8
   br label %invoke.cont63
 
 invoke.cont49:                                    ; preds = %for.cond45.preheader, %for.inc56
@@ -17570,8 +17570,8 @@ for.inc56:                                        ; preds = %_ZN6bufferIP4exprLb
   %inc.i = add i32 %57, 1
   store i32 %inc.i, ptr %m_pos.i.i, align 8
   %inc57 = add nuw i32 %i44.0246, 1
-  %exitcond263.not = icmp eq i32 %inc57, %cond.i.i99268
-  br i1 %exitcond263.not, label %invoke.cont63, label %invoke.cont49, !llvm.loop !61
+  %exitcond265.not = icmp eq i32 %inc57, %cond.i.i99270
+  br i1 %exitcond265.not, label %invoke.cont63, label %invoke.cont49, !llvm.loop !61
 
 lpad42.loopexit:                                  ; preds = %invoke.cont51, %if.then.i, %if.end.i.i.i.i127
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -17584,7 +17584,7 @@ lpad42.loopexit.split-lp:                         ; preds = %for.end, %if.then.i
   br label %ehcleanup99
 
 invoke.cont63:                                    ; preds = %for.inc56, %for.cond45.preheader.invoke.cont63_crit_edge
-  %58 = phi i32 [ %.pre264, %for.cond45.preheader.invoke.cont63_crit_edge ], [ %inc.i, %for.inc56 ]
+  %58 = phi i32 [ %.pre266, %for.cond45.preheader.invoke.cont63_crit_edge ], [ %inc.i, %for.inc56 ]
   %this.val48 = load ptr, ptr %0, align 8
   store ptr null, ptr %sel, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %sel, i64 8
@@ -17733,7 +17733,7 @@ if.end129:                                        ; preds = %for.end126
   store i32 16, ptr %m_capacity.i.i148, align 4
   %m_domain.i184 = getelementptr inbounds i8, ptr %69, i64 48
   %75 = zext i32 %target.0.lcssa to i64
-  %wide.trip.count256 = zext i32 %70 to i64
+  %wide.trip.count258 = zext i32 %70 to i64
   br label %for.body134
 
 for.body134:                                      ; preds = %if.end129, %for.inc148
@@ -17899,8 +17899,8 @@ for.inc148:                                       ; preds = %_ZN6bufferIP4exprLb
   %storemerge = add i32 %90, 1
   store i32 %storemerge, ptr %m_pos.i.i147, align 8
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
-  %exitcond257.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count256
-  br i1 %exitcond257.not, label %invoke.cont151, label %for.body134, !llvm.loop !63
+  %exitcond259.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count258
+  br i1 %exitcond259.not, label %invoke.cont151, label %for.body134, !llvm.loop !63
 
 invoke.cont151:                                   ; preds = %for.inc148
   %.pre = load ptr, ptr %new_args130, align 8

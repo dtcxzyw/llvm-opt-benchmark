@@ -230,12 +230,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -2, 4611686018427387904) i64 @_ZN6Assimp6Base646DecodeEPKcmRPh(ptr noundef %in, i64 noundef %inLength, ptr nocapture noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i117 = alloca i64, align 8
   %ref.tmp.i105 = alloca i64, align 8
-  %ref.tmp.i93 = alloca i64, align 8
-  %ref.tmp.i81 = alloca i64, align 8
-  %ref.tmp.i69 = alloca i64, align 8
-  %ref.tmp.i57 = alloca i64, align 8
+  %ref.tmp.i95 = alloca i64, align 8
+  %ref.tmp.i85 = alloca i64, align 8
+  %ref.tmp.i75 = alloca i64, align 8
+  %ref.tmp.i65 = alloca i64, align 8
+  %ref.tmp.i55 = alloca i64, align 8
   %ref.tmp.i45 = alloca i64, align 8
   %ref.tmp.i = alloca i64, align 8
   %inLength.addr = alloca i64, align 8
@@ -308,19 +308,17 @@ if.end13:                                         ; preds = %if.end10
   %call23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %sub22) #15
   store ptr %call23, ptr %out, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call23, i8 0, i64 %sub22, i1 false)
-  %cmp25151.not = icmp eq i64 %inLength, 4
-  br i1 %cmp25151.not, label %for.end, label %for.body
+  %cmp25137.not = icmp eq i64 %inLength, 4
+  br i1 %cmp25137.not, label %for.end, label %for.body
 
-for.body:                                         ; preds = %if.end13, %_ZN6Assimp6Base6410DecodeCharEc.exit80
-  %add24154 = phi i64 [ %add24, %_ZN6Assimp6Base6410DecodeCharEc.exit80 ], [ 4, %if.end13 ]
-  %i.0153 = phi i64 [ %add24154, %_ZN6Assimp6Base6410DecodeCharEc.exit80 ], [ 0, %if.end13 ]
-  %j.0152 = phi i64 [ %inc54, %_ZN6Assimp6Base6410DecodeCharEc.exit80 ], [ 0, %if.end13 ]
-  %arrayidx26 = getelementptr inbounds i8, ptr %in, i64 %i.0153
+for.body:                                         ; preds = %if.end13, %_ZN6Assimp6Base6410DecodeCharEc.exit74
+  %add24140 = phi i64 [ %add24, %_ZN6Assimp6Base6410DecodeCharEc.exit74 ], [ 4, %if.end13 ]
+  %i.0139 = phi i64 [ %add24140, %_ZN6Assimp6Base6410DecodeCharEc.exit74 ], [ 0, %if.end13 ]
+  %j.0138 = phi i64 [ %inc54, %_ZN6Assimp6Base6410DecodeCharEc.exit74 ], [ 0, %if.end13 ]
+  %arrayidx26 = getelementptr inbounds i8, ptr %in, i64 %i.0139
   %5 = load i8, ptr %arrayidx26, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %conv.i = sext i8 %5 to i32
-  %and.i = and i32 %conv.i, 128
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %tobool.not.i = icmp sgt i8 %5, -1
   br i1 %tobool.not.i, label %_ZN6Assimp6Base6410DecodeCharEc.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
@@ -334,9 +332,9 @@ invoke.cont.i:                                    ; preds = %if.then.i
   call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
   unreachable
 
-common.resume.sink.split:                         ; preds = %ehcleanup, %ehcleanup.thread, %lpad.i, %lpad.i52, %lpad.i64, %lpad.i76, %lpad.i88, %lpad.i100, %lpad.i112, %lpad.i124
-  %exception.sink = phi ptr [ %exception.i122, %lpad.i124 ], [ %exception.i110, %lpad.i112 ], [ %exception.i98, %lpad.i100 ], [ %exception.i86, %lpad.i88 ], [ %exception.i74, %lpad.i76 ], [ %exception.i62, %lpad.i64 ], [ %exception.i50, %lpad.i52 ], [ %exception.i, %lpad.i ], [ %exception, %ehcleanup.thread ], [ %exception, %ehcleanup ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %32, %lpad.i124 ], [ %29, %lpad.i112 ], [ %26, %lpad.i100 ], [ %23, %lpad.i88 ], [ %15, %lpad.i76 ], [ %12, %lpad.i64 ], [ %9, %lpad.i52 ], [ %6, %lpad.i ], [ %0, %ehcleanup.thread ], [ %1, %ehcleanup ]
+common.resume.sink.split:                         ; preds = %ehcleanup, %ehcleanup.thread, %lpad.i, %lpad.i50, %lpad.i60, %lpad.i70, %lpad.i80, %lpad.i90, %lpad.i100, %lpad.i110
+  %exception.sink = phi ptr [ %exception.i108, %lpad.i110 ], [ %exception.i98, %lpad.i100 ], [ %exception.i88, %lpad.i90 ], [ %exception.i78, %lpad.i80 ], [ %exception.i68, %lpad.i70 ], [ %exception.i58, %lpad.i60 ], [ %exception.i48, %lpad.i50 ], [ %exception.i, %lpad.i ], [ %exception, %ehcleanup.thread ], [ %exception, %ehcleanup ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %32, %lpad.i110 ], [ %29, %lpad.i100 ], [ %26, %lpad.i90 ], [ %23, %lpad.i80 ], [ %15, %lpad.i70 ], [ %12, %lpad.i60 ], [ %9, %lpad.i50 ], [ %6, %lpad.i ], [ %0, %ehcleanup.thread ], [ %1, %ehcleanup ]
   call void @__cxa_free_exception(ptr %exception.sink) #13
   br label %common.resume
 
@@ -350,170 +348,188 @@ lpad.i:                                           ; preds = %if.then.i
   br label %common.resume.sink.split
 
 _ZN6Assimp6Base6410DecodeCharEc.exit:             ; preds = %for.body
-  %conv4.i = zext nneg i32 %conv.i to i64
+  %conv4.i = zext nneg i8 %5 to i64
   %arrayidx.i = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i
   %7 = load i8, ptr %arrayidx.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %add28 = or disjoint i64 %i.0153, 1
+  %add28 = or disjoint i64 %i.0139, 1
   %arrayidx29 = getelementptr inbounds i8, ptr %in, i64 %add28
   %8 = load i8, ptr %arrayidx29, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i45)
-  %conv.i46 = sext i8 %8 to i32
-  %and.i47 = and i32 %conv.i46, 128
-  %tobool.not.i48 = icmp eq i32 %and.i47, 0
-  br i1 %tobool.not.i48, label %_ZN6Assimp6Base6410DecodeCharEc.exit56, label %if.then.i49
+  %tobool.not.i46 = icmp sgt i8 %8, -1
+  br i1 %tobool.not.i46, label %_ZN6Assimp6Base6410DecodeCharEc.exit54, label %if.then.i47
 
-if.then.i49:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit
-  %exception.i50 = tail call ptr @__cxa_allocate_exception(i64 16) #13
-  %conv1.i51 = sext i8 %8 to i64
-  store i64 %conv1.i51, ptr %ref.tmp.i45, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i50, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i45)
-          to label %invoke.cont.i53 unwind label %lpad.i52
+if.then.i47:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit
+  %exception.i48 = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  %conv1.i49 = sext i8 %8 to i64
+  store i64 %conv1.i49, ptr %ref.tmp.i45, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i48, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i45)
+          to label %invoke.cont.i51 unwind label %lpad.i50
 
-invoke.cont.i53:                                  ; preds = %if.then.i49
-  call void @__cxa_throw(ptr nonnull %exception.i50, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
+invoke.cont.i51:                                  ; preds = %if.then.i47
+  call void @__cxa_throw(ptr nonnull %exception.i48, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
   unreachable
 
-lpad.i52:                                         ; preds = %if.then.i49
+lpad.i50:                                         ; preds = %if.then.i47
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
-_ZN6Assimp6Base6410DecodeCharEc.exit56:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit
-  %conv4.i54 = zext nneg i32 %conv.i46 to i64
-  %arrayidx.i55 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i54
-  %10 = load i8, ptr %arrayidx.i55, align 1
+_ZN6Assimp6Base6410DecodeCharEc.exit54:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit
+  %conv4.i52 = zext nneg i8 %8 to i64
+  %arrayidx.i53 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i52
+  %10 = load i8, ptr %arrayidx.i53, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i45)
-  %add31 = or disjoint i64 %i.0153, 2
+  %add31 = or disjoint i64 %i.0139, 2
   %arrayidx32 = getelementptr inbounds i8, ptr %in, i64 %add31
   %11 = load i8, ptr %arrayidx32, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i57)
-  %conv.i58 = sext i8 %11 to i32
-  %and.i59 = and i32 %conv.i58, 128
-  %tobool.not.i60 = icmp eq i32 %and.i59, 0
-  br i1 %tobool.not.i60, label %_ZN6Assimp6Base6410DecodeCharEc.exit68, label %if.then.i61
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i55)
+  %tobool.not.i56 = icmp sgt i8 %11, -1
+  br i1 %tobool.not.i56, label %_ZN6Assimp6Base6410DecodeCharEc.exit64, label %if.then.i57
 
-if.then.i61:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit56
-  %exception.i62 = tail call ptr @__cxa_allocate_exception(i64 16) #13
-  %conv1.i63 = sext i8 %11 to i64
-  store i64 %conv1.i63, ptr %ref.tmp.i57, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i62, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i57)
-          to label %invoke.cont.i65 unwind label %lpad.i64
+if.then.i57:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit54
+  %exception.i58 = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  %conv1.i59 = sext i8 %11 to i64
+  store i64 %conv1.i59, ptr %ref.tmp.i55, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i58, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i55)
+          to label %invoke.cont.i61 unwind label %lpad.i60
 
-invoke.cont.i65:                                  ; preds = %if.then.i61
-  call void @__cxa_throw(ptr nonnull %exception.i62, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
+invoke.cont.i61:                                  ; preds = %if.then.i57
+  call void @__cxa_throw(ptr nonnull %exception.i58, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
   unreachable
 
-lpad.i64:                                         ; preds = %if.then.i61
+lpad.i60:                                         ; preds = %if.then.i57
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
-_ZN6Assimp6Base6410DecodeCharEc.exit68:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit56
-  %conv4.i66 = zext nneg i32 %conv.i58 to i64
-  %arrayidx.i67 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i66
-  %13 = load i8, ptr %arrayidx.i67, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i57)
-  %add34 = or disjoint i64 %i.0153, 3
+_ZN6Assimp6Base6410DecodeCharEc.exit64:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit54
+  %conv4.i62 = zext nneg i8 %11 to i64
+  %arrayidx.i63 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i62
+  %13 = load i8, ptr %arrayidx.i63, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i55)
+  %add34 = or disjoint i64 %i.0139, 3
   %arrayidx35 = getelementptr inbounds i8, ptr %in, i64 %add34
   %14 = load i8, ptr %arrayidx35, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i69)
-  %conv.i70 = sext i8 %14 to i32
-  %and.i71 = and i32 %conv.i70, 128
-  %tobool.not.i72 = icmp eq i32 %and.i71, 0
-  br i1 %tobool.not.i72, label %_ZN6Assimp6Base6410DecodeCharEc.exit80, label %if.then.i73
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i65)
+  %tobool.not.i66 = icmp sgt i8 %14, -1
+  br i1 %tobool.not.i66, label %_ZN6Assimp6Base6410DecodeCharEc.exit74, label %if.then.i67
 
-if.then.i73:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit68
-  %exception.i74 = tail call ptr @__cxa_allocate_exception(i64 16) #13
-  %conv1.i75 = sext i8 %14 to i64
-  store i64 %conv1.i75, ptr %ref.tmp.i69, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i74, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i69)
-          to label %invoke.cont.i77 unwind label %lpad.i76
+if.then.i67:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit64
+  %exception.i68 = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  %conv1.i69 = sext i8 %14 to i64
+  store i64 %conv1.i69, ptr %ref.tmp.i65, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i68, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i65)
+          to label %invoke.cont.i71 unwind label %lpad.i70
 
-invoke.cont.i77:                                  ; preds = %if.then.i73
-  call void @__cxa_throw(ptr nonnull %exception.i74, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
+invoke.cont.i71:                                  ; preds = %if.then.i67
+  call void @__cxa_throw(ptr nonnull %exception.i68, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
   unreachable
 
-lpad.i76:                                         ; preds = %if.then.i73
+lpad.i70:                                         ; preds = %if.then.i67
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
-_ZN6Assimp6Base6410DecodeCharEc.exit80:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit68
-  %conv4.i78 = zext nneg i32 %conv.i70 to i64
-  %arrayidx.i79 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i78
-  %16 = load i8, ptr %arrayidx.i79, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i69)
+_ZN6Assimp6Base6410DecodeCharEc.exit74:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit64
+  %conv4.i72 = zext nneg i8 %14 to i64
+  %arrayidx.i73 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i72
+  %16 = load i8, ptr %arrayidx.i73, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i65)
   %shl = shl i8 %7, 2
   %shr = lshr i8 %10, 4
   %or = or i8 %shr, %shl
   %17 = load ptr, ptr %out, align 8
-  %arrayidx40 = getelementptr inbounds i8, ptr %17, i64 %j.0152
+  %arrayidx40 = getelementptr inbounds i8, ptr %17, i64 %j.0138
   store i8 %or, ptr %arrayidx40, align 1
   %shl42 = shl i8 %10, 4
   %shr44 = lshr i8 %13, 2
   %or45 = or i8 %shr44, %shl42
   %18 = load ptr, ptr %out, align 8
-  %19 = getelementptr i8, ptr %18, i64 %j.0152
+  %19 = getelementptr i8, ptr %18, i64 %j.0138
   %arrayidx48 = getelementptr i8, ptr %19, i64 1
   store i8 %or45, ptr %arrayidx48, align 1
   %shl50 = shl i8 %13, 6
   %or52 = or i8 %16, %shl50
   %20 = load ptr, ptr %out, align 8
-  %inc54 = add i64 %j.0152, 3
-  %21 = getelementptr i8, ptr %20, i64 %j.0152
+  %inc54 = add i64 %j.0138, 3
+  %21 = getelementptr i8, ptr %20, i64 %j.0138
   %arrayidx55 = getelementptr i8, ptr %21, i64 2
   store i8 %or52, ptr %arrayidx55, align 1
-  %add24 = add i64 %add24154, 4
+  %add24 = add i64 %add24140, 4
   %cmp25 = icmp ult i64 %add24, %inLength
   br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !6
 
-for.end:                                          ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit80, %if.end13
-  %j.0.lcssa = phi i64 [ 0, %if.end13 ], [ %inc54, %_ZN6Assimp6Base6410DecodeCharEc.exit80 ]
-  %i.0.lcssa = phi i64 [ 0, %if.end13 ], [ %add24154, %_ZN6Assimp6Base6410DecodeCharEc.exit80 ]
+for.end:                                          ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit74, %if.end13
+  %j.0.lcssa = phi i64 [ 0, %if.end13 ], [ %inc54, %_ZN6Assimp6Base6410DecodeCharEc.exit74 ]
+  %i.0.lcssa = phi i64 [ 0, %if.end13 ], [ %add24140, %_ZN6Assimp6Base6410DecodeCharEc.exit74 ]
   %arrayidx58 = getelementptr inbounds i8, ptr %in, i64 %i.0.lcssa
   %22 = load i8, ptr %arrayidx58, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i81)
-  %conv.i82 = sext i8 %22 to i32
-  %and.i83 = and i32 %conv.i82, 128
-  %tobool.not.i84 = icmp eq i32 %and.i83, 0
-  br i1 %tobool.not.i84, label %_ZN6Assimp6Base6410DecodeCharEc.exit92, label %if.then.i85
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i75)
+  %tobool.not.i76 = icmp sgt i8 %22, -1
+  br i1 %tobool.not.i76, label %_ZN6Assimp6Base6410DecodeCharEc.exit84, label %if.then.i77
 
-if.then.i85:                                      ; preds = %for.end
-  %exception.i86 = tail call ptr @__cxa_allocate_exception(i64 16) #13
-  %conv1.i87 = sext i8 %22 to i64
-  store i64 %conv1.i87, ptr %ref.tmp.i81, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i86, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i81)
-          to label %invoke.cont.i89 unwind label %lpad.i88
+if.then.i77:                                      ; preds = %for.end
+  %exception.i78 = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  %conv1.i79 = sext i8 %22 to i64
+  store i64 %conv1.i79, ptr %ref.tmp.i75, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i78, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i75)
+          to label %invoke.cont.i81 unwind label %lpad.i80
 
-invoke.cont.i89:                                  ; preds = %if.then.i85
-  call void @__cxa_throw(ptr nonnull %exception.i86, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
+invoke.cont.i81:                                  ; preds = %if.then.i77
+  call void @__cxa_throw(ptr nonnull %exception.i78, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
   unreachable
 
-lpad.i88:                                         ; preds = %if.then.i85
+lpad.i80:                                         ; preds = %if.then.i77
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
-_ZN6Assimp6Base6410DecodeCharEc.exit92:           ; preds = %for.end
-  %conv4.i90 = zext nneg i32 %conv.i82 to i64
-  %arrayidx.i91 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i90
-  %24 = load i8, ptr %arrayidx.i91, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i81)
+_ZN6Assimp6Base6410DecodeCharEc.exit84:           ; preds = %for.end
+  %conv4.i82 = zext nneg i8 %22 to i64
+  %arrayidx.i83 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i82
+  %24 = load i8, ptr %arrayidx.i83, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i75)
   %add61 = or disjoint i64 %i.0.lcssa, 1
   %arrayidx62 = getelementptr inbounds i8, ptr %in, i64 %add61
   %25 = load i8, ptr %arrayidx62, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i93)
-  %conv.i94 = sext i8 %25 to i32
-  %and.i95 = and i32 %conv.i94, 128
-  %tobool.not.i96 = icmp eq i32 %and.i95, 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i85)
+  %tobool.not.i86 = icmp sgt i8 %25, -1
+  br i1 %tobool.not.i86, label %_ZN6Assimp6Base6410DecodeCharEc.exit94, label %if.then.i87
+
+if.then.i87:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit84
+  %exception.i88 = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  %conv1.i89 = sext i8 %25 to i64
+  store i64 %conv1.i89, ptr %ref.tmp.i85, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i88, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i85)
+          to label %invoke.cont.i91 unwind label %lpad.i90
+
+invoke.cont.i91:                                  ; preds = %if.then.i87
+  call void @__cxa_throw(ptr nonnull %exception.i88, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
+  unreachable
+
+lpad.i90:                                         ; preds = %if.then.i87
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  br label %common.resume.sink.split
+
+_ZN6Assimp6Base6410DecodeCharEc.exit94:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit84
+  %conv4.i92 = zext nneg i8 %25 to i64
+  %arrayidx.i93 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i92
+  %27 = load i8, ptr %arrayidx.i93, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i85)
+  %add65 = or disjoint i64 %i.0.lcssa, 2
+  %arrayidx66 = getelementptr inbounds i8, ptr %in, i64 %add65
+  %28 = load i8, ptr %arrayidx66, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i95)
+  %tobool.not.i96 = icmp sgt i8 %28, -1
   br i1 %tobool.not.i96, label %_ZN6Assimp6Base6410DecodeCharEc.exit104, label %if.then.i97
 
-if.then.i97:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit92
+if.then.i97:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit94
   %exception.i98 = tail call ptr @__cxa_allocate_exception(i64 16) #13
-  %conv1.i99 = sext i8 %25 to i64
-  store i64 %conv1.i99, ptr %ref.tmp.i93, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i98, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i93)
+  %conv1.i99 = sext i8 %28 to i64
+  store i64 %conv1.i99, ptr %ref.tmp.i95, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i98, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i95)
           to label %invoke.cont.i101 unwind label %lpad.i100
 
 invoke.cont.i101:                                 ; preds = %if.then.i97
@@ -521,75 +537,43 @@ invoke.cont.i101:                                 ; preds = %if.then.i97
   unreachable
 
 lpad.i100:                                        ; preds = %if.then.i97
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume.sink.split
-
-_ZN6Assimp6Base6410DecodeCharEc.exit104:          ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit92
-  %conv4.i102 = zext nneg i32 %conv.i94 to i64
-  %arrayidx.i103 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i102
-  %27 = load i8, ptr %arrayidx.i103, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i93)
-  %add65 = or disjoint i64 %i.0.lcssa, 2
-  %arrayidx66 = getelementptr inbounds i8, ptr %in, i64 %add65
-  %28 = load i8, ptr %arrayidx66, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i105)
-  %conv.i106 = sext i8 %28 to i32
-  %and.i107 = and i32 %conv.i106, 128
-  %tobool.not.i108 = icmp eq i32 %and.i107, 0
-  br i1 %tobool.not.i108, label %_ZN6Assimp6Base6410DecodeCharEc.exit116, label %if.then.i109
-
-if.then.i109:                                     ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit104
-  %exception.i110 = tail call ptr @__cxa_allocate_exception(i64 16) #13
-  %conv1.i111 = sext i8 %28 to i64
-  store i64 %conv1.i111, ptr %ref.tmp.i105, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i110, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i105)
-          to label %invoke.cont.i113 unwind label %lpad.i112
-
-invoke.cont.i113:                                 ; preds = %if.then.i109
-  call void @__cxa_throw(ptr nonnull %exception.i110, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
-  unreachable
-
-lpad.i112:                                        ; preds = %if.then.i109
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
-_ZN6Assimp6Base6410DecodeCharEc.exit116:          ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit104
-  %conv4.i114 = zext nneg i32 %conv.i106 to i64
-  %arrayidx.i115 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i114
-  %30 = load i8, ptr %arrayidx.i115, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i105)
+_ZN6Assimp6Base6410DecodeCharEc.exit104:          ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit94
+  %conv4.i102 = zext nneg i8 %28 to i64
+  %arrayidx.i103 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i102
+  %30 = load i8, ptr %arrayidx.i103, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i95)
   %add69 = or disjoint i64 %i.0.lcssa, 3
   %arrayidx70 = getelementptr inbounds i8, ptr %in, i64 %add69
   %31 = load i8, ptr %arrayidx70, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i117)
-  %conv.i118 = sext i8 %31 to i32
-  %and.i119 = and i32 %conv.i118, 128
-  %tobool.not.i120 = icmp eq i32 %and.i119, 0
-  br i1 %tobool.not.i120, label %_ZN6Assimp6Base6410DecodeCharEc.exit128, label %if.then.i121
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i105)
+  %tobool.not.i106 = icmp sgt i8 %31, -1
+  br i1 %tobool.not.i106, label %_ZN6Assimp6Base6410DecodeCharEc.exit114, label %if.then.i107
 
-if.then.i121:                                     ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit116
-  %exception.i122 = tail call ptr @__cxa_allocate_exception(i64 16) #13
-  %conv1.i123 = sext i8 %31 to i64
-  store i64 %conv1.i123, ptr %ref.tmp.i117, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i122, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i117)
-          to label %invoke.cont.i125 unwind label %lpad.i124
+if.then.i107:                                     ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit104
+  %exception.i108 = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  %conv1.i109 = sext i8 %31 to i64
+  store i64 %conv1.i109, ptr %ref.tmp.i105, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i108, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i105)
+          to label %invoke.cont.i111 unwind label %lpad.i110
 
-invoke.cont.i125:                                 ; preds = %if.then.i121
-  call void @__cxa_throw(ptr nonnull %exception.i122, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
+invoke.cont.i111:                                 ; preds = %if.then.i107
+  call void @__cxa_throw(ptr nonnull %exception.i108, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #14
   unreachable
 
-lpad.i124:                                        ; preds = %if.then.i121
+lpad.i110:                                        ; preds = %if.then.i107
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
-_ZN6Assimp6Base6410DecodeCharEc.exit128:          ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit116
-  %conv4.i126 = zext nneg i32 %conv.i118 to i64
-  %arrayidx.i127 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i126
-  %33 = load i8, ptr %arrayidx.i127, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i117)
+_ZN6Assimp6Base6410DecodeCharEc.exit114:          ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit104
+  %conv4.i112 = zext nneg i8 %31 to i64
+  %arrayidx.i113 = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %conv4.i112
+  %33 = load i8, ptr %arrayidx.i113, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i105)
   %shl73 = shl i8 %24, 2
   %shr75 = lshr i8 %27, 4
   %or76 = or i8 %shr75, %shl73
@@ -600,7 +584,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit128:          ; preds = %_ZN6Assimp6Base6410
   %cmp81.not = icmp eq i8 %28, 61
   br i1 %cmp81.not, label %if.end91, label %if.then82
 
-if.then82:                                        ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit128
+if.then82:                                        ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit114
   %shl84 = shl i8 %27, 4
   %shr86 = lshr i8 %30, 2
   %or87 = add nuw nsw i8 %shr86, %shl84
@@ -610,8 +594,8 @@ if.then82:                                        ; preds = %_ZN6Assimp6Base6410
   store i8 %or87, ptr %arrayidx90, align 1
   br label %if.end91
 
-if.end91:                                         ; preds = %if.then82, %_ZN6Assimp6Base6410DecodeCharEc.exit128
-  %j.1 = phi i64 [ %inc89, %if.then82 ], [ %inc78, %_ZN6Assimp6Base6410DecodeCharEc.exit128 ]
+if.end91:                                         ; preds = %if.then82, %_ZN6Assimp6Base6410DecodeCharEc.exit114
+  %j.1 = phi i64 [ %inc89, %if.then82 ], [ %inc78, %_ZN6Assimp6Base6410DecodeCharEc.exit114 ]
   %cmp93.not = icmp eq i8 %31, 61
   br i1 %cmp93.not, label %return, label %if.then94
 

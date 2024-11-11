@@ -1007,149 +1007,148 @@ define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 n
   br label %27
 
 27:                                               ; preds = %13, %23
-  %28 = zext i32 %2 to i64
-  %29 = and i64 %28, 1040
-  %or.cond53 = icmp eq i64 %29, 0
-  br i1 %or.cond53, label %33, label %30
+  %28 = and i32 %2, 1040
+  %or.cond53 = icmp eq i32 %28, 0
+  br i1 %or.cond53, label %32, label %29
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr @awt_display, align 8
-  %32 = tail call i32 @XTestFakeButtonEvent(ptr noundef %31, i32 noundef 1, i32 noundef %3, i64 noundef 0) #8
-  br label %33
+29:                                               ; preds = %27
+  %30 = load ptr, ptr @awt_display, align 8
+  %31 = tail call i32 @XTestFakeButtonEvent(ptr noundef %30, i32 noundef 1, i32 noundef %3, i64 noundef 0) #8
+  br label %32
 
-33:                                               ; preds = %27, %30
-  %34 = and i64 %28, 8
-  %.not47 = icmp eq i64 %34, 0
-  br i1 %.not47, label %35, label %40
+32:                                               ; preds = %27, %29
+  %33 = and i32 %2, 8
+  %.not47 = icmp eq i32 %33, 0
+  br i1 %.not47, label %34, label %39
 
-35:                                               ; preds = %33
-  %36 = and i64 %28, 2048
-  %37 = icmp ne i64 %36, 0
-  %38 = load i32, ptr @num_buttons, align 4
-  %39 = icmp sgt i32 %38, 1
-  %or.cond = select i1 %37, i1 %39, i1 false
-  br i1 %or.cond, label %41, label %44
+34:                                               ; preds = %32
+  %35 = and i32 %2, 2048
+  %36 = icmp ne i32 %35, 0
+  %37 = load i32, ptr @num_buttons, align 4
+  %38 = icmp sgt i32 %37, 1
+  %or.cond = select i1 %36, i1 %38, i1 false
+  br i1 %or.cond, label %40, label %43
 
-40:                                               ; preds = %33
+39:                                               ; preds = %32
   %.old = load i32, ptr @num_buttons, align 4
   %.old1 = icmp sgt i32 %.old, 1
-  br i1 %.old1, label %41, label %44
+  br i1 %.old1, label %40, label %43
 
-41:                                               ; preds = %35, %40
-  %42 = load ptr, ptr @awt_display, align 8
-  %43 = tail call i32 @XTestFakeButtonEvent(ptr noundef %42, i32 noundef 2, i32 noundef %3, i64 noundef 0) #8
-  br label %44
+40:                                               ; preds = %34, %39
+  %41 = load ptr, ptr @awt_display, align 8
+  %42 = tail call i32 @XTestFakeButtonEvent(ptr noundef %41, i32 noundef 2, i32 noundef %3, i64 noundef 0) #8
+  br label %43
 
-44:                                               ; preds = %41, %40, %35
-  %45 = and i64 %28, 4
-  %.not48 = icmp eq i64 %45, 0
-  br i1 %.not48, label %46, label %51
+43:                                               ; preds = %40, %39, %34
+  %44 = and i32 %2, 4
+  %.not48 = icmp eq i32 %44, 0
+  br i1 %.not48, label %45, label %50
 
-46:                                               ; preds = %44
-  %47 = and i64 %28, 4096
-  %48 = icmp ne i64 %47, 0
-  %49 = load i32, ptr @num_buttons, align 4
-  %50 = icmp sgt i32 %49, 2
-  %or.cond4 = select i1 %48, i1 %50, i1 false
-  br i1 %or.cond4, label %52, label %55
+45:                                               ; preds = %43
+  %46 = and i32 %2, 4096
+  %47 = icmp ne i32 %46, 0
+  %48 = load i32, ptr @num_buttons, align 4
+  %49 = icmp sgt i32 %48, 2
+  %or.cond4 = select i1 %47, i1 %49, i1 false
+  br i1 %or.cond4, label %51, label %54
 
-51:                                               ; preds = %44
+50:                                               ; preds = %43
   %.old2 = load i32, ptr @num_buttons, align 4
   %.old3 = icmp sgt i32 %.old2, 2
-  br i1 %.old3, label %52, label %.thread
+  br i1 %.old3, label %51, label %.thread
 
-52:                                               ; preds = %46, %51
-  %53 = load ptr, ptr @awt_display, align 8
-  %54 = tail call i32 @XTestFakeButtonEvent(ptr noundef %53, i32 noundef 3, i32 noundef %3, i64 noundef 0) #8
+51:                                               ; preds = %45, %50
+  %52 = load ptr, ptr @awt_display, align 8
+  %53 = tail call i32 @XTestFakeButtonEvent(ptr noundef %52, i32 noundef 3, i32 noundef %3, i64 noundef 0) #8
   %.pr = load i32, ptr @num_buttons, align 4
-  br label %55
+  br label %54
 
-55:                                               ; preds = %52, %46
-  %56 = phi i32 [ %.pr, %52 ], [ %49, %46 ]
-  %57 = icmp sgt i32 %56, 3
-  br i1 %57, label %.lr.ph.preheader, label %.thread
+54:                                               ; preds = %51, %45
+  %55 = phi i32 [ %.pr, %51 ], [ %48, %45 ]
+  %56 = icmp sgt i32 %55, 3
+  br i1 %56, label %.lr.ph.preheader, label %.thread
 
-.lr.ph.preheader:                                 ; preds = %55
+.lr.ph.preheader:                                 ; preds = %54
   %.pre59 = load ptr, ptr @masks, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
-  %58 = phi i32 [ %56, %.lr.ph.preheader ], [ %69, %68 ]
-  %59 = phi ptr [ %.pre59, %.lr.ph.preheader ], [ %70, %68 ]
-  %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %68 ]
-  %60 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv
-  %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, %2
-  %.not51 = icmp eq i32 %62, 0
-  br i1 %.not51, label %68, label %63
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %67
+  %57 = phi i32 [ %55, %.lr.ph.preheader ], [ %68, %67 ]
+  %58 = phi ptr [ %.pre59, %.lr.ph.preheader ], [ %69, %67 ]
+  %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
+  %59 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv
+  %60 = load i32, ptr %59, align 4
+  %61 = and i32 %60, %2
+  %.not51 = icmp eq i32 %61, 0
+  br i1 %.not51, label %67, label %62
 
-63:                                               ; preds = %.lr.ph
-  %64 = load ptr, ptr @awt_display, align 8
-  %65 = trunc i64 %indvars.iv to i32
-  %66 = add i32 %65, 3
-  %67 = tail call i32 @XTestFakeButtonEvent(ptr noundef %64, i32 noundef %66, i32 noundef %3, i64 noundef 0) #8
+62:                                               ; preds = %.lr.ph
+  %63 = load ptr, ptr @awt_display, align 8
+  %64 = trunc i64 %indvars.iv to i32
+  %65 = add i32 %64, 3
+  %66 = tail call i32 @XTestFakeButtonEvent(ptr noundef %63, i32 noundef %65, i32 noundef %3, i64 noundef 0) #8
   %.pre = load ptr, ptr @masks, align 8
   %.pre60 = load i32, ptr @num_buttons, align 4
-  br label %68
+  br label %67
 
-68:                                               ; preds = %.lr.ph, %63
-  %69 = phi i32 [ %58, %.lr.ph ], [ %.pre60, %63 ]
-  %70 = phi ptr [ %59, %.lr.ph ], [ %.pre, %63 ]
+67:                                               ; preds = %.lr.ph, %62
+  %68 = phi i32 [ %57, %.lr.ph ], [ %.pre60, %62 ]
+  %69 = phi ptr [ %58, %.lr.ph ], [ %.pre, %62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %71 = sext i32 %69 to i64
-  %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph, label %.thread, !llvm.loop !10
+  %70 = sext i32 %68 to i64
+  %71 = icmp slt i64 %indvars.iv.next, %70
+  br i1 %71, label %.lr.ph, label %.thread, !llvm.loop !10
 
-.thread:                                          ; preds = %68, %51, %55
-  %73 = load ptr, ptr @awt_display, align 8
-  %74 = tail call i32 @XSync(ptr noundef %73, i32 noundef 0) #8
+.thread:                                          ; preds = %67, %50, %54
+  %72 = load ptr, ptr @awt_display, align 8
+  %73 = tail call i32 @XSync(ptr noundef %72, i32 noundef 0) #8
   tail call void (...) @awt_output_flush() #8
-  %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 120
-  %77 = load ptr, ptr %76, align 8
-  %78 = tail call ptr %77(ptr noundef nonnull %0) #8
-  %.not49 = icmp eq ptr %78, null
-  br i1 %.not49, label %83, label %79
+  %74 = load ptr, ptr %0, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 120
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call ptr %76(ptr noundef nonnull %0) #8
+  %.not49 = icmp eq ptr %77, null
+  br i1 %.not49, label %82, label %78
 
-79:                                               ; preds = %.thread
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 136
-  %82 = load ptr, ptr %81, align 8
-  tail call void %82(ptr noundef nonnull %0) #8
-  br label %83
+78:                                               ; preds = %.thread
+  %79 = load ptr, ptr %0, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 136
+  %81 = load ptr, ptr %80, align 8
+  tail call void %81(ptr noundef nonnull %0) #8
+  br label %82
 
-83:                                               ; preds = %79, %.thread
-  %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1128
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr @tkClass, align 8
-  %88 = load ptr, ptr @awtUnlockMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %86(ptr noundef nonnull %0, ptr noundef %87, ptr noundef %88) #8
-  %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 1824
-  %91 = load ptr, ptr %90, align 8
-  %92 = tail call zeroext i8 %91(ptr noundef nonnull %0) #8
-  %.not50 = icmp eq i8 %92, 0
-  br i1 %.not50, label %97, label %93
+82:                                               ; preds = %78, %.thread
+  %83 = load ptr, ptr %0, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 1128
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr @tkClass, align 8
+  %87 = load ptr, ptr @awtUnlockMID, align 8
+  tail call void (ptr, ptr, ptr, ...) %85(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %87) #8
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 1824
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call zeroext i8 %90(ptr noundef nonnull %0) #8
+  %.not50 = icmp eq i8 %91, 0
+  br i1 %.not50, label %96, label %92
 
-93:                                               ; preds = %83
-  %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 136
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull %0) #8
-  br label %97
+92:                                               ; preds = %82
+  %93 = load ptr, ptr %0, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 136
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull %0) #8
+  br label %96
 
-97:                                               ; preds = %93, %83
-  br i1 %.not49, label %103, label %98
+96:                                               ; preds = %92, %82
+  br i1 %.not49, label %102, label %97
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 104
-  %101 = load ptr, ptr %100, align 8
-  %102 = tail call i32 %101(ptr noundef nonnull %0, ptr noundef nonnull %78) #8
-  br label %103
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %0, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 104
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %77) #8
+  br label %102
 
-103:                                              ; preds = %98, %97
+102:                                              ; preds = %97, %96
   ret void
 }
 

@@ -4243,8 +4243,8 @@ sw.bb:                                            ; preds = %FormatBegin
   br i1 %cmp25.not, label %sw.epilog, label %return
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv592 = phi i64 [ %indvars.iv.next593, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr %mDay, i64 0, i64 %indvars.iv592
+  %indvars.iv612 = phi i64 [ %indvars.iv.next613, %for.inc ], [ 0, %for.body.preheader ]
+  %arrayidx = getelementptr inbounds [7 x ptr], ptr %mDay, i64 0, i64 %indvars.iv612
   %12 = load ptr, ptr %arrayidx, align 8
   %call31 = tail call noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %12)
   %call35 = tail call noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef %12, ptr noundef %p.0512, i64 noundef %call31)
@@ -4252,7 +4252,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp36, label %if.end51, label %if.end38
 
 if.end38:                                         ; preds = %for.body
-  %arrayidx40 = getelementptr inbounds [7 x ptr], ptr %spec.store.select, i64 0, i64 %indvars.iv592
+  %arrayidx40 = getelementptr inbounds [7 x ptr], ptr %spec.store.select, i64 0, i64 %indvars.iv612
   %13 = load ptr, ptr %arrayidx40, align 8
   %call41 = tail call noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %13)
   %call45 = tail call noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr noundef %13, ptr noundef %p.0512, i64 noundef %call41)
@@ -4260,13 +4260,13 @@ if.end38:                                         ; preds = %for.body
   br i1 %cmp46, label %if.end51, label %for.inc
 
 for.inc:                                          ; preds = %if.end38
-  %indvars.iv.next593 = add nuw nsw i64 %indvars.iv592, 1
-  %exitcond595.not = icmp eq i64 %indvars.iv.next593, 7
-  br i1 %exitcond595.not, label %return, label %for.body, !llvm.loop !102
+  %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
+  %exitcond615.not = icmp eq i64 %indvars.iv.next613, 7
+  br i1 %exitcond615.not, label %return, label %for.body, !llvm.loop !102
 
 if.end51:                                         ; preds = %for.body, %if.end38
   %len.3419.ph = phi i64 [ %call31, %for.body ], [ %call41, %if.end38 ]
-  %14 = trunc nuw nsw i64 %indvars.iv592 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv612 to i32
   store i32 %14, ptr %tm_wday199, align 8
   %add.ptr = getelementptr inbounds i8, ptr %p.0512, i64 %len.3419.ph
   br label %sw.epilog
@@ -4360,7 +4360,7 @@ sw.bb93:                                          ; preds = %FormatBegin
   br i1 %or.cond.i, label %do.body.i.preheader, label %return
 
 do.body.i.preheader:                              ; preds = %sw.bb93
-  %scevgep590 = getelementptr i8, ptr %p.0512, i64 2
+  %scevgep610 = getelementptr i8, ptr %p.0512, i64 2
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %land.lhs.true4.i
@@ -4386,7 +4386,7 @@ land.lhs.true4.i:                                 ; preds = %do.body.i
   br i1 %or.cond14.i, label %do.end.i, label %do.body.i, !llvm.loop !104
 
 do.end.i:                                         ; preds = %land.lhs.true4.i, %do.body.i
-  %incdec.ptr.i.lcssa = phi ptr [ %incdec.ptr.i, %land.lhs.true4.i ], [ %scevgep590, %do.body.i ]
+  %incdec.ptr.i.lcssa = phi ptr [ %incdec.ptr.i, %land.lhs.true4.i ], [ %scevgep610, %do.body.i ]
   %or.cond15.i = icmp ugt i32 %add.i, 99
   br i1 %or.cond15.i, label %return, label %if.end96
 
@@ -4414,7 +4414,7 @@ sw.bb103:                                         ; preds = %FormatBegin, %Forma
   br i1 %or.cond.i73, label %do.body.i75.preheader, label %return
 
 do.body.i75.preheader:                            ; preds = %sw.bb103
-  %scevgep589 = getelementptr i8, ptr %p.0512, i64 2
+  %scevgep607 = getelementptr i8, ptr %p.0512, i64 2
   br label %do.body.i75
 
 do.body.i75:                                      ; preds = %do.body.i75.preheader, %land.lhs.true4.i85
@@ -4440,7 +4440,7 @@ land.lhs.true4.i85:                               ; preds = %do.body.i75
   br i1 %or.cond14.i90, label %do.end.i91, label %do.body.i75, !llvm.loop !104
 
 do.end.i91:                                       ; preds = %land.lhs.true4.i85, %do.body.i75
-  %incdec.ptr.i80.lcssa = phi ptr [ %incdec.ptr.i80, %land.lhs.true4.i85 ], [ %scevgep589, %do.body.i75 ]
+  %incdec.ptr.i80.lcssa = phi ptr [ %incdec.ptr.i80, %land.lhs.true4.i85 ], [ %scevgep607, %do.body.i75 ]
   %36 = add i32 %add.i83, -32
   %or.cond15.i94 = icmp ult i32 %36, -31
   br i1 %or.cond15.i94, label %return, label %_ZN2EA4StdCL7ReadIntERPKcRiii.exit96
@@ -4461,7 +4461,7 @@ sw.bb112:                                         ; preds = %FormatBegin
   br i1 %or.cond.i97, label %do.body.i99.preheader, label %return
 
 do.body.i99.preheader:                            ; preds = %sw.bb112
-  %scevgep588 = getelementptr i8, ptr %p.0512, i64 2
+  %scevgep604 = getelementptr i8, ptr %p.0512, i64 2
   br label %do.body.i99
 
 do.body.i99:                                      ; preds = %do.body.i99.preheader, %land.lhs.true4.i109
@@ -4487,7 +4487,7 @@ land.lhs.true4.i109:                              ; preds = %do.body.i99
   br i1 %or.cond14.i114, label %do.end.i115, label %do.body.i99, !llvm.loop !104
 
 do.end.i115:                                      ; preds = %land.lhs.true4.i109, %do.body.i99
-  %incdec.ptr.i104.lcssa = phi ptr [ %incdec.ptr.i104, %land.lhs.true4.i109 ], [ %scevgep588, %do.body.i99 ]
+  %incdec.ptr.i104.lcssa = phi ptr [ %incdec.ptr.i104, %land.lhs.true4.i109 ], [ %scevgep604, %do.body.i99 ]
   %or.cond15.i118 = icmp ugt i32 %add.i107, 23
   br i1 %or.cond15.i118, label %return, label %_ZN2EA4StdCL7ReadIntERPKcRiii.exit120
 
@@ -4502,7 +4502,7 @@ sw.bb116:                                         ; preds = %FormatBegin
   br i1 %or.cond.i121, label %do.body.i123.preheader, label %return
 
 do.body.i123.preheader:                           ; preds = %sw.bb116
-  %scevgep587 = getelementptr i8, ptr %p.0512, i64 2
+  %scevgep601 = getelementptr i8, ptr %p.0512, i64 2
   br label %do.body.i123
 
 do.body.i123:                                     ; preds = %do.body.i123.preheader, %land.lhs.true4.i133
@@ -4528,7 +4528,7 @@ land.lhs.true4.i133:                              ; preds = %do.body.i123
   br i1 %or.cond14.i138, label %do.end.i139, label %do.body.i123, !llvm.loop !104
 
 do.end.i139:                                      ; preds = %land.lhs.true4.i133, %do.body.i123
-  %incdec.ptr.i128.lcssa = phi ptr [ %incdec.ptr.i128, %land.lhs.true4.i133 ], [ %scevgep587, %do.body.i123 ]
+  %incdec.ptr.i128.lcssa = phi ptr [ %incdec.ptr.i128, %land.lhs.true4.i133 ], [ %scevgep601, %do.body.i123 ]
   %47 = add i32 %add.i131, -13
   %or.cond15.i142 = icmp ult i32 %47, -12
   br i1 %or.cond15.i142, label %return, label %_ZN2EA4StdCL7ReadIntERPKcRiii.exit144
@@ -4544,7 +4544,7 @@ sw.bb121:                                         ; preds = %FormatBegin
   br i1 %or.cond.i145, label %do.body.i147.preheader, label %return
 
 do.body.i147.preheader:                           ; preds = %sw.bb121
-  %scevgep586 = getelementptr i8, ptr %p.0512, i64 3
+  %scevgep598 = getelementptr i8, ptr %p.0512, i64 3
   br label %do.body.i147
 
 do.body.i147:                                     ; preds = %do.body.i147.preheader, %land.lhs.true4.i157
@@ -4570,7 +4570,7 @@ land.lhs.true4.i157:                              ; preds = %do.body.i147
   br i1 %or.cond14.i162, label %do.end.i163, label %do.body.i147, !llvm.loop !104
 
 do.end.i163:                                      ; preds = %land.lhs.true4.i157, %do.body.i147
-  %incdec.ptr.i152.lcssa = phi ptr [ %incdec.ptr.i152, %land.lhs.true4.i157 ], [ %scevgep586, %do.body.i147 ]
+  %incdec.ptr.i152.lcssa = phi ptr [ %incdec.ptr.i152, %land.lhs.true4.i157 ], [ %scevgep598, %do.body.i147 ]
   %53 = add i32 %add.i155, -367
   %or.cond15.i166 = icmp ult i32 %53, -366
   br i1 %or.cond15.i166, label %return, label %if.end124
@@ -4587,7 +4587,7 @@ sw.bb125:                                         ; preds = %FormatBegin
   br i1 %or.cond.i169, label %do.body.i171.preheader, label %return
 
 do.body.i171.preheader:                           ; preds = %sw.bb125
-  %scevgep585 = getelementptr i8, ptr %p.0512, i64 2
+  %scevgep595 = getelementptr i8, ptr %p.0512, i64 2
   br label %do.body.i171
 
 do.body.i171:                                     ; preds = %do.body.i171.preheader, %land.lhs.true4.i181
@@ -4613,7 +4613,7 @@ land.lhs.true4.i181:                              ; preds = %do.body.i171
   br i1 %or.cond14.i186, label %do.end.i187, label %do.body.i171, !llvm.loop !104
 
 do.end.i187:                                      ; preds = %land.lhs.true4.i181, %do.body.i171
-  %incdec.ptr.i176.lcssa = phi ptr [ %incdec.ptr.i176, %land.lhs.true4.i181 ], [ %scevgep585, %do.body.i171 ]
+  %incdec.ptr.i176.lcssa = phi ptr [ %incdec.ptr.i176, %land.lhs.true4.i181 ], [ %scevgep595, %do.body.i171 ]
   %or.cond15.i190 = icmp ugt i32 %add.i179, 59
   br i1 %or.cond15.i190, label %return, label %_ZN2EA4StdCL7ReadIntERPKcRiii.exit192
 
@@ -4628,7 +4628,7 @@ sw.bb129:                                         ; preds = %FormatBegin
   br i1 %or.cond.i193, label %do.body.i195.preheader, label %return
 
 do.body.i195.preheader:                           ; preds = %sw.bb129
-  %scevgep584 = getelementptr i8, ptr %p.0512, i64 2
+  %scevgep592 = getelementptr i8, ptr %p.0512, i64 2
   br label %do.body.i195
 
 do.body.i195:                                     ; preds = %do.body.i195.preheader, %land.lhs.true4.i205
@@ -4654,7 +4654,7 @@ land.lhs.true4.i205:                              ; preds = %do.body.i195
   br i1 %or.cond14.i210, label %do.end.i211, label %do.body.i195, !llvm.loop !104
 
 do.end.i211:                                      ; preds = %land.lhs.true4.i205, %do.body.i195
-  %incdec.ptr.i200.lcssa = phi ptr [ %incdec.ptr.i200, %land.lhs.true4.i205 ], [ %scevgep584, %do.body.i195 ]
+  %incdec.ptr.i200.lcssa = phi ptr [ %incdec.ptr.i200, %land.lhs.true4.i205 ], [ %scevgep592, %do.body.i195 ]
   %64 = add i32 %add.i203, -13
   %or.cond15.i214 = icmp ult i32 %64, -12
   br i1 %or.cond15.i214, label %return, label %if.end132
@@ -4737,7 +4737,7 @@ sw.bb188:                                         ; preds = %FormatBegin
   br i1 %or.cond.i220, label %do.body.i222.preheader, label %return
 
 do.body.i222.preheader:                           ; preds = %sw.bb188
-  %scevgep583 = getelementptr i8, ptr %p.0512, i64 2
+  %scevgep589 = getelementptr i8, ptr %p.0512, i64 2
   br label %do.body.i222
 
 do.body.i222:                                     ; preds = %do.body.i222.preheader, %land.lhs.true4.i232
@@ -4763,7 +4763,7 @@ land.lhs.true4.i232:                              ; preds = %do.body.i222
   br i1 %or.cond14.i237, label %do.end.i238, label %do.body.i222, !llvm.loop !104
 
 do.end.i238:                                      ; preds = %land.lhs.true4.i232, %do.body.i222
-  %incdec.ptr.i227.lcssa = phi ptr [ %incdec.ptr.i227, %land.lhs.true4.i232 ], [ %scevgep583, %do.body.i222 ]
+  %incdec.ptr.i227.lcssa = phi ptr [ %incdec.ptr.i227, %land.lhs.true4.i232 ], [ %scevgep589, %do.body.i222 ]
   %or.cond15.i241 = icmp ugt i32 %add.i230, 61
   br i1 %or.cond15.i241, label %return, label %_ZN2EA4StdCL7ReadIntERPKcRiii.exit243
 
@@ -4906,7 +4906,7 @@ sw.bb213:                                         ; preds = %FormatBegin
   br i1 %or.cond.i278, label %do.body.i280.preheader, label %return
 
 do.body.i280.preheader:                           ; preds = %sw.bb213
-  %scevgep582 = getelementptr i8, ptr %p.0512, i64 4
+  %scevgep586 = getelementptr i8, ptr %p.0512, i64 4
   br label %do.body.i280
 
 do.body.i280:                                     ; preds = %do.body.i280.preheader, %land.lhs.true4.i290
@@ -4932,7 +4932,7 @@ land.lhs.true4.i290:                              ; preds = %do.body.i280
   br i1 %or.cond14.i295, label %do.end.i296, label %do.body.i280, !llvm.loop !104
 
 do.end.i296:                                      ; preds = %land.lhs.true4.i290, %do.body.i280
-  %incdec.ptr.i285.lcssa = phi ptr [ %incdec.ptr.i285, %land.lhs.true4.i290 ], [ %scevgep582, %do.body.i280 ]
+  %incdec.ptr.i285.lcssa = phi ptr [ %incdec.ptr.i285, %land.lhs.true4.i290 ], [ %scevgep586, %do.body.i280 ]
   %or.cond15.i299 = icmp ugt i32 %add.i288, 9999
   br i1 %or.cond15.i299, label %return, label %if.end217
 

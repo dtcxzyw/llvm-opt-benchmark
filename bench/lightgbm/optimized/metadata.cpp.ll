@@ -17174,8 +17174,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %27, %_ZNSt6vectorIf
   %30 = load i32, ptr %4, align 8
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 2
-  %33 = and i64 %31, 1
-  %34 = icmp eq i64 %33, 0
+  %33 = and i32 %30, 1
+  %34 = icmp eq i32 %33, 0
   %35 = and i64 %32, -8
   %36 = add nsw i64 %35, 8
   %.0.i = select i1 %34, i64 %32, i64 %36
@@ -17235,8 +17235,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit32:                  ; preds = %54, %_ZNSt6vectorIf
   %59 = load i32, ptr %7, align 4
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
-  %62 = and i64 %60, 1
-  %63 = icmp eq i64 %62, 0
+  %62 = and i32 %59, 1
+  %63 = icmp eq i32 %62, 0
   %64 = and i64 %61, -8
   %65 = add nsw i64 %64, 8
   %.0.i33 = select i1 %63, i64 %61, i64 %65
@@ -17461,8 +17461,8 @@ define noundef range(i64 -25769803748, 25769803813) i64 @_ZNK8LightGBM8Metadata1
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 2
-  %6 = and i64 %4, 1
-  %7 = icmp eq i64 %6, 0
+  %6 = and i32 %3, 1
+  %7 = icmp eq i32 %6, 0
   %8 = and i64 %5, -8
   %9 = add nsw i64 %8, 8
   %.0.i = select i1 %7, i64 %5, i64 %9
@@ -17479,8 +17479,8 @@ define noundef range(i64 -25769803748, 25769803813) i64 @_ZNK8LightGBM8Metadata1
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
-  %21 = and i64 %19, 1
-  %22 = icmp eq i64 %21, 0
+  %21 = and i32 %18, 1
+  %22 = icmp eq i32 %21, 0
   %23 = and i64 %20, -8
   %24 = add nsw i64 %23, 8
   %.0.i4 = select i1 %22, i64 %20, i64 %24
@@ -17494,7 +17494,7 @@ define noundef range(i64 -25769803748, 25769803813) i64 @_ZNK8LightGBM8Metadata1
   %29 = getelementptr inbounds i8, ptr %0, i64 152
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %28, %30
-  br i1 %31, label %43, label %32
+  br i1 %31, label %42, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %0, i64 192
@@ -17502,16 +17502,16 @@ define noundef range(i64 -25769803748, 25769803813) i64 @_ZNK8LightGBM8Metadata1
   %35 = add nsw i32 %34, 1
   %36 = sext i32 %35 to i64
   %37 = shl nsw i64 %36, 2
-  %38 = and i64 %36, 1
-  %39 = icmp eq i64 %38, 0
-  %40 = and i64 %37, -8
-  %41 = add nsw i64 %40, 8
-  %.0.i5 = select i1 %39, i64 %37, i64 %41
-  %42 = add nsw i64 %.0.i5, %.0
-  br label %43
+  %38 = and i32 %34, 1
+  %.not = icmp eq i32 %38, 0
+  %39 = and i64 %37, -8
+  %40 = add nsw i64 %39, 8
+  %.0.i5 = select i1 %.not, i64 %40, i64 %37
+  %41 = add nsw i64 %.0.i5, %.0
+  br label %42
 
-43:                                               ; preds = %32, %26
-  %.1 = phi i64 [ %.0, %26 ], [ %42, %32 ]
+42:                                               ; preds = %32, %26
+  %.1 = phi i64 [ %.0, %26 ], [ %41, %32 ]
   ret i64 %.1
 }
 

@@ -726,7 +726,7 @@ for.body80:                                       ; preds = %for.body80.preheade
   br i1 %cmp.i136, label %for.body80.if.then110_crit_edge, label %if.end90
 
 for.body80.if.then110_crit_edge:                  ; preds = %for.body80
-  %.pre253 = load ptr, ptr %m_solver, align 8
+  %.pre257 = load ptr, ptr %m_solver, align 8
   br label %if.then110
 
 if.end90:                                         ; preds = %for.body80
@@ -760,7 +760,7 @@ for.inc106:                                       ; preds = %if.end93, %if.end90
   br i1 %exitcond252.not, label %if.end112, label %for.body80, !llvm.loop !9
 
 if.then110:                                       ; preds = %if.end93, %for.body80.if.then110_crit_edge
-  %38 = phi ptr [ %.pre253, %for.body80.if.then110_crit_edge ], [ %35, %if.end93 ]
+  %38 = phi ptr [ %.pre257, %for.body80.if.then110_crit_edge ], [ %35, %if.end93 ]
   %m_drat.i = getelementptr inbounds i8, ptr %38, i64 352
   %39 = load i8, ptr %m_drat.i, align 8
   %tobool.i143 = trunc i8 %39 to i1
@@ -983,19 +983,19 @@ for.inc154:                                       ; preds = %_ZN3sat8elim_eqs18d
   br i1 %cmp.not, label %for.end156, label %for.body, !llvm.loop !14
 
 for.end156:                                       ; preds = %for.inc154
-  %.pre254 = load ptr, ptr %cs, align 8
-  %tobool.not.i188 = icmp eq ptr %.pre254, null
+  %.pre258 = load ptr, ptr %cs, align 8
+  %tobool.not.i188 = icmp eq ptr %.pre258, null
   br i1 %tobool.not.i188, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %for.end156, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit, %for.end120
-  %it2.0.lcssa266.sink = phi ptr [ %it2.2.lcssa, %for.end120 ], [ %it2.1, %for.end156 ], [ %0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
-  %.sink277 = phi ptr [ %45, %for.end120 ], [ %.pre254, %for.end156 ], [ %0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
-  %sub.ptr.lhs.cast.i190 = ptrtoint ptr %it2.0.lcssa266.sink to i64
-  %sub.ptr.rhs.cast.i191 = ptrtoint ptr %.sink277 to i64
+  %it2.0.lcssa270.sink = phi ptr [ %it2.2.lcssa, %for.end120 ], [ %it2.1, %for.end156 ], [ %0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
+  %.sink281 = phi ptr [ %45, %for.end120 ], [ %.pre258, %for.end156 ], [ %0, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
+  %sub.ptr.lhs.cast.i190 = ptrtoint ptr %it2.0.lcssa270.sink to i64
+  %sub.ptr.rhs.cast.i191 = ptrtoint ptr %.sink281 to i64
   %sub.ptr.sub.i192 = sub i64 %sub.ptr.lhs.cast.i190, %sub.ptr.rhs.cast.i191
   %sub.ptr.div.i193 = lshr exact i64 %sub.ptr.sub.i192, 3
   %conv.i194 = trunc i64 %sub.ptr.div.i193 to i32
-  %arrayidx.i195 = getelementptr inbounds i8, ptr %.sink277, i64 -4
+  %arrayidx.i195 = getelementptr inbounds i8, ptr %.sink281, i64 -4
   store i32 %conv.i194, ptr %arrayidx.i195, align 4
   br label %return
 

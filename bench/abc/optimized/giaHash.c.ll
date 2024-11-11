@@ -3419,7 +3419,7 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr nocapture noundef %1, i32 
   br i1 %67, label %.lr.ph131, label %._crit_edge132
 
 .lr.ph131:                                        ; preds = %._crit_edge115.thread
-  %wide.trip.count166 = zext nneg i32 %.0 to i64
+  %wide.trip.count169 = zext nneg i32 %.0 to i64
   br i1 %.not106, label %.lr.ph131.split.us, label %.lr.ph131.split
 
 .lr.ph131.split.us:                               ; preds = %.lr.ph131
@@ -3430,25 +3430,25 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr nocapture noundef %1, i32 
   br label %.lr.ph131.split.us.split
 
 .lr.ph131.split.us.split.us:                      ; preds = %.lr.ph131.split.us, %.lr.ph131.split.us.split.us
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph131.split.us.split.us ], [ 1, %.lr.ph131.split.us ]
+  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.lr.ph131.split.us.split.us ], [ 1, %.lr.ph131.split.us ]
   %.0101128.us.us = phi i32 [ %72, %.lr.ph131.split.us.split.us ], [ %68, %.lr.ph131.split.us ]
-  %70 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv163
+  %70 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv165
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0101128.us.us, i32 noundef %71)
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %._crit_edge132, label %.lr.ph131.split.us.split.us, !llvm.loop !27
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %exitcond170.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count169
+  br i1 %exitcond170.not, label %._crit_edge132, label %.lr.ph131.split.us.split.us, !llvm.loop !27
 
 .lr.ph131.split.us.split:                         ; preds = %.lr.ph131.split.us.split.preheader, %.lr.ph131.split.us.split
-  %indvars.iv158 = phi i64 [ 1, %.lr.ph131.split.us.split.preheader ], [ %indvars.iv.next159, %.lr.ph131.split.us.split ]
+  %indvars.iv159 = phi i64 [ 1, %.lr.ph131.split.us.split.preheader ], [ %indvars.iv.next160, %.lr.ph131.split.us.split ]
   %.0101128.us = phi i32 [ %69, %.lr.ph131.split.us.split.preheader ], [ %76, %.lr.ph131.split.us.split ]
-  %73 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv158
+  %73 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv159
   %74 = load i32, ptr %73, align 4
   %75 = xor i32 %74, 1
   %76 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0101128.us, i32 noundef %75)
-  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count166
-  br i1 %exitcond162.not, label %._crit_edge132.loopexit135, label %.lr.ph131.split.us.split, !llvm.loop !27
+  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
+  %exitcond164.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count169
+  br i1 %exitcond164.not, label %._crit_edge132.loopexit135, label %.lr.ph131.split.us.split, !llvm.loop !27
 
 .lr.ph131.split:                                  ; preds = %.lr.ph131, %.lr.ph131.split
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph131.split ], [ 1, %.lr.ph131 ]
@@ -3457,8 +3457,8 @@ define i32 @Gia_ManMultiInputPerm(ptr noundef %0, ptr nocapture noundef %1, i32 
   %78 = load i32, ptr %77, align 4
   %79 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %.0101128, i32 noundef %78)
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count166
-  br i1 %exitcond157.not, label %._crit_edge132, label %.lr.ph131.split, !llvm.loop !27
+  %exitcond158.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count169
+  br i1 %exitcond158.not, label %._crit_edge132, label %.lr.ph131.split, !llvm.loop !27
 
 ._crit_edge132.loopexit135:                       ; preds = %.lr.ph131.split.us.split
   %80 = xor i32 %76, 1

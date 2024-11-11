@@ -4551,13 +4551,13 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %patterns, align 8
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %li) #24
   %2 = lshr i32 %keyspec_flags, 4
-  %spec.select = and i32 %2, 1
+  %.lobit = and i32 %2, 1
   %3 = lshr i32 %keyspec_flags, 5
   %4 = and i32 %3, 2
   %5 = and i32 %keyspec_flags, 160
   %6 = icmp eq i32 %5, 0
   %key_flags.3.v = select i1 %6, i32 %4, i32 2
-  %key_flags.3 = or disjoint i32 %key_flags.3.v, %spec.select
+  %key_flags.3 = or disjoint i32 %key_flags.3.v, %.lobit
   %call12 = call ptr @listNext(ptr noundef nonnull %li) #24
   %tobool23.not13 = icmp eq ptr %call12, null
   br i1 %tobool23.not13, label %return, label %while.body
@@ -4652,13 +4652,13 @@ if.end:                                           ; preds = %entry
 
 while.body.lr.ph:                                 ; preds = %if.end
   %1 = lshr i32 %flags, 4
-  %spec.select.i = and i32 %1, 1
+  %.lobit.i = and i32 %1, 1
   %2 = lshr i32 %flags, 5
   %3 = and i32 %2, 2
   %4 = and i32 %flags, 160
   %5 = icmp eq i32 %4, 0
   %access_flags.3.v.i = select i1 %5, i32 %3, i32 2
-  %access_flags.3.i = or disjoint i32 %access_flags.3.v.i, %spec.select.i
+  %access_flags.3.i = or disjoint i32 %access_flags.3.v.i, %.lobit.i
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end6

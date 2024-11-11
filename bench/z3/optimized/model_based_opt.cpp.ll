@@ -7244,7 +7244,7 @@ for.cond.preheader:                               ; preds = %_ZNK6vectorIN3opt15
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
-  %15 = phi ptr [ %.pre, %for.cond.preheader ], [ %.pre221, %for.inc ]
+  %15 = phi ptr [ %.pre, %for.cond.preheader ], [ %.pre226, %for.inc ]
   %indvars.iv = phi i64 [ %14, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %cmp.i79 = icmp eq ptr %15, null
   br i1 %cmp.i79, label %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit83, label %if.end.i80
@@ -7351,7 +7351,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %i
 
 for.inc:                                          ; preds = %_ZN8rationalmLERKS_.exit, %_ZN6vectorIjLb0EjE9push_backERKj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.pre221 = load ptr, ptr %arrayidx.i56, align 8
+  %.pre226 = load ptr, ptr %arrayidx.i56, align 8
   br label %for.cond, !llvm.loop !25
 
 if.end40:                                         ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit78

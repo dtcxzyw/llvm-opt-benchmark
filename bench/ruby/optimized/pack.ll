@@ -2818,8 +2818,8 @@ RSTRING_PTR.exit961:                              ; preds = %RSTRING_PTR.exit, %
   %.pre1687 = ptrtoint ptr %.07171455 to i64
   %.pre1689 = sub i64 %46, %.pre1687
   %.pre1691 = shl i64 %.pre1689, 3
-  %spec.select1904 = call i64 @llvm.smin.i64(i64 %.0728, i64 %.pre1691)
-  %.5733 = select i1 %163, i64 %.pre1691, i64 %spec.select1904
+  %spec.select1908 = call i64 @llvm.smin.i64(i64 %.0728, i64 %.pre1691)
+  %.5733 = select i1 %163, i64 %.pre1691, i64 %spec.select1908
   %164 = call i64 @rb_usascii_str_new(ptr noundef null, i64 noundef %.5733) #14, !callees !64
   %165 = inttoptr i64 %164 to ptr
   %166 = load i64, ptr %165, align 8, !noalias !65
@@ -2891,8 +2891,8 @@ RSTRING_PTR.exit965:                              ; preds = %._crit_edge1686, %1
   %.pre1693 = ptrtoint ptr %.07171455 to i64
   %.pre1695 = sub i64 %46, %.pre1693
   %.pre1697 = shl i64 %.pre1695, 3
-  %spec.select1905 = call i64 @llvm.smin.i64(i64 %.0728, i64 %.pre1697)
-  %.6734 = select i1 %192, i64 %.pre1697, i64 %spec.select1905
+  %spec.select1909 = call i64 @llvm.smin.i64(i64 %.0728, i64 %.pre1697)
+  %.6734 = select i1 %192, i64 %.pre1697, i64 %spec.select1909
   %193 = call i64 @rb_usascii_str_new(ptr noundef null, i64 noundef %.6734) #14, !callees !64
   %194 = inttoptr i64 %193 to ptr
   %195 = load i64, ptr %194, align 8, !noalias !69
@@ -2964,8 +2964,8 @@ RSTRING_PTR.exit969:                              ; preds = %._crit_edge1685, %1
   %.pre1699 = ptrtoint ptr %.07171455 to i64
   %.pre1701 = sub i64 %46, %.pre1699
   %.pre1703 = shl i64 %.pre1701, 1
-  %spec.select1906 = call i64 @llvm.smin.i64(i64 %.0728, i64 %.pre1703)
-  %.7735 = select i1 %220, i64 %.pre1703, i64 %spec.select1906
+  %spec.select1910 = call i64 @llvm.smin.i64(i64 %.0728, i64 %.pre1703)
+  %.7735 = select i1 %220, i64 %.pre1703, i64 %spec.select1910
   %221 = call i64 @rb_usascii_str_new(ptr noundef null, i64 noundef %.7735) #14, !callees !64
   %222 = inttoptr i64 %221 to ptr
   %223 = load i64, ptr %222, align 8, !noalias !73
@@ -3038,8 +3038,8 @@ RSTRING_PTR.exit973:                              ; preds = %._crit_edge1684, %2
   %.pre1705 = ptrtoint ptr %.07171455 to i64
   %.pre1707 = sub i64 %46, %.pre1705
   %.pre1709 = shl i64 %.pre1707, 1
-  %spec.select1907 = call i64 @llvm.smin.i64(i64 %.0728, i64 %.pre1709)
-  %.8736 = select i1 %250, i64 %.pre1709, i64 %spec.select1907
+  %spec.select1911 = call i64 @llvm.smin.i64(i64 %.0728, i64 %.pre1709)
+  %.8736 = select i1 %250, i64 %.pre1709, i64 %spec.select1911
   %251 = call i64 @rb_usascii_str_new(ptr noundef null, i64 noundef %.8736) #14, !callees !64
   %252 = inttoptr i64 %251 to ptr
   %253 = load i64, ptr %252, align 8, !noalias !77
@@ -4121,8 +4121,8 @@ RSTRING_PTR.exit1006:                             ; preds = %679, %690
   %745 = icmp eq ptr %744, %28
   %.pre1679 = load i8, ptr %734, align 1
   %746 = icmp eq i8 %.pre1679, 61
-  %or.cond1908 = select i1 %745, i1 %746, i1 false
-  br i1 %or.cond1908, label %777, label %747
+  %or.cond1912 = select i1 %745, i1 %746, i1 false
+  br i1 %or.cond1912, label %777, label %747
 
 747:                                              ; preds = %743
   %748 = zext i8 %.pre1679 to i64
@@ -4163,8 +4163,8 @@ RSTRING_PTR.exit1006:                             ; preds = %679, %690
   %772 = trunc i32 %771 to i8
   %773 = getelementptr i8, ptr %.07971341, i64 1
   store i8 %772, ptr %.07971341, align 1
-  %774 = and i32 %716, 15
-  %.not900 = icmp eq i32 %774, 0
+  %774 = and i8 %715, 15
+  %.not900 = icmp eq i8 %774, 0
   br i1 %.not900, label %.thread1067, label %775
 
 775:                                              ; preds = %.thread
@@ -4185,8 +4185,8 @@ RSTRING_PTR.exit1006:                             ; preds = %679, %690
   %786 = trunc i32 %785 to i8
   %787 = getelementptr i8, ptr %.07971341, i64 2
   store i8 %786, ptr %782, align 1
-  %788 = and i32 %738, 3
-  %.not899 = icmp eq i32 %788, 0
+  %788 = and i8 %737, 3
+  %.not899 = icmp eq i8 %788, 0
   br i1 %.not899, label %.thread1067, label %789
 
 789:                                              ; preds = %777
@@ -4402,8 +4402,8 @@ RSTRING_PTR.exit1014:                             ; preds = %880, %888
   %897 = icmp ult ptr %896, %28
   %898 = load i8, ptr %893, align 1
   %899 = icmp eq i8 %898, 13
-  %or.cond1909 = select i1 %897, i1 %899, i1 false
-  br i1 %or.cond1909, label %900, label %thread-pre-split
+  %or.cond1913 = select i1 %897, i1 %899, i1 false
+  br i1 %or.cond1913, label %900, label %thread-pre-split
 
 900:                                              ; preds = %895
   %901 = load i8, ptr %896, align 1

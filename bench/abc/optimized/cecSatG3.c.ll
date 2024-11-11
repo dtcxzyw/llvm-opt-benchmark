@@ -9012,8 +9012,8 @@ Cec5_FlushCache2Pattern.exit:                     ; preds = %.outer.i, %Cec5_Obj
   %91 = getelementptr inbounds i8, ptr %90, i64 4
   store i32 0, ptr %91, align 4
   %92 = lshr i64 %8, 6
-  %93 = and i64 %8, 63
-  %.not = icmp ne i64 %93, 0
+  %93 = and i32 %7, 63
+  %.not = icmp ne i32 %93, 0
   %94 = zext i1 %.not to i64
   %95 = add nuw nsw i64 %92, %94
   %96 = trunc i64 %95 to i32

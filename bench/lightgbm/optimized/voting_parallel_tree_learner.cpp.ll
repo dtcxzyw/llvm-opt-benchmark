@@ -267348,7 +267348,7 @@ _ZNK8LightGBM9SplitInfoeqERKS0_.exit96.thread:    ; preds = %_ZNK8LightGBM9Split
   br label %30
 
 30:                                               ; preds = %.backedge, %_ZNK8LightGBM9SplitInfoeqERKS0_.exit96.thread
-  %indvars.iv155 = phi i32 [ %indvars.iv.next156, %.backedge ], [ %29, %_ZNK8LightGBM9SplitInfoeqERKS0_.exit96.thread ]
+  %indvars.iv156 = phi i32 [ %indvars.iv.next157, %.backedge ], [ %29, %_ZNK8LightGBM9SplitInfoeqERKS0_.exit96.thread ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.backedge ], [ %28, %_ZNK8LightGBM9SplitInfoeqERKS0_.exit96.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %31 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %27, i64 %indvars.iv.next
@@ -267369,7 +267369,7 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit:             ; preds = %30
   br i1 %40, label %.backedge, label %.preheader
 
 .backedge:                                        ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit, %35
-  %indvars.iv.next156 = add i32 %indvars.iv155, 1
+  %indvars.iv.next157 = add i32 %indvars.iv156, 1
   br label %30, !llvm.loop !864
 
 .preheader:                                       ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit, %35
@@ -267489,11 +267489,11 @@ _ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tupl
   store ptr %90, ptr %97, align 8
   store i16 %92, ptr %99, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0.i90)
-  %.pre162 = load ptr, ptr %0, align 8
+  %.pre163 = load ptr, ptr %0, align 8
   br label %_ZNK8LightGBM9SplitInfoeqERKS0_.exit.thread
 
 _ZNK8LightGBM9SplitInfoeqERKS0_.exit.thread:      ; preds = %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit92, %_ZNK8LightGBM9SplitInfoeqERKS0_.exit
-  %101 = phi ptr [ %.pre162, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit92 ], [ %74, %_ZNK8LightGBM9SplitInfoeqERKS0_.exit ], [ %74, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit ]
+  %101 = phi ptr [ %.pre163, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit92 ], [ %74, %_ZNK8LightGBM9SplitInfoeqERKS0_.exit ], [ %74, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit ]
   %.171 = phi i32 [ %82, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit92 ], [ %.070, %_ZNK8LightGBM9SplitInfoeqERKS0_.exit ], [ %.070, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit ]
   %102 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %101, i64 %indvars.iv.next144
   %103 = getelementptr inbounds i8, ptr %102, i64 40
@@ -267646,15 +267646,15 @@ _ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tupl
 _ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108.preheader: ; preds = %._crit_edge
   %170 = sext i32 %169 to i64
   %171 = sext i32 %.068.ph to i64
-  %172 = sext i32 %indvars.iv155 to i64
+  %172 = sext i32 %indvars.iv156 to i64
   br label %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108
 
 _ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108: ; preds = %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108.preheader, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108
-  %indvars.iv157 = phi i64 [ %172, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108.preheader ], [ %indvars.iv.next158, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108 ]
-  %indvars.iv153 = phi i64 [ %170, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108.preheader ], [ %indvars.iv.next154, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108 ]
+  %indvars.iv158 = phi i64 [ %172, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108.preheader ], [ %indvars.iv.next159, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108 ]
+  %indvars.iv154 = phi i64 [ %170, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108.preheader ], [ %indvars.iv.next155, %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108 ]
   %173 = load ptr, ptr %0, align 8
-  %174 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %173, i64 %indvars.iv157
-  %175 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %173, i64 %indvars.iv153
+  %174 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %173, i64 %indvars.iv158
+  %175 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %173, i64 %indvars.iv154
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.0.i106)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.i106, ptr noundef nonnull align 8 dereferenceable(122) %174, i64 96, i1 false)
   %176 = getelementptr inbounds i8, ptr %174, i64 96
@@ -267685,13 +267685,13 @@ _ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tupl
   store ptr %181, ptr %188, align 8
   store i16 %183, ptr %190, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0.i106)
-  %indvars.iv.next154 = add nsw i64 %indvars.iv153, -1
-  %indvars.iv.next158 = add nsw i64 %indvars.iv157, 1
-  %.not83.not = icmp sgt i64 %indvars.iv153, %171
+  %indvars.iv.next155 = add nsw i64 %indvars.iv154, -1
+  %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
+  %.not83.not = icmp sgt i64 %indvars.iv154, %171
   br i1 %.not83.not, label %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108, label %._crit_edge132.loopexit, !llvm.loop !868
 
 ._crit_edge132.loopexit:                          ; preds = %_ZSt4swapIN8LightGBM9SplitInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit108
-  %192 = trunc nsw i64 %indvars.iv.next158 to i32
+  %192 = trunc nsw i64 %indvars.iv.next159 to i32
   br label %._crit_edge132
 
 ._crit_edge132:                                   ; preds = %._crit_edge132.loopexit, %._crit_edge
@@ -267943,7 +267943,7 @@ _ZNK8LightGBM14LightSplitInfoeqERKS0_.exit94.thread: ; preds = %_ZNK8LightGBM14L
   br label %23
 
 23:                                               ; preds = %.backedge, %_ZNK8LightGBM14LightSplitInfoeqERKS0_.exit94.thread
-  %indvars.iv141 = phi i32 [ %indvars.iv.next142, %.backedge ], [ %22, %_ZNK8LightGBM14LightSplitInfoeqERKS0_.exit94.thread ]
+  %indvars.iv142 = phi i32 [ %indvars.iv.next143, %.backedge ], [ %22, %_ZNK8LightGBM14LightSplitInfoeqERKS0_.exit94.thread ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.backedge ], [ %21, %_ZNK8LightGBM14LightSplitInfoeqERKS0_.exit94.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %20, i64 %indvars.iv.next
@@ -267964,7 +267964,7 @@ _ZNK8LightGBM14LightSplitInfogtERKS0_.exit:       ; preds = %23
   br i1 %33, label %.backedge, label %.preheader
 
 .backedge:                                        ; preds = %_ZNK8LightGBM14LightSplitInfogtERKS0_.exit, %28
-  %indvars.iv.next142 = add i32 %indvars.iv141, 1
+  %indvars.iv.next143 = add i32 %indvars.iv142, 1
   br label %23, !llvm.loop !873
 
 .preheader:                                       ; preds = %_ZNK8LightGBM14LightSplitInfogtERKS0_.exit, %28
@@ -268033,11 +268033,11 @@ _ZNK8LightGBM14LightSplitInfoeqERKS0_.exit:       ; preds = %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %.pre148 = load ptr, ptr %0, align 8
+  %.pre149 = load ptr, ptr %0, align 8
   br label %_ZNK8LightGBM14LightSplitInfoeqERKS0_.exit.thread
 
 _ZNK8LightGBM14LightSplitInfoeqERKS0_.exit.thread: ; preds = %51, %60, %_ZNK8LightGBM14LightSplitInfoeqERKS0_.exit
-  %64 = phi ptr [ %.pre148, %60 ], [ %52, %_ZNK8LightGBM14LightSplitInfoeqERKS0_.exit ], [ %52, %51 ]
+  %64 = phi ptr [ %.pre149, %60 ], [ %52, %_ZNK8LightGBM14LightSplitInfoeqERKS0_.exit ], [ %52, %51 ]
   %.171 = phi i32 [ %61, %60 ], [ %.070, %_ZNK8LightGBM14LightSplitInfoeqERKS0_.exit ], [ %.070, %51 ]
   %65 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %64, i64 %indvars.iv.next130
   %66 = getelementptr inbounds i8, ptr %65, i64 8
@@ -268114,27 +268114,27 @@ _ZNK8LightGBM14LightSplitInfoeqERKS0_.exit94:     ; preds = %_ZNK8LightGBM14Ligh
 .lr.ph118.preheader:                              ; preds = %._crit_edge
   %87 = sext i32 %86 to i64
   %88 = sext i32 %.068.ph to i64
-  %89 = sext i32 %indvars.iv141 to i64
+  %89 = sext i32 %indvars.iv142 to i64
   br label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %.lr.ph118
-  %indvars.iv143 = phi i64 [ %89, %.lr.ph118.preheader ], [ %indvars.iv.next144, %.lr.ph118 ]
-  %indvars.iv139 = phi i64 [ %87, %.lr.ph118.preheader ], [ %indvars.iv.next140, %.lr.ph118 ]
+  %indvars.iv144 = phi i64 [ %89, %.lr.ph118.preheader ], [ %indvars.iv.next145, %.lr.ph118 ]
+  %indvars.iv140 = phi i64 [ %87, %.lr.ph118.preheader ], [ %indvars.iv.next141, %.lr.ph118 ]
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %90, i64 %indvars.iv143
-  %92 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %90, i64 %indvars.iv139
+  %91 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %90, i64 %indvars.iv144
+  %92 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %90, i64 %indvars.iv140
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %91, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %indvars.iv.next140 = add nsw i64 %indvars.iv139, -1
-  %indvars.iv.next144 = add nsw i64 %indvars.iv143, 1
-  %.not83.not = icmp sgt i64 %indvars.iv139, %88
+  %indvars.iv.next141 = add nsw i64 %indvars.iv140, -1
+  %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
+  %.not83.not = icmp sgt i64 %indvars.iv140, %88
   br i1 %.not83.not, label %.lr.ph118, label %.loopexit.loopexit, !llvm.loop !877
 
 .loopexit.loopexit:                               ; preds = %.lr.ph118
-  %93 = trunc nsw i64 %indvars.iv.next144 to i32
+  %93 = trunc nsw i64 %indvars.iv.next145 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge, %5

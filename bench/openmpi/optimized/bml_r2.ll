@@ -906,8 +906,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
 74:                                               ; preds = %49, %72, %69
   %.188 = phi i32 [ %.087116, %69 ], [ %73, %72 ], [ %.087116, %49 ]
   %75 = add nuw i64 %.086117, 1
-  %exitcond123.not = icmp eq i64 %75, %.1
-  br i1 %exitcond123.not, label %76, label %49, !llvm.loop !19
+  %exitcond124.not = icmp eq i64 %75, %.1
+  br i1 %exitcond124.not, label %76, label %49, !llvm.loop !19
 
 76:                                               ; preds = %74
   %.not105 = icmp eq i32 %.188, 0
@@ -983,13 +983,13 @@ mca_bml_r2_register_progress.exit:                ; preds = %91, %.critedge.thre
 
 102:                                              ; preds = %96, %101
   %103 = add nuw i64 %.084119, 1
-  %exitcond124.not = icmp eq i64 %103, %umax
-  br i1 %exitcond124.not, label %.preheader, label %96, !llvm.loop !21
+  %exitcond126.not = icmp eq i64 %103, %umax
+  br i1 %exitcond126.not, label %.preheader, label %96, !llvm.loop !21
 
 104:                                              ; preds = %.preheader
   %105 = add nuw i64 %.082120, 1
-  %exitcond125.not = icmp eq i64 %105, %umax
-  br i1 %exitcond125.not, label %.loopexit, label %.preheader, !llvm.loop !22
+  %exitcond127.not = icmp eq i64 %105, %umax
+  br i1 %exitcond127.not, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .preheader:                                       ; preds = %102, %104
   %.082120 = phi i64 [ %105, %104 ], [ 0, %102 ]

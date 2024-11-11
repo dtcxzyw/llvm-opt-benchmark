@@ -22612,19 +22612,19 @@ _ZNK12QDomNodeList2atEi.exit362:                  ; preds = %475
   %.not610 = icmp eq i32 %.0136, -1
   %487 = trunc i32 %.0136 to i16
   %488 = zext nneg i32 %.0608 to i64
-  %sext713 = shl i64 %456, 32
-  %489 = ashr exact i64 %sext713, 32
+  %sext719 = shl i64 %456, 32
+  %489 = ashr exact i64 %sext719, 32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %840
-  %indvars.iv708 = phi i64 [ %489, %.preheader.lr.ph ], [ %indvars.iv.next709, %840 ]
-  %.097692 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next704, %840 ]
-  %sext714 = shl i64 %.097692, 32
-  %490 = ashr exact i64 %sext714, 32
+  %indvars.iv714 = phi i64 [ %489, %.preheader.lr.ph ], [ %indvars.iv.next715, %840 ]
+  %.097692 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next710, %840 ]
+  %sext720 = shl i64 %.097692, 32
+  %490 = ashr exact i64 %sext720, 32
   br label %491
 
 491:                                              ; preds = %.preheader, %_ZN11QStringListD2Ev.exit542
-  %indvars.iv703 = phi i64 [ %490, %.preheader ], [ %indvars.iv.next704, %_ZN11QStringListD2Ev.exit542 ]
+  %indvars.iv709 = phi i64 [ %490, %.preheader ], [ %indvars.iv.next710, %_ZN11QStringListD2Ev.exit542 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN11QStringListD2Ev.exit542 ]
   %492 = load ptr, ptr %46, align 8
   %493 = getelementptr inbounds i8, ptr %492, i64 16
@@ -22632,7 +22632,7 @@ _ZNK12QDomNodeList2atEi.exit362:                  ; preds = %475
   %495 = load i32, ptr %494, align 8
   %496 = sext i32 %495 to i64
   %497 = getelementptr inbounds ptr, ptr %493, i64 %496
-  %498 = getelementptr inbounds ptr, ptr %497, i64 %indvars.iv703
+  %498 = getelementptr inbounds ptr, ptr %497, i64 %indvars.iv709
   %499 = invoke noundef i32 @_ZNK7QString5toIntEPbi(ptr noundef nonnull align 8 dereferenceable(8) %498, ptr noundef null, i32 noundef 10)
           to label %_ZN11QStringListD2Ev.exit406 unwind label %.loopexit611
 
@@ -22642,7 +22642,7 @@ _ZN11QStringListD2Ev.exit406:                     ; preds = %491
   %502 = load ptr, ptr %93, align 8
   %503 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaVertex", ptr %502, i64 %501
   %504 = load ptr, ptr %85, align 8
-  %505 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %504, i64 %indvars.iv708
+  %505 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %504, i64 %indvars.iv714
   %506 = getelementptr inbounds [3 x ptr], ptr %505, i64 0, i64 %indvars.iv
   store ptr %503, ptr %506, align 8
   %507 = load ptr, ptr %46, align 8
@@ -22827,7 +22827,7 @@ _ZN11QStringListC2ERKS_.exit434:                  ; preds = %_ZN7QStringC2ERKS_.
   %583 = load i32, ptr %582, align 8
   %584 = sext i32 %583 to i64
   %585 = getelementptr inbounds ptr, ptr %581, i64 %584
-  %586 = getelementptr ptr, ptr %585, i64 %indvars.iv703
+  %586 = getelementptr ptr, ptr %585, i64 %indvars.iv709
   %587 = getelementptr ptr, ptr %586, i64 %576
   %588 = invoke noundef i32 @_ZNK7QString5toIntEPbi(ptr noundef nonnull align 8 dereferenceable(8) %587, ptr noundef null, i32 noundef 10)
           to label %.noexc436 unwind label %.loopexit.split-lp
@@ -23221,7 +23221,7 @@ _ZN11QStringListC2ERKS_.exit501:                  ; preds = %_ZN7QStringC2ERKS_.
   %733 = load i32, ptr %732, align 8
   %734 = sext i32 %733 to i64
   %735 = getelementptr inbounds ptr, ptr %731, i64 %734
-  %736 = getelementptr ptr, ptr %735, i64 %indvars.iv703
+  %736 = getelementptr ptr, ptr %735, i64 %indvars.iv709
   %737 = getelementptr ptr, ptr %736, i64 %726
   %738 = invoke noundef i32 @_ZNK7QString5toIntEPbi(ptr noundef nonnull align 8 dereferenceable(8) %737, ptr noundef null, i32 noundef 10)
           to label %.noexc504 unwind label %810
@@ -23241,7 +23241,7 @@ _ZN11QStringListC2ERKS_.exit501:                  ; preds = %_ZN7QStringC2ERKS_.
 
 .noexc505:                                        ; preds = %.noexc504
   %749 = load ptr, ptr %85, align 8
-  %750 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %749, i64 %indvars.iv708, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 %indvars.iv
+  %750 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %749, i64 %indvars.iv714, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 %indvars.iv
   store float %748, ptr %750, align 4
   %751 = load ptr, ptr %57, align 8
   %752 = getelementptr inbounds i8, ptr %751, i64 16
@@ -23256,10 +23256,10 @@ _ZN11QStringListC2ERKS_.exit501:                  ; preds = %_ZN7QStringC2ERKS_.
 
 .noexc506:                                        ; preds = %.noexc505
   %760 = load ptr, ptr %85, align 8
-  %761 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %760, i64 %indvars.iv708, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 %indvars.iv, i32 0, i64 0, i32 0, i64 1
+  %761 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %760, i64 %indvars.iv714, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 %indvars.iv, i32 0, i64 0, i32 0, i64 1
   store float %759, ptr %761, align 4
   %762 = load ptr, ptr %85, align 8
-  %763 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %762, i64 %indvars.iv708, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 %indvars.iv, i32 1
+  %763 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %762, i64 %indvars.iv714, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 %indvars.iv, i32 1
   store i16 %487, ptr %763, align 2
   br label %_ZN3vcg3tri2io11ImporterDAEI6CMeshOE21WedgeTextureAttributeERNS4_11ColladaMeshE11QStringListiS7_8QDomNodeiiii.exit
 
@@ -23437,14 +23437,14 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i532: ; preds = %_ZN7
   br label %.loopexit.split-lp612
 
 _ZN11QStringListD2Ev.exit542:                     ; preds = %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i532, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i538, %_ZN11QStringListD2Ev.exit524, %_ZN11QStringListD2Ev.exit473
-  %indvars.iv.next704 = add nsw i64 %indvars.iv703, %488
+  %indvars.iv.next710 = add nsw i64 %indvars.iv709, %488
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %814, label %491, !llvm.loop !216
 
 814:                                              ; preds = %_ZN11QStringListD2Ev.exit542
   %815 = load ptr, ptr %85, align 8
-  %816 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %815, i64 %indvars.iv708
+  %816 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaFace", ptr %815, i64 %indvars.iv714
   %817 = load ptr, ptr %816, align 8
   %818 = getelementptr inbounds i8, ptr %816, i64 8
   %819 = load ptr, ptr %818, align 8
@@ -23478,25 +23478,25 @@ _ZN11QStringListD2Ev.exit542:                     ; preds = %_ZN5QListI7QStringE
   %836 = ptrtoint ptr %835 to i64
   %837 = sub i64 %836, %827
   %838 = ashr exact i64 %837, 5
-  %839 = trunc nsw i64 %indvars.iv708 to i32
+  %839 = trunc nsw i64 %indvars.iv714 to i32
   invoke void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull @.str.88, i32 noundef %839, i64 noundef %829, i64 noundef %833, i64 noundef %838)
-          to label %._crit_edge711 unwind label %.loopexit.split-lp612.loopexit
+          to label %._crit_edge717 unwind label %.loopexit.split-lp612.loopexit
 
-._crit_edge711:                                   ; preds = %823
-  %.pre712 = load ptr, ptr %85, align 8
+._crit_edge717:                                   ; preds = %823
+  %.pre718 = load ptr, ptr %85, align 8
   br label %840
 
-840:                                              ; preds = %._crit_edge711, %820
-  %841 = phi ptr [ %.pre712, %._crit_edge711 ], [ %815, %820 ]
-  %indvars.iv.next709 = add nsw i64 %indvars.iv708, 1
+840:                                              ; preds = %._crit_edge717, %820
+  %841 = phi ptr [ %.pre718, %._crit_edge717 ], [ %815, %820 ]
+  %indvars.iv.next715 = add nsw i64 %indvars.iv714, 1
   %842 = load ptr, ptr %86, align 8
   %843 = ptrtoint ptr %842 to i64
   %844 = ptrtoint ptr %841 to i64
   %845 = sub i64 %843, %844
   %846 = sdiv exact i64 %845, 80
-  %sext715 = shl i64 %846, 32
-  %847 = ashr exact i64 %sext715, 32
-  %848 = icmp slt i64 %indvars.iv.next709, %847
+  %sext721 = shl i64 %846, 32
+  %847 = ashr exact i64 %sext721, 32
+  %848 = icmp slt i64 %indvars.iv.next715, %847
   br i1 %848, label %.preheader, label %._crit_edge, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %840, %478

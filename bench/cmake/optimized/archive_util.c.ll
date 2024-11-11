@@ -384,14 +384,14 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 
 23:                                               ; preds = %17, %11
   %.05982.sink = phi i32 [ %.05982, %11 ], [ %.06579, %17 ]
-  %.sink111 = phi ptr [ %15, %11 ], [ %21, %17 ]
+  %.sink114 = phi ptr [ %15, %11 ], [ %21, %17 ]
   %.166 = phi i32 [ %.06579, %11 ], [ %18, %17 ]
   %.164 = phi ptr [ %15, %11 ], [ %.06380, %17 ]
   %.162 = phi ptr [ %.06181, %11 ], [ %21, %17 ]
   %.160 = phi i32 [ %12, %11 ], [ %.05982, %17 ]
   %24 = load ptr, ptr %7, align 8
   %25 = zext i32 %.05982.sink to i64
-  %26 = getelementptr inbounds ptr, ptr %.sink111, i64 %25
+  %26 = getelementptr inbounds ptr, ptr %.sink114, i64 %25
   store ptr %24, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -403,21 +403,21 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   br i1 %.not89, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %27
-  %wide.trip.count99 = zext i32 %.160 to i64
+  %wide.trip.count101 = zext i32 %.160 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next97, %.lr.ph ]
-  %29 = getelementptr inbounds ptr, ptr %.164, i64 %indvars.iv96
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next98, %.lr.ph ]
+  %29 = getelementptr inbounds ptr, ptr %.164, i64 %indvars.iv97
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv96
+  %31 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv97
   store ptr %30, ptr %31, align 8
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond102.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count101
+  br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
-  %.pre-phi = phi i64 [ 0, %27 ], [ %wide.trip.count99, %.lr.ph ]
+  %.pre-phi = phi i64 [ 0, %27 ], [ %wide.trip.count101, %.lr.ph ]
   tail call void @free(ptr noundef %.164) #17
   %32 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi
   store ptr %5, ptr %32, align 8
@@ -427,21 +427,21 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 
 .lr.ph87:                                         ; preds = %._crit_edge
   %34 = add i32 %.160, 1
-  %wide.trip.count104 = zext i32 %.166 to i64
+  %wide.trip.count107 = zext i32 %.166 to i64
   br label %35
 
 35:                                               ; preds = %.lr.ph87, %35
-  %indvars.iv101 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next102, %35 ]
-  %36 = getelementptr inbounds ptr, ptr %.162, i64 %indvars.iv101
+  %indvars.iv103 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next104, %35 ]
+  %36 = getelementptr inbounds ptr, ptr %.162, i64 %indvars.iv103
   %37 = load ptr, ptr %36, align 8
-  %38 = trunc nuw i64 %indvars.iv101 to i32
+  %38 = trunc nuw i64 %indvars.iv103 to i32
   %39 = add i32 %34, %38
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %0, i64 %40
   store ptr %37, ptr %41, align 8
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge88, label %35, !llvm.loop !9
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond108.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count107
+  br i1 %exitcond108.not, label %._crit_edge88, label %35, !llvm.loop !9
 
 ._crit_edge88:                                    ; preds = %35, %._crit_edge
   tail call void @free(ptr noundef %.162) #17

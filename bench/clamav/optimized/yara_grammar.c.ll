@@ -210,18 +210,18 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %26 = getelementptr inbounds i8, ptr %1, i64 328
   br label %29
 
-27:                                               ; preds = %1019, %960, %89
-  %.11408 = phi ptr [ %.51411, %1019 ], [ %.01407, %960 ], [ %.01407, %89 ]
-  %.11193 = phi ptr [ %1021, %1019 ], [ %939, %960 ], [ %90, %89 ]
-  %.11182 = phi ptr [ %.61187, %1019 ], [ %938, %960 ], [ %.21183, %89 ]
-  %.11174 = phi i32 [ 3, %1019 ], [ %.01173, %960 ], [ %spec.select, %89 ]
-  %.11170 = phi i32 [ %1020, %1019 ], [ %961, %960 ], [ %85, %89 ]
-  %.1 = phi i32 [ %.8, %1019 ], [ %.7, %960 ], [ -2, %89 ]
+27:                                               ; preds = %1017, %960, %89
+  %.11409 = phi ptr [ %.51412, %1017 ], [ %.01408, %960 ], [ %.01408, %89 ]
+  %.11193 = phi ptr [ %1019, %1017 ], [ %939, %960 ], [ %90, %89 ]
+  %.11182 = phi ptr [ %.61187, %1017 ], [ %938, %960 ], [ %.21183, %89 ]
+  %.11174 = phi i32 [ 3, %1017 ], [ %.01173, %960 ], [ %spec.select, %89 ]
+  %.11170 = phi i32 [ %1018, %1017 ], [ %961, %960 ], [ %85, %89 ]
+  %.1 = phi i32 [ %.8, %1017 ], [ %.7, %960 ], [ -2, %89 ]
   %28 = getelementptr inbounds i8, ptr %.11182, i64 1
   br label %29
 
 29:                                               ; preds = %27, %2
-  %.01407 = phi ptr [ %6, %2 ], [ %.11408, %27 ]
+  %.01408 = phi ptr [ %6, %2 ], [ %.11409, %27 ]
   %.01201 = phi i64 [ 200, %2 ], [ %.11202, %27 ]
   %.01192 = phi ptr [ %5, %2 ], [ %.11193, %27 ]
   %.01190 = phi ptr [ %5, %2 ], [ %.11191, %27 ]
@@ -243,7 +243,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %36 = sub i64 %34, %35
   %37 = add nsw i64 %36, 1
   %38 = icmp sgt i64 %.01201, 9999
-  br i1 %38, label %.loopexit1483, label %39
+  br i1 %38, label %.loopexit1484, label %39
 
 39:                                               ; preds = %33
   %40 = shl nsw i64 %.01201, 1
@@ -252,7 +252,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %42 = add nsw i64 %41, 7
   %43 = call noalias ptr @malloc(i64 noundef %42) #11
   %.not1287 = icmp eq ptr %43, null
-  br i1 %.not1287, label %.loopexit1483, label %44
+  br i1 %.not1287, label %.loopexit1484, label %44
 
 44:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr align 1 %.01176, i64 %37, i1 false)
@@ -480,7 +480,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %107 = load ptr, ptr %.21194, align 8
   call void @free(ptr noundef %107) #12
   %.not1387 = icmp eq i32 %106, 0
-  br i1 %.not1387, label %935, label %.thread1416
+  br i1 %.not1387, label %935, label %.thread1417
 
 108:                                              ; preds = %97
   %109 = getelementptr inbounds i8, ptr %.21194, i64 -64
@@ -498,7 +498,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %121 = load ptr, ptr %112, align 8
   call void @free(ptr noundef %121) #12
   %.not1386 = icmp eq i32 %120, 0
-  br i1 %.not1386, label %935, label %.thread1416
+  br i1 %.not1386, label %935, label %.thread1417
 
 122:                                              ; preds = %97
   br label %935
@@ -507,7 +507,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %124 = load ptr, ptr %.21194, align 8
   %125 = load i32, ptr %13, align 8
   %.not1385 = icmp eq i32 %125, 0
-  br i1 %.not1385, label %935, label %.thread1416
+  br i1 %.not1385, label %935, label %.thread1417
 
 126:                                              ; preds = %97
   store ptr null, ptr %26, align 8
@@ -520,7 +520,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %129 = call i32 @yr_arena_write_data(ptr noundef %128, ptr noundef nonnull %8, i64 noundef 48, ptr noundef null) #12
   store i32 %129, ptr %13, align 8
   %.not1384 = icmp eq i32 %129, 0
-  br i1 %.not1384, label %130, label %.thread1416
+  br i1 %.not1384, label %130, label %.thread1417
 
 130:                                              ; preds = %127
   %131 = load ptr, ptr %.21194, align 8
@@ -561,7 +561,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   call void @free(ptr noundef %147) #12
   %148 = load i32, ptr %13, align 8
   %.not1383 = icmp eq i32 %148, 0
-  br i1 %.not1383, label %149, label %.thread1416
+  br i1 %.not1383, label %149, label %.thread1417
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds i8, ptr %.21194, i64 -8
@@ -588,7 +588,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %164 = load ptr, ptr %.21194, align 8
   call void @free(ptr noundef %164) #12
   %165 = icmp eq ptr %162, null
-  br i1 %165, label %.thread1416, label %935
+  br i1 %165, label %.thread1417, label %935
 
 166:                                              ; preds = %97
   %167 = getelementptr inbounds i8, ptr %.21194, i64 -16
@@ -599,7 +599,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %172 = load ptr, ptr %167, align 8
   call void @free(ptr noundef %172) #12
   %173 = icmp eq ptr %171, null
-  br i1 %173, label %.thread1416, label %935
+  br i1 %173, label %.thread1417, label %935
 
 174:                                              ; preds = %97
   %175 = getelementptr inbounds i8, ptr %.21194, i64 -16
@@ -608,7 +608,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %178 = load ptr, ptr %175, align 8
   call void @free(ptr noundef %178) #12
   %179 = icmp eq ptr %177, null
-  br i1 %179, label %.thread1416, label %935
+  br i1 %179, label %.thread1417, label %935
 
 180:                                              ; preds = %97
   %181 = getelementptr inbounds i8, ptr %.21194, i64 -16
@@ -617,7 +617,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %184 = load ptr, ptr %181, align 8
   call void @free(ptr noundef %184) #12
   %185 = icmp eq ptr %183, null
-  br i1 %185, label %.thread1416, label %935
+  br i1 %185, label %.thread1417, label %935
 
 186:                                              ; preds = %97
   %187 = load ptr, ptr %.21194, align 8
@@ -641,7 +641,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %200 = load ptr, ptr %196, align 8
   call void @free(ptr noundef %200) #12
   %201 = icmp eq ptr %198, null
-  br i1 %201, label %.thread1416, label %935
+  br i1 %201, label %.thread1417, label %935
 
 202:                                              ; preds = %97
   %203 = call i32 @yara_yyget_lineno(ptr noundef %0) #12
@@ -662,7 +662,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %214 = load ptr, ptr %210, align 8
   call void @free(ptr noundef %214) #12
   %215 = icmp eq ptr %212, null
-  br i1 %215, label %.thread1416, label %935
+  br i1 %215, label %.thread1417, label %935
 
 216:                                              ; preds = %97
   %217 = getelementptr inbounds i8, ptr %.21194, i64 -16
@@ -674,7 +674,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %222 = load ptr, ptr %.21194, align 8
   call void @free(ptr noundef %222) #12
   %223 = icmp eq ptr %220, null
-  br i1 %223, label %.thread1416, label %935
+  br i1 %223, label %.thread1417, label %935
 
 224:                                              ; preds = %97
   br label %935
@@ -728,7 +728,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not1380, label %262, label %.thread
 
 .thread:                                          ; preds = %243, %248
-  %.012111415 = phi ptr [ %253, %248 ], [ %246, %243 ]
+  %.012111416 = phi ptr [ %253, %248 ], [ %246, %243 ]
   %254 = load ptr, ptr %21, align 8
   %255 = load ptr, ptr %.21194, align 8
   %256 = call i32 @yr_arena_write_string(ptr noundef %254, ptr noundef %255, ptr noundef nonnull %9) #12
@@ -763,17 +763,17 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
 
 .sink.split:                                      ; preds = %239, %258, %271, %268
   %.sink = phi i32 [ %270, %268 ], [ 20, %271 ], [ %261, %258 ], [ %242, %239 ]
-  %.sroa.0.1.ph = phi ptr [ inttoptr (i64 -2 to ptr), %268 ], [ inttoptr (i64 -2 to ptr), %271 ], [ %.012111415, %258 ], [ inttoptr (i64 -1 to ptr), %239 ]
+  %.sroa.0.1.ph = phi ptr [ inttoptr (i64 -2 to ptr), %268 ], [ inttoptr (i64 -2 to ptr), %271 ], [ %.012111416, %258 ], [ inttoptr (i64 -1 to ptr), %239 ]
   store i32 %.sink, ptr %13, align 8
   br label %274
 
 274:                                              ; preds = %.sink.split, %.thread
-  %.sroa.0.1 = phi ptr [ %.012111415, %.thread ], [ %.sroa.0.1.ph, %.sink.split ]
+  %.sroa.0.1 = phi ptr [ %.012111416, %.thread ], [ %.sroa.0.1.ph, %.sink.split ]
   %275 = load ptr, ptr %.21194, align 8
   call void @free(ptr noundef %275) #12
   %276 = load i32, ptr %13, align 8
   %.not1382 = icmp eq i32 %276, 0
-  br i1 %.not1382, label %935, label %.thread1416
+  br i1 %.not1382, label %935, label %.thread1417
 
 277:                                              ; preds = %97
   %278 = getelementptr inbounds i8, ptr %.21194, i64 -16
@@ -795,32 +795,32 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   br label %285
 
 285:                                              ; preds = %280, %283
-  %.sink1626.in = phi ptr [ %284, %283 ], [ %.21194, %280 ]
+  %.sink1627.in = phi ptr [ %284, %283 ], [ %.21194, %280 ]
   %storemerge = phi i32 [ 35, %283 ], [ 33, %280 ]
-  %.sink1626 = load ptr, ptr %.sink1626.in, align 8
-  %286 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %.sink1626, i64 noundef 256) #12
+  %.sink1627 = load ptr, ptr %.sink1627.in, align 8
+  %286 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %.sink1627, i64 noundef 256) #12
   store i32 %storemerge, ptr %13, align 8
   %287 = load ptr, ptr %.21194, align 8
   call void @free(ptr noundef %287) #12
   %288 = load i32, ptr %13, align 8
   %.not1379 = icmp eq i32 %288, 0
-  br i1 %.not1379, label %935, label %.thread1416
+  br i1 %.not1379, label %935, label %.thread1417
 
 289:                                              ; preds = %97
   %290 = getelementptr inbounds i8, ptr %.21194, i64 -24
   %291 = load ptr, ptr %290, align 8
   %.not1377 = icmp eq ptr %291, null
-  br i1 %.not1377, label %.thread1564, label %292
+  br i1 %.not1377, label %.thread1565, label %292
 
 292:                                              ; preds = %289
   %293 = load i8, ptr %291, align 8
   %294 = icmp eq i8 %293, 4
-  br i1 %294, label %297, label %.thread1564
+  br i1 %294, label %297, label %.thread1565
 
-.thread1564:                                      ; preds = %289, %292
+.thread1565:                                      ; preds = %289, %292
   %295 = getelementptr inbounds i8, ptr %291, i64 8
   %296 = load ptr, ptr %295, align 8
-  br label %.thread1416.sink.split.sink.split
+  br label %.thread1417.sink.split.sink.split
 
 297:                                              ; preds = %292
   %298 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 28, ptr noundef null) #12
@@ -831,7 +831,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %302 = getelementptr inbounds i8, ptr %301, i64 8
   %303 = load ptr, ptr %302, align 8
   %304 = icmp eq i32 %298, 0
-  br i1 %304, label %935, label %.thread1416
+  br i1 %304, label %935, label %.thread1417
 
 305:                                              ; preds = %97
   %306 = getelementptr inbounds i8, ptr %.21194, i64 -24
@@ -881,7 +881,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   call void @free(ptr noundef %331) #12
   %332 = load i32, ptr %13, align 8
   %.not1376 = icmp eq i32 %332, 0
-  br i1 %.not1376, label %935, label %.thread1416
+  br i1 %.not1376, label %935, label %.thread1417
 
 333:                                              ; preds = %97
   %334 = call ptr @cli_safer_strdup(ptr noundef nonnull @.str) #12
@@ -903,32 +903,32 @@ switch.lookup:                                    ; preds = %335
 
 341:                                              ; preds = %335, %switch.lookup
   %342 = icmp eq ptr %336, null
-  br i1 %342, label %.thread1416, label %935
+  br i1 %342, label %.thread1417, label %935
 
 343:                                              ; preds = %97
   %344 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %345 = load ptr, ptr %344, align 8
   %346 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %345) #13
   %347 = icmp eq i64 %346, 128
-  br i1 %347, label %.thread1416.sink.split, label %348
+  br i1 %347, label %.thread1417.sink.split, label %348
 
 348:                                              ; preds = %343
   %349 = load i8, ptr %.21194, align 8
-  %switch.tableidx1678 = add i8 %349, -1
-  %350 = icmp ult i8 %switch.tableidx1678, 4
-  br i1 %350, label %switch.lookup1677, label %353
+  %switch.tableidx1679 = add i8 %349, -1
+  %350 = icmp ult i8 %switch.tableidx1679, 4
+  br i1 %350, label %switch.lookup1678, label %353
 
-switch.lookup1677:                                ; preds = %348
-  %351 = zext nneg i8 %switch.tableidx1678 to i64
-  %switch.gep1679 = getelementptr inbounds [4 x ptr], ptr @switch.table.yara_yyparse.3, i64 0, i64 %351
-  %switch.load1680 = load ptr, ptr %switch.gep1679, align 8
-  %352 = call i64 @cli_strlcat(ptr noundef %345, ptr noundef nonnull %switch.load1680, i64 noundef 128) #12
+switch.lookup1678:                                ; preds = %348
+  %351 = zext nneg i8 %switch.tableidx1679 to i64
+  %switch.gep1680 = getelementptr inbounds [4 x ptr], ptr @switch.table.yara_yyparse.3, i64 0, i64 %351
+  %switch.load1681 = load ptr, ptr %switch.gep1680, align 8
+  %352 = call i64 @cli_strlcat(ptr noundef %345, ptr noundef nonnull %switch.load1681, i64 noundef 128) #12
   br label %353
 
-353:                                              ; preds = %348, %switch.lookup1677
-  %.pr1567 = load i32, ptr %13, align 8
-  %.not1374 = icmp eq i32 %.pr1567, 0
-  br i1 %.not1374, label %354, label %.thread1416
+353:                                              ; preds = %348, %switch.lookup1678
+  %.pr1568 = load i32, ptr %13, align 8
+  %.not1374 = icmp eq i32 %.pr1568, 0
+  br i1 %.not1374, label %354, label %.thread1417
 
 354:                                              ; preds = %353
   %355 = load ptr, ptr %344, align 8
@@ -950,7 +950,7 @@ switch.lookup1677:                                ; preds = %348
   %363 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 13, ptr noundef null) #12
   store i32 %363, ptr %13, align 8
   %.not1373 = icmp eq i32 %363, 0
-  br i1 %.not1373, label %364, label %.thread1416
+  br i1 %.not1373, label %364, label %.thread1417
 
 364:                                              ; preds = %362, %359
   %365 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -963,7 +963,7 @@ switch.lookup1677:                                ; preds = %348
   %368 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 1, ptr noundef null) #12
   store i32 %368, ptr %13, align 8
   %.not1372 = icmp eq i32 %368, 0
-  br i1 %.not1372, label %369, label %.thread1416
+  br i1 %.not1372, label %369, label %.thread1417
 
 369:                                              ; preds = %367
   %370 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -976,7 +976,7 @@ switch.lookup1677:                                ; preds = %348
   %373 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 0, ptr noundef null) #12
   store i32 %373, ptr %13, align 8
   %.not1371 = icmp eq i32 %373, 0
-  br i1 %.not1371, label %374, label %.thread1416
+  br i1 %.not1371, label %374, label %.thread1417
 
 374:                                              ; preds = %372
   %375 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -988,32 +988,32 @@ switch.lookup1677:                                ; preds = %348
 377:                                              ; preds = %97
   %378 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %379 = load i8, ptr %378, align 8
-  switch i8 %379, label %.thread1416.sink.split [
+  switch i8 %379, label %.thread1417.sink.split [
     i8 3, label %380
-    i8 2, label %.thread1416.sink.split.sink.split
+    i8 2, label %.thread1417.sink.split.sink.split
   ]
 
 380:                                              ; preds = %377
   %381 = load i8, ptr %.21194, align 8
-  switch i8 %381, label %.thread1416.sink.split [
+  switch i8 %381, label %.thread1417.sink.split [
     i8 4, label %383
-    i8 2, label %.thread1416.sink.split.sink.split
+    i8 2, label %.thread1417.sink.split.sink.split
     i8 3, label %382
   ]
 
 382:                                              ; preds = %380
-  br label %.thread1416.sink.split.sink.split
+  br label %.thread1417.sink.split.sink.split
 
 383:                                              ; preds = %380
   %384 = load i32, ptr %13, align 8
   %385 = icmp eq i32 %384, 0
-  br i1 %385, label %386, label %.thread1416
+  br i1 %385, label %386, label %.thread1417
 
 386:                                              ; preds = %383
   %387 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 54, ptr noundef null) #12
   store i32 %387, ptr %13, align 8
   %.not1370 = icmp eq i32 %387, 0
-  br i1 %.not1370, label %388, label %.thread1416
+  br i1 %.not1370, label %388, label %.thread1417
 
 388:                                              ; preds = %386
   %389 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1025,23 +1025,23 @@ switch.lookup1677:                                ; preds = %348
 391:                                              ; preds = %97
   %392 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %393 = load i8, ptr %392, align 8
-  switch i8 %393, label %.thread1416.sink.split [
+  switch i8 %393, label %.thread1417.sink.split [
     i8 3, label %394
-    i8 2, label %.thread1416.sink.split.sink.split
+    i8 2, label %.thread1417.sink.split.sink.split
   ]
 
 394:                                              ; preds = %391
   %395 = load i8, ptr %.21194, align 8
-  switch i8 %395, label %.thread1416.sink.split [
+  switch i8 %395, label %.thread1417.sink.split [
     i8 3, label %396
-    i8 2, label %.thread1416.sink.split.sink.split
+    i8 2, label %.thread1417.sink.split.sink.split
   ]
 
 396:                                              ; preds = %394
   %397 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 53, ptr noundef null) #12
   store i32 %397, ptr %13, align 8
   %.not1367 = icmp eq i32 %397, 0
-  br i1 %.not1367, label %398, label %.thread1416
+  br i1 %.not1367, label %398, label %.thread1417
 
 398:                                              ; preds = %396
   %399 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1056,7 +1056,7 @@ switch.lookup1677:                                ; preds = %348
   %404 = load ptr, ptr %.21194, align 8
   call void @free(ptr noundef %404) #12
   %.not1364 = icmp eq i32 %403, 0
-  br i1 %.not1364, label %405, label %.thread1416
+  br i1 %.not1364, label %405, label %.thread1417
 
 405:                                              ; preds = %401
   %406 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1067,9 +1067,9 @@ switch.lookup1677:                                ; preds = %348
 
 408:                                              ; preds = %97
   %409 = load i8, ptr %.21194, align 8
-  switch i8 %409, label %.thread1416.sink.split [
+  switch i8 %409, label %.thread1417.sink.split [
     i8 2, label %410
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 410:                                              ; preds = %408
@@ -1081,7 +1081,7 @@ switch.lookup1677:                                ; preds = %348
   call void @free(ptr noundef %414) #12
   %415 = load i32, ptr %13, align 8
   %.not1363 = icmp eq i32 %415, 0
-  br i1 %.not1363, label %416, label %.thread1416
+  br i1 %.not1363, label %416, label %.thread1417
 
 416:                                              ; preds = %410
   %417 = load i32, ptr %14, align 8
@@ -1102,7 +1102,7 @@ switch.lookup1677:                                ; preds = %348
   call void @free(ptr noundef %425) #12
   %426 = load i32, ptr %13, align 8
   %.not1361 = icmp eq i32 %426, 0
-  br i1 %.not1361, label %427, label %.thread1416
+  br i1 %.not1361, label %427, label %.thread1417
 
 427:                                              ; preds = %421
   %428 = load i32, ptr %14, align 8
@@ -1117,34 +1117,34 @@ switch.lookup1677:                                ; preds = %348
 432:                                              ; preds = %97
   %433 = load i32, ptr %15, align 8
   %434 = icmp eq i32 %433, 4
-  br i1 %434, label %.thread1416.sink.split, label %435
+  br i1 %434, label %.thread1417.sink.split, label %435
 
 435:                                              ; preds = %432
-  %.pre1563 = load i32, ptr %13, align 8
-  %436 = icmp eq i32 %.pre1563, 0
-  br i1 %436, label %437, label %.thread1416
+  %.pre1564 = load i32, ptr %13, align 8
+  %436 = icmp eq i32 %.pre1564, 0
+  br i1 %436, label %437, label %.thread1417
 
 437:                                              ; preds = %435
   %438 = getelementptr inbounds i8, ptr %.21194, i64 -8
   %439 = load ptr, ptr %438, align 8
   %440 = call i32 @yr_parser_lookup_loop_variable(ptr noundef %0, ptr noundef %439) #12
   %441 = icmp sgt i32 %440, -1
-  br i1 %441, label %.thread1418, label %443
+  br i1 %441, label %.thread1419, label %443
 
-.thread1418:                                      ; preds = %437
+.thread1419:                                      ; preds = %437
   %442 = load ptr, ptr %438, align 8
-  br label %.thread1416.sink.split.sink.split
+  br label %.thread1417.sink.split.sink.split
 
 443:                                              ; preds = %437
   %.pr = load i32, ptr %13, align 8
   %.not1359 = icmp eq i32 %.pr, 0
-  br i1 %.not1359, label %444, label %.thread1416
+  br i1 %.not1359, label %444, label %.thread1417
 
 444:                                              ; preds = %443
   %445 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #12
   store i32 %445, ptr %13, align 8
   %.not1360 = icmp eq i32 %445, 0
-  br i1 %.not1360, label %935, label %.thread1416
+  br i1 %.not1360, label %935, label %.thread1417
 
 446:                                              ; preds = %97
   %447 = load i32, ptr %15, align 8
@@ -1167,9 +1167,9 @@ switch.lookup1677:                                ; preds = %348
   br label %462
 
 462:                                              ; preds = %446, %458
-  %.sink1631 = phi ptr [ null, %458 ], [ %10, %446 ]
+  %.sink1632 = phi ptr [ null, %458 ], [ %10, %446 ]
   %463 = sext i32 %448 to i64
-  %464 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 40, i64 noundef %463, ptr noundef %.sink1631) #12
+  %464 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 40, i64 noundef %463, ptr noundef %.sink1632) #12
   %465 = load ptr, ptr %10, align 8
   %466 = load i32, ptr %15, align 8
   %467 = sext i32 %466 to i64
@@ -1259,12 +1259,12 @@ switch.lookup1677:                                ; preds = %348
 528:                                              ; preds = %527, %523
   %529 = load i32, ptr %16, align 4
   %.not1356 = icmp eq i32 %529, -1
-  br i1 %.not1356, label %530, label %.thread1416.sink.split
+  br i1 %.not1356, label %530, label %.thread1417.sink.split
 
 530:                                              ; preds = %528
-  %.pre1561 = load i32, ptr %13, align 8
-  %531 = icmp eq i32 %.pre1561, 0
-  br i1 %531, label %532, label %.thread1416
+  %.pre1562 = load i32, ptr %13, align 8
+  %531 = icmp eq i32 %.pre1562, 0
+  br i1 %531, label %532, label %.thread1417
 
 532:                                              ; preds = %530
   %533 = or disjoint i32 %525, 1
@@ -1345,14 +1345,14 @@ switch.lookup1677:                                ; preds = %348
 584:                                              ; preds = %97
   %585 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %586 = load i8, ptr %585, align 8
-  switch i8 %586, label %.thread1416.sink.split [
+  switch i8 %586, label %.thread1417.sink.split [
     i8 1, label %588
-    i8 2, label %.thread1416.sink.split.sink.split
+    i8 2, label %.thread1417.sink.split.sink.split
     i8 3, label %587
   ]
 
 587:                                              ; preds = %584
-  br label %.thread1416.sink.split.sink.split
+  br label %.thread1417.sink.split.sink.split
 
 588:                                              ; preds = %584
   %589 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 2, ptr noundef null) #12
@@ -1365,16 +1365,16 @@ switch.lookup1677:                                ; preds = %348
 592:                                              ; preds = %97
   %593 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %594 = load i8, ptr %593, align 8
-  switch i8 %594, label %.thread1416.sink.split [
+  switch i8 %594, label %.thread1417.sink.split [
     i8 2, label %595
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 595:                                              ; preds = %592
   %596 = load i8, ptr %.21194, align 8
-  switch i8 %596, label %.thread1416.sink.split [
+  switch i8 %596, label %.thread1417.sink.split [
     i8 2, label %597
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 597:                                              ; preds = %595
@@ -1388,16 +1388,16 @@ switch.lookup1677:                                ; preds = %348
 601:                                              ; preds = %97
   %602 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %603 = load i8, ptr %602, align 8
-  switch i8 %603, label %.thread1416.sink.split [
+  switch i8 %603, label %.thread1417.sink.split [
     i8 2, label %604
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 604:                                              ; preds = %601
   %605 = load i8, ptr %.21194, align 8
-  switch i8 %605, label %.thread1416.sink.split [
+  switch i8 %605, label %.thread1417.sink.split [
     i8 2, label %606
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 606:                                              ; preds = %604
@@ -1411,16 +1411,16 @@ switch.lookup1677:                                ; preds = %348
 610:                                              ; preds = %97
   %611 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %612 = load i8, ptr %611, align 8
-  switch i8 %612, label %.thread1416.sink.split [
+  switch i8 %612, label %.thread1417.sink.split [
     i8 2, label %613
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 613:                                              ; preds = %610
   %614 = load i8, ptr %.21194, align 8
-  switch i8 %614, label %.thread1416.sink.split [
+  switch i8 %614, label %.thread1417.sink.split [
     i8 2, label %615
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 615:                                              ; preds = %613
@@ -1434,16 +1434,16 @@ switch.lookup1677:                                ; preds = %348
 619:                                              ; preds = %97
   %620 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %621 = load i8, ptr %620, align 8
-  switch i8 %621, label %.thread1416.sink.split [
+  switch i8 %621, label %.thread1417.sink.split [
     i8 2, label %622
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 622:                                              ; preds = %619
   %623 = load i8, ptr %.21194, align 8
-  switch i8 %623, label %.thread1416.sink.split [
+  switch i8 %623, label %.thread1417.sink.split [
     i8 2, label %624
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 624:                                              ; preds = %622
@@ -1459,7 +1459,7 @@ switch.lookup1677:                                ; preds = %348
   %630 = load i8, ptr %629, align 8
   %631 = load i8, ptr %.21194, align 8
   %.not1345 = icmp eq i8 %630, %631
-  br i1 %.not1345, label %632, label %.thread1416.sink.split.sink.split
+  br i1 %.not1345, label %632, label %.thread1417.sink.split.sink.split
 
 632:                                              ; preds = %628
   %633 = icmp eq i8 %630, 3
@@ -1467,7 +1467,7 @@ switch.lookup1677:                                ; preds = %348
   %634 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %., ptr noundef null) #12
   store i32 %634, ptr %13, align 8
   %.not1346 = icmp eq i32 %634, 0
-  br i1 %.not1346, label %635, label %.thread1416
+  br i1 %.not1346, label %635, label %.thread1417
 
 635:                                              ; preds = %632
   %636 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1481,15 +1481,15 @@ switch.lookup1677:                                ; preds = %348
   %640 = load i8, ptr %639, align 8
   %641 = load i8, ptr %.21194, align 8
   %.not1343 = icmp eq i8 %640, %641
-  br i1 %.not1343, label %642, label %.thread1416.sink.split.sink.split
+  br i1 %.not1343, label %642, label %.thread1417.sink.split.sink.split
 
 642:                                              ; preds = %638
   %643 = icmp eq i8 %640, 3
-  %.1641 = select i1 %643, i8 11, i8 9
-  %644 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %.1641, ptr noundef null) #12
+  %.1642 = select i1 %643, i8 11, i8 9
+  %644 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %.1642, ptr noundef null) #12
   store i32 %644, ptr %13, align 8
   %.not1344 = icmp eq i32 %644, 0
-  br i1 %.not1344, label %645, label %.thread1416
+  br i1 %.not1344, label %645, label %.thread1417
 
 645:                                              ; preds = %642
   %646 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1503,15 +1503,15 @@ switch.lookup1677:                                ; preds = %348
   %650 = load i8, ptr %649, align 8
   %651 = load i8, ptr %.21194, align 8
   %.not1341 = icmp eq i8 %650, %651
-  br i1 %.not1341, label %652, label %.thread1416.sink.split.sink.split
+  br i1 %.not1341, label %652, label %.thread1417.sink.split.sink.split
 
 652:                                              ; preds = %648
   %653 = icmp eq i8 %650, 3
-  %.1642 = select i1 %653, i8 12, i8 10
-  %654 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %.1642, ptr noundef null) #12
+  %.1643 = select i1 %653, i8 12, i8 10
+  %654 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %.1643, ptr noundef null) #12
   store i32 %654, ptr %13, align 8
   %.not1342 = icmp eq i32 %654, 0
-  br i1 %.not1342, label %655, label %.thread1416
+  br i1 %.not1342, label %655, label %.thread1417
 
 655:                                              ; preds = %652
   %656 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1560,32 +1560,32 @@ switch.lookup1677:                                ; preds = %348
   %675 = getelementptr inbounds i8, ptr %.21194, i64 -8
   %676 = load i8, ptr %675, align 8
   %.not1339 = icmp eq i8 %676, 2
-  br i1 %.not1339, label %677, label %.thread1416.sink.split.sink.split
+  br i1 %.not1339, label %677, label %.thread1417.sink.split.sink.split
 
 677:                                              ; preds = %674
-  %.pre1559 = load i32, ptr %13, align 8
-  %678 = icmp eq i32 %.pre1559, 0
-  br i1 %678, label %935, label %.thread1416
+  %.pre1560 = load i32, ptr %13, align 8
+  %678 = icmp eq i32 %.pre1560, 0
+  br i1 %678, label %935, label %.thread1417
 
 679:                                              ; preds = %97
   %680 = load i8, ptr %.21194, align 8
   %.not1336 = icmp eq i8 %680, 2
-  br i1 %.not1336, label %681, label %.thread1416.sink.split.sink.split
+  br i1 %.not1336, label %681, label %.thread1417.sink.split.sink.split
 
 681:                                              ; preds = %679
-  %.pre1557 = load i32, ptr %13, align 8
-  %682 = icmp eq i32 %.pre1557, 0
-  br i1 %682, label %935, label %.thread1416
+  %.pre1558 = load i32, ptr %13, align 8
+  %682 = icmp eq i32 %.pre1558, 0
+  br i1 %682, label %935, label %.thread1417
 
 683:                                              ; preds = %97
   %684 = load i8, ptr %.21194, align 8
   %.not1334 = icmp eq i8 %684, 2
-  br i1 %.not1334, label %685, label %.thread1416.sink.split.sink.split
+  br i1 %.not1334, label %685, label %.thread1417.sink.split.sink.split
 
 685:                                              ; preds = %683
   %.pre = load i32, ptr %13, align 8
   %686 = icmp eq i32 %.pre, 0
-  br i1 %686, label %935, label %.thread1416
+  br i1 %686, label %935, label %.thread1417
 
 687:                                              ; preds = %97
   %688 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #12
@@ -1645,7 +1645,7 @@ switch.lookup1677:                                ; preds = %348
   %.sroa.0.0.insert.insert178 = or disjoint i64 %.sroa.0.0.insert.mask177, 2
   %718 = inttoptr i64 %.sroa.0.0.insert.insert178 to ptr
   %.not1333 = icmp eq i32 %716, 0
-  br i1 %.not1333, label %935, label %.thread1416
+  br i1 %.not1333, label %935, label %.thread1417
 
 719:                                              ; preds = %97
   %720 = load i32, ptr %14, align 8
@@ -1654,7 +1654,7 @@ switch.lookup1677:                                ; preds = %348
   %722 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 46, ptr noundef null) #12
   store i32 %722, ptr %13, align 8
   %.not1332 = icmp eq i32 %722, 0
-  br i1 %.not1332, label %723, label %.thread1416
+  br i1 %.not1332, label %723, label %.thread1417
 
 723:                                              ; preds = %719
   %724 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1666,16 +1666,16 @@ switch.lookup1677:                                ; preds = %348
 726:                                              ; preds = %97
   %727 = getelementptr inbounds i8, ptr %.21194, i64 -8
   %728 = load i8, ptr %727, align 8
-  switch i8 %728, label %.thread1416.sink.split [
+  switch i8 %728, label %.thread1417.sink.split [
     i8 2, label %729
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 729:                                              ; preds = %726
   %730 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 47, ptr noundef null) #12
   store i32 %730, ptr %13, align 8
   %.not1331 = icmp eq i32 %730, 0
-  br i1 %.not1331, label %731, label %.thread1416
+  br i1 %.not1331, label %731, label %.thread1417
 
 731:                                              ; preds = %729
   %732 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1687,16 +1687,16 @@ switch.lookup1677:                                ; preds = %348
 734:                                              ; preds = %97
   %735 = getelementptr inbounds i8, ptr %.21194, i64 -8
   %736 = load i8, ptr %735, align 8
-  switch i8 %736, label %.thread1416.sink.split [
+  switch i8 %736, label %.thread1417.sink.split [
     i8 2, label %737
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 737:                                              ; preds = %734
   %738 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 48, ptr noundef null) #12
   store i32 %738, ptr %13, align 8
   %.not1329 = icmp eq i32 %738, 0
-  br i1 %.not1329, label %739, label %.thread1416
+  br i1 %.not1329, label %739, label %.thread1417
 
 739:                                              ; preds = %737
   %740 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1708,16 +1708,16 @@ switch.lookup1677:                                ; preds = %348
 742:                                              ; preds = %97
   %743 = getelementptr inbounds i8, ptr %.21194, i64 -8
   %744 = load i8, ptr %743, align 8
-  switch i8 %744, label %.thread1416.sink.split [
+  switch i8 %744, label %.thread1417.sink.split [
     i8 2, label %745
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 745:                                              ; preds = %742
   %746 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 49, ptr noundef null) #12
   store i32 %746, ptr %13, align 8
   %.not1327 = icmp eq i32 %746, 0
-  br i1 %.not1327, label %747, label %.thread1416
+  br i1 %.not1327, label %747, label %.thread1417
 
 747:                                              ; preds = %745
   %748 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1729,16 +1729,16 @@ switch.lookup1677:                                ; preds = %348
 750:                                              ; preds = %97
   %751 = getelementptr inbounds i8, ptr %.21194, i64 -8
   %752 = load i8, ptr %751, align 8
-  switch i8 %752, label %.thread1416.sink.split [
+  switch i8 %752, label %.thread1417.sink.split [
     i8 2, label %753
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 753:                                              ; preds = %750
   %754 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 50, ptr noundef null) #12
   store i32 %754, ptr %13, align 8
   %.not1325 = icmp eq i32 %754, 0
-  br i1 %.not1325, label %755, label %.thread1416
+  br i1 %.not1325, label %755, label %.thread1417
 
 755:                                              ; preds = %753
   %756 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1750,16 +1750,16 @@ switch.lookup1677:                                ; preds = %348
 758:                                              ; preds = %97
   %759 = getelementptr inbounds i8, ptr %.21194, i64 -8
   %760 = load i8, ptr %759, align 8
-  switch i8 %760, label %.thread1416.sink.split [
+  switch i8 %760, label %.thread1417.sink.split [
     i8 2, label %761
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 761:                                              ; preds = %758
   %762 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 51, ptr noundef null) #12
   store i32 %762, ptr %13, align 8
   %.not1323 = icmp eq i32 %762, 0
-  br i1 %.not1323, label %763, label %.thread1416
+  br i1 %.not1323, label %763, label %.thread1417
 
 763:                                              ; preds = %761
   %764 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1771,16 +1771,16 @@ switch.lookup1677:                                ; preds = %348
 766:                                              ; preds = %97
   %767 = getelementptr inbounds i8, ptr %.21194, i64 -8
   %768 = load i8, ptr %767, align 8
-  switch i8 %768, label %.thread1416.sink.split [
+  switch i8 %768, label %.thread1417.sink.split [
     i8 2, label %769
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 769:                                              ; preds = %766
   %770 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 52, ptr noundef null) #12
   store i32 %770, ptr %13, align 8
   %.not1321 = icmp eq i32 %770, 0
-  br i1 %.not1321, label %771, label %.thread1416
+  br i1 %.not1321, label %771, label %.thread1417
 
 771:                                              ; preds = %769
   %772 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1794,7 +1794,7 @@ switch.lookup1677:                                ; preds = %348
   %776 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef %775, ptr noundef null) #12
   store i32 %776, ptr %13, align 8
   %.not1319 = icmp eq i32 %776, 0
-  br i1 %.not1319, label %777, label %.thread1416
+  br i1 %.not1319, label %777, label %.thread1417
 
 777:                                              ; preds = %774
   %778 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1808,13 +1808,13 @@ switch.lookup1677:                                ; preds = %348
   call void @free(ptr noundef %781) #12
   %782 = load i32, ptr %13, align 8
   %783 = icmp eq i32 %782, 0
-  br i1 %783, label %784, label %.thread1416
+  br i1 %783, label %784, label %.thread1417
 
 784:                                              ; preds = %780
   %785 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 22, i64 noundef 0, ptr noundef null) #12
   store i32 %785, ptr %13, align 8
   %.not1318 = icmp eq i32 %785, 0
-  br i1 %.not1318, label %786, label %.thread1416
+  br i1 %.not1318, label %786, label %.thread1417
 
 786:                                              ; preds = %784
   %787 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1831,7 +1831,7 @@ switch.lookup1677:                                ; preds = %348
   call void @free(ptr noundef %792) #12
   %793 = load i32, ptr %13, align 8
   %.not1317 = icmp eq i32 %793, 0
-  br i1 %.not1317, label %794, label %.thread1416
+  br i1 %.not1317, label %794, label %.thread1417
 
 794:                                              ; preds = %789
   %795 = ptrtoint ptr %.sroa.0.0.copyload to i64
@@ -1849,7 +1849,7 @@ switch.lookup1677:                                ; preds = %348
   call void @free(ptr noundef %801) #12
   %802 = load i32, ptr %13, align 8
   %.not1316 = icmp eq i32 %802, 0
-  br i1 %.not1316, label %803, label %.thread1416
+  br i1 %.not1316, label %803, label %.thread1417
 
 803:                                              ; preds = %797
   %804 = load i32, ptr %14, align 8
@@ -1878,7 +1878,7 @@ switch.lookup1677:                                ; preds = %348
   call void @free(ptr noundef %815) #12
   %816 = load i32, ptr %13, align 8
   %.not1315 = icmp eq i32 %816, 0
-  br i1 %.not1315, label %817, label %.thread1416
+  br i1 %.not1315, label %817, label %.thread1417
 
 817:                                              ; preds = %814
   %818 = load i32, ptr %14, align 8
@@ -1896,7 +1896,7 @@ switch.lookup1677:                                ; preds = %348
   switch i64 %magicptr1396, label %825 [
     i64 -1, label %832
     i64 -2, label %824
-    i64 0, label %.thread1588
+    i64 0, label %.thread1589
   ]
 
 824:                                              ; preds = %822
@@ -1919,33 +1919,33 @@ switch.lookup1677:                                ; preds = %348
   call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 1672, ptr noundef nonnull @__PRETTY_FUNCTION__.yara_yyparse) #14
   unreachable
 
-.thread1588:                                      ; preds = %822
+.thread1589:                                      ; preds = %822
   %831 = load ptr, ptr inttoptr (i64 8 to ptr), align 8
-  br label %.thread1416.sink.split.sink.split
+  br label %.thread1417.sink.split.sink.split
 
 832:                                              ; preds = %825, %822, %824, %829
-  %.sink1639 = phi i64 [ 1, %824 ], [ 3, %829 ], [ 2, %822 ], [ 2, %825 ]
+  %.sink1640 = phi i64 [ 1, %824 ], [ 3, %829 ], [ 2, %822 ], [ 2, %825 ]
   %833 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %.sroa.0.0.insert.mask219 = and i64 %833, -256
-  %.sroa.0.0.insert.insert220 = or disjoint i64 %.sroa.0.0.insert.mask219, %.sink1639
+  %.sroa.0.0.insert.insert220 = or disjoint i64 %.sroa.0.0.insert.mask219, %.sink1640
   %834 = inttoptr i64 %.sroa.0.0.insert.insert220 to ptr
-  %.pr1587 = load i32, ptr %13, align 8
-  %.not1314 = icmp eq i32 %.pr1587, 0
-  br i1 %.not1314, label %935, label %.thread1416
+  %.pr1588 = load i32, ptr %13, align 8
+  %.not1314 = icmp eq i32 %.pr1588, 0
+  br i1 %.not1314, label %935, label %.thread1417
 
 835:                                              ; preds = %97
   %836 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %837 = load i8, ptr %836, align 8
-  switch i8 %837, label %.thread1416.sink.split [
+  switch i8 %837, label %.thread1417.sink.split [
     i8 2, label %838
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 838:                                              ; preds = %835
   %839 = load i8, ptr %.21194, align 8
-  switch i8 %839, label %.thread1416.sink.split [
+  switch i8 %839, label %.thread1417.sink.split [
     i8 2, label %840
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 840:                                              ; preds = %838
@@ -1959,16 +1959,16 @@ switch.lookup1677:                                ; preds = %348
 844:                                              ; preds = %97
   %845 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %846 = load i8, ptr %845, align 8
-  switch i8 %846, label %.thread1416.sink.split [
+  switch i8 %846, label %.thread1417.sink.split [
     i8 2, label %847
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 847:                                              ; preds = %844
   %848 = load i8, ptr %.21194, align 8
-  switch i8 %848, label %.thread1416.sink.split [
+  switch i8 %848, label %.thread1417.sink.split [
     i8 2, label %849
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 849:                                              ; preds = %847
@@ -1982,16 +1982,16 @@ switch.lookup1677:                                ; preds = %348
 853:                                              ; preds = %97
   %854 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %855 = load i8, ptr %854, align 8
-  switch i8 %855, label %.thread1416.sink.split [
+  switch i8 %855, label %.thread1417.sink.split [
     i8 2, label %856
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 856:                                              ; preds = %853
   %857 = load i8, ptr %.21194, align 8
-  switch i8 %857, label %.thread1416.sink.split [
+  switch i8 %857, label %.thread1417.sink.split [
     i8 2, label %858
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 858:                                              ; preds = %856
@@ -2005,16 +2005,16 @@ switch.lookup1677:                                ; preds = %348
 862:                                              ; preds = %97
   %863 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %864 = load i8, ptr %863, align 8
-  switch i8 %864, label %.thread1416.sink.split [
+  switch i8 %864, label %.thread1417.sink.split [
     i8 2, label %865
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 865:                                              ; preds = %862
   %866 = load i8, ptr %.21194, align 8
-  switch i8 %866, label %.thread1416.sink.split [
+  switch i8 %866, label %.thread1417.sink.split [
     i8 2, label %867
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 867:                                              ; preds = %865
@@ -2028,16 +2028,16 @@ switch.lookup1677:                                ; preds = %348
 871:                                              ; preds = %97
   %872 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %873 = load i8, ptr %872, align 8
-  switch i8 %873, label %.thread1416.sink.split [
+  switch i8 %873, label %.thread1417.sink.split [
     i8 2, label %874
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 874:                                              ; preds = %871
   %875 = load i8, ptr %.21194, align 8
-  switch i8 %875, label %.thread1416.sink.split [
+  switch i8 %875, label %.thread1417.sink.split [
     i8 2, label %876
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 876:                                              ; preds = %874
@@ -2051,16 +2051,16 @@ switch.lookup1677:                                ; preds = %348
 880:                                              ; preds = %97
   %881 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %882 = load i8, ptr %881, align 8
-  switch i8 %882, label %.thread1416.sink.split [
+  switch i8 %882, label %.thread1417.sink.split [
     i8 2, label %883
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 883:                                              ; preds = %880
   %884 = load i8, ptr %.21194, align 8
-  switch i8 %884, label %.thread1416.sink.split [
+  switch i8 %884, label %.thread1417.sink.split [
     i8 2, label %885
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 885:                                              ; preds = %883
@@ -2074,16 +2074,16 @@ switch.lookup1677:                                ; preds = %348
 889:                                              ; preds = %97
   %890 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %891 = load i8, ptr %890, align 8
-  switch i8 %891, label %.thread1416.sink.split [
+  switch i8 %891, label %.thread1417.sink.split [
     i8 2, label %892
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 892:                                              ; preds = %889
   %893 = load i8, ptr %.21194, align 8
-  switch i8 %893, label %.thread1416.sink.split [
+  switch i8 %893, label %.thread1417.sink.split [
     i8 2, label %894
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 894:                                              ; preds = %892
@@ -2097,16 +2097,16 @@ switch.lookup1677:                                ; preds = %348
 898:                                              ; preds = %97
   %899 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %900 = load i8, ptr %899, align 8
-  switch i8 %900, label %.thread1416.sink.split [
+  switch i8 %900, label %.thread1417.sink.split [
     i8 2, label %901
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 901:                                              ; preds = %898
   %902 = load i8, ptr %.21194, align 8
-  switch i8 %902, label %.thread1416.sink.split [
+  switch i8 %902, label %.thread1417.sink.split [
     i8 2, label %903
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 903:                                              ; preds = %901
@@ -2119,9 +2119,9 @@ switch.lookup1677:                                ; preds = %348
 
 907:                                              ; preds = %97
   %908 = load i8, ptr %.21194, align 8
-  switch i8 %908, label %.thread1416.sink.split [
+  switch i8 %908, label %.thread1417.sink.split [
     i8 2, label %909
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 909:                                              ; preds = %907
@@ -2135,16 +2135,16 @@ switch.lookup1677:                                ; preds = %348
 913:                                              ; preds = %97
   %914 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %915 = load i8, ptr %914, align 8
-  switch i8 %915, label %.thread1416.sink.split [
+  switch i8 %915, label %.thread1417.sink.split [
     i8 2, label %916
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 916:                                              ; preds = %913
   %917 = load i8, ptr %.21194, align 8
-  switch i8 %917, label %.thread1416.sink.split [
+  switch i8 %917, label %.thread1417.sink.split [
     i8 2, label %918
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 918:                                              ; preds = %916
@@ -2158,16 +2158,16 @@ switch.lookup1677:                                ; preds = %348
 922:                                              ; preds = %97
   %923 = getelementptr inbounds i8, ptr %.21194, i64 -16
   %924 = load i8, ptr %923, align 8
-  switch i8 %924, label %.thread1416.sink.split [
+  switch i8 %924, label %.thread1417.sink.split [
     i8 2, label %925
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 925:                                              ; preds = %922
   %926 = load i8, ptr %.21194, align 8
-  switch i8 %926, label %.thread1416.sink.split [
+  switch i8 %926, label %.thread1417.sink.split [
     i8 2, label %927
-    i8 3, label %.thread1416.sink.split.sink.split
+    i8 3, label %.thread1417.sink.split.sink.split
   ]
 
 927:                                              ; preds = %925
@@ -2252,22 +2252,22 @@ switch.lookup1677:                                ; preds = %348
   ]
 
 972:                                              ; preds = %970
-  %973 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr %.01407, ptr noundef %.21183, i32 noundef %971)
-  switch i32 %973, label %.thread1422 [
-    i32 0, label %.thread1426
+  %973 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr %.01408, ptr noundef %.21183, i32 noundef %971)
+  switch i32 %973, label %.thread1423 [
+    i32 0, label %.thread1427
     i32 1, label %974
   ]
 
-.thread1426:                                      ; preds = %972
-  call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef %.01407) #12
+.thread1427:                                      ; preds = %972
+  call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef %.01408) #12
   br label %yydestruct.exit
 
 974:                                              ; preds = %972
-  %.not1389 = icmp eq ptr %.01407, %6
+  %.not1389 = icmp eq ptr %.01408, %6
   br i1 %.not1389, label %976, label %975
 
 975:                                              ; preds = %974
-  call void @free(ptr noundef %.01407) #12
+  call void @free(ptr noundef %.01408) #12
   br label %976
 
 976:                                              ; preds = %975, %974
@@ -2278,18 +2278,18 @@ switch.lookup1677:                                ; preds = %348
 
 979:                                              ; preds = %976
   store i64 128, ptr %7, align 8
-  br label %.thread1422
+  br label %.thread1423
 
-.thread1422:                                      ; preds = %972, %979
-  %.41410.ph = phi ptr [ %6, %979 ], [ %.01407, %972 ]
+.thread1423:                                      ; preds = %972, %979
+  %.41411.ph = phi ptr [ %6, %979 ], [ %.01408, %972 ]
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.61) #12
-  br label %.loopexit1483
+  br label %.loopexit1484
 
 980:                                              ; preds = %976
   %981 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr nonnull %978, ptr noundef %.21183, i32 noundef %971)
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %978) #12
   %982 = icmp eq i32 %981, 2
-  br i1 %982, label %.loopexit1483, label %yydestruct.exit
+  br i1 %982, label %.loopexit1484, label %yydestruct.exit
 
 983:                                              ; preds = %970
   %984 = icmp slt i32 %.4, 1
@@ -2297,7 +2297,7 @@ switch.lookup1677:                                ; preds = %348
 
 985:                                              ; preds = %983
   %986 = icmp eq i32 %.4, 0
-  br i1 %986, label %.thread1453, label %yydestruct.exit
+  br i1 %986, label %.thread1454, label %yydestruct.exit
 
 987:                                              ; preds = %983
   switch i32 %971, label %yydestruct.exit [
@@ -2316,18 +2316,18 @@ switch.lookup1677:                                ; preds = %348
   call void @free(ptr noundef %988) #12
   br label %yydestruct.exit
 
-.thread1416.sink.split.sink.split:                ; preds = %925, %922, %916, %913, %907, %901, %898, %892, %889, %883, %880, %874, %871, %865, %862, %856, %853, %847, %844, %838, %835, %766, %758, %750, %742, %734, %726, %683, %679, %674, %648, %638, %628, %622, %619, %613, %610, %604, %601, %595, %592, %587, %584, %408, %394, %391, %382, %380, %377, %.thread1588, %.thread1418, %.thread1564
-  %.str.60.sink = phi ptr [ %296, %.thread1564 ], [ %442, %.thread1418 ], [ %831, %.thread1588 ], [ @.str.5, %377 ], [ @.str.6, %382 ], [ @.str.5, %380 ], [ @.str.7, %391 ], [ @.str.7, %394 ], [ @.str.10, %408 ], [ @.str.12, %587 ], [ @.str.11, %584 ], [ @.str.14, %592 ], [ @.str.14, %595 ], [ @.str.16, %601 ], [ @.str.16, %604 ], [ @.str.18, %610 ], [ @.str.18, %613 ], [ @.str.20, %619 ], [ @.str.20, %622 ], [ @.str.21, %628 ], [ @.str.21, %638 ], [ @.str.22, %648 ], [ @.str.24, %674 ], [ @.str.25, %679 ], [ @.str.25, %683 ], [ @.str.28, %726 ], [ @.str.30, %734 ], [ @.str.32, %742 ], [ @.str.34, %750 ], [ @.str.36, %758 ], [ @.str.38, %766 ], [ @.str.42, %835 ], [ @.str.42, %838 ], [ @.str.44, %844 ], [ @.str.44, %847 ], [ @.str.46, %853 ], [ @.str.46, %856 ], [ @.str.48, %862 ], [ @.str.48, %865 ], [ @.str.50, %871 ], [ @.str.50, %874 ], [ @.str.52, %880 ], [ @.str.52, %883 ], [ @.str.52, %889 ], [ @.str.52, %892 ], [ @.str.54, %898 ], [ @.str.54, %901 ], [ @.str.56, %907 ], [ @.str.58, %913 ], [ @.str.58, %916 ], [ @.str.60, %922 ], [ @.str.60, %925 ]
-  %.sink1643.ph = phi i32 [ 36, %.thread1564 ], [ 13, %.thread1418 ], [ 24, %.thread1588 ], [ 24, %377 ], [ 24, %382 ], [ 24, %380 ], [ 24, %391 ], [ 24, %394 ], [ 24, %408 ], [ 24, %587 ], [ 24, %584 ], [ 24, %592 ], [ 24, %595 ], [ 24, %601 ], [ 24, %604 ], [ 24, %610 ], [ 24, %613 ], [ 24, %619 ], [ 24, %622 ], [ 24, %628 ], [ 24, %638 ], [ 24, %648 ], [ 24, %674 ], [ 24, %679 ], [ 24, %683 ], [ 24, %726 ], [ 24, %734 ], [ 24, %742 ], [ 24, %750 ], [ 24, %758 ], [ 24, %766 ], [ 24, %835 ], [ 24, %838 ], [ 24, %844 ], [ 24, %847 ], [ 24, %853 ], [ 24, %856 ], [ 24, %862 ], [ 24, %865 ], [ 24, %871 ], [ 24, %874 ], [ 24, %880 ], [ 24, %883 ], [ 24, %889 ], [ 24, %892 ], [ 24, %898 ], [ 24, %901 ], [ 24, %907 ], [ 24, %913 ], [ 24, %916 ], [ 24, %922 ], [ 24, %925 ]
+.thread1417.sink.split.sink.split:                ; preds = %925, %922, %916, %913, %907, %901, %898, %892, %889, %883, %880, %874, %871, %865, %862, %856, %853, %847, %844, %838, %835, %766, %758, %750, %742, %734, %726, %683, %679, %674, %648, %638, %628, %622, %619, %613, %610, %604, %601, %595, %592, %587, %584, %408, %394, %391, %382, %380, %377, %.thread1589, %.thread1419, %.thread1565
+  %.str.60.sink = phi ptr [ %296, %.thread1565 ], [ %442, %.thread1419 ], [ %831, %.thread1589 ], [ @.str.5, %377 ], [ @.str.6, %382 ], [ @.str.5, %380 ], [ @.str.7, %391 ], [ @.str.7, %394 ], [ @.str.10, %408 ], [ @.str.12, %587 ], [ @.str.11, %584 ], [ @.str.14, %592 ], [ @.str.14, %595 ], [ @.str.16, %601 ], [ @.str.16, %604 ], [ @.str.18, %610 ], [ @.str.18, %613 ], [ @.str.20, %619 ], [ @.str.20, %622 ], [ @.str.21, %628 ], [ @.str.21, %638 ], [ @.str.22, %648 ], [ @.str.24, %674 ], [ @.str.25, %679 ], [ @.str.25, %683 ], [ @.str.28, %726 ], [ @.str.30, %734 ], [ @.str.32, %742 ], [ @.str.34, %750 ], [ @.str.36, %758 ], [ @.str.38, %766 ], [ @.str.42, %835 ], [ @.str.42, %838 ], [ @.str.44, %844 ], [ @.str.44, %847 ], [ @.str.46, %853 ], [ @.str.46, %856 ], [ @.str.48, %862 ], [ @.str.48, %865 ], [ @.str.50, %871 ], [ @.str.50, %874 ], [ @.str.52, %880 ], [ @.str.52, %883 ], [ @.str.52, %889 ], [ @.str.52, %892 ], [ @.str.54, %898 ], [ @.str.54, %901 ], [ @.str.56, %907 ], [ @.str.58, %913 ], [ @.str.58, %916 ], [ @.str.60, %922 ], [ @.str.60, %925 ]
+  %.sink1644.ph = phi i32 [ 36, %.thread1565 ], [ 13, %.thread1419 ], [ 24, %.thread1589 ], [ 24, %377 ], [ 24, %382 ], [ 24, %380 ], [ 24, %391 ], [ 24, %394 ], [ 24, %408 ], [ 24, %587 ], [ 24, %584 ], [ 24, %592 ], [ 24, %595 ], [ 24, %601 ], [ 24, %604 ], [ 24, %610 ], [ 24, %613 ], [ 24, %619 ], [ 24, %622 ], [ 24, %628 ], [ 24, %638 ], [ 24, %648 ], [ 24, %674 ], [ 24, %679 ], [ 24, %683 ], [ 24, %726 ], [ 24, %734 ], [ 24, %742 ], [ 24, %750 ], [ 24, %758 ], [ 24, %766 ], [ 24, %835 ], [ 24, %838 ], [ 24, %844 ], [ 24, %847 ], [ 24, %853 ], [ 24, %856 ], [ 24, %862 ], [ 24, %865 ], [ 24, %871 ], [ 24, %874 ], [ 24, %880 ], [ 24, %883 ], [ 24, %889 ], [ 24, %892 ], [ 24, %898 ], [ 24, %901 ], [ 24, %907 ], [ 24, %913 ], [ 24, %916 ], [ 24, %922 ], [ 24, %925 ]
   %989 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %.str.60.sink, i64 noundef 256) #12
-  br label %.thread1416.sink.split
+  br label %.thread1417.sink.split
 
-.thread1416.sink.split:                           ; preds = %.thread1416.sink.split.sink.split, %925, %922, %916, %913, %907, %901, %898, %892, %889, %883, %880, %874, %871, %865, %862, %856, %853, %847, %844, %838, %835, %766, %758, %750, %742, %734, %726, %622, %619, %613, %610, %604, %601, %595, %592, %584, %528, %432, %408, %394, %391, %380, %377, %343
-  %.sink1643 = phi i32 [ 39, %343 ], [ 24, %377 ], [ 24, %380 ], [ 24, %391 ], [ 24, %394 ], [ 24, %408 ], [ 12, %432 ], [ 32, %528 ], [ 24, %584 ], [ 24, %592 ], [ 24, %595 ], [ 24, %601 ], [ 24, %604 ], [ 24, %610 ], [ 24, %613 ], [ 24, %619 ], [ 24, %622 ], [ 24, %726 ], [ 24, %734 ], [ 24, %742 ], [ 24, %750 ], [ 24, %758 ], [ 24, %766 ], [ 24, %835 ], [ 24, %838 ], [ 24, %844 ], [ 24, %847 ], [ 24, %853 ], [ 24, %856 ], [ 24, %862 ], [ 24, %865 ], [ 24, %871 ], [ 24, %874 ], [ 24, %880 ], [ 24, %883 ], [ 24, %889 ], [ 24, %892 ], [ 24, %898 ], [ 24, %901 ], [ 24, %907 ], [ 24, %913 ], [ 24, %916 ], [ 24, %922 ], [ 24, %925 ], [ %.sink1643.ph, %.thread1416.sink.split.sink.split ]
-  store i32 %.sink1643, ptr %13, align 8
-  br label %.thread1416
+.thread1417.sink.split:                           ; preds = %.thread1417.sink.split.sink.split, %925, %922, %916, %913, %907, %901, %898, %892, %889, %883, %880, %874, %871, %865, %862, %856, %853, %847, %844, %838, %835, %766, %758, %750, %742, %734, %726, %622, %619, %613, %610, %604, %601, %595, %592, %584, %528, %432, %408, %394, %391, %380, %377, %343
+  %.sink1644 = phi i32 [ 39, %343 ], [ 24, %377 ], [ 24, %380 ], [ 24, %391 ], [ 24, %394 ], [ 24, %408 ], [ 12, %432 ], [ 32, %528 ], [ 24, %584 ], [ 24, %592 ], [ 24, %595 ], [ 24, %601 ], [ 24, %604 ], [ 24, %610 ], [ 24, %613 ], [ 24, %619 ], [ 24, %622 ], [ 24, %726 ], [ 24, %734 ], [ 24, %742 ], [ 24, %750 ], [ 24, %758 ], [ 24, %766 ], [ 24, %835 ], [ 24, %838 ], [ 24, %844 ], [ 24, %847 ], [ 24, %853 ], [ 24, %856 ], [ 24, %862 ], [ 24, %865 ], [ 24, %871 ], [ 24, %874 ], [ 24, %880 ], [ 24, %883 ], [ 24, %889 ], [ 24, %892 ], [ 24, %898 ], [ 24, %901 ], [ 24, %907 ], [ 24, %913 ], [ 24, %916 ], [ 24, %922 ], [ 24, %925 ], [ %.sink1644.ph, %.thread1417.sink.split.sink.split ]
+  store i32 %.sink1644, ptr %13, align 8
+  br label %.thread1417
 
-.thread1416:                                      ; preds = %.thread1416.sink.split, %832, %814, %797, %789, %784, %780, %774, %769, %761, %753, %745, %737, %729, %719, %715, %685, %681, %677, %652, %642, %632, %530, %444, %443, %435, %421, %410, %401, %396, %386, %383, %372, %367, %362, %353, %341, %329, %297, %285, %274, %216, %204, %191, %180, %174, %166, %157, %146, %127, %123, %108, %104
+.thread1417:                                      ; preds = %.thread1417.sink.split, %832, %814, %797, %789, %784, %780, %774, %769, %761, %753, %745, %737, %729, %719, %715, %685, %681, %677, %652, %642, %632, %530, %444, %443, %435, %421, %410, %401, %396, %386, %383, %372, %367, %362, %353, %341, %329, %297, %285, %274, %216, %204, %191, %180, %174, %166, %157, %146, %127, %123, %108, %104
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #12
   %990 = sub nsw i64 0, %101
   %991 = getelementptr inbounds %union.YYSTYPE, ptr %.21194, i64 %990
@@ -2336,182 +2336,179 @@ switch.lookup1677:                                ; preds = %348
   %994 = zext i8 %993 to i32
   br label %yydestruct.exit
 
-yydestruct.exit:                                  ; preds = %970, %980, %.thread1426, %.sink.split.i, %987, %985, %.thread1416
-  %.51411 = phi ptr [ %.01407, %985 ], [ %.01407, %.thread1416 ], [ %.01407, %987 ], [ %.01407, %.sink.split.i ], [ %.01407, %.thread1426 ], [ %978, %980 ], [ %.01407, %970 ]
-  %.51197 = phi ptr [ %.21194, %985 ], [ %991, %.thread1416 ], [ %.21194, %987 ], [ %.21194, %.sink.split.i ], [ %.21194, %.thread1426 ], [ %.21194, %980 ], [ %.21194, %970 ]
-  %.51186 = phi ptr [ %.21183, %985 ], [ %992, %.thread1416 ], [ %.21183, %987 ], [ %.21183, %.sink.split.i ], [ %.21183, %.thread1426 ], [ %.21183, %980 ], [ %.21183, %970 ]
-  %.21171 = phi i32 [ %.01169, %985 ], [ %994, %.thread1416 ], [ %.01169, %987 ], [ %.01169, %.sink.split.i ], [ %.01169, %.thread1426 ], [ %.01169, %980 ], [ %.01169, %970 ]
-  %.8 = phi i32 [ %.4, %985 ], [ %.7, %.thread1416 ], [ -2, %987 ], [ -2, %.sink.split.i ], [ %.4, %.thread1426 ], [ %.4, %980 ], [ %.4, %970 ]
+yydestruct.exit:                                  ; preds = %970, %980, %.thread1427, %.sink.split.i, %987, %985, %.thread1417
+  %.51412 = phi ptr [ %.01408, %985 ], [ %.01408, %.thread1417 ], [ %.01408, %987 ], [ %.01408, %.sink.split.i ], [ %.01408, %.thread1427 ], [ %978, %980 ], [ %.01408, %970 ]
+  %.51197 = phi ptr [ %.21194, %985 ], [ %991, %.thread1417 ], [ %.21194, %987 ], [ %.21194, %.sink.split.i ], [ %.21194, %.thread1427 ], [ %.21194, %980 ], [ %.21194, %970 ]
+  %.51186 = phi ptr [ %.21183, %985 ], [ %992, %.thread1417 ], [ %.21183, %987 ], [ %.21183, %.sink.split.i ], [ %.21183, %.thread1427 ], [ %.21183, %980 ], [ %.21183, %970 ]
+  %.21171 = phi i32 [ %.01169, %985 ], [ %994, %.thread1417 ], [ %.01169, %987 ], [ %.01169, %.sink.split.i ], [ %.01169, %.thread1427 ], [ %.01169, %980 ], [ %.01169, %970 ]
+  %.8 = phi i32 [ %.4, %985 ], [ %.7, %.thread1417 ], [ -2, %987 ], [ -2, %.sink.split.i ], [ %.4, %.thread1427 ], [ %.4, %980 ], [ %.4, %970 ]
   br label %995
 
-995:                                              ; preds = %yydestruct.exit1399, %yydestruct.exit
-  %.61198 = phi ptr [ %.51197, %yydestruct.exit ], [ %1015, %yydestruct.exit1399 ]
-  %.61187 = phi ptr [ %.51186, %yydestruct.exit ], [ %1016, %yydestruct.exit1399 ]
-  %.31172 = phi i32 [ %.21171, %yydestruct.exit ], [ %1018, %yydestruct.exit1399 ]
+995:                                              ; preds = %yydestruct.exit1400, %yydestruct.exit
+  %.61198 = phi ptr [ %.51197, %yydestruct.exit ], [ %1013, %yydestruct.exit1400 ]
+  %.61187 = phi ptr [ %.51186, %yydestruct.exit ], [ %1014, %yydestruct.exit1400 ]
+  %.31172 = phi i32 [ %.21171, %yydestruct.exit ], [ %1016, %yydestruct.exit1400 ]
   %996 = sext i32 %.31172 to i64
   %997 = getelementptr inbounds [216 x i16], ptr @yypact, i64 0, i64 %996
   %998 = load i16, ptr %997, align 2
   %999 = icmp sgt i16 %998, -2
-  br i1 %999, label %1000, label %1009
+  %1000 = icmp eq i32 %.31172, 1
+  %or.cond1397 = and i1 %1000, %999
+  br i1 %or.cond1397, label %1001, label %1007
 
-1000:                                             ; preds = %995
-  %1001 = sext i16 %998 to i64
-  %1002 = and i64 %1001, 4294967295
-  %1003 = icmp eq i64 %1002, 6
-  br i1 %1003, label %1004, label %1009
+1001:                                             ; preds = %995
+  %1002 = sext i16 %998 to i64
+  %1003 = add nsw i64 %1002, 1
+  %1004 = getelementptr inbounds [434 x i16], ptr @yytable, i64 0, i64 %1003
+  %1005 = load i16, ptr %1004, align 2
+  %1006 = icmp sgt i16 %1005, 0
+  br i1 %1006, label %1017, label %1007
 
-1004:                                             ; preds = %1000
-  %1005 = or disjoint i64 %1001, 1
-  %1006 = getelementptr inbounds [434 x i16], ptr @yytable, i64 0, i64 %1005
-  %1007 = load i16, ptr %1006, align 2
-  %1008 = icmp sgt i16 %1007, 0
-  br i1 %1008, label %1019, label %1009
+1007:                                             ; preds = %1001, %995
+  %1008 = icmp eq ptr %.61187, %.11177
+  br i1 %1008, label %.loopexit.loopexit, label %1009
 
-1009:                                             ; preds = %1000, %1004, %995
-  %1010 = icmp eq ptr %.61187, %.11177
-  br i1 %1010, label %.loopexit.loopexit, label %1011
-
-1011:                                             ; preds = %1009
-  %1012 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %996
-  %1013 = load i8, ptr %1012, align 1
-  switch i8 %1013, label %yydestruct.exit1399 [
-    i8 9, label %.sink.split.i1398
-    i8 10, label %.sink.split.i1398
-    i8 11, label %.sink.split.i1398
-    i8 12, label %.sink.split.i1398
-    i8 13, label %.sink.split.i1398
-    i8 15, label %.sink.split.i1398
-    i8 16, label %.sink.split.i1398
-    i8 17, label %.sink.split.i1398
+1009:                                             ; preds = %1007
+  %1010 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %996
+  %1011 = load i8, ptr %1010, align 1
+  switch i8 %1011, label %yydestruct.exit1400 [
+    i8 9, label %.sink.split.i1399
+    i8 10, label %.sink.split.i1399
+    i8 11, label %.sink.split.i1399
+    i8 12, label %.sink.split.i1399
+    i8 13, label %.sink.split.i1399
+    i8 15, label %.sink.split.i1399
+    i8 16, label %.sink.split.i1399
+    i8 17, label %.sink.split.i1399
   ]
 
-.sink.split.i1398:                                ; preds = %1011, %1011, %1011, %1011, %1011, %1011, %1011, %1011
-  %1014 = load ptr, ptr %.61198, align 8
-  call void @free(ptr noundef %1014) #12
-  br label %yydestruct.exit1399
+.sink.split.i1399:                                ; preds = %1009, %1009, %1009, %1009, %1009, %1009, %1009, %1009
+  %1012 = load ptr, ptr %.61198, align 8
+  call void @free(ptr noundef %1012) #12
+  br label %yydestruct.exit1400
 
-yydestruct.exit1399:                              ; preds = %1011, %.sink.split.i1398
-  %1015 = getelementptr inbounds i8, ptr %.61198, i64 -8
-  %1016 = getelementptr inbounds i8, ptr %.61187, i64 -1
-  %1017 = load i8, ptr %1016, align 1
-  %1018 = zext i8 %1017 to i32
+yydestruct.exit1400:                              ; preds = %1009, %.sink.split.i1399
+  %1013 = getelementptr inbounds i8, ptr %.61198, i64 -8
+  %1014 = getelementptr inbounds i8, ptr %.61187, i64 -1
+  %1015 = load i8, ptr %1014, align 1
+  %1016 = zext i8 %1015 to i32
   br label %995
 
-1019:                                             ; preds = %1004
-  %1020 = zext nneg i16 %1007 to i32
-  %1021 = getelementptr inbounds i8, ptr %.61198, i64 8
-  %1022 = load i64, ptr %3, align 8
-  store i64 %1022, ptr %1021, align 8
+1017:                                             ; preds = %1001
+  %1018 = zext nneg i16 %1005 to i32
+  %1019 = getelementptr inbounds i8, ptr %.61198, i64 8
+  %1020 = load i64, ptr %3, align 8
+  store i64 %1020, ptr %1019, align 8
   br label %27
 
-.loopexit1483:                                    ; preds = %980, %39, %33, %.thread1422
-  %.21409 = phi ptr [ %.41410.ph, %.thread1422 ], [ %.01407, %39 ], [ %.01407, %33 ], [ %978, %980 ]
-  %.31195 = phi ptr [ %.21194, %.thread1422 ], [ %.01192, %39 ], [ %.01192, %33 ], [ %.21194, %980 ]
-  %.31184 = phi ptr [ %.21183, %.thread1422 ], [ %.01181, %39 ], [ %.01181, %33 ], [ %.21183, %980 ]
-  %.21178 = phi ptr [ %.11177, %.thread1422 ], [ %.01176, %39 ], [ %.01176, %33 ], [ %.11177, %980 ]
-  %.2 = phi i32 [ %.4, %.thread1422 ], [ %.01164, %39 ], [ %.01164, %33 ], [ %.4, %980 ]
+.loopexit1484:                                    ; preds = %980, %39, %33, %.thread1423
+  %.21410 = phi ptr [ %.41411.ph, %.thread1423 ], [ %.01408, %39 ], [ %.01408, %33 ], [ %978, %980 ]
+  %.31195 = phi ptr [ %.21194, %.thread1423 ], [ %.01192, %39 ], [ %.01192, %33 ], [ %.21194, %980 ]
+  %.31184 = phi ptr [ %.21183, %.thread1423 ], [ %.01181, %39 ], [ %.01181, %33 ], [ %.21183, %980 ]
+  %.21178 = phi ptr [ %.11177, %.thread1423 ], [ %.01176, %39 ], [ %.01176, %33 ], [ %.11177, %980 ]
+  %.2 = phi i32 [ %.4, %.thread1423 ], [ %.01164, %39 ], [ %.01164, %33 ], [ %.4, %980 ]
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.64) #12
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %1009
-  %.111771553.le = ptrtoint ptr %.11177 to i64
-  %.511861554.le = ptrtoint ptr %.51186 to i64
-  %1023 = sub i64 %.111771553.le, %.511861554.le
-  %scevgep.le = getelementptr i8, ptr %.51186, i64 %1023
+.loopexit.loopexit:                               ; preds = %1007
+  %.111771554.le = ptrtoint ptr %.11177 to i64
+  %.511861555.le = ptrtoint ptr %.51186 to i64
+  %1021 = sub i64 %.111771554.le, %.511861555.le
+  %scevgep.le = getelementptr i8, ptr %.51186, i64 %1021
   br label %.loopexit
 
-.loopexit:                                        ; preds = %50, %54, %.loopexit.loopexit, %.loopexit1483
-  %.61412 = phi ptr [ %.21409, %.loopexit1483 ], [ %.51411, %.loopexit.loopexit ], [ %.01407, %54 ], [ %.01407, %50 ]
-  %.01204 = phi i32 [ 2, %.loopexit1483 ], [ 1, %.loopexit.loopexit ], [ 1, %50 ], [ 0, %54 ]
-  %.71199 = phi ptr [ %.31195, %.loopexit1483 ], [ %.61198, %.loopexit.loopexit ], [ %53, %50 ], [ %.21194, %54 ]
-  %.71188 = phi ptr [ %.31184, %.loopexit1483 ], [ %scevgep.le, %.loopexit.loopexit ], [ %51, %50 ], [ %.21183, %54 ]
-  %.41180 = phi ptr [ %.21178, %.loopexit1483 ], [ %.11177, %.loopexit.loopexit ], [ %43, %50 ], [ %.11177, %54 ]
-  %.9 = phi i32 [ %.2, %.loopexit1483 ], [ %.8, %.loopexit.loopexit ], [ %.01164, %54 ], [ %.01164, %50 ]
+.loopexit:                                        ; preds = %50, %54, %.loopexit.loopexit, %.loopexit1484
+  %.61413 = phi ptr [ %.21410, %.loopexit1484 ], [ %.51412, %.loopexit.loopexit ], [ %.01408, %54 ], [ %.01408, %50 ]
+  %.01204 = phi i32 [ 2, %.loopexit1484 ], [ 1, %.loopexit.loopexit ], [ 1, %50 ], [ 0, %54 ]
+  %.71199 = phi ptr [ %.31195, %.loopexit1484 ], [ %.61198, %.loopexit.loopexit ], [ %53, %50 ], [ %.21194, %54 ]
+  %.71188 = phi ptr [ %.31184, %.loopexit1484 ], [ %scevgep.le, %.loopexit.loopexit ], [ %51, %50 ], [ %.21183, %54 ]
+  %.41180 = phi ptr [ %.21178, %.loopexit1484 ], [ %.11177, %.loopexit.loopexit ], [ %43, %50 ], [ %.11177, %54 ]
+  %.9 = phi i32 [ %.2, %.loopexit1484 ], [ %.8, %.loopexit.loopexit ], [ %.01164, %54 ], [ %.01164, %50 ]
   %or.cond17 = icmp ult i32 %.9, 310
-  br i1 %or.cond17, label %.thread1453, label %yydestruct.exit1401
+  br i1 %or.cond17, label %.thread1454, label %yydestruct.exit1402
 
-.thread1453:                                      ; preds = %985, %.loopexit
-  %.6141214421471 = phi ptr [ %.61412, %.loopexit ], [ %.01407, %985 ]
-  %.0120414441469 = phi i32 [ %.01204, %.loopexit ], [ 1, %985 ]
-  %.7119914461467 = phi ptr [ %.71199, %.loopexit ], [ %.21194, %985 ]
-  %.7118814481465 = phi ptr [ %.71188, %.loopexit ], [ %.21183, %985 ]
-  %.4118014501463 = phi ptr [ %.41180, %.loopexit ], [ %.11177, %985 ]
-  %.914521461 = phi i32 [ %.9, %.loopexit ], [ 0, %985 ]
-  %1024 = zext nneg i32 %.914521461 to i64
-  %1025 = getelementptr inbounds [310 x i8], ptr @yytranslate, i64 0, i64 %1024
-  %1026 = load i8, ptr %1025, align 1
-  switch i8 %1026, label %yydestruct.exit1401 [
-    i8 9, label %.sink.split.i1400
-    i8 10, label %.sink.split.i1400
-    i8 11, label %.sink.split.i1400
-    i8 12, label %.sink.split.i1400
-    i8 13, label %.sink.split.i1400
-    i8 15, label %.sink.split.i1400
-    i8 16, label %.sink.split.i1400
-    i8 17, label %.sink.split.i1400
+.thread1454:                                      ; preds = %985, %.loopexit
+  %.6141314431472 = phi ptr [ %.61413, %.loopexit ], [ %.01408, %985 ]
+  %.0120414451470 = phi i32 [ %.01204, %.loopexit ], [ 1, %985 ]
+  %.7119914471468 = phi ptr [ %.71199, %.loopexit ], [ %.21194, %985 ]
+  %.7118814491466 = phi ptr [ %.71188, %.loopexit ], [ %.21183, %985 ]
+  %.4118014511464 = phi ptr [ %.41180, %.loopexit ], [ %.11177, %985 ]
+  %.914531462 = phi i32 [ %.9, %.loopexit ], [ 0, %985 ]
+  %1022 = zext nneg i32 %.914531462 to i64
+  %1023 = getelementptr inbounds [310 x i8], ptr @yytranslate, i64 0, i64 %1022
+  %1024 = load i8, ptr %1023, align 1
+  switch i8 %1024, label %yydestruct.exit1402 [
+    i8 9, label %.sink.split.i1401
+    i8 10, label %.sink.split.i1401
+    i8 11, label %.sink.split.i1401
+    i8 12, label %.sink.split.i1401
+    i8 13, label %.sink.split.i1401
+    i8 15, label %.sink.split.i1401
+    i8 16, label %.sink.split.i1401
+    i8 17, label %.sink.split.i1401
   ]
 
-.sink.split.i1400:                                ; preds = %.thread1453, %.thread1453, %.thread1453, %.thread1453, %.thread1453, %.thread1453, %.thread1453, %.thread1453
-  %1027 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %1027) #12
-  br label %yydestruct.exit1401
+.sink.split.i1401:                                ; preds = %.thread1454, %.thread1454, %.thread1454, %.thread1454, %.thread1454, %.thread1454, %.thread1454, %.thread1454
+  %1025 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %1025) #12
+  br label %yydestruct.exit1402
 
-yydestruct.exit1401:                              ; preds = %.sink.split.i1400, %.thread1453, %.loopexit
-  %.411801451 = phi ptr [ %.41180, %.loopexit ], [ %.4118014501463, %.thread1453 ], [ %.4118014501463, %.sink.split.i1400 ]
-  %.711881449 = phi ptr [ %.71188, %.loopexit ], [ %.7118814481465, %.thread1453 ], [ %.7118814481465, %.sink.split.i1400 ]
-  %.711991447 = phi ptr [ %.71199, %.loopexit ], [ %.7119914461467, %.thread1453 ], [ %.7119914461467, %.sink.split.i1400 ]
-  %.012041445 = phi i32 [ %.01204, %.loopexit ], [ %.0120414441469, %.thread1453 ], [ %.0120414441469, %.sink.split.i1400 ]
-  %.614121443 = phi ptr [ %.61412, %.loopexit ], [ %.6141214421471, %.thread1453 ], [ %.6141214421471, %.sink.split.i1400 ]
-  %.not13921517 = icmp eq ptr %.711881449, %.411801451
-  br i1 %.not13921517, label %._crit_edge, label %.lr.ph
+yydestruct.exit1402:                              ; preds = %.sink.split.i1401, %.thread1454, %.loopexit
+  %.411801452 = phi ptr [ %.41180, %.loopexit ], [ %.4118014511464, %.thread1454 ], [ %.4118014511464, %.sink.split.i1401 ]
+  %.711881450 = phi ptr [ %.71188, %.loopexit ], [ %.7118814491466, %.thread1454 ], [ %.7118814491466, %.sink.split.i1401 ]
+  %.711991448 = phi ptr [ %.71199, %.loopexit ], [ %.7119914471468, %.thread1454 ], [ %.7119914471468, %.sink.split.i1401 ]
+  %.012041446 = phi i32 [ %.01204, %.loopexit ], [ %.0120414451470, %.thread1454 ], [ %.0120414451470, %.sink.split.i1401 ]
+  %.614131444 = phi ptr [ %.61413, %.loopexit ], [ %.6141314431472, %.thread1454 ], [ %.6141314431472, %.sink.split.i1401 ]
+  %.not13921518 = icmp eq ptr %.711881450, %.411801452
+  br i1 %.not13921518, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %yydestruct.exit1401, %yydestruct.exit1403
-  %.811891519 = phi ptr [ %1034, %yydestruct.exit1403 ], [ %.711881449, %yydestruct.exit1401 ]
-  %.812001518 = phi ptr [ %1033, %yydestruct.exit1403 ], [ %.711991447, %yydestruct.exit1401 ]
-  %1028 = load i8, ptr %.811891519, align 1
-  %1029 = zext i8 %1028 to i64
-  %1030 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %1029
-  %1031 = load i8, ptr %1030, align 1
-  switch i8 %1031, label %yydestruct.exit1403 [
-    i8 9, label %.sink.split.i1402
-    i8 10, label %.sink.split.i1402
-    i8 11, label %.sink.split.i1402
-    i8 12, label %.sink.split.i1402
-    i8 13, label %.sink.split.i1402
-    i8 15, label %.sink.split.i1402
-    i8 16, label %.sink.split.i1402
-    i8 17, label %.sink.split.i1402
+.lr.ph:                                           ; preds = %yydestruct.exit1402, %yydestruct.exit1404
+  %.811891520 = phi ptr [ %1032, %yydestruct.exit1404 ], [ %.711881450, %yydestruct.exit1402 ]
+  %.812001519 = phi ptr [ %1031, %yydestruct.exit1404 ], [ %.711991448, %yydestruct.exit1402 ]
+  %1026 = load i8, ptr %.811891520, align 1
+  %1027 = zext i8 %1026 to i64
+  %1028 = getelementptr inbounds [216 x i8], ptr @yystos, i64 0, i64 %1027
+  %1029 = load i8, ptr %1028, align 1
+  switch i8 %1029, label %yydestruct.exit1404 [
+    i8 9, label %.sink.split.i1403
+    i8 10, label %.sink.split.i1403
+    i8 11, label %.sink.split.i1403
+    i8 12, label %.sink.split.i1403
+    i8 13, label %.sink.split.i1403
+    i8 15, label %.sink.split.i1403
+    i8 16, label %.sink.split.i1403
+    i8 17, label %.sink.split.i1403
   ]
 
-.sink.split.i1402:                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %1032 = load ptr, ptr %.812001518, align 8
-  call void @free(ptr noundef %1032) #12
-  br label %yydestruct.exit1403
+.sink.split.i1403:                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %1030 = load ptr, ptr %.812001519, align 8
+  call void @free(ptr noundef %1030) #12
+  br label %yydestruct.exit1404
 
-yydestruct.exit1403:                              ; preds = %.lr.ph, %.sink.split.i1402
-  %1033 = getelementptr inbounds i8, ptr %.812001518, i64 -8
-  %1034 = getelementptr inbounds i8, ptr %.811891519, i64 -1
-  %.not1392 = icmp eq ptr %1034, %.411801451
+yydestruct.exit1404:                              ; preds = %.lr.ph, %.sink.split.i1403
+  %1031 = getelementptr inbounds i8, ptr %.812001519, i64 -8
+  %1032 = getelementptr inbounds i8, ptr %.811891520, i64 -1
+  %.not1392 = icmp eq ptr %1032, %.411801452
   br i1 %.not1392, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %yydestruct.exit1403, %yydestruct.exit1401
-  %.not1393 = icmp eq ptr %.411801451, %4
-  br i1 %.not1393, label %1036, label %1035
+._crit_edge:                                      ; preds = %yydestruct.exit1404, %yydestruct.exit1402
+  %.not1393 = icmp eq ptr %.411801452, %4
+  br i1 %.not1393, label %1034, label %1033
 
-1035:                                             ; preds = %._crit_edge
-  call void @free(ptr noundef %.411801451) #12
+1033:                                             ; preds = %._crit_edge
+  call void @free(ptr noundef %.411801452) #12
+  br label %1034
+
+1034:                                             ; preds = %1033, %._crit_edge
+  %.not1394 = icmp eq ptr %.614131444, %6
+  br i1 %.not1394, label %1036, label %1035
+
+1035:                                             ; preds = %1034
+  call void @free(ptr noundef %.614131444) #12
   br label %1036
 
-1036:                                             ; preds = %1035, %._crit_edge
-  %.not1394 = icmp eq ptr %.614121443, %6
-  br i1 %.not1394, label %1038, label %1037
-
-1037:                                             ; preds = %1036
-  call void @free(ptr noundef %.614121443) #12
-  br label %1038
-
-1038:                                             ; preds = %1037, %1036
-  ret i32 %.012041445
+1036:                                             ; preds = %1035, %1034
+  ret i32 %.012041446
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

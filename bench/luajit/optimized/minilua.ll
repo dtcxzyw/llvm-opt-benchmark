@@ -44357,9 +44357,9 @@ entry:
 initthread-pre-split:                             ; preds = %initthread-pre-split.backedge, %entry
   %p.addr.0.ph = phi ptr [ %p, %entry ], [ %p.addr.0.ph.be, %initthread-pre-split.backedge ]
   %s.addr.0.ph = phi ptr [ %s, %entry ], [ %s.addr.0.ph.be, %initthread-pre-split.backedge ]
-  %s.addr.0.ph583 = ptrtoint ptr %s.addr.0.ph to i64
+  %s.addr.0.ph587 = ptrtoint ptr %s.addr.0.ph to i64
   %.pr = load i8, ptr %p.addr.0.ph, align 1
-  %1 = sub i64 0, %s.addr.0.ph583
+  %1 = sub i64 0, %s.addr.0.ph587
   br label %init
 
 init:                                             ; preds = %initthread-pre-split, %if.end106
@@ -44963,9 +44963,9 @@ while.cond.i.preheader:                           ; preds = %land.end
   br i1 %cmp75, label %land.rhs.i.lr.ph, label %while.body5.i.lr.ph
 
 land.rhs.i.lr.ph:                                 ; preds = %while.cond.i.preheader
-  %.lcssa530582 = ptrtoint ptr %57 to i64
+  %.lcssa583586 = ptrtoint ptr %57 to i64
   %add.ptr4.i257 = getelementptr inbounds i8, ptr %retval.0.i181, i64 -1
-  %67 = add i64 %indvars.iv, %.lcssa530582
+  %67 = add i64 %indvars.iv, %.lcssa583586
   br label %land.rhs.i
 
 sw.bb81:                                          ; preds = %land.end
@@ -45078,7 +45078,7 @@ while.end.i:                                      ; preds = %while.body.i214, %s
   br i1 %cmp3.i208512, label %while.body5.i.lr.ph, label %return
 
 while.body5.i.lr.ph:                              ; preds = %while.cond.i.preheader, %while.end.i
-  %i.0.i.lcssa598 = phi i64 [ %i.0.i.lcssa, %while.end.i ], [ 0, %while.cond.i.preheader ]
+  %i.0.i.lcssa602 = phi i64 [ %i.0.i.lcssa, %while.end.i ], [ 0, %while.cond.i.preheader ]
   %add.ptr7.i = getelementptr inbounds i8, ptr %retval.0.i181, i64 1
   br label %while.body5.i
 
@@ -45088,7 +45088,7 @@ while.cond2.i:                                    ; preds = %while.body5.i
   br i1 %cmp3.i208, label %while.body5.i, label %return, !llvm.loop !152
 
 while.body5.i:                                    ; preds = %while.body5.i.lr.ph, %while.cond2.i
-  %i.1.i513 = phi i64 [ %i.0.i.lcssa598, %while.body5.i.lr.ph ], [ %dec.i211, %while.cond2.i ]
+  %i.1.i513 = phi i64 [ %i.0.i.lcssa602, %while.body5.i.lr.ph ], [ %dec.i211, %while.cond2.i ]
   %add.ptr6.i = getelementptr inbounds i8, ptr %s.addr.0, i64 %i.1.i513
   %call8.i = tail call fastcc ptr @match(ptr noundef nonnull %ms, ptr noundef %add.ptr6.i, ptr noundef nonnull %add.ptr7.i)
   %tobool9.not.i = icmp eq ptr %call8.i, null
@@ -45202,7 +45202,7 @@ while.end.i221:                                   ; preds = %while.body.i237, %s
   br i1 %cmp3.i224503, label %while.body5.i226.lr.ph, label %return
 
 while.body5.i226.lr.ph:                           ; preds = %cond.true95, %while.end.i221
-  %i.0.i217.lcssa601 = phi i64 [ %i.0.i217.lcssa, %while.end.i221 ], [ 0, %cond.true95 ]
+  %i.0.i217.lcssa605 = phi i64 [ %i.0.i217.lcssa, %while.end.i221 ], [ 0, %cond.true95 ]
   %add.ptr7.i228 = getelementptr inbounds i8, ptr %retval.0.i181, i64 1
   br label %while.body5.i226
 
@@ -45212,7 +45212,7 @@ while.cond2.i222:                                 ; preds = %while.body5.i226
   br i1 %cmp3.i224, label %while.body5.i226, label %return, !llvm.loop !152
 
 while.body5.i226:                                 ; preds = %while.body5.i226.lr.ph, %while.cond2.i222
-  %i.1.i223504 = phi i64 [ %i.0.i217.lcssa601, %while.body5.i226.lr.ph ], [ %dec.i232, %while.cond2.i222 ]
+  %i.1.i223504 = phi i64 [ %i.0.i217.lcssa605, %while.body5.i226.lr.ph ], [ %dec.i232, %while.cond2.i222 ]
   %add.ptr6.i227 = getelementptr inbounds i8, ptr %add.ptr96, i64 %i.1.i223504
   %call8.i229 = tail call fastcc ptr @match(ptr noundef nonnull %ms, ptr noundef nonnull %add.ptr6.i227, ptr noundef nonnull %add.ptr7.i228)
   %tobool9.not.i230 = icmp eq ptr %call8.i229, null

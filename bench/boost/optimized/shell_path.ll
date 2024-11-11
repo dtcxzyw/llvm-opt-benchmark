@@ -69592,7 +69592,7 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit105.thread: ; preds =
   %331 = icmp eq i64 %.sroa.22.0327, %323
   %332 = getelementptr inbounds nuw i8, ptr %329, i64 %330
   %spec.select = select i1 %331, ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %329
-  %spec.select510 = select i1 %331, ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %332
+  %spec.select525 = select i1 %331, ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %332
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #55
   store ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %34, align 8, !tbaa !12
   store ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %82, align 8, !tbaa !14
@@ -69604,7 +69604,7 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit105.thread: ; preds =
   store ptr @_ZN5boost9unit_test13basic_cstringIKcE4nullE, ptr %84, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37) #55
   store ptr %spec.select, ptr %38, align 8, !tbaa !12
-  store ptr %spec.select510, ptr %85, align 8, !tbaa !14
+  store ptr %spec.select525, ptr %85, align 8, !tbaa !14
   %333 = invoke noundef zeroext i1 @_ZN5boost7runtime3cla6parser21validate_token_formatENS_9unit_test13basic_cstringIKcEERS6_S7_S7_Rb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 1 dereferenceable(1) %37)
           to label %334 unwind label %339
 
@@ -69634,7 +69634,7 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit105.thread: ; preds =
 
 342:                                              ; preds = %337, %341
   %.sroa.0151.2 = phi ptr [ %spec.store.select.i91, %337 ], [ %spec.select, %341 ]
-  %.sroa.13.2 = phi ptr [ %99, %337 ], [ %spec.select510, %341 ]
+  %.sroa.13.2 = phi ptr [ %99, %337 ], [ %spec.select525, %341 ]
   %343 = phi i1 [ true, %337 ], [ false, %341 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #55
@@ -69733,8 +69733,8 @@ _ZNKSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_pt
   br i1 %.not.i.i.i.i.i, label %380, label %379
 
 379:                                              ; preds = %371
-  %.not415 = icmp ult i64 %.fr.i.i.i, %378
-  br i1 %.not415, label %.thread, label %.loopexit
+  %.not430 = icmp ult i64 %.fr.i.i.i, %378
+  br i1 %.not430, label %.thread, label %.loopexit
 
 380:                                              ; preds = %371
   br i1 %.not12.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i
@@ -69756,8 +69756,8 @@ _ZNKSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_pt
   br i1 %.not.i.i.i3.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !297
 
 _ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not416 = icmp slt i8 %381, %382
-  br i1 %.not416, label %.thread, label %.loopexit
+  %.not431 = icmp slt i8 %381, %382
+  br i1 %.not431, label %.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %384, %380, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i, %379
   %388 = getelementptr inbounds nuw i8, ptr %167, i64 169

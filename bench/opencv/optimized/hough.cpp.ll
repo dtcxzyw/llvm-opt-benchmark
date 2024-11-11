@@ -12733,10 +12733,10 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit94:           ; preds = %.noexc93, %_ZN2cv10
   br label %76
 
 76:                                               ; preds = %.lr.ph158, %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit
-  %indvars.iv165 = phi i64 [ %75, %.lr.ph158 ], [ %indvars.iv.next166, %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit ]
+  %indvars.iv166 = phi i64 [ %75, %.lr.ph158 ], [ %indvars.iv.next167, %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit ]
   %77 = load ptr, ptr %59, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv165
+  %79 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv166
   %80 = load i32, ptr %79, align 4
   %81 = load i32, ptr %60, align 8
   %82 = sdiv i32 %80, %81
@@ -12757,7 +12757,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit94:           ; preds = %.noexc93, %_ZN2cv10
 
 .lr.ph.i.preheader:                               ; preds = %76
   %.pre = load float, ptr %62, align 8
-  %.pre168 = load float, ptr %63, align 4
+  %.pre169 = load float, ptr %63, align 4
   %95 = zext nneg i32 %93 to i64
   br label %.lr.ph.i
 
@@ -12775,7 +12775,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit94:           ; preds = %.noexc93, %_ZN2cv10
   %101 = fmul float %100, %100
   %102 = call float @llvm.fmuladd.f32(float %98, float %98, float %101)
   %103 = fcmp ugt float %.pre, %102
-  %104 = fcmp ugt float %102, %.pre168
+  %104 = fcmp ugt float %102, %.pre169
   %or.cond.i = select i1 %103, i1 true, i1 %104
   br i1 %or.cond.i, label %109, label %105
 
@@ -13009,32 +13009,32 @@ _ZNSt16allocator_traitsISaIN2cv15EstimatedCircleEEE9constructIS1_JS1_EEEvRS2_PT_
           to label %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit unwind label %.loopexit
 
 _ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN2cv15EstimatedCircleEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %188, %_ZNK2cv32HoughCircleEstimateRadiusInvokerINS_11NZPointListEE13filterCirclesERKNS_6Point_IfEEPf.exit.thread
-  %indvars.iv.next166 = add nsw i64 %indvars.iv165, 1
+  %indvars.iv.next167 = add nsw i64 %indvars.iv166, 1
   %189 = load i32, ptr %54, align 4
   %190 = sext i32 %189 to i64
-  %191 = icmp slt i64 %indvars.iv.next166, %190
+  %191 = icmp slt i64 %indvars.iv.next167, %190
   br i1 %191, label %76, label %._crit_edge159, !llvm.loop !158
 
 ._crit_edge159:                                   ; preds = %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit
-  %.pre169 = load ptr, ptr %3, align 8
-  %.pre170 = load ptr, ptr %73, align 8
+  %.pre170 = load ptr, ptr %3, align 8
+  %.pre171 = load ptr, ptr %73, align 8
   %192 = getelementptr inbounds i8, ptr %3, i64 8
-  %193 = icmp eq ptr %.pre169, %.pre170
+  %193 = icmp eq ptr %.pre170, %.pre171
   br i1 %193, label %._crit_edge159.thread, label %194
 
 194:                                              ; preds = %._crit_edge159
-  %195 = ptrtoint ptr %.pre170 to i64
-  %196 = ptrtoint ptr %.pre169 to i64
+  %195 = ptrtoint ptr %.pre171 to i64
+  %196 = ptrtoint ptr %.pre170 to i64
   %197 = sub i64 %195, %196
   %198 = ashr exact i64 %197, 4
   %199 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %198, i1 true)
   %200 = shl nuw nsw i64 %199, 1
   %201 = xor i64 %200, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.pre169, ptr %.pre170, i64 noundef %201, ptr nonnull @_ZN2cvL8cmpAccumERKNS_15EstimatedCircleES2_)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.pre170, ptr %.pre171, i64 noundef %201, ptr nonnull @_ZN2cvL8cmpAccumERKNS_15EstimatedCircleES2_)
           to label %.noexc102 unwind label %.loopexit.split-lp
 
 .noexc102:                                        ; preds = %194
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(ptr %.pre169, ptr %.pre170, ptr nonnull @_ZN2cvL8cmpAccumERKNS_15EstimatedCircleES2_)
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(ptr %.pre170, ptr %.pre171, ptr nonnull @_ZN2cvL8cmpAccumERKNS_15EstimatedCircleES2_)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit unwind label %.loopexit.split-lp
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit: ; preds = %.noexc102
@@ -13828,10 +13828,10 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit94:           ; preds = %.noexc93, %_ZN2cv10
   br label %76
 
 76:                                               ; preds = %.lr.ph160, %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit
-  %indvars.iv167 = phi i64 [ %75, %.lr.ph160 ], [ %indvars.iv.next168, %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit ]
+  %indvars.iv168 = phi i64 [ %75, %.lr.ph160 ], [ %indvars.iv.next169, %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit ]
   %77 = load ptr, ptr %59, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv167
+  %79 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv168
   %80 = load i32, ptr %79, align 4
   %81 = load i32, ptr %60, align 8
   %82 = sdiv i32 %80, %81
@@ -14149,32 +14149,32 @@ _ZNSt16allocator_traitsISaIN2cv15EstimatedCircleEEE9constructIS1_JS1_EEEvRS2_PT_
           to label %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit unwind label %.loopexit
 
 _ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN2cv15EstimatedCircleEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %216, %_ZNK2cv32HoughCircleEstimateRadiusInvokerINS_10NZPointSetEE13filterCirclesERKNS_6Point_IfEEPf.exit.thread
-  %indvars.iv.next168 = add nsw i64 %indvars.iv167, 1
+  %indvars.iv.next169 = add nsw i64 %indvars.iv168, 1
   %217 = load i32, ptr %54, align 4
   %218 = sext i32 %217 to i64
-  %219 = icmp slt i64 %indvars.iv.next168, %218
+  %219 = icmp slt i64 %indvars.iv.next169, %218
   br i1 %219, label %76, label %._crit_edge161, !llvm.loop !167
 
 ._crit_edge161:                                   ; preds = %_ZNSt6vectorIN2cv15EstimatedCircleESaIS1_EE9push_backEOS1_.exit
   %.pre = load ptr, ptr %3, align 8
-  %.pre170 = load ptr, ptr %73, align 8
+  %.pre171 = load ptr, ptr %73, align 8
   %220 = getelementptr inbounds i8, ptr %3, i64 8
-  %221 = icmp eq ptr %.pre, %.pre170
+  %221 = icmp eq ptr %.pre, %.pre171
   br i1 %221, label %._crit_edge161.thread, label %222
 
 222:                                              ; preds = %._crit_edge161
-  %223 = ptrtoint ptr %.pre170 to i64
+  %223 = ptrtoint ptr %.pre171 to i64
   %224 = ptrtoint ptr %.pre to i64
   %225 = sub i64 %223, %224
   %226 = ashr exact i64 %225, 4
   %227 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %226, i1 true)
   %228 = shl nuw nsw i64 %227, 1
   %229 = xor i64 %228, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.pre, ptr %.pre170, i64 noundef %229, ptr nonnull @_ZN2cvL8cmpAccumERKNS_15EstimatedCircleES2_)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.pre, ptr %.pre171, i64 noundef %229, ptr nonnull @_ZN2cvL8cmpAccumERKNS_15EstimatedCircleES2_)
           to label %.noexc102 unwind label %.loopexit.split-lp
 
 .noexc102:                                        ; preds = %222
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(ptr %.pre, ptr %.pre170, ptr nonnull @_ZN2cvL8cmpAccumERKNS_15EstimatedCircleES2_)
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(ptr %.pre, ptr %.pre171, ptr nonnull @_ZN2cvL8cmpAccumERKNS_15EstimatedCircleES2_)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit unwind label %.loopexit.split-lp
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit: ; preds = %.noexc102

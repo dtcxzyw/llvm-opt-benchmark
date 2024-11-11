@@ -368,7 +368,7 @@ FindNearSectors.exit:                             ; preds = %28
   %74 = fmul double %73, 3.600000e+02
   %75 = fmul double %74, 6.250000e-02
   %76 = zext nneg i32 %.1.i to i64
-  %wide.trip.count87 = zext nneg i32 %.1.i to i64
+  %wide.trip.count89 = zext nneg i32 %.1.i to i64
   br label %77
 
 .loopexit:                                        ; preds = %ToSpherical.exit, %77
@@ -376,21 +376,21 @@ FindNearSectors.exit:                             ; preds = %28
   %.sroa.4.1.lcssa = phi double [ %.sroa.4.070, %77 ], [ %.sroa.4.2, %ToSpherical.exit ]
   %.sroa.0.1.lcssa = phi double [ %.sroa.0.071, %77 ], [ %.sroa.0.2, %ToSpherical.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge, label %77, !llvm.loop !13
+  %exitcond90.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count89
+  br i1 %exitcond90.not, label %._crit_edge, label %77, !llvm.loop !13
 
 77:                                               ; preds = %.lr.ph73, %.loopexit
-  %indvars.iv84 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next85, %.loopexit ]
+  %indvars.iv85 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next86, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph73 ], [ %indvars.iv.next, %.loopexit ]
   %.sroa.0.071 = phi double [ 0.000000e+00, %.lr.ph73 ], [ %.sroa.0.1.lcssa, %.loopexit ]
   %.sroa.4.070 = phi double [ 0.000000e+00, %.lr.ph73 ], [ %.sroa.4.1.lcssa, %.loopexit ]
   %.sroa.5.069 = phi double [ 0.000000e+00, %.lr.ph73 ], [ %.sroa.5.1.lcssa, %.loopexit ]
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %78 = icmp samesign ult i64 %indvars.iv.next85, %76
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %78 = icmp samesign ult i64 %indvars.iv.next86, %76
   br i1 %78, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %77
-  %79 = getelementptr inbounds [25 x ptr], ptr %7, i64 0, i64 %indvars.iv84
+  %79 = getelementptr inbounds [25 x ptr], ptr %7, i64 0, i64 %indvars.iv85
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 8
   %82 = getelementptr inbounds i8, ptr %80, i64 16
@@ -600,7 +600,7 @@ ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cms
   %.sroa.4.2 = select i1 %or.cond79, double %.sroa.4.164, double %.sroa.247.2
   %.sroa.0.2 = select i1 %or.cond79, double %.sroa.0.165, double %sqrt.i
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count87
+  %exitcond.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count89
   br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %FindNearSectors.exit

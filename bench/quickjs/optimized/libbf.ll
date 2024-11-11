@@ -2318,18 +2318,18 @@ bf_resize.exit131.thread:                         ; preds = %193
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %bf_resize.exit131.thread
-  %wide.trip.count207 = zext nneg i32 %.133.i to i64
+  %wide.trip.count209 = zext nneg i32 %.133.i to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %206
-  %indvars.iv203 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next204, %206 ]
-  %197 = trunc i64 %indvars.iv203 to i32
+  %indvars.iv204 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next205, %206 ]
+  %197 = trunc i64 %indvars.iv204 to i32
   %198 = sub i32 %197, %.133.i
   %199 = add i32 %198, 5
   tail call fastcc void @limb_to_ntt(ptr noundef nonnull %106, ptr noundef %194, i64 noundef %146, ptr noundef %.085, i64 noundef %.086, i32 noundef %.2.i, i32 noundef %199, i32 noundef 1)
-  %200 = shl i64 %indvars.iv203, %144
+  %200 = shl i64 %indvars.iv204, %144
   %201 = getelementptr i64, ptr %167, i64 %200
-  %202 = trunc nuw nsw i64 %indvars.iv203 to i32
+  %202 = trunc nuw nsw i64 %indvars.iv204 to i32
   %203 = add i32 %169, %202
   %204 = sext i32 %203 to i64
   %205 = tail call fastcc i32 @ntt_conv(ptr noundef nonnull %106, ptr noundef %201, ptr noundef nonnull %194, i32 noundef %.136.i, i32 noundef %.136.i, i64 noundef %204)
@@ -2337,9 +2337,9 @@ bf_resize.exit131.thread:                         ; preds = %193
   br i1 %.not103.us, label %206, label %ntt_free.exit162
 
 206:                                              ; preds = %.lr.ph.split.us
-  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %exitcond208.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count207
-  br i1 %exitcond208.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !35
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %exitcond210.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count209
+  br i1 %exitcond210.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !35
 
 207:                                              ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2360,7 +2360,7 @@ bf_resize.exit131.thread:                         ; preds = %193
 
 ._crit_edge:                                      ; preds = %207, %206, %bf_resize.exit131.thread, %bf_resize.exit131
   %215 = phi i1 [ false, %bf_resize.exit131.thread ], [ false, %bf_resize.exit131 ], [ true, %206 ], [ true, %207 ]
-  %.1212 = phi ptr [ %194, %bf_resize.exit131.thread ], [ %182, %bf_resize.exit131 ], [ %194, %206 ], [ %182, %207 ]
+  %.1214 = phi ptr [ %194, %bf_resize.exit131.thread ], [ %182, %bf_resize.exit131 ], [ %194, %206 ], [ %182, %207 ]
   br i1 %.not97, label %216, label %ntt_free.exit145
 
 216:                                              ; preds = %._crit_edge
@@ -2386,7 +2386,7 @@ ntt_free.exit:                                    ; preds = %216, %219
   %.val.i.i = load ptr, ptr %.val104, align 8
   %225 = getelementptr i8, ptr %.val104, i64 8
   %.val3.i.i = load ptr, ptr %225, align 8
-  %226 = tail call ptr %.val3.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %.1212, i64 noundef 0) #17
+  %226 = tail call ptr %.val3.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %.1214, i64 noundef 0) #17
   %227 = load i64, ptr %217, align 8
   %.not.i137 = icmp eq i64 %107, %227
   br i1 %.not.i137, label %bf_resize.exit141.thread, label %228
@@ -2415,7 +2415,7 @@ ntt_free.exit145:                                 ; preds = %._crit_edge
   %.val.i.i143 = load ptr, ptr %.val, align 8
   %238 = getelementptr i8, ptr %.val, i64 8
   %.val3.i.i144 = load ptr, ptr %238, align 8
-  %239 = tail call ptr %.val3.i.i144(ptr noundef %.val.i.i143, ptr noundef nonnull %.1212, i64 noundef 0) #17
+  %239 = tail call ptr %.val3.i.i144(ptr noundef %.val.i.i143, ptr noundef nonnull %.1214, i64 noundef 0) #17
   br label %bf_resize.exit141.thread
 
 bf_resize.exit141.thread:                         ; preds = %ntt_free.exit, %237, %ntt_free.exit145
@@ -2647,11 +2647,11 @@ bf_resize.exit141.thread:                         ; preds = %ntt_free.exit, %237
   br i1 %exitcond228.not.i, label %._crit_edge174.i.loopexit, label %346, !llvm.loop !41
 
 ._crit_edge174.i.loopexit:                        ; preds = %346
-  %.pre209 = zext nneg i32 %.2.lcssa246.i to i64
+  %.pre211 = zext nneg i32 %.2.lcssa246.i to i64
   br label %._crit_edge174.i
 
 ._crit_edge174.i:                                 ; preds = %._crit_edge174.i.loopexit, %._crit_edge167.i
-  %.pre-phi = phi i64 [ %.pre209, %._crit_edge174.i.loopexit ], [ %263, %._crit_edge167.i ]
+  %.pre-phi = phi i64 [ %.pre211, %._crit_edge174.i.loopexit ], [ %263, %._crit_edge167.i ]
   %.1.lcssa.i = phi i64 [ %358, %._crit_edge174.i.loopexit ], [ %340, %._crit_edge167.i ]
   %360 = getelementptr [5 x i64], ptr %10, i64 0, i64 %.pre-phi
   %361 = load i64, ptr %360, align 8

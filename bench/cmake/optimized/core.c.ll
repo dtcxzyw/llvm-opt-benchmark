@@ -2284,8 +2284,8 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef %0, 
   %34 = load ptr, ptr %33, align 8
   tail call void @uv__free(ptr noundef %34) #22
   %35 = add nuw nsw i32 %.148, 1
-  %exitcond59.not = icmp eq i32 %35, %.03645
-  br i1 %exitcond59.not, label %._crit_edge50, label %31, !llvm.loop !19
+  %exitcond60.not = icmp eq i32 %35, %.03645
+  br i1 %exitcond60.not, label %._crit_edge50, label %31, !llvm.loop !19
 
 ._crit_edge50:                                    ; preds = %31, %.preheader
   %36 = load ptr, ptr %0, align 8

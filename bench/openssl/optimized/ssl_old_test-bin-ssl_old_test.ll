@@ -1315,10 +1315,10 @@ if.end641:                                        ; preds = %if.else497, %if.els
   br label %while.cond.outer, !llvm.loop !5
 
 bad.sink.split:                                   ; preds = %if.end73, %if.end559, %if.else564
-  %.lcssa1054.sink = phi ptr [ %8, %if.else564 ], [ %8, %if.end559 ], [ %27, %if.end73 ]
+  %.lcssa1060.sink = phi ptr [ %8, %if.else564 ], [ %8, %if.end559 ], [ %27, %if.end73 ]
   %.str.73.sink = phi ptr [ %.str.73..str.74, %if.else564 ], [ @.str.72, %if.end559 ], [ @.str.17, %if.end73 ]
   %.sink = load ptr, ptr @bio_err, align 8
-  %call568 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.sink, ptr noundef nonnull %.str.73.sink, ptr noundef %.lcssa1054.sink) #22
+  %call568 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.sink, ptr noundef nonnull %.str.73.sink, ptr noundef %.lcssa1060.sink) #22
   br label %bad
 
 bad:                                              ; preds = %if.then517, %if.then506, %if.then477, %if.then466, %if.then455, %if.then444, %if.then433, %if.then412, %if.then401, %if.then390, %if.then379, %if.then368, %if.then357, %if.then346, %if.then335, %if.then324, %if.then313, %if.then302, %if.then287, %if.then271, %if.then190, %if.then179, %if.then168, %if.then157, %if.then125, %if.then112, %if.then69, %bad.sink.split
@@ -2363,8 +2363,8 @@ if.end1235:                                       ; preds = %if.then1228, %if.en
 
 for.cond1237:                                     ; preds = %sw.epilog
   %inc1271 = add nuw nsw i32 %i.1582, 1
-  %exitcond913.not = icmp eq i32 %inc1271, %number.0.ph
-  br i1 %exitcond913.not, label %for.end1272, label %for.body1240, !llvm.loop !9
+  %exitcond919.not = icmp eq i32 %inc1271, %number.0.ph
+  br i1 %exitcond919.not, label %for.end1272, label %for.body1240, !llvm.loop !9
 
 for.body1240:                                     ; preds = %if.end1235, %for.cond1237
   %i.1582 = phi i32 [ %inc1271, %for.cond1237 ], [ 0, %if.end1235 ]

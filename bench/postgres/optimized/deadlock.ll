@@ -597,8 +597,8 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %22, label %67, label %.loopexit155.i.sink.split.i
 
 67:                                               ; preds = %._crit_edge.i.i
-  %68 = and i64 %65, 1
-  %69 = icmp eq i64 %68, 0
+  %68 = and i32 %.val.i, 1
+  %69 = icmp eq i32 %68, 0
   %70 = icmp ult i64 %66, 1025
   %or.cond3.i.i = select i1 %69, i1 %70, i1 false
   br i1 %or.cond3.i.i, label %71, label %.loopexit155.i.sink.split.i
@@ -625,8 +625,8 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %28, label %78, label %.loopexit154.i.sink.split.i
 
 78:                                               ; preds = %.loopexit155.i.i
-  %79 = and i64 %65, 1
-  %80 = icmp eq i64 %79, 0
+  %79 = and i32 %.val.i, 1
+  %80 = icmp eq i32 %79, 0
   %81 = icmp ult i64 %66, 1025
   %or.cond7.i.i = select i1 %80, i1 %81, i1 false
   br i1 %or.cond7.i.i, label %82, label %.loopexit154.i.sink.split.i

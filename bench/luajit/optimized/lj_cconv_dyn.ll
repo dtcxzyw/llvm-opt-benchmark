@@ -200,11 +200,11 @@ if.end.preheader:                                 ; preds = %entry
   %.in437.phi.trans.insert = getelementptr inbounds i8, ptr %d, i64 4
   %.pre = load i32, ptr %.in437.phi.trans.insert, align 4
   %.in.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 4
-  %.pre628 = load i32, ptr %.in.phi.trans.insert, align 4
+  %.pre650 = load i32, ptr %.in.phi.trans.insert, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.preheader, %if.then261
-  %2 = phi i32 [ %35, %if.then261 ], [ %.pre628, %if.end.preheader ]
+  %2 = phi i32 [ %35, %if.then261 ], [ %.pre650, %if.end.preheader ]
   %3 = phi i32 [ %34, %if.then261 ], [ %.pre, %if.end.preheader ]
   %4 = phi i32 [ %37, %if.then261 ], [ %1, %if.end.preheader ]
   %5 = phi i32 [ %36, %if.then261 ], [ %0, %if.end.preheader ]

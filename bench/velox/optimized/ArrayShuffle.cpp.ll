@@ -5045,8 +5045,8 @@ _ZSt4iotaIPiiEvT_S1_T0_.exit.i69.i.i.i.i.i.i:     ; preds = %for.body.i.i57.i.i.
 
 if.then3.i.i.i.i.i.i:                             ; preds = %_ZSt4iotaIPiiEvT_S1_T0_.exit.i69.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr9.i71.i.i.i.i.i.i, i64 4
-  %287 = and i64 %idx.ext6.i51.i.i.i.i.i.i, 1
-  %cmp4.i.i.i.i.i.i = icmp eq i64 %287, 0
+  %287 = and i32 %279, 1
+  %cmp4.i.i.i.i.i.i = icmp eq i32 %287, 0
   br i1 %cmp4.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i, label %if.end8.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i:                             ; preds = %if.then3.i.i.i.i.i.i

@@ -608,7 +608,7 @@ define dso_local void @_ZN5clang14FrontendAction24CreateWrappedASTConsumerERNS_1
   br i1 %.not253274, label %.critedge, label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %.preheader254, %_ZN4llvmeqENS_9StringRefES0_.exit.thread228.thread
-  %.sroa.0217.0276.ph = phi ptr [ %.sroa.0217.0298, %_ZN4llvmeqENS_9StringRefES0_.exit.thread228.thread ], [ %.sroa.0217.0273, %.preheader254 ]
+  %.sroa.0217.0276.ph = phi ptr [ %.sroa.0217.0299, %_ZN4llvmeqENS_9StringRefES0_.exit.thread228.thread ], [ %.sroa.0217.0273, %.preheader254 ]
   %.043275.ph = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread228.thread ], [ false, %.preheader254 ]
   br label %.lr.ph
 
@@ -640,9 +640,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread228:      ; preds = %.lr.ph, %_ZN4llvmeq
   br i1 %.not253, label %._crit_edge, label %.lr.ph
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread228.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %40
-  %.sroa.0217.0298 = load ptr, ptr %.sroa.0217.0276, align 8
-  %.not253299 = icmp eq ptr %.sroa.0217.0298, null
-  br i1 %.not253299, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %.lr.ph.outer
+  %.sroa.0217.0299 = load ptr, ptr %.sroa.0217.0276, align 8
+  %.not253300 = icmp eq ptr %.sroa.0217.0299, null
+  br i1 %.not253300, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %.lr.ph.outer
 
 ._crit_edge:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread228
   br i1 %.043275.ph, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %.critedge

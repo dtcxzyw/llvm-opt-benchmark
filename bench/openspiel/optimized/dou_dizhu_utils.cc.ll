@@ -2543,8 +2543,8 @@ switch.lookup:                                    ; preds = %59
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %70 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep90 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 0, i64 %70
-  %switch.load91 = load i32, ptr %switch.gep90, align 4
+  %switch.gep91 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 0, i64 %70
+  %switch.load92 = load i32, ptr %switch.gep91, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %71 = icmp slt i32 %.139, %switch.load
@@ -2555,7 +2555,7 @@ switch.lookup:                                    ; preds = %59
   br i1 %72, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %73 = add nuw nsw i32 %switch.load91, 13
+  %73 = add nuw nsw i32 %switch.load92, 13
   %74 = sub nuw nsw i32 12, %switch.load
   %75 = xor i32 %switch.load, -1
   %76 = add nsw i32 %.139, %75
@@ -2594,7 +2594,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   br label %common.resume
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader
-  %.024.lcssa = phi i32 [ %switch.load91, %.preheader ], [ %86, %.lr.ph.preheader ]
+  %.024.lcssa = phi i32 [ %switch.load92, %.preheader ], [ %86, %.lr.ph.preheader ]
   %92 = add nsw i32 %.024.lcssa, %.1
   ret i32 %92
 }

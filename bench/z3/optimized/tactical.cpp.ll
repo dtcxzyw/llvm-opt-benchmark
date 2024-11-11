@@ -17243,11 +17243,11 @@ lpad98:                                           ; preds = %if.end.i.i.i.i.i271
   br label %ehcleanup127
 
 if.end102:                                        ; preds = %invoke.cont99, %invoke.cont91
-  %.pre388 = load ptr, ptr %g, align 8
+  %.pre390 = load ptr, ptr %g, align 8
   br i1 %tobool.i30, label %invoke.cont106, label %if.end117
 
 invoke.cont106:                                   ; preds = %if.end102
-  %m_dc.i = getelementptr inbounds i8, ptr %.pre388, i64 24
+  %m_dc.i = getelementptr inbounds i8, ptr %.pre390, i64 24
   %94 = load ptr, ptr %m_dc.i, align 8
   %tobool108.not = icmp eq ptr %94, null
   br i1 %tobool108.not, label %if.end117, label %invoke.cont111
@@ -17268,7 +17268,7 @@ _ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 
 if.end117:                                        ; preds = %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_ED2Ev.exit, %invoke.cont106, %if.end102
   %97 = phi ptr [ %96, %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_ED2Ev.exit ], [ null, %invoke.cont106 ], [ null, %if.end102 ]
-  %98 = phi ptr [ %.pre, %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_ED2Ev.exit ], [ %.pre388, %invoke.cont106 ], [ %.pre388, %if.end102 ]
+  %98 = phi ptr [ %.pre, %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_ED2Ev.exit ], [ %.pre390, %invoke.cont106 ], [ %.pre390, %if.end102 ]
   %m_false.i = getelementptr inbounds i8, ptr %4, i64 864
   %99 = load ptr, ptr %m_false.i, align 8
   %100 = load ptr, ptr %pr, align 8

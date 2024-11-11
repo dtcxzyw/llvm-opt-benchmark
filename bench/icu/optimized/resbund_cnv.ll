@@ -62,14 +62,13 @@ invoke.cont:                                      ; preds = %if.else
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i)
   %fUnion.i5 = getelementptr inbounds i8, ptr %nullTerminatedPath, i64 8
   %2 = load i16, ptr %fUnion.i5, align 8
-  %conv1.i = zext i16 %2 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %3 = and i16 %2, 17
+  %tobool.not.i = icmp eq i16 %3, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %invoke.cont
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %4 = and i16 %2, 2
+  %tobool6.not.i = icmp eq i16 %4, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -78,14 +77,14 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %nullTerminatedPath, i64 24
-  %3 = load ptr, ptr %fArray.i, align 8
+  %5 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %invoke.cont, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %3, %if.else9.i ], [ null, %invoke.cont ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %invoke.cont ]
   %fullName.i6 = getelementptr inbounds i8, ptr %locale, i64 40
-  %4 = load ptr, ptr %fullName.i6, align 8
-  %call10 = invoke ptr @ures_openU_75(ptr noundef %retval.0.i, ptr noundef %4, ptr noundef nonnull %error)
+  %6 = load ptr, ptr %fullName.i6, align 8
+  %call10 = invoke ptr @ures_openU_75(ptr noundef %retval.0.i, ptr noundef %6, ptr noundef nonnull %error)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
@@ -95,10 +94,10 @@ invoke.cont9:                                     ; preds = %_ZNK6icu_7513Unicod
   br label %if.end
 
 lpad:                                             ; preds = %if.else, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nullTerminatedPath) #4
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %7
 
 if.end:                                           ; preds = %invoke.cont9, %if.then
   ret void

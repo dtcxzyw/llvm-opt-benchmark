@@ -2594,17 +2594,17 @@ entry:
   %cmp = icmp ne ptr %ctx, null
   %0 = and i16 %keySz, -32761
   %1 = icmp eq i16 %0, 0
-  %or.cond7 = and i1 %cmp, %1
-  br i1 %or.cond7, label %if.end, label %return
+  %or.cond6 = and i1 %cmp, %1
+  br i1 %or.cond6, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %div6 = lshr exact i16 %keySz, 3
+  %2 = lshr exact i16 %keySz, 3
   %minEccKeySz = getelementptr inbounds i8, ptr %ctx, i64 180
-  store i16 %div6, ptr %minEccKeySz, align 4
+  store i16 %2, ptr %minEccKeySz, align 4
   %cm = getelementptr inbounds i8, ptr %ctx, i64 144
-  %2 = load ptr, ptr %cm, align 8
-  %minEccKeySz12 = getelementptr inbounds i8, ptr %2, i64 212
-  store i16 %div6, ptr %minEccKeySz12, align 4
+  %3 = load ptr, ptr %cm, align 8
+  %minEccKeySz12 = getelementptr inbounds i8, ptr %3, i64 212
+  store i16 %2, ptr %minEccKeySz12, align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2618,13 +2618,13 @@ entry:
   %cmp = icmp ne ptr %ssl, null
   %0 = and i16 %keySz, -32761
   %1 = icmp eq i16 %0, 0
-  %or.cond5 = and i1 %cmp, %1
-  br i1 %or.cond5, label %if.end, label %return
+  %or.cond4 = and i1 %cmp, %1
+  br i1 %or.cond4, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %div4 = lshr exact i16 %keySz, 3
+  %2 = lshr exact i16 %keySz, 3
   %minEccKeySz = getelementptr inbounds i8, ptr %ssl, i64 1040
-  store i16 %div4, ptr %minEccKeySz, align 8
+  store i16 %2, ptr %minEccKeySz, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2638,17 +2638,17 @@ entry:
   %cmp = icmp ne ptr %ctx, null
   %0 = and i16 %keySz, -32761
   %1 = icmp eq i16 %0, 0
-  %or.cond7 = and i1 %cmp, %1
-  br i1 %or.cond7, label %if.end, label %return
+  %or.cond6 = and i1 %cmp, %1
+  br i1 %or.cond6, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %div6 = lshr exact i16 %keySz, 3
+  %2 = lshr exact i16 %keySz, 3
   %minRsaKeySz = getelementptr inbounds i8, ptr %ctx, i64 178
-  store i16 %div6, ptr %minRsaKeySz, align 2
+  store i16 %2, ptr %minRsaKeySz, align 2
   %cm = getelementptr inbounds i8, ptr %ctx, i64 144
-  %2 = load ptr, ptr %cm, align 8
-  %minRsaKeySz12 = getelementptr inbounds i8, ptr %2, i64 210
-  store i16 %div6, ptr %minRsaKeySz12, align 2
+  %3 = load ptr, ptr %cm, align 8
+  %minRsaKeySz12 = getelementptr inbounds i8, ptr %3, i64 210
+  store i16 %2, ptr %minRsaKeySz12, align 2
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2662,13 +2662,13 @@ entry:
   %cmp = icmp ne ptr %ssl, null
   %0 = and i16 %keySz, -32761
   %1 = icmp eq i16 %0, 0
-  %or.cond5 = and i1 %cmp, %1
-  br i1 %or.cond5, label %if.end, label %return
+  %or.cond4 = and i1 %cmp, %1
+  br i1 %or.cond4, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %div4 = lshr exact i16 %keySz, 3
+  %2 = lshr exact i16 %keySz, 3
   %minRsaKeySz = getelementptr inbounds i8, ptr %ssl, i64 1038
-  store i16 %div4, ptr %minRsaKeySz, align 2
+  store i16 %2, ptr %minRsaKeySz, align 2
   br label %return
 
 return:                                           ; preds = %entry, %if.end

@@ -2489,14 +2489,13 @@ invoke.cont65:                                    ; preds = %for.inc
 
 invoke.cont71:                                    ; preds = %invoke.cont65
   %12 = load i16, ptr %fUnion2.i28, align 8
-  %conv1.i = zext i16 %12 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %13 = and i16 %12, 17
+  %tobool.not.i = icmp eq i16 %13, 0
   br i1 %tobool.not.i, label %if.else.i, label %invoke.cont75
 
 if.else.i:                                        ; preds = %invoke.cont71
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %14 = and i16 %12, 2
+  %tobool6.not.i = icmp eq i16 %14, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -2505,17 +2504,17 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %canonicalCompositionTrie, i64 24
-  %13 = load ptr, ptr %fArray.i, align 8
+  %15 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont75
 
 invoke.cont75:                                    ; preds = %if.else9.i, %if.then7.i, %invoke.cont71
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %13, %if.else9.i ], [ null, %invoke.cont71 ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %15, %if.else9.i ], [ null, %invoke.cont71 ]
   %cmp.i.i30 = icmp slt i16 %12, 0
-  %14 = ashr i16 %12, 5
-  %shr.i.i = sext i16 %14 to i32
+  %16 = ashr i16 %12, 5
+  %shr.i.i = sext i16 %16 to i32
   %fLength.i = getelementptr inbounds i8, ptr %canonicalCompositionTrie, i64 12
-  %15 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i30, i32 %15, i32 %shr.i.i
+  %17 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i30, i32 %17, i32 %shr.i.i
   invoke void @usrc_writeArray(ptr noundef nonnull %call, ptr noundef nonnull @.str.44, ptr noundef %retval.0.i, i32 noundef 16, i32 noundef %cond.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
           to label %invoke.cont77 unwind label %lpad66
 
@@ -2528,26 +2527,26 @@ _ZN6icu_7512LocalPointerINS_17UCharsTrieBuilderEED2Ev.exit: ; preds = %invoke.co
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalCompositionTrie) #25
   %vtable.i = load ptr, ptr %call1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %16 = load ptr, ptr %vfn.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(112) %call1) #25
+  %18 = load ptr, ptr %vfn.i, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(112) %call1) #25
   call void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %status) #25
   ret void
 
 lpad66:                                           ; preds = %invoke.cont77, %invoke.cont75, %invoke.cont65
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalCompositionTrie) #25
   br label %ehcleanup82
 
 ehcleanup82:                                      ; preds = %lpad66, %ehcleanup, %lpad9
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad9 ], [ %17, %lpad66 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad9 ], [ %19, %lpad66 ]
   br i1 %new.isnull, label %ehcleanup83, label %delete.notnull.i32
 
 delete.notnull.i32:                               ; preds = %ehcleanup82
   %vtable.i33 = load ptr, ptr %call1, align 8
   %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 8
-  %18 = load ptr, ptr %vfn.i34, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(112) %call1) #25
+  %20 = load ptr, ptr %vfn.i34, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(112) %call1) #25
   br label %ehcleanup83
 
 ehcleanup83:                                      ; preds = %delete.notnull.i32, %ehcleanup82, %lpad2, %lpad

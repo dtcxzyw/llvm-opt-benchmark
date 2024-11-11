@@ -824,172 +824,171 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet13clone_barrierEP7oopD
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef signext i8 @_ZNK14ShenandoahHeap8gc_stateEv(ptr noundef nonnull align 8 dereferenceable(2657) %6) #12
-  %8 = zext i8 %7 to i32
-  %9 = and i32 %8, 2
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %53, label %10
+  %8 = and i8 %7, 2
+  %.not = icmp eq i8 %8, 0
+  br i1 %.not, label %52, label %9
 
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 2248
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %1 to i64
-  %15 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %16 = lshr i64 %14, %15
-  %17 = getelementptr inbounds i8, ptr %13, i64 56
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %16
-  %20 = load ptr, ptr %19, align 8
-  %.not.i = icmp ult ptr %1, %20
-  br i1 %.not.i, label %21, label %_ZN20ShenandoahBarrierSet13clone_markingEP7oopDesc.exit
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 2248
+  %12 = load ptr, ptr %11, align 8
+  %13 = ptrtoint ptr %1 to i64
+  %14 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %15 = lshr i64 %13, %14
+  %16 = getelementptr inbounds i8, ptr %12, i64 56
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds ptr, ptr %17, i64 %15
+  %19 = load ptr, ptr %18, align 8
+  %.not.i = icmp ult ptr %1, %19
+  br i1 %.not.i, label %20, label %_ZN20ShenandoahBarrierSet13clone_markingEP7oopDesc.exit
 
-21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr null, ptr %22, align 8
+20:                                               ; preds = %9
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EE, i64 16), ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  %24 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 24
-  %26 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
-  %28 = getelementptr inbounds i8, ptr %24, i64 2440
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 40
-  %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %30, align 8
-  %33 = load i8, ptr @UseCompressedClassPointers, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %34, label %36, label %46
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %25 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = getelementptr inbounds i8, ptr %23, i64 2440
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %4, i64 40
+  %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %29, align 8
+  %32 = load i8, ptr @UseCompressedClassPointers, align 1
+  %33 = trunc i8 %32 to i1
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %33, label %35, label %45
 
-36:                                               ; preds = %21
-  %37 = load i32, ptr %35, align 8
-  %38 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %39 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %40 = ptrtoint ptr %38 to i64
-  %41 = zext i32 %37 to i64
-  %42 = zext nneg i32 %39 to i64
-  %43 = shl i64 %41, %42
-  %44 = add i64 %43, %40
-  %45 = inttoptr i64 %44 to ptr
+35:                                               ; preds = %20
+  %36 = load i32, ptr %34, align 8
+  %37 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %38 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %39 = ptrtoint ptr %37 to i64
+  %40 = zext i32 %36 to i64
+  %41 = zext nneg i32 %38 to i64
+  %42 = shl i64 %40, %41
+  %43 = add i64 %42, %39
+  %44 = inttoptr i64 %43 to ptr
   br label %_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEEEvPT_.exit.i
 
-46:                                               ; preds = %21
-  %47 = load ptr, ptr %35, align 8
+45:                                               ; preds = %20
+  %46 = load ptr, ptr %34, align 8
   br label %_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEEEvPT_.exit.i
 
-_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEEEvPT_.exit.i: ; preds = %46, %36
-  %.0.i.i.i = phi ptr [ %45, %36 ], [ %47, %46 ]
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
-  %49 = load i32, ptr %48, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEE6_tableE, i64 0, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i) #12
+_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEEEvPT_.exit.i: ; preds = %45, %35
+  %.0.i.i.i = phi ptr [ %44, %35 ], [ %46, %45 ]
+  %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
+  %48 = load i32, ptr %47, align 4
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEE6_tableE, i64 0, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i) #12
   br label %_ZN20ShenandoahBarrierSet13clone_markingEP7oopDesc.exit
 
-_ZN20ShenandoahBarrierSet13clone_markingEP7oopDesc.exit: ; preds = %10, %_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEEEvPT_.exit.i
+_ZN20ShenandoahBarrierSet13clone_markingEP7oopDesc.exit: ; preds = %9, %_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEEEvPT_.exit.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  br label %108
+  br label %107
 
-53:                                               ; preds = %2
-  %54 = and i32 %8, 4
-  %.not5 = icmp eq i32 %54, 0
-  br i1 %.not5, label %56, label %55
+52:                                               ; preds = %2
+  %53 = and i8 %7, 4
+  %.not5 = icmp eq i8 %53, 0
+  br i1 %.not5, label %55, label %54
 
-55:                                               ; preds = %53
+54:                                               ; preds = %52
   tail call void @_ZN20ShenandoahBarrierSet16clone_evacuationEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %0, ptr noundef %1)
-  br label %108
+  br label %107
 
-56:                                               ; preds = %53
+55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  %57 = load ptr, ptr %5, align 8
-  %58 = ptrtoint ptr %1 to i64
-  %59 = getelementptr inbounds i8, ptr %57, i64 520
-  %60 = load ptr, ptr %59, align 8
-  %61 = ptrtoint ptr %60 to i64
-  %62 = sub i64 %58, %61
-  %63 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %64 = lshr i64 %62, %63
-  %65 = getelementptr inbounds i8, ptr %57, i64 544
-  %66 = load i64, ptr %65, align 8
-  %67 = icmp ult i64 %64, %66
-  br i1 %67, label %68, label %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
+  %56 = load ptr, ptr %5, align 8
+  %57 = ptrtoint ptr %1 to i64
+  %58 = getelementptr inbounds i8, ptr %56, i64 520
+  %59 = load ptr, ptr %58, align 8
+  %60 = ptrtoint ptr %59 to i64
+  %61 = sub i64 %57, %60
+  %62 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %63 = lshr i64 %61, %62
+  %64 = getelementptr inbounds i8, ptr %56, i64 544
+  %65 = load i64, ptr %64, align 8
+  %66 = icmp ult i64 %63, %65
+  br i1 %66, label %67, label %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
 
-68:                                               ; preds = %56
-  %69 = getelementptr inbounds i8, ptr %57, i64 552
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %64
-  %72 = load ptr, ptr %71, align 8
+67:                                               ; preds = %55
+  %68 = getelementptr inbounds i8, ptr %56, i64 552
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds ptr, ptr %69, i64 %63
+  %71 = load ptr, ptr %70, align 8
   br label %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
 
-_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %68, %56
-  %.0.i.i.i.i = phi ptr [ %72, %68 ], [ null, %56 ]
-  %73 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 88
-  %74 = load volatile ptr, ptr %73, align 8
+_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %67, %55
+  %.0.i.i.i.i = phi ptr [ %71, %67 ], [ null, %55 ]
+  %72 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 88
+  %73 = load volatile ptr, ptr %72, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  %75 = icmp ult ptr %1, %74
-  br i1 %75, label %76, label %_ZN20ShenandoahBarrierSet12clone_updateEP7oopDesc.exit
+  %74 = icmp ult ptr %1, %73
+  br i1 %74, label %75, label %_ZN20ShenandoahBarrierSet12clone_updateEP7oopDesc.exit
 
-76:                                               ; preds = %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %77, align 8
+75:                                               ; preds = %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
+  %76 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %76, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EE, i64 16), ptr %3, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 16
-  %79 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %79, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %3, i64 24
-  %81 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  store ptr %81, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 32
-  %83 = getelementptr inbounds i8, ptr %79, i64 2440
-  %84 = load ptr, ptr %83, align 8
-  store ptr %84, ptr %82, align 8
-  %85 = getelementptr inbounds i8, ptr %3, i64 40
-  %86 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %87 = load ptr, ptr %86, align 8
-  store ptr %87, ptr %85, align 8
-  %88 = load i8, ptr @UseCompressedClassPointers, align 1
-  %89 = trunc i8 %88 to i1
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %89, label %91, label %101
+  %77 = getelementptr inbounds i8, ptr %3, i64 16
+  %78 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  store ptr %78, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %3, i64 24
+  %80 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  store ptr %80, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %3, i64 32
+  %82 = getelementptr inbounds i8, ptr %78, i64 2440
+  %83 = load ptr, ptr %82, align 8
+  store ptr %83, ptr %81, align 8
+  %84 = getelementptr inbounds i8, ptr %3, i64 40
+  %85 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %86 = load ptr, ptr %85, align 8
+  store ptr %86, ptr %84, align 8
+  %87 = load i8, ptr @UseCompressedClassPointers, align 1
+  %88 = trunc i8 %87 to i1
+  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %88, label %90, label %100
 
-91:                                               ; preds = %76
-  %92 = load i32, ptr %90, align 8
-  %93 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %94 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %95 = ptrtoint ptr %93 to i64
-  %96 = zext i32 %92 to i64
-  %97 = zext nneg i32 %94 to i64
-  %98 = shl i64 %96, %97
-  %99 = add i64 %98, %95
-  %100 = inttoptr i64 %99 to ptr
+90:                                               ; preds = %75
+  %91 = load i32, ptr %89, align 8
+  %92 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %93 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %94 = ptrtoint ptr %92 to i64
+  %95 = zext i32 %91 to i64
+  %96 = zext nneg i32 %93 to i64
+  %97 = shl i64 %95, %96
+  %98 = add i64 %97, %94
+  %99 = inttoptr i64 %98 to ptr
   br label %_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEEEvPT_.exit.i
 
-101:                                              ; preds = %76
-  %102 = load ptr, ptr %90, align 8
+100:                                              ; preds = %75
+  %101 = load ptr, ptr %89, align 8
   br label %_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEEEvPT_.exit.i
 
-_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEEEvPT_.exit.i: ; preds = %101, %91
-  %.0.i.i.i6 = phi ptr [ %100, %91 ], [ %102, %101 ]
-  %103 = getelementptr inbounds i8, ptr %.0.i.i.i6, i64 12
-  %104 = load i32, ptr %103, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEE6_tableE, i64 0, i64 %105
-  %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i6) #12
+_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEEEvPT_.exit.i: ; preds = %100, %90
+  %.0.i.i.i6 = phi ptr [ %99, %90 ], [ %101, %100 ]
+  %102 = getelementptr inbounds i8, ptr %.0.i.i.i6, i64 12
+  %103 = load i32, ptr %102, align 4
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEE6_tableE, i64 0, i64 %104
+  %106 = load ptr, ptr %105, align 8
+  call void %106(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i6) #12
   br label %_ZN20ShenandoahBarrierSet12clone_updateEP7oopDesc.exit
 
 _ZN20ShenandoahBarrierSet12clone_updateEP7oopDesc.exit: ; preds = %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i, %_ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEEEvPT_.exit.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %108
+  br label %107
 
-108:                                              ; preds = %55, %_ZN20ShenandoahBarrierSet12clone_updateEP7oopDesc.exit, %_ZN20ShenandoahBarrierSet13clone_markingEP7oopDesc.exit
+107:                                              ; preds = %54, %_ZN20ShenandoahBarrierSet12clone_updateEP7oopDesc.exit, %_ZN20ShenandoahBarrierSet13clone_markingEP7oopDesc.exit
   ret void
 }
 

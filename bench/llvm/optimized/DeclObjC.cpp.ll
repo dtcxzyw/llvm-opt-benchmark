@@ -9625,7 +9625,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i53: ; preds = %_ZNK5cla
   br label %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i
 
 _ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i: ; preds = %34, %28
-  %.0.copyload.i.i.i.i.i.i68299 = phi i64 [ %.0.copyload.i.i.i.i3.pre.i.i.i, %34 ], [ %.0.copyload.i.i.i.i2.i.i.i, %28 ]
+  %.0.copyload.i.i.i.i.i.i68301 = phi i64 [ %.0.copyload.i.i.i.i3.pre.i.i.i, %34 ], [ %.0.copyload.i.i.i.i2.i.i.i, %28 ]
   %.pre-phi6.i.i.i = phi ptr [ %.pre5.i.i.i, %34 ], [ %30, %28 ]
   %42 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i.i.i, i64 56
   %43 = load ptr, ptr %42, align 8
@@ -9654,8 +9654,8 @@ _ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.i.i.
   %54 = tail call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #23
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i57, i64 128
   %56 = load ptr, ptr %55, align 8
-  %.not1.i.i370 = icmp eq ptr %56, null
-  br i1 %.not1.i.i370, label %._crit_edge.loopexit, label %.lr.ph.i.i
+  %.not1.i.i372 = icmp eq ptr %56, null
+  br i1 %.not1.i.i372, label %._crit_edge.loopexit, label %.lr.ph.i.i
 
 _ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i: ; preds = %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.i.i.i.i, %.lr.ph.i.i.i.i56
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i57, i64 128
@@ -9703,7 +9703,7 @@ _ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thre
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i53, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i, %._crit_edge.loopexit
-  %.0.copyload.i.i.i.i.i.i68 = phi i64 [ %.0.copyload.i.i.i.i.i.i68.pre, %._crit_edge.loopexit ], [ %.0.copyload.i.i.i.i2.i.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i53 ], [ %.0.copyload.i.i.i.i.i.i68299, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i ], [ %.0.copyload.i.i.i.i.i.i68299, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i ]
+  %.0.copyload.i.i.i.i.i.i68 = phi i64 [ %.0.copyload.i.i.i.i.i.i68.pre, %._crit_edge.loopexit ], [ %.0.copyload.i.i.i.i2.i.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i53 ], [ %.0.copyload.i.i.i.i.i.i68301, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i ], [ %.0.copyload.i.i.i.i.i.i68301, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i ]
   %.not.i.i.i.i69 = icmp eq i64 %.0.copyload.i.i.i.i.i.i68, 0
   br i1 %.not.i.i.i.i69, label %74, label %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i70
 
@@ -9765,15 +9765,15 @@ _ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i72: ; preds = %_ZNK5clang17Obj
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 88
   %99 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterfaceDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull %97)
-  %.0.copyload.i.i.i.i.i.i105.pre301.pre = load i64, ptr %3, align 8
+  %.0.copyload.i.i.i.i.i.i105.pre303.pre = load i64, ptr %3, align 8
   br label %_ZNK5clang17ObjCInterfaceDecl10ivar_emptyEv.exit86
 
 _ZNK5clang17ObjCInterfaceDecl10ivar_emptyEv.exit86: ; preds = %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i72, %95
-  %.0.copyload.i.i.i.i.i.i105.pre301 = phi i64 [ %.0.copyload.i.i.i.i.i1.i74, %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i72 ], [ %.0.copyload.i.i.i.i.i.i105.pre301.pre, %95 ]
+  %.0.copyload.i.i.i.i.i.i105.pre303 = phi i64 [ %.0.copyload.i.i.i.i.i1.i74, %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i72 ], [ %.0.copyload.i.i.i.i.i.i105.pre303.pre, %95 ]
   br i1 %.sroa.0.0.i.i73, label %.loopexit255, label %100
 
 100:                                              ; preds = %_ZNK5clang17ObjCInterfaceDecl10ivar_emptyEv.exit86
-  %.not.i.i.i87 = icmp eq i64 %.0.copyload.i.i.i.i.i.i105.pre301, 0
+  %.not.i.i.i87 = icmp eq i64 %.0.copyload.i.i.i.i.i.i105.pre303, 0
   br i1 %.not.i.i.i87, label %101, label %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i
 
 101:                                              ; preds = %100
@@ -9785,7 +9785,7 @@ _ZNK5clang17ObjCInterfaceDecl10ivar_emptyEv.exit86: ; preds = %_ZNK5clang17ObjCI
   br label %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i
 
 _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i: ; preds = %101, %100
-  %.0.copyload.i.i.i1.i.i = phi i64 [ %.0.copyload.i.i.i.pre.i.i.i, %101 ], [ %.0.copyload.i.i.i.i.i.i105.pre301, %100 ]
+  %.0.copyload.i.i.i1.i.i = phi i64 [ %.0.copyload.i.i.i.pre.i.i.i, %101 ], [ %.0.copyload.i.i.i.i.i.i105.pre303, %100 ]
   %106 = icmp ugt i64 %.0.copyload.i.i.i1.i.i, 7
   br i1 %106, label %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i, label %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit
 
@@ -9854,8 +9854,8 @@ _ZNK5clang17ObjCInterfaceDecl8ivar_endEv.exit:    ; preds = %_ZNK5clang17ObjCInt
   br i1 %135, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit.thread, label %140
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit.thread: ; preds = %.lr.ph.i.i95
-  %.0.copyload.i.i.i.i97316 = load i64, ptr %3, align 8
-  %136 = and i64 %.0.copyload.i.i.i.i97316, -8
+  %.0.copyload.i.i.i.i97318 = load i64, ptr %3, align 8
+  %136 = and i64 %.0.copyload.i.i.i.i97318, -8
   %137 = inttoptr i64 %136 to ptr
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
   %139 = load ptr, ptr %138, align 8
@@ -9922,7 +9922,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit104: 
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit255.loopexit, %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit, %_ZNK5clang17ObjCInterfaceDecl10ivar_emptyEv.exit86
-  %.0.copyload.i.i.i.i.i.i105 = phi i64 [ %.0.copyload.i.i.i.i.i.i105.pre301, %_ZNK5clang17ObjCInterfaceDecl10ivar_emptyEv.exit86 ], [ %.0.copyload.i.i.i.i97, %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit ], [ %.0.copyload.i.i.i.i.i.i105.pre, %.loopexit255.loopexit ]
+  %.0.copyload.i.i.i.i.i.i105 = phi i64 [ %.0.copyload.i.i.i.i.i.i105.pre303, %_ZNK5clang17ObjCInterfaceDecl10ivar_emptyEv.exit86 ], [ %.0.copyload.i.i.i.i97, %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit ], [ %.0.copyload.i.i.i.i.i.i105.pre, %.loopexit255.loopexit ]
   %.140 = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl10ivar_emptyEv.exit86 ], [ %147, %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit ], [ %.sroa.0228.0264, %.loopexit255.loopexit ]
   %.not.i.i.i.i106 = icmp eq i64 %.0.copyload.i.i.i.i.i.i105, 0
   br i1 %.not.i.i.i.i106, label %160, label %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i107
@@ -9965,7 +9965,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i107: ; preds = %160, %.
   br label %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i116
 
 _ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i116: ; preds = %172, %166
-  %.0.copyload.i.i.i.i168305 = phi i64 [ %.0.copyload.i.i.i.i3.pre.i.i.i113, %172 ], [ %.0.copyload.i.i.i.i2.i.i.i108, %166 ]
+  %.0.copyload.i.i.i.i168307 = phi i64 [ %.0.copyload.i.i.i.i3.pre.i.i.i113, %172 ], [ %.0.copyload.i.i.i.i2.i.i.i108, %166 ]
   %.pre-phi6.i.i.i117 = phi ptr [ %.pre5.i.i.i115, %172 ], [ %168, %166 ]
   %180 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i.i.i117, i64 56
   %181 = load ptr, ptr %180, align 8
@@ -10158,7 +10158,7 @@ _ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thre
   br label %._crit_edge277
 
 ._crit_edge277:                                   ; preds = %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i122, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i107, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i116, %._crit_edge277.loopexit
-  %.0.copyload.i.i.i.i168 = phi i64 [ %.0.copyload.i.i.i.i168.pre, %._crit_edge277.loopexit ], [ %.0.copyload.i.i.i.i2.i.i.i108, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i107 ], [ %.0.copyload.i.i.i.i168305, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i116 ], [ %.0.copyload.i.i.i.i168305, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i122 ]
+  %.0.copyload.i.i.i.i168 = phi i64 [ %.0.copyload.i.i.i.i168.pre, %._crit_edge277.loopexit ], [ %.0.copyload.i.i.i.i2.i.i.i108, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i107 ], [ %.0.copyload.i.i.i.i168307, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i116 ], [ %.0.copyload.i.i.i.i168307, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i122 ]
   %.3.lcssa = phi ptr [ %.6, %._crit_edge277.loopexit ], [ %.140, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i107 ], [ %.140, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i116 ], [ %.140, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i122 ]
   %258 = and i64 %.0.copyload.i.i.i.i168, -8
   %259 = inttoptr i64 %258 to ptr
@@ -10168,14 +10168,14 @@ _ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thre
   store i8 %262, ptr %260, align 8
   %.0.copyload.i.i.i.i169.pre = load i64, ptr %3, align 8
   %.pre = and i64 %.0.copyload.i.i.i.i169.pre, -8
-  %.pre308 = inttoptr i64 %.pre to ptr
+  %.pre310 = inttoptr i64 %.pre to ptr
   br label %263
 
 263:                                              ; preds = %._crit_edge277, %10
-  %.pre-phi309 = phi ptr [ %.pre308, %._crit_edge277 ], [ %12, %10 ]
+  %.pre-phi311 = phi ptr [ %.pre310, %._crit_edge277 ], [ %12, %10 ]
   %.0.copyload.i.i.i.i169 = phi i64 [ %.0.copyload.i.i.i.i169.pre, %._crit_edge277 ], [ %.0.copyload.i.i.i.i50, %10 ]
   %.039 = phi ptr [ %.3.lcssa, %._crit_edge277 ], [ null, %10 ]
-  %264 = getelementptr inbounds nuw i8, ptr %.pre-phi309, i64 72
+  %264 = getelementptr inbounds nuw i8, ptr %.pre-phi311, i64 72
   %265 = load i8, ptr %264, align 8
   %266 = and i8 %265, 2
   %.not43 = icmp eq i8 %266, 0
@@ -10506,8 +10506,8 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_119SynthesizeIvarChunkELj16EED2Ev.exit: ; pr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %263, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_119SynthesizeIvarChunkELj16EED2Ev.exit
-  %.sink350 = phi ptr [ %397, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_119SynthesizeIvarChunkELj16EED2Ev.exit ], [ %.pre-phi309, %263 ]
-  %398 = getelementptr inbounds nuw i8, ptr %.sink350, i64 64
+  %.sink352 = phi ptr [ %397, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_119SynthesizeIvarChunkELj16EED2Ev.exit ], [ %.pre-phi311, %263 ]
+  %398 = getelementptr inbounds nuw i8, ptr %.sink352, i64 64
   %399 = load ptr, ptr %398, align 8
   br label %400
 

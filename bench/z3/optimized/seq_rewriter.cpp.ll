@@ -70987,7 +70987,7 @@ for.cond8.preheader:                              ; preds = %for.inc, %for.cond.
   br i1 %cmp966, label %for.body10.lr.ph, label %for.cond8.preheader.for.end16_crit_edge
 
 for.cond8.preheader.for.end16_crit_edge:          ; preds = %for.cond8.preheader
-  %.pre82 = sub i32 %1, %0
+  %.pre88 = sub i32 %1, %0
   br label %for.end16
 
 for.body10.lr.ph:                                 ; preds = %for.cond8.preheader
@@ -71023,8 +71023,8 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 
 for.inc:                                          ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond75.not, label %for.cond8.preheader, label %for.body.lr.ph.i, !llvm.loop !374
+  %exitcond77.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond77.not, label %for.cond8.preheader, label %for.body.lr.ph.i, !llvm.loop !374
 
 for.body10:                                       ; preds = %for.body10.lr.ph.split, %for.inc14
   %j.067 = phi i32 [ 0, %for.body10.lr.ph.split ], [ %inc15, %for.inc14 ]
@@ -71049,11 +71049,11 @@ for.body.i30:                                     ; preds = %for.cond.i36, %for.
 
 for.inc14:                                        ; preds = %for.body.i30
   %inc15 = add i32 %j.067, 1
-  %exitcond76.not = icmp eq i32 %inc15, %6
-  br i1 %exitcond76.not, label %for.end16, label %for.body10, !llvm.loop !375
+  %exitcond80.not = icmp eq i32 %inc15, %6
+  br i1 %exitcond80.not, label %for.end16, label %for.body10, !llvm.loop !375
 
 for.end16:                                        ; preds = %for.inc14, %for.cond8.preheader.for.end16_crit_edge
-  %sub.pre-phi = phi i32 [ %.pre82, %for.cond8.preheader.for.end16_crit_edge ], [ %6, %for.inc14 ]
+  %sub.pre-phi = phi i32 [ %.pre88, %for.cond8.preheader.for.end16_crit_edge ], [ %6, %for.inc14 ]
   %cmp1968 = icmp ult i32 %sub.pre-phi, %1
   br i1 %cmp1968, label %for.body20.lr.ph, label %return
 
@@ -71063,15 +71063,15 @@ for.body20.lr.ph:                                 ; preds = %for.end16
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.inc25
-  %indvars.iv77 = phi i32 [ %0, %for.body20.lr.ph ], [ %indvars.iv.next78, %for.inc25 ]
+  %indvars.iv82 = phi i32 [ %0, %for.body20.lr.ph ], [ %indvars.iv.next83, %for.inc25 ]
   %j17.069 = phi i32 [ %sub.pre-phi, %for.body20.lr.ph ], [ %inc26, %for.inc25 ]
   br label %for.body.i44
 
 for.cond.i51:                                     ; preds = %for.body.i44
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i45, 1
-  %lftr.wideiv79 = trunc i64 %indvars.iv.next.i52 to i32
-  %exitcond80 = icmp eq i32 %indvars.iv77, %lftr.wideiv79
-  br i1 %exitcond80, label %return, label %for.body.i44, !llvm.loop !373
+  %lftr.wideiv84 = trunc i64 %indvars.iv.next.i52 to i32
+  %exitcond85 = icmp eq i32 %indvars.iv82, %lftr.wideiv84
+  br i1 %exitcond85, label %return, label %for.body.i44, !llvm.loop !373
 
 for.body.i44:                                     ; preds = %for.cond.i51, %for.body20
   %indvars.iv.i45 = phi i64 [ 0, %for.body20 ], [ %indvars.iv.next.i52, %for.cond.i51 ]
@@ -71087,9 +71087,9 @@ for.body.i44:                                     ; preds = %for.cond.i51, %for.
 
 for.inc25:                                        ; preds = %for.body.i44
   %inc26 = add nuw i32 %j17.069, 1
-  %indvars.iv.next78 = add i32 %indvars.iv77, -1
-  %exitcond81.not = icmp eq i32 %inc26, %1
-  br i1 %exitcond81.not, label %return, label %for.body20, !llvm.loop !376
+  %indvars.iv.next83 = add i32 %indvars.iv82, -1
+  %exitcond87.not = icmp eq i32 %inc26, %1
+  br i1 %exitcond87.not, label %return, label %for.body20, !llvm.loop !376
 
 return:                                           ; preds = %for.cond.i, %for.cond.i36, %for.inc25, %for.cond.i51, %for.body10.lr.ph, %for.end16
   %retval.0 = phi i1 [ true, %for.end16 ], [ false, %for.body10.lr.ph ], [ false, %for.cond.i51 ], [ true, %for.inc25 ], [ false, %for.cond.i36 ], [ false, %for.cond.i ]
@@ -71202,7 +71202,7 @@ for.cond8.preheader.i:                            ; preds = %for.inc.i, %for.con
   br i1 %cmp966.i, label %for.body10.lr.ph.i, label %for.cond8.preheader.for.end16_crit_edge.i
 
 for.cond8.preheader.for.end16_crit_edge.i:        ; preds = %for.cond8.preheader.i
-  %.pre82.i = sub i32 %8, %7
+  %.pre88.i = sub i32 %8, %7
   br label %for.end16.i
 
 for.body10.lr.ph.i:                               ; preds = %for.cond8.preheader.i
@@ -71223,8 +71223,8 @@ for.body.lr.ph.i.i:                               ; preds = %for.inc.i, %for.bod
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next.i.i to i32
-  %exitcond204 = icmp eq i32 %7, %lftr.wideiv
-  br i1 %exitcond204, label %cleanup, label %for.body.i.i, !llvm.loop !373
+  %exitcond208 = icmp eq i32 %7, %lftr.wideiv
+  br i1 %exitcond208, label %cleanup, label %for.body.i.i, !llvm.loop !373
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.i, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
@@ -71238,8 +71238,8 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 for.inc.i:                                        ; preds = %for.body.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond75.not.i, label %for.cond8.preheader.i, label %for.body.lr.ph.i.i, !llvm.loop !374
+  %exitcond77.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond77.not.i, label %for.cond8.preheader.i, label %for.body.lr.ph.i.i, !llvm.loop !374
 
 for.body10.i:                                     ; preds = %for.inc14.i, %for.body10.lr.ph.split.i
   %j.067.i = phi i32 [ 0, %for.body10.lr.ph.split.i ], [ %inc15.i, %for.inc14.i ]
@@ -71264,11 +71264,11 @@ for.body.i30.i:                                   ; preds = %for.cond.i36.i, %fo
 
 for.inc14.i:                                      ; preds = %for.body.i30.i
   %inc15.i = add nuw i32 %j.067.i, 1
-  %exitcond76.not.i = icmp eq i32 %inc15.i, %13
-  br i1 %exitcond76.not.i, label %for.end16.i, label %for.body10.i, !llvm.loop !375
+  %exitcond80.not.i = icmp eq i32 %inc15.i, %13
+  br i1 %exitcond80.not.i, label %for.end16.i, label %for.body10.i, !llvm.loop !375
 
 for.end16.i:                                      ; preds = %for.inc14.i, %for.cond8.preheader.for.end16_crit_edge.i
-  %sub.pre-phi.i = phi i32 [ %.pre82.i, %for.cond8.preheader.for.end16_crit_edge.i ], [ %13, %for.inc14.i ]
+  %sub.pre-phi.i = phi i32 [ %.pre88.i, %for.cond8.preheader.for.end16_crit_edge.i ], [ %13, %for.inc14.i ]
   %cmp1968.i = icmp ult i32 %sub.pre-phi.i, %8
   br i1 %cmp1968.i, label %for.body20.lr.ph.i, label %cleanup
 
@@ -71278,15 +71278,15 @@ for.body20.lr.ph.i:                               ; preds = %for.end16.i
   br label %for.body20.i
 
 for.body20.i:                                     ; preds = %for.inc25.i, %for.body20.lr.ph.i
-  %indvars.iv77.i = phi i32 [ %7, %for.body20.lr.ph.i ], [ %indvars.iv.next78.i, %for.inc25.i ]
+  %indvars.iv82.i = phi i32 [ %7, %for.body20.lr.ph.i ], [ %indvars.iv.next83.i, %for.inc25.i ]
   %j17.069.i = phi i32 [ %sub.pre-phi.i, %for.body20.lr.ph.i ], [ %inc26.i, %for.inc25.i ]
   br label %for.body.i44.i
 
 for.cond.i51.i:                                   ; preds = %for.body.i44.i
   %indvars.iv.next.i52.i = add nuw nsw i64 %indvars.iv.i45.i, 1
-  %lftr.wideiv205 = trunc i64 %indvars.iv.next.i52.i to i32
-  %exitcond206 = icmp eq i32 %indvars.iv77.i, %lftr.wideiv205
-  br i1 %exitcond206, label %cleanup, label %for.body.i44.i, !llvm.loop !373
+  %lftr.wideiv209 = trunc i64 %indvars.iv.next.i52.i to i32
+  %exitcond210 = icmp eq i32 %indvars.iv82.i, %lftr.wideiv209
+  br i1 %exitcond210, label %cleanup, label %for.body.i44.i, !llvm.loop !373
 
 for.body.i44.i:                                   ; preds = %for.cond.i51.i, %for.body20.i
   %indvars.iv.i45.i = phi i64 [ 0, %for.body20.i ], [ %indvars.iv.next.i52.i, %for.cond.i51.i ]
@@ -71302,9 +71302,9 @@ for.body.i44.i:                                   ; preds = %for.cond.i51.i, %fo
 
 for.inc25.i:                                      ; preds = %for.body.i44.i
   %inc26.i = add nuw i32 %j17.069.i, 1
-  %indvars.iv.next78.i = add i32 %indvars.iv77.i, -1
-  %exitcond81.not.i = icmp eq i32 %inc26.i, %8
-  br i1 %exitcond81.not.i, label %cleanup, label %for.body20.i, !llvm.loop !376
+  %indvars.iv.next83.i = add i32 %indvars.iv82.i, -1
+  %exitcond87.not.i = icmp eq i32 %inc26.i, %8
+  br i1 %exitcond87.not.i, label %cleanup, label %for.body20.i, !llvm.loop !376
 
 lpad.loopexit:                                    ; preds = %for.body.i110, %if.end.i118
   %lpad.loopexit164 = landingpad { ptr, i32 }
@@ -71529,8 +71529,8 @@ call9.i.noexc104:                                 ; preds = %if.end.i91
 
 for.inc74:                                        ; preds = %call4.i.noexc102
   %inc75 = add i32 %j.0188, 1
-  %exitcond203.not = icmp eq i32 %inc75, %45
-  br i1 %exitcond203.not, label %for.body80.preheader, label %for.body69, !llvm.loop !379
+  %exitcond206.not = icmp eq i32 %inc75, %45
+  br i1 %exitcond206.not, label %for.body80.preheader, label %for.body69, !llvm.loop !379
 
 for.body80.preheader:                             ; preds = %for.inc74, %for.cond67.preheader
   br label %for.body80

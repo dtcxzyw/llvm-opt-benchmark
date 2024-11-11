@@ -4546,7 +4546,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner13scanDirectiveEv(ptr 
 _ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit10.i: ; preds = %31, %27
   store i8 1, ptr %28, align 1
   %.pre = load ptr, ptr %11, align 8
-  %.pre130 = load ptr, ptr %13, align 8
+  %.pre132 = load ptr, ptr %13, align 8
   br label %_ZN4llvm4yaml7Scanner7consumeEj.exit
 
 36:                                               ; preds = %16
@@ -4563,7 +4563,7 @@ _ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit10.i: ; preds = %31, %27
   br label %_ZN4llvm4yaml7Scanner7consumeEj.exit
 
 _ZN4llvm4yaml7Scanner7consumeEj.exit:             ; preds = %1, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit10.i, %36, %38
-  %43 = phi ptr [ %12, %1 ], [ %.pre130, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit10.i ], [ %14, %36 ], [ %14, %38 ]
+  %43 = phi ptr [ %12, %1 ], [ %.pre132, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit10.i ], [ %14, %36 ], [ %14, %38 ]
   %44 = phi ptr [ %12, %1 ], [ %.pre, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit10.i ], [ %12, %36 ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %45 = ptrtoint ptr %43 to i64
@@ -4622,19 +4622,19 @@ _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit:     ; preds = %49, %58
   br i1 %64, label %.lr.ph.preheader, label %.split.us.i, !llvm.loop !43
 
 _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit: ; preds = %.split.us.i
-  %.0.us.i.lcssa125 = ptrtoint ptr %.0.us.i to i64
+  %.0.us.i.lcssa125126 = ptrtoint ptr %.0.us.i to i64
   %65 = ptrtoint ptr %44 to i64
-  %66 = sub i64 %.0.us.i.lcssa125, %65
+  %66 = sub i64 %.0.us.i.lcssa125126, %65
   br label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit24
 
 .lr.ph.preheader:                                 ; preds = %51, %52, %47, %47, %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit
-  %.0.us.i.lcssa125131 = ptrtoint ptr %.0.us.i to i64
+  %.0.us.i.lcssa125126133 = ptrtoint ptr %.0.us.i to i64
   store ptr %.0.us.i, ptr %11, align 8
   %67 = ptrtoint ptr %44 to i64
-  %68 = sub i64 %.0.us.i.lcssa125131, %67
+  %68 = sub i64 %.0.us.i.lcssa125126133, %67
   %scevgep = getelementptr i8, ptr %.0.us.i, i64 %45
-  %69 = sub i64 0, %.0.us.i.lcssa125131
-  %scevgep126 = getelementptr i8, ptr %scevgep, i64 %69
+  %69 = sub i64 0, %.0.us.i.lcssa125126133
+  %scevgep127 = getelementptr i8, ptr %scevgep, i64 %69
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit
@@ -4652,7 +4652,7 @@ _ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit:     ; preds = %.lr.ph, %.lr.ph
 
 _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit24: ; preds = %_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit, %.lr.ph, %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit
   %73 = phi i64 [ %66, %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit ], [ %68, %.lr.ph ], [ %68, %_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit ]
-  %.0.us.i23.lcssa = phi ptr [ %.0.us.i, %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit ], [ %scevgep126, %_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit ], [ %.0.us.i23119, %.lr.ph ]
+  %.0.us.i23.lcssa = phi ptr [ %.0.us.i, %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit ], [ %scevgep127, %_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit ], [ %.0.us.i23119, %.lr.ph ]
   store ptr %.0.us.i23.lcssa, ptr %11, align 8
   store i32 0, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4722,9 +4722,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit65
 
 _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit65:   ; preds = %83, %92
-  %.sink135 = phi i64 [ %spec.select.idx.i.i63, %92 ], [ 1, %83 ]
-  %97 = getelementptr inbounds i8, ptr %.0.us.i27, i64 %.sink135
-  %98 = icmp eq i64 %.sink135, 0
+  %.sink137 = phi i64 [ %spec.select.idx.i.i63, %92 ], [ 1, %83 ]
+  %97 = getelementptr inbounds i8, ptr %.0.us.i27, i64 %.sink137
+  %98 = icmp eq i64 %.sink137, 0
   br i1 %98, label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit28, label %.split.us.i26, !llvm.loop !43
 
 _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit28: ; preds = %85, %86, %81, %81, %.split.us.i26, %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit65
@@ -4846,17 +4846,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit32.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit80
 
 _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit80:   ; preds = %136, %145
-  %.sink136 = phi i64 [ %spec.select.idx.i.i78, %145 ], [ 1, %136 ]
-  %150 = getelementptr inbounds i8, ptr %.0.us.i34, i64 %.sink136
-  %151 = icmp eq i64 %.sink136, 0
+  %.sink138 = phi i64 [ %spec.select.idx.i.i78, %145 ], [ 1, %136 ]
+  %150 = getelementptr inbounds i8, ptr %.0.us.i34, i64 %.sink138
+  %151 = icmp eq i64 %.sink138, 0
   br i1 %151, label %.lr.ph122.preheader, label %.split.us.i33, !llvm.loop !43
 
 .lr.ph122.preheader:                              ; preds = %138, %139, %134, %134, %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit80
   store ptr %.0.us.i34, ptr %11, align 8
-  %.0.us.i34.lcssa128 = ptrtoint ptr %.0.us.i34 to i64
-  %scevgep127 = getelementptr i8, ptr %.0.us.i34, i64 %132
-  %152 = sub i64 0, %.0.us.i34.lcssa128
-  %scevgep129 = getelementptr i8, ptr %scevgep127, i64 %152
+  %.0.us.i34.lcssa128130 = ptrtoint ptr %.0.us.i34 to i64
+  %scevgep129 = getelementptr i8, ptr %.0.us.i34, i64 %132
+  %152 = sub i64 0, %.0.us.i34.lcssa128130
+  %scevgep131 = getelementptr i8, ptr %scevgep129, i64 %152
   br label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit82
@@ -4873,7 +4873,7 @@ _ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit82:   ; preds = %.lr.ph122, %.lr.ph1
   br i1 %155, label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit38, label %.lr.ph122, !llvm.loop !43
 
 _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit38: ; preds = %.split.us.i33, %_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit82, %.lr.ph122
-  %.0.us.i37.lcssa = phi ptr [ %.0.us.i37121, %.lr.ph122 ], [ %scevgep129, %_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit82 ], [ %.0.us.i34, %.split.us.i33 ]
+  %.0.us.i37.lcssa = phi ptr [ %.0.us.i37121, %.lr.ph122 ], [ %scevgep131, %_ZN4llvm4yaml7Scanner12skip_s_whiteEPKc.exit82 ], [ %.0.us.i34, %.split.us.i33 ]
   store ptr %.0.us.i37.lcssa, ptr %11, align 8
   br label %.split.us.i39
 
@@ -4924,9 +4924,9 @@ _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit38: ; preds = %.split.us.i
   br label %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit97
 
 _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit97:   ; preds = %159, %168
-  %.sink137 = phi i64 [ %spec.select.idx.i.i95, %168 ], [ 1, %159 ]
-  %173 = getelementptr inbounds i8, ptr %.0.us.i40, i64 %.sink137
-  %174 = icmp eq i64 %.sink137, 0
+  %.sink139 = phi i64 [ %spec.select.idx.i.i95, %168 ], [ 1, %159 ]
+  %173 = getelementptr inbounds i8, ptr %.0.us.i40, i64 %.sink139
+  %174 = icmp eq i64 %.sink139, 0
   br i1 %174, label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit41, label %.split.us.i39, !llvm.loop !43
 
 _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit41: ; preds = %161, %162, %157, %157, %.split.us.i39, %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit97

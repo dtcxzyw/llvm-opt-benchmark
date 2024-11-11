@@ -24,26 +24,25 @@ define void @Java_java_io_RandomAccessFile_initIDs(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define void @Java_java_io_RandomAccessFile_open0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = zext i32 %3 to i64
-  %6 = and i64 %5, 3
-  %or.cond.not = icmp eq i64 %6, 2
-  br i1 %or.cond.not, label %7, label %11
+  %5 = and i32 %3, 3
+  %or.cond.not = icmp eq i32 %5, 2
+  br i1 %or.cond.not, label %6, label %10
 
-7:                                                ; preds = %4
-  %8 = and i64 %5, 4
-  %.not10 = icmp eq i64 %8, 0
-  br i1 %.not10, label %9, label %11
+6:                                                ; preds = %4
+  %7 = and i32 %3, 4
+  %.not10 = icmp eq i32 %7, 0
+  br i1 %.not10, label %8, label %10
 
-9:                                                ; preds = %7
-  %10 = and i64 %5, 8
-  %.not11 = icmp eq i64 %10, 0
+8:                                                ; preds = %6
+  %9 = and i32 %3, 8
+  %.not11 = icmp eq i32 %9, 0
   %spec.select = select i1 %.not11, i32 66, i32 4162
-  br label %11
+  br label %10
 
-11:                                               ; preds = %9, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1052738, %7 ], [ %spec.select, %9 ]
-  %12 = load ptr, ptr @raf_fd, align 8
-  tail call void @fileOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %12, i32 noundef %.0) #3
+10:                                               ; preds = %8, %6, %4
+  %.0 = phi i32 [ 0, %4 ], [ 1052738, %6 ], [ %spec.select, %8 ]
+  %11 = load ptr, ptr @raf_fd, align 8
+  tail call void @fileOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %11, i32 noundef %.0) #3
   ret void
 }
 

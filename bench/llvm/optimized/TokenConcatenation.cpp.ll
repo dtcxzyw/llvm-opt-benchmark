@@ -432,8 +432,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %29, %27, %27, %27, 
   br i1 %39, label %switch.edge, label %40
 
 40:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %41 = and i32 %38, 4
-  %.not74 = icmp eq i32 %41, 0
+  %41 = and i8 %37, 4
+  %.not74 = icmp eq i8 %41, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load i16, ptr %.phi.trans.insert, align 8
   br i1 %.not74, label %._crit_edge, label %42

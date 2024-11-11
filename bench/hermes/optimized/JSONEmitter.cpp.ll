@@ -477,9 +477,7 @@ if.else.i.i:                                      ; preds = %if.end.i14
 if.then19.i.i:                                    ; preds = %if.else.i.i
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %begin8.0158, i64 1
   %5 = load i8, ptr %arrayidx21.i.i, align 1
-  %conv22.i.i = sext i8 %5 to i32
-  %6 = and i32 %conv22.i.i, 192
-  %.not43.i.i = icmp eq i32 %6, 128
+  %.not43.i.i = icmp slt i8 %5, -64
   br i1 %.not43.i.i, label %if.end31.i.i, label %if.then28.i.i
 
 if.then28.i.i:                                    ; preds = %if.then19.i.i
@@ -488,10 +486,8 @@ if.then28.i.i:                                    ; preds = %if.then19.i.i
 
 if.end31.i.i:                                     ; preds = %if.then19.i.i
   %arrayidx32.i.i = getelementptr inbounds i8, ptr %begin8.0158, i64 2
-  %7 = load i8, ptr %arrayidx32.i.i, align 1
-  %conv3383.i.i = zext i8 %7 to i32
-  %8 = and i32 %conv3383.i.i, 192
-  %.not44.i.i = icmp eq i32 %8, 128
+  %6 = load i8, ptr %arrayidx32.i.i, align 1
+  %.not44.i.i = icmp slt i8 %6, -64
   br i1 %.not44.i.i, label %if.end44.i.i, label %if.then41.i.i
 
 if.then41.i.i:                                    ; preds = %if.end31.i.i
@@ -501,8 +497,9 @@ if.then41.i.i:                                    ; preds = %if.end31.i.i
 if.end44.i.i:                                     ; preds = %if.end31.i.i
   %and46.i.i = shl nsw i32 %conv.i.i, 12
   %shl47.i.i = and i32 %and46.i.i, 61440
-  %and48.i.i = shl nsw i32 %conv22.i.i, 6
-  %shl49.i.i = and i32 %and48.i.i, 4032
+  %7 = and i8 %5, 63
+  %and48.i.i = zext nneg i8 %7 to i32
+  %shl49.i.i = shl nuw nsw i32 %and48.i.i, 6
   %or50.i.i = or disjoint i32 %shl49.i.i, %shl47.i.i
   %cmp53.i.i = icmp samesign ult i32 %or50.i.i, 2048
   br i1 %cmp53.i.i, label %if.then55.i.i, label %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147"
@@ -513,8 +510,9 @@ if.then55.i.i:                                    ; preds = %if.end44.i.i
 
 "_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147": ; preds = %if.end44.i.i
   %add.ptr45.i.i = getelementptr inbounds i8, ptr %begin8.0158, i64 3
-  %and51.i.i = and i32 %conv3383.i.i, 63
-  %or52.i.i = or disjoint i32 %and51.i.i, %or50.i.i
+  %8 = and i8 %6, 63
+  %and51.i.i = zext nneg i8 %8 to i32
+  %or52.i.i = or disjoint i32 %or50.i.i, %and51.i.i
   br label %if.then
 
 if.else68.i.i:                                    ; preds = %if.else.i.i
@@ -525,9 +523,7 @@ if.else68.i.i:                                    ; preds = %if.else.i.i
 if.then71.i.i:                                    ; preds = %if.else68.i.i
   %arrayidx73.i.i = getelementptr inbounds i8, ptr %begin8.0158, i64 1
   %9 = load i8, ptr %arrayidx73.i.i, align 1
-  %conv74.i.i = sext i8 %9 to i32
-  %10 = and i32 %conv74.i.i, 192
-  %.not.i.i = icmp eq i32 %10, 128
+  %.not.i.i = icmp slt i8 %9, -64
   br i1 %.not.i.i, label %if.end85.i.i, label %if.then82.i.i
 
 if.then82.i.i:                                    ; preds = %if.then71.i.i
@@ -536,10 +532,8 @@ if.then82.i.i:                                    ; preds = %if.then71.i.i
 
 if.end85.i.i:                                     ; preds = %if.then71.i.i
   %arrayidx87.i.i = getelementptr inbounds i8, ptr %begin8.0158, i64 2
-  %11 = load i8, ptr %arrayidx87.i.i, align 1
-  %conv88.i.i = sext i8 %11 to i32
-  %12 = and i32 %conv88.i.i, 192
-  %.not41.i.i = icmp eq i32 %12, 128
+  %10 = load i8, ptr %arrayidx87.i.i, align 1
+  %.not41.i.i = icmp slt i8 %10, -64
   br i1 %.not41.i.i, label %if.end99.i.i, label %if.then96.i.i
 
 if.then96.i.i:                                    ; preds = %if.end85.i.i
@@ -548,10 +542,8 @@ if.then96.i.i:                                    ; preds = %if.end85.i.i
 
 if.end99.i.i:                                     ; preds = %if.end85.i.i
   %arrayidx100.i.i = getelementptr inbounds i8, ptr %begin8.0158, i64 3
-  %13 = load i8, ptr %arrayidx100.i.i, align 1
-  %conv10184.i.i = zext i8 %13 to i32
-  %14 = and i32 %conv10184.i.i, 192
-  %.not42.i.i = icmp eq i32 %14, 128
+  %11 = load i8, ptr %arrayidx100.i.i, align 1
+  %.not42.i.i = icmp slt i8 %11, -64
   br i1 %.not42.i.i, label %if.end112.i.i, label %if.then109.i.i
 
 if.then109.i.i:                                   ; preds = %if.end99.i.i
@@ -561,8 +553,9 @@ if.then109.i.i:                                   ; preds = %if.end99.i.i
 if.end112.i.i:                                    ; preds = %if.end99.i.i
   %and114.i.i = shl nsw i32 %conv.i.i, 18
   %shl115.i.i = and i32 %and114.i.i, 1835008
-  %and116.i.i = shl nsw i32 %conv74.i.i, 12
-  %shl117.i.i = and i32 %and116.i.i, 258048
+  %12 = and i8 %9, 63
+  %and116.i.i = zext nneg i8 %12 to i32
+  %shl117.i.i = shl nuw nsw i32 %and116.i.i, 12
   %or118.i.i = or disjoint i32 %shl117.i.i, %shl115.i.i
   %cmp124.i.i = icmp samesign ult i32 %or118.i.i, 65536
   br i1 %cmp124.i.i, label %if.then126.i.i, label %if.end128.i.i
@@ -572,9 +565,11 @@ if.then126.i.i:                                   ; preds = %if.end112.i.i
   unreachable
 
 if.end128.i.i:                                    ; preds = %if.end112.i.i
-  %and122.i.i = and i32 %conv10184.i.i, 63
-  %and119.i.i = shl nsw i32 %conv88.i.i, 6
-  %shl120.i.i = and i32 %and119.i.i, 4032
+  %13 = and i8 %10, 63
+  %and119.i.i = zext nneg i8 %13 to i32
+  %shl120.i.i = shl nuw nsw i32 %and119.i.i, 6
+  %14 = and i8 %11, 63
+  %and122.i.i = zext nneg i8 %14 to i32
   %15 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %15, %or118.i.i
   %add.ptr113.i.i = getelementptr inbounds i8, ptr %begin8.0158, i64 4

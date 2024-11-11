@@ -58263,12 +58263,12 @@ _ZN8LightGBM4Tree10ExtendPathEPNS0_11PathElementEiddi.exit: ; preds = %29, %_ZN8
   %59 = getelementptr inbounds i8, ptr %0, i64 336
   %60 = xor i32 %.tr97, -1
   %61 = zext nneg i32 %60 to i64
-  %wide.trip.count127 = zext i32 %54 to i64
+  %wide.trip.count129 = zext i32 %54 to i64
   br label %.lr.ph.i80.us
 
 .lr.ph.i80.us:                                    ; preds = %.lr.ph.i80.us.preheader, %_ZN8LightGBM4Tree14UnwoundPathSumEPKNS0_11PathElementEii.exit.us
-  %indvars.iv124 = phi i64 [ 1, %.lr.ph.i80.us.preheader ], [ %indvars.iv.next125, %_ZN8LightGBM4Tree14UnwoundPathSumEPKNS0_11PathElementEii.exit.us ]
-  %62 = getelementptr inbounds %"struct.LightGBM::Tree::PathElement", ptr %20, i64 %indvars.iv124
+  %indvars.iv125 = phi i64 [ 1, %.lr.ph.i80.us.preheader ], [ %indvars.iv.next126, %_ZN8LightGBM4Tree14UnwoundPathSumEPKNS0_11PathElementEii.exit.us ]
+  %62 = getelementptr inbounds %"struct.LightGBM::Tree::PathElement", ptr %20, i64 %indvars.iv125
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load double, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %62, i64 8
@@ -58332,9 +58332,9 @@ _ZN8LightGBM4Tree14UnwoundPathSumEPKNS0_11PathElementEii.exit.us: ; preds = %.lr
   %98 = load double, ptr %97, align 8
   %99 = tail call double @llvm.fmuladd.f64(double %91, double %94, double %98)
   store double %99, ptr %97, align 8
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %._crit_edge113, label %.lr.ph.i80.us, !llvm.loop !378
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %exitcond130.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count129
+  br i1 %exitcond130.not, label %._crit_edge113, label %.lr.ph.i80.us, !llvm.loop !378
 
 100:                                              ; preds = %_ZN8LightGBM4Tree10ExtendPathEPNS0_11PathElementEiddi.exit
   %101 = zext nneg i32 %.tr97 to i64
@@ -58471,11 +58471,11 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %112, %114, %_ZN8Lig
   %188 = sitofp i32 %187 to double
   %189 = fdiv double %188, %171
   %.not106 = icmp slt i32 %.tr98, 0
-  %.pre131 = add i32 %.tr98, 1
+  %.pre133 = add i32 %.tr98, 1
   br i1 %.not106, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK8LightGBM4Tree8DecisionEdi.exit
-  %wide.trip.count = zext i32 %.pre131 to i64
+  %wide.trip.count = zext i32 %.pre133 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %193
@@ -58496,7 +58496,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %112, %114, %_ZN8Lig
 
 ._crit_edge:                                      ; preds = %_ZNK8LightGBM4Tree8DecisionEdi.exit, %._crit_edge.loopexit
   %.0.lcssa = phi i32 [ %194, %._crit_edge.loopexit ], [ 0, %_ZNK8LightGBM4Tree8DecisionEdi.exit ]
-  %.not78 = icmp eq i32 %.0.lcssa, %.pre131
+  %.not78 = icmp eq i32 %.0.lcssa, %.pre133
   br i1 %.not78, label %._crit_edge.thread, label %195
 
 195:                                              ; preds = %._crit_edge
@@ -58511,7 +58511,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %112, %114, %_ZN8Lig
 .lr.ph.i86:                                       ; preds = %195
   %.04951.i = add nsw i32 %.tr98, -1
   %202 = fcmp une double %201, 0.000000e+00
-  %203 = uitofp nneg i32 %.pre131 to double
+  %203 = uitofp nneg i32 %.pre133 to double
   br i1 %202, label %.lr.ph.split.us.preheader.i92, label %.lr.ph.split.preheader.i87
 
 .lr.ph.split.preheader.i87:                       ; preds = %.lr.ph.i86
@@ -58587,12 +58587,12 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %112, %114, %_ZN8Lig
 _ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit: ; preds = %.lr.ph56.i, %.preheader.i
   %.pre = load ptr, ptr %10, align 8
   %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %101
-  %.pre129 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre131 = load i32, ptr %.phi.trans.insert, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %193, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit, %._crit_edge
-  %.pre-phi = phi i32 [ %.tr98, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ %.pre131, %._crit_edge ], [ %.pre131, %193 ]
-  %240 = phi i32 [ %.pre129, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ %104, %._crit_edge ], [ %104, %193 ]
+  %.pre-phi = phi i32 [ %.tr98, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ %.pre133, %._crit_edge ], [ %.pre133, %193 ]
+  %240 = phi i32 [ %.pre131, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ %104, %._crit_edge ], [ %104, %193 ]
   %.073 = phi double [ %199, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ 1.000000e+00, %._crit_edge ], [ 1.000000e+00, %193 ]
   %.072 = phi double [ %201, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ 1.000000e+00, %._crit_edge ], [ 1.000000e+00, %193 ]
   %241 = fmul double %180, %.073
@@ -58707,7 +58707,7 @@ _ZN8LightGBM4Tree10ExtendPathEPNS0_11PathElementEiddi.exit: ; preds = %32, %_ZN8
   %63 = xor i32 %.tr124, -1
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count193 = zext i32 %57 to i64
+  %wide.trip.count197 = zext i32 %57 to i64
   br label %66
 
 66:                                               ; preds = %.lr.ph162, %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit
@@ -58831,8 +58831,8 @@ _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit: ; 
   %126 = tail call double @llvm.fmuladd.f64(double %96, double %99, double %125)
   store double %126, ptr %.0.i.i, align 8
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
-  %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %._crit_edge163, label %66, !llvm.loop !381
+  %exitcond198.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count197
+  br i1 %exitcond198.not, label %._crit_edge163, label %66, !llvm.loop !381
 
 127:                                              ; preds = %_ZN8LightGBM4Tree10ExtendPathEPNS0_11PathElementEiddi.exit
   %128 = zext nneg i32 %.tr124 to i64
@@ -58841,19 +58841,19 @@ _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit: ; 
   %131 = load i64, ptr %11, align 8
   %.not.not.i.i.i = icmp eq i64 %131, 0
   %132 = load i32, ptr %130, align 4
-  br i1 %.not.not.i.i.i, label %.preheader240, label %137
+  br i1 %.not.not.i.i.i, label %.preheader244, label %137
 
-.preheader240:                                    ; preds = %127, %133
+.preheader244:                                    ; preds = %127, %133
   %.sroa.06.0.in.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %133 ], [ %13, %127 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, null
   br i1 %.not.i.i.i, label %.thread118, label %133
 
-133:                                              ; preds = %.preheader240
+133:                                              ; preds = %.preheader244
   %134 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %135 = load i32, ptr %134, align 4
   %136 = icmp eq i32 %132, %135
-  br i1 %136, label %.loopexit134, label %.preheader240, !llvm.loop !382
+  br i1 %136, label %.loopexit134, label %.preheader244, !llvm.loop !382
 
 137:                                              ; preds = %127
   %138 = sext i32 %132 to i64
@@ -58891,32 +58891,32 @@ _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit: ; 
   br i1 %.not17.i.i.i.i.i, label %149, label %.thread118, !llvm.loop !380
 
 .loopexit134:                                     ; preds = %149, %133
-  br i1 %.not.not.i.i.i, label %.preheader237, label %.loopexit134..thread_crit_edge
+  br i1 %.not.not.i.i.i, label %.preheader241, label %.loopexit134..thread_crit_edge
 
 .loopexit134..thread_crit_edge:                   ; preds = %.loopexit134
   %.pre = load i64, ptr %12, align 8
-  %.pre195 = load ptr, ptr %1, align 8
-  %.pre199 = sext i32 %132 to i64
-  %.pre201 = urem i64 %.pre199, %.pre
+  %.pre199 = load ptr, ptr %1, align 8
+  %.pre203 = sext i32 %132 to i64
+  %.pre205 = urem i64 %.pre203, %.pre
   br label %.thread
 
-.preheader237:                                    ; preds = %.loopexit134, %157
+.preheader241:                                    ; preds = %.loopexit134, %157
   %.sroa.06.0.in.i.i.i95 = phi ptr [ %.sroa.06.0.i.i.i96, %157 ], [ %13, %.loopexit134 ]
   %.sroa.06.0.i.i.i96 = load ptr, ptr %.sroa.06.0.in.i.i.i95, align 8
   %.not.i.i.i97 = icmp eq ptr %.sroa.06.0.i.i.i96, null
   br i1 %.not.i.i.i97, label %.loopexit.i.i93, label %157
 
-157:                                              ; preds = %.preheader237
+157:                                              ; preds = %.preheader241
   %158 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i96, i64 8
   %159 = load i32, ptr %158, align 4
   %160 = icmp eq i32 %132, %159
-  br i1 %160, label %.loopexit, label %.preheader237, !llvm.loop !382
+  br i1 %160, label %.loopexit, label %.preheader241, !llvm.loop !382
 
 .thread:                                          ; preds = %.loopexit134..thread_crit_edge, %144
-  %.pre-phi202 = phi i64 [ %.pre201, %.loopexit134..thread_crit_edge ], [ %140, %144 ]
-  %161 = phi ptr [ %.pre195, %.loopexit134..thread_crit_edge ], [ %141, %144 ]
+  %.pre-phi206 = phi i64 [ %.pre205, %.loopexit134..thread_crit_edge ], [ %140, %144 ]
+  %161 = phi ptr [ %.pre199, %.loopexit134..thread_crit_edge ], [ %141, %144 ]
   %162 = phi i64 [ %.pre, %.loopexit134..thread_crit_edge ], [ %139, %144 ]
-  %163 = getelementptr inbounds ptr, ptr %161, i64 %.pre-phi202
+  %163 = getelementptr inbounds ptr, ptr %161, i64 %.pre-phi206
   %164 = load ptr, ptr %163, align 8
   %.not.i.i.i.i.i88 = icmp eq ptr %164, null
   br i1 %.not.i.i.i.i.i88, label %.loopexit.i.i93, label %165
@@ -58943,10 +58943,10 @@ _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit: ; 
   %175 = load i32, ptr %174, align 4
   %176 = sext i32 %175 to i64
   %177 = urem i64 %176, %162
-  %.not17.i.i.i.i.i92 = icmp eq i64 %177, %.pre-phi202
+  %.not17.i.i.i.i.i92 = icmp eq i64 %177, %.pre-phi206
   br i1 %.not17.i.i.i.i.i92, label %170, label %.loopexit.i.i93, !llvm.loop !380
 
-.loopexit.i.i93:                                  ; preds = %.thread, %173, %.lr.ph.i.i.i.i.i89, %.preheader237
+.loopexit.i.i93:                                  ; preds = %.thread, %173, %.lr.ph.i.i.i.i.i89, %.preheader241
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.188) #37
   unreachable
 
@@ -58961,7 +58961,7 @@ _ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEEixERS5_.exit: ; 
   %.not.i98 = icmp eq i8 %183, 0
   br i1 %.not.i98, label %215, label %188
 
-.thread118:                                       ; preds = %152, %.lr.ph.i.i.i.i.i, %.preheader240, %137
+.thread118:                                       ; preds = %152, %.lr.ph.i.i.i.i.i, %.preheader244, %137
   %184 = load ptr, ptr %14, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 %128
   %186 = load i8, ptr %185, align 1
@@ -59092,11 +59092,11 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %188, %.thread120, %
   %266 = sitofp i32 %265 to double
   %267 = fdiv double %266, %249
   %.not80156 = icmp slt i32 %.tr125, 0
-  %.pre203 = add i32 %.tr125, 1
+  %.pre207 = add i32 %.tr125, 1
   br i1 %.not80156, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8LightGBM4Tree8DecisionEdi.exit
-  %wide.trip.count = zext i32 %.pre203 to i64
+  %wide.trip.count = zext i32 %.pre207 to i64
   br label %268
 
 268:                                              ; preds = %.lr.ph, %272
@@ -59117,7 +59117,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %188, %.thread120, %
 
 ._crit_edge:                                      ; preds = %_ZNK8LightGBM4Tree8DecisionEdi.exit, %._crit_edge.loopexit
   %.0.lcssa = phi i32 [ %273, %._crit_edge.loopexit ], [ 0, %_ZNK8LightGBM4Tree8DecisionEdi.exit ]
-  %.not81 = icmp eq i32 %.0.lcssa, %.pre203
+  %.not81 = icmp eq i32 %.0.lcssa, %.pre207
   br i1 %.not81, label %._crit_edge.thread, label %274
 
 274:                                              ; preds = %._crit_edge
@@ -59132,7 +59132,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %188, %.thread120, %
 .lr.ph.i103:                                      ; preds = %274
   %.04951.i = add nsw i32 %.tr125, -1
   %281 = fcmp une double %280, 0.000000e+00
-  %282 = uitofp nneg i32 %.pre203 to double
+  %282 = uitofp nneg i32 %.pre207 to double
   br i1 %281, label %.lr.ph.split.us.preheader.i109, label %.lr.ph.split.preheader.i104
 
 .lr.ph.split.preheader.i104:                      ; preds = %.lr.ph.i103
@@ -59206,14 +59206,14 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %188, %.thread120, %
   br i1 %exitcond.not.i, label %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit, label %.lr.ph56.i, !llvm.loop !376
 
 _ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit: ; preds = %.lr.ph56.i, %.preheader.i
-  %.pre196 = load ptr, ptr %10, align 8
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre196, i64 %128
-  %.pre197 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre200 = load ptr, ptr %10, align 8
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre200, i64 %128
+  %.pre201 = load i32, ptr %.phi.trans.insert, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %272, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit, %._crit_edge
-  %.pre-phi = phi i32 [ %.tr125, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ %.pre203, %._crit_edge ], [ %.pre203, %272 ]
-  %319 = phi i32 [ %.pre197, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ %132, %._crit_edge ], [ %132, %272 ]
+  %.pre-phi = phi i32 [ %.tr125, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ %.pre207, %._crit_edge ], [ %.pre207, %272 ]
+  %319 = phi i32 [ %.pre201, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ %132, %._crit_edge ], [ %132, %272 ]
   %.075 = phi double [ %278, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ 1.000000e+00, %._crit_edge ], [ 1.000000e+00, %272 ]
   %.074 = phi double [ %280, %_ZN8LightGBM4Tree10UnwindPathEPNS0_11PathElementEii.exit ], [ 1.000000e+00, %._crit_edge ], [ 1.000000e+00, %272 ]
   %320 = fmul double %258, %.075

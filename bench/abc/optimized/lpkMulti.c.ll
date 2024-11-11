@@ -32,9 +32,9 @@ define void @Lpk_CreateVarOrder(ptr nocapture noundef readonly %0, ptr nocapture
 
 9:                                                ; preds = %.lr.ph59, %._crit_edge57
   %10 = phi i16 [ %7, %.lr.ph59 ], [ %57, %._crit_edge57 ]
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next77, %._crit_edge57 ]
+  %indvars.iv77 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next78, %._crit_edge57 ]
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv76
+  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv77
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.critedge, label %.preheader47
@@ -106,13 +106,13 @@ Kit_DsdLitSupport.exit:                           ; preds = %27, %29
   br i1 %or.cond, label %.preheader.us.preheader, label %._crit_edge57
 
 .preheader.us.preheader:                          ; preds = %.preheader46
-  %wide.trip.count74 = zext nneg i32 %.039.lcssa to i64
-  %wide.trip.count69 = zext nneg i32 %.138 to i64
+  %wide.trip.count75 = zext nneg i32 %.039.lcssa to i64
+  %wide.trip.count70 = zext nneg i32 %.138 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv71 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next72, %._crit_edge.us ]
-  %39 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %indvars.iv71
+  %indvars.iv72 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next73, %._crit_edge.us ]
+  %39 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %indvars.iv72
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   br label %42
@@ -127,13 +127,13 @@ Kit_DsdLitSupport.exit:                           ; preds = %27, %29
   %48 = add i8 %47, 1
   store i8 %48, ptr %46, align 1
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge.us, label %42, !llvm.loop !6
+  %exitcond71.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count70
+  br i1 %exitcond71.not, label %._crit_edge.us, label %42, !llvm.loop !6
 
 ._crit_edge.us:                                   ; preds = %42
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %._crit_edge57.loopexit, label %.preheader.us, !llvm.loop !7
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
+  br i1 %exitcond76.not, label %._crit_edge57.loopexit, label %.preheader.us, !llvm.loop !7
 
 49:                                               ; preds = %.critedge2.preheader, %.critedge2
   %.053 = phi i32 [ 0, %.critedge2.preheader ], [ %56, %.critedge2 ]
@@ -162,9 +162,9 @@ Kit_DsdLitSupport.exit:                           ; preds = %27, %29
 
 ._crit_edge57:                                    ; preds = %._crit_edge57.loopexit, %.preheader46
   %57 = phi i16 [ %.pre, %._crit_edge57.loopexit ], [ %10, %.preheader46 ]
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %58 = zext i16 %57 to i64
-  %59 = icmp samesign ult i64 %indvars.iv.next77, %58
+  %59 = icmp samesign ult i64 %indvars.iv.next78, %58
   br i1 %59, label %9, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %9, %._crit_edge57, %2

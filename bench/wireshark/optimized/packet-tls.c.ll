@@ -1526,13 +1526,13 @@ define hidden range(i32 0, 2) i32 @tls_get_cipher_info(ptr noundef %0, i16 nound
 7:                                                ; preds = %5
   %8 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #11
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %42, label %9
+  br i1 %.not, label %41, label %9
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @proto_tls, align 4
   %11 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %8, i32 noundef %10) #11
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %42, label %13
+  br i1 %12, label %41, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %11, i64 648
@@ -1545,7 +1545,7 @@ define hidden range(i32 0, 2) i32 @tls_get_cipher_info(ptr noundef %0, i16 nound
   %18 = zext i16 %.027 to i32
   %19 = tail call ptr @ssl_find_cipher(i32 noundef %18) #11
   %.not37 = icmp eq ptr %19, null
-  br i1 %.not37, label %42, label %20
+  br i1 %.not37, label %41, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %19, i64 16
@@ -1561,37 +1561,36 @@ define hidden range(i32 0, 2) i32 @tls_get_cipher_info(ptr noundef %0, i16 nound
   %31 = getelementptr [5 x i32], ptr @tls_get_cipher_info.gcry_mds, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %26, 0
-  %34 = and i64 %30, 4611686018427387903
-  %35 = icmp eq i64 %34, 4
-  %or.cond3 = or i1 %33, %35
-  br i1 %or.cond3, label %42, label %36
+  %34 = icmp eq i32 %29, 4
+  %or.cond3 = or i1 %33, %34
+  br i1 %or.cond3, label %41, label %35
 
-36:                                               ; preds = %20
+35:                                               ; preds = %20
   %.not38 = icmp eq ptr %2, null
-  br i1 %.not38, label %38, label %37
+  br i1 %.not38, label %37, label %36
 
-37:                                               ; preds = %36
+36:                                               ; preds = %35
   store i32 %26, ptr %2, align 4
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %36
+37:                                               ; preds = %36, %35
   %.not39 = icmp eq ptr %3, null
-  br i1 %.not39, label %40, label %39
+  br i1 %.not39, label %39, label %38
 
-39:                                               ; preds = %38
+38:                                               ; preds = %37
   store i32 %25, ptr %3, align 4
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %38
+39:                                               ; preds = %38, %37
   %.not40 = icmp eq ptr %4, null
-  br i1 %.not40, label %42, label %41
+  br i1 %.not40, label %41, label %40
 
-41:                                               ; preds = %40
+40:                                               ; preds = %39
   store i32 %32, ptr %4, align 4
-  br label %42
+  br label %41
 
-42:                                               ; preds = %40, %41, %20, %17, %9, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %17 ], [ 0, %20 ], [ 1, %41 ], [ 1, %40 ]
+41:                                               ; preds = %39, %40, %20, %17, %9, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %17 ], [ 0, %20 ], [ 1, %40 ], [ 1, %39 ]
   ret i32 %.0
 }
 
@@ -1793,82 +1792,81 @@ define hidden range(i32 0, 2) i32 @tls13_exporter(ptr noundef %0, i32 noundef %1
   %26 = getelementptr [5 x i32], ptr @tls_get_cipher_info.gcry_mds, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %21, 0
-  %29 = and i64 %25, 4611686018427387903
-  %30 = icmp eq i64 %29, 4
-  %or.cond3.i = or i1 %28, %30
+  %29 = icmp eq i32 %24, 4
+  %or.cond3.i = or i1 %28, %29
   br i1 %or.cond3.i, label %tls_get_cipher_info.exit.thread, label %tls_get_cipher_info.exit
 
 tls_get_cipher_info.exit:                         ; preds = %20
-  %31 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #11
-  %.not19 = icmp eq ptr %31, null
-  br i1 %.not19, label %tls_get_cipher_info.exit.thread, label %32
+  %30 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #11
+  %.not19 = icmp eq ptr %30, null
+  br i1 %.not19, label %tls_get_cipher_info.exit.thread, label %31
 
-32:                                               ; preds = %tls_get_cipher_info.exit
-  %33 = load i32, ptr @proto_tls, align 4
-  %34 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %31, i32 noundef %33) #11
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %tls_get_cipher_info.exit.thread, label %36
+31:                                               ; preds = %tls_get_cipher_info.exit
+  %32 = load i32, ptr @proto_tls, align 4
+  %33 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %30, i32 noundef %32) #11
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %tls_get_cipher_info.exit.thread, label %35
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @ssl_options, i64 8), align 8
-  tail call void @ssl_load_keyfile(ptr noundef %37, ptr noundef nonnull @ssl_keylog_file, ptr noundef nonnull @ssl_master_key_map) #11
+35:                                               ; preds = %31
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @ssl_options, i64 8), align 8
+  tail call void @ssl_load_keyfile(ptr noundef %36, ptr noundef nonnull @ssl_keylog_file, ptr noundef nonnull @ssl_master_key_map) #11
   %.not20 = icmp eq i32 %1, 0
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @ssl_master_key_map, i64 80), align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @ssl_master_key_map, i64 88), align 8
-  %40 = select i1 %.not20, ptr %39, ptr %38
-  %41 = getelementptr inbounds i8, ptr %34, i64 416
-  %42 = tail call ptr @g_hash_table_lookup(ptr noundef %40, ptr noundef nonnull %41) #11
-  %.not21 = icmp eq ptr %42, null
-  br i1 %.not21, label %tls_get_cipher_info.exit.thread, label %43
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @ssl_master_key_map, i64 80), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @ssl_master_key_map, i64 88), align 8
+  %39 = select i1 %.not20, ptr %38, ptr %37
+  %40 = getelementptr inbounds i8, ptr %33, i64 416
+  %41 = tail call ptr @g_hash_table_lookup(ptr noundef %39, ptr noundef nonnull %40) #11
+  %.not21 = icmp eq ptr %41, null
+  br i1 %.not21, label %tls_get_cipher_info.exit.thread, label %42
 
-43:                                               ; preds = %36
+42:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %44 = call i32 @gcry_md_open(ptr noundef nonnull %8, i32 noundef %27, i32 noundef 0) #11
-  %.not.i22 = icmp eq i32 %44, 0
-  br i1 %.not.i22, label %45, label %tls13_exporter_common.exit
+  %43 = call i32 @gcry_md_open(ptr noundef nonnull %8, i32 noundef %27, i32 noundef 0) #11
+  %.not.i22 = icmp eq i32 %43, 0
+  br i1 %.not.i22, label %44, label %tls13_exporter_common.exit
 
-45:                                               ; preds = %43
-  %46 = load ptr, ptr %8, align 8
-  %47 = call ptr @gcry_md_read(ptr noundef %46, i32 noundef 0) #11
-  %48 = call i32 @gcry_md_get_algo_dlen(i32 noundef %27) #11
-  %49 = trunc i32 %48 to i8
-  %50 = and i32 %48, 255
-  %51 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 %50, ptr %51, align 8
-  %52 = trunc nuw nsw i32 %50 to i16
-  %53 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %27, ptr noundef nonnull %42, ptr noundef nonnull @.str.928, ptr noundef %2, ptr noundef %47, i8 noundef zeroext %49, i16 noundef zeroext %52, ptr noundef nonnull %9) #11
-  %.not18.i = icmp eq i32 %53, 0
-  %54 = load ptr, ptr %8, align 8
-  br i1 %.not18.i, label %.sink.split.i, label %55
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %8, align 8
+  %46 = call ptr @gcry_md_read(ptr noundef %45, i32 noundef 0) #11
+  %47 = call i32 @gcry_md_get_algo_dlen(i32 noundef %27) #11
+  %48 = trunc i32 %47 to i8
+  %49 = and i32 %47, 255
+  %50 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 %49, ptr %50, align 8
+  %51 = trunc nuw nsw i32 %49 to i16
+  %52 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %27, ptr noundef nonnull %41, ptr noundef nonnull @.str.928, ptr noundef %2, ptr noundef %46, i8 noundef zeroext %48, i16 noundef zeroext %51, ptr noundef nonnull %9) #11
+  %.not18.i = icmp eq i32 %52, 0
+  %53 = load ptr, ptr %8, align 8
+  br i1 %.not18.i, label %.sink.split.i, label %54
 
-55:                                               ; preds = %45
-  %56 = zext i32 %4 to i64
-  call void @gcry_md_write(ptr noundef %54, ptr noundef %3, i64 noundef %56) #11
-  %57 = load ptr, ptr %8, align 8
-  %58 = call ptr @gcry_md_read(ptr noundef %57, i32 noundef 0) #11
-  %59 = trunc i32 %5 to i16
-  %60 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %27, ptr noundef nonnull %9, ptr noundef nonnull @.str.928, ptr noundef nonnull @.str.929, ptr noundef %58, i8 noundef zeroext %49, i16 noundef zeroext %59, ptr noundef %6) #11
-  %61 = load ptr, ptr %9, align 8
-  call void @wmem_free(ptr noundef null, ptr noundef %61) #11
-  %62 = load ptr, ptr %8, align 8
+54:                                               ; preds = %44
+  %55 = zext i32 %4 to i64
+  call void @gcry_md_write(ptr noundef %53, ptr noundef %3, i64 noundef %55) #11
+  %56 = load ptr, ptr %8, align 8
+  %57 = call ptr @gcry_md_read(ptr noundef %56, i32 noundef 0) #11
+  %58 = trunc i32 %5 to i16
+  %59 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %27, ptr noundef nonnull %9, ptr noundef nonnull @.str.928, ptr noundef nonnull @.str.929, ptr noundef %57, i8 noundef zeroext %48, i16 noundef zeroext %58, ptr noundef %6) #11
+  %60 = load ptr, ptr %9, align 8
+  call void @wmem_free(ptr noundef null, ptr noundef %60) #11
+  %61 = load ptr, ptr %8, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %55, %45
-  %.sink.i = phi ptr [ %62, %55 ], [ %54, %45 ]
-  %.0.ph.i = phi i32 [ 1, %55 ], [ 0, %45 ]
+.sink.split.i:                                    ; preds = %54, %44
+  %.sink.i = phi ptr [ %61, %54 ], [ %53, %44 ]
+  %.0.ph.i = phi i32 [ 1, %54 ], [ 0, %44 ]
   call void @gcry_md_close(ptr noundef %.sink.i) #11
   br label %tls13_exporter_common.exit
 
-tls13_exporter_common.exit:                       ; preds = %43, %.sink.split.i
-  %.0.i23 = phi i32 [ 0, %43 ], [ %.0.ph.i, %.sink.split.i ]
+tls13_exporter_common.exit:                       ; preds = %42, %.sink.split.i
+  %.0.i23 = phi i32 [ 0, %42 ], [ %.0.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %tls_get_cipher_info.exit.thread
 
-tls_get_cipher_info.exit.thread:                  ; preds = %20, %15, %11, %7, %36, %32, %tls_get_cipher_info.exit, %tls13_exporter_common.exit
-  %.0 = phi i32 [ %.0.i23, %tls13_exporter_common.exit ], [ 0, %tls_get_cipher_info.exit ], [ 0, %32 ], [ 0, %36 ], [ 0, %7 ], [ 0, %11 ], [ 0, %15 ], [ 0, %20 ]
+tls_get_cipher_info.exit.thread:                  ; preds = %20, %15, %11, %7, %35, %31, %tls_get_cipher_info.exit, %tls13_exporter_common.exit
+  %.0 = phi i32 [ %.0.i23, %tls13_exporter_common.exit ], [ 0, %tls_get_cipher_info.exit ], [ 0, %31 ], [ 0, %35 ], [ 0, %7 ], [ 0, %11 ], [ 0, %15 ], [ 0, %20 ]
   ret i32 %.0
 }
 

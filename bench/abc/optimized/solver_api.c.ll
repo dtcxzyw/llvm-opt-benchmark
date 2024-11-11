@@ -2790,15 +2790,15 @@ satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
   %.val.i92 = load i32, ptr %94, align 4
   tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %.val.i92) #28
   %95 = add nuw nsw i32 %.2122, 1
-  %exitcond146.not = icmp eq i32 %95, %26
-  br i1 %exitcond146.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !25
+  %exitcond148.not = icmp eq i32 %95, %26
+  br i1 %exitcond148.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !25
 
 ._crit_edge125:                                   ; preds = %.lr.ph124
   %96 = getelementptr inbounds i8, ptr %0, i64 152
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 4
   store i32 0, ptr %98, align 4
-  %wide.trip.count150 = zext nneg i32 %26 to i64
+  %wide.trip.count154 = zext nneg i32 %26 to i64
   br label %.lr.ph128
 
 .preheader110:                                    ; preds = %vec_uint_push_back.exit, %._crit_edge125.thread
@@ -2808,14 +2808,14 @@ satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
 
 .lr.ph130.preheader:                              ; preds = %.preheader110
   %101 = sext i32 %26 to i64
-  %wide.trip.count155 = zext nneg i32 %85 to i64
+  %wide.trip.count161 = zext nneg i32 %85 to i64
   %invariant.gep = getelementptr i32, ptr %1, i64 %101
   br label %.lr.ph130
 
 .lr.ph128:                                        ; preds = %._crit_edge125, %vec_uint_push_back.exit
-  %indvars.iv147 = phi i64 [ 0, %._crit_edge125 ], [ %indvars.iv.next148, %vec_uint_push_back.exit ]
+  %indvars.iv149 = phi i64 [ 0, %._crit_edge125 ], [ %indvars.iv.next150, %vec_uint_push_back.exit ]
   %102 = load ptr, ptr %96, align 8
-  %103 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv147
+  %103 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv149
   %104 = load i32, ptr %103, align 4
   %105 = getelementptr inbounds i8, ptr %102, i64 4
   %106 = load i32, ptr %105, align 4
@@ -2864,52 +2864,52 @@ vec_uint_push_back.exit:                          ; preds = %.lr.ph128, %114, %v
   %127 = load i32, ptr %105, align 4
   %128 = add i32 %127, 1
   store i32 %128, ptr %105, align 4
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.preheader110, label %.lr.ph128, !llvm.loop !26
+  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
+  %exitcond155.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count154
+  br i1 %exitcond155.not, label %.preheader110, label %.lr.ph128, !llvm.loop !26
 
 .preheader109:                                    ; preds = %.lr.ph130, %.preheader110
   br i1 %27, label %.lr.ph132.preheader, label %.preheader108
 
 .lr.ph132.preheader:                              ; preds = %.preheader109
   %129 = sext i32 %85 to i64
-  %wide.trip.count160 = zext nneg i32 %26 to i64
-  %invariant.gep173 = getelementptr i32, ptr %1, i64 %129
+  %wide.trip.count168 = zext nneg i32 %26 to i64
+  %invariant.gep181 = getelementptr i32, ptr %1, i64 %129
   br label %.lr.ph132
 
 .lr.ph130:                                        ; preds = %.lr.ph130.preheader, %.lr.ph130
-  %indvars.iv152 = phi i64 [ 0, %.lr.ph130.preheader ], [ %indvars.iv.next153, %.lr.ph130 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv152
+  %indvars.iv158 = phi i64 [ 0, %.lr.ph130.preheader ], [ %indvars.iv.next159, %.lr.ph130 ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv158
   %130 = load i32, ptr %gep, align 4
-  %131 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv152
+  %131 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv158
   store i32 %130, ptr %131, align 4
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %.preheader109, label %.lr.ph130, !llvm.loop !27
+  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
+  %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
+  br i1 %exitcond162.not, label %.preheader109, label %.lr.ph130, !llvm.loop !27
 
 .preheader108:                                    ; preds = %.lr.ph132, %.preheader109
   br i1 %100, label %.lr.ph134, label %._crit_edge135
 
 .lr.ph134:                                        ; preds = %.preheader108
-  %wide.trip.count165 = zext nneg i32 %85 to i64
+  %wide.trip.count173 = zext nneg i32 %85 to i64
   br label %136
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
-  %indvars.iv157 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next158, %.lr.ph132 ]
+  %indvars.iv163 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next164, %.lr.ph132 ]
   %132 = load ptr, ptr %99, align 8
   %133 = getelementptr i8, ptr %132, i64 8
   %.val = load ptr, ptr %133, align 8
-  %134 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv157
+  %134 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv163
   %135 = load i32, ptr %134, align 4
-  %gep174 = getelementptr i32, ptr %invariant.gep173, i64 %indvars.iv157
-  store i32 %135, ptr %gep174, align 4
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %.preheader108, label %.lr.ph132, !llvm.loop !28
+  %gep182 = getelementptr i32, ptr %invariant.gep181, i64 %indvars.iv163
+  store i32 %135, ptr %gep182, align 4
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %exitcond169.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count168
+  br i1 %exitcond169.not, label %.preheader108, label %.lr.ph132, !llvm.loop !28
 
 136:                                              ; preds = %.lr.ph134, %satoko_assump_push.exit99
-  %indvars.iv162 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next163, %satoko_assump_push.exit99 ]
-  %137 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv162
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next171, %satoko_assump_push.exit99 ]
+  %137 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv170
   %138 = load i32, ptr %137, align 4
   %139 = load ptr, ptr %6, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 4
@@ -2968,9 +2968,9 @@ satoko_assump_push.exit99:                        ; preds = %136, %149, %vec_uin
   %169 = zext nneg i32 %165 to i64
   %170 = getelementptr inbounds i8, ptr %.val.i93, i64 %169
   store i8 %167, ptr %170, align 1
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %._crit_edge135, label %136, !llvm.loop !29
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
+  br i1 %exitcond174.not, label %._crit_edge135, label %136, !llvm.loop !29
 
 ._crit_edge135:                                   ; preds = %satoko_assump_push.exit99, %.preheader108
   %171 = load i64, ptr %8, align 8
@@ -3006,8 +3006,8 @@ satoko_solve_assumptions_limit.exit102:           ; preds = %._crit_edge135, %17
   %.val.i103 = load i32, ptr %184, align 4
   tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %.val.i103) #28
   %185 = add nuw nsw i32 %.7140, 1
-  %exitcond168.not = icmp eq i32 %185, %85
-  br i1 %exitcond168.not, label %.loopexit, label %.lr.ph141, !llvm.loop !30
+  %exitcond176.not = icmp eq i32 %185, %85
+  br i1 %exitcond176.not, label %.loopexit, label %.lr.ph141, !llvm.loop !30
 
 186:                                              ; preds = %satoko_solve_assumptions_limit.exit102
   %187 = and i32 %.tr106119, -2
@@ -3036,8 +3036,8 @@ satoko_solve_assumptions_limit.exit102:           ; preds = %._crit_edge135, %17
   %.val.i104 = load i32, ptr %200, align 4
   tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %.val.i104) #28
   %201 = add nuw nsw i32 %.8136, 1
-  %exitcond167.not = icmp eq i32 %201, %85
-  br i1 %exitcond167.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !31
+  %exitcond175.not = icmp eq i32 %201, %85
+  br i1 %exitcond175.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !31
 
 ._crit_edge139:                                   ; preds = %.lr.ph138, %193
   %202 = add nsw i32 %194, %85

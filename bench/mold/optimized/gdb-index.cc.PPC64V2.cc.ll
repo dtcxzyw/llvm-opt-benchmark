@@ -9301,11 +9301,11 @@ if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp16.i.i.i.i.i.i, label %while.body.i.i.preheader.i.i.i.i, label %if.then5.i.i.i.i
 
 while.body.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i
-  %sub.ptr.div.i29.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 24
+  %sub.ptr.div.i31.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 24
   br label %while.body.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.end4.i.i.i.i.i.i, %while.body.i.i.preheader.i.i.i.i
-  %storemerge27.i.i.in.in.i.i.i.i = phi i64 [ %storemerge27.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %sub.ptr.div.i29.i.i.i.i, %while.body.i.i.preheader.i.i.i.i ]
+  %storemerge27.i.i.in.in.i.i.i.i = phi i64 [ %storemerge27.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %sub.ptr.div.i31.i.i.i.i, %while.body.i.i.preheader.i.i.i.i ]
   %storemerge27.i.i.in.i.i.i.i = add nuw nsw i64 %storemerge27.i.i.in.in.i.i.i.i, 1
   %storemerge27.i.i.i.i.i.i = lshr i64 %storemerge27.i.i.in.i.i.i.i, 1
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %storemerge27.i.i.i.i.i.i, 24
@@ -9356,10 +9356,10 @@ _ZN4mold4sortISt6vectorINS_3elf8NameTypeESaIS3_EEEEvRT_.exit.i: ; preds = %if.el
   %__buf.sroa.4.012.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %if.else.i.i.i.i ], [ null, %if.then5.i.i.i.i ]
   call void @_ZdlPv(ptr noundef %__buf.sroa.4.012.i.i.i.i) #12
   %.pre.i = load ptr, ptr %nametypes.i.i.i.i.i.i.i.i.i.i.i.i35.i.i, align 8
-  %.pre48.i = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.i.i25.i = icmp eq ptr %.pre.i, %.pre48.i
+  %.pre50.i = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.i.i25.i = icmp eq ptr %.pre.i, %.pre50.i
   %incdec.ptr.i6.i.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
-  %cmp.i37.i.i.i = icmp eq ptr %incdec.ptr.i6.i.i.i, %.pre48.i
+  %cmp.i37.i.i.i = icmp eq ptr %incdec.ptr.i6.i.i.i, %.pre50.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i25.i, i1 true, i1 %cmp.i37.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold3elfL14read_compunitsINS4_7PPC64V2EEESt6vectorINS4_8CompunitESaIS8_EERNS4_7ContextIT_EEEUlRS8_E0_E4callISF_NS1_11feeder_implISG_S8_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISC_Efp0_EEcvv_EERKSG_OSC_PT0_.exit.i.i.i.i.i.i44.i.i, label %while.body.preheader.i.i.i
 
@@ -9406,16 +9406,16 @@ _ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN4mold3elf8N
 
 if.end9.i.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i.i.i, %land.rhs.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %while.body.i.i26.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i.i, i64 24
-  %cmp.i3.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre48.i
+  %cmp.i3.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre50.i
   br i1 %cmp.i3.i.i.i, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold3elfL14read_compunitsINS4_7PPC64V2EEESt6vectorINS4_8CompunitESaIS8_EERNS4_7ContextIT_EEEUlRS8_E0_E4callISF_NS1_11feeder_implISG_S8_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISC_Efp0_EEcvv_EERKSG_OSC_PT0_.exit.i.i.i.i.i.i44.i.i, label %while.body.i.i26.i, !llvm.loop !127
 
 _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEENS0_5__ops19_Iter_equal_to_iterEET_SC_SC_T0_.exit.i.i: ; preds = %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i.i.i
-  %cmp.i.i28.i = icmp eq ptr %__first.sroa.0.08.i.i.i, %.pre48.i
+  %cmp.i.i28.i = icmp eq ptr %__first.sroa.0.08.i.i.i, %.pre50.i
   br i1 %cmp.i.i28.i, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold3elfL14read_compunitsINS4_7PPC64V2EEESt6vectorINS4_8CompunitESaIS8_EERNS4_7ContextIT_EEEUlRS8_E0_E4callISF_NS1_11feeder_implISG_S8_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISC_Efp0_EEcvv_EERKSG_OSC_PT0_.exit.i.i.i.i.i.i44.i.i, label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEENS0_5__ops19_Iter_equal_to_iterEET_SC_SC_T0_.exit.i.i
   %incdec.ptr.i220.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i, i64 48
-  %cmp.i321.i.i = icmp eq ptr %incdec.ptr.i220.i.i, %.pre48.i
+  %cmp.i321.i.i = icmp eq ptr %incdec.ptr.i220.i.i, %.pre50.i
   br i1 %cmp.i321.i.i, label %_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEENS0_5__ops19_Iter_equal_to_iterEET_SC_SC_T0_.exit.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %if.end.i29.i
@@ -9468,18 +9468,18 @@ if.then16.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__op
 if.end20.i.i:                                     ; preds = %if.then16.i.i, %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i.i
   %__dest.sroa.0.1.i.i = phi ptr [ %__dest.sroa.0.023.i.i, %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i.i ], [ %incdec.ptr.i8.i.i, %if.then16.i.i ]
   %incdec.ptr.i2.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i224.i.i, i64 24
-  %cmp.i3.i.i = icmp eq ptr %incdec.ptr.i2.i.i, %.pre48.i
+  %cmp.i3.i.i = icmp eq ptr %incdec.ptr.i2.i.i, %.pre50.i
   br i1 %cmp.i3.i.i, label %while.end.i.loopexit.i, label %while.body.i.i, !llvm.loop !128
 
 while.end.i.loopexit.i:                           ; preds = %if.end20.i.i
-  %.pre49.pre.i = load ptr, ptr %_M_finish.i.i.i, align 8
+  %.pre51.pre.i = load ptr, ptr %_M_finish.i.i.i, align 8
   br label %_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEENS0_5__ops19_Iter_equal_to_iterEET_SC_SC_T0_.exit.i
 
 _ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEENS0_5__ops19_Iter_equal_to_iterEET_SC_SC_T0_.exit.i: ; preds = %while.end.i.loopexit.i, %if.end.i29.i
-  %.pre49.i = phi ptr [ %.pre48.i, %if.end.i29.i ], [ %.pre49.pre.i, %while.end.i.loopexit.i ]
+  %.pre51.i = phi ptr [ %.pre50.i, %if.end.i29.i ], [ %.pre51.pre.i, %while.end.i.loopexit.i ]
   %__dest.sroa.0.0.lcssa.i.i = phi ptr [ %__first.sroa.0.08.i.i.i, %if.end.i29.i ], [ %__dest.sroa.0.1.i.i, %while.end.i.loopexit.i ]
   %incdec.ptr.i9.i.i = getelementptr inbounds i8, ptr %__dest.sroa.0.0.lcssa.i.i, i64 24
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38.i.i = icmp eq ptr %incdec.ptr.i9.i.i, %.pre49.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38.i.i = icmp eq ptr %incdec.ptr.i9.i.i, %.pre51.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38.i.i, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold3elfL14read_compunitsINS4_7PPC64V2EEESt6vectorINS4_8CompunitESaIS8_EERNS4_7ContextIT_EEEUlRS8_E0_E4callISF_NS1_11feeder_implISG_S8_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISC_Efp0_EEcvv_EERKSG_OSC_PT0_.exit.i.i.i.i.i.i44.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i39.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i39.i.i:    ; preds = %_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEENS0_5__ops19_Iter_equal_to_iterEET_SC_SC_T0_.exit.i
@@ -9643,11 +9643,11 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp16.i.i.i.i, label %while.body.i.i.preheader.i.i, label %if.then5.i.i
 
 while.body.i.i.preheader.i.i:                     ; preds = %if.end.i.i
-  %sub.ptr.div.i29.i.i = udiv exact i64 %sub.ptr.sub.i.i.i, 24
+  %sub.ptr.div.i31.i.i = udiv exact i64 %sub.ptr.sub.i.i.i, 24
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end4.i.i.i.i, %while.body.i.i.preheader.i.i
-  %storemerge27.i.i.in.in.i.i = phi i64 [ %storemerge27.i.i.i.i, %if.end4.i.i.i.i ], [ %sub.ptr.div.i29.i.i, %while.body.i.i.preheader.i.i ]
+  %storemerge27.i.i.in.in.i.i = phi i64 [ %storemerge27.i.i.i.i, %if.end4.i.i.i.i ], [ %sub.ptr.div.i31.i.i, %while.body.i.i.preheader.i.i ]
   %storemerge27.i.i.in.i.i = add nuw nsw i64 %storemerge27.i.i.in.in.i.i, 1
   %storemerge27.i.i.i.i = lshr i64 %storemerge27.i.i.in.i.i, 1
   %mul.i.i.i.i = mul nuw nsw i64 %storemerge27.i.i.i.i, 24

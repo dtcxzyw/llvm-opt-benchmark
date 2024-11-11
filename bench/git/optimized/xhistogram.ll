@@ -81,12 +81,12 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %indvars.iv147 = phi i64 [ %1, %while.body.lr.ph ], [ %indvars.iv.next148, %while.body ]
+  %indvars.iv163 = phi i64 [ %1, %while.body.lr.ph ], [ %indvars.iv.next164, %while.body ]
   %count2.addr.1100 = phi i32 [ %count2.addr.088, %while.body.lr.ph ], [ %dec, %while.body ]
   %dec = add nsw i32 %count2.addr.1100, -1
   %2 = load ptr, ptr %rchg, align 8
-  %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
-  %3 = getelementptr i8, ptr %2, i64 %indvars.iv147
+  %indvars.iv.next164 = add nsw i64 %indvars.iv163, 1
+  %3 = getelementptr i8, ptr %2, i64 %indvars.iv163
   %arrayidx = getelementptr i8, ptr %3, i64 -1
   store i8 1, ptr %arrayidx, align 1
   %tobool6.not = icmp eq i32 %dec, 0
@@ -101,12 +101,12 @@ while.cond10.preheader:                           ; preds = %if.else
   br label %while.body13
 
 while.body13:                                     ; preds = %while.cond10.preheader, %while.body13
-  %indvars.iv144 = phi i64 [ %4, %while.cond10.preheader ], [ %indvars.iv.next145, %while.body13 ]
+  %indvars.iv156 = phi i64 [ %4, %while.cond10.preheader ], [ %indvars.iv.next157, %while.body13 ]
   %count1.addr.197 = phi i32 [ %count1.addr.086, %while.cond10.preheader ], [ %dec11, %while.body13 ]
   %dec11 = add nsw i32 %count1.addr.197, -1
   %5 = load ptr, ptr %rchg14, align 8
-  %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
-  %6 = getelementptr i8, ptr %5, i64 %indvars.iv144
+  %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
+  %6 = getelementptr i8, ptr %5, i64 %indvars.iv156
   %arrayidx18 = getelementptr i8, ptr %6, i64 -1
   store i8 1, ptr %arrayidx18, align 1
   %tobool12.not = icmp eq i32 %dec11, 0
@@ -643,12 +643,12 @@ while.body36:                                     ; preds = %while.cond33.prehea
   br i1 %tobool35.not, label %while.cond44.preheader, label %while.body36, !llvm.loop !15
 
 while.body47:                                     ; preds = %while.cond44.preheader, %while.body47
-  %indvars.iv141 = phi i64 [ %83, %while.cond44.preheader ], [ %indvars.iv.next142, %while.body47 ]
+  %indvars.iv149 = phi i64 [ %83, %while.cond44.preheader ], [ %indvars.iv.next150, %while.body47 ]
   %count2.addr.295 = phi i32 [ %count2.addr.088, %while.cond44.preheader ], [ %dec45, %while.body47 ]
   %dec45 = add nsw i32 %count2.addr.295, -1
   %86 = load ptr, ptr %rchg49, align 8
-  %indvars.iv.next142 = add nsw i64 %indvars.iv141, 1
-  %87 = getelementptr i8, ptr %86, i64 %indvars.iv141
+  %indvars.iv.next150 = add nsw i64 %indvars.iv149, 1
+  %87 = getelementptr i8, ptr %86, i64 %indvars.iv149
   %arrayidx53 = getelementptr i8, ptr %87, i64 -1
   store i8 1, ptr %arrayidx53, align 1
   %tobool46.not = icmp eq i32 %dec45, 0

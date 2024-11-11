@@ -1379,9 +1379,9 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %194 = sext i32 %130 to i64
   %195 = shl nsw i64 %134, 2
   %196 = sext i32 %132 to i64
-  br i1 %166, label %.preheader74, label %.preheader76
+  br i1 %166, label %.preheader75, label %.preheader77
 
-.preheader74:                                     ; preds = %156, %254
+.preheader75:                                     ; preds = %156, %254
   %197 = phi i64 [ %255, %254 ], [ 0, %156 ]
   %198 = add nsw i64 %197, %194
   %199 = mul i64 %198, %195
@@ -1389,8 +1389,8 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   call void @llvm.assume(i1 true) [ "align"(ptr %200, i64 64) ]
   br label %201
 
-201:                                              ; preds = %201, %.preheader74
-  %202 = phi i64 [ 0, %.preheader74 ], [ %252, %201 ]
+201:                                              ; preds = %201, %.preheader75
+  %202 = phi i64 [ 0, %.preheader75 ], [ %252, %201 ]
   %203 = add nsw i64 %202, %196
   %.idx55 = shl i64 %203, 4
   %204 = getelementptr i8, ptr %200, i64 %.idx55
@@ -1451,9 +1451,9 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
 254:                                              ; preds = %201
   %255 = add nuw nsw i64 %197, 1
   %256 = icmp eq i64 %255, %189
-  br i1 %256, label %.loopexit75, label %.preheader74
+  br i1 %256, label %.loopexit76, label %.preheader75
 
-.loopexit75:                                      ; preds = %680, %254
+.loopexit76:                                      ; preds = %680, %254
   %257 = phi i64 [ %189, %254 ], [ %190, %680 ]
   %258 = phi i32 [ %179, %254 ], [ %182, %680 ]
   %259 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
@@ -1476,28 +1476,28 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %275 = getelementptr inbounds i8, ptr %45, i64 16
   %276 = icmp eq i32 %182, 0
   %277 = or i1 %276, %273
-  br i1 %277, label %.loopexit, label %278
+  br i1 %277, label %.loopexit63, label %278
 
-278:                                              ; preds = %.loopexit75
+278:                                              ; preds = %.loopexit76
   call void @llvm.assume(i1 true) [ "align"(ptr %188, i64 64) ]
-  %279 = and i64 %183, 1
-  %280 = icmp eq i64 %191, 0
-  %281 = and i64 %183, -2
-  %282 = icmp eq i64 %279, 0
+  %279 = icmp eq i64 %191, 0
+  %280 = and i64 %183, -2
+  %281 = and i32 %182, 1
+  %282 = icmp eq i32 %281, 0
   br i1 %166, label %283, label %.preheader142
 
 283:                                              ; preds = %278
-  %284 = mul nsw i64 %281, %268
+  %284 = mul nsw i64 %280, %268
   br label %285
 
 285:                                              ; preds = %344, %283
   %286 = phi i64 [ %345, %344 ], [ 0, %283 ]
   %287 = mul i64 %286, %183
   %288 = getelementptr i32, ptr %188, i64 %287
-  br i1 %280, label %.thread, label %.preheader69
+  br i1 %279, label %.loopexit67, label %.preheader66
 
-.preheader69:                                     ; preds = %285, %.preheader69
-  %289 = phi i64 [ %325, %.preheader69 ], [ 0, %285 ]
+.preheader66:                                     ; preds = %285, %.preheader66
+  %289 = phi i64 [ %325, %.preheader66 ], [ 0, %285 ]
   %290 = load ptr, ptr %275, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %290, i64 64) ]
   %291 = getelementptr i32, ptr %288, i64 %289
@@ -1538,16 +1538,16 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %324 = getelementptr i8, ptr %323, i64 %286
   store i8 %321, ptr %324, align 1, !tbaa !151
   %325 = add i64 %289, 2
-  %326 = icmp eq i64 %325, %281
-  br i1 %326, label %327, label %.preheader69
+  %326 = icmp eq i64 %325, %280
+  br i1 %326, label %.loopexit67, label %.preheader66
 
-327:                                              ; preds = %.preheader69
-  br i1 %282, label %344, label %.thread
+.loopexit67:                                      ; preds = %.preheader66, %285
+  br i1 %282, label %344, label %327
 
-.thread:                                          ; preds = %285, %327
+327:                                              ; preds = %.loopexit67
   %328 = load ptr, ptr %275, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %328, i64 64) ]
-  %329 = getelementptr i32, ptr %288, i64 %281
+  %329 = getelementptr i32, ptr %288, i64 %280
   %330 = load i32, ptr %329, align 4, !tbaa !71
   %331 = uitofp i32 %330 to float
   %332 = fmul reassoc nsz arcp contract afn float %274, %331
@@ -1565,14 +1565,14 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   store i8 %341, ptr %343, align 1, !tbaa !151
   br label %344
 
-344:                                              ; preds = %.thread, %327
+344:                                              ; preds = %327, %.loopexit67
   %345 = add nuw i64 %286, 1
   %346 = icmp eq i64 %345, %178
   br i1 %346, label %347, label %285
 
 347:                                              ; preds = %344
   %348 = getelementptr inbounds i8, ptr %45, i64 24
-  %349 = mul nsw i64 %281, %268
+  %349 = mul nsw i64 %280, %268
   br label %350
 
 350:                                              ; preds = %410, %347
@@ -1580,10 +1580,10 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %352 = add i64 %351, %178
   %353 = mul i64 %352, %183
   %354 = getelementptr i32, ptr %188, i64 %353
-  br i1 %280, label %.thread56, label %.preheader68
+  br i1 %279, label %.loopexit65, label %.preheader64
 
-.preheader68:                                     ; preds = %350, %.preheader68
-  %355 = phi i64 [ %391, %.preheader68 ], [ 0, %350 ]
+.preheader64:                                     ; preds = %350, %.preheader64
+  %355 = phi i64 [ %391, %.preheader64 ], [ 0, %350 ]
   %356 = load ptr, ptr %348, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %356, i64 64) ]
   %357 = getelementptr i32, ptr %354, i64 %355
@@ -1624,16 +1624,16 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %390 = getelementptr i8, ptr %389, i64 %351
   store i8 %387, ptr %390, align 1, !tbaa !151
   %391 = add i64 %355, 2
-  %392 = icmp eq i64 %391, %281
-  br i1 %392, label %393, label %.preheader68
+  %392 = icmp eq i64 %391, %280
+  br i1 %392, label %.loopexit65, label %.preheader64
 
-393:                                              ; preds = %.preheader68
-  br i1 %282, label %410, label %.thread56
+.loopexit65:                                      ; preds = %.preheader64, %350
+  br i1 %282, label %410, label %393
 
-.thread56:                                        ; preds = %350, %393
+393:                                              ; preds = %.loopexit65
   %394 = load ptr, ptr %348, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %394, i64 64) ]
-  %395 = getelementptr i32, ptr %354, i64 %281
+  %395 = getelementptr i32, ptr %354, i64 %280
   %396 = load i32, ptr %395, align 4, !tbaa !71
   %397 = uitofp i32 %396 to float
   %398 = fmul reassoc nsz arcp contract afn float %274, %397
@@ -1651,14 +1651,14 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   store i8 %407, ptr %409, align 1, !tbaa !151
   br label %410
 
-410:                                              ; preds = %.thread56, %393
+410:                                              ; preds = %393, %.loopexit65
   %411 = add nuw i64 %351, 1
   %412 = icmp eq i64 %411, %178
   br i1 %412, label %413, label %350
 
 413:                                              ; preds = %410
   %414 = getelementptr inbounds i8, ptr %45, i64 32
-  %415 = mul nsw i64 %281, %268
+  %415 = mul nsw i64 %280, %268
   br label %416
 
 416:                                              ; preds = %476, %413
@@ -1666,7 +1666,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %418 = add i64 %417, %193
   %419 = mul i64 %418, %183
   %420 = getelementptr i32, ptr %188, i64 %419
-  br i1 %280, label %.thread57, label %.preheader
+  br i1 %279, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %416, %.preheader
   %421 = phi i64 [ %457, %.preheader ], [ 0, %416 ]
@@ -1710,16 +1710,16 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %456 = getelementptr i8, ptr %455, i64 %417
   store i8 %453, ptr %456, align 1, !tbaa !151
   %457 = add i64 %421, 2
-  %458 = icmp eq i64 %457, %281
-  br i1 %458, label %459, label %.preheader
+  %458 = icmp eq i64 %457, %280
+  br i1 %458, label %.loopexit, label %.preheader
 
-459:                                              ; preds = %.preheader
-  br i1 %282, label %476, label %.thread57
+.loopexit:                                        ; preds = %.preheader, %416
+  br i1 %282, label %476, label %459
 
-.thread57:                                        ; preds = %416, %459
+459:                                              ; preds = %.loopexit
   %460 = load ptr, ptr %414, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %460, i64 64) ]
-  %461 = getelementptr i32, ptr %420, i64 %281
+  %461 = getelementptr i32, ptr %420, i64 %280
   %462 = load i32, ptr %461, align 4, !tbaa !71
   %463 = uitofp i32 %462 to float
   %464 = fmul reassoc nsz arcp contract afn float %274, %463
@@ -1737,17 +1737,17 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   store i8 %473, ptr %475, align 1, !tbaa !151
   br label %476
 
-476:                                              ; preds = %.thread57, %459
+476:                                              ; preds = %459, %.loopexit
   %477 = add nuw i64 %417, 1
   %478 = icmp eq i64 %477, %178
-  br i1 %478, label %.loopexit, label %416
+  br i1 %478, label %.loopexit63, label %416
 
 .preheader142:                                    ; preds = %278, %536
   %479 = phi i64 [ %537, %536 ], [ 0, %278 ]
   %480 = mul i64 %479, %183
   %481 = getelementptr i32, ptr %188, i64 %480
   %482 = mul i64 %479, %268
-  br i1 %280, label %.thread58, label %.preheader73
+  br i1 %279, label %.loopexit74, label %.preheader73
 
 .preheader73:                                     ; preds = %.preheader142, %.preheader73
   %483 = phi i64 [ %517, %.preheader73 ], [ 0, %.preheader142 ]
@@ -1789,16 +1789,16 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %516 = getelementptr i8, ptr %515, i64 %500
   store i8 %514, ptr %516, align 1, !tbaa !151
   %517 = add i64 %483, 2
-  %518 = icmp eq i64 %517, %281
-  br i1 %518, label %519, label %.preheader73
+  %518 = icmp eq i64 %517, %280
+  br i1 %518, label %.loopexit74, label %.preheader73
 
-519:                                              ; preds = %.preheader73
-  br i1 %282, label %536, label %.thread58
+.loopexit74:                                      ; preds = %.preheader73, %.preheader142
+  br i1 %282, label %536, label %519
 
-.thread58:                                        ; preds = %.preheader142, %519
+519:                                              ; preds = %.loopexit74
   %520 = load ptr, ptr %275, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %520, i64 64) ]
-  %521 = getelementptr i32, ptr %481, i64 %281
+  %521 = getelementptr i32, ptr %481, i64 %280
   %522 = load i32, ptr %521, align 4, !tbaa !71
   %523 = uitofp i32 %522 to float
   %524 = fmul reassoc nsz arcp contract afn float %274, %523
@@ -1812,11 +1812,11 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %532 = fmul reassoc nsz arcp contract afn float %531, 2.550000e+02
   %533 = fptoui float %532 to i8
   %534 = getelementptr i8, ptr %520, i64 %482
-  %535 = getelementptr i8, ptr %534, i64 %281
+  %535 = getelementptr i8, ptr %534, i64 %280
   store i8 %533, ptr %535, align 1, !tbaa !151
   br label %536
 
-536:                                              ; preds = %.thread58, %519
+536:                                              ; preds = %519, %.loopexit74
   %537 = add nuw i64 %479, 1
   %538 = icmp eq i64 %537, %178
   br i1 %538, label %539, label %.preheader142
@@ -1831,10 +1831,10 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %544 = mul i64 %543, %183
   %545 = getelementptr i32, ptr %188, i64 %544
   %546 = mul i64 %542, %268
-  br i1 %280, label %.thread59, label %.preheader72
+  br i1 %279, label %.loopexit72, label %.preheader71
 
-.preheader72:                                     ; preds = %541, %.preheader72
-  %547 = phi i64 [ %581, %.preheader72 ], [ 0, %541 ]
+.preheader71:                                     ; preds = %541, %.preheader71
+  %547 = phi i64 [ %581, %.preheader71 ], [ 0, %541 ]
   %548 = load ptr, ptr %540, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %548, i64 64) ]
   %549 = getelementptr i32, ptr %545, i64 %547
@@ -1873,16 +1873,16 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %580 = getelementptr i8, ptr %579, i64 %564
   store i8 %578, ptr %580, align 1, !tbaa !151
   %581 = add i64 %547, 2
-  %582 = icmp eq i64 %581, %281
-  br i1 %582, label %583, label %.preheader72
+  %582 = icmp eq i64 %581, %280
+  br i1 %582, label %.loopexit72, label %.preheader71
 
-583:                                              ; preds = %.preheader72
-  br i1 %282, label %600, label %.thread59
+.loopexit72:                                      ; preds = %.preheader71, %541
+  br i1 %282, label %600, label %583
 
-.thread59:                                        ; preds = %541, %583
+583:                                              ; preds = %.loopexit72
   %584 = load ptr, ptr %540, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %584, i64 64) ]
-  %585 = getelementptr i32, ptr %545, i64 %281
+  %585 = getelementptr i32, ptr %545, i64 %280
   %586 = load i32, ptr %585, align 4, !tbaa !71
   %587 = uitofp i32 %586 to float
   %588 = fmul reassoc nsz arcp contract afn float %274, %587
@@ -1896,11 +1896,11 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %596 = fmul reassoc nsz arcp contract afn float %595, 2.550000e+02
   %597 = fptoui float %596 to i8
   %598 = getelementptr i8, ptr %584, i64 %546
-  %599 = getelementptr i8, ptr %598, i64 %281
+  %599 = getelementptr i8, ptr %598, i64 %280
   store i8 %597, ptr %599, align 1, !tbaa !151
   br label %600
 
-600:                                              ; preds = %.thread59, %583
+600:                                              ; preds = %583, %.loopexit72
   %601 = add nuw i64 %542, 1
   %602 = icmp eq i64 %601, %178
   br i1 %602, label %603, label %541
@@ -1915,10 +1915,10 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %608 = mul i64 %607, %183
   %609 = getelementptr i32, ptr %188, i64 %608
   %610 = mul i64 %606, %268
-  br i1 %280, label %.thread60, label %.preheader70
+  br i1 %279, label %.loopexit69, label %.preheader68
 
-.preheader70:                                     ; preds = %605, %.preheader70
-  %611 = phi i64 [ %645, %.preheader70 ], [ 0, %605 ]
+.preheader68:                                     ; preds = %605, %.preheader68
+  %611 = phi i64 [ %645, %.preheader68 ], [ 0, %605 ]
   %612 = load ptr, ptr %604, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %612, i64 64) ]
   %613 = getelementptr i32, ptr %609, i64 %611
@@ -1957,16 +1957,16 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %644 = getelementptr i8, ptr %643, i64 %628
   store i8 %642, ptr %644, align 1, !tbaa !151
   %645 = add i64 %611, 2
-  %646 = icmp eq i64 %645, %281
-  br i1 %646, label %647, label %.preheader70
+  %646 = icmp eq i64 %645, %280
+  br i1 %646, label %.loopexit69, label %.preheader68
 
-647:                                              ; preds = %.preheader70
-  br i1 %282, label %664, label %.thread60
+.loopexit69:                                      ; preds = %.preheader68, %605
+  br i1 %282, label %664, label %647
 
-.thread60:                                        ; preds = %605, %647
+647:                                              ; preds = %.loopexit69
   %648 = load ptr, ptr %604, align 8, !tbaa !61
   call void @llvm.assume(i1 true) [ "align"(ptr %648, i64 64) ]
-  %649 = getelementptr i32, ptr %609, i64 %281
+  %649 = getelementptr i32, ptr %609, i64 %280
   %650 = load i32, ptr %649, align 4, !tbaa !71
   %651 = uitofp i32 %650 to float
   %652 = fmul reassoc nsz arcp contract afn float %274, %651
@@ -1980,16 +1980,16 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %660 = fmul reassoc nsz arcp contract afn float %659, 2.550000e+02
   %661 = fptoui float %660 to i8
   %662 = getelementptr i8, ptr %648, i64 %610
-  %663 = getelementptr i8, ptr %662, i64 %281
+  %663 = getelementptr i8, ptr %662, i64 %280
   store i8 %661, ptr %663, align 1, !tbaa !151
   br label %664
 
-664:                                              ; preds = %.thread60, %647
+664:                                              ; preds = %647, %.loopexit69
   %665 = add nuw i64 %606, 1
   %666 = icmp eq i64 %665, %178
-  br i1 %666, label %.loopexit, label %605
+  br i1 %666, label %.loopexit63, label %605
 
-.preheader76:                                     ; preds = %156, %680
+.preheader77:                                     ; preds = %156, %680
   %667 = phi i64 [ %681, %680 ], [ 0, %156 ]
   %668 = add nsw i64 %667, %194
   %669 = mul i64 %668, %195
@@ -2009,10 +2009,10 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
 680:                                              ; preds = %683
   %681 = add nuw nsw i64 %667, 1
   %682 = icmp eq i64 %681, %189
-  br i1 %682, label %.loopexit75, label %.preheader76
+  br i1 %682, label %.loopexit76, label %.preheader77
 
-683:                                              ; preds = %683, %.preheader76
-  %684 = phi i64 [ 0, %.preheader76 ], [ %725, %683 ]
+683:                                              ; preds = %683, %.preheader77
+  %684 = phi i64 [ 0, %.preheader77 ], [ %725, %683 ]
   %685 = add nsw i64 %684, %196
   %.idx54 = shl i64 %685, 4
   %686 = getelementptr i8, ptr %670, i64 %.idx54
@@ -2061,7 +2061,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %726 = icmp eq i64 %725, %190
   br i1 %726, label %680, label %683
 
-.loopexit:                                        ; preds = %664, %476, %.loopexit75
+.loopexit63:                                      ; preds = %664, %476, %.loopexit76
   call void @free(ptr noundef nonnull %188) #16
   br label %1540
 
@@ -3127,10 +3127,10 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %1474 = mul nsw i32 %1264, %1263
   %1475 = sitofp i32 %1474 to float
   %1476 = sext i32 %1466 to i64
-  %1477 = and i64 %1469, 1
-  %1478 = icmp eq i32 %729, 1
-  %1479 = and i64 %1469, -2
-  %1480 = icmp eq i64 %1477, 0
+  %1477 = icmp eq i32 %729, 1
+  %1478 = and i64 %1469, -2
+  %1479 = and i32 %729, 1
+  %1480 = icmp eq i32 %1479, 0
   %1481 = fdiv reassoc nsz arcp contract afn float %1473, %1475
   br label %1482
 
@@ -3140,14 +3140,14 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %1485 = getelementptr i32, ptr %1270, i64 %1484
   %1486 = mul i64 %1483, %1476
   %1487 = getelementptr i8, ptr %1468, i64 %1486
-  br i1 %1478, label %.loopexit79, label %.preheader78
+  br i1 %1477, label %.thread, label %.preheader79
 
-.loopexit79:                                      ; preds = %.preheader78, %1482
-  %1488 = phi i64 [ 0, %1482 ], [ %1479, %.preheader78 ]
-  br i1 %1480, label %1504, label %1489
+1488:                                             ; preds = %.preheader79
+  br i1 %1480, label %1504, label %.thread
 
-1489:                                             ; preds = %.loopexit79
-  %1490 = getelementptr i32, ptr %1485, i64 %1488
+.thread:                                          ; preds = %1482, %1488
+  %1489 = phi i64 [ %1478, %1488 ], [ 0, %1482 ]
+  %1490 = getelementptr i32, ptr %1485, i64 %1489
   %1491 = load atomic i32, ptr %1490 seq_cst, align 4, !tbaa !151
   %1492 = sitofp i32 %1491 to float
   %1493 = fmul reassoc nsz arcp contract afn float %1481, %1492
@@ -3160,17 +3160,17 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %1500 = load float, ptr %1499, align 4, !tbaa !144
   %1501 = fmul reassoc nsz arcp contract afn float %1500, 2.550000e+02
   %1502 = fptoui float %1501 to i8
-  %1503 = getelementptr i8, ptr %1487, i64 %1488
+  %1503 = getelementptr i8, ptr %1487, i64 %1489
   store i8 %1502, ptr %1503, align 1, !tbaa !151
   br label %1504
 
-1504:                                             ; preds = %1489, %.loopexit79
+1504:                                             ; preds = %.thread, %1488
   %1505 = add nuw i64 %1483, 1
   %1506 = icmp eq i64 %1505, %1469
   br i1 %1506, label %.loopexit80, label %1482
 
-.preheader78:                                     ; preds = %1482, %.preheader78
-  %1507 = phi i64 [ %1537, %.preheader78 ], [ 0, %1482 ]
+.preheader79:                                     ; preds = %1482, %.preheader79
+  %1507 = phi i64 [ %1537, %.preheader79 ], [ 0, %1482 ]
   %1508 = getelementptr i32, ptr %1485, i64 %1507
   %1509 = load atomic i32, ptr %1508 seq_cst, align 4, !tbaa !151
   %1510 = sitofp i32 %1509 to float
@@ -3203,8 +3203,8 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %1536 = getelementptr i8, ptr %1487, i64 %1522
   store i8 %1535, ptr %1536, align 1, !tbaa !151
   %1537 = add i64 %1507, 2
-  %1538 = icmp eq i64 %1537, %1479
-  br i1 %1538, label %.loopexit79, label %.preheader78
+  %1538 = icmp eq i64 %1537, %1478
+  br i1 %1538, label %1488, label %.preheader79
 
 .loopexit80:                                      ; preds = %1504, %.loopexit81
   call void @free(ptr noundef %1270) #16
@@ -3216,7 +3216,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.29, i32 noundef 1060, ptr noundef nonnull @__FUNCTION__.dt_lib_histogram_process) #16
   unreachable
 
-1540:                                             ; preds = %.loopexit80, %.loopexit, %145, %140
+1540:                                             ; preds = %.loopexit80, %.loopexit63, %145, %140
   %1541 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %141) #16
   call void @free(ptr noundef %138) #16
   %1542 = load i32, ptr %143, align 4, !tbaa !62

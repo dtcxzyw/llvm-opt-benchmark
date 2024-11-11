@@ -6280,8 +6280,8 @@ invoke.cont88:                                    ; preds = %if.end.i201
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %lRange.i.i, i64 8
   store i64 1, ptr %arrayidx3.i.i, align 8
   %div.i.i414 = lshr i64 %conv, 6
-  %rem.i.i = and i64 %conv, 63
-  %tobool.not.i.i = icmp ne i64 %rem.i.i, 0
+  %118 = and i32 %nContacts, 63
+  %tobool.not.i.i = icmp ne i32 %118, 0
   %conv9.i.i = zext i1 %tobool.not.i.i to i64
   %add.i.i = add nuw nsw i64 %div.i.i414, %conv9.i.i
   %.sroa.speculated8.i.i = call i64 @llvm.umax.i64(i64 %add.i.i, i64 1)
@@ -6289,11 +6289,11 @@ invoke.cont88:                                    ; preds = %if.end.i201
   store i64 %mul.i.i, ptr %gRange.i.i, align 16
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %gRange.i.i, i64 8
   store i64 1, ptr %arrayidx27.i.i, align 8
-  %118 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
+  %119 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
   %m_commandQueue.i.i = getelementptr inbounds i8, ptr %launcher, i64 8
-  %119 = load ptr, ptr %m_commandQueue.i.i, align 8
-  %120 = load ptr, ptr %m_kernel.i, align 8
-  %call32.i.i230 = invoke i32 %118(ptr noundef %119, ptr noundef %120, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %120 = load ptr, ptr %m_commandQueue.i.i, align 8
+  %121 = load ptr, ptr %m_kernel.i, align 8
+  %call32.i.i230 = invoke i32 %119(ptr noundef %120, ptr noundef %121, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
           to label %call32.i.i.noexc unwind label %lpad79
 
 call32.i.i.noexc:                                 ; preds = %invoke.cont88
@@ -6307,9 +6307,9 @@ if.then.i.i229:                                   ; preds = %call32.i.i.noexc
 invoke.cont89:                                    ; preds = %if.then.i.i229, %call32.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %gRange.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %lRange.i.i)
-  %121 = load ptr, ptr @__clewFinish, align 8
-  %122 = load ptr, ptr %m_queue, align 8
-  %call92 = invoke i32 %121(ptr noundef %122)
+  %122 = load ptr, ptr @__clewFinish, align 8
+  %123 = load ptr, ptr %m_queue, align 8
+  %call92 = invoke i32 %122(ptr noundef %123)
           to label %invoke.cont91 unwind label %lpad79
 
 invoke.cont91:                                    ; preds = %invoke.cont89
@@ -6318,33 +6318,33 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %if.end unwind label %terminate.lpad.i231
 
 terminate.lpad.i231:                              ; preds = %invoke.cont91
-  %123 = landingpad { ptr, i32 }
+  %124 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #24
+  %125 = extractvalue { ptr, i32 } %124, 0
+  call void @__clang_call_terminate(ptr %125) #24
   unreachable
 
 lpad63:                                           ; preds = %if.else
-  %125 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup94
 
 lpad79:                                           ; preds = %if.then3.i.i389, %.noexc403, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i399, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i372, %if.then3.i.i349, %.noexc363, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i359, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i332, %if.then3.i.i309, %.noexc323, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i319, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i292, %if.then3.i.i271, %.noexc284, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i, %invoke.cont88, %if.end.i201, %if.end.i171, %if.end.i142, %if.end.i, %invoke.cont89, %invoke.cont78
-  %126 = landingpad { ptr, i32 }
+  %127 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher) #23
   br label %ehcleanup94
 
 ehcleanup94:                                      ; preds = %lpad79, %lpad63
-  %.pn = phi { ptr, i32 } [ %126, %lpad79 ], [ %125, %lpad63 ]
+  %.pn = phi { ptr, i32 } [ %127, %lpad79 ], [ %126, %lpad63 ]
   invoke void @b3LeaveProfileZone()
           to label %eh.resume unwind label %terminate.lpad.i233
 
 terminate.lpad.i233:                              ; preds = %ehcleanup94
-  %127 = landingpad { ptr, i32 }
+  %128 = landingpad { ptr, i32 }
           catch ptr null
-  %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #24
+  %129 = extractvalue { ptr, i32 } %128, 0
+  call void @__clang_call_terminate(ptr %129) #24
   unreachable
 
 if.end:                                           ; preds = %if.then3.i.i.i126, %if.then.i.i.i120, %_ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev.exit, %invoke.cont91

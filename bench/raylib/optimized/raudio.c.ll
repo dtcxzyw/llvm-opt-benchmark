@@ -68461,8 +68461,8 @@ codebook_decode_scalar_raw.exit431.i:             ; preds = %.sink.split.i403.i,
   br label %.sink.split.i
 
 736:                                              ; preds = %727
-  %737 = and i32 %725, 1
-  %.not386.i = icmp eq i32 %737, 0
+  %737 = and i16 %724, 1
+  %.not386.i = icmp eq i16 %737, 0
   br i1 %.not386.i, label %742, label %738
 
 738:                                              ; preds = %736
@@ -79098,12 +79098,12 @@ drmp3_L3_pow_43.exit.i.i:                         ; preds = %1200, %1195
 
 ._crit_edge344.i.loopexit.i:                      ; preds = %.lr.ph343.i.i
   %1247 = zext nneg i32 %1171 to i64
-  %scevgep188.i = getelementptr i8, ptr %.5256.i.i, i64 1
-  %scevgep189.i = getelementptr i8, ptr %scevgep188.i, i64 %1247
+  %scevgep189.i = getelementptr i8, ptr %.5256.i.i, i64 1
+  %scevgep190.i = getelementptr i8, ptr %scevgep189.i, i64 %1247
   br label %._crit_edge344.i.i
 
 ._crit_edge344.i.i:                               ; preds = %._crit_edge344.i.loopexit.i, %.preheader304.i.i
-  %.6257.lcssa.i.i = phi ptr [ %.5256.i.i, %.preheader304.i.i ], [ %scevgep189.i, %._crit_edge344.i.loopexit.i ]
+  %.6257.lcssa.i.i = phi ptr [ %.5256.i.i, %.preheader304.i.i ], [ %scevgep190.i, %._crit_edge344.i.loopexit.i ]
   %.7238.lcssa.i.i = phi i32 [ %1236, %.preheader304.i.i ], [ %1244, %._crit_edge344.i.loopexit.i ]
   %.7224.lcssa.i.i = phi i32 [ %1237, %.preheader304.i.i ], [ %1245, %._crit_edge344.i.loopexit.i ]
   %1248 = add nsw i32 %.0229.i.i, -1
@@ -79225,12 +79225,12 @@ drmp3_L3_pow_43.exit.i.i:                         ; preds = %1200, %1195
 
 ._crit_edge371.i.loopexit.i:                      ; preds = %.lr.ph370.i.i
   %1299 = zext nneg i32 %1276 to i64
-  %scevgep190.i = getelementptr i8, ptr %.9260.i.i, i64 1
-  %scevgep191.i = getelementptr i8, ptr %scevgep190.i, i64 %1299
+  %scevgep191.i = getelementptr i8, ptr %.9260.i.i, i64 1
+  %scevgep192.i = getelementptr i8, ptr %scevgep191.i, i64 %1299
   br label %._crit_edge371.i.i
 
 ._crit_edge371.i.i:                               ; preds = %._crit_edge371.i.loopexit.i, %.preheader.i66.i
-  %.10261.lcssa.i.i = phi ptr [ %.9260.i.i, %.preheader.i66.i ], [ %scevgep191.i, %._crit_edge371.i.loopexit.i ]
+  %.10261.lcssa.i.i = phi ptr [ %.9260.i.i, %.preheader.i66.i ], [ %scevgep192.i, %._crit_edge371.i.loopexit.i ]
   %.13244.lcssa.i.i = phi i32 [ %1288, %.preheader.i66.i ], [ %1296, %._crit_edge371.i.loopexit.i ]
   %.13.lcssa.i.i = phi i32 [ %1289, %.preheader.i66.i ], [ %1297, %._crit_edge371.i.loopexit.i ]
   %1300 = add nsw i32 %.1230.i.i, -1
@@ -79441,10 +79441,10 @@ drmp3_L3_pow_43.exit.i.i:                         ; preds = %1200, %1195
   br i1 %1400, label %.lr.ph398.i.preheader.i, label %._crit_edge399.i.i
 
 .lr.ph398.i.preheader.i:                          ; preds = %1399
-  %scevgep192.i = getelementptr i8, ptr %.11262.i.i, i64 1
+  %scevgep193.i = getelementptr i8, ptr %.11262.i.i, i64 1
   %1401 = lshr i32 %.18.i.i, 3
   %1402 = zext nneg i32 %1401 to i64
-  %scevgep193.i = getelementptr i8, ptr %scevgep192.i, i64 %1402
+  %scevgep194.i = getelementptr i8, ptr %scevgep193.i, i64 %1402
   br label %.lr.ph398.i.i
 
 .lr.ph398.i.i:                                    ; preds = %.lr.ph398.i.i, %.lr.ph398.i.preheader.i
@@ -79467,7 +79467,7 @@ drmp3_L3_pow_43.exit.i.i:                         ; preds = %1200, %1195
   br label %._crit_edge399.i.i
 
 ._crit_edge399.i.i:                               ; preds = %._crit_edge399.i.loopexit.i, %1399
-  %.12263.lcssa.i.i = phi ptr [ %.11262.i.i, %1399 ], [ %scevgep193.i, %._crit_edge399.i.loopexit.i ]
+  %.12263.lcssa.i.i = phi ptr [ %.11262.i.i, %1399 ], [ %scevgep194.i, %._crit_edge399.i.loopexit.i ]
   %.19250.lcssa.i.i = phi i32 [ %.18249.i.i, %1399 ], [ %1407, %._crit_edge399.i.loopexit.i ]
   %.19.lcssa.i.i = phi i32 [ %.18.i.i, %1399 ], [ %1412, %._crit_edge399.i.loopexit.i ]
   %1413 = getelementptr inbounds i8, ptr %.8.i.i, i64 16
@@ -79804,11 +79804,11 @@ drmp3_L3_midside_stereo.exit.i:                   ; preds = %.lr.ph.i80.i, %1560
   br i1 %897, label %.lr.ph144.i, label %drmp3_L3_decode.exit
 
 .lr.ph144.i:                                      ; preds = %drmp3_L3_midside_stereo.exit.i
-  %wide.trip.count198.i = zext nneg i32 %892 to i64
+  %wide.trip.count199.i = zext nneg i32 %892 to i64
   br label %1570
 
 1570:                                             ; preds = %drmp3_L3_change_sign.exit.i, %.lr.ph144.i
-  %indvars.iv195.i = phi i64 [ 0, %.lr.ph144.i ], [ %indvars.iv.next196.i, %drmp3_L3_change_sign.exit.i ]
+  %indvars.iv196.i = phi i64 [ 0, %.lr.ph144.i ], [ %indvars.iv.next197.i, %drmp3_L3_change_sign.exit.i ]
   %.0143.i = phi ptr [ %896, %.lr.ph144.i ], [ %1836, %drmp3_L3_change_sign.exit.i ]
   %1571 = getelementptr inbounds i8, ptr %.0143.i, i64 16
   %1572 = load i8, ptr %1571, align 8
@@ -79836,12 +79836,12 @@ drmp3_L3_midside_stereo.exit.i:                   ; preds = %.lr.ph.i80.i, %1560
   br i1 %.not58.i, label %.thread.i, label %1593
 
 .thread.i:                                        ; preds = %1570
-  %1592 = getelementptr inbounds [2 x [576 x float]], ptr %863, i64 0, i64 %indvars.iv195.i
+  %1592 = getelementptr inbounds [2 x [576 x float]], ptr %863, i64 0, i64 %indvars.iv196.i
   br label %.preheader.i91.preheader.i
 
 1593:                                             ; preds = %1570
   %1594 = add nsw i32 %1589, -1
-  %1595 = getelementptr inbounds [2 x [576 x float]], ptr %863, i64 0, i64 %indvars.iv195.i
+  %1595 = getelementptr inbounds [2 x [576 x float]], ptr %863, i64 0, i64 %indvars.iv196.i
   %1596 = mul nuw nsw i32 %1589, 18
   %1597 = zext nneg i32 %1596 to i64
   %1598 = getelementptr inbounds float, ptr %1595, i64 %1597
@@ -79893,29 +79893,29 @@ drmp3_L3_midside_stereo.exit.i:                   ; preds = %.lr.ph.i80.i, %1560
   br i1 %.not.i88.i, label %drmp3_L3_reorder.exit.loopexit.i, label %.preheader.i86.i
 
 drmp3_L3_reorder.exit.loopexit.i:                 ; preds = %1621
-  %.pre200.i = ptrtoint ptr %1618 to i64
+  %.pre201.i = ptrtoint ptr %1618 to i64
   br label %1625
 
 1625:                                             ; preds = %drmp3_L3_reorder.exit.loopexit.i, %1593
-  %.pre-phi.i = phi i64 [ %.pre200.i, %drmp3_L3_reorder.exit.loopexit.i ], [ %877, %1593 ]
+  %.pre-phi.i = phi i64 [ %.pre201.i, %drmp3_L3_reorder.exit.loopexit.i ], [ %877, %1593 ]
   %1626 = sub i64 %.pre-phi.i, %877
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1598, ptr nonnull align 8 %876, i64 %1626, i1 false)
   br i1 %.not57.i, label %drmp3_L3_antialias.exit.i.thread, label %.preheader.i91.preheader.i
 
 drmp3_L3_antialias.exit.i.thread:                 ; preds = %1625
-  %1627 = getelementptr inbounds [2 x [288 x float]], ptr %0, i64 0, i64 %indvars.iv195.i
+  %1627 = getelementptr inbounds [2 x [288 x float]], ptr %0, i64 0, i64 %indvars.iv196.i
   %1628 = getelementptr inbounds i8, ptr %.0143.i, i64 15
   %1629 = load i8, ptr %1628, align 1
   br label %1665
 
 .preheader.i91.preheader.i:                       ; preds = %1625, %.thread.i
   %1630 = phi ptr [ %1592, %.thread.i ], [ %1595, %1625 ]
-  %.054202.i = phi i32 [ 31, %.thread.i ], [ %1594, %1625 ]
+  %.054203.i = phi i32 [ 31, %.thread.i ], [ %1594, %1625 ]
   br label %.preheader.i91.i
 
 .preheader.i91.i:                                 ; preds = %1651, %.preheader.i91.preheader.i
   %.051.i.i = phi ptr [ %1631, %1651 ], [ %1630, %.preheader.i91.preheader.i ]
-  %.04850.i.i = phi i32 [ %1652, %1651 ], [ %.054202.i, %.preheader.i91.preheader.i ]
+  %.04850.i.i = phi i32 [ %1652, %1651 ], [ %.054203.i, %.preheader.i91.preheader.i ]
   %1631 = getelementptr inbounds i8, ptr %.051.i.i, i64 72
   %1632 = getelementptr inbounds i8, ptr %.051.i.i, i64 56
   br label %1633
@@ -79950,13 +79950,13 @@ drmp3_L3_antialias.exit.i.thread:                 ; preds = %1625
   br i1 %1653, label %.preheader.i91.i, label %drmp3_L3_antialias.exit.i
 
 drmp3_L3_antialias.exit.i:                        ; preds = %1651
-  %1654 = getelementptr inbounds [2 x [288 x float]], ptr %0, i64 0, i64 %indvars.iv195.i
+  %1654 = getelementptr inbounds [2 x [288 x float]], ptr %0, i64 0, i64 %indvars.iv196.i
   %1655 = getelementptr inbounds i8, ptr %.0143.i, i64 15
   %1656 = load i8, ptr %1655, align 1
   br i1 %.not57.i, label %1665, label %1657
 
 1657:                                             ; preds = %drmp3_L3_antialias.exit.i
-  %1658 = getelementptr inbounds [2 x [576 x float]], ptr %863, i64 0, i64 %indvars.iv195.i
+  %1658 = getelementptr inbounds [2 x [576 x float]], ptr %863, i64 0, i64 %indvars.iv196.i
   call fastcc void @drmp3_L3_imdct36(ptr noundef nonnull %1630, ptr noundef %1654, ptr noundef nonnull @drmp3_L3_imdct_gr.g_mdct_window, i32 noundef range(i32 0, 5) %1589)
   %1659 = mul nuw nsw i32 %1589, 18
   %1660 = zext nneg i32 %1659 to i64
@@ -80266,10 +80266,10 @@ drmp3_L3_imdct_gr.exit.i:                         ; preds = %drmp3_L3_imdct12.ex
   br i1 %1835, label %.preheader.i97.i, label %drmp3_L3_change_sign.exit.i
 
 drmp3_L3_change_sign.exit.i:                      ; preds = %1832
-  %indvars.iv.next196.i = add nuw nsw i64 %indvars.iv195.i, 1
+  %indvars.iv.next197.i = add nuw nsw i64 %indvars.iv196.i, 1
   %1836 = getelementptr inbounds i8, ptr %.0143.i, i64 32
-  %exitcond199.not.i = icmp eq i64 %indvars.iv.next196.i, %wide.trip.count198.i
-  br i1 %exitcond199.not.i, label %drmp3_L3_decode.exit, label %1570
+  %exitcond200.not.i = icmp eq i64 %indvars.iv.next197.i, %wide.trip.count199.i
+  br i1 %exitcond200.not.i, label %drmp3_L3_decode.exit, label %1570
 
 drmp3_L3_decode.exit:                             ; preds = %drmp3_L3_change_sign.exit.i, %drmp3_L3_midside_stereo.exit.i
   %1837 = load i32, ptr %343, align 4

@@ -24454,8 +24454,8 @@ for.body212:                                      ; preds = %for.body212.lr.ph, 
   %add.ptr.i198 = getelementptr inbounds nuw double, ptr %167, i64 %i207.0329
   store double %173, ptr %add.ptr.i198, align 8, !tbaa !46
   %inc218 = add nuw i64 %i207.0329, 1
-  %exitcond361.not = icmp eq i64 %inc218, %bestParameters.sroa.11.1
-  br i1 %exitcond361.not, label %for.cond.cleanup211, label %for.body212, !llvm.loop !354
+  %exitcond363.not = icmp eq i64 %inc218, %bestParameters.sroa.11.1
+  br i1 %exitcond363.not, label %for.cond.cleanup211, label %for.body212, !llvm.loop !354
 
 invoke.cont221:                                   ; preds = %for.cond.cleanup211
   %error_224 = getelementptr inbounds i8, ptr %this, i64 144
@@ -24607,10 +24607,10 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit248
 
 _ZN8QuantLib5ArrayD2Ev.exit248:                   ; preds = %ehcleanup232.thread, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i244, %ehcleanup232
-  %.pn27.pn.pn367 = phi { ptr, i32 } [ %76, %ehcleanup232.thread ], [ %.pn27.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i244 ], [ %.pn27.pn, %ehcleanup232 ]
+  %.pn27.pn.pn369 = phi { ptr, i32 } [ %76, %ehcleanup232.thread ], [ %.pn27.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i244 ], [ %.pn27.pn, %ehcleanup232 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i45) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %costFunction) #24
-  resume { ptr, i32 } %.pn27.pn.pn367
+  resume { ptr, i32 } %.pn27.pn.pn369
 
 if.end242:                                        ; preds = %_ZN8QuantLib5ArrayD2Ev.exit242, %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_9SABRSpecsEE21interpolationMaxErrorEv.exit
   ret void

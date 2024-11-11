@@ -1287,14 +1287,13 @@ invoke.cont13:                                    ; preds = %if.end
   %4 = call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %f)
   %fUnion.i = getelementptr inbounds i8, ptr %call14, i64 8
   %5 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %5 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %6 = and i16 %5, 17
+  %tobool.not.i = icmp eq i16 %6, 0
   br i1 %tobool.not.i, label %if.else.i, label %invoke.cont19
 
 if.else.i:                                        ; preds = %invoke.cont13
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %7 = and i16 %5, 2
+  %tobool6.not.i = icmp eq i16 %7, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -1303,31 +1302,31 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %call14, i64 24
-  %6 = load ptr, ptr %fArray.i, align 8
+  %8 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.else9.i, %if.then7.i, %invoke.cont13
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %6, %if.else9.i ], [ null, %invoke.cont13 ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %8, %if.else9.i ], [ null, %invoke.cont13 ]
   %cmp.i.i = icmp slt i16 %5, 0
-  %7 = ashr i16 %5, 5
-  %shr.i.i = sext i16 %7 to i32
+  %9 = ashr i16 %5, 5
+  %shr.i.i = sext i16 %9 to i32
   %fLength.i = getelementptr inbounds i8, ptr %call14, i64 12
-  %8 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %8, i32 %shr.i.i
+  %10 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %10, i32 %shr.i.i
   invoke void @usrc_writeStringAsASCII(ptr noundef %f, ptr noundef %retval.0.i, i32 noundef %cond.i, i32 poison)
           to label %invoke.cont21 unwind label %lpad.loopexit.split-lp
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %9 = call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr %f)
+  %11 = call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr %f)
   br label %while.cond.outer, !llvm.loop !6
 
 if.else:                                          ; preds = %while.body
-  %10 = load i32, ptr %codepointEnd.i, align 4
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.31, i32 noundef %2, i32 noundef %10)
+  %12 = load i32, ptr %codepointEnd.i, align 4
+  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.31, i32 noundef %2, i32 noundef %12)
   br label %while.cond, !llvm.loop !6
 
 while.end:                                        ; preds = %invoke.cont4
-  %11 = call i64 @fwrite(ptr nonnull @.str.32, i64 2, i64 1, ptr %f)
+  %13 = call i64 @fwrite(ptr nonnull @.str.32, i64 2, i64 1, ptr %f)
   call void @_ZN6icu_7518UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %it) #19
   ret void
 }

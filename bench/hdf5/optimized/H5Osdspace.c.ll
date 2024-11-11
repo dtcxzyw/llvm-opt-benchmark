@@ -579,8 +579,8 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   %296 = mul i64 %295, %293
   store i64 %296, ptr %287, align 8
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %exitcond37.not = icmp eq i64 %indvars.iv.next35.i, %291
-  br i1 %exitcond37.not, label %H5O__sdspace_decode.exit.thread, label %292
+  %exitcond38.not = icmp eq i64 %indvars.iv.next35.i, %291
+  br i1 %exitcond38.not, label %H5O__sdspace_decode.exit.thread, label %292
 
 297:                                              ; preds = %278, %225, %217, %139, %130, %111, %101, %92, %85, %72, %63, %53, %42, %34
   %298 = tail call i32 @H5S__extent_release(ptr noundef nonnull %20) #5

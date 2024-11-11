@@ -611,28 +611,27 @@ invoke.cont233:                                   ; preds = %invoke.cont226
   %cond.i = select i1 %cmp.i.i, i32 %50, i32 %shr.i.i
   %mul235 = shl nsw i32 %cond.i, 1
   %add236 = add nsw i32 %mul235, %add213
-  %51 = zext i16 %48 to i32
   br label %if.end237
 
 lpad219:                                          ; preds = %if.then217
-  %52 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad225:                                          ; preds = %invoke.cont220
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #12, !srcloc !6
   br label %ehcleanup
 
 lpad230:                                          ; preds = %invoke.cont226
-  %54 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %46) #12, !srcloc !6
   br label %ehcleanup
 
 if.end237:                                        ; preds = %invoke.cont233, %invoke.cont214
-  %conv1.i = phi i32 [ %51, %invoke.cont233 ], [ 2, %invoke.cont214 ]
+  %54 = phi i16 [ %48, %invoke.cont233 ], [ 2, %invoke.cont214 ]
   %totalSize.6 = phi i32 [ %add236, %invoke.cont233 ], [ %add213, %invoke.cont214 ]
   %arrayidx238 = getelementptr i8, ptr %indexes, i64 68
   store i32 %totalSize.6, ptr %arrayidx238, align 4
@@ -761,13 +760,13 @@ do.body.i241:                                     ; preds = %_ZN6icu_7519Collati
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit246
 
 _ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit246: ; preds = %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit237, %do.body.i241
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %74 = and i16 %54, 17
+  %tobool.not.i = icmp eq i16 %74, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit246
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %75 = and i16 %54, 2
+  %tobool6.not.i = icmp eq i16 %75, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -776,39 +775,39 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %scripts, i64 24
-  %74 = load ptr, ptr %fArray.i, align 8
+  %76 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit246, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %74, %if.else9.i ], [ null, %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit246 ]
-  %75 = load i32, ptr %arrayidx215, align 4
-  %76 = load i32, ptr %arrayidx238, align 4
-  %cmp.i249 = icmp slt i32 %75, %76
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %76, %if.else9.i ], [ null, %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit246 ]
+  %77 = load i32, ptr %arrayidx215, align 4
+  %78 = load i32, ptr %arrayidx238, align 4
+  %cmp.i249 = icmp slt i32 %77, %78
   br i1 %cmp.i249, label %do.body.i250, label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit255
 
 do.body.i250:                                     ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-  %idx.ext.i251 = sext i32 %75 to i64
+  %idx.ext.i251 = sext i32 %77 to i64
   %add.ptr.i252 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i251
-  %sub.i253 = sub nsw i32 %76, %75
+  %sub.i253 = sub nsw i32 %78, %77
   %conv.i254 = sext i32 %sub.i253 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i252, ptr readonly align 1 %retval.0.i, i64 %conv.i254, i1 false)
   %.pre280 = load i32, ptr %arrayidx238, align 4
   br label %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit255
 
 _ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit255: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit, %do.body.i250
-  %77 = phi i32 [ %76, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %.pre280, %do.body.i250 ]
-  %78 = load i32, ptr %arrayidx243, align 4
-  %cmp.i258 = icmp slt i32 %77, %78
+  %79 = phi i32 [ %78, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %.pre280, %do.body.i250 ]
+  %80 = load i32, ptr %arrayidx243, align 4
+  %cmp.i258 = icmp slt i32 %79, %80
   br i1 %cmp.i258, label %do.body.i259, label %cleanup
 
 do.body.i259:                                     ; preds = %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit255
   %compressibleBytes = getelementptr inbounds i8, ptr %data, i64 72
-  %79 = load ptr, ptr %compressibleBytes, align 8
-  %idx.ext.i260 = sext i32 %77 to i64
+  %81 = load ptr, ptr %compressibleBytes, align 8
+  %idx.ext.i260 = sext i32 %79 to i64
   %add.ptr.i261 = getelementptr inbounds i8, ptr %dest.addr.0, i64 %idx.ext.i260
-  %sub.i262 = sub nsw i32 %78, %77
+  %sub.i262 = sub nsw i32 %80, %79
   %conv.i263 = sext i32 %sub.i262 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i261, ptr readonly align 1 %79, i64 %conv.i263, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i261, ptr readonly align 1 %81, i64 %conv.i263, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %do.body.i259, %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit255, %if.then246
@@ -817,7 +816,7 @@ cleanup:                                          ; preds = %do.body.i259, %_ZN6
   br label %cleanup269
 
 ehcleanup:                                        ; preds = %lpad230, %lpad225, %lpad219
-  %.pn = phi { ptr, i32 } [ %52, %lpad219 ], [ %54, %lpad230 ], [ %53, %lpad225 ]
+  %.pn = phi { ptr, i32 } [ %51, %lpad219 ], [ %53, %lpad230 ], [ %52, %lpad225 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %scripts) #12
   br label %ehcleanup270
 

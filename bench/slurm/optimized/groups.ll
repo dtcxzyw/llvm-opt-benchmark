@@ -167,7 +167,7 @@ _get_group_cache.exit.i:                          ; preds = %.loopexit.i.i
   %.06287.i = phi i32 [ %50, %.lr.ph.i ], [ %63, %62 ]
   %60 = load i32, ptr %58, align 4
   %61 = icmp eq i32 %60, 34
-  br i1 %61, label %62, label %_get_group_members.exit.thread89
+  br i1 %61, label %62, label %_get_group_members.exit.thread90
 
 62:                                               ; preds = %59
   %63 = shl nuw nsw i32 %.06287.i, 1
@@ -182,7 +182,7 @@ _get_group_cache.exit.i:                          ; preds = %.loopexit.i.i
   %or.cond.i = select i1 %68, i1 %70, i1 false
   br i1 %or.cond.i, label %._crit_edge.i, label %59
 
-_get_group_members.exit.thread89:                 ; preds = %59
+_get_group_members.exit.thread90:                 ; preds = %59
   %71 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__._get_group_members, ptr noundef nonnull %.01264) #12
   call void @slurm_xfree(ptr noundef nonnull %3) #12
   br label %.sink.split
@@ -476,9 +476,9 @@ _get_group_members.exit.thread89:                 ; preds = %59
 
 _put_group_cache.exit.i:                          ; preds = %203
   %.not77.i = icmp eq i64 %indvars.iv, 0
-  br i1 %.not77.i, label %_get_group_members.exit.thread93, label %_get_group_members.exit
+  br i1 %.not77.i, label %_get_group_members.exit.thread94, label %_get_group_members.exit
 
-_get_group_members.exit.thread93:                 ; preds = %_put_group_cache.exit.i
+_get_group_members.exit.thread94:                 ; preds = %_put_group_cache.exit.i
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   %207 = load ptr, ptr %7, align 8
   br label %.sink.split
@@ -487,8 +487,8 @@ _get_group_members.exit:                          ; preds = %_put_group_cache.ex
   %208 = load ptr, ptr %7, align 8
   br label %_get_group_members.exit.thread
 
-.sink.split:                                      ; preds = %_get_group_members.exit.thread89, %_get_group_members.exit.thread93
-  %.sink = phi ptr [ %207, %_get_group_members.exit.thread93 ], [ null, %_get_group_members.exit.thread89 ]
+.sink.split:                                      ; preds = %_get_group_members.exit.thread90, %_get_group_members.exit.thread94
+  %.sink = phi ptr [ %207, %_get_group_members.exit.thread94 ], [ null, %_get_group_members.exit.thread90 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -536,9 +536,9 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv86 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next87, %.lr.ph ]
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next88, %.lr.ph ]
   %218 = load ptr, ptr %14, align 8
-  %219 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv86
+  %219 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv87
   %220 = load i32, ptr %219, align 4
   %221 = load ptr, ptr %11, align 8
   %222 = load i32, ptr %1, align 4
@@ -547,8 +547,8 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
   %224 = sext i32 %222 to i64
   %225 = getelementptr inbounds i32, ptr %221, i64 %224
   store i32 %220, ptr %225, align 4
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %211

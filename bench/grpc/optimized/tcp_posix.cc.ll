@@ -6389,12 +6389,12 @@ entry:
   %bytes_counter = getelementptr inbounds i8, ptr %tcp, i64 624
   %.pre = load ptr, ptr %outgoing_buffer, align 8
   %count.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
-  %.pre168 = load i64, ptr %count.phi.trans.insert, align 8
+  %.pre171 = load i64, ptr %count.phi.trans.insert, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.end, %entry
-  %1 = phi i64 [ %.pre168, %entry ], [ %72, %while.end ]
-  %2 = phi ptr [ %.pre, %entry ], [ %.pre170, %while.end ]
+  %1 = phi i64 [ %.pre171, %entry ], [ %72, %while.end ]
+  %2 = phi ptr [ %.pre, %entry ], [ %.pre173, %while.end ]
   %outgoing_slice_idx.0 = phi i64 [ 0, %entry ], [ %outgoing_slice_idx.3, %while.end ]
   %3 = load i64, ptr %outgoing_byte_idx, align 8
   %count = getelementptr inbounds i8, ptr %2, i64 16
@@ -6649,11 +6649,11 @@ if.then.i.i:                                      ; preds = %if.then.i75
           to label %if.then.i.i.invoke.cont77_crit_edge unwind label %lpad76
 
 if.then.i.i.invoke.cont77_crit_edge:              ; preds = %if.then.i.i
-  %.pre172 = load i64, ptr %ref.tmp, align 8
+  %.pre175 = load i64, ptr %ref.tmp, align 8
   br label %invoke.cont77
 
 invoke.cont77:                                    ; preds = %if.then.i.i.invoke.cont77_crit_edge, %invoke.cont75
-  %36 = phi i64 [ %.pre172, %if.then.i.i.invoke.cont77_crit_edge ], [ %34, %invoke.cont75 ]
+  %36 = phi i64 [ %.pre175, %if.then.i.i.invoke.cont77_crit_edge ], [ %34, %invoke.cont75 ]
   %and.i.i.i77 = and i64 %36, 1
   %cmp.i.i.i78 = icmp eq i64 %and.i.i.i77, 0
   br i1 %cmp.i.i.i78, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i79
@@ -6767,11 +6767,11 @@ if.then.i.i98:                                    ; preds = %if.then.i95
           to label %if.then.i.i98.invoke.cont91_crit_edge unwind label %lpad90
 
 if.then.i.i98.invoke.cont91_crit_edge:            ; preds = %if.then.i.i98
-  %.pre173 = load i64, ptr %ref.tmp82, align 8
+  %.pre176 = load i64, ptr %ref.tmp82, align 8
   br label %invoke.cont91
 
 invoke.cont91:                                    ; preds = %if.then.i.i98.invoke.cont91_crit_edge, %invoke.cont89
-  %51 = phi i64 [ %.pre173, %if.then.i.i98.invoke.cont91_crit_edge ], [ %49, %invoke.cont89 ]
+  %51 = phi i64 [ %.pre176, %if.then.i.i98.invoke.cont91_crit_edge ], [ %49, %invoke.cont89 ]
   %and.i.i.i101 = and i64 %51, 1
   %cmp.i.i.i102 = icmp eq i64 %and.i.i.i101, 0
   br i1 %cmp.i.i.i102, label %_ZN4absl12lts_202308026StatusD2Ev.exit105, label %if.then.i.i103
@@ -6875,11 +6875,11 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit: 
   store i32 %conv110, ptr %bytes_counter, align 8
   %sub111 = sub i64 %add, %65
   %cmp113.not153 = icmp eq i64 %sub111, 0
-  %.pre170 = load ptr, ptr %outgoing_buffer, align 8
+  %.pre173 = load ptr, ptr %outgoing_buffer, align 8
   br i1 %cmp113.not153, label %while.end, label %while.body114.lr.ph
 
 while.body114.lr.ph:                              ; preds = %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit
-  %slices116 = getelementptr inbounds i8, ptr %.pre170, i64 8
+  %slices116 = getelementptr inbounds i8, ptr %.pre173, i64 8
   %68 = load ptr, ptr %slices116, align 8
   br label %while.body114
 
@@ -6919,7 +6919,7 @@ if.else139:                                       ; preds = %cond.end133
 
 while.end:                                        ; preds = %if.else139, %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit, %if.then136
   %outgoing_slice_idx.3 = phi i64 [ %dec, %if.then136 ], [ %inc, %_ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit ], [ %dec, %if.else139 ]
-  %count143 = getelementptr inbounds i8, ptr %.pre170, i64 16
+  %count143 = getelementptr inbounds i8, ptr %.pre173, i64 16
   %72 = load i64, ptr %count143, align 8
   %cmp144 = icmp eq i64 %outgoing_slice_idx.3, %72
   br i1 %cmp144, label %if.then145, label %while.body, !llvm.loop !70
@@ -6941,8 +6941,8 @@ if.then.i.i122:                                   ; preds = %if.then.i119
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit130 unwind label %lpad147
 
 _ZN4absl12lts_202308026StatusD2Ev.exit130:        ; preds = %if.then.i119, %if.then145, %if.then.i.i122
-  %.pre171 = load ptr, ptr %outgoing_buffer, align 8
-  call void @grpc_slice_buffer_reset_and_unref(ptr noundef %.pre171)
+  %.pre174 = load ptr, ptr %outgoing_buffer, align 8
+  call void @grpc_slice_buffer_reset_and_unref(ptr noundef %.pre174)
   br label %return
 
 lpad147:                                          ; preds = %if.then.i.i122

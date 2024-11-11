@@ -23428,10 +23428,10 @@ _ZL14getLdStFrameIDRKN4llvm12MachineInstrERKNS_16MachineFrameInfoE.exit: ; preds
 
 _ZL14getLdStFrameIDRKN4llvm12MachineInstrERKNS_16MachineFrameInfoE.exit.thread.sink.split: ; preds = %170, %162
   %.val66.pre.sink = phi ptr [ %.val73, %162 ], [ %.val66.pre, %170 ]
-  %.sink225 = phi i32 [ 1, %162 ], [ %spec.select, %170 ]
+  %.sink227 = phi i32 [ 1, %162 ], [ %spec.select, %170 ]
   %172 = getelementptr inbounds %"struct.(anonymous namespace)::FrameObject", ptr %.val66.pre.sink, i64 %153, i32 5
   %173 = load i32, ptr %172, align 4
-  %174 = or i32 %173, %.sink225
+  %174 = or i32 %173, %.sink227
   store i32 %174, ptr %172, align 4
   br label %_ZL14getLdStFrameIDRKN4llvm12MachineInstrERKNS_16MachineFrameInfoE.exit.thread
 

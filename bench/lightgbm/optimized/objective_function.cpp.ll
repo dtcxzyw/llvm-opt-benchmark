@@ -5999,13 +5999,13 @@ define linkonce_odr void @_ZN8LightGBM9ArrayArgsIdE9PartitionEPSt6vectorIdSaIdEE
   br label %17
 
 17:                                               ; preds = %17, %13
-  %indvars.iv131 = phi i32 [ %indvars.iv.next132, %17 ], [ %16, %13 ]
+  %indvars.iv132 = phi i32 [ %indvars.iv.next133, %17 ], [ %16, %13 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ %15, %13 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds double, ptr %14, i64 %indvars.iv.next
   %19 = load double, ptr %18, align 8
   %20 = fcmp ogt double %19, %12
-  %indvars.iv.next132 = add i32 %indvars.iv131, 1
+  %indvars.iv.next133 = add i32 %indvars.iv132, 1
   br i1 %20, label %17, label %.preheader, !llvm.loop !36
 
 .preheader:                                       ; preds = %17
@@ -6046,11 +6046,11 @@ define linkonce_odr void @_ZN8LightGBM9ArrayArgsIdE9PartitionEPSt6vectorIdSaIdEE
   %41 = load double, ptr %40, align 8
   store double %35, ptr %40, align 8
   store double %41, ptr %34, align 8
-  %.pre138 = load ptr, ptr %0, align 8
+  %.pre139 = load ptr, ptr %0, align 8
   br label %42
 
 42:                                               ; preds = %37, %31
-  %43 = phi ptr [ %.pre138, %37 ], [ %33, %31 ]
+  %43 = phi ptr [ %.pre139, %37 ], [ %33, %31 ]
   %.178 = phi i32 [ %38, %37 ], [ %.077, %31 ]
   %44 = getelementptr inbounds double, ptr %43, i64 %indvars.iv.next120
   %45 = load double, ptr %44, align 8
@@ -6112,26 +6112,26 @@ define linkonce_odr void @_ZN8LightGBM9ArrayArgsIdE9PartitionEPSt6vectorIdSaIdEE
 .lr.ph107.preheader:                              ; preds = %._crit_edge
   %67 = sext i32 %66 to i64
   %68 = sext i32 %.075.ph to i64
-  %69 = sext i32 %indvars.iv131 to i64
+  %69 = sext i32 %indvars.iv132 to i64
   br label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
-  %indvars.iv133 = phi i64 [ %69, %.lr.ph107.preheader ], [ %indvars.iv.next134, %.lr.ph107 ]
-  %indvars.iv129 = phi i64 [ %67, %.lr.ph107.preheader ], [ %indvars.iv.next130, %.lr.ph107 ]
+  %indvars.iv134 = phi i64 [ %69, %.lr.ph107.preheader ], [ %indvars.iv.next135, %.lr.ph107 ]
+  %indvars.iv130 = phi i64 [ %67, %.lr.ph107.preheader ], [ %indvars.iv.next131, %.lr.ph107 ]
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds double, ptr %70, i64 %indvars.iv133
-  %72 = getelementptr inbounds double, ptr %70, i64 %indvars.iv129
+  %71 = getelementptr inbounds double, ptr %70, i64 %indvars.iv134
+  %72 = getelementptr inbounds double, ptr %70, i64 %indvars.iv130
   %73 = load double, ptr %71, align 8
   %74 = load double, ptr %72, align 8
   store double %74, ptr %71, align 8
   store double %73, ptr %72, align 8
-  %indvars.iv.next130 = add nsw i64 %indvars.iv129, -1
-  %indvars.iv.next134 = add nsw i64 %indvars.iv133, 1
-  %.not87.not = icmp sgt i64 %indvars.iv129, %68
+  %indvars.iv.next131 = add nsw i64 %indvars.iv130, -1
+  %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
+  %.not87.not = icmp sgt i64 %indvars.iv130, %68
   br i1 %.not87.not, label %.lr.ph107, label %.loopexit.loopexit, !llvm.loop !40
 
 .loopexit.loopexit:                               ; preds = %.lr.ph107
-  %75 = trunc nsw i64 %indvars.iv.next134 to i32
+  %75 = trunc nsw i64 %indvars.iv.next135 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge, %5
@@ -11173,13 +11173,13 @@ define linkonce_odr void @_ZN8LightGBM9ArrayArgsIfE9PartitionEPSt6vectorIfSaIfEE
   br label %17
 
 17:                                               ; preds = %17, %13
-  %indvars.iv131 = phi i32 [ %indvars.iv.next132, %17 ], [ %16, %13 ]
+  %indvars.iv132 = phi i32 [ %indvars.iv.next133, %17 ], [ %16, %13 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ %15, %13 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds float, ptr %14, i64 %indvars.iv.next
   %19 = load float, ptr %18, align 4
   %20 = fcmp ogt float %19, %12
-  %indvars.iv.next132 = add i32 %indvars.iv131, 1
+  %indvars.iv.next133 = add i32 %indvars.iv132, 1
   br i1 %20, label %17, label %.preheader, !llvm.loop !83
 
 .preheader:                                       ; preds = %17
@@ -11220,11 +11220,11 @@ define linkonce_odr void @_ZN8LightGBM9ArrayArgsIfE9PartitionEPSt6vectorIfSaIfEE
   %41 = load float, ptr %40, align 4
   store float %35, ptr %40, align 4
   store float %41, ptr %34, align 4
-  %.pre138 = load ptr, ptr %0, align 8
+  %.pre139 = load ptr, ptr %0, align 8
   br label %42
 
 42:                                               ; preds = %37, %31
-  %43 = phi ptr [ %.pre138, %37 ], [ %33, %31 ]
+  %43 = phi ptr [ %.pre139, %37 ], [ %33, %31 ]
   %.178 = phi i32 [ %38, %37 ], [ %.077, %31 ]
   %44 = getelementptr inbounds float, ptr %43, i64 %indvars.iv.next120
   %45 = load float, ptr %44, align 4
@@ -11286,26 +11286,26 @@ define linkonce_odr void @_ZN8LightGBM9ArrayArgsIfE9PartitionEPSt6vectorIfSaIfEE
 .lr.ph107.preheader:                              ; preds = %._crit_edge
   %67 = sext i32 %66 to i64
   %68 = sext i32 %.075.ph to i64
-  %69 = sext i32 %indvars.iv131 to i64
+  %69 = sext i32 %indvars.iv132 to i64
   br label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
-  %indvars.iv133 = phi i64 [ %69, %.lr.ph107.preheader ], [ %indvars.iv.next134, %.lr.ph107 ]
-  %indvars.iv129 = phi i64 [ %67, %.lr.ph107.preheader ], [ %indvars.iv.next130, %.lr.ph107 ]
+  %indvars.iv134 = phi i64 [ %69, %.lr.ph107.preheader ], [ %indvars.iv.next135, %.lr.ph107 ]
+  %indvars.iv130 = phi i64 [ %67, %.lr.ph107.preheader ], [ %indvars.iv.next131, %.lr.ph107 ]
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds float, ptr %70, i64 %indvars.iv133
-  %72 = getelementptr inbounds float, ptr %70, i64 %indvars.iv129
+  %71 = getelementptr inbounds float, ptr %70, i64 %indvars.iv134
+  %72 = getelementptr inbounds float, ptr %70, i64 %indvars.iv130
   %73 = load float, ptr %71, align 4
   %74 = load float, ptr %72, align 4
   store float %74, ptr %71, align 4
   store float %73, ptr %72, align 4
-  %indvars.iv.next130 = add nsw i64 %indvars.iv129, -1
-  %indvars.iv.next134 = add nsw i64 %indvars.iv133, 1
-  %.not87.not = icmp sgt i64 %indvars.iv129, %68
+  %indvars.iv.next131 = add nsw i64 %indvars.iv130, -1
+  %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
+  %.not87.not = icmp sgt i64 %indvars.iv130, %68
   br i1 %.not87.not, label %.lr.ph107, label %.loopexit.loopexit, !llvm.loop !87
 
 .loopexit.loopexit:                               ; preds = %.lr.ph107
-  %75 = trunc nsw i64 %indvars.iv.next134 to i32
+  %75 = trunc nsw i64 %indvars.iv.next135 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge, %5

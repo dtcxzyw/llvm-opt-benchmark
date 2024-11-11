@@ -2326,7 +2326,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   br label %1113
 
 .preheader26.i:                                   ; preds = %1115
-  br i1 %.not239116145.i, label %.outer._crit_edge.thread262.i, label %.lr.ph.i89
+  br i1 %.not239116145.i, label %.outer._crit_edge.thread290.i, label %.lr.ph.i89
 
 1113:                                             ; preds = %1115, %1110
   %1114 = phi i8 [ 40, %1110 ], [ %1117, %1115 ]
@@ -2535,8 +2535,8 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %1233 = getelementptr inbounds i8, ptr %.4220114.i, i64 1
   store i8 %1231, ptr %.4220114.i, align 1
   %.2210115.add.i = add nuw nsw i64 %.2210115.idx.i, 1
-  %.ptr244.i = getelementptr inbounds i8, ptr @.str.4, i64 %.2210115.add.i
-  %1234 = load i8, ptr %.ptr244.i, align 1
+  %.ptr272.i = getelementptr inbounds i8, ptr @.str.4, i64 %.2210115.add.i
+  %1234 = load i8, ptr %.ptr272.i, align 1
   %exitcond243.i = icmp eq i64 %.2210115.add.i, 2
   br i1 %exitcond243.i, label %1235, label %.preheader14.i
 
@@ -2556,7 +2556,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %.us-phi256 = phi i64 [ %1121, %1225 ], [ %1121, %1215 ], [ %1336, %1348 ], [ %1336, %.lr.ph775 ]
   %.us-phi257 = phi ptr [ %spec.select.i90, %1225 ], [ %spec.select.i90, %1215 ], [ %spec.select.i90.us279771, %1348 ], [ %spec.select.i90.us279771, %.lr.ph775 ]
   %1238 = icmp eq i32 %.us-phi251, 91
-  %spec.select355.i = select i1 %1238, i32 4, i32 3
+  %spec.select383.i = select i1 %1238, i32 4, i32 3
   br label %.loopexit28.i
 
 .split259:                                        ; preds = %.lr.ph775, %1215
@@ -2581,7 +2581,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %.0225117.i155 = phi ptr [ %.us-phi265, %.split259 ], [ %.us-phi255, %.thread.i ], [ %.0225117.i, %1218 ], [ %.0225117.i, %1215 ], [ %.0225117.i.us278772, %1341 ], [ %.0225117.i.us278772, %.lr.ph775 ]
   %1242 = phi i64 [ %.us-phi266, %.split259 ], [ %.us-phi256, %.thread.i ], [ %1121, %1218 ], [ %1121, %1215 ], [ %1336, %1341 ], [ %1336, %.lr.ph775 ]
   %spec.select.i90137 = phi ptr [ %.us-phi267, %.split259 ], [ %.us-phi257, %.thread.i ], [ %spec.select.i90, %1218 ], [ %spec.select.i90, %1215 ], [ %spec.select.i90.us279771, %1341 ], [ %spec.select.i90.us279771, %.lr.ph775 ]
-  %.1200.i = phi i32 [ %spec.select268.i, %.split259 ], [ %spec.select355.i, %.thread.i ], [ %.0199121.i, %1215 ], [ 5, %1218 ], [ %.0199121.i.us276774, %.lr.ph775 ], [ 5, %1341 ]
+  %.1200.i = phi i32 [ %spec.select268.i, %.split259 ], [ %spec.select383.i, %.thread.i ], [ %.0199121.i, %1215 ], [ 5, %1218 ], [ %.0199121.i.us276774, %.lr.ph775 ], [ 5, %1341 ]
   %1243 = icmp eq i32 %.0193.fr.i201, 92
   br i1 %1243, label %.preheader11.preheader.i, label %.loopexit12.i
 
@@ -2602,7 +2602,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   %.0225117.i154 = phi ptr [ %.0225117.i155, %.loopexit28.i ], [ %.0225117.i155, %.loopexit12.loopexit.i ], [ %.0225117.i, %1228 ], [ %.0225117.i, %1216 ], [ %.0225117.i.us278772, %1351 ], [ %.0225117.i.us278772, %1339 ]
   %1246 = phi i64 [ %1242, %.loopexit28.i ], [ %1242, %.loopexit12.loopexit.i ], [ %1121, %1228 ], [ %1121, %1216 ], [ %1336, %1351 ], [ %1336, %1339 ]
   %spec.select.i90136 = phi ptr [ %spec.select.i90137, %.loopexit28.i ], [ %spec.select.i90137, %.loopexit12.loopexit.i ], [ %spec.select.i90, %1228 ], [ %spec.select.i90, %1216 ], [ %spec.select.i90.us279771, %1351 ], [ %spec.select.i90.us279771, %1339 ]
-  %.1200275.i = phi i32 [ %.1200.i, %.loopexit28.i ], [ %.1200.i, %.loopexit12.loopexit.i ], [ 3, %1228 ], [ 3, %1216 ], [ 3, %1351 ], [ 3, %1339 ]
+  %.1200303.i = phi i32 [ %.1200.i, %.loopexit28.i ], [ %.1200.i, %.loopexit12.loopexit.i ], [ 3, %1228 ], [ 3, %1216 ], [ 3, %1351 ], [ 3, %1339 ]
   %.5221.i = phi ptr [ %spec.select.i90137, %.loopexit28.i ], [ %spec.select.i90.sroa.sel111.v.sroa.sel.v.sroa.sel, %.loopexit12.loopexit.i ], [ %spec.select.i90, %1228 ], [ %spec.select.i90, %1216 ], [ %spec.select.i90.us279771, %1351 ], [ %spec.select.i90.us279771, %1339 ]
   %1247 = getelementptr inbounds i8, ptr %.5221.i, i64 %.0.i209
   %1248 = icmp ugt ptr %1247, %1112
@@ -2833,7 +2833,7 @@ thread-pre-split.i:                               ; preds = %1258
   %.1226.i = phi ptr [ %1244, %1249 ], [ %.us-phi228, %1313 ], [ %.us-phi228, %1296 ], [ %.us-phi228, %1298 ], [ %1283, %1282 ], [ %.22277.i, %.thread2.i ], [ %.us-phi228, %1267 ], [ %.us-phi228, %1271 ], [ %.us-phi228, %1268 ], [ %.us-phi236, %.outer.loopexit.i ], [ %1263, %.outer.loopexit165.i ]
   %.7223.i = phi ptr [ %1247, %1249 ], [ %1311, %1313 ], [ %spec.select.i90.sroa.sel.v.sroa.sel.v.sroa.sel, %1296 ], [ %.us-phi235, %1298 ], [ %1280, %1282 ], [ %.98.i, %.thread2.i ], [ %.us-phi235, %1267 ], [ %.us-phi235, %1271 ], [ %.us-phi235, %1268 ], [ %spec.select.i90.sroa.sel114.v.sroa.sel.v.sroa.sel, %.outer.loopexit.i ], [ %1264, %.outer.loopexit165.i ]
   %.1203.i = phi i32 [ %.0202.ph150.i, %1249 ], [ %.6.i94, %1313 ], [ %.5.i, %1296 ], [ %.0202.ph150.i, %1298 ], [ %.0202.ph150.i, %1282 ], [ %.0202.ph150.i, %.thread2.i ], [ %.0202.ph150.i, %1267 ], [ %.0202.ph150.i, %1271 ], [ %.0202.ph150.i, %1268 ], [ %.0202.ph150.i, %.outer.loopexit.i ], [ %.0202.ph150.i, %.outer.loopexit165.i ]
-  %.3.i93 = phi i32 [ %.1200275.i, %1249 ], [ 2, %1313 ], [ %.4.i92, %1296 ], [ %.us-phi231, %1298 ], [ %.us-phi231, %1282 ], [ 3, %.thread2.i ], [ %.us-phi231, %1267 ], [ %.us-phi231, %1271 ], [ %.us-phi231, %1268 ], [ 2, %.outer.loopexit.i ], [ 3, %.outer.loopexit165.i ]
+  %.3.i93 = phi i32 [ %.1200303.i, %1249 ], [ 2, %1313 ], [ %.4.i92, %1296 ], [ %.us-phi231, %1298 ], [ %.us-phi231, %1282 ], [ 3, %.thread2.i ], [ %.us-phi231, %1267 ], [ %.us-phi231, %1271 ], [ %.us-phi231, %1268 ], [ 2, %.outer.loopexit.i ], [ 3, %.outer.loopexit165.i ]
   %.1198.i = phi i32 [ %.0197.ph153.i, %1249 ], [ 255, %1313 ], [ %.us-phi227, %1296 ], [ 42, %1298 ], [ %1285, %1282 ], [ %.0197.ph153.i, %.thread2.i ], [ %.0197.ph153.i, %1267 ], [ %.0197.ph153.i, %1271 ], [ %.0197.ph153.i, %1268 ], [ %.0197.ph153.i, %.outer.loopexit.i ], [ %.0197.ph153.i, %.outer.loopexit165.i ]
   %.1196.i = phi i64 [ %1245, %1249 ], [ %.us-phi229, %1313 ], [ %.us-phi229, %1296 ], [ %.us-phi229, %1298 ], [ %1286, %1282 ], [ %.29.i, %.thread2.i ], [ %.us-phi229, %1267 ], [ %.us-phi229, %1271 ], [ %.us-phi229, %1268 ], [ %.us-phi237, %.outer.loopexit.i ], [ %1262, %.outer.loopexit165.i ]
   %.1.i = phi i32 [ 0, %1249 ], [ 0, %1313 ], [ 0, %1296 ], [ 0, %1298 ], [ 0, %1282 ], [ 0, %.thread2.i ], [ 1, %1267 ], [ 1, %1271 ], [ 1, %1268 ], [ 0, %.outer.loopexit.i ], [ 0, %.outer.loopexit165.i ]
@@ -2937,8 +2937,8 @@ thread-pre-split.i:                               ; preds = %1258
   %1356 = getelementptr inbounds i8, ptr %.4220114.i.us, i64 1
   store i8 %1354, ptr %.4220114.i.us, align 1
   %.2210115.add.i.us = add nuw nsw i64 %.2210115.idx.i.us, 1
-  %.ptr244.i.us = getelementptr inbounds i8, ptr @.str.4, i64 %.2210115.add.i.us
-  %1357 = load i8, ptr %.ptr244.i.us, align 1
+  %.ptr272.i.us = getelementptr inbounds i8, ptr @.str.4, i64 %.2210115.add.i.us
+  %1357 = load i8, ptr %.ptr272.i.us, align 1
   %exitcond243.i.us = icmp eq i64 %.2210115.add.i.us, 2
   br i1 %exitcond243.i.us, label %1358, label %.preheader14.i.us
 
@@ -2948,22 +2948,22 @@ thread-pre-split.i:                               ; preds = %1258
 
 .outer._crit_edge.i:                              ; preds = %.outer.i
   %1359 = icmp ugt i32 %.3.i93, 2
-  br i1 %1359, label %convert_posix.exit.thread, label %.outer._crit_edge.thread262.i
+  br i1 %1359, label %convert_posix.exit.thread, label %.outer._crit_edge.thread290.i
 
-.outer._crit_edge.thread262.i:                    ; preds = %.outer._crit_edge.i, %.preheader26.i
-  %.0207.lcssa269.i = phi i64 [ %1314, %.outer._crit_edge.i ], [ 0, %.preheader26.i ]
-  %.0215.lcssa268.i = phi ptr [ %spec.select.i90135, %.outer._crit_edge.i ], [ %.168290, %.preheader26.i ]
-  %.1217.lcssa267.i = phi ptr [ %.7223.i, %.outer._crit_edge.i ], [ %1116, %.preheader26.i ]
-  %1360 = ptrtoint ptr %.1217.lcssa267.i to i64
-  %1361 = ptrtoint ptr %.0215.lcssa268.i to i64
-  %1362 = sub i64 %.0207.lcssa269.i, %1361
+.outer._crit_edge.thread290.i:                    ; preds = %.outer._crit_edge.i, %.preheader26.i
+  %.0207.lcssa297.i = phi i64 [ %1314, %.outer._crit_edge.i ], [ 0, %.preheader26.i ]
+  %.0215.lcssa296.i = phi ptr [ %spec.select.i90135, %.outer._crit_edge.i ], [ %.168290, %.preheader26.i ]
+  %.1217.lcssa295.i = phi ptr [ %.7223.i, %.outer._crit_edge.i ], [ %1116, %.preheader26.i ]
+  %1360 = ptrtoint ptr %.1217.lcssa295.i to i64
+  %1361 = ptrtoint ptr %.0215.lcssa296.i to i64
+  %1362 = sub i64 %.0207.lcssa297.i, %1361
   %1363 = add i64 %1362, %1360
   store i64 %1363, ptr %4, align 8
-  store i8 0, ptr %.1217.lcssa267.i, align 1
+  store i8 0, ptr %.1217.lcssa295.i, align 1
   br label %convert_posix.exit
 
-convert_posix.exit:                               ; preds = %.outer._crit_edge.thread262.i, %convert_glob.exit
-  %.069 = phi i32 [ %.088.i, %convert_glob.exit ], [ 0, %.outer._crit_edge.thread262.i ]
+convert_posix.exit:                               ; preds = %.outer._crit_edge.thread290.i, %convert_glob.exit
+  %.069 = phi i32 [ %.088.i, %convert_glob.exit ], [ 0, %.outer._crit_edge.thread290.i ]
   %1364 = icmp ne i32 %.069, 0
   %or.cond5 = or i1 %.not81, %1364
   br i1 %or.cond5, label %convert_posix.exit.thread, label %1365

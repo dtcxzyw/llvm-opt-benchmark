@@ -679,31 +679,30 @@ while.body:                                       ; preds = %invoke.cont12
   %6 = load ptr, ptr %addString, align 8
   %7 = load ptr, ptr %sa, align 8
   %8 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %8 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
-  %9 = load ptr, ptr %fArray.i, align 8
-  %spec.select17 = select i1 %tobool6.not.i, ptr %9, ptr %fBuffer.i
+  %9 = and i16 %8, 17
+  %tobool.not.i = icmp eq i16 %9, 0
+  %10 = and i16 %8, 2
+  %tobool6.not.i = icmp eq i16 %10, 0
+  %11 = load ptr, ptr %fArray.i, align 8
+  %spec.select17 = select i1 %tobool6.not.i, ptr %11, ptr %fBuffer.i
   %retval.0.i = select i1 %tobool.not.i, ptr %spec.select17, ptr null
   %cmp.i.i = icmp slt i16 %8, 0
-  %10 = ashr i16 %8, 5
-  %shr.i.i = sext i16 %10 to i32
-  %11 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %11, i32 %shr.i.i
+  %12 = ashr i16 %8, 5
+  %shr.i.i = sext i16 %12 to i32
+  %13 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %13, i32 %shr.i.i
   invoke void %6(ptr noundef %7, ptr noundef %retval.0.i, i32 noundef %cond.i)
           to label %while.cond unwind label %lpad11, !llvm.loop !9
 
 lpad:                                             ; preds = %if.then10
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #9, !srcloc !7
+  %15 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #9, !srcloc !7
   br label %eh.resume
 
 lpad11:                                           ; preds = %while.body, %while.cond
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7510UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %iter) #9
   br label %eh.resume
@@ -721,7 +720,7 @@ for.end:                                          ; preds = %for.inc, %if.end4, 
   ret void
 
 eh.resume:                                        ; preds = %lpad11, %lpad
-  %.pn = phi { ptr, i32 } [ %14, %lpad11 ], [ %12, %lpad ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad11 ], [ %14, %lpad ]
   resume { ptr, i32 } %.pn
 }
 

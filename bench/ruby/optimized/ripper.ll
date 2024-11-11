@@ -37579,14 +37579,14 @@ magic_comment_marker.exit.thread.i:               ; preds = %979, %971, %magic_c
   br i1 %1103, label %.lr.ph348.preheader.i, label %.critedge10.i
 
 .lr.ph348.preheader.i:                            ; preds = %.preheader265.i
-  %scevgep394.i = getelementptr i8, ptr %.8.i, i64 %.8157.i
+  %scevgep395.i = getelementptr i8, ptr %.8.i, i64 %.8157.i
   br label %.lr.ph348.i
 
 .preheader264.i:                                  ; preds = %.critedge8.i
   br i1 %1103, label %.lr.ph356.preheader.i, label %.critedge14.i
 
 .lr.ph356.preheader.i:                            ; preds = %.preheader264.i
-  %scevgep395.i = getelementptr i8, ptr %.8.i, i64 %.8157.i
+  %scevgep396.i = getelementptr i8, ptr %.8.i, i64 %.8157.i
   br label %.lr.ph356.i
 
 .lr.ph348.i:                                      ; preds = %.critedge12.i, %.lr.ph348.preheader.i
@@ -37632,11 +37632,11 @@ magic_comment_marker.exit.thread.i:               ; preds = %979, %971, %magic_c
   br i1 %.not203.i, label %.critedge10.i, label %.loopexit1160.split.us
 
 .critedge10.i:                                    ; preds = %.critedge12.i, %1106, %1119, %1079, %.critedge14.i, %.preheader265.i, %.critedge6.i
-  %.8427.i = phi ptr [ %.8.i, %.critedge14.i ], [ %.8.i, %.preheader265.i ], [ %1088, %.critedge6.i ], [ %1080, %1079 ], [ %.8.i, %1119 ], [ %.8.i, %1106 ], [ %.8.i, %.critedge12.i ]
-  %.0163422.i = phi ptr [ %.0163.i852, %.critedge14.i ], [ %.0163.i852, %.preheader265.i ], [ %1088, %.critedge6.i ], [ %1080, %1079 ], [ %.0163.i852, %1119 ], [ %.0163.i852, %1106 ], [ %.0163.i852, %.critedge12.i ]
-  %.0164419.i = phi ptr [ %.0164.i851, %.critedge14.i ], [ %.0164.i851, %.preheader265.i ], [ %1080, %.critedge6.i ], [ %1080, %1079 ], [ %.0164.i851, %1119 ], [ %.0164.i851, %1106 ], [ %.0164.i851, %.critedge12.i ]
+  %.8428.i = phi ptr [ %.8.i, %.critedge14.i ], [ %.8.i, %.preheader265.i ], [ %1088, %.critedge6.i ], [ %1080, %1079 ], [ %.8.i, %1119 ], [ %.8.i, %1106 ], [ %.8.i, %.critedge12.i ]
+  %.0163423.i = phi ptr [ %.0163.i852, %.critedge14.i ], [ %.0163.i852, %.preheader265.i ], [ %1088, %.critedge6.i ], [ %1080, %1079 ], [ %.0163.i852, %1119 ], [ %.0163.i852, %1106 ], [ %.0163.i852, %.critedge12.i ]
+  %.0164420.i = phi ptr [ %.0164.i851, %.critedge14.i ], [ %.0164.i851, %.preheader265.i ], [ %1080, %.critedge6.i ], [ %1080, %1079 ], [ %.0164.i851, %1119 ], [ %.0164.i851, %1106 ], [ %.0164.i851, %.critedge12.i ]
   %.11160.i = phi i64 [ 0, %.critedge14.i ], [ %.8157.i, %.preheader265.i ], [ 0, %.critedge6.i ], [ 0, %1079 ], [ 0, %1119 ], [ 0, %.critedge12.i ], [ %.10159346.i, %1106 ]
-  %.11.i = phi ptr [ %.8.i, %.critedge14.i ], [ %.8.i, %.preheader265.i ], [ %1088, %.critedge6.i ], [ %1080, %1079 ], [ %scevgep395.i, %1119 ], [ %scevgep394.i, %.critedge12.i ], [ %.10347.i, %1106 ]
+  %.11.i = phi ptr [ %.8.i, %.critedge14.i ], [ %.8.i, %.preheader265.i ], [ %1088, %.critedge6.i ], [ %1080, %1079 ], [ %scevgep396.i, %1119 ], [ %scevgep395.i, %.critedge12.i ], [ %.10347.i, %1106 ]
   %1123 = ptrtoint ptr %.us-phi1402 to i64
   %1124 = ptrtoint ptr %.us-phi1403 to i64
   %1125 = sub i64 %1123, %1124
@@ -37668,11 +37668,11 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %1132, %1126
 1134:                                             ; preds = %.critedge10.i
   %1135 = load ptr, ptr %890, align 8
   %1136 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.us-phi1403, i64 noundef %1125, ptr noundef %1135) #24
-  %.pre397.i = inttoptr i64 %1136 to ptr
+  %.pre398.i = inttoptr i64 %1136 to ptr
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %1134, %1133, %rbimpl_size_mul_or_raise.exit.i
-  %.pre-phi.i855 = phi ptr [ %1128, %1133 ], [ %1128, %rbimpl_size_mul_or_raise.exit.i ], [ %.pre397.i, %1134 ]
+  %.pre-phi.i855 = phi ptr [ %1128, %1133 ], [ %1128, %rbimpl_size_mul_or_raise.exit.i ], [ %.pre398.i, %1134 ]
   %.1170.i = phi i64 [ %.0169.ph.i, %1133 ], [ %.0169.ph.i, %rbimpl_size_mul_or_raise.exit.i ], [ %1136, %1134 ]
   %1137 = load i64, ptr %.pre-phi.i855, align 8, !noalias !76
   %1138 = and i64 %1137, 8192
@@ -37724,8 +37724,8 @@ RSTRING_PTR.exit229.i:                            ; preds = %1140, %ruby_nonempt
 
 1153:                                             ; preds = %1150
   %.0162.ptr.i.le = getelementptr inbounds i8, ptr @magic_comments, i64 %.0162.idx.i
-  %1154 = ptrtoint ptr %.0163422.i to i64
-  %1155 = ptrtoint ptr %.0164419.i to i64
+  %1154 = ptrtoint ptr %.0163423.i to i64
+  %1155 = ptrtoint ptr %.0164420.i to i64
   %1156 = sub i64 %1154, %1155
   %1157 = getelementptr inbounds i8, ptr %.0162.ptr.i.le, i64 16
   %1158 = load ptr, ptr %1157, align 8
@@ -37733,7 +37733,7 @@ RSTRING_PTR.exit229.i:                            ; preds = %1140, %ruby_nonempt
   br i1 %.not207.i, label %1161, label %1159
 
 1159:                                             ; preds = %1153
-  %1160 = tail call i64 %1158(ptr noundef %0, ptr noundef nonnull %.0164419.i, i64 noundef %1156) #24
+  %1160 = tail call i64 %1158(ptr noundef %0, ptr noundef nonnull %.0164420.i, i64 noundef %1156) #24
   br label %1161
 
 1161:                                             ; preds = %1159, %1153
@@ -37760,26 +37760,26 @@ rbimpl_size_mul_or_raise.exit234.i:               ; preds = %1168, %1162
   br i1 %.not.i235.i, label %ruby_nonempty_memcpy.exit236.i, label %1169
 
 1169:                                             ; preds = %rbimpl_size_mul_or_raise.exit234.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i232.i, ptr nonnull readonly align 1 %.0164419.i, i64 %.0147.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i232.i, ptr nonnull readonly align 1 %.0164420.i, i64 %.0147.i, i1 false)
   br label %ruby_nonempty_memcpy.exit236.i
 
 1170:                                             ; preds = %1161
   %1171 = load ptr, ptr %890, align 8
-  %1172 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.0164419.i, i64 noundef %.0147.i, ptr noundef %1171) #24
-  %.pre398.i = inttoptr i64 %1172 to ptr
+  %1172 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.0164420.i, i64 noundef %.0147.i, ptr noundef %1171) #24
+  %.pre399.i = inttoptr i64 %1172 to ptr
   br label %ruby_nonempty_memcpy.exit236.i
 
 ruby_nonempty_memcpy.exit236.i:                   ; preds = %1170, %1169, %rbimpl_size_mul_or_raise.exit234.i
-  %.pre-phi399.i = phi ptr [ %1164, %1169 ], [ %1164, %rbimpl_size_mul_or_raise.exit234.i ], [ %.pre398.i, %1170 ]
+  %.pre-phi400.i = phi ptr [ %1164, %1169 ], [ %1164, %rbimpl_size_mul_or_raise.exit234.i ], [ %.pre399.i, %1170 ]
   %.1166.i = phi i64 [ %.0165.ph.i, %1169 ], [ %.0165.ph.i, %rbimpl_size_mul_or_raise.exit234.i ], [ %1172, %1170 ]
   store ptr %1072, ptr %892, align 8
-  store ptr %.8427.i, ptr %887, align 8
+  store ptr %.8428.i, ptr %887, align 8
   %1173 = getelementptr inbounds i8, ptr %.0162.ptr.i.le, i64 8
   %1174 = load ptr, ptr %1173, align 8
-  %1175 = load i64, ptr %.pre-phi399.i, align 8, !noalias !83
+  %1175 = load i64, ptr %.pre-phi400.i, align 8, !noalias !83
   %1176 = and i64 %1175, 8192
   %.not.i.i237.i = icmp eq i64 %1176, 0
-  %1177 = getelementptr inbounds i8, ptr %.pre-phi399.i, i64 24
+  %1177 = getelementptr inbounds i8, ptr %.pre-phi400.i, i64 24
   br i1 %.not.i.i237.i, label %RSTRING_PTR.exit240.i, label %1178
 
 1178:                                             ; preds = %ruby_nonempty_memcpy.exit236.i
@@ -37797,8 +37797,8 @@ RSTRING_PTR.exit240.i:                            ; preds = %1178, %ruby_nonempt
   br i1 %1180, label %.preheader.i856, label %.loopexit.i857.loopexit, !llvm.loop !86
 
 .loopexit.i857.loopexit:                          ; preds = %1179
-  %.pre1637 = ptrtoint ptr %.0163422.i to i64
-  %.pre1638 = ptrtoint ptr %.0164419.i to i64
+  %.pre1637 = ptrtoint ptr %.0163423.i to i64
+  %.pre1638 = ptrtoint ptr %.0164420.i to i64
   %.pre1640 = sub i64 %.pre1637, %.pre1638
   br label %.loopexit.i857
 
@@ -37823,16 +37823,16 @@ RSTRING_PTR.exit240.i:                            ; preds = %1178, %ruby_nonempt
 
 rbimpl_size_mul_or_raise.exit245.i:               ; preds = %1187, %1181
   %.sroa.2.0.i243.i = phi ptr [ %.sroa.2.0.copyload.i242.i, %1187 ], [ %1186, %1181 ]
-  %.not.i246.i = icmp eq ptr %.0163422.i, %.0164419.i
+  %.not.i246.i = icmp eq ptr %.0163423.i, %.0164420.i
   br i1 %.not.i246.i, label %ruby_nonempty_memcpy.exit247.i, label %1188
 
 1188:                                             ; preds = %rbimpl_size_mul_or_raise.exit245.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i243.i, ptr nonnull readonly align 1 %.0164419.i, i64 %.pre-phi1641, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i243.i, ptr nonnull readonly align 1 %.0164420.i, i64 %.pre-phi1641, i1 false)
   br label %ruby_nonempty_memcpy.exit247.i
 
 1189:                                             ; preds = %.loopexit.i857
   %1190 = load ptr, ptr %890, align 8
-  %1191 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.0164419.i, i64 noundef %.pre-phi1641, ptr noundef %1190) #24
+  %1191 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.0164420.i, i64 noundef %.pre-phi1641, ptr noundef %1190) #24
   br label %ruby_nonempty_memcpy.exit247.i
 
 ruby_nonempty_memcpy.exit247.i:                   ; preds = %1189, %1188, %rbimpl_size_mul_or_raise.exit245.i

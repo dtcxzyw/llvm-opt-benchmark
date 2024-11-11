@@ -6867,31 +6867,31 @@ define internal fastcc i32 @make_table_recurse(ptr noundef %0, ptr nocapture nou
 .lr.ph:                                           ; preds = %6
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = icmp slt i32 %2, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph135
+  br i1 %9, label %._crit_edge, label %.lr.ph138
 
 tailrecurse._crit_edge:                           ; preds = %6
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.48) #19
   br label %.loopexit
 
-.lr.ph135:                                        ; preds = %.lr.ph, %tailrecurse
-  %accumulator.tr76134 = phi i32 [ %39, %tailrecurse ], [ 0, %.lr.ph ]
-  %.tr5577133 = phi i32 [ %35, %tailrecurse ], [ %2, %.lr.ph ]
-  %.tr5678132 = phi ptr [ %38, %tailrecurse ], [ %3, %.lr.ph ]
-  %.tr5779131 = phi i32 [ %31, %tailrecurse ], [ %4, %.lr.ph ]
+.lr.ph138:                                        ; preds = %.lr.ph, %tailrecurse
+  %accumulator.tr76137 = phi i32 [ %39, %tailrecurse ], [ 0, %.lr.ph ]
+  %.tr5577136 = phi i32 [ %35, %tailrecurse ], [ %2, %.lr.ph ]
+  %.tr5678135 = phi ptr [ %38, %tailrecurse ], [ %3, %.lr.ph ]
+  %.tr5779134 = phi i32 [ %31, %tailrecurse ], [ %4, %.lr.ph ]
   %10 = phi ptr [ %33, %tailrecurse ], [ %7, %.lr.ph ]
   %11 = load i32, ptr %8, align 8
-  %.not53 = icmp slt i32 %.tr5577133, %11
+  %.not53 = icmp slt i32 %.tr5577136, %11
   br i1 %.not53, label %12, label %._crit_edge
 
-._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph135, %.lr.ph
-  %accumulator.tr76.lcssa = phi i32 [ 0, %.lr.ph ], [ %39, %tailrecurse ], [ %accumulator.tr76134, %.lr.ph135 ]
+._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph138, %.lr.ph
+  %accumulator.tr76.lcssa = phi i32 [ 0, %.lr.ph ], [ %39, %tailrecurse ], [ %accumulator.tr76137, %.lr.ph138 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.49) #19
   br label %.loopexit
 
-12:                                               ; preds = %.lr.ph135
-  %13 = sub nsw i32 %5, %.tr5779131
+12:                                               ; preds = %.lr.ph138
+  %13 = sub nsw i32 %5, %.tr5779134
   %14 = shl nuw i32 1, %13
-  %15 = zext nneg i32 %.tr5577133 to i64
+  %15 = zext nneg i32 %.tr5577136 to i64
   %16 = getelementptr inbounds %struct.huffman_tree_node, ptr %10, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %16, i64 4
@@ -6910,8 +6910,8 @@ tailrecurse._crit_edge:                           ; preds = %6
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
   %indvars.iv = phi i64 [ 0, %.lr.ph81.preheader ], [ %indvars.iv.next, %.lr.ph81 ]
-  %21 = getelementptr inbounds %struct.huffman_table_entry, ptr %.tr5678132, i64 %indvars.iv
-  store i32 %.tr5779131, ptr %21, align 4
+  %21 = getelementptr inbounds %struct.huffman_table_entry, ptr %.tr5678135, i64 %indvars.iv
+  store i32 %.tr5779134, ptr %21, align 4
   %22 = load ptr, ptr %1, align 8
   %23 = getelementptr inbounds %struct.huffman_tree_node, ptr %22, i64 %15
   %24 = load i32, ptr %23, align 4
@@ -6922,31 +6922,31 @@ tailrecurse._crit_edge:                           ; preds = %6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph81, !llvm.loop !59
 
 26:                                               ; preds = %12
-  %27 = icmp eq i32 %.tr5779131, %5
+  %27 = icmp eq i32 %.tr5779134, %5
   br i1 %27, label %28, label %tailrecurse
 
 28:                                               ; preds = %26
   %29 = add nsw i32 %5, 1
-  store i32 %29, ptr %.tr5678132, align 4
-  %30 = getelementptr inbounds i8, ptr %.tr5678132, i64 4
-  store i32 %.tr5577133, ptr %30, align 4
+  store i32 %29, ptr %.tr5678135, align 4
+  %30 = getelementptr inbounds i8, ptr %.tr5678135, i64 4
+  store i32 %.tr5577136, ptr %30, align 4
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %26
-  %31 = add nsw i32 %.tr5779131, 1
-  %32 = tail call fastcc i32 @make_table_recurse(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %17, ptr noundef %.tr5678132, i32 noundef %31, i32 noundef %5)
+  %31 = add nsw i32 %.tr5779134, 1
+  %32 = tail call fastcc i32 @make_table_recurse(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %17, ptr noundef %.tr5678135, i32 noundef %31, i32 noundef %5)
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr inbounds %struct.huffman_tree_node, ptr %33, i64 %15, i32 0, i64 1
   %35 = load i32, ptr %34, align 4
   %36 = sdiv i32 %14, 2
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.huffman_table_entry, ptr %.tr5678132, i64 %37
-  %39 = or i32 %32, %accumulator.tr76134
+  %38 = getelementptr inbounds %struct.huffman_table_entry, ptr %.tr5678135, i64 %37
+  %39 = or i32 %32, %accumulator.tr76137
   %40 = icmp slt i32 %35, 0
-  br i1 %40, label %._crit_edge, label %.lr.ph135
+  br i1 %40, label %._crit_edge, label %.lr.ph138
 
 .loopexit:                                        ; preds = %.lr.ph81, %.preheader, %28, %._crit_edge, %tailrecurse._crit_edge
-  %accumulator.tr71 = phi i32 [ %accumulator.tr76.lcssa, %._crit_edge ], [ 0, %tailrecurse._crit_edge ], [ %accumulator.tr76134, %28 ], [ %accumulator.tr76134, %.preheader ], [ %accumulator.tr76134, %.lr.ph81 ]
+  %accumulator.tr71 = phi i32 [ %accumulator.tr76.lcssa, %._crit_edge ], [ 0, %tailrecurse._crit_edge ], [ %accumulator.tr76137, %28 ], [ %accumulator.tr76137, %.preheader ], [ %accumulator.tr76137, %.lr.ph81 ]
   %.047 = phi i32 [ -30, %._crit_edge ], [ -30, %tailrecurse._crit_edge ], [ 0, %28 ], [ 0, %.preheader ], [ 0, %.lr.ph81 ]
   %accumulator.ret.tr = or i32 %.047, %accumulator.tr71
   ret i32 %accumulator.ret.tr

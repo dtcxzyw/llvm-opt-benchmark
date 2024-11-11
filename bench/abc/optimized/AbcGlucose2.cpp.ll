@@ -935,8 +935,8 @@ _ZN6Gluco23vecIiE5clearEb.exit:                   ; preds = %22, %.preheader.i
   %31 = sext i32 %13 to i64
   %32 = sext i32 %3 to i64
   %wide.trip.count98 = zext nneg i32 %23 to i64
-  %invariant.gep110 = getelementptr i32, ptr %1, i64 %31
-  %invariant.gep112 = getelementptr i32, ptr %1, i64 %32
+  %invariant.gep111 = getelementptr i32, ptr %1, i64 %31
+  %invariant.gep113 = getelementptr i32, ptr %1, i64 %32
   br label %.lr.ph87
 
 33:                                               ; preds = %.lr.ph, %_ZN6Gluco23vecIiE4pushERKi.exit
@@ -1006,16 +1006,16 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
 
 .lr.ph89:                                         ; preds = %.preheader
   %63 = sext i32 %62 to i64
-  %wide.trip.count103 = zext nneg i32 %12 to i64
-  %invariant.gep114 = getelementptr i32, ptr %1, i64 %63
+  %wide.trip.count104 = zext nneg i32 %12 to i64
+  %invariant.gep115 = getelementptr i32, ptr %1, i64 %63
   br label %65
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv95 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next96, %.lr.ph87 ]
-  %gep111 = getelementptr i32, ptr %invariant.gep110, i64 %indvars.iv95
-  %64 = load i32, ptr %gep111, align 4
-  %gep113 = getelementptr i32, ptr %invariant.gep112, i64 %indvars.iv95
-  store i32 %64, ptr %gep113, align 4
+  %gep112 = getelementptr i32, ptr %invariant.gep111, i64 %indvars.iv95
+  %64 = load i32, ptr %gep112, align 4
+  %gep114 = getelementptr i32, ptr %invariant.gep113, i64 %indvars.iv95
+  store i32 %64, ptr %gep114, align 4
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %.preheader, label %.lr.ph87, !llvm.loop !12
@@ -1025,11 +1025,11 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   %66 = load ptr, ptr %17, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv100
   %68 = load i32, ptr %67, align 4
-  %gep115 = getelementptr i32, ptr %invariant.gep114, i64 %indvars.iv100
-  store i32 %68, ptr %gep115, align 4
+  %gep116 = getelementptr i32, ptr %invariant.gep115, i64 %indvars.iv100
+  store i32 %68, ptr %gep116, align 4
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge, label %65, !llvm.loop !13
+  %exitcond105.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count104
+  br i1 %exitcond105.not, label %._crit_edge, label %65, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %65, %.preheader
   %69 = tail call noundef i32 @_ZN6Gluco210SimpSolver12solveLimitedEPiibb(ptr noundef nonnull align 8 dereferenceable(1684) %0, ptr noundef %1, i32 noundef %62, i1 noundef zeroext false, i1 noundef zeroext false)

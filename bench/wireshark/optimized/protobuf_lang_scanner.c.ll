@@ -273,9 +273,9 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %126 = ptrtoint ptr %.1637.ph to i64
   br label %127
 
-127:                                              ; preds = %.outer, %165
-  %.2634.in = phi ptr [ %73, %165 ], [ %.2634.in.ph, %.outer ]
-  %.3 = phi i32 [ %167, %165 ], [ %.3.ph, %.outer ]
+127:                                              ; preds = %.outer, %164
+  %.2634.in = phi ptr [ %73, %164 ], [ %.2634.in.ph, %.outer ]
+  %.3 = phi i32 [ %166, %164 ], [ %.3.ph, %.outer ]
   %.2634 = load ptr, ptr %.2634.in, align 8
   %128 = sext i32 %.3 to i64
   %129 = getelementptr [185 x i16], ptr @yy_accept, i64 0, i64 %128
@@ -290,2189 +290,2188 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store i8 %135, ptr %70, align 8
   store i8 0, ptr %.2634, align 1
   store ptr %.2634, ptr %69, align 8
-  %136 = and i64 %128, 9223372036854775807
-  %.not650 = icmp eq i64 %136, 5
-  br i1 %.not650, label %.loopexit971.preheader, label %137
+  %.not650 = icmp eq i32 %.3, 5
+  br i1 %.not650, label %.loopexit971.preheader, label %136
 
-137:                                              ; preds = %127
-  %138 = sext i16 %130 to i64
-  %139 = and i64 %138, 4611686018427387903
-  %140 = add nsw i64 %139, -69
-  %.not651 = icmp ult i64 %140, -2
+136:                                              ; preds = %127
+  %137 = icmp ne i16 %130, 67
+  %138 = add i32 %.3, -9
+  %139 = icmp ult i32 %138, -2
+  %.not651 = and i1 %139, %137
   br i1 %.not651, label %.loopexit971.preheader, label %.preheader
 
-.preheader:                                       ; preds = %137
-  %141 = load i32, ptr %75, align 8
-  %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph1184, label %.loopexit971.preheader
+.preheader:                                       ; preds = %136
+  %140 = load i32, ptr %75, align 8
+  %141 = icmp sgt i32 %140, 0
+  br i1 %141, label %.lr.ph1184, label %.loopexit971.preheader
 
-.lr.ph1184:                                       ; preds = %.preheader, %161
-  %143 = phi i32 [ %162, %161 ], [ %141, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %161 ], [ 0, %.preheader ]
-  %144 = load ptr, ptr %74, align 8
-  %145 = getelementptr i8, ptr %144, i64 %indvars.iv
-  %146 = load i8, ptr %145, align 1
-  %147 = icmp eq i8 %146, 10
-  br i1 %147, label %148, label %161
+.lr.ph1184:                                       ; preds = %.preheader, %160
+  %142 = phi i32 [ %161, %160 ], [ %140, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %160 ], [ 0, %.preheader ]
+  %143 = load ptr, ptr %74, align 8
+  %144 = getelementptr i8, ptr %143, i64 %indvars.iv
+  %145 = load i8, ptr %144, align 1
+  %146 = icmp eq i8 %145, 10
+  br i1 %146, label %147, label %160
 
-148:                                              ; preds = %.lr.ph1184
-  %149 = load ptr, ptr %76, align 8
-  %150 = load i64, ptr %77, align 8
-  %151 = getelementptr ptr, ptr %149, i64 %150
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 44
-  %154 = load i32, ptr %153, align 4
-  %155 = add i32 %154, 1
-  store i32 %155, ptr %153, align 4
-  %156 = load ptr, ptr %76, align 8
-  %157 = load i64, ptr %77, align 8
-  %158 = getelementptr ptr, ptr %156, i64 %157
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 48
-  store i32 0, ptr %160, align 8
+147:                                              ; preds = %.lr.ph1184
+  %148 = load ptr, ptr %76, align 8
+  %149 = load i64, ptr %77, align 8
+  %150 = getelementptr ptr, ptr %148, i64 %149
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 44
+  %153 = load i32, ptr %152, align 4
+  %154 = add i32 %153, 1
+  store i32 %154, ptr %152, align 4
+  %155 = load ptr, ptr %76, align 8
+  %156 = load i64, ptr %77, align 8
+  %157 = getelementptr ptr, ptr %155, i64 %156
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 48
+  store i32 0, ptr %159, align 8
   %.pre1301 = load i32, ptr %75, align 8
-  br label %161
+  br label %160
 
-161:                                              ; preds = %.lr.ph1184, %148
-  %162 = phi i32 [ %143, %.lr.ph1184 ], [ %.pre1301, %148 ]
+160:                                              ; preds = %.lr.ph1184, %147
+  %161 = phi i32 [ %142, %.lr.ph1184 ], [ %.pre1301, %147 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %163 = sext i32 %162 to i64
-  %164 = icmp slt i64 %indvars.iv.next, %163
-  br i1 %164, label %.lr.ph1184, label %.loopexit971.preheader, !llvm.loop !7
+  %162 = sext i32 %161 to i64
+  %163 = icmp slt i64 %indvars.iv.next, %162
+  br i1 %163, label %.lr.ph1184, label %.loopexit971.preheader, !llvm.loop !7
 
-.loopexit971.preheader:                           ; preds = %161, %.preheader, %137, %127
+.loopexit971.preheader:                           ; preds = %160, %.preheader, %136, %127
   br label %.loopexit971
 
 .loopexit971:                                     ; preds = %.loopexit971.preheader, %yy_get_next_buffer.exit.thread
-  %.0635 = phi i32 [ %1700, %yy_get_next_buffer.exit.thread ], [ %131, %.loopexit971.preheader ]
-  switch i32 %.0635, label %1714 [
-    i32 0, label %165
-    i32 1, label %168
-    i32 2, label %188
-    i32 3, label %208
-    i32 4, label %228
-    i32 5, label %248
-    i32 6, label %268
-    i32 7, label %288
-    i32 8, label %308
-    i32 9, label %328
-    i32 10, label %348
-    i32 11, label %368
-    i32 12, label %388
-    i32 13, label %408
-    i32 14, label %428
-    i32 15, label %448
-    i32 16, label %468
-    i32 17, label %488
-    i32 18, label %508
-    i32 19, label %528
-    i32 20, label %548
-    i32 21, label %568
-    i32 22, label %588
-    i32 23, label %608
-    i32 24, label %628
-    i32 25, label %648
-    i32 26, label %668
-    i32 27, label %688
-    i32 28, label %708
-    i32 29, label %728
-    i32 30, label %748
-    i32 31, label %768
-    i32 32, label %788
-    i32 33, label %808
-    i32 34, label %828
-    i32 35, label %848
-    i32 36, label %868
-    i32 37, label %888
-    i32 38, label %908
-    i32 39, label %928
-    i32 40, label %948
-    i32 41, label %968
-    i32 42, label %988
-    i32 43, label %1008
-    i32 44, label %1028
-    i32 45, label %1048
-    i32 46, label %1068
-    i32 47, label %1088
-    i32 48, label %1108
-    i32 49, label %1128
-    i32 50, label %1148
-    i32 51, label %1168
-    i32 52, label %1188
-    i32 53, label %1208
-    i32 54, label %1228
-    i32 55, label %1248
-    i32 56, label %1268
-    i32 57, label %1288
-    i32 58, label %1308
-    i32 59, label %1328
-    i32 60, label %1348
-    i32 61, label %1368
-    i32 62, label %1388
-    i32 63, label %1408
+  %.0635 = phi i32 [ %1699, %yy_get_next_buffer.exit.thread ], [ %131, %.loopexit971.preheader ]
+  switch i32 %.0635, label %1713 [
+    i32 0, label %164
+    i32 1, label %167
+    i32 2, label %187
+    i32 3, label %207
+    i32 4, label %227
+    i32 5, label %247
+    i32 6, label %267
+    i32 7, label %287
+    i32 8, label %307
+    i32 9, label %327
+    i32 10, label %347
+    i32 11, label %367
+    i32 12, label %387
+    i32 13, label %407
+    i32 14, label %427
+    i32 15, label %447
+    i32 16, label %467
+    i32 17, label %487
+    i32 18, label %507
+    i32 19, label %527
+    i32 20, label %547
+    i32 21, label %567
+    i32 22, label %587
+    i32 23, label %607
+    i32 24, label %627
+    i32 25, label %647
+    i32 26, label %667
+    i32 27, label %687
+    i32 28, label %707
+    i32 29, label %727
+    i32 30, label %747
+    i32 31, label %767
+    i32 32, label %787
+    i32 33, label %807
+    i32 34, label %827
+    i32 35, label %847
+    i32 36, label %867
+    i32 37, label %887
+    i32 38, label %907
+    i32 39, label %927
+    i32 40, label %947
+    i32 41, label %967
+    i32 42, label %987
+    i32 43, label %1007
+    i32 44, label %1027
+    i32 45, label %1047
+    i32 46, label %1067
+    i32 47, label %1087
+    i32 48, label %1107
+    i32 49, label %1127
+    i32 50, label %1147
+    i32 51, label %1167
+    i32 52, label %1187
+    i32 53, label %1207
+    i32 54, label %1227
+    i32 55, label %1247
+    i32 56, label %1267
+    i32 57, label %1287
+    i32 58, label %1307
+    i32 59, label %1327
+    i32 60, label %1347
+    i32 61, label %1367
+    i32 62, label %1387
+    i32 63, label %1407
     i32 64, label %.loopexit.backedge
-    i32 65, label %1428
-    i32 66, label %1432
+    i32 65, label %1427
+    i32 66, label %1431
     i32 67, label %.loopexit.backedge
     i32 68, label %.loopexit.backedge
-    i32 69, label %1436
-    i32 70, label %1438
+    i32 69, label %1435
+    i32 70, label %1437
     i32 72, label %.loopexit970
     i32 73, label %.loopexit970
-    i32 71, label %1444
+    i32 71, label %1443
   ]
 
-165:                                              ; preds = %.loopexit971
-  %166 = load i8, ptr %70, align 8
-  store i8 %166, ptr %.2634, align 1
-  %167 = load i32, ptr %72, align 8
+164:                                              ; preds = %.loopexit971
+  %165 = load i8, ptr %70, align 8
+  store i8 %165, ptr %.2634, align 1
+  %166 = load i32, ptr %72, align 8
   br label %127
 
-168:                                              ; preds = %.loopexit971
-  %169 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %170 = load ptr, ptr %0, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 56
-  store ptr %169, ptr %171, align 8
-  %172 = load ptr, ptr %0, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 56
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %172, i64 24
-  %176 = load ptr, ptr %175, align 8
-  %177 = tail call ptr @g_slist_prepend(ptr noundef %176, ptr noundef %174) #29
-  store ptr %177, ptr %175, align 8
-  %178 = load ptr, ptr %74, align 8
+167:                                              ; preds = %.loopexit971
+  %168 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %169 = load ptr, ptr %0, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 56
+  store ptr %168, ptr %170, align 8
+  %171 = load ptr, ptr %0, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 56
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %171, i64 24
+  %175 = load ptr, ptr %174, align 8
+  %176 = tail call ptr @g_slist_prepend(ptr noundef %175, ptr noundef %173) #29
+  store ptr %176, ptr %174, align 8
+  %177 = load ptr, ptr %74, align 8
   %.val = load ptr, ptr %0, align 8
-  %179 = tail call fastcc ptr @strdup_and_store(ptr %.val, ptr noundef %178)
-  %180 = load ptr, ptr %0, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 56
-  %182 = load ptr, ptr %181, align 8
-  store ptr %179, ptr %182, align 8
-  %183 = load ptr, ptr %76, align 8
-  %.not.i716 = icmp eq ptr %183, null
-  br i1 %.not.i716, label %.loopexit970.sink.split, label %184
+  %178 = tail call fastcc ptr @strdup_and_store(ptr %.val, ptr noundef %177)
+  %179 = load ptr, ptr %0, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 56
+  %181 = load ptr, ptr %180, align 8
+  store ptr %178, ptr %181, align 8
+  %182 = load ptr, ptr %76, align 8
+  %.not.i716 = icmp eq ptr %182, null
+  br i1 %.not.i716, label %.loopexit970.sink.split, label %183
 
-184:                                              ; preds = %168
-  %185 = load i64, ptr %77, align 8
-  %186 = getelementptr ptr, ptr %183, i64 %185
-  %187 = load ptr, ptr %186, align 8
-  %.not8.i = icmp eq ptr %187, null
+183:                                              ; preds = %167
+  %184 = load i64, ptr %77, align 8
+  %185 = getelementptr ptr, ptr %182, i64 %184
+  %186 = load ptr, ptr %185, align 8
+  %.not8.i = icmp eq ptr %186, null
   br i1 %.not8.i, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-188:                                              ; preds = %.loopexit971
-  %189 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %190 = load ptr, ptr %0, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 56
-  store ptr %189, ptr %191, align 8
-  %192 = load ptr, ptr %0, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 56
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %192, i64 24
-  %196 = load ptr, ptr %195, align 8
-  %197 = tail call ptr @g_slist_prepend(ptr noundef %196, ptr noundef %194) #29
-  store ptr %197, ptr %195, align 8
-  %198 = load ptr, ptr %74, align 8
+187:                                              ; preds = %.loopexit971
+  %188 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %189 = load ptr, ptr %0, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 56
+  store ptr %188, ptr %190, align 8
+  %191 = load ptr, ptr %0, align 8
+  %192 = getelementptr inbounds i8, ptr %191, i64 56
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds i8, ptr %191, i64 24
+  %195 = load ptr, ptr %194, align 8
+  %196 = tail call ptr @g_slist_prepend(ptr noundef %195, ptr noundef %193) #29
+  store ptr %196, ptr %194, align 8
+  %197 = load ptr, ptr %74, align 8
   %.val654 = load ptr, ptr %0, align 8
-  %199 = tail call fastcc ptr @strdup_and_store(ptr %.val654, ptr noundef %198)
-  %200 = load ptr, ptr %0, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 56
-  %202 = load ptr, ptr %201, align 8
-  store ptr %199, ptr %202, align 8
-  %203 = load ptr, ptr %76, align 8
-  %.not.i717 = icmp eq ptr %203, null
-  br i1 %.not.i717, label %.loopexit970.sink.split, label %204
+  %198 = tail call fastcc ptr @strdup_and_store(ptr %.val654, ptr noundef %197)
+  %199 = load ptr, ptr %0, align 8
+  %200 = getelementptr inbounds i8, ptr %199, i64 56
+  %201 = load ptr, ptr %200, align 8
+  store ptr %198, ptr %201, align 8
+  %202 = load ptr, ptr %76, align 8
+  %.not.i717 = icmp eq ptr %202, null
+  br i1 %.not.i717, label %.loopexit970.sink.split, label %203
 
-204:                                              ; preds = %188
-  %205 = load i64, ptr %77, align 8
-  %206 = getelementptr ptr, ptr %203, i64 %205
-  %207 = load ptr, ptr %206, align 8
-  %.not8.i718 = icmp eq ptr %207, null
+203:                                              ; preds = %187
+  %204 = load i64, ptr %77, align 8
+  %205 = getelementptr ptr, ptr %202, i64 %204
+  %206 = load ptr, ptr %205, align 8
+  %.not8.i718 = icmp eq ptr %206, null
   br i1 %.not8.i718, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-208:                                              ; preds = %.loopexit971
-  %209 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %210 = load ptr, ptr %0, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 56
-  store ptr %209, ptr %211, align 8
-  %212 = load ptr, ptr %0, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 56
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %212, i64 24
-  %216 = load ptr, ptr %215, align 8
-  %217 = tail call ptr @g_slist_prepend(ptr noundef %216, ptr noundef %214) #29
-  store ptr %217, ptr %215, align 8
-  %218 = load ptr, ptr %74, align 8
+207:                                              ; preds = %.loopexit971
+  %208 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %209 = load ptr, ptr %0, align 8
+  %210 = getelementptr inbounds i8, ptr %209, i64 56
+  store ptr %208, ptr %210, align 8
+  %211 = load ptr, ptr %0, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 56
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds i8, ptr %211, i64 24
+  %215 = load ptr, ptr %214, align 8
+  %216 = tail call ptr @g_slist_prepend(ptr noundef %215, ptr noundef %213) #29
+  store ptr %216, ptr %214, align 8
+  %217 = load ptr, ptr %74, align 8
   %.val655 = load ptr, ptr %0, align 8
-  %219 = tail call fastcc ptr @strdup_and_store(ptr %.val655, ptr noundef %218)
-  %220 = load ptr, ptr %0, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 56
-  %222 = load ptr, ptr %221, align 8
-  store ptr %219, ptr %222, align 8
-  %223 = load ptr, ptr %76, align 8
-  %.not.i721 = icmp eq ptr %223, null
-  br i1 %.not.i721, label %.loopexit970.sink.split, label %224
+  %218 = tail call fastcc ptr @strdup_and_store(ptr %.val655, ptr noundef %217)
+  %219 = load ptr, ptr %0, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 56
+  %221 = load ptr, ptr %220, align 8
+  store ptr %218, ptr %221, align 8
+  %222 = load ptr, ptr %76, align 8
+  %.not.i721 = icmp eq ptr %222, null
+  br i1 %.not.i721, label %.loopexit970.sink.split, label %223
 
-224:                                              ; preds = %208
-  %225 = load i64, ptr %77, align 8
-  %226 = getelementptr ptr, ptr %223, i64 %225
-  %227 = load ptr, ptr %226, align 8
-  %.not8.i722 = icmp eq ptr %227, null
+223:                                              ; preds = %207
+  %224 = load i64, ptr %77, align 8
+  %225 = getelementptr ptr, ptr %222, i64 %224
+  %226 = load ptr, ptr %225, align 8
+  %.not8.i722 = icmp eq ptr %226, null
   br i1 %.not8.i722, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-228:                                              ; preds = %.loopexit971
-  %229 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %230 = load ptr, ptr %0, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 56
-  store ptr %229, ptr %231, align 8
-  %232 = load ptr, ptr %0, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 56
-  %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %232, i64 24
-  %236 = load ptr, ptr %235, align 8
-  %237 = tail call ptr @g_slist_prepend(ptr noundef %236, ptr noundef %234) #29
-  store ptr %237, ptr %235, align 8
-  %238 = load ptr, ptr %74, align 8
+227:                                              ; preds = %.loopexit971
+  %228 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %229 = load ptr, ptr %0, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 56
+  store ptr %228, ptr %230, align 8
+  %231 = load ptr, ptr %0, align 8
+  %232 = getelementptr inbounds i8, ptr %231, i64 56
+  %233 = load ptr, ptr %232, align 8
+  %234 = getelementptr inbounds i8, ptr %231, i64 24
+  %235 = load ptr, ptr %234, align 8
+  %236 = tail call ptr @g_slist_prepend(ptr noundef %235, ptr noundef %233) #29
+  store ptr %236, ptr %234, align 8
+  %237 = load ptr, ptr %74, align 8
   %.val656 = load ptr, ptr %0, align 8
-  %239 = tail call fastcc ptr @strdup_and_store(ptr %.val656, ptr noundef %238)
-  %240 = load ptr, ptr %0, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 56
-  %242 = load ptr, ptr %241, align 8
-  store ptr %239, ptr %242, align 8
-  %243 = load ptr, ptr %76, align 8
-  %.not.i725 = icmp eq ptr %243, null
-  br i1 %.not.i725, label %.loopexit970.sink.split, label %244
+  %238 = tail call fastcc ptr @strdup_and_store(ptr %.val656, ptr noundef %237)
+  %239 = load ptr, ptr %0, align 8
+  %240 = getelementptr inbounds i8, ptr %239, i64 56
+  %241 = load ptr, ptr %240, align 8
+  store ptr %238, ptr %241, align 8
+  %242 = load ptr, ptr %76, align 8
+  %.not.i725 = icmp eq ptr %242, null
+  br i1 %.not.i725, label %.loopexit970.sink.split, label %243
 
-244:                                              ; preds = %228
-  %245 = load i64, ptr %77, align 8
-  %246 = getelementptr ptr, ptr %243, i64 %245
-  %247 = load ptr, ptr %246, align 8
-  %.not8.i726 = icmp eq ptr %247, null
+243:                                              ; preds = %227
+  %244 = load i64, ptr %77, align 8
+  %245 = getelementptr ptr, ptr %242, i64 %244
+  %246 = load ptr, ptr %245, align 8
+  %.not8.i726 = icmp eq ptr %246, null
   br i1 %.not8.i726, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-248:                                              ; preds = %.loopexit971
-  %249 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %250 = load ptr, ptr %0, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 56
-  store ptr %249, ptr %251, align 8
-  %252 = load ptr, ptr %0, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 56
-  %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds i8, ptr %252, i64 24
-  %256 = load ptr, ptr %255, align 8
-  %257 = tail call ptr @g_slist_prepend(ptr noundef %256, ptr noundef %254) #29
-  store ptr %257, ptr %255, align 8
-  %258 = load ptr, ptr %74, align 8
+247:                                              ; preds = %.loopexit971
+  %248 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %249 = load ptr, ptr %0, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 56
+  store ptr %248, ptr %250, align 8
+  %251 = load ptr, ptr %0, align 8
+  %252 = getelementptr inbounds i8, ptr %251, i64 56
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr inbounds i8, ptr %251, i64 24
+  %255 = load ptr, ptr %254, align 8
+  %256 = tail call ptr @g_slist_prepend(ptr noundef %255, ptr noundef %253) #29
+  store ptr %256, ptr %254, align 8
+  %257 = load ptr, ptr %74, align 8
   %.val657 = load ptr, ptr %0, align 8
-  %259 = tail call fastcc ptr @strdup_and_store(ptr %.val657, ptr noundef %258)
-  %260 = load ptr, ptr %0, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 56
-  %262 = load ptr, ptr %261, align 8
-  store ptr %259, ptr %262, align 8
-  %263 = load ptr, ptr %76, align 8
-  %.not.i729 = icmp eq ptr %263, null
-  br i1 %.not.i729, label %.loopexit970.sink.split, label %264
+  %258 = tail call fastcc ptr @strdup_and_store(ptr %.val657, ptr noundef %257)
+  %259 = load ptr, ptr %0, align 8
+  %260 = getelementptr inbounds i8, ptr %259, i64 56
+  %261 = load ptr, ptr %260, align 8
+  store ptr %258, ptr %261, align 8
+  %262 = load ptr, ptr %76, align 8
+  %.not.i729 = icmp eq ptr %262, null
+  br i1 %.not.i729, label %.loopexit970.sink.split, label %263
 
-264:                                              ; preds = %248
-  %265 = load i64, ptr %77, align 8
-  %266 = getelementptr ptr, ptr %263, i64 %265
-  %267 = load ptr, ptr %266, align 8
-  %.not8.i730 = icmp eq ptr %267, null
+263:                                              ; preds = %247
+  %264 = load i64, ptr %77, align 8
+  %265 = getelementptr ptr, ptr %262, i64 %264
+  %266 = load ptr, ptr %265, align 8
+  %.not8.i730 = icmp eq ptr %266, null
   br i1 %.not8.i730, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-268:                                              ; preds = %.loopexit971
-  %269 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %270 = load ptr, ptr %0, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 56
-  store ptr %269, ptr %271, align 8
-  %272 = load ptr, ptr %0, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 56
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %272, i64 24
-  %276 = load ptr, ptr %275, align 8
-  %277 = tail call ptr @g_slist_prepend(ptr noundef %276, ptr noundef %274) #29
-  store ptr %277, ptr %275, align 8
-  %278 = load ptr, ptr %74, align 8
+267:                                              ; preds = %.loopexit971
+  %268 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %269 = load ptr, ptr %0, align 8
+  %270 = getelementptr inbounds i8, ptr %269, i64 56
+  store ptr %268, ptr %270, align 8
+  %271 = load ptr, ptr %0, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 56
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds i8, ptr %271, i64 24
+  %275 = load ptr, ptr %274, align 8
+  %276 = tail call ptr @g_slist_prepend(ptr noundef %275, ptr noundef %273) #29
+  store ptr %276, ptr %274, align 8
+  %277 = load ptr, ptr %74, align 8
   %.val658 = load ptr, ptr %0, align 8
-  %279 = tail call fastcc ptr @strdup_and_store(ptr %.val658, ptr noundef %278)
-  %280 = load ptr, ptr %0, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 56
-  %282 = load ptr, ptr %281, align 8
-  store ptr %279, ptr %282, align 8
-  %283 = load ptr, ptr %76, align 8
-  %.not.i733 = icmp eq ptr %283, null
-  br i1 %.not.i733, label %.loopexit970.sink.split, label %284
+  %278 = tail call fastcc ptr @strdup_and_store(ptr %.val658, ptr noundef %277)
+  %279 = load ptr, ptr %0, align 8
+  %280 = getelementptr inbounds i8, ptr %279, i64 56
+  %281 = load ptr, ptr %280, align 8
+  store ptr %278, ptr %281, align 8
+  %282 = load ptr, ptr %76, align 8
+  %.not.i733 = icmp eq ptr %282, null
+  br i1 %.not.i733, label %.loopexit970.sink.split, label %283
 
-284:                                              ; preds = %268
-  %285 = load i64, ptr %77, align 8
-  %286 = getelementptr ptr, ptr %283, i64 %285
-  %287 = load ptr, ptr %286, align 8
-  %.not8.i734 = icmp eq ptr %287, null
+283:                                              ; preds = %267
+  %284 = load i64, ptr %77, align 8
+  %285 = getelementptr ptr, ptr %282, i64 %284
+  %286 = load ptr, ptr %285, align 8
+  %.not8.i734 = icmp eq ptr %286, null
   br i1 %.not8.i734, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-288:                                              ; preds = %.loopexit971
-  %289 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %290 = load ptr, ptr %0, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 56
-  store ptr %289, ptr %291, align 8
-  %292 = load ptr, ptr %0, align 8
-  %293 = getelementptr inbounds i8, ptr %292, i64 56
-  %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %292, i64 24
-  %296 = load ptr, ptr %295, align 8
-  %297 = tail call ptr @g_slist_prepend(ptr noundef %296, ptr noundef %294) #29
-  store ptr %297, ptr %295, align 8
-  %298 = load ptr, ptr %74, align 8
+287:                                              ; preds = %.loopexit971
+  %288 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %289 = load ptr, ptr %0, align 8
+  %290 = getelementptr inbounds i8, ptr %289, i64 56
+  store ptr %288, ptr %290, align 8
+  %291 = load ptr, ptr %0, align 8
+  %292 = getelementptr inbounds i8, ptr %291, i64 56
+  %293 = load ptr, ptr %292, align 8
+  %294 = getelementptr inbounds i8, ptr %291, i64 24
+  %295 = load ptr, ptr %294, align 8
+  %296 = tail call ptr @g_slist_prepend(ptr noundef %295, ptr noundef %293) #29
+  store ptr %296, ptr %294, align 8
+  %297 = load ptr, ptr %74, align 8
   %.val659 = load ptr, ptr %0, align 8
-  %299 = tail call fastcc ptr @strdup_and_store(ptr %.val659, ptr noundef %298)
-  %300 = load ptr, ptr %0, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 56
-  %302 = load ptr, ptr %301, align 8
-  store ptr %299, ptr %302, align 8
-  %303 = load ptr, ptr %76, align 8
-  %.not.i737 = icmp eq ptr %303, null
-  br i1 %.not.i737, label %.loopexit970.sink.split, label %304
+  %298 = tail call fastcc ptr @strdup_and_store(ptr %.val659, ptr noundef %297)
+  %299 = load ptr, ptr %0, align 8
+  %300 = getelementptr inbounds i8, ptr %299, i64 56
+  %301 = load ptr, ptr %300, align 8
+  store ptr %298, ptr %301, align 8
+  %302 = load ptr, ptr %76, align 8
+  %.not.i737 = icmp eq ptr %302, null
+  br i1 %.not.i737, label %.loopexit970.sink.split, label %303
 
-304:                                              ; preds = %288
-  %305 = load i64, ptr %77, align 8
-  %306 = getelementptr ptr, ptr %303, i64 %305
-  %307 = load ptr, ptr %306, align 8
-  %.not8.i738 = icmp eq ptr %307, null
+303:                                              ; preds = %287
+  %304 = load i64, ptr %77, align 8
+  %305 = getelementptr ptr, ptr %302, i64 %304
+  %306 = load ptr, ptr %305, align 8
+  %.not8.i738 = icmp eq ptr %306, null
   br i1 %.not8.i738, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-308:                                              ; preds = %.loopexit971
-  %309 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %310 = load ptr, ptr %0, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 56
-  store ptr %309, ptr %311, align 8
-  %312 = load ptr, ptr %0, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 56
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %312, i64 24
-  %316 = load ptr, ptr %315, align 8
-  %317 = tail call ptr @g_slist_prepend(ptr noundef %316, ptr noundef %314) #29
-  store ptr %317, ptr %315, align 8
-  %318 = load ptr, ptr %74, align 8
+307:                                              ; preds = %.loopexit971
+  %308 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %309 = load ptr, ptr %0, align 8
+  %310 = getelementptr inbounds i8, ptr %309, i64 56
+  store ptr %308, ptr %310, align 8
+  %311 = load ptr, ptr %0, align 8
+  %312 = getelementptr inbounds i8, ptr %311, i64 56
+  %313 = load ptr, ptr %312, align 8
+  %314 = getelementptr inbounds i8, ptr %311, i64 24
+  %315 = load ptr, ptr %314, align 8
+  %316 = tail call ptr @g_slist_prepend(ptr noundef %315, ptr noundef %313) #29
+  store ptr %316, ptr %314, align 8
+  %317 = load ptr, ptr %74, align 8
   %.val660 = load ptr, ptr %0, align 8
-  %319 = tail call fastcc ptr @strdup_and_store(ptr %.val660, ptr noundef %318)
-  %320 = load ptr, ptr %0, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 56
-  %322 = load ptr, ptr %321, align 8
-  store ptr %319, ptr %322, align 8
-  %323 = load ptr, ptr %76, align 8
-  %.not.i741 = icmp eq ptr %323, null
-  br i1 %.not.i741, label %.loopexit970.sink.split, label %324
+  %318 = tail call fastcc ptr @strdup_and_store(ptr %.val660, ptr noundef %317)
+  %319 = load ptr, ptr %0, align 8
+  %320 = getelementptr inbounds i8, ptr %319, i64 56
+  %321 = load ptr, ptr %320, align 8
+  store ptr %318, ptr %321, align 8
+  %322 = load ptr, ptr %76, align 8
+  %.not.i741 = icmp eq ptr %322, null
+  br i1 %.not.i741, label %.loopexit970.sink.split, label %323
 
-324:                                              ; preds = %308
-  %325 = load i64, ptr %77, align 8
-  %326 = getelementptr ptr, ptr %323, i64 %325
-  %327 = load ptr, ptr %326, align 8
-  %.not8.i742 = icmp eq ptr %327, null
+323:                                              ; preds = %307
+  %324 = load i64, ptr %77, align 8
+  %325 = getelementptr ptr, ptr %322, i64 %324
+  %326 = load ptr, ptr %325, align 8
+  %.not8.i742 = icmp eq ptr %326, null
   br i1 %.not8.i742, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-328:                                              ; preds = %.loopexit971
-  %329 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %330 = load ptr, ptr %0, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 56
-  store ptr %329, ptr %331, align 8
-  %332 = load ptr, ptr %0, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 56
-  %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds i8, ptr %332, i64 24
-  %336 = load ptr, ptr %335, align 8
-  %337 = tail call ptr @g_slist_prepend(ptr noundef %336, ptr noundef %334) #29
-  store ptr %337, ptr %335, align 8
-  %338 = load ptr, ptr %74, align 8
+327:                                              ; preds = %.loopexit971
+  %328 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %329 = load ptr, ptr %0, align 8
+  %330 = getelementptr inbounds i8, ptr %329, i64 56
+  store ptr %328, ptr %330, align 8
+  %331 = load ptr, ptr %0, align 8
+  %332 = getelementptr inbounds i8, ptr %331, i64 56
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr inbounds i8, ptr %331, i64 24
+  %335 = load ptr, ptr %334, align 8
+  %336 = tail call ptr @g_slist_prepend(ptr noundef %335, ptr noundef %333) #29
+  store ptr %336, ptr %334, align 8
+  %337 = load ptr, ptr %74, align 8
   %.val661 = load ptr, ptr %0, align 8
-  %339 = tail call fastcc ptr @strdup_and_store(ptr %.val661, ptr noundef %338)
-  %340 = load ptr, ptr %0, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 56
-  %342 = load ptr, ptr %341, align 8
-  store ptr %339, ptr %342, align 8
-  %343 = load ptr, ptr %76, align 8
-  %.not.i745 = icmp eq ptr %343, null
-  br i1 %.not.i745, label %.loopexit970.sink.split, label %344
+  %338 = tail call fastcc ptr @strdup_and_store(ptr %.val661, ptr noundef %337)
+  %339 = load ptr, ptr %0, align 8
+  %340 = getelementptr inbounds i8, ptr %339, i64 56
+  %341 = load ptr, ptr %340, align 8
+  store ptr %338, ptr %341, align 8
+  %342 = load ptr, ptr %76, align 8
+  %.not.i745 = icmp eq ptr %342, null
+  br i1 %.not.i745, label %.loopexit970.sink.split, label %343
 
-344:                                              ; preds = %328
-  %345 = load i64, ptr %77, align 8
-  %346 = getelementptr ptr, ptr %343, i64 %345
-  %347 = load ptr, ptr %346, align 8
-  %.not8.i746 = icmp eq ptr %347, null
+343:                                              ; preds = %327
+  %344 = load i64, ptr %77, align 8
+  %345 = getelementptr ptr, ptr %342, i64 %344
+  %346 = load ptr, ptr %345, align 8
+  %.not8.i746 = icmp eq ptr %346, null
   br i1 %.not8.i746, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-348:                                              ; preds = %.loopexit971
-  %349 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %350 = load ptr, ptr %0, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 56
-  store ptr %349, ptr %351, align 8
-  %352 = load ptr, ptr %0, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 56
-  %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds i8, ptr %352, i64 24
-  %356 = load ptr, ptr %355, align 8
-  %357 = tail call ptr @g_slist_prepend(ptr noundef %356, ptr noundef %354) #29
-  store ptr %357, ptr %355, align 8
-  %358 = load ptr, ptr %74, align 8
+347:                                              ; preds = %.loopexit971
+  %348 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %349 = load ptr, ptr %0, align 8
+  %350 = getelementptr inbounds i8, ptr %349, i64 56
+  store ptr %348, ptr %350, align 8
+  %351 = load ptr, ptr %0, align 8
+  %352 = getelementptr inbounds i8, ptr %351, i64 56
+  %353 = load ptr, ptr %352, align 8
+  %354 = getelementptr inbounds i8, ptr %351, i64 24
+  %355 = load ptr, ptr %354, align 8
+  %356 = tail call ptr @g_slist_prepend(ptr noundef %355, ptr noundef %353) #29
+  store ptr %356, ptr %354, align 8
+  %357 = load ptr, ptr %74, align 8
   %.val662 = load ptr, ptr %0, align 8
-  %359 = tail call fastcc ptr @strdup_and_store(ptr %.val662, ptr noundef %358)
-  %360 = load ptr, ptr %0, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 56
-  %362 = load ptr, ptr %361, align 8
-  store ptr %359, ptr %362, align 8
-  %363 = load ptr, ptr %76, align 8
-  %.not.i749 = icmp eq ptr %363, null
-  br i1 %.not.i749, label %.loopexit970.sink.split, label %364
+  %358 = tail call fastcc ptr @strdup_and_store(ptr %.val662, ptr noundef %357)
+  %359 = load ptr, ptr %0, align 8
+  %360 = getelementptr inbounds i8, ptr %359, i64 56
+  %361 = load ptr, ptr %360, align 8
+  store ptr %358, ptr %361, align 8
+  %362 = load ptr, ptr %76, align 8
+  %.not.i749 = icmp eq ptr %362, null
+  br i1 %.not.i749, label %.loopexit970.sink.split, label %363
 
-364:                                              ; preds = %348
-  %365 = load i64, ptr %77, align 8
-  %366 = getelementptr ptr, ptr %363, i64 %365
-  %367 = load ptr, ptr %366, align 8
-  %.not8.i750 = icmp eq ptr %367, null
+363:                                              ; preds = %347
+  %364 = load i64, ptr %77, align 8
+  %365 = getelementptr ptr, ptr %362, i64 %364
+  %366 = load ptr, ptr %365, align 8
+  %.not8.i750 = icmp eq ptr %366, null
   br i1 %.not8.i750, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-368:                                              ; preds = %.loopexit971
-  %369 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %370 = load ptr, ptr %0, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 56
-  store ptr %369, ptr %371, align 8
-  %372 = load ptr, ptr %0, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 56
-  %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds i8, ptr %372, i64 24
-  %376 = load ptr, ptr %375, align 8
-  %377 = tail call ptr @g_slist_prepend(ptr noundef %376, ptr noundef %374) #29
-  store ptr %377, ptr %375, align 8
-  %378 = load ptr, ptr %74, align 8
+367:                                              ; preds = %.loopexit971
+  %368 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %369 = load ptr, ptr %0, align 8
+  %370 = getelementptr inbounds i8, ptr %369, i64 56
+  store ptr %368, ptr %370, align 8
+  %371 = load ptr, ptr %0, align 8
+  %372 = getelementptr inbounds i8, ptr %371, i64 56
+  %373 = load ptr, ptr %372, align 8
+  %374 = getelementptr inbounds i8, ptr %371, i64 24
+  %375 = load ptr, ptr %374, align 8
+  %376 = tail call ptr @g_slist_prepend(ptr noundef %375, ptr noundef %373) #29
+  store ptr %376, ptr %374, align 8
+  %377 = load ptr, ptr %74, align 8
   %.val663 = load ptr, ptr %0, align 8
-  %379 = tail call fastcc ptr @strdup_and_store(ptr %.val663, ptr noundef %378)
-  %380 = load ptr, ptr %0, align 8
-  %381 = getelementptr inbounds i8, ptr %380, i64 56
-  %382 = load ptr, ptr %381, align 8
-  store ptr %379, ptr %382, align 8
-  %383 = load ptr, ptr %76, align 8
-  %.not.i753 = icmp eq ptr %383, null
-  br i1 %.not.i753, label %.loopexit970.sink.split, label %384
+  %378 = tail call fastcc ptr @strdup_and_store(ptr %.val663, ptr noundef %377)
+  %379 = load ptr, ptr %0, align 8
+  %380 = getelementptr inbounds i8, ptr %379, i64 56
+  %381 = load ptr, ptr %380, align 8
+  store ptr %378, ptr %381, align 8
+  %382 = load ptr, ptr %76, align 8
+  %.not.i753 = icmp eq ptr %382, null
+  br i1 %.not.i753, label %.loopexit970.sink.split, label %383
 
-384:                                              ; preds = %368
-  %385 = load i64, ptr %77, align 8
-  %386 = getelementptr ptr, ptr %383, i64 %385
-  %387 = load ptr, ptr %386, align 8
-  %.not8.i754 = icmp eq ptr %387, null
+383:                                              ; preds = %367
+  %384 = load i64, ptr %77, align 8
+  %385 = getelementptr ptr, ptr %382, i64 %384
+  %386 = load ptr, ptr %385, align 8
+  %.not8.i754 = icmp eq ptr %386, null
   br i1 %.not8.i754, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-388:                                              ; preds = %.loopexit971
-  %389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %390 = load ptr, ptr %0, align 8
-  %391 = getelementptr inbounds i8, ptr %390, i64 56
-  store ptr %389, ptr %391, align 8
-  %392 = load ptr, ptr %0, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 56
-  %394 = load ptr, ptr %393, align 8
-  %395 = getelementptr inbounds i8, ptr %392, i64 24
-  %396 = load ptr, ptr %395, align 8
-  %397 = tail call ptr @g_slist_prepend(ptr noundef %396, ptr noundef %394) #29
-  store ptr %397, ptr %395, align 8
-  %398 = load ptr, ptr %74, align 8
+387:                                              ; preds = %.loopexit971
+  %388 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %389 = load ptr, ptr %0, align 8
+  %390 = getelementptr inbounds i8, ptr %389, i64 56
+  store ptr %388, ptr %390, align 8
+  %391 = load ptr, ptr %0, align 8
+  %392 = getelementptr inbounds i8, ptr %391, i64 56
+  %393 = load ptr, ptr %392, align 8
+  %394 = getelementptr inbounds i8, ptr %391, i64 24
+  %395 = load ptr, ptr %394, align 8
+  %396 = tail call ptr @g_slist_prepend(ptr noundef %395, ptr noundef %393) #29
+  store ptr %396, ptr %394, align 8
+  %397 = load ptr, ptr %74, align 8
   %.val664 = load ptr, ptr %0, align 8
-  %399 = tail call fastcc ptr @strdup_and_store(ptr %.val664, ptr noundef %398)
-  %400 = load ptr, ptr %0, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 56
-  %402 = load ptr, ptr %401, align 8
-  store ptr %399, ptr %402, align 8
-  %403 = load ptr, ptr %76, align 8
-  %.not.i757 = icmp eq ptr %403, null
-  br i1 %.not.i757, label %.loopexit970.sink.split, label %404
+  %398 = tail call fastcc ptr @strdup_and_store(ptr %.val664, ptr noundef %397)
+  %399 = load ptr, ptr %0, align 8
+  %400 = getelementptr inbounds i8, ptr %399, i64 56
+  %401 = load ptr, ptr %400, align 8
+  store ptr %398, ptr %401, align 8
+  %402 = load ptr, ptr %76, align 8
+  %.not.i757 = icmp eq ptr %402, null
+  br i1 %.not.i757, label %.loopexit970.sink.split, label %403
 
-404:                                              ; preds = %388
-  %405 = load i64, ptr %77, align 8
-  %406 = getelementptr ptr, ptr %403, i64 %405
-  %407 = load ptr, ptr %406, align 8
-  %.not8.i758 = icmp eq ptr %407, null
+403:                                              ; preds = %387
+  %404 = load i64, ptr %77, align 8
+  %405 = getelementptr ptr, ptr %402, i64 %404
+  %406 = load ptr, ptr %405, align 8
+  %.not8.i758 = icmp eq ptr %406, null
   br i1 %.not8.i758, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-408:                                              ; preds = %.loopexit971
-  %409 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %410 = load ptr, ptr %0, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 56
-  store ptr %409, ptr %411, align 8
-  %412 = load ptr, ptr %0, align 8
-  %413 = getelementptr inbounds i8, ptr %412, i64 56
-  %414 = load ptr, ptr %413, align 8
-  %415 = getelementptr inbounds i8, ptr %412, i64 24
-  %416 = load ptr, ptr %415, align 8
-  %417 = tail call ptr @g_slist_prepend(ptr noundef %416, ptr noundef %414) #29
-  store ptr %417, ptr %415, align 8
-  %418 = load ptr, ptr %74, align 8
+407:                                              ; preds = %.loopexit971
+  %408 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %409 = load ptr, ptr %0, align 8
+  %410 = getelementptr inbounds i8, ptr %409, i64 56
+  store ptr %408, ptr %410, align 8
+  %411 = load ptr, ptr %0, align 8
+  %412 = getelementptr inbounds i8, ptr %411, i64 56
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds i8, ptr %411, i64 24
+  %415 = load ptr, ptr %414, align 8
+  %416 = tail call ptr @g_slist_prepend(ptr noundef %415, ptr noundef %413) #29
+  store ptr %416, ptr %414, align 8
+  %417 = load ptr, ptr %74, align 8
   %.val665 = load ptr, ptr %0, align 8
-  %419 = tail call fastcc ptr @strdup_and_store(ptr %.val665, ptr noundef %418)
-  %420 = load ptr, ptr %0, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 56
-  %422 = load ptr, ptr %421, align 8
-  store ptr %419, ptr %422, align 8
-  %423 = load ptr, ptr %76, align 8
-  %.not.i761 = icmp eq ptr %423, null
-  br i1 %.not.i761, label %.loopexit970.sink.split, label %424
+  %418 = tail call fastcc ptr @strdup_and_store(ptr %.val665, ptr noundef %417)
+  %419 = load ptr, ptr %0, align 8
+  %420 = getelementptr inbounds i8, ptr %419, i64 56
+  %421 = load ptr, ptr %420, align 8
+  store ptr %418, ptr %421, align 8
+  %422 = load ptr, ptr %76, align 8
+  %.not.i761 = icmp eq ptr %422, null
+  br i1 %.not.i761, label %.loopexit970.sink.split, label %423
 
-424:                                              ; preds = %408
-  %425 = load i64, ptr %77, align 8
-  %426 = getelementptr ptr, ptr %423, i64 %425
-  %427 = load ptr, ptr %426, align 8
-  %.not8.i762 = icmp eq ptr %427, null
+423:                                              ; preds = %407
+  %424 = load i64, ptr %77, align 8
+  %425 = getelementptr ptr, ptr %422, i64 %424
+  %426 = load ptr, ptr %425, align 8
+  %.not8.i762 = icmp eq ptr %426, null
   br i1 %.not8.i762, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-428:                                              ; preds = %.loopexit971
-  %429 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %430 = load ptr, ptr %0, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 56
-  store ptr %429, ptr %431, align 8
-  %432 = load ptr, ptr %0, align 8
-  %433 = getelementptr inbounds i8, ptr %432, i64 56
-  %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr inbounds i8, ptr %432, i64 24
-  %436 = load ptr, ptr %435, align 8
-  %437 = tail call ptr @g_slist_prepend(ptr noundef %436, ptr noundef %434) #29
-  store ptr %437, ptr %435, align 8
-  %438 = load ptr, ptr %74, align 8
+427:                                              ; preds = %.loopexit971
+  %428 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %429 = load ptr, ptr %0, align 8
+  %430 = getelementptr inbounds i8, ptr %429, i64 56
+  store ptr %428, ptr %430, align 8
+  %431 = load ptr, ptr %0, align 8
+  %432 = getelementptr inbounds i8, ptr %431, i64 56
+  %433 = load ptr, ptr %432, align 8
+  %434 = getelementptr inbounds i8, ptr %431, i64 24
+  %435 = load ptr, ptr %434, align 8
+  %436 = tail call ptr @g_slist_prepend(ptr noundef %435, ptr noundef %433) #29
+  store ptr %436, ptr %434, align 8
+  %437 = load ptr, ptr %74, align 8
   %.val666 = load ptr, ptr %0, align 8
-  %439 = tail call fastcc ptr @strdup_and_store(ptr %.val666, ptr noundef %438)
-  %440 = load ptr, ptr %0, align 8
-  %441 = getelementptr inbounds i8, ptr %440, i64 56
-  %442 = load ptr, ptr %441, align 8
-  store ptr %439, ptr %442, align 8
-  %443 = load ptr, ptr %76, align 8
-  %.not.i765 = icmp eq ptr %443, null
-  br i1 %.not.i765, label %.loopexit970.sink.split, label %444
+  %438 = tail call fastcc ptr @strdup_and_store(ptr %.val666, ptr noundef %437)
+  %439 = load ptr, ptr %0, align 8
+  %440 = getelementptr inbounds i8, ptr %439, i64 56
+  %441 = load ptr, ptr %440, align 8
+  store ptr %438, ptr %441, align 8
+  %442 = load ptr, ptr %76, align 8
+  %.not.i765 = icmp eq ptr %442, null
+  br i1 %.not.i765, label %.loopexit970.sink.split, label %443
 
-444:                                              ; preds = %428
-  %445 = load i64, ptr %77, align 8
-  %446 = getelementptr ptr, ptr %443, i64 %445
-  %447 = load ptr, ptr %446, align 8
-  %.not8.i766 = icmp eq ptr %447, null
+443:                                              ; preds = %427
+  %444 = load i64, ptr %77, align 8
+  %445 = getelementptr ptr, ptr %442, i64 %444
+  %446 = load ptr, ptr %445, align 8
+  %.not8.i766 = icmp eq ptr %446, null
   br i1 %.not8.i766, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-448:                                              ; preds = %.loopexit971
-  %449 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %450 = load ptr, ptr %0, align 8
-  %451 = getelementptr inbounds i8, ptr %450, i64 56
-  store ptr %449, ptr %451, align 8
-  %452 = load ptr, ptr %0, align 8
-  %453 = getelementptr inbounds i8, ptr %452, i64 56
-  %454 = load ptr, ptr %453, align 8
-  %455 = getelementptr inbounds i8, ptr %452, i64 24
-  %456 = load ptr, ptr %455, align 8
-  %457 = tail call ptr @g_slist_prepend(ptr noundef %456, ptr noundef %454) #29
-  store ptr %457, ptr %455, align 8
-  %458 = load ptr, ptr %74, align 8
+447:                                              ; preds = %.loopexit971
+  %448 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %449 = load ptr, ptr %0, align 8
+  %450 = getelementptr inbounds i8, ptr %449, i64 56
+  store ptr %448, ptr %450, align 8
+  %451 = load ptr, ptr %0, align 8
+  %452 = getelementptr inbounds i8, ptr %451, i64 56
+  %453 = load ptr, ptr %452, align 8
+  %454 = getelementptr inbounds i8, ptr %451, i64 24
+  %455 = load ptr, ptr %454, align 8
+  %456 = tail call ptr @g_slist_prepend(ptr noundef %455, ptr noundef %453) #29
+  store ptr %456, ptr %454, align 8
+  %457 = load ptr, ptr %74, align 8
   %.val667 = load ptr, ptr %0, align 8
-  %459 = tail call fastcc ptr @strdup_and_store(ptr %.val667, ptr noundef %458)
-  %460 = load ptr, ptr %0, align 8
-  %461 = getelementptr inbounds i8, ptr %460, i64 56
-  %462 = load ptr, ptr %461, align 8
-  store ptr %459, ptr %462, align 8
-  %463 = load ptr, ptr %76, align 8
-  %.not.i769 = icmp eq ptr %463, null
-  br i1 %.not.i769, label %.loopexit970.sink.split, label %464
+  %458 = tail call fastcc ptr @strdup_and_store(ptr %.val667, ptr noundef %457)
+  %459 = load ptr, ptr %0, align 8
+  %460 = getelementptr inbounds i8, ptr %459, i64 56
+  %461 = load ptr, ptr %460, align 8
+  store ptr %458, ptr %461, align 8
+  %462 = load ptr, ptr %76, align 8
+  %.not.i769 = icmp eq ptr %462, null
+  br i1 %.not.i769, label %.loopexit970.sink.split, label %463
 
-464:                                              ; preds = %448
-  %465 = load i64, ptr %77, align 8
-  %466 = getelementptr ptr, ptr %463, i64 %465
-  %467 = load ptr, ptr %466, align 8
-  %.not8.i770 = icmp eq ptr %467, null
+463:                                              ; preds = %447
+  %464 = load i64, ptr %77, align 8
+  %465 = getelementptr ptr, ptr %462, i64 %464
+  %466 = load ptr, ptr %465, align 8
+  %.not8.i770 = icmp eq ptr %466, null
   br i1 %.not8.i770, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-468:                                              ; preds = %.loopexit971
-  %469 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %470 = load ptr, ptr %0, align 8
-  %471 = getelementptr inbounds i8, ptr %470, i64 56
-  store ptr %469, ptr %471, align 8
-  %472 = load ptr, ptr %0, align 8
-  %473 = getelementptr inbounds i8, ptr %472, i64 56
-  %474 = load ptr, ptr %473, align 8
-  %475 = getelementptr inbounds i8, ptr %472, i64 24
-  %476 = load ptr, ptr %475, align 8
-  %477 = tail call ptr @g_slist_prepend(ptr noundef %476, ptr noundef %474) #29
-  store ptr %477, ptr %475, align 8
-  %478 = load ptr, ptr %74, align 8
+467:                                              ; preds = %.loopexit971
+  %468 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %469 = load ptr, ptr %0, align 8
+  %470 = getelementptr inbounds i8, ptr %469, i64 56
+  store ptr %468, ptr %470, align 8
+  %471 = load ptr, ptr %0, align 8
+  %472 = getelementptr inbounds i8, ptr %471, i64 56
+  %473 = load ptr, ptr %472, align 8
+  %474 = getelementptr inbounds i8, ptr %471, i64 24
+  %475 = load ptr, ptr %474, align 8
+  %476 = tail call ptr @g_slist_prepend(ptr noundef %475, ptr noundef %473) #29
+  store ptr %476, ptr %474, align 8
+  %477 = load ptr, ptr %74, align 8
   %.val668 = load ptr, ptr %0, align 8
-  %479 = tail call fastcc ptr @strdup_and_store(ptr %.val668, ptr noundef %478)
-  %480 = load ptr, ptr %0, align 8
-  %481 = getelementptr inbounds i8, ptr %480, i64 56
-  %482 = load ptr, ptr %481, align 8
-  store ptr %479, ptr %482, align 8
-  %483 = load ptr, ptr %76, align 8
-  %.not.i773 = icmp eq ptr %483, null
-  br i1 %.not.i773, label %.loopexit970.sink.split, label %484
+  %478 = tail call fastcc ptr @strdup_and_store(ptr %.val668, ptr noundef %477)
+  %479 = load ptr, ptr %0, align 8
+  %480 = getelementptr inbounds i8, ptr %479, i64 56
+  %481 = load ptr, ptr %480, align 8
+  store ptr %478, ptr %481, align 8
+  %482 = load ptr, ptr %76, align 8
+  %.not.i773 = icmp eq ptr %482, null
+  br i1 %.not.i773, label %.loopexit970.sink.split, label %483
 
-484:                                              ; preds = %468
-  %485 = load i64, ptr %77, align 8
-  %486 = getelementptr ptr, ptr %483, i64 %485
-  %487 = load ptr, ptr %486, align 8
-  %.not8.i774 = icmp eq ptr %487, null
+483:                                              ; preds = %467
+  %484 = load i64, ptr %77, align 8
+  %485 = getelementptr ptr, ptr %482, i64 %484
+  %486 = load ptr, ptr %485, align 8
+  %.not8.i774 = icmp eq ptr %486, null
   br i1 %.not8.i774, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-488:                                              ; preds = %.loopexit971
-  %489 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %490 = load ptr, ptr %0, align 8
-  %491 = getelementptr inbounds i8, ptr %490, i64 56
-  store ptr %489, ptr %491, align 8
-  %492 = load ptr, ptr %0, align 8
-  %493 = getelementptr inbounds i8, ptr %492, i64 56
-  %494 = load ptr, ptr %493, align 8
-  %495 = getelementptr inbounds i8, ptr %492, i64 24
-  %496 = load ptr, ptr %495, align 8
-  %497 = tail call ptr @g_slist_prepend(ptr noundef %496, ptr noundef %494) #29
-  store ptr %497, ptr %495, align 8
-  %498 = load ptr, ptr %74, align 8
+487:                                              ; preds = %.loopexit971
+  %488 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %489 = load ptr, ptr %0, align 8
+  %490 = getelementptr inbounds i8, ptr %489, i64 56
+  store ptr %488, ptr %490, align 8
+  %491 = load ptr, ptr %0, align 8
+  %492 = getelementptr inbounds i8, ptr %491, i64 56
+  %493 = load ptr, ptr %492, align 8
+  %494 = getelementptr inbounds i8, ptr %491, i64 24
+  %495 = load ptr, ptr %494, align 8
+  %496 = tail call ptr @g_slist_prepend(ptr noundef %495, ptr noundef %493) #29
+  store ptr %496, ptr %494, align 8
+  %497 = load ptr, ptr %74, align 8
   %.val669 = load ptr, ptr %0, align 8
-  %499 = tail call fastcc ptr @strdup_and_store(ptr %.val669, ptr noundef %498)
-  %500 = load ptr, ptr %0, align 8
-  %501 = getelementptr inbounds i8, ptr %500, i64 56
-  %502 = load ptr, ptr %501, align 8
-  store ptr %499, ptr %502, align 8
-  %503 = load ptr, ptr %76, align 8
-  %.not.i777 = icmp eq ptr %503, null
-  br i1 %.not.i777, label %.loopexit970.sink.split, label %504
+  %498 = tail call fastcc ptr @strdup_and_store(ptr %.val669, ptr noundef %497)
+  %499 = load ptr, ptr %0, align 8
+  %500 = getelementptr inbounds i8, ptr %499, i64 56
+  %501 = load ptr, ptr %500, align 8
+  store ptr %498, ptr %501, align 8
+  %502 = load ptr, ptr %76, align 8
+  %.not.i777 = icmp eq ptr %502, null
+  br i1 %.not.i777, label %.loopexit970.sink.split, label %503
 
-504:                                              ; preds = %488
-  %505 = load i64, ptr %77, align 8
-  %506 = getelementptr ptr, ptr %503, i64 %505
-  %507 = load ptr, ptr %506, align 8
-  %.not8.i778 = icmp eq ptr %507, null
+503:                                              ; preds = %487
+  %504 = load i64, ptr %77, align 8
+  %505 = getelementptr ptr, ptr %502, i64 %504
+  %506 = load ptr, ptr %505, align 8
+  %.not8.i778 = icmp eq ptr %506, null
   br i1 %.not8.i778, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-508:                                              ; preds = %.loopexit971
-  %509 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %510 = load ptr, ptr %0, align 8
-  %511 = getelementptr inbounds i8, ptr %510, i64 56
-  store ptr %509, ptr %511, align 8
-  %512 = load ptr, ptr %0, align 8
-  %513 = getelementptr inbounds i8, ptr %512, i64 56
-  %514 = load ptr, ptr %513, align 8
-  %515 = getelementptr inbounds i8, ptr %512, i64 24
-  %516 = load ptr, ptr %515, align 8
-  %517 = tail call ptr @g_slist_prepend(ptr noundef %516, ptr noundef %514) #29
-  store ptr %517, ptr %515, align 8
-  %518 = load ptr, ptr %74, align 8
+507:                                              ; preds = %.loopexit971
+  %508 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %509 = load ptr, ptr %0, align 8
+  %510 = getelementptr inbounds i8, ptr %509, i64 56
+  store ptr %508, ptr %510, align 8
+  %511 = load ptr, ptr %0, align 8
+  %512 = getelementptr inbounds i8, ptr %511, i64 56
+  %513 = load ptr, ptr %512, align 8
+  %514 = getelementptr inbounds i8, ptr %511, i64 24
+  %515 = load ptr, ptr %514, align 8
+  %516 = tail call ptr @g_slist_prepend(ptr noundef %515, ptr noundef %513) #29
+  store ptr %516, ptr %514, align 8
+  %517 = load ptr, ptr %74, align 8
   %.val670 = load ptr, ptr %0, align 8
-  %519 = tail call fastcc ptr @strdup_and_store(ptr %.val670, ptr noundef %518)
-  %520 = load ptr, ptr %0, align 8
-  %521 = getelementptr inbounds i8, ptr %520, i64 56
-  %522 = load ptr, ptr %521, align 8
-  store ptr %519, ptr %522, align 8
-  %523 = load ptr, ptr %76, align 8
-  %.not.i781 = icmp eq ptr %523, null
-  br i1 %.not.i781, label %.loopexit970.sink.split, label %524
+  %518 = tail call fastcc ptr @strdup_and_store(ptr %.val670, ptr noundef %517)
+  %519 = load ptr, ptr %0, align 8
+  %520 = getelementptr inbounds i8, ptr %519, i64 56
+  %521 = load ptr, ptr %520, align 8
+  store ptr %518, ptr %521, align 8
+  %522 = load ptr, ptr %76, align 8
+  %.not.i781 = icmp eq ptr %522, null
+  br i1 %.not.i781, label %.loopexit970.sink.split, label %523
 
-524:                                              ; preds = %508
-  %525 = load i64, ptr %77, align 8
-  %526 = getelementptr ptr, ptr %523, i64 %525
-  %527 = load ptr, ptr %526, align 8
-  %.not8.i782 = icmp eq ptr %527, null
+523:                                              ; preds = %507
+  %524 = load i64, ptr %77, align 8
+  %525 = getelementptr ptr, ptr %522, i64 %524
+  %526 = load ptr, ptr %525, align 8
+  %.not8.i782 = icmp eq ptr %526, null
   br i1 %.not8.i782, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-528:                                              ; preds = %.loopexit971
-  %529 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %530 = load ptr, ptr %0, align 8
-  %531 = getelementptr inbounds i8, ptr %530, i64 56
-  store ptr %529, ptr %531, align 8
-  %532 = load ptr, ptr %0, align 8
-  %533 = getelementptr inbounds i8, ptr %532, i64 56
-  %534 = load ptr, ptr %533, align 8
-  %535 = getelementptr inbounds i8, ptr %532, i64 24
-  %536 = load ptr, ptr %535, align 8
-  %537 = tail call ptr @g_slist_prepend(ptr noundef %536, ptr noundef %534) #29
-  store ptr %537, ptr %535, align 8
-  %538 = load ptr, ptr %74, align 8
+527:                                              ; preds = %.loopexit971
+  %528 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %529 = load ptr, ptr %0, align 8
+  %530 = getelementptr inbounds i8, ptr %529, i64 56
+  store ptr %528, ptr %530, align 8
+  %531 = load ptr, ptr %0, align 8
+  %532 = getelementptr inbounds i8, ptr %531, i64 56
+  %533 = load ptr, ptr %532, align 8
+  %534 = getelementptr inbounds i8, ptr %531, i64 24
+  %535 = load ptr, ptr %534, align 8
+  %536 = tail call ptr @g_slist_prepend(ptr noundef %535, ptr noundef %533) #29
+  store ptr %536, ptr %534, align 8
+  %537 = load ptr, ptr %74, align 8
   %.val671 = load ptr, ptr %0, align 8
-  %539 = tail call fastcc ptr @strdup_and_store(ptr %.val671, ptr noundef %538)
-  %540 = load ptr, ptr %0, align 8
-  %541 = getelementptr inbounds i8, ptr %540, i64 56
-  %542 = load ptr, ptr %541, align 8
-  store ptr %539, ptr %542, align 8
-  %543 = load ptr, ptr %76, align 8
-  %.not.i785 = icmp eq ptr %543, null
-  br i1 %.not.i785, label %.loopexit970.sink.split, label %544
+  %538 = tail call fastcc ptr @strdup_and_store(ptr %.val671, ptr noundef %537)
+  %539 = load ptr, ptr %0, align 8
+  %540 = getelementptr inbounds i8, ptr %539, i64 56
+  %541 = load ptr, ptr %540, align 8
+  store ptr %538, ptr %541, align 8
+  %542 = load ptr, ptr %76, align 8
+  %.not.i785 = icmp eq ptr %542, null
+  br i1 %.not.i785, label %.loopexit970.sink.split, label %543
 
-544:                                              ; preds = %528
-  %545 = load i64, ptr %77, align 8
-  %546 = getelementptr ptr, ptr %543, i64 %545
-  %547 = load ptr, ptr %546, align 8
-  %.not8.i786 = icmp eq ptr %547, null
+543:                                              ; preds = %527
+  %544 = load i64, ptr %77, align 8
+  %545 = getelementptr ptr, ptr %542, i64 %544
+  %546 = load ptr, ptr %545, align 8
+  %.not8.i786 = icmp eq ptr %546, null
   br i1 %.not8.i786, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-548:                                              ; preds = %.loopexit971
-  %549 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %550 = load ptr, ptr %0, align 8
-  %551 = getelementptr inbounds i8, ptr %550, i64 56
-  store ptr %549, ptr %551, align 8
-  %552 = load ptr, ptr %0, align 8
-  %553 = getelementptr inbounds i8, ptr %552, i64 56
-  %554 = load ptr, ptr %553, align 8
-  %555 = getelementptr inbounds i8, ptr %552, i64 24
-  %556 = load ptr, ptr %555, align 8
-  %557 = tail call ptr @g_slist_prepend(ptr noundef %556, ptr noundef %554) #29
-  store ptr %557, ptr %555, align 8
-  %558 = load ptr, ptr %74, align 8
+547:                                              ; preds = %.loopexit971
+  %548 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %549 = load ptr, ptr %0, align 8
+  %550 = getelementptr inbounds i8, ptr %549, i64 56
+  store ptr %548, ptr %550, align 8
+  %551 = load ptr, ptr %0, align 8
+  %552 = getelementptr inbounds i8, ptr %551, i64 56
+  %553 = load ptr, ptr %552, align 8
+  %554 = getelementptr inbounds i8, ptr %551, i64 24
+  %555 = load ptr, ptr %554, align 8
+  %556 = tail call ptr @g_slist_prepend(ptr noundef %555, ptr noundef %553) #29
+  store ptr %556, ptr %554, align 8
+  %557 = load ptr, ptr %74, align 8
   %.val672 = load ptr, ptr %0, align 8
-  %559 = tail call fastcc ptr @strdup_and_store(ptr %.val672, ptr noundef %558)
-  %560 = load ptr, ptr %0, align 8
-  %561 = getelementptr inbounds i8, ptr %560, i64 56
-  %562 = load ptr, ptr %561, align 8
-  store ptr %559, ptr %562, align 8
-  %563 = load ptr, ptr %76, align 8
-  %.not.i789 = icmp eq ptr %563, null
-  br i1 %.not.i789, label %.loopexit970.sink.split, label %564
+  %558 = tail call fastcc ptr @strdup_and_store(ptr %.val672, ptr noundef %557)
+  %559 = load ptr, ptr %0, align 8
+  %560 = getelementptr inbounds i8, ptr %559, i64 56
+  %561 = load ptr, ptr %560, align 8
+  store ptr %558, ptr %561, align 8
+  %562 = load ptr, ptr %76, align 8
+  %.not.i789 = icmp eq ptr %562, null
+  br i1 %.not.i789, label %.loopexit970.sink.split, label %563
 
-564:                                              ; preds = %548
-  %565 = load i64, ptr %77, align 8
-  %566 = getelementptr ptr, ptr %563, i64 %565
-  %567 = load ptr, ptr %566, align 8
-  %.not8.i790 = icmp eq ptr %567, null
+563:                                              ; preds = %547
+  %564 = load i64, ptr %77, align 8
+  %565 = getelementptr ptr, ptr %562, i64 %564
+  %566 = load ptr, ptr %565, align 8
+  %.not8.i790 = icmp eq ptr %566, null
   br i1 %.not8.i790, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-568:                                              ; preds = %.loopexit971
-  %569 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %570 = load ptr, ptr %0, align 8
-  %571 = getelementptr inbounds i8, ptr %570, i64 56
-  store ptr %569, ptr %571, align 8
-  %572 = load ptr, ptr %0, align 8
-  %573 = getelementptr inbounds i8, ptr %572, i64 56
-  %574 = load ptr, ptr %573, align 8
-  %575 = getelementptr inbounds i8, ptr %572, i64 24
-  %576 = load ptr, ptr %575, align 8
-  %577 = tail call ptr @g_slist_prepend(ptr noundef %576, ptr noundef %574) #29
-  store ptr %577, ptr %575, align 8
-  %578 = load ptr, ptr %74, align 8
+567:                                              ; preds = %.loopexit971
+  %568 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %569 = load ptr, ptr %0, align 8
+  %570 = getelementptr inbounds i8, ptr %569, i64 56
+  store ptr %568, ptr %570, align 8
+  %571 = load ptr, ptr %0, align 8
+  %572 = getelementptr inbounds i8, ptr %571, i64 56
+  %573 = load ptr, ptr %572, align 8
+  %574 = getelementptr inbounds i8, ptr %571, i64 24
+  %575 = load ptr, ptr %574, align 8
+  %576 = tail call ptr @g_slist_prepend(ptr noundef %575, ptr noundef %573) #29
+  store ptr %576, ptr %574, align 8
+  %577 = load ptr, ptr %74, align 8
   %.val673 = load ptr, ptr %0, align 8
-  %579 = tail call fastcc ptr @strdup_and_store(ptr %.val673, ptr noundef %578)
-  %580 = load ptr, ptr %0, align 8
-  %581 = getelementptr inbounds i8, ptr %580, i64 56
-  %582 = load ptr, ptr %581, align 8
-  store ptr %579, ptr %582, align 8
-  %583 = load ptr, ptr %76, align 8
-  %.not.i793 = icmp eq ptr %583, null
-  br i1 %.not.i793, label %.loopexit970.sink.split, label %584
+  %578 = tail call fastcc ptr @strdup_and_store(ptr %.val673, ptr noundef %577)
+  %579 = load ptr, ptr %0, align 8
+  %580 = getelementptr inbounds i8, ptr %579, i64 56
+  %581 = load ptr, ptr %580, align 8
+  store ptr %578, ptr %581, align 8
+  %582 = load ptr, ptr %76, align 8
+  %.not.i793 = icmp eq ptr %582, null
+  br i1 %.not.i793, label %.loopexit970.sink.split, label %583
 
-584:                                              ; preds = %568
-  %585 = load i64, ptr %77, align 8
-  %586 = getelementptr ptr, ptr %583, i64 %585
-  %587 = load ptr, ptr %586, align 8
-  %.not8.i794 = icmp eq ptr %587, null
+583:                                              ; preds = %567
+  %584 = load i64, ptr %77, align 8
+  %585 = getelementptr ptr, ptr %582, i64 %584
+  %586 = load ptr, ptr %585, align 8
+  %.not8.i794 = icmp eq ptr %586, null
   br i1 %.not8.i794, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-588:                                              ; preds = %.loopexit971
-  %589 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %590 = load ptr, ptr %0, align 8
-  %591 = getelementptr inbounds i8, ptr %590, i64 56
-  store ptr %589, ptr %591, align 8
-  %592 = load ptr, ptr %0, align 8
-  %593 = getelementptr inbounds i8, ptr %592, i64 56
-  %594 = load ptr, ptr %593, align 8
-  %595 = getelementptr inbounds i8, ptr %592, i64 24
-  %596 = load ptr, ptr %595, align 8
-  %597 = tail call ptr @g_slist_prepend(ptr noundef %596, ptr noundef %594) #29
-  store ptr %597, ptr %595, align 8
-  %598 = load ptr, ptr %74, align 8
+587:                                              ; preds = %.loopexit971
+  %588 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %589 = load ptr, ptr %0, align 8
+  %590 = getelementptr inbounds i8, ptr %589, i64 56
+  store ptr %588, ptr %590, align 8
+  %591 = load ptr, ptr %0, align 8
+  %592 = getelementptr inbounds i8, ptr %591, i64 56
+  %593 = load ptr, ptr %592, align 8
+  %594 = getelementptr inbounds i8, ptr %591, i64 24
+  %595 = load ptr, ptr %594, align 8
+  %596 = tail call ptr @g_slist_prepend(ptr noundef %595, ptr noundef %593) #29
+  store ptr %596, ptr %594, align 8
+  %597 = load ptr, ptr %74, align 8
   %.val674 = load ptr, ptr %0, align 8
-  %599 = tail call fastcc ptr @strdup_and_store(ptr %.val674, ptr noundef %598)
-  %600 = load ptr, ptr %0, align 8
-  %601 = getelementptr inbounds i8, ptr %600, i64 56
-  %602 = load ptr, ptr %601, align 8
-  store ptr %599, ptr %602, align 8
-  %603 = load ptr, ptr %76, align 8
-  %.not.i797 = icmp eq ptr %603, null
-  br i1 %.not.i797, label %.loopexit970.sink.split, label %604
+  %598 = tail call fastcc ptr @strdup_and_store(ptr %.val674, ptr noundef %597)
+  %599 = load ptr, ptr %0, align 8
+  %600 = getelementptr inbounds i8, ptr %599, i64 56
+  %601 = load ptr, ptr %600, align 8
+  store ptr %598, ptr %601, align 8
+  %602 = load ptr, ptr %76, align 8
+  %.not.i797 = icmp eq ptr %602, null
+  br i1 %.not.i797, label %.loopexit970.sink.split, label %603
 
-604:                                              ; preds = %588
-  %605 = load i64, ptr %77, align 8
-  %606 = getelementptr ptr, ptr %603, i64 %605
-  %607 = load ptr, ptr %606, align 8
-  %.not8.i798 = icmp eq ptr %607, null
+603:                                              ; preds = %587
+  %604 = load i64, ptr %77, align 8
+  %605 = getelementptr ptr, ptr %602, i64 %604
+  %606 = load ptr, ptr %605, align 8
+  %.not8.i798 = icmp eq ptr %606, null
   br i1 %.not8.i798, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-608:                                              ; preds = %.loopexit971
-  %609 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %610 = load ptr, ptr %0, align 8
-  %611 = getelementptr inbounds i8, ptr %610, i64 56
-  store ptr %609, ptr %611, align 8
-  %612 = load ptr, ptr %0, align 8
-  %613 = getelementptr inbounds i8, ptr %612, i64 56
-  %614 = load ptr, ptr %613, align 8
-  %615 = getelementptr inbounds i8, ptr %612, i64 24
-  %616 = load ptr, ptr %615, align 8
-  %617 = tail call ptr @g_slist_prepend(ptr noundef %616, ptr noundef %614) #29
-  store ptr %617, ptr %615, align 8
-  %618 = load ptr, ptr %74, align 8
+607:                                              ; preds = %.loopexit971
+  %608 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %609 = load ptr, ptr %0, align 8
+  %610 = getelementptr inbounds i8, ptr %609, i64 56
+  store ptr %608, ptr %610, align 8
+  %611 = load ptr, ptr %0, align 8
+  %612 = getelementptr inbounds i8, ptr %611, i64 56
+  %613 = load ptr, ptr %612, align 8
+  %614 = getelementptr inbounds i8, ptr %611, i64 24
+  %615 = load ptr, ptr %614, align 8
+  %616 = tail call ptr @g_slist_prepend(ptr noundef %615, ptr noundef %613) #29
+  store ptr %616, ptr %614, align 8
+  %617 = load ptr, ptr %74, align 8
   %.val675 = load ptr, ptr %0, align 8
-  %619 = tail call fastcc ptr @strdup_and_store(ptr %.val675, ptr noundef %618)
-  %620 = load ptr, ptr %0, align 8
-  %621 = getelementptr inbounds i8, ptr %620, i64 56
-  %622 = load ptr, ptr %621, align 8
-  store ptr %619, ptr %622, align 8
-  %623 = load ptr, ptr %76, align 8
-  %.not.i801 = icmp eq ptr %623, null
-  br i1 %.not.i801, label %.loopexit970.sink.split, label %624
+  %618 = tail call fastcc ptr @strdup_and_store(ptr %.val675, ptr noundef %617)
+  %619 = load ptr, ptr %0, align 8
+  %620 = getelementptr inbounds i8, ptr %619, i64 56
+  %621 = load ptr, ptr %620, align 8
+  store ptr %618, ptr %621, align 8
+  %622 = load ptr, ptr %76, align 8
+  %.not.i801 = icmp eq ptr %622, null
+  br i1 %.not.i801, label %.loopexit970.sink.split, label %623
 
-624:                                              ; preds = %608
-  %625 = load i64, ptr %77, align 8
-  %626 = getelementptr ptr, ptr %623, i64 %625
-  %627 = load ptr, ptr %626, align 8
-  %.not8.i802 = icmp eq ptr %627, null
+623:                                              ; preds = %607
+  %624 = load i64, ptr %77, align 8
+  %625 = getelementptr ptr, ptr %622, i64 %624
+  %626 = load ptr, ptr %625, align 8
+  %.not8.i802 = icmp eq ptr %626, null
   br i1 %.not8.i802, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-628:                                              ; preds = %.loopexit971
-  %629 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %630 = load ptr, ptr %0, align 8
-  %631 = getelementptr inbounds i8, ptr %630, i64 56
-  store ptr %629, ptr %631, align 8
-  %632 = load ptr, ptr %0, align 8
-  %633 = getelementptr inbounds i8, ptr %632, i64 56
-  %634 = load ptr, ptr %633, align 8
-  %635 = getelementptr inbounds i8, ptr %632, i64 24
-  %636 = load ptr, ptr %635, align 8
-  %637 = tail call ptr @g_slist_prepend(ptr noundef %636, ptr noundef %634) #29
-  store ptr %637, ptr %635, align 8
-  %638 = load ptr, ptr %74, align 8
+627:                                              ; preds = %.loopexit971
+  %628 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %629 = load ptr, ptr %0, align 8
+  %630 = getelementptr inbounds i8, ptr %629, i64 56
+  store ptr %628, ptr %630, align 8
+  %631 = load ptr, ptr %0, align 8
+  %632 = getelementptr inbounds i8, ptr %631, i64 56
+  %633 = load ptr, ptr %632, align 8
+  %634 = getelementptr inbounds i8, ptr %631, i64 24
+  %635 = load ptr, ptr %634, align 8
+  %636 = tail call ptr @g_slist_prepend(ptr noundef %635, ptr noundef %633) #29
+  store ptr %636, ptr %634, align 8
+  %637 = load ptr, ptr %74, align 8
   %.val676 = load ptr, ptr %0, align 8
-  %639 = tail call fastcc ptr @strdup_and_store(ptr %.val676, ptr noundef %638)
-  %640 = load ptr, ptr %0, align 8
-  %641 = getelementptr inbounds i8, ptr %640, i64 56
-  %642 = load ptr, ptr %641, align 8
-  store ptr %639, ptr %642, align 8
-  %643 = load ptr, ptr %76, align 8
-  %.not.i805 = icmp eq ptr %643, null
-  br i1 %.not.i805, label %.loopexit970.sink.split, label %644
+  %638 = tail call fastcc ptr @strdup_and_store(ptr %.val676, ptr noundef %637)
+  %639 = load ptr, ptr %0, align 8
+  %640 = getelementptr inbounds i8, ptr %639, i64 56
+  %641 = load ptr, ptr %640, align 8
+  store ptr %638, ptr %641, align 8
+  %642 = load ptr, ptr %76, align 8
+  %.not.i805 = icmp eq ptr %642, null
+  br i1 %.not.i805, label %.loopexit970.sink.split, label %643
 
-644:                                              ; preds = %628
-  %645 = load i64, ptr %77, align 8
-  %646 = getelementptr ptr, ptr %643, i64 %645
-  %647 = load ptr, ptr %646, align 8
-  %.not8.i806 = icmp eq ptr %647, null
+643:                                              ; preds = %627
+  %644 = load i64, ptr %77, align 8
+  %645 = getelementptr ptr, ptr %642, i64 %644
+  %646 = load ptr, ptr %645, align 8
+  %.not8.i806 = icmp eq ptr %646, null
   br i1 %.not8.i806, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-648:                                              ; preds = %.loopexit971
-  %649 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %650 = load ptr, ptr %0, align 8
-  %651 = getelementptr inbounds i8, ptr %650, i64 56
-  store ptr %649, ptr %651, align 8
-  %652 = load ptr, ptr %0, align 8
-  %653 = getelementptr inbounds i8, ptr %652, i64 56
-  %654 = load ptr, ptr %653, align 8
-  %655 = getelementptr inbounds i8, ptr %652, i64 24
-  %656 = load ptr, ptr %655, align 8
-  %657 = tail call ptr @g_slist_prepend(ptr noundef %656, ptr noundef %654) #29
-  store ptr %657, ptr %655, align 8
-  %658 = load ptr, ptr %74, align 8
+647:                                              ; preds = %.loopexit971
+  %648 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %649 = load ptr, ptr %0, align 8
+  %650 = getelementptr inbounds i8, ptr %649, i64 56
+  store ptr %648, ptr %650, align 8
+  %651 = load ptr, ptr %0, align 8
+  %652 = getelementptr inbounds i8, ptr %651, i64 56
+  %653 = load ptr, ptr %652, align 8
+  %654 = getelementptr inbounds i8, ptr %651, i64 24
+  %655 = load ptr, ptr %654, align 8
+  %656 = tail call ptr @g_slist_prepend(ptr noundef %655, ptr noundef %653) #29
+  store ptr %656, ptr %654, align 8
+  %657 = load ptr, ptr %74, align 8
   %.val677 = load ptr, ptr %0, align 8
-  %659 = tail call fastcc ptr @strdup_and_store(ptr %.val677, ptr noundef %658)
-  %660 = load ptr, ptr %0, align 8
-  %661 = getelementptr inbounds i8, ptr %660, i64 56
-  %662 = load ptr, ptr %661, align 8
-  store ptr %659, ptr %662, align 8
-  %663 = load ptr, ptr %76, align 8
-  %.not.i809 = icmp eq ptr %663, null
-  br i1 %.not.i809, label %.loopexit970.sink.split, label %664
+  %658 = tail call fastcc ptr @strdup_and_store(ptr %.val677, ptr noundef %657)
+  %659 = load ptr, ptr %0, align 8
+  %660 = getelementptr inbounds i8, ptr %659, i64 56
+  %661 = load ptr, ptr %660, align 8
+  store ptr %658, ptr %661, align 8
+  %662 = load ptr, ptr %76, align 8
+  %.not.i809 = icmp eq ptr %662, null
+  br i1 %.not.i809, label %.loopexit970.sink.split, label %663
 
-664:                                              ; preds = %648
-  %665 = load i64, ptr %77, align 8
-  %666 = getelementptr ptr, ptr %663, i64 %665
-  %667 = load ptr, ptr %666, align 8
-  %.not8.i810 = icmp eq ptr %667, null
+663:                                              ; preds = %647
+  %664 = load i64, ptr %77, align 8
+  %665 = getelementptr ptr, ptr %662, i64 %664
+  %666 = load ptr, ptr %665, align 8
+  %.not8.i810 = icmp eq ptr %666, null
   br i1 %.not8.i810, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-668:                                              ; preds = %.loopexit971
-  %669 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %670 = load ptr, ptr %0, align 8
-  %671 = getelementptr inbounds i8, ptr %670, i64 56
-  store ptr %669, ptr %671, align 8
-  %672 = load ptr, ptr %0, align 8
-  %673 = getelementptr inbounds i8, ptr %672, i64 56
-  %674 = load ptr, ptr %673, align 8
-  %675 = getelementptr inbounds i8, ptr %672, i64 24
-  %676 = load ptr, ptr %675, align 8
-  %677 = tail call ptr @g_slist_prepend(ptr noundef %676, ptr noundef %674) #29
-  store ptr %677, ptr %675, align 8
-  %678 = load ptr, ptr %74, align 8
+667:                                              ; preds = %.loopexit971
+  %668 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %669 = load ptr, ptr %0, align 8
+  %670 = getelementptr inbounds i8, ptr %669, i64 56
+  store ptr %668, ptr %670, align 8
+  %671 = load ptr, ptr %0, align 8
+  %672 = getelementptr inbounds i8, ptr %671, i64 56
+  %673 = load ptr, ptr %672, align 8
+  %674 = getelementptr inbounds i8, ptr %671, i64 24
+  %675 = load ptr, ptr %674, align 8
+  %676 = tail call ptr @g_slist_prepend(ptr noundef %675, ptr noundef %673) #29
+  store ptr %676, ptr %674, align 8
+  %677 = load ptr, ptr %74, align 8
   %.val678 = load ptr, ptr %0, align 8
-  %679 = tail call fastcc ptr @strdup_and_store(ptr %.val678, ptr noundef %678)
-  %680 = load ptr, ptr %0, align 8
-  %681 = getelementptr inbounds i8, ptr %680, i64 56
-  %682 = load ptr, ptr %681, align 8
-  store ptr %679, ptr %682, align 8
-  %683 = load ptr, ptr %76, align 8
-  %.not.i813 = icmp eq ptr %683, null
-  br i1 %.not.i813, label %.loopexit970.sink.split, label %684
+  %678 = tail call fastcc ptr @strdup_and_store(ptr %.val678, ptr noundef %677)
+  %679 = load ptr, ptr %0, align 8
+  %680 = getelementptr inbounds i8, ptr %679, i64 56
+  %681 = load ptr, ptr %680, align 8
+  store ptr %678, ptr %681, align 8
+  %682 = load ptr, ptr %76, align 8
+  %.not.i813 = icmp eq ptr %682, null
+  br i1 %.not.i813, label %.loopexit970.sink.split, label %683
 
-684:                                              ; preds = %668
-  %685 = load i64, ptr %77, align 8
-  %686 = getelementptr ptr, ptr %683, i64 %685
-  %687 = load ptr, ptr %686, align 8
-  %.not8.i814 = icmp eq ptr %687, null
+683:                                              ; preds = %667
+  %684 = load i64, ptr %77, align 8
+  %685 = getelementptr ptr, ptr %682, i64 %684
+  %686 = load ptr, ptr %685, align 8
+  %.not8.i814 = icmp eq ptr %686, null
   br i1 %.not8.i814, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-688:                                              ; preds = %.loopexit971
-  %689 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %690 = load ptr, ptr %0, align 8
-  %691 = getelementptr inbounds i8, ptr %690, i64 56
-  store ptr %689, ptr %691, align 8
-  %692 = load ptr, ptr %0, align 8
-  %693 = getelementptr inbounds i8, ptr %692, i64 56
-  %694 = load ptr, ptr %693, align 8
-  %695 = getelementptr inbounds i8, ptr %692, i64 24
-  %696 = load ptr, ptr %695, align 8
-  %697 = tail call ptr @g_slist_prepend(ptr noundef %696, ptr noundef %694) #29
-  store ptr %697, ptr %695, align 8
-  %698 = load ptr, ptr %74, align 8
+687:                                              ; preds = %.loopexit971
+  %688 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %689 = load ptr, ptr %0, align 8
+  %690 = getelementptr inbounds i8, ptr %689, i64 56
+  store ptr %688, ptr %690, align 8
+  %691 = load ptr, ptr %0, align 8
+  %692 = getelementptr inbounds i8, ptr %691, i64 56
+  %693 = load ptr, ptr %692, align 8
+  %694 = getelementptr inbounds i8, ptr %691, i64 24
+  %695 = load ptr, ptr %694, align 8
+  %696 = tail call ptr @g_slist_prepend(ptr noundef %695, ptr noundef %693) #29
+  store ptr %696, ptr %694, align 8
+  %697 = load ptr, ptr %74, align 8
   %.val679 = load ptr, ptr %0, align 8
-  %699 = tail call fastcc ptr @strdup_and_store(ptr %.val679, ptr noundef %698)
-  %700 = load ptr, ptr %0, align 8
-  %701 = getelementptr inbounds i8, ptr %700, i64 56
-  %702 = load ptr, ptr %701, align 8
-  store ptr %699, ptr %702, align 8
-  %703 = load ptr, ptr %76, align 8
-  %.not.i817 = icmp eq ptr %703, null
-  br i1 %.not.i817, label %.loopexit970.sink.split, label %704
+  %698 = tail call fastcc ptr @strdup_and_store(ptr %.val679, ptr noundef %697)
+  %699 = load ptr, ptr %0, align 8
+  %700 = getelementptr inbounds i8, ptr %699, i64 56
+  %701 = load ptr, ptr %700, align 8
+  store ptr %698, ptr %701, align 8
+  %702 = load ptr, ptr %76, align 8
+  %.not.i817 = icmp eq ptr %702, null
+  br i1 %.not.i817, label %.loopexit970.sink.split, label %703
 
-704:                                              ; preds = %688
-  %705 = load i64, ptr %77, align 8
-  %706 = getelementptr ptr, ptr %703, i64 %705
-  %707 = load ptr, ptr %706, align 8
-  %.not8.i818 = icmp eq ptr %707, null
+703:                                              ; preds = %687
+  %704 = load i64, ptr %77, align 8
+  %705 = getelementptr ptr, ptr %702, i64 %704
+  %706 = load ptr, ptr %705, align 8
+  %.not8.i818 = icmp eq ptr %706, null
   br i1 %.not8.i818, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-708:                                              ; preds = %.loopexit971
-  %709 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %710 = load ptr, ptr %0, align 8
-  %711 = getelementptr inbounds i8, ptr %710, i64 56
-  store ptr %709, ptr %711, align 8
-  %712 = load ptr, ptr %0, align 8
-  %713 = getelementptr inbounds i8, ptr %712, i64 56
-  %714 = load ptr, ptr %713, align 8
-  %715 = getelementptr inbounds i8, ptr %712, i64 24
-  %716 = load ptr, ptr %715, align 8
-  %717 = tail call ptr @g_slist_prepend(ptr noundef %716, ptr noundef %714) #29
-  store ptr %717, ptr %715, align 8
-  %718 = load ptr, ptr %74, align 8
+707:                                              ; preds = %.loopexit971
+  %708 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %709 = load ptr, ptr %0, align 8
+  %710 = getelementptr inbounds i8, ptr %709, i64 56
+  store ptr %708, ptr %710, align 8
+  %711 = load ptr, ptr %0, align 8
+  %712 = getelementptr inbounds i8, ptr %711, i64 56
+  %713 = load ptr, ptr %712, align 8
+  %714 = getelementptr inbounds i8, ptr %711, i64 24
+  %715 = load ptr, ptr %714, align 8
+  %716 = tail call ptr @g_slist_prepend(ptr noundef %715, ptr noundef %713) #29
+  store ptr %716, ptr %714, align 8
+  %717 = load ptr, ptr %74, align 8
   %.val680 = load ptr, ptr %0, align 8
-  %719 = tail call fastcc ptr @strdup_and_store(ptr %.val680, ptr noundef %718)
-  %720 = load ptr, ptr %0, align 8
-  %721 = getelementptr inbounds i8, ptr %720, i64 56
-  %722 = load ptr, ptr %721, align 8
-  store ptr %719, ptr %722, align 8
-  %723 = load ptr, ptr %76, align 8
-  %.not.i821 = icmp eq ptr %723, null
-  br i1 %.not.i821, label %.loopexit970.sink.split, label %724
+  %718 = tail call fastcc ptr @strdup_and_store(ptr %.val680, ptr noundef %717)
+  %719 = load ptr, ptr %0, align 8
+  %720 = getelementptr inbounds i8, ptr %719, i64 56
+  %721 = load ptr, ptr %720, align 8
+  store ptr %718, ptr %721, align 8
+  %722 = load ptr, ptr %76, align 8
+  %.not.i821 = icmp eq ptr %722, null
+  br i1 %.not.i821, label %.loopexit970.sink.split, label %723
 
-724:                                              ; preds = %708
-  %725 = load i64, ptr %77, align 8
-  %726 = getelementptr ptr, ptr %723, i64 %725
-  %727 = load ptr, ptr %726, align 8
-  %.not8.i822 = icmp eq ptr %727, null
+723:                                              ; preds = %707
+  %724 = load i64, ptr %77, align 8
+  %725 = getelementptr ptr, ptr %722, i64 %724
+  %726 = load ptr, ptr %725, align 8
+  %.not8.i822 = icmp eq ptr %726, null
   br i1 %.not8.i822, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-728:                                              ; preds = %.loopexit971
-  %729 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %730 = load ptr, ptr %0, align 8
-  %731 = getelementptr inbounds i8, ptr %730, i64 56
-  store ptr %729, ptr %731, align 8
-  %732 = load ptr, ptr %0, align 8
-  %733 = getelementptr inbounds i8, ptr %732, i64 56
-  %734 = load ptr, ptr %733, align 8
-  %735 = getelementptr inbounds i8, ptr %732, i64 24
-  %736 = load ptr, ptr %735, align 8
-  %737 = tail call ptr @g_slist_prepend(ptr noundef %736, ptr noundef %734) #29
-  store ptr %737, ptr %735, align 8
-  %738 = load ptr, ptr %74, align 8
+727:                                              ; preds = %.loopexit971
+  %728 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %729 = load ptr, ptr %0, align 8
+  %730 = getelementptr inbounds i8, ptr %729, i64 56
+  store ptr %728, ptr %730, align 8
+  %731 = load ptr, ptr %0, align 8
+  %732 = getelementptr inbounds i8, ptr %731, i64 56
+  %733 = load ptr, ptr %732, align 8
+  %734 = getelementptr inbounds i8, ptr %731, i64 24
+  %735 = load ptr, ptr %734, align 8
+  %736 = tail call ptr @g_slist_prepend(ptr noundef %735, ptr noundef %733) #29
+  store ptr %736, ptr %734, align 8
+  %737 = load ptr, ptr %74, align 8
   %.val681 = load ptr, ptr %0, align 8
-  %739 = tail call fastcc ptr @strdup_and_store(ptr %.val681, ptr noundef %738)
-  %740 = load ptr, ptr %0, align 8
-  %741 = getelementptr inbounds i8, ptr %740, i64 56
-  %742 = load ptr, ptr %741, align 8
-  store ptr %739, ptr %742, align 8
-  %743 = load ptr, ptr %76, align 8
-  %.not.i825 = icmp eq ptr %743, null
-  br i1 %.not.i825, label %.loopexit970.sink.split, label %744
+  %738 = tail call fastcc ptr @strdup_and_store(ptr %.val681, ptr noundef %737)
+  %739 = load ptr, ptr %0, align 8
+  %740 = getelementptr inbounds i8, ptr %739, i64 56
+  %741 = load ptr, ptr %740, align 8
+  store ptr %738, ptr %741, align 8
+  %742 = load ptr, ptr %76, align 8
+  %.not.i825 = icmp eq ptr %742, null
+  br i1 %.not.i825, label %.loopexit970.sink.split, label %743
 
-744:                                              ; preds = %728
-  %745 = load i64, ptr %77, align 8
-  %746 = getelementptr ptr, ptr %743, i64 %745
-  %747 = load ptr, ptr %746, align 8
-  %.not8.i826 = icmp eq ptr %747, null
+743:                                              ; preds = %727
+  %744 = load i64, ptr %77, align 8
+  %745 = getelementptr ptr, ptr %742, i64 %744
+  %746 = load ptr, ptr %745, align 8
+  %.not8.i826 = icmp eq ptr %746, null
   br i1 %.not8.i826, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-748:                                              ; preds = %.loopexit971
-  %749 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %750 = load ptr, ptr %0, align 8
-  %751 = getelementptr inbounds i8, ptr %750, i64 56
-  store ptr %749, ptr %751, align 8
-  %752 = load ptr, ptr %0, align 8
-  %753 = getelementptr inbounds i8, ptr %752, i64 56
-  %754 = load ptr, ptr %753, align 8
-  %755 = getelementptr inbounds i8, ptr %752, i64 24
-  %756 = load ptr, ptr %755, align 8
-  %757 = tail call ptr @g_slist_prepend(ptr noundef %756, ptr noundef %754) #29
-  store ptr %757, ptr %755, align 8
-  %758 = load ptr, ptr %74, align 8
+747:                                              ; preds = %.loopexit971
+  %748 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %749 = load ptr, ptr %0, align 8
+  %750 = getelementptr inbounds i8, ptr %749, i64 56
+  store ptr %748, ptr %750, align 8
+  %751 = load ptr, ptr %0, align 8
+  %752 = getelementptr inbounds i8, ptr %751, i64 56
+  %753 = load ptr, ptr %752, align 8
+  %754 = getelementptr inbounds i8, ptr %751, i64 24
+  %755 = load ptr, ptr %754, align 8
+  %756 = tail call ptr @g_slist_prepend(ptr noundef %755, ptr noundef %753) #29
+  store ptr %756, ptr %754, align 8
+  %757 = load ptr, ptr %74, align 8
   %.val682 = load ptr, ptr %0, align 8
-  %759 = tail call fastcc ptr @strdup_and_store(ptr %.val682, ptr noundef %758)
-  %760 = load ptr, ptr %0, align 8
-  %761 = getelementptr inbounds i8, ptr %760, i64 56
-  %762 = load ptr, ptr %761, align 8
-  store ptr %759, ptr %762, align 8
-  %763 = load ptr, ptr %76, align 8
-  %.not.i829 = icmp eq ptr %763, null
-  br i1 %.not.i829, label %.loopexit970.sink.split, label %764
+  %758 = tail call fastcc ptr @strdup_and_store(ptr %.val682, ptr noundef %757)
+  %759 = load ptr, ptr %0, align 8
+  %760 = getelementptr inbounds i8, ptr %759, i64 56
+  %761 = load ptr, ptr %760, align 8
+  store ptr %758, ptr %761, align 8
+  %762 = load ptr, ptr %76, align 8
+  %.not.i829 = icmp eq ptr %762, null
+  br i1 %.not.i829, label %.loopexit970.sink.split, label %763
 
-764:                                              ; preds = %748
-  %765 = load i64, ptr %77, align 8
-  %766 = getelementptr ptr, ptr %763, i64 %765
-  %767 = load ptr, ptr %766, align 8
-  %.not8.i830 = icmp eq ptr %767, null
+763:                                              ; preds = %747
+  %764 = load i64, ptr %77, align 8
+  %765 = getelementptr ptr, ptr %762, i64 %764
+  %766 = load ptr, ptr %765, align 8
+  %.not8.i830 = icmp eq ptr %766, null
   br i1 %.not8.i830, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-768:                                              ; preds = %.loopexit971
-  %769 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %770 = load ptr, ptr %0, align 8
-  %771 = getelementptr inbounds i8, ptr %770, i64 56
-  store ptr %769, ptr %771, align 8
-  %772 = load ptr, ptr %0, align 8
-  %773 = getelementptr inbounds i8, ptr %772, i64 56
-  %774 = load ptr, ptr %773, align 8
-  %775 = getelementptr inbounds i8, ptr %772, i64 24
-  %776 = load ptr, ptr %775, align 8
-  %777 = tail call ptr @g_slist_prepend(ptr noundef %776, ptr noundef %774) #29
-  store ptr %777, ptr %775, align 8
-  %778 = load ptr, ptr %74, align 8
+767:                                              ; preds = %.loopexit971
+  %768 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %769 = load ptr, ptr %0, align 8
+  %770 = getelementptr inbounds i8, ptr %769, i64 56
+  store ptr %768, ptr %770, align 8
+  %771 = load ptr, ptr %0, align 8
+  %772 = getelementptr inbounds i8, ptr %771, i64 56
+  %773 = load ptr, ptr %772, align 8
+  %774 = getelementptr inbounds i8, ptr %771, i64 24
+  %775 = load ptr, ptr %774, align 8
+  %776 = tail call ptr @g_slist_prepend(ptr noundef %775, ptr noundef %773) #29
+  store ptr %776, ptr %774, align 8
+  %777 = load ptr, ptr %74, align 8
   %.val683 = load ptr, ptr %0, align 8
-  %779 = tail call fastcc ptr @strdup_and_store(ptr %.val683, ptr noundef %778)
-  %780 = load ptr, ptr %0, align 8
-  %781 = getelementptr inbounds i8, ptr %780, i64 56
-  %782 = load ptr, ptr %781, align 8
-  store ptr %779, ptr %782, align 8
-  %783 = load ptr, ptr %76, align 8
-  %.not.i833 = icmp eq ptr %783, null
-  br i1 %.not.i833, label %.loopexit970.sink.split, label %784
+  %778 = tail call fastcc ptr @strdup_and_store(ptr %.val683, ptr noundef %777)
+  %779 = load ptr, ptr %0, align 8
+  %780 = getelementptr inbounds i8, ptr %779, i64 56
+  %781 = load ptr, ptr %780, align 8
+  store ptr %778, ptr %781, align 8
+  %782 = load ptr, ptr %76, align 8
+  %.not.i833 = icmp eq ptr %782, null
+  br i1 %.not.i833, label %.loopexit970.sink.split, label %783
 
-784:                                              ; preds = %768
-  %785 = load i64, ptr %77, align 8
-  %786 = getelementptr ptr, ptr %783, i64 %785
-  %787 = load ptr, ptr %786, align 8
-  %.not8.i834 = icmp eq ptr %787, null
+783:                                              ; preds = %767
+  %784 = load i64, ptr %77, align 8
+  %785 = getelementptr ptr, ptr %782, i64 %784
+  %786 = load ptr, ptr %785, align 8
+  %.not8.i834 = icmp eq ptr %786, null
   br i1 %.not8.i834, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-788:                                              ; preds = %.loopexit971
-  %789 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %790 = load ptr, ptr %0, align 8
-  %791 = getelementptr inbounds i8, ptr %790, i64 56
-  store ptr %789, ptr %791, align 8
-  %792 = load ptr, ptr %0, align 8
-  %793 = getelementptr inbounds i8, ptr %792, i64 56
-  %794 = load ptr, ptr %793, align 8
-  %795 = getelementptr inbounds i8, ptr %792, i64 24
-  %796 = load ptr, ptr %795, align 8
-  %797 = tail call ptr @g_slist_prepend(ptr noundef %796, ptr noundef %794) #29
-  store ptr %797, ptr %795, align 8
-  %798 = load ptr, ptr %74, align 8
+787:                                              ; preds = %.loopexit971
+  %788 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %789 = load ptr, ptr %0, align 8
+  %790 = getelementptr inbounds i8, ptr %789, i64 56
+  store ptr %788, ptr %790, align 8
+  %791 = load ptr, ptr %0, align 8
+  %792 = getelementptr inbounds i8, ptr %791, i64 56
+  %793 = load ptr, ptr %792, align 8
+  %794 = getelementptr inbounds i8, ptr %791, i64 24
+  %795 = load ptr, ptr %794, align 8
+  %796 = tail call ptr @g_slist_prepend(ptr noundef %795, ptr noundef %793) #29
+  store ptr %796, ptr %794, align 8
+  %797 = load ptr, ptr %74, align 8
   %.val684 = load ptr, ptr %0, align 8
-  %799 = tail call fastcc ptr @strdup_and_store(ptr %.val684, ptr noundef %798)
-  %800 = load ptr, ptr %0, align 8
-  %801 = getelementptr inbounds i8, ptr %800, i64 56
-  %802 = load ptr, ptr %801, align 8
-  store ptr %799, ptr %802, align 8
-  %803 = load ptr, ptr %76, align 8
-  %.not.i837 = icmp eq ptr %803, null
-  br i1 %.not.i837, label %.loopexit970.sink.split, label %804
+  %798 = tail call fastcc ptr @strdup_and_store(ptr %.val684, ptr noundef %797)
+  %799 = load ptr, ptr %0, align 8
+  %800 = getelementptr inbounds i8, ptr %799, i64 56
+  %801 = load ptr, ptr %800, align 8
+  store ptr %798, ptr %801, align 8
+  %802 = load ptr, ptr %76, align 8
+  %.not.i837 = icmp eq ptr %802, null
+  br i1 %.not.i837, label %.loopexit970.sink.split, label %803
 
-804:                                              ; preds = %788
-  %805 = load i64, ptr %77, align 8
-  %806 = getelementptr ptr, ptr %803, i64 %805
-  %807 = load ptr, ptr %806, align 8
-  %.not8.i838 = icmp eq ptr %807, null
+803:                                              ; preds = %787
+  %804 = load i64, ptr %77, align 8
+  %805 = getelementptr ptr, ptr %802, i64 %804
+  %806 = load ptr, ptr %805, align 8
+  %.not8.i838 = icmp eq ptr %806, null
   br i1 %.not8.i838, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-808:                                              ; preds = %.loopexit971
-  %809 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %810 = load ptr, ptr %0, align 8
-  %811 = getelementptr inbounds i8, ptr %810, i64 56
-  store ptr %809, ptr %811, align 8
-  %812 = load ptr, ptr %0, align 8
-  %813 = getelementptr inbounds i8, ptr %812, i64 56
-  %814 = load ptr, ptr %813, align 8
-  %815 = getelementptr inbounds i8, ptr %812, i64 24
-  %816 = load ptr, ptr %815, align 8
-  %817 = tail call ptr @g_slist_prepend(ptr noundef %816, ptr noundef %814) #29
-  store ptr %817, ptr %815, align 8
-  %818 = load ptr, ptr %74, align 8
+807:                                              ; preds = %.loopexit971
+  %808 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %809 = load ptr, ptr %0, align 8
+  %810 = getelementptr inbounds i8, ptr %809, i64 56
+  store ptr %808, ptr %810, align 8
+  %811 = load ptr, ptr %0, align 8
+  %812 = getelementptr inbounds i8, ptr %811, i64 56
+  %813 = load ptr, ptr %812, align 8
+  %814 = getelementptr inbounds i8, ptr %811, i64 24
+  %815 = load ptr, ptr %814, align 8
+  %816 = tail call ptr @g_slist_prepend(ptr noundef %815, ptr noundef %813) #29
+  store ptr %816, ptr %814, align 8
+  %817 = load ptr, ptr %74, align 8
   %.val685 = load ptr, ptr %0, align 8
-  %819 = tail call fastcc ptr @strdup_and_store(ptr %.val685, ptr noundef %818)
-  %820 = load ptr, ptr %0, align 8
-  %821 = getelementptr inbounds i8, ptr %820, i64 56
-  %822 = load ptr, ptr %821, align 8
-  store ptr %819, ptr %822, align 8
-  %823 = load ptr, ptr %76, align 8
-  %.not.i841 = icmp eq ptr %823, null
-  br i1 %.not.i841, label %.loopexit970.sink.split, label %824
+  %818 = tail call fastcc ptr @strdup_and_store(ptr %.val685, ptr noundef %817)
+  %819 = load ptr, ptr %0, align 8
+  %820 = getelementptr inbounds i8, ptr %819, i64 56
+  %821 = load ptr, ptr %820, align 8
+  store ptr %818, ptr %821, align 8
+  %822 = load ptr, ptr %76, align 8
+  %.not.i841 = icmp eq ptr %822, null
+  br i1 %.not.i841, label %.loopexit970.sink.split, label %823
 
-824:                                              ; preds = %808
-  %825 = load i64, ptr %77, align 8
-  %826 = getelementptr ptr, ptr %823, i64 %825
-  %827 = load ptr, ptr %826, align 8
-  %.not8.i842 = icmp eq ptr %827, null
+823:                                              ; preds = %807
+  %824 = load i64, ptr %77, align 8
+  %825 = getelementptr ptr, ptr %822, i64 %824
+  %826 = load ptr, ptr %825, align 8
+  %.not8.i842 = icmp eq ptr %826, null
   br i1 %.not8.i842, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-828:                                              ; preds = %.loopexit971
-  %829 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %830 = load ptr, ptr %0, align 8
-  %831 = getelementptr inbounds i8, ptr %830, i64 56
-  store ptr %829, ptr %831, align 8
-  %832 = load ptr, ptr %0, align 8
-  %833 = getelementptr inbounds i8, ptr %832, i64 56
-  %834 = load ptr, ptr %833, align 8
-  %835 = getelementptr inbounds i8, ptr %832, i64 24
-  %836 = load ptr, ptr %835, align 8
-  %837 = tail call ptr @g_slist_prepend(ptr noundef %836, ptr noundef %834) #29
-  store ptr %837, ptr %835, align 8
-  %838 = load ptr, ptr %74, align 8
+827:                                              ; preds = %.loopexit971
+  %828 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %829 = load ptr, ptr %0, align 8
+  %830 = getelementptr inbounds i8, ptr %829, i64 56
+  store ptr %828, ptr %830, align 8
+  %831 = load ptr, ptr %0, align 8
+  %832 = getelementptr inbounds i8, ptr %831, i64 56
+  %833 = load ptr, ptr %832, align 8
+  %834 = getelementptr inbounds i8, ptr %831, i64 24
+  %835 = load ptr, ptr %834, align 8
+  %836 = tail call ptr @g_slist_prepend(ptr noundef %835, ptr noundef %833) #29
+  store ptr %836, ptr %834, align 8
+  %837 = load ptr, ptr %74, align 8
   %.val686 = load ptr, ptr %0, align 8
-  %839 = tail call fastcc ptr @strdup_and_store(ptr %.val686, ptr noundef %838)
-  %840 = load ptr, ptr %0, align 8
-  %841 = getelementptr inbounds i8, ptr %840, i64 56
-  %842 = load ptr, ptr %841, align 8
-  store ptr %839, ptr %842, align 8
-  %843 = load ptr, ptr %76, align 8
-  %.not.i845 = icmp eq ptr %843, null
-  br i1 %.not.i845, label %.loopexit970.sink.split, label %844
+  %838 = tail call fastcc ptr @strdup_and_store(ptr %.val686, ptr noundef %837)
+  %839 = load ptr, ptr %0, align 8
+  %840 = getelementptr inbounds i8, ptr %839, i64 56
+  %841 = load ptr, ptr %840, align 8
+  store ptr %838, ptr %841, align 8
+  %842 = load ptr, ptr %76, align 8
+  %.not.i845 = icmp eq ptr %842, null
+  br i1 %.not.i845, label %.loopexit970.sink.split, label %843
 
-844:                                              ; preds = %828
-  %845 = load i64, ptr %77, align 8
-  %846 = getelementptr ptr, ptr %843, i64 %845
-  %847 = load ptr, ptr %846, align 8
-  %.not8.i846 = icmp eq ptr %847, null
+843:                                              ; preds = %827
+  %844 = load i64, ptr %77, align 8
+  %845 = getelementptr ptr, ptr %842, i64 %844
+  %846 = load ptr, ptr %845, align 8
+  %.not8.i846 = icmp eq ptr %846, null
   br i1 %.not8.i846, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-848:                                              ; preds = %.loopexit971
-  %849 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %850 = load ptr, ptr %0, align 8
-  %851 = getelementptr inbounds i8, ptr %850, i64 56
-  store ptr %849, ptr %851, align 8
-  %852 = load ptr, ptr %0, align 8
-  %853 = getelementptr inbounds i8, ptr %852, i64 56
-  %854 = load ptr, ptr %853, align 8
-  %855 = getelementptr inbounds i8, ptr %852, i64 24
-  %856 = load ptr, ptr %855, align 8
-  %857 = tail call ptr @g_slist_prepend(ptr noundef %856, ptr noundef %854) #29
-  store ptr %857, ptr %855, align 8
-  %858 = load ptr, ptr %74, align 8
+847:                                              ; preds = %.loopexit971
+  %848 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %849 = load ptr, ptr %0, align 8
+  %850 = getelementptr inbounds i8, ptr %849, i64 56
+  store ptr %848, ptr %850, align 8
+  %851 = load ptr, ptr %0, align 8
+  %852 = getelementptr inbounds i8, ptr %851, i64 56
+  %853 = load ptr, ptr %852, align 8
+  %854 = getelementptr inbounds i8, ptr %851, i64 24
+  %855 = load ptr, ptr %854, align 8
+  %856 = tail call ptr @g_slist_prepend(ptr noundef %855, ptr noundef %853) #29
+  store ptr %856, ptr %854, align 8
+  %857 = load ptr, ptr %74, align 8
   %.val687 = load ptr, ptr %0, align 8
-  %859 = tail call fastcc ptr @strdup_and_store(ptr %.val687, ptr noundef %858)
-  %860 = load ptr, ptr %0, align 8
-  %861 = getelementptr inbounds i8, ptr %860, i64 56
-  %862 = load ptr, ptr %861, align 8
-  store ptr %859, ptr %862, align 8
-  %863 = load ptr, ptr %76, align 8
-  %.not.i849 = icmp eq ptr %863, null
-  br i1 %.not.i849, label %.loopexit970.sink.split, label %864
+  %858 = tail call fastcc ptr @strdup_and_store(ptr %.val687, ptr noundef %857)
+  %859 = load ptr, ptr %0, align 8
+  %860 = getelementptr inbounds i8, ptr %859, i64 56
+  %861 = load ptr, ptr %860, align 8
+  store ptr %858, ptr %861, align 8
+  %862 = load ptr, ptr %76, align 8
+  %.not.i849 = icmp eq ptr %862, null
+  br i1 %.not.i849, label %.loopexit970.sink.split, label %863
 
-864:                                              ; preds = %848
-  %865 = load i64, ptr %77, align 8
-  %866 = getelementptr ptr, ptr %863, i64 %865
-  %867 = load ptr, ptr %866, align 8
-  %.not8.i850 = icmp eq ptr %867, null
+863:                                              ; preds = %847
+  %864 = load i64, ptr %77, align 8
+  %865 = getelementptr ptr, ptr %862, i64 %864
+  %866 = load ptr, ptr %865, align 8
+  %.not8.i850 = icmp eq ptr %866, null
   br i1 %.not8.i850, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-868:                                              ; preds = %.loopexit971
-  %869 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %870 = load ptr, ptr %0, align 8
-  %871 = getelementptr inbounds i8, ptr %870, i64 56
-  store ptr %869, ptr %871, align 8
-  %872 = load ptr, ptr %0, align 8
-  %873 = getelementptr inbounds i8, ptr %872, i64 56
-  %874 = load ptr, ptr %873, align 8
-  %875 = getelementptr inbounds i8, ptr %872, i64 24
-  %876 = load ptr, ptr %875, align 8
-  %877 = tail call ptr @g_slist_prepend(ptr noundef %876, ptr noundef %874) #29
-  store ptr %877, ptr %875, align 8
-  %878 = load ptr, ptr %74, align 8
+867:                                              ; preds = %.loopexit971
+  %868 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %869 = load ptr, ptr %0, align 8
+  %870 = getelementptr inbounds i8, ptr %869, i64 56
+  store ptr %868, ptr %870, align 8
+  %871 = load ptr, ptr %0, align 8
+  %872 = getelementptr inbounds i8, ptr %871, i64 56
+  %873 = load ptr, ptr %872, align 8
+  %874 = getelementptr inbounds i8, ptr %871, i64 24
+  %875 = load ptr, ptr %874, align 8
+  %876 = tail call ptr @g_slist_prepend(ptr noundef %875, ptr noundef %873) #29
+  store ptr %876, ptr %874, align 8
+  %877 = load ptr, ptr %74, align 8
   %.val688 = load ptr, ptr %0, align 8
-  %879 = tail call fastcc ptr @strdup_and_store(ptr %.val688, ptr noundef %878)
-  %880 = load ptr, ptr %0, align 8
-  %881 = getelementptr inbounds i8, ptr %880, i64 56
-  %882 = load ptr, ptr %881, align 8
-  store ptr %879, ptr %882, align 8
-  %883 = load ptr, ptr %76, align 8
-  %.not.i853 = icmp eq ptr %883, null
-  br i1 %.not.i853, label %.loopexit970.sink.split, label %884
+  %878 = tail call fastcc ptr @strdup_and_store(ptr %.val688, ptr noundef %877)
+  %879 = load ptr, ptr %0, align 8
+  %880 = getelementptr inbounds i8, ptr %879, i64 56
+  %881 = load ptr, ptr %880, align 8
+  store ptr %878, ptr %881, align 8
+  %882 = load ptr, ptr %76, align 8
+  %.not.i853 = icmp eq ptr %882, null
+  br i1 %.not.i853, label %.loopexit970.sink.split, label %883
 
-884:                                              ; preds = %868
-  %885 = load i64, ptr %77, align 8
-  %886 = getelementptr ptr, ptr %883, i64 %885
-  %887 = load ptr, ptr %886, align 8
-  %.not8.i854 = icmp eq ptr %887, null
+883:                                              ; preds = %867
+  %884 = load i64, ptr %77, align 8
+  %885 = getelementptr ptr, ptr %882, i64 %884
+  %886 = load ptr, ptr %885, align 8
+  %.not8.i854 = icmp eq ptr %886, null
   br i1 %.not8.i854, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-888:                                              ; preds = %.loopexit971
-  %889 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %890 = load ptr, ptr %0, align 8
-  %891 = getelementptr inbounds i8, ptr %890, i64 56
-  store ptr %889, ptr %891, align 8
-  %892 = load ptr, ptr %0, align 8
-  %893 = getelementptr inbounds i8, ptr %892, i64 56
-  %894 = load ptr, ptr %893, align 8
-  %895 = getelementptr inbounds i8, ptr %892, i64 24
-  %896 = load ptr, ptr %895, align 8
-  %897 = tail call ptr @g_slist_prepend(ptr noundef %896, ptr noundef %894) #29
-  store ptr %897, ptr %895, align 8
-  %898 = load ptr, ptr %74, align 8
+887:                                              ; preds = %.loopexit971
+  %888 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %889 = load ptr, ptr %0, align 8
+  %890 = getelementptr inbounds i8, ptr %889, i64 56
+  store ptr %888, ptr %890, align 8
+  %891 = load ptr, ptr %0, align 8
+  %892 = getelementptr inbounds i8, ptr %891, i64 56
+  %893 = load ptr, ptr %892, align 8
+  %894 = getelementptr inbounds i8, ptr %891, i64 24
+  %895 = load ptr, ptr %894, align 8
+  %896 = tail call ptr @g_slist_prepend(ptr noundef %895, ptr noundef %893) #29
+  store ptr %896, ptr %894, align 8
+  %897 = load ptr, ptr %74, align 8
   %.val689 = load ptr, ptr %0, align 8
-  %899 = tail call fastcc ptr @strdup_and_store(ptr %.val689, ptr noundef %898)
-  %900 = load ptr, ptr %0, align 8
-  %901 = getelementptr inbounds i8, ptr %900, i64 56
-  %902 = load ptr, ptr %901, align 8
-  store ptr %899, ptr %902, align 8
-  %903 = load ptr, ptr %76, align 8
-  %.not.i857 = icmp eq ptr %903, null
-  br i1 %.not.i857, label %.loopexit970.sink.split, label %904
+  %898 = tail call fastcc ptr @strdup_and_store(ptr %.val689, ptr noundef %897)
+  %899 = load ptr, ptr %0, align 8
+  %900 = getelementptr inbounds i8, ptr %899, i64 56
+  %901 = load ptr, ptr %900, align 8
+  store ptr %898, ptr %901, align 8
+  %902 = load ptr, ptr %76, align 8
+  %.not.i857 = icmp eq ptr %902, null
+  br i1 %.not.i857, label %.loopexit970.sink.split, label %903
 
-904:                                              ; preds = %888
-  %905 = load i64, ptr %77, align 8
-  %906 = getelementptr ptr, ptr %903, i64 %905
-  %907 = load ptr, ptr %906, align 8
-  %.not8.i858 = icmp eq ptr %907, null
+903:                                              ; preds = %887
+  %904 = load i64, ptr %77, align 8
+  %905 = getelementptr ptr, ptr %902, i64 %904
+  %906 = load ptr, ptr %905, align 8
+  %.not8.i858 = icmp eq ptr %906, null
   br i1 %.not8.i858, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-908:                                              ; preds = %.loopexit971
-  %909 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %910 = load ptr, ptr %0, align 8
-  %911 = getelementptr inbounds i8, ptr %910, i64 56
-  store ptr %909, ptr %911, align 8
-  %912 = load ptr, ptr %0, align 8
-  %913 = getelementptr inbounds i8, ptr %912, i64 56
-  %914 = load ptr, ptr %913, align 8
-  %915 = getelementptr inbounds i8, ptr %912, i64 24
-  %916 = load ptr, ptr %915, align 8
-  %917 = tail call ptr @g_slist_prepend(ptr noundef %916, ptr noundef %914) #29
-  store ptr %917, ptr %915, align 8
-  %918 = load ptr, ptr %74, align 8
+907:                                              ; preds = %.loopexit971
+  %908 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %909 = load ptr, ptr %0, align 8
+  %910 = getelementptr inbounds i8, ptr %909, i64 56
+  store ptr %908, ptr %910, align 8
+  %911 = load ptr, ptr %0, align 8
+  %912 = getelementptr inbounds i8, ptr %911, i64 56
+  %913 = load ptr, ptr %912, align 8
+  %914 = getelementptr inbounds i8, ptr %911, i64 24
+  %915 = load ptr, ptr %914, align 8
+  %916 = tail call ptr @g_slist_prepend(ptr noundef %915, ptr noundef %913) #29
+  store ptr %916, ptr %914, align 8
+  %917 = load ptr, ptr %74, align 8
   %.val690 = load ptr, ptr %0, align 8
-  %919 = tail call fastcc ptr @strdup_and_store(ptr %.val690, ptr noundef %918)
-  %920 = load ptr, ptr %0, align 8
-  %921 = getelementptr inbounds i8, ptr %920, i64 56
-  %922 = load ptr, ptr %921, align 8
-  store ptr %919, ptr %922, align 8
-  %923 = load ptr, ptr %76, align 8
-  %.not.i861 = icmp eq ptr %923, null
-  br i1 %.not.i861, label %.loopexit970.sink.split, label %924
+  %918 = tail call fastcc ptr @strdup_and_store(ptr %.val690, ptr noundef %917)
+  %919 = load ptr, ptr %0, align 8
+  %920 = getelementptr inbounds i8, ptr %919, i64 56
+  %921 = load ptr, ptr %920, align 8
+  store ptr %918, ptr %921, align 8
+  %922 = load ptr, ptr %76, align 8
+  %.not.i861 = icmp eq ptr %922, null
+  br i1 %.not.i861, label %.loopexit970.sink.split, label %923
 
-924:                                              ; preds = %908
-  %925 = load i64, ptr %77, align 8
-  %926 = getelementptr ptr, ptr %923, i64 %925
-  %927 = load ptr, ptr %926, align 8
-  %.not8.i862 = icmp eq ptr %927, null
+923:                                              ; preds = %907
+  %924 = load i64, ptr %77, align 8
+  %925 = getelementptr ptr, ptr %922, i64 %924
+  %926 = load ptr, ptr %925, align 8
+  %.not8.i862 = icmp eq ptr %926, null
   br i1 %.not8.i862, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-928:                                              ; preds = %.loopexit971
-  %929 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %930 = load ptr, ptr %0, align 8
-  %931 = getelementptr inbounds i8, ptr %930, i64 56
-  store ptr %929, ptr %931, align 8
-  %932 = load ptr, ptr %0, align 8
-  %933 = getelementptr inbounds i8, ptr %932, i64 56
-  %934 = load ptr, ptr %933, align 8
-  %935 = getelementptr inbounds i8, ptr %932, i64 24
-  %936 = load ptr, ptr %935, align 8
-  %937 = tail call ptr @g_slist_prepend(ptr noundef %936, ptr noundef %934) #29
-  store ptr %937, ptr %935, align 8
-  %938 = load ptr, ptr %74, align 8
+927:                                              ; preds = %.loopexit971
+  %928 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %929 = load ptr, ptr %0, align 8
+  %930 = getelementptr inbounds i8, ptr %929, i64 56
+  store ptr %928, ptr %930, align 8
+  %931 = load ptr, ptr %0, align 8
+  %932 = getelementptr inbounds i8, ptr %931, i64 56
+  %933 = load ptr, ptr %932, align 8
+  %934 = getelementptr inbounds i8, ptr %931, i64 24
+  %935 = load ptr, ptr %934, align 8
+  %936 = tail call ptr @g_slist_prepend(ptr noundef %935, ptr noundef %933) #29
+  store ptr %936, ptr %934, align 8
+  %937 = load ptr, ptr %74, align 8
   %.val691 = load ptr, ptr %0, align 8
-  %939 = tail call fastcc ptr @strdup_and_store(ptr %.val691, ptr noundef %938)
-  %940 = load ptr, ptr %0, align 8
-  %941 = getelementptr inbounds i8, ptr %940, i64 56
-  %942 = load ptr, ptr %941, align 8
-  store ptr %939, ptr %942, align 8
-  %943 = load ptr, ptr %76, align 8
-  %.not.i865 = icmp eq ptr %943, null
-  br i1 %.not.i865, label %.loopexit970.sink.split, label %944
+  %938 = tail call fastcc ptr @strdup_and_store(ptr %.val691, ptr noundef %937)
+  %939 = load ptr, ptr %0, align 8
+  %940 = getelementptr inbounds i8, ptr %939, i64 56
+  %941 = load ptr, ptr %940, align 8
+  store ptr %938, ptr %941, align 8
+  %942 = load ptr, ptr %76, align 8
+  %.not.i865 = icmp eq ptr %942, null
+  br i1 %.not.i865, label %.loopexit970.sink.split, label %943
 
-944:                                              ; preds = %928
-  %945 = load i64, ptr %77, align 8
-  %946 = getelementptr ptr, ptr %943, i64 %945
-  %947 = load ptr, ptr %946, align 8
-  %.not8.i866 = icmp eq ptr %947, null
+943:                                              ; preds = %927
+  %944 = load i64, ptr %77, align 8
+  %945 = getelementptr ptr, ptr %942, i64 %944
+  %946 = load ptr, ptr %945, align 8
+  %.not8.i866 = icmp eq ptr %946, null
   br i1 %.not8.i866, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-948:                                              ; preds = %.loopexit971
-  %949 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %950 = load ptr, ptr %0, align 8
-  %951 = getelementptr inbounds i8, ptr %950, i64 56
-  store ptr %949, ptr %951, align 8
-  %952 = load ptr, ptr %0, align 8
-  %953 = getelementptr inbounds i8, ptr %952, i64 56
-  %954 = load ptr, ptr %953, align 8
-  %955 = getelementptr inbounds i8, ptr %952, i64 24
-  %956 = load ptr, ptr %955, align 8
-  %957 = tail call ptr @g_slist_prepend(ptr noundef %956, ptr noundef %954) #29
-  store ptr %957, ptr %955, align 8
-  %958 = load ptr, ptr %74, align 8
+947:                                              ; preds = %.loopexit971
+  %948 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %949 = load ptr, ptr %0, align 8
+  %950 = getelementptr inbounds i8, ptr %949, i64 56
+  store ptr %948, ptr %950, align 8
+  %951 = load ptr, ptr %0, align 8
+  %952 = getelementptr inbounds i8, ptr %951, i64 56
+  %953 = load ptr, ptr %952, align 8
+  %954 = getelementptr inbounds i8, ptr %951, i64 24
+  %955 = load ptr, ptr %954, align 8
+  %956 = tail call ptr @g_slist_prepend(ptr noundef %955, ptr noundef %953) #29
+  store ptr %956, ptr %954, align 8
+  %957 = load ptr, ptr %74, align 8
   %.val692 = load ptr, ptr %0, align 8
-  %959 = tail call fastcc ptr @strdup_and_store(ptr %.val692, ptr noundef %958)
-  %960 = load ptr, ptr %0, align 8
-  %961 = getelementptr inbounds i8, ptr %960, i64 56
-  %962 = load ptr, ptr %961, align 8
-  store ptr %959, ptr %962, align 8
-  %963 = load ptr, ptr %76, align 8
-  %.not.i869 = icmp eq ptr %963, null
-  br i1 %.not.i869, label %.loopexit970.sink.split, label %964
+  %958 = tail call fastcc ptr @strdup_and_store(ptr %.val692, ptr noundef %957)
+  %959 = load ptr, ptr %0, align 8
+  %960 = getelementptr inbounds i8, ptr %959, i64 56
+  %961 = load ptr, ptr %960, align 8
+  store ptr %958, ptr %961, align 8
+  %962 = load ptr, ptr %76, align 8
+  %.not.i869 = icmp eq ptr %962, null
+  br i1 %.not.i869, label %.loopexit970.sink.split, label %963
 
-964:                                              ; preds = %948
-  %965 = load i64, ptr %77, align 8
-  %966 = getelementptr ptr, ptr %963, i64 %965
-  %967 = load ptr, ptr %966, align 8
-  %.not8.i870 = icmp eq ptr %967, null
+963:                                              ; preds = %947
+  %964 = load i64, ptr %77, align 8
+  %965 = getelementptr ptr, ptr %962, i64 %964
+  %966 = load ptr, ptr %965, align 8
+  %.not8.i870 = icmp eq ptr %966, null
   br i1 %.not8.i870, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-968:                                              ; preds = %.loopexit971
-  %969 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %970 = load ptr, ptr %0, align 8
-  %971 = getelementptr inbounds i8, ptr %970, i64 56
-  store ptr %969, ptr %971, align 8
-  %972 = load ptr, ptr %0, align 8
-  %973 = getelementptr inbounds i8, ptr %972, i64 56
-  %974 = load ptr, ptr %973, align 8
-  %975 = getelementptr inbounds i8, ptr %972, i64 24
-  %976 = load ptr, ptr %975, align 8
-  %977 = tail call ptr @g_slist_prepend(ptr noundef %976, ptr noundef %974) #29
-  store ptr %977, ptr %975, align 8
-  %978 = load ptr, ptr %74, align 8
+967:                                              ; preds = %.loopexit971
+  %968 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %969 = load ptr, ptr %0, align 8
+  %970 = getelementptr inbounds i8, ptr %969, i64 56
+  store ptr %968, ptr %970, align 8
+  %971 = load ptr, ptr %0, align 8
+  %972 = getelementptr inbounds i8, ptr %971, i64 56
+  %973 = load ptr, ptr %972, align 8
+  %974 = getelementptr inbounds i8, ptr %971, i64 24
+  %975 = load ptr, ptr %974, align 8
+  %976 = tail call ptr @g_slist_prepend(ptr noundef %975, ptr noundef %973) #29
+  store ptr %976, ptr %974, align 8
+  %977 = load ptr, ptr %74, align 8
   %.val693 = load ptr, ptr %0, align 8
-  %979 = tail call fastcc ptr @strdup_and_store(ptr %.val693, ptr noundef %978)
-  %980 = load ptr, ptr %0, align 8
-  %981 = getelementptr inbounds i8, ptr %980, i64 56
-  %982 = load ptr, ptr %981, align 8
-  store ptr %979, ptr %982, align 8
-  %983 = load ptr, ptr %76, align 8
-  %.not.i873 = icmp eq ptr %983, null
-  br i1 %.not.i873, label %.loopexit970.sink.split, label %984
+  %978 = tail call fastcc ptr @strdup_and_store(ptr %.val693, ptr noundef %977)
+  %979 = load ptr, ptr %0, align 8
+  %980 = getelementptr inbounds i8, ptr %979, i64 56
+  %981 = load ptr, ptr %980, align 8
+  store ptr %978, ptr %981, align 8
+  %982 = load ptr, ptr %76, align 8
+  %.not.i873 = icmp eq ptr %982, null
+  br i1 %.not.i873, label %.loopexit970.sink.split, label %983
 
-984:                                              ; preds = %968
-  %985 = load i64, ptr %77, align 8
-  %986 = getelementptr ptr, ptr %983, i64 %985
-  %987 = load ptr, ptr %986, align 8
-  %.not8.i874 = icmp eq ptr %987, null
+983:                                              ; preds = %967
+  %984 = load i64, ptr %77, align 8
+  %985 = getelementptr ptr, ptr %982, i64 %984
+  %986 = load ptr, ptr %985, align 8
+  %.not8.i874 = icmp eq ptr %986, null
   br i1 %.not8.i874, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-988:                                              ; preds = %.loopexit971
-  %989 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %990 = load ptr, ptr %0, align 8
-  %991 = getelementptr inbounds i8, ptr %990, i64 56
-  store ptr %989, ptr %991, align 8
-  %992 = load ptr, ptr %0, align 8
-  %993 = getelementptr inbounds i8, ptr %992, i64 56
-  %994 = load ptr, ptr %993, align 8
-  %995 = getelementptr inbounds i8, ptr %992, i64 24
-  %996 = load ptr, ptr %995, align 8
-  %997 = tail call ptr @g_slist_prepend(ptr noundef %996, ptr noundef %994) #29
-  store ptr %997, ptr %995, align 8
-  %998 = load ptr, ptr %74, align 8
+987:                                              ; preds = %.loopexit971
+  %988 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %989 = load ptr, ptr %0, align 8
+  %990 = getelementptr inbounds i8, ptr %989, i64 56
+  store ptr %988, ptr %990, align 8
+  %991 = load ptr, ptr %0, align 8
+  %992 = getelementptr inbounds i8, ptr %991, i64 56
+  %993 = load ptr, ptr %992, align 8
+  %994 = getelementptr inbounds i8, ptr %991, i64 24
+  %995 = load ptr, ptr %994, align 8
+  %996 = tail call ptr @g_slist_prepend(ptr noundef %995, ptr noundef %993) #29
+  store ptr %996, ptr %994, align 8
+  %997 = load ptr, ptr %74, align 8
   %.val694 = load ptr, ptr %0, align 8
-  %999 = tail call fastcc ptr @strdup_and_store(ptr %.val694, ptr noundef %998)
-  %1000 = load ptr, ptr %0, align 8
-  %1001 = getelementptr inbounds i8, ptr %1000, i64 56
-  %1002 = load ptr, ptr %1001, align 8
-  store ptr %999, ptr %1002, align 8
-  %1003 = load ptr, ptr %76, align 8
-  %.not.i877 = icmp eq ptr %1003, null
-  br i1 %.not.i877, label %.loopexit970.sink.split, label %1004
+  %998 = tail call fastcc ptr @strdup_and_store(ptr %.val694, ptr noundef %997)
+  %999 = load ptr, ptr %0, align 8
+  %1000 = getelementptr inbounds i8, ptr %999, i64 56
+  %1001 = load ptr, ptr %1000, align 8
+  store ptr %998, ptr %1001, align 8
+  %1002 = load ptr, ptr %76, align 8
+  %.not.i877 = icmp eq ptr %1002, null
+  br i1 %.not.i877, label %.loopexit970.sink.split, label %1003
 
-1004:                                             ; preds = %988
-  %1005 = load i64, ptr %77, align 8
-  %1006 = getelementptr ptr, ptr %1003, i64 %1005
-  %1007 = load ptr, ptr %1006, align 8
-  %.not8.i878 = icmp eq ptr %1007, null
+1003:                                             ; preds = %987
+  %1004 = load i64, ptr %77, align 8
+  %1005 = getelementptr ptr, ptr %1002, i64 %1004
+  %1006 = load ptr, ptr %1005, align 8
+  %.not8.i878 = icmp eq ptr %1006, null
   br i1 %.not8.i878, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1008:                                             ; preds = %.loopexit971
-  %1009 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1010 = load ptr, ptr %0, align 8
-  %1011 = getelementptr inbounds i8, ptr %1010, i64 56
-  store ptr %1009, ptr %1011, align 8
-  %1012 = load ptr, ptr %0, align 8
-  %1013 = getelementptr inbounds i8, ptr %1012, i64 56
-  %1014 = load ptr, ptr %1013, align 8
-  %1015 = getelementptr inbounds i8, ptr %1012, i64 24
-  %1016 = load ptr, ptr %1015, align 8
-  %1017 = tail call ptr @g_slist_prepend(ptr noundef %1016, ptr noundef %1014) #29
-  store ptr %1017, ptr %1015, align 8
-  %1018 = load ptr, ptr %74, align 8
+1007:                                             ; preds = %.loopexit971
+  %1008 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1009 = load ptr, ptr %0, align 8
+  %1010 = getelementptr inbounds i8, ptr %1009, i64 56
+  store ptr %1008, ptr %1010, align 8
+  %1011 = load ptr, ptr %0, align 8
+  %1012 = getelementptr inbounds i8, ptr %1011, i64 56
+  %1013 = load ptr, ptr %1012, align 8
+  %1014 = getelementptr inbounds i8, ptr %1011, i64 24
+  %1015 = load ptr, ptr %1014, align 8
+  %1016 = tail call ptr @g_slist_prepend(ptr noundef %1015, ptr noundef %1013) #29
+  store ptr %1016, ptr %1014, align 8
+  %1017 = load ptr, ptr %74, align 8
   %.val695 = load ptr, ptr %0, align 8
-  %1019 = tail call fastcc ptr @strdup_and_store(ptr %.val695, ptr noundef %1018)
-  %1020 = load ptr, ptr %0, align 8
-  %1021 = getelementptr inbounds i8, ptr %1020, i64 56
-  %1022 = load ptr, ptr %1021, align 8
-  store ptr %1019, ptr %1022, align 8
-  %1023 = load ptr, ptr %76, align 8
-  %.not.i881 = icmp eq ptr %1023, null
-  br i1 %.not.i881, label %.loopexit970.sink.split, label %1024
+  %1018 = tail call fastcc ptr @strdup_and_store(ptr %.val695, ptr noundef %1017)
+  %1019 = load ptr, ptr %0, align 8
+  %1020 = getelementptr inbounds i8, ptr %1019, i64 56
+  %1021 = load ptr, ptr %1020, align 8
+  store ptr %1018, ptr %1021, align 8
+  %1022 = load ptr, ptr %76, align 8
+  %.not.i881 = icmp eq ptr %1022, null
+  br i1 %.not.i881, label %.loopexit970.sink.split, label %1023
 
-1024:                                             ; preds = %1008
-  %1025 = load i64, ptr %77, align 8
-  %1026 = getelementptr ptr, ptr %1023, i64 %1025
-  %1027 = load ptr, ptr %1026, align 8
-  %.not8.i882 = icmp eq ptr %1027, null
+1023:                                             ; preds = %1007
+  %1024 = load i64, ptr %77, align 8
+  %1025 = getelementptr ptr, ptr %1022, i64 %1024
+  %1026 = load ptr, ptr %1025, align 8
+  %.not8.i882 = icmp eq ptr %1026, null
   br i1 %.not8.i882, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1028:                                             ; preds = %.loopexit971
-  %1029 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1030 = load ptr, ptr %0, align 8
-  %1031 = getelementptr inbounds i8, ptr %1030, i64 56
-  store ptr %1029, ptr %1031, align 8
-  %1032 = load ptr, ptr %0, align 8
-  %1033 = getelementptr inbounds i8, ptr %1032, i64 56
-  %1034 = load ptr, ptr %1033, align 8
-  %1035 = getelementptr inbounds i8, ptr %1032, i64 24
-  %1036 = load ptr, ptr %1035, align 8
-  %1037 = tail call ptr @g_slist_prepend(ptr noundef %1036, ptr noundef %1034) #29
-  store ptr %1037, ptr %1035, align 8
-  %1038 = load ptr, ptr %74, align 8
+1027:                                             ; preds = %.loopexit971
+  %1028 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1029 = load ptr, ptr %0, align 8
+  %1030 = getelementptr inbounds i8, ptr %1029, i64 56
+  store ptr %1028, ptr %1030, align 8
+  %1031 = load ptr, ptr %0, align 8
+  %1032 = getelementptr inbounds i8, ptr %1031, i64 56
+  %1033 = load ptr, ptr %1032, align 8
+  %1034 = getelementptr inbounds i8, ptr %1031, i64 24
+  %1035 = load ptr, ptr %1034, align 8
+  %1036 = tail call ptr @g_slist_prepend(ptr noundef %1035, ptr noundef %1033) #29
+  store ptr %1036, ptr %1034, align 8
+  %1037 = load ptr, ptr %74, align 8
   %.val696 = load ptr, ptr %0, align 8
-  %1039 = tail call fastcc ptr @strdup_and_store(ptr %.val696, ptr noundef %1038)
-  %1040 = load ptr, ptr %0, align 8
-  %1041 = getelementptr inbounds i8, ptr %1040, i64 56
-  %1042 = load ptr, ptr %1041, align 8
-  store ptr %1039, ptr %1042, align 8
-  %1043 = load ptr, ptr %76, align 8
-  %.not.i885 = icmp eq ptr %1043, null
-  br i1 %.not.i885, label %.loopexit970.sink.split, label %1044
+  %1038 = tail call fastcc ptr @strdup_and_store(ptr %.val696, ptr noundef %1037)
+  %1039 = load ptr, ptr %0, align 8
+  %1040 = getelementptr inbounds i8, ptr %1039, i64 56
+  %1041 = load ptr, ptr %1040, align 8
+  store ptr %1038, ptr %1041, align 8
+  %1042 = load ptr, ptr %76, align 8
+  %.not.i885 = icmp eq ptr %1042, null
+  br i1 %.not.i885, label %.loopexit970.sink.split, label %1043
 
-1044:                                             ; preds = %1028
-  %1045 = load i64, ptr %77, align 8
-  %1046 = getelementptr ptr, ptr %1043, i64 %1045
-  %1047 = load ptr, ptr %1046, align 8
-  %.not8.i886 = icmp eq ptr %1047, null
+1043:                                             ; preds = %1027
+  %1044 = load i64, ptr %77, align 8
+  %1045 = getelementptr ptr, ptr %1042, i64 %1044
+  %1046 = load ptr, ptr %1045, align 8
+  %.not8.i886 = icmp eq ptr %1046, null
   br i1 %.not8.i886, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1048:                                             ; preds = %.loopexit971
-  %1049 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1050 = load ptr, ptr %0, align 8
-  %1051 = getelementptr inbounds i8, ptr %1050, i64 56
-  store ptr %1049, ptr %1051, align 8
-  %1052 = load ptr, ptr %0, align 8
-  %1053 = getelementptr inbounds i8, ptr %1052, i64 56
-  %1054 = load ptr, ptr %1053, align 8
-  %1055 = getelementptr inbounds i8, ptr %1052, i64 24
-  %1056 = load ptr, ptr %1055, align 8
-  %1057 = tail call ptr @g_slist_prepend(ptr noundef %1056, ptr noundef %1054) #29
-  store ptr %1057, ptr %1055, align 8
-  %1058 = load ptr, ptr %74, align 8
+1047:                                             ; preds = %.loopexit971
+  %1048 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1049 = load ptr, ptr %0, align 8
+  %1050 = getelementptr inbounds i8, ptr %1049, i64 56
+  store ptr %1048, ptr %1050, align 8
+  %1051 = load ptr, ptr %0, align 8
+  %1052 = getelementptr inbounds i8, ptr %1051, i64 56
+  %1053 = load ptr, ptr %1052, align 8
+  %1054 = getelementptr inbounds i8, ptr %1051, i64 24
+  %1055 = load ptr, ptr %1054, align 8
+  %1056 = tail call ptr @g_slist_prepend(ptr noundef %1055, ptr noundef %1053) #29
+  store ptr %1056, ptr %1054, align 8
+  %1057 = load ptr, ptr %74, align 8
   %.val697 = load ptr, ptr %0, align 8
-  %1059 = tail call fastcc ptr @strdup_and_store(ptr %.val697, ptr noundef %1058)
-  %1060 = load ptr, ptr %0, align 8
-  %1061 = getelementptr inbounds i8, ptr %1060, i64 56
-  %1062 = load ptr, ptr %1061, align 8
-  store ptr %1059, ptr %1062, align 8
-  %1063 = load ptr, ptr %76, align 8
-  %.not.i889 = icmp eq ptr %1063, null
-  br i1 %.not.i889, label %.loopexit970.sink.split, label %1064
+  %1058 = tail call fastcc ptr @strdup_and_store(ptr %.val697, ptr noundef %1057)
+  %1059 = load ptr, ptr %0, align 8
+  %1060 = getelementptr inbounds i8, ptr %1059, i64 56
+  %1061 = load ptr, ptr %1060, align 8
+  store ptr %1058, ptr %1061, align 8
+  %1062 = load ptr, ptr %76, align 8
+  %.not.i889 = icmp eq ptr %1062, null
+  br i1 %.not.i889, label %.loopexit970.sink.split, label %1063
 
-1064:                                             ; preds = %1048
-  %1065 = load i64, ptr %77, align 8
-  %1066 = getelementptr ptr, ptr %1063, i64 %1065
-  %1067 = load ptr, ptr %1066, align 8
-  %.not8.i890 = icmp eq ptr %1067, null
+1063:                                             ; preds = %1047
+  %1064 = load i64, ptr %77, align 8
+  %1065 = getelementptr ptr, ptr %1062, i64 %1064
+  %1066 = load ptr, ptr %1065, align 8
+  %.not8.i890 = icmp eq ptr %1066, null
   br i1 %.not8.i890, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1068:                                             ; preds = %.loopexit971
-  %1069 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1070 = load ptr, ptr %0, align 8
-  %1071 = getelementptr inbounds i8, ptr %1070, i64 56
-  store ptr %1069, ptr %1071, align 8
-  %1072 = load ptr, ptr %0, align 8
-  %1073 = getelementptr inbounds i8, ptr %1072, i64 56
-  %1074 = load ptr, ptr %1073, align 8
-  %1075 = getelementptr inbounds i8, ptr %1072, i64 24
-  %1076 = load ptr, ptr %1075, align 8
-  %1077 = tail call ptr @g_slist_prepend(ptr noundef %1076, ptr noundef %1074) #29
-  store ptr %1077, ptr %1075, align 8
-  %1078 = load ptr, ptr %74, align 8
+1067:                                             ; preds = %.loopexit971
+  %1068 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1069 = load ptr, ptr %0, align 8
+  %1070 = getelementptr inbounds i8, ptr %1069, i64 56
+  store ptr %1068, ptr %1070, align 8
+  %1071 = load ptr, ptr %0, align 8
+  %1072 = getelementptr inbounds i8, ptr %1071, i64 56
+  %1073 = load ptr, ptr %1072, align 8
+  %1074 = getelementptr inbounds i8, ptr %1071, i64 24
+  %1075 = load ptr, ptr %1074, align 8
+  %1076 = tail call ptr @g_slist_prepend(ptr noundef %1075, ptr noundef %1073) #29
+  store ptr %1076, ptr %1074, align 8
+  %1077 = load ptr, ptr %74, align 8
   %.val698 = load ptr, ptr %0, align 8
-  %1079 = tail call fastcc ptr @strdup_and_store(ptr %.val698, ptr noundef %1078)
-  %1080 = load ptr, ptr %0, align 8
-  %1081 = getelementptr inbounds i8, ptr %1080, i64 56
-  %1082 = load ptr, ptr %1081, align 8
-  store ptr %1079, ptr %1082, align 8
-  %1083 = load ptr, ptr %76, align 8
-  %.not.i893 = icmp eq ptr %1083, null
-  br i1 %.not.i893, label %.loopexit970.sink.split, label %1084
+  %1078 = tail call fastcc ptr @strdup_and_store(ptr %.val698, ptr noundef %1077)
+  %1079 = load ptr, ptr %0, align 8
+  %1080 = getelementptr inbounds i8, ptr %1079, i64 56
+  %1081 = load ptr, ptr %1080, align 8
+  store ptr %1078, ptr %1081, align 8
+  %1082 = load ptr, ptr %76, align 8
+  %.not.i893 = icmp eq ptr %1082, null
+  br i1 %.not.i893, label %.loopexit970.sink.split, label %1083
 
-1084:                                             ; preds = %1068
-  %1085 = load i64, ptr %77, align 8
-  %1086 = getelementptr ptr, ptr %1083, i64 %1085
-  %1087 = load ptr, ptr %1086, align 8
-  %.not8.i894 = icmp eq ptr %1087, null
+1083:                                             ; preds = %1067
+  %1084 = load i64, ptr %77, align 8
+  %1085 = getelementptr ptr, ptr %1082, i64 %1084
+  %1086 = load ptr, ptr %1085, align 8
+  %.not8.i894 = icmp eq ptr %1086, null
   br i1 %.not8.i894, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1088:                                             ; preds = %.loopexit971
-  %1089 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1090 = load ptr, ptr %0, align 8
-  %1091 = getelementptr inbounds i8, ptr %1090, i64 56
-  store ptr %1089, ptr %1091, align 8
-  %1092 = load ptr, ptr %0, align 8
-  %1093 = getelementptr inbounds i8, ptr %1092, i64 56
-  %1094 = load ptr, ptr %1093, align 8
-  %1095 = getelementptr inbounds i8, ptr %1092, i64 24
-  %1096 = load ptr, ptr %1095, align 8
-  %1097 = tail call ptr @g_slist_prepend(ptr noundef %1096, ptr noundef %1094) #29
-  store ptr %1097, ptr %1095, align 8
-  %1098 = load ptr, ptr %74, align 8
+1087:                                             ; preds = %.loopexit971
+  %1088 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1089 = load ptr, ptr %0, align 8
+  %1090 = getelementptr inbounds i8, ptr %1089, i64 56
+  store ptr %1088, ptr %1090, align 8
+  %1091 = load ptr, ptr %0, align 8
+  %1092 = getelementptr inbounds i8, ptr %1091, i64 56
+  %1093 = load ptr, ptr %1092, align 8
+  %1094 = getelementptr inbounds i8, ptr %1091, i64 24
+  %1095 = load ptr, ptr %1094, align 8
+  %1096 = tail call ptr @g_slist_prepend(ptr noundef %1095, ptr noundef %1093) #29
+  store ptr %1096, ptr %1094, align 8
+  %1097 = load ptr, ptr %74, align 8
   %.val699 = load ptr, ptr %0, align 8
-  %1099 = tail call fastcc ptr @strdup_and_store(ptr %.val699, ptr noundef %1098)
-  %1100 = load ptr, ptr %0, align 8
-  %1101 = getelementptr inbounds i8, ptr %1100, i64 56
-  %1102 = load ptr, ptr %1101, align 8
-  store ptr %1099, ptr %1102, align 8
-  %1103 = load ptr, ptr %76, align 8
-  %.not.i897 = icmp eq ptr %1103, null
-  br i1 %.not.i897, label %.loopexit970.sink.split, label %1104
+  %1098 = tail call fastcc ptr @strdup_and_store(ptr %.val699, ptr noundef %1097)
+  %1099 = load ptr, ptr %0, align 8
+  %1100 = getelementptr inbounds i8, ptr %1099, i64 56
+  %1101 = load ptr, ptr %1100, align 8
+  store ptr %1098, ptr %1101, align 8
+  %1102 = load ptr, ptr %76, align 8
+  %.not.i897 = icmp eq ptr %1102, null
+  br i1 %.not.i897, label %.loopexit970.sink.split, label %1103
 
-1104:                                             ; preds = %1088
-  %1105 = load i64, ptr %77, align 8
-  %1106 = getelementptr ptr, ptr %1103, i64 %1105
-  %1107 = load ptr, ptr %1106, align 8
-  %.not8.i898 = icmp eq ptr %1107, null
+1103:                                             ; preds = %1087
+  %1104 = load i64, ptr %77, align 8
+  %1105 = getelementptr ptr, ptr %1102, i64 %1104
+  %1106 = load ptr, ptr %1105, align 8
+  %.not8.i898 = icmp eq ptr %1106, null
   br i1 %.not8.i898, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1108:                                             ; preds = %.loopexit971
-  %1109 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1110 = load ptr, ptr %0, align 8
-  %1111 = getelementptr inbounds i8, ptr %1110, i64 56
-  store ptr %1109, ptr %1111, align 8
-  %1112 = load ptr, ptr %0, align 8
-  %1113 = getelementptr inbounds i8, ptr %1112, i64 56
-  %1114 = load ptr, ptr %1113, align 8
-  %1115 = getelementptr inbounds i8, ptr %1112, i64 24
-  %1116 = load ptr, ptr %1115, align 8
-  %1117 = tail call ptr @g_slist_prepend(ptr noundef %1116, ptr noundef %1114) #29
-  store ptr %1117, ptr %1115, align 8
-  %1118 = load ptr, ptr %74, align 8
+1107:                                             ; preds = %.loopexit971
+  %1108 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1109 = load ptr, ptr %0, align 8
+  %1110 = getelementptr inbounds i8, ptr %1109, i64 56
+  store ptr %1108, ptr %1110, align 8
+  %1111 = load ptr, ptr %0, align 8
+  %1112 = getelementptr inbounds i8, ptr %1111, i64 56
+  %1113 = load ptr, ptr %1112, align 8
+  %1114 = getelementptr inbounds i8, ptr %1111, i64 24
+  %1115 = load ptr, ptr %1114, align 8
+  %1116 = tail call ptr @g_slist_prepend(ptr noundef %1115, ptr noundef %1113) #29
+  store ptr %1116, ptr %1114, align 8
+  %1117 = load ptr, ptr %74, align 8
   %.val700 = load ptr, ptr %0, align 8
-  %1119 = tail call fastcc ptr @strdup_and_store(ptr %.val700, ptr noundef %1118)
-  %1120 = load ptr, ptr %0, align 8
-  %1121 = getelementptr inbounds i8, ptr %1120, i64 56
-  %1122 = load ptr, ptr %1121, align 8
-  store ptr %1119, ptr %1122, align 8
-  %1123 = load ptr, ptr %76, align 8
-  %.not.i901 = icmp eq ptr %1123, null
-  br i1 %.not.i901, label %.loopexit970.sink.split, label %1124
+  %1118 = tail call fastcc ptr @strdup_and_store(ptr %.val700, ptr noundef %1117)
+  %1119 = load ptr, ptr %0, align 8
+  %1120 = getelementptr inbounds i8, ptr %1119, i64 56
+  %1121 = load ptr, ptr %1120, align 8
+  store ptr %1118, ptr %1121, align 8
+  %1122 = load ptr, ptr %76, align 8
+  %.not.i901 = icmp eq ptr %1122, null
+  br i1 %.not.i901, label %.loopexit970.sink.split, label %1123
 
-1124:                                             ; preds = %1108
-  %1125 = load i64, ptr %77, align 8
-  %1126 = getelementptr ptr, ptr %1123, i64 %1125
-  %1127 = load ptr, ptr %1126, align 8
-  %.not8.i902 = icmp eq ptr %1127, null
+1123:                                             ; preds = %1107
+  %1124 = load i64, ptr %77, align 8
+  %1125 = getelementptr ptr, ptr %1122, i64 %1124
+  %1126 = load ptr, ptr %1125, align 8
+  %.not8.i902 = icmp eq ptr %1126, null
   br i1 %.not8.i902, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1128:                                             ; preds = %.loopexit971
-  %1129 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1130 = load ptr, ptr %0, align 8
-  %1131 = getelementptr inbounds i8, ptr %1130, i64 56
-  store ptr %1129, ptr %1131, align 8
-  %1132 = load ptr, ptr %0, align 8
-  %1133 = getelementptr inbounds i8, ptr %1132, i64 56
-  %1134 = load ptr, ptr %1133, align 8
-  %1135 = getelementptr inbounds i8, ptr %1132, i64 24
-  %1136 = load ptr, ptr %1135, align 8
-  %1137 = tail call ptr @g_slist_prepend(ptr noundef %1136, ptr noundef %1134) #29
-  store ptr %1137, ptr %1135, align 8
-  %1138 = load ptr, ptr %74, align 8
+1127:                                             ; preds = %.loopexit971
+  %1128 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1129 = load ptr, ptr %0, align 8
+  %1130 = getelementptr inbounds i8, ptr %1129, i64 56
+  store ptr %1128, ptr %1130, align 8
+  %1131 = load ptr, ptr %0, align 8
+  %1132 = getelementptr inbounds i8, ptr %1131, i64 56
+  %1133 = load ptr, ptr %1132, align 8
+  %1134 = getelementptr inbounds i8, ptr %1131, i64 24
+  %1135 = load ptr, ptr %1134, align 8
+  %1136 = tail call ptr @g_slist_prepend(ptr noundef %1135, ptr noundef %1133) #29
+  store ptr %1136, ptr %1134, align 8
+  %1137 = load ptr, ptr %74, align 8
   %.val701 = load ptr, ptr %0, align 8
-  %1139 = tail call fastcc ptr @strdup_and_store(ptr %.val701, ptr noundef %1138)
-  %1140 = load ptr, ptr %0, align 8
-  %1141 = getelementptr inbounds i8, ptr %1140, i64 56
-  %1142 = load ptr, ptr %1141, align 8
-  store ptr %1139, ptr %1142, align 8
-  %1143 = load ptr, ptr %76, align 8
-  %.not.i905 = icmp eq ptr %1143, null
-  br i1 %.not.i905, label %.loopexit970.sink.split, label %1144
+  %1138 = tail call fastcc ptr @strdup_and_store(ptr %.val701, ptr noundef %1137)
+  %1139 = load ptr, ptr %0, align 8
+  %1140 = getelementptr inbounds i8, ptr %1139, i64 56
+  %1141 = load ptr, ptr %1140, align 8
+  store ptr %1138, ptr %1141, align 8
+  %1142 = load ptr, ptr %76, align 8
+  %.not.i905 = icmp eq ptr %1142, null
+  br i1 %.not.i905, label %.loopexit970.sink.split, label %1143
 
-1144:                                             ; preds = %1128
-  %1145 = load i64, ptr %77, align 8
-  %1146 = getelementptr ptr, ptr %1143, i64 %1145
-  %1147 = load ptr, ptr %1146, align 8
-  %.not8.i906 = icmp eq ptr %1147, null
+1143:                                             ; preds = %1127
+  %1144 = load i64, ptr %77, align 8
+  %1145 = getelementptr ptr, ptr %1142, i64 %1144
+  %1146 = load ptr, ptr %1145, align 8
+  %.not8.i906 = icmp eq ptr %1146, null
   br i1 %.not8.i906, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1148:                                             ; preds = %.loopexit971
-  %1149 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1150 = load ptr, ptr %0, align 8
-  %1151 = getelementptr inbounds i8, ptr %1150, i64 56
-  store ptr %1149, ptr %1151, align 8
-  %1152 = load ptr, ptr %0, align 8
-  %1153 = getelementptr inbounds i8, ptr %1152, i64 56
-  %1154 = load ptr, ptr %1153, align 8
-  %1155 = getelementptr inbounds i8, ptr %1152, i64 24
-  %1156 = load ptr, ptr %1155, align 8
-  %1157 = tail call ptr @g_slist_prepend(ptr noundef %1156, ptr noundef %1154) #29
-  store ptr %1157, ptr %1155, align 8
-  %1158 = load ptr, ptr %74, align 8
+1147:                                             ; preds = %.loopexit971
+  %1148 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1149 = load ptr, ptr %0, align 8
+  %1150 = getelementptr inbounds i8, ptr %1149, i64 56
+  store ptr %1148, ptr %1150, align 8
+  %1151 = load ptr, ptr %0, align 8
+  %1152 = getelementptr inbounds i8, ptr %1151, i64 56
+  %1153 = load ptr, ptr %1152, align 8
+  %1154 = getelementptr inbounds i8, ptr %1151, i64 24
+  %1155 = load ptr, ptr %1154, align 8
+  %1156 = tail call ptr @g_slist_prepend(ptr noundef %1155, ptr noundef %1153) #29
+  store ptr %1156, ptr %1154, align 8
+  %1157 = load ptr, ptr %74, align 8
   %.val702 = load ptr, ptr %0, align 8
-  %1159 = tail call fastcc ptr @strdup_and_store(ptr %.val702, ptr noundef %1158)
-  %1160 = load ptr, ptr %0, align 8
-  %1161 = getelementptr inbounds i8, ptr %1160, i64 56
-  %1162 = load ptr, ptr %1161, align 8
-  store ptr %1159, ptr %1162, align 8
-  %1163 = load ptr, ptr %76, align 8
-  %.not.i909 = icmp eq ptr %1163, null
-  br i1 %.not.i909, label %.loopexit970.sink.split, label %1164
+  %1158 = tail call fastcc ptr @strdup_and_store(ptr %.val702, ptr noundef %1157)
+  %1159 = load ptr, ptr %0, align 8
+  %1160 = getelementptr inbounds i8, ptr %1159, i64 56
+  %1161 = load ptr, ptr %1160, align 8
+  store ptr %1158, ptr %1161, align 8
+  %1162 = load ptr, ptr %76, align 8
+  %.not.i909 = icmp eq ptr %1162, null
+  br i1 %.not.i909, label %.loopexit970.sink.split, label %1163
 
-1164:                                             ; preds = %1148
-  %1165 = load i64, ptr %77, align 8
-  %1166 = getelementptr ptr, ptr %1163, i64 %1165
-  %1167 = load ptr, ptr %1166, align 8
-  %.not8.i910 = icmp eq ptr %1167, null
+1163:                                             ; preds = %1147
+  %1164 = load i64, ptr %77, align 8
+  %1165 = getelementptr ptr, ptr %1162, i64 %1164
+  %1166 = load ptr, ptr %1165, align 8
+  %.not8.i910 = icmp eq ptr %1166, null
   br i1 %.not8.i910, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1168:                                             ; preds = %.loopexit971
-  %1169 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1170 = load ptr, ptr %0, align 8
-  %1171 = getelementptr inbounds i8, ptr %1170, i64 56
-  store ptr %1169, ptr %1171, align 8
-  %1172 = load ptr, ptr %0, align 8
-  %1173 = getelementptr inbounds i8, ptr %1172, i64 56
-  %1174 = load ptr, ptr %1173, align 8
-  %1175 = getelementptr inbounds i8, ptr %1172, i64 24
-  %1176 = load ptr, ptr %1175, align 8
-  %1177 = tail call ptr @g_slist_prepend(ptr noundef %1176, ptr noundef %1174) #29
-  store ptr %1177, ptr %1175, align 8
-  %1178 = load ptr, ptr %74, align 8
+1167:                                             ; preds = %.loopexit971
+  %1168 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1169 = load ptr, ptr %0, align 8
+  %1170 = getelementptr inbounds i8, ptr %1169, i64 56
+  store ptr %1168, ptr %1170, align 8
+  %1171 = load ptr, ptr %0, align 8
+  %1172 = getelementptr inbounds i8, ptr %1171, i64 56
+  %1173 = load ptr, ptr %1172, align 8
+  %1174 = getelementptr inbounds i8, ptr %1171, i64 24
+  %1175 = load ptr, ptr %1174, align 8
+  %1176 = tail call ptr @g_slist_prepend(ptr noundef %1175, ptr noundef %1173) #29
+  store ptr %1176, ptr %1174, align 8
+  %1177 = load ptr, ptr %74, align 8
   %.val703 = load ptr, ptr %0, align 8
-  %1179 = tail call fastcc ptr @strdup_and_store(ptr %.val703, ptr noundef %1178)
-  %1180 = load ptr, ptr %0, align 8
-  %1181 = getelementptr inbounds i8, ptr %1180, i64 56
-  %1182 = load ptr, ptr %1181, align 8
-  store ptr %1179, ptr %1182, align 8
-  %1183 = load ptr, ptr %76, align 8
-  %.not.i913 = icmp eq ptr %1183, null
-  br i1 %.not.i913, label %.loopexit970.sink.split, label %1184
+  %1178 = tail call fastcc ptr @strdup_and_store(ptr %.val703, ptr noundef %1177)
+  %1179 = load ptr, ptr %0, align 8
+  %1180 = getelementptr inbounds i8, ptr %1179, i64 56
+  %1181 = load ptr, ptr %1180, align 8
+  store ptr %1178, ptr %1181, align 8
+  %1182 = load ptr, ptr %76, align 8
+  %.not.i913 = icmp eq ptr %1182, null
+  br i1 %.not.i913, label %.loopexit970.sink.split, label %1183
 
-1184:                                             ; preds = %1168
-  %1185 = load i64, ptr %77, align 8
-  %1186 = getelementptr ptr, ptr %1183, i64 %1185
-  %1187 = load ptr, ptr %1186, align 8
-  %.not8.i914 = icmp eq ptr %1187, null
+1183:                                             ; preds = %1167
+  %1184 = load i64, ptr %77, align 8
+  %1185 = getelementptr ptr, ptr %1182, i64 %1184
+  %1186 = load ptr, ptr %1185, align 8
+  %.not8.i914 = icmp eq ptr %1186, null
   br i1 %.not8.i914, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1188:                                             ; preds = %.loopexit971
-  %1189 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1190 = load ptr, ptr %0, align 8
-  %1191 = getelementptr inbounds i8, ptr %1190, i64 56
-  store ptr %1189, ptr %1191, align 8
-  %1192 = load ptr, ptr %0, align 8
-  %1193 = getelementptr inbounds i8, ptr %1192, i64 56
-  %1194 = load ptr, ptr %1193, align 8
-  %1195 = getelementptr inbounds i8, ptr %1192, i64 24
-  %1196 = load ptr, ptr %1195, align 8
-  %1197 = tail call ptr @g_slist_prepend(ptr noundef %1196, ptr noundef %1194) #29
-  store ptr %1197, ptr %1195, align 8
-  %1198 = load ptr, ptr %74, align 8
+1187:                                             ; preds = %.loopexit971
+  %1188 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1189 = load ptr, ptr %0, align 8
+  %1190 = getelementptr inbounds i8, ptr %1189, i64 56
+  store ptr %1188, ptr %1190, align 8
+  %1191 = load ptr, ptr %0, align 8
+  %1192 = getelementptr inbounds i8, ptr %1191, i64 56
+  %1193 = load ptr, ptr %1192, align 8
+  %1194 = getelementptr inbounds i8, ptr %1191, i64 24
+  %1195 = load ptr, ptr %1194, align 8
+  %1196 = tail call ptr @g_slist_prepend(ptr noundef %1195, ptr noundef %1193) #29
+  store ptr %1196, ptr %1194, align 8
+  %1197 = load ptr, ptr %74, align 8
   %.val704 = load ptr, ptr %0, align 8
-  %1199 = tail call fastcc ptr @strdup_and_store(ptr %.val704, ptr noundef %1198)
-  %1200 = load ptr, ptr %0, align 8
-  %1201 = getelementptr inbounds i8, ptr %1200, i64 56
-  %1202 = load ptr, ptr %1201, align 8
-  store ptr %1199, ptr %1202, align 8
-  %1203 = load ptr, ptr %76, align 8
-  %.not.i917 = icmp eq ptr %1203, null
-  br i1 %.not.i917, label %.loopexit970.sink.split, label %1204
+  %1198 = tail call fastcc ptr @strdup_and_store(ptr %.val704, ptr noundef %1197)
+  %1199 = load ptr, ptr %0, align 8
+  %1200 = getelementptr inbounds i8, ptr %1199, i64 56
+  %1201 = load ptr, ptr %1200, align 8
+  store ptr %1198, ptr %1201, align 8
+  %1202 = load ptr, ptr %76, align 8
+  %.not.i917 = icmp eq ptr %1202, null
+  br i1 %.not.i917, label %.loopexit970.sink.split, label %1203
 
-1204:                                             ; preds = %1188
-  %1205 = load i64, ptr %77, align 8
-  %1206 = getelementptr ptr, ptr %1203, i64 %1205
-  %1207 = load ptr, ptr %1206, align 8
-  %.not8.i918 = icmp eq ptr %1207, null
+1203:                                             ; preds = %1187
+  %1204 = load i64, ptr %77, align 8
+  %1205 = getelementptr ptr, ptr %1202, i64 %1204
+  %1206 = load ptr, ptr %1205, align 8
+  %.not8.i918 = icmp eq ptr %1206, null
   br i1 %.not8.i918, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1208:                                             ; preds = %.loopexit971
-  %1209 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1210 = load ptr, ptr %0, align 8
-  %1211 = getelementptr inbounds i8, ptr %1210, i64 56
-  store ptr %1209, ptr %1211, align 8
-  %1212 = load ptr, ptr %0, align 8
-  %1213 = getelementptr inbounds i8, ptr %1212, i64 56
-  %1214 = load ptr, ptr %1213, align 8
-  %1215 = getelementptr inbounds i8, ptr %1212, i64 24
-  %1216 = load ptr, ptr %1215, align 8
-  %1217 = tail call ptr @g_slist_prepend(ptr noundef %1216, ptr noundef %1214) #29
-  store ptr %1217, ptr %1215, align 8
-  %1218 = load ptr, ptr %74, align 8
+1207:                                             ; preds = %.loopexit971
+  %1208 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1209 = load ptr, ptr %0, align 8
+  %1210 = getelementptr inbounds i8, ptr %1209, i64 56
+  store ptr %1208, ptr %1210, align 8
+  %1211 = load ptr, ptr %0, align 8
+  %1212 = getelementptr inbounds i8, ptr %1211, i64 56
+  %1213 = load ptr, ptr %1212, align 8
+  %1214 = getelementptr inbounds i8, ptr %1211, i64 24
+  %1215 = load ptr, ptr %1214, align 8
+  %1216 = tail call ptr @g_slist_prepend(ptr noundef %1215, ptr noundef %1213) #29
+  store ptr %1216, ptr %1214, align 8
+  %1217 = load ptr, ptr %74, align 8
   %.val705 = load ptr, ptr %0, align 8
-  %1219 = tail call fastcc ptr @strdup_and_store(ptr %.val705, ptr noundef %1218)
-  %1220 = load ptr, ptr %0, align 8
-  %1221 = getelementptr inbounds i8, ptr %1220, i64 56
-  %1222 = load ptr, ptr %1221, align 8
-  store ptr %1219, ptr %1222, align 8
-  %1223 = load ptr, ptr %76, align 8
-  %.not.i921 = icmp eq ptr %1223, null
-  br i1 %.not.i921, label %.loopexit970.sink.split, label %1224
+  %1218 = tail call fastcc ptr @strdup_and_store(ptr %.val705, ptr noundef %1217)
+  %1219 = load ptr, ptr %0, align 8
+  %1220 = getelementptr inbounds i8, ptr %1219, i64 56
+  %1221 = load ptr, ptr %1220, align 8
+  store ptr %1218, ptr %1221, align 8
+  %1222 = load ptr, ptr %76, align 8
+  %.not.i921 = icmp eq ptr %1222, null
+  br i1 %.not.i921, label %.loopexit970.sink.split, label %1223
 
-1224:                                             ; preds = %1208
-  %1225 = load i64, ptr %77, align 8
-  %1226 = getelementptr ptr, ptr %1223, i64 %1225
-  %1227 = load ptr, ptr %1226, align 8
-  %.not8.i922 = icmp eq ptr %1227, null
+1223:                                             ; preds = %1207
+  %1224 = load i64, ptr %77, align 8
+  %1225 = getelementptr ptr, ptr %1222, i64 %1224
+  %1226 = load ptr, ptr %1225, align 8
+  %.not8.i922 = icmp eq ptr %1226, null
   br i1 %.not8.i922, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1228:                                             ; preds = %.loopexit971
-  %1229 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1230 = load ptr, ptr %0, align 8
-  %1231 = getelementptr inbounds i8, ptr %1230, i64 56
-  store ptr %1229, ptr %1231, align 8
-  %1232 = load ptr, ptr %0, align 8
-  %1233 = getelementptr inbounds i8, ptr %1232, i64 56
-  %1234 = load ptr, ptr %1233, align 8
-  %1235 = getelementptr inbounds i8, ptr %1232, i64 24
-  %1236 = load ptr, ptr %1235, align 8
-  %1237 = tail call ptr @g_slist_prepend(ptr noundef %1236, ptr noundef %1234) #29
-  store ptr %1237, ptr %1235, align 8
-  %1238 = load ptr, ptr %74, align 8
+1227:                                             ; preds = %.loopexit971
+  %1228 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1229 = load ptr, ptr %0, align 8
+  %1230 = getelementptr inbounds i8, ptr %1229, i64 56
+  store ptr %1228, ptr %1230, align 8
+  %1231 = load ptr, ptr %0, align 8
+  %1232 = getelementptr inbounds i8, ptr %1231, i64 56
+  %1233 = load ptr, ptr %1232, align 8
+  %1234 = getelementptr inbounds i8, ptr %1231, i64 24
+  %1235 = load ptr, ptr %1234, align 8
+  %1236 = tail call ptr @g_slist_prepend(ptr noundef %1235, ptr noundef %1233) #29
+  store ptr %1236, ptr %1234, align 8
+  %1237 = load ptr, ptr %74, align 8
   %.val706 = load ptr, ptr %0, align 8
-  %1239 = tail call fastcc ptr @strdup_and_store(ptr %.val706, ptr noundef %1238)
-  %1240 = load ptr, ptr %0, align 8
-  %1241 = getelementptr inbounds i8, ptr %1240, i64 56
-  %1242 = load ptr, ptr %1241, align 8
-  store ptr %1239, ptr %1242, align 8
-  %1243 = load ptr, ptr %76, align 8
-  %.not.i925 = icmp eq ptr %1243, null
-  br i1 %.not.i925, label %.loopexit970.sink.split, label %1244
+  %1238 = tail call fastcc ptr @strdup_and_store(ptr %.val706, ptr noundef %1237)
+  %1239 = load ptr, ptr %0, align 8
+  %1240 = getelementptr inbounds i8, ptr %1239, i64 56
+  %1241 = load ptr, ptr %1240, align 8
+  store ptr %1238, ptr %1241, align 8
+  %1242 = load ptr, ptr %76, align 8
+  %.not.i925 = icmp eq ptr %1242, null
+  br i1 %.not.i925, label %.loopexit970.sink.split, label %1243
 
-1244:                                             ; preds = %1228
-  %1245 = load i64, ptr %77, align 8
-  %1246 = getelementptr ptr, ptr %1243, i64 %1245
-  %1247 = load ptr, ptr %1246, align 8
-  %.not8.i926 = icmp eq ptr %1247, null
+1243:                                             ; preds = %1227
+  %1244 = load i64, ptr %77, align 8
+  %1245 = getelementptr ptr, ptr %1242, i64 %1244
+  %1246 = load ptr, ptr %1245, align 8
+  %.not8.i926 = icmp eq ptr %1246, null
   br i1 %.not8.i926, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1248:                                             ; preds = %.loopexit971
-  %1249 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1250 = load ptr, ptr %0, align 8
-  %1251 = getelementptr inbounds i8, ptr %1250, i64 56
-  store ptr %1249, ptr %1251, align 8
-  %1252 = load ptr, ptr %0, align 8
-  %1253 = getelementptr inbounds i8, ptr %1252, i64 56
-  %1254 = load ptr, ptr %1253, align 8
-  %1255 = getelementptr inbounds i8, ptr %1252, i64 24
-  %1256 = load ptr, ptr %1255, align 8
-  %1257 = tail call ptr @g_slist_prepend(ptr noundef %1256, ptr noundef %1254) #29
-  store ptr %1257, ptr %1255, align 8
-  %1258 = load ptr, ptr %74, align 8
+1247:                                             ; preds = %.loopexit971
+  %1248 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1249 = load ptr, ptr %0, align 8
+  %1250 = getelementptr inbounds i8, ptr %1249, i64 56
+  store ptr %1248, ptr %1250, align 8
+  %1251 = load ptr, ptr %0, align 8
+  %1252 = getelementptr inbounds i8, ptr %1251, i64 56
+  %1253 = load ptr, ptr %1252, align 8
+  %1254 = getelementptr inbounds i8, ptr %1251, i64 24
+  %1255 = load ptr, ptr %1254, align 8
+  %1256 = tail call ptr @g_slist_prepend(ptr noundef %1255, ptr noundef %1253) #29
+  store ptr %1256, ptr %1254, align 8
+  %1257 = load ptr, ptr %74, align 8
   %.val707 = load ptr, ptr %0, align 8
-  %1259 = tail call fastcc ptr @strdup_and_store(ptr %.val707, ptr noundef %1258)
-  %1260 = load ptr, ptr %0, align 8
-  %1261 = getelementptr inbounds i8, ptr %1260, i64 56
-  %1262 = load ptr, ptr %1261, align 8
-  store ptr %1259, ptr %1262, align 8
-  %1263 = load ptr, ptr %76, align 8
-  %.not.i929 = icmp eq ptr %1263, null
-  br i1 %.not.i929, label %.loopexit970.sink.split, label %1264
+  %1258 = tail call fastcc ptr @strdup_and_store(ptr %.val707, ptr noundef %1257)
+  %1259 = load ptr, ptr %0, align 8
+  %1260 = getelementptr inbounds i8, ptr %1259, i64 56
+  %1261 = load ptr, ptr %1260, align 8
+  store ptr %1258, ptr %1261, align 8
+  %1262 = load ptr, ptr %76, align 8
+  %.not.i929 = icmp eq ptr %1262, null
+  br i1 %.not.i929, label %.loopexit970.sink.split, label %1263
 
-1264:                                             ; preds = %1248
-  %1265 = load i64, ptr %77, align 8
-  %1266 = getelementptr ptr, ptr %1263, i64 %1265
-  %1267 = load ptr, ptr %1266, align 8
-  %.not8.i930 = icmp eq ptr %1267, null
+1263:                                             ; preds = %1247
+  %1264 = load i64, ptr %77, align 8
+  %1265 = getelementptr ptr, ptr %1262, i64 %1264
+  %1266 = load ptr, ptr %1265, align 8
+  %.not8.i930 = icmp eq ptr %1266, null
   br i1 %.not8.i930, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1268:                                             ; preds = %.loopexit971
-  %1269 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1270 = load ptr, ptr %0, align 8
-  %1271 = getelementptr inbounds i8, ptr %1270, i64 56
-  store ptr %1269, ptr %1271, align 8
-  %1272 = load ptr, ptr %0, align 8
-  %1273 = getelementptr inbounds i8, ptr %1272, i64 56
-  %1274 = load ptr, ptr %1273, align 8
-  %1275 = getelementptr inbounds i8, ptr %1272, i64 24
-  %1276 = load ptr, ptr %1275, align 8
-  %1277 = tail call ptr @g_slist_prepend(ptr noundef %1276, ptr noundef %1274) #29
-  store ptr %1277, ptr %1275, align 8
-  %1278 = load ptr, ptr %74, align 8
+1267:                                             ; preds = %.loopexit971
+  %1268 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1269 = load ptr, ptr %0, align 8
+  %1270 = getelementptr inbounds i8, ptr %1269, i64 56
+  store ptr %1268, ptr %1270, align 8
+  %1271 = load ptr, ptr %0, align 8
+  %1272 = getelementptr inbounds i8, ptr %1271, i64 56
+  %1273 = load ptr, ptr %1272, align 8
+  %1274 = getelementptr inbounds i8, ptr %1271, i64 24
+  %1275 = load ptr, ptr %1274, align 8
+  %1276 = tail call ptr @g_slist_prepend(ptr noundef %1275, ptr noundef %1273) #29
+  store ptr %1276, ptr %1274, align 8
+  %1277 = load ptr, ptr %74, align 8
   %.val708 = load ptr, ptr %0, align 8
-  %1279 = tail call fastcc ptr @strdup_and_store(ptr %.val708, ptr noundef %1278)
-  %1280 = load ptr, ptr %0, align 8
-  %1281 = getelementptr inbounds i8, ptr %1280, i64 56
-  %1282 = load ptr, ptr %1281, align 8
-  store ptr %1279, ptr %1282, align 8
-  %1283 = load ptr, ptr %76, align 8
-  %.not.i933 = icmp eq ptr %1283, null
-  br i1 %.not.i933, label %.loopexit970.sink.split, label %1284
+  %1278 = tail call fastcc ptr @strdup_and_store(ptr %.val708, ptr noundef %1277)
+  %1279 = load ptr, ptr %0, align 8
+  %1280 = getelementptr inbounds i8, ptr %1279, i64 56
+  %1281 = load ptr, ptr %1280, align 8
+  store ptr %1278, ptr %1281, align 8
+  %1282 = load ptr, ptr %76, align 8
+  %.not.i933 = icmp eq ptr %1282, null
+  br i1 %.not.i933, label %.loopexit970.sink.split, label %1283
 
-1284:                                             ; preds = %1268
-  %1285 = load i64, ptr %77, align 8
-  %1286 = getelementptr ptr, ptr %1283, i64 %1285
-  %1287 = load ptr, ptr %1286, align 8
-  %.not8.i934 = icmp eq ptr %1287, null
+1283:                                             ; preds = %1267
+  %1284 = load i64, ptr %77, align 8
+  %1285 = getelementptr ptr, ptr %1282, i64 %1284
+  %1286 = load ptr, ptr %1285, align 8
+  %.not8.i934 = icmp eq ptr %1286, null
   br i1 %.not8.i934, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1288:                                             ; preds = %.loopexit971
-  %1289 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1290 = load ptr, ptr %0, align 8
-  %1291 = getelementptr inbounds i8, ptr %1290, i64 56
-  store ptr %1289, ptr %1291, align 8
-  %1292 = load ptr, ptr %0, align 8
-  %1293 = getelementptr inbounds i8, ptr %1292, i64 56
-  %1294 = load ptr, ptr %1293, align 8
-  %1295 = getelementptr inbounds i8, ptr %1292, i64 24
-  %1296 = load ptr, ptr %1295, align 8
-  %1297 = tail call ptr @g_slist_prepend(ptr noundef %1296, ptr noundef %1294) #29
-  store ptr %1297, ptr %1295, align 8
-  %1298 = load ptr, ptr %74, align 8
+1287:                                             ; preds = %.loopexit971
+  %1288 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1289 = load ptr, ptr %0, align 8
+  %1290 = getelementptr inbounds i8, ptr %1289, i64 56
+  store ptr %1288, ptr %1290, align 8
+  %1291 = load ptr, ptr %0, align 8
+  %1292 = getelementptr inbounds i8, ptr %1291, i64 56
+  %1293 = load ptr, ptr %1292, align 8
+  %1294 = getelementptr inbounds i8, ptr %1291, i64 24
+  %1295 = load ptr, ptr %1294, align 8
+  %1296 = tail call ptr @g_slist_prepend(ptr noundef %1295, ptr noundef %1293) #29
+  store ptr %1296, ptr %1294, align 8
+  %1297 = load ptr, ptr %74, align 8
   %.val709 = load ptr, ptr %0, align 8
-  %1299 = tail call fastcc ptr @strdup_and_store(ptr %.val709, ptr noundef %1298)
-  %1300 = load ptr, ptr %0, align 8
-  %1301 = getelementptr inbounds i8, ptr %1300, i64 56
-  %1302 = load ptr, ptr %1301, align 8
-  store ptr %1299, ptr %1302, align 8
-  %1303 = load ptr, ptr %76, align 8
-  %.not.i937 = icmp eq ptr %1303, null
-  br i1 %.not.i937, label %.loopexit970.sink.split, label %1304
+  %1298 = tail call fastcc ptr @strdup_and_store(ptr %.val709, ptr noundef %1297)
+  %1299 = load ptr, ptr %0, align 8
+  %1300 = getelementptr inbounds i8, ptr %1299, i64 56
+  %1301 = load ptr, ptr %1300, align 8
+  store ptr %1298, ptr %1301, align 8
+  %1302 = load ptr, ptr %76, align 8
+  %.not.i937 = icmp eq ptr %1302, null
+  br i1 %.not.i937, label %.loopexit970.sink.split, label %1303
 
-1304:                                             ; preds = %1288
-  %1305 = load i64, ptr %77, align 8
-  %1306 = getelementptr ptr, ptr %1303, i64 %1305
-  %1307 = load ptr, ptr %1306, align 8
-  %.not8.i938 = icmp eq ptr %1307, null
+1303:                                             ; preds = %1287
+  %1304 = load i64, ptr %77, align 8
+  %1305 = getelementptr ptr, ptr %1302, i64 %1304
+  %1306 = load ptr, ptr %1305, align 8
+  %.not8.i938 = icmp eq ptr %1306, null
   br i1 %.not8.i938, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1308:                                             ; preds = %.loopexit971
-  %1309 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1310 = load ptr, ptr %0, align 8
-  %1311 = getelementptr inbounds i8, ptr %1310, i64 56
-  store ptr %1309, ptr %1311, align 8
-  %1312 = load ptr, ptr %0, align 8
-  %1313 = getelementptr inbounds i8, ptr %1312, i64 56
-  %1314 = load ptr, ptr %1313, align 8
-  %1315 = getelementptr inbounds i8, ptr %1312, i64 24
-  %1316 = load ptr, ptr %1315, align 8
-  %1317 = tail call ptr @g_slist_prepend(ptr noundef %1316, ptr noundef %1314) #29
-  store ptr %1317, ptr %1315, align 8
-  %1318 = load ptr, ptr %74, align 8
+1307:                                             ; preds = %.loopexit971
+  %1308 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1309 = load ptr, ptr %0, align 8
+  %1310 = getelementptr inbounds i8, ptr %1309, i64 56
+  store ptr %1308, ptr %1310, align 8
+  %1311 = load ptr, ptr %0, align 8
+  %1312 = getelementptr inbounds i8, ptr %1311, i64 56
+  %1313 = load ptr, ptr %1312, align 8
+  %1314 = getelementptr inbounds i8, ptr %1311, i64 24
+  %1315 = load ptr, ptr %1314, align 8
+  %1316 = tail call ptr @g_slist_prepend(ptr noundef %1315, ptr noundef %1313) #29
+  store ptr %1316, ptr %1314, align 8
+  %1317 = load ptr, ptr %74, align 8
   %.val710 = load ptr, ptr %0, align 8
-  %1319 = tail call fastcc ptr @strdup_and_store(ptr %.val710, ptr noundef %1318)
-  %1320 = load ptr, ptr %0, align 8
-  %1321 = getelementptr inbounds i8, ptr %1320, i64 56
-  %1322 = load ptr, ptr %1321, align 8
-  store ptr %1319, ptr %1322, align 8
-  %1323 = load ptr, ptr %76, align 8
-  %.not.i941 = icmp eq ptr %1323, null
-  br i1 %.not.i941, label %.loopexit970.sink.split, label %1324
+  %1318 = tail call fastcc ptr @strdup_and_store(ptr %.val710, ptr noundef %1317)
+  %1319 = load ptr, ptr %0, align 8
+  %1320 = getelementptr inbounds i8, ptr %1319, i64 56
+  %1321 = load ptr, ptr %1320, align 8
+  store ptr %1318, ptr %1321, align 8
+  %1322 = load ptr, ptr %76, align 8
+  %.not.i941 = icmp eq ptr %1322, null
+  br i1 %.not.i941, label %.loopexit970.sink.split, label %1323
 
-1324:                                             ; preds = %1308
-  %1325 = load i64, ptr %77, align 8
-  %1326 = getelementptr ptr, ptr %1323, i64 %1325
-  %1327 = load ptr, ptr %1326, align 8
-  %.not8.i942 = icmp eq ptr %1327, null
+1323:                                             ; preds = %1307
+  %1324 = load i64, ptr %77, align 8
+  %1325 = getelementptr ptr, ptr %1322, i64 %1324
+  %1326 = load ptr, ptr %1325, align 8
+  %.not8.i942 = icmp eq ptr %1326, null
   br i1 %.not8.i942, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1328:                                             ; preds = %.loopexit971
-  %1329 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1330 = load ptr, ptr %0, align 8
-  %1331 = getelementptr inbounds i8, ptr %1330, i64 56
-  store ptr %1329, ptr %1331, align 8
-  %1332 = load ptr, ptr %0, align 8
-  %1333 = getelementptr inbounds i8, ptr %1332, i64 56
-  %1334 = load ptr, ptr %1333, align 8
-  %1335 = getelementptr inbounds i8, ptr %1332, i64 24
-  %1336 = load ptr, ptr %1335, align 8
-  %1337 = tail call ptr @g_slist_prepend(ptr noundef %1336, ptr noundef %1334) #29
-  store ptr %1337, ptr %1335, align 8
-  %1338 = load ptr, ptr %74, align 8
+1327:                                             ; preds = %.loopexit971
+  %1328 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1329 = load ptr, ptr %0, align 8
+  %1330 = getelementptr inbounds i8, ptr %1329, i64 56
+  store ptr %1328, ptr %1330, align 8
+  %1331 = load ptr, ptr %0, align 8
+  %1332 = getelementptr inbounds i8, ptr %1331, i64 56
+  %1333 = load ptr, ptr %1332, align 8
+  %1334 = getelementptr inbounds i8, ptr %1331, i64 24
+  %1335 = load ptr, ptr %1334, align 8
+  %1336 = tail call ptr @g_slist_prepend(ptr noundef %1335, ptr noundef %1333) #29
+  store ptr %1336, ptr %1334, align 8
+  %1337 = load ptr, ptr %74, align 8
   %.val711 = load ptr, ptr %0, align 8
-  %1339 = tail call fastcc ptr @strdup_and_store(ptr %.val711, ptr noundef %1338)
-  %1340 = load ptr, ptr %0, align 8
-  %1341 = getelementptr inbounds i8, ptr %1340, i64 56
-  %1342 = load ptr, ptr %1341, align 8
-  store ptr %1339, ptr %1342, align 8
-  %1343 = load ptr, ptr %76, align 8
-  %.not.i945 = icmp eq ptr %1343, null
-  br i1 %.not.i945, label %.loopexit970.sink.split, label %1344
+  %1338 = tail call fastcc ptr @strdup_and_store(ptr %.val711, ptr noundef %1337)
+  %1339 = load ptr, ptr %0, align 8
+  %1340 = getelementptr inbounds i8, ptr %1339, i64 56
+  %1341 = load ptr, ptr %1340, align 8
+  store ptr %1338, ptr %1341, align 8
+  %1342 = load ptr, ptr %76, align 8
+  %.not.i945 = icmp eq ptr %1342, null
+  br i1 %.not.i945, label %.loopexit970.sink.split, label %1343
 
-1344:                                             ; preds = %1328
-  %1345 = load i64, ptr %77, align 8
-  %1346 = getelementptr ptr, ptr %1343, i64 %1345
-  %1347 = load ptr, ptr %1346, align 8
-  %.not8.i946 = icmp eq ptr %1347, null
+1343:                                             ; preds = %1327
+  %1344 = load i64, ptr %77, align 8
+  %1345 = getelementptr ptr, ptr %1342, i64 %1344
+  %1346 = load ptr, ptr %1345, align 8
+  %.not8.i946 = icmp eq ptr %1346, null
   br i1 %.not8.i946, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1348:                                             ; preds = %.loopexit971
-  %1349 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1350 = load ptr, ptr %0, align 8
-  %1351 = getelementptr inbounds i8, ptr %1350, i64 56
-  store ptr %1349, ptr %1351, align 8
-  %1352 = load ptr, ptr %0, align 8
-  %1353 = getelementptr inbounds i8, ptr %1352, i64 56
-  %1354 = load ptr, ptr %1353, align 8
-  %1355 = getelementptr inbounds i8, ptr %1352, i64 24
-  %1356 = load ptr, ptr %1355, align 8
-  %1357 = tail call ptr @g_slist_prepend(ptr noundef %1356, ptr noundef %1354) #29
-  store ptr %1357, ptr %1355, align 8
-  %1358 = load ptr, ptr %74, align 8
+1347:                                             ; preds = %.loopexit971
+  %1348 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1349 = load ptr, ptr %0, align 8
+  %1350 = getelementptr inbounds i8, ptr %1349, i64 56
+  store ptr %1348, ptr %1350, align 8
+  %1351 = load ptr, ptr %0, align 8
+  %1352 = getelementptr inbounds i8, ptr %1351, i64 56
+  %1353 = load ptr, ptr %1352, align 8
+  %1354 = getelementptr inbounds i8, ptr %1351, i64 24
+  %1355 = load ptr, ptr %1354, align 8
+  %1356 = tail call ptr @g_slist_prepend(ptr noundef %1355, ptr noundef %1353) #29
+  store ptr %1356, ptr %1354, align 8
+  %1357 = load ptr, ptr %74, align 8
   %.val712 = load ptr, ptr %0, align 8
-  %1359 = tail call fastcc ptr @strdup_and_store(ptr %.val712, ptr noundef %1358)
-  %1360 = load ptr, ptr %0, align 8
-  %1361 = getelementptr inbounds i8, ptr %1360, i64 56
-  %1362 = load ptr, ptr %1361, align 8
-  store ptr %1359, ptr %1362, align 8
-  %1363 = load ptr, ptr %76, align 8
-  %.not.i949 = icmp eq ptr %1363, null
-  br i1 %.not.i949, label %.loopexit970.sink.split, label %1364
+  %1358 = tail call fastcc ptr @strdup_and_store(ptr %.val712, ptr noundef %1357)
+  %1359 = load ptr, ptr %0, align 8
+  %1360 = getelementptr inbounds i8, ptr %1359, i64 56
+  %1361 = load ptr, ptr %1360, align 8
+  store ptr %1358, ptr %1361, align 8
+  %1362 = load ptr, ptr %76, align 8
+  %.not.i949 = icmp eq ptr %1362, null
+  br i1 %.not.i949, label %.loopexit970.sink.split, label %1363
 
-1364:                                             ; preds = %1348
-  %1365 = load i64, ptr %77, align 8
-  %1366 = getelementptr ptr, ptr %1363, i64 %1365
-  %1367 = load ptr, ptr %1366, align 8
-  %.not8.i950 = icmp eq ptr %1367, null
+1363:                                             ; preds = %1347
+  %1364 = load i64, ptr %77, align 8
+  %1365 = getelementptr ptr, ptr %1362, i64 %1364
+  %1366 = load ptr, ptr %1365, align 8
+  %.not8.i950 = icmp eq ptr %1366, null
   br i1 %.not8.i950, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1368:                                             ; preds = %.loopexit971
-  %1369 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1370 = load ptr, ptr %0, align 8
-  %1371 = getelementptr inbounds i8, ptr %1370, i64 56
-  store ptr %1369, ptr %1371, align 8
-  %1372 = load ptr, ptr %0, align 8
-  %1373 = getelementptr inbounds i8, ptr %1372, i64 56
-  %1374 = load ptr, ptr %1373, align 8
-  %1375 = getelementptr inbounds i8, ptr %1372, i64 24
-  %1376 = load ptr, ptr %1375, align 8
-  %1377 = tail call ptr @g_slist_prepend(ptr noundef %1376, ptr noundef %1374) #29
-  store ptr %1377, ptr %1375, align 8
-  %1378 = load ptr, ptr %74, align 8
+1367:                                             ; preds = %.loopexit971
+  %1368 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1369 = load ptr, ptr %0, align 8
+  %1370 = getelementptr inbounds i8, ptr %1369, i64 56
+  store ptr %1368, ptr %1370, align 8
+  %1371 = load ptr, ptr %0, align 8
+  %1372 = getelementptr inbounds i8, ptr %1371, i64 56
+  %1373 = load ptr, ptr %1372, align 8
+  %1374 = getelementptr inbounds i8, ptr %1371, i64 24
+  %1375 = load ptr, ptr %1374, align 8
+  %1376 = tail call ptr @g_slist_prepend(ptr noundef %1375, ptr noundef %1373) #29
+  store ptr %1376, ptr %1374, align 8
+  %1377 = load ptr, ptr %74, align 8
   %.val713 = load ptr, ptr %0, align 8
-  %1379 = tail call fastcc ptr @strdup_and_store(ptr %.val713, ptr noundef %1378)
-  %1380 = load ptr, ptr %0, align 8
-  %1381 = getelementptr inbounds i8, ptr %1380, i64 56
-  %1382 = load ptr, ptr %1381, align 8
-  store ptr %1379, ptr %1382, align 8
-  %1383 = load ptr, ptr %76, align 8
-  %.not.i953 = icmp eq ptr %1383, null
-  br i1 %.not.i953, label %.loopexit970.sink.split, label %1384
+  %1378 = tail call fastcc ptr @strdup_and_store(ptr %.val713, ptr noundef %1377)
+  %1379 = load ptr, ptr %0, align 8
+  %1380 = getelementptr inbounds i8, ptr %1379, i64 56
+  %1381 = load ptr, ptr %1380, align 8
+  store ptr %1378, ptr %1381, align 8
+  %1382 = load ptr, ptr %76, align 8
+  %.not.i953 = icmp eq ptr %1382, null
+  br i1 %.not.i953, label %.loopexit970.sink.split, label %1383
 
-1384:                                             ; preds = %1368
-  %1385 = load i64, ptr %77, align 8
-  %1386 = getelementptr ptr, ptr %1383, i64 %1385
-  %1387 = load ptr, ptr %1386, align 8
-  %.not8.i954 = icmp eq ptr %1387, null
+1383:                                             ; preds = %1367
+  %1384 = load i64, ptr %77, align 8
+  %1385 = getelementptr ptr, ptr %1382, i64 %1384
+  %1386 = load ptr, ptr %1385, align 8
+  %.not8.i954 = icmp eq ptr %1386, null
   br i1 %.not8.i954, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1388:                                             ; preds = %.loopexit971
-  %1389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1390 = load ptr, ptr %0, align 8
-  %1391 = getelementptr inbounds i8, ptr %1390, i64 56
-  store ptr %1389, ptr %1391, align 8
-  %1392 = load ptr, ptr %0, align 8
-  %1393 = getelementptr inbounds i8, ptr %1392, i64 56
-  %1394 = load ptr, ptr %1393, align 8
-  %1395 = getelementptr inbounds i8, ptr %1392, i64 24
-  %1396 = load ptr, ptr %1395, align 8
-  %1397 = tail call ptr @g_slist_prepend(ptr noundef %1396, ptr noundef %1394) #29
-  store ptr %1397, ptr %1395, align 8
-  %1398 = load ptr, ptr %74, align 8
+1387:                                             ; preds = %.loopexit971
+  %1388 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1389 = load ptr, ptr %0, align 8
+  %1390 = getelementptr inbounds i8, ptr %1389, i64 56
+  store ptr %1388, ptr %1390, align 8
+  %1391 = load ptr, ptr %0, align 8
+  %1392 = getelementptr inbounds i8, ptr %1391, i64 56
+  %1393 = load ptr, ptr %1392, align 8
+  %1394 = getelementptr inbounds i8, ptr %1391, i64 24
+  %1395 = load ptr, ptr %1394, align 8
+  %1396 = tail call ptr @g_slist_prepend(ptr noundef %1395, ptr noundef %1393) #29
+  store ptr %1396, ptr %1394, align 8
+  %1397 = load ptr, ptr %74, align 8
   %.val714 = load ptr, ptr %0, align 8
-  %1399 = tail call fastcc ptr @strdup_and_store(ptr %.val714, ptr noundef %1398)
-  %1400 = load ptr, ptr %0, align 8
-  %1401 = getelementptr inbounds i8, ptr %1400, i64 56
-  %1402 = load ptr, ptr %1401, align 8
-  store ptr %1399, ptr %1402, align 8
-  %1403 = load ptr, ptr %76, align 8
-  %.not.i957 = icmp eq ptr %1403, null
-  br i1 %.not.i957, label %.loopexit970.sink.split, label %1404
+  %1398 = tail call fastcc ptr @strdup_and_store(ptr %.val714, ptr noundef %1397)
+  %1399 = load ptr, ptr %0, align 8
+  %1400 = getelementptr inbounds i8, ptr %1399, i64 56
+  %1401 = load ptr, ptr %1400, align 8
+  store ptr %1398, ptr %1401, align 8
+  %1402 = load ptr, ptr %76, align 8
+  %.not.i957 = icmp eq ptr %1402, null
+  br i1 %.not.i957, label %.loopexit970.sink.split, label %1403
 
-1404:                                             ; preds = %1388
-  %1405 = load i64, ptr %77, align 8
-  %1406 = getelementptr ptr, ptr %1403, i64 %1405
-  %1407 = load ptr, ptr %1406, align 8
-  %.not8.i958 = icmp eq ptr %1407, null
+1403:                                             ; preds = %1387
+  %1404 = load i64, ptr %77, align 8
+  %1405 = getelementptr ptr, ptr %1402, i64 %1404
+  %1406 = load ptr, ptr %1405, align 8
+  %.not8.i958 = icmp eq ptr %1406, null
   br i1 %.not8.i958, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1408:                                             ; preds = %.loopexit971
-  %1409 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
-  %1410 = load ptr, ptr %0, align 8
-  %1411 = getelementptr inbounds i8, ptr %1410, i64 56
-  store ptr %1409, ptr %1411, align 8
-  %1412 = load ptr, ptr %0, align 8
-  %1413 = getelementptr inbounds i8, ptr %1412, i64 56
-  %1414 = load ptr, ptr %1413, align 8
-  %1415 = getelementptr inbounds i8, ptr %1412, i64 24
-  %1416 = load ptr, ptr %1415, align 8
-  %1417 = tail call ptr @g_slist_prepend(ptr noundef %1416, ptr noundef %1414) #29
-  store ptr %1417, ptr %1415, align 8
-  %1418 = load ptr, ptr %74, align 8
+1407:                                             ; preds = %.loopexit971
+  %1408 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
+  %1409 = load ptr, ptr %0, align 8
+  %1410 = getelementptr inbounds i8, ptr %1409, i64 56
+  store ptr %1408, ptr %1410, align 8
+  %1411 = load ptr, ptr %0, align 8
+  %1412 = getelementptr inbounds i8, ptr %1411, i64 56
+  %1413 = load ptr, ptr %1412, align 8
+  %1414 = getelementptr inbounds i8, ptr %1411, i64 24
+  %1415 = load ptr, ptr %1414, align 8
+  %1416 = tail call ptr @g_slist_prepend(ptr noundef %1415, ptr noundef %1413) #29
+  store ptr %1416, ptr %1414, align 8
+  %1417 = load ptr, ptr %74, align 8
   %.val715 = load ptr, ptr %0, align 8
-  %1419 = tail call fastcc ptr @strdup_and_store(ptr %.val715, ptr noundef %1418)
-  %1420 = load ptr, ptr %0, align 8
-  %1421 = getelementptr inbounds i8, ptr %1420, i64 56
-  %1422 = load ptr, ptr %1421, align 8
-  store ptr %1419, ptr %1422, align 8
-  %1423 = load ptr, ptr %76, align 8
-  %.not.i961 = icmp eq ptr %1423, null
-  br i1 %.not.i961, label %.loopexit970.sink.split, label %1424
+  %1418 = tail call fastcc ptr @strdup_and_store(ptr %.val715, ptr noundef %1417)
+  %1419 = load ptr, ptr %0, align 8
+  %1420 = getelementptr inbounds i8, ptr %1419, i64 56
+  %1421 = load ptr, ptr %1420, align 8
+  store ptr %1418, ptr %1421, align 8
+  %1422 = load ptr, ptr %76, align 8
+  %.not.i961 = icmp eq ptr %1422, null
+  br i1 %.not.i961, label %.loopexit970.sink.split, label %1423
 
-1424:                                             ; preds = %1408
-  %1425 = load i64, ptr %77, align 8
-  %1426 = getelementptr ptr, ptr %1423, i64 %1425
-  %1427 = load ptr, ptr %1426, align 8
-  %.not8.i962 = icmp eq ptr %1427, null
+1423:                                             ; preds = %1407
+  %1424 = load i64, ptr %77, align 8
+  %1425 = getelementptr ptr, ptr %1422, i64 %1424
+  %1426 = load ptr, ptr %1425, align 8
+  %.not8.i962 = icmp eq ptr %1426, null
   br i1 %.not8.i962, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
-1428:                                             ; preds = %.loopexit971
-  %1429 = load i32, ptr %71, align 4
-  %1430 = add i32 %1429, -1
-  %1431 = sdiv i32 %1430, 2
-  store i32 %1431, ptr @old_status, align 4
+1427:                                             ; preds = %.loopexit971
+  %1428 = load i32, ptr %71, align 4
+  %1429 = add i32 %1428, -1
+  %1430 = sdiv i32 %1429, 2
+  store i32 %1430, ptr @old_status, align 4
   store i32 3, ptr %71, align 4
   br label %.loopexit.backedge
 
-1432:                                             ; preds = %.loopexit971
-  %1433 = load i32, ptr @old_status, align 4
-  %1434 = shl i32 %1433, 1
-  %1435 = or disjoint i32 %1434, 1
-  store i32 %1435, ptr %71, align 4
+1431:                                             ; preds = %.loopexit971
+  %1432 = load i32, ptr @old_status, align 4
+  %1433 = shl i32 %1432, 1
+  %1434 = or disjoint i32 %1433, 1
+  store i32 %1434, ptr %71, align 4
   br label %.loopexit.backedge
 
-1436:                                             ; preds = %.loopexit971
-  %1437 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %1437, ptr noundef nonnull @.str) #29
+1435:                                             ; preds = %.loopexit971
+  %1436 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %1436, ptr noundef nonnull @.str) #29
   br label %.loopexit.backedge
 
-1438:                                             ; preds = %.loopexit971
-  %1439 = load ptr, ptr %74, align 8
-  %1440 = load i32, ptr %75, align 8
-  %1441 = sext i32 %1440 to i64
-  %1442 = load ptr, ptr %81, align 8
-  %1443 = tail call i64 @fwrite(ptr noundef %1439, i64 noundef %1441, i64 noundef 1, ptr noundef %1442)
+1437:                                             ; preds = %.loopexit971
+  %1438 = load ptr, ptr %74, align 8
+  %1439 = load i32, ptr %75, align 8
+  %1440 = sext i32 %1439 to i64
+  %1441 = load ptr, ptr %81, align 8
+  %1442 = tail call i64 @fwrite(ptr noundef %1438, i64 noundef %1440, i64 noundef 1, ptr noundef %1441)
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %.loopexit971, %.loopexit971, %.loopexit971, %1438, %1436, %1432, %1428
+.loopexit.backedge:                               ; preds = %.loopexit971, %.loopexit971, %.loopexit971, %1437, %1435, %1431, %1427
   br label %.loopexit
 
-1444:                                             ; preds = %.loopexit971
-  %1445 = load ptr, ptr %74, align 8
-  %1446 = load i8, ptr %70, align 8
-  store i8 %1446, ptr %.2634, align 1
-  %1447 = load ptr, ptr %76, align 8
-  %1448 = load i64, ptr %77, align 8
-  %1449 = getelementptr ptr, ptr %1447, i64 %1448
-  %1450 = load ptr, ptr %1449, align 8
-  %1451 = getelementptr inbounds i8, ptr %1450, i64 56
-  %1452 = load i32, ptr %1451, align 8
-  %1453 = icmp eq i32 %1452, 0
-  br i1 %1453, label %1454, label %1464
+1443:                                             ; preds = %.loopexit971
+  %1444 = load ptr, ptr %74, align 8
+  %1445 = load i8, ptr %70, align 8
+  store i8 %1445, ptr %.2634, align 1
+  %1446 = load ptr, ptr %76, align 8
+  %1447 = load i64, ptr %77, align 8
+  %1448 = getelementptr ptr, ptr %1446, i64 %1447
+  %1449 = load ptr, ptr %1448, align 8
+  %1450 = getelementptr inbounds i8, ptr %1449, i64 56
+  %1451 = load i32, ptr %1450, align 8
+  %1452 = icmp eq i32 %1451, 0
+  br i1 %1452, label %1453, label %1463
 
-1454:                                             ; preds = %1444
-  %1455 = getelementptr inbounds i8, ptr %1450, i64 28
-  %1456 = load i32, ptr %1455, align 4
-  store i32 %1456, ptr %78, align 4
-  %1457 = load ptr, ptr %79, align 8
-  %1458 = load ptr, ptr %1449, align 8
-  store ptr %1457, ptr %1458, align 8
-  %1459 = load ptr, ptr %76, align 8
-  %1460 = load i64, ptr %77, align 8
-  %1461 = getelementptr ptr, ptr %1459, i64 %1460
-  %1462 = load ptr, ptr %1461, align 8
-  %1463 = getelementptr inbounds i8, ptr %1462, i64 56
-  store i32 1, ptr %1463, align 8
+1453:                                             ; preds = %1443
+  %1454 = getelementptr inbounds i8, ptr %1449, i64 28
+  %1455 = load i32, ptr %1454, align 4
+  store i32 %1455, ptr %78, align 4
+  %1456 = load ptr, ptr %79, align 8
+  %1457 = load ptr, ptr %1448, align 8
+  store ptr %1456, ptr %1457, align 8
+  %1458 = load ptr, ptr %76, align 8
+  %1459 = load i64, ptr %77, align 8
+  %1460 = getelementptr ptr, ptr %1458, i64 %1459
+  %1461 = load ptr, ptr %1460, align 8
+  %1462 = getelementptr inbounds i8, ptr %1461, i64 56
+  store i32 1, ptr %1462, align 8
   %.pre1302 = load ptr, ptr %76, align 8
   %.pre1303 = load i64, ptr %77, align 8
   %.phi.trans.insert1304 = getelementptr ptr, ptr %.pre1302, i64 %.pre1303
   %.pre1305 = load ptr, ptr %.phi.trans.insert1304, align 8
-  br label %1464
+  br label %1463
 
-1464:                                             ; preds = %1454, %1444
-  %1465 = phi ptr [ %.pre1305, %1454 ], [ %1450, %1444 ]
-  %1466 = phi i64 [ %.pre1303, %1454 ], [ %1448, %1444 ]
-  %1467 = phi ptr [ %.pre1302, %1454 ], [ %1447, %1444 ]
-  %1468 = load ptr, ptr %69, align 8
-  %1469 = getelementptr inbounds i8, ptr %1465, i64 8
-  %1470 = load ptr, ptr %1469, align 8
-  %1471 = load i32, ptr %78, align 4
-  %1472 = sext i32 %1471 to i64
-  %1473 = getelementptr i8, ptr %1470, i64 %1472
-  %.not652 = icmp ugt ptr %1468, %1473
-  br i1 %.not652, label %1489, label %1474
+1463:                                             ; preds = %1453, %1443
+  %1464 = phi ptr [ %.pre1305, %1453 ], [ %1449, %1443 ]
+  %1465 = phi i64 [ %.pre1303, %1453 ], [ %1447, %1443 ]
+  %1466 = phi ptr [ %.pre1302, %1453 ], [ %1446, %1443 ]
+  %1467 = load ptr, ptr %69, align 8
+  %1468 = getelementptr inbounds i8, ptr %1464, i64 8
+  %1469 = load ptr, ptr %1468, align 8
+  %1470 = load i32, ptr %78, align 4
+  %1471 = sext i32 %1470 to i64
+  %1472 = getelementptr i8, ptr %1469, i64 %1471
+  %.not652 = icmp ugt ptr %1467, %1472
+  br i1 %.not652, label %1488, label %1473
 
-1474:                                             ; preds = %1464
-  %1475 = ptrtoint ptr %1445 to i64
-  %1476 = xor i64 %1475, -1
-  %1477 = add i64 %1476, %132
-  %1478 = load ptr, ptr %74, align 8
-  %sext = shl i64 %1477, 32
-  %1479 = ashr exact i64 %sext, 32
-  %1480 = getelementptr i8, ptr %1478, i64 %1479
-  store ptr %1480, ptr %69, align 8
-  %1481 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
-  %1482 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %1481, ptr noundef nonnull %0)
-  %1483 = load ptr, ptr %74, align 8
-  %.not653 = icmp eq i32 %1482, 0
-  br i1 %.not653, label %1487, label %1484
+1473:                                             ; preds = %1463
+  %1474 = ptrtoint ptr %1444 to i64
+  %1475 = xor i64 %1474, -1
+  %1476 = add i64 %1475, %132
+  %1477 = load ptr, ptr %74, align 8
+  %sext = shl i64 %1476, 32
+  %1478 = ashr exact i64 %sext, 32
+  %1479 = getelementptr i8, ptr %1477, i64 %1478
+  store ptr %1479, ptr %69, align 8
+  %1480 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
+  %1481 = tail call fastcc i32 @yy_try_NUL_trans(i32 noundef %1480, ptr noundef nonnull %0)
+  %1482 = load ptr, ptr %74, align 8
+  %.not653 = icmp eq i32 %1481, 0
+  br i1 %.not653, label %1486, label %1483
 
-1484:                                             ; preds = %1474
-  %1485 = load ptr, ptr %69, align 8
-  %1486 = getelementptr i8, ptr %1485, i64 1
-  store ptr %1486, ptr %69, align 8
+1483:                                             ; preds = %1473
+  %1484 = load ptr, ptr %69, align 8
+  %1485 = getelementptr i8, ptr %1484, i64 1
+  store ptr %1485, ptr %69, align 8
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %1484, %1701
-  %.0636.be = phi ptr [ %1483, %1484 ], [ %1709, %1701 ]
-  %.0632.be = phi ptr [ %1486, %1484 ], [ %1708, %1701 ]
-  %.0628.be = phi i32 [ %1482, %1484 ], [ %1707, %1701 ]
+.backedge.backedge:                               ; preds = %1483, %1700
+  %.0636.be = phi ptr [ %1482, %1483 ], [ %1708, %1700 ]
+  %.0632.be = phi ptr [ %1485, %1483 ], [ %1707, %1700 ]
+  %.0628.be = phi i32 [ %1481, %1483 ], [ %1706, %1700 ]
   br label %.backedge
 
-1487:                                             ; preds = %1474
-  %1488 = load i32, ptr %72, align 8
+1486:                                             ; preds = %1473
+  %1487 = load i32, ptr %72, align 8
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %1487, %yy_get_next_buffer.exit.thread968
-  %.1637.ph.be = phi ptr [ %1713, %yy_get_next_buffer.exit.thread968 ], [ %1483, %1487 ]
-  %.2634.in.ph.be = phi ptr [ %69, %yy_get_next_buffer.exit.thread968 ], [ %73, %1487 ]
-  %.3.ph.be = phi i32 [ %1712, %yy_get_next_buffer.exit.thread968 ], [ %1488, %1487 ]
+.outer.backedge:                                  ; preds = %1486, %yy_get_next_buffer.exit.thread968
+  %.1637.ph.be = phi ptr [ %1712, %yy_get_next_buffer.exit.thread968 ], [ %1482, %1486 ]
+  %.2634.in.ph.be = phi ptr [ %69, %yy_get_next_buffer.exit.thread968 ], [ %73, %1486 ]
+  %.3.ph.be = phi i32 [ %1711, %yy_get_next_buffer.exit.thread968 ], [ %1487, %1486 ]
   br label %.outer
 
-1489:                                             ; preds = %1464
-  %1490 = load ptr, ptr %74, align 8
-  %1491 = add i32 %1471, 1
-  %1492 = sext i32 %1491 to i64
-  %1493 = getelementptr i8, ptr %1470, i64 %1492
-  %1494 = icmp ugt ptr %1468, %1493
-  br i1 %1494, label %1495, label %1496
+1488:                                             ; preds = %1463
+  %1489 = load ptr, ptr %74, align 8
+  %1490 = add i32 %1470, 1
+  %1491 = sext i32 %1490 to i64
+  %1492 = getelementptr i8, ptr %1469, i64 %1491
+  %1493 = icmp ugt ptr %1467, %1492
+  br i1 %1493, label %1494, label %1495
 
-1495:                                             ; preds = %1489
+1494:                                             ; preds = %1488
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #26
   unreachable
 
-1496:                                             ; preds = %1489
-  %1497 = getelementptr inbounds i8, ptr %1465, i64 52
-  %1498 = load i32, ptr %1497, align 4
-  %1499 = icmp eq i32 %1498, 0
-  %1500 = ptrtoint ptr %1468 to i64
-  %1501 = ptrtoint ptr %1490 to i64
-  br i1 %1499, label %1502, label %1505
+1495:                                             ; preds = %1488
+  %1496 = getelementptr inbounds i8, ptr %1464, i64 52
+  %1497 = load i32, ptr %1496, align 4
+  %1498 = icmp eq i32 %1497, 0
+  %1499 = ptrtoint ptr %1467 to i64
+  %1500 = ptrtoint ptr %1489 to i64
+  br i1 %1498, label %1501, label %1504
 
-1502:                                             ; preds = %1496
-  %1503 = sub i64 %1500, %1501
-  %1504 = icmp eq i64 %1503, 1
-  br i1 %1504, label %yy_get_next_buffer.exit.thread, label %yy_get_next_buffer.exit.thread968
+1501:                                             ; preds = %1495
+  %1502 = sub i64 %1499, %1500
+  %1503 = icmp eq i64 %1502, 1
+  br i1 %1503, label %yy_get_next_buffer.exit.thread, label %yy_get_next_buffer.exit.thread968
 
-1505:                                             ; preds = %1496
-  %1506 = xor i64 %1501, -1
-  %1507 = add i64 %1506, %1500
-  %1508 = trunc i64 %1507 to i32
-  %1509 = icmp sgt i32 %1508, 0
-  br i1 %1509, label %.lr.ph.i, label %._crit_edge.i
+1504:                                             ; preds = %1495
+  %1505 = xor i64 %1500, -1
+  %1506 = add i64 %1505, %1499
+  %1507 = trunc i64 %1506 to i32
+  %1508 = icmp sgt i32 %1507, 0
+  br i1 %1508, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %1505, %.lr.ph.i
-  %.0129161.i = phi ptr [ %1512, %.lr.ph.i ], [ %1470, %1505 ]
-  %.0130160.i = phi ptr [ %1510, %.lr.ph.i ], [ %1490, %1505 ]
-  %.0131159.i = phi i32 [ %1513, %.lr.ph.i ], [ 0, %1505 ]
-  %1510 = getelementptr i8, ptr %.0130160.i, i64 1
-  %1511 = load i8, ptr %.0130160.i, align 1
-  %1512 = getelementptr i8, ptr %.0129161.i, i64 1
-  store i8 %1511, ptr %.0129161.i, align 1
-  %1513 = add nuw nsw i32 %.0131159.i, 1
-  %exitcond.not.i = icmp eq i32 %1513, %1508
+.lr.ph.i:                                         ; preds = %1504, %.lr.ph.i
+  %.0129161.i = phi ptr [ %1511, %.lr.ph.i ], [ %1469, %1504 ]
+  %.0130160.i = phi ptr [ %1509, %.lr.ph.i ], [ %1489, %1504 ]
+  %.0131159.i = phi i32 [ %1512, %.lr.ph.i ], [ 0, %1504 ]
+  %1509 = getelementptr i8, ptr %.0130160.i, i64 1
+  %1510 = load i8, ptr %.0130160.i, align 1
+  %1511 = getelementptr i8, ptr %.0129161.i, i64 1
+  store i8 %1510, ptr %.0129161.i, align 1
+  %1512 = add nuw nsw i32 %.0131159.i, 1
+  %exitcond.not.i = icmp eq i32 %1512, %1507
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -2482,405 +2481,405 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %.pre179.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %1505
-  %1514 = phi ptr [ %.pre179.i, %._crit_edge.loopexit.i ], [ %1465, %1505 ]
-  %1515 = phi i64 [ %.pre178.i, %._crit_edge.loopexit.i ], [ %1466, %1505 ]
-  %1516 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %1467, %1505 ]
-  %1517 = getelementptr inbounds i8, ptr %1514, i64 56
-  %1518 = load i32, ptr %1517, align 8
-  %1519 = icmp eq i32 %1518, 2
-  br i1 %1519, label %1520, label %1522
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %1504
+  %1513 = phi ptr [ %.pre179.i, %._crit_edge.loopexit.i ], [ %1464, %1504 ]
+  %1514 = phi i64 [ %.pre178.i, %._crit_edge.loopexit.i ], [ %1465, %1504 ]
+  %1515 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %1466, %1504 ]
+  %1516 = getelementptr inbounds i8, ptr %1513, i64 56
+  %1517 = load i32, ptr %1516, align 8
+  %1518 = icmp eq i32 %1517, 2
+  br i1 %1518, label %1519, label %1521
 
-1520:                                             ; preds = %._crit_edge.i
-  %1521 = getelementptr ptr, ptr %1516, i64 %1515
+1519:                                             ; preds = %._crit_edge.i
+  %1520 = getelementptr ptr, ptr %1515, i64 %1514
   store i32 0, ptr %78, align 4
-  br label %1625
+  br label %1624
 
-1522:                                             ; preds = %._crit_edge.i
-  %1523 = xor i32 %1508, -1
-  %.pn.in162.i = getelementptr inbounds i8, ptr %1514, i64 24
+1521:                                             ; preds = %._crit_edge.i
+  %1522 = xor i32 %1507, -1
+  %.pn.in162.i = getelementptr inbounds i8, ptr %1513, i64 24
   %.pn163.i = load i32, ptr %.pn.in162.i, align 8
-  %.0132164.i = add i32 %.pn163.i, %1523
-  %1524 = icmp slt i32 %.0132164.i, 1
-  br i1 %1524, label %.lr.ph166.preheader.i, label %._crit_edge167.i
+  %.0132164.i = add i32 %.pn163.i, %1522
+  %1523 = icmp slt i32 %.0132164.i, 1
+  br i1 %1523, label %.lr.ph166.preheader.i, label %._crit_edge167.i
 
-.lr.ph166.preheader.i:                            ; preds = %1522
+.lr.ph166.preheader.i:                            ; preds = %1521
   %.pre180.i = load ptr, ptr %69, align 8
   br label %.lr.ph166.i
 
-.lr.ph166.i:                                      ; preds = %1546, %.lr.ph166.preheader.i
-  %1525 = phi i32 [ %.pn163.i, %.lr.ph166.preheader.i ], [ %.pn.i, %1546 ]
-  %1526 = phi ptr [ %.pre180.i, %.lr.ph166.preheader.i ], [ %1548, %1546 ]
-  %1527 = phi ptr [ %1514, %.lr.ph166.preheader.i ], [ %1552, %1546 ]
-  %1528 = getelementptr inbounds i8, ptr %1527, i64 8
-  %1529 = load ptr, ptr %1528, align 8
-  %1530 = ptrtoint ptr %1526 to i64
-  %1531 = ptrtoint ptr %1529 to i64
-  %1532 = sub i64 %1530, %1531
-  %1533 = getelementptr inbounds i8, ptr %1527, i64 32
-  %1534 = load i32, ptr %1533, align 8
-  %.not145.i = icmp eq i32 %1534, 0
-  br i1 %.not145.i, label %.thread.i, label %1535
+.lr.ph166.i:                                      ; preds = %1545, %.lr.ph166.preheader.i
+  %1524 = phi i32 [ %.pn163.i, %.lr.ph166.preheader.i ], [ %.pn.i, %1545 ]
+  %1525 = phi ptr [ %.pre180.i, %.lr.ph166.preheader.i ], [ %1547, %1545 ]
+  %1526 = phi ptr [ %1513, %.lr.ph166.preheader.i ], [ %1551, %1545 ]
+  %1527 = getelementptr inbounds i8, ptr %1526, i64 8
+  %1528 = load ptr, ptr %1527, align 8
+  %1529 = ptrtoint ptr %1525 to i64
+  %1530 = ptrtoint ptr %1528 to i64
+  %1531 = sub i64 %1529, %1530
+  %1532 = getelementptr inbounds i8, ptr %1526, i64 32
+  %1533 = load i32, ptr %1532, align 8
+  %.not145.i = icmp eq i32 %1533, 0
+  br i1 %.not145.i, label %.thread.i, label %1534
 
 .thread.i:                                        ; preds = %.lr.ph166.i
-  store ptr null, ptr %1528, align 8
+  store ptr null, ptr %1527, align 8
   br label %.loopexit.i
 
-1535:                                             ; preds = %.lr.ph166.i
-  %1536 = getelementptr inbounds i8, ptr %1527, i64 24
-  %1537 = shl i32 %1525, 1
-  %1538 = icmp slt i32 %1537, 1
-  br i1 %1538, label %1539, label %1542
+1534:                                             ; preds = %.lr.ph166.i
+  %1535 = getelementptr inbounds i8, ptr %1526, i64 24
+  %1536 = shl i32 %1524, 1
+  %1537 = icmp slt i32 %1536, 1
+  br i1 %1537, label %1538, label %1541
 
-1539:                                             ; preds = %1535
-  %1540 = sdiv i32 %1525, 8
-  %1541 = add i32 %1540, %1525
-  br label %1542
+1538:                                             ; preds = %1534
+  %1539 = sdiv i32 %1524, 8
+  %1540 = add i32 %1539, %1524
+  br label %1541
 
-1542:                                             ; preds = %1539, %1535
-  %storemerge146.i = phi i32 [ %1541, %1539 ], [ %1537, %1535 ]
-  store i32 %storemerge146.i, ptr %1536, align 8
-  %1543 = add i32 %storemerge146.i, 2
-  %1544 = sext i32 %1543 to i64
-  %1545 = tail call ptr @realloc(ptr noundef %1529, i64 noundef %1544) #27
-  store ptr %1545, ptr %1528, align 8
-  %.not147.i = icmp eq ptr %1545, null
-  br i1 %.not147.i, label %.loopexit.i, label %1546
+1541:                                             ; preds = %1538, %1534
+  %storemerge146.i = phi i32 [ %1540, %1538 ], [ %1536, %1534 ]
+  store i32 %storemerge146.i, ptr %1535, align 8
+  %1542 = add i32 %storemerge146.i, 2
+  %1543 = sext i32 %1542 to i64
+  %1544 = tail call ptr @realloc(ptr noundef %1528, i64 noundef %1543) #27
+  store ptr %1544, ptr %1527, align 8
+  %.not147.i = icmp eq ptr %1544, null
+  br i1 %.not147.i, label %.loopexit.i, label %1545
 
-.loopexit.i:                                      ; preds = %1542, %.thread.i
+.loopexit.i:                                      ; preds = %1541, %.thread.i
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #26
   unreachable
 
-1546:                                             ; preds = %1542
-  %sext148.i = shl i64 %1532, 32
-  %1547 = ashr exact i64 %sext148.i, 32
-  %1548 = getelementptr i8, ptr %1545, i64 %1547
-  store ptr %1548, ptr %69, align 8
-  %1549 = load ptr, ptr %76, align 8
-  %1550 = load i64, ptr %77, align 8
-  %1551 = getelementptr ptr, ptr %1549, i64 %1550
-  %1552 = load ptr, ptr %1551, align 8
-  %.pn.in.i = getelementptr inbounds i8, ptr %1552, i64 24
+1545:                                             ; preds = %1541
+  %sext148.i = shl i64 %1531, 32
+  %1546 = ashr exact i64 %sext148.i, 32
+  %1547 = getelementptr i8, ptr %1544, i64 %1546
+  store ptr %1547, ptr %69, align 8
+  %1548 = load ptr, ptr %76, align 8
+  %1549 = load i64, ptr %77, align 8
+  %1550 = getelementptr ptr, ptr %1548, i64 %1549
+  %1551 = load ptr, ptr %1550, align 8
+  %.pn.in.i = getelementptr inbounds i8, ptr %1551, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
-  %.0132.i = add i32 %.pn.i, %1523
-  %1553 = icmp slt i32 %.0132.i, 1
-  br i1 %1553, label %.lr.ph166.i, label %._crit_edge167.i, !llvm.loop !9
+  %.0132.i = add i32 %.pn.i, %1522
+  %1552 = icmp slt i32 %.0132.i, 1
+  br i1 %1552, label %.lr.ph166.i, label %._crit_edge167.i, !llvm.loop !9
 
-._crit_edge167.i:                                 ; preds = %1546, %1522
-  %1554 = phi ptr [ %1514, %1522 ], [ %1552, %1546 ]
-  %.0132.lcssa.i = phi i32 [ %.0132164.i, %1522 ], [ %.0132.i, %1546 ]
-  %1555 = tail call i32 @llvm.umin.i32(i32 %.0132.lcssa.i, i32 8192)
-  %1556 = getelementptr inbounds i8, ptr %1554, i64 36
-  %1557 = load i32, ptr %1556, align 4
-  %.not.i965 = icmp eq i32 %1557, 0
-  br i1 %.not.i965, label %1588, label %.preheader.i
+._crit_edge167.i:                                 ; preds = %1545, %1521
+  %1553 = phi ptr [ %1513, %1521 ], [ %1551, %1545 ]
+  %.0132.lcssa.i = phi i32 [ %.0132164.i, %1521 ], [ %.0132.i, %1545 ]
+  %1554 = tail call i32 @llvm.umin.i32(i32 %.0132.lcssa.i, i32 8192)
+  %1555 = getelementptr inbounds i8, ptr %1553, i64 36
+  %1556 = load i32, ptr %1555, align 4
+  %.not.i965 = icmp eq i32 %1556, 0
+  br i1 %.not.i965, label %1587, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge167.i
-  %sext144.i = shl i64 %1507, 32
-  %1558 = ashr exact i64 %sext144.i, 32
-  %wide.trip.count.i = zext nneg i32 %1555 to i64
-  br label %1559
+  %sext144.i = shl i64 %1506, 32
+  %1557 = ashr exact i64 %sext144.i, 32
+  %wide.trip.count.i = zext nneg i32 %1554 to i64
+  br label %1558
 
-1559:                                             ; preds = %1562, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %1562 ]
-  %1560 = load ptr, ptr %79, align 8
-  %1561 = tail call i32 @getc(ptr noundef %1560)
-  switch i32 %1561, label %1562 [
+1558:                                             ; preds = %1561, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %1561 ]
+  %1559 = load ptr, ptr %79, align 8
+  %1560 = tail call i32 @getc(ptr noundef %1559)
+  switch i32 %1560, label %1561 [
     i32 -1, label %.critedge.split.loop.exit.i
     i32 10, label %.critedge.split.loop.exit.i
   ]
 
-1562:                                             ; preds = %1559
-  %1563 = trunc i32 %1561 to i8
-  %1564 = load ptr, ptr %76, align 8
-  %1565 = load i64, ptr %77, align 8
-  %1566 = getelementptr ptr, ptr %1564, i64 %1565
-  %1567 = load ptr, ptr %1566, align 8
-  %1568 = getelementptr inbounds i8, ptr %1567, i64 8
-  %1569 = load ptr, ptr %1568, align 8
-  %1570 = getelementptr i8, ptr %1569, i64 %1558
-  %1571 = getelementptr i8, ptr %1570, i64 %indvars.iv.i
-  store i8 %1563, ptr %1571, align 1
+1561:                                             ; preds = %1558
+  %1562 = trunc i32 %1560 to i8
+  %1563 = load ptr, ptr %76, align 8
+  %1564 = load i64, ptr %77, align 8
+  %1565 = getelementptr ptr, ptr %1563, i64 %1564
+  %1566 = load ptr, ptr %1565, align 8
+  %1567 = getelementptr inbounds i8, ptr %1566, i64 8
+  %1568 = load ptr, ptr %1567, align 8
+  %1569 = getelementptr i8, ptr %1568, i64 %1557
+  %1570 = getelementptr i8, ptr %1569, i64 %indvars.iv.i
+  store i8 %1562, ptr %1570, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond177.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond177.not.i, label %.critedge.i, label %1559, !llvm.loop !10
+  br i1 %exitcond177.not.i, label %.critedge.i, label %1558, !llvm.loop !10
 
-.critedge.split.loop.exit.i:                      ; preds = %1559, %1559
-  %1572 = trunc nuw nsw i64 %indvars.iv.i to i32
+.critedge.split.loop.exit.i:                      ; preds = %1558, %1558
+  %1571 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %1562, %.critedge.split.loop.exit.i
-  %.0126.lcssa.i = phi i32 [ %1572, %.critedge.split.loop.exit.i ], [ %1555, %1562 ]
-  switch i32 %1561, label %1587 [
+.critedge.i:                                      ; preds = %1561, %.critedge.split.loop.exit.i
+  %.0126.lcssa.i = phi i32 [ %1571, %.critedge.split.loop.exit.i ], [ %1554, %1561 ]
+  switch i32 %1560, label %1586 [
     i32 10, label %.thread152.i
-    i32 -1, label %1583
+    i32 -1, label %1582
   ]
 
 .thread152.i:                                     ; preds = %.critedge.i
-  %1573 = load ptr, ptr %76, align 8
-  %1574 = load i64, ptr %77, align 8
-  %1575 = getelementptr ptr, ptr %1573, i64 %1574
-  %1576 = load ptr, ptr %1575, align 8
-  %1577 = getelementptr inbounds i8, ptr %1576, i64 8
-  %1578 = load ptr, ptr %1577, align 8
-  %1579 = getelementptr i8, ptr %1578, i64 %1558
-  %1580 = add nuw i32 %.0126.lcssa.i, 1
-  %1581 = zext nneg i32 %.0126.lcssa.i to i64
-  %1582 = getelementptr i8, ptr %1579, i64 %1581
-  store i8 10, ptr %1582, align 1
-  br label %1587
+  %1572 = load ptr, ptr %76, align 8
+  %1573 = load i64, ptr %77, align 8
+  %1574 = getelementptr ptr, ptr %1572, i64 %1573
+  %1575 = load ptr, ptr %1574, align 8
+  %1576 = getelementptr inbounds i8, ptr %1575, i64 8
+  %1577 = load ptr, ptr %1576, align 8
+  %1578 = getelementptr i8, ptr %1577, i64 %1557
+  %1579 = add nuw i32 %.0126.lcssa.i, 1
+  %1580 = zext nneg i32 %.0126.lcssa.i to i64
+  %1581 = getelementptr i8, ptr %1578, i64 %1580
+  store i8 10, ptr %1581, align 1
+  br label %1586
 
-1583:                                             ; preds = %.critedge.i
-  %1584 = load ptr, ptr %79, align 8
-  %1585 = tail call i32 @ferror(ptr noundef %1584) #29
-  %.not143.i = icmp eq i32 %1585, 0
-  br i1 %.not143.i, label %1587, label %1586
+1582:                                             ; preds = %.critedge.i
+  %1583 = load ptr, ptr %79, align 8
+  %1584 = tail call i32 @ferror(ptr noundef %1583) #29
+  %.not143.i = icmp eq i32 %1584, 0
+  br i1 %.not143.i, label %1586, label %1585
 
-1586:                                             ; preds = %1583
+1585:                                             ; preds = %1582
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #26
   unreachable
 
-1587:                                             ; preds = %1583, %.thread152.i, %.critedge.i
-  %.1154.i = phi i32 [ %1580, %.thread152.i ], [ %.0126.lcssa.i, %1583 ], [ %.0126.lcssa.i, %.critedge.i ]
+1586:                                             ; preds = %1582, %.thread152.i, %.critedge.i
+  %.1154.i = phi i32 [ %1579, %.thread152.i ], [ %.0126.lcssa.i, %1582 ], [ %.0126.lcssa.i, %.critedge.i ]
   store i32 %.1154.i, ptr %78, align 4
   br label %.critedge2.i
 
-1588:                                             ; preds = %._crit_edge167.i
-  %1589 = tail call ptr @__errno_location() #30
-  store i32 0, ptr %1589, align 4
-  %sext.i = shl i64 %1507, 32
-  %1590 = ashr exact i64 %sext.i, 32
-  %1591 = zext nneg i32 %1555 to i64
-  %1592 = load ptr, ptr %76, align 8
-  %1593 = load i64, ptr %77, align 8
-  %1594 = getelementptr ptr, ptr %1592, i64 %1593
-  %1595 = load ptr, ptr %1594, align 8
-  %1596 = getelementptr inbounds i8, ptr %1595, i64 8
-  %1597 = load ptr, ptr %1596, align 8
-  %1598 = getelementptr i8, ptr %1597, i64 %1590
-  %1599 = load ptr, ptr %79, align 8
-  %1600 = tail call i64 @fread(ptr noundef %1598, i64 noundef 1, i64 noundef %1591, ptr noundef %1599)
-  %1601 = trunc i64 %1600 to i32
-  store i32 %1601, ptr %78, align 4
-  %1602 = icmp eq i32 %1601, 0
-  br i1 %1602, label %.lr.ph170.i, label %.critedge2.i
+1587:                                             ; preds = %._crit_edge167.i
+  %1588 = tail call ptr @__errno_location() #30
+  store i32 0, ptr %1588, align 4
+  %sext.i = shl i64 %1506, 32
+  %1589 = ashr exact i64 %sext.i, 32
+  %1590 = zext nneg i32 %1554 to i64
+  %1591 = load ptr, ptr %76, align 8
+  %1592 = load i64, ptr %77, align 8
+  %1593 = getelementptr ptr, ptr %1591, i64 %1592
+  %1594 = load ptr, ptr %1593, align 8
+  %1595 = getelementptr inbounds i8, ptr %1594, i64 8
+  %1596 = load ptr, ptr %1595, align 8
+  %1597 = getelementptr i8, ptr %1596, i64 %1589
+  %1598 = load ptr, ptr %79, align 8
+  %1599 = tail call i64 @fread(ptr noundef %1597, i64 noundef 1, i64 noundef %1590, ptr noundef %1598)
+  %1600 = trunc i64 %1599 to i32
+  store i32 %1600, ptr %78, align 4
+  %1601 = icmp eq i32 %1600, 0
+  br i1 %1601, label %.lr.ph170.i, label %.critedge2.i
 
-.lr.ph170.i:                                      ; preds = %1588, %1608
-  %1603 = load ptr, ptr %79, align 8
-  %1604 = tail call i32 @ferror(ptr noundef %1603) #29
-  %.not140.i = icmp eq i32 %1604, 0
-  br i1 %.not140.i, label %.critedge2.i, label %1605
+.lr.ph170.i:                                      ; preds = %1587, %1607
+  %1602 = load ptr, ptr %79, align 8
+  %1603 = tail call i32 @ferror(ptr noundef %1602) #29
+  %.not140.i = icmp eq i32 %1603, 0
+  br i1 %.not140.i, label %.critedge2.i, label %1604
 
-1605:                                             ; preds = %.lr.ph170.i
-  %1606 = load i32, ptr %1589, align 4
-  %.not141.i = icmp eq i32 %1606, 4
-  br i1 %.not141.i, label %1608, label %1607
+1604:                                             ; preds = %.lr.ph170.i
+  %1605 = load i32, ptr %1588, align 4
+  %.not141.i = icmp eq i32 %1605, 4
+  br i1 %.not141.i, label %1607, label %1606
 
-1607:                                             ; preds = %1605
+1606:                                             ; preds = %1604
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #26
   unreachable
 
-1608:                                             ; preds = %1605
-  store i32 0, ptr %1589, align 4
-  %1609 = load ptr, ptr %79, align 8
-  tail call void @clearerr(ptr noundef %1609) #29
-  %1610 = load ptr, ptr %76, align 8
-  %1611 = load i64, ptr %77, align 8
-  %1612 = getelementptr ptr, ptr %1610, i64 %1611
-  %1613 = load ptr, ptr %1612, align 8
-  %1614 = getelementptr inbounds i8, ptr %1613, i64 8
-  %1615 = load ptr, ptr %1614, align 8
-  %1616 = getelementptr i8, ptr %1615, i64 %1590
-  %1617 = load ptr, ptr %79, align 8
-  %1618 = tail call i64 @fread(ptr noundef %1616, i64 noundef 1, i64 noundef %1591, ptr noundef %1617)
-  %1619 = trunc i64 %1618 to i32
-  store i32 %1619, ptr %78, align 4
-  %1620 = icmp eq i32 %1619, 0
-  br i1 %1620, label %.lr.ph170.i, label %.critedge2.i, !llvm.loop !11
+1607:                                             ; preds = %1604
+  store i32 0, ptr %1588, align 4
+  %1608 = load ptr, ptr %79, align 8
+  tail call void @clearerr(ptr noundef %1608) #29
+  %1609 = load ptr, ptr %76, align 8
+  %1610 = load i64, ptr %77, align 8
+  %1611 = getelementptr ptr, ptr %1609, i64 %1610
+  %1612 = load ptr, ptr %1611, align 8
+  %1613 = getelementptr inbounds i8, ptr %1612, i64 8
+  %1614 = load ptr, ptr %1613, align 8
+  %1615 = getelementptr i8, ptr %1614, i64 %1589
+  %1616 = load ptr, ptr %79, align 8
+  %1617 = tail call i64 @fread(ptr noundef %1615, i64 noundef 1, i64 noundef %1590, ptr noundef %1616)
+  %1618 = trunc i64 %1617 to i32
+  store i32 %1618, ptr %78, align 4
+  %1619 = icmp eq i32 %1618, 0
+  br i1 %1619, label %.lr.ph170.i, label %.critedge2.i, !llvm.loop !11
 
-.critedge2.i:                                     ; preds = %1608, %.lr.ph170.i, %1588, %1587
-  %1621 = phi i32 [ %1601, %1588 ], [ %.1154.i, %1587 ], [ 0, %.lr.ph170.i ], [ %1619, %1608 ]
-  %1622 = load ptr, ptr %76, align 8
-  %1623 = load i64, ptr %77, align 8
-  %1624 = getelementptr ptr, ptr %1622, i64 %1623
-  br label %1625
+.critedge2.i:                                     ; preds = %1607, %.lr.ph170.i, %1587, %1586
+  %1620 = phi i32 [ %1600, %1587 ], [ %.1154.i, %1586 ], [ 0, %.lr.ph170.i ], [ %1618, %1607 ]
+  %1621 = load ptr, ptr %76, align 8
+  %1622 = load i64, ptr %77, align 8
+  %1623 = getelementptr ptr, ptr %1621, i64 %1622
+  br label %1624
 
-1625:                                             ; preds = %.critedge2.i, %1520
-  %.sink194.in.i = phi ptr [ %1624, %.critedge2.i ], [ %1521, %1520 ]
-  %.sink.i = phi i32 [ %1621, %.critedge2.i ], [ 0, %1520 ]
+1624:                                             ; preds = %.critedge2.i, %1519
+  %.sink194.in.i = phi ptr [ %1623, %.critedge2.i ], [ %1520, %1519 ]
+  %.sink.i = phi i32 [ %1620, %.critedge2.i ], [ 0, %1519 ]
   %.sink194.i = load ptr, ptr %.sink194.in.i, align 8
-  %1626 = getelementptr inbounds i8, ptr %.sink194.i, i64 28
-  store i32 %.sink.i, ptr %1626, align 4
-  %1627 = load i32, ptr %78, align 4
-  %1628 = icmp eq i32 %1627, 0
-  br i1 %1628, label %1629, label %1639
+  %1625 = getelementptr inbounds i8, ptr %.sink194.i, i64 28
+  store i32 %.sink.i, ptr %1625, align 4
+  %1626 = load i32, ptr %78, align 4
+  %1627 = icmp eq i32 %1626, 0
+  br i1 %1627, label %1628, label %1638
 
-1629:                                             ; preds = %1625
-  %1630 = icmp eq i32 %1508, 0
-  br i1 %1630, label %1631, label %1633
+1628:                                             ; preds = %1624
+  %1629 = icmp eq i32 %1507, 0
+  br i1 %1629, label %1630, label %1632
 
-1631:                                             ; preds = %1629
-  %1632 = load ptr, ptr %79, align 8
-  tail call void @protobuf_lang_restart(ptr noundef %1632, ptr noundef nonnull %0)
-  br label %1639
+1630:                                             ; preds = %1628
+  %1631 = load ptr, ptr %79, align 8
+  tail call void @protobuf_lang_restart(ptr noundef %1631, ptr noundef nonnull %0)
+  br label %1638
 
-1633:                                             ; preds = %1629
-  %1634 = load ptr, ptr %76, align 8
-  %1635 = load i64, ptr %77, align 8
-  %1636 = getelementptr ptr, ptr %1634, i64 %1635
-  %1637 = load ptr, ptr %1636, align 8
-  %1638 = getelementptr inbounds i8, ptr %1637, i64 56
-  store i32 2, ptr %1638, align 8
-  br label %1639
+1632:                                             ; preds = %1628
+  %1633 = load ptr, ptr %76, align 8
+  %1634 = load i64, ptr %77, align 8
+  %1635 = getelementptr ptr, ptr %1633, i64 %1634
+  %1636 = load ptr, ptr %1635, align 8
+  %1637 = getelementptr inbounds i8, ptr %1636, i64 56
+  store i32 2, ptr %1637, align 8
+  br label %1638
 
-1639:                                             ; preds = %1633, %1631, %1625
-  %.0133.i = phi i32 [ 1, %1631 ], [ 2, %1633 ], [ 0, %1625 ]
-  %1640 = load i32, ptr %78, align 4
-  %1641 = add i32 %1640, %1508
-  %1642 = load ptr, ptr %76, align 8
-  %1643 = load i64, ptr %77, align 8
-  %1644 = getelementptr ptr, ptr %1642, i64 %1643
-  %1645 = load ptr, ptr %1644, align 8
-  %1646 = getelementptr inbounds i8, ptr %1645, i64 24
-  %1647 = load i32, ptr %1646, align 8
-  %1648 = icmp sgt i32 %1641, %1647
-  br i1 %1648, label %1649, label %yy_get_next_buffer.exit
+1638:                                             ; preds = %1632, %1630, %1624
+  %.0133.i = phi i32 [ 1, %1630 ], [ 2, %1632 ], [ 0, %1624 ]
+  %1639 = load i32, ptr %78, align 4
+  %1640 = add i32 %1639, %1507
+  %1641 = load ptr, ptr %76, align 8
+  %1642 = load i64, ptr %77, align 8
+  %1643 = getelementptr ptr, ptr %1641, i64 %1642
+  %1644 = load ptr, ptr %1643, align 8
+  %1645 = getelementptr inbounds i8, ptr %1644, i64 24
+  %1646 = load i32, ptr %1645, align 8
+  %1647 = icmp sgt i32 %1640, %1646
+  br i1 %1647, label %1648, label %yy_get_next_buffer.exit
 
-1649:                                             ; preds = %1639
-  %1650 = ashr i32 %1640, 1
-  %1651 = add i32 %1641, %1650
-  %1652 = getelementptr inbounds i8, ptr %1645, i64 8
-  %1653 = load ptr, ptr %1652, align 8
-  %1654 = sext i32 %1651 to i64
-  %1655 = tail call ptr @realloc(ptr noundef %1653, i64 noundef %1654) #27
-  %1656 = load ptr, ptr %76, align 8
-  %1657 = load i64, ptr %77, align 8
-  %1658 = getelementptr ptr, ptr %1656, i64 %1657
-  %1659 = load ptr, ptr %1658, align 8
-  %1660 = getelementptr inbounds i8, ptr %1659, i64 8
-  store ptr %1655, ptr %1660, align 8
-  %1661 = load ptr, ptr %76, align 8
-  %1662 = load i64, ptr %77, align 8
-  %1663 = getelementptr ptr, ptr %1661, i64 %1662
-  %1664 = load ptr, ptr %1663, align 8
-  %1665 = getelementptr inbounds i8, ptr %1664, i64 8
-  %1666 = load ptr, ptr %1665, align 8
-  %.not149.i = icmp eq ptr %1666, null
-  br i1 %.not149.i, label %1667, label %1668
+1648:                                             ; preds = %1638
+  %1649 = ashr i32 %1639, 1
+  %1650 = add i32 %1640, %1649
+  %1651 = getelementptr inbounds i8, ptr %1644, i64 8
+  %1652 = load ptr, ptr %1651, align 8
+  %1653 = sext i32 %1650 to i64
+  %1654 = tail call ptr @realloc(ptr noundef %1652, i64 noundef %1653) #27
+  %1655 = load ptr, ptr %76, align 8
+  %1656 = load i64, ptr %77, align 8
+  %1657 = getelementptr ptr, ptr %1655, i64 %1656
+  %1658 = load ptr, ptr %1657, align 8
+  %1659 = getelementptr inbounds i8, ptr %1658, i64 8
+  store ptr %1654, ptr %1659, align 8
+  %1660 = load ptr, ptr %76, align 8
+  %1661 = load i64, ptr %77, align 8
+  %1662 = getelementptr ptr, ptr %1660, i64 %1661
+  %1663 = load ptr, ptr %1662, align 8
+  %1664 = getelementptr inbounds i8, ptr %1663, i64 8
+  %1665 = load ptr, ptr %1664, align 8
+  %.not149.i = icmp eq ptr %1665, null
+  br i1 %.not149.i, label %1666, label %1667
 
-1667:                                             ; preds = %1649
+1666:                                             ; preds = %1648
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #26
   unreachable
 
-1668:                                             ; preds = %1649
-  %1669 = add i32 %1651, -2
-  %1670 = getelementptr inbounds i8, ptr %1664, i64 24
-  store i32 %1669, ptr %1670, align 8
+1667:                                             ; preds = %1648
+  %1668 = add i32 %1650, -2
+  %1669 = getelementptr inbounds i8, ptr %1663, i64 24
+  store i32 %1668, ptr %1669, align 8
   %.pre181.i = load i32, ptr %78, align 4
   %.pre182.i = load ptr, ptr %76, align 8
   %.pre183.i = load i64, ptr %77, align 8
-  %.pre184.i = add i32 %.pre181.i, %1508
+  %.pre184.i = add i32 %.pre181.i, %1507
   br label %yy_get_next_buffer.exit
 
-yy_get_next_buffer.exit:                          ; preds = %1639, %1668
-  %.pre-phi.i = phi i32 [ %.pre184.i, %1668 ], [ %1641, %1639 ]
-  %1671 = phi i64 [ %.pre183.i, %1668 ], [ %1643, %1639 ]
-  %1672 = phi ptr [ %.pre182.i, %1668 ], [ %1642, %1639 ]
+yy_get_next_buffer.exit:                          ; preds = %1638, %1667
+  %.pre-phi.i = phi i32 [ %.pre184.i, %1667 ], [ %1640, %1638 ]
+  %1670 = phi i64 [ %.pre183.i, %1667 ], [ %1642, %1638 ]
+  %1671 = phi ptr [ %.pre182.i, %1667 ], [ %1641, %1638 ]
   store i32 %.pre-phi.i, ptr %78, align 4
-  %1673 = getelementptr ptr, ptr %1672, i64 %1671
-  %1674 = load ptr, ptr %1673, align 8
-  %1675 = getelementptr inbounds i8, ptr %1674, i64 8
-  %1676 = load ptr, ptr %1675, align 8
-  %1677 = sext i32 %.pre-phi.i to i64
-  %1678 = getelementptr i8, ptr %1676, i64 %1677
-  store i8 0, ptr %1678, align 1
-  %1679 = load ptr, ptr %76, align 8
-  %1680 = load i64, ptr %77, align 8
-  %1681 = getelementptr ptr, ptr %1679, i64 %1680
-  %1682 = load ptr, ptr %1681, align 8
-  %1683 = getelementptr inbounds i8, ptr %1682, i64 8
-  %1684 = load ptr, ptr %1683, align 8
-  %1685 = load i32, ptr %78, align 4
-  %1686 = add i32 %1685, 1
-  %1687 = sext i32 %1686 to i64
-  %1688 = getelementptr i8, ptr %1684, i64 %1687
-  store i8 0, ptr %1688, align 1
-  %1689 = load ptr, ptr %76, align 8
-  %1690 = load i64, ptr %77, align 8
-  %1691 = getelementptr ptr, ptr %1689, i64 %1690
-  %1692 = load ptr, ptr %1691, align 8
-  %1693 = getelementptr inbounds i8, ptr %1692, i64 8
-  %1694 = load ptr, ptr %1693, align 8
-  store ptr %1694, ptr %74, align 8
+  %1672 = getelementptr ptr, ptr %1671, i64 %1670
+  %1673 = load ptr, ptr %1672, align 8
+  %1674 = getelementptr inbounds i8, ptr %1673, i64 8
+  %1675 = load ptr, ptr %1674, align 8
+  %1676 = sext i32 %.pre-phi.i to i64
+  %1677 = getelementptr i8, ptr %1675, i64 %1676
+  store i8 0, ptr %1677, align 1
+  %1678 = load ptr, ptr %76, align 8
+  %1679 = load i64, ptr %77, align 8
+  %1680 = getelementptr ptr, ptr %1678, i64 %1679
+  %1681 = load ptr, ptr %1680, align 8
+  %1682 = getelementptr inbounds i8, ptr %1681, i64 8
+  %1683 = load ptr, ptr %1682, align 8
+  %1684 = load i32, ptr %78, align 4
+  %1685 = add i32 %1684, 1
+  %1686 = sext i32 %1685 to i64
+  %1687 = getelementptr i8, ptr %1683, i64 %1686
+  store i8 0, ptr %1687, align 1
+  %1688 = load ptr, ptr %76, align 8
+  %1689 = load i64, ptr %77, align 8
+  %1690 = getelementptr ptr, ptr %1688, i64 %1689
+  %1691 = load ptr, ptr %1690, align 8
+  %1692 = getelementptr inbounds i8, ptr %1691, i64 8
+  %1693 = load ptr, ptr %1692, align 8
+  store ptr %1693, ptr %74, align 8
   switch i32 %.0133.i, label %default.unreachable1311 [
     i32 1, label %yy_get_next_buffer.exit.thread
-    i32 0, label %1701
+    i32 0, label %1700
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %1695 = getelementptr ptr, ptr %1689, i64 %1690
-  %.pre1306 = load ptr, ptr %1695, align 8
+  %1694 = getelementptr ptr, ptr %1688, i64 %1689
+  %.pre1306 = load ptr, ptr %1694, align 8
   %.phi.trans.insert1307 = getelementptr inbounds i8, ptr %.pre1306, i64 8
   %.pre1308 = load ptr, ptr %.phi.trans.insert1307, align 8
   %.pre1309 = load i32, ptr %78, align 4
   %.pre1310 = sext i32 %.pre1309 to i64
   br label %yy_get_next_buffer.exit.thread968
 
-yy_get_next_buffer.exit.thread:                   ; preds = %1502, %yy_get_next_buffer.exit
-  %1696 = phi ptr [ %1490, %1502 ], [ %1694, %yy_get_next_buffer.exit ]
+yy_get_next_buffer.exit.thread:                   ; preds = %1501, %yy_get_next_buffer.exit
+  %1695 = phi ptr [ %1489, %1501 ], [ %1693, %yy_get_next_buffer.exit ]
   store i32 0, ptr %80, align 8
-  store ptr %1696, ptr %69, align 8
-  %1697 = load i32, ptr %71, align 4
-  %1698 = add i32 %1697, -1
-  %1699 = sdiv i32 %1698, 2
-  %1700 = add nsw i32 %1699, 72
+  store ptr %1695, ptr %69, align 8
+  %1696 = load i32, ptr %71, align 4
+  %1697 = add i32 %1696, -1
+  %1698 = sdiv i32 %1697, 2
+  %1699 = add nsw i32 %1698, 72
   br label %.loopexit971
 
-1701:                                             ; preds = %yy_get_next_buffer.exit
-  %1702 = ptrtoint ptr %1445 to i64
-  %1703 = xor i64 %1702, -1
-  %1704 = add i64 %1703, %132
-  %sext1195 = shl i64 %1704, 32
-  %1705 = ashr exact i64 %sext1195, 32
-  %1706 = getelementptr i8, ptr %1694, i64 %1705
-  store ptr %1706, ptr %69, align 8
-  %1707 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
-  %1708 = load ptr, ptr %69, align 8
-  %1709 = load ptr, ptr %74, align 8
+1700:                                             ; preds = %yy_get_next_buffer.exit
+  %1701 = ptrtoint ptr %1444 to i64
+  %1702 = xor i64 %1701, -1
+  %1703 = add i64 %1702, %132
+  %sext1195 = shl i64 %1703, 32
+  %1704 = ashr exact i64 %sext1195, 32
+  %1705 = getelementptr i8, ptr %1693, i64 %1704
+  store ptr %1705, ptr %69, align 8
+  %1706 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
+  %1707 = load ptr, ptr %69, align 8
+  %1708 = load ptr, ptr %74, align 8
   br label %.backedge.backedge
 
-yy_get_next_buffer.exit.thread968:                ; preds = %1502, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge
-  %.pre-phi = phi i64 [ %.pre1310, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge ], [ %1472, %1502 ]
-  %1710 = phi ptr [ %.pre1308, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge ], [ %1470, %1502 ]
-  %1711 = getelementptr i8, ptr %1710, i64 %.pre-phi
-  store ptr %1711, ptr %69, align 8
-  %1712 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
-  %1713 = load ptr, ptr %74, align 8
+yy_get_next_buffer.exit.thread968:                ; preds = %1501, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge
+  %.pre-phi = phi i64 [ %.pre1310, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge ], [ %1471, %1501 ]
+  %1709 = phi ptr [ %.pre1308, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge ], [ %1469, %1501 ]
+  %1710 = getelementptr i8, ptr %1709, i64 %.pre-phi
+  store ptr %1710, ptr %69, align 8
+  %1711 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
+  %1712 = load ptr, ptr %74, align 8
   br label %.outer.backedge
 
-1714:                                             ; preds = %.loopexit971
+1713:                                             ; preds = %.loopexit971
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
 default.unreachable1311:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
-.loopexit970.sink.split.sink.split:               ; preds = %1424, %1404, %1384, %1364, %1344, %1324, %1304, %1284, %1264, %1244, %1224, %1204, %1184, %1164, %1144, %1124, %1104, %1084, %1064, %1044, %1024, %1004, %984, %964, %944, %924, %904, %884, %864, %844, %824, %804, %784, %764, %744, %724, %704, %684, %664, %644, %624, %604, %584, %564, %544, %524, %504, %484, %464, %444, %424, %404, %384, %364, %344, %324, %304, %284, %264, %244, %224, %204, %184
-  %.sink1446 = phi ptr [ %187, %184 ], [ %207, %204 ], [ %227, %224 ], [ %247, %244 ], [ %267, %264 ], [ %287, %284 ], [ %307, %304 ], [ %327, %324 ], [ %347, %344 ], [ %367, %364 ], [ %387, %384 ], [ %407, %404 ], [ %427, %424 ], [ %447, %444 ], [ %467, %464 ], [ %487, %484 ], [ %507, %504 ], [ %527, %524 ], [ %547, %544 ], [ %567, %564 ], [ %587, %584 ], [ %607, %604 ], [ %627, %624 ], [ %647, %644 ], [ %667, %664 ], [ %687, %684 ], [ %707, %704 ], [ %727, %724 ], [ %747, %744 ], [ %767, %764 ], [ %787, %784 ], [ %807, %804 ], [ %827, %824 ], [ %847, %844 ], [ %867, %864 ], [ %887, %884 ], [ %907, %904 ], [ %927, %924 ], [ %947, %944 ], [ %967, %964 ], [ %987, %984 ], [ %1007, %1004 ], [ %1027, %1024 ], [ %1047, %1044 ], [ %1067, %1064 ], [ %1087, %1084 ], [ %1107, %1104 ], [ %1127, %1124 ], [ %1147, %1144 ], [ %1167, %1164 ], [ %1187, %1184 ], [ %1207, %1204 ], [ %1227, %1224 ], [ %1247, %1244 ], [ %1267, %1264 ], [ %1287, %1284 ], [ %1307, %1304 ], [ %1327, %1324 ], [ %1347, %1344 ], [ %1367, %1364 ], [ %1387, %1384 ], [ %1407, %1404 ], [ %1427, %1424 ]
-  %.0.ph.ph = phi i32 [ 26, %184 ], [ 27, %204 ], [ 32, %224 ], [ 33, %244 ], [ 29, %264 ], [ 30, %284 ], [ 34, %304 ], [ 35, %324 ], [ 36, %344 ], [ 37, %364 ], [ 38, %384 ], [ 39, %404 ], [ 24, %424 ], [ 40, %444 ], [ 41, %464 ], [ 42, %484 ], [ 43, %504 ], [ 44, %524 ], [ 45, %544 ], [ 46, %564 ], [ 47, %584 ], [ 48, %604 ], [ 49, %624 ], [ 50, %644 ], [ 51, %664 ], [ 52, %684 ], [ 53, %704 ], [ 54, %724 ], [ 55, %744 ], [ 25, %764 ], [ 28, %784 ], [ 56, %804 ], [ 57, %824 ], [ 58, %844 ], [ 59, %864 ], [ 2, %884 ], [ 3, %904 ], [ 4, %924 ], [ 5, %944 ], [ 6, %964 ], [ 7, %984 ], [ 8, %1004 ], [ 9, %1024 ], [ 10, %1044 ], [ 11, %1064 ], [ 12, %1084 ], [ 13, %1104 ], [ 14, %1124 ], [ 15, %1144 ], [ 16, %1164 ], [ 17, %1184 ], [ 18, %1204 ], [ 19, %1224 ], [ 20, %1244 ], [ 21, %1264 ], [ 22, %1284 ], [ 23, %1304 ], [ 60, %1324 ], [ 61, %1344 ], [ 62, %1364 ], [ 1, %1384 ], [ 31, %1404 ], [ 31, %1424 ]
-  %1715 = getelementptr inbounds i8, ptr %.sink1446, i64 44
-  %1716 = load i32, ptr %1715, align 4
+.loopexit970.sink.split.sink.split:               ; preds = %1423, %1403, %1383, %1363, %1343, %1323, %1303, %1283, %1263, %1243, %1223, %1203, %1183, %1163, %1143, %1123, %1103, %1083, %1063, %1043, %1023, %1003, %983, %963, %943, %923, %903, %883, %863, %843, %823, %803, %783, %763, %743, %723, %703, %683, %663, %643, %623, %603, %583, %563, %543, %523, %503, %483, %463, %443, %423, %403, %383, %363, %343, %323, %303, %283, %263, %243, %223, %203, %183
+  %.sink1446 = phi ptr [ %186, %183 ], [ %206, %203 ], [ %226, %223 ], [ %246, %243 ], [ %266, %263 ], [ %286, %283 ], [ %306, %303 ], [ %326, %323 ], [ %346, %343 ], [ %366, %363 ], [ %386, %383 ], [ %406, %403 ], [ %426, %423 ], [ %446, %443 ], [ %466, %463 ], [ %486, %483 ], [ %506, %503 ], [ %526, %523 ], [ %546, %543 ], [ %566, %563 ], [ %586, %583 ], [ %606, %603 ], [ %626, %623 ], [ %646, %643 ], [ %666, %663 ], [ %686, %683 ], [ %706, %703 ], [ %726, %723 ], [ %746, %743 ], [ %766, %763 ], [ %786, %783 ], [ %806, %803 ], [ %826, %823 ], [ %846, %843 ], [ %866, %863 ], [ %886, %883 ], [ %906, %903 ], [ %926, %923 ], [ %946, %943 ], [ %966, %963 ], [ %986, %983 ], [ %1006, %1003 ], [ %1026, %1023 ], [ %1046, %1043 ], [ %1066, %1063 ], [ %1086, %1083 ], [ %1106, %1103 ], [ %1126, %1123 ], [ %1146, %1143 ], [ %1166, %1163 ], [ %1186, %1183 ], [ %1206, %1203 ], [ %1226, %1223 ], [ %1246, %1243 ], [ %1266, %1263 ], [ %1286, %1283 ], [ %1306, %1303 ], [ %1326, %1323 ], [ %1346, %1343 ], [ %1366, %1363 ], [ %1386, %1383 ], [ %1406, %1403 ], [ %1426, %1423 ]
+  %.0.ph.ph = phi i32 [ 26, %183 ], [ 27, %203 ], [ 32, %223 ], [ 33, %243 ], [ 29, %263 ], [ 30, %283 ], [ 34, %303 ], [ 35, %323 ], [ 36, %343 ], [ 37, %363 ], [ 38, %383 ], [ 39, %403 ], [ 24, %423 ], [ 40, %443 ], [ 41, %463 ], [ 42, %483 ], [ 43, %503 ], [ 44, %523 ], [ 45, %543 ], [ 46, %563 ], [ 47, %583 ], [ 48, %603 ], [ 49, %623 ], [ 50, %643 ], [ 51, %663 ], [ 52, %683 ], [ 53, %703 ], [ 54, %723 ], [ 55, %743 ], [ 25, %763 ], [ 28, %783 ], [ 56, %803 ], [ 57, %823 ], [ 58, %843 ], [ 59, %863 ], [ 2, %883 ], [ 3, %903 ], [ 4, %923 ], [ 5, %943 ], [ 6, %963 ], [ 7, %983 ], [ 8, %1003 ], [ 9, %1023 ], [ 10, %1043 ], [ 11, %1063 ], [ 12, %1083 ], [ 13, %1103 ], [ 14, %1123 ], [ 15, %1143 ], [ 16, %1163 ], [ 17, %1183 ], [ 18, %1203 ], [ 19, %1223 ], [ 20, %1243 ], [ 21, %1263 ], [ 22, %1283 ], [ 23, %1303 ], [ 60, %1323 ], [ 61, %1343 ], [ 62, %1363 ], [ 1, %1383 ], [ 31, %1403 ], [ 31, %1423 ]
+  %1714 = getelementptr inbounds i8, ptr %.sink1446, i64 44
+  %1715 = load i32, ptr %1714, align 4
   br label %.loopexit970.sink.split
 
-.loopexit970.sink.split:                          ; preds = %.loopexit970.sink.split.sink.split, %1424, %1408, %1404, %1388, %1384, %1368, %1364, %1348, %1344, %1328, %1324, %1308, %1304, %1288, %1284, %1268, %1264, %1248, %1244, %1228, %1224, %1208, %1204, %1188, %1184, %1168, %1164, %1148, %1144, %1128, %1124, %1108, %1104, %1088, %1084, %1068, %1064, %1048, %1044, %1028, %1024, %1008, %1004, %988, %984, %968, %964, %948, %944, %928, %924, %908, %904, %888, %884, %868, %864, %848, %844, %828, %824, %808, %804, %788, %784, %768, %764, %748, %744, %728, %724, %708, %704, %688, %684, %668, %664, %648, %644, %628, %624, %608, %604, %588, %584, %568, %564, %548, %544, %528, %524, %508, %504, %488, %484, %468, %464, %448, %444, %428, %424, %408, %404, %388, %384, %368, %364, %348, %344, %328, %324, %308, %304, %288, %284, %268, %264, %248, %244, %228, %224, %208, %204, %188, %184, %168
-  %.0.i963.sink = phi i32 [ 0, %168 ], [ 0, %184 ], [ 0, %188 ], [ 0, %204 ], [ 0, %208 ], [ 0, %224 ], [ 0, %228 ], [ 0, %244 ], [ 0, %248 ], [ 0, %264 ], [ 0, %268 ], [ 0, %284 ], [ 0, %288 ], [ 0, %304 ], [ 0, %308 ], [ 0, %324 ], [ 0, %328 ], [ 0, %344 ], [ 0, %348 ], [ 0, %364 ], [ 0, %368 ], [ 0, %384 ], [ 0, %388 ], [ 0, %404 ], [ 0, %408 ], [ 0, %424 ], [ 0, %428 ], [ 0, %444 ], [ 0, %448 ], [ 0, %464 ], [ 0, %468 ], [ 0, %484 ], [ 0, %488 ], [ 0, %504 ], [ 0, %508 ], [ 0, %524 ], [ 0, %528 ], [ 0, %544 ], [ 0, %548 ], [ 0, %564 ], [ 0, %568 ], [ 0, %584 ], [ 0, %588 ], [ 0, %604 ], [ 0, %608 ], [ 0, %624 ], [ 0, %628 ], [ 0, %644 ], [ 0, %648 ], [ 0, %664 ], [ 0, %668 ], [ 0, %684 ], [ 0, %688 ], [ 0, %704 ], [ 0, %708 ], [ 0, %724 ], [ 0, %728 ], [ 0, %744 ], [ 0, %748 ], [ 0, %764 ], [ 0, %768 ], [ 0, %784 ], [ 0, %788 ], [ 0, %804 ], [ 0, %808 ], [ 0, %824 ], [ 0, %828 ], [ 0, %844 ], [ 0, %848 ], [ 0, %864 ], [ 0, %868 ], [ 0, %884 ], [ 0, %888 ], [ 0, %904 ], [ 0, %908 ], [ 0, %924 ], [ 0, %928 ], [ 0, %944 ], [ 0, %948 ], [ 0, %964 ], [ 0, %968 ], [ 0, %984 ], [ 0, %988 ], [ 0, %1004 ], [ 0, %1008 ], [ 0, %1024 ], [ 0, %1028 ], [ 0, %1044 ], [ 0, %1048 ], [ 0, %1064 ], [ 0, %1068 ], [ 0, %1084 ], [ 0, %1088 ], [ 0, %1104 ], [ 0, %1108 ], [ 0, %1124 ], [ 0, %1128 ], [ 0, %1144 ], [ 0, %1148 ], [ 0, %1164 ], [ 0, %1168 ], [ 0, %1184 ], [ 0, %1188 ], [ 0, %1204 ], [ 0, %1208 ], [ 0, %1224 ], [ 0, %1228 ], [ 0, %1244 ], [ 0, %1248 ], [ 0, %1264 ], [ 0, %1268 ], [ 0, %1284 ], [ 0, %1288 ], [ 0, %1304 ], [ 0, %1308 ], [ 0, %1324 ], [ 0, %1328 ], [ 0, %1344 ], [ 0, %1348 ], [ 0, %1364 ], [ 0, %1368 ], [ 0, %1384 ], [ 0, %1388 ], [ 0, %1404 ], [ 0, %1408 ], [ 0, %1424 ], [ %1716, %.loopexit970.sink.split.sink.split ]
-  %.0.ph = phi i32 [ 26, %168 ], [ 26, %184 ], [ 27, %188 ], [ 27, %204 ], [ 32, %208 ], [ 32, %224 ], [ 33, %228 ], [ 33, %244 ], [ 29, %248 ], [ 29, %264 ], [ 30, %268 ], [ 30, %284 ], [ 34, %288 ], [ 34, %304 ], [ 35, %308 ], [ 35, %324 ], [ 36, %328 ], [ 36, %344 ], [ 37, %348 ], [ 37, %364 ], [ 38, %368 ], [ 38, %384 ], [ 39, %388 ], [ 39, %404 ], [ 24, %408 ], [ 24, %424 ], [ 40, %428 ], [ 40, %444 ], [ 41, %448 ], [ 41, %464 ], [ 42, %468 ], [ 42, %484 ], [ 43, %488 ], [ 43, %504 ], [ 44, %508 ], [ 44, %524 ], [ 45, %528 ], [ 45, %544 ], [ 46, %548 ], [ 46, %564 ], [ 47, %568 ], [ 47, %584 ], [ 48, %588 ], [ 48, %604 ], [ 49, %608 ], [ 49, %624 ], [ 50, %628 ], [ 50, %644 ], [ 51, %648 ], [ 51, %664 ], [ 52, %668 ], [ 52, %684 ], [ 53, %688 ], [ 53, %704 ], [ 54, %708 ], [ 54, %724 ], [ 55, %728 ], [ 55, %744 ], [ 25, %748 ], [ 25, %764 ], [ 28, %768 ], [ 28, %784 ], [ 56, %788 ], [ 56, %804 ], [ 57, %808 ], [ 57, %824 ], [ 58, %828 ], [ 58, %844 ], [ 59, %848 ], [ 59, %864 ], [ 2, %868 ], [ 2, %884 ], [ 3, %888 ], [ 3, %904 ], [ 4, %908 ], [ 4, %924 ], [ 5, %928 ], [ 5, %944 ], [ 6, %948 ], [ 6, %964 ], [ 7, %968 ], [ 7, %984 ], [ 8, %988 ], [ 8, %1004 ], [ 9, %1008 ], [ 9, %1024 ], [ 10, %1028 ], [ 10, %1044 ], [ 11, %1048 ], [ 11, %1064 ], [ 12, %1068 ], [ 12, %1084 ], [ 13, %1088 ], [ 13, %1104 ], [ 14, %1108 ], [ 14, %1124 ], [ 15, %1128 ], [ 15, %1144 ], [ 16, %1148 ], [ 16, %1164 ], [ 17, %1168 ], [ 17, %1184 ], [ 18, %1188 ], [ 18, %1204 ], [ 19, %1208 ], [ 19, %1224 ], [ 20, %1228 ], [ 20, %1244 ], [ 21, %1248 ], [ 21, %1264 ], [ 22, %1268 ], [ 22, %1284 ], [ 23, %1288 ], [ 23, %1304 ], [ 60, %1308 ], [ 60, %1324 ], [ 61, %1328 ], [ 61, %1344 ], [ 62, %1348 ], [ 62, %1364 ], [ 1, %1368 ], [ 1, %1384 ], [ 31, %1388 ], [ 31, %1404 ], [ 31, %1408 ], [ 31, %1424 ], [ %.0.ph.ph, %.loopexit970.sink.split.sink.split ]
-  %1717 = load ptr, ptr %0, align 8
-  %1718 = getelementptr inbounds i8, ptr %1717, i64 56
-  %1719 = load ptr, ptr %1718, align 8
-  %1720 = getelementptr inbounds i8, ptr %1719, i64 8
-  store i32 %.0.i963.sink, ptr %1720, align 8
+.loopexit970.sink.split:                          ; preds = %.loopexit970.sink.split.sink.split, %1423, %1407, %1403, %1387, %1383, %1367, %1363, %1347, %1343, %1327, %1323, %1307, %1303, %1287, %1283, %1267, %1263, %1247, %1243, %1227, %1223, %1207, %1203, %1187, %1183, %1167, %1163, %1147, %1143, %1127, %1123, %1107, %1103, %1087, %1083, %1067, %1063, %1047, %1043, %1027, %1023, %1007, %1003, %987, %983, %967, %963, %947, %943, %927, %923, %907, %903, %887, %883, %867, %863, %847, %843, %827, %823, %807, %803, %787, %783, %767, %763, %747, %743, %727, %723, %707, %703, %687, %683, %667, %663, %647, %643, %627, %623, %607, %603, %587, %583, %567, %563, %547, %543, %527, %523, %507, %503, %487, %483, %467, %463, %447, %443, %427, %423, %407, %403, %387, %383, %367, %363, %347, %343, %327, %323, %307, %303, %287, %283, %267, %263, %247, %243, %227, %223, %207, %203, %187, %183, %167
+  %.0.i963.sink = phi i32 [ 0, %167 ], [ 0, %183 ], [ 0, %187 ], [ 0, %203 ], [ 0, %207 ], [ 0, %223 ], [ 0, %227 ], [ 0, %243 ], [ 0, %247 ], [ 0, %263 ], [ 0, %267 ], [ 0, %283 ], [ 0, %287 ], [ 0, %303 ], [ 0, %307 ], [ 0, %323 ], [ 0, %327 ], [ 0, %343 ], [ 0, %347 ], [ 0, %363 ], [ 0, %367 ], [ 0, %383 ], [ 0, %387 ], [ 0, %403 ], [ 0, %407 ], [ 0, %423 ], [ 0, %427 ], [ 0, %443 ], [ 0, %447 ], [ 0, %463 ], [ 0, %467 ], [ 0, %483 ], [ 0, %487 ], [ 0, %503 ], [ 0, %507 ], [ 0, %523 ], [ 0, %527 ], [ 0, %543 ], [ 0, %547 ], [ 0, %563 ], [ 0, %567 ], [ 0, %583 ], [ 0, %587 ], [ 0, %603 ], [ 0, %607 ], [ 0, %623 ], [ 0, %627 ], [ 0, %643 ], [ 0, %647 ], [ 0, %663 ], [ 0, %667 ], [ 0, %683 ], [ 0, %687 ], [ 0, %703 ], [ 0, %707 ], [ 0, %723 ], [ 0, %727 ], [ 0, %743 ], [ 0, %747 ], [ 0, %763 ], [ 0, %767 ], [ 0, %783 ], [ 0, %787 ], [ 0, %803 ], [ 0, %807 ], [ 0, %823 ], [ 0, %827 ], [ 0, %843 ], [ 0, %847 ], [ 0, %863 ], [ 0, %867 ], [ 0, %883 ], [ 0, %887 ], [ 0, %903 ], [ 0, %907 ], [ 0, %923 ], [ 0, %927 ], [ 0, %943 ], [ 0, %947 ], [ 0, %963 ], [ 0, %967 ], [ 0, %983 ], [ 0, %987 ], [ 0, %1003 ], [ 0, %1007 ], [ 0, %1023 ], [ 0, %1027 ], [ 0, %1043 ], [ 0, %1047 ], [ 0, %1063 ], [ 0, %1067 ], [ 0, %1083 ], [ 0, %1087 ], [ 0, %1103 ], [ 0, %1107 ], [ 0, %1123 ], [ 0, %1127 ], [ 0, %1143 ], [ 0, %1147 ], [ 0, %1163 ], [ 0, %1167 ], [ 0, %1183 ], [ 0, %1187 ], [ 0, %1203 ], [ 0, %1207 ], [ 0, %1223 ], [ 0, %1227 ], [ 0, %1243 ], [ 0, %1247 ], [ 0, %1263 ], [ 0, %1267 ], [ 0, %1283 ], [ 0, %1287 ], [ 0, %1303 ], [ 0, %1307 ], [ 0, %1323 ], [ 0, %1327 ], [ 0, %1343 ], [ 0, %1347 ], [ 0, %1363 ], [ 0, %1367 ], [ 0, %1383 ], [ 0, %1387 ], [ 0, %1403 ], [ 0, %1407 ], [ 0, %1423 ], [ %1715, %.loopexit970.sink.split.sink.split ]
+  %.0.ph = phi i32 [ 26, %167 ], [ 26, %183 ], [ 27, %187 ], [ 27, %203 ], [ 32, %207 ], [ 32, %223 ], [ 33, %227 ], [ 33, %243 ], [ 29, %247 ], [ 29, %263 ], [ 30, %267 ], [ 30, %283 ], [ 34, %287 ], [ 34, %303 ], [ 35, %307 ], [ 35, %323 ], [ 36, %327 ], [ 36, %343 ], [ 37, %347 ], [ 37, %363 ], [ 38, %367 ], [ 38, %383 ], [ 39, %387 ], [ 39, %403 ], [ 24, %407 ], [ 24, %423 ], [ 40, %427 ], [ 40, %443 ], [ 41, %447 ], [ 41, %463 ], [ 42, %467 ], [ 42, %483 ], [ 43, %487 ], [ 43, %503 ], [ 44, %507 ], [ 44, %523 ], [ 45, %527 ], [ 45, %543 ], [ 46, %547 ], [ 46, %563 ], [ 47, %567 ], [ 47, %583 ], [ 48, %587 ], [ 48, %603 ], [ 49, %607 ], [ 49, %623 ], [ 50, %627 ], [ 50, %643 ], [ 51, %647 ], [ 51, %663 ], [ 52, %667 ], [ 52, %683 ], [ 53, %687 ], [ 53, %703 ], [ 54, %707 ], [ 54, %723 ], [ 55, %727 ], [ 55, %743 ], [ 25, %747 ], [ 25, %763 ], [ 28, %767 ], [ 28, %783 ], [ 56, %787 ], [ 56, %803 ], [ 57, %807 ], [ 57, %823 ], [ 58, %827 ], [ 58, %843 ], [ 59, %847 ], [ 59, %863 ], [ 2, %867 ], [ 2, %883 ], [ 3, %887 ], [ 3, %903 ], [ 4, %907 ], [ 4, %923 ], [ 5, %927 ], [ 5, %943 ], [ 6, %947 ], [ 6, %963 ], [ 7, %967 ], [ 7, %983 ], [ 8, %987 ], [ 8, %1003 ], [ 9, %1007 ], [ 9, %1023 ], [ 10, %1027 ], [ 10, %1043 ], [ 11, %1047 ], [ 11, %1063 ], [ 12, %1067 ], [ 12, %1083 ], [ 13, %1087 ], [ 13, %1103 ], [ 14, %1107 ], [ 14, %1123 ], [ 15, %1127 ], [ 15, %1143 ], [ 16, %1147 ], [ 16, %1163 ], [ 17, %1167 ], [ 17, %1183 ], [ 18, %1187 ], [ 18, %1203 ], [ 19, %1207 ], [ 19, %1223 ], [ 20, %1227 ], [ 20, %1243 ], [ 21, %1247 ], [ 21, %1263 ], [ 22, %1267 ], [ 22, %1283 ], [ 23, %1287 ], [ 23, %1303 ], [ 60, %1307 ], [ 60, %1323 ], [ 61, %1327 ], [ 61, %1343 ], [ 62, %1347 ], [ 62, %1363 ], [ 1, %1367 ], [ 1, %1383 ], [ 31, %1387 ], [ 31, %1403 ], [ 31, %1407 ], [ 31, %1423 ], [ %.0.ph.ph, %.loopexit970.sink.split.sink.split ]
+  %1716 = load ptr, ptr %0, align 8
+  %1717 = getelementptr inbounds i8, ptr %1716, i64 56
+  %1718 = load ptr, ptr %1717, align 8
+  %1719 = getelementptr inbounds i8, ptr %1718, i64 8
+  store i32 %.0.i963.sink, ptr %1719, align 8
   br label %.loopexit970
 
 .loopexit970:                                     ; preds = %.loopexit971, %.loopexit971, %.loopexit970.sink.split

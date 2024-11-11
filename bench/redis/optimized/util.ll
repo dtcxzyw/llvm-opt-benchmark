@@ -77,7 +77,7 @@ while.cond2.preheader:                            ; preds = %while.body
   %scevgep = getelementptr i8, ptr %pattern.addr.0, i64 1
   %2 = add i32 %patternLen.addr.0, -1
   %3 = zext i32 %2 to i64
-  %scevgep143 = getelementptr i8, ptr %scevgep, i64 %3
+  %scevgep150 = getelementptr i8, ptr %scevgep, i64 %3
   br label %land.rhs4
 
 land.rhs4:                                        ; preds = %while.cond2.preheader, %while.body9
@@ -99,7 +99,7 @@ while.end:                                        ; preds = %land.rhs4
 
 while.cond12.preheader:                           ; preds = %while.body9, %while.end
   %patternLen.addr.390 = phi i32 [ %patternLen.addr.3111, %while.end ], [ 0, %while.body9 ]
-  %pattern.addr.288 = phi ptr [ %pattern.addr.2112, %while.end ], [ %scevgep143, %while.body9 ]
+  %pattern.addr.288 = phi ptr [ %pattern.addr.2112, %while.end ], [ %scevgep150, %while.body9 ]
   %add.ptr = getelementptr inbounds i8, ptr %pattern.addr.288, i64 1
   %sub = add nsw i32 %patternLen.addr.390, -1
   br label %while.body14
@@ -159,18 +159,18 @@ if.else68.us:                                     ; preds = %if.else63.us
   br i1 %cmp69.us, label %land.lhs.true71.us, label %if.else68.us.if.else102.us_crit_edge
 
 if.else68.us.if.else102.us_crit_edge:             ; preds = %if.else68.us
-  %.pre145 = load i8, ptr %string.addr.0, align 1
+  %.pre152 = load i8, ptr %string.addr.0, align 1
   br label %if.else102.us
 
 land.lhs.true71.us:                               ; preds = %if.else68.us
   %arrayidx72.us = getelementptr inbounds i8, ptr %pattern.addr.5.us, i64 1
   %8 = load i8, ptr %arrayidx72.us, align 1
   %cmp74.us = icmp eq i8 %8, 45
-  %.pre146 = load i8, ptr %string.addr.0, align 1
+  %.pre153 = load i8, ptr %string.addr.0, align 1
   br i1 %cmp74.us, label %if.end92.us, label %if.else102.us
 
 if.else102.us:                                    ; preds = %if.else68.us.if.else102.us_crit_edge, %land.lhs.true71.us
-  %9 = phi i8 [ %.pre145, %if.else68.us.if.else102.us_crit_edge ], [ %.pre146, %land.lhs.true71.us ]
+  %9 = phi i8 [ %.pre152, %if.else68.us.if.else102.us_crit_edge ], [ %.pre153, %land.lhs.true71.us ]
   %cmp109.us = icmp eq i8 %7, %9
   %spec.select80.us = select i1 %cmp109.us, i32 1, i32 %match.0.us
   br label %if.end128.us
@@ -181,8 +181,8 @@ if.end92.us:                                      ; preds = %land.lhs.true71.us
   %spec.select7884.us = tail call i8 @llvm.smax.i8(i8 %7, i8 %10)
   %spec.select7783.us = tail call i8 @llvm.smin.i8(i8 %7, i8 %10)
   %sub94.us = add nsw i32 %patternLen.addr.6.us, -2
-  %cmp95.not.us = icmp slt i8 %.pre146, %spec.select7783.us
-  %cmp98.not.us = icmp sgt i8 %.pre146, %spec.select7884.us
+  %cmp95.not.us = icmp slt i8 %.pre153, %spec.select7783.us
+  %cmp98.not.us = icmp sgt i8 %.pre153, %spec.select7884.us
   %or.cond79.us = or i1 %cmp95.not.us, %cmp98.not.us
   %spec.select82.us = select i1 %or.cond79.us, i32 %match.0.us, i32 1
   br label %if.end128.us
@@ -250,12 +250,12 @@ land.lhs.true71:                                  ; preds = %if.else68
   %arrayidx72 = getelementptr inbounds i8, ptr %pattern.addr.5, i64 1
   %16 = load i8, ptr %arrayidx72, align 1
   %cmp74 = icmp eq i8 %16, 45
-  %.pre144 = load i8, ptr %string.addr.0, align 1
+  %.pre151 = load i8, ptr %string.addr.0, align 1
   br i1 %cmp74, label %if.end92, label %if.else102
 
 if.end92:                                         ; preds = %land.lhs.true71
   %arrayidx79 = getelementptr inbounds i8, ptr %pattern.addr.5, i64 2
-  %conv82 = sext i8 %.pre144 to i32
+  %conv82 = sext i8 %.pre151 to i32
   %call91 = tail call i32 @tolower(i32 noundef %conv82) #28
   %17 = load i8, ptr %arrayidx79, align 1
   %spec.select7884 = tail call i8 @llvm.smax.i8(i8 %13, i8 %17)
@@ -272,7 +272,7 @@ if.end92:                                         ; preds = %land.lhs.true71
   br label %if.end128
 
 if.else102:                                       ; preds = %if.else68.if.else102_crit_edge, %land.lhs.true71
-  %18 = phi i8 [ %.pre, %if.else68.if.else102_crit_edge ], [ %.pre144, %land.lhs.true71 ]
+  %18 = phi i8 [ %.pre, %if.else68.if.else102_crit_edge ], [ %.pre151, %land.lhs.true71 ]
   %call116 = tail call i32 @tolower(i32 noundef %conv42) #28
   %conv118 = sext i8 %18 to i32
   %call119 = tail call i32 @tolower(i32 noundef %conv118) #28

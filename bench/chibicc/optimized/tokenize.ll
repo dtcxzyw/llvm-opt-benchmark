@@ -1964,9 +1964,9 @@ for.cond35.preheader.i:                           ; preds = %while.cond.i11
 
 for.body38.preheader.i:                           ; preds = %for.cond35.preheader.i
   %16 = sext i32 %j.0.i.ph to i64
-  %scevgep36.i = getelementptr i8, ptr %spec.select, i64 %16
+  %scevgep37.i = getelementptr i8, ptr %spec.select, i64 %16
   %17 = zext nneg i32 %n.0.i to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep36.i, i8 10, i64 %17, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep37.i, i8 10, i64 %17, i1 false)
   %18 = add i32 %n.0.i, %j.0.i.ph
   br label %remove_backslash_newline.exit
 

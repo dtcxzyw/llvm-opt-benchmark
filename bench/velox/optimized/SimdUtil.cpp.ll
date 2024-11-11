@@ -173,9 +173,9 @@ entry:
   br i1 %.b1, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc16.i
-  %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %for.inc16.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %indvars.iv19.i
-  %0 = trunc nuw nsw i64 %indvars.iv19.i to i32
+  %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.inc16.i ], [ 0, %entry ]
+  %arrayidx.i = getelementptr inbounds [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %indvars.iv20.i
+  %0 = trunc nuw nsw i64 %indvars.iv20.i to i32
   br label %for.body4.i
 
 for.cond8.preheader.i:                            ; preds = %for.inc.i
@@ -214,18 +214,18 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   store i32 %2, ptr %arrayidx12.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %3 = and i64 %indvars.iv.next.i, 4294967295
-  %exitcond18.not.i = icmp eq i64 %3, 8
-  br i1 %exitcond18.not.i, label %for.inc16.i, label %for.body10.i, !llvm.loop !9
+  %exitcond19.not.i = icmp eq i64 %3, 8
+  br i1 %exitcond19.not.i, label %for.inc16.i, label %for.body10.i, !llvm.loop !9
 
 for.inc16.i:                                      ; preds = %for.body10.i, %for.cond8.preheader.i
-  %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
-  %exitcond22.not.i = icmp eq i64 %indvars.iv.next20.i, 256
-  br i1 %exitcond22.not.i, label %for.body.i2, label %for.body.i, !llvm.loop !10
+  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
+  %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 256
+  br i1 %exitcond23.not.i, label %for.body.i2, label %for.body.i, !llvm.loop !10
 
 for.body.i2:                                      ; preds = %for.inc16.i, %for.inc19.i
-  %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %for.inc19.i ], [ 0, %for.inc16.i ]
-  %arrayidx.i3 = getelementptr inbounds [16 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail18permute4x64IndicesE, i64 0, i64 %indvars.iv22.i
-  %4 = trunc nuw nsw i64 %indvars.iv22.i to i32
+  %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %for.inc19.i ], [ 0, %for.inc16.i ]
+  %arrayidx.i3 = getelementptr inbounds [16 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail18permute4x64IndicesE, i64 0, i64 %indvars.iv23.i
+  %4 = trunc nuw nsw i64 %indvars.iv23.i to i32
   br label %for.body3.i
 
 for.cond11.preheader.i:                           ; preds = %for.inc.i9
@@ -268,13 +268,13 @@ for.body13.i:                                     ; preds = %for.body13.i, %for.
   store i32 %6, ptr %arrayidx15.i, align 4
   %indvars.iv.next.i13 = add nsw i64 %indvars.iv.i12, 1
   %7 = and i64 %indvars.iv.next.i13, 4294967295
-  %exitcond21.not.i = icmp eq i64 %7, 8
-  br i1 %exitcond21.not.i, label %for.inc19.i, label %for.body13.i, !llvm.loop !12
+  %exitcond22.not.i = icmp eq i64 %7, 8
+  br i1 %exitcond22.not.i, label %for.inc19.i, label %for.body13.i, !llvm.loop !12
 
 for.inc19.i:                                      ; preds = %for.body13.i, %for.cond11.preheader.i
-  %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 16
-  br i1 %exitcond25.not.i, label %_ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit, label %for.body.i2, !llvm.loop !13
+  %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
+  %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, 16
+  br i1 %exitcond26.not.i, label %_ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit, label %for.body.i2, !llvm.loop !13
 
 _ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit: ; preds = %for.inc19.i
   store i1 true, ptr @_ZZN8facebook5velox4simd18initializeSimdUtilEvE6inited, align 1
@@ -527,9 +527,9 @@ __cxx_global_var_init.3.exit:                     ; preds = %_ZN5xsimd10batch_bo
   br i1 %.b1.i.i, label %__cxx_global_var_init.4.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %__cxx_global_var_init.3.exit, %for.inc16.i.i.i
-  %indvars.iv19.i.i.i = phi i64 [ %indvars.iv.next20.i.i.i, %for.inc16.i.i.i ], [ 0, %__cxx_global_var_init.3.exit ]
-  %arrayidx.i.i.i = getelementptr inbounds [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %indvars.iv19.i.i.i
-  %32 = trunc nuw nsw i64 %indvars.iv19.i.i.i to i32
+  %indvars.iv20.i.i.i = phi i64 [ %indvars.iv.next21.i.i.i, %for.inc16.i.i.i ], [ 0, %__cxx_global_var_init.3.exit ]
+  %arrayidx.i.i.i = getelementptr inbounds [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %indvars.iv20.i.i.i
+  %32 = trunc nuw nsw i64 %indvars.iv20.i.i.i to i32
   br label %for.body4.i.i.i
 
 for.cond8.preheader.i.i.i:                        ; preds = %for.inc.i.i.i
@@ -568,18 +568,18 @@ for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %
   store i32 %34, ptr %arrayidx12.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %35 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %exitcond18.not.i.i.i = icmp eq i64 %35, 8
-  br i1 %exitcond18.not.i.i.i, label %for.inc16.i.i.i, label %for.body10.i.i.i, !llvm.loop !9
+  %exitcond19.not.i.i.i = icmp eq i64 %35, 8
+  br i1 %exitcond19.not.i.i.i, label %for.inc16.i.i.i, label %for.body10.i.i.i, !llvm.loop !9
 
 for.inc16.i.i.i:                                  ; preds = %for.body10.i.i.i, %for.cond8.preheader.i.i.i
-  %indvars.iv.next20.i.i.i = add nuw nsw i64 %indvars.iv19.i.i.i, 1
-  %exitcond22.not.i.i.i = icmp eq i64 %indvars.iv.next20.i.i.i, 256
-  br i1 %exitcond22.not.i.i.i, label %for.body.i2.i.i, label %for.body.i.i.i, !llvm.loop !10
+  %indvars.iv.next21.i.i.i = add nuw nsw i64 %indvars.iv20.i.i.i, 1
+  %exitcond23.not.i.i.i = icmp eq i64 %indvars.iv.next21.i.i.i, 256
+  br i1 %exitcond23.not.i.i.i, label %for.body.i2.i.i, label %for.body.i.i.i, !llvm.loop !10
 
 for.body.i2.i.i:                                  ; preds = %for.inc16.i.i.i, %for.inc19.i.i.i
-  %indvars.iv22.i.i.i = phi i64 [ %indvars.iv.next23.i.i.i, %for.inc19.i.i.i ], [ 0, %for.inc16.i.i.i ]
-  %arrayidx.i3.i.i = getelementptr inbounds [16 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail18permute4x64IndicesE, i64 0, i64 %indvars.iv22.i.i.i
-  %36 = trunc nuw nsw i64 %indvars.iv22.i.i.i to i32
+  %indvars.iv23.i.i.i = phi i64 [ %indvars.iv.next24.i.i.i, %for.inc19.i.i.i ], [ 0, %for.inc16.i.i.i ]
+  %arrayidx.i3.i.i = getelementptr inbounds [16 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail18permute4x64IndicesE, i64 0, i64 %indvars.iv23.i.i.i
+  %36 = trunc nuw nsw i64 %indvars.iv23.i.i.i to i32
   br label %for.body3.i.i.i
 
 for.cond11.preheader.i.i.i:                       ; preds = %for.inc.i9.i.i
@@ -622,13 +622,13 @@ for.body13.i.i.i:                                 ; preds = %for.body13.i.i.i, %
   store i32 %38, ptr %arrayidx15.i.i.i, align 4
   %indvars.iv.next.i13.i.i = add nsw i64 %indvars.iv.i12.i.i, 1
   %39 = and i64 %indvars.iv.next.i13.i.i, 4294967295
-  %exitcond21.not.i.i.i = icmp eq i64 %39, 8
-  br i1 %exitcond21.not.i.i.i, label %for.inc19.i.i.i, label %for.body13.i.i.i, !llvm.loop !12
+  %exitcond22.not.i.i.i = icmp eq i64 %39, 8
+  br i1 %exitcond22.not.i.i.i, label %for.inc19.i.i.i, label %for.body13.i.i.i, !llvm.loop !12
 
 for.inc19.i.i.i:                                  ; preds = %for.body13.i.i.i, %for.cond11.preheader.i.i.i
-  %indvars.iv.next23.i.i.i = add nuw nsw i64 %indvars.iv22.i.i.i, 1
-  %exitcond25.not.i.i.i = icmp eq i64 %indvars.iv.next23.i.i.i, 16
-  br i1 %exitcond25.not.i.i.i, label %_ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit.i.i, label %for.body.i2.i.i, !llvm.loop !13
+  %indvars.iv.next24.i.i.i = add nuw nsw i64 %indvars.iv23.i.i.i, 1
+  %exitcond26.not.i.i.i = icmp eq i64 %indvars.iv.next24.i.i.i, 16
+  br i1 %exitcond26.not.i.i.i, label %_ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit.i.i, label %for.body.i2.i.i, !llvm.loop !13
 
 _ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit.i.i: ; preds = %for.inc19.i.i.i
   store i1 true, ptr @_ZZN8facebook5velox4simd18initializeSimdUtilEvE6inited, align 1

@@ -213,8 +213,8 @@ _ZNSt10unique_ptrIN3gmx11ListOfListsIiEESt14default_deleteIS2_EED2Ev.exit: ; pre
   %.sroa.43.1 = phi ptr [ %.sroa.43.0, %72 ], [ %.sroa.43.9, %._crit_edge453.i ]
   %.sroa.18.1 = phi ptr [ %.sroa.18.0, %72 ], [ %.sroa.18.9, %._crit_edge453.i ]
   %.sroa.010.3 = phi ptr [ %.sroa.010.0, %72 ], [ %.sroa.010.13, %._crit_edge453.i ]
-  %indvars.iv573.i = phi i32 [ 0, %72 ], [ %indvars.iv.next574.i, %._crit_edge453.i ]
-  %indvars.iv562.i = phi i32 [ 1, %72 ], [ %indvars.iv.next563.i, %._crit_edge453.i ]
+  %indvars.iv583.i = phi i32 [ 0, %72 ], [ %indvars.iv.next584.i, %._crit_edge453.i ]
+  %indvars.iv572.i = phi i32 [ 1, %72 ], [ %indvars.iv.next573.i, %._crit_edge453.i ]
   %.sroa.22.2.i = phi ptr [ null, %72 ], [ %.sroa.22.3.lcssa.i, %._crit_edge453.i ]
   %.sroa.0226.2.i = phi ptr [ null, %72 ], [ %.sroa.0226.3.lcssa.i, %._crit_edge453.i ]
   %.0110.i = phi i32 [ 0, %72 ], [ %348, %._crit_edge453.i ]
@@ -250,7 +250,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %_ZN3gmx11ListOfList
   %.sroa.18.10 = phi ptr [ %.sroa.18.1, %_ZNSt6vectorIiSaIiEE5clearEv.exit.preheader.i ], [ %.sroa.18.11, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
   %.sroa.010.14 = phi ptr [ %.sroa.010.3, %_ZNSt6vectorIiSaIiEE5clearEv.exit.preheader.i ], [ %.sroa.010.15, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
   %indvars.iv559.i = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE5clearEv.exit.preheader.i ], [ %indvars.iv.next560.i, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
-  %.3106452.i = phi i32 [ %.2105.i, %_ZNSt6vectorIiSaIiEE5clearEv.exit.preheader.i ], [ %.4107587.i, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
+  %.3106452.i = phi i32 [ %.2105.i, %_ZNSt6vectorIiSaIiEE5clearEv.exit.preheader.i ], [ %.4107597.i, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
   %.sroa.0226.3450.i = phi ptr [ %.sroa.0226.2.i, %_ZNSt6vectorIiSaIiEE5clearEv.exit.preheader.i ], [ %.sroa.0226.8.i, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
   %.sroa.22.3449.i = phi ptr [ %.sroa.22.2.i, %_ZNSt6vectorIiSaIiEE5clearEv.exit.preheader.i ], [ %.sroa.22.7.i, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
   %86 = add nsw i64 %indvars.iv559.i, %85
@@ -872,15 +872,15 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %308, %_ZNKSt6vec
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i: ; preds = %316, %313
   %317 = getelementptr inbounds i32, ptr %311, i64 %307
-  %.pre584.i = ptrtoint ptr %311 to i64
+  %.pre594.i = ptrtoint ptr %311 to i64
   br label %.noexc163.i
 
 .noexc163.i:                                      ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i, %.thread.i
   %.sroa.24.16 = phi ptr [ %.sroa.24.15, %.thread.i ], [ %311, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %.sroa.24.15, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
   %.sroa.34.11 = phi ptr [ %.sroa.34.10, %.thread.i ], [ %scevgep.i.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %298, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
   %.sroa.43.11 = phi ptr [ %.sroa.43.10, %.thread.i ], [ %317, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %.sroa.43.10, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
-  %.4107587.i = phi i32 [ %.3106452.i, %.thread.i ], [ %282, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %282, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
-  %.pre-phi.i = phi i64 [ %276, %.thread.i ], [ %.pre584.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %287, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
+  %.4107597.i = phi i32 [ %.3106452.i, %.thread.i ], [ %282, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %282, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
+  %.pre-phi.i = phi i64 [ %276, %.thread.i ], [ %.pre594.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %287, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
   %318 = ptrtoint ptr %.sroa.34.11 to i64
   %319 = sub i64 %318, %.pre-phi.i
   %320 = lshr exact i64 %319, 2
@@ -964,12 +964,12 @@ _ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i: ; preds = %_ZNSt6vect
   %.sroa.010.13 = phi ptr [ %.sroa.010.3, %.preheader256.i ], [ %.sroa.010.15, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
   %.sroa.22.3.lcssa.i = phi ptr [ %.sroa.22.2.i, %.preheader256.i ], [ %.sroa.22.7.i, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
   %.sroa.0226.3.lcssa.i = phi ptr [ %.sroa.0226.2.i, %.preheader256.i ], [ %.sroa.0226.8.i, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
-  %.3106.lcssa.i = phi i32 [ %.2105.i, %.preheader256.i ], [ %.4107587.i, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
+  %.3106.lcssa.i = phi i32 [ %.2105.i, %.preheader256.i ], [ %.4107597.i, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
   %.lcssa297.i = phi i32 [ %83, %.preheader256.i ], [ %344, %_ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i ]
   %347 = add nsw i32 %.lcssa297.i, %.2.i
   %348 = add nuw nsw i32 %.0110.i, 1
-  %indvars.iv.next563.i = add nuw i32 %indvars.iv562.i, 1
-  %indvars.iv.next574.i = add nsw i32 %indvars.iv573.i, -1
+  %indvars.iv.next573.i = add nuw i32 %indvars.iv572.i, 1
+  %indvars.iv.next584.i = add nsw i32 %indvars.iv583.i, -1
   br label %75, !llvm.loop !18
 
 349:                                              ; preds = %80
@@ -1004,8 +1004,8 @@ _ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i: ; preds = %_ZNSt6vect
   br i1 %369, label %.preheader.i, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
-  %smax.i = call i32 @llvm.smax.i32(i32 %365, i32 %indvars.iv562.i)
-  %370 = add i32 %smax.i, %indvars.iv573.i
+  %smax.i = call i32 @llvm.smax.i32(i32 %365, i32 %indvars.iv572.i)
+  %370 = add i32 %smax.i, %indvars.iv583.i
   %371 = mul i32 %368, %370
   %372 = add i32 %371, %.2.i
   br label %.loopexit261.i
@@ -1135,7 +1135,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i: ; preds = %421, %_ZSt27
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i.i: ; preds = %422, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i
   %423 = getelementptr inbounds i32, ptr %415, i64 %391
   %424 = getelementptr inbounds i32, ptr %414, i64 %412
-  %.pre585.i = ptrtoint ptr %414 to i64
+  %.pre595.i = ptrtoint ptr %414 to i64
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 425:                                              ; preds = %.lr.ph460.i
@@ -1154,7 +1154,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %427, %402, %_ZSt6fi
   %.sroa.43.8 = phi ptr [ %.sroa.43.7, %394 ], [ %424, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i.i ], [ %.sroa.43.7, %425 ], [ %.sroa.43.7, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.43.7, %402 ], [ %.sroa.43.7, %427 ]
   %.pre.i467.i = phi ptr [ %.pre.i466.i, %394 ], [ %423, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i.i ], [ %.pre.i466.i, %425 ], [ %407, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %403, %402 ], [ %428, %427 ]
   %429 = phi ptr [ %377, %394 ], [ %414, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i.i ], [ %377, %425 ], [ %377, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %377, %402 ], [ %377, %427 ]
-  %.pre-phi.i.i = phi i64 [ %388, %394 ], [ %.pre585.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i.i ], [ %388, %425 ], [ %388, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %388, %402 ], [ %388, %427 ]
+  %.pre-phi.i.i = phi i64 [ %388, %394 ], [ %.pre595.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i.i ], [ %388, %425 ], [ %388, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %388, %402 ], [ %388, %427 ]
   %430 = ptrtoint ptr %.pre.i467.i to i64
   %431 = sub i64 %430, %.pre-phi.i.i
   %432 = lshr exact i64 %431, 2

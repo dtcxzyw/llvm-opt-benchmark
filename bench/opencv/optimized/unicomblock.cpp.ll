@@ -625,8 +625,8 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr nocapture noundef nonnull 
   %128 = getelementptr inbounds i32, ptr %127, i64 %122
   store i32 %108, ptr %128, align 4
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %exitcond117.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count
-  br i1 %exitcond117.not, label %._crit_edge, label %113, !llvm.loop !7
+  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count
+  br i1 %exitcond118.not, label %._crit_edge, label %113, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %113, %104
   ret void

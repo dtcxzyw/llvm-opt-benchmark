@@ -67752,7 +67752,7 @@ sljit_emit_op_flags.exit.i:                       ; preds = %480, %479, %467, %4
 
 .lr.ph22.preheader.i:                             ; preds = %sljit_emit_op_flags.exit.i
   %484 = zext nneg i32 %.163.i to i64
-  %wide.trip.count41.i = zext nneg i32 %.1.lcssa.i to i64
+  %wide.trip.count42.i = zext nneg i32 %.1.lcssa.i to i64
   br label %.lr.ph22.i
 
 .lr.ph22.i:                                       ; preds = %493, %.lr.ph22.preheader.i
@@ -67777,8 +67777,8 @@ sljit_emit_op_flags.exit.i:                       ; preds = %480, %479, %467, %4
 493:                                              ; preds = %490, %488
   %.261.i = phi i32 [ %489, %488 ], [ %.16021.i, %490 ]
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
-  br i1 %exitcond42.not.i, label %._crit_edge23.i, label %.lr.ph22.i
+  %exitcond43.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count42.i
+  br i1 %exitcond43.not.i, label %._crit_edge23.i, label %.lr.ph22.i
 
 ._crit_edge23.i:                                  ; preds = %493
   %494 = icmp eq i32 %.261.i, 0
@@ -67808,8 +67808,8 @@ sljit_emit_op2.exit.i20:                          ; preds = %500, %497, %495
   br i1 %504, label %.lr.ph27.i, label %.loopexit.i
 
 .lr.ph27.i:                                       ; preds = %sljit_emit_op2.exit.i20, %513
-  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %513 ], [ 0, %sljit_emit_op2.exit.i20 ]
-  %505 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %indvars.iv43.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %513 ], [ 0, %sljit_emit_op2.exit.i20 ]
+  %505 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %indvars.iv44.i
   %506 = load i16, ptr %505, align 2
   %507 = zext i16 %506 to i32
   %508 = and i32 %507, 256
@@ -67824,9 +67824,9 @@ sljit_emit_op2.exit.i20:                          ; preds = %500, %497, %495
   br label %513
 
 513:                                              ; preds = %509, %.lr.ph27.i
-  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
-  %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count41.i
-  br i1 %exitcond47.not.i, label %.loopexit.i, label %.lr.ph27.i
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond49.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count42.i
+  br i1 %exitcond49.not.i, label %.loopexit.i, label %.lr.ph27.i
 
 .loopexit.i:                                      ; preds = %513, %sljit_emit_op2.exit.i20, %._crit_edge23.i, %sljit_emit_op_flags.exit.i
   %spec.select81.i = xor i32 %3, %2

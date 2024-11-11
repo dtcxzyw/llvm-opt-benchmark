@@ -2023,8 +2023,8 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit:
   %50 = lshr i64 %49, 1
   %51 = add nsw i64 %46, -1
   %52 = lshr i64 %51, 1
-  %53 = and i64 %46, 1
-  %54 = icmp eq i64 %53, 0
+  %53 = and i32 %.sroa.speculated.fr, 1
+  %54 = icmp eq i32 %53, 0
   br i1 %54, label %.split.split.preheader.i.i.i.i, label %.split.split.us.i.i.i.i
 
 .split.split.preheader.i.i.i.i:                   ; preds = %.split.i.i.i.i
@@ -2174,8 +2174,8 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit:
   %120 = add nsw i64 %46, -1
   %121 = sdiv i64 %120, 2
   %122 = icmp sgt i32 %.sroa.speculated.fr, 2
-  %123 = and i64 %46, 1
-  %124 = icmp eq i64 %123, 0
+  %123 = and i32 %.sroa.speculated.fr, 1
+  %124 = icmp eq i32 %123, 0
   %125 = add nsw i64 %46, -2
   %126 = ashr exact i64 %125, 1
   br i1 %122, label %.lr.ph.split.us.preheader.i.i.i, label %.lr.ph.split.i.i.i

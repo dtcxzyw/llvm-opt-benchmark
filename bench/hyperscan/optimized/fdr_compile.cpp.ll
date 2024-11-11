@@ -954,9 +954,9 @@ invoke.cont96.us.i.i:                             ; preds = %for.body83.us.i.i
   %59 = trunc nuw i64 %indvars.iv483.i.i to i32
   %best.sroa.5.1.us.i.i = select i1 %cmp101.us.i.i, i32 %59, i32 %best.sroa.5.0424.us.i.i
   %indvars.iv.next484.i.i = add nuw nsw i64 %indvars.iv483.i.i, 1
-  %lftr.wideiv149 = trunc i64 %indvars.iv.next484.i.i to i32
-  %exitcond150 = icmp eq i32 %sub.i.i, %lftr.wideiv149
-  br i1 %exitcond150, label %invoke.cont119.i.i, label %for.body83.us.i.i, !llvm.loop !47
+  %lftr.wideiv150 = trunc i64 %indvars.iv.next484.i.i to i32
+  %exitcond151 = icmp eq i32 %sub.i.i, %lftr.wideiv150
+  br i1 %exitcond151, label %invoke.cont119.i.i, label %for.body83.us.i.i, !llvm.loop !47
 
 for.body83thread-pre-split.i.i:                   ; preds = %invoke.cont96.i.i
   %indvars.iv.next480.i.i = add nuw nsw i64 %indvars.iv479.i.i, 1
@@ -2804,10 +2804,10 @@ lpad.i.i.loopexit.split-lp.i.i:                   ; preds = %if.end.i.i.i.i.i116
 
 lpad.i.i.i96.i:                                   ; preds = %lpad.i.i.loopexit.split-lp.i.i, %lpad.i.i.loopexit.i.i
   %lpad.phi177.i.i = phi { ptr, i32 } [ %lpad.loopexit175.i.i, %lpad.i.i.loopexit.i.i ], [ %lpad.loopexit.split-lp176.i.i, %lpad.i.i.loopexit.split-lp.i.i ]
-  %_M_next_resize.i.i.i.i190 = getelementptr inbounds i8, ptr %retval.0.i.pn.i.i.i.i.i, i64 56
+  %_M_next_resize.i.i.i.i191 = getelementptr inbounds i8, ptr %retval.0.i.pn.i.i.i.i.i, i64 56
   %300 = extractvalue { ptr, i32 } %lpad.phi177.i.i, 0
   %301 = call ptr @__cxa_begin_catch(ptr %300) #22
-  store i64 %286, ptr %_M_next_resize.i.i.i.i190, align 8
+  store i64 %286, ptr %_M_next_resize.i.i.i.i191, align 8
   invoke void @__cxa_rethrow() #25
           to label %unreachable.i.i.i99.i unwind label %lpad2.i.i.i97.i
 

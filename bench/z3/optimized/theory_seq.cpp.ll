@@ -25362,7 +25362,7 @@ while.cond20.preheader:                           ; preds = %_ZNK6vectorIPN3smt1
   br label %while.cond20
 
 while.cond20:                                     ; preds = %while.cond20.preheader, %invoke.cont31
-  %indvars.iv334 = phi i64 [ %22, %while.cond20.preheader ], [ %indvars.iv.next335, %invoke.cont31 ]
+  %indvars.iv340 = phi i64 [ %22, %while.cond20.preheader ], [ %indvars.iv.next341, %invoke.cont31 ]
   %23 = load ptr, ptr %v2, align 8
   %cmp.i92 = icmp eq ptr %23, null
   br i1 %cmp.i92, label %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit96, label %if.end.i93
@@ -25375,11 +25375,11 @@ if.end.i93:                                       ; preds = %while.cond20
 
 _ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit96: ; preds = %while.cond20, %if.end.i93
   %retval.0.i95 = phi i64 [ %25, %if.end.i93 ], [ 0, %while.cond20 ]
-  %cmp23 = icmp samesign ult i64 %indvars.iv334, %retval.0.i95
+  %cmp23 = icmp samesign ult i64 %indvars.iv340, %retval.0.i95
   br i1 %cmp23, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit96
-  %arrayidx.i97 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv334
+  %arrayidx.i97 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv340
   %26 = load ptr, ptr %arrayidx.i97, align 8
   %m_expr = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %m_expr, align 8
@@ -25387,12 +25387,12 @@ land.rhs:                                         ; preds = %_ZNK6vectorIPN3smt1
           to label %land.end unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit
 
 land.end:                                         ; preds = %land.rhs
-  %.pre339 = load ptr, ptr %v2, align 8
+  %.pre345 = load ptr, ptr %v2, align 8
   br i1 %call27, label %while.body28, label %while.end
 
 while.body28:                                     ; preds = %land.end
   %28 = load ptr, ptr %dep, align 8
-  %arrayidx.i99 = getelementptr inbounds ptr, ptr %.pre339, i64 %indvars.iv334
+  %arrayidx.i99 = getelementptr inbounds ptr, ptr %.pre345, i64 %indvars.iv340
   %29 = load ptr, ptr %arrayidx.i99, align 8
   %m_dep = getelementptr inbounds i8, ptr %29, i64 16
   %30 = load ptr, ptr %m_dep, align 8
@@ -25433,7 +25433,7 @@ call.i.i.i.noexc:                                 ; preds = %_ZN18dependency_man
 invoke.cont31:                                    ; preds = %call.i.i.i.noexc, %if.else.i.i, %while.body28
   %retval.0.i.i102 = phi ptr [ %call.i.i.i103, %call.i.i.i.noexc ], [ %30, %while.body28 ], [ %28, %if.else.i.i ]
   store ptr %retval.0.i.i102, ptr %dep, align 8
-  %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
+  %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   br label %while.cond20, !llvm.loop !85
 
 lpad2.loopexit:                                   ; preds = %if.then.i.i.i287
@@ -25457,12 +25457,12 @@ lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = 
   br label %lpad2
 
 lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEE7inc_refEPNS6_10dependencyE.exit17.i.i233, %if.else118, %if.else107
-  %lpad.loopexit366 = landingpad { ptr, i32 }
+  %lpad.loopexit372 = landingpad { ptr, i32 }
           cleanup
   br label %lpad2
 
 lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEE7inc_refEPNS6_10dependencyE.exit17.i.i210, %_ZN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEE7inc_refEPNS6_10dependencyE.exit17.i.i187, %_ZN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEE7inc_refEPNS6_10dependencyE.exit17.i.i164, %if.then139
-  %lpad.loopexit.split-lp367 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp373 = landingpad { ptr, i32 }
           cleanup
   br label %lpad2
 
@@ -25472,14 +25472,14 @@ lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
   br label %lpad2
 
 lpad2:                                            ; preds = %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad2.loopexit.split-lp.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad2.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit307, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit310, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit312, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit366, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp367, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit307, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit310, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit312, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit372, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp373, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZN10ptr_vectorIN3smt10theory_seq4cellEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %v2) #25
   call void @_ZN10ptr_vectorIN3smt10theory_seq4cellEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %v1) #25
   resume { ptr, i32 } %lpad.phi
 
 while.end:                                        ; preds = %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit96, %land.end
-  %32 = phi ptr [ %23, %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit96 ], [ %.pre339, %land.end ]
-  %33 = trunc nuw i64 %indvars.iv334 to i32
+  %32 = phi ptr [ %23, %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit96 ], [ %.pre345, %land.end ]
+  %33 = trunc nuw i64 %indvars.iv340 to i32
   %cmp.i104 = icmp eq ptr %32, null
   br i1 %cmp.i104, label %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit108, label %if.end.i105
 
@@ -25534,12 +25534,12 @@ land.rhs45:                                       ; preds = %_ZNK6vectorIPN3smt1
           to label %land.end53 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 land.end53:                                       ; preds = %land.rhs45
-  %.pre337 = load ptr, ptr %v1, align 8
+  %.pre343 = load ptr, ptr %v1, align 8
   br i1 %call52, label %while.body54, label %while.end62
 
 while.body54:                                     ; preds = %land.end53
   %42 = load ptr, ptr %dep, align 8
-  %arrayidx.i122 = getelementptr inbounds ptr, ptr %.pre337, i64 %indvars.iv
+  %arrayidx.i122 = getelementptr inbounds ptr, ptr %.pre343, i64 %indvars.iv
   %43 = load ptr, ptr %arrayidx.i122, align 8
   %m_dep58 = getelementptr inbounds i8, ptr %43, i64 16
   %44 = load ptr, ptr %m_dep58, align 8
@@ -25579,14 +25579,14 @@ call.i.i.i.noexc143:                              ; preds = %_ZN18dependency_man
   br label %invoke.cont59
 
 invoke.cont59:                                    ; preds = %call.i.i.i.noexc143, %if.else.i.i124, %while.body54
-  %.pre = phi ptr [ %.pre.pre, %call.i.i.i.noexc143 ], [ %.pre337, %while.body54 ], [ %.pre337, %if.else.i.i124 ]
+  %.pre = phi ptr [ %.pre.pre, %call.i.i.i.noexc143 ], [ %.pre343, %while.body54 ], [ %.pre343, %if.else.i.i124 ]
   %retval.0.i.i142 = phi ptr [ %call.i.i.i144, %call.i.i.i.noexc143 ], [ %44, %while.body54 ], [ %42, %if.else.i.i124 ]
   store ptr %retval.0.i.i142, ptr %dep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %while.cond41, !llvm.loop !86
 
 while.end62:                                      ; preds = %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit118, %land.end53
-  %46 = phi ptr [ %37, %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit118 ], [ %.pre337, %land.end53 ]
+  %46 = phi ptr [ %37, %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit118 ], [ %.pre343, %land.end53 ]
   %47 = trunc nuw i64 %indvars.iv to i32
   %cmp.i146 = icmp eq ptr %46, null
   br i1 %cmp.i146, label %_ZNK6vectorIPN3smt10theory_seq4cellELb0EjE4sizeEv.exit150, label %if.end.i147

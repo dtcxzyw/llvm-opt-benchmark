@@ -433,20 +433,20 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   store ptr %58, ptr %42, align 8
   %43 = call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1024, ptr noundef nonnull %33)
   %.not3857.i = icmp eq ptr %43, null
-  br i1 %.not3857.i, label %.outer34._crit_edge.thread129.i, label %.lr.ph.lr.ph.i, !llvm.loop !10
+  br i1 %.not3857.i, label %.outer34._crit_edge.thread135.i, label %.lr.ph.lr.ph.i, !llvm.loop !10
 
 .lr.ph.lr.ph.i:                                   ; preds = %.outer.i, %.lr.ph.lr.ph.lr.ph.i
   %indvars.iv111.i = phi i64 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %indvars.iv.next112.i, %.outer.i ]
   %.028.ph81.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %lftr.wideiv.i95, %.outer.i ]
   %exitcond114.not.i = icmp eq i64 %indvars.iv111.i, %29
   %44 = zext i32 %.028.ph81.i to i64
-  %umax118.i = call i32 @llvm.umax.i32(i32 %.028.ph81.i, i32 %.0.lcssa.i)
+  %umax124.i = call i32 @llvm.umax.i32(i32 %.028.ph81.i, i32 %.0.lcssa.i)
   br i1 %exitcond114.not.i, label %.lr.ph.lr.ph.split.i, label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.lr.ph.i, %.split41.us.split.us.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split41.us.split.us.us.i ], [ %44, %.lr.ph.lr.ph.i ]
   %lftr.wideiv.i = trunc i64 %indvars.iv.i to i32
-  %exitcond.not.i = icmp eq i32 %umax118.i, %lftr.wideiv.i
+  %exitcond.not.i = icmp eq i32 %umax124.i, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %.lr.ph.split.us.split.split.us.i, label %.lr.ph.split.us.split.us.us.i
 
 .lr.ph.split.us.split.us.us.i:                    ; preds = %.lr.ph.us.i, %48
@@ -474,13 +474,13 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   br i1 %.not38.us.i, label %.outer34._crit_edge.loopexit94.i, label %.lr.ph.us.i, !llvm.loop !10
 
 .lr.ph.lr.ph.split.i:                             ; preds = %.lr.ph.lr.ph.i
-  %wide.trip.count119.i = zext i32 %umax118.i to i64
+  %wide.trip.count125.i = zext i32 %umax124.i to i64
   br label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %.split41.split.us.i, %.lr.ph.lr.ph.split.i
-  %indvars.iv115.i = phi i64 [ %44, %.lr.ph.lr.ph.split.i ], [ %indvars.iv.next116.i, %.split41.split.us.i ]
-  %exitcond120.not.i = icmp eq i64 %indvars.iv115.i, %wide.trip.count119.i
-  br i1 %exitcond120.not.i, label %.lr.ph.split.split.i, label %.lr.ph.split.split.us.i
+  %indvars.iv121.i = phi i64 [ %44, %.lr.ph.lr.ph.split.i ], [ %indvars.iv.next122.i, %.split41.split.us.i ]
+  %exitcond126.not.i = icmp eq i64 %indvars.iv121.i, %wide.trip.count125.i
+  br i1 %exitcond126.not.i, label %.lr.ph.split.split.i, label %.lr.ph.split.split.us.i
 
 .lr.ph.split.us.split.split.us.i:                 ; preds = %.lr.ph.us.i, %54
   %bcmp.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %13, ptr noundef nonnull dereferenceable(13) @read_models.model_marker, i64 13)
@@ -493,7 +493,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   br i1 %.not.us.i, label %.outer34._crit_edge.loopexit93.i, label %.lr.ph.split.us.split.split.us.i, !llvm.loop !10
 
 .split.us.i:                                      ; preds = %.lr.ph.split.us.split.split.us.i, %.lr.ph.split.us.split.us.us.i
-  %lftr.wideiv.i95 = phi i32 [ %lftr.wideiv.i, %.lr.ph.split.us.split.us.us.i ], [ %umax118.i, %.lr.ph.split.us.split.split.us.i ]
+  %lftr.wideiv.i95 = phi i32 [ %lftr.wideiv.i, %.lr.ph.split.us.split.us.us.i ], [ %umax124.i, %.lr.ph.split.us.split.split.us.i ]
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #16
   %57 = add i64 %56, -1
   %58 = call ptr @uv__strndup(ptr noundef nonnull %38, i64 noundef %57) #14
@@ -512,8 +512,8 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
 
 .split41.split.us.i:                              ; preds = %.lr.ph.split.split.us.i
   %63 = call i32 @atoi(ptr nocapture noundef nonnull %37) #16
-  %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
-  %64 = getelementptr inbounds %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv115.i, i32 1
+  %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
+  %64 = getelementptr inbounds %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv121.i, i32 1
   store i32 %63, ptr %64, align 8
   %65 = call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1024, ptr noundef nonnull %33)
   %.not38.i = icmp eq ptr %65, null
@@ -531,7 +531,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   %68 = trunc nuw i64 %indvars.iv111.i to i32
   br label %.outer34._crit_edge.i
 
-.outer34._crit_edge.thread129.i:                  ; preds = %.outer.i
+.outer34._crit_edge.thread135.i:                  ; preds = %.outer.i
   %69 = trunc nuw i64 %indvars.iv.next112.i to i32
   %70 = call i32 @fclose(ptr noundef nonnull %33)
   br label %72
@@ -542,37 +542,37 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   %.not32.i = icmp eq i32 %.029.ph.lcssa37.i, 0
   br i1 %.not32.i, label %77, label %72
 
-72:                                               ; preds = %.outer34._crit_edge.i, %.outer34._crit_edge.thread129.i
-  %.029.ph.lcssa37132.i = phi i32 [ %69, %.outer34._crit_edge.thread129.i ], [ %.029.ph.lcssa37.i, %.outer34._crit_edge.i ]
-  %73 = add i32 %.029.ph.lcssa37132.i, -1
+72:                                               ; preds = %.outer34._crit_edge.i, %.outer34._crit_edge.thread135.i
+  %.029.ph.lcssa37138.i = phi i32 [ %69, %.outer34._crit_edge.thread135.i ], [ %.029.ph.lcssa37.i, %.outer34._crit_edge.i ]
+  %73 = add i32 %.029.ph.lcssa37138.i, -1
   %74 = zext i32 %73 to i64
   %75 = getelementptr inbounds %struct.uv_cpu_info_s, ptr %30, i64 %74
   %76 = load ptr, ptr %75, align 8
   br label %77
 
 77:                                               ; preds = %72, %.outer34._crit_edge.i, %.outer34._crit_edge.thread.i
-  %.029.ph.lcssa37128.i = phi i32 [ %.029.ph.lcssa37132.i, %72 ], [ 0, %.outer34._crit_edge.i ], [ 0, %.outer34._crit_edge.thread.i ]
+  %.029.ph.lcssa37134.i = phi i32 [ %.029.ph.lcssa37138.i, %72 ], [ 0, %.outer34._crit_edge.i ], [ 0, %.outer34._crit_edge.thread.i ]
   %.027.i = phi ptr [ %76, %72 ], [ @.str.14, %.outer34._crit_edge.i ], [ @.str.14, %.outer34._crit_edge.thread.i ]
-  %78 = icmp ult i32 %.029.ph.lcssa37128.i, %.0.lcssa.i
+  %78 = icmp ult i32 %.029.ph.lcssa37134.i, %.0.lcssa.i
   br i1 %78, label %.lr.ph85.preheader.i, label %read_models.exit.thread
 
 .lr.ph85.preheader.i:                             ; preds = %77
-  %79 = zext i32 %.029.ph.lcssa37128.i to i64
+  %79 = zext i32 %.029.ph.lcssa37134.i to i64
   br label %.lr.ph85.i
 
 .lr.ph85.i:                                       ; preds = %83, %.lr.ph85.preheader.i
-  %indvars.iv121.i = phi i64 [ %79, %.lr.ph85.preheader.i ], [ %indvars.iv.next122.i, %83 ]
+  %indvars.iv127.i = phi i64 [ %79, %.lr.ph85.preheader.i ], [ %indvars.iv.next128.i, %83 ]
   %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.027.i) #16
   %81 = call ptr @uv__strndup(ptr noundef %.027.i, i64 noundef %80) #14
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.thread66, label %83
 
 83:                                               ; preds = %.lr.ph85.i
-  %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
-  %84 = getelementptr inbounds %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv121.i
+  %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
+  %84 = getelementptr inbounds %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv127.i
   store ptr %81, ptr %84, align 8
-  %exitcond125.not.i = icmp eq i64 %indvars.iv.next122.i, %29
-  br i1 %exitcond125.not.i, label %read_models.exit.thread, label %.lr.ph85.i, !llvm.loop !11
+  %exitcond131.not.i = icmp eq i64 %indvars.iv.next128.i, %29
+  br i1 %exitcond131.not.i, label %read_models.exit.thread, label %.lr.ph85.i, !llvm.loop !11
 
 read_models.exit.thread:                          ; preds = %83, %77
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)

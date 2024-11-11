@@ -2532,8 +2532,8 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %6 = load ptr, ptr %arrayidx36, align 8
   tail call void @uv__free(ptr noundef %6) #23
   %inc39 = add nuw nsw i32 %i.134, 1
-  %exitcond42.not = icmp eq i32 %inc39, %cnt.031
-  br i1 %exitcond42.not, label %for.end40, label %for.body34
+  %exitcond43.not = icmp eq i32 %inc39, %cnt.031
+  br i1 %exitcond43.not, label %for.end40, label %for.body34
 
 for.end40:                                        ; preds = %for.body34, %for.cond31.preheader
   %7 = load ptr, ptr %envitems, align 8

@@ -677,14 +677,13 @@ entry:
 if.end:                                           ; preds = %entry
   %fUnion.i = getelementptr inbounds i8, ptr %keyword, i64 8
   %2 = load i16, ptr %fUnion.i, align 8
-  %conv1.i = zext i16 %2 to i32
-  %and.i = and i32 %conv1.i, 17
-  %tobool.not.i = icmp eq i32 %and.i, 0
+  %3 = and i16 %2, 17
+  %tobool.not.i = icmp eq i16 %3, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %if.end
-  %and5.i = and i32 %conv1.i, 2
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
+  %4 = and i16 %2, 2
+  %tobool6.not.i = icmp eq i16 %4, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -693,17 +692,17 @@ if.then7.i:                                       ; preds = %if.else.i
 
 if.else9.i:                                       ; preds = %if.else.i
   %fArray.i = getelementptr inbounds i8, ptr %keyword, i64 24
-  %3 = load ptr, ptr %fArray.i, align 8
+  %5 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %3, %if.else9.i ], [ null, %if.end ]
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %if.end ]
   %cmp.i.i = icmp slt i16 %2, 0
-  %4 = ashr i16 %2, 5
-  %shr.i.i = sext i16 %4 to i32
+  %6 = ashr i16 %2, 5
+  %shr.i.i = sext i16 %6 to i32
   %fLength.i = getelementptr inbounds i8, ptr %keyword, i64 12
-  %5 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %5, i32 %shr.i.i
+  %7 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %7, i32 %shr.i.i
   %call4 = tail call noundef signext i8 @_ZN6icu_7512PatternProps12isIdentifierEPKDsi(ptr noundef %retval.0.i, i32 noundef %cond.i)
   %tobool5.not = icmp eq i8 %call4, 0
   br i1 %tobool5.not, label %if.then6, label %if.end7
@@ -715,8 +714,8 @@ if.then6:                                         ; preds = %_ZNK6icu_7513Unicod
 if.end7:                                          ; preds = %if.then6, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %msgPattern = getelementptr inbounds i8, ptr %this, i64 328
   %partsLength.i = getelementptr inbounds i8, ptr %this, i64 424
-  %6 = load i32, ptr %partsLength.i, align 8
-  %cmp = icmp eq i32 %6, 0
+  %8 = load i32, ptr %partsLength.i, align 8
+  %cmp = icmp eq i32 %8, 0
   br i1 %cmp, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end7
@@ -726,29 +725,29 @@ if.then9:                                         ; preds = %if.end7
 if.end10:                                         ; preds = %if.end7
   %call12 = tail call noundef i32 @_ZN6icu_7512SelectFormat14findSubMessageERKNS_14MessagePatternEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %msgPattern, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %aposMode.i.i = getelementptr inbounds i8, ptr %this, i64 336
-  %7 = load i32, ptr %aposMode.i.i, align 8
-  %cmp.i13.not = icmp eq i32 %7, 1
+  %9 = load i32, ptr %aposMode.i.i, align 8
+  %cmp.i13.not = icmp eq i32 %9, 1
   br i1 %cmp.i13.not, label %if.end27, label %if.then16
 
 if.then16:                                        ; preds = %if.end10
   %parts.i = getelementptr inbounds i8, ptr %this, i64 416
-  %8 = load ptr, ptr %parts.i, align 8
+  %10 = load ptr, ptr %parts.i, align 8
   %idxprom.i = sext i32 %call12 to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %10, i64 %idxprom.i
   %index.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %9 = load i32, ptr %index.i, align 4
+  %11 = load i32, ptr %index.i, align 4
   %length.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %10 = load i16, ptr %length.i, align 4
-  %conv.i15 = zext i16 %10 to i32
-  %add.i = add nsw i32 %9, %conv.i15
-  %limitPartIndex.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %8, i64 %idxprom.i, i32 4
-  %11 = load i32, ptr %limitPartIndex.i, align 4
-  %start..i = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %call12)
+  %12 = load i16, ptr %length.i, align 4
+  %conv.i15 = zext i16 %12 to i32
+  %add.i = add nsw i32 %11, %conv.i15
+  %limitPartIndex.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %10, i64 %idxprom.i, i32 4
+  %13 = load i32, ptr %limitPartIndex.i, align 4
+  %start..i = tail call noundef i32 @llvm.smax.i32(i32 %13, i32 %call12)
   %msg.i = getelementptr inbounds i8, ptr %this, i64 344
   %idxprom.i.i17 = sext i32 %start..i to i64
-  %index.i18 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %8, i64 %idxprom.i.i17, i32 1
-  %12 = load i32, ptr %index.i18, align 4
-  %sub = sub nsw i32 %12, %add.i
+  %index.i18 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %10, i64 %idxprom.i.i17, i32 1
+  %14 = load i32, ptr %index.i18, align 4
+  %sub = sub nsw i32 %14, %add.i
   %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %appendTo, ptr noundef nonnull align 8 dereferenceable(64) %msg.i, i32 noundef %add.i, i32 noundef %sub)
   br label %return
 

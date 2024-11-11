@@ -349,8 +349,8 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN9grpc
 
 for.end:                                          ; preds = %for.inc
   %.pre = load ptr, ptr %entries, align 8
-  %.pre54 = load ptr, ptr %_M_finish.i, align 8
-  %tobool.not.i.i = icmp eq ptr %.pre54, %.pre
+  %.pre56 = load ptr, ptr %_M_finish.i, align 8
+  %tobool.not.i.i = icmp eq ptr %.pre56, %.pre
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE5clearEv.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %for.end
@@ -374,14 +374,14 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit21:      ; preds = %_ZNSt6vectorIN9grpc
   br i1 %cmp.not, label %for.end24, label %for.body
 
 for.end24:                                        ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit21
-  %.pre55 = load ptr, ptr %agg.result, align 8
-  %.pre56 = load ptr, ptr %_M_finish.i16, align 8
-  %cmp.i.i.i23 = icmp eq ptr %.pre55, %.pre56
+  %.pre57 = load ptr, ptr %agg.result, align 8
+  %.pre58 = load ptr, ptr %_M_finish.i16, align 8
+  %cmp.i.i.i23 = icmp eq ptr %.pre57, %.pre58
   br i1 %cmp.i.i.i23, label %nrvo.skipdtor, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.end24
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %.pre56 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.pre55 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %.pre58 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.pre57 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 5
   %cmp16.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i, 0
@@ -402,7 +402,7 @@ if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 
 if.then.i.i.i24:                                  ; preds = %while.body.i.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %mul.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.pre55, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.pre57, i64 32, i1 false)
   %cmp1.not12.i.i.i.i.i = icmp eq i64 %storemerge27.i.i.i.i, 1
   br i1 %cmp1.not12.i.i.i.i.i, label %if.else.i.i, label %for.body.i.i.preheader.i.i.i
 
@@ -420,11 +420,11 @@ for.body.i.i.i.i.i25:                             ; preds = %for.body.i.i.i.i.i2
   br i1 %cmp1.not.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i, label %for.body.i.i.i.i.i25, !llvm.loop !11
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i: ; preds = %for.body.i.i.i.i.i25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.pre55, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr4.i.i.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.pre57, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr4.i.i.i.i.i, i64 32, i1 false)
   br label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i.i.i, %if.end.i.i
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202308024SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_"(ptr %.pre55, ptr %.pre56)
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202308024SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_"(ptr %.pre57, ptr %.pre58)
   br label %if.end22.i.i
 
 lpad.i.i:                                         ; preds = %if.else.i.i
@@ -434,7 +434,7 @@ lpad.i.i:                                         ; preds = %if.else.i.i
   br label %ehcleanup
 
 if.else.i.i:                                      ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i, %if.then.i.i.i24
-  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202308024SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_T1_T2_"(ptr nonnull %.pre55, ptr %.pre56, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i)
+  invoke fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202308024SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_T1_T2_"(ptr nonnull %.pre57, ptr %.pre58, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i)
           to label %if.end22.i.i unwind label %lpad.i.i
 
 if.end22.i.i:                                     ; preds = %if.else.i.i, %if.then5.i.i

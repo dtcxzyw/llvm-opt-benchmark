@@ -806,7 +806,7 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck2(ptr noundef %0, ptr nocapture nound
   br label %.lr.ph
 
 .lr.ph145.preheader:                              ; preds = %56
-  %wide.trip.count166 = zext nneg i32 %47 to i64
+  %wide.trip.count170 = zext nneg i32 %47 to i64
   br label %.lr.ph145
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
@@ -837,41 +837,41 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck2(ptr noundef %0, ptr nocapture nound
   br label %.lr.ph148
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %66
-  %indvars.iv163 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next164, %66 ]
-  %59 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %indvars.iv163
+  %indvars.iv165 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next166, %66 ]
+  %59 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %indvars.iv165
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %60, 2
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %.lr.ph145
-  %63 = trunc nuw nsw i64 %indvars.iv163 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv165 to i32
   %64 = add nuw nsw i32 %63, 97
   %65 = tail call i32 (ptr, ...) @Ifn_ErrorMessage(ptr noundef nonnull @.str.17, ptr noundef %0, i32 noundef %64)
   br label %75
 
 66:                                               ; preds = %.lr.ph145
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %.preheader, label %.lr.ph145, !llvm.loop !17
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %exitcond171.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count170
+  br i1 %exitcond171.not, label %.preheader, label %.lr.ph145, !llvm.loop !17
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %74
-  %indvars.iv168 = phi i64 [ %58, %.lr.ph148.preheader ], [ %indvars.iv.next169, %74 ]
-  %67 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %indvars.iv168
+  %indvars.iv174 = phi i64 [ %58, %.lr.ph148.preheader ], [ %indvars.iv.next175, %74 ]
+  %67 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %indvars.iv174
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 1
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %.lr.ph148
-  %71 = trunc nsw i64 %indvars.iv168 to i32
+  %71 = trunc nsw i64 %indvars.iv174 to i32
   %72 = add nsw i32 %71, 97
   %73 = tail call i32 (ptr, ...) @Ifn_ErrorMessage(ptr noundef nonnull @.str.18, ptr noundef %0, i32 noundef %72)
   br label %75
 
 74:                                               ; preds = %.lr.ph148
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next169 to i32
-  %exitcond171.not = icmp eq i32 %48, %lftr.wideiv
-  br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph148, !llvm.loop !18
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next175 to i32
+  %exitcond179.not = icmp eq i32 %48, %lftr.wideiv
+  br i1 %exitcond179.not, label %._crit_edge, label %.lr.ph148, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %74, %.preheader
   store i32 %47, ptr %1, align 4

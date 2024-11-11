@@ -86,8 +86,8 @@ Vec_IntGrow.exit.i:                               ; preds = %19, %17
   %.val = load ptr, ptr %4, align 8
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %.val, i64 %38
-  %40 = and i32 %36, 1
-  %.not = icmp eq i32 %40, 0
+  %40 = and i16 %35, 1
+  %.not = icmp eq i16 %40, 0
   br i1 %.not, label %41, label %43
 
 41:                                               ; preds = %33
@@ -169,8 +169,8 @@ Vec_IntPush.exit32:                               ; preds = %.Vec_IntGrow.exit10
   %74 = getelementptr inbounds i8, ptr %.tr40, i64 6
   %75 = load i16, ptr %74, align 2
   %76 = sext i16 %75 to i32
-  %77 = and i32 %76, 1
-  %.not23 = icmp eq i32 %77, 0
+  %77 = and i16 %75, 1
+  %.not23 = icmp eq i16 %77, 0
   br i1 %.not23, label %78, label %84
 
 78:                                               ; preds = %73
