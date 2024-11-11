@@ -1922,7 +1922,7 @@ boost/cpp_main.ll 245814965
 boost/cpp_re.ll 42468326
 boost/cpu_timer.ll 259574467
 boost/cstdio.ll 197434946
-boost/cstdlib.ll 34672187
+boost/cstdlib.ll 34637022
 boost/cstring_ref.ll 1898224302
 boost/cwd.ll 306775750
 boost/date_time.ll 944838365
@@ -2681,7 +2681,7 @@ casadi/cs_utsolve.c.ll 49704823
 casadi/csparse_cholesky_interface.cpp.ll 594628998
 casadi/csparse_cholesky_interface_meta.cpp.ll 54022982
 casadi/csparse_interface.cpp.ll 661765176
-casadi/csparse_interface_meta.cpp.ll 54074329
+casadi/csparse_interface_meta.cpp.ll 54019975
 casadi/cvodea.c.ll 1070564112
 casadi/cvodea_io.c.ll 124699783
 casadi/cvodes.c.ll 4246979618
@@ -8672,7 +8672,7 @@ gromacs/localatomsetdata.cpp.ll 271218053
 gromacs/localatomsetmanager.cpp.ll 394704578
 gromacs/localtopology.cpp.ll 1809855084
 gromacs/localtopologychecker.cpp.ll 880347239
-gromacs/logger.cpp.ll 44497011
+gromacs/logger.cpp.ll 44452108
 gromacs/loggerbuilder.cpp.ll 596490793
 gromacs/logging.cpp.ll 223708543
 gromacs/long_range_correction.cpp.ll 209143462
@@ -21116,7 +21116,7 @@ opencv/fast_gemm.cpp.ll 2073456571
 opencv/fast_hough_transform.cpp.ll 3360759264
 opencv/fast_icp.cpp.ll 919692847
 opencv/fast_line_detector.cpp.ll 1175304463
-opencv/fast_marching.cpp.ll 188045024
+opencv/fast_marching.cpp.ll 187856507
 opencv/fast_norm.cpp.ll 641238610
 opencv/fast_score.cpp.ll 169976460
 opencv/fast_window_binarizer.cpp.ll 434594172
@@ -22394,7 +22394,7 @@ openjdk/Float.ll 33436963
 openjdk/ForeignLinkerSupport.ll 32660966
 openjdk/FourByteAbgr.ll 1070077896
 openjdk/FourByteAbgrPre.ll 1063754230
-openjdk/FrameID.ll 36006843
+openjdk/FrameID.ll 35970517
 openjdk/GC.ll 32619202
 openjdk/GLXGraphicsConfig.ll 109523966
 openjdk/GLXSurfaceData.ll 65563116
@@ -22805,7 +22805,7 @@ openjdk/cmsvirt.ll 303365080
 openjdk/cmswtpnt.ll 84863397
 openjdk/cmsxform.ll 395492336
 openjdk/coalesce.ll 884995705
-openjdk/codeBehaviours.ll 38893990
+openjdk/codeBehaviours.ll 38854749
 openjdk/codeBlob.ll 495707613
 openjdk/codeBuffer.ll 969967127
 openjdk/codeBuffer_x86.ll 73041765
@@ -22962,7 +22962,7 @@ openjdk/g1ConcurrentRebuildAndScrub.ll 3702824201
 openjdk/g1ConcurrentRefine.ll 2613093162
 openjdk/g1ConcurrentRefineStats.ll 61775097
 openjdk/g1ConcurrentRefineThread.ll 164274102
-openjdk/g1ConcurrentRefineThreadsNeeded.ll 49276805
+openjdk/g1ConcurrentRefineThreadsNeeded.ll 49227043
 openjdk/g1DirtyCardQueue.ll 2654789499
 openjdk/g1EvacFailureRegions.ll 2365590399
 openjdk/g1EvacStats.ll 88057937
@@ -23163,7 +23163,7 @@ openjdk/invocationCounter.ll 49951914
 openjdk/invoker.ll 425464234
 openjdk/io_util.ll 75821107
 openjdk/io_util_md.ll 87983037
-openjdk/isGCActiveMark.ll 36091240
+openjdk/isGCActiveMark.ll 36054785
 openjdk/istream.ll 107175484
 openjdk/iterator.ll 1131039789
 openjdk/j2secmod.ll 80858821
@@ -23847,7 +23847,7 @@ openjdk/stubGenerator_x86_64_sin.ll 405163988
 openjdk/stubGenerator_x86_64_tan.ll 542808905
 openjdk/stubRoutines.ll 1192820976
 openjdk/stubRoutines_x86.ll 147868657
-openjdk/stubRoutines_x86_64.ll 45614877
+openjdk/stubRoutines_x86_64.ll 45568917
 openjdk/stubs.ll 196022724
 openjdk/subnode.ll 1172982413
 openjdk/subtypenode.ll 99955890
@@ -27161,7 +27161,7 @@ openusd/assetPath.cpp.ll 262141354
 openusd/assetPathResolver.cpp.ll 1070288309
 openusd/assetPreviewsAPI.cpp.ll 1079712625
 openusd/assumptions.cpp.ll 41472285
-openusd/atomicOfstreamWrapper.cpp.ll 61296215
+openusd/atomicOfstreamWrapper.cpp.ll 61234750
 openusd/atomicRenameUtil.cpp.ll 75644025
 openusd/attachmentDesc.cpp.ll 63692443
 openusd/attribute.cpp.ll 1901615947
@@ -29503,7 +29503,7 @@ postgres/preproc.ll 5633557309
 postgres/preptlist.ll 168004449
 postgres/prepunion.ll 330235754
 postgres/print.ll 1282340750
-postgres/printtup.ll 149148325
+postgres/printtup.ll 148998863
 postgres/proc.ll 357731828
 postgres/procarray.ll 1021723217
 postgres/proclang.ll 65860136
@@ -29512,7 +29512,7 @@ postgres/prompt.ll 103582580
 postgres/proto.ll 324200730
 postgres/pruneheap.ll 336329033
 postgres/ps_status.ll 128341551
-postgres/psprintf.ll 42907708
+postgres/psprintf.ll 42864723
 postgres/psprintf_shlib.ll 42839790
 postgres/psprintf_srv.ll 43547459
 postgres/psqlscan.ll 1272709160
@@ -29940,7 +29940,7 @@ proj/oputils.cpp.ll 840055871
 proj/ortho.cpp.ll 104025120
 proj/param.cpp.ll 85238558
 proj/parammappings.cpp.ll 230441163
-proj/patterson.cpp.ll 48923842
+proj/patterson.cpp.ll 48874705
 proj/phi2.cpp.ll 52913019
 proj/pipeline.cpp.ll 595319692
 proj/poly.cpp.ll 74025734
@@ -30953,7 +30953,7 @@ qemu/stats_stats-hmp-cmds.c.ll 156060611
 qemu/stats_stats-qmp-cmds.c.ll 87724000
 qemu/stubs_colo.c.ll 36187221
 qemu/stubs_icount.c.ll 38465458
-qemu/stubs_io_uring.c.ll 34801251
+qemu/stubs_io_uring.c.ll 34765847
 qemu/stubs_monitor-core.c.ll 35587750
 qemu/stubs_replay-tools.c.ll 43783854
 qemu/stubs_trace-control.c.ll 40810776
@@ -36543,7 +36543,7 @@ wasmtime-rs/2wcii8z2urex364d.ll 446796621
 wasmtime-rs/2wry4odhn7m84bj2.ll 9442622791
 wasmtime-rs/2wygiecbuuicnedn.ll 39306495
 wasmtime-rs/2x1mxlm9f496za8a.ll 1005189002
-wasmtime-rs/2xenfhs03defnqn9.ll 36163258
+wasmtime-rs/2xenfhs03defnqn9.ll 36126872
 wasmtime-rs/2xwknf2ovwm1te5p.ll 93155379
 wasmtime-rs/2y3wfjzj02o80wks.ll 941285422
 wasmtime-rs/2z2bbg03c0vbl72j.ll 37109325
