@@ -3042,7 +3042,7 @@ clamav/clamfi.c.ll 278173819
 clamav/clamonacc.c.ll 99034584
 clamav/clamscan.c.ll 80499722
 clamav/clamsubmit.c.ll 191262496
-clamav/client.c.ll 155330939
+clamav/client.c.ll 155175465
 clamav/cmddata.cpp.ll 478342900
 clamav/communication.c.ll 108280712
 clamav/connpool.c.ll 133203136
@@ -25363,7 +25363,7 @@ openmpi/ras_base_frame.ll 36820964
 openmpi/ras_base_node.ll 138129491
 openmpi/ras_base_select.ll 35017332
 openmpi/ras_pbs_component.ll 38174681
-openmpi/ras_pbs_module.ll 110464010
+openmpi/ras_pbs_module.ll 110352949
 openmpi/ras_sim_component.ll 37232881
 openmpi/ras_sim_module.ll 107767881
 openmpi/ras_slurm_component.ll 41340169
@@ -32023,7 +32023,7 @@ quickjs/cutils.ll 294652509
 quickjs/libbf.ll 5507775792
 quickjs/libregexp.ll 1061159021
 quickjs/libunicode.ll 990421808
-quickjs/qjs.ll 243177347
+quickjs/qjs.ll 242933953
 quickjs/qjsc.ll 295589028
 quickjs/quickjs-libc.ll 1297683541
 quickjs/quickjs.ll 38395166320
