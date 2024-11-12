@@ -8005,7 +8005,7 @@ graphviz/info.c.ll 68229146
 graphviz/ingraphs.c.ll 77860103
 graphviz/inpoly.c.ll 41261243
 graphviz/input.c.ll 394150682
-graphviz/intersection.c.ll 146436859
+graphviz/intersection.c.ll 146583336
 graphviz/intset.c.ll 45370234
 graphviz/io.c.ll 53718411
 graphviz/kkutils.c.ll 141694371
@@ -24459,7 +24459,7 @@ openmpi/gds_shmem_fetch.ll 624248260
 openmpi/gds_shmem_store.ll 2165883890
 openmpi/gds_shmem_utils.ll 148594494
 openmpi/gds_utils.ll 531065313
-openmpi/get_extent.ll 37209672
+openmpi/get_extent.ll 37246949
 openmpi/get_fp_posn.ll 53308154
 openmpi/grequest.ll 105261775
 openmpi/group.ll 325159138
