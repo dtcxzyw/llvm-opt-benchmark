@@ -4868,10 +4868,6 @@ if.then.i226:                                     ; preds = %.noexc
   store ptr %currentCallbacks.i, ptr %currentCallbacks.i, align 16, !tbaa !154
   %prev_.i.i.i.i227 = getelementptr inbounds i8, ptr %currentCallbacks.i, i64 8
   store ptr %currentCallbacks.i, ptr %prev_.i.i.i.i227, align 8, !tbaa !155
-  %cmp.i.i.i = icmp eq ptr %loopCallbacks_.i, %currentCallbacks.i
-  br i1 %cmp.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i, label %if.end15.i.i.i
-
-if.end15.i.i.i:                                   ; preds = %if.then.i226
   %prev_.i.i37.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %.pre41.i.i.i = load ptr, ptr %prev_.i.i37.i.i.i, align 16, !tbaa !155
   %prev_.i5.i.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %78, i64 8
@@ -4885,15 +4881,12 @@ if.end15.i.i.i:                                   ; preds = %if.then.i226
   store ptr %79, ptr %loopCallbacks_.i, align 8, !tbaa !154
   store <2 x ptr> %80, ptr %currentCallbacks.i, align 16, !tbaa !144
   store ptr %.pre42.i.i.i, ptr %prev_.i.i37.i.i.i, align 16, !tbaa !155
-  br label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i
-
-_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i: ; preds = %if.end15.i.i.i, %if.then.i226
   %runOnceCallbacks_.i = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %currentCallbacks.i, ptr %runOnceCallbacks_.i, align 8, !tbaa !157
   invoke void @_ZN5folly9EventBase16runLoopCallbacksERN5boost9intrusive4listINS0_12LoopCallbackEJNS2_18constant_time_sizeILb0EEEEEE(ptr noundef nonnull align 16 dereferenceable(584) %this, ptr noundef nonnull align 8 dereferenceable(16) %currentCallbacks.i)
           to label %invoke.cont.i229 unwind label %lpad.i228
 
-invoke.cont.i229:                                 ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i
+invoke.cont.i229:                                 ; preds = %if.then.i226
   store ptr null, ptr %runOnceCallbacks_.i, align 8, !tbaa !157
   %81 = load ptr, ptr %currentCallbacks.i, align 16, !tbaa !154, !noalias !301
   %cmp.i.not40.i.i.i.i = icmp eq ptr %81, %currentCallbacks.i
@@ -4910,7 +4903,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %currentCallbacks.i) #53
   br label %invoke.cont83
 
-lpad.i228:                                        ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i
+lpad.i228:                                        ; preds = %if.then.i226
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = load ptr, ptr %currentCallbacks.i, align 16, !tbaa !154, !noalias !305
@@ -6199,10 +6192,6 @@ if.then:                                          ; preds = %entry
   store ptr %currentCallbacks, ptr %currentCallbacks, align 16, !tbaa !154
   %prev_.i.i.i = getelementptr inbounds i8, ptr %currentCallbacks, i64 8
   store ptr %currentCallbacks, ptr %prev_.i.i.i, align 8, !tbaa !155
-  %cmp.i.i = icmp eq ptr %loopCallbacks_, %currentCallbacks
-  br i1 %cmp.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit, label %if.end15.i.i
-
-if.end15.i.i:                                     ; preds = %if.then
   %prev_.i.i37.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %.pre41.i.i = load ptr, ptr %prev_.i.i37.i.i, align 16, !tbaa !155
   %prev_.i5.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -6216,15 +6205,12 @@ if.end15.i.i:                                     ; preds = %if.then
   store ptr %1, ptr %loopCallbacks_, align 8, !tbaa !154
   store <2 x ptr> %2, ptr %currentCallbacks, align 16, !tbaa !144
   store ptr %.pre42.i.i, ptr %prev_.i.i37.i.i, align 16, !tbaa !155
-  br label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit
-
-_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit: ; preds = %if.end15.i.i, %if.then
   %runOnceCallbacks_ = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %currentCallbacks, ptr %runOnceCallbacks_, align 8, !tbaa !157
   invoke void @_ZN5folly9EventBase16runLoopCallbacksERN5boost9intrusive4listINS0_12LoopCallbackEJNS2_18constant_time_sizeILb0EEEEEE(ptr noundef nonnull align 16 dereferenceable(584) %this, ptr noundef nonnull align 8 dereferenceable(16) %currentCallbacks)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit
+invoke.cont:                                      ; preds = %if.then
   store ptr null, ptr %runOnceCallbacks_, align 8, !tbaa !157
   %3 = load ptr, ptr %currentCallbacks, align 16, !tbaa !154, !noalias !351
   %cmp.i.not40.i.i.i = icmp eq ptr %3, %currentCallbacks
@@ -6241,7 +6227,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %currentCallbacks) #53
   br label %return
 
-lpad:                                             ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit
+lpad:                                             ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = load ptr, ptr %currentCallbacks, align 16, !tbaa !154, !noalias !355
@@ -12926,14 +12912,12 @@ while.body.lr.ph:                                 ; preds = %if.end
   %nextLoopCnt_ = getelementptr inbounds i8, ptr %this, i64 400
   %prev_.i.i.i = getelementptr inbounds i8, ptr %callbacks, i64 8
   %runBeforeLoopCallbacks_ = getelementptr inbounds i8, ptr %this, i64 104
-  %cmp.i.i = icmp eq ptr %runBeforeLoopCallbacks_, %callbacks
   %prev_.i.i37.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %loopCallbacks_ = getelementptr inbounds i8, ptr %this, i64 88
   %evb_24 = getelementptr inbounds i8, ptr %this, i64 568
   %queue_ = getelementptr inbounds i8, ptr %this, i64 200
   %executionObserverList_ = getelementptr inbounds i8, ptr %this, i64 448
   %prev_.i.i.i.i561 = getelementptr inbounds i8, ptr %currentCallbacks.i, i64 8
-  %cmp.i.i.i562 = icmp eq ptr %loopCallbacks_, %currentCallbacks.i
   %prev_.i.i37.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %runOnceCallbacks_.i = getelementptr inbounds i8, ptr %this, i64 184
   %startWork_ = getelementptr inbounds i8, ptr %this, i64 416
@@ -12982,21 +12966,18 @@ invoke.cont15:                                    ; preds = %if.then12, %while.b
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbacks) #53
   store ptr %callbacks, ptr %callbacks, align 16, !tbaa !154
   store ptr %callbacks, ptr %prev_.i.i.i, align 8, !tbaa !155
-  br i1 %cmp.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit, label %if.end4.i.i
-
-if.end4.i.i:                                      ; preds = %invoke.cont15
   %7 = load ptr, ptr %runBeforeLoopCallbacks_, align 8, !tbaa !154
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %if.then6.i.i, label %if.end4.if.end7_crit_edge.i.i
 
-if.end4.if.end7_crit_edge.i.i:                    ; preds = %if.end4.i.i
+if.end4.if.end7_crit_edge.i.i:                    ; preds = %invoke.cont15
   %.pre41.i.i = load ptr, ptr %prev_.i.i37.i.i, align 16, !tbaa !155
   %prev_.i5.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %.pre42.i.i = load ptr, ptr %prev_.i5.i.phi.trans.insert.i.i, align 8, !tbaa !155
   %.pre43.i.i = load ptr, ptr %.pre41.i.i, align 8, !tbaa !154
   br label %if.end15.i.i
 
-if.then6.i.i:                                     ; preds = %if.end4.i.i
+if.then6.i.i:                                     ; preds = %invoke.cont15
   store ptr %runBeforeLoopCallbacks_, ptr %runBeforeLoopCallbacks_, align 8, !tbaa !154
   store ptr %runBeforeLoopCallbacks_, ptr %prev_.i.i37.i.i, align 16, !tbaa !155
   br label %if.end15.i.i
@@ -13021,7 +13002,7 @@ if.then17.i.i:                                    ; preds = %if.end15.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %callbacks, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit
 
-_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit: ; preds = %if.then17.i.i, %if.end15.i.i, %invoke.cont15
+_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit: ; preds = %if.then17.i.i, %if.end15.i.i
   invoke void @_ZN5folly9EventBase16runLoopCallbacksERN5boost9intrusive4listINS0_12LoopCallbackEJNS2_18constant_time_sizeILb0EEEEEE(ptr noundef nonnull align 16 dereferenceable(584) %this, ptr noundef nonnull align 8 dereferenceable(16) %callbacks)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -13150,9 +13131,6 @@ if.then.i:                                        ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %currentCallbacks.i) #53
   store ptr %currentCallbacks.i, ptr %currentCallbacks.i, align 16, !tbaa !154
   store ptr %currentCallbacks.i, ptr %prev_.i.i.i.i561, align 8, !tbaa !155
-  br i1 %cmp.i.i.i562, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i, label %if.end15.i.i.i
-
-if.end15.i.i.i:                                   ; preds = %if.then.i
   %.pre41.i.i.i = load ptr, ptr %prev_.i.i37.i.i.i, align 16, !tbaa !155
   %prev_.i5.i.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %.pre42.i.i.i = load ptr, ptr %prev_.i5.i.phi.trans.insert.i.i.i, align 8, !tbaa !155
@@ -13165,14 +13143,11 @@ if.end15.i.i.i:                                   ; preds = %if.then.i
   store ptr %39, ptr %loopCallbacks_, align 8, !tbaa !154
   store <2 x ptr> %40, ptr %currentCallbacks.i, align 16, !tbaa !144
   store ptr %.pre42.i.i.i, ptr %prev_.i.i37.i.i.i, align 16, !tbaa !155
-  br label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i
-
-_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i: ; preds = %if.end15.i.i.i, %if.then.i
   store ptr %currentCallbacks.i, ptr %runOnceCallbacks_.i, align 8, !tbaa !157
   invoke void @_ZN5folly9EventBase16runLoopCallbacksERN5boost9intrusive4listINS0_12LoopCallbackEJNS2_18constant_time_sizeILb0EEEEEE(ptr noundef nonnull align 16 dereferenceable(584) %this, ptr noundef nonnull align 8 dereferenceable(16) %currentCallbacks.i)
           to label %invoke.cont.i unwind label %lpad.i
 
-invoke.cont.i:                                    ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i
+invoke.cont.i:                                    ; preds = %if.then.i
   store ptr null, ptr %runOnceCallbacks_.i, align 8, !tbaa !157
   %41 = load ptr, ptr %currentCallbacks.i, align 16, !tbaa !154, !noalias !477
   %cmp.i.not40.i.i.i.i = icmp eq ptr %41, %currentCallbacks.i
@@ -13189,7 +13164,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %currentCallbacks.i) #53
   br label %invoke.cont45
 
-lpad.i:                                           ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit.i
+lpad.i:                                           ; preds = %if.then.i
   %43 = landingpad { ptr, i32 }
           cleanup
   %44 = load ptr, ptr %currentCallbacks.i, align 16, !tbaa !154, !noalias !481
