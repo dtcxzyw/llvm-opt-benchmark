@@ -34195,7 +34195,7 @@ spike/extension.ll 206677455
 spike/extensions.ll 417901672
 spike/f128_div.ll 105524886
 spike/f128_mul.ll 61735060
-spike/f128_rem.ll 117677221
+spike/f128_rem.ll 117794972
 spike/f128_roundToInt.ll 68128272
 spike/f128_sqrt.ll 152815816
 spike/f128_to_i32.ll 43557815
