@@ -10615,7 +10615,7 @@ icu/rbbinode.ll 161577025
 icu/rbbirb.ll 130156331
 icu/rbbiscan.ll 420178899
 icu/rbbisetb.ll 193316296
-icu/rbbistbl.ll 124803406
+icu/rbbistbl.ll 124678589
 icu/rbbitblb.ll 727307645
 icu/rbnf.ll 1033151593
 icu/rbt.ll 82287967
@@ -35372,7 +35372,7 @@ stockfish/timeman.ll 95927522
 stockfish/tt.ll 246378219
 stockfish/tune.ll 333964524
 stockfish/uci.ll 1237091015
-stockfish/ucioption.ll 494473557
+stockfish/ucioption.ll 493979065
 sundials/arkode.c.ll 627887820
 sundials/arkode_adapt.c.ll 62816067
 sundials/arkode_arkstep.c.ll 866852680
