@@ -3438,29 +3438,29 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   %16 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #7
   %17 = add nsw i32 %2, -4
   %18 = add i32 %1, 4
-  %.not42 = icmp eq i32 %14, 0
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %.not38 = icmp eq i32 %14, 0
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
 
-19:                                               ; preds = %93
-  %20 = add nuw i32 %.03938, 1
+19:                                               ; preds = %91
+  %20 = add nuw i32 %.03934, 1
   %exitcond.not = icmp eq i32 %20, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %11, %19
-  %.03740 = phi i32 [ %95, %19 ], [ %18, %11 ]
-  %.03839 = phi i32 [ %.0.i4, %19 ], [ %17, %11 ]
-  %.03938 = phi i32 [ %20, %19 ], [ 0, %11 ]
+  %.03736 = phi i32 [ %93, %19 ], [ %18, %11 ]
+  %.03835 = phi i32 [ %.0.i4, %19 ], [ %17, %11 ]
+  %.03934 = phi i32 [ %20, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %21 = load i32, ptr @ett_mv_set_element, align 4
-  %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %13, ptr noundef %0, i32 noundef %.03740, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull @.str.420, i32 noundef %.03938) #7
-  %23 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03740, i32 noundef range(i32 0, -2147483648) %.03839, ptr noundef %22)
+  %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %13, ptr noundef %0, i32 noundef %.03736, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull @.str.420, i32 noundef %.03934) #7
+  %23 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03736, i32 noundef range(i32 0, -2147483648) %.03835, ptr noundef %22)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %dissect_wccp2_mask_value_set_element.exit.thread, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = sub nsw i32 %.03839, %23
-  %27 = add i32 %26, %.03740
-  %.not.i = icmp slt i32 %.03740, %27
+  %26 = sub nsw i32 %.03835, %23
+  %27 = add i32 %26, %.03736
+  %.not.i = icmp slt i32 %.03736, %27
   br i1 %.not.i, label %28, label %dissect_wccp2_mask_value_set_element.exit
 
 28:                                               ; preds = %25
@@ -3487,10 +3487,10 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   %41 = sub i32 %38, %40
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %87, %.lr.ph.preheader.i
-  %.05410.i = phi i32 [ %88, %87 ], [ %39, %.lr.ph.preheader.i ]
-  %.0559.i = phi i32 [ %89, %87 ], [ 0, %.lr.ph.preheader.i ]
-  %.0568.i = phi i32 [ %84, %87 ], [ %38, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %84, %.lr.ph.preheader.i
+  %.05410.i = phi i32 [ %86, %84 ], [ %39, %.lr.ph.preheader.i ]
+  %.0559.i = phi i32 [ %87, %84 ], [ 0, %.lr.ph.preheader.i ]
+  %.0568.i = phi i32 [ %85, %84 ], [ %38, %.lr.ph.preheader.i ]
   %42 = icmp samesign ult i32 %.0568.i, 4
   br i1 %42, label %43, label %45
 
@@ -3554,33 +3554,29 @@ dissect_wccp2_value_element.exit.i:               ; preds = %74
   %81 = load i32, ptr @hf_value_element_web_cache_ipv4, align 4
   %82 = load i32, ptr @hf_value_element_web_cache_ipv6, align 4
   %83 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %80, i32 noundef %81, i32 noundef %82, ptr noundef %0, i32 noundef %49, ptr noundef readonly %4)
-  %84 = add nsw i32 %.0568.i, -16
-  %85 = icmp slt i32 %.0568.i, 16
-  br i1 %85, label %dissect_wccp2_mask_value_set_element.exit, label %86
-
-86:                                               ; preds = %dissect_wccp2_value_element.exit.i
   %.not63.i = icmp slt i32 %.05410.i, 2147483632
-  br i1 %.not63.i, label %87, label %dissect_wccp2_mask_value_set_element.exit.thread2
+  br i1 %.not63.i, label %84, label %dissect_wccp2_mask_value_set_element.exit.thread2
 
-dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %86
+dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %dissect_wccp2_value_element.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %93
+  br label %91
 
-87:                                               ; preds = %86
-  %88 = add nsw i32 %.05410.i, 16
-  %89 = add nuw nsw i32 %.0559.i, 1
-  %exitcond.not.i = icmp eq i32 %89, %33
+84:                                               ; preds = %dissect_wccp2_value_element.exit.i
+  %85 = add nsw i32 %.0568.i, -16
+  %86 = add nsw i32 %.05410.i, 16
+  %87 = add nuw nsw i32 %.0559.i, 1
+  %exitcond.not.i = icmp eq i32 %87, %33
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !25
 
-._crit_edge.loopexit.i:                           ; preds = %87
-  %90 = add i32 %40, 16
+._crit_edge.loopexit.i:                           ; preds = %84
+  %88 = add i32 %40, 16
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %32
-  %.pre-phi.i = phi i32 [ %90, %._crit_edge.loopexit.i ], [ 16, %32 ]
+  %.pre-phi.i = phi i32 [ %88, %._crit_edge.loopexit.i ], [ 16, %32 ]
   %.056.lcssa.i = phi i32 [ %41, %._crit_edge.loopexit.i ], [ %38, %32 ]
-  %91 = load ptr, ptr %6, align 8
-  call void @proto_item_set_len(ptr noundef %91, i32 noundef %.pre-phi.i) #7
+  %89 = load ptr, ptr %6, align 8
+  call void @proto_item_set_len(ptr noundef %89, i32 noundef %.pre-phi.i) #7
   br label %dissect_wccp2_mask_value_set_element.exit
 
 dissect_wccp2_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %30, %78, %72, %66, %57, %43
@@ -3588,29 +3584,29 @@ dissect_wccp2_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %30, %78, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
-dissect_wccp2_mask_value_set_element.exit:        ; preds = %dissect_wccp2_value_element.exit.i, %25, %._crit_edge.i
-  %.0.i = phi i32 [ %.056.lcssa.i, %._crit_edge.i ], [ %26, %25 ], [ %84, %dissect_wccp2_value_element.exit.i ]
+dissect_wccp2_mask_value_set_element.exit:        ; preds = %25, %._crit_edge.i
+  %.0.i = phi i32 [ %.056.lcssa.i, %._crit_edge.i ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %92 = icmp slt i32 %.0.i, 0
-  br i1 %92, label %.loopexit, label %93
+  %90 = icmp slt i32 %.0.i, 0
+  br i1 %90, label %.loopexit, label %91
 
-93:                                               ; preds = %dissect_wccp2_mask_value_set_element.exit.thread2, %dissect_wccp2_mask_value_set_element.exit
+91:                                               ; preds = %dissect_wccp2_mask_value_set_element.exit.thread2, %dissect_wccp2_mask_value_set_element.exit
   %.0.i4 = phi i32 [ 16, %dissect_wccp2_mask_value_set_element.exit.thread2 ], [ %.0.i, %dissect_wccp2_mask_value_set_element.exit ]
-  %94 = sub nsw i32 %.03839, %.0.i4
-  %95 = add i32 %94, %.03740
-  %.not = icmp slt i32 %.03740, %95
+  %92 = sub nsw i32 %.03835, %.0.i4
+  %93 = add i32 %92, %.03736
+  %.not = icmp slt i32 %.03736, %93
   br i1 %.not, label %19, label %.loopexit
 
 ._crit_edge:                                      ; preds = %19, %11
   %.038.lcssa = phi i32 [ %17, %11 ], [ %.0.i4, %19 ]
-  %.037.lcssa = phi i32 [ %18, %11 ], [ %95, %19 ]
-  %96 = load ptr, ptr %7, align 8
-  %97 = sub i32 %.037.lcssa, %1
-  call void @proto_item_set_len(ptr noundef %96, i32 noundef %97) #7
+  %.037.lcssa = phi i32 [ %18, %11 ], [ %93, %19 ]
+  %94 = load ptr, ptr %7, align 8
+  %95 = sub i32 %.037.lcssa, %1
+  call void @proto_item_set_len(ptr noundef %94, i32 noundef %95) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %93, %dissect_wccp2_mask_value_set_element.exit, %dissect_wccp2_mask_value_set_element.exit.thread, %._crit_edge, %9
-  %.0 = phi i32 [ %10, %9 ], [ %.038.lcssa, %._crit_edge ], [ %.0.i.ph, %dissect_wccp2_mask_value_set_element.exit.thread ], [ %94, %93 ], [ %.0.i, %dissect_wccp2_mask_value_set_element.exit ]
+.loopexit:                                        ; preds = %91, %dissect_wccp2_mask_value_set_element.exit, %dissect_wccp2_mask_value_set_element.exit.thread, %._crit_edge, %9
+  %.0 = phi i32 [ %10, %9 ], [ %.038.lcssa, %._crit_edge ], [ %.0.i.ph, %dissect_wccp2_mask_value_set_element.exit.thread ], [ %92, %91 ], [ %.0.i, %dissect_wccp2_mask_value_set_element.exit ]
   ret i32 %.0
 }
 
