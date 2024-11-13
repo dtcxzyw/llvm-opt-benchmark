@@ -22100,7 +22100,7 @@ opencv/tracker_model.cpp.ll 743206580
 opencv/tracker_nano.cpp.ll 854996507
 opencv/tracker_sampler.cpp.ll 355050264
 opencv/tracker_sampler_algorithm.cpp.ll 255788368
-opencv/tracker_state_estimator.cpp.ll 47111114
+opencv/tracker_state_estimator.cpp.ll 47158329
 opencv/tracker_vit.cpp.ll 502288014
 opencv/tracking_by_matching.cpp.ll 748327557
 opencv/tracking_feature.cpp.ll 689249346
@@ -30897,7 +30897,7 @@ qemu/net_vhost-user.c.ll 153837293
 qemu/net_vhost-vdpa.c.ll 485906124
 qemu/optimize.c.ll 1619758943
 qemu/page-vary-common.c.ll 36205021
-qemu/pci.c.ll 250858418
+qemu/pci.c.ll 251109461
 qemu/plugins_api.c.ll 78046879
 qemu/plugins_core.c.ll 195135751
 qemu/plugins_loader.c.ll 174529599
