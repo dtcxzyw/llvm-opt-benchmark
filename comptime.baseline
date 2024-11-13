@@ -3175,7 +3175,7 @@ clamav/rtf.c.ll 341184538
 clamav/scanner.c.ll 178720848
 clamav/scanners.c.ll 1576888054
 clamav/scantree.cpp.ll 201203388
-clamav/secpassword.cpp.ll 161484255
+clamav/secpassword.cpp.ll 161646766
 clamav/server-th.c.ll 581958277
 clamav/session.c.ll 161850743
 clamav/sf_base64decode.c.ll 57285120
@@ -3801,7 +3801,7 @@ cmake/dynbuf.c.ll 78538667
 cmake/dynhds.c.ll 126818079
 cmake/easy.c.ll 187055752
 cmake/easygetopt.c.ll 52169583
-cmake/entropy_common.c.ll 165729732
+cmake/entropy_common.c.ll 165896844
 cmake/epoll.c.ll 130753955
 cmake/escape.c.ll 140326079
 cmake/fastcover.c.ll 310567015
@@ -5341,7 +5341,7 @@ cvc5/code_point_solver.cpp.ll 655752223
 cvc5/combination_care_graph.cpp.ll 324189492
 cvc5/combination_engine.cpp.ll 259709910
 cvc5/command_executor.cpp.ll 746143824
-cvc5/command_status.cpp.ll 69558347
+cvc5/command_status.cpp.ll 69629546
 cvc5/commands.cpp.ll 4026553295
 cvc5/congruence_manager.cpp.ll 4055271730
 cvc5/conjecture_generator.cpp.ll 13653526005
@@ -6986,7 +6986,7 @@ flac/encode.c.ll 1665009149
 flac/file.c.ll 51693269
 flac/fixed.c.ll 392410376
 flac/fixed_intrin_avx2.c.ll 256955078
-flac/fixed_intrin_sse2.c.ll 112193308
+flac/fixed_intrin_sse2.c.ll 112311026
 flac/fixed_intrin_sse42.c.ll 150425014
 flac/fixed_intrin_ssse3.c.ll 108904253
 flac/foreign_metadata.c.ll 790454771
@@ -13118,7 +13118,7 @@ linux/intel_hdcp.ll 755625384
 linux/intel_hdcp_gsc.ll 101743087
 linux/intel_hdmi.ll 857161613
 linux/intel_hotplug.ll 254050157
-linux/intel_huc.ll 129077906
+linux/intel_huc.ll 129207509
 linux/intel_huc_fw.ll 82207396
 linux/intel_llc.ll 59547255
 linux/intel_lpe_audio.ll 77819988
@@ -14765,7 +14765,7 @@ llvm/DisassemblerEmitter.cpp.ll 106313428
 llvm/Distro.cpp.ll 406034461
 llvm/DivRemPairs.cpp.ll 2154871453
 llvm/DivZeroChecker.cpp.ll 762301447
-llvm/DivisionByConstantInfo.cpp.ll 326314110
+llvm/DivisionByConstantInfo.cpp.ll 326642228
 llvm/DomConditionCache.cpp.ll 332260118
 llvm/DomPrinter.cpp.ll 1573262677
 llvm/DomTreeUpdater.cpp.ll 785475399
@@ -16436,7 +16436,7 @@ llvm/X86InsertWait.cpp.ll 320638928
 llvm/X86InstCombineIntrinsic.cpp.ll 4557025053
 llvm/X86InstComments.cpp.ll 1022771031
 llvm/X86InstPrinterCommon.cpp.ll 348729751
-llvm/X86InstrFMA3Info.cpp.ll 113239197
+llvm/X86InstrFMA3Info.cpp.ll 113354281
 llvm/X86InstrFoldTables.cpp.ll 764365284
 llvm/X86InstrInfo.cpp.ll 8330523000
 llvm/X86InstrMappingEmitter.cpp.ll 2264712861
@@ -17691,7 +17691,7 @@ minetest/itemstackmetadata.cpp.ll 544220311
 minetest/joystick_controller.cpp.ll 487475118
 minetest/keycode.cpp.ll 273536077
 minetest/l_areastore.cpp.ll 223184489
-minetest/l_auth.cpp.ll 255305390
+minetest/l_auth.cpp.ll 255562367
 minetest/l_base.cpp.ll 250839360
 minetest/l_camera.cpp.ll 124315943
 minetest/l_client.cpp.ll 288330856
@@ -19777,7 +19777,7 @@ ocio/Lut1DOp.cpp.ll 708240938
 ocio/Lut1DOpCPU.cpp.ll 53946308064
 ocio/Lut1DOpCPU_AVX.cpp.ll 820124246
 ocio/Lut1DOpCPU_AVX2.cpp.ll 446101142
-ocio/Lut1DOpCPU_SSE2.cpp.ll 614934703
+ocio/Lut1DOpCPU_SSE2.cpp.ll 615552069
 ocio/Lut1DOpData.cpp.ll 1036149576
 ocio/Lut1DOpGPU.cpp.ll 777582677
 ocio/Lut1DTransform.cpp.ll 282634234
@@ -21003,7 +21003,7 @@ opencv/detection_based_tracker.cpp.ll 1504530025
 opencv/detection_output_layer.cpp.ll 3849560295
 opencv/detector.cpp.ll 2044531195
 opencv/detector_result.cpp.ll 89076854
-opencv/device_selector_interface.cpp.ll 65257479
+opencv/device_selector_interface.cpp.ll 65325816
 opencv/dft.cpp.ll 162602231
 opencv/dictnet_demo.cpp.ll 119558690
 opencv/digits_lenet.cpp.ll 347056556
@@ -22464,7 +22464,7 @@ openjdk/NativeImageBuffer.ll 40717795
 openjdk/NativeLibraries.ll 82860204
 openjdk/NativeSocketAddress.ll 40007599
 openjdk/NativeThread.ll 38486345
-openjdk/NativeUtil.ll 174795326
+openjdk/NativeUtil.ll 174973402
 openjdk/Net.ll 184207596
 openjdk/NetworkInterface.ll 327832057
 openjdk/NullPointerException.ll 32777114
@@ -24879,7 +24879,7 @@ openmpi/libprrte_la-prte_data_server.ll 601708786
 openmpi/libprrte_la-prte_dt_copy_fns.ll 111075958
 openmpi/libprrte_la-prte_dt_print_fns.ll 231192929
 openmpi/libprrte_la-prte_dt_unpacking_fns.ll 669243590
-openmpi/libprrte_la-prte_finalize.ll 147931269
+openmpi/libprrte_la-prte_finalize.ll 148084516
 openmpi/libprrte_la-prte_globals.ll 468935069
 openmpi/libprrte_la-prte_init.ll 204645939
 openmpi/libprrte_la-prte_mca_params.ll 90330625
@@ -25231,7 +25231,7 @@ openmpi/pmix_server.ll 4515387131
 openmpi/pmix_server_get.ll 915518225
 openmpi/pmix_server_ops.ll 4091340828
 openmpi/pmix_session.ll 232056399
-openmpi/pmix_shmem.ll 77901300
+openmpi/pmix_shmem.ll 77979404
 openmpi/pmix_show_help.ll 282916993
 openmpi/pmix_string_copy.ll 41980902
 openmpi/pmix_tool.ll 1388551157
@@ -25384,7 +25384,7 @@ openmpi/reachable_base_alloc.ll 59720881
 openmpi/reachable_base_select.ll 34816538
 openmpi/reachable_netlink_module.ll 72065417
 openmpi/reachable_netlink_utils_common.ll 73269430
-openmpi/reachable_weighted.ll 80191652
+openmpi/reachable_weighted.ll 80275198
 openmpi/req_ft.ll 71581511
 openmpi/req_test.ll 140541112
 openmpi/req_wait.ll 344515813
@@ -26014,7 +26014,7 @@ openssl/libcrypto-lib-buffer.ll 71784132
 openssl/libcrypto-lib-by_dir.ll 139723973
 openssl/libcrypto-lib-by_file.ll 95724936
 openssl/libcrypto-lib-c_cfb64.ll 73529466
-openssl/libcrypto-lib-c_enc.ll 289026654
+openssl/libcrypto-lib-c_enc.ll 289320617
 openssl/libcrypto-lib-cbc128.ll 85866699
 openssl/libcrypto-lib-cbc_cksm.ll 62117642
 openssl/libcrypto-lib-cbc_enc.ll 93540012
@@ -26395,7 +26395,7 @@ openssl/libcrypto-shlib-buffer.ll 71770612
 openssl/libcrypto-shlib-by_dir.ll 139785077
 openssl/libcrypto-shlib-by_file.ll 95681584
 openssl/libcrypto-shlib-c_cfb64.ll 73544251
-openssl/libcrypto-shlib-c_enc.ll 289026989
+openssl/libcrypto-shlib-c_enc.ll 289321017
 openssl/libcrypto-shlib-cbc128.ll 85866214
 openssl/libcrypto-shlib-cbc_cksm.ll 62117967
 openssl/libcrypto-shlib-cbc_enc.ll 93652759
@@ -31210,7 +31210,7 @@ quantlib/brazil.ll 318007139
 quantlib/brownianbridge.ll 398631086
 quantlib/bsmoperator.ll 288130088
 quantlib/bsmrndcalculator.ll 290348901
-quantlib/bspline.ll 307056503
+quantlib/bspline.ll 307367246
 quantlib/btp.ll 3211893843
 quantlib/bumpinstrumentjacobian.ll 1297083054
 quantlib/burley2020sobolrsg.ll 546161689
