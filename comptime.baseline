@@ -11793,7 +11793,7 @@ libsodium/libaesni_la-aead_aes256gcm_aesni.ll 945841225
 libsodium/libaesni_la-aegis128l_aesni.ll 192878757
 libsodium/libaesni_la-aegis256_aesni.ll 168220329
 libsodium/libavx2_la-argon2-fill-block-avx2.ll 885484374
-libsodium/libavx2_la-blake2b-compress-avx2.ll 500171508
+libsodium/libavx2_la-blake2b-compress-avx2.ll 502007903
 libsodium/libavx2_la-chacha20_dolbeau-avx2.ll 520853298
 libsodium/libavx2_la-salsa20_xmm6int-avx2.ll 487106423
 libsodium/libavx512f_la-argon2-fill-block-avx512f.ll 791486124
@@ -11829,7 +11829,7 @@ libsodium/libsodium_la-utils.ll 148973572
 libsodium/libsodium_la-x25519_ref10.ll 548029951
 libsodium/libsse2_la-poly1305_sse2.ll 414965158
 libsodium/libsse2_la-pwhash_scryptsalsa208sha256_sse.ll 1102930028
-libsodium/libsse41_la-blake2b-compress-sse41.ll 476854588
+libsodium/libsse41_la-blake2b-compress-sse41.ll 477381044
 libsodium/libssse3_la-argon2-fill-block-ssse3.ll 748679674
 libsodium/libssse3_la-blake2b-compress-ssse3.ll 470843870
 libsodium/libssse3_la-chacha20_dolbeau-ssse3.ll 325772585
@@ -19337,7 +19337,7 @@ node/pipe.ll 124264221
 node/process.ll 232158846
 node/proctitle.ll 61638614
 node/signal.ll 514840042
-node/simdutf.ll 25157717579
+node/simdutf.ll 25184979388
 node/stream.ll 377576641
 node/tcp.ll 139399956
 node/thread-common.ll 36847677
