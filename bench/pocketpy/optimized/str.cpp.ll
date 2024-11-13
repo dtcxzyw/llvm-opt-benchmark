@@ -2587,7 +2587,7 @@ define void @_ZNK4pkpy3Str5lowerEv(ptr dead_on_unwind noalias writable sret(%"st
   %8 = sext i32 %7 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %6, i64 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %9 unwind label %19
+          to label %9 unwind label %20
 
 9:                                                ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
@@ -2598,41 +2598,41 @@ define void @_ZNK4pkpy3Str5lowerEv(ptr dead_on_unwind noalias writable sret(%"st
   br i1 %.not6.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5lowerEvE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
-  %.sroa.0.08.i = phi ptr [ %17, %.lr.ph.i ], [ %12, %9 ]
-  %.sroa.03.07.i = phi ptr [ %16, %.lr.ph.i ], [ %10, %9 ]
+  %.sroa.0.08.i = phi ptr [ %18, %.lr.ph.i ], [ %12, %9 ]
+  %.sroa.03.07.i = phi ptr [ %17, %.lr.ph.i ], [ %10, %9 ]
   %13 = load i8, ptr %.sroa.03.07.i, align 1
   %14 = add i8 %13, -65
   %or.cond.i.i = icmp ult i8 %14, 26
   %15 = or i8 %13, 32
-  %.0.i.i = select i1 %or.cond.i.i, i8 %15, i8 %13
-  store i8 %.0.i.i, ptr %.sroa.0.08.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 1
-  %.not.i = icmp eq ptr %16, %11
+  %16 = select i1 %or.cond.i.i, i8 %15, i8 %13
+  store i8 %16, ptr %.sroa.0.08.i, align 1
+  %17 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 1
+  %.not.i = icmp eq ptr %17, %11
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5lowerEvE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i, !llvm.loop !61
 
 "_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5lowerEvE3$_0ET0_T_SE_SD_T1_.exit": ; preds = %.lr.ph.i, %9
   invoke void @_ZN4pkpy3StrC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %18 unwind label %21
+          to label %19 unwind label %22
 
-18:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5lowerEvE3$_0ET0_T_SE_SD_T1_.exit"
+19:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5lowerEvE3$_0ET0_T_SE_SD_T1_.exit"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   ret void
 
-19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %2
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
-  br label %23
+  br label %24
 
-21:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5lowerEvE3$_0ET0_T_SE_SD_T1_.exit"
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5lowerEvE3$_0ET0_T_SE_SD_T1_.exit"
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
-  br label %23
+  br label %24
 
-23:                                               ; preds = %21, %19
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
+24:                                               ; preds = %22, %20
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2654,7 +2654,7 @@ define void @_ZNK4pkpy3Str5upperEv(ptr dead_on_unwind noalias writable sret(%"st
   %8 = sext i32 %7 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %6, i64 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %9 unwind label %19
+          to label %9 unwind label %20
 
 9:                                                ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
@@ -2665,41 +2665,41 @@ define void @_ZNK4pkpy3Str5upperEv(ptr dead_on_unwind noalias writable sret(%"st
   br i1 %.not6.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5upperEvE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
-  %.sroa.0.08.i = phi ptr [ %17, %.lr.ph.i ], [ %12, %9 ]
-  %.sroa.03.07.i = phi ptr [ %16, %.lr.ph.i ], [ %10, %9 ]
+  %.sroa.0.08.i = phi ptr [ %18, %.lr.ph.i ], [ %12, %9 ]
+  %.sroa.03.07.i = phi ptr [ %17, %.lr.ph.i ], [ %10, %9 ]
   %13 = load i8, ptr %.sroa.03.07.i, align 1
   %14 = add i8 %13, -97
   %or.cond.i.i = icmp ult i8 %14, 26
   %15 = add i8 %13, -32
-  %.0.i.i = select i1 %or.cond.i.i, i8 %15, i8 %13
-  store i8 %.0.i.i, ptr %.sroa.0.08.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 1
-  %.not.i = icmp eq ptr %16, %11
+  %16 = select i1 %or.cond.i.i, i8 %15, i8 %13
+  store i8 %16, ptr %.sroa.0.08.i, align 1
+  %17 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 1
+  %.not.i = icmp eq ptr %17, %11
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5upperEvE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i, !llvm.loop !62
 
 "_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5upperEvE3$_0ET0_T_SE_SD_T1_.exit": ; preds = %.lr.ph.i, %9
   invoke void @_ZN4pkpy3StrC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %18 unwind label %21
+          to label %19 unwind label %22
 
-18:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5upperEvE3$_0ET0_T_SE_SD_T1_.exit"
+19:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5upperEvE3$_0ET0_T_SE_SD_T1_.exit"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   ret void
 
-19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %2
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
-  br label %23
+  br label %24
 
-21:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5upperEvE3$_0ET0_T_SE_SD_T1_.exit"
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZNK4pkpy3Str5upperEvE3$_0ET0_T_SE_SD_T1_.exit"
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
-  br label %23
+  br label %24
 
-23:                                               ; preds = %21, %19
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
+24:                                               ; preds = %22, %20
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn
 }
 

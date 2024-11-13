@@ -197,17 +197,17 @@ if.end37:                                         ; preds = %if.end29, %if.then6
   %tobool39.not = icmp eq i32 %and38, 0
   %and41 = and i32 %prot.0, 2
   %or42 = or disjoint i32 %and41, 1
-  %prot.3 = select i1 %tobool39.not, i32 %prot.0, i32 %or42
   %5 = load i64, ptr @guest_base, align 8
   %add.i = add i64 %5, %start.0
   %6 = inttoptr i64 %add.i to ptr
-  %and45 = and i32 %prot.3, 7
+  %7 = and i32 %prot.0, 7
+  %and45 = select i1 %tobool39.not, i32 %7, i32 %or42
   %call46 = tail call i32 @mprotect(ptr noundef %6, i64 noundef %len.0, i32 noundef %and45) #16
-  %7 = select i1 %current_tb_invalidated.1, i32 2, i32 1
+  %8 = select i1 %current_tb_invalidated.1, i32 2, i32 1
   br label %return
 
 return:                                           ; preds = %if.end37, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end ], [ %7, %if.end37 ]
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end ], [ %8, %if.end37 ]
   tail call void @mmap_unlock() #16
   ret i32 %retval.0
 }
@@ -4164,9 +4164,9 @@ sw.bb15.i:                                        ; preds = %sw.bb12.i, %sw.bb12
   %sub5.i.i = sub nuw nsw i32 128, %mul.i.i
   %sh_prom6.i.i = zext nneg i32 %sub5.i.i to i64
   %shr7.i.i = lshr i64 -1, %sh_prom6.i.i
-  %18 = zext nneg i64 %shr7.i.i to i128
   %sh_prom.i.i.i = zext nneg i32 %mul2.i.i to i128
   %shl.i.i.i = shl i128 %val.sroa.0.0.insert.insert.i, %sh_prom.i.i.i
+  %18 = zext nneg i64 %shr7.i.i to i128
   %19 = shl nuw nsw i128 %18, 64
   %20 = or disjoint i128 %19, 18446744073709551615
   %shl.i22.i.i = shl i128 %20, %sh_prom.i.i.i
@@ -4242,13 +4242,13 @@ store_bytes_leN.exit69.i:                         ; preds = %for.body.i61.i
   %sub5.i79.i = sub nuw nsw i32 128, %mul.i72.i
   %sh_prom6.i80.i = zext nneg i32 %sub5.i79.i to i64
   %shr7.i81.i = lshr i64 -1, %sh_prom6.i80.i
-  %28 = zext i64 %shr.i78.i to i128
-  %29 = zext nneg i64 %shr7.i81.i to i128
   %sh_prom.i.i86.i = zext nneg i32 %mul2.i74.i to i128
   %shl.i.i87.i = shl i128 %shr.i71.i, %sh_prom.i.i86.i
-  %30 = shl nuw nsw i128 %29, 64
-  %31 = or disjoint i128 %30, 18446744073709551615
-  %a.sroa.0.0.insert.insert.i20.i88.i = select i1 %cmp.i75.i, i128 %28, i128 %31
+  %28 = zext nneg i64 %shr7.i81.i to i128
+  %29 = shl nuw nsw i128 %28, 64
+  %30 = zext i64 %shr.i78.i to i128
+  %31 = or disjoint i128 %29, 18446744073709551615
+  %a.sroa.0.0.insert.insert.i20.i88.i = select i1 %cmp.i75.i, i128 %30, i128 %31
   %shl.i22.i89.i = shl i128 %a.sroa.0.0.insert.insert.i20.i88.i, %sh_prom.i.i86.i
   %retval.sroa.0.0.extract.trunc.i23.i90.i = trunc i128 %shl.i22.i89.i to i64
   %retval.sroa.2.0.extract.shift.i24.i91.i = and i128 %shl.i22.i89.i, -18446744073709551616
@@ -6406,33 +6406,31 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 %retaddr, ptr %2, align 8
   fence syncscope("singlethread") seq_cst
-  %3 = tail call i64 @llvm.bswap.i64(i64 %cmpv.coerce1)
-  %4 = tail call i64 @llvm.bswap.i64(i64 %cmpv.coerce0)
-  %5 = zext i64 %cmpv.coerce0 to i128
-  %6 = zext i64 %cmpv.coerce1 to i128
-  %7 = shl nuw i128 %6, 64
-  %8 = or disjoint i128 %7, %5
-  %cmp.sroa.0.0.insert.insert.i = tail call i128 @llvm.bswap.i128(i128 %8)
-  %9 = zext i64 %newv.coerce0 to i128
-  %10 = zext i64 %newv.coerce1 to i128
-  %11 = shl nuw i128 %10, 64
-  %12 = or disjoint i128 %11, %9
-  %new.sroa.0.0.insert.insert.i = tail call i128 @llvm.bswap.i128(i128 %12)
+  %3 = zext i64 %cmpv.coerce0 to i128
+  %4 = zext i64 %cmpv.coerce1 to i128
+  %5 = shl nuw i128 %4, 64
+  %6 = or disjoint i128 %5, %3
+  %cmp.sroa.0.0.insert.insert.i = tail call i128 @llvm.bswap.i128(i128 %6)
+  %7 = zext i64 %newv.coerce0 to i128
+  %8 = zext i64 %newv.coerce1 to i128
+  %9 = shl nuw i128 %8, 64
+  %10 = or disjoint i128 %9, %7
+  %new.sroa.0.0.insert.insert.i = tail call i128 @llvm.bswap.i128(i128 %10)
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 16) ]
-  %13 = cmpxchg ptr %1, i128 %cmp.sroa.0.0.insert.insert.i, i128 %new.sroa.0.0.insert.insert.i seq_cst seq_cst, align 16
-  %14 = extractvalue { i128, i1 } %13, 1
-  %15 = extractvalue { i128, i1 } %13, 0
-  %extract.t2.i = trunc i128 %15 to i64
-  %extract4.i = lshr i128 %15, 64
+  %11 = cmpxchg ptr %1, i128 %cmp.sroa.0.0.insert.insert.i, i128 %new.sroa.0.0.insert.insert.i seq_cst seq_cst, align 16
+  %12 = extractvalue { i128, i1 } %11, 1
+  %13 = extractvalue { i128, i1 } %11, 0
+  %extract.t2.i = trunc i128 %13 to i64
+  %extract4.i = lshr i128 %13, 64
   %extract.t5.i = trunc nuw i128 %extract4.i to i64
-  %_old.0.off0.i = select i1 %14, i64 %3, i64 %extract.t2.i
-  %_old.0.off64.i = select i1 %14, i64 %4, i64 %extract.t5.i
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  %16 = tail call i64 @llvm.bswap.i64(i64 %_old.0.off64.i)
-  %17 = tail call i64 @llvm.bswap.i64(i64 %_old.0.off0.i)
-  %.fca.0.insert.i.i6 = insertvalue { i64, i64 } poison, i64 %16, 0
+  %14 = tail call i64 @llvm.bswap.i64(i64 %extract.t5.i)
+  %15 = select i1 %12, i64 %cmpv.coerce0, i64 %14
+  %16 = tail call i64 @llvm.bswap.i64(i64 %extract.t2.i)
+  %17 = select i1 %12, i64 %cmpv.coerce1, i64 %16
+  %.fca.0.insert.i.i6 = insertvalue { i64, i64 } poison, i64 %15, 0
   %.fca.1.insert.i.i7 = insertvalue { i64, i64 } %.fca.0.insert.i.i6, i64 %17, 1
   ret { i64, i64 } %.fca.1.insert.i.i7
 }

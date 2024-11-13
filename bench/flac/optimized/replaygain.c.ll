@@ -204,20 +204,20 @@ for.body99:                                       ; preds = %while.body88, %for.
   store float %conv104, ptr %arrayidx106, align 4
   %cmp107 = icmp eq i32 %10, -2147483648
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %cond112 = select i1 %cmp107, i32 2147483647, i32 %11
-  %cond118 = tail call i32 @llvm.smax.i32(i32 %block_peak.6111, i32 %cond112)
-  %12 = load ptr, ptr %arrayidx119, align 8
-  %arrayidx121 = getelementptr inbounds i32, ptr %12, i64 %idxprom101
-  %13 = load i32, ptr %arrayidx121, align 4
-  %conv122 = sitofp i32 %13 to double
+  %12 = tail call i32 @llvm.smax.i32(i32 %block_peak.6111, i32 %11)
+  %13 = load ptr, ptr %arrayidx119, align 8
+  %arrayidx121 = getelementptr inbounds i32, ptr %13, i64 %idxprom101
+  %14 = load i32, ptr %arrayidx121, align 4
+  %conv122 = sitofp i32 %14 to double
   %mul123 = fmul double %cond82, %conv122
   %conv124 = fptrunc double %mul123 to float
   %arrayidx126 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %indvars.iv
   store float %conv124, ptr %arrayidx126, align 4
-  %cmp127 = icmp eq i32 %13, -2147483648
-  %14 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
-  %cond132 = select i1 %cmp127, i32 2147483647, i32 %14
-  %cond138 = tail call i32 @llvm.umax.i32(i32 %cond118, i32 %cond132)
+  %cmp127 = icmp eq i32 %14, -2147483648
+  %15 = tail call i32 @llvm.abs.i32(i32 %14, i1 true)
+  %cond132 = select i1 %cmp127, i32 2147483647, i32 %15
+  %16 = tail call i32 @llvm.umax.i32(i32 %12, i32 %cond132)
+  %cond138 = select i1 %cmp107, i32 2147483647, i32 %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc141 = add i32 %j.5109, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -245,19 +245,19 @@ for.body166:                                      ; preds = %while.body155, %for
   %indvars.iv132 = phi i64 [ 0, %while.body155 ], [ %indvars.iv.next133, %for.body166 ]
   %block_peak.8114 = phi i32 [ %block_peak.7, %while.body155 ], [ %cond186, %for.body166 ]
   %j.7112 = phi i32 [ %j.6, %while.body155 ], [ %inc189, %for.body166 ]
-  %15 = load ptr, ptr %input, align 8
+  %17 = load ptr, ptr %input, align 8
   %idxprom168 = zext i32 %j.7112 to i64
-  %arrayidx169 = getelementptr inbounds i32, ptr %15, i64 %idxprom168
-  %16 = load i32, ptr %arrayidx169, align 4
-  %conv170 = sitofp i32 %16 to double
+  %arrayidx169 = getelementptr inbounds i32, ptr %17, i64 %idxprom168
+  %18 = load i32, ptr %arrayidx169, align 4
+  %conv170 = sitofp i32 %18 to double
   %mul171 = fmul double %cond82, %conv170
   %conv172 = fptrunc double %mul171 to float
   %arrayidx174 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv132
   store float %conv172, ptr %arrayidx174, align 4
-  %cmp175 = icmp eq i32 %16, -2147483648
-  %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
-  %cond180 = select i1 %cmp175, i32 2147483647, i32 %17
-  %cond186 = tail call i32 @llvm.smax.i32(i32 %block_peak.8114, i32 %cond180)
+  %cmp175 = icmp eq i32 %18, -2147483648
+  %19 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
+  %20 = tail call i32 @llvm.smax.i32(i32 %block_peak.8114, i32 %19)
+  %cond186 = select i1 %cmp175, i32 2147483647, i32 %20
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %inc189 = add i32 %j.7112, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
@@ -276,8 +276,8 @@ if.end200:                                        ; preds = %while.cond85, %whil
   %conv203 = uitofp i32 %shl202 to double
   %conv204 = uitofp nneg i32 %block_peak.4 to double
   %div205 = fdiv double %conv204, %conv203
-  %18 = load double, ptr @title_peak_, align 8
-  %cmp206 = fcmp ogt double %div205, %18
+  %21 = load double, ptr @title_peak_, align 8
+  %cmp206 = fcmp ogt double %div205, %21
   br i1 %cmp206, label %if.then208, label %if.end209
 
 if.then208:                                       ; preds = %if.end200
@@ -285,8 +285,8 @@ if.then208:                                       ; preds = %if.end200
   br label %if.end209
 
 if.end209:                                        ; preds = %if.then208, %if.end200
-  %19 = load double, ptr @album_peak_, align 8
-  %cmp210 = fcmp ogt double %div205, %19
+  %22 = load double, ptr @album_peak_, align 8
+  %cmp210 = fcmp ogt double %div205, %22
   br i1 %cmp210, label %if.then212, label %return
 
 if.then212:                                       ; preds = %if.end209

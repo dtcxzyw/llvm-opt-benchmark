@@ -40,8 +40,8 @@ define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_le
 10:                                               ; preds = %22, %18, %6
   %11 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %3)
   %12 = icmp eq i64 %3, 0
-  %13 = select i1 %12, i64 4, i64 0
-  %14 = tail call i64 @llvm.usub.sat.i64(i64 %11, i64 %13)
+  %13 = tail call i64 @llvm.usub.sat.i64(i64 %11, i64 4)
+  %14 = select i1 %12, i64 %13, i64 %11
   %15 = lshr i64 %14, 2
   %16 = mul nuw i64 %15, 3
   %17 = icmp ult i64 %4, %16

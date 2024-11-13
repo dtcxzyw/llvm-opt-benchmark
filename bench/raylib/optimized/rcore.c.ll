@@ -31292,69 +31292,69 @@ GetGamepadAxisMovement.exit:                      ; preds = %783
   %788 = fcmp ogt float %787, 0x3FB99999A0000000
   %789 = fmul float %786, -2.000000e+00
   %790 = fmul float %789, 0x3F689374C0000000
-  %791 = fmul float %790, 5.000000e-01
-  %792 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.03.0.copyload.i.i522 = load <2 x float>, ptr %792, align 4
+  %791 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.03.0.copyload.i.i522 = load <2 x float>, ptr %791, align 4
   %.sroa.24.0..sroa_idx.i.i523 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.24.0.copyload.i.i524 = load float, ptr %.sroa.24.0..sroa_idx.i.i523, align 4
   %.sroa.07.0.vec.extract.i.i.i525 = extractelement <2 x float> %.sroa.03.0.copyload.i.i522, i64 0
   %.sroa.07.4.vec.extract.i.i.i526 = extractelement <2 x float> %.sroa.03.0.copyload.i.i522, i64 1
-  %793 = fmul float %.sroa.07.4.vec.extract.i.i.i526, %.sroa.07.4.vec.extract.i.i.i526
-  %794 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i525, float %.sroa.07.0.vec.extract.i.i.i525, float %793)
-  %795 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i524, float %.sroa.24.0.copyload.i.i524, float %794)
-  %796 = fcmp une float %795, 0.000000e+00
-  br i1 %796, label %797, label %GetCameraUp.exit.i527
+  %792 = fmul float %.sroa.07.4.vec.extract.i.i.i526, %.sroa.07.4.vec.extract.i.i.i526
+  %793 = tail call float @llvm.fmuladd.f32(float %.sroa.07.0.vec.extract.i.i.i525, float %.sroa.07.0.vec.extract.i.i.i525, float %792)
+  %794 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i524, float %.sroa.24.0.copyload.i.i524, float %793)
+  %795 = fcmp une float %794, 0.000000e+00
+  br i1 %795, label %796, label %GetCameraUp.exit.i527
 
-797:                                              ; preds = %GetGamepadAxisMovement.exit
-  %sqrt.i.i.i555 = tail call float @llvm.sqrt.f32(float %795)
-  %798 = fdiv float 1.000000e+00, %sqrt.i.i.i555
-  %799 = fmul float %.sroa.07.0.vec.extract.i.i.i525, %798
-  %800 = fmul float %.sroa.07.4.vec.extract.i.i.i526, %798
-  %801 = fmul float %.sroa.24.0.copyload.i.i524, %798
-  %.pre70.i556 = fmul float %800, %800
-  %.pre71.i557 = tail call float @llvm.fmuladd.f32(float %799, float %799, float %.pre70.i556)
-  %.pre73.i558 = tail call float @llvm.fmuladd.f32(float %801, float %801, float %.pre71.i557)
+796:                                              ; preds = %GetGamepadAxisMovement.exit
+  %sqrt.i.i.i555 = tail call float @llvm.sqrt.f32(float %794)
+  %797 = fdiv float 1.000000e+00, %sqrt.i.i.i555
+  %798 = fmul float %.sroa.07.0.vec.extract.i.i.i525, %797
+  %799 = fmul float %.sroa.07.4.vec.extract.i.i.i526, %797
+  %800 = fmul float %.sroa.24.0.copyload.i.i524, %797
+  %.pre70.i556 = fmul float %799, %799
+  %.pre71.i557 = tail call float @llvm.fmuladd.f32(float %798, float %798, float %.pre70.i556)
+  %.pre73.i558 = tail call float @llvm.fmuladd.f32(float %800, float %800, float %.pre71.i557)
   br label %GetCameraUp.exit.i527
 
-GetCameraUp.exit.i527:                            ; preds = %797, %GetGamepadAxisMovement.exit
-  %.pre-phi74.i528 = phi float [ %795, %GetGamepadAxisMovement.exit ], [ %.pre73.i558, %797 ]
-  %.sroa.044.4.vec.extract.i.pre-phi.i529 = phi float [ %.sroa.07.4.vec.extract.i.i.i526, %GetGamepadAxisMovement.exit ], [ %800, %797 ]
-  %.sroa.044.0.vec.extract.i.pre-phi.i530 = phi float [ %.sroa.07.0.vec.extract.i.i.i525, %GetGamepadAxisMovement.exit ], [ %799, %797 ]
-  %.sroa.617.0.i.i.i531 = phi float [ %.sroa.24.0.copyload.i.i524, %GetGamepadAxisMovement.exit ], [ %801, %797 ]
-  %802 = getelementptr inbounds i8, ptr %0, i64 12
-  %.sroa.033.0.copyload.i532 = load <2 x float>, ptr %802, align 4
+GetCameraUp.exit.i527:                            ; preds = %796, %GetGamepadAxisMovement.exit
+  %.pre-phi74.i528 = phi float [ %794, %GetGamepadAxisMovement.exit ], [ %.pre73.i558, %796 ]
+  %.sroa.044.4.vec.extract.i.pre-phi.i529 = phi float [ %.sroa.07.4.vec.extract.i.i.i526, %GetGamepadAxisMovement.exit ], [ %799, %796 ]
+  %.sroa.044.0.vec.extract.i.pre-phi.i530 = phi float [ %.sroa.07.0.vec.extract.i.i.i525, %GetGamepadAxisMovement.exit ], [ %798, %796 ]
+  %.sroa.617.0.i.i.i531 = phi float [ %.sroa.24.0.copyload.i.i524, %GetGamepadAxisMovement.exit ], [ %800, %796 ]
+  %801 = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.033.0.copyload.i532 = load <2 x float>, ptr %801, align 4
   %.sroa.234.0..sroa_idx.i533 = getelementptr inbounds i8, ptr %0, i64 20
   %.sroa.234.0.copyload.i534 = load float, ptr %.sroa.234.0..sroa_idx.i533, align 4
   %.sroa.031.0.copyload.i535 = load <2 x float>, ptr %0, align 4
   %.sroa.232.0..sroa_idx.i536 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.232.0.copyload.i537 = load float, ptr %.sroa.232.0..sroa_idx.i536, align 4
-  %803 = fsub <2 x float> %.sroa.033.0.copyload.i532, %.sroa.031.0.copyload.i535
-  %804 = extractelement <2 x float> %803, i64 0
-  %805 = fsub <2 x float> %.sroa.033.0.copyload.i532, %.sroa.031.0.copyload.i535
-  %806 = extractelement <2 x float> %805, i64 1
-  %807 = fsub float %.sroa.234.0.copyload.i534, %.sroa.232.0.copyload.i537
+  %802 = fsub <2 x float> %.sroa.033.0.copyload.i532, %.sroa.031.0.copyload.i535
+  %803 = extractelement <2 x float> %802, i64 0
+  %804 = fsub <2 x float> %.sroa.033.0.copyload.i532, %.sroa.031.0.copyload.i535
+  %805 = extractelement <2 x float> %804, i64 1
+  %806 = fsub float %.sroa.234.0.copyload.i534, %.sroa.232.0.copyload.i537
   %sqrt.i.i542 = tail call float @llvm.sqrt.f32(float %.pre-phi74.i528)
-  %808 = fcmp oeq float %.pre-phi74.i528, 0.000000e+00
-  %809 = fdiv float 1.000000e+00, %sqrt.i.i542
-  %810 = select i1 %808, float 1.000000e+00, float %809
-  %811 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i530, %810
-  %812 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i529, %810
-  %813 = fmul float %.sroa.617.0.i.i.i531, %810
-  %814 = select i1 %788, float %791, float -0.000000e+00
+  %807 = fcmp oeq float %.pre-phi74.i528, 0.000000e+00
+  %808 = fdiv float 1.000000e+00, %sqrt.i.i542
+  %809 = select i1 %807, float 1.000000e+00, float %808
+  %810 = fmul float %.sroa.044.0.vec.extract.i.pre-phi.i530, %809
+  %811 = fmul float %.sroa.044.4.vec.extract.i.pre-phi.i529, %809
+  %812 = fmul float %.sroa.617.0.i.i.i531, %809
+  %813 = fmul float %790, 5.000000e-01
+  %814 = select i1 %788, float %813, float -0.000000e+00
   %815 = tail call float @sinf(float noundef %814) #54
-  %816 = fmul float %811, %815
-  %817 = fmul float %812, %815
-  %818 = fmul float %813, %815
+  %816 = fmul float %810, %815
+  %817 = fmul float %811, %815
+  %818 = fmul float %812, %815
   %819 = tail call float @cosf(float noundef %814) #54
-  %820 = fneg float %806
+  %820 = fneg float %805
   %821 = fmul float %818, %820
-  %822 = tail call float @llvm.fmuladd.f32(float %817, float %807, float %821)
-  %823 = fneg float %807
+  %822 = tail call float @llvm.fmuladd.f32(float %817, float %806, float %821)
+  %823 = fneg float %806
   %824 = fmul float %816, %823
-  %825 = tail call float @llvm.fmuladd.f32(float %818, float %804, float %824)
-  %826 = fneg float %804
+  %825 = tail call float @llvm.fmuladd.f32(float %818, float %803, float %824)
+  %826 = fneg float %803
   %827 = fmul float %817, %826
-  %828 = tail call float @llvm.fmuladd.f32(float %816, float %806, float %827)
+  %828 = tail call float @llvm.fmuladd.f32(float %816, float %805, float %827)
   %829 = fneg float %825
   %830 = fmul float %818, %829
   %831 = tail call float @llvm.fmuladd.f32(float %817, float %828, float %830)
@@ -31371,9 +31371,9 @@ GetCameraUp.exit.i527:                            ; preds = %797, %GetGamepadAxi
   %842 = fmul float %831, 2.000000e+00
   %843 = fmul float %834, 2.000000e+00
   %844 = fmul float %837, 2.000000e+00
-  %845 = fadd float %804, %839
-  %846 = fadd float %806, %840
-  %847 = fadd float %807, %841
+  %845 = fadd float %803, %839
+  %846 = fadd float %805, %840
+  %847 = fadd float %806, %841
   %848 = fadd float %845, %842
   %849 = fadd float %846, %843
   %850 = fadd float %847, %844
@@ -31381,7 +31381,7 @@ GetCameraUp.exit.i527:                            ; preds = %797, %GetGamepadAxi
   br i1 %cond885, label %851, label %855
 
 851:                                              ; preds = %GetCameraUp.exit.i527
-  %.sroa.013.0.copyload.i549 = load <2 x float>, ptr %802, align 4
+  %.sroa.013.0.copyload.i549 = load <2 x float>, ptr %801, align 4
   %.sroa.214.0.copyload.i550 = load float, ptr %.sroa.234.0..sroa_idx.i533, align 4
   %.sroa.06.0.vec.extract.i53.i551 = extractelement <2 x float> %.sroa.013.0.copyload.i549, i64 0
   %852 = fsub float %.sroa.06.0.vec.extract.i53.i551, %848
@@ -31404,7 +31404,7 @@ GetCameraUp.exit.i527:                            ; preds = %797, %GetGamepadAxi
   %857 = fadd float %849, %.sroa.06.4.vec.extract.i64.i547
   %.sroa.08.4.vec.insert.i66.i548 = insertelement <2 x float> %.sroa.08.0.vec.insert.i63.i546, float %857, i64 1
   %858 = fadd float %850, %.sroa.24.0.copyload.i544
-  store <2 x float> %.sroa.08.4.vec.insert.i66.i548, ptr %802, align 4
+  store <2 x float> %.sroa.08.4.vec.insert.i66.i548, ptr %801, align 4
   store float %858, ptr %.sroa.234.0..sroa_idx.i533, align 4
   br label %CameraYaw.exit559
 
@@ -31440,7 +31440,7 @@ GetGamepadAxisMovement.exit562:                   ; preds = %CameraYaw.exit559, 
   br i1 %or.cond, label %GetGamepadAxisMovement.exit565.thread, label %875
 
 875:                                              ; preds = %870
-  %.sroa.011.0.copyload.i.i566 = load <2 x float>, ptr %802, align 4
+  %.sroa.011.0.copyload.i.i566 = load <2 x float>, ptr %801, align 4
   %.sroa.212.0.copyload.i.i568 = load float, ptr %.sroa.234.0..sroa_idx.i533, align 4
   %.sroa.09.0.copyload.i.i569 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i571 = load float, ptr %.sroa.232.0..sroa_idx.i536, align 4
@@ -31512,7 +31512,7 @@ CameraMoveForward.exit597:                        ; preds = %GetCameraForward.ex
   %905 = fadd float %.sroa.06.4.vec.extract.i.i.i575, %899
   %.sroa.08.4.vec.insert.i55.i588 = insertelement <2 x float> %.sroa.08.0.vec.insert.i52.i587, float %905, i64 1
   %906 = fadd float %.sroa.212.0.copyload.i.i568, %900
-  store <2 x float> %.sroa.08.4.vec.insert.i55.i588, ptr %802, align 4
+  store <2 x float> %.sroa.08.4.vec.insert.i55.i588, ptr %801, align 4
   store float %906, ptr %.sroa.234.0..sroa_idx.i533, align 4
   %.pre = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
   br label %GetGamepadAxisMovement.exit565.thread
@@ -31531,7 +31531,7 @@ GetGamepadAxisMovement.exit565.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %or.cond866, label %GetGamepadAxisMovement.exit600.thread, label %914
 
 914:                                              ; preds = %909
-  %.sroa.011.0.copyload.i.i.i601 = load <2 x float>, ptr %802, align 4
+  %.sroa.011.0.copyload.i.i.i601 = load <2 x float>, ptr %801, align 4
   %.sroa.212.0.copyload.i.i.i603 = load float, ptr %.sroa.234.0..sroa_idx.i533, align 4
   %.sroa.09.0.copyload.i.i.i604 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i.i606 = load float, ptr %.sroa.232.0..sroa_idx.i536, align 4
@@ -31563,7 +31563,7 @@ GetGamepadAxisMovement.exit565.thread:            ; preds = %GetGamepadAxisMovem
 GetCameraForward.exit.i.i613:                     ; preds = %923, %914
   %.sroa.013.0.i.i.i.i614 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i651, %923 ], [ %.sroa.08.4.vec.insert.i.i.i.i612, %914 ]
   %.sroa.617.0.i.i.i.i615 = phi float [ %927, %923 ], [ %918, %914 ]
-  %.sroa.03.0.copyload.i.i.i616 = load <2 x float>, ptr %792, align 4
+  %.sroa.03.0.copyload.i.i.i616 = load <2 x float>, ptr %791, align 4
   %.sroa.24.0.copyload.i.i.i618 = load float, ptr %.sroa.24.0..sroa_idx.i.i523, align 4
   %.sroa.07.0.vec.extract.i.i.i.i619 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i616, i64 0
   %.sroa.07.4.vec.extract.i.i.i.i620 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i616, i64 1
@@ -31657,7 +31657,7 @@ CameraMoveRight.exit652:                          ; preds = %GetCameraRight.exit
   %971 = fadd float %.sroa.06.4.vec.extract.i.i.i.i610, %965
   %.sroa.08.4.vec.insert.i55.i639 = insertelement <2 x float> %.sroa.08.0.vec.insert.i52.i638, float %971, i64 1
   %972 = fadd float %.sroa.212.0.copyload.i.i.i603, %966
-  store <2 x float> %.sroa.08.4.vec.insert.i55.i639, ptr %802, align 4
+  store <2 x float> %.sroa.08.4.vec.insert.i55.i639, ptr %801, align 4
   store float %972, ptr %.sroa.234.0..sroa_idx.i533, align 4
   %.pre873 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
   br label %GetGamepadAxisMovement.exit600.thread
@@ -31676,7 +31676,7 @@ GetGamepadAxisMovement.exit600.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %or.cond867, label %GetGamepadAxisMovement.exit655.thread, label %980
 
 980:                                              ; preds = %975
-  %.sroa.011.0.copyload.i.i656 = load <2 x float>, ptr %802, align 4
+  %.sroa.011.0.copyload.i.i656 = load <2 x float>, ptr %801, align 4
   %.sroa.212.0.copyload.i.i658 = load float, ptr %.sroa.234.0..sroa_idx.i533, align 4
   %.sroa.09.0.copyload.i.i659 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i661 = load float, ptr %.sroa.232.0..sroa_idx.i536, align 4
@@ -31748,7 +31748,7 @@ CameraMoveForward.exit687:                        ; preds = %GetCameraForward.ex
   %1010 = fadd float %.sroa.06.4.vec.extract.i.i.i665, %1004
   %.sroa.08.4.vec.insert.i55.i678 = insertelement <2 x float> %.sroa.08.0.vec.insert.i52.i677, float %1010, i64 1
   %1011 = fadd float %.sroa.212.0.copyload.i.i658, %1005
-  store <2 x float> %.sroa.08.4.vec.insert.i55.i678, ptr %802, align 4
+  store <2 x float> %.sroa.08.4.vec.insert.i55.i678, ptr %801, align 4
   store float %1011, ptr %.sroa.234.0..sroa_idx.i533, align 4
   %.pre874 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), align 4
   br label %GetGamepadAxisMovement.exit655.thread
@@ -31767,7 +31767,7 @@ GetGamepadAxisMovement.exit655.thread:            ; preds = %GetGamepadAxisMovem
   br i1 %or.cond868, label %GetGamepadAxisMovement.exit690.thread, label %1019
 
 1019:                                             ; preds = %1014
-  %.sroa.011.0.copyload.i.i.i691 = load <2 x float>, ptr %802, align 4
+  %.sroa.011.0.copyload.i.i.i691 = load <2 x float>, ptr %801, align 4
   %.sroa.212.0.copyload.i.i.i693 = load float, ptr %.sroa.234.0..sroa_idx.i533, align 4
   %.sroa.09.0.copyload.i.i.i694 = load <2 x float>, ptr %0, align 4
   %.sroa.210.0.copyload.i.i.i696 = load float, ptr %.sroa.232.0..sroa_idx.i536, align 4
@@ -31799,7 +31799,7 @@ GetGamepadAxisMovement.exit655.thread:            ; preds = %GetGamepadAxisMovem
 GetCameraForward.exit.i.i703:                     ; preds = %1028, %1019
   %.sroa.013.0.i.i.i.i704 = phi <2 x float> [ %.sroa.013.4.vec.insert.i.i.i.i741, %1028 ], [ %.sroa.08.4.vec.insert.i.i.i.i702, %1019 ]
   %.sroa.617.0.i.i.i.i705 = phi float [ %1032, %1028 ], [ %1023, %1019 ]
-  %.sroa.03.0.copyload.i.i.i706 = load <2 x float>, ptr %792, align 4
+  %.sroa.03.0.copyload.i.i.i706 = load <2 x float>, ptr %791, align 4
   %.sroa.24.0.copyload.i.i.i708 = load float, ptr %.sroa.24.0..sroa_idx.i.i523, align 4
   %.sroa.07.0.vec.extract.i.i.i.i709 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i706, i64 0
   %.sroa.07.4.vec.extract.i.i.i.i710 = extractelement <2 x float> %.sroa.03.0.copyload.i.i.i706, i64 1
@@ -31893,7 +31893,7 @@ CameraMoveRight.exit742:                          ; preds = %GetCameraRight.exit
   %1076 = fadd float %.sroa.06.4.vec.extract.i.i.i.i700, %1070
   %.sroa.08.4.vec.insert.i55.i729 = insertelement <2 x float> %.sroa.08.0.vec.insert.i52.i728, float %1076, i64 1
   %1077 = fadd float %.sroa.212.0.copyload.i.i.i693, %1071
-  store <2 x float> %.sroa.08.4.vec.insert.i55.i729, ptr %802, align 4
+  store <2 x float> %.sroa.08.4.vec.insert.i55.i729, ptr %801, align 4
   store float %1077, ptr %.sroa.234.0..sroa_idx.i533, align 4
   br label %GetGamepadAxisMovement.exit690.thread
 

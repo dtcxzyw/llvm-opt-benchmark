@@ -19592,7 +19592,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
   %27 = call noundef i32 @_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE9do_lookupERKS7_Ri(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %28 = icmp slt i32 %27, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %28, label %53, label %29
+  br i1 %28, label %52, label %29
 
 29:                                               ; preds = %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE4findERKS7_.exit
   %30 = getelementptr inbounds i8, ptr %0, i64 88
@@ -19601,22 +19601,22 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
   %33 = getelementptr inbounds %"struct.Yosys::hashlib::dict<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::entry_t", ptr %32, i64 %31, i32 0, i32 1
   %34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str) #37
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %53, label %36
+  br i1 %35, label %52, label %36
 
 36:                                               ; preds = %29
   %37 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.309) #37
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %53, label %39
+  br i1 %38, label %52, label %39
 
 39:                                               ; preds = %36
   %40 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.281) #37
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %53, label %42
+  br i1 %41, label %52, label %42
 
 42:                                               ; preds = %39
   %43 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.308) #37
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %53, label %45
+  br i1 %44, label %52, label %45
 
 45:                                               ; preds = %42
   store ptr null, ptr %5, align 8
@@ -19625,13 +19625,12 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
   %48 = load ptr, ptr %5, align 8
   %49 = load i8, ptr %48, align 1
   %.not = icmp eq i8 %49, 0
-  %50 = zext i32 %2 to i64
-  %51 = select i1 %.not, i64 %47, i64 %50
-  %52 = trunc i64 %51 to i32
-  br label %53
+  %50 = trunc i64 %47 to i32
+  %51 = select i1 %.not, i32 %50, i32 %2
+  br label %52
 
-53:                                               ; preds = %39, %42, %29, %36, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE4findERKS7_.exit, %45
-  %.0 = phi i32 [ %52, %45 ], [ %2, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE4findERKS7_.exit ], [ 0, %36 ], [ 0, %29 ], [ 1, %42 ], [ 1, %39 ]
+52:                                               ; preds = %39, %42, %29, %36, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE4findERKS7_.exit, %45
+  %.0 = phi i32 [ %51, %45 ], [ %2, %_ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE4findERKS7_.exit ], [ 0, %36 ], [ 0, %29 ], [ 1, %42 ], [ 1, %39 ]
   ret i32 %.0
 }
 

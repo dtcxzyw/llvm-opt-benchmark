@@ -6442,12 +6442,12 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   %122 = and i32 %110, 31
   %123 = zext nneg i32 %122 to i64
   %124 = icmp eq i64 %.074211, %123
-  %125 = shl nuw nsw i64 %123, 32
-  %126 = and i64 %117, 4294967295
-  %127 = shl nuw nsw i64 %.074211, 37
-  %128 = select i1 %124, i64 0, i64 %125
-  %129 = or disjoint i64 %128, %127
-  %130 = or disjoint i64 %129, %126
+  %125 = and i64 %117, 4294967295
+  %126 = shl nuw nsw i64 %.074211, 37
+  %127 = shl nuw nsw i64 %123, 32
+  %128 = select i1 %124, i64 0, i64 %127
+  %129 = or disjoint i64 %128, %126
+  %130 = or disjoint i64 %129, %125
   store i64 %130, ptr %121, align 8
   %131 = add nuw i64 %.4212, 1
   br label %112

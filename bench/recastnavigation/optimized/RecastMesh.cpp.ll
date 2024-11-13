@@ -1947,28 +1947,28 @@ _ZL13diagonalLooseiiiPKiPi.exit.thread:           ; preds = %_ZL13intersectPropP
   %244 = add nsw i32 %243, 1
   %245 = sext i32 %244 to i64
   %246 = icmp sgt i64 %indvars.iv198, %245
-  %247 = sext i32 %244 to i64
-  %248 = sext i32 %.2142 to i64
-  %249 = getelementptr inbounds i32, ptr %2, i64 %248
-  %250 = load i32, ptr %249, align 4
-  %251 = and i32 %250, 268435455
-  %252 = getelementptr inbounds i8, ptr %.0137172, i64 4
-  store i32 %251, ptr %.0137172, align 4
-  %253 = sext i32 %243 to i64
-  %254 = getelementptr inbounds i32, ptr %2, i64 %253
-  %255 = load i32, ptr %254, align 4
-  %256 = and i32 %255, 268435455
-  %257 = getelementptr inbounds i8, ptr %.0137172, i64 8
-  store i32 %256, ptr %252, align 4
-  %258 = select i1 %246, i64 %247, i64 0
+  %247 = sext i32 %.2142 to i64
+  %248 = getelementptr inbounds i32, ptr %2, i64 %247
+  %249 = load i32, ptr %248, align 4
+  %250 = and i32 %249, 268435455
+  %251 = getelementptr inbounds i8, ptr %.0137172, i64 4
+  store i32 %250, ptr %.0137172, align 4
+  %252 = sext i32 %243 to i64
+  %253 = getelementptr inbounds i32, ptr %2, i64 %252
+  %254 = load i32, ptr %253, align 4
+  %255 = and i32 %254, 268435455
+  %256 = getelementptr inbounds i8, ptr %.0137172, i64 8
+  store i32 %255, ptr %251, align 4
+  %257 = sext i32 %244 to i64
+  %258 = select i1 %246, i64 %257, i64 0
   %259 = getelementptr inbounds i32, ptr %2, i64 %258
   %260 = load i32, ptr %259, align 4
   %261 = and i32 %260, 268435455
   %262 = getelementptr inbounds i8, ptr %.0137172, i64 12
-  store i32 %261, ptr %257, align 4
+  store i32 %261, ptr %256, align 4
   %263 = add nuw nsw i32 %.0136173, 1
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, -1
-  %264 = icmp sgt i64 %indvars.iv.next199, %253
+  %264 = icmp sgt i64 %indvars.iv.next199, %252
   br i1 %264, label %.lr.ph170, label %._crit_edge171.thread
 
 ._crit_edge171.thread:                            ; preds = %239
@@ -1976,7 +1976,7 @@ _ZL13diagonalLooseiiiPKiPi.exit.thread:           ; preds = %_ZL13intersectPropP
   br label %271
 
 .lr.ph170:                                        ; preds = %239, %.lr.ph170
-  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph170 ], [ %253, %239 ]
+  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph170 ], [ %252, %239 ]
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
   %266 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next190
   %267 = load i32, ptr %266, align 4

@@ -172,8 +172,8 @@ invoke.cont4.i:                                   ; preds = %for.body.i
   %1 = add i8 %call5.i, -65
   %or.cond.i.i = icmp ult i8 %1, 26
   %add.i.i = add nuw nsw i8 %call5.i, 32
-  %cond.i.i = select i1 %or.cond.i.i, i8 %add.i.i, i8 %call5.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %cond.i.i)
+  %conv5.i.i = select i1 %or.cond.i.i, i8 %add.i.i, i8 %call5.i
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %conv5.i.i)
           to label %for.inc.i unwind label %lpad.loopexit.i
 
 for.inc.i:                                        ; preds = %invoke.cont4.i
@@ -236,8 +236,8 @@ invoke.cont4.i:                                   ; preds = %for.body.i
   %1 = add i16 %call5.i, -65
   %or.cond.i.i = icmp ult i16 %1, 26
   %add.i.i = add nuw nsw i16 %call5.i, 32
-  %cond.i.i = select i1 %or.cond.i.i, i16 %add.i.i, i16 %call5.i
-  invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9push_backEt(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i16 noundef zeroext %cond.i.i)
+  %conv5.i.i = select i1 %or.cond.i.i, i16 %add.i.i, i16 %call5.i
+  invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9push_backEt(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i16 noundef zeroext %conv5.i.i)
           to label %for.inc.i unwind label %lpad.loopexit.i
 
 for.inc.i:                                        ; preds = %invoke.cont4.i
@@ -297,8 +297,8 @@ invoke.cont4.i:                                   ; preds = %for.body.i
   %1 = add i8 %call5.i, -97
   %or.cond.i.i = icmp ult i8 %1, 26
   %add.i.i = add nsw i8 %call5.i, -32
-  %cond.i.i = select i1 %or.cond.i.i, i8 %add.i.i, i8 %call5.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %cond.i.i)
+  %conv5.i.i = select i1 %or.cond.i.i, i8 %add.i.i, i8 %call5.i
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %conv5.i.i)
           to label %for.inc.i unwind label %lpad.loopexit.i
 
 for.inc.i:                                        ; preds = %invoke.cont4.i
@@ -358,8 +358,8 @@ invoke.cont4.i:                                   ; preds = %for.body.i
   %1 = add i16 %call5.i, -97
   %or.cond.i.i = icmp ult i16 %1, 26
   %add.i.i = add nsw i16 %call5.i, -32
-  %cond.i.i = select i1 %or.cond.i.i, i16 %add.i.i, i16 %call5.i
-  invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9push_backEt(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i16 noundef zeroext %cond.i.i)
+  %conv5.i.i = select i1 %or.cond.i.i, i16 %add.i.i, i16 %call5.i
+  invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9push_backEt(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i16 noundef zeroext %conv5.i.i)
           to label %for.inc.i unwind label %lpad.loopexit.i
 
 for.inc.i:                                        ; preds = %invoke.cont4.i
@@ -425,17 +425,17 @@ while.body:                                       ; preds = %land.rhs
   %2 = add i8 %call3, -65
   %or.cond.i = icmp ult i8 %2, 26
   %add.i = add nuw nsw i8 %call3, 32
-  %cond.i = select i1 %or.cond.i, i8 %add.i, i8 %call3
+  %conv5.i = select i1 %or.cond.i, i8 %add.i, i8 %call3
   %call5 = call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %b, i64 noundef %i.013)
   %3 = add i8 %call5, -65
   %or.cond.i7 = icmp ult i8 %3, 26
   %add.i8 = add nuw nsw i8 %call5, 32
-  %cond.i9 = select i1 %or.cond.i7, i8 %add.i8, i8 %call5
-  %cmp8 = icmp slt i8 %cond.i, %cond.i9
+  %conv5.i9 = select i1 %or.cond.i7, i8 %add.i8, i8 %call5
+  %cmp8 = icmp slt i8 %conv5.i, %conv5.i9
   br i1 %cmp8, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %cmp11 = icmp sgt i8 %cond.i, %cond.i9
+  %cmp11 = icmp sgt i8 %conv5.i, %conv5.i9
   br i1 %cmp11, label %return, label %while.cond
 
 while.end:                                        ; preds = %land.rhs, %while.cond, %entry
@@ -495,17 +495,17 @@ while.body:                                       ; preds = %land.rhs
   %2 = add i16 %call3, -65
   %or.cond.i = icmp ult i16 %2, 26
   %add.i = add nuw nsw i16 %call3, 32
-  %cond.i = select i1 %or.cond.i, i16 %add.i, i16 %call3
+  %conv5.i = select i1 %or.cond.i, i16 %add.i, i16 %call3
   %call5 = call noundef zeroext i16 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %b, i64 noundef %i.013)
   %3 = add i16 %call5, -65
   %or.cond.i7 = icmp ult i16 %3, 26
   %add.i8 = add nuw nsw i16 %call5, 32
-  %cond.i9 = select i1 %or.cond.i7, i16 %add.i8, i16 %call5
-  %cmp8 = icmp ult i16 %cond.i, %cond.i9
+  %conv5.i9 = select i1 %or.cond.i7, i16 %add.i8, i16 %call5
+  %cmp8 = icmp ult i16 %conv5.i, %conv5.i9
   br i1 %cmp8, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %cmp11 = icmp ugt i16 %cond.i, %cond.i9
+  %cmp11 = icmp ugt i16 %conv5.i, %conv5.i9
   br i1 %cmp11, label %return, label %while.cond
 
 while.end:                                        ; preds = %land.rhs, %while.cond, %entry
@@ -2103,9 +2103,9 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %2 = add i8 %call4.i, -65
   %or.cond.i.i = icmp ult i8 %2, 26
   %add.i.i = add nuw nsw i8 %call4.i, 32
-  %cond.i.i = select i1 %or.cond.i.i, i8 %add.i.i, i8 %call4.i
+  %conv5.i.i = select i1 %or.cond.i.i, i8 %add.i.i, i8 %call4.i
   %call6.i = call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %lowercase_ascii.i, i64 noundef %i.06.i)
-  %cmp8.not.i = icmp eq i8 %cond.i.i, %call6.i
+  %cmp8.not.i = icmp eq i8 %conv5.i.i, %call6.i
   br i1 %cmp8.not.i, label %for.cond.i, label %_ZN4baseL22DoLowerCaseEqualsASCIIINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS_16BasicStringPieceIT_EENS7_IS6_EE.exit
 
 _ZN4baseL22DoLowerCaseEqualsASCIIINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS_16BasicStringPieceIT_EENS7_IS6_EE.exit: ; preds = %for.cond.i, %for.body.i, %entry, %for.cond.preheader.i
@@ -2150,8 +2150,8 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %2 = add i16 %call4.i, -65
   %or.cond.i.i = icmp ult i16 %2, 26
   %add.i.i = add nuw nsw i16 %call4.i, 32
-  %cond.i.i = select i1 %or.cond.i.i, i16 %add.i.i, i16 %call4.i
-  %conv.i = zext i16 %cond.i.i to i32
+  %conv5.i.i = select i1 %or.cond.i.i, i16 %add.i.i, i16 %call4.i
+  %conv.i = zext i16 %conv5.i.i to i32
   %call6.i = call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %lowercase_ascii.i, i64 noundef %i.06.i)
   %conv7.i = sext i8 %call6.i to i32
   %cmp8.not.i = icmp eq i32 %conv.i, %conv7.i
@@ -2268,12 +2268,12 @@ for.body.i:                                       ; preds = %sw.bb5, %for.body.i
   %7 = add i8 %5, -65
   %or.cond.i.i.i = icmp ult i8 %7, 26
   %add.i.i.i = add nuw nsw i8 %5, 32
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %5
+  %conv5.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %5
   %8 = add i8 %6, -65
   %or.cond.i1.i.i = icmp ult i8 %8, 26
   %add.i2.i.i = add nuw nsw i8 %6, 32
-  %cond.i3.i.i = select i1 %or.cond.i1.i.i, i8 %add.i2.i.i, i8 %6
-  %cmp.i.i = icmp eq i8 %cond.i.i.i, %cond.i3.i.i
+  %conv5.i3.i.i = select i1 %or.cond.i1.i.i, i8 %add.i2.i.i, i8 %6
+  %cmp.i.i = icmp eq i8 %conv5.i.i.i, %conv5.i3.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.addr.05.i, i64 1
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %__first2.addr.06.i, i64 1
   %cmp.not.i = icmp ne ptr %incdec.ptr.i, %call7
@@ -2351,12 +2351,12 @@ for.body.i:                                       ; preds = %sw.bb5, %for.body.i
   %7 = add i16 %5, -65
   %or.cond.i.i.i = icmp ult i16 %7, 26
   %add.i.i.i = add nuw nsw i16 %5, 32
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i16 %add.i.i.i, i16 %5
+  %conv5.i.i.i = select i1 %or.cond.i.i.i, i16 %add.i.i.i, i16 %5
   %8 = add i16 %6, -65
   %or.cond.i1.i.i = icmp ult i16 %8, 26
   %add.i2.i.i = add nuw nsw i16 %6, 32
-  %cond.i3.i.i = select i1 %or.cond.i1.i.i, i16 %add.i2.i.i, i16 %6
-  %cmp.i.i = icmp eq i16 %cond.i.i.i, %cond.i3.i.i
+  %conv5.i3.i.i = select i1 %or.cond.i1.i.i, i16 %add.i2.i.i, i16 %6
+  %cmp.i.i = icmp eq i16 %conv5.i.i.i, %conv5.i3.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.addr.05.i, i64 2
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %__first2.addr.06.i, i64 2
   %cmp.not.i1 = icmp ne ptr %incdec.ptr.i, %call7
@@ -2427,12 +2427,12 @@ for.body.i:                                       ; preds = %sw.bb7, %for.body.i
   %7 = add i8 %5, -65
   %or.cond.i.i.i = icmp ult i8 %7, 26
   %add.i.i.i = add nuw nsw i8 %5, 32
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %5
+  %conv5.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %5
   %8 = add i8 %6, -65
   %or.cond.i1.i.i = icmp ult i8 %8, 26
   %add.i2.i.i = add nuw nsw i8 %6, 32
-  %cond.i3.i.i = select i1 %or.cond.i1.i.i, i8 %add.i2.i.i, i8 %6
-  %cmp.i.i = icmp eq i8 %cond.i.i.i, %cond.i3.i.i
+  %conv5.i3.i.i = select i1 %or.cond.i1.i.i, i8 %add.i2.i.i, i8 %6
+  %cmp.i.i = icmp eq i8 %conv5.i.i.i, %conv5.i3.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.addr.05.i, i64 1
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %__first2.addr.06.i, i64 1
   %cmp.not.i = icmp ne ptr %incdec.ptr.i, %call9
@@ -2513,12 +2513,12 @@ for.body.i:                                       ; preds = %sw.bb7, %for.body.i
   %7 = add i16 %5, -65
   %or.cond.i.i.i = icmp ult i16 %7, 26
   %add.i.i.i = add nuw nsw i16 %5, 32
-  %cond.i.i.i = select i1 %or.cond.i.i.i, i16 %add.i.i.i, i16 %5
+  %conv5.i.i.i = select i1 %or.cond.i.i.i, i16 %add.i.i.i, i16 %5
   %8 = add i16 %6, -65
   %or.cond.i1.i.i = icmp ult i16 %8, 26
   %add.i2.i.i = add nuw nsw i16 %6, 32
-  %cond.i3.i.i = select i1 %or.cond.i1.i.i, i16 %add.i2.i.i, i16 %6
-  %cmp.i.i = icmp eq i16 %cond.i.i.i, %cond.i3.i.i
+  %conv5.i3.i.i = select i1 %or.cond.i1.i.i, i16 %add.i2.i.i, i16 %6
+  %cmp.i.i = icmp eq i16 %conv5.i.i.i, %conv5.i3.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.addr.05.i, i64 2
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %__first2.addr.06.i, i64 2
   %cmp.not.i1 = icmp ne ptr %incdec.ptr.i, %call9

@@ -48,36 +48,31 @@ entry:
   %shr = lshr i64 %mul, 7
   %1 = getelementptr i8, ptr %buffer, i64 16
   %buffer.val = load i64, ptr %1, align 8
-  %sub.i.i = add i64 %buffer.val, -1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 false)
+  %add.i = add i64 %buffer.val, -1
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i, i1 false)
   %tobool.not.i.i = icmp eq i64 %2, 0
   %sub2.i.i = add nuw nsw i64 %2, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
   %shr.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i
-  %tobool1.not.i.i = icmp eq i64 %buffer.val, 0
-  %conv.i.i = zext i1 %tobool1.not.i.i to i64
-  %retval.0.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %shr.i.i
-  %cond.i = tail call range(i64 4096, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 4096)
+  %3 = tail call i64 @llvm.umax.i64(i64 %shr.i.i, i64 4096)
+  %cond.i = select i1 %tobool.not.i.i, i64 4096, i64 %3
   %add = add nuw i64 %cond.i, %shr
   store i64 %add, ptr %avg_size, align 8
   %shr.i = lshr i64 %add, 7
-  %add.i = add i64 %shr.i, %buffer.val
-  %sub.i.i14 = add i64 %add.i, -1
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i14, i1 false)
-  %tobool.not.i.i15 = icmp eq i64 %3, 0
-  %sub2.i.i16 = add nuw nsw i64 %3, 4294967295
+  %sub.i.i = add i64 %shr.i, %add.i
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 false)
+  %tobool.not.i.i15 = icmp eq i64 %4, 0
+  %sub2.i.i16 = add nuw nsw i64 %4, 4294967295
   %sh_prom.i.i17 = and i64 %sub2.i.i16, 4294967295
   %shr.i.i18 = lshr exact i64 -9223372036854775808, %sh_prom.i.i17
-  %tobool1.not.i.i19 = icmp eq i64 %add.i, 0
-  %conv.i.i20 = zext i1 %tobool1.not.i.i19 to i64
-  %retval.0.i.i21 = select i1 %tobool.not.i.i15, i64 %conv.i.i20, i64 %shr.i.i18
-  %cond.i22 = tail call range(i64 4096, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i21, i64 4096)
+  %5 = tail call i64 @llvm.umax.i64(i64 %shr.i.i18, i64 4096)
+  %cond.i19 = select i1 %tobool.not.i.i15, i64 4096, i64 %5
   %capacity = getelementptr inbounds i8, ptr %buffer, i64 8
-  %4 = load i64, ptr %capacity, align 8
-  %shr5 = lshr i64 %4, 3
-  %cmp = icmp ult i64 %cond.i22, %shr5
-  %cmp6 = icmp ugt i64 %retval.0.i.i21, 65535
-  %or.cond = and i1 %cmp6, %cmp
+  %6 = load i64, ptr %capacity, align 8
+  %shr5 = lshr i64 %6, 3
+  %cmp = icmp ult i64 %cond.i19, %shr5
+  %cmp6 = icmp ugt i64 %cond.i19, 65535
+  %or.cond = and i1 %cmp, %cmp6
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -97,65 +92,63 @@ entry:
   %0 = load i64, ptr %capacity, align 8
   %1 = getelementptr i8, ptr %buffer, i64 16
   %buffer.val = load i64, ptr %1, align 8
-  %add.i = add i64 %buffer.val, %len
-  %sub.i.i = add i64 %add.i, -1
+  %add.i = add i64 %len, -1
+  %sub.i.i = add i64 %add.i, %buffer.val
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 false)
   %tobool.not.i.i = icmp eq i64 %2, 0
   %sub2.i.i = add nuw nsw i64 %2, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
   %shr.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i
-  %tobool1.not.i.i = icmp eq i64 %add.i, 0
-  %conv.i.i = zext i1 %tobool1.not.i.i to i64
-  %retval.0.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %shr.i.i
-  %cond.i = tail call range(i64 4096, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 4096)
+  %3 = tail call i64 @llvm.umax.i64(i64 %shr.i.i, i64 4096)
+  %cond.i = select i1 %tobool.not.i.i, i64 4096, i64 %3
   store i64 %cond.i, ptr %capacity, align 8
   %buffer2 = getelementptr inbounds i8, ptr %buffer, i64 32
-  %3 = load ptr, ptr %buffer2, align 8
-  %call4 = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %cond.i) #12
+  %4 = load ptr, ptr %buffer2, align 8
+  %call4 = tail call ptr @g_realloc(ptr noundef %4, i64 noundef %cond.i) #12
   store ptr %call4, ptr %buffer2, align 8
-  %4 = load ptr, ptr %buffer, align 8
-  %tobool.not = icmp eq ptr %4, null
-  %..str = select i1 %tobool.not, ptr @.str, ptr %4
-  %5 = load i64, ptr %capacity, align 8
+  %5 = load ptr, ptr %buffer, align 8
+  %tobool.not = icmp eq ptr %5, null
+  %..str = select i1 %tobool.not, ptr @.str, ptr %5
+  %6 = load i64, ptr %capacity, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %6 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %6, 0
-  %7 = load i16, ptr @_TRACE_BUFFER_RESIZE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %7, 0
+  %7 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %7, 0
+  %8 = load i16, ptr @_TRACE_BUFFER_RESIZE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %8, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_buffer_resize.exit
 
 land.lhs.true5.i.i:                               ; preds = %entry
-  %8 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %8, 32768
+  %9 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %9, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_buffer_resize.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %9 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %9 to i1
+  %10 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %10 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %10 = load i64, ptr %_now.i.i, align 8
+  %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %..str, i64 noundef %0, i64 noundef %5) #12
+  %12 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %..str, i64 noundef %0, i64 noundef %6) #12
   br label %trace_buffer_resize.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, ptr noundef nonnull %..str, i64 noundef %0, i64 noundef %5) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, ptr noundef nonnull %..str, i64 noundef %0, i64 noundef %6) #12
   br label %trace_buffer_resize.exit
 
 trace_buffer_resize.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %avg_size = getelementptr inbounds i8, ptr %buffer, i64 24
-  %12 = load i64, ptr %avg_size, align 8
-  %13 = load i64, ptr %capacity, align 8
-  %shl = shl i64 %13, 7
-  %cond11 = tail call i64 @llvm.umax.i64(i64 %12, i64 %shl)
+  %13 = load i64, ptr %avg_size, align 8
+  %14 = load i64, ptr %capacity, align 8
+  %shl = shl i64 %14, 7
+  %cond11 = tail call i64 @llvm.umax.i64(i64 %13, i64 %shl)
   store i64 %cond11, ptr %avg_size, align 8
   ret void
 }
@@ -212,16 +205,16 @@ entry:
   %add.i = add nuw nsw i64 %shr.i, 4096
   store i64 %add.i, ptr %avg_size.i, align 8
   %shr.i.i = lshr i64 %add.i, 7
-  %sub.i.i14.i = add nsw i64 %shr.i.i, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i14.i, i1 false)
+  %sub.i.i.i = add nsw i64 %shr.i.i, -1
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i.i, i1 false)
   %sub2.i.i16.i = add nuw nsw i64 %1, 4294967295
   %sh_prom.i.i17.i = and i64 %sub2.i.i16.i, 4294967295
   %shr.i.i18.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i17.i
-  %cond.i22.i = tail call range(i64 4096, -9223372036854775807) i64 @llvm.umax.i64(i64 %shr.i.i18.i, i64 4096)
+  %2 = tail call i64 @llvm.umax.i64(i64 %shr.i.i18.i, i64 4096)
   %capacity.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %2 = load i64, ptr %capacity.i, align 8
-  %shr5.i = lshr i64 %2, 3
-  %cmp.i = icmp ult i64 %cond.i22.i, %shr5.i
+  %3 = load i64, ptr %capacity.i, align 8
+  %shr5.i = lshr i64 %3, 3
+  %cmp.i = icmp ult i64 %2, %shr5.i
   %cmp6.i = icmp samesign ult i64 %sh_prom.i.i17.i, 48
   %or.cond.i = and i1 %cmp6.i, %cmp.i
   br i1 %or.cond.i, label %if.then.i, label %buffer_shrink.exit
@@ -325,36 +318,31 @@ entry:
   %3 = load i64, ptr %avg_size.i, align 8
   %mul.i = mul i64 %3, 127
   %shr.i = lshr i64 %mul.i, 7
-  %sub.i.i.i = add i64 %sub4, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i.i, i1 false)
+  %add.i.i = add i64 %sub4, -1
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i.i, i1 false)
   %tobool.not.i.i.i = icmp eq i64 %4, 0
   %sub2.i.i.i = add nuw nsw i64 %4, 4294967295
   %sh_prom.i.i.i = and i64 %sub2.i.i.i, 4294967295
   %shr.i.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i.i
-  %tobool1.not.i.i.i = icmp eq i64 %2, %len
-  %conv.i.i.i = zext i1 %tobool1.not.i.i.i to i64
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %shr.i.i.i
-  %cond.i.i = tail call range(i64 4096, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i.i, i64 4096)
+  %5 = tail call i64 @llvm.umax.i64(i64 %shr.i.i.i, i64 4096)
+  %cond.i.i = select i1 %tobool.not.i.i.i, i64 4096, i64 %5
   %add.i = add nuw i64 %cond.i.i, %shr.i
   store i64 %add.i, ptr %avg_size.i, align 8
   %shr.i.i = lshr i64 %add.i, 7
-  %add.i.i = add i64 %shr.i.i, %sub4
-  %sub.i.i14.i = add i64 %add.i.i, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i14.i, i1 false)
-  %tobool.not.i.i15.i = icmp eq i64 %5, 0
-  %sub2.i.i16.i = add nuw nsw i64 %5, 4294967295
+  %sub.i.i.i = add i64 %shr.i.i, %add.i.i
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i.i, i1 false)
+  %tobool.not.i.i15.i = icmp eq i64 %6, 0
+  %sub2.i.i16.i = add nuw nsw i64 %6, 4294967295
   %sh_prom.i.i17.i = and i64 %sub2.i.i16.i, 4294967295
   %shr.i.i18.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i17.i
-  %tobool1.not.i.i19.i = icmp eq i64 %add.i.i, 0
-  %conv.i.i20.i = zext i1 %tobool1.not.i.i19.i to i64
-  %retval.0.i.i21.i = select i1 %tobool.not.i.i15.i, i64 %conv.i.i20.i, i64 %shr.i.i18.i
-  %cond.i22.i = tail call range(i64 4096, -9223372036854775807) i64 @llvm.umax.i64(i64 %retval.0.i.i21.i, i64 4096)
+  %7 = tail call i64 @llvm.umax.i64(i64 %shr.i.i18.i, i64 4096)
+  %cond.i19.i = select i1 %tobool.not.i.i15.i, i64 4096, i64 %7
   %capacity.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %6 = load i64, ptr %capacity.i, align 8
-  %shr5.i = lshr i64 %6, 3
-  %cmp.i = icmp ult i64 %cond.i22.i, %shr5.i
-  %cmp6.i = icmp ugt i64 %retval.0.i.i21.i, 65535
-  %or.cond.i = and i1 %cmp6.i, %cmp.i
+  %8 = load i64, ptr %capacity.i, align 8
+  %shr5.i = lshr i64 %8, 3
+  %cmp.i = icmp ult i64 %cond.i19.i, %shr5.i
+  %cmp6.i = icmp ugt i64 %cond.i19.i, 65535
+  %or.cond.i = and i1 %cmp.i, %cmp6.i
   br i1 %or.cond.i, label %if.then.i, label %buffer_shrink.exit
 
 if.then.i:                                        ; preds = %entry

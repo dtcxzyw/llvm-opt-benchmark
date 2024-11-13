@@ -18,9 +18,8 @@ define hidden noundef signext range(i8 -42, 22) i8 @_ZN9metaspace10chunklevel23l
   %or.cond.i = icmp eq i64 %4, 1
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
   %6 = sub nuw nsw i64 64, %5
-  %7 = shl nuw i64 1, %6
-  %.0.i = select i1 %or.cond.i, i64 %0, i64 %7
-  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i, i1 true)
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
+  %8 = select i1 %or.cond.i, i64 %7, i64 %6
   %9 = trunc nuw nsw i64 %8 to i8
   %10 = sub nsw i8 21, %9
   br label %11

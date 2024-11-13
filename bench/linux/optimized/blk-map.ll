@@ -1321,7 +1321,7 @@ define dso_local i32 @blk_rq_map_user_io(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = alloca [8 x %struct.iovec], align 16
   %12 = alloca ptr, align 8
   %13 = alloca %struct.iov_iter, align 8
-  br i1 %5, label %14, label %40
+  br i1 %5, label %14, label %39
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #8
@@ -1331,78 +1331,77 @@ define dso_local i32 @blk_rq_map_user_io(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false), !annotation !8
   %15 = icmp eq i32 %6, 0
-  %16 = zext i32 %6 to i64
-  %17 = select i1 %15, i64 %3, i64 %16
-  %18 = trunc i64 %17 to i32
-  %19 = call i64 @import_iovec(i32 noundef %8, ptr noundef %2, i32 noundef %18, i32 noundef 8, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
-  %20 = trunc i64 %19 to i32
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %38, label %22
+  %16 = trunc i64 %3 to i32
+  %17 = select i1 %15, i32 %16, i32 %6
+  %18 = call i64 @import_iovec(i32 noundef %8, ptr noundef %2, i32 noundef %17, i32 noundef 8, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
+  %19 = trunc i64 %18 to i32
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %37, label %21
 
-22:                                               ; preds = %14
-  br i1 %15, label %32, label %23
+21:                                               ; preds = %14
+  br i1 %15, label %31, label %22
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %13, i64 24
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp ugt i64 %25, %3
-  br i1 %26, label %27, label %28
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds i8, ptr %13, i64 24
+  %24 = load i64, ptr %23, align 8
+  %25 = icmp ugt i64 %24, %3
+  br i1 %25, label %26, label %27
 
-27:                                               ; preds = %23
-  store i64 %3, ptr %24, align 8
-  br label %28
+26:                                               ; preds = %22
+  store i64 %3, ptr %23, align 8
+  br label %27
 
-28:                                               ; preds = %27, %23
-  %29 = phi i64 [ %3, %27 ], [ %25, %23 ]
-  %30 = icmp eq i64 %29, 0
-  %31 = and i1 %7, %30
-  br i1 %31, label %35, label %32
+27:                                               ; preds = %26, %22
+  %28 = phi i64 [ %3, %26 ], [ %24, %22 ]
+  %29 = icmp eq i64 %28, 0
+  %30 = and i1 %7, %29
+  br i1 %30, label %34, label %31
 
-32:                                               ; preds = %28, %22
-  %33 = load ptr, ptr %0, align 8
-  %34 = call i32 @blk_rq_map_user_iov(ptr noundef %33, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13, i32 noundef %4)
-  br label %35
+31:                                               ; preds = %27, %21
+  %32 = load ptr, ptr %0, align 8
+  %33 = call i32 @blk_rq_map_user_iov(ptr noundef %32, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13, i32 noundef %4)
+  br label %34
 
-35:                                               ; preds = %32, %28
-  %36 = phi i32 [ %34, %32 ], [ -22, %28 ]
-  %37 = load ptr, ptr %12, align 8
-  call void @kfree(ptr noundef %37) #8
-  br label %38
+34:                                               ; preds = %31, %27
+  %35 = phi i32 [ %33, %31 ], [ -22, %27 ]
+  %36 = load ptr, ptr %12, align 8
+  call void @kfree(ptr noundef %36) #8
+  br label %37
 
-38:                                               ; preds = %35, %14
-  %39 = phi i32 [ %20, %14 ], [ %36, %35 ]
+37:                                               ; preds = %34, %14
+  %38 = phi i32 [ %19, %14 ], [ %35, %34 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #8
-  br label %53
+  br label %52
 
-40:                                               ; preds = %9
-  %41 = icmp eq i64 %3, 0
-  br i1 %41, label %53, label %42
+39:                                               ; preds = %9
+  %40 = icmp eq i64 %3, 0
+  br i1 %40, label %52, label %41
 
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %0, align 8
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !8
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %45, 1
-  %47 = call i32 @import_ubuf(i32 noundef %46, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %10) #8
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %51, label %49, !prof !15
+  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, 1
+  %46 = call i32 @import_ubuf(i32 noundef %45, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %10) #8
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %50, label %48, !prof !15
 
-49:                                               ; preds = %42
-  %50 = call i32 @blk_rq_map_user_iov(ptr noundef %43, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, i32 noundef %4)
-  br label %51
+48:                                               ; preds = %41
+  %49 = call i32 @blk_rq_map_user_iov(ptr noundef %42, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, i32 noundef %4)
+  br label %50
 
-51:                                               ; preds = %49, %42
-  %52 = phi i32 [ %50, %49 ], [ %47, %42 ]
+50:                                               ; preds = %48, %41
+  %51 = phi i32 [ %49, %48 ], [ %46, %41 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #8
-  br label %53
+  br label %52
 
-53:                                               ; preds = %51, %40, %38
-  %54 = phi i32 [ %52, %51 ], [ 0, %40 ], [ %39, %38 ]
-  ret i32 %54
+52:                                               ; preds = %50, %39, %37
+  %53 = phi i32 [ %51, %50 ], [ 0, %39 ], [ %38, %37 ]
+  ret i32 %53
 }
 
 ; Function Attrs: null_pointer_is_valid

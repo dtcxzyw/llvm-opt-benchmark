@@ -9072,11 +9072,11 @@ define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr nounde
   %or.cond119 = select i1 %or.cond, i1 true, i1 %74
   %75 = icmp sgt i16 %65, %69
   %or.cond120 = select i1 %or.cond119, i1 true, i1 %75
-  %76 = shl nsw i64 %66, 2
-  %77 = sext i16 %62 to i64
-  %78 = shl nsw i64 %77, 2
-  store i64 %78, ptr %61, align 8
-  %79 = select i1 %or.cond120, i64 0, i64 %76
+  %76 = sext i16 %62 to i64
+  %77 = shl nsw i64 %76, 2
+  store i64 %77, ptr %61, align 8
+  %78 = shl nsw i64 %66, 2
+  %79 = select i1 %or.cond120, i64 0, i64 %78
   %80 = getelementptr inbounds i8, ptr %61, i64 8
   store i64 %79, ptr %80, align 8
   %81 = sext i16 %69 to i64

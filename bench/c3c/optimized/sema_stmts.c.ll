@@ -2028,14 +2028,14 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   %.0426.i = phi ptr [ %788, %785 ], [ null, %793 ], [ %799, %801 ]
   %.0425.i = phi i32 [ 0, %785 ], [ %795, %793 ], [ 0, %801 ]
   %816 = icmp ne i32 %.0425.i, 1
-  %817 = and i16 %509, 8
-  %818 = icmp ne i16 %817, 0
-  %819 = getelementptr inbounds i8, ptr %500, i64 16
-  %820 = getelementptr inbounds i8, ptr %.0408.i.lcssa347, i64 8
-  %.sroa.0.0.in.i = select i1 %.not472.i, ptr %820, ptr %819
+  %817 = getelementptr inbounds i8, ptr %500, i64 16
+  %818 = getelementptr inbounds i8, ptr %.0408.i.lcssa347, i64 8
+  %.sroa.0.0.in.i = select i1 %.not472.i, ptr %818, ptr %817
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8
-  %821 = call ptr @decl_new_generated_var(ptr noundef %.0418.i, i32 noundef 2, i64 %.sroa.0.0.i) #9
-  %822 = select i1 %816, i1 %818, i1 false
+  %819 = call ptr @decl_new_generated_var(ptr noundef %.0418.i, i32 noundef 2, i64 %.sroa.0.0.i) #9
+  %820 = and i16 %509, 8
+  %821 = icmp ne i16 %820, 0
+  %822 = select i1 %816, i1 %821, i1 false
   %.not481.i = icmp eq ptr %.0426.i, null
   br i1 %822, label %823, label %831
 
@@ -2045,7 +2045,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
 824:                                              ; preds = %823
   %825 = load ptr, ptr @type_isz, align 8
   %826 = zext i32 %.0425.i to i64
-  %827 = load i64, ptr %820, align 8
+  %827 = load i64, ptr %818, align 8
   %828 = call ptr @expr_new_const_int(i64 %827, ptr noundef %825, i64 noundef %826) #9
   br label %829
 
@@ -2058,7 +2058,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   br i1 %.not481.i, label %913, label %832
 
 832:                                              ; preds = %831
-  %833 = load i64, ptr %820, align 8
+  %833 = load i64, ptr %818, align 8
   %834 = call ptr @decl_new_generated_var(ptr noundef %.0418.i, i32 noundef 2, i64 %833) #9
   %835 = call zeroext i1 @cast_implicit_silent(ptr noundef nonnull %0, ptr noundef nonnull %.0426.i, ptr noundef %.0418.i) #9
   br i1 %835, label %856, label %836
@@ -2067,7 +2067,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   %837 = load ptr, ptr %.0426.i, align 8
   %838 = call ptr @type_quoted_error_string(ptr noundef %837) #9
   %839 = call ptr @type_quoted_error_string(ptr noundef %.0418.i) #9
-  %840 = load i64, ptr %820, align 8
+  %840 = load i64, ptr %818, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %840, ptr noundef nonnull @.str.52, ptr noundef %838, ptr noundef %839) #9
   br i1 %.not476.i, label %848, label %841
 
@@ -2110,7 +2110,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
 
 864:                                              ; preds = %829
   %865 = call fastcc ptr @expand_(ptr noundef %.0409.i170)
-  %866 = call ptr @expr_generate_decl(ptr noundef %821, ptr noundef %.1427.i) #9
+  %866 = call ptr @expr_generate_decl(ptr noundef %819, ptr noundef %.1427.i) #9
   %867 = getelementptr inbounds i8, ptr %865, i64 -8
   %868 = load i32, ptr %867, align 4
   %869 = add i32 %868, -1
@@ -2122,13 +2122,13 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   %874 = call ptr @expr_new(i32 noundef 27, i64 %873) #9
   %875 = getelementptr inbounds i8, ptr %874, i64 24
   store ptr %865, ptr %875, align 8
-  %876 = getelementptr inbounds i8, ptr %821, i64 16
+  %876 = getelementptr inbounds i8, ptr %819, i64 16
   %877 = load i64, ptr %876, align 8
   %878 = call ptr @expr_new(i32 noundef 3, i64 %877) #9
   %879 = getelementptr inbounds i8, ptr %878, i64 24
   %880 = getelementptr inbounds i8, ptr %878, i64 32
   store i8 14, ptr %880, align 8
-  %881 = call ptr @expr_variable(ptr noundef %821) #9
+  %881 = call ptr @expr_variable(ptr noundef %819) #9
   %882 = load ptr, ptr @expr_arena, align 8
   %883 = ptrtoint ptr %881 to i64
   %884 = ptrtoint ptr %882 to i64
@@ -2136,7 +2136,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   %886 = sdiv exact i64 %885, 56
   %887 = trunc i64 %886 to i32
   store i32 %887, ptr %879, align 8
-  %888 = load i64, ptr %820, align 8
+  %888 = load i64, ptr %818, align 8
   %889 = call ptr @expr_new_const_int(i64 %888, ptr noundef %.0418.i, i64 noundef 0) #9
   %890 = load ptr, ptr @expr_arena, align 8
   %891 = ptrtoint ptr %889 to i64
@@ -2148,7 +2148,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   store i32 %895, ptr %896, align 4
   %897 = load i64, ptr %876, align 8
   %898 = call ptr @expr_new(i32 noundef 63, i64 %897) #9
-  %899 = call ptr @expr_variable(ptr noundef %821) #9
+  %899 = call ptr @expr_variable(ptr noundef %819) #9
   %900 = getelementptr inbounds i8, ptr %898, i64 24
   store ptr %899, ptr %900, align 8
   %901 = getelementptr inbounds i8, ptr %898, i64 32
@@ -2173,11 +2173,11 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
 913:                                              ; preds = %856, %831
   %.1422.i = phi ptr [ %834, %856 ], [ null, %831 ]
   %.2.i79 = phi ptr [ %857, %856 ], [ %.0409.i170, %831 ]
-  %914 = getelementptr inbounds i8, ptr %821, i64 16
+  %914 = getelementptr inbounds i8, ptr %819, i64 16
   %915 = load i64, ptr %914, align 8
   %916 = call ptr @expr_new_const_int(i64 %915, ptr noundef %.0418.i, i64 noundef 0) #9
   %917 = call fastcc ptr @expand_(ptr noundef %.2.i79)
-  %918 = call ptr @expr_generate_decl(ptr noundef %821, ptr noundef %916) #9
+  %918 = call ptr @expr_generate_decl(ptr noundef %819, ptr noundef %916) #9
   %919 = getelementptr inbounds i8, ptr %917, i64 -8
   %920 = load i32, ptr %919, align 4
   %921 = add i32 %920, -1
@@ -2203,7 +2203,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   %935 = getelementptr inbounds i8, ptr %934, i64 24
   %936 = getelementptr inbounds i8, ptr %934, i64 32
   store i8 16, ptr %936, align 8
-  %937 = call ptr @expr_variable(ptr noundef nonnull %821) #9
+  %937 = call ptr @expr_variable(ptr noundef nonnull %819) #9
   %938 = load ptr, ptr @expr_arena, align 8
   %939 = ptrtoint ptr %937 to i64
   %940 = ptrtoint ptr %938 to i64
@@ -2221,7 +2221,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
 946:                                              ; preds = %932
   %947 = load ptr, ptr @type_isz, align 8
   %948 = zext i32 %.0425.i to i64
-  %949 = load i64, ptr %820, align 8
+  %949 = load i64, ptr %818, align 8
   %950 = call ptr @expr_new_const_int(i64 %949, ptr noundef %947, i64 noundef %948) #9
   br label %951
 
@@ -2237,7 +2237,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   store i32 %.sink, ptr %956, align 4
   %957 = load i64, ptr %914, align 8
   %958 = call ptr @expr_new(i32 noundef 63, i64 %957) #9
-  %959 = call ptr @expr_variable(ptr noundef nonnull %821) #9
+  %959 = call ptr @expr_variable(ptr noundef nonnull %819) #9
   %960 = getelementptr inbounds i8, ptr %958, i64 24
   store ptr %959, ptr %960, align 8
   %961 = getelementptr inbounds i8, ptr %958, i64 32
@@ -2260,7 +2260,7 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   store i8 15, ptr %968, align 4
   %969 = getelementptr inbounds i8, ptr %967, i64 16
   store ptr %500, ptr %969, align 8
-  %970 = call ptr @expr_variable(ptr noundef nonnull %821) #9
+  %970 = call ptr @expr_variable(ptr noundef nonnull %819) #9
   %971 = call zeroext i1 @cast_explicit(ptr noundef nonnull %0, ptr noundef %970, ptr noundef %.0420.i) #9
   br i1 %971, label %972, label %sema_analyse_foreach_stmt.exit.thread
 
@@ -2307,14 +2307,14 @@ sema_analyse_defer_stmt_body.exit.i:              ; preds = %427
   br i1 %816, label %1003, label %998
 
 998:                                              ; preds = %990
-  %999 = getelementptr inbounds i8, ptr %821, i64 72
+  %999 = getelementptr inbounds i8, ptr %819, i64 72
   %1000 = load ptr, ptr %999, align 8
   %1001 = load i64, ptr %964, align 8
   %1002 = call ptr @expr_new_const_int(i64 %1001, ptr noundef %1000, i64 noundef 0) #9
   br label %1005
 
 1003:                                             ; preds = %990
-  %1004 = call ptr @expr_variable(ptr noundef nonnull %821) #9
+  %1004 = call ptr @expr_variable(ptr noundef nonnull %819) #9
   br label %1005
 
 1005:                                             ; preds = %1003, %998

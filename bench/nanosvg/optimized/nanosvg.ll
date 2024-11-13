@@ -6259,18 +6259,18 @@ define internal fastcc void @nsvg__initPaint(ptr nocapture noundef nonnull write
   %105 = fcmp olt float %104, 0.000000e+00
   %106 = fcmp ogt float %104, 1.000000e+00
   %107 = select i1 %106, float 1.000000e+00, float %104
-  %108 = fmul float %107, 2.550000e+02
-  %109 = getelementptr inbounds i8, ptr %98, i64 4
-  %110 = load float, ptr %109, align 4
-  %111 = fcmp olt float %110, 0.000000e+00
-  %112 = fcmp ogt float %110, 1.000000e+00
-  %113 = select i1 %112, float 1.000000e+00, float %110
-  %114 = fmul float %113, 2.550000e+02
-  %115 = select i1 %105, float 0.000000e+00, float %108
-  %116 = fptosi float %115 to i32
-  %117 = select i1 %111, float 0.000000e+00, float %114
+  %108 = getelementptr inbounds i8, ptr %98, i64 4
+  %109 = load float, ptr %108, align 4
+  %110 = fcmp olt float %109, 0.000000e+00
+  %111 = fcmp ogt float %109, 1.000000e+00
+  %112 = select i1 %111, float 1.000000e+00, float %109
+  %113 = fmul float %107, 2.550000e+02
+  %114 = select i1 %105, float 0.000000e+00, float %113
+  %115 = fptosi float %114 to i32
+  %116 = fmul float %112, 2.550000e+02
+  %117 = select i1 %110, float 0.000000e+00, float %116
   %118 = fptosi float %117 to i32
-  %119 = sub nsw i32 %118, %116
+  %119 = sub nsw i32 %118, %115
   %120 = icmp slt i32 %119, 1
   br i1 %120, label %.loopexit79, label %121
 
@@ -6291,7 +6291,7 @@ define internal fastcc void @nsvg__initPaint(ptr nocapture noundef nonnull write
   %135 = and i32 %134, 255
   %136 = lshr i32 %125, 24
   %137 = lshr i32 %102, 24
-  %138 = sext i32 %116 to i64
+  %138 = sext i32 %115 to i64
   %wide.trip.count111 = zext nneg i32 %119 to i64
   br label %139
 

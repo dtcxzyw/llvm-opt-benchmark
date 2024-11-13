@@ -6610,9 +6610,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   %63 = fmul double %.sink, %51
   %storemerge57 = fptosi double %63 to i32
   %.not58 = icmp sgt i32 %10, %storemerge57
-  %64 = add nsw i32 %10, -1
-  %spec.select = select i1 %.not58, i32 %storemerge57, i32 %64
-  %65 = add i32 %spec.select, 1
+  %64 = add i32 %storemerge57, 1
+  %65 = select i1 %.not58, i32 %64, i32 %10
   br label %103
 
 66:                                               ; preds = %33
@@ -6667,9 +6666,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   %96 = fmul double %.sink64, %84
   %storemerge = fptosi double %96 to i32
   %.not = icmp sgt i32 %10, %storemerge
-  %97 = add nsw i32 %10, -1
-  %spec.select63 = select i1 %.not, i32 %storemerge, i32 %97
-  %98 = add i32 %spec.select63, 1
+  %97 = add i32 %storemerge, 1
+  %98 = select i1 %.not, i32 %97, i32 %10
   br label %103
 
 99:                                               ; preds = %66

@@ -3378,33 +3378,32 @@ _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS
 ._crit_edge.loopexit.i:                           ; preds = %1290
   %.val12.pre.i = load ptr, ptr %1197, align 8
   %.pre51.pre.pre.i = load i8, ptr %1254, align 8
-  %.pre = and i8 %.pre51.pre.pre.i, 4
-  %1292 = icmp eq i8 %.pre, 0
   br label %._crit_edge.i114
 
 ._crit_edge.i114:                                 ; preds = %._crit_edge.loopexit.i, %1263
-  %.pre-phi = phi i1 [ %1292, %._crit_edge.loopexit.i ], [ true, %1263 ]
-  %.pre51.pre.i = phi i8 [ %.pre51.pre.pre.i, %._crit_edge.loopexit.i ], [ %1255, %1263 ]
-  %.val12.i = phi ptr [ %.val12.pre.i, %._crit_edge.loopexit.i ], [ %.val10.i, %1263 ]
-  %.sroa.037.0.lcssa.i = phi i64 [ %.sroa.037.1.i, %._crit_edge.loopexit.i ], [ 1, %1263 ]
-  %.sroa.040.0.lcssa.i = phi i64 [ %.sroa.040.1.i, %._crit_edge.loopexit.i ], [ 1, %1263 ]
-  %1293 = getelementptr inbounds i8, ptr %.val12.i, i64 -32
-  %1294 = load i64, ptr %1293, align 8
-  %1295 = srem i64 %1294, %.sroa.040.0.lcssa.i
-  %1296 = srem i64 %storemerge.i110, %.sroa.037.0.lcssa.i
-  %1297 = or i64 %1296, %1295
-  %1298 = icmp eq i64 %1297, 0
-  br i1 %1298, label %1300, label %.thread
+  %.pre51.pre.i = phi i8 [ %1255, %1263 ], [ %.pre51.pre.pre.i, %._crit_edge.loopexit.i ]
+  %.val12.i = phi ptr [ %.val10.i, %1263 ], [ %.val12.pre.i, %._crit_edge.loopexit.i ]
+  %.sroa.037.0.lcssa.i = phi i64 [ 1, %1263 ], [ %.sroa.037.1.i, %._crit_edge.loopexit.i ]
+  %.sroa.040.0.lcssa.i = phi i64 [ 1, %1263 ], [ %.sroa.040.1.i, %._crit_edge.loopexit.i ]
+  %1292 = getelementptr inbounds i8, ptr %.val12.i, i64 -32
+  %1293 = load i64, ptr %1292, align 8
+  %1294 = srem i64 %1293, %.sroa.040.0.lcssa.i
+  %1295 = srem i64 %storemerge.i110, %.sroa.037.0.lcssa.i
+  %1296 = or i64 %1295, %1294
+  %1297 = icmp eq i64 %1296, 0
+  br i1 %1297, label %1299, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.i114
-  %1299 = or i8 %.pre51.pre.i, 4
-  store i8 %1299, ptr %1254, align 8
+  %1298 = or i8 %.pre51.pre.i, 4
+  store i8 %1298, ptr %1254, align 8
   br label %_ZN12_GLOBAL__N_116CGRecordLowering15determinePackedEb.exit
 
-1300:                                             ; preds = %._crit_edge.i114
-  br i1 %.pre-phi, label %1301, label %_ZN12_GLOBAL__N_116CGRecordLowering15determinePackedEb.exit
+1299:                                             ; preds = %._crit_edge.i114
+  %1300 = and i8 %.pre51.pre.i, 4
+  %.not4.i196 = icmp eq i8 %1300, 0
+  br i1 %.not4.i196, label %1301, label %_ZN12_GLOBAL__N_116CGRecordLowering15determinePackedEb.exit
 
-1301:                                             ; preds = %1300
+1301:                                             ; preds = %1299
   %1302 = load ptr, ptr %1211, align 8
   %1303 = call noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(23096) %1302, i64 %.sroa.040.0.lcssa.i) #18
   %1304 = load ptr, ptr %1211, align 8
@@ -3433,8 +3432,8 @@ _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS
   %.val7.i.pre = load ptr, ptr %1197, align 8
   br label %_ZN12_GLOBAL__N_116CGRecordLowering15determinePackedEb.exit
 
-_ZN12_GLOBAL__N_116CGRecordLowering15determinePackedEb.exit: ; preds = %.thread, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit, %1300, %1301
-  %.val7.i = phi ptr [ %.val10.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit ], [ %.val12.i, %1300 ], [ %.val7.i.pre, %1301 ], [ %.val12.i, %.thread ]
+_ZN12_GLOBAL__N_116CGRecordLowering15determinePackedEb.exit: ; preds = %.thread, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit, %1299, %1301
+  %.val7.i = phi ptr [ %.val10.i, %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE9push_backEOS2_.exit ], [ %.val12.i, %1299 ], [ %.val7.i.pre, %1301 ], [ %.val12.i, %.thread ]
   %.val8.i116 = load ptr, ptr %1196, align 8
   %.not7386.i = icmp eq ptr %.val8.i116, %.val7.i
   br i1 %.not7386.i, label %_ZN12_GLOBAL__N_116CGRecordLowering13insertPaddingEv.exit, label %.lr.ph.i117

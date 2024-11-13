@@ -93,9 +93,9 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %18
   %.not.i.i = icmp eq ptr %25, null
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %19 to i64
-  %28 = sub i64 %26, %27
-  %.0.i.i = select i1 %.not.i.i, i64 %24, i64 %28, !prof !14
-  %29 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %26, %27
+  %28 = add i64 %reass.sub, 2
+  %29 = select i1 %.not.i.i, i64 %6, i64 %28, !prof !14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %0, align 8, !tbaa !12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -648,9 +648,9 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %18
   %.not.i.i = icmp eq ptr %25, null
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %19 to i64
-  %28 = sub i64 %26, %27
-  %.0.i.i = select i1 %.not.i.i, i64 %24, i64 %28, !prof !14
-  %29 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %26, %27
+  %28 = add i64 %reass.sub, 2
+  %29 = select i1 %.not.i.i, i64 %6, i64 %28, !prof !14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %0, align 8, !tbaa !12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1221,9 +1221,9 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %20
   %.not.i.i = icmp eq ptr %25, null
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %21 to i64
-  %28 = sub i64 %26, %27
-  %.0.i.i = select i1 %.not.i.i, i64 %24, i64 %28, !prof !14
-  %29 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %26, %27
+  %28 = add i64 %reass.sub, 2
+  %29 = select i1 %.not.i.i, i64 %6, i64 %28, !prof !14
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread63
 
@@ -1469,9 +1469,9 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %20
   %.not.i.i = icmp eq ptr %25, null
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %21 to i64
-  %28 = sub i64 %26, %27
-  %.0.i.i = select i1 %.not.i.i, i64 %24, i64 %28, !prof !14
-  %29 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %26, %27
+  %28 = add i64 %reass.sub, 2
+  %29 = select i1 %.not.i.i, i64 %6, i64 %28, !prof !14
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread63
 
@@ -1901,9 +1901,9 @@ define void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathE
   %.not.i.i = icmp eq ptr %32, null
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %27 to i64
-  %35 = sub i64 %33, %34
-  %.0.i.i = select i1 %.not.i.i, i64 %31, i64 %35, !prof !14
-  %36 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %33, %34
+  %35 = add i64 %reass.sub, 2
+  %36 = select i1 %.not.i.i, i64 %16, i64 %35, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %24, %30, %19, %20, %26
@@ -1949,9 +1949,9 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %13, 
   %.not.i.i51 = icmp eq ptr %56, null
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %51 to i64
-  %59 = sub i64 %57, %58
-  %.0.i.i52 = select i1 %.not.i.i51, i64 %55, i64 %59, !prof !14
-  %60 = add i64 %.0.i.i52, 2
+  %reass.sub74 = sub i64 %57, %58
+  %59 = add i64 %reass.sub74, 2
+  %60 = select i1 %.not.i.i51, i64 %10, i64 %59, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit55
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit55: ; preds = %48, %54, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, %41, %44, %50
@@ -2115,19 +2115,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   %.not.i.i.i.i = icmp eq ptr %131, null
   %132 = ptrtoint ptr %131 to i64
   %133 = ptrtoint ptr %126 to i64
-  %134 = sub i64 %132, %133
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i64 %130, i64 %134, !prof !14
-  %135 = add i64 %.0.i.i.i.i, 2
+  %reass.sub75 = sub i64 %132, %133
+  %134 = add i64 %reass.sub75, 2
+  %135 = select i1 %.not.i.i.i.i, i64 %113, i64 %134, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i: ; preds = %129, %125, %123, %119, %116, %111
-  %.0.i.i59 = phi i64 [ 0, %111 ], [ 0, %125 ], [ 0, %119 ], [ 0, %116 ], [ %135, %129 ], [ 2, %123 ]
-  %umin.i.i.i = tail call i64 @llvm.umin.i64(i64 %113, i64 %.0.i.i59)
+  %.0.i.i = phi i64 [ 0, %111 ], [ 0, %125 ], [ 0, %119 ], [ 0, %116 ], [ %135, %129 ], [ 2, %123 ]
+  %umin.i.i.i = tail call i64 @llvm.umin.i64(i64 %113, i64 %.0.i.i)
   br label %136
 
 136:                                              ; preds = %138, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
   %.0.i.i.i = phi i64 [ %113, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i ], [ %139, %138 ]
-  %137 = icmp ugt i64 %.0.i.i.i, %.0.i.i59
+  %137 = icmp ugt i64 %.0.i.i.i, %.0.i.i
   br i1 %137, label %138, label %_ZN5boost10filesystem6detail15path_algorithms15has_filename_v4ERKNS0_4pathE.exit
 
 138:                                              ; preds = %136
@@ -2368,9 +2368,9 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v3ERNS0_11
   %.not.i.i = icmp eq ptr %34, null
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %29 to i64
-  %37 = sub i64 %35, %36
-  %.0.i.i = select i1 %.not.i.i, i64 %33, i64 %37, !prof !14
-  %38 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %35, %36
+  %37 = add i64 %reass.sub, 2
+  %38 = select i1 %.not.i.i, i64 %5, i64 %37, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %26, %32, %18, %21, %22, %28
@@ -2658,9 +2658,9 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v4ERNS0_11
   %.not.i.i = icmp eq ptr %44, null
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %39 to i64
-  %47 = sub i64 %45, %46
-  %.0.i.i = select i1 %.not.i.i, i64 %43, i64 %47, !prof !14
-  %48 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %45, %46
+  %47 = add i64 %reass.sub, 2
+  %48 = select i1 %.not.i.i, i64 %5, i64 %47, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %36, %42, %28, %31, %32, %38
@@ -2668,7 +2668,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %36, %42, %2
   %.021.i = phi i64 [ 0, %31 ], [ 0, %38 ], [ 0, %32 ], [ %5, %28 ], [ %48, %42 ], [ 2, %36 ]
   %49 = icmp eq i64 %20, %.021.i
   %50 = icmp eq i64 %7, %.0
-  %or.cond = and i1 %50, %49
+  %or.cond = select i1 %49, i1 %50, i1 false
   br i1 %or.cond, label %51, label %.preheader
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -2997,9 +2997,9 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i: ; preds = %23
   %.not.i.i.i.i = icmp eq ptr %28, null
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %24 to i64
-  %31 = sub i64 %29, %30
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i64 %27, i64 %31, !prof !14
-  %32 = add i64 %.0.i.i.i.i, 2
+  %reass.sub = sub i64 %29, %30
+  %31 = add i64 %reass.sub, 2
+  %32 = select i1 %.not.i.i.i.i, i64 %10, i64 %31, !prof !14
   %.not.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread.i.i, label %_ZN12_GLOBAL__N_113first_elementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmS8_.exit.thread.thread
 
@@ -3492,9 +3492,9 @@ define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v3ER
   %.not.i.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %17 to i64
-  %25 = sub i64 %23, %24
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i64 %21, i64 %25, !prof !14
-  %26 = add i64 %.0.i.i.i.i, 2
+  %reass.sub = sub i64 %23, %24
+  %25 = add i64 %reass.sub, 2
+  %26 = select i1 %.not.i.i.i.i, i64 %3, i64 %25, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i: ; preds = %20, %16, %14, %10, %9, %6, %1
@@ -3594,9 +3594,9 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   %.not.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %17 to i64
-  %25 = sub i64 %23, %24
-  %.0.i.i.i = select i1 %.not.i.i.i, i64 %21, i64 %25, !prof !14
-  %26 = add i64 %.0.i.i.i, 2
+  %reass.sub = sub i64 %23, %24
+  %25 = add i64 %reass.sub, 2
+  %26 = select i1 %.not.i.i.i, i64 %3, i64 %25, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i: ; preds = %20, %16, %14, %10, %9, %6, %1
@@ -3694,9 +3694,9 @@ define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v4ER
   %.not.i.i.i = icmp eq ptr %21, null
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %16 to i64
-  %24 = sub i64 %22, %23
-  %.0.i.i.i = select i1 %.not.i.i.i, i64 %20, i64 %24, !prof !14
-  %25 = add i64 %.0.i.i.i, 2
+  %reass.sub = sub i64 %22, %23
+  %24 = add i64 %reass.sub, 2
+  %25 = select i1 %.not.i.i.i, i64 %3, i64 %24, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i: ; preds = %19, %15, %13, %9, %6, %1
@@ -3761,9 +3761,9 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_filename
   %.not.i.i = icmp eq ptr %21, null
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %16 to i64
-  %24 = sub i64 %22, %23
-  %.0.i.i = select i1 %.not.i.i, i64 %20, i64 %24, !prof !14
-  %25 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %22, %23
+  %24 = add i64 %reass.sub, 2
+  %25 = select i1 %.not.i.i, i64 %3, i64 %24, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %13, %19, %1, %6, %9, %15
@@ -4159,9 +4159,9 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms22find_extensio
   %.not.i.i = icmp eq ptr %21, null
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %16 to i64
-  %24 = sub i64 %22, %23
-  %.0.i.i = select i1 %.not.i.i, i64 %20, i64 %24, !prof !14
-  %25 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %22, %23
+  %24 = add i64 %reass.sub, 2
+  %25 = select i1 %.not.i.i, i64 %3, i64 %24, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %13, %19, %1, %6, %9, %15
@@ -4270,9 +4270,9 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms19find_root_nam
   %.not.i.i = icmp eq ptr %21, null
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %16 to i64
-  %24 = sub i64 %22, %23
-  %.0.i.i = select i1 %.not.i.i, i64 %20, i64 %24, !prof !14
-  %25 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %22, %23
+  %24 = add i64 %reass.sub, 2
+  %25 = select i1 %.not.i.i, i64 %4, i64 %24, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %13, %19, %1, %6, %9, %15
@@ -4319,9 +4319,9 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms19find_root_pat
   %.not.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %17 to i64
-  %25 = sub i64 %23, %24
-  %.0.i.i = select i1 %.not.i.i, i64 %21, i64 %25, !prof !14
-  %26 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %23, %24
+  %25 = add i64 %reass.sub, 2
+  %26 = select i1 %.not.i.i, i64 %4, i64 %25, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %14, %20, %1, %6, %9, %10, %16
@@ -4372,9 +4372,9 @@ define { i64, i64 } @_ZN5boost10filesystem6detail15path_algorithms19find_root_di
   %.not.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %17 to i64
-  %25 = sub i64 %23, %24
-  %.0.i.i = select i1 %.not.i.i, i64 %21, i64 %25, !prof !14
-  %26 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %23, %24
+  %25 = add i64 %reass.sub, 2
+  %26 = select i1 %.not.i.i, i64 %4, i64 %25, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %14, %20, %1, %6, %9, %10, %16
@@ -4425,9 +4425,9 @@ define { i64, i64 } @_ZN5boost10filesystem6detail15path_algorithms18find_relativ
   %.not.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %17 to i64
-  %25 = sub i64 %23, %24
-  %.0.i.i = select i1 %.not.i.i, i64 %21, i64 %25, !prof !14
-  %26 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %23, %24
+  %25 = add i64 %reass.sub, 2
+  %26 = select i1 %.not.i.i, i64 %4, i64 %25, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %14, %20, %1, %9, %10, %16
@@ -4498,9 +4498,9 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_parent_p
   %.not.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %17 to i64
-  %25 = sub i64 %23, %24
-  %.0.i.i = select i1 %.not.i.i, i64 %21, i64 %25, !prof !14
-  %26 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %23, %24
+  %25 = add i64 %reass.sub, 2
+  %26 = select i1 %.not.i.i, i64 %3, i64 %25, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %14, %20, %1, %6, %9, %10, %16
@@ -4599,9 +4599,9 @@ define void @_ZN5boost10filesystem6detail15path_algorithms11filename_v3ERKNS0_4p
   %.not.i.i = icmp eq ptr %25, null
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %20 to i64
-  %28 = sub i64 %26, %27
-  %.0.i.i = select i1 %.not.i.i, i64 %24, i64 %28, !prof !14
-  %29 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %26, %27
+  %28 = add i64 %reass.sub, 2
+  %29 = select i1 %.not.i.i, i64 %6, i64 %28, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %17, %23, %2, %12, %13, %19
@@ -4908,9 +4908,9 @@ define void @_ZN5boost10filesystem6detail15path_algorithms7stem_v4ERKNS0_4pathE(
   %.not.i.i.i.i = icmp eq ptr %23, null
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %18 to i64
-  %26 = sub i64 %24, %25
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i64 %22, i64 %26, !prof !14
-  %27 = add i64 %.0.i.i.i.i, 2
+  %reass.sub = sub i64 %24, %25
+  %26 = add i64 %reass.sub, 2
+  %27 = select i1 %.not.i.i.i.i, i64 %5, i64 %26, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i: ; preds = %21, %17, %15, %11, %8, %2
@@ -5090,9 +5090,9 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   %.not.i.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %17 to i64
-  %25 = sub i64 %23, %24
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i64 %21, i64 %25, !prof !14
-  %26 = add i64 %.0.i.i.i.i, 2
+  %reass.sub = sub i64 %23, %24
+  %25 = add i64 %reass.sub, 2
+  %26 = select i1 %.not.i.i.i.i, i64 %4, i64 %25, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i: ; preds = %20, %16, %14, %10, %7, %2
@@ -6216,9 +6216,9 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %8
   %.not.i.i = icmp eq ptr %26, null
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %21 to i64
-  %29 = sub i64 %27, %28
-  %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %29, !prof !14
-  %30 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %27, %28
+  %29 = add i64 %reass.sub, 2
+  %30 = select i1 %.not.i.i, i64 %5, i64 %29, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %18, %24, %1, %13, %14, %20
@@ -6380,9 +6380,9 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %8
   %.not.i.i = icmp eq ptr %26, null
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %21 to i64
-  %29 = sub i64 %27, %28
-  %.0.i.i = select i1 %.not.i.i, i64 %25, i64 %29, !prof !14
-  %30 = add i64 %.0.i.i, 2
+  %reass.sub = sub i64 %27, %28
+  %29 = add i64 %reass.sub, 2
+  %30 = select i1 %.not.i.i, i64 %5, i64 %29, !prof !14
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %18, %24, %1, %13, %14, %20

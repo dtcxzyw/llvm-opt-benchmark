@@ -5040,21 +5040,21 @@ define void @"_ZN125_$LT$diesel..mysql..connection..stmt..iterator..MysqlRow$u20
   %10 = tail call noundef ptr @mysql_fetch_fields(ptr noundef nonnull %8), !noalias !738
   %11 = icmp eq ptr %10, null
   %12 = zext i32 %9 to i64
-  %.sroa.3.0.i.i.i = select i1 %11, i64 0, i64 %12
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %.sroa.3.0.i.i.i)
+  %13 = tail call i64 @llvm.umin.i64(i64 %2, i64 %12)
+  %.0.sroa.speculated.i.i = select i1 %11, i64 0, i64 %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !739)
-  %13 = load ptr, ptr %7, align 8, !alias.scope !739, !noalias !742, !nonnull !10, !noundef !10
-  %14 = tail call noundef i32 @mysql_num_fields(ptr noundef nonnull %13), !noalias !745
-  %15 = tail call noundef ptr @mysql_fetch_fields(ptr noundef nonnull %13), !noalias !745
-  %16 = icmp eq ptr %15, null
-  %17 = zext i32 %14 to i64
-  %.sroa.3.0.i.i1.i = select i1 %16, i64 0, i64 %17
-  %.0.sroa.speculated.i2.i = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %.sroa.3.0.i.i1.i)
+  %14 = load ptr, ptr %7, align 8, !alias.scope !739, !noalias !742, !nonnull !10, !noundef !10
+  %15 = tail call noundef i32 @mysql_num_fields(ptr noundef nonnull %14), !noalias !745
+  %16 = tail call noundef ptr @mysql_fetch_fields(ptr noundef nonnull %14), !noalias !745
+  %17 = icmp eq ptr %16, null
+  %18 = zext i32 %15 to i64
+  %19 = tail call i64 @llvm.umin.i64(i64 %3, i64 %18)
+  %.0.sroa.speculated.i2.i = select i1 %17, i64 0, i64 %19
   store ptr %1, ptr %0, align 8, !alias.scope !727, !noalias !730
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.0.sroa.speculated.i.i, ptr %18, align 8, !alias.scope !727, !noalias !730
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.0.sroa.speculated.i2.i, ptr %19, align 8, !alias.scope !727, !noalias !730
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.0.sroa.speculated.i.i, ptr %20, align 8, !alias.scope !727, !noalias !730
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.0.sroa.speculated.i2.i, ptr %21, align 8, !alias.scope !727, !noalias !730
   ret void
 }
 

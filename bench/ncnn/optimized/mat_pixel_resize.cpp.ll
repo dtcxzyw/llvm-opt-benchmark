@@ -69,13 +69,13 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr nocapture nound
   %45 = fsub fast float %41, %44
   %46 = icmp slt i32 %43, 0
   %.0207 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
-  %47 = fmul fast float %45, 2.048000e+03
   %.not259 = icmp slt i32 %.0207, %27
   %.1208 = select i1 %.not259, i32 %.0207, i32 %28
-  %48 = select i1 %46, float 0.000000e+00, float %47
-  %49 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
-  store i32 %.1208, ptr %49, align 4
-  %50 = select i1 %.not259, float %48, float 2.048000e+03
+  %47 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  store i32 %.1208, ptr %47, align 4
+  %48 = fmul fast float %45, 2.048000e+03
+  %49 = select i1 %46, float 0.000000e+00, float %48
+  %50 = select i1 %.not259, float %49, float 2.048000e+03
   %51 = fsub fast float 2.048000e+03, %50
   %52 = fcmp fast oge float %51, 0.000000e+00
   %53 = select fast i1 %52, float 5.000000e-01, float -5.000000e-01
@@ -110,13 +110,13 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr nocapture nound
   %75 = fsub fast float %71, %74
   %76 = icmp slt i32 %73, 0
   %.0209 = tail call i32 @llvm.smax.i32(i32 %73, i32 0)
-  %77 = fmul fast float %75, 2.048000e+03
   %.not258 = icmp slt i32 %.0209, %31
   %.1210 = select i1 %.not258, i32 %.0209, i32 %32
-  %78 = select i1 %76, float 0.000000e+00, float %77
-  %79 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv368
-  store i32 %.1210, ptr %79, align 4
-  %80 = select i1 %.not258, float %78, float 2.048000e+03
+  %77 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv368
+  store i32 %.1210, ptr %77, align 4
+  %78 = fmul fast float %75, 2.048000e+03
+  %79 = select i1 %76, float 0.000000e+00, float %78
+  %80 = select i1 %.not258, float %79, float 2.048000e+03
   %81 = fsub fast float 2.048000e+03, %80
   %82 = fcmp fast oge float %81, 0.000000e+00
   %83 = select fast i1 %82, float 5.000000e-01, float -5.000000e-01
@@ -776,14 +776,14 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr nocapture nound
   %45 = fsub fast float %41, %44
   %46 = icmp slt i32 %43, 0
   %.0222 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
-  %47 = fmul fast float %45, 2.048000e+03
   %.not277 = icmp slt i32 %.0222, %27
   %.1223 = select i1 %.not277, i32 %.0222, i32 %28
-  %48 = select i1 %46, float 0.000000e+00, float %47
-  %49 = shl nsw i32 %.1223, 1
-  %50 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
-  store i32 %49, ptr %50, align 4
-  %51 = select i1 %.not277, float %48, float 2.048000e+03
+  %47 = shl nsw i32 %.1223, 1
+  %48 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  store i32 %47, ptr %48, align 4
+  %49 = fmul fast float %45, 2.048000e+03
+  %50 = select i1 %46, float 0.000000e+00, float %49
+  %51 = select i1 %.not277, float %50, float 2.048000e+03
   %52 = fsub fast float 2.048000e+03, %51
   %53 = fcmp fast oge float %52, 0.000000e+00
   %54 = select fast i1 %53, float 5.000000e-01, float -5.000000e-01
@@ -818,13 +818,13 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr nocapture nound
   %76 = fsub fast float %72, %75
   %77 = icmp slt i32 %74, 0
   %.0224 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
-  %78 = fmul fast float %76, 2.048000e+03
   %.not276 = icmp slt i32 %.0224, %31
   %.1225 = select i1 %.not276, i32 %.0224, i32 %32
-  %79 = select i1 %77, float 0.000000e+00, float %78
-  %80 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv389
-  store i32 %.1225, ptr %80, align 4
-  %81 = select i1 %.not276, float %79, float 2.048000e+03
+  %78 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv389
+  store i32 %.1225, ptr %78, align 4
+  %79 = fmul fast float %76, 2.048000e+03
+  %80 = select i1 %77, float 0.000000e+00, float %79
+  %81 = select i1 %.not276, float %80, float 2.048000e+03
   %82 = fsub fast float 2.048000e+03, %81
   %83 = fcmp fast oge float %82, 0.000000e+00
   %84 = select fast i1 %83, float 5.000000e-01, float -5.000000e-01
@@ -1528,14 +1528,14 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr nocapture nound
   %45 = fsub fast float %41, %44
   %46 = icmp slt i32 %43, 0
   %.0237 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
-  %47 = fmul fast float %45, 2.048000e+03
   %.not292 = icmp slt i32 %.0237, %27
   %.1238 = select i1 %.not292, i32 %.0237, i32 %28
-  %48 = select i1 %46, float 0.000000e+00, float %47
-  %49 = mul nsw i32 %.1238, 3
-  %50 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
-  store i32 %49, ptr %50, align 4
-  %51 = select i1 %.not292, float %48, float 2.048000e+03
+  %47 = mul nsw i32 %.1238, 3
+  %48 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  store i32 %47, ptr %48, align 4
+  %49 = fmul fast float %45, 2.048000e+03
+  %50 = select i1 %46, float 0.000000e+00, float %49
+  %51 = select i1 %.not292, float %50, float 2.048000e+03
   %52 = fsub fast float 2.048000e+03, %51
   %53 = fcmp fast oge float %52, 0.000000e+00
   %54 = select fast i1 %53, float 5.000000e-01, float -5.000000e-01
@@ -1570,13 +1570,13 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr nocapture nound
   %76 = fsub fast float %72, %75
   %77 = icmp slt i32 %74, 0
   %.0239 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
-  %78 = fmul fast float %76, 2.048000e+03
   %.not291 = icmp slt i32 %.0239, %31
   %.1240 = select i1 %.not291, i32 %.0239, i32 %32
-  %79 = select i1 %77, float 0.000000e+00, float %78
-  %80 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv404
-  store i32 %.1240, ptr %80, align 4
-  %81 = select i1 %.not291, float %79, float 2.048000e+03
+  %78 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv404
+  store i32 %.1240, ptr %78, align 4
+  %79 = fmul fast float %76, 2.048000e+03
+  %80 = select i1 %77, float 0.000000e+00, float %79
+  %81 = select i1 %.not291, float %80, float 2.048000e+03
   %82 = fsub fast float 2.048000e+03, %81
   %83 = fcmp fast oge float %82, 0.000000e+00
   %84 = select fast i1 %83, float 5.000000e-01, float -5.000000e-01
@@ -2319,14 +2319,14 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr nocapture nound
   %45 = fsub fast float %41, %44
   %46 = icmp slt i32 %43, 0
   %.0252 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
-  %47 = fmul fast float %45, 2.048000e+03
   %.not307 = icmp slt i32 %.0252, %27
   %.1253 = select i1 %.not307, i32 %.0252, i32 %28
-  %48 = select i1 %46, float 0.000000e+00, float %47
-  %49 = shl nsw i32 %.1253, 2
-  %50 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
-  store i32 %49, ptr %50, align 4
-  %51 = select i1 %.not307, float %48, float 2.048000e+03
+  %47 = shl nsw i32 %.1253, 2
+  %48 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  store i32 %47, ptr %48, align 4
+  %49 = fmul fast float %45, 2.048000e+03
+  %50 = select i1 %46, float 0.000000e+00, float %49
+  %51 = select i1 %.not307, float %50, float 2.048000e+03
   %52 = fsub fast float 2.048000e+03, %51
   %53 = fcmp fast oge float %52, 0.000000e+00
   %54 = select fast i1 %53, float 5.000000e-01, float -5.000000e-01
@@ -2361,13 +2361,13 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr nocapture nound
   %76 = fsub fast float %72, %75
   %77 = icmp slt i32 %74, 0
   %.0254 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
-  %78 = fmul fast float %76, 2.048000e+03
   %.not306 = icmp slt i32 %.0254, %31
   %.1255 = select i1 %.not306, i32 %.0254, i32 %32
-  %79 = select i1 %77, float 0.000000e+00, float %78
-  %80 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv419
-  store i32 %.1255, ptr %80, align 4
-  %81 = select i1 %.not306, float %79, float 2.048000e+03
+  %78 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv419
+  store i32 %.1255, ptr %78, align 4
+  %79 = fmul fast float %76, 2.048000e+03
+  %80 = select i1 %77, float 0.000000e+00, float %79
+  %81 = select i1 %.not306, float %80, float 2.048000e+03
   %82 = fsub fast float 2.048000e+03, %81
   %83 = fcmp fast oge float %82, 0.000000e+00
   %84 = select fast i1 %83, float 5.000000e-01, float -5.000000e-01

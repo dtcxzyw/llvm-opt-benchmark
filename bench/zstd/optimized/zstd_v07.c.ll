@@ -7668,7 +7668,6 @@ if.end.i50:                                       ; preds = %if.end.i50.lr.ph, %
   %and.i52 = zext nneg i8 %11 to i32
   %shl6.i = shl nuw nsw i32 %and.i52, 16
   %add7.i53 = or disjoint i32 %add.i51, %shl6.i
-  %12 = zext nneg i32 %add7.i53 to i64
   switch i8 %8, label %if.end20.i [
     i8 3, label %if.end22.thread
     i8 2, label %if.end17
@@ -7679,10 +7678,11 @@ if.end22.thread:                                  ; preds = %if.end.i50
   br i1 %tobool38.not, label %while.end, label %return
 
 if.end20.i:                                       ; preds = %if.end.i50
+  %conv21.i = zext nneg i32 %add7.i53 to i64
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end.i50, %if.end20.i
-  %retval.0.i54.ph = phi i64 [ %12, %if.end20.i ], [ 1, %if.end.i50 ]
+  %retval.0.i54.ph = phi i64 [ %conv21.i, %if.end20.i ], [ 1, %if.end.i50 ]
   %add.ptr18 = getelementptr inbounds i8, ptr %ip.0128, i64 3
   %sub19 = add i64 %remainingSize.0127, -3
   %cmp20 = icmp ugt i64 %retval.0.i54.ph, %sub19
@@ -7710,8 +7710,9 @@ if.then2.i:                                       ; preds = %if.end.i58
   br label %if.end49
 
 sw.bb32:                                          ; preds = %if.end22
-  %13 = load i8, ptr %add.ptr18, align 1
-  %cmp.i60 = icmp ult i64 %sub.ptr.sub25, %12
+  %12 = load i8, ptr %add.ptr18, align 1
+  %13 = zext nneg i32 %add7.i53 to i64
+  %cmp.i60 = icmp ult i64 %sub.ptr.sub25, %13
   br i1 %cmp.i60, label %return, label %if.end.i61
 
 if.end.i61:                                       ; preds = %sw.bb32
@@ -7719,7 +7720,7 @@ if.end.i61:                                       ; preds = %sw.bb32
   br i1 %cmp1.not.i62, label %if.end49, label %if.then2.i63
 
 if.then2.i63:                                     ; preds = %if.end.i61
-  tail call void @llvm.memset.p0.i64(ptr align 1 %op.0126, i8 %13, i64 range(i64 0, 4294967296) %12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %op.0126, i8 %12, i64 range(i64 0, 4294967296) %13, i1 false)
   br label %if.end49
 
 if.end45:                                         ; preds = %if.end22
@@ -7728,7 +7729,7 @@ if.end45:                                         ; preds = %if.end22
   br i1 %cmp.i65, label %if.end49, label %return
 
 if.end49:                                         ; preds = %if.then2.i, %if.end.i58, %if.then2.i63, %if.end.i61, %if.end45
-  %decodedSize.0.ph108 = phi i64 [ %call26, %if.end45 ], [ %retval.0.i54.ph, %if.then2.i ], [ 0, %if.end.i58 ], [ %12, %if.then2.i63 ], [ 0, %if.end.i61 ]
+  %decodedSize.0.ph108 = phi i64 [ %call26, %if.end45 ], [ %retval.0.i54.ph, %if.then2.i ], [ 0, %if.end.i58 ], [ %13, %if.then2.i63 ], [ 0, %if.end.i61 ]
   %14 = load i32, ptr %checksumFlag.i, align 8
   %tobool50.not = icmp eq i32 %14, 0
   br i1 %tobool50.not, label %if.end53, label %if.then51

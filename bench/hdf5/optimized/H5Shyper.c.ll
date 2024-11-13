@@ -14242,8 +14242,8 @@ H5S__hyper_bounds.exit.thread:                    ; preds = %49, %.preheader.i, 
   %66 = icmp ugt i64 %65, 4294967295
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond166 = select i1 %66, i1 true, i1 %exitcond134.not
-  br i1 %or.cond166, label %.loopexit, label %.lr.ph
+  %or.cond169 = select i1 %66, i1 true, i1 %exitcond134.not
+  br i1 %or.cond169, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader110, %H5S__hyper_bounds.exit.thread
   %.082 = phi i1 [ false, %H5S__hyper_bounds.exit.thread ], [ false, %.preheader110 ], [ %66, %.lr.ph ]
@@ -14416,7 +14416,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %73, %H5S__hyper_reb
   br label %.lr.ph116
 
 .preheader:                                       ; preds = %151
-  br i1 %.not131, label %.thread161, label %.lr.ph120
+  br i1 %.not131, label %.thread165, label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %.preheader
   %154 = load ptr, ptr %9, align 8
@@ -14447,40 +14447,44 @@ H5S__hyper_is_regular.exit:                       ; preds = %73, %H5S__hyper_reb
 ._crit_edge121:                                   ; preds = %157
   %164 = icmp ugt i64 %.280.fr, 4294967294
   %165 = icmp ugt i64 %.280.fr, 65534
-  %. = select i1 %165, i8 4, i8 2
-  %166 = select i1 %164, i8 8, i8 %.
-  %167 = load ptr, ptr %9, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 1032
-  %169 = getelementptr i8, ptr %167, i64 1040
+  %166 = load ptr, ptr %9, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 1032
+  %168 = getelementptr i8, ptr %166, i64 1040
   %wide.trip.count148 = zext i32 %153 to i64
-  br label %170
+  br label %169
 
-170:                                              ; preds = %._crit_edge121, %170
-  %indvars.iv145 = phi i64 [ 0, %._crit_edge121 ], [ %indvars.iv.next146, %170 ]
-  %.076125 = phi i64 [ 0, %._crit_edge121 ], [ %.2.fr, %170 ]
-  %171 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %168, i64 0, i64 %indvars.iv145
-  %172 = load i64, ptr %171, align 8
-  %spec.select = call i64 @llvm.umax.i64(i64 %172, i64 %.076125)
+169:                                              ; preds = %._crit_edge121, %169
+  %indvars.iv145 = phi i64 [ 0, %._crit_edge121 ], [ %indvars.iv.next146, %169 ]
+  %.076125 = phi i64 [ 0, %._crit_edge121 ], [ %.2.fr, %169 ]
+  %170 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %167, i64 0, i64 %indvars.iv145
+  %171 = load i64, ptr %170, align 8
+  %spec.select = call i64 @llvm.umax.i64(i64 %171, i64 %.076125)
   %.idx = shl nuw nsw i64 %indvars.iv145, 5
-  %173 = getelementptr i8, ptr %169, i64 %.idx
-  %174 = load i64, ptr %173, align 8
-  %.2 = call i64 @llvm.umax.i64(i64 %174, i64 %spec.select)
+  %172 = getelementptr i8, ptr %168, i64 %.idx
+  %173 = load i64, ptr %172, align 8
+  %.2 = call i64 @llvm.umax.i64(i64 %173, i64 %spec.select)
   %.2.fr = freeze i64 %.2
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %._crit_edge128, label %170
+  br i1 %exitcond149.not, label %._crit_edge128, label %169
 
-._crit_edge128:                                   ; preds = %170
-  %175 = icmp ugt i64 %.2.fr, 4294967295
-  %176 = icmp ugt i64 %.2.fr, 65535
-  %.164 = select i1 %176, i8 4, i8 2
-  %spec.select165 = select i1 %175, i8 8, i8 %.164
-  br label %.thread161
+._crit_edge128:                                   ; preds = %169
+  %174 = icmp ugt i64 %.2.fr, 4294967295
+  br i1 %165, label %175, label %177
 
-.thread161:                                       ; preds = %._crit_edge128, %.preheader
-  %177 = phi i8 [ 2, %.preheader ], [ %166, %._crit_edge128 ]
-  %178 = phi i8 [ 2, %.preheader ], [ %spec.select165, %._crit_edge128 ]
-  %179 = call i8 @llvm.umax.i8(i8 %177, i8 %178)
+175:                                              ; preds = %._crit_edge128
+  %176 = or i1 %164, %174
+  %spec.select170 = select i1 %176, i8 8, i8 4
+  br label %.thread165
+
+177:                                              ; preds = %._crit_edge128
+  %178 = icmp ugt i64 %.2.fr, 65535
+  %. = select i1 %178, i8 4, i8 2
+  %.. = select i1 %174, i8 8, i8 %.
+  br label %.thread165
+
+.thread165:                                       ; preds = %175, %177, %.preheader
+  %179 = phi i8 [ %.., %177 ], [ 2, %.preheader ], [ %spec.select170, %175 ]
   store i8 %179, ptr %3, align 1
   br label %188
 
@@ -14509,8 +14513,8 @@ H5S__hyper_is_regular.exit:                       ; preds = %73, %H5S__hyper_reb
   %187 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_get_version_enc_size, i32 noundef 3696, i64 noundef %185, i64 noundef %186, ptr noundef nonnull @.str.65) #15
   br label %188
 
-188:                                              ; preds = %149, %150, %._crit_edge, %.thread161, %184, %145, %142, %138, %69, %54
-  %.083 = phi i32 [ -1, %54 ], [ -1, %69 ], [ -1, %138 ], [ -1, %142 ], [ -1, %145 ], [ -1, %184 ], [ 0, %.thread161 ], [ 0, %._crit_edge ], [ 0, %150 ], [ 0, %149 ]
+188:                                              ; preds = %149, %150, %._crit_edge, %.thread165, %184, %145, %142, %138, %69, %54
+  %.083 = phi i32 [ -1, %54 ], [ -1, %69 ], [ -1, %138 ], [ -1, %142 ], [ -1, %145 ], [ -1, %184 ], [ 0, %.thread165 ], [ 0, %._crit_edge ], [ 0, %150 ], [ 0, %149 ]
   ret i32 %.083
 }
 
@@ -20187,9 +20191,6 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14

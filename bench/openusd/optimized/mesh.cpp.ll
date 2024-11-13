@@ -1936,7 +1936,7 @@ define linkonce_odr void @_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMes
 
 5:                                                ; preds = %2
   %6 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-          to label %.noexc unwind label %52
+          to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %5
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__36HdMeshReprDescTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6)
@@ -1977,101 +1977,97 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.thread: ; preds = %_Z
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_36HdMeshReprDescTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  %20 = inttoptr i64 %16 to ptr
-  %21 = and i64 %16, -8
-  %22 = inttoptr i64 %21 to ptr
-  %23 = atomicrmw add ptr %22, i32 2 monotonic, align 4
-  %24 = and i32 %23, 1
-  %.not1.i.i = icmp eq i32 %24, 0
-  %spec.select = select i1 %.not1.i.i, ptr %22, ptr %20
-  %25 = ptrtoint ptr %spec.select to i64
-  %.pre = and i64 %25, 7
-  %26 = icmp eq i64 %.pre, 0
+  %20 = and i64 %16, -8
+  %21 = inttoptr i64 %20 to ptr
+  %22 = atomicrmw add ptr %21, i32 2 monotonic, align 4
+  %23 = and i32 %22, 1
+  %.not1.i.i = icmp eq i32 %23, 0
+  %24 = select i1 %.not1.i.i, i64 %20, i64 %16
+  %.pre = and i64 %24, 7
+  %25 = icmp eq i64 %.pre, 0
   store i32 0, ptr %.ptr, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %.ptr, i64 4
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
-  store i64 %25, ptr %28, align 8
-  br i1 %26, label %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit, label %29
+  %26 = getelementptr inbounds nuw i8, ptr %.ptr, i64 4
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
+  store i64 %24, ptr %27, align 8
+  br i1 %25, label %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit, label %28
 
-29:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
-  %30 = and i64 %25, -8
-  %31 = inttoptr i64 %30 to ptr
-  %32 = atomicrmw add ptr %31, i32 2 monotonic, align 4
-  %33 = and i32 %32, 1
-  %.not1.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not1.i.i.i, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit
+28:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %29 = inttoptr i64 %20 to ptr
+  %30 = atomicrmw add ptr %29, i32 2 monotonic, align 4
+  %31 = and i32 %30, 1
+  %.not1.i.i.i = icmp eq i32 %31, 0
+  br i1 %.not1.i.i.i, label %32, label %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %28, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %37 = and i64 %36, -8
-  %38 = inttoptr i64 %37 to ptr
-  store ptr %38, ptr %28, align 8
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %27, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = and i64 %34, -8
+  %36 = inttoptr i64 %35 to ptr
+  store ptr %36, ptr %27, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, %29, %34
-  %.sroa.0.023 = phi i64 [ %16, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.thread ], [ %25, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ], [ %25, %29 ], [ %25, %34 ]
-  %.pre-phi22 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.thread ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ], [ false, %29 ], [ false, %34 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
-  store i8 0, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %.ptr, i64 17
-  store i8 1, ptr %40, align 1
-  %41 = getelementptr inbounds nuw i8, ptr %.ptr, i64 18
-  store i8 1, ptr %41, align 2
-  %42 = getelementptr inbounds nuw i8, ptr %.ptr, i64 19
-  store i8 0, ptr %42, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %.ptr, i64 20
-  store float 0.000000e+00, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.ptr, i64 24
-  store i8 1, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %.ptr, i64 25
-  store i8 1, ptr %45, align 1
-  br i1 %.pre-phi22, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %46
+_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, %28, %32
+  %.sroa.0.023 = phi i64 [ %16, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.thread ], [ %20, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ], [ %20, %28 ], [ %20, %32 ]
+  %.pre-phi22 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.thread ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ], [ false, %28 ], [ false, %32 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
+  store i8 0, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %.ptr, i64 17
+  store i8 1, ptr %38, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %.ptr, i64 18
+  store i8 1, ptr %39, align 2
+  %40 = getelementptr inbounds nuw i8, ptr %.ptr, i64 19
+  store i8 0, ptr %40, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %.ptr, i64 20
+  store float 0.000000e+00, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %.ptr, i64 24
+  store i8 1, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %.ptr, i64 25
+  store i8 1, ptr %43, align 1
+  br i1 %.pre-phi22, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %44
 
-46:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit
-  %47 = and i64 %.sroa.0.023, -8
-  %48 = inttoptr i64 %47 to ptr
-  %49 = atomicrmw sub ptr %48, i32 2 release, align 4
+44:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit
+  %45 = inttoptr i64 %.sroa.0.023 to ptr
+  %46 = atomicrmw sub ptr %45, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit, %46
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ENS_15HdMeshGeomStyleENS_11HdCullStyleENS_7TfTokenEbbbbfbb.exit, %44
   %.add = add nuw nsw i64 %.idx, 32
-  %50 = icmp eq i64 %.add, 64
-  br i1 %50, label %51, label %2
+  %47 = icmp eq i64 %.add, 64
+  br i1 %47, label %48, label %2
 
-51:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
+48:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   ret void
 
-52:                                               ; preds = %5
-  %53 = landingpad { ptr, i32 }
+49:                                               ; preds = %5
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %7, %52
-  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %8, %7 ]
-  %54 = icmp eq i64 %.idx, 0
-  br i1 %54, label %.loopexit, label %.preheader
+.body:                                            ; preds = %7, %49
+  %eh.lpad-body = phi { ptr, i32 } [ %50, %49 ], [ %8, %7 ]
+  %51 = icmp eq i64 %.idx, 0
+  br i1 %51, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.body, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit
-  %55 = phi ptr [ %56, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit ], [ %.ptr, %.body ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 -32
-  %57 = getelementptr inbounds i8, ptr %55, i64 -24
-  %58 = load ptr, ptr %57, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = and i64 %59, 7
-  %.not.i.i.i6 = icmp eq i64 %60, 0
-  br i1 %.not.i.i.i6, label %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit, label %61
+  %52 = phi ptr [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit ], [ %.ptr, %.body ]
+  %53 = getelementptr inbounds i8, ptr %52, i64 -32
+  %54 = getelementptr inbounds i8, ptr %52, i64 -24
+  %55 = load ptr, ptr %54, align 8
+  %56 = ptrtoint ptr %55 to i64
+  %57 = and i64 %56, 7
+  %.not.i.i.i6 = icmp eq i64 %57, 0
+  br i1 %.not.i.i.i6, label %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit, label %58
 
-61:                                               ; preds = %.preheader
-  %62 = and i64 %59, -8
-  %63 = inttoptr i64 %62 to ptr
-  %64 = atomicrmw sub ptr %63, i32 2 release, align 4
+58:                                               ; preds = %.preheader
+  %59 = and i64 %56, -8
+  %60 = inttoptr i64 %59 to ptr
+  %61 = atomicrmw sub ptr %60, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit: ; preds = %.preheader, %61
-  %65 = icmp eq ptr %56, %0
-  br i1 %65, label %.loopexit, label %.preheader
+_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit: ; preds = %.preheader, %58
+  %62 = icmp eq ptr %53, %0
+  br i1 %62, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit, %.body
   resume { ptr, i32 } %eh.lpad-body

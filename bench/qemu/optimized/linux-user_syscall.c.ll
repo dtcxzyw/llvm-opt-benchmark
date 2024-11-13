@@ -16797,22 +16797,17 @@ if.else29:                                        ; preds = %if.else
 
 if.then38:                                        ; preds = %if.else29
   %cmp39 = icmp eq i32 %i.043, 0
-  br i1 %cmp39, label %fail2, label %if.end44.thread
+  br i1 %cmp39, label %fail2, label %if.end54
 
 if.end44:                                         ; preds = %if.else29
-  %spec.select = select i1 %bad_address.045, i64 0, i64 %1
-  br label %if.end44.thread
-
-if.end44.thread:                                  ; preds = %if.end44, %if.then38
-  %bad_address.150 = phi i1 [ true, %if.then38 ], [ %bad_address.045, %if.end44 ]
-  %2 = phi i64 [ 0, %if.then38 ], [ %spec.select, %if.end44 ]
   %sub = sub i64 2147479552, %total_len.042
-  %spec.select40 = tail call i64 @llvm.umin.i64(i64 %2, i64 %sub)
+  %2 = tail call i64 @llvm.umin.i64(i64 %1, i64 %sub)
+  %spec.select = select i1 %bad_address.045, i64 0, i64 %2
   br label %if.end54
 
-if.end54:                                         ; preds = %if.end44.thread, %if.then25
-  %bad_address.2 = phi i1 [ %bad_address.045, %if.then25 ], [ %bad_address.150, %if.end44.thread ]
-  %len.1 = phi i64 [ 0, %if.then25 ], [ %spec.select40, %if.end44.thread ]
+if.end54:                                         ; preds = %if.end44, %if.then38, %if.then25
+  %bad_address.2 = phi i1 [ %bad_address.045, %if.then25 ], [ true, %if.then38 ], [ %bad_address.045, %if.end44 ]
+  %len.1 = phi i64 [ 0, %if.then25 ], [ 0, %if.then38 ], [ %spec.select, %if.end44 ]
   %iov_len57 = getelementptr %struct.iovec, ptr %call5, i64 %conv46, i32 1
   store i64 %len.1, ptr %iov_len57, align 8
   %add = add i64 %len.1, %total_len.042

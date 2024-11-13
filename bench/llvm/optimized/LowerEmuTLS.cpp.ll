@@ -856,76 +856,75 @@ define internal fastcc void @_ZL21copyLinkageVisibilityRN4llvm6ModuleEPKNS_14Glo
   %spec.select.i.i = icmp ult i32 %7, 2
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load i32, ptr %8, align 8
-  %10 = and i32 %9, -832
-  %11 = select i1 %spec.select.i.i, i32 %10, i32 %9
-  %12 = and i32 %11, -16
-  %13 = or disjoint i32 %12, %6
-  store i32 %13, ptr %8, align 8
+  %.v = select i1 %spec.select.i.i, i32 -832, i32 -16
+  %10 = and i32 %.v, %9
+  %11 = or disjoint i32 %10, %6
+  store i32 %11, ptr %8, align 8
   br i1 %spec.select.i.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i: ; preds = %3
-  %14 = and i32 %9, 48
-  %15 = icmp ne i32 %14, 0
-  %16 = icmp ne i32 %6, 9
-  %spec.select.i2.i = and i1 %16, %15
+  %12 = and i32 %9, 48
+  %13 = icmp ne i32 %12, 0
+  %14 = icmp ne i32 %6, 9
+  %spec.select.i2.i = and i1 %14, %13
   br i1 %spec.select.i2.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i, %3
-  %17 = or i32 %13, 16384
-  store i32 %17, ptr %8, align 8
+  %15 = or i32 %11, 16384
+  store i32 %15, ptr %8, align 8
   br label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
 
 _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i
-  %18 = phi i32 [ %13, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i ], [ %17, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i ]
-  %19 = load i32, ptr %4, align 8
-  %20 = and i32 %19, 48
-  %21 = and i32 %18, -49
-  %22 = or disjoint i32 %21, %20
-  store i32 %22, ptr %8, align 8
-  %23 = and i32 %18, 15
-  %24 = add nsw i32 %23, -7
-  %spec.select.i.i.i.i12 = icmp ult i32 %24, 2
+  %16 = phi i32 [ %11, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i ], [ %15, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i ]
+  %17 = load i32, ptr %4, align 8
+  %18 = and i32 %17, 48
+  %19 = and i32 %16, -49
+  %20 = or disjoint i32 %19, %18
+  store i32 %20, ptr %8, align 8
+  %21 = and i32 %16, 15
+  %22 = add nsw i32 %21, -7
+  %spec.select.i.i.i.i12 = icmp ult i32 %22, 2
   br i1 %spec.select.i.i.i.i12, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i15, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i13
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i13: ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
-  %25 = icmp ne i32 %20, 0
-  %26 = icmp ne i32 %23, 9
-  %spec.select.i.i14 = and i1 %25, %26
+  %23 = icmp ne i32 %18, 0
+  %24 = icmp ne i32 %21, 9
+  %spec.select.i.i14 = and i1 %23, %24
   br i1 %spec.select.i.i14, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i15, label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i15: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i13, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
-  %27 = or i32 %22, 16384
-  store i32 %27, ptr %8, align 8
+  %25 = or i32 %20, 16384
+  store i32 %25, ptr %8, align 8
   br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
 
 _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i13, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i15
-  %28 = phi i32 [ %22, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i13 ], [ %27, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i15 ]
-  %29 = load i32, ptr %4, align 8
-  %30 = and i32 %29, 16384
-  %31 = and i32 %28, -16385
-  %32 = or disjoint i32 %31, %30
-  store i32 %32, ptr %8, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %34 = load ptr, ptr %33, align 8
-  %.not = icmp eq ptr %34, null
-  br i1 %.not, label %46, label %35
+  %26 = phi i32 [ %20, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i13 ], [ %25, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i15 ]
+  %27 = load i32, ptr %4, align 8
+  %28 = and i32 %27, 16384
+  %29 = and i32 %26, -16385
+  %30 = or disjoint i32 %29, %28
+  store i32 %30, ptr %8, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %32 = load ptr, ptr %31, align 8
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %44, label %33
 
-35:                                               ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
-  %36 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
-  %37 = extractvalue { ptr, i64 } %36, 0
-  %38 = extractvalue { ptr, i64 } %36, 1
-  %39 = tail call noundef ptr @_ZN4llvm6Module17getOrInsertComdatENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr %37, i64 %38) #13
-  tail call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %39) #13
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %33, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i32 %44, ptr %45, align 8
-  br label %46
+33:                                               ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
+  %34 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
+  %35 = extractvalue { ptr, i64 } %34, 0
+  %36 = extractvalue { ptr, i64 } %34, 1
+  %37 = tail call noundef ptr @_ZN4llvm6Module17getOrInsertComdatENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr %35, i64 %36) #13
+  tail call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %37) #13
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %31, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i32 %42, ptr %43, align 8
+  br label %44
 
-46:                                               ; preds = %35, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
+44:                                               ; preds = %33, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
   ret void
 }
 

@@ -64,80 +64,79 @@ define void @_Z11eigensolverPfiiiS_S_(ptr noundef %0, i32 noundef %1, i32 nounde
   store i32 %1, ptr %7, align 4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %.not = icmp slt i32 %3, %1
-  %21 = add nsw i32 %1, -1
-  %22 = select i1 %.not, i32 %3, i32 %21
   %.not12 = icmp eq ptr %5, null
   %.str..str.1 = select i1 %.not12, ptr @.str.1, ptr @.str
-  %23 = shl nsw i32 %1, 1
-  %24 = sext i32 %23 to i64
-  %25 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 73, i64 noundef range(i64 -2147483648, 2147483648) %24, i64 noundef 4)
+  %21 = shl nsw i32 %1, 1
+  %22 = sext i32 %21 to i64
+  %23 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 73, i64 noundef range(i64 -2147483648, 2147483648) %22, i64 noundef 4)
   store float 0.000000e+00, ptr %18, align 4
   store float 0.000000e+00, ptr %17, align 4
   store i32 -1, ptr %10, align 4
   store i32 -1, ptr %11, align 4
   store float 0.000000e+00, ptr %16, align 4
-  %26 = add nuw nsw i32 %spec.select, 1
-  store i32 %26, ptr %8, align 4
-  %27 = add nsw i32 %22, 1
-  store i32 %27, ptr %9, align 4
-  call void @ssyevr_(ptr noundef nonnull %.str..str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, ptr noundef %25, ptr noundef nonnull %15, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %28 = load i32, ptr %14, align 4
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %33, label %29
+  %24 = add nuw nsw i32 %spec.select, 1
+  store i32 %24, ptr %8, align 4
+  %25 = add nsw i32 %3, 1
+  %26 = select i1 %.not, i32 %25, i32 %1
+  store i32 %26, ptr %9, align 4
+  call void @ssyevr_(ptr noundef nonnull %.str..str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, ptr noundef %23, ptr noundef nonnull %15, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %14)
+  %27 = load i32, ptr %14, align 4
+  %.not13 = icmp eq i32 %27, 0
+  br i1 %.not13, label %32, label %28
 
-29:                                               ; preds = %6
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 138, ptr noundef %25)
+28:                                               ; preds = %6
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 138, ptr noundef %23)
   call void @_ZNSt10filesystem7__cxx114pathC2IA135_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(135) @.str.3, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef 139, ptr noundef nonnull @.str.6) #12
-          to label %30 unwind label %31
+          to label %29 unwind label %30
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   unreachable
 
-31:                                               ; preds = %29
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br label %48
+  br label %47
 
-33:                                               ; preds = %6
-  %34 = load float, ptr %15, align 4
-  %35 = fptosi float %34 to i32
-  store i32 %35, ptr %10, align 4
-  %36 = load i32, ptr %13, align 4
-  store i32 %36, ptr %11, align 4
-  %37 = sext i32 %35 to i64
-  %38 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 145, i64 noundef range(i64 -2147483648, 2147483648) %37, i64 noundef 4)
-  %39 = load i32, ptr %11, align 4
-  %40 = sext i32 %39 to i64
-  %41 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3, i32 noundef 146, i64 noundef range(i64 -2147483648, 2147483648) %40, i64 noundef 4)
+32:                                               ; preds = %6
+  %33 = load float, ptr %15, align 4
+  %34 = fptosi float %33 to i32
+  store i32 %34, ptr %10, align 4
+  %35 = load i32, ptr %13, align 4
+  store i32 %35, ptr %11, align 4
+  %36 = sext i32 %34 to i64
+  %37 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 145, i64 noundef range(i64 -2147483648, 2147483648) %36, i64 noundef 4)
+  %38 = load i32, ptr %11, align 4
+  %39 = sext i32 %38 to i64
+  %40 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3, i32 noundef 146, i64 noundef range(i64 -2147483648, 2147483648) %39, i64 noundef 4)
   store float 0.000000e+00, ptr %16, align 4
-  call void @ssyevr_(ptr noundef nonnull %.str..str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, ptr noundef %25, ptr noundef %38, ptr noundef nonnull %10, ptr noundef %41, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 198, ptr noundef %25)
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 199, ptr noundef %38)
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3, i32 noundef 200, ptr noundef %41)
-  %42 = load i32, ptr %14, align 4
-  %.not14 = icmp eq i32 %42, 0
-  br i1 %.not14, label %47, label %43
+  call void @ssyevr_(ptr noundef nonnull %.str..str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, ptr noundef %23, ptr noundef %37, ptr noundef nonnull %10, ptr noundef %40, ptr noundef nonnull %11, ptr noundef nonnull %14)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 198, ptr noundef %23)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 199, ptr noundef %37)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3, i32 noundef 200, ptr noundef %40)
+  %41 = load i32, ptr %14, align 4
+  %.not14 = icmp eq i32 %41, 0
+  br i1 %.not14, label %46, label %42
 
-43:                                               ; preds = %33
+42:                                               ; preds = %32
   call void @_ZNSt10filesystem7__cxx114pathC2IA135_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 1 dereferenceable(135) @.str.3, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 204, ptr noundef nonnull @.str.6) #12
-          to label %44 unwind label %45
+          to label %43 unwind label %44
 
-44:                                               ; preds = %43
+43:                                               ; preds = %42
   unreachable
 
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %48
+  br label %47
 
-47:                                               ; preds = %33
+46:                                               ; preds = %32
   ret void
 
-48:                                               ; preds = %45, %31
-  %.sink = phi ptr [ %20, %45 ], [ %19, %31 ]
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %32, %31 ]
+47:                                               ; preds = %44, %30
+  %.sink = phi ptr [ %20, %44 ], [ %19, %30 ]
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %31, %30 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #13
   resume { ptr, i32 } %.pn
 }

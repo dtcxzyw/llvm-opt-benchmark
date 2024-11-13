@@ -1048,15 +1048,18 @@ define dso_local void @CheckPointLogicalRewriteHeap() local_unnamed_addr #0 {
   %8 = tail call i64 @GetRedoRecPtr() #13
   %9 = tail call i64 @ReplicationSlotsComputeLogicalRestartLSN() #13
   %.not = icmp ne i64 %9, 0
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
-  %10 = add i64 %spec.select, -1
-  %11 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.10) #13
-  %12 = tail call ptr @ReadDir(ptr noundef %11, ptr noundef nonnull @.str.10) #13
-  %.not2740 = icmp eq ptr %12, null
-  br i1 %.not2740, label %._crit_edge, label %sub_0
+  %10 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.10) #13
+  %11 = tail call ptr @ReadDir(ptr noundef %10, ptr noundef nonnull @.str.10) #13
+  %.not2740 = icmp eq ptr %11, null
+  br i1 %.not2740, label %._crit_edge, label %sub_0.lr.ph
 
-sub_0:                                            ; preds = %0, %.backedge
-  %13 = phi ptr [ %24, %.backedge ], [ %12, %0 ]
+sub_0.lr.ph:                                      ; preds = %0
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
+  %12 = add i64 %spec.select, -1
+  br label %sub_0
+
+sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
+  %13 = phi ptr [ %11, %sub_0.lr.ph ], [ %24, %.backedge ]
   %14 = getelementptr inbounds i8, ptr %13, i64 19
   %15 = load i8, ptr %14, align 1
   %.not41 = icmp eq i8 %15, 46
@@ -1081,7 +1084,7 @@ sub_135:                                          ; preds = %.tail
   br i1 %23, label %.backedge, label %.tail33.thread
 
 .backedge:                                        ; preds = %46, %69, %.tail, %.tail33, %.tail33.thread, %28
-  %24 = call ptr @ReadDir(ptr noundef %11, ptr noundef nonnull @.str.10) #13
+  %24 = call ptr @ReadDir(ptr noundef %10, ptr noundef nonnull @.str.10) #13
   %.not27 = icmp eq ptr %24, null
   br i1 %.not27, label %._crit_edge, label %sub_0, !llvm.loop !8
 
@@ -1116,7 +1119,7 @@ sub_135:                                          ; preds = %.tail
   %39 = load i32, ptr %7, align 4
   %40 = zext i32 %39 to i64
   %41 = or disjoint i64 %38, %40
-  %or.cond3.not32 = icmp ult i64 %10, %41
+  %or.cond3.not32 = icmp ult i64 %12, %41
   %or.cond3.not = select i1 %.not, i1 %or.cond3.not32, i1 false
   br i1 %or.cond3.not, label %53, label %42
 
@@ -1189,7 +1192,7 @@ sub_135:                                          ; preds = %.tail
   unreachable
 
 ._crit_edge:                                      ; preds = %.backedge, %0
-  %76 = call i32 @FreeDir(ptr noundef %11) #13
+  %76 = call i32 @FreeDir(ptr noundef %10) #13
   call void @fsync_fname(ptr noundef nonnull @.str.10, i1 noundef zeroext true) #13
   ret void
 }

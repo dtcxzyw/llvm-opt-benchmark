@@ -4638,8 +4638,7 @@ invoke.cont64:                                    ; preds = %_ZN5folly6detail12_
   %12 = and i64 %10, 65280
   %cmp66 = icmp eq i64 %12, 1792
   %cond.i = select i1 %sgn.sroa.0.1.ph, i64 1792, i64 2048
-  %spec.select = select i1 %cmp66, i64 %cond.i, i64 %10
-  %13 = and i64 %spec.select, 65280
+  %13 = select i1 %cmp66, i64 %cond.i, i64 %12
   br label %cleanup88
 
 invoke.cont75:                                    ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
@@ -4920,8 +4919,7 @@ invoke.cont64:                                    ; preds = %_ZN5folly6detail12_
   %12 = and i64 %10, 65280
   %cmp66 = icmp eq i64 %12, 1792
   %cond.i = select i1 %sgn.sroa.0.1.ph, i64 1792, i64 2048
-  %spec.select = select i1 %cmp66, i64 %cond.i, i64 %10
-  %13 = and i64 %spec.select, 65280
+  %13 = select i1 %cmp66, i64 %cond.i, i64 %12
   br label %cleanup88
 
 invoke.cont75:                                    ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit

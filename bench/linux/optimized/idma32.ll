@@ -242,12 +242,11 @@ define internal void @idma32_resume_chan(ptr nocapture noundef readonly %0, i1 n
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
   %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #11, !srcloc !5
-  %7 = and i32 %6, -1281
-  %8 = select i1 %1, i32 %7, i32 %6
-  %9 = and i32 %8, -257
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %9, ptr elementtype(i32) %11) #11, !srcloc !6
+  %.v = select i1 %1, i32 -1281, i32 -257
+  %7 = and i32 %6, %.v
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, ptr elementtype(i32) %9) #11, !srcloc !6
   ret void
 }
 

@@ -59,7 +59,7 @@ define internal fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_act
 default.unreachable48:                            ; preds = %4
   unreachable
 
-13:                                               ; preds = %4, %4, %273, %259, %248, %_RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6errors13CapacityErrorhEE6unwrapCs8mTrBI1stz4_15turborepo_vt100.exit, %218, %205, %49, %86, %88, %233, %_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser12osc_dispatchNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBR_.exit, %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform4hook.exit, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit33, %75, %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, %55, %37, %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform12esc_dispatch.exit, %14, %4, %4
+13:                                               ; preds = %4, %4, %274, %259, %248, %_RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6errors13CapacityErrorhEE6unwrapCs8mTrBI1stz4_15turborepo_vt100.exit, %218, %205, %49, %86, %88, %233, %_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser12osc_dispatchNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBR_.exit, %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform4hook.exit, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit33, %75, %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, %55, %37, %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform12esc_dispatch.exit, %14, %4, %4
   ret void
 
 14:                                               ; preds = %4
@@ -616,46 +616,46 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6erro
   %256 = zext i8 %255 to i64
   %257 = sub i64 %61, %256
   %258 = icmp ult i64 %257, 32
-  br i1 %258, label %266, label %272
+  br i1 %258, label %267, label %273
 
 259:                                              ; preds = %230
   %260 = tail call { i16, i1 } @llvm.umul.with.overflow.i16(i16 %232, i16 10)
   %261 = extractvalue { i16, i1 } %260, 0
   %262 = extractvalue { i16, i1 } %260, 1
-  %spec.select = select i1 %262, i16 -1, i16 %261
   %263 = add i8 %3, -48
   %264 = zext i8 %263 to i16
-  %265 = tail call i16 @llvm.uadd.sat.i16(i16 %spec.select, i16 %264)
-  store i16 %265, ptr %231, align 2
+  %265 = tail call i16 @llvm.uadd.sat.i16(i16 %261, i16 %264)
+  %266 = select i1 %262, i16 -1, i16 %265
+  store i16 %266, ptr %231, align 2
   br label %13
 
-266:                                              ; preds = %253
-  %267 = getelementptr inbounds i8, ptr %0, i64 320
-  %268 = getelementptr inbounds [32 x i8], ptr %267, i64 0, i64 %257
-  %269 = add i8 %255, 1
-  store i8 %269, ptr %268, align 1
-  %270 = load i64, ptr %60, align 8, !noundef !4
-  %271 = icmp ult i64 %270, 32
-  br i1 %271, label %273, label %279
+267:                                              ; preds = %253
+  %268 = getelementptr inbounds i8, ptr %0, i64 320
+  %269 = getelementptr inbounds [32 x i8], ptr %268, i64 0, i64 %257
+  %270 = add i8 %255, 1
+  store i8 %270, ptr %269, align 1
+  %271 = load i64, ptr %60, align 8, !noundef !4
+  %272 = icmp ult i64 %271, 32
+  br i1 %272, label %274, label %280
 
-272:                                              ; preds = %253
+273:                                              ; preds = %253
   tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %257, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d9a669e0fefee8b60444f5b73d590d2.16) #11
   unreachable
 
-273:                                              ; preds = %266
-  %274 = getelementptr inbounds [32 x i16], ptr %59, i64 0, i64 %270
-  store i16 %232, ptr %274, align 2
-  %275 = load i8, ptr %254, align 8, !noundef !4
-  %276 = add i8 %275, 1
-  store i8 %276, ptr %254, align 8
-  %277 = load i64, ptr %60, align 8, !noundef !4
-  %278 = add i64 %277, 1
-  store i64 %278, ptr %60, align 8
+274:                                              ; preds = %267
+  %275 = getelementptr inbounds [32 x i16], ptr %59, i64 0, i64 %271
+  store i16 %232, ptr %275, align 2
+  %276 = load i8, ptr %254, align 8, !noundef !4
+  %277 = add i8 %276, 1
+  store i8 %277, ptr %254, align 8
+  %278 = load i64, ptr %60, align 8, !noundef !4
+  %279 = add i64 %278, 1
+  store i64 %279, ptr %60, align 8
   store i16 0, ptr %231, align 2
   br label %13
 
-279:                                              ; preds = %266
-  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %270, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d9a669e0fefee8b60444f5b73d590d2.17) #11
+280:                                              ; preds = %267
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %271, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d9a669e0fefee8b60444f5b73d590d2.17) #11
   unreachable
 }
 

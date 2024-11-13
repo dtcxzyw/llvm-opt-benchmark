@@ -683,9 +683,8 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_l
   %or.cond.i.i.i = icmp eq i64 %52, 1
   %53 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %50, i1 true)
   %54 = sub nuw nsw i64 64, %53
-  %55 = shl nuw i64 1, %54
-  %.0.i.i.i = select i1 %or.cond.i.i.i, i64 %50, i64 %55
-  %56 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i.i.i, i1 true)
+  %55 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %50, i1 true)
+  %56 = select i1 %or.cond.i.i.i, i64 %55, i64 %54
   %57 = call noundef i64 @llvm.umax.i64(i64 %56, i64 2)
   %58 = call noundef i64 @llvm.umin.i64(i64 %57, i64 21)
   br label %_ZNK22G1CodeRootSetHashTable23log2_target_shrink_sizeEm.exit.i
@@ -1799,9 +1798,8 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_l
   %or.cond.i.i.i = icmp eq i64 %52, 1
   %53 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %50, i1 true)
   %54 = sub nuw nsw i64 64, %53
-  %55 = shl nuw i64 1, %54
-  %.0.i.i.i = select i1 %or.cond.i.i.i, i64 %50, i64 %55
-  %56 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i.i.i, i1 true)
+  %55 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %50, i1 true)
+  %56 = select i1 %or.cond.i.i.i, i64 %55, i64 %54
   %57 = call noundef i64 @llvm.umax.i64(i64 %56, i64 2)
   %58 = call noundef i64 @llvm.umin.i64(i64 %57, i64 21)
   br label %_ZNK22G1CodeRootSetHashTable23log2_target_shrink_sizeEm.exit.i
@@ -2623,9 +2621,8 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_l
   %or.cond.i.i.i = icmp eq i64 %52, 1
   %53 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %50, i1 true)
   %54 = sub nuw nsw i64 64, %53
-  %55 = shl nuw i64 1, %54
-  %.0.i.i.i = select i1 %or.cond.i.i.i, i64 %50, i64 %55
-  %56 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i.i.i, i1 true)
+  %55 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %50, i1 true)
+  %56 = select i1 %or.cond.i.i.i, i64 %55, i64 %54
   %57 = call noundef i64 @llvm.umax.i64(i64 %56, i64 2)
   %58 = call noundef i64 @llvm.umin.i64(i64 %57, i64 21)
   br label %_ZNK22G1CodeRootSetHashTable23log2_target_shrink_sizeEm.exit.i

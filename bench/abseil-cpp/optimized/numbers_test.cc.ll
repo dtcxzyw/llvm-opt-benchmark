@@ -76553,10 +76553,10 @@ invoke.cont67.i:                                  ; preds = %invoke.cont64.i
 
 for.body83.lr.ph.i:                               ; preds = %invoke.cont67.i
   %31 = load i64, ptr %_M_node_count.i.i.i.i, align 8
+  %cmp71.i = icmp ugt i64 %31, 5000000
   %div.i = udiv i64 5000000, %31
   %conv70.i = trunc nuw nsw i64 %div.i to i32
   %32 = uitofp nneg i32 %conv70.i to double
-  %cmp71.i = icmp ugt i64 %31, 5000000
   %conv103.i = select i1 %cmp71.i, double 1.000000e+00, double %32
   br label %for.body83.i
 
