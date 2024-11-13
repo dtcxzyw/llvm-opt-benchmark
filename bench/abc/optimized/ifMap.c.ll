@@ -1343,7 +1343,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %569 = load i64, ptr %417, align 4
   %570 = trunc i64 %569 to i32
   %571 = lshr i32 %570, 24
-  %572 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %571, i32 range(i32 0, -2147483648) 6)
+  %572 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %571, i32 6)
   %573 = icmp samesign ult i32 %568, %572
   br i1 %573, label %532, label %.loopexit, !llvm.loop !10
 
@@ -1386,7 +1386,7 @@ If_CutTruthWR.exit:                               ; preds = %._crit_edge850, %57
   %595 = lshr i32 %594, 24
   %596 = getelementptr inbounds [16 x ptr], ptr %252, i64 0, i64 %.lcssa
   %597 = load ptr, ptr %596, align 8
-  %598 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %595, i32 range(i32 0, -2147483648) 6)
+  %598 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %595, i32 6)
   %599 = mul nsw i32 %.pre958, %598
   %600 = getelementptr i8, ptr %597, i64 8
   %.val.i = load ptr, ptr %600, align 8
@@ -1619,7 +1619,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %724 = load i64, ptr %417, align 4
   %725 = trunc i64 %724 to i32
   %726 = lshr i32 %725, 24
-  %727 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %726, i32 range(i32 0, -2147483648) 6)
+  %727 = call range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %726, i32 6)
   %728 = load ptr, ptr %13, align 8
   %729 = getelementptr inbounds i8, ptr %728, i64 200
   %730 = load ptr, ptr %729, align 8

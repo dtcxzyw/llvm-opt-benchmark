@@ -1809,7 +1809,7 @@ sw.bb10:                                          ; preds = %entry
   store i8 1, ptr %arrayidx12, align 1
   %arrayidx13 = getelementptr i8, ptr %buf, i64 3
   store i8 1, ptr %arrayidx13, align 1
-  %spec.select.i22 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 range(i32 0, 65536) 12)
+  %spec.select.i22 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 12)
   %lba.i23 = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i23, align 4
   %packet_transfer_size.i24 = getelementptr inbounds i8, ptr %s, i64 696
@@ -2237,7 +2237,7 @@ sw.bb3:                                           ; preds = %sw.bb
   %arrayidx14 = getelementptr i8, ptr %buf, i64 11
   store i8 5, ptr %arrayidx14, align 1
   %arrayidx15 = getelementptr i8, ptr %buf, i64 12
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 range(i32 0, 65536) 16)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 16)
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 0, ptr %arrayidx15, align 1
   store i32 -1, ptr %lba.i, align 4
@@ -2289,7 +2289,7 @@ sw.bb19:                                          ; preds = %sw.bb
   store i8 0, ptr %arrayidx31, align 1
   %arrayidx32 = getelementptr i8, ptr %buf, i64 23
   store i8 0, ptr %arrayidx32, align 1
-  %spec.select.i65 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 range(i32 0, 65536) 24)
+  %spec.select.i65 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 24)
   %lba.i66 = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i66, align 4
   %packet_transfer_size.i67 = getelementptr inbounds i8, ptr %s, i64 696
@@ -2360,7 +2360,7 @@ sw.bb33:                                          ; preds = %sw.bb
   %arrayidx56 = getelementptr i8, ptr %buf, i64 22
   store i16 -16382, ptr %arrayidx56, align 1
   %arrayidx57 = getelementptr i8, ptr %buf, i64 24
-  %spec.select.i82 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 range(i32 0, 65536) 30)
+  %spec.select.i82 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 30)
   %lba.i83 = getelementptr inbounds i8, ptr %s, i64 708
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx57, i8 0, i64 6, i1 false)
   store i32 -1, ptr %lba.i83, align 4

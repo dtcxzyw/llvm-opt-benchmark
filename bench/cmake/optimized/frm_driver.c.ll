@@ -5757,7 +5757,7 @@ define internal range(i32 -12, 1) i32 @VSC_Scroll_Page_Backward(ptr nocapture no
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
   %7 = icmp slt i16 %5, 0
-  %8 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %6, i1 true)
+  %8 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   br i1 %7, label %11, label %24
@@ -6034,7 +6034,7 @@ define internal range(i32 -12, 1) i32 @HSC_Horizontal_Line_Backward(ptr nocaptur
   %5 = load i16, ptr %4, align 4
   %6 = sext i16 %5 to i32
   %7 = icmp slt i16 %5, 0
-  %8 = tail call i32 @llvm.abs.i32(i32 range(i32 -32768, 32769) %6, i1 true)
+  %8 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   br i1 %7, label %11, label %24
