@@ -9403,7 +9403,7 @@ grpc/xds_client.cc.ll 7880612904
 grpc/xds_client_grpc.cc.ll 670313395
 grpc/xds_client_stats.cc.ll 645031760
 grpc/xds_cluster.cc.ll 3740541288
-grpc/xds_cluster_impl.cc.ll 2374505163
+grpc/xds_cluster_impl.cc.ll 2372130036
 grpc/xds_cluster_manager.cc.ll 2498738708
 grpc/xds_cluster_resolver.cc.ll 7928914498
 grpc/xds_cluster_specifier_plugin.cc.ll 1233152358
