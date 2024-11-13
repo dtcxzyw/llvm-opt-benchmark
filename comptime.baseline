@@ -16455,7 +16455,7 @@ llvm/X86MCInstLower.cpp.ll 2347614723
 llvm/X86MCTargetDesc.cpp.ll 5309235558
 llvm/X86MachObjectWriter.cpp.ll 720340195
 llvm/X86MachineFunctionInfo.cpp.ll 533539210
-llvm/X86MacroFusion.cpp.ll 55931058
+llvm/X86MacroFusion.cpp.ll 55875124
 llvm/X86MnemonicTables.cpp.ll 1959003019
 llvm/X86ModRMFilters.cpp.ll 56041948
 llvm/X86OptimizeLEAs.cpp.ll 2851352868
