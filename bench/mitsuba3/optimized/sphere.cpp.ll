@@ -2328,8 +2328,8 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %.sroa.0687.8.vec.extract705 = extractelement <4 x float> %69, i64 2
   %74 = tail call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.0687.8.vec.extract705)
   %75 = fsub contract float %.sroa.0687.8.vec.extract705, %74
-  %76 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %.sroa.0687.0.vec.extract, i64 0
-  %77 = insertelement <4 x float> %76, float %.sroa.0687.4.vec.extract699, i64 1
+  %76 = insertelement <4 x float> %69, float 0.000000e+00, i64 3
+  %77 = shufflevector <4 x float> %76, <4 x float> %69, <4 x i32> <i32 0, i32 5, i32 poison, i32 3>
   %78 = insertelement <4 x float> %77, float %75, i64 2
   %79 = fmul contract <4 x float> %78, %78
   %shift787 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>

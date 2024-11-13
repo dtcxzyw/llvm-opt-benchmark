@@ -2251,58 +2251,57 @@ entry:
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %3 = extractelement <4 x float> %1, i64 1
   %div9 = fdiv nsz float %3, 1.000000e+01
-  %4 = extractelement <4 x float> %1, i64 2
-  %5 = extractelement <4 x float> %1, i64 3
-  %6 = insertelement <2 x float> %2, float %5, i64 1
-  %7 = fdiv nsz <2 x float> %6, splat (float 1.000000e+01)
-  %8 = fadd nsz <2 x float> %7, splat (float 5.000000e-01)
+  %4 = extractelement <4 x float> %1, i64 3
+  %5 = insertelement <2 x float> %2, float %4, i64 1
+  %6 = fdiv nsz <2 x float> %5, splat (float 1.000000e+01)
+  %7 = fadd nsz <2 x float> %6, splat (float 5.000000e-01)
   %Z25 = getelementptr inbounds i8, ptr %box, i64 20
-  %9 = load float, ptr %Z25, align 4, !tbaa !105
-  %div26 = fdiv nsz float %9, 1.000000e+01
-  %10 = insertelement <4 x float> %0, float %div26, i64 1
-  %11 = insertelement <4 x float> %10, float %4, i64 2
-  %12 = insertelement <4 x float> %11, float %div9, i64 3
-  %13 = fdiv nsz <4 x float> %12, <float 1.000000e+01, float poison, float 1.000000e+01, float poison>
-  %14 = fadd nsz <4 x float> %12, <float poison, float 5.000000e-01, float poison, float 5.000000e-01>
-  %15 = shufflevector <4 x float> %13, <4 x float> %14, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
-  %16 = fadd nsz <4 x float> %15, <float 5.000000e-01, float poison, float 5.000000e-01, float poison>
-  %17 = fsub nsz <4 x float> <float poison, float 1.000000e+00, float poison, float 1.000000e+00>, %15
-  %18 = shufflevector <4 x float> %16, <4 x float> %17, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
-  store <4 x float> %18, ptr %coords, align 4, !tbaa !49
+  %8 = load float, ptr %Z25, align 4, !tbaa !105
+  %div26 = fdiv nsz float %8, 1.000000e+01
+  %9 = insertelement <4 x float> %0, float %div26, i64 1
+  %10 = shufflevector <4 x float> %9, <4 x float> %1, <4 x i32> <i32 0, i32 1, i32 6, i32 poison>
+  %11 = insertelement <4 x float> %10, float %div9, i64 3
+  %12 = fdiv nsz <4 x float> %11, <float 1.000000e+01, float poison, float 1.000000e+01, float poison>
+  %13 = fadd nsz <4 x float> %11, <float poison, float 5.000000e-01, float poison, float 5.000000e-01>
+  %14 = shufflevector <4 x float> %12, <4 x float> %13, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
+  %15 = fadd nsz <4 x float> %14, <float 5.000000e-01, float poison, float 5.000000e-01, float poison>
+  %16 = fsub nsz <4 x float> <float poison, float 1.000000e+00, float poison, float 1.000000e+00>, %14
+  %17 = shufflevector <4 x float> %15, <4 x float> %16, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
+  store <4 x float> %17, ptr %coords, align 4, !tbaa !49
   %txc.sroa.7.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 16
-  %19 = extractelement <4 x float> %14, i64 3
-  %20 = extractelement <4 x float> %14, i64 1
-  %21 = shufflevector <4 x float> %18, <4 x float> %15, <4 x i32> <i32 0, i32 7, i32 2, i32 5>
-  store <4 x float> %21, ptr %txc.sroa.7.0.coords.sroa_idx, align 4, !tbaa !49
+  %18 = extractelement <4 x float> %13, i64 3
+  %19 = extractelement <4 x float> %13, i64 1
+  %20 = shufflevector <4 x float> %17, <4 x float> %14, <4 x i32> <i32 0, i32 7, i32 2, i32 5>
+  store <4 x float> %20, ptr %txc.sroa.7.0.coords.sroa_idx, align 4, !tbaa !49
   %txc.sroa.11.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 32
-  store float %19, ptr %txc.sroa.11.0.coords.sroa_idx, align 4, !tbaa !49
+  store float %18, ptr %txc.sroa.11.0.coords.sroa_idx, align 4, !tbaa !49
   %txc.sroa.12.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 36
   %txc.sroa.13.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 40
-  store float %20, ptr %txc.sroa.13.0.coords.sroa_idx, align 4, !tbaa !49
+  store float %19, ptr %txc.sroa.13.0.coords.sroa_idx, align 4, !tbaa !49
   %txc.sroa.14.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 44
   %txc.sroa.15.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 48
-  %22 = extractelement <4 x float> %17, i64 1
-  store float %22, ptr %txc.sroa.15.0.coords.sroa_idx, align 4, !tbaa !49
+  %21 = extractelement <4 x float> %16, i64 1
+  store float %21, ptr %txc.sroa.15.0.coords.sroa_idx, align 4, !tbaa !49
   %txc.sroa.16.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 52
   %txc.sroa.17.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 56
-  %23 = extractelement <4 x float> %17, i64 3
-  store float %23, ptr %txc.sroa.17.0.coords.sroa_idx, align 4, !tbaa !49
+  %22 = extractelement <4 x float> %16, i64 3
+  store float %22, ptr %txc.sroa.17.0.coords.sroa_idx, align 4, !tbaa !49
   %txc.sroa.18.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 60
-  %24 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 0>
-  %25 = shufflevector <2 x float> %8, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 1, i32 poison>
-  %26 = shufflevector <4 x float> %25, <4 x float> %24, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
-  %27 = fsub nsz <4 x float> splat (float 1.000000e+00), %26
-  %28 = extractelement <4 x float> %27, i64 2
-  store float %28, ptr %txc.sroa.12.0.coords.sroa_idx, align 4, !tbaa !49
-  %29 = extractelement <4 x float> %27, i64 0
-  store float %29, ptr %txc.sroa.14.0.coords.sroa_idx, align 4, !tbaa !49
-  store float %28, ptr %txc.sroa.16.0.coords.sroa_idx, align 4, !tbaa !49
-  store <4 x float> %27, ptr %txc.sroa.18.0.coords.sroa_idx, align 4, !tbaa !49
+  %23 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 0>
+  %24 = shufflevector <2 x float> %7, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 1, i32 poison>
+  %25 = shufflevector <4 x float> %24, <4 x float> %23, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
+  %26 = fsub nsz <4 x float> splat (float 1.000000e+00), %25
+  %27 = extractelement <4 x float> %26, i64 2
+  store float %27, ptr %txc.sroa.12.0.coords.sroa_idx, align 4, !tbaa !49
+  %28 = extractelement <4 x float> %26, i64 0
+  store float %28, ptr %txc.sroa.14.0.coords.sroa_idx, align 4, !tbaa !49
+  store float %27, ptr %txc.sroa.16.0.coords.sroa_idx, align 4, !tbaa !49
+  store <4 x float> %26, ptr %txc.sroa.18.0.coords.sroa_idx, align 4, !tbaa !49
   %txc.sroa.22.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 76
-  %30 = shufflevector <4 x float> %27, <4 x float> %18, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  store <4 x float> %30, ptr %txc.sroa.22.0.coords.sroa_idx, align 4, !tbaa !49
+  %29 = shufflevector <4 x float> %26, <4 x float> %17, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
+  store <4 x float> %29, ptr %txc.sroa.22.0.coords.sroa_idx, align 4, !tbaa !49
   %txc.sroa.26.0.coords.sroa_idx = getelementptr inbounds i8, ptr %coords, i64 92
-  store float %29, ptr %txc.sroa.26.0.coords.sroa_idx, align 4, !tbaa !49
+  store float %28, ptr %txc.sroa.26.0.coords.sroa_idx, align 4, !tbaa !49
   ret void
 }
 

@@ -540,8 +540,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE9normalizeEv.exit:
   %49 = fsub <2 x double> %48, %37
   %.sroa.018.0.vec.extract = extractelement <2 x double> %49, i64 0
   %50 = fneg double %.sroa.018.0.vec.extract
-  %.sroa.018.8.vec.extract = extractelement <2 x double> %49, i64 1
-  %.sroa.010.0.vec.insert = insertelement <2 x double> poison, double %.sroa.018.8.vec.extract, i64 0
+  %.sroa.010.0.vec.insert = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %.sroa.010.8.vec.insert = insertelement <2 x double> %.sroa.010.0.vec.insert, double %50, i64 1
   %51 = fmul <2 x double> %.sroa.010.8.vec.insert, %.sroa.010.8.vec.insert
   %shift = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -672,8 +671,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE9normalizeEv.exit:
   %49 = fsub <2 x double> %48, %37
   %.sroa.018.0.vec.extract = extractelement <2 x double> %49, i64 0
   %50 = fneg double %.sroa.018.0.vec.extract
-  %.sroa.018.8.vec.extract = extractelement <2 x double> %49, i64 1
-  %.sroa.011.0.vec.insert = insertelement <2 x double> poison, double %.sroa.018.8.vec.extract, i64 0
+  %.sroa.011.0.vec.insert = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %.sroa.011.8.vec.insert = insertelement <2 x double> %.sroa.011.0.vec.insert, double %50, i64 1
   %51 = fmul <2 x double> %.sroa.011.8.vec.insert, %.sroa.011.8.vec.insert
   %shift = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>

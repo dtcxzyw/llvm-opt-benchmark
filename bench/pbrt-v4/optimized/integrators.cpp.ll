@@ -5891,8 +5891,8 @@ _ZNK4pbrt11Interaction9AsSurfaceEv.exit:          ; preds = %entry
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK4pbrt11Interaction9AsSurfaceEv.exit
-  %sub4.i47.i.i = extractelement <2 x float> %11, i64 1
   %sub.i44.i.i = extractelement <2 x float> %10, i64 0
+  %sub4.i47.i.i = extractelement <2 x float> %11, i64 1
   %agg.tmp2.sroa.0.0.copyload.i.i = load <2 x float>, ptr %n.i, align 8, !noalias !132
   %agg.tmp2.sroa.2.0.copyload.i.i = load float, ptr %z.i.i.i364, align 8, !noalias !132
   %n.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i, i64 0
@@ -5976,8 +5976,8 @@ cond.false:                                       ; preds = %entry
   br i1 %tobool.not.i.i119, label %if.end.i.i134, label %if.then.i.i120
 
 if.then.i.i120:                                   ; preds = %cond.false
-  %sub4.i47.i.i110 = extractelement <2 x float> %18, i64 1
   %sub.i44.i.i108 = extractelement <2 x float> %17, i64 0
+  %sub4.i47.i.i110 = extractelement <2 x float> %18, i64 1
   %agg.tmp2.sroa.0.0.copyload.i.i121 = load <2 x float>, ptr %n.i, align 8, !noalias !142
   %agg.tmp2.sroa.2.0.copyload.i.i122 = load float, ptr %z.i.i.i364, align 8, !noalias !142
   %n.sroa.0.0.vec.extract.i.i.i123 = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i121, i64 0
@@ -8690,8 +8690,8 @@ invoke.cont73:                                    ; preds = %if.end67
   br i1 %tobool.not.i.i305, label %invoke.cont76, label %if.then.i.i306
 
 if.then.i.i306:                                   ; preds = %invoke.cont73
-  %sub4.i47.i.i296 = extractelement <2 x float> %317, i64 1
   %sub.i44.i.i294 = extractelement <2 x float> %316, i64 0
+  %sub4.i47.i.i296 = extractelement <2 x float> %317, i64 1
   %agg.tmp2.sroa.0.0.copyload.i.i307 = load <2 x float>, ptr %n.i232, align 8, !noalias !170
   %agg.tmp2.sroa.2.0.copyload.i.i308 = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i234, align 8, !noalias !170
   %n.sroa.0.0.vec.extract.i.i.i309 = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i307, i64 0
@@ -10682,8 +10682,8 @@ entry:
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %sub4.i47.i.i = extractelement <2 x float> %2, i64 1
   %sub.i44.i.i = extractelement <2 x float> %1, i64 0
+  %sub4.i47.i.i = extractelement <2 x float> %2, i64 1
   %agg.tmp2.sroa.0.0.copyload.i.i = load <2 x float>, ptr %n.i, align 8, !noalias !208
   %agg.tmp2.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i, align 8, !noalias !208
   %n.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i, i64 0
@@ -24334,8 +24334,8 @@ invoke.cont116:                                   ; preds = %if.end115
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont116
-  %sub4.i47.i.i = extractelement <2 x float> %65, i64 1
   %sub.i44.i.i = extractelement <2 x float> %64, i64 0
+  %sub4.i47.i.i = extractelement <2 x float> %65, i64 1
   %agg.tmp2.sroa.0.0.copyload.i.i = load <2 x float>, ptr %n.i235, align 8, !noalias !362
   %agg.tmp2.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i237, align 8, !noalias !362
   %n.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i, i64 0
@@ -27160,8 +27160,8 @@ invoke.cont205:                                   ; preds = %invoke.cont202
   br i1 %tobool.not.i.i489, label %invoke.cont208, label %if.then.i.i490
 
 if.then.i.i490:                                   ; preds = %invoke.cont205
-  %sub4.i47.i.i480 = extractelement <2 x float> %386, i64 1
   %sub.i44.i.i478 = extractelement <2 x float> %385, i64 0
+  %sub4.i47.i.i480 = extractelement <2 x float> %386, i64 1
   %agg.tmp2.sroa.0.0.copyload.i.i491 = load <2 x float>, ptr %n.i418, align 8, !noalias !388
   %agg.tmp2.sroa.2.0.copyload.i.i492 = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i420, align 8, !noalias !388
   %n.sroa.0.0.vec.extract.i.i.i493 = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload.i.i491, i64 0

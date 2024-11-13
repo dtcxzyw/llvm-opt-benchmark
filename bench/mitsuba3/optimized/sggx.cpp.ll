@@ -1017,7 +1017,7 @@ _ZN5drjitmlIffLm3EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
   %139 = fmul contract float %104, %114
   %140 = insertelement <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, float %138, i64 0
   %141 = insertelement <4 x float> %140, float %139, i64 1
-  %142 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %132, i64 0
+  %142 = insertelement <4 x float> %117, float 0.000000e+00, i64 3
   %143 = insertelement <4 x float> %142, float %110, i64 1
   %144 = insertelement <4 x float> %143, float %101, i64 2
   %145 = insertelement <4 x float> poison, float %104, i64 0
