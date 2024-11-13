@@ -13808,7 +13808,7 @@ _ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_it
   store ptr %agg.tmp.sroa.8.2, ptr %_M_last4.i, align 8, !tbaa !70
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8, !tbaa !70
   %11 = load ptr, ptr %_M_node, align 8, !tbaa !108
-  %__node.0196 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %__node.0196 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_node1, align 8, !tbaa !108
   %cmp4.not197 = icmp eq ptr %__node.0196, %12
   br i1 %cmp4.not197, label %for.cond.cleanup, label %for.body
@@ -13963,7 +13963,7 @@ _ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_it
   store ptr %agg.tmp7.sroa.4.1, ptr %_M_first3.i, align 8, !tbaa !70
   store ptr %agg.tmp7.sroa.7.1, ptr %_M_last4.i, align 8, !tbaa !70
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8, !tbaa !70
-  %__node.0 = getelementptr inbounds nuw i8, ptr %__node.0198, i64 8
+  %__node.0 = getelementptr inbounds i8, ptr %__node.0198, i64 8
   %26 = load ptr, ptr %_M_node1, align 8, !tbaa !108
   %cmp4.not = icmp eq ptr %__node.0, %26
   br i1 %cmp4.not, label %for.cond.cleanup, label %for.body, !llvm.loop !379

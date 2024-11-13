@@ -2410,7 +2410,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit: ; pre
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit, %if.then.i.i
   %add.ptr.i16.i.pn.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i, %if.then.i.i ], [ %add.ptr.i16.i.i.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
   %retval.sroa.0.0.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ %Ret6.034.i.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
-  %storemerge.i = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i, i64 1
+  %storemerge.i = getelementptr i8, ptr %add.ptr.i16.i.pn.i, i64 1
   store ptr %storemerge.i, ptr %MangledName, align 8
   br i1 %frombool.i.i, label %if.end.sink.split.i, label %_ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit
 
@@ -2682,7 +2682,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit: ; pre
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit, %if.then.i.i
   %add.ptr.i16.i.pn.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i, %if.then.i.i ], [ %add.ptr.i16.i.i.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
   %retval.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then.i.i ], [ %Ret6.034.i.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
-  %storemerge.i = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i, i64 1
+  %storemerge.i = getelementptr i8, ptr %add.ptr.i16.i.pn.i, i64 1
   store ptr %storemerge.i, ptr %MangledName, align 8
   br i1 %cmp.i.i.i.i, label %if.end.sink.split.i, label %_ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit
 
@@ -3510,7 +3510,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit553.loopexit: ; pr
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit553: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit553.loopexit, %if.then.i547
   %add.ptr.i16.i528.pn = phi ptr [ %agg.tmp.sroa.0.0.copyload.i513, %if.then.i547 ], [ %add.ptr.i16.i528.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit553.loopexit ]
   %retval.sroa.0.0.i534 = phi i64 [ %add.i549, %if.then.i547 ], [ %Ret6.034.i527.lcssa, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit553.loopexit ]
-  %storemerge = getelementptr inbounds i8, ptr %add.ptr.i16.i528.pn, i64 1
+  %storemerge = getelementptr i8, ptr %add.ptr.i16.i528.pn, i64 1
   store ptr %storemerge, ptr %MangledName, align 8
   %cmp.i89 = icmp ne i64 %retval.sroa.0.0.i534, 0
   tail call void @llvm.assume(i1 %frombool.i514.not)
@@ -3678,7 +3678,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit: ; preds
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit, %if.then.i464
   %add.ptr.i16.i.pn = phi ptr [ %agg.tmp.sroa.0.0.copyload.i, %if.then.i464 ], [ %add.ptr.i16.i.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit ]
   %retval.sroa.0.0.i462 = phi i64 [ %add.i465, %if.then.i464 ], [ %Ret6.034.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit ]
-  %storemerge658 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn, i64 1
+  %storemerge658 = getelementptr i8, ptr %add.ptr.i16.i.pn, i64 1
   store ptr %storemerge658, ptr %MangledName, align 8
   %tobool13.i = trunc nuw i8 %frombool.i453 to i1
   %135 = xor i1 %tobool13.i, true
@@ -5070,7 +5070,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit: ; pre
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit, %if.then.i.i
   %add.ptr.i16.i.pn.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i, %if.then.i.i ], [ %add.ptr.i16.i.i.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
   %retval.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then.i.i ], [ %Ret6.034.i.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
-  %storemerge.i = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i, i64 1
+  %storemerge.i = getelementptr i8, ptr %add.ptr.i16.i.pn.i, i64 1
   store ptr %storemerge.i, ptr %MangledName, align 8
   br i1 %frombool.i.i, label %if.end.sink.split.i, label %_ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit
 
@@ -5156,7 +5156,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i46.loopexit: ; p
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i46: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i46.loopexit, %if.then.i.i53
   %add.ptr.i16.i.pn.i47 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i18, %if.then.i.i53 ], [ %add.ptr.i16.i.i33.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i46.loopexit ]
   %retval.sroa.0.0.i.i48 = phi i64 [ %add.i.i55, %if.then.i.i53 ], [ %Ret6.034.i.i32, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i46.loopexit ]
-  %storemerge.i49 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i47, i64 1
+  %storemerge.i49 = getelementptr i8, ptr %add.ptr.i16.i.pn.i47, i64 1
   store ptr %storemerge.i49, ptr %MangledName, align 8
   %cmp.i50 = icmp slt i64 %retval.sroa.0.0.i.i48, 0
   br i1 %cmp.i50, label %if.then.i52, label %if.end.i51
@@ -5245,7 +5245,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95.loopexit: ; p
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95.loopexit, %if.then.i.i99
   %add.ptr.i16.i.pn.i96 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i63, %if.then.i.i99 ], [ %add.ptr.i16.i.i78.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95.loopexit ]
   %retval.sroa.0.0.i.i97 = phi i32 [ %add.i.i101, %if.then.i.i99 ], [ %Ret6.034.i.i77, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95.loopexit ]
-  %storemerge.i98 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i96, i64 1
+  %storemerge.i98 = getelementptr i8, ptr %add.ptr.i16.i.pn.i96, i64 1
   store ptr %storemerge.i98, ptr %MangledName, align 8
   br i1 %frombool.i.i64, label %if.end.sink.split.i82, label %_ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit104
 
@@ -5326,7 +5326,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i142.loopexit: ; 
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i142: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i142.loopexit, %if.then.i.i146
   %add.ptr.i16.i.pn.i143 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i110, %if.then.i.i146 ], [ %add.ptr.i16.i.i125.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i142.loopexit ]
   %retval.sroa.0.0.i.i144 = phi i32 [ %add.i.i148, %if.then.i.i146 ], [ %Ret6.034.i.i124, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i142.loopexit ]
-  %storemerge.i145 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i143, i64 1
+  %storemerge.i145 = getelementptr i8, ptr %add.ptr.i16.i.pn.i143, i64 1
   store ptr %storemerge.i145, ptr %MangledName, align 8
   br i1 %frombool.i.i111, label %if.end.sink.split.i129, label %_ZN12_GLOBAL__N_19Demangler16demangleUnsignedER10StringView.exit151
 
@@ -7763,7 +7763,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i404.loopexit: ; 
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i404: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i404.loopexit, %if.then.i.i412
   %add.ptr.i16.i.pn.i405 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i381, %if.then.i.i412 ], [ %add.ptr.i16.i.i393.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i404.loopexit ]
   %retval.sroa.0.0.i.i406 = phi i64 [ %add.i.i414, %if.then.i.i412 ], [ %Ret6.034.i.i392, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i404.loopexit ]
-  %storemerge.i407 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i405, i64 1
+  %storemerge.i407 = getelementptr i8, ptr %add.ptr.i16.i.pn.i405, i64 1
   store ptr %storemerge.i407, ptr %MangledName, align 8
   %cmp.i408 = icmp slt i64 %retval.sroa.0.0.i.i406, 0
   br i1 %cmp.i408, label %if.then.i411, label %if.end.i409
@@ -7863,7 +7863,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i72.loopexit: ; p
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i72: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i72.loopexit, %if.then.i.i81
   %add.ptr.i16.i.pn.i73 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i43, %if.then.i.i81 ], [ %add.ptr.i16.i.i58.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i72.loopexit ]
   %retval.sroa.0.0.i.i74 = phi i64 [ %add.i.i83, %if.then.i.i81 ], [ %Ret6.034.i.i57, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i72.loopexit ]
-  %storemerge.i75 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i73, i64 1
+  %storemerge.i75 = getelementptr i8, ptr %add.ptr.i16.i.pn.i73, i64 1
   store ptr %storemerge.i75, ptr %MangledName, align 8
   %cmp.i76 = icmp slt i64 %retval.sroa.0.0.i.i74, 0
   br i1 %cmp.i76, label %if.then.i79, label %if.end.i77
@@ -7963,7 +7963,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit: ; pre
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit, %if.then.i.i
   %add.ptr.i16.i.pn.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i, %if.then.i.i ], [ %add.ptr.i16.i.i.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
   %retval.sroa.0.0.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ %Ret6.034.i.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
-  %storemerge.i = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i, i64 1
+  %storemerge.i = getelementptr i8, ptr %add.ptr.i16.i.pn.i, i64 1
   store ptr %storemerge.i, ptr %MangledName, align 8
   %cmp.i = icmp slt i64 %retval.sroa.0.0.i.i, 0
   br i1 %cmp.i, label %if.then.i35, label %if.end.i34
@@ -9219,7 +9219,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit: ; preds
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit, %if.then.i
   %add.ptr.i16.i.pn = phi ptr [ %agg.tmp.sroa.0.0.copyload.i, %if.then.i ], [ %add.ptr.i16.i.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit ]
   %retval.sroa.0.0.i = phi i64 [ %add.i, %if.then.i ], [ %Ret6.034.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit ]
-  %storemerge = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn, i64 1
+  %storemerge = getelementptr i8, ptr %add.ptr.i16.i.pn, i64 1
   store ptr %storemerge, ptr %MangledName, align 8
   %cmp = icmp slt i64 %retval.sroa.0.0.i, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -10354,7 +10354,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit: ; pre
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit, %if.then.i.i
   %add.ptr.i16.i.pn.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i, %if.then.i.i ], [ %add.ptr.i16.i.i.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
   %retval.sroa.0.0.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ %Ret6.034.i.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i.loopexit ]
-  %storemerge.i = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i, i64 1
+  %storemerge.i = getelementptr i8, ptr %add.ptr.i16.i.pn.i, i64 1
   store ptr %storemerge.i, ptr %MangledName, align 8
   %cmp.i29 = icmp slt i64 %retval.sroa.0.0.i.i, 0
   br i1 %cmp.i29, label %if.then.i31, label %if.end.i30
@@ -10523,7 +10523,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95.loopexit: ; p
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95.loopexit, %if.then.i.i104
   %add.ptr.i16.i.pn.i96 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i66, %if.then.i.i104 ], [ %add.ptr.i16.i.i81.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95.loopexit ]
   %retval.sroa.0.0.i.i97 = phi i64 [ %add.i.i106, %if.then.i.i104 ], [ %Ret6.034.i.i80, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i95.loopexit ]
-  %storemerge.i98 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i96, i64 1
+  %storemerge.i98 = getelementptr i8, ptr %add.ptr.i16.i.pn.i96, i64 1
   store ptr %storemerge.i98, ptr %MangledName, align 8
   %cmp.i99 = icmp slt i64 %retval.sroa.0.0.i.i97, 0
   br i1 %cmp.i99, label %if.then.i102, label %if.end.i100
@@ -10618,7 +10618,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i144.loopexit: ; 
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i144: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i144.loopexit, %if.then.i.i153
   %add.ptr.i16.i.pn.i145 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i115, %if.then.i.i153 ], [ %add.ptr.i16.i.i130.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i144.loopexit ]
   %retval.sroa.0.0.i.i146 = phi i64 [ %add.i.i155, %if.then.i.i153 ], [ %Ret6.034.i.i129, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i144.loopexit ]
-  %storemerge.i147 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i145, i64 1
+  %storemerge.i147 = getelementptr i8, ptr %add.ptr.i16.i.pn.i145, i64 1
   store ptr %storemerge.i147, ptr %MangledName, align 8
   %cmp.i148 = icmp slt i64 %retval.sroa.0.0.i.i146, 0
   br i1 %cmp.i148, label %if.then.i151, label %if.end.i149
@@ -10716,7 +10716,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i193.loopexit: ; 
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i193: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i193.loopexit, %if.then.i.i202
   %add.ptr.i16.i.pn.i194 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i164, %if.then.i.i202 ], [ %add.ptr.i16.i.i179.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i193.loopexit ]
   %retval.sroa.0.0.i.i195 = phi i64 [ %add.i.i204, %if.then.i.i202 ], [ %Ret6.034.i.i178, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i193.loopexit ]
-  %storemerge.i196 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i194, i64 1
+  %storemerge.i196 = getelementptr i8, ptr %add.ptr.i16.i.pn.i194, i64 1
   store ptr %storemerge.i196, ptr %MangledName, align 8
   %cmp.i197 = icmp slt i64 %retval.sroa.0.0.i.i195, 0
   br i1 %cmp.i197, label %if.then.i200, label %if.end.i198
@@ -10811,7 +10811,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i242.loopexit: ; 
 _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i242: ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i242.loopexit, %if.then.i.i251
   %add.ptr.i16.i.pn.i243 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.i213, %if.then.i.i251 ], [ %add.ptr.i16.i.i228.le, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i242.loopexit ]
   %retval.sroa.0.0.i.i244 = phi i64 [ %add.i.i253, %if.then.i.i251 ], [ %Ret6.034.i.i227, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.i242.loopexit ]
-  %storemerge.i245 = getelementptr inbounds i8, ptr %add.ptr.i16.i.pn.i243, i64 1
+  %storemerge.i245 = getelementptr i8, ptr %add.ptr.i16.i.pn.i243, i64 1
   store ptr %storemerge.i245, ptr %MangledName, align 8
   %cmp.i246 = icmp slt i64 %retval.sroa.0.0.i.i244, 0
   br i1 %cmp.i246, label %if.then.i249, label %if.end.i247

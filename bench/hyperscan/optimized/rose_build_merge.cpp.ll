@@ -4752,7 +4752,7 @@ invoke.cont64:                                    ; preds = %_ZNSt6vectorISt4pai
   %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i ], [ %62, %if.then.i207 ]
   %call5.i.i.i.i342412 = phi ptr [ %call5.i.i.i.i342, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i ], [ %call5.i.i.i.i342413418, %if.then.i207 ]
   %add.ptr28.i407 = phi ptr [ %add.ptr28.i, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i ], [ %add.ptr28.i408419, %if.then.i207 ]
-  %ulits.sroa.12.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
+  %ulits.sroa.12.1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0420, i64 4
   %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.i.not, label %invoke.cont85, label %invoke.cont57
@@ -4961,7 +4961,7 @@ invoke.cont118:                                   ; preds = %_ZNSt6vectorISt4pai
   %__cur.0.lcssa.i.i.i.i.i371.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i371, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380 ], [ %79, %if.then.i303 ]
   %call5.i.i.i.i390427 = phi ptr [ %call5.i.i.i.i390, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380 ], [ %call5.i.i.i.i390428433, %if.then.i303 ]
   %add.ptr28.i386422 = phi ptr [ %add.ptr28.i386, %_ZNSt6vectorISt4pairIPKN3ue215rose_literal_idEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit58.i380 ], [ %add.ptr28.i386423434, %if.then.i303 ]
-  %vlits.sroa.10.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i371.pn, i64 16
+  %vlits.sroa.10.1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i371.pn, i64 16
   %incdec.ptr.i.i.i.i310 = getelementptr inbounds i8, ptr %__begin198.sroa.0.0435, i64 4
   %cmp.i.i.i.i247.not = icmp eq ptr %incdec.ptr.i.i.i.i310, %add.ptr.i.i.i246
   br i1 %cmp.i.i.i.i247.not, label %for.cond.cleanup107, label %invoke.cont111
@@ -6159,7 +6159,7 @@ invoke.cont67:                                    ; preds = %.noexc289, %if.then
   %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %.noexc289 ], [ %71, %if.then.i287 ]
   %ulits.sroa.14.3 = phi ptr [ %add.ptr28.i, %.noexc289 ], [ %ulits.sroa.14.2, %if.then.i287 ]
   %call5.i.i.i.i397465 = phi ptr [ %call5.i.i.i.i397, %.noexc289 ], [ %call5.i.i.i.i397466471, %if.then.i287 ]
-  %ulits.sroa.11.3 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
+  %ulits.sroa.11.3 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0472, i64 4
   %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.i.not, label %for.cond.cleanup57, label %invoke.cont60
@@ -6408,7 +6408,7 @@ invoke.cont147:                                   ; preds = %.noexc378, %if.then
   %__cur.0.lcssa.i.i.i.i.i426.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i426, %.noexc378 ], [ %95, %if.then.i374 ]
   %vlits.sroa.12.3 = phi ptr [ %add.ptr28.i440, %.noexc378 ], [ %vlits.sroa.12.2, %if.then.i374 ]
   %call5.i.i.i.i444477 = phi ptr [ %call5.i.i.i.i444, %.noexc378 ], [ %call5.i.i.i.i444478483, %if.then.i374 ]
-  %vlits.sroa.9.3 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i426.pn, i64 16
+  %vlits.sroa.9.3 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i426.pn, i64 16
   %incdec.ptr.i.i.i.i380 = getelementptr inbounds i8, ptr %__begin2127.sroa.0.0484, i64 4
   %cmp.i.i.i.i309.not = icmp eq ptr %incdec.ptr.i.i.i.i380, %add.ptr.i.i.i308
   br i1 %cmp.i.i.i.i309.not, label %for.cond.cleanup136, label %invoke.cont140

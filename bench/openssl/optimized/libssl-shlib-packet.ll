@@ -942,7 +942,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %len.addr.011.i = phi i64 [ %dec.i, %for.body.i ], [ %7, %for.body.preheader.i ]
   %value.addr.010.i = phi i64 [ %shr.i, %for.body.i ], [ %sub1, %for.body.preheader.i ]
   %.pn9.i = phi ptr [ %data.addr.0.i, %for.body.i ], [ %13, %for.body.preheader.i ]
-  %data.addr.0.i = getelementptr inbounds i8, ptr %.pn9.i, i64 -1
+  %data.addr.0.i = getelementptr i8, ptr %.pn9.i, i64 -1
   %conv.i = trunc i64 %value.addr.010.i to i8
   store i8 %conv.i, ptr %data.addr.0.i, align 1
   %shr.i = lshr i64 %value.addr.010.i, 8
@@ -1047,7 +1047,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %len.addr.011.i.i = phi i64 [ %dec.i.i, %for.body.i.i ], [ %numlenbytes.0.lcssa106, %for.body.preheader.i.i ]
   %value.addr.010.i.i = phi i64 [ %shr.i.i, %for.body.i.i ], [ %sub1, %for.body.preheader.i.i ]
   %.pn9.i.i = phi ptr [ %data.addr.0.i.i, %for.body.i.i ], [ %17, %for.body.preheader.i.i ]
-  %data.addr.0.i.i = getelementptr inbounds i8, ptr %.pn9.i.i, i64 -1
+  %data.addr.0.i.i = getelementptr i8, ptr %.pn9.i.i, i64 -1
   %conv.i.i = trunc i64 %value.addr.010.i.i to i8
   store i8 %conv.i.i, ptr %data.addr.0.i.i, align 1
   %shr.i.i = lshr i64 %value.addr.010.i.i, 8
@@ -1267,7 +1267,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %len.addr.011.i = phi i64 [ %dec.i, %for.body.i ], [ %size, %for.body.preheader.i ]
   %value.addr.010.i = phi i64 [ %shr.i, %for.body.i ], [ %val, %for.body.preheader.i ]
   %.pn9.i = phi ptr [ %data.addr.0.i, %for.body.i ], [ %1, %for.body.preheader.i ]
-  %data.addr.0.i = getelementptr inbounds i8, ptr %.pn9.i, i64 -1
+  %data.addr.0.i = getelementptr i8, ptr %.pn9.i, i64 -1
   %conv.i = trunc i64 %value.addr.010.i to i8
   store i8 %conv.i, ptr %data.addr.0.i, align 1
   %shr.i = lshr i64 %value.addr.010.i, 8

@@ -153414,7 +153414,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.sroa.0.018 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.018 = getelementptr inbounds i8, ptr %0, i64 16
   %.not19 = icmp eq ptr %.sroa.0.018, %1
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
@@ -153453,7 +153453,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   br i1 %22, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i.i, %6
-  %23 = getelementptr inbounds nuw i8, ptr %.pn20, i64 24
+  %23 = getelementptr inbounds i8, ptr %.pn20, i64 24
   %24 = load double, ptr %23, align 8, !tbaa !2439
   %25 = load double, ptr %4, align 8, !tbaa !2439
   %26 = fcmp oeq double %24, %25
@@ -153509,7 +153509,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry4lessINS3_5model5pointIdLm2
   br label %48
 
 48:                                               ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry4lessINS3_5model5pointIdLm2ENS3_2cs9cartesianEEELin1EvEEEclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit.thread
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 16
   %.not = icmp eq ptr %.sroa.0.0, %1
   br i1 %.not, label %.loopexit, label %6, !llvm.loop !2536
 
@@ -157289,7 +157289,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.sroa.0.018 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.018 = getelementptr inbounds i8, ptr %0, i64 16
   %.not19 = icmp eq ptr %.sroa.0.018, %1
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
@@ -157328,7 +157328,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   br i1 %22, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i
 
 _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i.i.i: ; preds = %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.i.i.i, %6
-  %23 = getelementptr inbounds nuw i8, ptr %.pn20, i64 24
+  %23 = getelementptr inbounds i8, ptr %.pn20, i64 24
   %24 = load double, ptr %23, align 8, !tbaa !2439
   %25 = load double, ptr %4, align 8, !tbaa !2439
   %26 = fcmp oeq double %24, %25
@@ -157384,7 +157384,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry4lessIvLin1ENS3_10strategie
   br label %48
 
 48:                                               ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry4lessIvLin1ENS3_10strategies6relate9cartesianIvEEEEEclINS_17__normal_iteratorIPNS3_5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit.thread
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 16
   %.not = icmp eq ptr %.sroa.0.0, %1
   br i1 %.not, label %.loopexit, label %6, !llvm.loop !2793
 

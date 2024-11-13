@@ -2426,7 +2426,7 @@ if.then54:                                        ; preds = %lor.lhs.false, %for
   %add56 = add nsw i32 %highest_set.1117, %12
   %37 = sext i32 %add56 to i64
   %38 = getelementptr %struct.stbir__contributors, ptr %36, i64 %37
-  %clear_contributors.0111 = getelementptr inbounds i8, ptr %38, i64 8
+  %clear_contributors.0111 = getelementptr i8, ptr %38, i64 8
   %cmp60112 = icmp ult ptr %clear_contributors.0111, %scatter_contributors.0116
   br i1 %cmp60112, label %while.body, label %while.end
 
@@ -2434,9 +2434,9 @@ while.body:                                       ; preds = %if.then54, %while.b
   %clear_contributors.0114 = phi ptr [ %clear_contributors.0, %while.body ], [ %clear_contributors.0111, %if.then54 ]
   %.pn102113 = phi ptr [ %clear_contributors.0114, %while.body ], [ %38, %if.then54 ]
   store i32 0, ptr %clear_contributors.0114, align 4
-  %n162 = getelementptr inbounds i8, ptr %.pn102113, i64 12
+  %n162 = getelementptr i8, ptr %.pn102113, i64 12
   store i32 -1, ptr %n162, align 4
-  %clear_contributors.0 = getelementptr inbounds i8, ptr %clear_contributors.0114, i64 8
+  %clear_contributors.0 = getelementptr i8, ptr %clear_contributors.0114, i64 8
   %cmp60 = icmp ult ptr %clear_contributors.0, %scatter_contributors.0116
   br i1 %cmp60, label %while.body, label %while.end, !llvm.loop !80
 
@@ -2555,7 +2555,7 @@ for.end75:                                        ; preds = %for.end, %jump_righ
   %52 = load i32, ptr %num_contributors, align 8
   %idx.ext84 = sext i32 %52 to i64
   %add.ptr85 = getelementptr inbounds %struct.stbir__contributors, ptr %49, i64 %idx.ext84
-  %clear_contributors76.0127 = getelementptr inbounds i8, ptr %51, i64 8
+  %clear_contributors76.0127 = getelementptr i8, ptr %51, i64 8
   %cmp87128 = icmp ult ptr %clear_contributors76.0127, %add.ptr85
   br i1 %cmp87128, label %while.body88, label %sw.epilog
 
@@ -2563,9 +2563,9 @@ while.body88:                                     ; preds = %for.end75, %while.b
   %clear_contributors76.0130 = phi ptr [ %clear_contributors76.0, %while.body88 ], [ %clear_contributors76.0127, %for.end75 ]
   %.pn129 = phi ptr [ %clear_contributors76.0130, %while.body88 ], [ %51, %for.end75 ]
   store i32 0, ptr %clear_contributors76.0130, align 4
-  %n190 = getelementptr inbounds i8, ptr %.pn129, i64 12
+  %n190 = getelementptr i8, ptr %.pn129, i64 12
   store i32 -1, ptr %n190, align 4
-  %clear_contributors76.0 = getelementptr inbounds i8, ptr %clear_contributors76.0130, i64 8
+  %clear_contributors76.0 = getelementptr i8, ptr %clear_contributors76.0130, i64 8
   %cmp87 = icmp ult ptr %clear_contributors76.0, %add.ptr85
   br i1 %cmp87, label %while.body88, label %sw.epilog, !llvm.loop !83
 

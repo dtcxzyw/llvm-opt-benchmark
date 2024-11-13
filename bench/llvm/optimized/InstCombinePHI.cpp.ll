@@ -3683,8 +3683,8 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit177:      ; preds = %.thread250, %254
   br i1 %.not288, label %.loopexit, label %.lr.ph280
 
 .lr.ph280:                                        ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit177
-  %.sroa.0217.0276 = getelementptr inbounds i8, ptr %268, i64 32
-  %.sroa.5.0275 = getelementptr inbounds i8, ptr %260, i64 8
+  %.sroa.0217.0276 = getelementptr i8, ptr %268, i64 32
+  %.sroa.5.0275 = getelementptr i8, ptr %260, i64 8
   %270 = getelementptr inbounds nuw i8, ptr %.0121, i64 4
   %271 = getelementptr inbounds nuw i8, ptr %.0121, i64 72
   %272 = getelementptr inbounds i8, ptr %.0121, i64 -8
@@ -3905,8 +3905,8 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit197: ; preds = %_
   br label %389
 
 389:                                              ; preds = %333, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit197
-  %.sroa.5.0 = getelementptr inbounds i8, ptr %.sroa.5.0278, i64 8
-  %.sroa.0217.0 = getelementptr inbounds i8, ptr %.sroa.0217.0279, i64 32
+  %.sroa.5.0 = getelementptr i8, ptr %.sroa.5.0278, i64 8
+  %.sroa.0217.0 = getelementptr i8, ptr %.sroa.0217.0279, i64 32
   %390 = icmp ne ptr %.sroa.5.0, %264
   %391 = icmp ne ptr %.sroa.0217.0, %269
   %.not3.i = select i1 %390, i1 %391, i1 false
@@ -4360,13 +4360,13 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit121:      ; preds = %.thread, %._crit_ed
   br i1 %.not208, label %.loopexit168, label %.lr.ph204.preheader
 
 .lr.ph204.preheader:                              ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit121
-  %.sroa.0137.0200 = getelementptr inbounds i8, ptr %196, i64 32
-  %.sroa.5.0199 = getelementptr inbounds i8, ptr %188, i64 8
+  %.sroa.0137.0200 = getelementptr i8, ptr %196, i64 32
+  %.sroa.5.0199 = getelementptr i8, ptr %188, i64 8
   br label %.lr.ph204
 
 .loopexit:                                        ; preds = %261, %.lr.ph204
-  %.sroa.5.0 = getelementptr inbounds i8, ptr %.sroa.5.0202, i64 8
-  %.sroa.0137.0 = getelementptr inbounds i8, ptr %.sroa.0137.0203, i64 32
+  %.sroa.5.0 = getelementptr i8, ptr %.sroa.5.0202, i64 8
+  %.sroa.0137.0 = getelementptr i8, ptr %.sroa.0137.0203, i64 32
   %198 = icmp ne ptr %.sroa.5.0, %192
   %199 = icmp ne ptr %.sroa.0137.0, %197
   %.not3.i = select i1 %198, i1 %199, i1 false
@@ -4640,8 +4640,8 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %_ZN4llvm10BasicBloc
   br i1 %.not208, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit
-  %.sroa.0160.0189 = getelementptr inbounds i8, ptr %68, i64 32
-  %.sroa.5163.0188 = getelementptr inbounds i8, ptr %59, i64 8
+  %.sroa.0160.0189 = getelementptr i8, ptr %68, i64 32
+  %.sroa.5163.0188 = getelementptr i8, ptr %59, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %119
@@ -4735,8 +4735,8 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit108:    ; preds = %104
   br i1 %.not98, label %119, label %.loopexit186
 
 119:                                              ; preds = %104, %_ZN4llvm10BasicBlock13getTerminatorEv.exit108
-  %.sroa.5163.0 = getelementptr inbounds i8, ptr %.sroa.5163.0192, i64 8
-  %.sroa.0160.0 = getelementptr inbounds i8, ptr %.sroa.0160.0193, i64 32
+  %.sroa.5163.0 = getelementptr i8, ptr %.sroa.5163.0192, i64 8
+  %.sroa.0160.0 = getelementptr i8, ptr %.sroa.0160.0193, i64 32
   %120 = icmp ne ptr %.sroa.5163.0, %64
   %121 = icmp ne ptr %.sroa.0160.0, %69
   %.not3.i = select i1 %120, i1 %121, i1 false
@@ -4834,8 +4834,8 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit117:      ; preds = %_ZNK4llvm11Instruct
   br i1 %.not211, label %._crit_edge202, label %.lr.ph201
 
 .lr.ph201:                                        ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit117
-  %.sroa.0135.0196 = getelementptr inbounds i8, ptr %166, i64 32
-  %.sroa.5.0195 = getelementptr inbounds i8, ptr %158, i64 8
+  %.sroa.0135.0196 = getelementptr i8, ptr %166, i64 32
+  %.sroa.5.0195 = getelementptr i8, ptr %158, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %169 = getelementptr inbounds nuw i8, ptr %132, i64 72
   %170 = getelementptr inbounds i8, ptr %132, i64 -8
@@ -4928,8 +4928,8 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit: ; preds = %_ZN4
   %214 = zext i32 %209 to i64
   %215 = getelementptr inbounds ptr, ptr %213, i64 %214
   store ptr %172, ptr %215, align 8
-  %.sroa.5.0 = getelementptr inbounds i8, ptr %.sroa.5.0199, i64 8
-  %.sroa.0135.0 = getelementptr inbounds i8, ptr %.sroa.0135.0200, i64 32
+  %.sroa.5.0 = getelementptr i8, ptr %.sroa.5.0199, i64 8
+  %.sroa.0135.0 = getelementptr i8, ptr %.sroa.0135.0200, i64 32
   %216 = icmp ne ptr %.sroa.5.0, %162
   %217 = icmp ne ptr %.sroa.0135.0, %167
   %.not3.i120 = select i1 %216, i1 %217, i1 false
@@ -5910,8 +5910,8 @@ _ZNK4llvm4User10getOperandEj.exit122:             ; preds = %175, %178
   br i1 %.not, label %._crit_edge213, label %.lr.ph212
 
 .lr.ph212:                                        ; preds = %_ZNK4llvm4User10getOperandEj.exit122
-  %.sroa.0156.0207 = getelementptr inbounds i8, ptr %202, i64 32
-  %.sroa.5.0206 = getelementptr inbounds i8, ptr %194, i64 8
+  %.sroa.0156.0207 = getelementptr i8, ptr %202, i64 32
+  %.sroa.5.0206 = getelementptr i8, ptr %194, i64 8
   %204 = getelementptr inbounds nuw i8, ptr %172, i64 4
   %205 = getelementptr inbounds nuw i8, ptr %172, i64 72
   %206 = getelementptr inbounds i8, ptr %172, i64 -8
@@ -6022,8 +6022,8 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit: ; preds = %_ZN4
   %261 = zext i32 %256 to i64
   %262 = getelementptr inbounds ptr, ptr %260, i64 %261
   store ptr %208, ptr %262, align 8
-  %.sroa.5.0 = getelementptr inbounds i8, ptr %.sroa.5.0210, i64 8
-  %.sroa.0156.0 = getelementptr inbounds i8, ptr %.sroa.0156.0211, i64 32
+  %.sroa.5.0 = getelementptr i8, ptr %.sroa.5.0210, i64 8
+  %.sroa.0156.0 = getelementptr i8, ptr %.sroa.0156.0211, i64 32
   %263 = icmp ne ptr %.sroa.5.0, %198
   %264 = icmp ne ptr %.sroa.0156.0, %203
   %.not3.i = select i1 %263, i1 %264, i1 false

@@ -4961,7 +4961,7 @@ _ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE17_M_realloc_insertIJRmRjRKm
   %call5.i.i.i.i.i7831520 = phi ptr [ %call5.i.i.i.i.i783, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE17_M_realloc_insertIJRmRjRKmNS2_9node_typeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %call5.i.i.i.i.i7831521, %if.then.i744 ]
   %add.ptr32.i.i7791516 = phi ptr [ %add.ptr32.i.i779, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE17_M_realloc_insertIJRmRjRKmNS2_9node_typeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %add.ptr32.i.i7791517, %if.then.i744 ]
   %__cur.0.lcssa.i.i.i.i.i.i775.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i775, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE17_M_realloc_insertIJRmRjRKmNS2_9node_typeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %511, %if.then.i744 ]
-  %515 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i775.pn, i64 32
+  %515 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i775.pn, i64 32
   %516 = load i64, ptr %m_num_bits.i.i.i.i, align 8
   %sub.i.i.i = add i64 %516, -1
   %cmp.i.i.i128 = icmp ule i64 %sub.i.i.i, %id.i.i.0
@@ -5123,7 +5123,7 @@ _ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE17_M_realloc_insertIJRmRjRKm
   %call5.i.i.i.i.i8271531 = phi ptr [ %call5.i.i.i.i.i827, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE17_M_realloc_insertIJRmRjRKmNS2_9node_typeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i822 ], [ %call5.i.i.i.i.i8271532, %if.then.i787 ]
   %add.ptr32.i.i8231526 = phi ptr [ %add.ptr32.i.i823, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE17_M_realloc_insertIJRmRjRKmNS2_9node_typeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i822 ], [ %add.ptr32.i.i8231527, %if.then.i787 ]
   %__cur.0.lcssa.i.i.i.i.i.i818.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i818, %_ZNSt6vectorIN12_GLOBAL__N_18StateSet5StateESaIS2_EE17_M_realloc_insertIJRmRjRKmNS2_9node_typeEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i822 ], [ %521, %if.then.i787 ]
-  %525 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i818.pn, i64 32
+  %525 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i818.pn, i64 32
   %526 = load i64, ptr %m_num_bits.i.i46.i.i, align 8
   %sub.i47.i.i = add i64 %526, -1
   %cmp.i48.i.i = icmp ule i64 %sub.i47.i.i, %id14.i.i.0

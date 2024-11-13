@@ -560,7 +560,7 @@ if.then.i.i:                                      ; preds = %if.end30.i
 for.body18.i.i:                                   ; preds = %if.then.i.i, %for.body18.i.i
   %d.125.i.pn.i = phi ptr [ %d.125.i.i, %for.body18.i.i ], [ %gep.i, %if.then.i.i ]
   %i.124.i.i = phi i64 [ %dec27.i.i, %for.body18.i.i ], [ %sub14.i.i, %if.then.i.i ]
-  %d.125.i.i = getelementptr inbounds i8, ptr %d.125.i.pn.i, i64 -1
+  %d.125.i.i = getelementptr i8, ptr %d.125.i.pn.i, i64 -1
   %14 = load i8, ptr %d.125.i.i, align 1
   %add20.i.i = add i8 %14, 1
   store i8 %add20.i.i, ptr %d.125.i.i, align 1
@@ -592,7 +592,7 @@ land.lhs.true24:                                  ; preds = %land.lhs.true21
 for.body.preheader.i:                             ; preds = %land.lhs.true24
   %C = getelementptr inbounds i8, ptr %0, i64 151
   %17 = getelementptr i8, ptr %V, i64 %16
-  %d.016.i = getelementptr inbounds i8, ptr %17, i64 -1
+  %d.016.i = getelementptr i8, ptr %17, i64 -1
   %18 = getelementptr i8, ptr %C, i64 %16
   br label %for.body.i
 
@@ -601,7 +601,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %carry.020.i = phi i32 [ %shr.i, %for.body.i ], [ 0, %for.body.preheader.i ]
   %.pn1519.i = phi ptr [ %add.0.i, %for.body.i ], [ %18, %for.body.preheader.i ]
   %i.018.i = phi i64 [ %dec.i, %for.body.i ], [ %16, %for.body.preheader.i ]
-  %add.0.i = getelementptr inbounds i8, ptr %.pn1519.i, i64 -1
+  %add.0.i = getelementptr i8, ptr %.pn1519.i, i64 -1
   %19 = load i8, ptr %d.021.i, align 1
   %conv.i = zext i8 %19 to i32
   %20 = load i8, ptr %add.0.i, align 1
@@ -612,7 +612,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv8.i = trunc i32 %add6.i to i8
   store i8 %conv8.i, ptr %d.021.i, align 1
   %dec.i = add i64 %i.018.i, -1
-  %d.0.i = getelementptr inbounds i8, ptr %d.021.i, i64 -1
+  %d.0.i = getelementptr i8, ptr %d.021.i, i64 -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
@@ -644,7 +644,7 @@ add_bytes.exit.loopexit:                          ; preds = %for.body18.i
 add_bytes.exit:                                   ; preds = %add_bytes.exit.loopexit, %land.lhs.true24, %for.end.i
   %23 = phi i64 [ %.pre63, %add_bytes.exit.loopexit ], [ 0, %land.lhs.true24 ], [ %.pre64, %for.end.i ]
   %24 = getelementptr i8, ptr %V, i64 %23
-  %d.016.i20 = getelementptr inbounds i8, ptr %24, i64 -1
+  %d.016.i20 = getelementptr i8, ptr %24, i64 -1
   %25 = getelementptr inbounds i8, ptr %counter, i64 4
   br label %for.body.i21
 
@@ -653,7 +653,7 @@ for.body.i21:                                     ; preds = %for.body.i21, %add_
   %carry.020.i23 = phi i32 [ %shr.i31, %for.body.i21 ], [ 0, %add_bytes.exit ]
   %.pn1519.i24 = phi ptr [ %add.0.i26, %for.body.i21 ], [ %25, %add_bytes.exit ]
   %i.018.i25 = phi i64 [ %dec.i33, %for.body.i21 ], [ 4, %add_bytes.exit ]
-  %add.0.i26 = getelementptr inbounds i8, ptr %.pn1519.i24, i64 -1
+  %add.0.i26 = getelementptr i8, ptr %.pn1519.i24, i64 -1
   %26 = load i8, ptr %d.021.i22, align 1
   %conv.i27 = zext i8 %26 to i32
   %27 = load i8, ptr %add.0.i26, align 1
@@ -664,7 +664,7 @@ for.body.i21:                                     ; preds = %for.body.i21, %add_
   %conv8.i32 = trunc i32 %add6.i30 to i8
   store i8 %conv8.i32, ptr %d.021.i22, align 1
   %dec.i33 = add nsw i64 %i.018.i25, -1
-  %d.0.i34 = getelementptr inbounds i8, ptr %d.021.i22, i64 -1
+  %d.0.i34 = getelementptr i8, ptr %d.021.i22, i64 -1
   %cmp.not.i35 = icmp eq i64 %dec.i33, 0
   br i1 %cmp.not.i35, label %for.end.i36, label %for.body.i21, !llvm.loop !9
 
@@ -1009,7 +1009,7 @@ land.rhs:                                         ; preds = %land.lhs.true11
 for.body.preheader.i:                             ; preds = %land.rhs
   %4 = load i64, ptr %seedlen, align 8
   %5 = getelementptr i8, ptr %V, i64 %4
-  %d.016.i = getelementptr inbounds i8, ptr %5, i64 -1
+  %d.016.i = getelementptr i8, ptr %5, i64 -1
   %6 = getelementptr i8, ptr %vtmp, i64 %3
   br label %for.body.i
 
@@ -1018,7 +1018,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %carry.020.i = phi i32 [ %shr.i, %for.body.i ], [ 0, %for.body.preheader.i ]
   %.pn1519.i = phi ptr [ %add.0.i, %for.body.i ], [ %6, %for.body.preheader.i ]
   %i.018.i = phi i64 [ %dec.i, %for.body.i ], [ %3, %for.body.preheader.i ]
-  %add.0.i = getelementptr inbounds i8, ptr %.pn1519.i, i64 -1
+  %add.0.i = getelementptr i8, ptr %.pn1519.i, i64 -1
   %7 = load i8, ptr %d.021.i, align 1
   %conv.i = zext i8 %7 to i32
   %8 = load i8, ptr %add.0.i, align 1
@@ -1029,7 +1029,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv8.i = trunc i32 %add6.i to i8
   store i8 %conv8.i, ptr %d.021.i, align 1
   %dec.i = add i64 %i.018.i, -1
-  %d.0.i = getelementptr inbounds i8, ptr %d.021.i, i64 -1
+  %d.0.i = getelementptr i8, ptr %d.021.i, i64 -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 

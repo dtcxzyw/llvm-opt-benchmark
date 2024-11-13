@@ -2242,7 +2242,7 @@ while.body.i.i26.i.i.i:                           ; preds = %if.else.i20.i.i.i, 
 for.inc.i22.i.i.i:                                ; preds = %while.body.i.i26.i.i.i, %if.else.i20.i.i.i, %if.then2.i31.i.i.i
   %__first.sink.i23.i.i.i = phi ptr [ %8, %if.then2.i31.i.i.i ], [ %__i.015.i17.i.i.i, %if.else.i20.i.i.i ], [ %__next.012.i.i27.i.i.i, %while.body.i.i26.i.i.i ]
   store double %31, ptr %__first.sink.i23.i.i.i, align 8, !tbaa !108
-  %__i.0.i24.i.i.i = getelementptr inbounds nuw i8, ptr %__i.015.i17.i.i.i, i64 8
+  %__i.0.i24.i.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i.i, i64 8
   %cmp1.not.i25.i.i.i = icmp eq ptr %__i.0.i24.i.i.i, %add.ptr.i
   br i1 %cmp1.not.i25.i.i.i, label %invoke.cont14, label %for.body.i16.i.i.i, !llvm.loop !110
 
@@ -3276,7 +3276,7 @@ while.body.i.i25.i.i.i:                           ; preds = %if.else.i19.i.i.i, 
 for.inc.i21.i.i.i:                                ; preds = %while.body.i.i25.i.i.i, %if.else.i19.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i.i.i
   %__first.coerce.sink.i22.i.i.i = phi ptr [ %call5.i.i.i.i2.i6.i31, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i.i.i ], [ %__i.sroa.0.013.i16.i.i.i, %if.else.i19.i.i.i ], [ %__next.sroa.0.010.i.i26.i.i.i, %while.body.i.i25.i.i.i ]
   store i64 %18, ptr %__first.coerce.sink.i22.i.i.i, align 8, !tbaa !30
-  %__i.sroa.0.0.i23.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.013.i16.i.i.i, i64 8
+  %__i.sroa.0.0.i23.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.013.i16.i.i.i, i64 8
   %cmp.i2.not.i24.i.i.i = icmp eq ptr %__i.sroa.0.013.i16.i.i.i, %__cur.07.i.i.i.i.i.ptr.le
   br i1 %cmp.i2.not.i24.i.i.i, label %invoke.cont16, label %for.body.i15.i.i.i, !llvm.loop !126
 

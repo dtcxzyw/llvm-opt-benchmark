@@ -11835,7 +11835,7 @@ _ZL51stbir__calculate_coefficients_for_gather_downsampleiifPFfffPvEP17stbir__sca
   %257 = add nsw i32 %.1146183, %104
   %258 = sext i32 %257 to i64
   %259 = getelementptr %struct.stbir__contributors, ptr %256, i64 %258
-  %.0133178 = getelementptr inbounds i8, ptr %259, i64 8
+  %.0133178 = getelementptr i8, ptr %259, i64 8
   %260 = icmp ult ptr %.0133178, %.0148182
   br i1 %260, label %.lr.ph, label %._crit_edge
 
@@ -11843,9 +11843,9 @@ _ZL51stbir__calculate_coefficients_for_gather_downsampleiifPFfffPvEP17stbir__sca
   %.0133180 = phi ptr [ %.0133, %.lr.ph ], [ %.0133178, %255 ]
   %.pn153179 = phi ptr [ %.0133180, %.lr.ph ], [ %259, %255 ]
   store i32 0, ptr %.0133180, align 4
-  %261 = getelementptr inbounds i8, ptr %.pn153179, i64 12
+  %261 = getelementptr i8, ptr %.pn153179, i64 12
   store i32 -1, ptr %261, align 4
-  %.0133 = getelementptr inbounds i8, ptr %.0133180, i64 8
+  %.0133 = getelementptr i8, ptr %.0133180, i64 8
   %262 = icmp ult ptr %.0133, %.0148182
   br i1 %262, label %.lr.ph, label %._crit_edge, !llvm.loop !172
 
@@ -11964,7 +11964,7 @@ _ZL19stbir__insert_coeffP19stbir__contributorsPfif.exit: ; preds = %._crit_edge5
   %305 = load i32, ptr %13, align 8
   %306 = sext i32 %305 to i64
   %307 = getelementptr inbounds %struct.stbir__contributors, ptr %301, i64 %306
-  %.0132198 = getelementptr inbounds i8, ptr %304, i64 8
+  %.0132198 = getelementptr i8, ptr %304, i64 8
   %308 = icmp ult ptr %.0132198, %307
   br i1 %308, label %.lr.ph202, label %.loopexit
 
@@ -11972,9 +11972,9 @@ _ZL19stbir__insert_coeffP19stbir__contributorsPfif.exit: ; preds = %._crit_edge5
   %.0132200 = phi ptr [ %.0132, %.lr.ph202 ], [ %.0132198, %._crit_edge196 ]
   %.pn199 = phi ptr [ %.0132200, %.lr.ph202 ], [ %304, %._crit_edge196 ]
   store i32 0, ptr %.0132200, align 4
-  %309 = getelementptr inbounds i8, ptr %.pn199, i64 12
+  %309 = getelementptr i8, ptr %.pn199, i64 12
   store i32 -1, ptr %309, align 4
-  %.0132 = getelementptr inbounds i8, ptr %.0132200, i64 8
+  %.0132 = getelementptr i8, ptr %.0132200, i64 8
   %310 = icmp ult ptr %.0132, %307
   br i1 %310, label %.lr.ph202, label %.loopexit, !llvm.loop !176
 

@@ -2461,7 +2461,7 @@ land.lhs.true175.i:                               ; preds = %land.lhs.true165.i,
 while.cond.i:                                     ; preds = %land.lhs.true.i, %while.cond.i
   %i.0.i = phi i32 [ %inc.i, %while.cond.i ], [ 0, %land.lhs.true.i ]
   %.pn.i = phi ptr [ %p.0.i, %while.cond.i ], [ %arrayidx64.i.i, %land.lhs.true.i ]
-  %p.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %p.0.i = getelementptr i8, ptr %.pn.i, i64 1
   %30 = load i8, ptr %p.0.i, align 1
   %cmp197.i = icmp eq i8 %30, 47
   %cmp199.i = icmp samesign ult i32 %i.0.i, 4
@@ -2504,7 +2504,7 @@ if.end234.i:                                      ; preds = %if.then227.i, %if.e
   %tobool226174.i = phi i1 [ true, %if.then227.i ], [ false, %if.end220.i ]
   %hostp.0172.i = phi ptr [ %hostp.0.ph.i, %if.then227.i ], [ %url, %if.end220.i ]
   %tobool3157169.i = phi i1 [ %tobool3157.ph.i, %if.then227.i ], [ false, %if.end220.i ]
-  %call235.i = call i64 @strcspn(ptr noundef nonnull %hostp.0172.i, ptr noundef nonnull @.str.24) #11
+  %call235.i = call i64 @strcspn(ptr noundef %hostp.0172.i, ptr noundef nonnull @.str.24) #11
   %arrayidx236.i = getelementptr inbounds i8, ptr %hostp.0172.i, i64 %call235.i
   %sub.ptr.lhs.cast237.i = ptrtoint ptr %arrayidx236.i to i64
   %sub.ptr.rhs.cast238.i = ptrtoint ptr %url to i64
@@ -2514,7 +2514,7 @@ if.end234.i:                                      ; preds = %if.then227.i, %if.e
   br i1 %tobool241.not.i, label %if.else291.i, label %if.then242.i
 
 if.then242.i:                                     ; preds = %if.end234.i
-  %call244.i = call fastcc i32 @parse_authority(ptr noundef nonnull %tmpurl, ptr noundef nonnull %hostp.0172.i, i64 noundef %call235.i, i32 noundef %flags, ptr noundef %host.i, i1 noundef zeroext %tobool3157169.i)
+  %call244.i = call fastcc i32 @parse_authority(ptr noundef nonnull %tmpurl, ptr noundef %hostp.0172.i, i64 noundef %call235.i, i32 noundef %flags, ptr noundef %host.i, i1 noundef zeroext %tobool3157169.i)
   %tobool245.not.i = icmp eq i32 %call244.i, 0
   br i1 %tobool245.not.i, label %if.end247.i, label %parseurl.exit
 

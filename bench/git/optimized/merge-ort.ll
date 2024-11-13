@@ -3418,7 +3418,7 @@ if.end.i.i172:                                    ; preds = %lor.lhs.false.i.i17
   %nr.i.i = getelementptr inbounds i8, ptr %plist.i, i64 8
   %262 = load i64, ptr %nr.i.i, align 8
   %263 = getelementptr %struct.string_list_item, ptr %261, i64 %262
-  %e.042.i.i = getelementptr inbounds i8, ptr %263, i64 -16
+  %e.042.i.i = getelementptr i8, ptr %263, i64 -16
   %cmp2.not43.i.i = icmp ult ptr %e.042.i.i, %261
   br i1 %cmp2.not43.i.i, label %for.end101.i.i, label %for.body.i.i173
 
@@ -3426,7 +3426,7 @@ for.body.i.i173:                                  ; preds = %if.end.i.i172, %for
   %264 = phi ptr [ %283, %for.inc100.i.i ], [ %261, %if.end.i.i172 ]
   %e.045.i.i = phi ptr [ %e.0.i.i, %for.inc100.i.i ], [ %e.042.i.i, %if.end.i.i172 ]
   %.pn44.i.i = phi ptr [ %e.045.i.i, %for.inc100.i.i ], [ %263, %if.end.i.i172 ]
-  %util.i.i = getelementptr inbounds i8, ptr %.pn44.i.i, i64 -8
+  %util.i.i = getelementptr i8, ptr %.pn44.i.i, i64 -8
   %265 = load ptr, ptr %util.i.i, align 8
   %clean.i.i174 = getelementptr inbounds i8, ptr %265, i64 40
   %bf.load.i.i175 = load i8, ptr %clean.i.i174, align 8
@@ -3569,7 +3569,7 @@ for.inc100.loopexit.i.i:                          ; preds = %for.inc.i.i194
 
 for.inc100.i.i:                                   ; preds = %for.inc100.loopexit.i.i, %lor.lhs.false62.i.i, %oideq.exit40.i.i, %oideq.exit.i.i184, %lor.lhs.false21.i.i, %lor.lhs.false17.i.i, %if.end5.i.i, %for.body.i.i173
   %283 = phi ptr [ %.pre.i.i197, %for.inc100.loopexit.i.i ], [ %264, %oideq.exit40.i.i ], [ %264, %lor.lhs.false62.i.i ], [ %264, %if.end5.i.i ], [ %264, %lor.lhs.false17.i.i ], [ %264, %lor.lhs.false21.i.i ], [ %264, %oideq.exit.i.i184 ], [ %264, %for.body.i.i173 ]
-  %e.0.i.i = getelementptr inbounds i8, ptr %e.045.i.i, i64 -16
+  %e.0.i.i = getelementptr i8, ptr %e.045.i.i, i64 -16
   %cmp2.not.i.i = icmp ult ptr %e.0.i.i, %283
   br i1 %cmp2.not.i.i, label %for.end101.loopexit.i.i, label %for.body.i.i173, !llvm.loop !47
 
@@ -3594,7 +3594,7 @@ prefetch_for_content_merges.exit.i:               ; preds = %for.end101.i.i, %lo
   %nr.i133 = getelementptr inbounds i8, ptr %plist.i, i64 8
   %288 = load i64, ptr %nr.i133, align 8
   %289 = getelementptr %struct.string_list_item, ptr %287, i64 %288
-  %entry1.0141.i = getelementptr inbounds i8, ptr %289, i64 -16
+  %entry1.0141.i = getelementptr i8, ptr %289, i64 -16
   %cmp52.not142.i = icmp ult ptr %entry1.0141.i, %287
   br i1 %cmp52.not142.i, label %for.end71.i, label %for.body54.lr.ph.i
 
@@ -3617,7 +3617,7 @@ for.body54.i:                                     ; preds = %for.inc70.i, %for.b
   %entry1.0144.i = phi ptr [ %entry1.0141.i, %for.body54.lr.ph.i ], [ %entry1.0.i, %for.inc70.i ]
   %.pn143.i = phi ptr [ %289, %for.body54.lr.ph.i ], [ %entry1.0144.i, %for.inc70.i ]
   %290 = load ptr, ptr %entry1.0144.i, align 8
-  %util55.i = getelementptr inbounds i8, ptr %.pn143.i, i64 -8
+  %util55.i = getelementptr i8, ptr %.pn143.i, i64 -8
   %291 = load ptr, ptr %util55.i, align 8
   %directory_name.i = getelementptr inbounds i8, ptr %291, i64 56
   %292 = load ptr, ptr %directory_name.i, align 8
@@ -4650,7 +4650,7 @@ process_entry.exit.i:                             ; preds = %if.then477.i.i
   br label %if.then33.critedge
 
 for.inc70.i:                                      ; preds = %process_entry.exit.thread.i, %if.end.i64.i, %if.then62.i
-  %entry1.0.i = getelementptr inbounds i8, ptr %entry1.0144.i, i64 -16
+  %entry1.0.i = getelementptr i8, ptr %entry1.0144.i, i64 -16
   %427 = load ptr, ptr %plist.i, align 8
   %cmp52.not.i = icmp ult ptr %entry1.0.i, %427
   br i1 %cmp52.not.i, label %for.end71.i, label %for.body54.i, !llvm.loop !50

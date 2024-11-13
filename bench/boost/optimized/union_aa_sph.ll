@@ -171727,7 +171727,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %.sroa.0.019.i.idx = phi i64 [ 24, %.lr.ph.i ], [ %.sroa.0.019.i.add, %24 ]
   %.pn18.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.019.i.ptr, %24 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.019.i.idx
-  %11 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 40
+  %11 = getelementptr inbounds i8, ptr %.pn18.i, i64 40
   %12 = load double, ptr %11, align 8, !tbaa !24
   %13 = load double, ptr %9, align 8, !tbaa !1440
   %14 = fcmp ogt double %12, %13
@@ -171814,7 +171814,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br i1 %34, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISt5dequeINS5_19traversal_turn_infoISD_NS3_13segment_ratioIdEEEESaISR_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSV_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS14_RKS16_E_EEEvS14_S14_S16_.exit, label %.preheader.i22
 
 .preheader.i22:                                   ; preds = %33
-  %.sroa.0.016.i23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.016.i23 = getelementptr inbounds i8, ptr %0, i64 24
   %.not17.i24 = icmp eq ptr %.sroa.0.016.i23, %1
   br i1 %.not17.i24, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISt5dequeINS5_19traversal_turn_infoISD_NS3_13segment_ratioIdEEEESaISR_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSV_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS14_RKS16_E_EEEvS14_S14_S16_.exit, label %.lr.ph.i25
 
@@ -171825,7 +171825,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
 36:                                               ; preds = %52, %.lr.ph.i25
   %.sroa.0.019.i26 = phi ptr [ %.sroa.0.016.i23, %.lr.ph.i25 ], [ %.sroa.0.0.i31, %52 ]
   %.pn18.i27 = phi ptr [ %0, %.lr.ph.i25 ], [ %.sroa.0.019.i26, %52 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 40
+  %37 = getelementptr inbounds i8, ptr %.pn18.i27, i64 40
   %38 = load double, ptr %37, align 8, !tbaa !24
   %39 = load double, ptr %35, align 8, !tbaa !1440
   %40 = fcmp ogt double %38, %39
@@ -171870,7 +171870,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %52
 
 52:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISE_SaISE_EEEENS0_5__ops14_Val_comp_iterIZNS5_12get_clustersISt5dequeINS5_19traversal_turn_infoISD_NS3_13segment_ratioIdEEEESaISR_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSV_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS14_RKS16_E_EEEvS14_S16_.exit.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISE_SaISE_EEEESJ_ET0_T_SL_SK_.exit.i36
-  %.sroa.0.0.i31 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i26, i64 24
+  %.sroa.0.0.i31 = getelementptr inbounds i8, ptr %.sroa.0.019.i26, i64 24
   %.not.i32 = icmp eq ptr %.sroa.0.0.i31, %1
   br i1 %.not.i32, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISt5dequeINS5_19traversal_turn_infoISD_NS3_13segment_ratioIdEEEESaISR_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSV_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS14_RKS16_E_EEEvS14_S14_S16_.exit, label %36, !llvm.loop !3391
 
@@ -174210,7 +174210,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %31 = icmp eq ptr %0, %1
-  %.sroa.08.018.i15 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.sroa.08.018.i15 = getelementptr inbounds i8, ptr %0, i64 112
   %.not19.i16 = icmp eq ptr %.sroa.08.018.i15, %1
   %or.cond = select i1 %31, i1 true, i1 %.not19.i16
   br i1 %or.cond, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideISE_SE_NS3_10strategies6relate9sphericalIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SX_T0_.exit30, label %.lr.ph.i17
@@ -174258,7 +174258,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %40
 
 40:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISF_SaISF_EEEENS0_5__ops14_Val_comp_iterINS6_12less_by_sideISE_SE_NS3_10strategies6relate9sphericalIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_T0_.exit.i20, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISF_SaISF_EEEESK_ET0_T_SM_SL_.exit.i28
-  %.sroa.08.0.i22 = getelementptr inbounds nuw i8, ptr %.sroa.08.021.i18, i64 112
+  %.sroa.08.0.i22 = getelementptr inbounds i8, ptr %.sroa.08.021.i18, i64 112
   %.not.i23 = icmp eq ptr %.sroa.08.0.i22, %1
   br i1 %.not.i23, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideISE_SE_NS3_10strategies6relate9sphericalIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SX_T0_.exit30, label %.lr.ph.i17, !llvm.loop !3451
 
@@ -179032,7 +179032,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %31 = icmp eq ptr %0, %1
-  %.sroa.08.018.i15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.08.018.i15 = getelementptr inbounds i8, ptr %0, i64 40
   %.not19.i16 = icmp eq ptr %.sroa.08.018.i15, %1
   %or.cond = select i1 %31, i1 true, i1 %.not19.i16
   br i1 %or.cond, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS5_24traversal_turn_operationINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEEEEEESt6vectorISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterINS5_21less_by_segment_ratioISt5dequeINS5_19traversal_turn_infoISE_SG_EESaIST_EESI_NS8_7polygonISE_Lb1ELb1ESK_SK_SaSaEESX_NS4_17no_rescale_policyENS3_10strategies6relate9sphericalIvEELb0ELb0EEEEEEvT_S15_T0_.exit30, label %.lr.ph.i17
@@ -179080,7 +179080,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %40
 
 40:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS5_24traversal_turn_operationINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEEEEEESt6vectorISI_SaISI_EEEENS0_5__ops14_Val_comp_iterINS5_21less_by_segment_ratioISt5dequeINS5_19traversal_turn_infoISE_SG_EESaIST_EESI_NS8_7polygonISE_Lb1ELb1ESK_SK_SaSaEESX_NS4_17no_rescale_policyENS3_10strategies6relate9sphericalIvEELb0ELb0EEEEEEvT_T0_.exit.i20, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS5_24traversal_turn_operationINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEEEEEESt6vectorISI_SaISI_EEEESN_ET0_T_SP_SO_.exit.i28
-  %.sroa.08.0.i22 = getelementptr inbounds nuw i8, ptr %.sroa.08.021.i18, i64 40
+  %.sroa.08.0.i22 = getelementptr inbounds i8, ptr %.sroa.08.021.i18, i64 40
   %.not.i23 = icmp eq ptr %.sroa.08.0.i22, %1
   br i1 %.not.i23, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS5_24traversal_turn_operationINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEEEEEESt6vectorISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterINS5_21less_by_segment_ratioISt5dequeINS5_19traversal_turn_infoISE_SG_EESaIST_EESI_NS8_7polygonISE_Lb1ELb1ESK_SK_SaSaEESX_NS4_17no_rescale_policyENS3_10strategies6relate9sphericalIvEELb0ELb0EEEEEEvT_S15_T0_.exit30, label %.lr.ph.i17, !llvm.loop !3520
 
@@ -188796,7 +188796,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %31 = icmp eq ptr %0, %1
-  %.sroa.08.018.i15 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.sroa.08.018.i15 = getelementptr inbounds i8, ptr %0, i64 112
   %.not19.i16 = icmp eq ptr %.sroa.08.018.i15, %1
   %or.cond = select i1 %31, i1 true, i1 %.not19.i16
   br i1 %or.cond, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideISE_SE_NS3_10strategies6relate9sphericalIvEENS6_13less_by_indexESt7greaterIiEEEEEEvT_SX_T0_.exit30, label %.lr.ph.i17
@@ -188844,7 +188844,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %40
 
 40:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISF_SaISF_EEEENS0_5__ops14_Val_comp_iterINS6_12less_by_sideISE_SE_NS3_10strategies6relate9sphericalIvEENS6_13less_by_indexESt7greaterIiEEEEEEvT_T0_.exit.i20, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISF_SaISF_EEEESK_ET0_T_SM_SL_.exit.i28
-  %.sroa.08.0.i22 = getelementptr inbounds nuw i8, ptr %.sroa.08.021.i18, i64 112
+  %.sroa.08.0.i22 = getelementptr inbounds i8, ptr %.sroa.08.021.i18, i64 112
   %.not.i23 = icmp eq ptr %.sroa.08.0.i22, %1
   br i1 %.not.i23, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideISE_SE_NS3_10strategies6relate9sphericalIvEENS6_13less_by_indexESt7greaterIiEEEEEEvT_SX_T0_.exit30, label %.lr.ph.i17, !llvm.loop !3785
 
@@ -200211,7 +200211,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost8geometry5model4ringINS2_5po
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !2521
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.027 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.027 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !2521
   %8 = icmp ult ptr %.027, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -200254,7 +200254,7 @@ _ZSt8_DestroyIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equ
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEELb1ELb1ESt6vectorSaEESB_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !1553
 
 _ZSt8_DestroyIPN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEELb1ELb1ESt6vectorSaEESB_EvT_SD_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEELb1ELb1ESt6vectorSaEEEvPT_.exit.i.i.i
-  %.0 = getelementptr inbounds nuw i8, ptr %.028, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.028, i64 8
   %19 = load ptr, ptr %6, align 8, !tbaa !2521
   %20 = icmp ult ptr %.0, %19
   br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4064

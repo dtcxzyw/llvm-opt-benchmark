@@ -147764,7 +147764,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail8simplify15douglas_peu
 
 11:                                               ; preds = %.lr.ph42, %tailrecurse
   %.tr40 = phi ptr [ %0, %.lr.ph42 ], [ %.sroa.019.1, %tailrecurse ]
-  %.sroa.0.034 = getelementptr inbounds nuw i8, ptr %.tr40, i64 16
+  %.sroa.0.034 = getelementptr inbounds i8, ptr %.tr40, i64 16
   %.not35 = icmp eq ptr %.sroa.0.034, %10
   br i1 %.not35, label %._crit_edge43, label %.lr.ph
 
@@ -147827,7 +147827,7 @@ _ZNK5boost8geometry8strategy8distance15projected_pointIvNS2_10comparable10pythag
   %49 = fcmp olt double %.037, %48
   %.sroa.019.1 = select i1 %49, ptr %.sroa.0.038, ptr %.sroa.019.036
   %.1 = select i1 %49, double %48, double %.037
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.038, i64 16
   %.not = icmp eq ptr %.sroa.0.0, %10
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !2547
 
@@ -169246,7 +169246,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %.sroa.0.019.i.idx = phi i64 [ 48, %.lr.ph.i ], [ %.sroa.0.019.i.add, %24 ]
   %.pn18.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.019.i.ptr, %24 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.019.i.idx
-  %11 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 64
+  %11 = getelementptr inbounds i8, ptr %.pn18.i, i64 64
   %12 = load double, ptr %11, align 8
   %13 = load double, ptr %9, align 8, !tbaa !1460
   %14 = fcmp ogt double %12, %13
@@ -169345,7 +169345,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br i1 %34, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointI14specific_pointEESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISA_INS4_6buffer16buffer_turn_infoIS7_NS3_13segment_ratioIdEEEESaISL_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKSY_RKS10_E_EEEvSY_SY_S10_.exit, label %.preheader.i26
 
 .preheader.i26:                                   ; preds = %33
-  %.sroa.0.016.i27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.0.016.i27 = getelementptr inbounds i8, ptr %0, i64 48
   %.not17.i28 = icmp eq ptr %.sroa.0.016.i27, %1
   br i1 %.not17.i28, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointI14specific_pointEESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISA_INS4_6buffer16buffer_turn_infoIS7_NS3_13segment_ratioIdEEEESaISL_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKSY_RKS10_E_EEEvSY_SY_S10_.exit, label %.lr.ph.i29
 
@@ -169356,7 +169356,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
 36:                                               ; preds = %52, %.lr.ph.i29
   %.sroa.0.019.i30 = phi ptr [ %.sroa.0.016.i27, %.lr.ph.i29 ], [ %.sroa.0.0.i37, %52 ]
   %.pn18.i31 = phi ptr [ %0, %.lr.ph.i29 ], [ %.sroa.0.019.i30, %52 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.pn18.i31, i64 64
+  %37 = getelementptr inbounds i8, ptr %.pn18.i31, i64 64
   %38 = load double, ptr %37, align 8
   %39 = load double, ptr %35, align 8, !tbaa !1460
   %40 = fcmp ogt double %38, %39
@@ -169407,7 +169407,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %52
 
 52:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointI14specific_pointEESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIZNS5_12get_clustersISA_INS4_6buffer16buffer_turn_infoIS7_NS3_13segment_ratioIdEEEESaISL_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKSY_RKS10_E_EEEvSY_S10_.exit.i33, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointI14specific_pointEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i42
-  %.sroa.0.0.i37 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i30, i64 48
+  %.sroa.0.0.i37 = getelementptr inbounds i8, ptr %.sroa.0.019.i30, i64 48
   %.not.i38 = icmp eq ptr %.sroa.0.0.i37, %1
   br i1 %.not.i38, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointI14specific_pointEESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISA_INS4_6buffer16buffer_turn_infoIS7_NS3_13segment_ratioIdEEEESaISL_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKSY_RKS10_E_EEEvSY_SY_S10_.exit, label %36, !llvm.loop !3143
 
@@ -172164,7 +172164,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %31 = icmp eq ptr %0, %1
-  %.sroa.08.018.i15 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %.sroa.08.018.i15 = getelementptr inbounds i8, ptr %0, i64 136
   %.not19.i16 = icmp eq ptr %.sroa.08.018.i15, %1
   %or.cond = select i1 %31, i1 true, i1 %.not19.i16
   br i1 %or.cond, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SR_T0_.exit30, label %.lr.ph.i17
@@ -172212,7 +172212,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %40
 
 40:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_T0_.exit.i20, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit.i28
-  %.sroa.08.0.i22 = getelementptr inbounds nuw i8, ptr %.sroa.08.021.i18, i64 136
+  %.sroa.08.0.i22 = getelementptr inbounds i8, ptr %.sroa.08.021.i18, i64 136
   %.not.i23 = icmp eq ptr %.sroa.08.0.i22, %1
   br i1 %.not.i23, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SR_T0_.exit30, label %.lr.ph.i17, !llvm.loop !3223
 
@@ -181359,7 +181359,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %31 = icmp eq ptr %0, %1
-  %.sroa.08.018.i15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.08.018.i15 = getelementptr inbounds i8, ptr %0, i64 40
   %.not19.i16 = icmp eq ptr %.sroa.08.018.i15, %1
   %or.cond = select i1 %31, i1 true, i1 %.not19.i16
   br i1 %or.cond, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS4_6buffer21buffer_turn_operationI14specific_pointNS3_13segment_ratioIdEEEEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterINS5_21less_by_segment_ratioISF_INS7_16buffer_turn_infoIS9_SB_EESaISN_EESD_NS7_24buffered_ring_collectionINS7_13buffered_ringINS3_5model4ringIS9_Lb1ELb1ESF_SaEEEEEESW_NS4_17no_rescale_policyENS3_10strategies6buffer9cartesianIvEELb0ELb0EEEEEEvT_S14_T0_.exit30, label %.lr.ph.i17
@@ -181407,7 +181407,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %40
 
 40:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS4_6buffer21buffer_turn_operationI14specific_pointNS3_13segment_ratioIdEEEEEESt6vectorISD_SaISD_EEEENS0_5__ops14_Val_comp_iterINS5_21less_by_segment_ratioISF_INS7_16buffer_turn_infoIS9_SB_EESaISN_EESD_NS7_24buffered_ring_collectionINS7_13buffered_ringINS3_5model4ringIS9_Lb1ELb1ESF_SaEEEEEESW_NS4_17no_rescale_policyENS3_10strategies6buffer9cartesianIvEELb0ELb0EEEEEEvT_T0_.exit.i20, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS4_6buffer21buffer_turn_operationI14specific_pointNS3_13segment_ratioIdEEEEEESt6vectorISD_SaISD_EEEESI_ET0_T_SK_SJ_.exit.i28
-  %.sroa.08.0.i22 = getelementptr inbounds nuw i8, ptr %.sroa.08.021.i18, i64 40
+  %.sroa.08.0.i22 = getelementptr inbounds i8, ptr %.sroa.08.021.i18, i64 40
   %.not.i23 = icmp eq ptr %.sroa.08.0.i22, %1
   br i1 %.not.i23, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay22indexed_turn_operationINS4_6buffer21buffer_turn_operationI14specific_pointNS3_13segment_ratioIdEEEEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterINS5_21less_by_segment_ratioISF_INS7_16buffer_turn_infoIS9_SB_EESaISN_EESD_NS7_24buffered_ring_collectionINS7_13buffered_ringINS3_5model4ringIS9_Lb1ELb1ESF_SaEEEEEESW_NS4_17no_rescale_policyENS3_10strategies6buffer9cartesianIvEELb0ELb0EEEEEEvT_S14_T0_.exit30, label %.lr.ph.i17, !llvm.loop !3401
 
@@ -190735,7 +190735,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %31 = icmp eq ptr %0, %1
-  %.sroa.08.018.i15 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %.sroa.08.018.i15 = getelementptr inbounds i8, ptr %0, i64 136
   %.not19.i16 = icmp eq ptr %.sroa.08.018.i15, %1
   %or.cond = select i1 %31, i1 true, i1 %.not19.i16
   br i1 %or.cond, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt7greaterIiEEEEEEvT_SR_T0_.exit30, label %.lr.ph.i17
@@ -190783,7 +190783,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %40
 
 40:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt7greaterIiEEEEEEvT_T0_.exit.i20, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit.i28
-  %.sroa.08.0.i22 = getelementptr inbounds nuw i8, ptr %.sroa.08.021.i18, i64 136
+  %.sroa.08.0.i22 = getelementptr inbounds i8, ptr %.sroa.08.021.i18, i64 136
   %.not.i23 = icmp eq ptr %.sroa.08.0.i22, %1
   br i1 %.not.i23, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointI14specific_pointEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideIS8_S8_NS3_10strategies6buffer9cartesianIvEENS6_13less_by_indexESt7greaterIiEEEEEEvT_SR_T0_.exit30, label %.lr.ph.i17, !llvm.loop !3606
 

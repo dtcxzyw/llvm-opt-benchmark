@@ -5694,7 +5694,7 @@ while.body35:                                     ; preds = %while.body35.prehea
 
 while.end57:                                      ; preds = %while.body35, %while.end
   %26 = getelementptr float, ptr %4, i64 %idxprom10
-  %AA58.0366 = getelementptr inbounds i8, ptr %26, i64 -32
+  %AA58.0366 = getelementptr i8, ptr %26, i64 -32
   %cmp69.not367 = icmp ult ptr %AA58.0366, %4
   br i1 %cmp69.not367, label %while.end126, label %while.body71.preheader
 
@@ -5726,9 +5726,9 @@ while.body71:                                     ; preds = %while.body71.prehea
   %32 = load float, ptr %e1.0368, align 4
   %add83 = fadd float %31, %32
   store float %add83, ptr %d0.0371, align 4
-  %arrayidx85 = getelementptr inbounds i8, ptr %.pn322372, i64 -16
+  %arrayidx85 = getelementptr i8, ptr %.pn322372, i64 -16
   %33 = load float, ptr %arrayidx85, align 4
-  %arrayidx87 = getelementptr inbounds i8, ptr %.pn322372, i64 -12
+  %arrayidx87 = getelementptr i8, ptr %.pn322372, i64 -12
   %34 = load float, ptr %arrayidx87, align 4
   %35 = fneg float %34
   %neg89 = fmul float %sub77, %35
@@ -5759,7 +5759,7 @@ while.body71:                                     ; preds = %while.body71.prehea
   %arrayidx109 = getelementptr inbounds i8, ptr %d0.0371, i64 8
   store float %add108, ptr %arrayidx109, align 4
   %46 = load float, ptr %AA58.0373, align 4
-  %arrayidx112 = getelementptr inbounds i8, ptr %.pn322372, i64 -28
+  %arrayidx112 = getelementptr i8, ptr %.pn322372, i64 -28
   %47 = load float, ptr %arrayidx112, align 4
   %48 = fneg float %47
   %neg114 = fmul float %sub101, %48
@@ -5776,7 +5776,7 @@ while.body71:                                     ; preds = %while.body71.prehea
   %add.ptr123 = getelementptr inbounds i8, ptr %d1.0370, i64 16
   %add.ptr124 = getelementptr inbounds i8, ptr %e0.0369, i64 16
   %add.ptr125 = getelementptr inbounds i8, ptr %e1.0368, i64 16
-  %AA58.0 = getelementptr inbounds i8, ptr %AA58.0373, i64 -32
+  %AA58.0 = getelementptr i8, ptr %AA58.0373, i64 -32
   %cmp69.not = icmp ult ptr %AA58.0, %4
   br i1 %cmp69.not, label %while.end126, label %while.body71, !llvm.loop !57
 
@@ -6394,7 +6394,7 @@ while.body373:                                    ; preds = %while.body373.prehe
   %d2.0399 = phi ptr [ %add.ptr457, %while.body373 ], [ %arrayidx11, %while.body373.preheader ]
   %d1350.0398 = phi ptr [ %add.ptr458, %while.body373 ], [ %arrayidx364, %while.body373.preheader ]
   %d0349.0397 = phi ptr [ %add.ptr456, %while.body373 ], [ %buffer, %while.body373.preheader ]
-  %d3.0 = getelementptr inbounds i8, ptr %.pn400, i64 -16
+  %d3.0 = getelementptr i8, ptr %.pn400, i64 -16
   %B.0 = getelementptr inbounds i8, ptr %add.ptr355.pn401, i64 -32
   %arrayidx374 = getelementptr inbounds i8, ptr %add.ptr281.pn402, i64 -8
   %186 = load float, ptr %arrayidx374, align 4
@@ -6416,7 +6416,7 @@ while.body373:                                    ; preds = %while.body373.prehe
   %arrayidx391 = getelementptr inbounds i8, ptr %d1350.0398, i64 12
   store float %fneg390, ptr %arrayidx391, align 4
   store float %193, ptr %d2.0399, align 4
-  %arrayidx393 = getelementptr inbounds i8, ptr %.pn400, i64 -4
+  %arrayidx393 = getelementptr i8, ptr %.pn400, i64 -4
   store float %193, ptr %arrayidx393, align 4
   %arrayidx394 = getelementptr inbounds i8, ptr %add.ptr281.pn402, i64 -16
   %194 = load float, ptr %arrayidx394, align 4
@@ -6440,7 +6440,7 @@ while.body373:                                    ; preds = %while.body373.prehe
   store float %fneg410, ptr %arrayidx411, align 4
   %arrayidx412 = getelementptr inbounds i8, ptr %d2.0399, i64 4
   store float %201, ptr %arrayidx412, align 4
-  %arrayidx413 = getelementptr inbounds i8, ptr %.pn400, i64 -8
+  %arrayidx413 = getelementptr i8, ptr %.pn400, i64 -8
   store float %201, ptr %arrayidx413, align 4
   %arrayidx414 = getelementptr inbounds i8, ptr %add.ptr281.pn402, i64 -24
   %202 = load float, ptr %arrayidx414, align 4
@@ -6464,7 +6464,7 @@ while.body373:                                    ; preds = %while.body373.prehe
   store float %fneg430, ptr %arrayidx431, align 4
   %arrayidx432 = getelementptr inbounds i8, ptr %d2.0399, i64 8
   store float %209, ptr %arrayidx432, align 4
-  %arrayidx433 = getelementptr inbounds i8, ptr %.pn400, i64 -12
+  %arrayidx433 = getelementptr i8, ptr %.pn400, i64 -12
   store float %209, ptr %arrayidx433, align 4
   %210 = load float, ptr %e357.0403, align 4
   %arrayidx435 = getelementptr inbounds i8, ptr %add.ptr355.pn401, i64 -28

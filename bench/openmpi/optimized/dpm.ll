@@ -12013,7 +12013,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %18, %24
   %..i = select i1 %.not.i, i64 248, i64 256
   %36 = getelementptr i8, ptr %22, i64 %..i
   %.val.pn.i = load ptr, ptr %36, align 8
-  %.in.i = getelementptr inbounds i8, ptr %.val.pn.i, i64 16
+  %.in.i = getelementptr i8, ptr %.val.pn.i, i64 16
   %37 = load i32, ptr %.in.i, align 8
   %38 = getelementptr inbounds i8, ptr %31, i64 8
   store i32 %37, ptr %38, align 8

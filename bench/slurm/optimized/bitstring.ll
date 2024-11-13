@@ -1882,7 +1882,7 @@ define ptr @bit_fmt_binmask(ptr nocapture noundef readonly %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.pn18 = phi ptr [ %.0, %.lr.ph ], [ %6, %1 ]
   %.01617 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn18, i64 -1
+  %.0 = getelementptr i8, ptr %.pn18, i64 -1
   %8 = add nuw nsw i64 %.01617, 1
   %9 = lshr i64 %.01617, 6
   %gep = getelementptr i64, ptr %invariant.gep, i64 %9

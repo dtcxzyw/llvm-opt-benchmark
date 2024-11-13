@@ -8712,8 +8712,8 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ES
 
 .lr.ph.i2321:                                     ; preds = %.preheader.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i
   %.05.i.pn = phi ptr [ %.05.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i ], [ %.05.i.i.i.i.i996, %.preheader.i ]
-  %.05.i = getelementptr inbounds nuw i8, ptr %.05.i.pn, i64 16
-  %3005 = getelementptr inbounds nuw i8, ptr %.05.i.pn, i64 24
+  %.05.i = getelementptr inbounds i8, ptr %.05.i.pn, i64 16
+  %3005 = getelementptr inbounds i8, ptr %.05.i.pn, i64 24
   %3006 = load i32, ptr %3005, align 4
   %.not.i.i.i.i2322 = icmp eq i32 %3006, 0
   br i1 %.not.i.i.i.i2322, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, label %3007
@@ -9833,8 +9833,8 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ES
 
 .lr.ph.i2397:                                     ; preds = %.preheader.i2395, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2402
   %.05.i2398.pn = phi ptr [ %.05.i2398, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2402 ], [ %.05.i.i.i.i.i1050, %.preheader.i2395 ]
-  %.05.i2398 = getelementptr inbounds nuw i8, ptr %.05.i2398.pn, i64 16
-  %3409 = getelementptr inbounds nuw i8, ptr %.05.i2398.pn, i64 24
+  %.05.i2398 = getelementptr inbounds i8, ptr %.05.i2398.pn, i64 16
+  %3409 = getelementptr inbounds i8, ptr %.05.i2398.pn, i64 24
   %3410 = load i32, ptr %3409, align 4
   %.not.i.i.i.i2399 = icmp eq i32 %3410, 0
   br i1 %.not.i.i.i.i2399, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i2400, label %3411
@@ -11014,8 +11014,8 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ES
 
 .lr.ph.i2446:                                     ; preds = %.preheader.i2444, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2451
   %.05.i2447.pn = phi ptr [ %.05.i2447, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2451 ], [ %.05.i.i.i.i.i1144, %.preheader.i2444 ]
-  %.05.i2447 = getelementptr inbounds nuw i8, ptr %.05.i2447.pn, i64 16
-  %3842 = getelementptr inbounds nuw i8, ptr %.05.i2447.pn, i64 24
+  %.05.i2447 = getelementptr inbounds i8, ptr %.05.i2447.pn, i64 16
+  %3842 = getelementptr inbounds i8, ptr %.05.i2447.pn, i64 24
   %3843 = load i32, ptr %3842, align 4
   %.not.i.i.i.i2448 = icmp eq i32 %3843, 0
   br i1 %.not.i.i.i.i2448, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i2449, label %3844
@@ -13204,8 +13204,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges16DidChangeTargetsEPKNS_8PcpCac
 
 .lr.ph.i2495:                                     ; preds = %.preheader.i2493, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2500
   %.05.i2496.pn = phi ptr [ %.05.i2496, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2500 ], [ %.05.i.i.i.i.i1279, %.preheader.i2493 ]
-  %.05.i2496 = getelementptr inbounds nuw i8, ptr %.05.i2496.pn, i64 16
-  %4707 = getelementptr inbounds nuw i8, ptr %.05.i2496.pn, i64 24
+  %.05.i2496 = getelementptr inbounds i8, ptr %.05.i2496.pn, i64 16
+  %4707 = getelementptr inbounds i8, ptr %.05.i2496.pn, i64 24
   %4708 = load i32, ptr %4707, align 4
   %.not.i.i.i.i2497 = icmp eq i32 %4708, 0
   br i1 %.not.i.i.i.i2497, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i2498, label %4709
@@ -13923,8 +13923,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1311: ; preds = %_ZN32pxrI
 
 .lr.ph.i2603:                                     ; preds = %.preheader.i2601, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2608
   %.05.i2604.pn = phi ptr [ %.05.i2604, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2608 ], [ %.05.i.i.i.i, %.preheader.i2601 ]
-  %.05.i2604 = getelementptr inbounds nuw i8, ptr %.05.i2604.pn, i64 16
-  %5017 = getelementptr inbounds nuw i8, ptr %.05.i2604.pn, i64 24
+  %.05.i2604 = getelementptr inbounds i8, ptr %.05.i2604.pn, i64 16
+  %5017 = getelementptr inbounds i8, ptr %.05.i2604.pn, i64 24
   %5018 = load i32, ptr %5017, align 4
   %.not.i.i.i.i2605 = icmp eq i32 %5018, 0
   br i1 %.not.i.i.i.i2605, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i2606, label %5019
@@ -14696,8 +14696,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__13PcpDependencyES1_EvT_S3_RSaI
 
 .lr.ph.i2624:                                     ; preds = %.preheader.i2622, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2629
   %.05.i2625.pn = phi ptr [ %.05.i2625, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i2629 ], [ %.05.i.i.i.i1364, %.preheader.i2622 ]
-  %.05.i2625 = getelementptr inbounds nuw i8, ptr %.05.i2625.pn, i64 16
-  %5378 = getelementptr inbounds nuw i8, ptr %.05.i2625.pn, i64 24
+  %.05.i2625 = getelementptr inbounds i8, ptr %.05.i2625.pn, i64 16
+  %5378 = getelementptr inbounds i8, ptr %.05.i2625.pn, i64 24
   %5379 = load i32, ptr %5378, align 4
   %.not.i.i.i.i2626 = icmp eq i32 %5379, 0
   br i1 %.not.i.i.i.i2626, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i2627, label %5380
@@ -19484,8 +19484,8 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St9_IdentityIS1_ES
 
 .lr.ph.i114:                                      ; preds = %.preheader.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i
   %.05.i.pn = phi ptr [ %.05.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i ], [ %.05.i.i.i.i, %.preheader.i ]
-  %.05.i = getelementptr inbounds nuw i8, ptr %.05.i.pn, i64 16
-  %322 = getelementptr inbounds nuw i8, ptr %.05.i.pn, i64 24
+  %.05.i = getelementptr inbounds i8, ptr %.05.i.pn, i64 16
+  %322 = getelementptr inbounds i8, ptr %.05.i.pn, i64 24
   %323 = load i32, ptr %322, align 4
   %.not.i.i.i.i115 = icmp eq i32 %323, 0
   br i1 %.not.i.i.i.i115, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, label %324
@@ -24134,8 +24134,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges22DidChangeSignificantlyEPKNS_8
 
 .lr.ph.i167:                                      ; preds = %.preheader.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i
   %.05.i.pn = phi ptr [ %.05.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i ], [ %.05.i.i.i.i, %.preheader.i ]
-  %.05.i = getelementptr inbounds nuw i8, ptr %.05.i.pn, i64 16
-  %399 = getelementptr inbounds nuw i8, ptr %.05.i.pn, i64 24
+  %.05.i = getelementptr inbounds i8, ptr %.05.i.pn, i64 16
+  %399 = getelementptr inbounds i8, ptr %.05.i.pn, i64 24
   %400 = load i32, ptr %399, align 4
   %.not.i.i.i.i168 = icmp eq i32 %400, 0
   br i1 %.not.i.i.i.i168, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, label %401

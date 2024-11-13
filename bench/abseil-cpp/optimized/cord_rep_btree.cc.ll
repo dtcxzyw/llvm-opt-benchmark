@@ -4923,7 +4923,7 @@ if.end70:                                         ; preds = %_ZN4absl13cord_inte
   store i8 0, ptr %arrayidx7.i.i154, align 1
   %edges_73 = getelementptr inbounds i8, ptr %call.i148, i64 16
   store ptr %prefix.sroa.0.1, ptr %edges_73, align 8
-  %__begin2.0201 = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
+  %__begin2.0201 = getelementptr i8, ptr %arrayidx6.i, i64 8
   %cmp84.not202 = icmp eq ptr %__begin2.0201, %arrayidx20
   br i1 %cmp84.not202, label %for.end91, label %for.body85
 
@@ -4936,7 +4936,7 @@ for.body85:                                       ; preds = %if.end70, %for.body
   %inc88 = add nuw nsw i64 %end.0203, 1
   %arrayidx89 = getelementptr inbounds [6 x ptr], ptr %edges_73, i64 0, i64 %end.0203
   store ptr %51, ptr %arrayidx89, align 8
-  %__begin2.0 = getelementptr inbounds i8, ptr %__begin2.0204, i64 8
+  %__begin2.0 = getelementptr i8, ptr %__begin2.0204, i64 8
   %cmp84.not = icmp eq ptr %__begin2.0, %arrayidx20
   br i1 %cmp84.not, label %for.end91, label %for.body85
 

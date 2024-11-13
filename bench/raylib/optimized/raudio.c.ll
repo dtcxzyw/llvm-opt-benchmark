@@ -118141,7 +118141,7 @@ setup_temp_malloc.exit:                           ; preds = %20, %12, %23
 
 ._crit_edge434:                                   ; preds = %.lr.ph433, %._crit_edge
   %78 = getelementptr float, ptr %31, i64 %35
-  %.0391435 = getelementptr inbounds i8, ptr %78, i64 -32
+  %.0391435 = getelementptr i8, ptr %78, i64 -32
   %.not411436 = icmp ult ptr %.0391435, %31
   br i1 %.not411436, label %._crit_edge445, label %.lr.ph444.preheader
 
@@ -118173,9 +118173,9 @@ setup_temp_malloc.exit:                           ; preds = %20, %12, %23
   %93 = load float, ptr %.0398437, align 4
   %94 = fadd float %92, %93
   store float %94, ptr %.0392440, align 4
-  %95 = getelementptr inbounds i8, ptr %.pn417441, i64 -16
+  %95 = getelementptr i8, ptr %.pn417441, i64 -16
   %96 = load float, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %.pn417441, i64 -12
+  %97 = getelementptr i8, ptr %.pn417441, i64 -12
   %98 = load float, ptr %97, align 4
   %99 = fneg float %98
   %100 = fmul float %89, %99
@@ -118206,7 +118206,7 @@ setup_temp_malloc.exit:                           ; preds = %20, %12, %23
   %122 = getelementptr inbounds i8, ptr %.0392440, i64 8
   store float %121, ptr %122, align 4
   %123 = load float, ptr %.0391442, align 4
-  %124 = getelementptr inbounds i8, ptr %.pn417441, i64 -28
+  %124 = getelementptr i8, ptr %.pn417441, i64 -28
   %125 = load float, ptr %124, align 4
   %126 = fneg float %125
   %127 = fmul float %116, %126
@@ -118223,7 +118223,7 @@ setup_temp_malloc.exit:                           ; preds = %20, %12, %23
   %136 = getelementptr inbounds i8, ptr %.0393439, i64 16
   %137 = getelementptr inbounds i8, ptr %.0394438, i64 16
   %138 = getelementptr inbounds i8, ptr %.0398437, i64 16
-  %.0391 = getelementptr inbounds i8, ptr %.0391442, i64 -32
+  %.0391 = getelementptr i8, ptr %.0391442, i64 -32
   %.not411 = icmp ult ptr %.0391, %31
   br i1 %.not411, label %._crit_edge445, label %.lr.ph444
 
@@ -118965,7 +118965,7 @@ imdct_step3_inner_s_loop_ld654.exit:              ; preds = %461, %._crit_edge45
   %.0384478 = phi ptr [ %727, %.lr.ph484 ], [ %36, %.lr.ph484.preheader ]
   %.0385477 = phi ptr [ %728, %.lr.ph484 ], [ %647, %.lr.ph484.preheader ]
   %.0386476 = phi ptr [ %726, %.lr.ph484 ], [ %0, %.lr.ph484.preheader ]
-  %.0383 = getelementptr inbounds i8, ptr %.pn415479, i64 -16
+  %.0383 = getelementptr i8, ptr %.pn415479, i64 -16
   %.0382 = getelementptr inbounds i8, ptr %.pn480, i64 -32
   %652 = getelementptr inbounds i8, ptr %.pn414481, i64 -8
   %653 = load float, ptr %652, align 4
@@ -118987,7 +118987,7 @@ imdct_step3_inner_s_loop_ld654.exit:              ; preds = %461, %._crit_edge45
   %668 = getelementptr inbounds i8, ptr %.0385477, i64 12
   store float %667, ptr %668, align 4
   store float %666, ptr %.0384478, align 4
-  %669 = getelementptr inbounds i8, ptr %.pn415479, i64 -4
+  %669 = getelementptr i8, ptr %.pn415479, i64 -4
   store float %666, ptr %669, align 4
   %670 = getelementptr inbounds i8, ptr %.pn414481, i64 -16
   %671 = load float, ptr %670, align 4
@@ -119011,7 +119011,7 @@ imdct_step3_inner_s_loop_ld654.exit:              ; preds = %461, %._crit_edge45
   store float %686, ptr %687, align 4
   %688 = getelementptr inbounds i8, ptr %.0384478, i64 4
   store float %684, ptr %688, align 4
-  %689 = getelementptr inbounds i8, ptr %.pn415479, i64 -8
+  %689 = getelementptr i8, ptr %.pn415479, i64 -8
   store float %684, ptr %689, align 4
   %690 = getelementptr inbounds i8, ptr %.pn414481, i64 -24
   %691 = load float, ptr %690, align 4
@@ -119035,7 +119035,7 @@ imdct_step3_inner_s_loop_ld654.exit:              ; preds = %461, %._crit_edge45
   store float %706, ptr %707, align 4
   %708 = getelementptr inbounds i8, ptr %.0384478, i64 8
   store float %704, ptr %708, align 4
-  %709 = getelementptr inbounds i8, ptr %.pn415479, i64 -12
+  %709 = getelementptr i8, ptr %.pn415479, i64 -12
   store float %704, ptr %709, align 4
   %710 = load float, ptr %.0381482, align 4
   %711 = getelementptr inbounds i8, ptr %.pn480, i64 -28

@@ -19217,7 +19217,7 @@ define dso_local void @_ZN10V3ParseImp14lexUnputStringEPKcm(ptr nocapture nonnul
   %17 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %.019.i.i, %_ZN11V3LexerBase7yyunputEiPc.exit.i ]
   %.pn13.i = phi ptr [ %7, %.lr.ph.i ], [ %.0.i, %_ZN11V3LexerBase7yyunputEiPc.exit.i ]
   %.0612.i = phi i64 [ %2, %.lr.ph.i ], [ %18, %_ZN11V3LexerBase7yyunputEiPc.exit.i ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn13.i, i64 -1
+  %.0.i = getelementptr i8, ptr %.pn13.i, i64 -1
   %18 = add i64 %.0612.i, -1
   %19 = load i8, ptr %.0.i, align 1
   store i8 %15, ptr %16, align 1

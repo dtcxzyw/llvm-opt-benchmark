@@ -165041,7 +165041,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %31 = icmp eq ptr %0, %1
-  %.sroa.08.018.i15 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.sroa.08.018.i15 = getelementptr inbounds i8, ptr %0, i64 112
   %.not19.i16 = icmp eq ptr %.sroa.08.018.i15, %1
   %or.cond = select i1 %31, i1 true, i1 %.not19.i16
   br i1 %or.cond, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideISC_SC_NS3_10strategies6relate9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SV_T0_.exit30, label %.lr.ph.i17
@@ -165089,7 +165089,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %40
 
 40:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISD_SaISD_EEEENS0_5__ops14_Val_comp_iterINS6_12less_by_sideISC_SC_NS3_10strategies6relate9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_T0_.exit.i20, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISD_SaISD_EEEESI_ET0_T_SK_SJ_.exit.i28
-  %.sroa.08.0.i22 = getelementptr inbounds nuw i8, ptr %.sroa.08.021.i18, i64 112
+  %.sroa.08.0.i22 = getelementptr inbounds i8, ptr %.sroa.08.021.i18, i64 112
   %.not.i23 = icmp eq ptr %.sroa.08.0.i22, %1
   br i1 %.not.i23, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_by_side12ranked_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISD_SaISD_EEEENS0_5__ops15_Iter_comp_iterINS6_12less_by_sideISC_SC_NS3_10strategies6relate9cartesianIvEENS6_13less_by_indexESt4lessIiEEEEEEvT_SV_T0_.exit30, label %.lr.ph.i17, !llvm.loop !2910
 

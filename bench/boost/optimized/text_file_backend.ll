@@ -8377,7 +8377,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx114listIN5boost3log11v2_mt_posix5sin
 .preheader51:                                     ; preds = %9, %.critedge
   %12 = phi ptr [ %33, %.critedge ], [ %4, %9 ]
   %.0.idx = phi i64 [ %.0.add, %.critedge ], [ 0, %9 ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx
+  %.0.ptr = getelementptr inbounds i8, ptr %3, i64 %.0.idx
   %13 = load ptr, ptr %12, align 8, !tbaa !95
   call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %12, ptr noundef %13) #29
   %.not3653 = icmp eq i64 %.0.idx, 0
@@ -8445,12 +8445,12 @@ _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN5boost3log
   br i1 %34, label %.preheader, label %.preheader51, !llvm.loop !172
 
 .preheader:                                       ; preds = %.critedge
-  %spec.select.ptr.le = getelementptr inbounds nuw i8, ptr %3, i64 %.0.add
+  %spec.select.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.0.add
   %.not3763 = icmp eq i64 %.0.add, 16
   br i1 %.not3763, label %._crit_edge, label %.lr.ph66.preheader
 
 .lr.ph66.preheader:                               ; preds = %.preheader
-  %.13062 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.13062 = getelementptr inbounds i8, ptr %3, i64 16
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN5boost3log11v2_mt_posix5sinks9anonymous14file_collector9file_infoEENSA_18order_by_timestampEEEEEvRNS_15_List_node_baseET_.exit46
@@ -8500,7 +8500,7 @@ _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN5boost3log
   br label %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN5boost3log11v2_mt_posix5sinks9anonymous14file_collector9file_infoEENSA_18order_by_timestampEEEEEvRNS_15_List_node_baseET_.exit46
 
 _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN5boost3log11v2_mt_posix5sinks9anonymous14file_collector9file_infoEENSA_18order_by_timestampEEEEEvRNS_15_List_node_baseET_.exit46: ; preds = %._crit_edge.i38, %53
-  %.130 = getelementptr inbounds nuw i8, ptr %.13065, i64 16
+  %.130 = getelementptr inbounds i8, ptr %.13065, i64 16
   %.not37 = icmp eq ptr %.130, %spec.select.ptr.le
   br i1 %.not37, label %._crit_edge, label %.lr.ph66
 
@@ -20068,7 +20068,7 @@ _ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_it
   store ptr %.sroa.869.2, ptr %17, align 8, !tbaa !17
   store ptr %.sroa.1271.2, ptr %19, align 8, !tbaa !17
   %53 = load ptr, ptr %5, align 8, !tbaa !316
-  %.077 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %.077 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %7, align 8, !tbaa !316
   %.not478 = icmp eq ptr %.077, %54
   br i1 %.not478, label %._crit_edge, label %.lr.ph
@@ -20223,7 +20223,7 @@ _ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_it
   store ptr %.sroa.462.1, ptr %15, align 8, !tbaa !17
   store ptr %.sroa.7.1, ptr %17, align 8, !tbaa !17
   store ptr %.sroa.11.1, ptr %19, align 8, !tbaa !17
-  %.0 = getelementptr inbounds nuw i8, ptr %.079, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.079, i64 8
   %126 = load ptr, ptr %7, align 8, !tbaa !316
   %.not4 = icmp eq ptr %.0, %126
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !587

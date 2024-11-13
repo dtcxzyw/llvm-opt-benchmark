@@ -148193,7 +148193,7 @@ _ZNSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5poin
 178:                                              ; preds = %_ZN5boost8geometry6detail13copy_segments24copy_segments_linestringILb0ELb0EE16append_to_outputINS0_5model10linestringINS6_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESt6vectorSaEESD_NS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEEvRT_RKT0_RKT1_RKT2_RKSt17integral_constantIbLb0EE.exit.i, %.lr.ph.i
   %.024.i = phi i64 [ 0, %.lr.ph.i ], [ %217, %_ZN5boost8geometry6detail13copy_segments24copy_segments_linestringILb0ELb0EE16append_to_outputINS0_5model10linestringINS6_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESt6vectorSaEESD_NS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEEvRT_RKT0_RKT1_RKT2_RKSt17integral_constantIbLb0EE.exit.i ]
   %.pn.i = phi ptr [ %174, %.lr.ph.i ], [ %.sroa.020.023.i, %_ZN5boost8geometry6detail13copy_segments24copy_segments_linestringILb0ELb0EE16append_to_outputINS0_5model10linestringINS6_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESt6vectorSaEESD_NS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEEvRT_RKT0_RKT1_RKT2_RKSt17integral_constantIbLb0EE.exit.i ]
-  %.sroa.020.023.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
+  %.sroa.020.023.i = getelementptr i8, ptr %.pn.i, i64 16
   %179 = load ptr, ptr %13, align 8, !tbaa !173
   %180 = load ptr, ptr %175, align 8, !tbaa !173
   %181 = icmp eq ptr %179, %180
@@ -148214,7 +148214,7 @@ _ZNSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5poin
 185:                                              ; preds = %._crit_edge.i.i.i77, %178
   %186 = phi ptr [ %.pre.i.i.i78, %._crit_edge.i.i.i77 ], [ %180, %178 ]
   %187 = load double, ptr %.sroa.020.023.i, align 8, !tbaa !1440
-  %188 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 24
+  %188 = getelementptr i8, ptr %.pn.i, i64 24
   %189 = load double, ptr %188, align 8, !tbaa !1440
   %190 = load ptr, ptr %176, align 8, !tbaa !1500
   %.not.i.i.i.i.i.i.i79 = icmp eq ptr %186, %190
@@ -168497,7 +168497,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail13copy_segments24copy_
 23:                                               ; preds = %.lr.ph, %_ZN5boost8geometry6detail13copy_segments24copy_segments_linestringILb0ELb0EE16append_to_outputINS0_5model10linestringINS6_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESt6vectorSaEESD_NS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEEvRT_RKT0_RKT1_RKT2_RKSt17integral_constantIbLb0EE.exit
   %.024 = phi i64 [ 0, %.lr.ph ], [ %62, %_ZN5boost8geometry6detail13copy_segments24copy_segments_linestringILb0ELb0EE16append_to_outputINS0_5model10linestringINS6_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESt6vectorSaEESD_NS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEEvRT_RKT0_RKT1_RKT2_RKSt17integral_constantIbLb0EE.exit ]
   %.pn = phi ptr [ %19, %.lr.ph ], [ %.sroa.020.023, %_ZN5boost8geometry6detail13copy_segments24copy_segments_linestringILb0ELb0EE16append_to_outputINS0_5model10linestringINS6_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESt6vectorSaEESD_NS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEEvRT_RKT0_RKT1_RKT2_RKSt17integral_constantIbLb0EE.exit ]
-  %.sroa.020.023 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
+  %.sroa.020.023 = getelementptr i8, ptr %.pn, i64 16
   %24 = load ptr, ptr %5, align 8, !tbaa !173
   %25 = load ptr, ptr %20, align 8, !tbaa !173
   %26 = icmp eq ptr %24, %25
@@ -168515,7 +168515,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail13copy_segments24copy_
 30:                                               ; preds = %._crit_edge.i.i, %23
   %31 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %25, %23 ]
   %32 = load double, ptr %.sroa.020.023, align 8, !tbaa !1440
-  %33 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
+  %33 = getelementptr i8, ptr %.pn, i64 24
   %34 = load double, ptr %33, align 8, !tbaa !1440
   %35 = load ptr, ptr %21, align 8, !tbaa !1500
   %.not.i.i.i.i.i.i = icmp eq ptr %31, %35

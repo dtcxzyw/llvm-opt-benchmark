@@ -1734,7 +1734,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost3log11v2_mt_posix6filterESaI
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.028 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.028 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !63
   %8 = icmp ult ptr %.028, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -1785,7 +1785,7 @@ _ZSt8_DestroyIN5boost3log11v2_mt_posix6filterEEvPT_.exit.i.i.i: ; preds = %16, %
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5boost3log11v2_mt_posix6filterES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !99
 
 _ZSt8_DestroyIPN5boost3log11v2_mt_posix6filterES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN5boost3log11v2_mt_posix6filterEEvPT_.exit.i.i.i
-  %.0 = getelementptr inbounds nuw i8, ptr %.029, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.029, i64 8
   %20 = load ptr, ptr %6, align 8, !tbaa !63
   %21 = icmp ult ptr %.0, %20
   br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !100

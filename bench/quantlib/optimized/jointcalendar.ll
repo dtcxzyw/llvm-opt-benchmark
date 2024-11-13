@@ -1056,7 +1056,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp33) #22
   %34 = load ptr, ptr %calendars_, align 8, !tbaa !36
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %i.sroa.0.094 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %i.sroa.0.094 = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load ptr, ptr %_M_finish.i, align 8, !tbaa !36
   %cmp.i.not95 = icmp eq ptr %i.sroa.0.094, %35
   br i1 %cmp.i.not95, label %for.end, label %for.body.lr.ph
@@ -1101,7 +1101,7 @@ if.then.i.i48:                                    ; preds = %invoke.cont61
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50, %if.then.i.i48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp56) #22
-  %i.sroa.0.0 = getelementptr inbounds nuw i8, ptr %i.sroa.0.096, i64 16
+  %i.sroa.0.0 = getelementptr inbounds i8, ptr %i.sroa.0.096, i64 16
   %42 = load ptr, ptr %_M_finish.i, align 8, !tbaa !36
   %cmp.i.not = icmp eq ptr %i.sroa.0.0, %42
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !43

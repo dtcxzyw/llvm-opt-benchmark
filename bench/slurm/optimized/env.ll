@@ -4441,7 +4441,7 @@ _find_name_in_env.exit.thread:                    ; preds = %24, %12
 
 36:                                               ; preds = %36, %_find_name_in_env.exit.thread
   %.pn.i = phi ptr [ %35, %_find_name_in_env.exit.thread ], [ %.0.i14, %36 ]
-  %.0.i14 = getelementptr inbounds i8, ptr %.pn.i, i64 -8
+  %.0.i14 = getelementptr i8, ptr %.pn.i, i64 -8
   %37 = load ptr, ptr %.0.i14, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %36, label %_extend_env.exit, !llvm.loop !20
@@ -6059,7 +6059,7 @@ define ptr @env_array_exclude(ptr nocapture noundef readonly %0, ptr noundef %1)
 
 18:                                               ; preds = %18, %8
   %.pn.i = phi ptr [ %17, %8 ], [ %.0.i, %18 ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 -8
+  %.0.i = getelementptr i8, ptr %.pn.i, i64 -8
   %19 = load ptr, ptr %.0.i, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %18, label %_extend_env.exit, !llvm.loop !20

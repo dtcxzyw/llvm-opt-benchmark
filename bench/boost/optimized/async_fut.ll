@@ -158289,7 +158289,7 @@ _ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_it
   store ptr %.sroa.869.2, ptr %17, align 8, !tbaa !173
   store ptr %.sroa.1271.2, ptr %19, align 8, !tbaa !173
   %53 = load ptr, ptr %5, align 8, !tbaa !2653
-  %.077 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %.077 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %7, align 8, !tbaa !2653
   %.not478 = icmp eq ptr %.077, %54
   br i1 %.not478, label %._crit_edge, label %.lr.ph
@@ -158444,7 +158444,7 @@ _ZSt14__copy_move_a1ILb1EPccEN9__gnu_cxx11__enable_ifIXsr23__is_random_access_it
   store ptr %.sroa.462.1, ptr %15, align 8, !tbaa !173
   store ptr %.sroa.7.1, ptr %17, align 8, !tbaa !173
   store ptr %.sroa.11.1, ptr %19, align 8, !tbaa !173
-  %.0 = getelementptr inbounds nuw i8, ptr %.079, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.079, i64 8
   %126 = load ptr, ptr %7, align 8, !tbaa !2653
   %.not4 = icmp eq ptr %.0, %126
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !2925
@@ -173597,7 +173597,7 @@ _ZSt25__unguarded_linear_insertIPcN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
 _ZSt25__unguarded_linear_insertIPcN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i: ; preds = %.lr.ph.i.i22.i.i.i, %52, %49
   %.sink.i19.i.i.i = phi ptr [ %.0, %49 ], [ %.019.i16.i.i.i, %52 ], [ %.013.i.i23.i.i.i, %.lr.ph.i.i22.i.i.i ]
   store i8 %46, ptr %.sink.i19.i.i.i, align 1, !tbaa !24
-  %.0.i20.i.i.i = getelementptr inbounds nuw i8, ptr %.019.i16.i.i.i, i64 1
+  %.0.i20.i.i.i = getelementptr inbounds i8, ptr %.019.i16.i.i.i, i64 1
   %.not.i21.i.i.i = icmp eq ptr %.0.i20.i.i.i, %21
   br i1 %.not.i21.i.i.i, label %_ZSt4sortIPcEvT_S1_.exit, label %.lr.ph.i15.i.i.i, !llvm.loop !3469
 

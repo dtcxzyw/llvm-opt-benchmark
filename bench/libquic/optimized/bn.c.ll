@@ -837,7 +837,7 @@ if.then.i:                                        ; preds = %if.end
 for.body.i:                                       ; preds = %for.inc.i, %if.then.i
   %.pn.i = phi ptr [ %3, %if.then.i ], [ %ftl.09.i, %for.inc.i ]
   %tmp_top.08.i = phi i32 [ %conv, %if.then.i ], [ %dec.i, %for.inc.i ]
-  %ftl.09.i = getelementptr inbounds i8, ptr %.pn.i, i64 -8
+  %ftl.09.i = getelementptr i8, ptr %.pn.i, i64 -8
   %4 = load i64, ptr %ftl.09.i, align 8
   %tobool.not.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i, label %for.inc.i, label %for.end.i
@@ -882,7 +882,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.inc
   %.pn = phi ptr [ %3, %if.then ], [ %ftl.09, %for.inc ]
   %tmp_top.08 = phi i32 [ %0, %if.then ], [ %dec, %for.inc ]
-  %ftl.09 = getelementptr inbounds i8, ptr %.pn, i64 -8
+  %ftl.09 = getelementptr i8, ptr %.pn, i64 -8
   %4 = load i64, ptr %ftl.09, align 8
   %tobool.not = icmp eq i64 %4, 0
   br i1 %tobool.not, label %for.inc, label %for.end

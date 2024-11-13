@@ -15,7 +15,7 @@ define dso_local ptr @Curl_memrchr(ptr noundef readonly %0, i32 noundef %1, i64 
 
 7:                                                ; preds = %8, %4
   %.pn = phi ptr [ %5, %4 ], [ %.011, %8 ]
-  %.011 = getelementptr inbounds i8, ptr %.pn, i64 -1
+  %.011 = getelementptr i8, ptr %.pn, i64 -1
   %.not13 = icmp ult ptr %.011, %0
   br i1 %.not13, label %.loopexit, label %8
 

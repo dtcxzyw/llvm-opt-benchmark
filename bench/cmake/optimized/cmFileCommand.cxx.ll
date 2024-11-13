@@ -30281,7 +30281,7 @@ _ZNK14RangeIterators17TransformIteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__c
 
 22:                                               ; preds = %_ZNK14RangeIterators17TransformIteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEPFS8_RS9_EEdeEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #24
-  %.sroa.0.016 = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.0.016 = getelementptr i8, ptr %1, i64 32
   %.not17 = icmp eq ptr %.sroa.0.016, %3
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -30300,7 +30300,7 @@ _ZNK14RangeIterators17TransformIteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__c
 
 26:                                               ; preds = %_ZNK14RangeIterators17TransformIteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEPFS8_RS9_EEdeEv.exit8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
-  %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 32
+  %.sroa.0.0 = getelementptr i8, ptr %.sroa.0.018, i64 32
   %.not = icmp eq ptr %.sroa.0.0, %3
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1153
 

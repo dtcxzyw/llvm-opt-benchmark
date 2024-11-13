@@ -69,7 +69,7 @@ for.end.i:                                        ; preds = %for.body.i
   %sext.i = shl i64 %sub.ptr.sub.i, 32
   %0 = ashr exact i64 %sext.i, 32
   %1 = getelementptr i8, ptr %lsu.i.i, i64 %0
-  %up.07.i.i = getelementptr inbounds i8, ptr %1, i64 -1
+  %up.07.i.i = getelementptr i8, ptr %1, i64 -1
   %cmp.not8.i.i = icmp ult ptr %up.07.i.i, %lsu.i.i
   br i1 %cmp.not8.i.i, label %uprv_decNumberFromUInt32_75.exit, label %for.body.i.i
 
@@ -84,7 +84,7 @@ for.body.i.i:                                     ; preds = %for.end.i, %if.end.
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %sub5.i.i = add nsw i32 %digits.09.i.i, -1
-  %up.0.i.i = getelementptr inbounds i8, ptr %up.010.i.i, i64 -1
+  %up.0.i.i = getelementptr i8, ptr %up.010.i.i, i64 -1
   %cmp.not.i.i = icmp ult ptr %up.0.i.i, %lsu.i.i
   br i1 %cmp.not.i.i, label %uprv_decNumberFromUInt32_75.exit, label %for.body.i.i, !llvm.loop !6
 
@@ -134,7 +134,7 @@ for.end:                                          ; preds = %for.body
   %sext = shl i64 %sub.ptr.sub, 32
   %0 = ashr exact i64 %sext, 32
   %1 = getelementptr i8, ptr %lsu.i, i64 %0
-  %up.07.i = getelementptr inbounds i8, ptr %1, i64 -1
+  %up.07.i = getelementptr i8, ptr %1, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %lsu.i
   br i1 %cmp.not8.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i
 
@@ -149,7 +149,7 @@ for.body.i:                                       ; preds = %for.end, %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
   %sub5.i = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %lsu.i
   br i1 %cmp.not.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i, !llvm.loop !6
 
@@ -2621,7 +2621,7 @@ cond.end:                                         ; preds = %if.end215, %cond.tr
   %cond = phi i32 [ %conv226, %cond.true ], [ %53, %if.end215 ]
   %55 = zext nneg i32 %cond to i64
   %56 = getelementptr i8, ptr %lsu217, i64 %55
-  %up.07.i = getelementptr inbounds i8, ptr %56, i64 -1
+  %up.07.i = getelementptr i8, ptr %56, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %lsu217
   br i1 %cmp.not8.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i252
 
@@ -2636,7 +2636,7 @@ for.body.i252:                                    ; preds = %cond.end, %if.end.i
 
 if.end.i253:                                      ; preds = %for.body.i252
   %sub5.i = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %lsu217
   br i1 %cmp.not.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i252, !llvm.loop !6
 
@@ -3002,7 +3002,7 @@ cond.end414:                                      ; preds = %if.then401, %cond.t
   %cond415 = phi i32 [ %conv408, %cond.true404 ], [ %93, %if.then401 ]
   %95 = zext nneg i32 %cond415 to i64
   %96 = getelementptr i8, ptr %acc.0, i64 %95
-  %up.07.i351 = getelementptr inbounds i8, ptr %96, i64 -1
+  %up.07.i351 = getelementptr i8, ptr %96, i64 -1
   %cmp.not8.i352 = icmp ult ptr %up.07.i351, %acc.0
   br i1 %cmp.not8.i352, label %_ZL12decGetDigitsPhi.exit364, label %for.body.i353
 
@@ -3017,7 +3017,7 @@ for.body.i353:                                    ; preds = %cond.end414, %if.en
 
 if.end.i359:                                      ; preds = %for.body.i353
   %sub5.i360 = add nsw i32 %digits.09.i355, -1
-  %up.0.i361 = getelementptr inbounds i8, ptr %up.010.i354, i64 -1
+  %up.0.i361 = getelementptr i8, ptr %up.010.i354, i64 -1
   %cmp.not.i362 = icmp ult ptr %up.0.i361, %acc.0
   br i1 %cmp.not.i362, label %_ZL12decGetDigitsPhi.exit364, label %for.body.i353, !llvm.loop !6
 
@@ -3048,7 +3048,7 @@ cond.end435:                                      ; preds = %if.end420, %cond.tr
   %cond436 = phi i32 [ %conv429, %cond.true425 ], [ %99, %if.end420 ]
   %101 = zext nneg i32 %cond436 to i64
   %102 = getelementptr i8, ptr %lsu309, i64 %101
-  %up.07.i365 = getelementptr inbounds i8, ptr %102, i64 -1
+  %up.07.i365 = getelementptr i8, ptr %102, i64 -1
   %cmp.not8.i366 = icmp ult ptr %up.07.i365, %lsu309
   br i1 %cmp.not8.i366, label %_ZL12decGetDigitsPhi.exit378, label %for.body.i367
 
@@ -3063,7 +3063,7 @@ for.body.i367:                                    ; preds = %cond.end435, %if.en
 
 if.end.i373:                                      ; preds = %for.body.i367
   %sub5.i374 = add nsw i32 %digits.09.i369, -1
-  %up.0.i375 = getelementptr inbounds i8, ptr %up.010.i368, i64 -1
+  %up.0.i375 = getelementptr i8, ptr %up.010.i368, i64 -1
   %cmp.not.i376 = icmp ult ptr %up.0.i375, %lsu309
   br i1 %cmp.not.i376, label %_ZL12decGetDigitsPhi.exit378, label %for.body.i367, !llvm.loop !6
 
@@ -3346,7 +3346,7 @@ for.end130:                                       ; preds = %for.inc127, %cond.e
   %sext = shl i64 %sub.ptr.sub, 32
   %13 = ashr exact i64 %sext, 32
   %14 = getelementptr i8, ptr %lsu22.ptr, i64 %13
-  %up.07.i = getelementptr inbounds i8, ptr %14, i64 -1
+  %up.07.i = getelementptr i8, ptr %14, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %lsu22.ptr
   br i1 %cmp.not8.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i
 
@@ -3361,7 +3361,7 @@ for.body.i:                                       ; preds = %for.end130, %if.end
 
 if.end.i:                                         ; preds = %for.body.i
   %sub5.i = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %lsu22.ptr
   br i1 %cmp.not.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i, !llvm.loop !6
 
@@ -5174,7 +5174,7 @@ if.end529:                                        ; preds = %if.then510
   %call543 = call fastcc noundef i32 @_ZL15decShiftToLeastPhii(ptr noundef nonnull %var1.0, i32 noundef %var1units.4, i32 noundef %postshift.0)
   %104 = sext i32 %call543 to i64
   %105 = getelementptr i8, ptr %var1.0, i64 %104
-  %up.07.i = getelementptr inbounds i8, ptr %105, i64 -1
+  %up.07.i = getelementptr i8, ptr %105, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %var1.0
   br i1 %cmp.not8.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i394
 
@@ -5189,7 +5189,7 @@ for.body.i394:                                    ; preds = %if.end529, %if.end.
 
 if.end.i395:                                      ; preds = %for.body.i394
   %sub5.i396 = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %var1.0
   br i1 %cmp.not.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i394, !llvm.loop !6
 
@@ -5337,7 +5337,7 @@ cond.end662:                                      ; preds = %if.end643, %cond.tr
   %sub668 = sub nsw i32 0, %call667
   %123 = sext i32 %sub668 to i64
   %124 = getelementptr i8, ptr %var1.0, i64 %123
-  %up.07.i398 = getelementptr inbounds i8, ptr %124, i64 -1
+  %up.07.i398 = getelementptr i8, ptr %124, i64 -1
   %cmp.not8.i399 = icmp ult ptr %up.07.i398, %var1.0
   br i1 %cmp.not8.i399, label %_ZL12decGetDigitsPhi.exit412, label %for.body.i400
 
@@ -5352,7 +5352,7 @@ for.body.i400:                                    ; preds = %cond.end662, %if.en
 
 if.end.i406:                                      ; preds = %for.body.i400
   %sub5.i407 = add nsw i32 %digits.09.i402, -1
-  %up.0.i408 = getelementptr inbounds i8, ptr %up.010.i401, i64 -1
+  %up.0.i408 = getelementptr i8, ptr %up.010.i401, i64 -1
   %cmp.not.i409 = icmp ult ptr %up.0.i408, %var1.0
   br i1 %cmp.not.i409, label %_ZL12decGetDigitsPhi.exit412, label %for.body.i400, !llvm.loop !6
 
@@ -6949,7 +6949,7 @@ if.end340:                                        ; preds = %if.end335, %cond.en
   store i8 %and, ptr %bits341, align 4
   %55 = sext i32 %accunits.0 to i64
   %56 = getelementptr i8, ptr %acc.0, i64 %55
-  %up.07.i = getelementptr inbounds i8, ptr %56, i64 -1
+  %up.07.i = getelementptr i8, ptr %56, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %acc.0
   br i1 %cmp.not8.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i
 
@@ -6964,7 +6964,7 @@ for.body.i:                                       ; preds = %if.end340, %if.end.
 
 if.end.i:                                         ; preds = %for.body.i
   %sub5.i = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %acc.0
   br i1 %cmp.not.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i, !llvm.loop !6
 
@@ -7157,7 +7157,7 @@ for.end80:                                        ; preds = %for.inc78, %cond.en
   %sext = shl i64 %sub.ptr.sub, 32
   %8 = ashr exact i64 %sext, 32
   %9 = getelementptr i8, ptr %lsu7.ptr, i64 %8
-  %up.07.i = getelementptr inbounds i8, ptr %9, i64 -1
+  %up.07.i = getelementptr i8, ptr %9, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %lsu7.ptr
   br i1 %cmp.not8.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i
 
@@ -7172,7 +7172,7 @@ for.body.i:                                       ; preds = %for.end80, %if.end.
 
 if.end.i:                                         ; preds = %for.body.i
   %sub5.i = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %lsu7.ptr
   br i1 %cmp.not.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i, !llvm.loop !6
 
@@ -7567,7 +7567,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %28 = ashr exact i64 %sext.i.i, 32
   %29 = getelementptr i8, ptr %lsu.i.i.i, i64 %28
-  %up.07.i.i.i = getelementptr inbounds i8, ptr %29, i64 -1
+  %up.07.i.i.i = getelementptr i8, ptr %29, i64 -1
   %cmp.not8.i.i.i = icmp ult ptr %up.07.i.i.i, %lsu.i.i.i
   br i1 %cmp.not8.i.i.i, label %uprv_decNumberFromUInt32_75.exit.i, label %for.body.i.i.i
 
@@ -7582,7 +7582,7 @@ for.body.i.i.i:                                   ; preds = %for.end.i.i, %if.en
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %sub5.i.i.i = add nsw i32 %digits.09.i.i.i, -1
-  %up.0.i.i.i = getelementptr inbounds i8, ptr %up.010.i.i.i, i64 -1
+  %up.0.i.i.i = getelementptr i8, ptr %up.010.i.i.i, i64 -1
   %cmp.not.i.i.i = icmp ult ptr %up.0.i.i.i, %lsu.i.i.i
   br i1 %cmp.not.i.i.i, label %uprv_decNumberFromUInt32_75.exit.i, label %for.body.i.i.i, !llvm.loop !6
 
@@ -7625,7 +7625,7 @@ for.end.i.i156:                                   ; preds = %for.body.i.i148
   %sext.i.i161 = shl i64 %sub.ptr.sub.i.i159, 32
   %31 = ashr exact i64 %sext.i.i161, 32
   %32 = getelementptr i8, ptr %lsu.i.i.i146, i64 %31
-  %up.07.i.i.i162 = getelementptr inbounds i8, ptr %32, i64 -1
+  %up.07.i.i.i162 = getelementptr i8, ptr %32, i64 -1
   %cmp.not8.i.i.i163 = icmp ult ptr %up.07.i.i.i162, %lsu.i.i.i146
   br i1 %cmp.not8.i.i.i163, label %uprv_decNumberFromInt32_75.exit176, label %for.body.i.i.i164
 
@@ -7640,7 +7640,7 @@ for.body.i.i.i164:                                ; preds = %for.end.i.i156, %if
 
 if.end.i.i.i170:                                  ; preds = %for.body.i.i.i164
   %sub5.i.i.i171 = add nsw i32 %digits.09.i.i.i166, -1
-  %up.0.i.i.i172 = getelementptr inbounds i8, ptr %up.010.i.i.i165, i64 -1
+  %up.0.i.i.i172 = getelementptr i8, ptr %up.010.i.i.i165, i64 -1
   %cmp.not.i.i.i173 = icmp ult ptr %up.0.i.i.i172, %lsu.i.i.i146
   br i1 %cmp.not.i.i.i173, label %uprv_decNumberFromInt32_75.exit176, label %for.body.i.i.i164, !llvm.loop !6
 
@@ -7772,7 +7772,7 @@ for.end.i.i206:                                   ; preds = %for.body.i.i198
   %sext.i.i211 = shl i64 %sub.ptr.sub.i.i209, 32
   %49 = ashr exact i64 %sext.i.i211, 32
   %50 = getelementptr i8, ptr %lsu.i.i.i146, i64 %49
-  %up.07.i.i.i212 = getelementptr inbounds i8, ptr %50, i64 -1
+  %up.07.i.i.i212 = getelementptr i8, ptr %50, i64 -1
   %cmp.not8.i.i.i213 = icmp ult ptr %up.07.i.i.i212, %lsu.i.i.i146
   br i1 %cmp.not8.i.i.i213, label %uprv_decNumberFromUInt32_75.exit.i224, label %for.body.i.i.i214
 
@@ -7787,7 +7787,7 @@ for.body.i.i.i214:                                ; preds = %for.end.i.i206, %if
 
 if.end.i.i.i220:                                  ; preds = %for.body.i.i.i214
   %sub5.i.i.i221 = add nsw i32 %digits.09.i.i.i216, -1
-  %up.0.i.i.i222 = getelementptr inbounds i8, ptr %up.010.i.i.i215, i64 -1
+  %up.0.i.i.i222 = getelementptr i8, ptr %up.010.i.i.i215, i64 -1
   %cmp.not.i.i.i223 = icmp ult ptr %up.0.i.i.i222, %lsu.i.i.i146
   br i1 %cmp.not.i.i.i223, label %uprv_decNumberFromUInt32_75.exit.i224, label %for.body.i.i.i214, !llvm.loop !6
 
@@ -8170,7 +8170,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i18
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %13 = ashr exact i64 %sext.i.i, 32
   %14 = getelementptr i8, ptr %lsu.i.i.i, i64 %13
-  %up.07.i.i.i = getelementptr inbounds i8, ptr %14, i64 -1
+  %up.07.i.i.i = getelementptr i8, ptr %14, i64 -1
   %cmp.not8.i.i.i = icmp ult ptr %up.07.i.i.i, %lsu.i.i.i
   br i1 %cmp.not8.i.i.i, label %uprv_decNumberFromUInt32_75.exit.i, label %for.body.i.i.i
 
@@ -8185,7 +8185,7 @@ for.body.i.i.i:                                   ; preds = %for.end.i.i, %if.en
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %sub5.i.i.i = add nsw i32 %digits.09.i.i.i, -1
-  %up.0.i.i.i = getelementptr inbounds i8, ptr %up.010.i.i.i, i64 -1
+  %up.0.i.i.i = getelementptr i8, ptr %up.010.i.i.i, i64 -1
   %cmp.not.i.i.i = icmp ult ptr %up.0.i.i.i, %lsu.i.i.i
   br i1 %cmp.not.i.i.i, label %uprv_decNumberFromUInt32_75.exit.i, label %for.body.i.i.i, !llvm.loop !6
 
@@ -8452,7 +8452,7 @@ if.end39.i:                                       ; preds = %if.then34.i, %cond.
   %conv45.i = add i32 %28, 1
   %29 = sext i32 %conv45.i to i64
   %30 = getelementptr i8, ptr %lsu.ptr, i64 %29
-  %up.07.i.i = getelementptr inbounds i8, ptr %30, i64 -1
+  %up.07.i.i = getelementptr i8, ptr %30, i64 -1
   %cmp.not8.i.i = icmp ult ptr %up.07.i.i, %lsu.ptr
   br i1 %cmp.not8.i.i, label %_ZL8decDecapP9decNumberi.exit, label %for.body.i.i
 
@@ -8467,7 +8467,7 @@ for.body.i.i:                                     ; preds = %if.end39.i, %if.end
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %sub5.i.i = add nsw i32 %digits.09.i.i, -1
-  %up.0.i.i = getelementptr inbounds i8, ptr %up.010.i.i, i64 -1
+  %up.0.i.i = getelementptr i8, ptr %up.010.i.i, i64 -1
   %cmp.not.i.i = icmp ult ptr %up.0.i.i, %lsu.ptr
   br i1 %cmp.not.i.i, label %_ZL8decDecapP9decNumberi.exit, label %for.body.i.i, !llvm.loop !6
 
@@ -8679,7 +8679,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %15 = ashr exact i64 %sext.i.i, 32
   %16 = getelementptr i8, ptr %lsu19, i64 %15
-  %up.07.i.i.i = getelementptr inbounds i8, ptr %16, i64 -1
+  %up.07.i.i.i = getelementptr i8, ptr %16, i64 -1
   %cmp.not8.i.i.i = icmp ult ptr %up.07.i.i.i, %lsu19
   br i1 %cmp.not8.i.i.i, label %uprv_decNumberFromUInt32_75.exit.i, label %for.body.i.i.i
 
@@ -8694,7 +8694,7 @@ for.body.i.i.i:                                   ; preds = %for.end.i.i, %if.en
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %sub5.i.i.i = add nsw i32 %digits.09.i.i.i, -1
-  %up.0.i.i.i = getelementptr inbounds i8, ptr %up.010.i.i.i, i64 -1
+  %up.0.i.i.i = getelementptr i8, ptr %up.010.i.i.i, i64 -1
   %cmp.not.i.i.i = icmp ult ptr %up.0.i.i.i, %lsu19
   br i1 %cmp.not.i.i.i, label %uprv_decNumberFromUInt32_75.exit.i, label %for.body.i.i.i, !llvm.loop !6
 
@@ -10076,7 +10076,7 @@ for.end130:                                       ; preds = %for.inc127, %cond.e
   %sext = shl i64 %sub.ptr.sub, 32
   %13 = ashr exact i64 %sext, 32
   %14 = getelementptr i8, ptr %lsu22.ptr, i64 %13
-  %up.07.i = getelementptr inbounds i8, ptr %14, i64 -1
+  %up.07.i = getelementptr i8, ptr %14, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %lsu22.ptr
   br i1 %cmp.not8.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i
 
@@ -10091,7 +10091,7 @@ for.body.i:                                       ; preds = %for.end130, %if.end
 
 if.end.i:                                         ; preds = %for.body.i
   %sub5.i = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %lsu22.ptr
   br i1 %cmp.not.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i, !llvm.loop !6
 
@@ -12303,7 +12303,7 @@ if.end184:                                        ; preds = %for.body.i108, %_ZL
   %conv190 = add i32 %46, 1
   %47 = sext i32 %conv190 to i64
   %48 = getelementptr i8, ptr %lsu.ptr.ptr, i64 %47
-  %up.07.i = getelementptr inbounds i8, ptr %48, i64 -1
+  %up.07.i = getelementptr i8, ptr %48, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %lsu.ptr.ptr
   br i1 %cmp.not8.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i115
 
@@ -12318,7 +12318,7 @@ for.body.i115:                                    ; preds = %if.end184, %if.end.
 
 if.end.i118:                                      ; preds = %for.body.i115
   %sub5.i = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %lsu.ptr.ptr
   br i1 %cmp.not.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i115, !llvm.loop !6
 
@@ -13046,7 +13046,7 @@ if.end39:                                         ; preds = %if.then34, %cond.en
   %conv45 = add i32 %4, 1
   %5 = sext i32 %conv45 to i64
   %6 = getelementptr i8, ptr %lsu2, i64 %5
-  %up.07.i = getelementptr inbounds i8, ptr %6, i64 -1
+  %up.07.i = getelementptr i8, ptr %6, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %lsu2
   br i1 %cmp.not8.i, label %return, label %for.body.i
 
@@ -13061,7 +13061,7 @@ for.body.i:                                       ; preds = %if.end39, %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
   %sub5.i = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %lsu2
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !6
 
@@ -14439,7 +14439,7 @@ for.end129:                                       ; preds = %for.inc126, %cond.e
   %sext = shl i64 %sub.ptr.sub, 32
   %13 = ashr exact i64 %sext, 32
   %14 = getelementptr i8, ptr %lsu22.ptr, i64 %13
-  %up.07.i = getelementptr inbounds i8, ptr %14, i64 -1
+  %up.07.i = getelementptr i8, ptr %14, i64 -1
   %cmp.not8.i = icmp ult ptr %up.07.i, %lsu22.ptr
   br i1 %cmp.not8.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i
 
@@ -14454,7 +14454,7 @@ for.body.i:                                       ; preds = %for.end129, %if.end
 
 if.end.i:                                         ; preds = %for.body.i
   %sub5.i = add nsw i32 %digits.09.i, -1
-  %up.0.i = getelementptr inbounds i8, ptr %up.010.i, i64 -1
+  %up.0.i = getelementptr i8, ptr %up.010.i, i64 -1
   %cmp.not.i = icmp ult ptr %up.0.i, %lsu22.ptr
   br i1 %cmp.not.i, label %_ZL12decGetDigitsPhi.exit, label %for.body.i, !llvm.loop !6
 

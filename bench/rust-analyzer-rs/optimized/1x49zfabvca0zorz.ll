@@ -6804,7 +6804,7 @@ select.unfold.sink.split:                         ; preds = %.lr.ph.split.us, %.
   %.pn = phi ptr [ %22, %.lr.ph14 ], [ %5, %.lr.ph.split.us ]
   %.sroa.6.0.lcssa.ph = phi ptr [ %.0.i.i.i11.us, %.lr.ph14 ], [ undef, %.lr.ph.split.us ]
   %.sroa.0.0.lcssa.ph = phi ptr [ %scevgep26, %.lr.ph14 ], [ null, %.lr.ph.split.us ]
-  %scevgep.sink = getelementptr inbounds i8, ptr %.pn, i64 24
+  %scevgep.sink = getelementptr i8, ptr %.pn, i64 24
   store ptr %scevgep.sink, ptr %2, align 8, !alias.scope !1729
   br label %select.unfold
 

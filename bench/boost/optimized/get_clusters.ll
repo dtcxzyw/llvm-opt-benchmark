@@ -140439,7 +140439,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %.sroa.0.019.i.idx = phi i64 [ 16, %.lr.ph.i ], [ %.sroa.0.019.i.add, %22 ]
   %.pn18.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.019.i.ptr, %22 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.019.i.idx
-  %11 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 28
+  %11 = getelementptr inbounds i8, ptr %.pn18.i, i64 28
   %12 = load float, ptr %11, align 4, !tbaa !24
   %13 = load float, ptr %9, align 4, !tbaa !2365
   %14 = fcmp ogt float %12, %13
@@ -140523,7 +140523,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br i1 %32, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIfLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIfEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S17_.exit, label %.preheader.i22
 
 .preheader.i22:                                   ; preds = %31
-  %.sroa.0.016.i23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.016.i23 = getelementptr inbounds i8, ptr %0, i64 16
   %.not17.i24 = icmp eq ptr %.sroa.0.016.i23, %1
   br i1 %.not17.i24, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIfLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIfEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S17_.exit, label %.lr.ph.i25
 
@@ -140534,7 +140534,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
 34:                                               ; preds = %52, %.lr.ph.i25
   %.sroa.0.019.i26 = phi ptr [ %.sroa.0.016.i23, %.lr.ph.i25 ], [ %.sroa.0.0.i31, %52 ]
   %.pn18.i27 = phi ptr [ %0, %.lr.ph.i25 ], [ %.sroa.0.019.i26, %52 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 28
+  %35 = getelementptr inbounds i8, ptr %.pn18.i27, i64 28
   %36 = load float, ptr %35, align 4, !tbaa !24
   %37 = load float, ptr %33, align 4, !tbaa !2365
   %38 = fcmp ogt float %36, %37
@@ -140580,7 +140580,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %52
 
 52:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIfLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops14_Val_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIfEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S17_.exit.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIfLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.i36
-  %.sroa.0.0.i31 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i26, i64 16
+  %.sroa.0.0.i31 = getelementptr inbounds i8, ptr %.sroa.0.019.i26, i64 16
   %.not.i32 = icmp eq ptr %.sroa.0.0.i31, %1
   br i1 %.not.i32, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIfLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIfEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S17_.exit, label %34, !llvm.loop !2391
 
@@ -143413,7 +143413,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %.sroa.0.019.i.idx = phi i64 [ 24, %.lr.ph.i ], [ %.sroa.0.019.i.add, %24 ]
   %.pn18.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.019.i.ptr, %24 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.019.i.idx
-  %11 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 40
+  %11 = getelementptr inbounds i8, ptr %.pn18.i, i64 40
   %12 = load double, ptr %11, align 8, !tbaa !24
   %13 = load double, ptr %9, align 8, !tbaa !2503
   %14 = fcmp ogt double %12, %13
@@ -143500,7 +143500,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br i1 %34, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIdEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S17_.exit, label %.preheader.i22
 
 .preheader.i22:                                   ; preds = %33
-  %.sroa.0.016.i23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.016.i23 = getelementptr inbounds i8, ptr %0, i64 24
   %.not17.i24 = icmp eq ptr %.sroa.0.016.i23, %1
   br i1 %.not17.i24, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIdEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S17_.exit, label %.lr.ph.i25
 
@@ -143511,7 +143511,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
 36:                                               ; preds = %52, %.lr.ph.i25
   %.sroa.0.019.i26 = phi ptr [ %.sroa.0.016.i23, %.lr.ph.i25 ], [ %.sroa.0.0.i31, %52 ]
   %.pn18.i27 = phi ptr [ %0, %.lr.ph.i25 ], [ %.sroa.0.019.i26, %52 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 40
+  %37 = getelementptr inbounds i8, ptr %.pn18.i27, i64 40
   %38 = load double, ptr %37, align 8, !tbaa !24
   %39 = load double, ptr %35, align 8, !tbaa !2503
   %40 = fcmp ogt double %38, %39
@@ -143556,7 +143556,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %52
 
 52:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops14_Val_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIdEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S17_.exit.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.i36
-  %.sroa.0.0.i31 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i26, i64 24
+  %.sroa.0.0.i31 = getelementptr inbounds i8, ptr %.sroa.0.019.i26, i64 24
   %.not.i32 = icmp eq ptr %.sroa.0.0.i31, %1
   br i1 %.not.i32, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIdEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S17_.exit, label %36, !llvm.loop !2527
 
@@ -145300,7 +145300,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %.sroa.0.019.i.idx = phi i64 [ 48, %.lr.ph.i ], [ %.sroa.0.019.i.add, %24 ]
   %.pn18.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.019.i.ptr, %24 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.019.i.idx
-  %11 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 80
+  %11 = getelementptr inbounds i8, ptr %.pn18.i, i64 80
   %12 = load x86_fp80, ptr %11, align 16
   %13 = load x86_fp80, ptr %9, align 16, !tbaa !2599
   %14 = fcmp ogt x86_fp80 %12, %13
@@ -145399,7 +145399,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br i1 %34, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIeLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIeEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S17_.exit, label %.preheader.i26
 
 .preheader.i26:                                   ; preds = %33
-  %.sroa.0.016.i27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.0.016.i27 = getelementptr inbounds i8, ptr %0, i64 48
   %.not17.i28 = icmp eq ptr %.sroa.0.016.i27, %1
   br i1 %.not17.i28, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIeLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIeEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S17_.exit, label %.lr.ph.i29
 
@@ -145410,7 +145410,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
 36:                                               ; preds = %52, %.lr.ph.i29
   %.sroa.0.019.i30 = phi ptr [ %.sroa.0.016.i27, %.lr.ph.i29 ], [ %.sroa.0.0.i37, %52 ]
   %.pn18.i31 = phi ptr [ %0, %.lr.ph.i29 ], [ %.sroa.0.019.i30, %52 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.pn18.i31, i64 80
+  %37 = getelementptr inbounds i8, ptr %.pn18.i31, i64 80
   %38 = load x86_fp80, ptr %37, align 16
   %39 = load x86_fp80, ptr %35, align 16, !tbaa !2599
   %40 = fcmp ogt x86_fp80 %38, %39
@@ -145461,7 +145461,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry
   br label %52
 
 52:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIeLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops14_Val_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIeEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S17_.exit.i33, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIeLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.i42
-  %.sroa.0.0.i37 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i30, i64 48
+  %.sroa.0.0.i37 = getelementptr inbounds i8, ptr %.sroa.0.019.i30, i64 48
   %.not.i38 = icmp eq ptr %.sroa.0.0.i37, %1
   br i1 %.not.i38, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIeLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS5_9turn_infoISB_NS3_13segment_ratioIeEENS5_14turn_operationISB_SN_EESt5arrayISP_Lm2EEEESaISS_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSW_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS15_RKS17_E_EEEvS15_S15_S17_.exit, label %36, !llvm.loop !2620
 

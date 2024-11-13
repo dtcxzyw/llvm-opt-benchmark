@@ -5088,7 +5088,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15sortPtrAccessesENS_8ArrayRefIPNS_
   br label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %6
-  %.sroa.043.060 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.043.060 = getelementptr i8, ptr %0, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.preheader.i.i.i.preheader
@@ -5116,7 +5116,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15sortPtrAccessesENS_8ArrayRefIPNS_
   %29 = icmp eq ptr %28, %13
   %30 = and i1 %.02263, %29
   %31 = add nuw nsw i64 %.sroa.546.062, 1
-  %.sroa.043.0 = getelementptr inbounds i8, ptr %.sroa.043.064, i64 8
+  %.sroa.043.0 = getelementptr i8, ptr %.sroa.043.064, i64 8
   %.not = icmp eq ptr %.sroa.043.0, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

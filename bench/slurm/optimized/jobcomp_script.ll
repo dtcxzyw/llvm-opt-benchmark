@@ -584,7 +584,7 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
 
 146:                                              ; preds = %146, %136
   %.pn.i.i.i.i.i = phi ptr [ %145, %136 ], [ %.0.i.i.i.i.i, %146 ]
-  %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i, i64 -8
+  %.0.i.i.i.i.i = getelementptr i8, ptr %.pn.i.i.i.i.i, i64 -8
   %147 = load ptr, ptr %.0.i.i.i.i.i, align 8
   %148 = icmp eq ptr %147, null
   br i1 %148, label %146, label %_extend_env.exit.i.i.i.i, !llvm.loop !6
@@ -624,7 +624,7 @@ _env_append.exit.i.i.i:                           ; preds = %_extend_env.exit.i.
 
 165:                                              ; preds = %165, %155
   %.pn.i.i69.i.i.i = phi ptr [ %164, %155 ], [ %.0.i.i70.i.i.i, %165 ]
-  %.0.i.i70.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i69.i.i.i, i64 -8
+  %.0.i.i70.i.i.i = getelementptr i8, ptr %.pn.i.i69.i.i.i, i64 -8
   %166 = load ptr, ptr %.0.i.i70.i.i.i, align 8
   %167 = icmp eq ptr %166, null
   br i1 %167, label %165, label %_extend_env.exit.i71.i.i.i, !llvm.loop !6
@@ -663,7 +663,7 @@ _env_append.exit73.i.i.i:                         ; preds = %_extend_env.exit.i7
 
 184:                                              ; preds = %184, %174
   %.pn.i.i75.i.i.i = phi ptr [ %183, %174 ], [ %.0.i.i76.i.i.i, %184 ]
-  %.0.i.i76.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i75.i.i.i, i64 -8
+  %.0.i.i76.i.i.i = getelementptr i8, ptr %.pn.i.i75.i.i.i, i64 -8
   %185 = load ptr, ptr %.0.i.i76.i.i.i, align 8
   %186 = icmp eq ptr %185, null
   br i1 %186, label %184, label %_extend_env.exit.i77.i.i.i, !llvm.loop !6
@@ -702,7 +702,7 @@ _env_append.exit79.i.i.i:                         ; preds = %_extend_env.exit.i7
 
 203:                                              ; preds = %203, %193
   %.pn.i.i81.i.i.i = phi ptr [ %202, %193 ], [ %.0.i.i82.i.i.i, %203 ]
-  %.0.i.i82.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i81.i.i.i, i64 -8
+  %.0.i.i82.i.i.i = getelementptr i8, ptr %.pn.i.i81.i.i.i, i64 -8
   %204 = load ptr, ptr %.0.i.i82.i.i.i, align 8
   %205 = icmp eq ptr %204, null
   br i1 %205, label %203, label %_extend_env.exit.i83.i.i.i, !llvm.loop !6
@@ -741,7 +741,7 @@ _env_append.exit85.i.i.i:                         ; preds = %_extend_env.exit.i8
 
 222:                                              ; preds = %222, %212
   %.pn.i.i87.i.i.i = phi ptr [ %221, %212 ], [ %.0.i.i88.i.i.i, %222 ]
-  %.0.i.i88.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i87.i.i.i, i64 -8
+  %.0.i.i88.i.i.i = getelementptr i8, ptr %.pn.i.i87.i.i.i, i64 -8
   %223 = load ptr, ptr %.0.i.i88.i.i.i, align 8
   %224 = icmp eq ptr %223, null
   br i1 %224, label %222, label %_extend_env.exit.i89.i.i.i, !llvm.loop !6
@@ -780,7 +780,7 @@ _env_append.exit91.i.i.i:                         ; preds = %_extend_env.exit.i8
 
 241:                                              ; preds = %241, %231
   %.pn.i.i93.i.i.i = phi ptr [ %240, %231 ], [ %.0.i.i94.i.i.i, %241 ]
-  %.0.i.i94.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i93.i.i.i, i64 -8
+  %.0.i.i94.i.i.i = getelementptr i8, ptr %.pn.i.i93.i.i.i, i64 -8
   %242 = load ptr, ptr %.0.i.i94.i.i.i, align 8
   %243 = icmp eq ptr %242, null
   br i1 %243, label %241, label %_extend_env.exit.i95.i.i.i, !llvm.loop !6
@@ -819,7 +819,7 @@ _env_append.exit97.i.i.i:                         ; preds = %_extend_env.exit.i9
 
 260:                                              ; preds = %260, %250
   %.pn.i.i99.i.i.i = phi ptr [ %259, %250 ], [ %.0.i.i100.i.i.i, %260 ]
-  %.0.i.i100.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i99.i.i.i, i64 -8
+  %.0.i.i100.i.i.i = getelementptr i8, ptr %.pn.i.i99.i.i.i, i64 -8
   %261 = load ptr, ptr %.0.i.i100.i.i.i, align 8
   %262 = icmp eq ptr %261, null
   br i1 %262, label %260, label %_extend_env.exit.i101.i.i.i, !llvm.loop !6
@@ -858,7 +858,7 @@ _env_append.exit103.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 279:                                              ; preds = %279, %269
   %.pn.i.i105.i.i.i = phi ptr [ %278, %269 ], [ %.0.i.i106.i.i.i, %279 ]
-  %.0.i.i106.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i105.i.i.i, i64 -8
+  %.0.i.i106.i.i.i = getelementptr i8, ptr %.pn.i.i105.i.i.i, i64 -8
   %280 = load ptr, ptr %.0.i.i106.i.i.i, align 8
   %281 = icmp eq ptr %280, null
   br i1 %281, label %279, label %_extend_env.exit.i107.i.i.i, !llvm.loop !6
@@ -897,7 +897,7 @@ _env_append.exit109.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 298:                                              ; preds = %298, %288
   %.pn.i.i111.i.i.i = phi ptr [ %297, %288 ], [ %.0.i.i112.i.i.i, %298 ]
-  %.0.i.i112.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i111.i.i.i, i64 -8
+  %.0.i.i112.i.i.i = getelementptr i8, ptr %.pn.i.i111.i.i.i, i64 -8
   %299 = load ptr, ptr %.0.i.i112.i.i.i, align 8
   %300 = icmp eq ptr %299, null
   br i1 %300, label %298, label %_extend_env.exit.i113.i.i.i, !llvm.loop !6
@@ -936,7 +936,7 @@ _env_append.exit115.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 317:                                              ; preds = %317, %307
   %.pn.i.i117.i.i.i = phi ptr [ %316, %307 ], [ %.0.i.i118.i.i.i, %317 ]
-  %.0.i.i118.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i117.i.i.i, i64 -8
+  %.0.i.i118.i.i.i = getelementptr i8, ptr %.pn.i.i117.i.i.i, i64 -8
   %318 = load ptr, ptr %.0.i.i118.i.i.i, align 8
   %319 = icmp eq ptr %318, null
   br i1 %319, label %317, label %_extend_env.exit.i119.i.i.i, !llvm.loop !6
@@ -975,7 +975,7 @@ _env_append.exit121.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 336:                                              ; preds = %336, %326
   %.pn.i.i123.i.i.i = phi ptr [ %335, %326 ], [ %.0.i.i124.i.i.i, %336 ]
-  %.0.i.i124.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i123.i.i.i, i64 -8
+  %.0.i.i124.i.i.i = getelementptr i8, ptr %.pn.i.i123.i.i.i, i64 -8
   %337 = load ptr, ptr %.0.i.i124.i.i.i, align 8
   %338 = icmp eq ptr %337, null
   br i1 %338, label %336, label %_extend_env.exit.i125.i.i.i, !llvm.loop !6
@@ -1014,7 +1014,7 @@ _env_append.exit127.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 355:                                              ; preds = %355, %345
   %.pn.i.i129.i.i.i = phi ptr [ %354, %345 ], [ %.0.i.i130.i.i.i, %355 ]
-  %.0.i.i130.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i129.i.i.i, i64 -8
+  %.0.i.i130.i.i.i = getelementptr i8, ptr %.pn.i.i129.i.i.i, i64 -8
   %356 = load ptr, ptr %.0.i.i130.i.i.i, align 8
   %357 = icmp eq ptr %356, null
   br i1 %357, label %355, label %_extend_env.exit.i131.i.i.i, !llvm.loop !6
@@ -1053,7 +1053,7 @@ _env_append.exit133.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 374:                                              ; preds = %374, %364
   %.pn.i.i135.i.i.i = phi ptr [ %373, %364 ], [ %.0.i.i136.i.i.i, %374 ]
-  %.0.i.i136.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i135.i.i.i, i64 -8
+  %.0.i.i136.i.i.i = getelementptr i8, ptr %.pn.i.i135.i.i.i, i64 -8
   %375 = load ptr, ptr %.0.i.i136.i.i.i, align 8
   %376 = icmp eq ptr %375, null
   br i1 %376, label %374, label %_extend_env.exit.i137.i.i.i, !llvm.loop !6
@@ -1092,7 +1092,7 @@ _env_append.exit139.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 393:                                              ; preds = %393, %383
   %.pn.i.i141.i.i.i = phi ptr [ %392, %383 ], [ %.0.i.i142.i.i.i, %393 ]
-  %.0.i.i142.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i141.i.i.i, i64 -8
+  %.0.i.i142.i.i.i = getelementptr i8, ptr %.pn.i.i141.i.i.i, i64 -8
   %394 = load ptr, ptr %.0.i.i142.i.i.i, align 8
   %395 = icmp eq ptr %394, null
   br i1 %395, label %393, label %_extend_env.exit.i143.i.i.i, !llvm.loop !6
@@ -1131,7 +1131,7 @@ _env_append.exit145.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 412:                                              ; preds = %412, %402
   %.pn.i.i147.i.i.i = phi ptr [ %411, %402 ], [ %.0.i.i148.i.i.i, %412 ]
-  %.0.i.i148.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i147.i.i.i, i64 -8
+  %.0.i.i148.i.i.i = getelementptr i8, ptr %.pn.i.i147.i.i.i, i64 -8
   %413 = load ptr, ptr %.0.i.i148.i.i.i, align 8
   %414 = icmp eq ptr %413, null
   br i1 %414, label %412, label %_extend_env.exit.i149.i.i.i, !llvm.loop !6
@@ -1171,7 +1171,7 @@ _env_append.exit151.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 432:                                              ; preds = %432, %422
   %.pn.i.i153.i.i.i = phi ptr [ %431, %422 ], [ %.0.i.i154.i.i.i, %432 ]
-  %.0.i.i154.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i153.i.i.i, i64 -8
+  %.0.i.i154.i.i.i = getelementptr i8, ptr %.pn.i.i153.i.i.i, i64 -8
   %433 = load ptr, ptr %.0.i.i154.i.i.i, align 8
   %434 = icmp eq ptr %433, null
   br i1 %434, label %432, label %_extend_env.exit.i155.i.i.i, !llvm.loop !6
@@ -1212,7 +1212,7 @@ _env_append.exit157.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 451:                                              ; preds = %451, %441
   %.pn.i.i159.i.i.i = phi ptr [ %450, %441 ], [ %.0.i.i160.i.i.i, %451 ]
-  %.0.i.i160.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i159.i.i.i, i64 -8
+  %.0.i.i160.i.i.i = getelementptr i8, ptr %.pn.i.i159.i.i.i, i64 -8
   %452 = load ptr, ptr %.0.i.i160.i.i.i, align 8
   %453 = icmp eq ptr %452, null
   br i1 %453, label %451, label %_extend_env.exit.i161.i.i.i, !llvm.loop !6
@@ -1256,7 +1256,7 @@ _env_append.exit163.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 471:                                              ; preds = %471, %461
   %.pn.i.i165.i.i.i = phi ptr [ %470, %461 ], [ %.0.i.i166.i.i.i, %471 ]
-  %.0.i.i166.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i165.i.i.i, i64 -8
+  %.0.i.i166.i.i.i = getelementptr i8, ptr %.pn.i.i165.i.i.i, i64 -8
   %472 = load ptr, ptr %.0.i.i166.i.i.i, align 8
   %473 = icmp eq ptr %472, null
   br i1 %473, label %471, label %_extend_env.exit.i167.i.i.i, !llvm.loop !6
@@ -1300,7 +1300,7 @@ _env_append.exit169.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 491:                                              ; preds = %491, %481
   %.pn.i.i171.i.i.i = phi ptr [ %490, %481 ], [ %.0.i.i172.i.i.i, %491 ]
-  %.0.i.i172.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i171.i.i.i, i64 -8
+  %.0.i.i172.i.i.i = getelementptr i8, ptr %.pn.i.i171.i.i.i, i64 -8
   %492 = load ptr, ptr %.0.i.i172.i.i.i, align 8
   %493 = icmp eq ptr %492, null
   br i1 %493, label %491, label %_extend_env.exit.i173.i.i.i, !llvm.loop !6
@@ -1341,7 +1341,7 @@ _env_append.exit175.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 510:                                              ; preds = %510, %500
   %.pn.i.i177.i.i.i = phi ptr [ %509, %500 ], [ %.0.i.i178.i.i.i, %510 ]
-  %.0.i.i178.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i177.i.i.i, i64 -8
+  %.0.i.i178.i.i.i = getelementptr i8, ptr %.pn.i.i177.i.i.i, i64 -8
   %511 = load ptr, ptr %.0.i.i178.i.i.i, align 8
   %512 = icmp eq ptr %511, null
   br i1 %512, label %510, label %_extend_env.exit.i179.i.i.i, !llvm.loop !6
@@ -1386,7 +1386,7 @@ _env_append.exit181.i.i.i:                        ; preds = %_extend_env.exit.i1
 
 529:                                              ; preds = %529, %519
   %.pn.i.i182.i.i.i = phi ptr [ %528, %519 ], [ %.0.i.i183.i.i.i, %529 ]
-  %.0.i.i183.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i182.i.i.i, i64 -8
+  %.0.i.i183.i.i.i = getelementptr i8, ptr %.pn.i.i182.i.i.i, i64 -8
   %530 = load ptr, ptr %.0.i.i183.i.i.i, align 8
   %531 = icmp eq ptr %530, null
   br i1 %531, label %529, label %_extend_env.exit.i184.i.i.i, !llvm.loop !6
@@ -2134,7 +2134,7 @@ define internal void @_env_append_fmt(ptr noundef nonnull %0, ptr noundef %1, pt
 
 20:                                               ; preds = %20, %10
   %.pn.i.i = phi ptr [ %19, %10 ], [ %.0.i.i, %20 ]
-  %.0.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -8
+  %.0.i.i = getelementptr i8, ptr %.pn.i.i, i64 -8
   %21 = load ptr, ptr %.0.i.i, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %20, label %_extend_env.exit.i, !llvm.loop !6

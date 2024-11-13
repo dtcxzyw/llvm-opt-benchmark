@@ -25471,7 +25471,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
 
 99:                                               ; preds = %96, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit
   %.pn = phi ptr [ %90, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit ], [ %92, %96 ]
-  %.sroa.0124.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 48
+  %.sroa.0124.0.in = getelementptr inbounds i8, ptr %.pn, i64 48
   %.sroa.0124.0 = load i64, ptr %.sroa.0124.0.in, align 8
   %.not.i.i87 = icmp ult i64 %.sroa.0124.0, 16
   br i1 %.not.i.i87, label %.thread, label %100

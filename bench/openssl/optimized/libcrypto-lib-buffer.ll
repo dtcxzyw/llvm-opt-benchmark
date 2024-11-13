@@ -307,7 +307,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %.pn18 = phi ptr [ %out.addr.0, %for.body ], [ %0, %for.body.preheader ]
   %i.017 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %in.addr.016 = phi ptr [ %incdec.ptr, %for.body ], [ %in, %for.body.preheader ]
-  %out.addr.0 = getelementptr inbounds i8, ptr %.pn18, i64 -1
+  %out.addr.0 = getelementptr i8, ptr %.pn18, i64 -1
   %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.016, i64 1
   %1 = load i8, ptr %in.addr.016, align 1
   store i8 %1, ptr %out.addr.0, align 1

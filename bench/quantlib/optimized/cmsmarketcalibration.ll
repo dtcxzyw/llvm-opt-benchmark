@@ -15021,7 +15021,7 @@ while.body.i.i25.i.i.i:                           ; preds = %if.else.i19.i.i.i, 
 for.inc.i21.i.i.i:                                ; preds = %while.body.i.i25.i.i.i, %if.else.i19.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i30.i.i.i
   %__first.coerce.sink.i22.i.i.i = phi ptr [ %11, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i30.i.i.i ], [ %__i.sroa.0.013.i16.i.i.i, %if.else.i19.i.i.i ], [ %__next.sroa.0.010.i.i26.i.i.i, %while.body.i.i25.i.i.i ]
   store double %23, ptr %__first.coerce.sink.i22.i.i.i, align 8, !tbaa !46
-  %__i.sroa.0.0.i23.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.013.i16.i.i.i, i64 8
+  %__i.sroa.0.0.i23.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.013.i16.i.i.i, i64 8
   %cmp.i1.not.i24.i.i.i = icmp eq ptr %__i.sroa.0.0.i23.i.i.i, %12
   br i1 %cmp.i1.not.i24.i.i.i, label %invoke.cont32, label %for.body.i15.i.i.i, !llvm.loop !252
 
@@ -15311,7 +15311,7 @@ while.body.i.i25.i.i.i174:                        ; preds = %if.else.i19.i.i.i16
 for.inc.i21.i.i.i170:                             ; preds = %while.body.i.i25.i.i.i174, %if.else.i19.i.i.i168, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i30.i.i.i179
   %__first.coerce.sink.i22.i.i.i171 = phi ptr [ %42, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i30.i.i.i179 ], [ %__i.sroa.0.013.i16.i.i.i165, %if.else.i19.i.i.i168 ], [ %__next.sroa.0.010.i.i26.i.i.i175, %while.body.i.i25.i.i.i174 ]
   store double %54, ptr %__first.coerce.sink.i22.i.i.i171, align 8, !tbaa !46
-  %__i.sroa.0.0.i23.i.i.i172 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.013.i16.i.i.i165, i64 8
+  %__i.sroa.0.0.i23.i.i.i172 = getelementptr inbounds i8, ptr %__i.sroa.0.013.i16.i.i.i165, i64 8
   %cmp.i1.not.i24.i.i.i173 = icmp eq ptr %__i.sroa.0.0.i23.i.i.i172, %43
   br i1 %cmp.i1.not.i24.i.i.i173, label %invoke.cont94, label %for.body.i15.i.i.i164, !llvm.loop !252
 
@@ -15612,7 +15612,7 @@ while.body.i.i25.i.i.i349:                        ; preds = %if.else.i19.i.i.i34
 for.inc.i21.i.i.i346:                             ; preds = %while.body.i.i25.i.i.i349, %if.else.i19.i.i.i345, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i.i.i
   %__first.coerce.sink.i22.i.i.i347 = phi ptr [ %75, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i.i.i ], [ %__i.sroa.0.013.i16.i.i.i343, %if.else.i19.i.i.i345 ], [ %__next.sroa.0.010.i.i26.i.i.i350, %while.body.i.i25.i.i.i349 ]
   store i64 %87, ptr %__first.coerce.sink.i22.i.i.i347, align 8, !tbaa !8
-  %__i.sroa.0.0.i23.i.i.i348 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.013.i16.i.i.i343, i64 8
+  %__i.sroa.0.0.i23.i.i.i348 = getelementptr inbounds i8, ptr %__i.sroa.0.013.i16.i.i.i343, i64 8
   %cmp.i2.not.i24.i.i.i = icmp eq ptr %__i.sroa.0.0.i23.i.i.i348, %76
   br i1 %cmp.i2.not.i24.i.i.i, label %invoke.cont157, label %for.body.i15.i.i.i342, !llvm.loop !261
 
@@ -35484,7 +35484,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6Perio
 
 if.else:                                          ; preds = %entry
   %cmp.i.i13 = icmp eq ptr %__first.coerce, %__last.coerce
-  %__i.sroa.0.09.i15 = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 8
+  %__i.sroa.0.09.i15 = getelementptr inbounds i8, ptr %__first.coerce, i64 8
   %cmp.i1.not10.i16 = icmp eq ptr %__i.sroa.0.09.i15, %__last.coerce
   %or.cond = select i1 %cmp.i.i13, i1 true, i1 %cmp.i1.not10.i16
   br i1 %or.cond, label %if.end, label %for.body.i19
@@ -35531,7 +35531,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6Perio
   br label %for.inc.i27
 
 for.inc.i27:                                      ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6PeriodESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6PeriodESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35
-  %__i.sroa.0.0.i28 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.012.i20, i64 8
+  %__i.sroa.0.0.i28 = getelementptr inbounds i8, ptr %__i.sroa.0.012.i20, i64 8
   %cmp.i1.not.i29 = icmp eq ptr %__i.sroa.0.0.i28, %__last.coerce
   br i1 %cmp.i1.not.i29, label %if.end, label %for.body.i19, !llvm.loop !505
 

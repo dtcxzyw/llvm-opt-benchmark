@@ -2451,7 +2451,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
 .preheader:                                       ; preds = %49, %.preheader
   %.0166.i = phi i32 [ %113, %.preheader ], [ 0, %49 ]
   %.pn.i = phi ptr [ %.0165.i, %.preheader ], [ %34, %49 ]
-  %.0165.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %.0165.i = getelementptr i8, ptr %.pn.i, i64 1
   %109 = load i8, ptr %.0165.i, align 1
   %110 = icmp eq i8 %109, 47
   %111 = icmp samesign ult i32 %.0166.i, 4
@@ -2494,7 +2494,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
   %124 = phi i1 [ true, %120 ], [ false, %.critedge.thread.i ]
   %.0167272.i = phi ptr [ %.0167.ph.i, %120 ], [ %0, %.critedge.thread.i ]
   %125 = phi i1 [ %.ph.i, %120 ], [ false, %.critedge.thread.i ]
-  %126 = call i64 @strcspn(ptr noundef nonnull %.0167272.i, ptr noundef nonnull @.str.24) #11
+  %126 = call i64 @strcspn(ptr noundef %.0167272.i, ptr noundef nonnull @.str.24) #11
   %127 = getelementptr inbounds i8, ptr %.0167272.i, i64 %126
   %128 = ptrtoint ptr %127 to i64
   %129 = ptrtoint ptr %0 to i64
@@ -2504,7 +2504,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
   br i1 %.not219.i, label %152, label %131
 
 131:                                              ; preds = %123
-  %132 = call fastcc i32 @parse_authority(ptr noundef nonnull %10, ptr noundef nonnull %.0167272.i, i64 noundef %126, i32 noundef %2, ptr noundef %5, i1 noundef zeroext %125)
+  %132 = call fastcc i32 @parse_authority(ptr noundef nonnull %10, ptr noundef %.0167272.i, i64 noundef %126, i32 noundef %2, ptr noundef %5, i1 noundef zeroext %125)
   %.not222.i = icmp eq i32 %132, 0
   br i1 %.not222.i, label %133, label %parseurl.exit
 

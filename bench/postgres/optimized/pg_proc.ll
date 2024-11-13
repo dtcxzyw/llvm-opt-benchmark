@@ -111,7 +111,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
 61:                                               ; preds = %43, %55
   %.pn = phi ptr [ %45, %55 ], [ %17, %43 ]
   %.0 = phi i32 [ %47, %55 ], [ %38, %43 ]
-  %.0286 = getelementptr inbounds i8, ptr %.pn, i64 24
+  %.0286 = getelementptr i8, ptr %.pn, i64 24
   %.not343 = icmp eq i64 %19, 0
   br i1 %.not343, label %80, label %62
 

@@ -179324,7 +179324,7 @@ define linkonce_odr hidden void @_ZNSt5dequeI15all_custom_ringIN5boost8geometry5
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !3853
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.042 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.042 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3853
   %8 = icmp ult ptr %.042, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -179387,7 +179387,7 @@ _ZSt8_DestroyI15all_custom_ringIN5boost8geometry5model5pointIiLm2ENS2_2cs9cartes
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIP15all_custom_ringIN5boost8geometry5model5pointIiLm2ENS2_2cs9cartesianEEEES8_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !3873
 
 _ZSt8_DestroyIP15all_custom_ringIN5boost8geometry5model5pointIiLm2ENS2_2cs9cartesianEEEES8_EvT_SA_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyI15all_custom_ringIN5boost8geometry5model5pointIiLm2ENS2_2cs9cartesianEEEEEvPT_.exit.i.i.i
-  %.0 = getelementptr inbounds nuw i8, ptr %.043, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.043, i64 8
   %27 = load ptr, ptr %6, align 8, !tbaa !3853
   %28 = icmp ult ptr %.0, %27
   br i1 %28, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !3874
@@ -180852,7 +180852,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEE
   store ptr %.sroa.872.2, ptr %17, align 8, !tbaa !173
   store ptr %.sroa.1274.2, ptr %19, align 8, !tbaa !173
   %56 = load ptr, ptr %5, align 8, !tbaa !3907
-  %.080 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %.080 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %7, align 8, !tbaa !3907
   %.not481 = icmp eq ptr %.080, %57
   br i1 %.not481, label %._crit_edge, label %.lr.ph
@@ -181014,7 +181014,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEE
   store ptr %.sroa.465.1, ptr %15, align 8, !tbaa !173
   store ptr %.sroa.7.1, ptr %17, align 8, !tbaa !173
   store ptr %.sroa.11.1, ptr %19, align 8, !tbaa !173
-  %.0 = getelementptr inbounds nuw i8, ptr %.082, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.082, i64 8
   %134 = load ptr, ptr %7, align 8, !tbaa !3907
   %.not4 = icmp eq ptr %.0, %134
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !3918
@@ -191768,7 +191768,7 @@ define linkonce_odr hidden void @_ZNSt5dequeI15all_custom_ringIN5boost8geometry5
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !4100
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.042 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.042 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4100
   %8 = icmp ult ptr %.042, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -191831,7 +191831,7 @@ _ZSt8_DestroyI15all_custom_ringIN5boost8geometry5model5pointIfLm2ENS2_2cs9cartes
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIP15all_custom_ringIN5boost8geometry5model5pointIfLm2ENS2_2cs9cartesianEEEES8_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !4120
 
 _ZSt8_DestroyIP15all_custom_ringIN5boost8geometry5model5pointIfLm2ENS2_2cs9cartesianEEEES8_EvT_SA_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyI15all_custom_ringIN5boost8geometry5model5pointIfLm2ENS2_2cs9cartesianEEEEEvPT_.exit.i.i.i
-  %.0 = getelementptr inbounds nuw i8, ptr %.043, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.043, i64 8
   %27 = load ptr, ptr %6, align 8, !tbaa !4100
   %28 = icmp ult ptr %.0, %27
   br i1 %28, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4121
@@ -193296,7 +193296,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEE
   store ptr %.sroa.872.2, ptr %17, align 8, !tbaa !173
   store ptr %.sroa.1274.2, ptr %19, align 8, !tbaa !173
   %56 = load ptr, ptr %5, align 8, !tbaa !4154
-  %.080 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %.080 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %7, align 8, !tbaa !4154
   %.not481 = icmp eq ptr %.080, %57
   br i1 %.not481, label %._crit_edge, label %.lr.ph
@@ -193458,7 +193458,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEE
   store ptr %.sroa.465.1, ptr %15, align 8, !tbaa !173
   store ptr %.sroa.7.1, ptr %17, align 8, !tbaa !173
   store ptr %.sroa.11.1, ptr %19, align 8, !tbaa !173
-  %.0 = getelementptr inbounds nuw i8, ptr %.082, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.082, i64 8
   %134 = load ptr, ptr %7, align 8, !tbaa !4154
   %.not4 = icmp eq ptr %.0, %134
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !4165
@@ -202886,7 +202886,7 @@ define linkonce_odr hidden void @_ZNSt5dequeI15all_custom_ringIN5boost8geometry5
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !4338
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.042 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.042 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !4338
   %8 = icmp ult ptr %.042, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -202949,7 +202949,7 @@ _ZSt8_DestroyI15all_custom_ringIN5boost8geometry5model5pointIdLm2ENS2_2cs9cartes
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIP15all_custom_ringIN5boost8geometry5model5pointIdLm2ENS2_2cs9cartesianEEEES8_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !4358
 
 _ZSt8_DestroyIP15all_custom_ringIN5boost8geometry5model5pointIdLm2ENS2_2cs9cartesianEEEES8_EvT_SA_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyI15all_custom_ringIN5boost8geometry5model5pointIdLm2ENS2_2cs9cartesianEEEEEvPT_.exit.i.i.i
-  %.0 = getelementptr inbounds nuw i8, ptr %.043, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.043, i64 8
   %27 = load ptr, ptr %6, align 8, !tbaa !4338
   %28 = icmp ult ptr %.0, %27
   br i1 %28, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4359
@@ -204411,7 +204411,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEE
   store ptr %.sroa.872.2, ptr %17, align 8, !tbaa !173
   store ptr %.sroa.1274.2, ptr %19, align 8, !tbaa !173
   %56 = load ptr, ptr %5, align 8, !tbaa !4392
-  %.080 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %.080 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %7, align 8, !tbaa !4392
   %.not481 = icmp eq ptr %.080, %57
   br i1 %.not481, label %._crit_edge, label %.lr.ph
@@ -204573,7 +204573,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEE
   store ptr %.sroa.465.1, ptr %15, align 8, !tbaa !173
   store ptr %.sroa.7.1, ptr %17, align 8, !tbaa !173
   store ptr %.sroa.11.1, ptr %19, align 8, !tbaa !173
-  %.0 = getelementptr inbounds nuw i8, ptr %.082, i64 8
+  %.0 = getelementptr inbounds i8, ptr %.082, i64 8
   %134 = load ptr, ptr %7, align 8, !tbaa !4392
   %.not4 = icmp eq ptr %.0, %134
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !4403

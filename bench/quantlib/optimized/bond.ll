@@ -14011,7 +14011,7 @@ entry:
   br i1 %cmp.i, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %__i.sroa.0.020 = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 16
+  %__i.sroa.0.020 = getelementptr inbounds i8, ptr %__first.coerce, i64 16
   %cmp.i1.not21 = icmp eq ptr %__i.sroa.0.020, %__last.coerce
   br i1 %cmp.i1.not21, label %for.end, label %for.body.lr.ph
 
@@ -14058,7 +14058,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8QuantLib12earlier_thanIN5boost10shared_pt
 
 if.then9:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8QuantLib12earlier_thanIN5boost10shared_ptrINS2_8CashFlowEEEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESG_EEbT_T0_.exit
   %6 = load ptr, ptr %__i.sroa.0.023, align 8, !tbaa !68
-  %pn3.i = getelementptr inbounds nuw i8, ptr %__first.coerce.pn22, i64 24
+  %pn3.i = getelementptr inbounds i8, ptr %__first.coerce.pn22, i64 24
   %7 = load ptr, ptr %pn3.i, align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__i.sroa.0.023, i8 0, i64 16, i1 false)
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.023 to i64
@@ -14171,7 +14171,7 @@ if.else:                                          ; preds = %_ZN9__gnu_cxx5__ops
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i, %if.else
-  %__i.sroa.0.0 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.023, i64 16
+  %__i.sroa.0.0 = getelementptr inbounds i8, ptr %__i.sroa.0.023, i64 16
   %cmp.i1.not = icmp eq ptr %__i.sroa.0.0, %__last.coerce
   br i1 %cmp.i1.not, label %for.end, label %for.body, !llvm.loop !187
 

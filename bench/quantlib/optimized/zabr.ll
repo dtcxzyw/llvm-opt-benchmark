@@ -2024,7 +2024,7 @@ ehcleanup30:                                      ; preds = %_ZNKSt7__cxx1112bas
 for.cond:                                         ; preds = %for.cond.preheader, %do.body40
   %27 = phi double [ %29, %do.body40 ], [ %1, %for.cond.preheader ]
   %.pn294 = phi ptr [ %i.sroa.0.0, %do.body40 ], [ %0, %for.cond.preheader ]
-  %i.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn294, i64 8
+  %i.sroa.0.0 = getelementptr inbounds i8, ptr %.pn294, i64 8
   %cmp.i.not = icmp eq ptr %i.sroa.0.0, %3
   br i1 %cmp.i.not, label %for.cond.cleanup, label %do.body40
 

@@ -664,7 +664,7 @@ _ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24find_closing_parenthesisE
 
 .preheader:                                       ; preds = %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24find_closing_parenthesisEPKcS6_Rc.exit, %45
   %.026.lcssa.i.pn = phi ptr [ %.0.i, %45 ], [ %.026.lcssa.i, %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous24find_closing_parenthesisEPKcS6_Rc.exit ]
-  %.0.i = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.pn, i64 1
+  %.0.i = getelementptr inbounds i8, ptr %.026.lcssa.i.pn, i64 1
   %44 = icmp ult ptr %.0.i, %.03566
   br i1 %44, label %45, label %_ZN5boost3log11v2_mt_posix11expressions3aux9anonymous11skip_spacesEPKcS6_.exit
 

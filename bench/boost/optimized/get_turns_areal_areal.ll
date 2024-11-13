@@ -166133,7 +166133,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   br i1 %4, label %.loopexit19, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.sroa.0.020 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.0.020 = getelementptr inbounds i8, ptr %0, i64 32
   %.not21 = icmp eq ptr %.sroa.0.020, %1
   br i1 %.not21, label %.loopexit19, label %.lr.ph
 
@@ -166149,7 +166149,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
 10:                                               ; preds = %.lr.ph, %107
   %.sroa.0.023 = phi ptr [ %.sroa.0.020, %.lr.ph ], [ %.sroa.0.0, %107 ]
   %.pn22 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.023, %107 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.pn22, i64 40
+  %11 = getelementptr inbounds i8, ptr %.pn22, i64 40
   %12 = load i64, ptr %11, align 8, !tbaa !11
   %13 = load i64, ptr %5, align 8, !tbaa !11
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %13, i64 %12)
@@ -166179,7 +166179,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #56
   store ptr %6, ptr %3, align 8, !tbaa !92
   %21 = load ptr, ptr %.sroa.0.023, align 8, !tbaa !4
-  %22 = getelementptr inbounds nuw i8, ptr %.pn22, i64 48
+  %22 = getelementptr inbounds i8, ptr %.pn22, i64 48
   %23 = icmp eq ptr %21, %22
   br i1 %23, label %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
 
@@ -166415,7 +166415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %107
 
 107:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %106
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 32
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.023, i64 32
   %.not = icmp eq ptr %.sroa.0.0, %1
   br i1 %.not, label %.loopexit19, label %10, !llvm.loop !2941
 

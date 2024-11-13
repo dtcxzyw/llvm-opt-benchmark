@@ -37345,7 +37345,7 @@ stbir__calculate_coefficients_for_gather_downsample.exit: ; preds = %185, %.loop
   %254 = add nsw i32 %.1143180, %103
   %255 = sext i32 %254 to i64
   %256 = getelementptr %struct.stbir__contributors, ptr %253, i64 %255
-  %.0130175 = getelementptr inbounds i8, ptr %256, i64 8
+  %.0130175 = getelementptr i8, ptr %256, i64 8
   %257 = icmp ult ptr %.0130175, %.0145179
   br i1 %257, label %.lr.ph, label %._crit_edge
 
@@ -37353,9 +37353,9 @@ stbir__calculate_coefficients_for_gather_downsample.exit: ; preds = %185, %.loop
   %.0130177 = phi ptr [ %.0130, %.lr.ph ], [ %.0130175, %252 ]
   %.pn150176 = phi ptr [ %.0130177, %.lr.ph ], [ %256, %252 ]
   store i32 0, ptr %.0130177, align 4
-  %258 = getelementptr inbounds i8, ptr %.pn150176, i64 12
+  %258 = getelementptr i8, ptr %.pn150176, i64 12
   store i32 -1, ptr %258, align 4
-  %.0130 = getelementptr inbounds i8, ptr %.0130177, i64 8
+  %.0130 = getelementptr i8, ptr %.0130177, i64 8
   %259 = icmp ult ptr %.0130, %.0145179
   br i1 %259, label %.lr.ph, label %._crit_edge
 
@@ -37474,7 +37474,7 @@ stbir__insert_coeff.exit:                         ; preds = %._crit_edge56.i, %2
   %302 = load i32, ptr %13, align 8
   %303 = sext i32 %302 to i64
   %304 = getelementptr inbounds %struct.stbir__contributors, ptr %298, i64 %303
-  %.0129195 = getelementptr inbounds i8, ptr %301, i64 8
+  %.0129195 = getelementptr i8, ptr %301, i64 8
   %305 = icmp ult ptr %.0129195, %304
   br i1 %305, label %.lr.ph199, label %.loopexit
 
@@ -37482,9 +37482,9 @@ stbir__insert_coeff.exit:                         ; preds = %._crit_edge56.i, %2
   %.0129197 = phi ptr [ %.0129, %.lr.ph199 ], [ %.0129195, %._crit_edge193 ]
   %.pn196 = phi ptr [ %.0129197, %.lr.ph199 ], [ %301, %._crit_edge193 ]
   store i32 0, ptr %.0129197, align 4
-  %306 = getelementptr inbounds i8, ptr %.pn196, i64 12
+  %306 = getelementptr i8, ptr %.pn196, i64 12
   store i32 -1, ptr %306, align 4
-  %.0129 = getelementptr inbounds i8, ptr %.0129197, i64 8
+  %.0129 = getelementptr i8, ptr %.0129197, i64 8
   %307 = icmp ult ptr %.0129, %304
   br i1 %307, label %.lr.ph199, label %.loopexit
 

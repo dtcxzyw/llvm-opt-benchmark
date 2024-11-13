@@ -2339,8 +2339,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13PcpLayerStackEED2Ev.exit35.
 
 .lr.ph.i998:                                      ; preds = %.preheader.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i
   %.05.i.pn = phi ptr [ %.05.i, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i ], [ %.05.i.i.i.i310, %.preheader.i ]
-  %.05.i = getelementptr inbounds nuw i8, ptr %.05.i.pn, i64 16
-  %813 = getelementptr inbounds nuw i8, ptr %.05.i.pn, i64 24
+  %.05.i = getelementptr inbounds i8, ptr %.05.i.pn, i64 16
+  %813 = getelementptr inbounds i8, ptr %.05.i.pn, i64 24
   %814 = load i32, ptr %813, align 4
   %.not.i.i.i.i999 = icmp eq i32 %814, 0
   br i1 %.not.i.i.i.i999, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i1000, label %815
@@ -5826,8 +5826,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13PcpLayerStackEED2Ev.exit38.
 
 .lr.ph.i1023:                                     ; preds = %.preheader.i1021, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i1028
   %.05.i1024.pn = phi ptr [ %.05.i1024, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i1028 ], [ %.05.i.i.i.i593, %.preheader.i1021 ]
-  %.05.i1024 = getelementptr inbounds nuw i8, ptr %.05.i1024.pn, i64 16
-  %2218 = getelementptr inbounds nuw i8, ptr %.05.i1024.pn, i64 24
+  %.05.i1024 = getelementptr inbounds i8, ptr %.05.i1024.pn, i64 16
+  %2218 = getelementptr inbounds i8, ptr %.05.i1024.pn, i64 24
   %2219 = load i32, ptr %2218, align 4
   %.not.i.i.i.i1025 = icmp eq i32 %2219, 0
   br i1 %.not.i.i.i.i1025, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i1026, label %2220

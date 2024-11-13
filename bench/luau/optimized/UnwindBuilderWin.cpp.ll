@@ -236,7 +236,7 @@ define dso_local void @_ZN4Luau7CodeGen16UnwindBuilderWin14finishFunctionEjj(ptr
   %39 = phi ptr [ %44, %.lr.ph ], [ %32, %.lr.ph.preheader ]
   %.011 = phi i64 [ %42, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.pn10 = phi ptr [ %.09, %.lr.ph ], [ %38, %.lr.ph.preheader ]
-  %.09 = getelementptr inbounds i8, ptr %.pn10, i64 -2
+  %.09 = getelementptr i8, ptr %.pn10, i64 -2
   %40 = getelementptr inbounds %"struct.Luau::CodeGen::UnwindCodeWin", ptr %39, i64 %.011
   %41 = load i16, ptr %40, align 1
   store i16 %41, ptr %.09, align 1

@@ -2825,15 +2825,15 @@ releaseMemArray.exit.i:                           ; preds = %sqlite3DbFree.exit.
 
 47:                                               ; preds = %55, %42
   %.pn.i.i = phi ptr [ %46, %42 ], [ %.0.i39.i, %55 ]
-  %.0.i39.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -24
-  %48 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -23
+  %.0.i39.i = getelementptr i8, ptr %.pn.i.i, i64 -24
+  %48 = getelementptr i8, ptr %.pn.i.i, i64 -23
   %49 = load i8, ptr %48, align 1
   %50 = icmp slt i8 %49, -5
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %47
   %52 = sext i8 %49 to i32
-  %53 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -8
+  %53 = getelementptr i8, ptr %.pn.i.i, i64 -8
   %54 = load ptr, ptr %53, align 8
   tail call fastcc void @freeP4(ptr noundef %2, i32 noundef %52, ptr noundef %54)
   br label %55
@@ -2968,15 +2968,15 @@ releaseMemArray.exit54.i:                         ; preds = %sqlite3DbFree.exit.
 
 109:                                              ; preds = %117, %104
   %.pn.i56.i = phi ptr [ %108, %104 ], [ %.0.i57.i, %117 ]
-  %.0.i57.i = getelementptr inbounds i8, ptr %.pn.i56.i, i64 -24
-  %110 = getelementptr inbounds i8, ptr %.pn.i56.i, i64 -23
+  %.0.i57.i = getelementptr i8, ptr %.pn.i56.i, i64 -24
+  %110 = getelementptr i8, ptr %.pn.i56.i, i64 -23
   %111 = load i8, ptr %110, align 1
   %112 = icmp slt i8 %111, -5
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %109
   %114 = sext i8 %111 to i32
-  %115 = getelementptr inbounds i8, ptr %.pn.i56.i, i64 -8
+  %115 = getelementptr i8, ptr %.pn.i56.i, i64 -8
   %116 = load ptr, ptr %115, align 8
   tail call fastcc void @freeP4(ptr noundef %2, i32 noundef %114, ptr noundef %116)
   br label %117
@@ -143690,7 +143690,7 @@ define internal fastcc void @resolveP2Values(ptr nocapture noundef %0, ptr nocap
 
 18:                                               ; preds = %.backedge, %.outer
   %.pn = phi ptr [ %.pn.ph, %.outer ], [ %.032, %.backedge ]
-  %.032 = getelementptr inbounds i8, ptr %.pn, i64 -24
+  %.032 = getelementptr i8, ptr %.pn, i64 -24
   %19 = load i8, ptr %.032, align 8
   %20 = icmp ult i8 %19, 65
   br i1 %20, label %21, label %.backedge
@@ -143709,7 +143709,7 @@ define internal fastcc void @resolveP2Values(ptr nocapture noundef %0, ptr nocap
   ]
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %.pn, i64 -16
+  %23 = getelementptr i8, ptr %.pn, i64 -16
   %24 = load i32, ptr %23, align 8
   %.not37 = icmp eq i32 %24, 0
   br i1 %.not37, label %28, label %25
@@ -143737,7 +143737,7 @@ define internal fastcc void @resolveP2Values(ptr nocapture noundef %0, ptr nocap
   br label %.backedge
 
 35:                                               ; preds = %21
-  %36 = getelementptr inbounds i8, ptr %.pn, i64 -16
+  %36 = getelementptr i8, ptr %.pn, i64 -16
   %37 = load i32, ptr %36, align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %37, i32 %.0.ph)
   br label %.outer.backedge
@@ -143747,14 +143747,14 @@ define internal fastcc void @resolveP2Values(ptr nocapture noundef %0, ptr nocap
   br label %.outer
 
 38:                                               ; preds = %21
-  %39 = getelementptr inbounds i8, ptr %.pn, i64 -44
+  %39 = getelementptr i8, ptr %.pn, i64 -44
   %40 = load i32, ptr %39, align 4
   %spec.select38 = tail call i32 @llvm.smax.i32(i32 %40, i32 %.0.ph)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %38
   %.2 = phi i32 [ %spec.select38, %38 ], [ %.0.ph, %21 ]
-  %41 = getelementptr inbounds i8, ptr %.pn, i64 -16
+  %41 = getelementptr i8, ptr %.pn, i64 -16
   %42 = load i32, ptr %41, align 8
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %.outer.backedge
@@ -247402,8 +247402,8 @@ sqlite3VdbeJumpHere.exit:                         ; preds = %748, %753
 780:                                              ; preds = %.lr.ph1658, %sqlite3VdbeJumpHere.exit330
   %.pn1656 = phi ptr [ %778, %.lr.ph1658 ], [ %.02381657, %sqlite3VdbeJumpHere.exit330 ]
   %.02391655 = phi i32 [ %773, %.lr.ph1658 ], [ %1291, %sqlite3VdbeJumpHere.exit330 ]
-  %.02381657 = getelementptr inbounds i8, ptr %.pn1656, i64 -20
-  %781 = getelementptr inbounds i8, ptr %.pn1656, i64 -16
+  %.02381657 = getelementptr i8, ptr %.pn1656, i64 -20
+  %781 = getelementptr i8, ptr %.pn1656, i64 -16
   %782 = load i32, ptr %9, align 8
   %783 = load ptr, ptr %5, align 8
   %784 = getelementptr inbounds i8, ptr %783, i64 103
@@ -247423,13 +247423,13 @@ sqlite3VdbeJumpHere.exit306:                      ; preds = %780, %786
   %.0.i.i.i305 = phi ptr [ %791, %786 ], [ @sqlite3VdbeGetOp.dummy, %780 ]
   %792 = getelementptr inbounds i8, ptr %.0.i.i.i305, i64 8
   store i32 %782, ptr %792, align 8
-  %793 = getelementptr inbounds i8, ptr %.pn1656, i64 -4
+  %793 = getelementptr i8, ptr %.pn1656, i64 -4
   %794 = load i8, ptr %793, align 4
   %.not277 = icmp eq i8 %794, -69
   br i1 %.not277, label %sqlite3VdbeAddOp2.exit327, label %795
 
 795:                                              ; preds = %sqlite3VdbeJumpHere.exit306
-  %796 = getelementptr inbounds i8, ptr %.pn1656, i64 -8
+  %796 = getelementptr i8, ptr %.pn1656, i64 -8
   %797 = load i32, ptr %796, align 4
   %.not278 = icmp eq i32 %797, 0
   br i1 %.not278, label %1131, label %798
@@ -247752,7 +247752,7 @@ sqlite3VdbeAddOp2.exit311:                        ; preds = %867, %876, %sqlite3
   %952 = load i32, ptr %779, align 8
   %.val = load i32, ptr %9, align 8
   %953 = add nsw i32 %.val, 2
-  %954 = getelementptr inbounds i8, ptr %.pn1656, i64 -12
+  %954 = getelementptr i8, ptr %.pn1656, i64 -12
   %955 = load i32, ptr %954, align 4
   %956 = load i32, ptr %796, align 4
   %957 = load i32, ptr %13, align 4

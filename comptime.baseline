@@ -3789,7 +3789,7 @@ cmake/crc32_fast.c.ll 61686711
 cmake/crc64_fast.c.ll 57836334
 cmake/ctest.cxx.ll 961696994
 cmake/curl_addrinfo.c.ll 95846251
-cmake/curl_memrchr.c.ll 36799628
+cmake/curl_memrchr.c.ll 36758809
 cmake/curl_ntlm_core.c.ll 101742675
 cmake/curl_trc.c.ll 65311486
 cmake/decompress.c.ll 1749092155
@@ -16622,7 +16622,7 @@ lua/lobject.ll 243547765
 lua/loslib.ll 116665650
 lua/lparser.ll 1120060273
 lua/lstring.ll 164921955
-lua/lstrlib.ll 955297084
+lua/lstrlib.ll 956591014
 lua/ltable.ll 527522672
 lua/ltablib.ll 176168326
 lua/ltm.ll 127738707
@@ -17343,7 +17343,7 @@ meshlab/filter_io_nxs.cpp.ll 3382583473
 meshlab/filter_isoparametrization.cpp.ll 41736305392
 meshlab/filter_layer.cpp.ll 9786809539
 meshlab/filter_measure.cpp.ll 10268708829
-meshlab/filter_mesh_alpha_wrap.cpp.ll 63454799798
+meshlab/filter_mesh_alpha_wrap.cpp.ll 63390649417
 meshlab/filter_mesh_booleans.cpp.ll 90538287297
 meshlab/filter_mutualglobal.cpp.ll 4932694233
 meshlab/filter_mutualinfo.cpp.ll 2337717706
@@ -33758,7 +33758,7 @@ slurm/jobcomp.ll 59247122
 slurm/jobcomp_common.ll 176887784
 slurm/jobcomp_elasticsearch.ll 173254265
 slurm/jobcomp_filetxt.ll 113217049
-slurm/jobcomp_script.ll 488580698
+slurm/jobcomp_script.ll 487878333
 slurm/kill_tree.ll 167582987
 slurm/kvs.ll 117368262
 slurm/launch.ll 582958094

@@ -1830,9 +1830,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_binary(ptr noundef %0, ptr
   %18 = load ptr, ptr %15, align 8
   %19 = icmp eq i64 %8, 0
   %20 = getelementptr i64, ptr %18, i64 %8
-  %.01214.i = getelementptr inbounds i8, ptr %20, i64 -8
+  %.01214.i = getelementptr i8, ptr %20, i64 -8
   %.not15.i = icmp ugt ptr %18, %.01214.i
-  %or.cond.i = select i1 %19, i1 true, i1 %.not15.i
+  %or.cond.i = or i1 %19, %.not15.i
   br i1 %or.cond.i, label %mpi_bigendian_to_host.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
@@ -1845,7 +1845,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_binary(ptr noundef %0, ptr
   store i64 %24, ptr %.016.i, align 8
   store i64 %22, ptr %.01217.i, align 8
   %25 = getelementptr inbounds i8, ptr %.016.i, i64 8
-  %.012.i = getelementptr inbounds i8, ptr %.01217.i, i64 -8
+  %.012.i = getelementptr i8, ptr %.01217.i, i64 -8
   %.not.i = icmp ugt ptr %25, %.012.i
   br i1 %.not.i, label %mpi_bigendian_to_host.exit, label %.lr.ph.i, !llvm.loop !26
 
@@ -6008,9 +6008,9 @@ define hidden i32 @mbedtls_mpi_fill_random(ptr noundef %0, i64 noundef %1, ptr n
   %31 = load ptr, ptr %20, align 8
   %32 = icmp eq i64 %9, 0
   %33 = getelementptr i64, ptr %31, i64 %9
-  %.01214.i.i = getelementptr inbounds i8, ptr %33, i64 -8
+  %.01214.i.i = getelementptr i8, ptr %33, i64 -8
   %.not15.i.i = icmp ugt ptr %31, %.01214.i.i
-  %or.cond.i.i = select i1 %32, i1 true, i1 %.not15.i.i
+  %or.cond.i.i = or i1 %32, %.not15.i.i
   br i1 %or.cond.i.i, label %mpi_fill_random_internal.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
@@ -6023,7 +6023,7 @@ define hidden i32 @mbedtls_mpi_fill_random(ptr noundef %0, i64 noundef %1, ptr n
   store i64 %37, ptr %.016.i.i, align 8
   store i64 %35, ptr %.01217.i.i, align 8
   %38 = getelementptr inbounds i8, ptr %.016.i.i, i64 8
-  %.012.i.i = getelementptr inbounds i8, ptr %.01217.i.i, i64 -8
+  %.012.i.i = getelementptr i8, ptr %.01217.i.i, i64 -8
   %.not.i.i = icmp ugt ptr %38, %.012.i.i
   br i1 %.not.i.i, label %mpi_fill_random_internal.exit, label %.lr.ph.i.i, !llvm.loop !26
 
@@ -6263,9 +6263,9 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i45, %7
 105:                                              ; preds = %95
   %106 = load ptr, ptr %87, align 8
   %107 = getelementptr i64, ptr %106, i64 %84
-  %.01214.i.i = getelementptr inbounds i8, ptr %107, i64 -8
+  %.01214.i.i = getelementptr i8, ptr %107, i64 -8
   %.not15.i.i = icmp ugt ptr %106, %.01214.i.i
-  %or.cond.i.i49 = select i1 %89, i1 true, i1 %.not15.i.i
+  %or.cond.i.i49 = or i1 %89, %.not15.i.i
   br i1 %or.cond.i.i49, label %.loopexit, label %.lr.ph.i.i50
 
 .lr.ph.i.i50:                                     ; preds = %105, %.lr.ph.i.i50
@@ -6278,7 +6278,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i45, %7
   store i64 %111, ptr %.016.i.i, align 8
   store i64 %109, ptr %.01217.i.i, align 8
   %112 = getelementptr inbounds i8, ptr %.016.i.i, i64 8
-  %.012.i.i = getelementptr inbounds i8, ptr %.01217.i.i, i64 -8
+  %.012.i.i = getelementptr i8, ptr %.01217.i.i, i64 -8
   %.not.i.i51 = icmp ugt ptr %112, %.012.i.i
   br i1 %.not.i.i51, label %.loopexit, label %.lr.ph.i.i50, !llvm.loop !26
 
@@ -7317,7 +7317,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %59, %58
 79:                                               ; preds = %72
   %80 = load ptr, ptr %39, align 8
   %81 = getelementptr i64, ptr %80, i64 %44
-  %.01214.i.i.i = getelementptr inbounds i8, ptr %81, i64 -8
+  %.01214.i.i.i = getelementptr i8, ptr %81, i64 -8
   %.not15.i.i.i = icmp ugt ptr %80, %.01214.i.i.i
   br i1 %.not15.i.i.i, label %mbedtls_mpi_fill_random.exit, label %.lr.ph.i.i.i
 
@@ -7331,7 +7331,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %59, %58
   store i64 %85, ptr %.016.i.i.i, align 8
   store i64 %83, ptr %.01217.i.i.i, align 8
   %86 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 8
-  %.012.i.i.i = getelementptr inbounds i8, ptr %.01217.i.i.i, i64 -8
+  %.012.i.i.i = getelementptr i8, ptr %.01217.i.i.i, i64 -8
   %.not.i.i.i = icmp ugt ptr %86, %.012.i.i.i
   br i1 %.not.i.i.i, label %mbedtls_mpi_fill_random.exit, label %.lr.ph.i.i.i, !llvm.loop !26
 
@@ -8099,7 +8099,7 @@ define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 nou
 107:                                              ; preds = %100
   %108 = load ptr, ptr %60, align 8
   %109 = getelementptr i64, ptr %108, i64 %22
-  %.01214.i.i.i = getelementptr inbounds i8, ptr %109, i64 -8
+  %.01214.i.i.i = getelementptr i8, ptr %109, i64 -8
   %.not15.i.i.i = icmp ugt ptr %108, %.01214.i.i.i
   br i1 %.not15.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -8113,7 +8113,7 @@ define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 nou
   store i64 %113, ptr %.016.i.i.i, align 8
   store i64 %111, ptr %.01217.i.i.i, align 8
   %114 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 8
-  %.012.i.i.i = getelementptr inbounds i8, ptr %.01217.i.i.i, i64 -8
+  %.012.i.i.i = getelementptr i8, ptr %.01217.i.i.i, i64 -8
   %.not.i.i.i = icmp ugt ptr %114, %.012.i.i.i
   br i1 %.not.i.i.i, label %.loopexit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !26
 

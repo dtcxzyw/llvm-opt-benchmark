@@ -7058,7 +7058,7 @@ _ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %0, %1
-  %.016.i18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.016.i18 = getelementptr inbounds i8, ptr %0, i64 16
   %.not17.i = icmp eq ptr %.016.i18, %1
   %or.cond = select i1 %28, i1 true, i1 %.not17.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SV_T0_.exit, label %.lr.ph.i19
@@ -7109,7 +7109,7 @@ _ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2
   br label %44
 
 44:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i24, %32
-  %.0.i27 = getelementptr inbounds nuw i8, ptr %.019.i20, i64 16
+  %.0.i27 = getelementptr inbounds i8, ptr %.019.i20, i64 16
   %.not.i28 = icmp eq ptr %.0.i27, %1
   br i1 %.not.i28, label %_ZSt26__unguarded_insertion_sortIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SV_T0_.exit, label %.lr.ph.i19, !llvm.loop !163
 
@@ -14590,7 +14590,7 @@ _ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %0, %1
-  %.016.i18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.016.i18 = getelementptr inbounds i8, ptr %0, i64 16
   %.not17.i = icmp eq ptr %.016.i18, %1
   %or.cond = select i1 %28, i1 true, i1 %.not17.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SY_T0_.exit, label %.lr.ph.i19
@@ -14641,7 +14641,7 @@ _ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2
   br label %44
 
 44:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i24, %32
-  %.0.i27 = getelementptr inbounds nuw i8, ptr %.019.i20, i64 16
+  %.0.i27 = getelementptr inbounds i8, ptr %.019.i20, i64 16
   %.not.i28 = icmp eq ptr %.0.i27, %1
   br i1 %.not.i28, label %_ZSt26__unguarded_insertion_sortIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SY_T0_.exit, label %.lr.ph.i19, !llvm.loop !302
 

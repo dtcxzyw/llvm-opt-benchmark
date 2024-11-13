@@ -1799,7 +1799,7 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
 50:                                               ; preds = %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04423604b4f105b6E.exit35.i", %.preheader.i
   %.pn.i = phi ptr [ %14, %.preheader.i ], [ %.052.i, %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04423604b4f105b6E.exit35.i" ]
   %.sroa.04.051.i = phi i64 [ 0, %.preheader.i ], [ %51, %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04423604b4f105b6E.exit35.i" ]
-  %.052.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.052.i = getelementptr i8, ptr %.pn.i, i64 8
   %51 = add nuw nsw i64 %.sroa.04.051.i, 1
   %52 = load i64, ptr %4, align 8, !alias.scope !770, !noundef !10
   %53 = icmp eq i64 %52, 0
@@ -1973,7 +1973,7 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
   %.047.pn.i = phi ptr [ %.047.i, %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc039333e6513f23E.exit25.i" ], [ %17, %.lr.ph.preheader.i ]
   %.sroa.04.046.i = phi i64 [ %40, %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc039333e6513f23E.exit25.i" ], [ 0, %.lr.ph.preheader.i ]
   %.sroa.0.145.i = phi ptr [ %43, %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc039333e6513f23E.exit25.i" ], [ %0, %.lr.ph.preheader.i ]
-  %.047.i = getelementptr inbounds i8, ptr %.047.pn.i, i64 8
+  %.047.i = getelementptr i8, ptr %.047.pn.i, i64 8
   %40 = add nuw nsw i64 %.sroa.04.046.i, 1
   %41 = icmp eq ptr %.sroa.0.145.i, %1
   br i1 %41, label %53, label %42
