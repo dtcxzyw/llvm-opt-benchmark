@@ -31711,7 +31711,7 @@ define void @_ZN5image6codecs4webp7decoder13WebPRiffChunk11from_fourcc17hd2794e3
   %.sroa.0.i = alloca { i8, [31 x i8] }, align 8
   %.sroa.4 = alloca [39 x i8], align 1
   %4 = bitcast i32 %1 to <4 x i8>
-  %.sroa.0.0.vec.extract = trunc i32 %1 to i8
+  %.sroa.0.0.vec.extract = extractelement <4 x i8> %4, i64 0
   switch i8 %.sroa.0.0.vec.extract, label %5 [
     i8 82, label %14
     i8 87, label %18
@@ -31780,30 +31780,33 @@ define void @_ZN5image6codecs4webp7decoder13WebPRiffChunk11from_fourcc17hd2794e3
   br label %40
 
 14:                                               ; preds = %2
-  %15 = icmp eq <4 x i8> %4, <i8 poison, i8 73, i8 70, i8 poison>
-  %shift = shufflevector <4 x i1> %15, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %16 = and <4 x i1> %15, %shift
-  %or.cond = extractelement <4 x i1> %16, i64 1
+  %.sroa.0.1.vec.extract = extractelement <4 x i8> %4, i64 1
+  %15 = icmp eq i8 %.sroa.0.1.vec.extract, 73
+  %.sroa.0.2.vec.extract52 = extractelement <4 x i8> %4, i64 2
+  %16 = icmp eq i8 %.sroa.0.2.vec.extract52, 70
+  %or.cond = select i1 %15, i1 %16, i1 false
   %.sroa.0.3.vec.extract68 = extractelement <4 x i8> %4, i64 3
   %17 = icmp eq i8 %.sroa.0.3.vec.extract68, 70
-  %or.cond5 = and i1 %17, %or.cond
+  %or.cond5 = select i1 %or.cond, i1 %17, i1 false
   br i1 %or.cond5, label %38, label %5
 
 18:                                               ; preds = %2
-  %19 = icmp eq <4 x i8> %4, <i8 poison, i8 69, i8 66, i8 poison>
-  %shift80 = shufflevector <4 x i1> %19, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %20 = and <4 x i1> %19, %shift80
-  %or.cond8 = extractelement <4 x i1> %20, i64 1
+  %.sroa.0.1.vec.extract38 = extractelement <4 x i8> %4, i64 1
+  %19 = icmp eq i8 %.sroa.0.1.vec.extract38, 69
+  %.sroa.0.2.vec.extract54 = extractelement <4 x i8> %4, i64 2
+  %20 = icmp eq i8 %.sroa.0.2.vec.extract54, 66
+  %or.cond8 = select i1 %19, i1 %20, i1 false
   %.sroa.0.3.vec.extract70 = extractelement <4 x i8> %4, i64 3
   %21 = icmp eq i8 %.sroa.0.3.vec.extract70, 80
-  %or.cond11 = and i1 %21, %or.cond8
+  %or.cond11 = select i1 %or.cond8, i1 %21, i1 false
   br i1 %or.cond11, label %41, label %5
 
 22:                                               ; preds = %2
-  %23 = icmp eq <4 x i8> %4, <i8 poison, i8 80, i8 56, i8 poison>
-  %shift81 = shufflevector <4 x i1> %23, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %24 = and <4 x i1> %23, %shift81
-  %or.cond14 = extractelement <4 x i1> %24, i64 1
+  %.sroa.0.1.vec.extract40 = extractelement <4 x i8> %4, i64 1
+  %23 = icmp eq i8 %.sroa.0.1.vec.extract40, 80
+  %.sroa.0.2.vec.extract56 = extractelement <4 x i8> %4, i64 2
+  %24 = icmp eq i8 %.sroa.0.2.vec.extract56, 56
+  %or.cond14 = select i1 %23, i1 %24, i1 false
   br i1 %or.cond14, label %43, label %5
 
 25:                                               ; preds = %2
@@ -31814,33 +31817,36 @@ define void @_ZN5image6codecs4webp7decoder13WebPRiffChunk11from_fourcc17hd2794e3
   ]
 
 26:                                               ; preds = %2
-  %27 = icmp eq <4 x i8> %4, <i8 poison, i8 67, i8 67, i8 poison>
-  %shift82 = shufflevector <4 x i1> %27, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %28 = and <4 x i1> %27, %shift82
-  %or.cond20 = extractelement <4 x i1> %28, i64 1
+  %.sroa.0.1.vec.extract44 = extractelement <4 x i8> %4, i64 1
+  %27 = icmp eq i8 %.sroa.0.1.vec.extract44, 67
+  %.sroa.0.2.vec.extract58 = extractelement <4 x i8> %4, i64 2
+  %28 = icmp eq i8 %.sroa.0.2.vec.extract58, 67
+  %or.cond20 = select i1 %27, i1 %28, i1 false
   %.sroa.0.3.vec.extract74 = extractelement <4 x i8> %4, i64 3
   %29 = icmp eq i8 %.sroa.0.3.vec.extract74, 80
-  %or.cond23 = and i1 %29, %or.cond20
+  %or.cond23 = select i1 %or.cond20, i1 %29, i1 false
   br i1 %or.cond23, label %64, label %5
 
 30:                                               ; preds = %2
-  %31 = icmp eq <4 x i8> %4, <i8 poison, i8 88, i8 73, i8 poison>
-  %shift83 = shufflevector <4 x i1> %31, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %32 = and <4 x i1> %31, %shift83
-  %or.cond26 = extractelement <4 x i1> %32, i64 1
+  %.sroa.0.1.vec.extract46 = extractelement <4 x i8> %4, i64 1
+  %31 = icmp eq i8 %.sroa.0.1.vec.extract46, 88
+  %.sroa.0.2.vec.extract60 = extractelement <4 x i8> %4, i64 2
+  %32 = icmp eq i8 %.sroa.0.2.vec.extract60, 73
+  %or.cond26 = select i1 %31, i1 %32, i1 false
   %.sroa.0.3.vec.extract76 = extractelement <4 x i8> %4, i64 3
   %33 = icmp eq i8 %.sroa.0.3.vec.extract76, 70
-  %or.cond29 = and i1 %33, %or.cond26
+  %or.cond29 = select i1 %or.cond26, i1 %33, i1 false
   br i1 %or.cond29, label %66, label %5
 
 34:                                               ; preds = %2
-  %35 = icmp eq <4 x i8> %4, <i8 poison, i8 77, i8 80, i8 poison>
-  %shift84 = shufflevector <4 x i1> %35, <4 x i1> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %36 = and <4 x i1> %35, %shift84
-  %or.cond32 = extractelement <4 x i1> %36, i64 1
+  %.sroa.0.1.vec.extract48 = extractelement <4 x i8> %4, i64 1
+  %35 = icmp eq i8 %.sroa.0.1.vec.extract48, 77
+  %.sroa.0.2.vec.extract62 = extractelement <4 x i8> %4, i64 2
+  %36 = icmp eq i8 %.sroa.0.2.vec.extract62, 80
+  %or.cond32 = select i1 %35, i1 %36, i1 false
   %.sroa.0.3.vec.extract78 = extractelement <4 x i8> %4, i64 3
   %37 = icmp eq i8 %.sroa.0.3.vec.extract78, 32
-  %or.cond35 = and i1 %37, %or.cond32
+  %or.cond35 = select i1 %or.cond32, i1 %37, i1 false
   br i1 %or.cond35, label %68, label %5
 
 38:                                               ; preds = %14
@@ -31892,10 +31898,11 @@ define void @_ZN5image6codecs4webp7decoder13WebPRiffChunk11from_fourcc17hd2794e3
   ]
 
 51:                                               ; preds = %25
-  %52 = icmp eq <4 x i8> %4, <i8 poison, i8 poison, i8 80, i8 72>
-  %shift85 = shufflevector <4 x i1> %52, <4 x i1> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %53 = and <4 x i1> %52, %shift85
-  %or.cond17 = extractelement <4 x i1> %53, i64 2
+  %.sroa.0.2.vec.extract50 = extractelement <4 x i8> %4, i64 2
+  %52 = icmp eq i8 %.sroa.0.2.vec.extract50, 80
+  %.sroa.0.3.vec.extract72 = extractelement <4 x i8> %4, i64 3
+  %53 = icmp eq i8 %.sroa.0.3.vec.extract72, 72
+  %or.cond17 = select i1 %52, i1 %53, i1 false
   br i1 %or.cond17, label %62, label %5
 
 54:                                               ; preds = %50

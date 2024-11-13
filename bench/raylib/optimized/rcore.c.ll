@@ -28073,14 +28073,14 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
-  switch i32 %3, label %191 [
+  switch i32 %3, label %190 [
     i32 1, label %4
     i32 2, label %106
   ]
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 8
-  switch i32 %5, label %191 [
+  switch i32 %5, label %190 [
     i32 1, label %6
     i32 0, label %35
     i32 2, label %83
@@ -28141,7 +28141,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   store double %34, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 136), align 8
   store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 112), align 8
   store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 116), align 4
-  br label %191
+  br label %190
 
 35:                                               ; preds = %4
   %36 = load i32, ptr @GESTURES, align 8
@@ -28234,7 +28234,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 48), align 8
   store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 52), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
-  br label %191
+  br label %190
 
 83:                                               ; preds = %4
   %84 = getelementptr inbounds i8, ptr %0, i64 40
@@ -28276,14 +28276,14 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %104 = load float, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 52), align 4
   %105 = fsub float %103, %104
   store float %105, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 116), align 4
-  br label %191
+  br label %190
 
 106:                                              ; preds = %1
   %107 = load i32, ptr %0, align 8
-  switch i32 %107, label %191 [
+  switch i32 %107, label %190 [
     i32 1, label %108
     i32 2, label %126
-    i32 0, label %190
+    i32 0, label %189
   ]
 
 108:                                              ; preds = %106
@@ -28312,7 +28312,7 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   store i32 4, ptr @GESTURES, align 8
   %125 = tail call double @glfwGetTime() #54
   store double %125, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
-  br label %191
+  br label %190
 
 126:                                              ; preds = %106
   %127 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
@@ -28346,101 +28346,98 @@ define hidden void @ProcessGestureEvent(ptr nocapture noundef readonly byval(%st
   %150 = fsub float %146, %149
   store float %150, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 148), align 4
   %151 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 72), align 8
-  %152 = trunc i64 %136 to i32
-  %.sroa.0.0.vec.extract.i38 = bitcast i32 %152 to float
+  %152 = bitcast i64 %136 to <2 x float>
+  %.sroa.0.0.vec.extract.i38 = extractelement <2 x float> %152, i64 0
   %.sroa.05.0.vec.extract.i39 = extractelement <2 x float> %151, i64 0
-  %153 = fsub float %.sroa.0.0.vec.extract.i38, %.sroa.05.0.vec.extract.i39
-  %extelt.offset = lshr i64 %136, 32
-  %154 = trunc nuw i64 %extelt.offset to i32
-  %.sroa.0.4.vec.extract.i40 = bitcast i32 %154 to float
+  %153 = fsub <2 x float> %152, %151
+  %154 = extractelement <2 x float> %153, i64 0
+  %.sroa.0.4.vec.extract.i40 = extractelement <2 x float> %152, i64 1
   %.sroa.05.4.vec.extract.i41 = extractelement <2 x float> %151, i64 1
   %155 = fsub float %.sroa.0.4.vec.extract.i40, %.sroa.05.4.vec.extract.i41
   %156 = fmul float %155, %155
-  %157 = tail call float @llvm.fmuladd.f32(float %153, float %153, float %156)
+  %157 = tail call float @llvm.fmuladd.f32(float %154, float %154, float %156)
   %sqrt.i42 = tail call float @llvm.sqrt.f32(float %157)
   %158 = fcmp ult float %sqrt.i42, 0x3F747AE140000000
+  %159 = bitcast i64 %138 to <2 x float>
   %.pre = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 80), align 8
-  %extelt.offset79 = lshr i64 %138, 32
-  %159 = trunc nuw i64 %extelt.offset79 to i32
-  %.sroa.0.4.vec.extract.i45 = bitcast i32 %159 to float
-  br i1 %158, label %161, label %._crit_edge74
+  %.sroa.0.4.vec.extract.i45 = extractelement <2 x float> %159, i64 1
+  br i1 %158, label %160, label %._crit_edge74
 
 ._crit_edge74:                                    ; preds = %126
   %.pre75 = extractelement <2 x float> %.pre, i64 0
   %.pre76 = extractelement <2 x float> %.pre, i64 1
-  %160 = trunc i64 %138 to i32
-  %.pre77 = bitcast i32 %160 to float
-  br label %168
+  %.pre77 = extractelement <2 x float> %159, i64 0
+  br label %167
 
-161:                                              ; preds = %126
-  %162 = trunc i64 %138 to i32
-  %.sroa.0.0.vec.extract.i43 = bitcast i32 %162 to float
+160:                                              ; preds = %126
+  %.sroa.0.0.vec.extract.i43 = extractelement <2 x float> %159, i64 0
   %.sroa.05.0.vec.extract.i44 = extractelement <2 x float> %.pre, i64 0
-  %163 = fsub float %.sroa.0.0.vec.extract.i43, %.sroa.05.0.vec.extract.i44
+  %161 = fsub <2 x float> %159, %.pre
+  %162 = extractelement <2 x float> %161, i64 0
   %.sroa.05.4.vec.extract.i46 = extractelement <2 x float> %.pre, i64 1
-  %164 = fsub float %.sroa.0.4.vec.extract.i45, %.sroa.05.4.vec.extract.i46
-  %165 = fmul float %164, %164
-  %166 = tail call float @llvm.fmuladd.f32(float %163, float %163, float %165)
-  %sqrt.i47 = tail call float @llvm.sqrt.f32(float %166)
-  %167 = fcmp ult float %sqrt.i47, 0x3F747AE140000000
-  br i1 %167, label %180, label %168
+  %163 = fsub float %.sroa.0.4.vec.extract.i45, %.sroa.05.4.vec.extract.i46
+  %164 = fmul float %163, %163
+  %165 = tail call float @llvm.fmuladd.f32(float %162, float %162, float %164)
+  %sqrt.i47 = tail call float @llvm.sqrt.f32(float %165)
+  %166 = fcmp ult float %sqrt.i47, 0x3F747AE140000000
+  br i1 %166, label %179, label %167
 
-168:                                              ; preds = %._crit_edge74, %161
-  %.sroa.0.0.vec.extract.i53.pre-phi = phi float [ %.pre77, %._crit_edge74 ], [ %.sroa.0.0.vec.extract.i43, %161 ]
-  %.sroa.0.4.vec.extract.i50.pre-phi = phi float [ %.pre76, %._crit_edge74 ], [ %.sroa.05.4.vec.extract.i46, %161 ]
-  %.sroa.0.0.vec.extract.i48.pre-phi = phi float [ %.pre75, %._crit_edge74 ], [ %.sroa.05.0.vec.extract.i44, %161 ]
-  %169 = fsub float %.sroa.0.0.vec.extract.i48.pre-phi, %.sroa.05.0.vec.extract.i39
-  %170 = fsub float %.sroa.0.4.vec.extract.i50.pre-phi, %.sroa.05.4.vec.extract.i41
-  %171 = fmul float %170, %170
-  %172 = tail call float @llvm.fmuladd.f32(float %169, float %169, float %171)
-  %sqrt.i52 = tail call float @llvm.sqrt.f32(float %172)
-  %173 = fsub float %.sroa.0.0.vec.extract.i53.pre-phi, %.sroa.0.0.vec.extract.i38
-  %174 = fsub float %.sroa.0.4.vec.extract.i45, %.sroa.0.4.vec.extract.i40
-  %175 = fmul float %174, %174
-  %176 = tail call float @llvm.fmuladd.f32(float %173, float %173, float %175)
-  %sqrt.i57 = tail call float @llvm.sqrt.f32(float %176)
-  %177 = fcmp ogt float %sqrt.i52, %sqrt.i57
-  br i1 %177, label %178, label %179
+167:                                              ; preds = %._crit_edge74, %160
+  %.sroa.0.0.vec.extract.i53.pre-phi = phi float [ %.pre77, %._crit_edge74 ], [ %.sroa.0.0.vec.extract.i43, %160 ]
+  %.sroa.0.4.vec.extract.i50.pre-phi = phi float [ %.pre76, %._crit_edge74 ], [ %.sroa.05.4.vec.extract.i46, %160 ]
+  %.sroa.0.0.vec.extract.i48.pre-phi = phi float [ %.pre75, %._crit_edge74 ], [ %.sroa.05.0.vec.extract.i44, %160 ]
+  %168 = fsub float %.sroa.0.0.vec.extract.i48.pre-phi, %.sroa.05.0.vec.extract.i39
+  %169 = fsub float %.sroa.0.4.vec.extract.i50.pre-phi, %.sroa.05.4.vec.extract.i41
+  %170 = fmul float %169, %169
+  %171 = tail call float @llvm.fmuladd.f32(float %168, float %168, float %170)
+  %sqrt.i52 = tail call float @llvm.sqrt.f32(float %171)
+  %172 = fsub float %.sroa.0.0.vec.extract.i53.pre-phi, %.sroa.0.0.vec.extract.i38
+  %173 = fsub float %.sroa.0.4.vec.extract.i45, %.sroa.0.4.vec.extract.i40
+  %174 = fmul float %173, %173
+  %175 = tail call float @llvm.fmuladd.f32(float %172, float %172, float %174)
+  %sqrt.i57 = tail call float @llvm.sqrt.f32(float %175)
+  %176 = fcmp ogt float %sqrt.i52, %sqrt.i57
+  br i1 %176, label %177, label %178
 
-178:                                              ; preds = %168
+177:                                              ; preds = %167
   store i32 256, ptr @GESTURES, align 8
-  br label %184
+  br label %183
 
-179:                                              ; preds = %168
+178:                                              ; preds = %167
   store i32 512, ptr @GESTURES, align 8
-  br label %184
+  br label %183
 
-180:                                              ; preds = %161
+179:                                              ; preds = %160
   store i32 4, ptr @GESTURES, align 8
-  %181 = tail call double @glfwGetTime() #54
-  store double %181, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
+  %180 = tail call double @glfwGetTime() #54
+  store double %180, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 104), align 8
   %.pre63 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 56), align 8
   %.pre64 = load <2 x float>, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 64), align 8
+  %181 = fsub <2 x float> %.pre64, %.pre63
+  %.pre69 = extractelement <2 x float> %181, i64 1
   %182 = fsub <2 x float> %.pre64, %.pre63
-  %.pre69 = extractelement <2 x float> %182, i64 1
-  %183 = fsub <2 x float> %.pre64, %.pre63
-  %.pre72 = extractelement <2 x float> %183, i64 0
-  br label %184
+  %.pre72 = extractelement <2 x float> %182, i64 0
+  br label %183
 
-184:                                              ; preds = %178, %179, %180
-  %.pre-phi73 = phi float [ %173, %178 ], [ %173, %179 ], [ %.pre72, %180 ]
-  %.pre-phi = phi float [ %174, %178 ], [ %174, %179 ], [ %.pre69, %180 ]
-  %185 = tail call float @atan2f(float noundef %.pre-phi, float noundef %.pre-phi73) #54
-  %186 = fmul float %185, 0x404CA5DC00000000
-  %187 = fcmp olt float %186, 0.000000e+00
-  %188 = fadd float %186, 3.600000e+02
-  %.0.i62 = select i1 %187, float %188, float %186
-  %189 = fsub float 3.600000e+02, %.0.i62
-  store float %189, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 152), align 8
-  br label %191
+183:                                              ; preds = %177, %178, %179
+  %.pre-phi73 = phi float [ %172, %177 ], [ %172, %178 ], [ %.pre72, %179 ]
+  %.pre-phi = phi float [ %173, %177 ], [ %173, %178 ], [ %.pre69, %179 ]
+  %184 = tail call float @atan2f(float noundef %.pre-phi, float noundef %.pre-phi73) #54
+  %185 = fmul float %184, 0x404CA5DC00000000
+  %186 = fcmp olt float %185, 0.000000e+00
+  %187 = fadd float %185, 3.600000e+02
+  %.0.i62 = select i1 %186, float %187, float %185
+  %188 = fsub float 3.600000e+02, %.0.i62
+  store float %188, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 152), align 8
+  br label %190
 
-190:                                              ; preds = %106
+189:                                              ; preds = %106
   store i32 0, ptr getelementptr inbounds (i8, ptr @GESTURES, i64 12), align 4
   store i32 0, ptr @GESTURES, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @GESTURES, i64 144), i8 0, i64 16, i1 false)
-  br label %191
+  br label %190
 
-191:                                              ; preds = %1, %106, %4, %184, %190, %108, %31, %99, %82
+190:                                              ; preds = %1, %106, %4, %183, %189, %108, %31, %99, %82
   ret void
 }
 

@@ -10182,7 +10182,7 @@ define void @_ZN13wasmtime_wasi14ip_name_lookup16blocking_resolve17he6d5ff736819
   %34 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %35 = tail call noundef align 2 dereferenceable_or_null(18) ptr @__rust_alloc(i64 noundef 18, i64 noundef 2) #43
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %46
+  br i1 %36, label %37, label %48
 
 37:                                               ; preds = %33
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 2, i64 noundef 18) #42
@@ -10212,16 +10212,18 @@ define void @_ZN13wasmtime_wasi14ip_name_lookup16blocking_resolve17he6d5ff736819
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %42
 
-42:                                               ; preds = %46, %43, %39, %38
+42:                                               ; preds = %48, %43, %39, %38
   ret void
 
 43:                                               ; preds = %28
   %44 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.02.0.copyload = load i32, ptr %44, align 8
-  %45 = bitcast i32 %.sroa.02.0.copyload to <4 x i8>
-  %.sroa.02.1.vec.extract.i = extractelement <4 x i8> %45, i64 1
-  %.sroa.02.2.vec.extract.i = extractelement <4 x i8> %45, i64 2
-  %.sroa.02.3.vec.extract.i = extractelement <4 x i8> %45, i64 3
+  %.sroa.02.0.vec.extract.i = load i8, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 9
+  %.sroa.02.1.vec.extract.i = load i8, ptr %45, align 1
+  %46 = getelementptr inbounds i8, ptr %1, i64 10
+  %.sroa.02.2.vec.extract.i = load i8, ptr %46, align 2
+  %47 = getelementptr inbounds i8, ptr %1, i64 11
+  %.sroa.02.3.vec.extract.i = load i8, ptr %47, align 1
   %.sroa.4.0.insert.ext.i = zext i8 %.sroa.02.3.vec.extract.i to i32
   %.sroa.4.0.insert.shift.i = shl nuw i32 %.sroa.4.0.insert.ext.i, 24
   %.sroa.3.0.insert.ext.i = zext i8 %.sroa.02.2.vec.extract.i to i32
@@ -10230,7 +10232,7 @@ define void @_ZN13wasmtime_wasi14ip_name_lookup16blocking_resolve17he6d5ff736819
   %.sroa.2.0.insert.ext.i = zext i8 %.sroa.02.1.vec.extract.i to i32
   %.sroa.2.0.insert.shift.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i, 8
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.2.0.insert.shift.i
-  %.sroa.01.0.insert.ext.i = and i32 %.sroa.02.0.copyload, 255
+  %.sroa.01.0.insert.ext.i = zext i8 %.sroa.02.0.vec.extract.i to i32
   %.sroa.01.0.insert.insert.i = or disjoint i32 %.sroa.2.0.insert.insert.i, %.sroa.01.0.insert.ext.i
   store i8 0, ptr %30, align 2
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 1
@@ -10242,9 +10244,9 @@ define void @_ZN13wasmtime_wasi14ip_name_lookup16blocking_resolve17he6d5ff736819
   store i64 1, ptr %.sroa.526.0..sroa_idx, align 8
   br label %42
 
-46:                                               ; preds = %33
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.037.0.copyload = load i16, ptr %47, align 8
+48:                                               ; preds = %33
+  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.037.0.copyload = load i16, ptr %49, align 8
   %.sroa.438.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 10
   %.sroa.438.0.copyload = load i16, ptr %.sroa.438.0..sroa_idx, align 2
   %.sroa.539.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
@@ -10259,31 +10261,31 @@ define void @_ZN13wasmtime_wasi14ip_name_lookup16blocking_resolve17he6d5ff736819
   %.sroa.943.0.copyload = load i16, ptr %.sroa.943.0..sroa_idx, align 4
   %.sroa.1044.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 22
   %.sroa.1044.0.copyload = load i16, ptr %.sroa.1044.0..sroa_idx, align 2
-  %48 = tail call i16 @llvm.bswap.i16(i16 %.sroa.037.0.copyload)
-  %49 = tail call i16 @llvm.bswap.i16(i16 %.sroa.438.0.copyload)
-  %50 = tail call i16 @llvm.bswap.i16(i16 %.sroa.539.0.copyload)
-  %51 = tail call i16 @llvm.bswap.i16(i16 %.sroa.640.0.copyload)
-  %52 = tail call i16 @llvm.bswap.i16(i16 %.sroa.741.0.copyload)
-  %53 = tail call i16 @llvm.bswap.i16(i16 %.sroa.842.0.copyload)
-  %54 = tail call i16 @llvm.bswap.i16(i16 %.sroa.943.0.copyload)
-  %55 = tail call i16 @llvm.bswap.i16(i16 %.sroa.1044.0.copyload)
+  %50 = tail call i16 @llvm.bswap.i16(i16 %.sroa.037.0.copyload)
+  %51 = tail call i16 @llvm.bswap.i16(i16 %.sroa.438.0.copyload)
+  %52 = tail call i16 @llvm.bswap.i16(i16 %.sroa.539.0.copyload)
+  %53 = tail call i16 @llvm.bswap.i16(i16 %.sroa.640.0.copyload)
+  %54 = tail call i16 @llvm.bswap.i16(i16 %.sroa.741.0.copyload)
+  %55 = tail call i16 @llvm.bswap.i16(i16 %.sroa.842.0.copyload)
+  %56 = tail call i16 @llvm.bswap.i16(i16 %.sroa.943.0.copyload)
+  %57 = tail call i16 @llvm.bswap.i16(i16 %.sroa.1044.0.copyload)
   store i8 1, ptr %35, align 2
   %.sroa.44.sroa.3.0..sroa.44.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %35, i64 2
-  store i16 %48, ptr %.sroa.44.sroa.3.0..sroa.44.0..sroa_idx.sroa_idx, align 2
+  store i16 %50, ptr %.sroa.44.sroa.3.0..sroa.44.0..sroa_idx.sroa_idx, align 2
   %.sroa.44.sroa.4.0..sroa.44.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %35, i64 4
-  store i16 %49, ptr %.sroa.44.sroa.4.0..sroa.44.0..sroa_idx.sroa_idx, align 2
+  store i16 %51, ptr %.sroa.44.sroa.4.0..sroa.44.0..sroa_idx.sroa_idx, align 2
   %.sroa.44.sroa.5.0..sroa.44.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %35, i64 6
-  store i16 %50, ptr %.sroa.44.sroa.5.0..sroa.44.0..sroa_idx.sroa_idx, align 2
+  store i16 %52, ptr %.sroa.44.sroa.5.0..sroa.44.0..sroa_idx.sroa_idx, align 2
   %.sroa.44.sroa.6.0..sroa.44.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
-  store i16 %51, ptr %.sroa.44.sroa.6.0..sroa.44.0..sroa_idx.sroa_idx, align 2
+  store i16 %53, ptr %.sroa.44.sroa.6.0..sroa.44.0..sroa_idx.sroa_idx, align 2
   %.sroa.44.sroa.7.0..sroa.44.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %35, i64 10
-  store i16 %52, ptr %.sroa.44.sroa.7.0..sroa.44.0..sroa_idx.sroa_idx, align 2
+  store i16 %54, ptr %.sroa.44.sroa.7.0..sroa.44.0..sroa_idx.sroa_idx, align 2
   %.sroa.44.sroa.8.0..sroa.44.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %35, i64 12
-  store i16 %53, ptr %.sroa.44.sroa.8.0..sroa.44.0..sroa_idx.sroa_idx, align 2
+  store i16 %55, ptr %.sroa.44.sroa.8.0..sroa.44.0..sroa_idx.sroa_idx, align 2
   %.sroa.44.sroa.9.0..sroa.44.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %35, i64 14
-  store i16 %54, ptr %.sroa.44.sroa.9.0..sroa.44.0..sroa_idx.sroa_idx, align 2
+  store i16 %56, ptr %.sroa.44.sroa.9.0..sroa.44.0..sroa_idx.sroa_idx, align 2
   %.sroa.44.sroa.10.0..sroa.44.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %35, i64 16
-  store i16 %55, ptr %.sroa.44.sroa.10.0..sroa.44.0..sroa_idx.sroa_idx, align 2
+  store i16 %57, ptr %.sroa.44.sroa.10.0..sroa.44.0..sroa_idx.sroa_idx, align 2
   store i64 1, ptr %0, align 8
   %.sroa.429.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %35, ptr %.sroa.429.0..sroa_idx, align 8
@@ -10388,6 +10390,7 @@ define hidden i32 @_ZN13wasmtime_wasi7network12to_ipv4_addr17hb73d0484ea20f2a0E(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden i32 @_ZN13wasmtime_wasi7network14from_ipv4_addr17h06d2750c6add880aE(i32 %0) unnamed_addr #2 {
   %2 = bitcast i32 %0 to <4 x i8>
+  %.sroa.02.0.vec.extract = extractelement <4 x i8> %2, i64 0
   %.sroa.02.1.vec.extract = extractelement <4 x i8> %2, i64 1
   %.sroa.02.2.vec.extract = extractelement <4 x i8> %2, i64 2
   %.sroa.02.3.vec.extract = extractelement <4 x i8> %2, i64 3
@@ -10399,7 +10402,7 @@ define hidden i32 @_ZN13wasmtime_wasi7network14from_ipv4_addr17h06d2750c6add880a
   %.sroa.2.0.insert.ext = zext i8 %.sroa.02.1.vec.extract to i32
   %.sroa.2.0.insert.shift = shl nuw nsw i32 %.sroa.2.0.insert.ext, 8
   %.sroa.2.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, %.sroa.2.0.insert.shift
-  %.sroa.01.0.insert.ext = and i32 %0, 255
+  %.sroa.01.0.insert.ext = zext i8 %.sroa.02.0.vec.extract to i32
   %.sroa.01.0.insert.insert = or disjoint i32 %.sroa.2.0.insert.insert, %.sroa.01.0.insert.ext
   ret i32 %.sroa.01.0.insert.insert
 }

@@ -9930,14 +9930,16 @@ define void @"_ZN13wasmtime_wasi4host7network152_$LT$impl$u20$core..convert..Fro
   %3 = load i8, ptr %1, align 1, !range !1478, !noundef !5
   %trunc = trunc nuw i8 %3 to i1
   %4 = getelementptr inbounds i8, ptr %1, i64 1
-  br i1 %trunc, label %8, label %5
+  br i1 %trunc, label %10, label %5
 
 5:                                                ; preds = %2
-  %.sroa.0.0.copyload = load i32, ptr %4, align 1
-  %6 = bitcast i32 %.sroa.0.0.copyload to <4 x i8>
-  %.sroa.02.1.vec.extract.i = extractelement <4 x i8> %6, i64 1
-  %.sroa.02.2.vec.extract.i = extractelement <4 x i8> %6, i64 2
-  %.sroa.02.3.vec.extract.i = extractelement <4 x i8> %6, i64 3
+  %.sroa.02.0.vec.extract.i = load i8, ptr %4, align 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %.sroa.02.1.vec.extract.i = load i8, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 3
+  %.sroa.02.2.vec.extract.i = load i8, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.02.3.vec.extract.i = load i8, ptr %8, align 1
   %.sroa.4.0.insert.ext.i = zext i8 %.sroa.02.3.vec.extract.i to i32
   %.sroa.4.0.insert.shift.i = shl nuw i32 %.sroa.4.0.insert.ext.i, 24
   %.sroa.3.0.insert.ext.i = zext i8 %.sroa.02.2.vec.extract.i to i32
@@ -9946,13 +9948,13 @@ define void @"_ZN13wasmtime_wasi4host7network152_$LT$impl$u20$core..convert..Fro
   %.sroa.2.0.insert.ext.i = zext i8 %.sroa.02.1.vec.extract.i to i32
   %.sroa.2.0.insert.shift.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i, 8
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.2.0.insert.shift.i
-  %.sroa.01.0.insert.ext.i = and i32 %.sroa.0.0.copyload, 255
+  %.sroa.01.0.insert.ext.i = zext i8 %.sroa.02.0.vec.extract.i to i32
   %.sroa.01.0.insert.insert.i = or disjoint i32 %.sroa.2.0.insert.insert.i, %.sroa.01.0.insert.ext.i
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
-  store i32 %.sroa.01.0.insert.insert.i, ptr %7, align 1
-  br label %18
+  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  store i32 %.sroa.01.0.insert.insert.i, ptr %9, align 1
+  br label %20
 
-8:                                                ; preds = %2
+10:                                               ; preds = %2
   %.sroa.0.0.copyload2 = load i16, ptr %4, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 3
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 1
@@ -9968,34 +9970,34 @@ define void @"_ZN13wasmtime_wasi4host7network152_$LT$impl$u20$core..convert..Fro
   %.sroa.7.0.copyload = load i16, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 15
   %.sroa.8.0.copyload = load i16, ptr %.sroa.8.0..sroa_idx, align 1
-  %9 = tail call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload2)
-  %10 = tail call i16 @llvm.bswap.i16(i16 %.sroa.2.0.copyload)
-  %11 = tail call i16 @llvm.bswap.i16(i16 %.sroa.3.0.copyload)
-  %12 = tail call i16 @llvm.bswap.i16(i16 %.sroa.4.0.copyload)
-  %13 = tail call i16 @llvm.bswap.i16(i16 %.sroa.5.0.copyload)
-  %14 = tail call i16 @llvm.bswap.i16(i16 %.sroa.6.0.copyload)
-  %15 = tail call i16 @llvm.bswap.i16(i16 %.sroa.7.0.copyload)
-  %16 = tail call i16 @llvm.bswap.i16(i16 %.sroa.8.0.copyload)
-  %17 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %9, ptr %17, align 2
+  %11 = tail call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload2)
+  %12 = tail call i16 @llvm.bswap.i16(i16 %.sroa.2.0.copyload)
+  %13 = tail call i16 @llvm.bswap.i16(i16 %.sroa.3.0.copyload)
+  %14 = tail call i16 @llvm.bswap.i16(i16 %.sroa.4.0.copyload)
+  %15 = tail call i16 @llvm.bswap.i16(i16 %.sroa.5.0.copyload)
+  %16 = tail call i16 @llvm.bswap.i16(i16 %.sroa.6.0.copyload)
+  %17 = tail call i16 @llvm.bswap.i16(i16 %.sroa.7.0.copyload)
+  %18 = tail call i16 @llvm.bswap.i16(i16 %.sroa.8.0.copyload)
+  %19 = getelementptr inbounds i8, ptr %0, i64 2
+  store i16 %11, ptr %19, align 2
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i16 %10, ptr %.sroa.44.0..sroa_idx, align 2
+  store i16 %12, ptr %.sroa.44.0..sroa_idx, align 2
   %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 6
-  store i16 %11, ptr %.sroa.55.0..sroa_idx, align 2
+  store i16 %13, ptr %.sroa.55.0..sroa_idx, align 2
   %.sroa.66.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i16 %12, ptr %.sroa.66.0..sroa_idx, align 2
+  store i16 %14, ptr %.sroa.66.0..sroa_idx, align 2
   %.sroa.77.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 10
-  store i16 %13, ptr %.sroa.77.0..sroa_idx, align 2
+  store i16 %15, ptr %.sroa.77.0..sroa_idx, align 2
   %.sroa.88.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i16 %14, ptr %.sroa.88.0..sroa_idx, align 2
+  store i16 %16, ptr %.sroa.88.0..sroa_idx, align 2
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 14
-  store i16 %15, ptr %.sroa.9.0..sroa_idx, align 2
+  store i16 %17, ptr %.sroa.9.0..sroa_idx, align 2
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i16 %16, ptr %.sroa.10.0..sroa_idx, align 2
-  br label %18
+  store i16 %18, ptr %.sroa.10.0..sroa_idx, align 2
+  br label %20
 
-18:                                               ; preds = %8, %5
-  %storemerge = phi i8 [ 1, %8 ], [ 0, %5 ]
+20:                                               ; preds = %10, %5
+  %storemerge = phi i8 [ 1, %10 ], [ 0, %5 ]
   store i8 %storemerge, ptr %0, align 2
   ret void
 }
@@ -10012,6 +10014,7 @@ define void @"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..Fro
   %.sroa.02.0.extract.trunc.i = trunc i48 %.sroa.0.0.copyload to i32
   %.sroa.4.0.extract.shift.i = and i48 %.sroa.0.0.copyload, -4294967296
   %6 = bitcast i32 %.sroa.02.0.extract.trunc.i to <4 x i8>
+  %.sroa.02.0.vec.extract.i.i = extractelement <4 x i8> %6, i64 0
   %.sroa.02.1.vec.extract.i.i = extractelement <4 x i8> %6, i64 1
   %.sroa.02.2.vec.extract.i.i = extractelement <4 x i8> %6, i64 2
   %.sroa.02.3.vec.extract.i.i = extractelement <4 x i8> %6, i64 3
@@ -10023,7 +10026,7 @@ define void @"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..Fro
   %.sroa.2.0.insert.ext.i.i = zext i8 %.sroa.02.1.vec.extract.i.i to i32
   %.sroa.2.0.insert.shift.i.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i.i, 8
   %.sroa.2.0.insert.insert.i.i = or disjoint i32 %.sroa.3.0.insert.insert.i.i, %.sroa.2.0.insert.shift.i.i
-  %.sroa.01.0.insert.ext.i.i = and i32 %.sroa.02.0.extract.trunc.i, 255
+  %.sroa.01.0.insert.ext.i.i = zext i8 %.sroa.02.0.vec.extract.i.i to i32
   %.sroa.01.0.insert.insert.i.i = or disjoint i32 %.sroa.2.0.insert.insert.i.i, %.sroa.01.0.insert.ext.i.i
   %.sroa.03.0.insert.ext.i = zext i32 %.sroa.01.0.insert.insert.i.i to i48
   %.sroa.03.0.insert.insert.i = or disjoint i48 %.sroa.4.0.extract.shift.i, %.sroa.03.0.insert.ext.i
@@ -10097,6 +10100,7 @@ define i48 @"_ZN13wasmtime_wasi4host7network170_$LT$impl$u20$core..convert..From
   %.sroa.02.0.extract.trunc = trunc i48 %0 to i32
   %.sroa.4.0.extract.shift = and i48 %0, -4294967296
   %2 = bitcast i32 %.sroa.02.0.extract.trunc to <4 x i8>
+  %.sroa.02.0.vec.extract.i = extractelement <4 x i8> %2, i64 0
   %.sroa.02.1.vec.extract.i = extractelement <4 x i8> %2, i64 1
   %.sroa.02.2.vec.extract.i = extractelement <4 x i8> %2, i64 2
   %.sroa.02.3.vec.extract.i = extractelement <4 x i8> %2, i64 3
@@ -10108,7 +10112,7 @@ define i48 @"_ZN13wasmtime_wasi4host7network170_$LT$impl$u20$core..convert..From
   %.sroa.2.0.insert.ext.i = zext i8 %.sroa.02.1.vec.extract.i to i32
   %.sroa.2.0.insert.shift.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i, 8
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.2.0.insert.shift.i
-  %.sroa.01.0.insert.ext.i = and i32 %.sroa.02.0.extract.trunc, 255
+  %.sroa.01.0.insert.ext.i = zext i8 %.sroa.02.0.vec.extract.i to i32
   %.sroa.01.0.insert.insert.i = or disjoint i32 %.sroa.2.0.insert.insert.i, %.sroa.01.0.insert.ext.i
   %.sroa.03.0.insert.ext = zext i32 %.sroa.01.0.insert.insert.i to i48
   %.sroa.03.0.insert.insert = or disjoint i48 %.sroa.4.0.extract.shift, %.sroa.03.0.insert.ext
