@@ -292,7 +292,7 @@
   "simplifycfg.NumLinearMaps": 2932,
   "simplifycfg.NumLookupTables": 18808,
   "simplifycfg.NumLookupTablesHoles": 2209,
-  "simplifycfg.NumSimpl": 42467867,
+  "simplifycfg.NumSimpl": 42467868,
   "simplifycfg.NumSinkCommonCode": 335878,
   "simplifycfg.NumSinkCommonInstrs": 705098,
   "simplifycfg.NumSpeculations": 315099,
