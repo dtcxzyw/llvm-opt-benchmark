@@ -616,24 +616,18 @@ define hidden void @stnode_merge_location(ptr nocapture noundef writeonly %0, pt
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload.i, 0
-  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.2.0.copyload.i, 1
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %.sroa.0.0.copyload.i15 = load i64, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i16 = getelementptr inbounds i8, ptr %2, i64 48
   %.sroa.2.0.copyload.i17 = load i64, ptr %.sroa.2.0..sroa_idx.i16, align 8
-  %.fca.0.insert.i18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload.i15, 0
-  %.fca.1.insert.i19 = insertvalue { i64, i64 } %.fca.0.insert.i18, i64 %.sroa.2.0.copyload.i17, 1
   %6 = icmp sgt i64 %.sroa.0.0.copyload.i15, -1
   %7 = icmp sgt i64 %.sroa.0.0.copyload.i15, %.sroa.0.0.copyload.i
   %or.cond = select i1 %6, i1 %7, i1 false
-  %.pn = select i1 %or.cond, { i64, i64 } %.fca.1.insert.i19, { i64, i64 } %.fca.1.insert.i
-  %.sroa.46.0 = extractvalue { i64, i64 } %.pn, 1
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sroa.0.0.copyload.i, ptr %8, align 8
   %9 = sub i64 %.sroa.0.0.copyload.i15, %.sroa.0.0.copyload.i
-  %10 = select i1 %or.cond, i64 %9, i64 0
-  %11 = add i64 %.sroa.46.0, %10
+  %10 = add i64 %9, %.sroa.2.0.copyload.i17
+  %11 = select i1 %or.cond, i64 %10, i64 %.sroa.2.0.copyload.i
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %11, ptr %12, align 8
   ret void

@@ -4101,13 +4101,8 @@ if.then40:                                        ; preds = %if.end35
   %call50 = call fastcc i64 @do_ld_8(ptr noundef %cpu, ptr noundef nonnull %arrayidx48, i32 noundef %54, i32 noundef 0, i32 noundef %or, i64 noundef %ra)
   %and51 = and i32 %53, 16
   %cmp52 = icmp eq i32 %and51, 0
-  %.fca.0.insert.i69 = insertvalue { i64, i64 } poison, i64 %call46, 0
-  %.fca.1.insert.i70 = insertvalue { i64, i64 } %.fca.0.insert.i69, i64 %call50, 1
-  %.fca.0.insert.i71 = insertvalue { i64, i64 } poison, i64 %call50, 0
-  %.fca.1.insert.i72 = insertvalue { i64, i64 } %.fca.0.insert.i71, i64 %call46, 1
-  %call55.pn = select i1 %cmp52, { i64, i64 } %.fca.1.insert.i70, { i64, i64 } %.fca.1.insert.i72
-  %ret.1.off64 = extractvalue { i64, i64 } %call55.pn, 1
-  %ret.1.off0 = extractvalue { i64, i64 } %call55.pn, 0
+  %ret.1.off64 = select i1 %cmp52, i64 %call50, i64 %call46
+  %ret.1.off0 = select i1 %cmp52, i64 %call46, i64 %call50
   br label %return
 
 if.end61:                                         ; preds = %if.end35
