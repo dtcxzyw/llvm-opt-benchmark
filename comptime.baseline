@@ -3740,7 +3740,7 @@ cmake/cmTargetCompileOptionsCommand.cxx.ll 175847812
 cmake/cmTargetIncludeDirectoriesCommand.cxx.ll 330499141
 cmake/cmTargetLinkDirectoriesCommand.cxx.ll 267326737
 cmake/cmTargetLinkLibrariesCommand.cxx.ll 851685940
-cmake/cmTargetLinkOptionsCommand.cxx.ll 173659747
+cmake/cmTargetLinkOptionsCommand.cxx.ll 173485908
 cmake/cmTargetPrecompileHeadersCommand.cxx.ll 321204849
 cmake/cmTargetPropCommandBase.cxx.ll 327121555
 cmake/cmTargetSourcesCommand.cxx.ll 1437198943
@@ -4425,7 +4425,7 @@ coreutils-rs/3t7rjcjao5l6ltsf.ll 651273356
 coreutils-rs/3t9yvjig6ylv2f7b.ll 612979355
 coreutils-rs/3tmangcy140ze3k0.ll 102038432
 coreutils-rs/3tp8lwgzgoiklwl4.ll 48618149
-coreutils-rs/3uqs7wrzy5u47yy7.ll 36342242
+coreutils-rs/3uqs7wrzy5u47yy7.ll 36378725
 coreutils-rs/3ur69v3u3junjdj1.ll 708543255
 coreutils-rs/3v8dhs4xwbjzenkx.ll 566320736
 coreutils-rs/3vfybkcp5ufzff0e.ll 158902299
@@ -15162,7 +15162,7 @@ llvm/LegalizerInfo.cpp.ll 712568169
 llvm/Lexer.cpp.ll 3583129748
 llvm/LexicalScopes.cpp.ll 1455026510
 llvm/LibCallsShrinkWrap.cpp.ll 1068139960
-llvm/Library.cpp.ll 76226730
+llvm/Library.cpp.ll 76150499
 llvm/Line.cpp.ll 34270623
 llvm/LineIterator.cpp.ll 98003100
 llvm/LinePrinter.cpp.ll 1321197978
@@ -29930,7 +29930,7 @@ proj/nell.cpp.ll 46977731
 proj/networkfilemanager.cpp.ll 2291010571
 proj/nicol.cpp.ll 46787088
 proj/noop.cpp.ll 38476459
-proj/nsper.cpp.ll 74695551
+proj/nsper.cpp.ll 74770265
 proj/nzmg.cpp.ll 59574434
 proj/ob_tran.cpp.ll 133918886
 proj/ocea.cpp.ll 57665132
