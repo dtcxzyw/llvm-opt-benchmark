@@ -749,7 +749,7 @@ $_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIlEENS0_8_Ge
 
 $_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEEJRKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_7TfTokenENS4_12SdfAssetPathEEEEEDcOT0_DpOT1_ = comdat any
 
-$_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvE5_CastIdEElT_ = comdat any
+$_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEclEd = comdat any
 
 $_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplIllNS0_14_LocalTypeInfoIlEEE9_CopyInitERKNSt15aligned_storageILm8ELm8EE4typeERS7_ = comdat any
 
@@ -32985,13 +32985,13 @@ define linkonce_odr noundef i64 @_ZSt10__do_visitINSt8__detail9__variant21__dedu
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load i8, ptr %5, align 8
-  switch i8 %6, label %70 [
+  switch i8 %6, label %65 [
     i8 0, label %7
     i8 1, label %27
     i8 2, label %29
-    i8 3, label %37
-    i8 4, label %42
-    i8 5, label %61
+    i8 3, label %32
+    i8 4, label %37
+    i8 5, label %56
   ]
 
 7:                                                ; preds = %2
@@ -33030,8 +33030,8 @@ define linkonce_odr noundef i64 @_ZSt10__do_visitINSt8__detail9__variant21__dedu
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %23
 
-common.resume:                                    ; preds = %54, %57, %11, %21, %common.resume.i.i.i, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %22, %21 ], [ %12, %11 ], [ %55, %57 ], [ %55, %54 ]
+common.resume:                                    ; preds = %49, %52, %11, %21, %common.resume.i.i.i, %35
+  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %22, %21 ], [ %12, %11 ], [ %50, %52 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %21
@@ -33050,183 +33050,178 @@ common.resume:                                    ; preds = %54, %57, %11, %21, 
 
 29:                                               ; preds = %2
   %30 = load double, ptr %1, align 8
-  %31 = tail call double @llvm.fabs.f64(double %30)
-  %32 = fcmp ueq double %31, 0x7FF0000000000000
-  br i1 %32, label %33, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit
-
-33:                                               ; preds = %29
-  %34 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr @.str.47, ptr %35, align 8
-  tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
-  unreachable
-
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit: ; preds = %29
-  %36 = tail call noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvE5_CastIdEElT_(ptr noundef nonnull align 1 dereferenceable(1) %0, double noundef %30)
+  %31 = tail call noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEclEd(ptr noundef nonnull align 1 dereferenceable(1) %0, double noundef %30)
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SL_.exit
 
-37:                                               ; preds = %2
+32:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(65) %1)
-  %38 = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr @.str.47, ptr %39, align 8
-  invoke void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
-          to label %.noexc.i.i.i unwind label %40
+  %33 = call ptr @__cxa_allocate_exception(i64 16) #26
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store ptr @.str.47, ptr %34, align 8
+  invoke void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
+          to label %.noexc.i.i.i unwind label %35
 
-.noexc.i.i.i:                                     ; preds = %37
+.noexc.i.i.i:                                     ; preds = %32
   unreachable
 
-40:                                               ; preds = %37
-  %41 = landingpad { ptr, i32 }
+35:                                               ; preds = %32
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   br label %common.resume
 
-42:                                               ; preds = %2
-  %43 = load i64, ptr %1, align 8
-  %44 = and i64 %43, 7
-  %.not.i.i.i.i.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i, label %45
+37:                                               ; preds = %2
+  %38 = load i64, ptr %1, align 8
+  %39 = and i64 %38, 7
+  %.not.i.i.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i, label %40
 
-45:                                               ; preds = %42
-  %46 = inttoptr i64 %43 to ptr
-  %47 = and i64 %43, -8
-  %48 = inttoptr i64 %47 to ptr
-  %49 = atomicrmw add ptr %48, i32 2 monotonic, align 4
-  %50 = and i32 %49, 1
-  %.not1.i.i.i.i.i = icmp eq i32 %50, 0
-  %spec.select.i.i.i = select i1 %.not1.i.i.i.i.i, ptr %48, ptr %46
-  %51 = ptrtoint ptr %spec.select.i.i.i to i64
+40:                                               ; preds = %37
+  %41 = inttoptr i64 %38 to ptr
+  %42 = and i64 %38, -8
+  %43 = inttoptr i64 %42 to ptr
+  %44 = atomicrmw add ptr %43, i32 2 monotonic, align 4
+  %45 = and i32 %44, 1
+  %.not1.i.i.i.i.i = icmp eq i32 %45, 0
+  %spec.select.i.i.i = select i1 %.not1.i.i.i.i.i, ptr %43, ptr %41
+  %46 = ptrtoint ptr %spec.select.i.i.i to i64
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i: ; preds = %45, %42
-  %.sroa.0.0.i.i.i = phi i64 [ %43, %42 ], [ %51, %45 ]
-  %52 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr @.str.47, ptr %53, align 8
-  invoke void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
-          to label %.noexc.i.i.i14 unwind label %54
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i: ; preds = %40, %37
+  %.sroa.0.0.i.i.i = phi i64 [ %38, %37 ], [ %46, %40 ]
+  %47 = tail call ptr @__cxa_allocate_exception(i64 16) #26
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store ptr @.str.47, ptr %48, align 8
+  invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
+          to label %.noexc.i.i.i14 unwind label %49
 
 .noexc.i.i.i14:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i
   unreachable
 
-54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i
-  %55 = landingpad { ptr, i32 }
+49:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %56 = and i64 %.sroa.0.0.i.i.i, 7
-  %.not.i.i4.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not.i.i4.i.i.i, label %common.resume, label %57
+  %51 = and i64 %.sroa.0.0.i.i.i, 7
+  %.not.i.i4.i.i.i = icmp eq i64 %51, 0
+  br i1 %.not.i.i4.i.i.i, label %common.resume, label %52
 
-57:                                               ; preds = %54
-  %58 = and i64 %.sroa.0.0.i.i.i, -8
-  %59 = inttoptr i64 %58 to ptr
-  %60 = atomicrmw sub ptr %59, i32 2 release, align 4
+52:                                               ; preds = %49
+  %53 = and i64 %.sroa.0.0.i.i.i, -8
+  %54 = inttoptr i64 %53 to ptr
+  %55 = atomicrmw sub ptr %54, i32 2 release, align 4
   br label %common.resume
 
-61:                                               ; preds = %2
+56:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(65) %1)
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %63)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i unwind label %64
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %58)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i unwind label %59
 
-common.resume.i.i.i:                              ; preds = %68, %64
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %65, %64 ], [ %69, %68 ]
+common.resume.i.i.i:                              ; preds = %63, %59
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %60, %59 ], [ %64, %63 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #26
   br label %common.resume
 
-64:                                               ; preds = %61
-  %65 = landingpad { ptr, i32 }
+59:                                               ; preds = %56
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds = %61
-  %66 = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr @.str.47, ptr %67, align 8
-  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
-          to label %.noexc.i.i.i15 unwind label %68
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds = %56
+  %61 = call ptr @__cxa_allocate_exception(i64 16) #26
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr @.str.47, ptr %62, align 8
+  invoke void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
+          to label %.noexc.i.i.i15 unwind label %63
 
 .noexc.i.i.i15:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i
   unreachable
 
-68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i
-  %69 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i
+  %64 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #26
   br label %common.resume.i.i.i
 
-70:                                               ; preds = %2
+65:                                               ; preds = %2
   unreachable
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SL_.exit: ; preds = %7, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit, %27
-  %.0 = phi i64 [ %36, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ], [ %28, %27 ], [ %8, %7 ]
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SL_.exit: ; preds = %7, %29, %27
+  %.0 = phi i64 [ %31, %29 ], [ %28, %27 ], [ %8, %7 ]
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvE5_CastIdEElT_(ptr noundef nonnull align 1 dereferenceable(1) %0, double noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEclEd(ptr noundef nonnull align 1 dereferenceable(1) %0, double noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call double @llvm.fabs.f64(double %1)
-  %or.cond = fcmp one double %3, 0x7FF0000000000000
-  %4 = fcmp ugt double %1, 0xC3E0000000000000
-  %or.cond11 = and i1 %4, %or.cond
-  %5 = fcmp ult double %1, 0x43E0000000000000
-  %or.cond12 = and i1 %5, %or.cond11
-  br i1 %or.cond12, label %7, label %6
+  %4 = fcmp ueq double %3, 0x7FF0000000000000
+  br i1 %4, label %26, label %5
 
-6:                                                ; preds = %2
+5:                                                ; preds = %2
+  %6 = fcmp ult double %3, 0x43E0000000000000
+  br i1 %6, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvE5_CastIdEElT_.exit, label %7
+
+7:                                                ; preds = %5
   invoke void @_ZSt27__throw_bad_optional_accessv() #27
-          to label %.noexc unwind label %9
+          to label %.noexc.i unwind label %8
 
-.noexc:                                           ; preds = %6
+.noexc.i:                                         ; preds = %7
   unreachable
 
-7:                                                ; preds = %2
-  %8 = fptosi double %1 to i64
-  ret i64 %8
-
-9:                                                ; preds = %6
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           catch ptr @_ZTISt19bad_optional_access
-  %11 = extractvalue { ptr, i32 } %10, 1
-  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt19bad_optional_access) #26
-  %13 = icmp eq i32 %11, %12
-  br i1 %13, label %14, label %21
+  %10 = extractvalue { ptr, i32 } %9, 1
+  %11 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt19bad_optional_access) #26
+  %12 = icmp eq i32 %10, %11
+  br i1 %12, label %13, label %20
 
-14:                                               ; preds = %9
-  %15 = extractvalue { ptr, i32 } %10, 0
-  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #26
-  %17 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr @.str.47, ptr %18, align 8
-  invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
-          to label %25 unwind label %19
+13:                                               ; preds = %8
+  %14 = extractvalue { ptr, i32 } %9, 0
+  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #26
+  %16 = tail call ptr @__cxa_allocate_exception(i64 16) #26
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr @.str.47, ptr %17, align 8
+  invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
+          to label %24 unwind label %18
 
-19:                                               ; preds = %14
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %21 unwind label %22
+          to label %20 unwind label %21
 
-21:                                               ; preds = %19, %9
-  %.merged = phi { ptr, i32 } [ %20, %19 ], [ %10, %9 ]
-  resume { ptr, i32 } %.merged
+20:                                               ; preds = %18, %8
+  %.merged.i = phi { ptr, i32 } [ %19, %18 ], [ %9, %8 ]
+  resume { ptr, i32 } %.merged.i
 
-22:                                               ; preds = %19
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %18
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #24
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #24
   unreachable
 
-25:                                               ; preds = %14
+24:                                               ; preds = %13
+  unreachable
+
+_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvE5_CastIdEElT_.exit: ; preds = %5
+  %25 = fptosi double %1 to i64
+  ret i64 %25
+
+26:                                               ; preds = %2
+  %27 = tail call ptr @__cxa_allocate_exception(i64 16) #26
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr @.str.47, ptr %28, align 8
+  tail call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #27
   unreachable
 }
 

@@ -45665,10 +45665,9 @@ cleanup:                                          ; preds = %if.then49
   %30 = call nsz float @llvm.fabs.f32(float %29)
   %31 = fcmp nsz ogt float %30, 3.100750e+05
   %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %31
-  %cmp9.i = fcmp nsz olt float %mul4.i, -3.100750e+05
-  %or.cond14.i = or i1 %cmp9.i, %or.cond13.i
-  %cmp11.i = fcmp nsz ogt float %mul4.i, 3.100750e+05
-  %spec.select.i = or i1 %cmp11.i, %or.cond14.i
+  %32 = call nsz float @llvm.fabs.f32(float %mul4.i)
+  %33 = fcmp nsz ogt float %32, 3.100750e+05
+  %spec.select.i = or i1 %33, %or.cond13.i
   %is_good.1. = select i1 %spec.select.i, i8 %is_good.0166, i8 1
   br label %cleanup68
 
@@ -45682,10 +45681,10 @@ for.inc:                                          ; preds = %if.then49, %_ZNK14N
 cleanup68:                                        ; preds = %for.inc, %cleanup, %for.body
   %is_good.4 = phi i8 [ %is_good.0166, %for.body ], [ %is_good.1., %cleanup ], [ %is_good.0166, %for.inc ]
   %cmp = icmp samesign ult i32 %i.0165, 3999
-  %32 = and i8 %is_good.4, 1
-  %tobool.not = icmp eq i8 %32, 0
-  %33 = select i1 %cmp, i1 %tobool.not, i1 false
-  br i1 %33, label %for.body, label %for.cond.cleanup, !llvm.loop !1171
+  %34 = and i8 %is_good.4, 1
+  %tobool.not = icmp eq i8 %34, 0
+  %35 = select i1 %cmp, i1 %tobool.not, i1 false
+  br i1 %35, label %for.body, label %for.cond.cleanup, !llvm.loop !1171
 
 if.then78:                                        ; preds = %for.cond.cleanup
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %nodeposf, align 8, !tbaa.struct !450

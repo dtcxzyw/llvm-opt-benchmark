@@ -16579,11 +16579,9 @@ entry:
   %call = tail call noundef i64 @_ZN6duckdb15LogicalOperator19EstimateCardinalityERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(592) %context)
   %limit_percent = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load double, ptr %limit_percent, align 8, !tbaa !515
-  %cmp = fcmp olt double %0, 0.000000e+00
   %cmp3 = fcmp ogt double %0, 1.000000e+02
-  %or.cond = or i1 %cmp, %cmp3
-  %1 = fcmp uno double %0, 0.000000e+00
-  %or.cond10 = or i1 %1, %or.cond
+  %1 = fcmp ult double %0, 0.000000e+00
+  %or.cond10 = or i1 %1, %cmp3
   %conv = uitofp i64 %call to double
   %div = fdiv double %0, 1.000000e+02
   %mul = fmul double %div, %conv

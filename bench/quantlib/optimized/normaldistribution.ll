@@ -1042,17 +1042,14 @@ if.then7.i:                                       ; preds = %_ZN5boost4math6deta
 
 if.end8.i:                                        ; preds = %_ZN5boost4math6detail11check_scaleIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcT_PS9_RKT0_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %location.addr.i.i)
-  %cmp.i.i = fcmp uge double %x, 0.000000e+00
   %cmp1.i.i = fcmp ule double %x, 1.000000e+00
-  %or.cond.not6.i.i = and i1 %cmp.i.i, %cmp1.i.i
-  %9 = tail call double @llvm.fabs.f64(double %x)
-  %10 = fcmp one double %9, 0x7FF0000000000000
-  %or.cond5.i.i = and i1 %or.cond.not6.i.i, %10
+  %9 = tail call i1 @llvm.is.fpclass.f64(double %x, i32 480)
+  %or.cond5.i.i = and i1 %9, %cmp1.i.i
   br i1 %or.cond5.i.i, label %if.end14.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end8.i
-  %11 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !38
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %11, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %x.addr)
+  %10 = load ptr, ptr @_ZZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_E8function, align 8, !tbaa !38
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef %10, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %x.addr)
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_.exit
 
 if.end14.i:                                       ; preds = %if.end8.i
@@ -1061,8 +1058,8 @@ if.end14.i:                                       ; preds = %if.end8.i
   %call16.i = call noundef double @_ZN5boost4math8erfc_invIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_fffffE4typeES8_RKT0_(double noundef %mul.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp15.i) #26
   %mul18.i = fmul double %1, 0x3FF6A09E667F3BCD
-  %12 = fmul double %mul18.i, %call16.i
-  %add.i = fsub double %0, %12
+  %11 = fmul double %mul18.i, %call16.i
+  %add.i = fsub double %0, %11
   br label %_ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_.exit
 
 _ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_19normal_distributionIS6_T0_EERKS6_.exit: ; preds = %if.then.i, %if.then7.i, %if.then13.i, %if.end14.i

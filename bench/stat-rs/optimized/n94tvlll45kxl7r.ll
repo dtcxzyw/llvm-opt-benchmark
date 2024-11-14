@@ -808,31 +808,31 @@ define void @_ZN6statrs12distribution11categorical16prob_mass_to_cdf17h5d695172f
 define void @_ZN6statrs12distribution6erlang6Erlang3new17h6627f0e22ae51e87E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, i64 noundef %1, double noundef %2) unnamed_addr #7 {
   %4 = uitofp i64 %1 to double
   %or.cond.i = fcmp uno double %2, 0.000000e+00
-  br i1 %or.cond.i, label %9, label %5
+  br i1 %or.cond.i, label %10, label %5
 
 5:                                                ; preds = %3
-  %.old.i = icmp eq i64 %1, 0
+  %6 = icmp eq i64 %1, 0
   %.old2.i = fcmp ole double %2, 0.000000e+00
-  %or.cond4.i = or i1 %.old.i, %.old2.i
-  br i1 %or.cond4.i, label %9, label %6
+  %or.cond4.i = or i1 %6, %.old2.i
+  br i1 %or.cond4.i, label %10, label %7
 
-6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %2, ptr %8, align 8
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %4, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %2, ptr %9, align 8
   store i64 21, ptr %0, align 8
-  br label %10
+  br label %11
 
-9:                                                ; preds = %5, %3
+10:                                               ; preds = %5, %3
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store double %4, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store double %2, ptr %.sroa.52.0..sroa_idx, align 8
-  br label %10
+  br label %11
 
-10:                                               ; preds = %9, %6
+11:                                               ; preds = %10, %7
   ret void
 }
 
@@ -1054,25 +1054,23 @@ define noundef double @"_ZN106_$LT$statrs..distribution..erlang..Erlang$u20$as$u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN6statrs12distribution6pareto6Pareto3new17hc80ff3dc05776f82E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #7 {
   %4 = fcmp uno double %1, 0.000000e+00
-  br i1 %4, label %12, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = fcmp uno double %2, 0.000000e+00
-  %7 = fcmp ole double %1, 0.000000e+00
-  %or.cond = or i1 %7, %6
-  %8 = fcmp ole double %2, 0.000000e+00
-  %or.cond1 = or i1 %8, %or.cond
-  br i1 %or.cond1, label %12, label %9
+  %6 = fcmp ole double %1, 0.000000e+00
+  %7 = fcmp ule double %2, 0.000000e+00
+  %or.cond1 = or i1 %6, %7
+  br i1 %or.cond1, label %11, label %8
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %2, ptr %11, align 8
-  br label %12
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %2, ptr %10, align 8
+  br label %11
 
-12:                                               ; preds = %5, %3, %9
-  %storemerge = phi i64 [ 21, %9 ], [ 0, %3 ], [ 0, %5 ]
+11:                                               ; preds = %5, %3, %8
+  %storemerge = phi i64 [ 21, %8 ], [ 0, %3 ], [ 0, %5 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

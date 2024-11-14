@@ -15,13 +15,13 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 define double @missing_nextafter(double noundef %0, double noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = fcmp uno double %0, 0.000000e+00
-  br i1 %4, label %59, label %5
+  br i1 %4, label %55, label %5
 
 5:                                                ; preds = %2
   %6 = fcmp uno double %1, 0.000000e+00
   %7 = fcmp oeq double %0, %1
   %or.cond55 = or i1 %6, %7
-  br i1 %or.cond55, label %59, label %8
+  br i1 %or.cond55, label %55, label %8
 
 8:                                                ; preds = %5
   %9 = fcmp oeq double %0, 0.000000e+00
@@ -32,100 +32,94 @@ define double @missing_nextafter(double noundef %0, double noundef %1) local_unn
   %12 = fcmp oeq double %11, 0.000000e+00
   %.041 = select i1 %12, double 0x10000000000000, double %11
   %13 = fcmp ogt double %1, 0.000000e+00
-  br i1 %13, label %59, label %14
+  br i1 %13, label %55, label %14
 
 14:                                               ; preds = %10
   %15 = fneg double %.041
-  br label %59
+  br label %55
 
 16:                                               ; preds = %8
   %17 = fcmp olt double %0, 0.000000e+00
-  br i1 %17, label %18, label %26
+  br i1 %17, label %18, label %24
 
 18:                                               ; preds = %16
   %19 = tail call double @llvm.fabs.f64(double %0) #8
   %20 = fcmp oeq double %19, 0x7FF0000000000000
-  br i1 %20, label %59, label %21
+  br i1 %20, label %55, label %21
 
 21:                                               ; preds = %18
   %22 = fcmp oeq double %0, 0xFFEFFFFFFFFFFFFF
-  %23 = fcmp olt double %1, 0.000000e+00
-  %or.cond = and i1 %22, %23
-  %24 = tail call double @llvm.fabs.f64(double %1) #8
-  %25 = fcmp oeq double %24, 0x7FF0000000000000
-  %or.cond52 = and i1 %or.cond, %25
-  br i1 %or.cond52, label %59, label %33
+  %23 = fcmp oeq double %1, 0xFFF0000000000000
+  %or.cond52 = and i1 %22, %23
+  br i1 %or.cond52, label %55, label %29
 
-26:                                               ; preds = %16
-  %27 = fcmp oeq double %0, 0x7FF0000000000000
-  br i1 %27, label %59, label %28
+24:                                               ; preds = %16
+  %25 = fcmp oeq double %0, 0x7FF0000000000000
+  br i1 %25, label %55, label %26
 
-28:                                               ; preds = %26
-  %29 = fcmp oeq double %0, 0x7FEFFFFFFFFFFFFF
-  %30 = fcmp ogt double %1, 0.000000e+00
-  %or.cond3 = and i1 %29, %30
-  %31 = tail call double @llvm.fabs.f64(double %1) #8
-  %32 = fcmp oeq double %31, 0x7FF0000000000000
-  %or.cond54 = and i1 %or.cond3, %32
-  br i1 %or.cond54, label %59, label %33
+26:                                               ; preds = %24
+  %27 = fcmp oeq double %0, 0x7FEFFFFFFFFFFFFF
+  %28 = fcmp oeq double %1, 0x7FF0000000000000
+  %or.cond54 = and i1 %27, %28
+  br i1 %or.cond54, label %55, label %29
 
-33:                                               ; preds = %28, %21
-  %34 = call double @frexp(double noundef %0, ptr noundef nonnull %3) #7
-  %35 = fcmp olt double %0, %1
-  br i1 %35, label %36, label %41
+29:                                               ; preds = %26, %21
+  %30 = call double @frexp(double noundef %0, ptr noundef nonnull %3) #7
+  %31 = fcmp olt double %0, %1
+  br i1 %31, label %32, label %37
 
-36:                                               ; preds = %33
-  %37 = fcmp oeq double %34, -5.000000e-01
-  br i1 %37, label %38, label %thread-pre-split
+32:                                               ; preds = %29
+  %33 = fcmp oeq double %30, -5.000000e-01
+  br i1 %33, label %34, label %thread-pre-split
 
-38:                                               ; preds = %36
-  %39 = load i32, ptr %3, align 4
-  %40 = add nsw i32 %39, -1
-  br label %46
+34:                                               ; preds = %32
+  %35 = load i32, ptr %3, align 4
+  %36 = add nsw i32 %35, -1
+  br label %42
 
-41:                                               ; preds = %33
-  %42 = fcmp oeq double %34, 5.000000e-01
-  br i1 %42, label %43, label %thread-pre-split
+37:                                               ; preds = %29
+  %38 = fcmp oeq double %30, 5.000000e-01
+  br i1 %38, label %39, label %thread-pre-split
 
-43:                                               ; preds = %41
-  %44 = load i32, ptr %3, align 4
-  %45 = add nsw i32 %44, -1
-  br label %46
+39:                                               ; preds = %37
+  %40 = load i32, ptr %3, align 4
+  %41 = add nsw i32 %40, -1
+  br label %42
 
-thread-pre-split:                                 ; preds = %36, %41
-  %.0.ph = phi double [ 0xBCA0000000000000, %41 ], [ 0x3CA0000000000000, %36 ]
+thread-pre-split:                                 ; preds = %32, %37
+  %.0.ph = phi double [ 0xBCA0000000000000, %37 ], [ 0x3CA0000000000000, %32 ]
   %.pr = load i32, ptr %3, align 4
-  br label %46
+  br label %42
 
-46:                                               ; preds = %thread-pre-split, %43, %38
-  %47 = phi i32 [ %.pr, %thread-pre-split ], [ %45, %43 ], [ %40, %38 ]
-  %.142 = phi double [ %34, %thread-pre-split ], [ 1.000000e+00, %43 ], [ -1.000000e+00, %38 ]
-  %.0 = phi double [ %.0.ph, %thread-pre-split ], [ 0xBCA0000000000000, %43 ], [ 0x3CA0000000000000, %38 ]
-  %48 = icmp slt i32 %47, -1021
-  br i1 %48, label %49, label %52
+42:                                               ; preds = %thread-pre-split, %39, %34
+  %43 = phi i32 [ %.pr, %thread-pre-split ], [ %41, %39 ], [ %36, %34 ]
+  %.142 = phi double [ %30, %thread-pre-split ], [ 1.000000e+00, %39 ], [ -1.000000e+00, %34 ]
+  %.0 = phi double [ %.0.ph, %thread-pre-split ], [ 0xBCA0000000000000, %39 ], [ 0x3CA0000000000000, %34 ]
+  %44 = icmp slt i32 %43, -1021
+  br i1 %44, label %45, label %48
 
-49:                                               ; preds = %46
-  %50 = sub nuw nsw i32 -1021, %47
-  %51 = tail call double @ldexp(double noundef %.0, i32 noundef %50) #7
-  br label %52
+45:                                               ; preds = %42
+  %46 = sub nuw nsw i32 -1021, %43
+  %47 = tail call double @ldexp(double noundef %.0, i32 noundef %46) #7
+  br label %48
 
-52:                                               ; preds = %49, %46
-  %.1 = phi double [ %51, %49 ], [ %.0, %46 ]
-  %53 = fadd double %.142, %.1
-  %54 = fcmp oeq double %53, 0.000000e+00
-  br i1 %54, label %55, label %57
+48:                                               ; preds = %45, %42
+  %.1 = phi double [ %47, %45 ], [ %.0, %42 ]
+  %49 = fadd double %.142, %.1
+  %50 = fcmp oeq double %49, 0.000000e+00
+  br i1 %50, label %51, label %53
 
-55:                                               ; preds = %52
-  %56 = fcmp olt double %.142, 0.000000e+00
-  %. = select i1 %56, double -0.000000e+00, double 0.000000e+00
-  br label %59
+51:                                               ; preds = %48
+  %52 = fcmp olt double %.142, 0.000000e+00
+  %. = select i1 %52, double -0.000000e+00, double 0.000000e+00
+  br label %55
 
-57:                                               ; preds = %52
-  %58 = tail call double @ldexp(double noundef %53, i32 noundef %47) #7
-  br label %59
+53:                                               ; preds = %48
+  %54 = tail call double @ldexp(double noundef %49, i32 noundef %43) #7
+  br label %55
 
-59:                                               ; preds = %55, %28, %26, %21, %18, %10, %5, %2, %57, %14
-  %.040 = phi double [ %15, %14 ], [ %58, %57 ], [ %0, %2 ], [ %1, %5 ], [ %.041, %10 ], [ 0xFFEFFFFFFFFFFFFF, %18 ], [ %1, %21 ], [ 0x7FEFFFFFFFFFFFFF, %26 ], [ %1, %28 ], [ %., %55 ]
+55:                                               ; preds = %51, %26, %24, %21, %18, %10, %5, %2, %53, %14
+  %.040 = phi double [ %15, %14 ], [ %54, %53 ], [ %0, %2 ], [ %1, %5 ], [ %.041, %10 ], [ 0xFFEFFFFFFFFFFFFF, %18 ], [ 0xFFF0000000000000, %21 ], [ 0x7FEFFFFFFFFFFFFF, %24 ], [ 0x7FF0000000000000, %26 ], [ %., %51 ]
   ret double %.040
 }
 

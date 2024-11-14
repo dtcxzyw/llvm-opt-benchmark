@@ -399,10 +399,9 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
 
 81:                                               ; preds = %76
   %82 = fcmp uno double %80, 0.000000e+00
-  %83 = fcmp olt double %80, 0xC71A36E2E0000000
-  %or.cond = or i1 %82, %83
-  %84 = fcmp ogt double %80, 0x471A36E2E0000000
-  %or.cond113 = or i1 %84, %or.cond
+  %83 = tail call double @llvm.fabs.f64(double %80)
+  %84 = fcmp ogt double %83, 0x471A36E2E0000000
+  %or.cond113 = or i1 %82, %84
   %.2103 = select i1 %or.cond113, i8 1, i8 %.0101143
   %85 = trunc nuw i8 %.2103 to i1
   br i1 %85, label %96, label %86
@@ -451,10 +450,9 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
   %112 = fdiv double %111, %13
   %113 = fsub double %.2, %112
   %114 = fcmp uno double %113, 0.000000e+00
-  %115 = fcmp olt double %113, 0xC71A36E2E0000000
-  %or.cond114 = or i1 %114, %115
-  %116 = fcmp ogt double %113, 0x471A36E2E0000000
-  %or.cond115 = or i1 %116, %or.cond114
+  %115 = tail call double @llvm.fabs.f64(double %113)
+  %116 = fcmp ogt double %115, 0x471A36E2E0000000
+  %or.cond115 = or i1 %114, %116
   br i1 %or.cond115, label %118, label %117
 
 117:                                              ; preds = %108

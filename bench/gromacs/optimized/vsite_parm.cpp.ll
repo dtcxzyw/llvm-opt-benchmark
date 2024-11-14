@@ -3993,10 +3993,9 @@ _ZL19calc_vsite4fd_paramP17InteractionOfTypeN3gmx8ArrayRefIK22VsiteBondedInterac
   %1649 = fdiv float %1645, %1648
   %1650 = call float @llvm.fabs.f32(float %1640)
   %or.cond15.i = fcmp ogt float %1650, 1.000000e+00
-  %1651 = fcmp olt float %1649, -1.000000e+00
-  %or.cond17.i = or i1 %or.cond15.i, %1651
-  %1652 = fcmp ogt float %1649, 1.000000e+00
-  %or.cond19.i = or i1 %1652, %or.cond17.i
+  %1651 = call float @llvm.fabs.f32(float %1649)
+  %1652 = fcmp ogt float %1651, 1.000000e+00
+  %or.cond19.i = or i1 %or.cond15.i, %1652
   br i1 %or.cond19.i, label %1653, label %1685
 
 1653:                                             ; preds = %1628

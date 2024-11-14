@@ -15790,23 +15790,21 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %13 = load float, ptr %.0.i.i, align 4
   %14 = tail call float @llvm.fabs.f32(float %13)
   %or.cond = fcmp ueq float %14, 0x7FF0000000000000
-  %15 = fcmp ole float %13, 0xC1E0000000000000
-  %or.cond4.not8 = or i1 %15, %or.cond
-  %16 = fcmp oge float %13, 0x41E0000000000000
-  %or.cond5.not = or i1 %16, %or.cond4.not8
-  br i1 %or.cond5.not, label %20, label %_ZNRSt8optionalIiE5valueEv.exit
+  %15 = fcmp oge float %14, 0x41E0000000000000
+  %or.cond5.not = or i1 %or.cond, %15
+  br i1 %or.cond5.not, label %19, label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
-  %17 = fptosi float %13 to i32
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIiEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
-  store i32 %17, ptr %0, align 8
-  br label %20
+  %16 = fptosi float %13 to i32
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIiEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
+  store i32 %16, ptr %0, align 8
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit, %_ZNRSt8optionalIiE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIiE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit, %_ZNRSt8optionalIiE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIiE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 
@@ -17140,23 +17138,21 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %13 = load float, ptr %.0.i.i, align 4
   %14 = tail call float @llvm.fabs.f32(float %13)
   %or.cond = fcmp one float %14, 0x7FF0000000000000
-  %15 = fcmp ugt float %13, 0xC3E0000000000000
-  %or.cond8 = and i1 %15, %or.cond
-  %16 = fcmp ult float %13, 0x43E0000000000000
-  %or.cond9 = and i1 %16, %or.cond8
-  br i1 %or.cond9, label %_ZNRSt8optionalIlE5valueEv.exit, label %20
+  %15 = fcmp ult float %14, 0x43E0000000000000
+  %or.cond9 = and i1 %or.cond, %15
+  br i1 %or.cond9, label %_ZNRSt8optionalIlE5valueEv.exit, label %19
 
 _ZNRSt8optionalIlE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
-  %17 = fptosi float %13 to i64
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIlEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
-  store i64 %17, ptr %0, align 8
-  br label %20
+  %16 = fptosi float %13 to i64
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIlEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
+  store i64 %16, ptr %0, align 8
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit, %_ZNRSt8optionalIlE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIlE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit, %_ZNRSt8optionalIlE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIlE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 
@@ -17211,23 +17207,21 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %13 = load double, ptr %.0.i.i, align 8
   %14 = tail call double @llvm.fabs.f64(double %13)
   %or.cond = fcmp one double %14, 0x7FF0000000000000
-  %15 = fcmp ugt double %13, 0xC3E0000000000000
-  %or.cond8 = and i1 %15, %or.cond
-  %16 = fcmp ult double %13, 0x43E0000000000000
-  %or.cond9 = and i1 %16, %or.cond8
-  br i1 %or.cond9, label %_ZNRSt8optionalIlE5valueEv.exit, label %20
+  %15 = fcmp ult double %14, 0x43E0000000000000
+  %or.cond9 = and i1 %or.cond, %15
+  br i1 %or.cond9, label %_ZNRSt8optionalIlE5valueEv.exit, label %19
 
 _ZNRSt8optionalIlE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
-  %17 = fptosi double %13 to i64
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIlEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
-  store i64 %17, ptr %0, align 8
-  br label %20
+  %16 = fptosi double %13 to i64
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIlEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
+  store i64 %16, ptr %0, align 8
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit, %_ZNRSt8optionalIlE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIlE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit, %_ZNRSt8optionalIlE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIlE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 
@@ -18204,23 +18198,21 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; p
   %13 = load float, ptr %.0.i.i, align 4
   %14 = tail call float @llvm.fabs.f32(float %13)
   %or.cond = fcmp one float %14, 0x7FF0000000000000
-  %15 = fcmp ugt float %13, 0xC3E0000000000000
-  %or.cond8 = and i1 %15, %or.cond
-  %16 = fcmp ult float %13, 0x43E0000000000000
-  %or.cond9 = and i1 %16, %or.cond8
-  br i1 %or.cond9, label %_ZNRSt8optionalIxE5valueEv.exit, label %20
+  %15 = fcmp ult float %14, 0x43E0000000000000
+  %or.cond9 = and i1 %or.cond, %15
+  br i1 %or.cond9, label %_ZNRSt8optionalIxE5valueEv.exit, label %19
 
 _ZNRSt8optionalIxE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
-  %17 = fptosi float %13 to i64
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIxEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
-  store i64 %17, ptr %0, align 8
-  br label %20
+  %16 = fptosi float %13 to i64
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIxEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
+  store i64 %16, ptr %0, align 8
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit, %_ZNRSt8optionalIxE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIxE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit, %_ZNRSt8optionalIxE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIxE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 
@@ -18275,23 +18267,21 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   %13 = load double, ptr %.0.i.i, align 8
   %14 = tail call double @llvm.fabs.f64(double %13)
   %or.cond = fcmp one double %14, 0x7FF0000000000000
-  %15 = fcmp ugt double %13, 0xC3E0000000000000
-  %or.cond8 = and i1 %15, %or.cond
-  %16 = fcmp ult double %13, 0x43E0000000000000
-  %or.cond9 = and i1 %16, %or.cond8
-  br i1 %or.cond9, label %_ZNRSt8optionalIxE5valueEv.exit, label %20
+  %15 = fcmp ult double %14, 0x43E0000000000000
+  %or.cond9 = and i1 %or.cond, %15
+  br i1 %or.cond9, label %_ZNRSt8optionalIxE5valueEv.exit, label %19
 
 _ZNRSt8optionalIxE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
-  %17 = fptosi double %13 to i64
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIxEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
-  store i64 %17, ptr %0, align 8
-  br label %20
+  %16 = fptosi double %13 to i64
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIxEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
+  store i64 %16, ptr %0, align 8
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit, %_ZNRSt8optionalIxE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIxE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit, %_ZNRSt8optionalIxE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIxE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 

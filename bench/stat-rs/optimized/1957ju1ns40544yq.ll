@@ -249,37 +249,33 @@ define { i64, double } @"_ZN126_$LT$statrs..distribution..dirac..Dirac$u20$as$u2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN6statrs12distribution5gamma5Gamma3new17h9d848519378ef99aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
   %or.cond = fcmp uno double %1, %2
-  br i1 %or.cond, label %16, label %4
+  br i1 %or.cond, label %14, label %4
 
 4:                                                ; preds = %3
   %5 = tail call double @llvm.fabs.f64(double %1)
   %6 = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %6, label %8, label %7
-
-7:                                                ; preds = %4
-  %.old = fcmp ole double %1, 0.000000e+00
-  %.old2 = fcmp ole double %2, 0.000000e+00
-  %or.cond4 = or i1 %.old, %.old2
-  br i1 %or.cond4, label %16, label %13
+  %7 = fcmp ole double %1, 0.000000e+00
+  br i1 %6, label %9, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call double @llvm.fabs.f64(double %2)
-  %10 = fcmp oeq double %9, 0x7FF0000000000000
-  %11 = fcmp ole double %1, 0.000000e+00
-  %or.cond1 = or i1 %11, %10
-  %12 = fcmp ole double %2, 0.000000e+00
-  %or.cond3 = or i1 %12, %or.cond1
-  br i1 %or.cond3, label %16, label %13
+  %.old2 = fcmp ole double %2, 0.000000e+00
+  %or.cond4 = or i1 %7, %.old2
+  br i1 %or.cond4, label %14, label %11
 
-13:                                               ; preds = %7, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %2, ptr %15, align 8
-  br label %16
+9:                                                ; preds = %4
+  %10 = tail call i1 @llvm.is.fpclass.f64(double %2, i32 636)
+  %or.cond3 = or i1 %7, %10
+  br i1 %or.cond3, label %14, label %11
 
-16:                                               ; preds = %3, %7, %8, %13
-  %storemerge = phi i64 [ 21, %13 ], [ 0, %8 ], [ 0, %7 ], [ 0, %3 ]
+11:                                               ; preds = %8, %9
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %2, ptr %13, align 8
+  br label %14
+
+14:                                               ; preds = %3, %8, %9, %11
+  %storemerge = phi i64 [ 21, %11 ], [ 0, %9 ], [ 0, %8 ], [ 0, %3 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

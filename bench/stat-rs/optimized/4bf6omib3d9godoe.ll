@@ -895,47 +895,45 @@ define { i64, double } @"_ZN122_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
 define noundef double @"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$3pdf17h0fe6350d641a88ffE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, double noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = load double, ptr %0, align 8, !noundef !7
   %4 = fcmp oeq double %3, 0x7FF0000000000000
-  %5 = fcmp oeq double %1, 0x7FF0000000000000
-  %or.cond = or i1 %5, %4
-  %6 = fcmp ole double %1, 0.000000e+00
-  %or.cond1 = or i1 %6, %or.cond
-  br i1 %or.cond1, label %32, label %7
+  %5 = tail call i1 @llvm.is.fpclass.f64(double %1, i32 636)
+  %or.cond1 = or i1 %5, %4
+  br i1 %or.cond1, label %31, label %6
 
-7:                                                ; preds = %2
-  %8 = fcmp ogt double %3, 1.600000e+02
-  %9 = fmul double %3, 5.000000e-01
-  %10 = fsub double 1.000000e+00, %9
-  %11 = fadd double %3, -1.000000e+00
-  br i1 %8, label %"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E.exit", label %12
+6:                                                ; preds = %2
+  %7 = fcmp ogt double %3, 1.600000e+02
+  %8 = fmul double %3, 5.000000e-01
+  %9 = fsub double 1.000000e+00, %8
+  %10 = fadd double %3, -1.000000e+00
+  br i1 %7, label %"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E.exit", label %11
 
-12:                                               ; preds = %7
-  %exp2 = tail call double @llvm.exp2.f64(double %10)
-  %13 = tail call double @llvm.pow.f64(double %1, double %11)
-  %14 = fmul double %13, %exp2
-  %15 = fneg double %1
-  %16 = fmul double %1, %15
-  %17 = fmul double %16, 5.000000e-01
-  %18 = tail call double @llvm.exp.f64(double %17)
-  %19 = fmul double %18, %14
-  %20 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %9)
-  %21 = fdiv double %19, %20
-  br label %32
+11:                                               ; preds = %6
+  %exp2 = tail call double @llvm.exp2.f64(double %9)
+  %12 = tail call double @llvm.pow.f64(double %1, double %10)
+  %13 = fmul double %12, %exp2
+  %14 = fneg double %1
+  %15 = fmul double %1, %14
+  %16 = fmul double %15, 5.000000e-01
+  %17 = tail call double @llvm.exp.f64(double %16)
+  %18 = fmul double %17, %13
+  %19 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %8)
+  %20 = fdiv double %18, %19
+  br label %31
 
-"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E.exit": ; preds = %7
-  %22 = fmul double %10, 0x3FE62E42FEFA39EF
-  %23 = tail call noundef double @llvm.log.f64(double %1)
-  %24 = fmul double %23, %11
-  %25 = fadd double %24, %22
-  %26 = fmul double %1, %1
-  %27 = fmul double %26, 5.000000e-01
-  %28 = fsub double %25, %27
-  %29 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %9), !noalias !105
-  %30 = fsub double %28, %29
-  %31 = tail call double @llvm.exp.f64(double %30)
-  br label %32
+"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E.exit": ; preds = %6
+  %21 = fmul double %9, 0x3FE62E42FEFA39EF
+  %22 = tail call noundef double @llvm.log.f64(double %1)
+  %23 = fmul double %22, %10
+  %24 = fadd double %23, %21
+  %25 = fmul double %1, %1
+  %26 = fmul double %25, 5.000000e-01
+  %27 = fsub double %24, %26
+  %28 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %8), !noalias !105
+  %29 = fsub double %27, %28
+  %30 = tail call double @llvm.exp.f64(double %29)
+  br label %31
 
-32:                                               ; preds = %2, %12, %"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E.exit"
-  %.sroa.0.0 = phi double [ %31, %"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E.exit" ], [ %21, %12 ], [ 0.000000e+00, %2 ]
+31:                                               ; preds = %2, %11, %"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E.exit"
+  %.sroa.0.0 = phi double [ %30, %"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E.exit" ], [ %20, %11 ], [ 0.000000e+00, %2 ]
   ret double %.sroa.0.0
 }
 
@@ -943,29 +941,27 @@ define noundef double @"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$sta
 define noundef double @"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, double noundef %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = load double, ptr %0, align 8, !noundef !7
   %4 = fcmp oeq double %3, 0x7FF0000000000000
-  %5 = fcmp oeq double %1, 0x7FF0000000000000
-  %or.cond = or i1 %5, %4
-  %6 = fcmp ole double %1, 0.000000e+00
-  %or.cond1 = or i1 %6, %or.cond
-  br i1 %or.cond1, label %20, label %7
+  %5 = tail call i1 @llvm.is.fpclass.f64(double %1, i32 636)
+  %or.cond1 = or i1 %5, %4
+  br i1 %or.cond1, label %19, label %6
 
-7:                                                ; preds = %2
-  %8 = fmul double %3, 5.000000e-01
-  %9 = fsub double 1.000000e+00, %8
-  %10 = fmul double %9, 0x3FE62E42FEFA39EF
-  %11 = fadd double %3, -1.000000e+00
-  %12 = tail call noundef double @llvm.log.f64(double %1)
-  %13 = fmul double %12, %11
-  %14 = fadd double %13, %10
-  %15 = fmul double %1, %1
-  %16 = fmul double %15, 5.000000e-01
-  %17 = fsub double %14, %16
-  %18 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %8)
-  %19 = fsub double %17, %18
-  br label %20
+6:                                                ; preds = %2
+  %7 = fmul double %3, 5.000000e-01
+  %8 = fsub double 1.000000e+00, %7
+  %9 = fmul double %8, 0x3FE62E42FEFA39EF
+  %10 = fadd double %3, -1.000000e+00
+  %11 = tail call noundef double @llvm.log.f64(double %1)
+  %12 = fmul double %11, %10
+  %13 = fadd double %12, %9
+  %14 = fmul double %1, %1
+  %15 = fmul double %14, 5.000000e-01
+  %16 = fsub double %13, %15
+  %17 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %7)
+  %18 = fsub double %16, %17
+  br label %19
 
-20:                                               ; preds = %2, %7
-  %.sroa.0.0 = phi double [ %19, %7 ], [ 0xFFF0000000000000, %2 ]
+19:                                               ; preds = %2, %6
+  %.sroa.0.0 = phi double [ %18, %6 ], [ 0xFFF0000000000000, %2 ]
   ret double %.sroa.0.0
 }
 

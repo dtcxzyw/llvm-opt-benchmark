@@ -71,64 +71,60 @@ define void @_ZN5nblib3BoxC2Efff(ptr nocapture noundef nonnull writeonly align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   %7 = tail call float @llvm.fabs.f32(float %1)
   %or.cond = fcmp ueq float %7, 0x7FF0000000000000
-  %8 = fcmp uno float %2, 0.000000e+00
-  %or.cond20 = or i1 %or.cond, %8
-  %9 = tail call float @llvm.fabs.f32(float %2)
-  %10 = fcmp oeq float %9, 0x7FF0000000000000
-  %or.cond22 = or i1 %or.cond20, %10
-  %11 = fcmp uno float %3, 0.000000e+00
-  %or.cond23 = or i1 %11, %or.cond22
-  %12 = tail call float @llvm.fabs.f32(float %3)
-  %13 = fcmp oeq float %12, 0x7FF0000000000000
-  %or.cond25 = or i1 %13, %or.cond23
-  br i1 %or.cond25, label %14, label %22
+  %8 = tail call float @llvm.fabs.f32(float %2)
+  %9 = fcmp ueq float %8, 0x7FF0000000000000
+  %or.cond22 = or i1 %or.cond, %9
+  %10 = tail call float @llvm.fabs.f32(float %3)
+  %11 = fcmp ueq float %10, 0x7FF0000000000000
+  %or.cond25 = or i1 %or.cond22, %11
+  br i1 %or.cond25, label %12, label %20
 
-14:                                               ; preds = %4
-  %15 = tail call ptr @__cxa_allocate_exception(i64 40) #13
+12:                                               ; preds = %4
+  %13 = tail call ptr @__cxa_allocate_exception(i64 40) #13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %16 unwind label %.thread
+          to label %14 unwind label %.thread
 
-16:                                               ; preds = %14
-  invoke void @_ZN5nblib14InputExceptionCI2NS_14NbLibExceptionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %17 unwind label %19
+14:                                               ; preds = %12
+  invoke void @_ZN5nblib14InputExceptionCI2NS_14NbLibExceptionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %15 unwind label %17
 
-17:                                               ; preds = %16
-  invoke void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTIN5nblib14InputExceptionE, ptr nonnull @_ZN5nblib14InputExceptionD2Ev) #14
-          to label %26 unwind label %19
+15:                                               ; preds = %14
+  invoke void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTIN5nblib14InputExceptionE, ptr nonnull @_ZN5nblib14InputExceptionD2Ev) #14
+          to label %24 unwind label %17
 
-.thread:                                          ; preds = %14
-  %18 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %12
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
-  br label %21
+  br label %19
 
-19:                                               ; preds = %16, %17
-  %.0 = phi i1 [ false, %17 ], [ true, %16 ]
-  %20 = landingpad { ptr, i32 }
+17:                                               ; preds = %14, %15
+  %.0 = phi i1 [ false, %15 ], [ true, %14 ]
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
-  br i1 %.0, label %21, label %25
+  br i1 %.0, label %19, label %23
 
-21:                                               ; preds = %.thread, %19
-  %.pn18 = phi { ptr, i32 } [ %18, %.thread ], [ %20, %19 ]
-  call void @__cxa_free_exception(ptr %15) #13
-  br label %25
+19:                                               ; preds = %.thread, %17
+  %.pn18 = phi { ptr, i32 } [ %16, %.thread ], [ %18, %17 ]
+  call void @__cxa_free_exception(ptr %13) #13
+  br label %23
 
-22:                                               ; preds = %4
+20:                                               ; preds = %4
   store float %1, ptr %0, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  store float %2, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %3, ptr %24, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  store float %2, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %3, ptr %22, align 4
   ret void
 
-25:                                               ; preds = %19, %21
-  %.pn17 = phi { ptr, i32 } [ %20, %19 ], [ %.pn18, %21 ]
+23:                                               ; preds = %17, %19
+  %.pn17 = phi { ptr, i32 } [ %18, %17 ], [ %.pn18, %19 ]
   resume { ptr, i32 } %.pn17
 
-26:                                               ; preds = %17
+24:                                               ; preds = %15
   unreachable
 }
 

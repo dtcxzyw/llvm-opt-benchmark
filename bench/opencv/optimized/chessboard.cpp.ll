@@ -8694,13 +8694,11 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZNK2cv7details10C
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK2cv7details10Chessboard5Board12isHorizontalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef float @_ZNK2cv7details10Chessboard5Board8getAngleEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
-  %3 = fpext float %2 to double
-  %4 = tail call double @llvm.fabs.f64(double %3)
+  %3 = tail call float @llvm.fabs.f32(float %2)
+  %4 = fpext float %3 to double
   %or.cond = fcmp olt double %4, 0x3FE921FB54442D18
-  %5 = fcmp ogt double %3, 0x4002D97C7F3321D2
-  %or.cond3 = or i1 %5, %or.cond
-  %6 = fcmp olt double %3, 0xC002D97C7F3321D2
-  %or.cond5 = or i1 %6, %or.cond3
+  %5 = fcmp ogt double %4, 0x4002D97C7F3321D2
+  %or.cond5 = or i1 %or.cond, %5
   ret i1 %or.cond5
 }
 
