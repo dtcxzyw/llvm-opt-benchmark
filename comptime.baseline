@@ -5788,7 +5788,7 @@ cvc5/theory_bv.cpp.ll 1983632827
 cvc5/theory_bv_rewriter.cpp.ll 13929975489
 cvc5/theory_bv_type_rules.cpp.ll 405035729
 cvc5/theory_bv_utils.cpp.ll 1605139249
-cvc5/theory_datatypes.cpp.ll 13244981067
+cvc5/theory_datatypes.cpp.ll 13258226649
 cvc5/theory_datatypes_type_rules.cpp.ll 3425290641
 cvc5/theory_datatypes_utils.cpp.ll 820815629
 cvc5/theory_engine.cpp.ll 7029106358
@@ -9622,7 +9622,7 @@ hdf5/H5LTparse.c.ll 191418081
 hdf5/H5Ldeprec.c.ll 154974994
 hdf5/H5Lexternal.c.ll 80329219
 hdf5/H5Lint.c.ll 320296589
-hdf5/H5M.c.ll 40533803
+hdf5/H5M.c.ll 40574376
 hdf5/H5MF.c.ll 755492469
 hdf5/H5MFaggr.c.ll 164377704
 hdf5/H5MFdbg.c.ll 57335192
