@@ -37618,7 +37618,7 @@ wireshark/packet-ixiatrailer.c.ll 65592131
 wireshark/packet-ixveriwave.c.ll 624952151
 wireshark/packet-jpeg.c.ll 54651431
 wireshark/packet-json.c.ll 324227657
-wireshark/packet-json_3gpp.c.ll 147917671
+wireshark/packet-json_3gpp.c.ll 147769748
 wireshark/packet-juniper.c.ll 255973468
 wireshark/packet-jxta.c.ll 484860220
 wireshark/packet-k12.c.ll 178936328
