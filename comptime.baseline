@@ -19556,7 +19556,7 @@ nuttx/lib_strncat.c.ll 39694316
 nuttx/lib_strncmp.c.ll 40607627
 nuttx/lib_strncpy.c.ll 40194849
 nuttx/lib_strnlen.c.ll 38675737
-nuttx/lib_strpbrk.c.ll 37274042
+nuttx/lib_strpbrk.c.ll 37311412
 nuttx/lib_strptime.c.ll 302111989
 nuttx/lib_strrchr.c.ll 35562159
 nuttx/lib_strstr.c.ll 78323053
@@ -24492,7 +24492,7 @@ openmpi/interlib.ll 70797220
 openmpi/io_base_delete.ll 167795462
 openmpi/io_base_file_select.ll 163177861
 openmpi/io_base_find_available.ll 64538087
-openmpi/io_base_register_datarep.ll 41094268
+openmpi/io_base_register_datarep.ll 41135372
 openmpi/io_ompio.ll 250015090
 openmpi/io_ompio_component.ll 52567258
 openmpi/io_ompio_file_open.ll 171775460
@@ -41006,7 +41006,7 @@ zstd/pool.c.ll 129922041
 zstd/xxhash.c.ll 324322543
 zstd/zdict.c.ll 947712671
 zstd/zstd_compress.c.ll 3280173541
-zstd/zstd_compress_literals.c.ll 105871806
+zstd/zstd_compress_literals.c.ll 105977678
 zstd/zstd_compress_sequences.c.ll 444699240
 zstd/zstd_compress_superblock.c.ll 470136672
 zstd/zstd_decompress.c.ll 1056077074
