@@ -21027,7 +21027,7 @@ opencv/dnn_read.cpp.ll 126713980
 opencv/dnn_superres.cpp.ll 160014285
 opencv/dnn_superres_benchmark_quality.cpp.ll 750156600
 opencv/dnn_superres_benchmark_time.cpp.ll 635198584
-opencv/dnn_superres_multioutput.cpp.ll 339141002
+opencv/dnn_superres_multioutput.cpp.ll 339480223
 opencv/dnn_superres_video.cpp.ll 86760401
 opencv/dnn_utils.cpp.ll 1129564695
 opencv/documentation.cpp.ll 35036831
@@ -37941,7 +37941,7 @@ wireshark/packet-s7comm_szl_ids.c.ll 745571338
 wireshark/packet-sabp.c.ll 274626311
 wireshark/packet-sane.c.ll 757359878
 wireshark/packet-sapdiag.c.ll 961267298
-wireshark/packet-saphdb.c.ll 421442437
+wireshark/packet-saphdb.c.ll 421020965
 wireshark/packet-sapms.c.ll 326107286
 wireshark/packet-sasp.c.ll 207307887
 wireshark/packet-sbc.c.ll 101904062
@@ -38846,7 +38846,7 @@ yosys/opt_reduce.ll 11627019991
 yosys/opt_share.ll 9805309107
 yosys/peepopt.ll 18339565224
 yosys/plugin.ll 561123254
-yosys/pmux2shiftx.ll 9155464185
+yosys/pmux2shiftx.ll 9164623260
 yosys/pmuxtree.ll 1334938751
 yosys/portlist.ll 640166128
 yosys/prep.ll 256639450
