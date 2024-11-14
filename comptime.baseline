@@ -5660,7 +5660,7 @@ cvc5/set_reduction.cpp.ll 1356052040
 cvc5/sexpr.cpp.ll 61546566
 cvc5/shared_solver.cpp.ll 1078642421
 cvc5/shared_solver_distributed.cpp.ll 843752523
-cvc5/shared_terms_database.cpp.ll 2189601422
+cvc5/shared_terms_database.cpp.ll 2187406488
 cvc5/simplex.cpp.ll 1289804503
 cvc5/simplex_update.cpp.ll 205375863
 cvc5/sine_solver.cpp.ll 4073550923
@@ -10299,7 +10299,7 @@ hyperscan/ng_som.cpp.ll 13741690753
 hyperscan/ng_som_add_redundancy.cpp.ll 1423164819
 hyperscan/ng_som_util.cpp.ll 2591133032
 hyperscan/ng_split.cpp.ll 2108133502
-hyperscan/ng_squash.cpp.ll 4312529065
+hyperscan/ng_squash.cpp.ll 4308203023
 hyperscan/ng_stop.cpp.ll 422807764
 hyperscan/ng_uncalc_components.cpp.ll 3274259771
 hyperscan/ng_utf8.cpp.ll 1875205920
@@ -22138,7 +22138,7 @@ opencv/undistort.dispatch.cpp.ll 1508913626
 opencv/unicomblock.cpp.ll 300208253
 opencv/univ_intrin.cpp.ll 459726556
 opencv/unscented_kalman.cpp.ll 428690179
-opencv/unwrap.cpp.ll 152634315
+opencv/unwrap.cpp.ll 152481625
 opencv/upcean_decoder.cpp.ll 845851520
 opencv/upnp.cpp.ll 33804315
 opencv/util.cpp.ll 358003570
@@ -38902,7 +38902,7 @@ yosys/smt2.ll 30393499286
 yosys/smv.ll 18431775943
 yosys/spice.ll 2783891294
 yosys/splice.ll 15964378798
-yosys/splitcells.ll 5242761814
+yosys/splitcells.ll 5237518051
 yosys/splitnets.ll 15856833740
 yosys/sta.ll 7104669767
 yosys/stat.ll 4167350944
@@ -40307,7 +40307,7 @@ zed-rs/7hsbxpr1hqy17ngn0bqyx5x8s.ll 11791558180
 zed-rs/7jaiv08yt9hrplelvkk8jyr6y.ll 945538642
 zed-rs/7jcsx5qygrt6nx3uj1ici2nk0.ll 1155312654
 zed-rs/7k2wk5j033lz8y6hpd70ftfgq.ll 2142608665
-zed-rs/7la7lih0ughh74a0k2a34khk7.ll 173911263
+zed-rs/7la7lih0ughh74a0k2a34khk7.ll 173737128
 zed-rs/7lsy3hr16etm7iqoqsuckbyed.ll 267244428
 zed-rs/7m8fd3drcujrn3b7m72kwodjc.ll 5295240809
 zed-rs/7n9x7ynl84hra28mm4kly6hja.ll 3702088466
