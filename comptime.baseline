@@ -9331,7 +9331,7 @@ grpc/slice_buffer.cc.ll 408726429
 grpc/sockaddr_resolver.cc.ll 782401447
 grpc/sockaddr_utils.cc.ll 390268917
 grpc/socket_utils_common_posix.cc.ll 272657317
-grpc/socket_utils_linux.cc.ll 41261515
+grpc/socket_utils_linux.cc.ll 41302952
 grpc/socket_utils_posix.cc.ll 106656012
 grpc/ssl_credentials.cc.ll 294050900
 grpc/ssl_key_logging.cc.ll 327164133
@@ -11201,7 +11201,7 @@ just-rs/1t8x2pim4pkxeam1.ll 3329051839
 just-rs/1uppz7l1e89fp8n7.ll 3758051403
 just-rs/23nlf67cmm9na4ci.ll 6770074658
 just-rs/2sblcsgax6v4zfcc.ll 4378214573
-just-rs/2sotx4bdu006z307.ll 4459434692
+just-rs/2sotx4bdu006z307.ll 4463894618
 just-rs/3022oi333lxf39jd.ll 4595420123
 just-rs/3fhxcueg488gjpka.ll 3488191430
 just-rs/4mdvpwvrpdu4jonv.ll 5134194418
@@ -22240,7 +22240,7 @@ openexr/ImfHuf.cpp.ll 1055316653
 openexr/ImfIDManifest.cpp.ll 3271362072
 openexr/ImfIDManifestAttribute.cpp.ll 82453413
 openexr/ImfIO.cpp.ll 64419379
-openexr/ImfImage.cpp.ll 809145379
+openexr/ImfImage.cpp.ll 809954643
 openexr/ImfImageChannel.cpp.ll 68602782
 openexr/ImfImageIO.cpp.ll 104514953
 openexr/ImfImageLevel.cpp.ll 64232303
@@ -23415,7 +23415,7 @@ openjdk/macroArrayCopy.ll 1061362187
 openjdk/macroAssembler_x86.ll 5245531064
 openjdk/macroAssembler_x86_md5.ll 508188842
 openjdk/macroAssembler_x86_sha.ll 1138622284
-openjdk/main.ll 48607263
+openjdk/main.ll 48558608
 openjdk/mallocHeader.ll 41898903
 openjdk/mallocInfoDcmd.ll 72908202
 openjdk/mallocLimit.ll 144032485
@@ -24043,7 +24043,7 @@ openjdk/xWorkers.ll 90645033
 openjdk/xmlstream.ll 209019797
 openjdk/zAbort.ll 36540090
 openjdk/zAddress.ll 92308399
-openjdk/zAddressSpaceLimit.ll 42246438
+openjdk/zAddressSpaceLimit.ll 42288730
 openjdk/zAddress_x86.ll 53860128
 openjdk/zAllocator.ll 53569630
 openjdk/zArguments.ll 94844354
@@ -25317,7 +25317,7 @@ openmpi/psec_native.ll 88233827
 openmpi/psec_none.ll 54892541
 openmpi/psensor_base_frame.ll 68163253
 openmpi/psensor_base_select.ll 71136284
-openmpi/psensor_base_stubs.ll 51249906
+openmpi/psensor_base_stubs.ll 51301172
 openmpi/psensor_file.ll 184857281
 openmpi/psensor_file_component.ll 63201063
 openmpi/psensor_heartbeat.ll 201517487
@@ -30730,7 +30730,7 @@ qemu/hw_scsi_virtio-scsi-dataplane.c.ll 96639298
 qemu/hw_scsi_virtio-scsi.c.ll 685817466
 qemu/hw_scsi_vmw_pvscsi.c.ll 796790698
 qemu/hw_sd_sd.c.ll 725702378
-qemu/hw_sd_sdhci.c.ll 1100874582
+qemu/hw_sd_sdhci.c.ll 1101975789
 qemu/hw_timer_sifive_pwm.c.ll 184371974
 qemu/hw_tpm_tpm_tis_common.c.ll 406084957
 qemu/hw_ufs_lu.c.ll 137560020
