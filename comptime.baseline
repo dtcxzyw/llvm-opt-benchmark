@@ -3095,7 +3095,7 @@ clamav/inflate64.c.ll 722658612
 clamav/inotif.c.ll 290536924
 clamav/is_tar.c.ll 68785047
 clamav/ishield.c.ll 414305883
-clamav/iso9660.c.ll 216981100
+clamav/iso9660.c.ll 217198121
 clamav/jpeg.c.ll 236008865
 clamav/js-norm.c.ll 1355344036
 clamav/kwajd.c.ll 602679724
