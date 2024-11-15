@@ -8622,7 +8622,7 @@ if.else235:                                       ; preds = %if.else214
 for.inc243:                                       ; preds = %if.then114, %if.then124, %if.then129, %if.else125, %if.then119, %if.then109, %if.then156, %if.then187, %cond.end233, %cond.end213, %if.end178, %if.then141
   %i85.1 = phi i32 [ %inc103, %if.else125 ], [ %inc103, %if.then129 ], [ %inc103, %if.then124 ], [ %inc103, %if.then119 ], [ %inc103, %if.then114 ], [ %inc103, %if.then109 ], [ %inc143, %if.then141 ], [ %inc158, %if.then156 ], [ %inc173, %if.end178 ], [ %inc189, %if.then187 ], [ %inc202, %cond.end213 ], [ %inc222, %cond.end233 ]
   %drop_conns.1 = phi i32 [ %drop_conns.0128, %if.else125 ], [ %drop_conns.0128, %if.then129 ], [ %drop_conns.0128, %if.then124 ], [ %drop_conns.0128, %if.then119 ], [ %drop_conns.0128, %if.then114 ], [ %drop_conns.0128, %if.then109 ], [ %drop_conns.0128, %if.then141 ], [ %drop_conns.0128, %if.then156 ], [ %drop_conns.0128, %if.end178 ], [ %drop_conns.0128, %if.then187 ], [ 1, %cond.end213 ], [ 1, %cond.end233 ]
-  %inc244 = add nsw i32 %i85.1, 1
+  %inc244 = add nuw nsw i32 %i85.1, 1
   %52 = load i32, ptr %argc, align 8
   %cmp88 = icmp slt i32 %inc244, %52
   br i1 %cmp88, label %for.body90, label %for.end245, !llvm.loop !46
@@ -9520,7 +9520,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %inc = add nsw i32 %j.0116, 1
+  %inc = add nuw nsw i32 %j.0116, 1
   %idxprom5 = sext i32 %inc to i64
   %arrayidx6 = getelementptr inbounds ptr, ptr %2, i64 %idxprom5
   %6 = load ptr, ptr %arrayidx6, align 8
@@ -9542,7 +9542,7 @@ if.else:                                          ; preds = %for.body
   br i1 %or.cond2, label %if.then15, label %if.else27
 
 if.then15:                                        ; preds = %if.else
-  %inc18 = add nsw i32 %j.0116, 1
+  %inc18 = add nuw nsw i32 %j.0116, 1
   %idxprom19 = sext i32 %inc18 to i64
   %arrayidx20 = getelementptr inbounds ptr, ptr %2, i64 %idxprom19
   %8 = load ptr, ptr %arrayidx20, align 8
@@ -9564,7 +9564,7 @@ if.else27:                                        ; preds = %if.else
   br i1 %or.cond4, label %if.then32, label %if.else44
 
 if.then32:                                        ; preds = %if.else27
-  %inc35 = add nsw i32 %j.0116, 1
+  %inc35 = add nuw nsw i32 %j.0116, 1
   %idxprom36 = sext i32 %inc35 to i64
   %arrayidx37 = getelementptr inbounds ptr, ptr %2, i64 %idxprom36
   %10 = load ptr, ptr %arrayidx37, align 8
@@ -9586,7 +9586,7 @@ if.else44:                                        ; preds = %if.else27
   br i1 %or.cond6, label %if.then49, label %if.else61
 
 if.then49:                                        ; preds = %if.else44
-  %inc52 = add nsw i32 %j.0116, 1
+  %inc52 = add nuw nsw i32 %j.0116, 1
   %idxprom53 = sext i32 %inc52 to i64
   %arrayidx54 = getelementptr inbounds ptr, ptr %2, i64 %idxprom53
   %12 = load ptr, ptr %arrayidx54, align 8
@@ -9608,7 +9608,7 @@ if.else61:                                        ; preds = %if.else44
   br i1 %or.cond8, label %if.then66, label %if.else78
 
 if.then66:                                        ; preds = %if.else61
-  %inc69 = add nsw i32 %j.0116, 1
+  %inc69 = add nuw nsw i32 %j.0116, 1
   %idxprom70 = sext i32 %inc69 to i64
   %arrayidx71 = getelementptr inbounds ptr, ptr %2, i64 %idxprom70
   %14 = load ptr, ptr %arrayidx71, align 8
@@ -9630,7 +9630,7 @@ if.else78:                                        ; preds = %if.else61
   br i1 %or.cond10, label %if.then83, label %if.else95
 
 if.then83:                                        ; preds = %if.else78
-  %inc86 = add nsw i32 %j.0116, 1
+  %inc86 = add nuw nsw i32 %j.0116, 1
   %idxprom87 = sext i32 %inc86 to i64
   %arrayidx88 = getelementptr inbounds ptr, ptr %2, i64 %idxprom87
   %16 = load ptr, ptr %arrayidx88, align 8
@@ -9652,7 +9652,7 @@ if.else95:                                        ; preds = %if.else78
   br i1 %or.cond12, label %if.then100, label %if.else112
 
 if.then100:                                       ; preds = %if.else95
-  %inc103 = add nsw i32 %j.0116, 1
+  %inc103 = add nuw nsw i32 %j.0116, 1
   %idxprom104 = sext i32 %inc103 to i64
   %arrayidx105 = getelementptr inbounds ptr, ptr %2, i64 %idxprom104
   %18 = load ptr, ptr %arrayidx105, align 8
@@ -9674,7 +9674,7 @@ if.else112:                                       ; preds = %if.else95
   br i1 %or.cond14, label %if.then117, label %if.else129
 
 if.then117:                                       ; preds = %if.else112
-  %inc120 = add nsw i32 %j.0116, 1
+  %inc120 = add nuw nsw i32 %j.0116, 1
   %idxprom121 = sext i32 %inc120 to i64
   %arrayidx122 = getelementptr inbounds ptr, ptr %2, i64 %idxprom121
   %20 = load ptr, ptr %arrayidx122, align 8
@@ -9696,7 +9696,7 @@ if.else129:                                       ; preds = %if.else112
   br i1 %or.cond16, label %if.then134, label %if.else146
 
 if.then134:                                       ; preds = %if.else129
-  %inc137 = add nsw i32 %j.0116, 1
+  %inc137 = add nuw nsw i32 %j.0116, 1
   %idxprom138 = sext i32 %inc137 to i64
   %arrayidx139 = getelementptr inbounds ptr, ptr %2, i64 %idxprom138
   %22 = load ptr, ptr %arrayidx139, align 8
@@ -9718,7 +9718,7 @@ if.else146:                                       ; preds = %if.else129
   br i1 %or.cond18, label %if.then151, label %if.else163
 
 if.then151:                                       ; preds = %if.else146
-  %inc154 = add nsw i32 %j.0116, 1
+  %inc154 = add nuw nsw i32 %j.0116, 1
   %idxprom155 = sext i32 %inc154 to i64
   %arrayidx156 = getelementptr inbounds ptr, ptr %2, i64 %idxprom155
   %24 = load ptr, ptr %arrayidx156, align 8
@@ -9740,7 +9740,7 @@ if.else163:                                       ; preds = %if.else146
   br i1 %or.cond20, label %if.then168, label %if.else180
 
 if.then168:                                       ; preds = %if.else163
-  %inc171 = add nsw i32 %j.0116, 1
+  %inc171 = add nuw nsw i32 %j.0116, 1
   %idxprom172 = sext i32 %inc171 to i64
   %arrayidx173 = getelementptr inbounds ptr, ptr %2, i64 %idxprom172
   %26 = load ptr, ptr %arrayidx173, align 8
@@ -9762,7 +9762,7 @@ if.else180:                                       ; preds = %if.else163
   br i1 %or.cond22, label %if.then185, label %if.else197
 
 if.then185:                                       ; preds = %if.else180
-  %inc188 = add nsw i32 %j.0116, 1
+  %inc188 = add nuw nsw i32 %j.0116, 1
   %idxprom189 = sext i32 %inc188 to i64
   %arrayidx190 = getelementptr inbounds ptr, ptr %2, i64 %idxprom189
   %28 = load ptr, ptr %arrayidx190, align 8
@@ -9784,7 +9784,7 @@ if.else197:                                       ; preds = %if.else180
   br i1 %or.cond24, label %if.then202, label %if.else214
 
 if.then202:                                       ; preds = %if.else197
-  %inc205 = add nsw i32 %j.0116, 1
+  %inc205 = add nuw nsw i32 %j.0116, 1
   %idxprom206 = sext i32 %inc205 to i64
   %arrayidx207 = getelementptr inbounds ptr, ptr %2, i64 %idxprom206
   %30 = load ptr, ptr %arrayidx207, align 8

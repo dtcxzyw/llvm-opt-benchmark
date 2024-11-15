@@ -65169,56 +65169,60 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !15
   %21 = getelementptr inbounds i8, ptr %20, i64 40
   %.promoted = load i64, ptr %4, align 8, !alias.scope !17881, !noalias !17884
-  br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %22 = sub i64 %6, %.promoted
+  br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us"
-  %22 = phi i64 [ %25, %"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us" ], [ %.promoted, %.lr.ph ]
-  %.sroa.01.012.us = phi i64 [ %23, %"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us" ], [ 0, %.lr.ph ]
-  %23 = add nuw i64 %.sroa.01.012.us, 1
+  %23 = phi i64 [ %26, %"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us" ], [ %.promoted, %.lr.ph ]
+  %.sroa.01.012.us = phi i64 [ %24, %"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us" ], [ 0, %.lr.ph ]
+  %24 = add nuw i64 %.sroa.01.012.us, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17881)
-  %24 = icmp eq i64 %22, %6
-  br i1 %24, label %"_ZN100_$LT$arrow_array..iterator..ArrayIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h337bc257fd2b261aE.exit", label %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i.us"
+  %25 = icmp eq i64 %23, %6
+  br i1 %25, label %"_ZN100_$LT$arrow_array..iterator..ArrayIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h337bc257fd2b261aE.exit", label %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i.us"
 
 "_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i.us": ; preds = %.lr.ph.split.us
-  %25 = add nuw i64 %22, 1
-  store i64 %25, ptr %4, align 8, !alias.scope !17881, !noalias !17884
+  %26 = add nuw i64 %23, 1
+  store i64 %26, ptr %4, align 8, !alias.scope !17881, !noalias !17884
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17886)
-  %26 = load ptr, ptr %17, align 8, !alias.scope !17886, !noalias !17889, !noundef !4
-  %27 = load i64, ptr %18, align 8, !alias.scope !17886, !noalias !17889, !noundef !4
-  %28 = lshr i64 %27, 1
-  %29 = icmp ult i64 %22, %28
-  tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds i16, ptr %26, i64 %22
-  %31 = load i16, ptr %30, align 2, !noalias !17892, !noundef !4
-  %32 = zext i16 %31 to i64
-  %33 = load i64, ptr %21, align 8, !alias.scope !17893, !noalias !17896, !noundef !4
-  %34 = lshr i64 %33, 2
-  %35 = add nsw i64 %34, -1
-  %36 = icmp ugt i64 %35, %32
-  br i1 %36, label %37, label %"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us"
+  %27 = load ptr, ptr %17, align 8, !alias.scope !17886, !noalias !17889, !noundef !4
+  %28 = load i64, ptr %18, align 8, !alias.scope !17886, !noalias !17889, !noundef !4
+  %29 = lshr i64 %28, 1
+  %30 = icmp ult i64 %23, %29
+  tail call void @llvm.assume(i1 %30)
+  %31 = getelementptr inbounds i16, ptr %27, i64 %23
+  %32 = load i16, ptr %31, align 2, !noalias !17892, !noundef !4
+  %33 = zext i16 %32 to i64
+  %34 = load i64, ptr %21, align 8, !alias.scope !17893, !noalias !17896, !noundef !4
+  %35 = lshr i64 %34, 2
+  %36 = add nsw i64 %35, -1
+  %37 = icmp ugt i64 %36, %33
+  br i1 %37, label %38, label %"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us"
 
-37:                                               ; preds = %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i.us"
-  %38 = tail call { ptr, i64 } @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$15value_unchecked17h5631be7cd0d6c5c4E.llvm.18016462908235130027"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %20, i64 noundef %32), !noalias !17899
-  %39 = extractvalue { ptr, i64 } %38, 0
-  %40 = icmp ne ptr %39, null
+38:                                               ; preds = %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i.us"
+  %39 = tail call { ptr, i64 } @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$GT$15value_unchecked17h5631be7cd0d6c5c4E.llvm.18016462908235130027"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %20, i64 noundef %33), !noalias !17899
+  %40 = extractvalue { ptr, i64 } %39, 0
+  %41 = icmp ne ptr %40, null
   br label %"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us"
 
-"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us": ; preds = %37, %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i.us"
-  %.pn.i.i.us = phi i1 [ %40, %37 ], [ true, %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i.us" ]
+"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i.us": ; preds = %38, %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i.us"
+  %.pn.i.i.us = phi i1 [ %41, %38 ], [ true, %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i.us" ]
   tail call void @llvm.assume(i1 %.pn.i.i.us)
-  %exitcond19.not = icmp eq i64 %23, %1
-  br i1 %exitcond19.not, label %.thread, label %.lr.ph.split.us
+  %exitcond20.not = icmp eq i64 %24, %1
+  br i1 %exitcond20.not, label %.thread, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %71
-  %41 = phi i64 [ %55, %71 ], [ %.promoted, %.lr.ph ]
-  %.sroa.01.012 = phi i64 [ %42, %71 ], [ 0, %.lr.ph ]
-  %42 = add nuw i64 %.sroa.01.012, 1
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %71
+  %42 = phi i64 [ %55, %71 ], [ %.promoted, %.lr.ph.split.preheader ]
+  %.sroa.01.012 = phi i64 [ %43, %71 ], [ 0, %.lr.ph.split.preheader ]
+  %43 = add nuw i64 %.sroa.01.012, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17881)
-  %43 = icmp eq i64 %41, %6
-  br i1 %43, label %"_ZN100_$LT$arrow_array..iterator..ArrayIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h337bc257fd2b261aE.exit", label %44
+  %exitcond = icmp eq i64 %.sroa.01.012, %22
+  br i1 %exitcond, label %"_ZN100_$LT$arrow_array..iterator..ArrayIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h337bc257fd2b261aE.exit", label %44
 
 44:                                               ; preds = %.lr.ph.split
-  %45 = icmp ult i64 %41, %11
+  %45 = icmp ult i64 %42, %11
   br i1 %45, label %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.i", label %46
 
 46:                                               ; preds = %44
@@ -65226,7 +65230,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   unreachable
 
 "_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.i": ; preds = %44
-  %47 = add i64 %15, %41
+  %47 = add i64 %15, %42
   %48 = lshr i64 %47, 3
   %49 = getelementptr inbounds i8, ptr %13, i64 %48
   %50 = load i8, ptr %49, align 1, !noalias !17902, !noundef !4
@@ -65238,7 +65242,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   %54 = and i8 %53, %50
   %.not.i.i = icmp eq i8 %54, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !17902
-  %55 = add nuw i64 %41, 1
+  %55 = add nuw i64 %42, 1
   store i64 %55, ptr %4, align 8, !alias.scope !17881, !noalias !17884
   br i1 %.not.i.i, label %71, label %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.thread.i"
 
@@ -65247,9 +65251,9 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   %56 = load ptr, ptr %17, align 8, !alias.scope !17886, !noalias !17889, !noundef !4
   %57 = load i64, ptr %18, align 8, !alias.scope !17886, !noalias !17889, !noundef !4
   %58 = lshr i64 %57, 1
-  %59 = icmp ult i64 %41, %58
+  %59 = icmp ult i64 %42, %58
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds i16, ptr %56, i64 %41
+  %60 = getelementptr inbounds i16, ptr %56, i64 %42
   %61 = load i16, ptr %60, align 2, !noalias !17892, !noundef !4
   %62 = zext i16 %61 to i64
   %63 = load i64, ptr %21, align 8, !alias.scope !17893, !noalias !17896, !noundef !4
@@ -65274,11 +65278,11 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   ret i64 %.0
 
 71:                                               ; preds = %"_ZN11arrow_array8iterator18ArrayIter$LT$T$GT$7is_null17hc290eb7f251471fdE.exit.i", %"_ZN125_$LT$arrow_array..array..dictionary_array..TypedDictionaryArray$LT$K$C$V$GT$$u20$as$u20$arrow_array..array..ArrayAccessor$GT$15value_unchecked17ha990fecb1c2b2634E.exit.i"
-  %exitcond.not = icmp eq i64 %42, %1
-  br i1 %exitcond.not, label %.thread, label %.lr.ph.split
+  %exitcond19.not = icmp eq i64 %43, %1
+  br i1 %exitcond19.not, label %.thread, label %.lr.ph.split
 
 "_ZN100_$LT$arrow_array..iterator..ArrayIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h337bc257fd2b261aE.exit": ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi i64 [ %.sroa.01.012.us, %.lr.ph.split.us ], [ %.sroa.01.012, %.lr.ph.split ]
+  %.us-phi = phi i64 [ %.sroa.01.012.us, %.lr.ph.split.us ], [ %22, %.lr.ph.split ]
   %72 = sub i64 %1, %.us-phi
   br label %.thread
 }

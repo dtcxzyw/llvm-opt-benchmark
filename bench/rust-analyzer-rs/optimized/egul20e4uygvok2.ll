@@ -47953,11 +47953,11 @@ _ZN4core3cmp9PartialEq2ne17h0bcc69b2fbcfdf36E.llvm.10506081396157654736.exit.i.i
 .loopexit:                                        ; preds = %.noexc, %107, %.lr.ph.i.i23, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.exit.i.i28", %73, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.exit.thread.i.i15", %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %67, ptr noundef nonnull align 8 dereferenceable(80) %66, i64 80, i1 false)
   %115 = add i64 %.sroa.12.160, 1
-  %116 = add i64 %.sroa.5.158, 1
+  %116 = add nuw i64 %.sroa.5.158, 1
   br label %"_ZN4core3ptr66drop_in_place$LT$ide_db..imports..import_assets..LocatedImport$GT$17h811820cc9738d774E.exit31"
 
 "_ZN11ide_assists8handlers12qualify_path12qualify_path28_$u7b$$u7b$closure$u7d$$u7d$17h42c048b2fe63f974E.exit29": ; preds = %.preheader.split.backedge.i.i.i26, %.preheader.split.i.preheader.i.i21
-  %117 = add i64 %.sroa.5.158, 1
+  %117 = add nuw i64 %.sroa.5.158, 1
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb62cec03974d62f6E.llvm.16532663377229269005"(ptr noalias noundef nonnull align 8 dereferenceable(32) %84)
           to label %"_ZN4core3ptr66drop_in_place$LT$ide_db..imports..import_assets..LocatedImport$GT$17h811820cc9738d774E.exit31" unwind label %.loopexit.split-lp.loopexit
 
@@ -48249,11 +48249,11 @@ _ZN4core3cmp9PartialEq2ne17h0bcc69b2fbcfdf36E.llvm.10506081396157654736.exit.i.i
 .loopexit:                                        ; preds = %.noexc, %107, %.lr.ph.i.i23, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.exit.i.i28", %73, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.exit.thread.i.i15", %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %67, ptr noundef nonnull align 8 dereferenceable(80) %66, i64 80, i1 false)
   %115 = add i64 %.sroa.12.160, 1
-  %116 = add i64 %.sroa.5.158, 1
+  %116 = add nuw i64 %.sroa.5.158, 1
   br label %"_ZN4core3ptr66drop_in_place$LT$ide_db..imports..import_assets..LocatedImport$GT$17h811820cc9738d774E.exit31"
 
 "_ZN11ide_assists8handlers11auto_import11auto_import28_$u7b$$u7b$closure$u7d$$u7d$17h32a2b5e5513a1f79E.exit29": ; preds = %.preheader.split.backedge.i.i.i26, %.preheader.split.i.preheader.i.i21
-  %117 = add i64 %.sroa.5.158, 1
+  %117 = add nuw i64 %.sroa.5.158, 1
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb62cec03974d62f6E.llvm.16532663377229269005"(ptr noalias noundef nonnull align 8 dereferenceable(32) %84)
           to label %"_ZN4core3ptr66drop_in_place$LT$ide_db..imports..import_assets..LocatedImport$GT$17h811820cc9738d774E.exit31" unwind label %.loopexit.split-lp.loopexit
 

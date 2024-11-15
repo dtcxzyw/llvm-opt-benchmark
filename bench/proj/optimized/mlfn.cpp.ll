@@ -32,35 +32,35 @@ _ZL7polyvaldPKdi.exit:                            ; preds = %.lr.ph.i
   br label %11
 
 11:                                               ; preds = %_ZL7polyvaldPKdi.exit, %_ZL7polyvaldPKdi.exit42
-  %.02748 = phi i32 [ 0, %_ZL7polyvaldPKdi.exit ], [ %46, %_ZL7polyvaldPKdi.exit42 ]
-  %.02847 = phi i32 [ 0, %_ZL7polyvaldPKdi.exit ], [ %41, %_ZL7polyvaldPKdi.exit42 ]
-  %.02946 = phi double [ %0, %_ZL7polyvaldPKdi.exit ], [ %44, %_ZL7polyvaldPKdi.exit42 ]
-  %12 = sub nuw nsw i32 5, %.02847
-  %13 = lshr i32 %12, 1
-  %14 = zext nneg i32 %.02748 to i64
-  %15 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE12coeff_mu_phi, i64 %14
-  %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds double, ptr %15, i64 %16
-  %18 = load double, ptr %17, align 8
-  %.not.i = icmp samesign ugt i32 %.02847, 3
+  %indvars.iv = phi i64 [ 0, %_ZL7polyvaldPKdi.exit ], [ %indvars.iv.next.pre-phi, %_ZL7polyvaldPKdi.exit42 ]
+  %.02748 = phi i32 [ 0, %_ZL7polyvaldPKdi.exit ], [ %43, %_ZL7polyvaldPKdi.exit42 ]
+  %.02946 = phi double [ %0, %_ZL7polyvaldPKdi.exit ], [ %41, %_ZL7polyvaldPKdi.exit42 ]
+  %12 = trunc i64 %indvars.iv to i32
+  %13 = sub i32 5, %12
+  %14 = lshr i32 %13, 1
+  %15 = zext nneg i32 %.02748 to i64
+  %16 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE12coeff_mu_phi, i64 %15
+  %17 = zext nneg i32 %14 to i64
+  %18 = getelementptr inbounds double, ptr %16, i64 %17
+  %19 = load double, ptr %18, align 8
+  %.not.i = icmp samesign ugt i64 %indvars.iv, 3
   br i1 %.not.i, label %_ZL7polyvaldPKdi.exit35.thread, label %.lr.ph.i31
 
 _ZL7polyvaldPKdi.exit35.thread:                   ; preds = %11
-  %19 = fmul double %.02946, %18
-  %20 = add nuw nsw i32 %.02847, 1
-  %21 = zext nneg i32 %20 to i64
+  %20 = fmul double %.02946, %19
+  %21 = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds double, ptr %3, i64 %21
-  store double %19, ptr %22, align 8
-  %23 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %14
-  %24 = getelementptr inbounds double, ptr %23, i64 %16
+  store double %20, ptr %22, align 8
+  %23 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %15
+  %24 = getelementptr inbounds double, ptr %23, i64 %17
   %25 = load double, ptr %24, align 8
   br label %_ZL7polyvaldPKdi.exit42
 
 .lr.ph.i31:                                       ; preds = %11, %.lr.ph.i31
-  %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i34, %.lr.ph.i31 ], [ %16, %11 ]
-  %.011.i33 = phi double [ %28, %.lr.ph.i31 ], [ %18, %11 ]
+  %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i34, %.lr.ph.i31 ], [ %17, %11 ]
+  %.011.i33 = phi double [ %28, %.lr.ph.i31 ], [ %19, %11 ]
   %indvars.iv.next.i34 = add nsw i64 %indvars.iv.i32, -1
-  %26 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.next.i34
+  %26 = getelementptr inbounds double, ptr %16, i64 %indvars.iv.next.i34
   %27 = load double, ptr %26, align 8
   %28 = tail call double @llvm.fmuladd.f64(double %.011.i33, double %2, double %27)
   %29 = icmp samesign ugt i64 %indvars.iv.i32, 1
@@ -68,37 +68,35 @@ _ZL7polyvaldPKdi.exit35.thread:                   ; preds = %11
 
 _ZL7polyvaldPKdi.exit35:                          ; preds = %.lr.ph.i31
   %30 = fmul double %.02946, %28
-  %31 = add nuw nsw i32 %.02847, 1
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds double, ptr %3, i64 %32
-  store double %30, ptr %33, align 8
-  %34 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %14
-  %35 = getelementptr inbounds double, ptr %34, i64 %16
-  %36 = load double, ptr %35, align 8
+  %31 = add nuw nsw i64 %indvars.iv, 1
+  %32 = getelementptr inbounds double, ptr %3, i64 %31
+  store double %30, ptr %32, align 8
+  %33 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %15
+  %34 = getelementptr inbounds double, ptr %33, i64 %17
+  %35 = load double, ptr %34, align 8
   br label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %_ZL7polyvaldPKdi.exit35, %.lr.ph.i37
-  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i40, %.lr.ph.i37 ], [ %16, %_ZL7polyvaldPKdi.exit35 ]
-  %.011.i39 = phi double [ %39, %.lr.ph.i37 ], [ %36, %_ZL7polyvaldPKdi.exit35 ]
+  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i40, %.lr.ph.i37 ], [ %17, %_ZL7polyvaldPKdi.exit35 ]
+  %.011.i39 = phi double [ %38, %.lr.ph.i37 ], [ %35, %_ZL7polyvaldPKdi.exit35 ]
   %indvars.iv.next.i40 = add nsw i64 %indvars.iv.i38, -1
-  %37 = getelementptr inbounds double, ptr %34, i64 %indvars.iv.next.i40
-  %38 = load double, ptr %37, align 8
-  %39 = tail call double @llvm.fmuladd.f64(double %.011.i39, double %2, double %38)
-  %40 = icmp samesign ugt i64 %indvars.iv.i38, 1
-  br i1 %40, label %.lr.ph.i37, label %_ZL7polyvaldPKdi.exit42, !llvm.loop !4
+  %36 = getelementptr inbounds double, ptr %33, i64 %indvars.iv.next.i40
+  %37 = load double, ptr %36, align 8
+  %38 = tail call double @llvm.fmuladd.f64(double %.011.i39, double %2, double %37)
+  %39 = icmp samesign ugt i64 %indvars.iv.i38, 1
+  br i1 %39, label %.lr.ph.i37, label %_ZL7polyvaldPKdi.exit42, !llvm.loop !4
 
 _ZL7polyvaldPKdi.exit42:                          ; preds = %.lr.ph.i37, %_ZL7polyvaldPKdi.exit35.thread
-  %41 = phi i32 [ %20, %_ZL7polyvaldPKdi.exit35.thread ], [ %31, %.lr.ph.i37 ]
-  %.0.lcssa.i41 = phi double [ %25, %_ZL7polyvaldPKdi.exit35.thread ], [ %39, %.lr.ph.i37 ]
-  %42 = fmul double %.02946, %.0.lcssa.i41
-  %43 = zext nneg i32 %.02847 to i64
-  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %43
-  store double %42, ptr %gep, align 8
-  %44 = fmul double %0, %.02946
-  %45 = add nuw nsw i32 %.02748, 1
-  %46 = add nuw nsw i32 %45, %13
-  %47 = icmp samesign ult i32 %41, 6
-  br i1 %47, label %11, label %.loopexit, !llvm.loop !6
+  %indvars.iv.next.pre-phi = phi i64 [ %21, %_ZL7polyvaldPKdi.exit35.thread ], [ %31, %.lr.ph.i37 ]
+  %.0.lcssa.i41 = phi double [ %25, %_ZL7polyvaldPKdi.exit35.thread ], [ %38, %.lr.ph.i37 ]
+  %40 = fmul double %.02946, %.0.lcssa.i41
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv
+  store double %40, ptr %gep, align 8
+  %41 = fmul double %0, %.02946
+  %42 = add nuw nsw i32 %.02748, 1
+  %43 = add nuw nsw i32 %42, %14
+  %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 6
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !6
 
 .loopexit:                                        ; preds = %_ZL7polyvaldPKdi.exit42, %1
   ret ptr %3

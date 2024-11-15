@@ -2317,7 +2317,7 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %.6102 = phi i64 [ %118, %106 ], [ %.5101140, %119 ]
   %122 = getelementptr inbounds i64, ptr %36, i64 %.4108139
   store i64 %.sink, ptr %122, align 8
-  %123 = add nsw i64 %.4108139, 1
+  %123 = add nuw nsw i64 %.4108139, 1
   %124 = load i64, ptr %5, align 8
   %125 = icmp slt i64 %123, %124
   br i1 %125, label %.lr.ph141, label %.loopexit, !llvm.loop !9
@@ -2367,7 +2367,7 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %.6 = phi i64 [ %143, %131 ], [ %.5137, %144 ]
   %147 = getelementptr inbounds i64, ptr %36, i64 %.5109136
   store i64 %.sink155, ptr %147, align 8
-  %148 = add nsw i64 %.5109136, 1
+  %148 = add nuw nsw i64 %.5109136, 1
   %149 = load i64, ptr %5, align 8
   %150 = icmp slt i64 %148, %149
   br i1 %150, label %.lr.ph138, label %.loopexit, !llvm.loop !10

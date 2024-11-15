@@ -2498,7 +2498,7 @@ define internal fastcc noundef nonnull ptr @build_gnu_sparse_name(ptr noundef no
   br i1 %19, label %.backedge, label %.thread
 
 .thread:                                          ; preds = %17, %15, %14, %.backedge, %8
-  %.0.idx.lcssa = phi i64 [ %9, %8 ], [ %.0.add23, %.backedge ], [ 1, %14 ], [ %.0.idx26, %15 ], [ %.0.idx26, %17 ]
+  %.0.idx.lcssa = phi i64 [ %9, %8 ], [ 0, %.backedge ], [ 1, %14 ], [ %.0.idx26, %15 ], [ %.0.idx26, %17 ]
   %20 = tail call fastcc ptr @build_ustar_entry_name(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.idx.lcssa, ptr noundef nonnull @.str.68)
   br label %21
 
@@ -2924,7 +2924,7 @@ define internal fastcc noundef nonnull ptr @build_pax_attribute_name(ptr noundef
 
 8:                                                ; preds = %5, %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) @.str.73, i64 16, i1 false) #15
-  br label %27
+  br label %26
 
 9:                                                ; preds = %5
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
@@ -2942,11 +2942,11 @@ define internal fastcc noundef nonnull ptr @build_pax_attribute_name(ptr noundef
 
 .backedge:                                        ; preds = %.lr.ph, %18
   %14 = icmp samesign ugt i64 %.0.idx44, 1
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %._crit_edge.thread
 
 15:                                               ; preds = %.lr.ph
   %.not = icmp eq i64 %.0.idx44, 1
-  br i1 %.not, label %23, label %16
+  br i1 %.not, label %22, label %16
 
 16:                                               ; preds = %15
   %17 = icmp eq i8 %12, 46
@@ -2958,30 +2958,29 @@ define internal fastcc noundef nonnull ptr @build_pax_attribute_name(ptr noundef
   %20 = icmp eq i8 %19, 47
   br i1 %20, label %.backedge, label %.thread36
 
-._crit_edge:                                      ; preds = %.backedge, %9
-  %.0.idx.lcssa = phi i64 [ %10, %9 ], [ %.0.add32, %.backedge ]
-  %21 = icmp eq i64 %.0.idx.lcssa, 0
-  br i1 %21, label %22, label %.thread36
+._crit_edge:                                      ; preds = %9
+  %21 = icmp eq i64 %10, 0
+  br i1 %21, label %._crit_edge.thread, label %.thread36
 
-22:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %.backedge, %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %0, ptr noundef nonnull align 1 dereferenceable(19) @.str.74, i64 19, i1 false) #15
-  br label %27
+  br label %26
 
-23:                                               ; preds = %15
-  %24 = icmp eq i8 %6, 46
-  br i1 %24, label %25, label %.thread36
+22:                                               ; preds = %15
+  %23 = icmp eq i8 %6, 46
+  br i1 %23, label %24, label %.thread36
 
-25:                                               ; preds = %23
+24:                                               ; preds = %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %0, ptr noundef nonnull align 1 dereferenceable(21) @.str.75, i64 21, i1 false) #15
-  br label %27
+  br label %26
 
-.thread36:                                        ; preds = %18, %16, %._crit_edge, %23
-  %.0.idx43 = phi i64 [ %.0.idx.lcssa, %._crit_edge ], [ 1, %23 ], [ %.0.idx44, %16 ], [ %.0.idx44, %18 ]
+.thread36:                                        ; preds = %18, %16, %._crit_edge, %22
+  %.0.idx43 = phi i64 [ %10, %._crit_edge ], [ 1, %22 ], [ %.0.idx44, %16 ], [ %.0.idx44, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.76, i64 10, i1 false) #15
-  %26 = call fastcc ptr @build_ustar_entry_name(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.idx43, ptr noundef nonnull %3)
-  br label %27
+  %25 = call fastcc ptr @build_ustar_entry_name(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.idx43, ptr noundef nonnull %3)
+  br label %26
 
-27:                                               ; preds = %.thread36, %25, %22, %8
+26:                                               ; preds = %.thread36, %24, %._crit_edge.thread, %8
   ret ptr %0
 }
 

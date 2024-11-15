@@ -19801,7 +19801,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate12build_tables20minimi
 
 302:                                              ; preds = %297
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %109), !noalias !3523
-  %303 = add i64 %.028318.i.i, 1
+  %303 = add nuw i64 %.028318.i.i, 1
   %.pre.i.i = load i64, ptr %244, align 8, !noalias !3495
   br label %.backedge127.i.i
 
@@ -19812,7 +19812,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate12build_tables20minimi
   br i1 %305, label %289, label %._crit_edge.i.i
 
 306:                                              ; preds = %300
-  %307 = add i64 %.028318.i.i, 1
+  %307 = add nuw i64 %.028318.i.i, 1
   %308 = load i64, ptr %244, align 8, !noalias !3495, !noundef !14
   %309 = icmp ult i64 %307, %308
   br i1 %309, label %.lr.ph.i.i, label %.backedge127.i.i
@@ -20832,7 +20832,7 @@ _ZN15tree_sitter_cli8generate5dedup21split_state_id_groups17h86004340cfc66be7E.e
 
 684:                                              ; preds = %679
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84), !noalias !3723
-  %685 = add i64 %.028358.i.i, 1
+  %685 = add nuw i64 %.028358.i.i, 1
   %.pre.i115.i = load i64, ptr %623, align 8, !noalias !3695
   br label %.backedge124.i.i
 
@@ -20843,7 +20843,7 @@ _ZN15tree_sitter_cli8generate5dedup21split_state_id_groups17h86004340cfc66be7E.e
   br i1 %687, label %671, label %._crit_edge.i117.i
 
 688:                                              ; preds = %682
-  %689 = add i64 %.028358.i.i, 1
+  %689 = add nuw i64 %.028358.i.i, 1
   %690 = load i64, ptr %623, align 8, !noalias !3695, !noundef !14
   %691 = icmp ult i64 %689, %690
   br i1 %691, label %.lr.ph.i133.i, label %.backedge124.i.i
@@ -32728,7 +32728,7 @@ define hidden noundef zeroext i1 @_ZN15tree_sitter_cli8generate5dedup21split_sta
 
 92:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !6046
-  %93 = add i64 %.028132, 1
+  %93 = add nuw i64 %.028132, 1
   %.pre = load i64, ptr %31, align 8
   br label %.backedge87
 
@@ -32740,7 +32740,7 @@ define hidden noundef zeroext i1 @_ZN15tree_sitter_cli8generate5dedup21split_sta
 
 96:                                               ; preds = %90
   %97 = getelementptr inbounds [0 x { { { i64, ptr }, i64 }, { i64, i8 }, { i64, i8 } }], ptr %0, i64 0, i64 %81
-  %98 = add i64 %.028132, 1
+  %98 = add nuw i64 %.028132, 1
   %99 = load i64, ptr %31, align 8, !noundef !14
   %100 = icmp ult i64 %98, %99
   br i1 %100, label %.lr.ph, label %.backedge87

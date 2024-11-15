@@ -5037,12 +5037,12 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %29
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !88
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %83
-  %indvars.iv57.i = phi i64 [ %indvars.iv.next58.pre-phi.i, %83 ], [ 0, %.lr.ph.i ]
-  %44 = phi i32 [ %53, %83 ], [ 0, %.lr.ph.i ]
-  %45 = phi i32 [ %.sink45, %83 ], [ 0, %.lr.ph.i ]
-  %.03949.i = phi i32 [ %.1.i, %83 ], [ 0, %.lr.ph.i ]
-  %46 = phi i8 [ %84, %83 ], [ %12, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %82
+  %indvars.iv57.i = phi i64 [ %indvars.iv.next58.pre-phi.i, %82 ], [ 0, %.lr.ph.i ]
+  %44 = phi i32 [ %53, %82 ], [ 0, %.lr.ph.i ]
+  %45 = phi i32 [ %.sink45, %82 ], [ 0, %.lr.ph.i ]
+  %.03949.i = phi i32 [ %.1.i, %82 ], [ 0, %.lr.ph.i ]
+  %46 = phi i8 [ %83, %82 ], [ %12, %.lr.ph.i ]
   %47 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv57.i
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %15, align 4
@@ -5054,7 +5054,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   store i32 %.sink44, ptr %17, align 4
   store i32 %storemerge64.i, ptr %18, align 4
   store i32 %storemerge63.i, ptr %20, align 4
-  %50 = icmp slt i64 %indvars.iv57.i, %28
+  %50 = icmp ult i64 %indvars.iv57.i, %28
   %51 = add nsw i32 %.sink44, %48
   %52 = add nsw i32 %storemerge63.i, %.sroa.speculated.i
   %.sink45 = select i1 %50, i32 %51, i32 0
@@ -5062,7 +5062,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   store i32 %.sink45, ptr %16, align 4
   store i32 %53, ptr %19, align 4
   %54 = icmp eq i32 %48, %2
-  br i1 %54, label %55, label %77
+  br i1 %54, label %55, label %76
 
 55:                                               ; preds = %.lr.ph.split.i
   %56 = trunc nuw nsw i64 %indvars.iv57.i to i32
@@ -5077,86 +5077,85 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   %64 = or disjoint i8 %62, %63
   %65 = add nuw nsw i64 %indvars.iv57.i, 1
   %66 = icmp eq i64 %65, %29
-  %67 = and i64 %65, 4294967295
-  %68 = select i1 %66, i64 0, i64 %67
-  %69 = getelementptr inbounds i32, ptr %1, i64 %68
-  %70 = load i32, ptr %69, align 4
-  %.not43.i = icmp eq i32 %70, %2
-  %71 = select i1 %.not43.i, i8 0, i8 32
-  %72 = or disjoint i8 %64, %71
-  store i8 %72, ptr %7, align 4
-  %73 = mul nsw i32 %.03949.i, %.sroa.7.0.copyload
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %74
-  store ptr %75, ptr %8, align 8, !alias.scope !89
+  %67 = select i1 %66, i64 0, i64 %65
+  %68 = getelementptr inbounds i32, ptr %1, i64 %67
+  %69 = load i32, ptr %68, align 4
+  %.not43.i = icmp eq i32 %69, %2
+  %70 = select i1 %.not43.i, i8 0, i8 32
+  %71 = or disjoint i8 %64, %70
+  store i8 %71, ptr %7, align 4
+  %72 = mul nsw i32 %.03949.i, %.sroa.7.0.copyload
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %73
+  store ptr %74, ptr %8, align 8, !alias.scope !89
   store i32 %.sroa.4.0.copyload, ptr %26, align 8, !alias.scope !89
   store i32 %.sroa.7.0.copyload, ptr %27, align 4, !alias.scope !89
-  %76 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef %8)
-  br label %83
+  %75 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef %8)
+  br label %82
 
-77:                                               ; preds = %.lr.ph.split.i
-  %78 = or i8 %46, 48
-  store i8 %78, ptr %7, align 4
-  %79 = mul nsw i32 %.03949.i, %.sroa.7.0.copyload
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %80
-  store ptr %81, ptr %9, align 8, !alias.scope !85
+76:                                               ; preds = %.lr.ph.split.i
+  %77 = or i8 %46, 48
+  store i8 %77, ptr %7, align 4
+  %78 = mul nsw i32 %.03949.i, %.sroa.7.0.copyload
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %79
+  store ptr %80, ptr %9, align 8, !alias.scope !85
   store i32 %.sroa.4.0.copyload, ptr %24, align 8, !alias.scope !85
   store i32 %.sroa.7.0.copyload, ptr %25, align 4, !alias.scope !85
-  %82 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef %9)
+  %81 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef %9)
   %.pre.i = add nuw nsw i64 %indvars.iv57.i, 1
-  br label %83
+  br label %82
 
-83:                                               ; preds = %77, %55
-  %indvars.iv.next58.pre-phi.i = phi i64 [ %65, %55 ], [ %.pre.i, %77 ]
-  %84 = phi i8 [ %72, %55 ], [ %78, %77 ]
-  %.pn45.i = phi i32 [ %76, %55 ], [ %82, %77 ]
+82:                                               ; preds = %76, %55
+  %indvars.iv.next58.pre-phi.i = phi i64 [ %65, %55 ], [ %.pre.i, %76 ]
+  %83 = phi i8 [ %71, %55 ], [ %77, %76 ]
+  %.pn45.i = phi i32 [ %75, %55 ], [ %81, %76 ]
   %.1.i = add nsw i32 %.pn45.i, %.03949.i
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next58.pre-phi.i, %29
   br i1 %exitcond60.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !88
 
-.loopexit:                                        ; preds = %.lr.ph.split.us.i, %83, %6
-  %.039.lcssa.i = phi i32 [ 0, %6 ], [ %.1.i, %83 ], [ %.1.us.i, %.lr.ph.split.us.i ]
+.loopexit:                                        ; preds = %.lr.ph.split.us.i, %82, %6
+  %.039.lcssa.i = phi i32 [ 0, %6 ], [ %.1.i, %82 ], [ %.1.us.i, %.lr.ph.split.us.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %85 = icmp sgt i32 %2, 2
-  br i1 %85, label %.lr.ph, label %._crit_edge
+  %84 = icmp sgt i32 %2, 2
+  br i1 %84, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit
-  %86 = add nuw nsw i32 %2, 1
-  %87 = lshr i32 %86, 1
-  %88 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %89 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  br label %90
+  %85 = add nuw nsw i32 %2, 1
+  %86 = lshr i32 %85, 1
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  br label %89
 
-90:                                               ; preds = %.lr.ph, %90
-  %.041 = phi i32 [ 1, %.lr.ph ], [ %102, %90 ]
-  %.02240 = phi i32 [ %3, %.lr.ph ], [ %101, %90 ]
-  %.02339 = phi i32 [ %2, %.lr.ph ], [ %.sroa.speculated, %90 ]
-  %.02638 = phi i32 [ %.039.lcssa.i, %.lr.ph ], [ %99, %90 ]
-  %91 = tail call i32 @llvm.smax.i32(i32 %.02339, i32 2)
-  %.sroa.speculated = add nsw i32 %91, -2
+89:                                               ; preds = %.lr.ph, %89
+  %.041 = phi i32 [ 1, %.lr.ph ], [ %101, %89 ]
+  %.02240 = phi i32 [ %3, %.lr.ph ], [ %100, %89 ]
+  %.02339 = phi i32 [ %2, %.lr.ph ], [ %.sroa.speculated, %89 ]
+  %.02638 = phi i32 [ %.039.lcssa.i, %.lr.ph ], [ %98, %89 ]
+  %90 = tail call i32 @llvm.smax.i32(i32 %.02339, i32 2)
+  %.sroa.speculated = add nsw i32 %90, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %92 = load ptr, ptr %5, align 8, !noalias !92
-  %93 = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !noalias !92
-  %94 = mul nsw i32 %93, %.02638
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i32, ptr %92, i64 %95
-  %97 = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !92
-  store ptr %96, ptr %10, align 8, !alias.scope !92
-  store i32 %97, ptr %88, align 8, !alias.scope !92
-  store i32 %93, ptr %89, align 4, !alias.scope !92
-  %98 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %.sroa.speculated, i32 noundef %.02240, i1 noundef zeroext %4, ptr noundef %10)
-  %99 = add nsw i32 %98, %.02638
-  %100 = mul nsw i32 %.sroa.speculated, %0
-  %101 = add nsw i32 %100, %.02240
-  %102 = add nuw nsw i32 %.041, 1
-  %exitcond.not = icmp eq i32 %102, %87
-  br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !95
+  %91 = load ptr, ptr %5, align 8, !noalias !92
+  %92 = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !noalias !92
+  %93 = mul nsw i32 %92, %.02638
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds i32, ptr %91, i64 %94
+  %96 = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !92
+  store ptr %95, ptr %10, align 8, !alias.scope !92
+  store i32 %96, ptr %87, align 8, !alias.scope !92
+  store i32 %92, ptr %88, align 4, !alias.scope !92
+  %97 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %.sroa.speculated, i32 noundef %.02240, i1 noundef zeroext %4, ptr noundef %10)
+  %98 = add nsw i32 %97, %.02638
+  %99 = mul nsw i32 %.sroa.speculated, %0
+  %100 = add nsw i32 %99, %.02240
+  %101 = add nuw nsw i32 %.041, 1
+  %exitcond.not = icmp eq i32 %101, %86
+  br i1 %exitcond.not, label %._crit_edge, label %89, !llvm.loop !95
 
-._crit_edge:                                      ; preds = %90, %.loopexit
-  %.026.lcssa = phi i32 [ %.039.lcssa.i, %.loopexit ], [ %99, %90 ]
+._crit_edge:                                      ; preds = %89, %.loopexit
+  %.026.lcssa = phi i32 [ %.039.lcssa.i, %.loopexit ], [ %98, %89 ]
   ret i32 %.026.lcssa
 }
 

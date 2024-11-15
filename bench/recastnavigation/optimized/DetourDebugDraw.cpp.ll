@@ -831,13 +831,13 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %179
-  %.010 = phi i32 [ %180, %179 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %178
+  %.010 = phi i32 [ %179, %178 ], [ 0, %.preheader ]
   %5 = tail call noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr noundef nonnull align 8 dereferenceable(100) %1, i32 noundef %.010)
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, null
-  br i1 %.not9, label %179, label %8
+  br i1 %.not9, label %178, label %8
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %7, i64 68
@@ -855,9 +855,9 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
   br i1 %19, label %.split.i, label %_ZL18drawMeshTilePortalP11duDebugDrawPK10dtMeshTile.exit
 
 .split.i:                                         ; preds = %8, %._crit_edge141.i
-  %20 = phi ptr [ %173, %._crit_edge141.i ], [ %16, %8 ]
-  %21 = phi ptr [ %174, %._crit_edge141.i ], [ %16, %8 ]
-  %.0142.i = phi i32 [ %175, %._crit_edge141.i ], [ 0, %8 ]
+  %20 = phi ptr [ %172, %._crit_edge141.i ], [ %16, %8 ]
+  %21 = phi ptr [ %173, %._crit_edge141.i ], [ %16, %8 ]
+  %.0142.i = phi i32 [ %174, %._crit_edge141.i ], [ 0, %8 ]
   %22 = or disjoint i32 %.0142.i, 32768
   %23 = getelementptr inbounds i8, ptr %21, i64 24
   %24 = load i32, ptr %23, align 4
@@ -865,7 +865,7 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
   br i1 %25, label %.lr.ph140.i, label %._crit_edge141.i
 
 .lr.ph140.i:                                      ; preds = %.split.i, %._crit_edge.i
-  %26 = phi ptr [ %168, %._crit_edge.i ], [ %20, %.split.i ]
+  %26 = phi ptr [ %167, %._crit_edge.i ], [ %20, %.split.i ]
   %indvars.iv148.i = phi i64 [ %indvars.iv.next149.i, %._crit_edge.i ], [ 0, %.split.i ]
   %27 = load ptr, ptr %14, align 8
   %28 = getelementptr inbounds %struct.dtPoly, ptr %27, i64 %indvars.iv148.i
@@ -880,8 +880,8 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
   %33 = zext i8 %30 to i64
   br label %34
 
-34:                                               ; preds = %167, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.pre-phi.i, %167 ]
+34:                                               ; preds = %166, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.pre-phi.i, %166 ]
   %35 = getelementptr inbounds [6 x i16], ptr %31, i64 0, i64 %indvars.iv.i
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
@@ -890,7 +890,7 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
 
 ._crit_edge152.i:                                 ; preds = %34
   %.pre153.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %167
+  br label %166
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %15, align 8
@@ -901,198 +901,197 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
   %43 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
   %44 = add nuw nsw i64 %indvars.iv.i, 1
   %45 = icmp eq i64 %44, %33
-  %46 = and i64 %44, 4294967295
-  %47 = select i1 %45, i64 0, i64 %46
-  %48 = getelementptr inbounds [6 x i16], ptr %32, i64 0, i64 %47
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i64
-  %.idx136.i = mul nuw nsw i64 %50, 12
-  %51 = getelementptr inbounds i8, ptr %39, i64 %.idx136.i
-  switch i32 %.0142.i, label %167 [
-    i32 0, label %53
-    i32 4, label %52
-    i32 2, label %111
-    i32 6, label %110
+  %46 = select i1 %45, i64 0, i64 %44
+  %47 = getelementptr inbounds [6 x i16], ptr %32, i64 0, i64 %46
+  %48 = load i16, ptr %47, align 2
+  %49 = zext i16 %48 to i64
+  %.idx136.i = mul nuw nsw i64 %49, 12
+  %50 = getelementptr inbounds i8, ptr %39, i64 %.idx136.i
+  switch i32 %.0142.i, label %166 [
+    i32 0, label %52
+    i32 4, label %51
+    i32 2, label %110
+    i32 6, label %109
   ]
 
-52:                                               ; preds = %38
-  br label %53
+51:                                               ; preds = %38
+  br label %52
 
-53:                                               ; preds = %52, %38
-  %54 = phi float [ 0x3FA47AE140000000, %52 ], [ 0xBFA47AE140000000, %38 ]
-  %55 = phi i32 [ -2139094912, %52 ], [ -2147483520, %38 ]
-  %56 = load float, ptr %43, align 4
-  %57 = fadd float %54, %56
-  %58 = getelementptr inbounds i8, ptr %43, i64 4
-  %59 = load float, ptr %58, align 4
-  %60 = fsub float %59, %10
-  %61 = getelementptr inbounds i8, ptr %43, i64 8
-  %62 = load float, ptr %61, align 4
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 48
-  %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %60, float noundef %62, i32 noundef %55)
-  %66 = load float, ptr %58, align 4
-  %67 = fadd float %10, %66
-  %68 = load float, ptr %61, align 4
-  %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 48
-  %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %67, float noundef %68, i32 noundef %55)
-  %72 = load float, ptr %58, align 4
-  %73 = fadd float %10, %72
-  %74 = load float, ptr %61, align 4
-  %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 48
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %73, float noundef %74, i32 noundef %55)
-  %78 = getelementptr inbounds i8, ptr %51, i64 4
-  %79 = load float, ptr %78, align 4
-  %80 = fadd float %10, %79
-  %81 = getelementptr inbounds i8, ptr %51, i64 8
-  %82 = load float, ptr %81, align 4
-  %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 48
-  %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %80, float noundef %82, i32 noundef %55)
-  %86 = load float, ptr %78, align 4
-  %87 = fadd float %10, %86
-  %88 = load float, ptr %81, align 4
-  %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 48
-  %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %87, float noundef %88, i32 noundef %55)
-  %92 = load float, ptr %78, align 4
-  %93 = fsub float %92, %10
-  %94 = load float, ptr %81, align 4
-  %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 48
-  %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %93, float noundef %94, i32 noundef %55)
-  %98 = load float, ptr %78, align 4
-  %99 = fsub float %98, %10
-  %100 = load float, ptr %81, align 4
-  %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 48
-  %103 = load ptr, ptr %102, align 8
-  tail call void %103(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %99, float noundef %100, i32 noundef %55)
-  %104 = load float, ptr %58, align 4
-  %105 = fsub float %104, %10
-  %106 = load float, ptr %61, align 4
-  %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 48
-  %109 = load ptr, ptr %108, align 8
-  tail call void %109(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %105, float noundef %106, i32 noundef %55)
-  br label %167
+52:                                               ; preds = %51, %38
+  %53 = phi float [ 0x3FA47AE140000000, %51 ], [ 0xBFA47AE140000000, %38 ]
+  %54 = phi i32 [ -2139094912, %51 ], [ -2147483520, %38 ]
+  %55 = load float, ptr %43, align 4
+  %56 = fadd float %53, %55
+  %57 = getelementptr inbounds i8, ptr %43, i64 4
+  %58 = load float, ptr %57, align 4
+  %59 = fsub float %58, %10
+  %60 = getelementptr inbounds i8, ptr %43, i64 8
+  %61 = load float, ptr %60, align 4
+  %62 = load ptr, ptr %0, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %56, float noundef %59, float noundef %61, i32 noundef %54)
+  %65 = load float, ptr %57, align 4
+  %66 = fadd float %10, %65
+  %67 = load float, ptr %60, align 4
+  %68 = load ptr, ptr %0, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  %70 = load ptr, ptr %69, align 8
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %56, float noundef %66, float noundef %67, i32 noundef %54)
+  %71 = load float, ptr %57, align 4
+  %72 = fadd float %10, %71
+  %73 = load float, ptr %60, align 4
+  %74 = load ptr, ptr %0, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 48
+  %76 = load ptr, ptr %75, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %56, float noundef %72, float noundef %73, i32 noundef %54)
+  %77 = getelementptr inbounds i8, ptr %50, i64 4
+  %78 = load float, ptr %77, align 4
+  %79 = fadd float %10, %78
+  %80 = getelementptr inbounds i8, ptr %50, i64 8
+  %81 = load float, ptr %80, align 4
+  %82 = load ptr, ptr %0, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 48
+  %84 = load ptr, ptr %83, align 8
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %56, float noundef %79, float noundef %81, i32 noundef %54)
+  %85 = load float, ptr %77, align 4
+  %86 = fadd float %10, %85
+  %87 = load float, ptr %80, align 4
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 48
+  %90 = load ptr, ptr %89, align 8
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %56, float noundef %86, float noundef %87, i32 noundef %54)
+  %91 = load float, ptr %77, align 4
+  %92 = fsub float %91, %10
+  %93 = load float, ptr %80, align 4
+  %94 = load ptr, ptr %0, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 48
+  %96 = load ptr, ptr %95, align 8
+  tail call void %96(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %56, float noundef %92, float noundef %93, i32 noundef %54)
+  %97 = load float, ptr %77, align 4
+  %98 = fsub float %97, %10
+  %99 = load float, ptr %80, align 4
+  %100 = load ptr, ptr %0, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 48
+  %102 = load ptr, ptr %101, align 8
+  tail call void %102(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %56, float noundef %98, float noundef %99, i32 noundef %54)
+  %103 = load float, ptr %57, align 4
+  %104 = fsub float %103, %10
+  %105 = load float, ptr %60, align 4
+  %106 = load ptr, ptr %0, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 48
+  %108 = load ptr, ptr %107, align 8
+  tail call void %108(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %56, float noundef %104, float noundef %105, i32 noundef %54)
+  br label %166
 
-110:                                              ; preds = %38
-  br label %111
+109:                                              ; preds = %38
+  br label %110
 
-111:                                              ; preds = %110, %38
-  %112 = phi float [ 0x3FA47AE140000000, %110 ], [ 0xBFA47AE140000000, %38 ]
-  %113 = phi i32 [ -2139062272, %110 ], [ -2147450880, %38 ]
-  %114 = getelementptr inbounds i8, ptr %43, i64 8
-  %115 = load float, ptr %114, align 4
-  %116 = fadd float %112, %115
-  %117 = load float, ptr %43, align 4
-  %118 = getelementptr inbounds i8, ptr %43, i64 4
-  %119 = load float, ptr %118, align 4
-  %120 = fsub float %119, %10
-  %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 48
-  %123 = load ptr, ptr %122, align 8
-  tail call void %123(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %117, float noundef %120, float noundef %116, i32 noundef %113)
-  %124 = load float, ptr %43, align 4
-  %125 = load float, ptr %118, align 4
-  %126 = fadd float %10, %125
-  %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 48
-  %129 = load ptr, ptr %128, align 8
-  tail call void %129(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %124, float noundef %126, float noundef %116, i32 noundef %113)
-  %130 = load float, ptr %43, align 4
-  %131 = load float, ptr %118, align 4
-  %132 = fadd float %10, %131
-  %133 = load ptr, ptr %0, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 48
-  %135 = load ptr, ptr %134, align 8
-  tail call void %135(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %130, float noundef %132, float noundef %116, i32 noundef %113)
-  %136 = load float, ptr %51, align 4
-  %137 = getelementptr inbounds i8, ptr %51, i64 4
-  %138 = load float, ptr %137, align 4
-  %139 = fadd float %10, %138
-  %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 48
-  %142 = load ptr, ptr %141, align 8
-  tail call void %142(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %136, float noundef %139, float noundef %116, i32 noundef %113)
-  %143 = load float, ptr %51, align 4
-  %144 = load float, ptr %137, align 4
-  %145 = fadd float %10, %144
-  %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 48
-  %148 = load ptr, ptr %147, align 8
-  tail call void %148(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %143, float noundef %145, float noundef %116, i32 noundef %113)
-  %149 = load float, ptr %51, align 4
-  %150 = load float, ptr %137, align 4
-  %151 = fsub float %150, %10
-  %152 = load ptr, ptr %0, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 48
-  %154 = load ptr, ptr %153, align 8
-  tail call void %154(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %149, float noundef %151, float noundef %116, i32 noundef %113)
-  %155 = load float, ptr %51, align 4
-  %156 = load float, ptr %137, align 4
-  %157 = fsub float %156, %10
-  %158 = load ptr, ptr %0, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 48
-  %160 = load ptr, ptr %159, align 8
-  tail call void %160(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %155, float noundef %157, float noundef %116, i32 noundef %113)
-  %161 = load float, ptr %43, align 4
-  %162 = load float, ptr %118, align 4
-  %163 = fsub float %162, %10
-  %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 48
-  %166 = load ptr, ptr %165, align 8
-  tail call void %166(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %161, float noundef %163, float noundef %116, i32 noundef %113)
-  br label %167
+110:                                              ; preds = %109, %38
+  %111 = phi float [ 0x3FA47AE140000000, %109 ], [ 0xBFA47AE140000000, %38 ]
+  %112 = phi i32 [ -2139062272, %109 ], [ -2147450880, %38 ]
+  %113 = getelementptr inbounds i8, ptr %43, i64 8
+  %114 = load float, ptr %113, align 4
+  %115 = fadd float %111, %114
+  %116 = load float, ptr %43, align 4
+  %117 = getelementptr inbounds i8, ptr %43, i64 4
+  %118 = load float, ptr %117, align 4
+  %119 = fsub float %118, %10
+  %120 = load ptr, ptr %0, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 48
+  %122 = load ptr, ptr %121, align 8
+  tail call void %122(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %116, float noundef %119, float noundef %115, i32 noundef %112)
+  %123 = load float, ptr %43, align 4
+  %124 = load float, ptr %117, align 4
+  %125 = fadd float %10, %124
+  %126 = load ptr, ptr %0, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 48
+  %128 = load ptr, ptr %127, align 8
+  tail call void %128(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %123, float noundef %125, float noundef %115, i32 noundef %112)
+  %129 = load float, ptr %43, align 4
+  %130 = load float, ptr %117, align 4
+  %131 = fadd float %10, %130
+  %132 = load ptr, ptr %0, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 48
+  %134 = load ptr, ptr %133, align 8
+  tail call void %134(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %129, float noundef %131, float noundef %115, i32 noundef %112)
+  %135 = load float, ptr %50, align 4
+  %136 = getelementptr inbounds i8, ptr %50, i64 4
+  %137 = load float, ptr %136, align 4
+  %138 = fadd float %10, %137
+  %139 = load ptr, ptr %0, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 48
+  %141 = load ptr, ptr %140, align 8
+  tail call void %141(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %135, float noundef %138, float noundef %115, i32 noundef %112)
+  %142 = load float, ptr %50, align 4
+  %143 = load float, ptr %136, align 4
+  %144 = fadd float %10, %143
+  %145 = load ptr, ptr %0, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 48
+  %147 = load ptr, ptr %146, align 8
+  tail call void %147(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %142, float noundef %144, float noundef %115, i32 noundef %112)
+  %148 = load float, ptr %50, align 4
+  %149 = load float, ptr %136, align 4
+  %150 = fsub float %149, %10
+  %151 = load ptr, ptr %0, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 48
+  %153 = load ptr, ptr %152, align 8
+  tail call void %153(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %148, float noundef %150, float noundef %115, i32 noundef %112)
+  %154 = load float, ptr %50, align 4
+  %155 = load float, ptr %136, align 4
+  %156 = fsub float %155, %10
+  %157 = load ptr, ptr %0, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 48
+  %159 = load ptr, ptr %158, align 8
+  tail call void %159(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %154, float noundef %156, float noundef %115, i32 noundef %112)
+  %160 = load float, ptr %43, align 4
+  %161 = load float, ptr %117, align 4
+  %162 = fsub float %161, %10
+  %163 = load ptr, ptr %0, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 48
+  %165 = load ptr, ptr %164, align 8
+  tail call void %165(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %160, float noundef %162, float noundef %115, i32 noundef %112)
+  br label %166
 
-167:                                              ; preds = %111, %53, %38, %._crit_edge152.i
-  %indvars.iv.next.pre-phi.i = phi i64 [ %.pre153.i, %._crit_edge152.i ], [ %44, %38 ], [ %44, %53 ], [ %44, %111 ]
+166:                                              ; preds = %110, %52, %38, %._crit_edge152.i
+  %indvars.iv.next.pre-phi.i = phi i64 [ %.pre153.i, %._crit_edge152.i ], [ %44, %38 ], [ %44, %52 ], [ %44, %110 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %33
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %34, !llvm.loop !20
 
-._crit_edge.loopexit.i:                           ; preds = %167
+._crit_edge.loopexit.i:                           ; preds = %166
   %.pre.i = load ptr, ptr %6, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph140.i
-  %168 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %26, %.lr.ph140.i ]
+  %167 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %26, %.lr.ph140.i ]
   %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 1
-  %169 = getelementptr inbounds i8, ptr %168, i64 24
-  %170 = load i32, ptr %169, align 4
-  %171 = sext i32 %170 to i64
-  %172 = icmp slt i64 %indvars.iv.next149.i, %171
-  br i1 %172, label %.lr.ph140.i, label %._crit_edge141.i, !llvm.loop !21
+  %168 = getelementptr inbounds i8, ptr %167, i64 24
+  %169 = load i32, ptr %168, align 4
+  %170 = sext i32 %169 to i64
+  %171 = icmp slt i64 %indvars.iv.next149.i, %170
+  br i1 %171, label %.lr.ph140.i, label %._crit_edge141.i, !llvm.loop !21
 
 ._crit_edge141.i:                                 ; preds = %._crit_edge.i, %.split.i
-  %173 = phi ptr [ %20, %.split.i ], [ %168, %._crit_edge.i ]
-  %174 = phi ptr [ %21, %.split.i ], [ %168, %._crit_edge.i ]
-  %175 = add nuw nsw i32 %.0142.i, 1
-  %exitcond151.not.i = icmp eq i32 %175, 8
+  %172 = phi ptr [ %20, %.split.i ], [ %167, %._crit_edge.i ]
+  %173 = phi ptr [ %21, %.split.i ], [ %167, %._crit_edge.i ]
+  %174 = add nuw nsw i32 %.0142.i, 1
+  %exitcond151.not.i = icmp eq i32 %174, 8
   br i1 %exitcond151.not.i, label %_ZL18drawMeshTilePortalP11duDebugDrawPK10dtMeshTile.exit, label %.split.i, !llvm.loop !22
 
 _ZL18drawMeshTilePortalP11duDebugDrawPK10dtMeshTile.exit: ; preds = %._crit_edge141.i, %8
-  %176 = load ptr, ptr %0, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 72
-  %178 = load ptr, ptr %177, align 8
-  tail call void %178(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %179
+  %175 = load ptr, ptr %0, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 72
+  %177 = load ptr, ptr %176, align 8
+  tail call void %177(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br label %178
 
-179:                                              ; preds = %.lr.ph, %_ZL18drawMeshTilePortalP11duDebugDrawPK10dtMeshTile.exit
-  %180 = add nuw nsw i32 %.010, 1
-  %181 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
-  %182 = icmp slt i32 %180, %181
-  br i1 %182, label %.lr.ph, label %.loopexit, !llvm.loop !23
+178:                                              ; preds = %.lr.ph, %_ZL18drawMeshTilePortalP11duDebugDrawPK10dtMeshTile.exit
+  %179 = add nuw nsw i32 %.010, 1
+  %180 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
+  %181 = icmp slt i32 %179, %180
+  br i1 %181, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %179, %.preheader, %2
+.loopexit:                                        ; preds = %178, %.preheader, %2
   ret void
 }
 

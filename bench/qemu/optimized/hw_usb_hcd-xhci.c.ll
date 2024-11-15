@@ -279,8 +279,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.182 = private unnamed_addr constant [26 x i8] c"../qemu/hw/usb/hcd-xhci.h\00", align 1
 @__func__.XHCI = private unnamed_addr constant [5 x i8] c"XHCI\00", align 1
 @xhci_bus_ops = internal global %struct.USBBusOps { ptr null, ptr @xhci_wakeup_endpoint }, align 8
-@.str.183 = private unnamed_addr constant [18 x i8] c"i < XHCI_MAXPORTS\00", align 1
-@__PRETTY_FUNCTION__.usb_xhci_init = private unnamed_addr constant [32 x i8] c"void usb_xhci_init(XHCIState *)\00", align 1
 @.str.184 = private unnamed_addr constant [14 x i8] c"usb2 port #%d\00", align 1
 @.str.185 = private unnamed_addr constant [14 x i8] c"usb3 port #%d\00", align 1
 @xhci_uport_ops = internal global %struct.USBPortOps { ptr @xhci_attach, ptr @xhci_detach, ptr @xhci_child_detach, ptr @xhci_wakeup, ptr @xhci_complete }, align 8
@@ -3872,7 +3870,7 @@ if.then15.i:                                      ; preds = %if.then14.i
   %add20.i = add i32 %add17.i, 1
   %portnr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   store i32 %add20.i, ptr %portnr.i, align 4
-  br label %if.end26.i
+  br label %if.end33.i
 
 if.else.i:                                        ; preds = %if.then14.i
   %arrayidx23.i = getelementptr [30 x %struct.XHCIPort], ptr %ports.i, i64 0, i64 %indvars.iv.i
@@ -3880,23 +3878,15 @@ if.else.i:                                        ; preds = %if.then14.i
   %16 = trunc i64 %indvars.iv.i to i32
   %17 = add nuw i32 %16, 1
   store i32 %17, ptr %portnr25.i, align 4
-  br label %if.end26.i
+  br label %if.end33.i
 
-if.end26.i:                                       ; preds = %if.else.i, %if.then15.i
+if.end33.i:                                       ; preds = %if.then15.i, %if.else.i
   %port.0.i = phi ptr [ %arrayidx.i, %if.then15.i ], [ %arrayidx23.i, %if.else.i ]
   %arrayidx28.i = getelementptr [15 x %struct.USBPort], ptr %uports.i, i64 0, i64 %indvars.iv.i
   %uport.i = getelementptr inbounds i8, ptr %port.0.i, i64 16
   store ptr %arrayidx28.i, ptr %uport.i, align 16
   %speedmask29.i = getelementptr inbounds i8, ptr %port.0.i, i64 24
   store i32 7, ptr %speedmask29.i, align 8
-  %cmp30.i = icmp ult i64 %indvars.iv.i, 30
-  br i1 %cmp30.i, label %if.end33.i, label %if.else32.i
-
-if.else32.i:                                      ; preds = %if.end26.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.16, i32 noundef 3364, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_xhci_init) #17
-  unreachable
-
-if.end33.i:                                       ; preds = %if.end26.i
   %name.i = getelementptr inbounds i8, ptr %port.0.i, i64 28
   %18 = trunc nuw i64 %indvars.iv.i to i32
   %19 = add nuw nsw i32 %18, 1
@@ -3927,7 +3917,7 @@ if.then42.i:                                      ; preds = %if.then40.i
   %24 = trunc i64 %indvars.iv.i to i32
   %25 = add nuw i32 %24, 1
   store i32 %25, ptr %portnr47.i, align 4
-  br label %if.end58.i
+  br label %if.end67.i
 
 if.else48.i:                                      ; preds = %if.then40.i
   %26 = load i32, ptr %numports_2.i, align 16
@@ -3938,23 +3928,15 @@ if.else48.i:                                      ; preds = %if.then40.i
   %add56.i = add i32 %add51.i, 1
   %portnr57.i = getelementptr inbounds i8, ptr %arrayidx53.i, i64 12
   store i32 %add56.i, ptr %portnr57.i, align 4
-  br label %if.end58.i
+  br label %if.end67.i
 
-if.end58.i:                                       ; preds = %if.else48.i, %if.then42.i
+if.end67.i:                                       ; preds = %if.then42.i, %if.else48.i
   %port.1.i = phi ptr [ %arrayidx45.i, %if.then42.i ], [ %arrayidx53.i, %if.else48.i ]
   %arrayidx61.i = getelementptr [15 x %struct.USBPort], ptr %uports.i, i64 0, i64 %indvars.iv.i
   %uport62.i = getelementptr inbounds i8, ptr %port.1.i, i64 16
   store ptr %arrayidx61.i, ptr %uport62.i, align 16
   %speedmask63.i = getelementptr inbounds i8, ptr %port.1.i, i64 24
   store i32 8, ptr %speedmask63.i, align 8
-  %cmp64.i = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %cmp64.i, label %if.end67.i, label %if.else66.i
-
-if.else66.i:                                      ; preds = %if.end58.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.16, i32 noundef 3378, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_xhci_init) #17
-  unreachable
-
-if.end67.i:                                       ; preds = %if.end58.i
   %name68.i = getelementptr inbounds i8, ptr %port.1.i, i64 28
   %28 = add nuw nsw i64 %indvars.iv.i, 1
   %29 = trunc nuw nsw i64 %28 to i32
