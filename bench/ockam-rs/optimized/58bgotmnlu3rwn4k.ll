@@ -2950,7 +2950,7 @@ define hidden void @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.sink = phi ptr [ %18, %20 ], [ %15, %19 ]
   %.sink.i = phi i64 [ 1, %20 ], [ 0, %19 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %22, align 8
+  store ptr %.sink, ptr %22, align 8, !alias.scope !900
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !902, !noalias !897
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   br label %40

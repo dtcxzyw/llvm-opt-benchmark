@@ -6642,7 +6642,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 935:                                              ; preds = %932, %918
   %.sink = phi float [ %928, %918 ], [ 0.000000e+00, %932 ]
   %.sink.i.i = phi float [ %931, %918 ], [ %934, %932 ]
-  store float %.sink, ptr %917, align 4
+  store float %.sink, ptr %917, align 4, !alias.scope !359, !noalias !365
   %936 = getelementptr inbounds [3 x float], ptr %143, i64 %indvars.iv16.i.i, i64 %indvars.iv.i.i120
   store float %.sink.i.i, ptr %936, align 4, !alias.scope !357, !noalias !370
   %indvars.iv.next.i.i121 = add nuw nsw i64 %indvars.iv.i.i120, 1

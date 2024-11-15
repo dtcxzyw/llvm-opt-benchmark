@@ -379,7 +379,7 @@ define void @dlanv2_(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nou
 273:                                              ; preds = %255, %260
   %.sink = phi double [ %271, %260 ], [ 0.000000e+00, %255 ]
   %274 = phi double [ %272, %260 ], [ 0.000000e+00, %255 ]
-  store double %.sink, ptr %5, align 8
+  store double %.sink, ptr %5, align 8, !tbaa !5
   store double %274, ptr %7, align 8, !tbaa !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5

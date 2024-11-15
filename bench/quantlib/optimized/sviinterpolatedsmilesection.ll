@@ -13033,7 +13033,7 @@ if.else.i:                                        ; preds = %call.i.i.noexc
 invoke.cont23.i:                                  ; preds = %if.else.i, %if.then.i120
   %123 = phi double [ %div21.i, %if.else.i ], [ %120, %if.then.i120 ]
   %124 = getelementptr inbounds nuw i8, ptr %call.i.i125, i64 8
-  store double %123, ptr %124, align 8, !noalias !233
+  store double %123, ptr %124, align 8, !tbaa !81, !noalias !233
   %and.i.i.i.i19.i = and i64 %118, 1
   %tobool.i.i.i.i20.not.i = icmp eq i64 %and.i.i.i.i19.i, 0
   br i1 %tobool.i.i.i.i20.not.i, label %if.else28.i, label %if.then25.i
@@ -16004,7 +16004,7 @@ if.else.i:                                        ; preds = %entry
 invoke.cont23.i:                                  ; preds = %if.else.i, %if.then.i
   %12 = phi double [ %div21.i, %if.else.i ], [ %9, %if.then.i ]
   %13 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store double %12, ptr %13, align 8, !noalias !276
+  store double %12, ptr %13, align 8, !tbaa !81, !noalias !276
   %and.i.i.i.i19.i = and i64 %7, 1
   %tobool.i.i.i.i20.not.i = icmp eq i64 %and.i.i.i.i19.i, 0
   br i1 %tobool.i.i.i.i20.not.i, label %if.else28.i, label %if.then25.i
@@ -16188,7 +16188,7 @@ if.else.i:                                        ; preds = %entry
 invoke.cont23.i:                                  ; preds = %if.else.i, %if.then.i
   %12 = phi double [ %div21.i, %if.else.i ], [ %9, %if.then.i ]
   %13 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store double %12, ptr %13, align 8, !noalias !280
+  store double %12, ptr %13, align 8, !tbaa !81, !noalias !280
   %and.i.i.i.i19.i = and i64 %7, 1
   %tobool.i.i.i.i20.not.i = icmp eq i64 %and.i.i.i.i19.i, 0
   br i1 %tobool.i.i.i.i20.not.i, label %if.else28.i, label %if.then25.i

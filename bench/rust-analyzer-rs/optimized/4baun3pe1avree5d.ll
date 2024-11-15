@@ -12566,8 +12566,8 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h545f52326791438dE.llvm.4213059994663518309.exit": ; preds = %16, %17
   %.sroa.0.0.copyload.sink = phi i8 [ 23, %17 ], [ %.sroa.0.0.copyload, %16 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.56.0.copyload, ptr %19, align 8
-  store i8 %.sroa.0.0.copyload.sink, ptr %0, align 8
+  store ptr %.sroa.56.0.copyload, ptr %19, align 8, !alias.scope !3258
+  store i8 %.sroa.0.0.copyload.sink, ptr %0, align 8, !alias.scope !3258
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   br label %20

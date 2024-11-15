@@ -57,7 +57,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   br i1 %33, label %34, label %.thread16
 
 .thread16:                                        ; preds = %26
-  store i32 %30, ptr %11, align 4
+  store i32 %30, ptr %11, align 4, !tbaa !3
   store i32 1, ptr %12, align 4, !tbaa !3
   br label %38
 
@@ -66,7 +66,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %36 = tail call i32 @ilaenv_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @c__2, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 1) #5
   %.pre14 = load i32, ptr %0, align 4, !tbaa !3
   %.pr10.pre.pre = load i32, ptr %1, align 4, !tbaa !3
-  store i32 %35, ptr %11, align 4
+  store i32 %35, ptr %11, align 4, !tbaa !3
   store i32 %36, ptr %12, align 4, !tbaa !3
   %37 = icmp sgt i32 %35, %.pre14
   br i1 %37, label %42, label %38

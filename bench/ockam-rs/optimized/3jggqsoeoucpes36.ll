@@ -2457,8 +2457,8 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %.sink.i.sink.i = phi i64 [ %20, %19 ], [ %.sink.i.i, %13 ]
   %.sink.i = phi ptr [ null, %19 ], [ %16, %13 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink.i.sink.i, ptr %21, align 8, !alias.scope !385, !noalias !388
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !385, !noalias !388
+  store i64 %.sink.i.sink.i, ptr %21, align 8, !alias.scope !398, !noalias !399
+  store ptr %.sink.i, ptr %0, align 8, !alias.scope !398, !noalias !399
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !400
   ret void
 }
@@ -2605,11 +2605,11 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload, i1 false)
   %.sink = extractvalue { ptr, i64 } %15, 1
-  store ptr %16, ptr %0, align 8
+  store ptr %16, ptr %0, align 8, !noalias !20
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink, ptr %18, align 8
+  store i64 %.sink, ptr %18, align 8, !noalias !20
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %19, align 8
+  store i64 %.sroa.4.0.copyload, ptr %19, align 8, !noalias !20
   br label %22
 
 20:                                               ; preds = %2
@@ -2666,8 +2666,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %.sink.i.sink = phi i64 [ %20, %19 ], [ %.sink.i, %13 ]
   %.sink = phi ptr [ null, %19 ], [ %16, %13 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink.i.sink, ptr %21, align 8
-  store ptr %.sink, ptr %0, align 8
+  store i64 %.sink.i.sink, ptr %21, align 8, !alias.scope !434, !noalias !437
+  store ptr %.sink, ptr %0, align 8, !alias.scope !434, !noalias !437
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !442
   ret void
 }

@@ -951,7 +951,7 @@ define void @lv_menu_set_page_title_static(ptr nocapture noundef %0, ptr noundef
   %.not12 = icmp ne ptr %1, null
   %spec.select = zext i1 %.not12 to i8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %11, align 8
+  store ptr %1, ptr %11, align 8, !tbaa !26
   store i8 %spec.select, ptr %3, align 8, !tbaa !21
   ret void
 }

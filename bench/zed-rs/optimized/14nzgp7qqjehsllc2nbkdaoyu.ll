@@ -92301,15 +92301,15 @@ common.ret:                                       ; preds = %901, %"_ZN4core3ptr
 "_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h365d99489ef27991E.exit.thread": ; preds = %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17heebdb4fd586353faE.exit"
   %654 = icmp ne ptr %.sroa.0273.0.copyload, null
   call void @llvm.assume(i1 %654)
-  store ptr %.sroa.0273.0.copyload, ptr %624, align 8
-  store i32 1000000001, ptr %625, align 8
+  store ptr %.sroa.0273.0.copyload, ptr %624, align 8, !alias.scope !25323
+  store i32 1000000001, ptr %625, align 8, !alias.scope !25323
   br label %747
 
 "_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h365d99489ef27991E.exit": ; preds = %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17heebdb4fd586353faE.exit"
   %.sroa.4278.0..sroa_idx279 = getelementptr inbounds i8, ptr %0, i64 644
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.4278.0..sroa_idx279, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.4278, i64 28, i1 false), !alias.scope !25323
-  store ptr %.sroa.0273.0.copyload, ptr %624, align 8
-  store i32 %631, ptr %625, align 8
+  store ptr %.sroa.0273.0.copyload, ptr %624, align 8, !alias.scope !25323
+  store i32 %631, ptr %625, align 8, !alias.scope !25323
   %cond = icmp eq i32 %631, 1000000000
   br i1 %cond, label %723, label %655
 

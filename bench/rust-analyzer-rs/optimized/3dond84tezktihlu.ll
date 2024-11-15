@@ -9808,7 +9808,7 @@ _ZN7ide_ssr6search10UsageCache4find17hcf85cecd033b06efE.exit17.i.i.i: ; preds = 
   %227 = getelementptr inbounds i8, ptr %213, i64 24
   %228 = load i32, ptr %227, align 8, !alias.scope !2211, !noalias !2212, !noundef !4
   %229 = load i32, ptr %60, align 8, !alias.scope !2215, !noalias !2216, !noundef !4
-  store ptr %226, ptr %58, align 8, !alias.scope !2154, !noalias !2155
+  store ptr %226, ptr %58, align 8, !alias.scope !2170, !noalias !2171
   br label %230
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd8c06a5ee4c37910E.exit.thread.i.i": ; preds = %215, %212

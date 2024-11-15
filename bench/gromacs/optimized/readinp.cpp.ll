@@ -1312,13 +1312,13 @@ _ZN3gmx19KeyValueTreeBuilder5buildEv.exit:        ; preds = %._crit_edge, %._cri
   %.sink44 = phi ptr [ %52, %50 ], [ %14, %._crit_edge.thread ], [ %49, %._crit_edge ]
   %.sink = phi ptr [ %53, %50 ], [ %14, %._crit_edge.thread ], [ %49, %._crit_edge ]
   %.sink.i = phi i64 [ %55, %50 ], [ 0, %._crit_edge.thread ], [ 0, %._crit_edge ]
-  store i32 %.sink46, ptr %56, align 8
+  store i32 %.sink46, ptr %56, align 8, !alias.scope !36
   %57 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink45, ptr %57, align 8
+  store ptr %.sink45, ptr %57, align 8, !alias.scope !36
   %58 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sink44, ptr %58, align 8
+  store ptr %.sink44, ptr %58, align 8, !alias.scope !36
   %59 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sink, ptr %59, align 8
+  store ptr %.sink, ptr %59, align 8, !alias.scope !36
   %60 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sink.i, ptr %60, align 8, !alias.scope !36
   %61 = getelementptr inbounds i8, ptr %0, i64 48

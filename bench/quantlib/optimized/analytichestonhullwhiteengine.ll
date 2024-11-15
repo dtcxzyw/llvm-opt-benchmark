@@ -1699,7 +1699,7 @@ if.else:                                          ; preds = %_ZN5boost10shared_p
 if.end:                                           ; preds = %if.else, %if.then
   %mul56.sink = phi double [ %mul38, %if.then ], [ %mul56, %if.else ]
   %22 = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store double %mul56.sink, ptr %22, align 8
+  store double %mul56.sink, ptr %22, align 8, !tbaa !90
   call void @_ZNK8QuantLib20AnalyticHestonEngine9calculateEv(ptr noundef nonnull align 8 dereferenceable(400) %this)
   ret void
 }
@@ -1713,13 +1713,13 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.3", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !90
+  %0 = load ptr, ptr %this, align 8, !tbaa !91
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib6HandleINS_11HestonModelEE5emptyEv.exit, !prof !46
 
 cond.false.i.i:                                   ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_11HestonModelEE4LinkEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
-  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !90
+  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !91
   br label %_ZNK8QuantLib6HandleINS_11HestonModelEE5emptyEv.exit
 
 _ZNK8QuantLib6HandleINS_11HestonModelEE5emptyEv.exit: ; preds = %entry, %cond.false.i.i
@@ -2188,9 +2188,9 @@ define linkonce_odr void @_ZN8QuantLib13GenericEngineINS_6Option9argumentsENS_14
 entry:
   %ref.tmp2.i.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
-  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i.i, align 8, !tbaa !91
+  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i.i, align 8, !tbaa !92
   %value.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store double 0x47EFFFFFE0000000, ptr %value.i.i, align 8, !tbaa !92
+  store double 0x47EFFFFFE0000000, ptr %value.i.i, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i) #26
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i)
   %valuationDate.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -2220,27 +2220,27 @@ _ZN8QuantLib14OneAssetOption7results5resetEv.exit: ; preds = %entry
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !27
   %dividendRho.i.i = getelementptr inbounds i8, ptr %this, i64 280
-  store double 0x47EFFFFFE0000000, ptr %dividendRho.i.i, align 8, !tbaa !93
+  store double 0x47EFFFFFE0000000, ptr %dividendRho.i.i, align 8, !tbaa !94
   %rho.i.i = getelementptr inbounds i8, ptr %this, i64 272
-  store double 0x47EFFFFFE0000000, ptr %rho.i.i, align 8, !tbaa !94
+  store double 0x47EFFFFFE0000000, ptr %rho.i.i, align 8, !tbaa !95
   %vega.i.i = getelementptr inbounds i8, ptr %this, i64 264
-  store double 0x47EFFFFFE0000000, ptr %vega.i.i, align 8, !tbaa !95
+  store double 0x47EFFFFFE0000000, ptr %vega.i.i, align 8, !tbaa !96
   %theta.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  store double 0x47EFFFFFE0000000, ptr %theta.i.i, align 8, !tbaa !96
+  store double 0x47EFFFFFE0000000, ptr %theta.i.i, align 8, !tbaa !97
   %gamma.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  store double 0x47EFFFFFE0000000, ptr %gamma.i.i, align 8, !tbaa !97
+  store double 0x47EFFFFFE0000000, ptr %gamma.i.i, align 8, !tbaa !98
   %delta.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  store double 0x47EFFFFFE0000000, ptr %delta.i.i, align 8, !tbaa !98
+  store double 0x47EFFFFFE0000000, ptr %delta.i.i, align 8, !tbaa !99
   %strikeSensitivity.i.i = getelementptr inbounds i8, ptr %this, i64 328
-  store double 0x47EFFFFFE0000000, ptr %strikeSensitivity.i.i, align 8, !tbaa !99
+  store double 0x47EFFFFFE0000000, ptr %strikeSensitivity.i.i, align 8, !tbaa !100
   %thetaPerDay.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  store double 0x47EFFFFFE0000000, ptr %thetaPerDay.i.i, align 8, !tbaa !100
+  store double 0x47EFFFFFE0000000, ptr %thetaPerDay.i.i, align 8, !tbaa !101
   %elasticity.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  store double 0x47EFFFFFE0000000, ptr %elasticity.i.i, align 8, !tbaa !101
+  store double 0x47EFFFFFE0000000, ptr %elasticity.i.i, align 8, !tbaa !102
   %deltaForward.i.i = getelementptr inbounds i8, ptr %this, i64 304
-  store double 0x47EFFFFFE0000000, ptr %deltaForward.i.i, align 8, !tbaa !102
+  store double 0x47EFFFFFE0000000, ptr %deltaForward.i.i, align 8, !tbaa !103
   %itmCashProbability.i.i = getelementptr inbounds i8, ptr %this, i64 296
-  store double 0x47EFFFFFE0000000, ptr %itmCashProbability.i.i, align 8, !tbaa !103
+  store double 0x47EFFFFFE0000000, ptr %itmCashProbability.i.i, align 8, !tbaa !104
   ret void
 }
 
@@ -2248,7 +2248,7 @@ _ZN8QuantLib14OneAssetOption7results5resetEv.exit: ; preds = %entry
 define linkonce_odr { double, double } @_ZNK8QuantLib29AnalyticHestonHullWhiteEngine9addOnTermEddm(ptr noundef nonnull align 8 dereferenceable(440) %this, double noundef %u, double noundef %0, i64 noundef %j) unnamed_addr #8 comdat align 2 {
 entry:
   %m_ = getelementptr inbounds nuw i8, ptr %this, i64 416
-  %1 = load double, ptr %m_, align 8, !tbaa !104
+  %1 = load double, ptr %m_, align 8, !tbaa !90
   %fneg = fneg double %1
   %mul = fmul double %u, %fneg
   %mul2 = fmul double %u, %mul
@@ -2988,9 +2988,9 @@ define linkonce_odr void @_ZN8QuantLib10Instrument7results5resetEv(ptr noundef n
 entry:
   %ref.tmp2 = alloca %"class.QuantLib::Date", align 8
   %errorEstimate = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store double 0x47EFFFFFE0000000, ptr %errorEstimate, align 8, !tbaa !91
+  store double 0x47EFFFFFE0000000, ptr %errorEstimate, align 8, !tbaa !92
   %value = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store double 0x47EFFFFFE0000000, ptr %value, align 8, !tbaa !92
+  store double 0x47EFFFFFE0000000, ptr %value, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2) #26
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
   %valuationDate = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3701,21 +3701,21 @@ attributes #30 = { builtin nounwind }
 !87 = !{!64, !5, i64 0}
 !88 = !{!89, !89, i64 0}
 !89 = !{!"int", !6, i64 0}
-!90 = !{!76, !5, i64 0}
-!91 = !{!66, !48, i64 16}
-!92 = !{!66, !48, i64 8}
-!93 = !{!73, !48, i64 48}
-!94 = !{!73, !48, i64 40}
-!95 = !{!73, !48, i64 32}
-!96 = !{!73, !48, i64 24}
-!97 = !{!73, !48, i64 16}
-!98 = !{!73, !48, i64 8}
-!99 = !{!74, !48, i64 40}
-!100 = !{!74, !48, i64 32}
-!101 = !{!74, !48, i64 24}
-!102 = !{!74, !48, i64 16}
-!103 = !{!74, !48, i64 8}
-!104 = !{!50, !48, i64 416}
+!90 = !{!50, !48, i64 416}
+!91 = !{!76, !5, i64 0}
+!92 = !{!66, !48, i64 16}
+!93 = !{!66, !48, i64 8}
+!94 = !{!73, !48, i64 48}
+!95 = !{!73, !48, i64 40}
+!96 = !{!73, !48, i64 32}
+!97 = !{!73, !48, i64 24}
+!98 = !{!73, !48, i64 16}
+!99 = !{!73, !48, i64 8}
+!100 = !{!74, !48, i64 40}
+!101 = !{!74, !48, i64 32}
+!102 = !{!74, !48, i64 24}
+!103 = !{!74, !48, i64 16}
+!104 = !{!74, !48, i64 8}
 !105 = !{!22, !5, i64 24}
 !106 = !{!22, !5, i64 16}
 !107 = distinct !{!107, !44}

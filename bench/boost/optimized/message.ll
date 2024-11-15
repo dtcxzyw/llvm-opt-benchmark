@@ -9544,7 +9544,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext10mo_mess
   %.not.i = icmp eq ptr %2, null
   %spec.select.i = select i1 %.not.i, ptr @_ZZN5boost6locale11gnu_gettext11message_keyIcEC1EPKcS5_E5empty, ptr %2
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %spec.select.i, ptr %31, align 8
+  store ptr %spec.select.i, ptr %31, align 8, !tbaa !252
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %33 = invoke ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIcEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS6_(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull align 8 dereferenceable(80) %5)
           to label %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_13hash_functionIcEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit unwind label %35
@@ -13378,7 +13378,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext10mo_mess
   %.not.i = icmp eq ptr %2, null
   %spec.select.i = select i1 %.not.i, ptr @_ZZN5boost6locale11gnu_gettext11message_keyIwEC1EPKwS5_E5empty, ptr %2
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %spec.select.i, ptr %24, align 8
+  store ptr %spec.select.i, ptr %24, align 8, !tbaa !315
   %25 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %12, i64 %8, i32 1
   %26 = invoke ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIwEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS6_(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(80) %5)
           to label %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit unwind label %28

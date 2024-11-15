@@ -2246,8 +2246,8 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %.sink.i = phi ptr [ %16, %13 ], [ %12, %2 ]
   %.sink11.i.sink.i = phi i64 [ %.sink11.i.i, %13 ], [ -9223372036854775808, %2 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %19, align 8, !alias.scope !365, !noalias !368
-  store i64 %.sink11.i.sink.i, ptr %0, align 8, !alias.scope !365, !noalias !368
+  store ptr %.sink.i, ptr %19, align 8, !alias.scope !378, !noalias !379
+  store i64 %.sink11.i.sink.i, ptr %0, align 8, !alias.scope !378, !noalias !379
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !380
   ret void
 }
@@ -2721,11 +2721,11 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload, i1 false)
   %.sink11 = extractvalue { i64, ptr } %15, 0
-  store i64 %.sink11, ptr %0, align 8
+  store i64 %.sink11, ptr %0, align 8, !noalias !16
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %16, ptr %18, align 8
+  store ptr %16, ptr %18, align 8, !noalias !16
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %19, align 8
+  store i64 %.sroa.4.0.copyload, ptr %19, align 8, !noalias !16
   br label %22
 
 20:                                               ; preds = %2
@@ -2778,8 +2778,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %.sink = phi ptr [ %16, %13 ], [ %12, %2 ]
   %.sink11.i.sink = phi i64 [ %.sink11.i, %13 ], [ -9223372036854775808, %2 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %19, align 8
-  store i64 %.sink11.i.sink, ptr %0, align 8
+  store ptr %.sink, ptr %19, align 8, !alias.scope !444, !noalias !447
+  store i64 %.sink11.i.sink, ptr %0, align 8, !alias.scope !444, !noalias !447
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !452
   ret void
 }

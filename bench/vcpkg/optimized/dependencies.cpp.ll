@@ -13243,13 +13243,13 @@ _ZN5vcpkg9ExpectedTINS_10ActionPlanENS_15LocalizedStringEEC2IS1_TnNSt9enable_ifI
   %.sink220 = phi ptr [ %1520, %1518 ], [ %1516, %1492 ]
   %.sink = phi ptr [ %1521, %1518 ], [ %1516, %1492 ]
   %.sink.i = phi i64 [ %1523, %1518 ], [ 0, %1492 ]
-  store i32 %.sink222, ptr %1516, align 8
+  store i32 %.sink222, ptr %1516, align 8, !alias.scope !155
   %1524 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %1517, ptr %1524, align 8
+  store ptr %1517, ptr %1524, align 8, !alias.scope !155
   %1525 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %.sink220, ptr %1525, align 8
+  store ptr %.sink220, ptr %1525, align 8, !alias.scope !155
   %1526 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr %.sink, ptr %1526, align 8
+  store ptr %.sink, ptr %1526, align 8, !alias.scope !155
   %1527 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 %.sink.i, ptr %1527, align 8, !alias.scope !155
   %1528 = getelementptr inbounds i8, ptr %0, i64 120

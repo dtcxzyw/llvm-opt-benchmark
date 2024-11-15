@@ -17264,18 +17264,18 @@ _ZN8worktree8Snapshot38repository_and_work_directory_for_path17h9a17d6afffb29e83
 322:                                              ; preds = %319
   %.sroa.5219.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 588
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.5219.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.5219, i64 76, i1 false), !alias.scope !3211
-  store i64 %.sroa.0214.1302, ptr %320, align 8
+  store i64 %.sroa.0214.1302, ptr %320, align 8, !alias.scope !3211
   %323 = getelementptr inbounds i8, ptr %1, i64 584
-  store i32 %.sroa.7215.0303, ptr %323, align 8
+  store i32 %.sroa.7215.0303, ptr %323, align 8, !alias.scope !3211
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %302, ptr noundef nonnull align 8 dereferenceable(88) %320, i64 88, i1 false)
   %324 = load i32, ptr %303, align 8, !range !781, !noundef !9
   %325 = icmp eq i32 %324, 1000000001
   br i1 %325, label %332, label %328
 
 326:                                              ; preds = %319
-  store i64 %.sroa.0214.1302, ptr %320, align 8
+  store i64 %.sroa.0214.1302, ptr %320, align 8, !alias.scope !3211
   %327 = getelementptr inbounds i8, ptr %1, i64 584
-  store i32 1000000002, ptr %327, align 8
+  store i32 1000000002, ptr %327, align 8, !alias.scope !3211
   %.pre-phi = inttoptr i64 %.sroa.0214.1302 to ptr
   br label %362
 

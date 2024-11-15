@@ -610,7 +610,7 @@ define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr nocapture noundef r
   %21 = add i8 %20, %19
   %.sink = select i1 %16, i8 %18, i8 %21
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %.sink, ptr %22, align 1
+  store i8 %.sink, ptr %22, align 1, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %24 = load i16, ptr %23, align 4, !tbaa !17
   store i16 %24, ptr %1, align 2, !tbaa !28

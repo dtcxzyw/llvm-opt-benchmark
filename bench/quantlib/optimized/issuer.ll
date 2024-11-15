@@ -156,7 +156,7 @@ if.else.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt3setIN5boost10shared_ptrIN8QuantLib12DefaultEventEEENS2_12earlier_thanIS4_EESaIS4_EEC2EOS8_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %5, %if.then.i.i.i.i ]
-  store i32 %.sink.i.i.i.i, ptr %3, align 8
+  store i32 %.sink.i.i.i.i, ptr %3, align 8, !tbaa !15
   ret void
 }
 
@@ -217,7 +217,7 @@ if.else.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt3setIN5boost10shared_ptrIN8QuantLib12DefaultEventEEENS2_12earlier_thanIS4_EESaIS4_EEC2EOS8_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %2, %if.then.i.i.i.i ]
-  store i32 %.sink.i.i.i.i, ptr %0, align 8
+  store i32 %.sink.i.i.i.i, ptr %0, align 8, !tbaa !15
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %eventTypes, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8, !tbaa !20
   %7 = load ptr, ptr %eventTypes, align 8, !tbaa !22

@@ -6167,13 +6167,13 @@ _ZSt19__relocate_object_aIN9grpc_core19XdsEndpointResource8PriorityES2_SaIS2_EEv
   %.sink8.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %for.body.i.i.i33 ]
   %.sink.i.i.i = phi ptr [ %10, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %for.body.i.i.i33 ]
   %.sink.i.i.i.i = phi i64 [ %11, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i33 ]
-  store i32 %.sink10.i.i.i, ptr %6, align 8
+  store i32 %.sink10.i.i.i, ptr %6, align 8, !alias.scope !108, !noalias !111
   %12 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
-  store ptr %7, ptr %12, align 8
+  store ptr %7, ptr %12, align 8, !alias.scope !108, !noalias !111
   %13 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
-  store ptr %.sink8.i.i.i, ptr %13, align 8
+  store ptr %.sink8.i.i.i, ptr %13, align 8, !alias.scope !108, !noalias !111
   %14 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
-  store ptr %.sink.i.i.i, ptr %14, align 8
+  store ptr %.sink.i.i.i, ptr %14, align 8, !alias.scope !108, !noalias !111
   %15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   store i64 %.sink.i.i.i.i, ptr %15, align 8, !alias.scope !108, !noalias !111
   %incdec.ptr.i.i.i34 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 48

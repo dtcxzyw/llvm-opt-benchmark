@@ -12565,7 +12565,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i60.crit
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i60
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i60: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i60.critedge, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit57
-  store ptr %90, ptr %12, align 8
+  store ptr %90, ptr %12, align 8, !noalias !338
   call void @_ZN5clang4ento10ExprEngine27processPointerEscapedOnBindEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS2_8ArrayRefISt4pairINS0_4SValES9_EEEPKNS_15LocationContextENS0_17PointerEscapeKindEPKNS0_9CallEventE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %23, ptr noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef nonnull %12, ptr nonnull %11, i64 1, ptr noundef %27, i32 noundef 0, ptr noundef null)
   %91 = load ptr, ptr %12, align 8, !noalias !338
   %.not.i.i2.i61 = icmp eq ptr %91, null

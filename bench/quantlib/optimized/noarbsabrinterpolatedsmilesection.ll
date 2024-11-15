@@ -16062,7 +16062,7 @@ if.else:                                          ; preds = %invoke.cont
 invoke.cont8:                                     ; preds = %if.then, %if.else
   %6 = phi double [ %add6, %if.else ], [ %3, %if.then ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store double %6, ptr %7, align 8
+  store double %6, ptr %7, align 8, !tbaa !81
   %and.i.i.i.i16 = and i64 %1, 1
   %tobool.i.i.i.i17.not = icmp eq i64 %and.i.i.i.i16, 0
   br i1 %tobool.i.i.i.i17.not, label %if.else42, label %if.then10
@@ -16138,7 +16138,7 @@ if.else61:                                        ; preds = %invoke.cont56
 invoke.cont70:                                    ; preds = %if.then58, %if.else61
   %.sink41 = phi double [ %add67, %if.else61 ], [ %13, %if.then58 ]
   %16 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store double %.sink41, ptr %16, align 8
+  store double %.sink41, ptr %16, align 8, !tbaa !81
   %and.i.i.i.i35 = and i64 %1, 8
   %tobool.i.i.i.i36.not = icmp eq i64 %and.i.i.i.i35, 0
   br i1 %tobool.i.i.i.i36.not, label %if.else75, label %if.then72
@@ -16163,7 +16163,7 @@ if.else75:                                        ; preds = %invoke.cont70
 nrvo.skipdtor:                                    ; preds = %if.then72, %if.else75
   %.sink42 = phi double [ %add81, %if.else75 ], [ %18, %if.then72 ]
   %21 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store double %.sink42, ptr %21, align 8
+  store double %.sink42, ptr %21, align 8, !tbaa !81
   ret void
 }
 

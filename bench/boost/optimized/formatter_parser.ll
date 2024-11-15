@@ -935,7 +935,7 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix15parse_formatterIcEENS1_15basic
 
 31:                                               ; preds = %28, %.noexc
   %.sink.i = phi ptr [ %30, %28 ], [ %25, %.noexc ]
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !45
+  store ptr %.sink.i, ptr %0, align 8, !tbaa !54, !alias.scope !45
   %32 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %18) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   %33 = load ptr, ptr %15, align 8, !tbaa !56
@@ -1498,7 +1498,7 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix15parse_formatterIwEENS1_15basic
 
 31:                                               ; preds = %28, %.noexc
   %.sink.i = phi ptr [ %30, %28 ], [ %25, %.noexc ]
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !72
+  store ptr %.sink.i, ptr %0, align 8, !tbaa !79, !alias.scope !72
   %32 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %18) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   %33 = load ptr, ptr %15, align 8, !tbaa !81

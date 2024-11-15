@@ -5773,7 +5773,7 @@ define void @commit_params(ptr nocapture noundef writeonly %0, ptr nocapture nou
 
 20:                                               ; preds = %18, %13
   %.sink = phi i32 [ %19, %18 ], [ %14, %13 ]
-  store i32 %.sink, ptr %11, align 4
+  store i32 %.sink, ptr %11, align 4, !tbaa !204
   %21 = getelementptr inbounds i8, ptr %6, i64 786924
   %22 = getelementptr inbounds i8, ptr %1, i64 492
   %23 = getelementptr inbounds i8, ptr %6, i64 787012

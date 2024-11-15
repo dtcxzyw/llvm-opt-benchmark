@@ -2251,13 +2251,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNKSt
   %.sink35 = phi ptr [ %28, %24 ], [ %21, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   %.sink = phi ptr [ %30, %24 ], [ %21, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   %.sink.i13 = phi i64 [ %33, %24 ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  store i32 %.sink37, ptr %21, align 8
+  store i32 %.sink37, ptr %21, align 8, !alias.scope !108
   %35 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %23, ptr %35, align 8
+  store ptr %23, ptr %35, align 8, !alias.scope !108
   %36 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sink35, ptr %36, align 8
+  store ptr %.sink35, ptr %36, align 8, !alias.scope !108
   %37 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %.sink, ptr %37, align 8
+  store ptr %.sink, ptr %37, align 8, !alias.scope !108
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %.sink.i13, ptr %38, align 8, !alias.scope !108
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null)

@@ -11513,7 +11513,7 @@ define void @"_ZN78_$LT$bool$u20$as$u20$ockam_node..storage..database..sqlx_type
   %3 = load i8, ptr %1, align 1, !range !35, !noundef !5
   %spec.select = zext nneg i8 %3 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %spec.select, ptr %4, align 8
+  store i64 %spec.select, ptr %4, align 8, !noalias !5
   store i64 2, ptr %0, align 8, !noalias !5
   ret void
 }

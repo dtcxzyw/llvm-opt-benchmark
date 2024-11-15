@@ -75959,13 +75959,13 @@ _ZSt19__relocate_object_aI13llama_kv_cellS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i.i: ;
   %.sink8.i.i.i.i = phi ptr [ %12, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %for.body.i.i.i.i ]
   %.sink.i.i.i.i = phi ptr [ %13, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %for.body.i.i.i.i ]
   %.sink.i.i.i.i.i = phi i64 [ %14, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i ]
-  store i32 %.sink10.i.i.i.i, ptr %9, align 8
+  store i32 %.sink10.i.i.i.i, ptr %9, align 8, !alias.scope !446, !noalias !449
   %15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
-  store ptr %10, ptr %15, align 8
+  store ptr %10, ptr %15, align 8, !alias.scope !446, !noalias !449
   %16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
-  store ptr %.sink8.i.i.i.i, ptr %16, align 8
+  store ptr %.sink8.i.i.i.i, ptr %16, align 8, !alias.scope !446, !noalias !449
   %17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
-  store ptr %.sink.i.i.i.i, ptr %17, align 8
+  store ptr %.sink.i.i.i.i, ptr %17, align 8, !alias.scope !446, !noalias !449
   %18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   store i64 %.sink.i.i.i.i.i, ptr %18, align 8, !alias.scope !446, !noalias !449
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 56

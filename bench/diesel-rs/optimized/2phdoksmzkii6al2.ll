@@ -6754,9 +6754,9 @@ define hidden void @_ZN6diesel6sqlite10connection9functions23build_sql_function_
   %.sink = phi ptr [ %12, %16 ], [ %10, %15 ]
   %.sink.i = phi i64 [ -9223372036854775805, %16 ], [ -9223372036854775798, %15 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink10, ptr %21, align 8
+  store i64 %.sink10, ptr %21, align 8, !alias.scope !1925
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink, ptr %22, align 8
+  store ptr %.sink, ptr %22, align 8, !alias.scope !1925
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !1927, !noalias !1922
   %23 = getelementptr inbounds i8, ptr %.fca.0.extract, i64 8
   %24 = load i64, ptr %23, align 8, !noalias !1928, !noundef !11

@@ -2048,10 +2048,8 @@ ehcleanup71:                                      ; preds = %ehcleanup70, %lpad3
 invoke.cont78:                                    ; preds = %invoke.cont30
   %accruedCoupon = getelementptr inbounds nuw i8, ptr %this, i64 40
   %50 = load double, ptr %accruedCoupon, align 8
-  %cmp80 = fcmp une double %50, 0x47EFFFFFE0000000
   %cmp82 = fcmp ult double %50, 0.000000e+00
-  %lnot = and i1 %cmp80, %cmp82
-  br i1 %lnot, label %if.then84, label %invoke.cont128
+  br i1 %cmp82, label %if.then84, label %invoke.cont128
 
 if.then84:                                        ; preds = %invoke.cont78
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream85) #26
@@ -2224,10 +2222,8 @@ ehcleanup121:                                     ; preds = %ehcleanup120, %lpad
 invoke.cont128:                                   ; preds = %invoke.cont78
   %localCap = getelementptr inbounds nuw i8, ptr %this, i64 56
   %73 = load double, ptr %localCap, align 8
-  %cmp130 = fcmp une double %73, 0x47EFFFFFE0000000
   %cmp133 = fcmp ult double %73, 0.000000e+00
-  %lnot135 = and i1 %cmp130, %cmp133
-  br i1 %lnot135, label %if.then137, label %invoke.cont181
+  br i1 %cmp133, label %if.then137, label %invoke.cont181
 
 if.then137:                                       ; preds = %invoke.cont128
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream138) #26
@@ -2400,10 +2396,8 @@ ehcleanup174:                                     ; preds = %ehcleanup173, %lpad
 invoke.cont181:                                   ; preds = %invoke.cont128
   %localFloor = getelementptr inbounds nuw i8, ptr %this, i64 64
   %96 = load double, ptr %localFloor, align 8
-  %cmp183 = fcmp une double %96, 0x47EFFFFFE0000000
   %cmp186 = fcmp ult double %96, 0.000000e+00
-  %lnot188 = and i1 %cmp183, %cmp186
-  br i1 %lnot188, label %if.then190, label %invoke.cont234
+  br i1 %cmp186, label %if.then190, label %invoke.cont234
 
 if.then190:                                       ; preds = %invoke.cont181
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream191) #26
@@ -2576,10 +2570,8 @@ ehcleanup227:                                     ; preds = %ehcleanup226, %lpad
 invoke.cont234:                                   ; preds = %invoke.cont181
   %globalCap = getelementptr inbounds nuw i8, ptr %this, i64 72
   %119 = load double, ptr %globalCap, align 8
-  %cmp236 = fcmp une double %119, 0x47EFFFFFE0000000
   %cmp239 = fcmp ult double %119, 0.000000e+00
-  %lnot241 = and i1 %cmp236, %cmp239
-  br i1 %lnot241, label %if.then243, label %invoke.cont287
+  br i1 %cmp239, label %if.then243, label %invoke.cont287
 
 if.then243:                                       ; preds = %invoke.cont234
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream244) #26
@@ -2752,10 +2744,8 @@ ehcleanup280:                                     ; preds = %ehcleanup279, %lpad
 invoke.cont287:                                   ; preds = %invoke.cont234
   %globalFloor = getelementptr inbounds nuw i8, ptr %this, i64 80
   %142 = load double, ptr %globalFloor, align 8
-  %cmp289 = fcmp une double %142, 0x47EFFFFFE0000000
   %cmp292 = fcmp ult double %142, 0.000000e+00
-  %lnot294 = and i1 %cmp289, %cmp292
-  br i1 %lnot294, label %if.then296, label %do.body337
+  br i1 %cmp292, label %if.then296, label %do.body337
 
 if.then296:                                       ; preds = %invoke.cont287
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream297) #26

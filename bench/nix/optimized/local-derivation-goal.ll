@@ -65838,13 +65838,13 @@ _ZSt9make_pairISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERmESt4pairINSt25__stri
   %.sink146 = phi ptr [ %355, %353 ], [ %351, %._crit_edge132 ]
   %.sink = phi ptr [ %356, %353 ], [ %351, %._crit_edge132 ]
   %.sink.i = phi i64 [ %358, %353 ], [ 0, %._crit_edge132 ]
-  store i32 %.sink148, ptr %351, align 8
+  store i32 %.sink148, ptr %351, align 8, !alias.scope !483
   %359 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %352, ptr %359, align 8
+  store ptr %352, ptr %359, align 8, !alias.scope !483
   %360 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sink146, ptr %360, align 8
+  store ptr %.sink146, ptr %360, align 8, !alias.scope !483
   %361 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sink, ptr %361, align 8
+  store ptr %.sink, ptr %361, align 8, !alias.scope !483
   %362 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sink.i, ptr %362, align 8, !alias.scope !483
   %363 = getelementptr inbounds i8, ptr %0, i64 48

@@ -3021,7 +3021,7 @@ define void @_ZN6uucore4mods2io27OwnedFileDescriptorOrHandle9open_file17h09e2640
 _ZN6uucore4mods2io27OwnedFileDescriptorOrHandle4from17h9c4c4e72a5551ac0E.exit: ; preds = %26, %28
   %.sink = phi i32 [ 1, %28 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !355
-  store i32 %.sink, ptr %0, align 8
+  store i32 %.sink, ptr %0, align 8, !alias.scope !355
   %32 = load i32, ptr %7, align 4, !noalias !355, !noundef !4
   %33 = call noundef i32 @close(i32 noundef %32), !noalias !355
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)

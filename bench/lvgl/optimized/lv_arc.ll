@@ -568,7 +568,7 @@ lv_arc_set_value.exit:                            ; preds = %217
 285:                                              ; preds = %._crit_edge, %279
   %.sink = phi i8 [ %284, %279 ], [ 0, %._crit_edge ]
   %286 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  store i8 %.sink, ptr %286, align 8
+  store i8 %.sink, ptr %286, align 8, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7

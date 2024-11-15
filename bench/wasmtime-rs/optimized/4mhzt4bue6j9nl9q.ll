@@ -1476,15 +1476,15 @@ define hidden void @_ZN5serde2de5Error13unknown_field17ha4bfbe7a117326a8E(ptr no
   br label %21
 
 21:                                               ; preds = %"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h68f85fe76d9b51c0E.llvm.1794947692966531476.exit26", %"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h68f85fe76d9b51c0E.llvm.1794947692966531476.exit"
-  store i64 0, ptr %0, align 8
+  store i64 0, ptr %0, align 8, !noalias !4
   %22 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %22, align 8
+  store i64 0, ptr %22, align 8, !noalias !4
   %23 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr inttoptr (i64 8 to ptr), ptr %23, align 8
+  store ptr inttoptr (i64 8 to ptr), ptr %23, align 8, !noalias !4
   %24 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 0, ptr %24, align 8
+  store i64 0, ptr %24, align 8, !noalias !4
   %25 = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 -9223372036854775808, ptr %25, align 8
+  store i64 -9223372036854775808, ptr %25, align 8, !noalias !4
   ret void
 }
 
@@ -3365,7 +3365,7 @@ define hidden void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h82b08bf5ee8ad109E.llvm.1794947692966531476.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h82b08bf5ee8ad109E.llvm.1794947692966531476.exit": ; preds = %8, %9
-  store i64 %.sroa.0.0.copyload, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !937
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.5)
   br label %12
 

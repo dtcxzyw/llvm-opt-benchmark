@@ -473,8 +473,8 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIN5boos
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %call5.i.i.i.i2.i.i15, i8 0, i64 480, i1 false)
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr %add.ptr.i.i.i12, ptr %7, align 8
-  store ptr %add.ptr.i.i.i12, ptr %_M_finish.i.i7.i, align 8, !tbaa !20
+  store ptr %add.ptr.i.i.i12, ptr %7, align 8, !tbaa !20
+  store ptr %add.ptr.i.i.i12, ptr %_M_finish.i.i7.i, align 8, !tbaa !21
   %varBuffer_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %8 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
   %9 = load ptr, ptr %integrators, align 8, !tbaa !8
@@ -503,19 +503,19 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdE
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad4
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.i
-  store ptr %call5.i.i.i.i2.i.i21, ptr %varBuffer_, align 8, !tbaa !21
+  store ptr %call5.i.i.i.i2.i.i21, ptr %varBuffer_, align 8, !tbaa !22
   %add.ptr.i.i.i17 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i21, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %add.ptr.i.i.i17, ptr %_M_end_of_storage.i.i.i18, align 8, !tbaa !23
+  store ptr %add.ptr.i.i.i17, ptr %_M_end_of_storage.i.i.i18, align 8, !tbaa !24
   %10 = ashr exact i64 %sub.ptr.sub.i, 1
   %11 = and i64 %10, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i21, i8 0, i64 %11, i1 false), !tbaa !24
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i21, i8 0, i64 %11, i1 false), !tbaa !25
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i17, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i20 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %retval.0.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i20, align 8, !tbaa !26
+  store ptr %retval.0.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i20, align 8, !tbaa !27
   %12 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
   %13 = load ptr, ptr %integrators, align 8, !tbaa !8
   %sub.ptr.lhs.cast.i23 = ptrtoint ptr %12 to i64
@@ -593,20 +593,20 @@ lpad23:                                           ; preds = %invoke.cont24, %inv
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont24 ], [ true, %invoke.cont22 ]
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %ref.tmp20, align 8, !tbaa !27
+  %21 = load ptr, ptr %ref.tmp20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %ref.tmp20, i64 16
   %cmp.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i28
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad23
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp20, i64 8
-  %23 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !31
+  %23 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !32
   %cmp3.i.i.i = icmp ult i64 %23, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %ehcleanup
 
 if.then.i.i28:                                    ; preds = %lpad23
-  %24 = load i64, ptr %22, align 8, !tbaa !32
+  %24 = load i64, ptr %22, align 8, !tbaa !33
   %add.i.i.i = add i64 %24, 1
   call void @_ZdlPvm(ptr noundef %21, i64 noundef %add.i.i.i) #20
   br label %ehcleanup
@@ -615,20 +615,20 @@ ehcleanup:                                        ; preds = %if.then.i.i28, %_ZN
   %.pn = phi { ptr, i32 } [ %19, %lpad21 ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %20, %if.then.i.i28 ]
   %cleanup.isactive.3 = phi i1 [ true, %lpad21 ], [ %cleanup.isactive.0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %cleanup.isactive.0, %if.then.i.i28 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20) #19
-  %25 = load ptr, ptr %ref.tmp16, align 8, !tbaa !27
+  %25 = load ptr, ptr %ref.tmp16, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 16
   %cmp.i.i.i30 = icmp eq ptr %25, %26
   br i1 %cmp.i.i.i30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34, label %if.then.i.i31
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34: ; preds = %ehcleanup
   %_M_string_length.i.i.i35 = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 8
-  %27 = load i64, ptr %_M_string_length.i.i.i35, align 8, !tbaa !31
+  %27 = load i64, ptr %_M_string_length.i.i.i35, align 8, !tbaa !32
   %cmp3.i.i.i36 = icmp ult i64 %27, 16
   call void @llvm.assume(i1 %cmp3.i.i.i36)
   br label %ehcleanup26
 
 if.then.i.i31:                                    ; preds = %ehcleanup
-  %28 = load i64, ptr %26, align 8, !tbaa !32
+  %28 = load i64, ptr %26, align 8, !tbaa !33
   %add.i.i.i32 = add i64 %28, 1
   call void @_ZdlPvm(ptr noundef %25, i64 noundef %add.i.i.i32) #20
   br label %ehcleanup26
@@ -636,7 +636,7 @@ if.then.i.i31:                                    ; preds = %ehcleanup
 ehcleanup26:                                      ; preds = %if.then.i.i31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp17) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp16) #19
-  %29 = load ptr, ptr %ref.tmp12, align 8, !tbaa !27
+  %29 = load ptr, ptr %ref.tmp12, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 16
   %cmp.i.i.i38 = icmp eq ptr %29, %30
   br i1 %cmp.i.i.i38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, label %ehcleanup30
@@ -646,27 +646,27 @@ ehcleanup26.thread:                               ; preds = %invoke.cont15
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp17) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp16) #19
-  %32 = load ptr, ptr %ref.tmp12, align 8, !tbaa !27
+  %32 = load ptr, ptr %ref.tmp12, align 8, !tbaa !28
   %33 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 16
   %cmp.i.i.i3855 = icmp eq ptr %32, %33
   br i1 %cmp.i.i.i3855, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42.thread, label %ehcleanup30.thread64
 
 ehcleanup30.thread64:                             ; preds = %ehcleanup26.thread
-  %34 = load i64, ptr %33, align 8, !tbaa !32
+  %34 = load i64, ptr %33, align 8, !tbaa !33
   %add.i.i.i4067 = add i64 %34, 1
   call void @_ZdlPvm(ptr noundef %32, i64 noundef %add.i.i.i4067) #20
   br label %cleanup.action.sink.split
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42.thread: ; preds = %ehcleanup26.thread
   %_M_string_length.i.i.i4362 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
-  %35 = load i64, ptr %_M_string_length.i.i.i4362, align 8, !tbaa !31
+  %35 = load i64, ptr %_M_string_length.i.i.i4362, align 8, !tbaa !32
   %cmp3.i.i.i4463 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %cmp3.i.i.i4463)
   br label %cleanup.action.sink.split
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42: ; preds = %ehcleanup26
   %_M_string_length.i.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
-  %36 = load i64, ptr %_M_string_length.i.i.i43, align 8, !tbaa !31
+  %36 = load i64, ptr %_M_string_length.i.i.i43, align 8, !tbaa !32
   %cmp3.i.i.i44 = icmp ult i64 %36, 16
   call void @llvm.assume(i1 %cmp3.i.i.i44)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp13) #19
@@ -674,7 +674,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup34
 
 ehcleanup30:                                      ; preds = %ehcleanup26
-  %37 = load i64, ptr %30, align 8, !tbaa !32
+  %37 = load i64, ptr %30, align 8, !tbaa !33
   %add.i.i.i40 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %29, i64 noundef %add.i.i.i40) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp13) #19
@@ -716,13 +716,13 @@ lpad36:                                           ; preds = %do.end
 
 ehcleanup38:                                      ; preds = %lpad36, %ehcleanup35
   %.pn8 = phi { ptr, i32 } [ %38, %lpad36 ], [ %.pn.pn.pn.pn.pn, %ehcleanup35 ]
-  %39 = load ptr, ptr %varBuffer_, align 8, !tbaa !21
+  %39 = load ptr, ptr %varBuffer_, align 8, !tbaa !22
   %tobool.not.i.i.i = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i, label %ehcleanup39, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ehcleanup38
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %40 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !23
+  %40 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !24
   %sub.ptr.lhs.cast.i.i47 = ptrtoint ptr %40 to i64
   %sub.ptr.rhs.cast.i.i48 = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i.i49 = sub i64 %sub.ptr.lhs.cast.i.i47, %sub.ptr.rhs.cast.i.i48
@@ -761,7 +761,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !33
+  store ptr %0, ptr %this, align 8, !tbaa !34
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -772,15 +772,15 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #19
-  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !34
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !35
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
-  store ptr %call2.i5, ptr %this, align 8, !tbaa !27
-  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !34
-  store i64 %1, ptr %0, align 8, !tbaa !32
+  store ptr %call2.i5, ptr %this, align 8, !tbaa !28
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !35
+  store i64 %1, ptr %0, align 8, !tbaa !33
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end, %if.then.i
@@ -791,8 +791,8 @@ if.end.i:                                         ; preds = %if.end, %if.then.i
   ]
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %3 = load i8, ptr %__s, align 1, !tbaa !32
-  store i8 %3, ptr %2, align 1, !tbaa !32
+  %3 = load i8, ptr %__s, align 1, !tbaa !33
+  store i8 %3, ptr %2, align 1, !tbaa !33
   br label %invoke.cont5
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i
@@ -800,12 +800,12 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !34
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !35
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !31
-  %5 = load ptr, ptr %this, align 8, !tbaa !27
+  store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !32
+  %5 = load ptr, ptr %this, align 8, !tbaa !28
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %4
-  store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !32
+  store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i) #19
   ret void
 }
@@ -818,7 +818,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !36
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !15
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -831,7 +831,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !35
+  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !36
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -844,7 +844,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
-  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !35
+  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !36
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -888,9 +888,9 @@ entry:
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
@@ -925,9 +925,9 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 432
   %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
@@ -962,14 +962,14 @@ define linkonce_odr void @_ZNSt6vectorISt8functionIFdRKS0_IFdRKS_IdSaIdEEEES4_S4
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !18
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !20
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !21
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i ], [ %0, %entry ]
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
-  %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !38
+  %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !39
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i
 
@@ -987,7 +987,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
 _ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !40
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !41
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8, !tbaa !18
@@ -1000,7 +1000,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !41
+  %6 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1034,7 +1034,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !35
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !36
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -1047,7 +1047,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !35
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !36
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -1196,18 +1196,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -1229,7 +1229,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -1257,7 +1257,7 @@ declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, p
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !47
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !49
@@ -1266,9 +1266,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !51
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 112
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -1344,18 +1344,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -1377,7 +1377,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -1401,7 +1401,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !55
@@ -1410,9 +1410,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !57
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -1488,18 +1488,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -1521,7 +1521,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -1545,7 +1545,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !58
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !60
@@ -1554,9 +1554,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !62
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -1632,18 +1632,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -1665,7 +1665,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -1689,7 +1689,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !63
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !65
@@ -1698,9 +1698,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !67
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -1776,18 +1776,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -1809,7 +1809,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -1833,7 +1833,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !70
@@ -1842,9 +1842,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !72
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -1920,18 +1920,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -1953,7 +1953,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -1977,7 +1977,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !73
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !75
@@ -1986,9 +1986,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !77
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -2064,18 +2064,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -2097,7 +2097,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -2121,7 +2121,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !78
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !80
@@ -2130,9 +2130,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !82
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -2208,18 +2208,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -2241,7 +2241,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -2265,7 +2265,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !83
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !85
@@ -2274,9 +2274,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !87
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -2352,18 +2352,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -2385,7 +2385,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -2409,7 +2409,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !88
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !90
@@ -2418,9 +2418,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !92
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -2496,18 +2496,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -2529,7 +2529,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -2553,7 +2553,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !93
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !95
@@ -2562,9 +2562,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !97
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -2640,18 +2640,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -2673,7 +2673,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -2697,7 +2697,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !98
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !100
@@ -2706,9 +2706,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !102
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -2784,18 +2784,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -2817,7 +2817,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -2841,7 +2841,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !103
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !105
@@ -2850,9 +2850,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !107
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -2928,18 +2928,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -2961,7 +2961,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -2985,7 +2985,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !108
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !110
@@ -2994,9 +2994,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !112
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -3072,18 +3072,18 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -3105,7 +3105,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
 
@@ -3129,7 +3129,7 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !113
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !115
@@ -3138,9 +3138,9 @@ entry:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !117
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !25
   %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret double %call2.i.i.i.i
 }
@@ -3215,16 +3215,16 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
-  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
-  %4 = load ptr, ptr %a, align 8, !tbaa !21
-  %5 = load double, ptr %4, align 8, !tbaa !24
-  %6 = load ptr, ptr %b, align 8, !tbaa !21
-  %7 = load double, ptr %6, align 8, !tbaa !24
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %a, align 8, !tbaa !22
+  %5 = load double, ptr %4, align 8, !tbaa !25
+  %6 = load ptr, ptr %b, align 8, !tbaa !22
+  %7 = load double, ptr %6, align 8, !tbaa !25
   %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
-  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
@@ -3246,7 +3246,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !39
   %tobool.not.i4 = icmp eq ptr %12, null
   br i1 %tobool.not.i4, label %_ZNSt14_Function_baseD2Ev.exit8, label %if.then.i5
 
@@ -3270,15 +3270,15 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
 define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !11
-  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %1 = load double, ptr %__args, align 8, !tbaa !25
   %2 = load ptr, ptr %0, align 8, !tbaa !118
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !120
   %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %5 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
-  store double %1, ptr %5, align 8, !tbaa !24
+  %5 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !22
+  store double %1, ptr %5, align 8, !tbaa !25
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !38
+  %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !39
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZSt10__invoke_rIdRZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES8_S8_EUlT_E_JdEENSt9enable_ifIX16is_invocable_r_vISD_T0_DpT1_EESD_E4typeEOSH_DpOSI_.exit
 
@@ -3353,9 +3353,9 @@ entry:
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
@@ -3390,9 +3390,9 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 368
   %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
@@ -3508,9 +3508,9 @@ entry:
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
@@ -3545,9 +3545,9 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 304
   %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
@@ -3663,9 +3663,9 @@ entry:
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
@@ -3700,9 +3700,9 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 240
   %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
@@ -3818,9 +3818,9 @@ entry:
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
@@ -3855,9 +3855,9 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 176
   %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
@@ -3973,9 +3973,9 @@ entry:
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
@@ -4010,9 +4010,9 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
@@ -4130,9 +4130,9 @@ entry:
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
@@ -4167,9 +4167,9 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
@@ -4203,9 +4203,9 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   store i64 0, ptr %14, align 8
   store i64 %2, ptr %ref.tmp.i.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 16, i1 false), !tbaa.struct !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 16, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
   %_M_manager3.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %_M_manager3.i.i.i.i, align 8, !tbaa !11
@@ -4418,33 +4418,33 @@ attributes #21 = { noreturn nounwind }
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!19, !5, i64 0}
 !19 = !{!"_ZTSNSt12_Vector_baseISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EESaISB_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!20 = !{!19, !5, i64 8}
-!21 = !{!22, !5, i64 0}
-!22 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!23 = !{!22, !5, i64 16}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"double", !6, i64 0}
-!26 = !{!22, !5, i64 8}
-!27 = !{!28, !5, i64 0}
-!28 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !29, i64 0, !30, i64 8, !6, i64 16}
-!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
-!30 = !{!"long", !6, i64 0}
-!31 = !{!28, !30, i64 8}
-!32 = !{!6, !6, i64 0}
-!33 = !{!29, !5, i64 0}
-!34 = !{!30, !30, i64 0}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"vtable pointer", !7, i64 0}
-!37 = !{i64 0, i64 16, !32}
-!38 = !{!39, !5, i64 16}
-!39 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
-!40 = distinct !{!40, !17}
-!41 = !{!19, !5, i64 16}
+!20 = !{!19, !5, i64 16}
+!21 = !{!19, !5, i64 8}
+!22 = !{!23, !5, i64 0}
+!23 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!24 = !{!23, !5, i64 16}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"double", !6, i64 0}
+!27 = !{!23, !5, i64 8}
+!28 = !{!29, !5, i64 0}
+!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !30, i64 0, !31, i64 8, !6, i64 16}
+!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!31 = !{!"long", !6, i64 0}
+!32 = !{!29, !31, i64 8}
+!33 = !{!6, !6, i64 0}
+!34 = !{!30, !5, i64 0}
+!35 = !{!31, !31, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"vtable pointer", !7, i64 0}
+!38 = !{i64 0, i64 16, !33}
+!39 = !{!40, !5, i64 16}
+!40 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
+!41 = distinct !{!41, !17}
 !42 = distinct !{!42, !17}
 !43 = !{!44, !5, i64 0}
 !44 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
 !45 = !{!46, !5, i64 24}
-!46 = !{!"_ZTSSt8functionIFddEE", !39, i64 0, !5, i64 24}
+!46 = !{!"_ZTSSt8functionIFddEE", !40, i64 0, !5, i64 24}
 !47 = !{!48, !5, i64 0}
 !48 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
 !49 = !{!48, !5, i64 8}
@@ -4520,7 +4520,7 @@ attributes #21 = { noreturn nounwind }
 !119 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
 !120 = !{!119, !5, i64 8}
 !121 = !{!122, !5, i64 24}
-!122 = !{!"_ZTSSt8functionIFdRKSt6vectorIdSaIdEEEE", !39, i64 0, !5, i64 24}
+!122 = !{!"_ZTSSt8functionIFdRKSt6vectorIdSaIdEEEE", !40, i64 0, !5, i64 24}
 !123 = !{!124, !5, i64 0}
 !124 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
 !125 = !{!126, !5, i64 0}

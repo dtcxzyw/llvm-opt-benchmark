@@ -1132,7 +1132,7 @@ define internal fastcc void @position_knob(ptr noundef %0, ptr nocapture noundef
 28:                                               ; preds = %17, %6
   %.sink = phi i32 [ %16, %6 ], [ %22, %17 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %.sink, ptr %29, align 4
+  store i32 %.sink, ptr %29, align 4, !tbaa !24
   %30 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 18) #5
   %31 = ptrtoint ptr %30 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %31 to i32

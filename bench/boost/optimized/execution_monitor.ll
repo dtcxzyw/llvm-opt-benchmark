@@ -3141,9 +3141,9 @@ define void @_ZN5boost19execution_exceptionC2ENS0_10error_codeENS_9unit_test13ba
   %spec.select = select i1 %8, ptr @.str.48, ptr %7
   %spec.select3 = select i1 %8, ptr getelementptr inbounds nuw (i8, ptr @.str.48, i64 51), ptr %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %spec.select, ptr %9, align 8
+  store ptr %spec.select, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %spec.select3, ptr %10, align 8
+  store ptr %spec.select3, ptr %10, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %3, align 8, !tbaa !13
   store ptr %12, ptr %11, align 8, !tbaa !13

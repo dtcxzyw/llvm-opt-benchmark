@@ -3707,7 +3707,7 @@ define internal void @_GLOBAL__sub_I_debug.cpp() #27 section ".text.startup" per
   %.sink15.i.sroa.phi.i = phi ptr [ %.sink15.i.sroa.gep.i, %._crit_edge.i.i.i.i ], [ %.sink15.i.sroa.gep1.i, %._crit_edge.i.i53.i.i ]
   %21 = phi i64 [ 9, %._crit_edge.i.i.i.i ], [ 3, %._crit_edge.i.i53.i.i ]
   store i8 0, ptr %.sink15.i.sroa.phi.i, align 1, !tbaa !15
-  store ptr %.ptr14.i.i, ptr %10, align 8
+  store ptr %.ptr14.i.i, ptr %10, align 8, !tbaa !27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZN5boost5debug12_GLOBAL__N_16s_infoE, i64 16), ptr noundef nonnull align 8 dereferenceable(1) %.ptr14.i.i, i64 %21, i1 false)
   store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost5debug12_GLOBAL__N_16s_infoE, i64 8), align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost5debug12_GLOBAL__N_16s_infoE, i64 16), i64 %21

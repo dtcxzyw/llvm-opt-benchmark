@@ -5249,7 +5249,7 @@ define hidden void @"_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$G
   %.sroa.0.0.copyload.sink = phi i64 [ %8, %6 ], [ %.sroa.0.0.copyload, %5 ]
   %.sink.i = phi i64 [ -9223372036854775806, %6 ], [ -9223372036854775807, %5 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.copyload.sink, ptr %9, align 8
+  store i64 %.sroa.0.0.copyload.sink, ptr %9, align 8, !alias.scope !1279
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !1281, !noalias !1276
   ret void
 }

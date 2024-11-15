@@ -45465,7 +45465,7 @@ _ZNSt8functionIFbN4llvm7SDValueEEEC2ERKS3_.exit5: ; preds = %50
   %103 = phi ptr [ null, %"_ZZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_EN3$_0C2ERKS6_.exit.thread.i.i.i" ], [ %94, %"_ZZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS_7SDValueEEESt8functionIFbS1_EES1_EN3$_0C2ERKS6_.exit.i.i.i" ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 24, i1 false), !alias.scope !223
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %103, ptr %104, align 8
+  store ptr %103, ptr %104, align 8, !alias.scope !223
   %105 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %102, ptr %105, align 8, !alias.scope !223
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
@@ -45483,7 +45483,7 @@ _ZNSt8functionIFbN4llvm7SDValueEEEC2ERKS3_.exit5: ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
   store ptr %95, ptr %109, align 8, !alias.scope !223
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %94, ptr %110, align 8
+  store ptr %94, ptr %110, align 8, !alias.scope !223
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %97, ptr %111, align 8, !alias.scope !223
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
@@ -45532,7 +45532,7 @@ _ZNSt8functionIFbN4llvm7SDValueEEEC2ERKS3_.exit5: ; preds = %50
   %134 = phi ptr [ %125, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS2_7SDValueEEESt8functionIFbS4_EES4_E3$_0EC2ES9_.exit.thread.i.i.i.i.i" ], [ %118, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS2_7SDValueEEESt8functionIFbS4_EES4_E3$_0EC2ES9_.exit.i.i.i.i.i" ]
   %135 = phi ptr [ %126, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS2_7SDValueEEESt8functionIFbS4_EES4_E3$_0EC2ES9_.exit.thread.i.i.i.i.i" ], [ %115, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL25turnVectorIntoSplatVectorN4llvm15MutableArrayRefINS2_7SDValueEEESt8functionIFbS4_EES4_E3$_0EC2ES9_.exit.i.i.i.i.i" ]
   %136 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %135, ptr %136, align 8
+  store ptr %135, ptr %136, align 8, !alias.scope !226
   %137 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %134, ptr %137, align 8, !alias.scope !226
   %138 = ptrtoint ptr %41 to i64
@@ -88305,7 +88305,7 @@ _ZN9__gnu_cxx5__ops11__pred_iterISt8functionIFbN4llvm7SDValueEEEEENS0_10_Iter_pr
   %18 = phi ptr [ %14, %_ZNSt8functionIFbN4llvm7SDValueEEEC2ERKS3_.exit ], [ null, %3 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !494
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %18, ptr %19, align 8
+  store ptr %18, ptr %19, align 8, !alias.scope !494
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -88319,7 +88319,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4llvm7SDValueEEEEC2ERKS7_.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   store ptr %15, ptr %22, align 8, !alias.scope !494
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %14, ptr %23, align 8
+  store ptr %14, ptr %23, align 8, !alias.scope !494
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -88356,7 +88356,7 @@ _ZN9__gnu_cxx5__ops8__negateISt8functionIFbN4llvm7SDValueEEEEENS0_12_Iter_negate
   %37 = phi ptr [ %32, %_ZNSt8functionIFbN4llvm7SDValueEEEC2EOS3_.exit.thread.i.i ], [ %16, %_ZN9__gnu_cxx5__ops12_Iter_negateISt8functionIFbN4llvm7SDValueEEEEC2ES6_.exit.i.i ]
   %38 = phi ptr [ %33, %_ZNSt8functionIFbN4llvm7SDValueEEEC2EOS3_.exit.thread.i.i ], [ %28, %_ZN9__gnu_cxx5__ops12_Iter_negateISt8functionIFbN4llvm7SDValueEEEEC2ES6_.exit.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %38, ptr %39, align 8
+  store ptr %38, ptr %39, align 8, !alias.scope !497
   %40 = call noundef ptr @_ZSt9__find_ifIPN4llvm7SDValueEN9__gnu_cxx5__ops12_Iter_negateISt8functionIFbS1_EEEEET_SA_SA_T0_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %42 = load ptr, ptr %41, align 8

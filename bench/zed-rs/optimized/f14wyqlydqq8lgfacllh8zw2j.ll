@@ -5564,13 +5564,13 @@ define hidden void @"_ZN16quick_action_bar9repl_menu50_$LT$impl$u20$quick_action
   %anon.02006ae20674b2d2603d624319bbfe54.52.anon.02006ae20674b2d2603d624319bbfe54.51 = select i1 %7, ptr @anon.02006ae20674b2d2603d624319bbfe54.52, ptr @anon.02006ae20674b2d2603d624319bbfe54.51
   %. = select i1 %7, i64 13, i64 8
   %8 = getelementptr inbounds i8, ptr %5, i64 824
-  store i64 0, ptr %8, align 8
+  store i64 0, ptr %8, align 8, !noalias !9
   %9 = getelementptr inbounds i8, ptr %5, i64 832
-  store ptr %anon.02006ae20674b2d2603d624319bbfe54.52.anon.02006ae20674b2d2603d624319bbfe54.51, ptr %9, align 8
+  store ptr %anon.02006ae20674b2d2603d624319bbfe54.52.anon.02006ae20674b2d2603d624319bbfe54.51, ptr %9, align 8, !noalias !9
   %10 = getelementptr inbounds i8, ptr %5, i64 840
-  store i64 %., ptr %10, align 8
+  store i64 %., ptr %10, align 8, !noalias !9
   %11 = getelementptr inbounds i8, ptr %5, i64 848
-  store i8 0, ptr %11, align 8
+  store i8 0, ptr %11, align 8, !noalias !9
   call void @llvm.lifetime.start.p0(i64 856, ptr nonnull %4)
   call void @"_ZN82_$LT$ui..components..label..label..Label$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h992b40a4038aeed9E"(ptr noalias nocapture noundef nonnull sret([856 x i8]) align 8 dereferenceable(856) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(856) %5)
   call void @_ZN4gpui7element10AnyElement3new17heb56f9034f87f396E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(856) %4)

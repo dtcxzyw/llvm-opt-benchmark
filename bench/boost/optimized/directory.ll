@@ -271,8 +271,8 @@ define void @_ZNK5boost10filesystem15directory_entry12refresh_implEPNS_6system10
 17:                                               ; preds = %2, %13
   %.sink6 = phi i32 [ %14, %13 ], [ %9, %2 ]
   %.sink = phi i32 [ %16, %13 ], [ %11, %2 ]
-  store i32 %.sink6, ptr %5, align 8
-  store i32 %.sink, ptr %6, align 4
+  store i32 %.sink6, ptr %5, align 8, !tbaa !17
+  store i32 %.sink, ptr %6, align 4, !tbaa !21
   ret void
 }
 

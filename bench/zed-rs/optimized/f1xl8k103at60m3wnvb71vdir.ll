@@ -26207,7 +26207,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr76drop
 "_ZN4core6option43Option$LT$core..option..Option$LT$T$GT$$GT$7flatten17h60e87fb247d71b0dE.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17hcb939bacef3df3ebE.exit.thread", %215
   %.sroa.8145.0.ph.sink = phi i32 [ %.sroa.8145.0.ph, %215 ], [ 1000000001, %"_ZN4core6option15Option$LT$T$GT$3map17hcb939bacef3df3ebE.exit.thread" ]
   %216 = getelementptr inbounds i8, ptr %35, i64 40
-  store i32 %.sroa.8145.0.ph.sink, ptr %216, align 8
+  store i32 %.sroa.8145.0.ph.sink, ptr %216, align 8, !alias.scope !5361
   br label %109
 
 217:                                              ; preds = %109

@@ -673,7 +673,7 @@ cleanup.action6.i:                                ; preds = %entry
 
 invoke.cont:                                      ; preds = %cleanup.action6.i, %entry
   %.sink.i = phi ptr [ %3, %cleanup.action6.i ], [ null, %entry ]
-  store ptr %.sink.i, ptr %exercise_, align 8
+  store ptr %.sink.i, ptr %exercise_, align 8, !tbaa !6
   %parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %parameters_3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24

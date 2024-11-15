@@ -17123,7 +17123,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i: ; preds = %.noe
 _ZN12_GLOBAL__N_113_ToItemVectorIiEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__pxrReserved__7VtArrayIS2_EE.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i
   %.sink43.i.i.i = getelementptr inbounds i8, ptr null, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store ptr %.sink43.i.i.i, ptr %192, align 8
+  store ptr %.sink43.i.i.i, ptr %192, align 8, !alias.scope !22
   %193 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %.sink43.i.i.i, ptr %193, align 8, !alias.scope !22
   br label %_ZL14_HasDuplicatesIiEbRKSt6vectorIT_SaIS1_EE.exit.thread.i.i.i
@@ -17137,7 +17137,7 @@ _ZN12_GLOBAL__N_113_ToItemVectorIiEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %194, ptr align 4 %186, i64 %190, i1 false), !noalias !22
   %.sink.i.i.i = getelementptr inbounds i8, ptr %194, i64 %190
   %195 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store ptr %.sink.i.i.i, ptr %195, align 8
+  store ptr %.sink.i.i.i, ptr %195, align 8, !alias.scope !22
   %196 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %.sink.i.i.i, ptr %196, align 8, !alias.scope !22
   %197 = icmp samesign ult i64 %190, 8
@@ -17606,7 +17606,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i: ; preds = %.noe
 _ZN12_GLOBAL__N_113_ToItemVectorIlEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__pxrReserved__7VtArrayIS2_EE.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i
   %.sink43.i.i69.i = getelementptr inbounds i8, ptr null, i64 %346
   %348 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %.sink43.i.i69.i, ptr %348, align 8
+  store ptr %.sink43.i.i69.i, ptr %348, align 8, !alias.scope !32
   %349 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.sink43.i.i69.i, ptr %349, align 8, !alias.scope !32
   br label %_ZL14_HasDuplicatesIlEbRKSt6vectorIT_SaIS1_EE.exit.thread.i.i.i
@@ -17620,7 +17620,7 @@ _ZN12_GLOBAL__N_113_ToItemVectorIlEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %350, ptr align 8 %342, i64 %346, i1 false), !noalias !32
   %.sink.i.i26.i = getelementptr inbounds i8, ptr %350, i64 %346
   %351 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %.sink.i.i26.i, ptr %351, align 8
+  store ptr %.sink.i.i26.i, ptr %351, align 8, !alias.scope !32
   %352 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.sink.i.i26.i, ptr %352, align 8, !alias.scope !32
   %353 = icmp samesign ult i64 %346, 16
@@ -18089,7 +18089,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i: ; preds = %.noe
 _ZN12_GLOBAL__N_113_ToItemVectorIjEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__pxrReserved__7VtArrayIS2_EE.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i
   %.sink43.i.i134.i = getelementptr inbounds i8, ptr null, i64 %502
   %504 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %.sink43.i.i134.i, ptr %504, align 8
+  store ptr %.sink43.i.i134.i, ptr %504, align 8, !alias.scope !42
   %505 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %.sink43.i.i134.i, ptr %505, align 8, !alias.scope !42
   br label %_ZL14_HasDuplicatesIjEbRKSt6vectorIT_SaIS1_EE.exit.thread.i.i.i
@@ -18103,7 +18103,7 @@ _ZN12_GLOBAL__N_113_ToItemVectorIjEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %506, ptr align 4 %498, i64 %502, i1 false), !noalias !42
   %.sink.i.i91.i = getelementptr inbounds i8, ptr %506, i64 %502
   %507 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %.sink.i.i91.i, ptr %507, align 8
+  store ptr %.sink.i.i91.i, ptr %507, align 8, !alias.scope !42
   %508 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %.sink.i.i91.i, ptr %508, align 8, !alias.scope !42
   %509 = icmp samesign ult i64 %502, 8
@@ -18572,7 +18572,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i: ; preds = %.noe
 _ZN12_GLOBAL__N_113_ToItemVectorImEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__pxrReserved__7VtArrayIS2_EE.exit.thread.i.i.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i
   %.sink43.i.i199.i = getelementptr inbounds i8, ptr null, i64 %658
   %660 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %.sink43.i.i199.i, ptr %660, align 8
+  store ptr %.sink43.i.i199.i, ptr %660, align 8, !alias.scope !52
   %661 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.sink43.i.i199.i, ptr %661, align 8, !alias.scope !52
   br label %_ZL14_HasDuplicatesImEbRKSt6vectorIT_SaIS1_EE.exit.thread.i.i.i
@@ -18586,7 +18586,7 @@ _ZN12_GLOBAL__N_113_ToItemVectorImEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %662, ptr align 8 %654, i64 %658, i1 false), !noalias !52
   %.sink.i.i156.i = getelementptr inbounds i8, ptr %662, i64 %658
   %663 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %.sink.i.i156.i, ptr %663, align 8
+  store ptr %.sink.i.i156.i, ptr %663, align 8, !alias.scope !52
   %664 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.sink.i.i156.i, ptr %664, align 8, !alias.scope !52
   %665 = icmp samesign ult i64 %658, 16

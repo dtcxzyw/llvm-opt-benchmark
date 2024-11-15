@@ -1398,33 +1398,33 @@ land.lhs.true350:                                 ; preds = %sw.bb, %if.then277
   %.sink375 = phi double [ %sub281, %if.then277 ], [ 5.000000e-01, %sw.bb ]
   %.sink = phi double [ %fneg282, %if.then277 ], [ 0.000000e+00, %sw.bb ]
   %161 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store double %.sink377, ptr %161, align 8
+  store double %.sink377, ptr %161, align 8, !tbaa !55
   %162 = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store double %.sink376, ptr %162, align 8
+  store double %.sink376, ptr %162, align 8, !tbaa !56
   %163 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store double %.sink375, ptr %163, align 8
+  store double %.sink375, ptr %163, align 8, !tbaa !57
   %164 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store double %.sink, ptr %164, align 8
+  store double %.sink, ptr %164, align 8, !tbaa !58
   %mu_344258 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %165 = load double, ptr %mu_344258, align 8, !tbaa !39
   %lambda_345259 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %166 = load double, ptr %lambda_345259, align 8, !tbaa !40
   %add260 = fadd double %165, %166
   %muPlusLambda_261 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store double %add260, ptr %muPlusLambda_261, align 8, !tbaa !55
+  store double %add260, ptr %muPlusLambda_261, align 8, !tbaa !59
   %sub348262 = fsub double %165, %166
   %muMinusLambda_263 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store double %sub348262, ptr %muMinusLambda_263, align 8, !tbaa !56
+  store double %sub348262, ptr %muMinusLambda_263, align 8, !tbaa !60
   %cmp353 = fcmp olt double %134, %135
   %inTheMoney_272 = getelementptr inbounds nuw i8, ptr %this, i64 168
   br i1 %cmp353, label %lor.end.thread, label %lor.end.thread276
 
 lor.end.thread:                                   ; preds = %land.lhs.true350
-  store i8 1, ptr %inTheMoney_272, align 8, !tbaa !57
+  store i8 1, ptr %inTheMoney_272, align 8, !tbaa !61
   br label %if.then359
 
 lor.end.thread276:                                ; preds = %land.lhs.true350
-  store i8 0, ptr %inTheMoney_272, align 8, !tbaa !57
+  store i8 0, ptr %inTheMoney_272, align 8, !tbaa !61
   br label %if.else360
 
 lor.end:                                          ; preds = %sw.bb289, %if.then293
@@ -1433,35 +1433,35 @@ lor.end:                                          ; preds = %sw.bb289, %if.then2
   %.sink379 = phi double [ %133, %if.then293 ], [ 5.000000e-01, %sw.bb289 ]
   %.sink378 = phi double [ %n_d2.0, %if.then293 ], [ 0.000000e+00, %sw.bb289 ]
   %167 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store double %.sink381, ptr %167, align 8
+  store double %.sink381, ptr %167, align 8, !tbaa !55
   %168 = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store double %.sink380, ptr %168, align 8
+  store double %.sink380, ptr %168, align 8, !tbaa !56
   %169 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store double %.sink379, ptr %169, align 8
+  store double %.sink379, ptr %169, align 8, !tbaa !57
   %170 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store double %.sink378, ptr %170, align 8
+  store double %.sink378, ptr %170, align 8, !tbaa !58
   %mu_344 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %171 = load double, ptr %mu_344, align 8, !tbaa !39
   %lambda_345 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %172 = load double, ptr %lambda_345, align 8, !tbaa !40
   %add = fadd double %171, %172
   %muPlusLambda_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store double %add, ptr %muPlusLambda_, align 8, !tbaa !55
+  store double %add, ptr %muPlusLambda_, align 8, !tbaa !59
   %sub348 = fsub double %171, %172
   %muMinusLambda_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store double %sub348, ptr %muMinusLambda_, align 8, !tbaa !56
+  store double %sub348, ptr %muMinusLambda_, align 8, !tbaa !60
   %cmp357 = fcmp ogt double %137, %138
   %inTheMoney_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %storedv = zext i1 %cmp357 to i8
-  store i8 %storedv, ptr %inTheMoney_, align 8, !tbaa !57
+  store i8 %storedv, ptr %inTheMoney_, align 8, !tbaa !61
   br i1 %cmp357, label %if.then359, label %if.else360
 
 if.then359:                                       ; preds = %lor.end.thread, %lor.end
   %inTheMoney_275 = phi ptr [ %inTheMoney_272, %lor.end.thread ], [ %inTheMoney_, %lor.end ]
   %forward_ = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store double 1.000000e+00, ptr %forward_, align 8, !tbaa !58
+  store double 1.000000e+00, ptr %forward_, align 8, !tbaa !62
   %X_ = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store double 1.000000e+00, ptr %X_, align 8, !tbaa !59
+  store double 1.000000e+00, ptr %X_, align 8, !tbaa !63
   br label %if.end373
 
 if.else360:                                       ; preds = %lor.end.thread276, %lor.end
@@ -1473,7 +1473,7 @@ if.else360:                                       ; preds = %lor.end.thread276, 
   %div363 = fdiv double %174, %173
   %call365 = call double @pow(double noundef %div363, double noundef %add266282) #19, !tbaa !25
   %forward_366 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store double %call365, ptr %forward_366, align 8, !tbaa !58
+  store double %call365, ptr %forward_366, align 8, !tbaa !62
   %call371 = call double @pow(double noundef %div363, double noundef %sub348269281) #19, !tbaa !25
   br label %if.end373
 
@@ -1482,69 +1482,69 @@ if.end373:                                        ; preds = %if.else360, %if.the
   %call371.sink = phi double [ %call371, %if.else360 ], [ 0.000000e+00, %if.then359 ]
   %inTheMoney_274 = phi ptr [ %inTheMoney_283, %if.else360 ], [ %inTheMoney_275, %if.then359 ]
   %X_372 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink399
-  store double %call371.sink, ptr %X_372, align 8, !tbaa !60
-  %175 = load ptr, ptr %payoff, align 8, !tbaa !28, !noalias !61
+  store double %call371.sink, ptr %X_372, align 8, !tbaa !64
+  %175 = load ptr, ptr %payoff, align 8, !tbaa !28, !noalias !65
   %176 = icmp eq ptr %175, null
   br i1 %176, label %_ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit, label %dynamic_cast.end3.i
 
 dynamic_cast.end3.i:                              ; preds = %if.end373
-  %177 = call ptr @__dynamic_cast(ptr nonnull %175, ptr nonnull @_ZTIN8QuantLib17StrikedTypePayoffE, ptr nonnull @_ZTIN8QuantLib19CashOrNothingPayoffE, i64 0) #19, !noalias !62
+  %177 = call ptr @__dynamic_cast(ptr nonnull %175, ptr nonnull @_ZTIN8QuantLib17StrikedTypePayoffE, ptr nonnull @_ZTIN8QuantLib19CashOrNothingPayoffE, i64 0) #19, !noalias !66
   %tobool.not.i = icmp eq ptr %177, null
   br i1 %tobool.not.i, label %dynamic_cast.end3.i205, label %cond.true.i
 
 cond.true.i:                                      ; preds = %dynamic_cast.end3.i
   %pn2.i.i = getelementptr inbounds nuw i8, ptr %payoff, i64 8
-  %178 = load ptr, ptr %pn2.i.i, align 8, !tbaa !16, !noalias !62
+  %178 = load ptr, ptr %pn2.i.i, align 8, !tbaa !16, !noalias !66
   %cmp.not.i.i.i = icmp eq ptr %178, null
   br i1 %cmp.not.i.i.i, label %if.end381, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.true.i
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %179 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !62
+  %179 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !66
   br label %if.end381
 
 if.end381:                                        ; preds = %cond.true.i, %if.then.i.i.i
   %coo.sroa.5.0 = phi ptr [ %178, %if.then.i.i.i ], [ null, %cond.true.i ]
   %cashPayoff_.i = getelementptr inbounds nuw i8, ptr %177, i64 24
-  %180 = load double, ptr %cashPayoff_.i, align 8, !tbaa !65
+  %180 = load double, ptr %cashPayoff_.i, align 8, !tbaa !69
   %K_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store double %180, ptr %K_, align 8, !tbaa !67
+  store double %180, ptr %K_, align 8, !tbaa !71
   %DKDstrike_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store double 0.000000e+00, ptr %DKDstrike_, align 8, !tbaa !68
-  %.pr = load ptr, ptr %payoff, align 8, !tbaa !28, !noalias !69
+  store double 0.000000e+00, ptr %DKDstrike_, align 8, !tbaa !72
+  %.pr = load ptr, ptr %payoff, align 8, !tbaa !28, !noalias !73
   %181 = icmp eq ptr %.pr, null
   br i1 %181, label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit, label %dynamic_cast.end3.i205
 
 dynamic_cast.end3.i205:                           ; preds = %dynamic_cast.end3.i, %if.end381
   %coo.sroa.5.0385396 = phi ptr [ %coo.sroa.5.0, %if.end381 ], [ null, %dynamic_cast.end3.i ]
   %182 = phi ptr [ %.pr, %if.end381 ], [ %175, %dynamic_cast.end3.i ]
-  %183 = call ptr @__dynamic_cast(ptr nonnull %182, ptr nonnull @_ZTIN8QuantLib17StrikedTypePayoffE, ptr nonnull @_ZTIN8QuantLib20AssetOrNothingPayoffE, i64 0) #19, !noalias !69
+  %183 = call ptr @__dynamic_cast(ptr nonnull %182, ptr nonnull @_ZTIN8QuantLib17StrikedTypePayoffE, ptr nonnull @_ZTIN8QuantLib20AssetOrNothingPayoffE, i64 0) #19, !noalias !73
   %tobool.not.i206 = icmp eq ptr %183, null
   br i1 %tobool.not.i206, label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit, label %cond.true.i207
 
 cond.true.i207:                                   ; preds = %dynamic_cast.end3.i205
   %pn2.i.i209 = getelementptr inbounds nuw i8, ptr %payoff, i64 8
-  %184 = load ptr, ptr %pn2.i.i209, align 8, !tbaa !16, !noalias !69
+  %184 = load ptr, ptr %pn2.i.i209, align 8, !tbaa !16, !noalias !73
   %cmp.not.i.i.i210 = icmp eq ptr %184, null
   br i1 %cmp.not.i.i.i210, label %if.then383, label %if.then.i.i.i211
 
 if.then.i.i.i211:                                 ; preds = %cond.true.i207
   %use_count_.i.i.i.i212 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %185 = atomicrmw add ptr %use_count_.i.i.i.i212, i32 1 monotonic, align 4, !noalias !69
+  %185 = atomicrmw add ptr %use_count_.i.i.i.i212, i32 1 monotonic, align 4, !noalias !73
   br label %if.then383
 
 if.then383:                                       ; preds = %if.then.i.i.i211, %cond.true.i207
   %aoo.sroa.5.0 = phi ptr [ %184, %if.then.i.i.i211 ], [ null, %cond.true.i207 ]
-  %186 = load i8, ptr %inTheMoney_274, align 8, !tbaa !57, !range !72, !noundef !61
+  %186 = load i8, ptr %inTheMoney_274, align 8, !tbaa !61, !range !76, !noundef !65
   %loadedv385 = trunc nuw i8 %186 to i1
   %strike_.i219 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %.sink401.in = select i1 %loadedv385, ptr %this, ptr %strike_.i219
   %.sink400 = select i1 %loadedv385, double 0.000000e+00, double 1.000000e+00
-  %.sink401 = load double, ptr %.sink401.in, align 8, !tbaa !60
+  %.sink401 = load double, ptr %.sink401.in, align 8, !tbaa !64
   %K_388 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store double %.sink401, ptr %K_388, align 8, !tbaa !67
+  store double %.sink401, ptr %K_388, align 8, !tbaa !71
   %DKDstrike_389 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store double %.sink400, ptr %DKDstrike_389, align 8, !tbaa !68
+  store double %.sink400, ptr %DKDstrike_389, align 8, !tbaa !72
   %cmp.not.i.i = icmp eq ptr %aoo.sroa.5.0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit, label %if.then.i.i220
 
@@ -1651,34 +1651,34 @@ entry:
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load double, ptr %stdDev_, align 8, !tbaa !27
   %DalphaDd1_ = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %2 = load double, ptr %DalphaDd1_, align 8, !tbaa !73
+  %2 = load double, ptr %DalphaDd1_, align 8, !tbaa !56
   %DbetaDd2_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %3 = load double, ptr %DbetaDd2_, align 8, !tbaa !74
+  %3 = load double, ptr %DbetaDd2_, align 8, !tbaa !58
   %inTheMoney_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %4 = load i8, ptr %inTheMoney_, align 8, !tbaa !57, !range !72, !noundef !61
+  %4 = load i8, ptr %inTheMoney_, align 8, !tbaa !61, !range !76, !noundef !65
   %loadedv = trunc nuw i8 %4 to i1
   br i1 %loadedv, label %entry.if.end_crit_edge, label %if.else
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %forward_11.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %.pre = load double, ptr %forward_11.phi.trans.insert, align 8, !tbaa !58
+  %.pre = load double, ptr %forward_11.phi.trans.insert, align 8, !tbaa !62
   %X_14.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %.pre2 = load double, ptr %X_14.phi.trans.insert, align 8, !tbaa !59
+  %.pre2 = load double, ptr %X_14.phi.trans.insert, align 8, !tbaa !63
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %muPlusLambda_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %5 = load double, ptr %muPlusLambda_, align 8, !tbaa !55
+  %5 = load double, ptr %muPlusLambda_, align 8, !tbaa !59
   %fneg3 = fneg double %5
   %forward_ = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %6 = load double, ptr %forward_, align 8, !tbaa !58
+  %6 = load double, ptr %forward_, align 8, !tbaa !62
   %mul4 = fmul double %6, %fneg3
   %div6 = fdiv double %mul4, %0
   %muMinusLambda_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %7 = load double, ptr %muMinusLambda_, align 8, !tbaa !56
+  %7 = load double, ptr %muMinusLambda_, align 8, !tbaa !60
   %fneg7 = fneg double %7
   %X_ = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %8 = load double, ptr %X_, align 8, !tbaa !59
+  %8 = load double, ptr %X_, align 8, !tbaa !63
   %mul8 = fmul double %8, %fneg7
   %div10 = fdiv double %mul8, %0
   br label %if.end
@@ -1693,14 +1693,14 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %div2 = fdiv double %3, %mul
   %div = fdiv double %2, %mul
   %K_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %11 = load double, ptr %K_, align 8, !tbaa !67
+  %11 = load double, ptr %K_, align 8, !tbaa !71
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %12 = load double, ptr %alpha_, align 8, !tbaa !75
+  %12 = load double, ptr %alpha_, align 8, !tbaa !55
   %mul13 = fmul double %DforwardDs.0, %12
   %13 = tail call double @llvm.fmuladd.f64(double %div, double %10, double %mul13)
   %14 = tail call double @llvm.fmuladd.f64(double %div2, double %9, double %13)
   %beta_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %15 = load double, ptr %beta_, align 8, !tbaa !76
+  %15 = load double, ptr %beta_, align 8, !tbaa !57
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %DXDs.0, double %14)
   %mul17 = fmul double %11, %16
   ret double %mul17
@@ -1713,38 +1713,38 @@ entry:
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load double, ptr %stdDev_, align 8, !tbaa !27
   %DalphaDd1_ = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %2 = load double, ptr %DalphaDd1_, align 8, !tbaa !73
+  %2 = load double, ptr %DalphaDd1_, align 8, !tbaa !56
   %DbetaDd2_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %3 = load double, ptr %DbetaDd2_, align 8, !tbaa !74
+  %3 = load double, ptr %DbetaDd2_, align 8, !tbaa !58
   %D1_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %4 = load double, ptr %D1_, align 8, !tbaa !41
   %D2_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %5 = load double, ptr %D2_, align 8, !tbaa !42
   %inTheMoney_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %6 = load i8, ptr %inTheMoney_, align 8, !tbaa !57, !range !72, !noundef !61
+  %6 = load i8, ptr %inTheMoney_, align 8, !tbaa !61, !range !76, !noundef !65
   %loadedv = trunc nuw i8 %6 to i1
   br i1 %loadedv, label %entry.if.end_crit_edge, label %if.else
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %forward_43.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %.pre = load double, ptr %forward_43.phi.trans.insert, align 8, !tbaa !58
+  %.pre = load double, ptr %forward_43.phi.trans.insert, align 8, !tbaa !62
   %X_48.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %.pre8 = load double, ptr %X_48.phi.trans.insert, align 8, !tbaa !59
+  %.pre8 = load double, ptr %X_48.phi.trans.insert, align 8, !tbaa !63
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %muPlusLambda_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %7 = load double, ptr %muPlusLambda_, align 8, !tbaa !55
+  %7 = load double, ptr %muPlusLambda_, align 8, !tbaa !59
   %fneg16 = fneg double %7
   %forward_ = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %8 = load double, ptr %forward_, align 8, !tbaa !58
+  %8 = load double, ptr %forward_, align 8, !tbaa !62
   %mul17 = fmul double %8, %fneg16
   %div19 = fdiv double %mul17, %0
   %muMinusLambda_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %9 = load double, ptr %muMinusLambda_, align 8, !tbaa !56
+  %9 = load double, ptr %muMinusLambda_, align 8, !tbaa !60
   %fneg20 = fneg double %9
   %X_ = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %10 = load double, ptr %X_, align 8, !tbaa !59
+  %10 = load double, ptr %X_, align 8, !tbaa !63
   %mul21 = fmul double %10, %fneg20
   %div23 = fdiv double %mul21, %0
   %mul26 = fmul double %7, %8
@@ -1780,18 +1780,18 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %sub = fsub double 1.000000e+00, %div7
   %mul8 = fmul double %div5, %sub
   %K_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %13 = load double, ptr %K_, align 8, !tbaa !67
+  %13 = load double, ptr %K_, align 8, !tbaa !71
   %mul45 = fmul double %div, %DforwardDs.0
   %14 = tail call double @llvm.fmuladd.f64(double %mul8, double %12, double %mul45)
   %15 = tail call double @llvm.fmuladd.f64(double %div, double %DforwardDs.0, double %14)
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %16 = load double, ptr %alpha_, align 8, !tbaa !75
+  %16 = load double, ptr %alpha_, align 8, !tbaa !55
   %17 = tail call double @llvm.fmuladd.f64(double %16, double %D2forwardDs2.0, double %15)
   %18 = tail call double @llvm.fmuladd.f64(double %mul15, double %11, double %17)
   %19 = tail call double @llvm.fmuladd.f64(double %div2, double %DXDs.0, double %18)
   %20 = tail call double @llvm.fmuladd.f64(double %div2, double %DXDs.0, double %19)
   %beta_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %21 = load double, ptr %beta_, align 8, !tbaa !76
+  %21 = load double, ptr %beta_, align 8, !tbaa !57
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %D2XDs2.0, double %20)
   %mul53 = fmul double %13, %22
   ret double %mul53
@@ -1967,7 +1967,7 @@ ehcleanup23:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %DalphaDd1_ = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %21 = load double, ptr %DalphaDd1_, align 8, !tbaa !73
+  %21 = load double, ptr %DalphaDd1_, align 8, !tbaa !56
   %lambda_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %22 = load double, ptr %lambda_, align 8, !tbaa !40
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1976,17 +1976,17 @@ do.end:                                           ; preds = %entry
   %24 = load double, ptr %mu_, align 8, !tbaa !39
   %add = fadd double %24, 1.000000e+00
   %DbetaDd2_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %25 = load double, ptr %DbetaDd2_, align 8, !tbaa !74
+  %25 = load double, ptr %DbetaDd2_, align 8, !tbaa !58
   %inTheMoney_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %26 = load i8, ptr %inTheMoney_, align 8, !tbaa !57, !range !72, !noundef !61
+  %26 = load i8, ptr %inTheMoney_, align 8, !tbaa !61, !range !76, !noundef !65
   %loadedv = trunc nuw i8 %26 to i1
   %forward_53.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %.pre = load double, ptr %forward_53.phi.trans.insert, align 8, !tbaa !58
+  %.pre = load double, ptr %forward_53.phi.trans.insert, align 8, !tbaa !62
   br i1 %loadedv, label %do.end.if.end51_crit_edge, label %if.else
 
 do.end.if.end51_crit_edge:                        ; preds = %do.end
   %X_56.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %.pre39 = load double, ptr %X_56.phi.trans.insert, align 8, !tbaa !59
+  %.pre39 = load double, ptr %X_56.phi.trans.insert, align 8, !tbaa !63
   br label %if.end51
 
 if.else:                                          ; preds = %do.end
@@ -2000,7 +2000,7 @@ if.else:                                          ; preds = %do.end
   %28 = load double, ptr %variance_, align 8, !tbaa !24
   %div41 = fdiv double %mul40, %28
   %X_ = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %29 = load double, ptr %X_, align 8, !tbaa !59
+  %29 = load double, ptr %X_, align 8, !tbaa !63
   %sub = fsub double 1.000000e+00, %div37
   %mul46 = fmul double %sub, %29
   %mul48 = fmul double %27, %mul46
@@ -2018,15 +2018,15 @@ if.end51:                                         ; preds = %do.end.if.end51_cri
   %div = fdiv double %fneg, %mul
   %mul25 = fmul double %div, %add
   %K_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %31 = load double, ptr %K_, align 8, !tbaa !67
+  %31 = load double, ptr %K_, align 8, !tbaa !71
   %mul52 = fmul double %maturity, %31
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %32 = load double, ptr %alpha_, align 8, !tbaa !75
+  %32 = load double, ptr %alpha_, align 8, !tbaa !55
   %mul55 = fmul double %DforwardDr.0, %32
   %33 = tail call double @llvm.fmuladd.f64(double %mul25, double %.pre, double %mul55)
   %34 = tail call double @llvm.fmuladd.f64(double %mul32, double %30, double %33)
   %beta_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %35 = load double, ptr %beta_, align 8, !tbaa !76
+  %35 = load double, ptr %beta_, align 8, !tbaa !57
   %36 = tail call double @llvm.fmuladd.f64(double %35, double %DXDr.0, double %34)
   %mul59 = fmul double %mul52, %36
   ret double %mul59
@@ -2146,25 +2146,25 @@ attributes #22 = { builtin nounwind }
 !52 = !{!45, !20, i64 24}
 !53 = !{!19, !20, i64 120}
 !54 = !{!19, !20, i64 128}
-!55 = !{!19, !20, i64 80}
-!56 = !{!19, !20, i64 88}
-!57 = !{!19, !21, i64 168}
-!58 = !{!19, !20, i64 176}
-!59 = !{!19, !20, i64 184}
-!60 = !{!20, !20, i64 0}
-!61 = !{}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZN5boost20dynamic_pointer_castIN8QuantLib19CashOrNothingPayoffENS1_17StrikedTypePayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE: %agg.result"}
-!64 = distinct !{!64, !"_ZN5boost20dynamic_pointer_castIN8QuantLib19CashOrNothingPayoffENS1_17StrikedTypePayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE"}
-!65 = !{!66, !20, i64 24}
-!66 = !{!"_ZTSN8QuantLib19CashOrNothingPayoffE", !36, i64 0, !20, i64 24}
-!67 = !{!19, !20, i64 48}
-!68 = !{!19, !20, i64 56}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN5boost20dynamic_pointer_castIN8QuantLib20AssetOrNothingPayoffENS1_17StrikedTypePayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE: %agg.result"}
-!71 = distinct !{!71, !"_ZN5boost20dynamic_pointer_castIN8QuantLib20AssetOrNothingPayoffENS1_17StrikedTypePayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE"}
-!72 = !{i8 0, i8 2}
-!73 = !{!19, !20, i64 152}
-!74 = !{!19, !20, i64 160}
-!75 = !{!19, !20, i64 136}
-!76 = !{!19, !20, i64 144}
+!55 = !{!19, !20, i64 136}
+!56 = !{!19, !20, i64 152}
+!57 = !{!19, !20, i64 144}
+!58 = !{!19, !20, i64 160}
+!59 = !{!19, !20, i64 80}
+!60 = !{!19, !20, i64 88}
+!61 = !{!19, !21, i64 168}
+!62 = !{!19, !20, i64 176}
+!63 = !{!19, !20, i64 184}
+!64 = !{!20, !20, i64 0}
+!65 = !{}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZN5boost20dynamic_pointer_castIN8QuantLib19CashOrNothingPayoffENS1_17StrikedTypePayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE: %agg.result"}
+!68 = distinct !{!68, !"_ZN5boost20dynamic_pointer_castIN8QuantLib19CashOrNothingPayoffENS1_17StrikedTypePayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE"}
+!69 = !{!70, !20, i64 24}
+!70 = !{!"_ZTSN8QuantLib19CashOrNothingPayoffE", !36, i64 0, !20, i64 24}
+!71 = !{!19, !20, i64 48}
+!72 = !{!19, !20, i64 56}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN5boost20dynamic_pointer_castIN8QuantLib20AssetOrNothingPayoffENS1_17StrikedTypePayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE: %agg.result"}
+!75 = distinct !{!75, !"_ZN5boost20dynamic_pointer_castIN8QuantLib20AssetOrNothingPayoffENS1_17StrikedTypePayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE"}
+!76 = !{i8 0, i8 2}

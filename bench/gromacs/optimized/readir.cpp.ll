@@ -8968,13 +8968,13 @@ _ZN3gmx27KeyValueTreeTransformResult6objectEv.exit: ; preds = %1457, %1461
   %.sink1300 = phi ptr [ %1465, %1461 ], [ %1458, %1457 ]
   %.sink = phi ptr [ %1467, %1461 ], [ %1458, %1457 ]
   %.sink.i = phi i64 [ %1470, %1461 ], [ 0, %1457 ]
-  store i32 %.sink1302, ptr %1458, align 8
+  store i32 %.sink1302, ptr %1458, align 8, !alias.scope !26
   %1471 = getelementptr inbounds i8, ptr %1456, i64 16
-  store ptr %1460, ptr %1471, align 8
+  store ptr %1460, ptr %1471, align 8, !alias.scope !26
   %1472 = getelementptr inbounds i8, ptr %1456, i64 24
-  store ptr %.sink1300, ptr %1472, align 8
+  store ptr %.sink1300, ptr %1472, align 8, !alias.scope !26
   %1473 = getelementptr inbounds i8, ptr %1456, i64 32
-  store ptr %.sink, ptr %1473, align 8
+  store ptr %.sink, ptr %1473, align 8, !alias.scope !26
   %1474 = getelementptr inbounds i8, ptr %1456, i64 40
   store i64 %.sink.i, ptr %1474, align 8, !alias.scope !26
   %1475 = getelementptr inbounds i8, ptr %1456, i64 48
@@ -9634,13 +9634,13 @@ _ZN3gmx19KeyValueTreeBuilder5buildEv.exit:        ; preds = %1766, %1769
   %.sink1304 = phi ptr [ %1771, %1769 ], [ %1767, %1766 ]
   %.sink1303 = phi ptr [ %1772, %1769 ], [ %1767, %1766 ]
   %.sink.i691 = phi i64 [ %1774, %1769 ], [ 0, %1766 ]
-  store i32 %.sink1306, ptr %1767, align 8
+  store i32 %.sink1306, ptr %1767, align 8, !alias.scope !31
   %1775 = getelementptr inbounds i8, ptr %94, i64 16
-  store ptr %1768, ptr %1775, align 8
+  store ptr %1768, ptr %1775, align 8, !alias.scope !31
   %1776 = getelementptr inbounds i8, ptr %94, i64 24
-  store ptr %.sink1304, ptr %1776, align 8
+  store ptr %.sink1304, ptr %1776, align 8, !alias.scope !31
   %1777 = getelementptr inbounds i8, ptr %94, i64 32
-  store ptr %.sink1303, ptr %1777, align 8
+  store ptr %.sink1303, ptr %1777, align 8, !alias.scope !31
   %1778 = getelementptr inbounds i8, ptr %94, i64 40
   store i64 %.sink.i691, ptr %1778, align 8, !alias.scope !31
   %1779 = getelementptr inbounds i8, ptr %94, i64 48

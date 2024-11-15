@@ -7732,7 +7732,7 @@ invoke.cont9:                                     ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIN8QuantLib6HandleINS1_5QuoteEEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr %add.ptr.i.i.sink.i, ptr %9, align 8
+  store ptr %add.ptr.i.i.sink.i, ptr %9, align 8, !tbaa !64
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !60
   %shiftValues_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %10 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -7772,7 +7772,7 @@ invoke.cont15:                                    ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i50 = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %scevgep.i.i.i.i.i48, %call5.i.i.i.i2.i.i.noexc54 ]
   %_M_finish.i.i7.i51 = getelementptr inbounds nuw i8, ptr %this, i64 368
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 376
-  store ptr %add.ptr.i.i.sink.i49, ptr %11, align 8
+  store ptr %add.ptr.i.i.sink.i49, ptr %11, align 8, !tbaa !68
   store ptr %__cur.0.lcssa.i.i.i.i.i50, ptr %_M_finish.i.i7.i51, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %12 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -9297,7 +9297,7 @@ invoke.cont7:                                     ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIN8QuantLib6HandleINS1_5QuoteEEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr %add.ptr.i.i.sink.i, ptr %5, align 8
+  store ptr %add.ptr.i.i.sink.i, ptr %5, align 8, !tbaa !64
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !60
   %shiftValues_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %6 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -9337,7 +9337,7 @@ invoke.cont13:                                    ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i55 = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %scevgep.i.i.i.i.i53, %call5.i.i.i.i2.i.i.noexc59 ]
   %_M_finish.i.i7.i56 = getelementptr inbounds nuw i8, ptr %this, i64 368
   %7 = getelementptr inbounds nuw i8, ptr %this, i64 376
-  store ptr %add.ptr.i.i.sink.i54, ptr %7, align 8
+  store ptr %add.ptr.i.i.sink.i54, ptr %7, align 8, !tbaa !68
   store ptr %__cur.0.lcssa.i.i.i.i.i55, ptr %_M_finish.i.i7.i56, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %8 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -10742,7 +10742,7 @@ invoke.cont9:                                     ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIN8QuantLib6HandleINS1_5QuoteEEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr %add.ptr.i.i.sink.i, ptr %9, align 8
+  store ptr %add.ptr.i.i.sink.i, ptr %9, align 8, !tbaa !64
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !60
   %shiftValues_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %10 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -10782,7 +10782,7 @@ invoke.cont15:                                    ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i50 = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %scevgep.i.i.i.i.i48, %call5.i.i.i.i2.i.i.noexc54 ]
   %_M_finish.i.i7.i51 = getelementptr inbounds nuw i8, ptr %this, i64 368
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 376
-  store ptr %add.ptr.i.i.sink.i49, ptr %11, align 8
+  store ptr %add.ptr.i.i.sink.i49, ptr %11, align 8, !tbaa !68
   store ptr %__cur.0.lcssa.i.i.i.i.i50, ptr %_M_finish.i.i7.i51, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %12 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -12188,7 +12188,7 @@ invoke.cont7:                                     ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIN8QuantLib6HandleINS1_5QuoteEEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr %add.ptr.i.i.sink.i, ptr %5, align 8
+  store ptr %add.ptr.i.i.sink.i, ptr %5, align 8, !tbaa !64
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !60
   %shiftValues_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %6 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -12228,7 +12228,7 @@ invoke.cont13:                                    ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i55 = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %scevgep.i.i.i.i.i53, %call5.i.i.i.i2.i.i.noexc59 ]
   %_M_finish.i.i7.i56 = getelementptr inbounds nuw i8, ptr %this, i64 368
   %7 = getelementptr inbounds nuw i8, ptr %this, i64 376
-  store ptr %add.ptr.i.i.sink.i54, ptr %7, align 8
+  store ptr %add.ptr.i.i.sink.i54, ptr %7, align 8, !tbaa !68
   store ptr %__cur.0.lcssa.i.i.i.i.i55, ptr %_M_finish.i.i7.i56, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %8 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -13633,7 +13633,7 @@ invoke.cont9:                                     ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIN8QuantLib6HandleINS1_5QuoteEEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr %add.ptr.i.i.sink.i, ptr %9, align 8
+  store ptr %add.ptr.i.i.sink.i, ptr %9, align 8, !tbaa !64
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !60
   %shiftValues_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %10 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -13673,7 +13673,7 @@ invoke.cont15:                                    ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i50 = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %scevgep.i.i.i.i.i48, %call5.i.i.i.i2.i.i.noexc54 ]
   %_M_finish.i.i7.i51 = getelementptr inbounds nuw i8, ptr %this, i64 368
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 376
-  store ptr %add.ptr.i.i.sink.i49, ptr %11, align 8
+  store ptr %add.ptr.i.i.sink.i49, ptr %11, align 8, !tbaa !68
   store ptr %__cur.0.lcssa.i.i.i.i.i50, ptr %_M_finish.i.i7.i51, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %12 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -15081,7 +15081,7 @@ invoke.cont7:                                     ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIN8QuantLib6HandleINS1_5QuoteEEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr %add.ptr.i.i.sink.i, ptr %5, align 8
+  store ptr %add.ptr.i.i.sink.i, ptr %5, align 8, !tbaa !64
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !60
   %shiftValues_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %6 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -15121,7 +15121,7 @@ invoke.cont13:                                    ; preds = %call5.i.i.i.i2.i.i.
   %__cur.0.lcssa.i.i.i.i.i55 = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %scevgep.i.i.i.i.i53, %call5.i.i.i.i2.i.i.noexc59 ]
   %_M_finish.i.i7.i56 = getelementptr inbounds nuw i8, ptr %this, i64 368
   %7 = getelementptr inbounds nuw i8, ptr %this, i64 376
-  store ptr %add.ptr.i.i.sink.i54, ptr %7, align 8
+  store ptr %add.ptr.i.i.sink.i54, ptr %7, align 8, !tbaa !68
   store ptr %__cur.0.lcssa.i.i.i.i.i55, ptr %_M_finish.i.i7.i56, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %8 = load i64, ptr %rows_.i, align 8, !tbaa !72

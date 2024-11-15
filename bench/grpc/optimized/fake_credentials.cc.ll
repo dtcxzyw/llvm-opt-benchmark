@@ -4972,7 +4972,7 @@ _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterE
   %4 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %1, ptr %4, align 8, !alias.scope !371
   store i64 0, ptr %2, align 8, !alias.scope !371
-  store i8 1, ptr %agg.result, align 8, !alias.scope !376
+  store i8 1, ptr %agg.result, align 8, !alias.scope !371
   ret void
 }
 
@@ -5426,4 +5426,3 @@ attributes #27 = { noreturn }
 !373 = distinct !{!373, !"_ZN9grpc_core12PollCastImplIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS8_EEvE4CastEOSB_"}
 !374 = distinct !{!374, !375, !"_ZN9grpc_core9poll_castIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS8_EEEENSA_IT_EET0_: %agg.result"}
 !375 = distinct !{!375, !"_ZN9grpc_core9poll_castIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_4PollIS8_EEEENSA_IT_EET0_"}
-!376 = !{!374}

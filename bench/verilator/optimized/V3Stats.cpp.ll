@@ -4162,13 +4162,13 @@ _ZSt19__relocate_object_aISt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.sink13.i.i.i = phi ptr [ %46, %42 ], [ %39, %.lr.ph.i.i.i37 ]
   %.sink.i.i.i = phi ptr [ %48, %42 ], [ %39, %.lr.ph.i.i.i37 ]
   %.sink.i.i.i.i = phi i64 [ %51, %42 ], [ 0, %.lr.ph.i.i.i37 ]
-  store i32 %.sink15.i.i.i, ptr %39, align 8
+  store i32 %.sink15.i.i.i, ptr %39, align 8, !alias.scope !36, !noalias !39
   %52 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  store ptr %41, ptr %52, align 8
+  store ptr %41, ptr %52, align 8, !alias.scope !36, !noalias !39
   %53 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  store ptr %.sink13.i.i.i, ptr %53, align 8
+  store ptr %.sink13.i.i.i, ptr %53, align 8, !alias.scope !36, !noalias !39
   %54 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  store ptr %.sink.i.i.i, ptr %54, align 8
+  store ptr %.sink.i.i.i, ptr %54, align 8, !alias.scope !36, !noalias !39
   %55 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   store i64 %.sink.i.i.i.i, ptr %55, align 8, !alias.scope !36, !noalias !39
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48

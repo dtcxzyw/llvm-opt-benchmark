@@ -2661,7 +2661,7 @@ _ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26
   %.115.i.i = getelementptr inbounds i8, ptr %.01424.i.i, i64 %.115.i.idx.i
   %.1.i.idx.i = select i1 %156, i64 0, i64 8
   %.1.i.i = getelementptr inbounds i8, ptr %.025.i.i, i64 %.1.i.idx.i
-  store ptr %.0.val.i.sink.i, ptr %157, align 8
+  store ptr %.0.val.i.sink.i, ptr %157, align 8, !noalias !112
   %158 = icmp ne ptr %.1.i.i, %152
   %159 = icmp ne ptr %.115.i.i, %153
   %160 = select i1 %158, i1 %159, i1 false
@@ -2766,7 +2766,7 @@ _ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cx
   %.115.i43.i = getelementptr inbounds i8, ptr %.01424.i38.i, i64 %.115.i43.idx.i
   %.1.i44.idx.i = select i1 %206, i64 0, i64 8
   %.1.i44.i = getelementptr inbounds i8, ptr %.025.i37.i, i64 %.1.i44.idx.i
-  store ptr %.0.val.i40.sink.i, ptr %207, align 8
+  store ptr %.0.val.i40.sink.i, ptr %207, align 8, !noalias !140
   %208 = icmp ne ptr %.1.i44.i, %199
   %209 = icmp ne ptr %.115.i43.i, %8
   %210 = select i1 %208, i1 %209, i1 false
@@ -7724,7 +7724,7 @@ _ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26
   %.115.i.i = getelementptr inbounds i8, ptr %.01424.i.i, i64 %.115.i.idx.i
   %.1.i.idx.i = select i1 %156, i64 0, i64 8
   %.1.i.i = getelementptr inbounds i8, ptr %.025.i.i, i64 %.1.i.idx.i
-  store ptr %.0.val.i.sink.i, ptr %157, align 8
+  store ptr %.0.val.i.sink.i, ptr %157, align 8, !noalias !537
   %158 = icmp ne ptr %.1.i.i, %152
   %159 = icmp ne ptr %.115.i.i, %153
   %160 = select i1 %158, i1 %159, i1 false
@@ -7829,7 +7829,7 @@ _ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cx
   %.115.i43.i = getelementptr inbounds i8, ptr %.01424.i38.i, i64 %.115.i43.idx.i
   %.1.i44.idx.i = select i1 %206, i64 0, i64 8
   %.1.i44.i = getelementptr inbounds i8, ptr %.025.i37.i, i64 %.1.i44.idx.i
-  store ptr %.0.val.i40.sink.i, ptr %207, align 8
+  store ptr %.0.val.i40.sink.i, ptr %207, align 8, !noalias !564
   %208 = icmp ne ptr %.1.i44.i, %199
   %209 = icmp ne ptr %.115.i43.i, %8
   %210 = select i1 %208, i1 %209, i1 false

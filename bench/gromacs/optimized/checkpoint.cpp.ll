@@ -2948,13 +2948,13 @@ _ZN3gmx19KeyValueTreeBuilder5buildEv.exit:        ; preds = %_ZNK3gmx17MDModules
   %.sink75 = phi ptr [ %148, %146 ], [ %138, %_ZNK3gmx17MDModulesNotifierINS_28MDModulesWriteCheckpointDataENS_22BuildMDModulesNotifierIJEE15NoCallParameterEE6notifyES1_.exit.thread ], [ %145, %_ZNK3gmx17MDModulesNotifierINS_28MDModulesWriteCheckpointDataENS_22BuildMDModulesNotifierIJEE15NoCallParameterEE6notifyES1_.exit ]
   %.sink = phi ptr [ %149, %146 ], [ %138, %_ZNK3gmx17MDModulesNotifierINS_28MDModulesWriteCheckpointDataENS_22BuildMDModulesNotifierIJEE15NoCallParameterEE6notifyES1_.exit.thread ], [ %145, %_ZNK3gmx17MDModulesNotifierINS_28MDModulesWriteCheckpointDataENS_22BuildMDModulesNotifierIJEE15NoCallParameterEE6notifyES1_.exit ]
   %.sink.i = phi i64 [ %151, %146 ], [ 0, %_ZNK3gmx17MDModulesNotifierINS_28MDModulesWriteCheckpointDataENS_22BuildMDModulesNotifierIJEE15NoCallParameterEE6notifyES1_.exit.thread ], [ 0, %_ZNK3gmx17MDModulesNotifierINS_28MDModulesWriteCheckpointDataENS_22BuildMDModulesNotifierIJEE15NoCallParameterEE6notifyES1_.exit ]
-  store i32 %.sink77, ptr %152, align 8
+  store i32 %.sink77, ptr %152, align 8, !alias.scope !42
   %153 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr %.sink76, ptr %153, align 8
+  store ptr %.sink76, ptr %153, align 8, !alias.scope !42
   %154 = getelementptr inbounds i8, ptr %16, i64 24
-  store ptr %.sink75, ptr %154, align 8
+  store ptr %.sink75, ptr %154, align 8, !alias.scope !42
   %155 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %.sink, ptr %155, align 8
+  store ptr %.sink, ptr %155, align 8, !alias.scope !42
   %156 = getelementptr inbounds i8, ptr %16, i64 40
   store i64 %.sink.i, ptr %156, align 8, !alias.scope !42
   %157 = getelementptr inbounds i8, ptr %16, i64 48

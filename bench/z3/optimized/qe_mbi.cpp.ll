@@ -9161,7 +9161,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbP3appS4_EEEC2ES6_.exit.i: ; p
 invoke.cont:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbP3appS4_EEEC2ES6_.exit.i, %_ZNSt8functionIFbP3appS1_EEC2EOS3_.exit.thread.i
   %8 = phi ptr [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbP3appS4_EEEC2ES6_.exit.i ], [ %7, %_ZNSt8functionIFbP3appS1_EEC2EOS3_.exit.thread.i ]
   %9 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !alias.scope !43
   invoke void @_ZSt6__sortIPP3appN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbS1_S1_EEEEEvT_SA_T0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
 

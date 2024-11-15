@@ -96513,7 +96513,7 @@ define internal fastcc void @_ZN6editor11display_map8fold_map12FoldSnapshot6chun
   %119 = phi ptr [ %111, %106 ], [ %103, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h328737695ea8ba89E.exit.i" ]
   %.sroa.0.0.i.i.i = phi i8 [ %116, %106 ], [ 0, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h328737695ea8ba89E.exit.i" ]
   %120 = getelementptr inbounds i8, ptr %15, i64 16
-  store i32 0, ptr %120, align 8
+  store i32 0, ptr %120, align 8, !noalias !27232
   store i8 %.sroa.0.0.i.i.i, ptr %117, align 1, !alias.scope !27245, !noalias !27246
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %15, i8 0, i64 16, i1 false), !alias.scope !27245, !noalias !27246
   %121 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17h378dc7444b005c45E.llvm.7770800806426765245"(ptr noalias noundef nonnull align 8 dereferenceable(552) %15, ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b3aa91ad3910538ca077da0228902b5c.509.llvm.7770800806426765245, i1 noundef zeroext true, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.b3aa91ad3910538ca077da0228902b5c.506.llvm.7770800806426765245, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f181a984f624d3ac5643ba2a53eda325.618), !noalias !27236

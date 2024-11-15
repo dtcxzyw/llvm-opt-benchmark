@@ -2091,8 +2091,8 @@ default.unreachable150:                           ; preds = %774, %716, %666, %6
   %989 = phi ptr [ %.22..22..22..22..sroa_idx, %976 ], [ %.20..20..20..20..sroa_idx, %968 ]
   %990 = phi ptr [ %.26..26..26..26..sroa_idx, %976 ], [ %.24..24..24..24..sroa_idx, %968 ]
   %991 = phi ptr [ %.30..30..30..30..sroa_idx, %976 ], [ %.28..28..28..28..sroa_idx, %968 ]
-  store i16 %.sink149, ptr %5, align 32
-  store i16 %.sink, ptr %.2..sroa_idx, align 2
+  store i16 %.sink149, ptr %5, align 32, !tbaa !120, !noalias !123
+  store i16 %.sink, ptr %.2..sroa_idx, align 2, !tbaa !120, !noalias !123
   %992 = load i16, ptr %93, align 2, !tbaa !120, !noalias !123
   store i16 %992, ptr %985, align 2, !tbaa !120, !noalias !123
   %993 = load i16, ptr %94, align 2, !tbaa !120, !noalias !123

@@ -11317,7 +11317,7 @@ define linkonce_odr hidden void @_ZNK5boost7process2v16detail5posix10on_setup_tI
 19:                                               ; preds = %17, %11
   %.sink.i = phi ptr [ %18, %17 ], [ @.str.58, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr %.sink.i, ptr %20, align 8
+  store ptr %.sink.i, ptr %20, align 8, !tbaa !542
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i8 1, ptr %21, align 8, !tbaa !534
   br label %25
@@ -16841,7 +16841,7 @@ define linkonce_odr hidden void @_ZNK5boost7process2v16detail5posix10on_setup_tI
 19:                                               ; preds = %17, %11
   %.sink.i = phi ptr [ %18, %17 ], [ @.str.58, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr %.sink.i, ptr %20, align 8
+  store ptr %.sink.i, ptr %20, align 8, !tbaa !700
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i8 1, ptr %21, align 8, !tbaa !692
   br label %25

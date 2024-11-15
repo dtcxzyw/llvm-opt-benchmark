@@ -48433,7 +48433,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %183
   %229 = load i32, ptr %228, align 8, !alias.scope !14516, !noalias !14521, !noundef !23
   %230 = getelementptr inbounds i8, ptr %214, i64 28
   %231 = load i32, ptr %230, align 4, !alias.scope !14516, !noalias !14521, !noundef !23
-  store ptr %227, ptr %189, align 8, !alias.scope !14469, !noalias !14470
+  store ptr %227, ptr %189, align 8, !alias.scope !14485, !noalias !14486
   br label %234
 
 .loopexit182.i:                                   ; preds = %216, %213

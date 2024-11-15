@@ -15980,15 +15980,15 @@ _ZSt19__relocate_object_aISt4pairIN8QuantLib6Option9argumentsENS1_14OneAssetOpti
   %.sink.i.i.i.i = phi i64 [ %17, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i ]
   %18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 88
-  store ptr %13, ptr %18, align 8
+  store ptr %13, ptr %18, align 8, !tbaa !13, !alias.scope !305, !noalias !308
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 96
-  store ptr %.sink4.i.i.i.i, ptr %19, align 8, !alias.scope !305, !noalias !308
+  store ptr %.sink4.i.i.i.i, ptr %19, align 8, !tbaa !14, !alias.scope !305, !noalias !308
   %20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 104
-  store ptr %.sink3.i.i.i.i, ptr %20, align 8, !alias.scope !305, !noalias !308
+  store ptr %.sink3.i.i.i.i, ptr %20, align 8, !tbaa !15, !alias.scope !305, !noalias !308
   %21 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 112
-  store i64 %.sink.i.i.i.i, ptr %21, align 8, !alias.scope !305, !noalias !308
-  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !305, !noalias !308
+  store i64 %.sink.i.i.i.i, ptr %21, align 8, !tbaa !16, !alias.scope !305, !noalias !308
+  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !tbaa !8, !alias.scope !305, !noalias !308
   %22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 120
   %delta.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 128
   %delta3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 128

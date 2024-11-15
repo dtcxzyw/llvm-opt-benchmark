@@ -13940,9 +13940,9 @@ _ZN5boost10shared_ptrINS_7runtime11basic_paramEEC2ERKS3_.exit: ; preds = %_ZN5bo
   call void @llvm.experimental.noalias.scope.decl(metadata !410)
   %252 = load ptr, ptr %97, align 8, !tbaa !33, !noalias !410
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 %.sroa.37.0329
-  store ptr %252, ptr %27, align 8, !alias.scope !410
+  store ptr %252, ptr %27, align 8, !tbaa !14, !alias.scope !410
   %254 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %253, ptr %254, align 8, !alias.scope !410
+  store ptr %253, ptr %254, align 8, !tbaa !16, !alias.scope !410
   invoke void @_ZNO5boost7runtime20specific_param_errorINS0_12format_errorENS0_11input_errorEElsINS_9unit_test13basic_cstringIKcEEEES2_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.boost::runtime::format_error") align 8 %22, ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(16) %27)
           to label %255 unwind label %263
 
@@ -14092,9 +14092,9 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit105.thread: ; preds =
 301:                                              ; preds = %298, %296
   %.sink1.i106 = phi ptr [ %299, %298 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %296 ]
   %.sink.i107 = phi ptr [ %300, %298 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %296 ]
-  store ptr %.sink1.i106, ptr %33, align 8, !alias.scope !413
+  store ptr %.sink1.i106, ptr %33, align 8, !tbaa !14, !alias.scope !413
   %302 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %.sink.i107, ptr %302, align 8, !alias.scope !413
+  store ptr %.sink.i107, ptr %302, align 8, !tbaa !16, !alias.scope !413
   invoke void @_ZNO5boost7runtime20specific_param_errorINS0_12format_errorENS0_11input_errorEElsINS_9unit_test13basic_cstringIKcEEEES2_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.boost::runtime::format_error") align 8 %28, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(16) %33)
           to label %303 unwind label %311
 
@@ -14403,9 +14403,9 @@ _ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i: ; pred
 406:                                              ; preds = %403, %401
   %.sink1.i125 = phi ptr [ %404, %403 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %401 ]
   %.sink.i126 = phi ptr [ %405, %403 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %401 ]
-  store ptr %.sink1.i125, ptr %44, align 8, !alias.scope !416
+  store ptr %.sink1.i125, ptr %44, align 8, !tbaa !14, !alias.scope !416
   %407 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %.sink.i126, ptr %407, align 8, !alias.scope !416
+  store ptr %.sink.i126, ptr %407, align 8, !tbaa !16, !alias.scope !416
   invoke void @_ZNO5boost7runtime20specific_param_errorINS0_13duplicate_argENS0_11input_errorEElsINS_9unit_test13basic_cstringIKcEEEES2_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.boost::runtime::duplicate_arg") align 8 %39, ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull align 8 dereferenceable(16) %44)
           to label %408 unwind label %416
 

@@ -469,7 +469,7 @@ addLabelObj.exit.i:                               ; preds = %158
   %.510.i = select i1 %127, ptr %163, ptr %164
   %.sink.i = load double, ptr %..i, align 8, !noalias !7
   %165 = getelementptr inbounds i8, ptr %.0194491.i, i64 56
-  store double %.sink.i, ptr %165, align 8
+  store double %.sink.i, ptr %165, align 8, !noalias !7
   %.sink.i265.i = load double, ptr %.510.i, align 8, !noalias !7
   %166 = getelementptr inbounds i8, ptr %.0194491.i, i64 64
   store double %.sink.i265.i, ptr %166, align 8, !noalias !7
@@ -565,7 +565,7 @@ addLabelObj.exit290.i:                            ; preds = %203
   %.512.i = select i1 %208, ptr %209, ptr %210
   %.sink504.i = load double, ptr %.511.i, align 8, !noalias !10
   %211 = getelementptr inbounds i8, ptr %.2196472.i, i64 16
-  store double %.sink504.i, ptr %211, align 8
+  store double %.sink504.i, ptr %211, align 8, !noalias !10
   %.sink.i278.i = load double, ptr %.512.i, align 8, !noalias !10
   %212 = getelementptr inbounds i8, ptr %.2196472.i, i64 24
   store double %.sink.i278.i, ptr %212, align 8, !noalias !10
@@ -681,7 +681,7 @@ addLabelObj.exit305.i:                            ; preds = %261
   %.514.i = select i1 %266, ptr %267, ptr %268
   %.sink505.i = load double, ptr %.513.i, align 8, !noalias !13
   %269 = getelementptr inbounds i8, ptr %.3197.i, i64 16
-  store double %.sink505.i, ptr %269, align 8
+  store double %.sink505.i, ptr %269, align 8, !noalias !13
   %.sink.i293.i = load double, ptr %.514.i, align 8, !noalias !13
   %270 = getelementptr inbounds i8, ptr %.3197.i, i64 24
   store double %.sink.i293.i, ptr %270, align 8, !noalias !13
@@ -822,7 +822,7 @@ addLabelObj.exit321.i:                            ; preds = %326
   %.516.i = select i1 %331, ptr %332, ptr %333
   %.sink506.i = load double, ptr %.515.i, align 8, !noalias !16
   %334 = getelementptr inbounds i8, ptr %.5199.i, i64 16
-  store double %.sink506.i, ptr %334, align 8
+  store double %.sink506.i, ptr %334, align 8, !noalias !16
   %.sink.i309.i = load double, ptr %.516.i, align 8, !noalias !16
   %335 = getelementptr inbounds i8, ptr %.5199.i, i64 24
   store double %.sink.i309.i, ptr %335, align 8, !noalias !16
@@ -968,7 +968,7 @@ addLabelObj.exit342.i:                            ; preds = %397
   %.518.i = select i1 %402, ptr %403, ptr %404
   %.sink507.i = load double, ptr %.517.i, align 8, !noalias !19
   %405 = getelementptr inbounds i8, ptr %.6200.i, i64 16
-  store double %.sink507.i, ptr %405, align 8
+  store double %.sink507.i, ptr %405, align 8, !noalias !19
   %.sink.i330.i = load double, ptr %.518.i, align 8, !noalias !19
   %406 = getelementptr inbounds i8, ptr %.6200.i, i64 24
   store double %.sink.i330.i, ptr %406, align 8, !noalias !19
@@ -2460,7 +2460,7 @@ addLabelObj.exit:                                 ; preds = %23
   %.18 = select i1 %30, ptr %31, ptr %32
   %.sink = load double, ptr %., align 8, !noalias !22
   %33 = getelementptr inbounds i8, ptr %28, i64 16
-  store double %.sink, ptr %33, align 8
+  store double %.sink, ptr %33, align 8, !noalias !22
   %.sink.i = load double, ptr %.18, align 8, !noalias !22
   %34 = getelementptr inbounds i8, ptr %28, i64 24
   store double %.sink.i, ptr %34, align 8, !noalias !22

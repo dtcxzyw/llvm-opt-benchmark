@@ -18840,14 +18840,14 @@ _ZN5alloc7raw_vec14handle_reserve17he7602332f1c1effcE.exit.i.i: ; preds = %.noex
 .noexc116.i:                                      ; preds = %832
   %not..i = xor i1 %833, true
   %spec.select.i = zext i1 %not..i to i64
-  store ptr %.val74.i, ptr %735, align 8, !noalias !3473
-  store i64 %.val75.i, ptr %736, align 8, !noalias !3473
-  store i64 %.0.sroa.speculated.i.i, ptr %737, align 8, !noalias !3473
-  store ptr %64, ptr %738, align 8, !noalias !3473
-  store ptr %60, ptr %739, align 8, !noalias !3473
-  store ptr %59, ptr %740, align 8, !noalias !3473
-  store ptr %65, ptr %741, align 8, !noalias !3473
-  store i64 %spec.select.i, ptr %53, align 8, !alias.scope !3499, !noalias !3502
+  store ptr %.val74.i, ptr %735, align 8, !noalias !3499
+  store i64 %.val75.i, ptr %736, align 8, !noalias !3499
+  store i64 %.0.sroa.speculated.i.i, ptr %737, align 8, !noalias !3499
+  store ptr %64, ptr %738, align 8, !noalias !3499
+  store ptr %60, ptr %739, align 8, !noalias !3499
+  store ptr %59, ptr %740, align 8, !noalias !3499
+  store ptr %65, ptr %741, align 8, !noalias !3499
+  store i64 %spec.select.i, ptr %53, align 8, !alias.scope !3503, !noalias !3499
   invoke void @"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$6reduce17h81fad33e09a8da16E"(ptr noalias nocapture noundef nonnull sret([56 x i8]) align 8 dereferenceable(56) %54, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64)
           to label %835 unwind label %830, !noalias !3483
 
@@ -36138,12 +36138,12 @@ attributes #35 = { nounwind }
 !3496 = distinct !{!3496, !"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$$RF$$LP$alloc..string..String$C$u32$RP$$RP$$GT$$GT$17h690603ed5d959cbaE.llvm.1287153784043347726"}
 !3497 = distinct !{!3497, !3498, !"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$$RF$$LP$alloc..string..String$C$u32$RP$$RP$$GT$$GT$17hbd3fbd7095c54117E: argument 0"}
 !3498 = distinct !{!3498, !"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$$RF$$LP$alloc..string..String$C$u32$RP$$RP$$GT$$GT$17hbd3fbd7095c54117E"}
-!3499 = !{!3500}
-!3500 = distinct !{!3500, !3501, !"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3map17h3641c2c1bbbe64adE: argument 0"}
+!3499 = !{!3500, !3502, !3474, !3475, !3471}
+!3500 = distinct !{!3500, !3501, !"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3map17h3641c2c1bbbe64adE: argument 1"}
 !3501 = distinct !{!3501, !"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3map17h3641c2c1bbbe64adE"}
-!3502 = !{!3503, !3504, !3474, !3475, !3471}
-!3503 = distinct !{!3503, !3501, !"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3map17h3641c2c1bbbe64adE: argument 1"}
-!3504 = distinct !{!3504, !3501, !"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3map17h3641c2c1bbbe64adE: argument 2"}
+!3502 = distinct !{!3502, !3501, !"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3map17h3641c2c1bbbe64adE: argument 2"}
+!3503 = !{!3504}
+!3504 = distinct !{!3504, !3501, !"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3map17h3641c2c1bbbe64adE: argument 0"}
 !3505 = !{!3506}
 !3506 = distinct !{!3506, !3507, !"_ZN5alloc7raw_vec14handle_reserve17hb232081ba50aa8d3E.llvm.787574339177529159: argument 0"}
 !3507 = distinct !{!3507, !"_ZN5alloc7raw_vec14handle_reserve17hb232081ba50aa8d3E.llvm.787574339177529159"}

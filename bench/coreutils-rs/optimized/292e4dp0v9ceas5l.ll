@@ -1486,10 +1486,10 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %.sink63.in.in.i = trunc i32 %.sink63.in.in.in.i to i8
   %.sink63.in.i = and i8 %.sink63.in.in.i, 63
   %.sink63.i = or disjoint i8 %.sink63.in.i, -128
-  store i8 %45, ptr %9, align 4, !noalias !274
-  store i8 %.sink63.i, ptr %28, align 1, !noalias !274
+  store i8 %45, ptr %9, align 4, !alias.scope !277, !noalias !274
+  store i8 %.sink63.i, ptr %28, align 1, !alias.scope !277, !noalias !274
   %47 = getelementptr inbounds i8, ptr %9, i64 2
-  store i8 %.sink.i, ptr %47, align 2, !noalias !274
+  store i8 %.sink.i, ptr %47, align 2, !alias.scope !277, !noalias !274
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %48 = icmp ult i64 %46, %24

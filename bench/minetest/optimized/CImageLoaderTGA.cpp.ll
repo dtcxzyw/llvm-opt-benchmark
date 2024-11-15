@@ -403,7 +403,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub.sink.v = select i1 %cmp8, i8 1, i8 -127
   %sub.sink = add i8 %51, %sub.sink.v
   %conv29.sink = select i1 %cmp8, i64 0, i64 %conv29
-  store i8 %sub.sink, ptr %chunkheader, align 1
+  store i8 %sub.sink, ptr %chunkheader, align 1, !tbaa !11
   %vtable30 = load ptr, ptr %file, align 8, !tbaa !18
   %52 = load ptr, ptr %vtable30, align 8
   %call32 = call noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %call, i64 noundef %conv29.sink) #13

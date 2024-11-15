@@ -6796,7 +6796,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
 
 72:                                               ; preds = %57, %71
   %.sink = phi i32 [ 1, %71 ], [ 0, %57 ]
-  store i32 %.sink, ptr %63, align 4
+  store i32 %.sink, ptr %63, align 4, !tbaa !16
   %73 = getelementptr inbounds i8, ptr %14, i64 336
   %74 = load float, ptr %73, align 8, !tbaa !206
   %75 = fsub reassoc nsz arcp contract afn float %60, %74
@@ -6813,7 +6813,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
 
 82:                                               ; preds = %72, %81
   %.sink1 = phi i32 [ 1, %81 ], [ 0, %72 ]
-  store i32 %.sink1, ptr %80, align 4
+  store i32 %.sink1, ptr %80, align 4, !tbaa !16
   %83 = getelementptr inbounds i8, ptr %14, i64 344
   %84 = load float, ptr %83, align 8, !tbaa !206
   %85 = fsub reassoc nsz arcp contract afn float %60, %84
@@ -6831,7 +6831,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
 
 93:                                               ; preds = %82, %92
   %.sink2 = phi i32 [ 1, %92 ], [ 0, %82 ]
-  store i32 %.sink2, ptr %91, align 4
+  store i32 %.sink2, ptr %91, align 4, !tbaa !16
   %94 = getelementptr inbounds i8, ptr %14, i64 352
   %95 = load float, ptr %94, align 8, !tbaa !206
   %96 = fsub reassoc nsz arcp contract afn float %60, %95
@@ -6849,7 +6849,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
 
 104:                                              ; preds = %93, %103
   %.sink3 = phi i32 [ 1, %103 ], [ 0, %93 ]
-  store i32 %.sink3, ptr %102, align 4
+  store i32 %.sink3, ptr %102, align 4, !tbaa !16
   %105 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %37) #28
   %106 = load i32, ptr %58, align 32, !tbaa !213
   %107 = icmp eq i32 %106, 0

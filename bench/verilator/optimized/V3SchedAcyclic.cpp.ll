@@ -6191,7 +6191,7 @@ _ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBA
   %46 = phi ptr [ %40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i ], [ %43, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i ]
   %.val.i.i.i27.i = phi ptr [ %41, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i ], [ null, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i ]
   %47 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %46, ptr %47, align 8
+  store ptr %46, ptr %47, align 8, !alias.scope !65
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %48 = icmp eq ptr %.val21, %.val18

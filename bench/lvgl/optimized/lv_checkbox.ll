@@ -213,26 +213,26 @@ define internal void @lv_checkbox_event(ptr nocapture readnone %0, ptr noundef %
   %.sink70.i = phi i32 [ %100, %93 ], [ %89, %86 ]
   %.sink.i = phi i32 [ %96, %93 ], [ %92, %86 ]
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sink70.i, ptr %102, align 4
-  store i32 %.sink.i, ptr %4, align 4
+  store i32 %.sink70.i, ptr %102, align 4, !tbaa !18
+  store i32 %.sink.i, ptr %4, align 4, !tbaa !19
   %103 = getelementptr inbounds nuw i8, ptr %50, i64 44
-  %104 = load i32, ptr %103, align 4, !tbaa !18
+  %104 = load i32, ptr %103, align 4, !tbaa !20
   %105 = add nsw i32 %104, %62
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %105, ptr %106, align 4, !tbaa !19
+  store i32 %105, ptr %106, align 4, !tbaa !21
   %107 = add i32 %.sroa.0.0.extract.trunc.i63.i, %.sroa.0.0.extract.trunc.i62.i
   %108 = add i32 %107, %.pre-phi.i
   %109 = add i32 %108, %105
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %109, ptr %110, align 4, !tbaa !20
+  store i32 %109, ptr %110, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
-  store i32 %.sink.i, ptr %5, align 4, !tbaa !21
+  store i32 %.sink.i, ptr %5, align 4, !tbaa !19
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %105, ptr %111, align 4, !tbaa !19
+  store i32 %105, ptr %111, align 4, !tbaa !21
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sink70.i, ptr %112, align 4, !tbaa !22
+  store i32 %.sink70.i, ptr %112, align 4, !tbaa !18
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %109, ptr %113, align 4, !tbaa !20
+  store i32 %109, ptr %113, align 4, !tbaa !22
   call void @lv_area_increase(ptr noundef nonnull %5, i32 noundef %.sroa.0.0.extract.trunc.i64.i, i32 noundef %.sroa.0.0.extract.trunc.i65.i) #5
   call void @lv_draw_rect(ptr noundef %51, ptr noundef nonnull %3, ptr noundef nonnull %5) #5
   %114 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %50, i32 noundef 0, i8 noundef zeroext 92) #5
@@ -257,13 +257,13 @@ define internal void @lv_checkbox_event(ptr nocapture readnone %0, ptr noundef %
   br i1 %57, label %124, label %128
 
 124:                                              ; preds = %101
-  %125 = load i32, ptr %4, align 4, !tbaa !21
+  %125 = load i32, ptr %4, align 4, !tbaa !19
   %126 = sub nsw i32 %125, %.sroa.0.0.extract.trunc.i59.i
   %127 = sub nsw i32 %126, %123
   br label %lv_checkbox_draw.exit
 
 128:                                              ; preds = %101
-  %129 = load i32, ptr %102, align 4, !tbaa !22
+  %129 = load i32, ptr %102, align 4, !tbaa !18
   %130 = add nsw i32 %129, %.sroa.0.0.extract.trunc.i59.i
   %131 = add nsw i32 %130, %123
   br label %lv_checkbox_draw.exit
@@ -272,20 +272,20 @@ lv_checkbox_draw.exit:                            ; preds = %124, %128
   %.sink72.i = phi i32 [ %126, %124 ], [ %131, %128 ]
   %.sink71.i = phi i32 [ %127, %124 ], [ %130, %128 ]
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %.sink72.i, ptr %132, align 4
-  store i32 %.sink71.i, ptr %8, align 4
+  store i32 %.sink72.i, ptr %132, align 4, !tbaa !18
+  store i32 %.sink71.i, ptr %8, align 4, !tbaa !19
   %133 = sub nsw i32 %122, %53
   %134 = sdiv i32 %133, 2
-  %135 = load i32, ptr %103, align 4, !tbaa !18
+  %135 = load i32, ptr %103, align 4, !tbaa !20
   %136 = add i32 %134, %62
   %137 = add i32 %136, %135
   %138 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %137, ptr %138, align 4, !tbaa !19
+  store i32 %137, ptr %138, align 4, !tbaa !21
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %140 = load i32, ptr %139, align 4, !tbaa !14
   %141 = add nsw i32 %140, %137
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %141, ptr %142, align 4, !tbaa !20
+  store i32 %141, ptr %142, align 4, !tbaa !22
   call void @lv_draw_label(ptr noundef %51, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
@@ -479,11 +479,11 @@ attributes #5 = { nounwind }
 !15 = !{!10, !10, i64 0}
 !16 = !{!5, !10, i64 48}
 !17 = !{!5, !10, i64 40}
-!18 = !{!5, !10, i64 44}
-!19 = !{!9, !10, i64 4}
-!20 = !{!9, !10, i64 12}
-!21 = !{!9, !10, i64 0}
-!22 = !{!9, !10, i64 8}
+!18 = !{!9, !10, i64 8}
+!19 = !{!9, !10, i64 0}
+!20 = !{!5, !10, i64 44}
+!21 = !{!9, !10, i64 4}
+!22 = !{!9, !10, i64 12}
 !23 = !{!24, !6, i64 48}
 !24 = !{!"", !25, i64 0, !6, i64 48, !6, i64 56, !10, i64 64, !10, i64 68, !27, i64 72, !27, i64 75, !27, i64 78, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !7, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 116, !7, i64 116, !7, i64 116, !6, i64 120}
 !25 = !{!"", !6, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !6, i64 24, !26, i64 32, !6, i64 40}

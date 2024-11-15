@@ -7793,8 +7793,8 @@ if.else.i.i5.i.thread.i:                          ; preds = %if.then.i.i.i
 
 _ZNR4absl12lts_202308028StatusOrISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEEdeEv.exit.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb13.i.i.i.i.i
   %.sink.i = phi i8 [ 1, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %sw.bb13.i.i.i.i.i ]
-  store i8 %.sink.i, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !194
-  store i64 0, ptr %7, align 8, !noalias !194
+  store i8 %.sink.i, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !244, !noalias !197
+  store i64 0, ptr %7, align 8, !alias.scope !244, !noalias !197
   store i8 %.sink.i, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !197
   store i64 0, ptr %agg.tmp.i.i, align 8, !noalias !197
   br label %for.body.i.i.i.i.i

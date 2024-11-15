@@ -7750,13 +7750,13 @@ define hidden void @_ZN5serde2de5Error15unknown_variant17he5a612459ffd9b11E(ptr 
 
 19:                                               ; preds = %"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h360a61f9456e1ee1E.llvm.7442130522521287225.exit13", %"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h360a61f9456e1ee1E.llvm.7442130522521287225.exit"
   %20 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %20, align 8
+  store i64 0, ptr %20, align 8, !noalias !10
   %21 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr inttoptr (i64 8 to ptr), ptr %21, align 8
+  store ptr inttoptr (i64 8 to ptr), ptr %21, align 8, !noalias !10
   %22 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 0, ptr %22, align 8
+  store i64 0, ptr %22, align 8, !noalias !10
   %23 = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 -9223372036854775808, ptr %23, align 8
+  store i64 -9223372036854775808, ptr %23, align 8, !noalias !10
   ret void
 }
 

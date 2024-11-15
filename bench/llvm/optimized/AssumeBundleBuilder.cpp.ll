@@ -2112,8 +2112,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13IntrinsicInstENS_6detail13DenseS
   %.sink.i = phi i32 [ %294, %290 ], [ 1, %288 ]
   %299 = phi ptr [ %298, %290 ], [ %36, %288 ]
   %300 = phi ptr [ %295, %290 ], [ %72, %288 ]
-  store i32 %.sink.i, ptr %34, align 8
-  store i32 0, ptr %35, align 4
+  store i32 %.sink.i, ptr %34, align 8, !noalias !36
+  store i32 0, ptr %35, align 4, !noalias !36
   br label %.lr.ph.i.i95.i.i
 
 .lr.ph.i.i95.i.i:                                 ; preds = %.lr.ph.i.i95.i.i, %.lr.ph.i.i95.preheader.i.i
@@ -2466,8 +2466,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_13IntrinsicInstENS_6detail13DenseS
   %.sink68.i = phi i32 [ %464, %460 ], [ 1, %458 ]
   %469 = phi ptr [ %468, %460 ], [ %36, %458 ]
   %470 = phi ptr [ %465, %460 ], [ %72, %458 ]
-  store i32 %.sink68.i, ptr %34, align 8
-  store i32 0, ptr %35, align 4
+  store i32 %.sink68.i, ptr %34, align 8, !noalias !36
+  store i32 0, ptr %35, align 4, !noalias !36
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i

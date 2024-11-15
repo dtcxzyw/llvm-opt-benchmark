@@ -1050,7 +1050,8 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   br label %498
 
 498:                                              ; preds = %497, %.thread2576
-  %499 = xor i1 %narrow2623, %441
+  %not.2739 = xor i1 %449, true
+  %499 = and i1 %441, %not.2739
   br i1 %499, label %500, label %507
 
 500:                                              ; preds = %498
@@ -1058,7 +1059,8 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %140, ptr noundef nonnull align 16 dereferenceable(64) %138, i64 64, i1 false)
   %502 = load i32, ptr %247, align 4
   %503 = icmp ult i32 %501, %502
-  %504 = xor i1 %narrow2623, %441
+  %not.2740 = xor i1 %449, true
+  %504 = and i1 %441, %not.2740
   %505 = select i1 %503, i1 %504, i1 false
   %506 = zext i1 %505 to i8
   br i1 %narrow2623, label %513, label %523
@@ -1066,7 +1068,8 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
 507:                                              ; preds = %498
   %508 = load i32, ptr %247, align 4
   %509 = icmp ult i32 %.025582661, %508
-  %510 = xor i1 %narrow2623, %441
+  %not. = xor i1 %449, true
+  %510 = and i1 %441, %not.
   %511 = select i1 %509, i1 %510, i1 false
   %512 = zext i1 %511 to i8
   br i1 %narrow2623, label %513, label %523
@@ -1939,8 +1942,8 @@ _ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emi
   %889 = fmul contract <4 x float> %888, %888
   %shift = shufflevector <4 x float> %889, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %890 = fadd contract <4 x float> %889, %shift
-  %shift2739 = shufflevector <4 x float> %889, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %891 = fadd contract <4 x float> %shift2739, %890
+  %shift2741 = shufflevector <4 x float> %889, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %891 = fadd contract <4 x float> %shift2741, %890
   %892 = extractelement <4 x float> %891, i64 0
   %893 = call contract noundef float @llvm.sqrt.f32(float %892)
   store float %893, ptr %271, align 16
@@ -2442,8 +2445,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %1124 = fadd contract float %.cast.i.i.i, %1123
   %1125 = fdiv contract float -1.000000e+00, %1124
   %1126 = extractelement <4 x float> %1103, i64 0
-  %shift2740 = shufflevector <4 x float> %1103, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %1127 = fmul contract <4 x float> %shift2740, %1103
+  %shift2742 = shufflevector <4 x float> %1103, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %1127 = fmul contract <4 x float> %shift2742, %1103
   %1128 = extractelement <4 x float> %1127, i64 0
   %1129 = fmul contract float %1128, %1125
   %1130 = fmul contract <4 x float> %1103, %1103
@@ -2478,8 +2481,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %1156 = fadd contract float %.cast.i.i7.i, %1155
   %1157 = fdiv contract float -1.000000e+00, %1156
   %1158 = extractelement <4 x float> %1112, i64 0
-  %shift2741 = shufflevector <4 x float> %1112, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %1159 = fmul contract <4 x float> %1112, %shift2741
+  %shift2743 = shufflevector <4 x float> %1112, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %1159 = fmul contract <4 x float> %1112, %shift2743
   %1160 = extractelement <4 x float> %1159, i64 0
   %1161 = fmul contract float %1160, %1157
   %1162 = fmul contract <4 x float> %1112, %1112
@@ -2508,8 +2511,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %1182 = fadd contract float %.cast.i.i9.i, %1181
   %1183 = fdiv contract float -1.000000e+00, %1182
   %1184 = extractelement <4 x float> %1113, i64 0
-  %shift2742 = shufflevector <4 x float> %1113, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %1185 = fmul contract <4 x float> %1113, %shift2742
+  %shift2744 = shufflevector <4 x float> %1113, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %1185 = fmul contract <4 x float> %1113, %shift2744
   %1186 = extractelement <4 x float> %1185, i64 0
   %1187 = fmul contract float %1186, %1183
   %1188 = fmul contract <4 x float> %1113, %1113
@@ -2953,8 +2956,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %1401 = fadd contract float %.cast.i.i.i2228, %1400
   %1402 = fdiv contract float -1.000000e+00, %1401
   %1403 = extractelement <4 x float> %1380, i64 0
-  %shift2743 = shufflevector <4 x float> %1380, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %1404 = fmul contract <4 x float> %shift2743, %1380
+  %shift2745 = shufflevector <4 x float> %1380, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %1404 = fmul contract <4 x float> %shift2745, %1380
   %1405 = extractelement <4 x float> %1404, i64 0
   %1406 = fmul contract float %1405, %1402
   %1407 = fmul contract <4 x float> %1380, %1380
@@ -2989,8 +2992,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %1433 = fadd contract float %.cast.i.i7.i2230, %1432
   %1434 = fdiv contract float -1.000000e+00, %1433
   %1435 = extractelement <4 x float> %1389, i64 0
-  %shift2744 = shufflevector <4 x float> %1389, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %1436 = fmul contract <4 x float> %1389, %shift2744
+  %shift2746 = shufflevector <4 x float> %1389, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %1436 = fmul contract <4 x float> %1389, %shift2746
   %1437 = extractelement <4 x float> %1436, i64 0
   %1438 = fmul contract float %1437, %1434
   %1439 = fmul contract <4 x float> %1389, %1389
@@ -3019,8 +3022,8 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %1459 = fadd contract float %.cast.i.i9.i2232, %1458
   %1460 = fdiv contract float -1.000000e+00, %1459
   %1461 = extractelement <4 x float> %1390, i64 0
-  %shift2745 = shufflevector <4 x float> %1390, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %1462 = fmul contract <4 x float> %1390, %shift2745
+  %shift2747 = shufflevector <4 x float> %1390, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %1462 = fmul contract <4 x float> %1390, %shift2747
   %1463 = extractelement <4 x float> %1462, i64 0
   %1464 = fmul contract float %1463, %1460
   %1465 = fmul contract <4 x float> %1390, %1390

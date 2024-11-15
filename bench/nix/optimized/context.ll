@@ -8145,7 +8145,7 @@ define linkonce_odr void @_ZN2rc3SeqIhE7SeqImplINS_6shrink6detail10TowardsSeqIhE
 _ZN2rc6shrink6detail10TowardsSeqIhEclEv.exit:     ; preds = %2, %6
   %.sink = phi i8 [ 1, %6 ], [ 0, %2 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %.sink, ptr %15, align 1
+  store i8 %.sink, ptr %15, align 1, !alias.scope !202
   ret void
 }
 

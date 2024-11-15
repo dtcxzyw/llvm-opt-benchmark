@@ -2319,7 +2319,7 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix18init_from_settingsIcEEvRKNS1_2
   br i1 %.not.i.i, label %.thread, label %17
 
 .thread:                                          ; preds = %._crit_edge.i.i.i.i.i
-  store ptr null, ptr %3, align 8, !alias.scope !58
+  store ptr null, ptr %3, align 8, !tbaa !56, !alias.scope !58
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
 
 17:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -2331,7 +2331,7 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix18init_from_settingsIcEEvRKNS1_2
   %19 = load ptr, ptr %2, align 8, !tbaa !59, !noalias !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #29, !noalias !58
   %.pre = load ptr, ptr %10, align 8, !tbaa !10
-  store ptr %19, ptr %3, align 8, !alias.scope !58
+  store ptr %19, ptr %3, align 8, !tbaa !56, !alias.scope !58
   %20 = icmp eq ptr %.pre, %11
   br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
@@ -4351,7 +4351,7 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix18init_from_settingsIwEEvRKNS1_2
   br i1 %.not.i.i, label %.thread, label %17
 
 .thread:                                          ; preds = %._crit_edge.i.i.i.i.i
-  store ptr null, ptr %3, align 8, !alias.scope !206
+  store ptr null, ptr %3, align 8, !tbaa !204, !alias.scope !206
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
 
 17:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -4363,7 +4363,7 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix18init_from_settingsIwEEvRKNS1_2
   %19 = load ptr, ptr %2, align 8, !tbaa !207, !noalias !206
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #29, !noalias !206
   %.pre = load ptr, ptr %10, align 8, !tbaa !10
-  store ptr %19, ptr %3, align 8, !alias.scope !206
+  store ptr %19, ptr %3, align 8, !tbaa !204, !alias.scope !206
   %20 = icmp eq ptr %.pre, %11
   br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 

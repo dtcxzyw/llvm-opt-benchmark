@@ -1197,8 +1197,8 @@ define void @dlaed4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.sink132 = phi double [ %907, %888 ], [ %882, %863 ]
   %.sink = phi double [ %911, %888 ], [ %883, %863 ]
   %914 = phi double [ %912, %888 ], [ %887, %863 ]
-  store double %.sink132, ptr %9, align 8
-  store double %.sink, ptr %12, align 16
+  store double %.sink132, ptr %9, align 8, !tbaa !7
+  store double %.sink, ptr %12, align 16, !tbaa !7
   %915 = getelementptr inbounds i8, ptr %12, i64 16
   store double %914, ptr %915, align 16, !tbaa !7
   %916 = fmul double %729, %729

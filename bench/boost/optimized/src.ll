@@ -7177,7 +7177,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit:         ; preds = %2, %7
   %.0.i = phi ptr [ %30, %.noexc ], [ %35, %.noexc60 ]
   %43 = ptrtoint ptr %.0.i to i64
   %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store i64 %43, ptr %44, align 8
+  store i64 %43, ptr %44, align 8, !tbaa !112
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i, ptr %45, align 8, !tbaa !102
   %46 = getelementptr inbounds i8, ptr %.0.i, i64 16
@@ -11206,7 +11206,7 @@ define noundef nonnull ptr @_ZN5boost4json6object11insert_implENS0_8pilferedINS0
   %42 = add i32 %.sink10, 1
   store i32 %42, ptr %.sink9, align 8, !tbaa !106
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %43, align 8
+  store i8 0, ptr %43, align 8, !tbaa !54
   ret ptr %.0
 }
 
@@ -11272,7 +11272,7 @@ _ZN5boost4json6object5table8allocateEmmRKNS0_11storage_ptrE.exit: ; preds = %24,
   %38 = ptrtoint ptr %.0.i9 to i64
   %spec.select.i = select i1 %.not.i, i64 %38, i64 %15
   %39 = getelementptr inbounds nuw i8, ptr %.0.i9, i64 8
-  store i64 %spec.select.i, ptr %39, align 8
+  store i64 %spec.select.i, ptr %39, align 8, !tbaa !112
   %40 = load ptr, ptr %5, align 8, !tbaa !42
   %41 = load i32, ptr %40, align 8, !tbaa !106
   %42 = icmp eq i32 %41, 0
@@ -15155,7 +15155,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNKR5boost4json5value10
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 2, ptr %9, align 8, !alias.scope !302
+  store i32 2, ptr %9, align 8, !tbaa !68, !alias.scope !302
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #48, !noalias !302
   call void @_ZN5boost6system26throw_exception_from_errorERKNS0_10error_codeERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %3) #49
   unreachable
@@ -15186,7 +15186,7 @@ define void @_ZNK5boost4json5value14try_at_pointerENS_4core17basic_string_viewIc
 9:                                                ; preds = %8, %7
   %.sink = phi i32 [ 2, %7 ], [ 1, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sink, ptr %10, align 8
+  store i32 %.sink, ptr %10, align 8, !tbaa !68
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #48
   ret void
 }
@@ -15361,7 +15361,7 @@ define void @_ZN5boost4json5value14try_at_pointerENS_4core17basic_string_viewIcE
 9:                                                ; preds = %8, %7
   %.sink = phi i32 [ 2, %7 ], [ 1, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sink, ptr %10, align 8
+  store i32 %.sink, ptr %10, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #48
   ret void
 }
@@ -16579,7 +16579,7 @@ define void @_ZN5boost4json5value18try_set_at_pointerENS_4core17basic_string_vie
 11:                                               ; preds = %10, %9
   %.sink = phi i32 [ 2, %10 ], [ 1, %9 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sink, ptr %12, align 8
+  store i32 %.sink, ptr %12, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #48
   ret void
 }
@@ -16600,7 +16600,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost4json5value14se
 10:                                               ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !32
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 2, ptr %11, align 8, !alias.scope !331
+  store i32 2, ptr %11, align 8, !tbaa !63, !alias.scope !331
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #48, !noalias !331
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #48
   store ptr @.str.64, ptr %8, align 8, !tbaa !203
@@ -31785,11 +31785,11 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %10, %4
   %.sink5.i = phi ptr [ %2, %10 ], [ null, %4 ]
   %.sink.i = phi ptr [ %12, %10 ], [ null, %4 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink5.i, ptr %13, align 8
+  store ptr %.sink5.i, ptr %13, align 8, !tbaa !182
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink5.i, ptr %14, align 8
+  store ptr %.sink5.i, ptr %14, align 8, !tbaa !174
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink.i, ptr %15, align 8
+  store ptr %.sink.i, ptr %15, align 8, !tbaa !616
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %16, align 8, !tbaa !17
   ret void
@@ -31821,11 +31821,11 @@ define void @_ZN5boost4json11value_stack10push_arrayEm(ptr noundef nonnull align
 12:                                               ; preds = %.split, %.split6
   %.sink14 = phi ptr [ %11, %.split6 ], [ %9, %.split ]
   %.sink = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sink14, ptr %4, align 8
+  store ptr %.sink14, ptr %4, align 8, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %1, ptr %13, align 8
+  store i64 %1, ptr %13, align 8, !tbaa !49
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sink, ptr %14, align 8
+  store ptr %.sink, ptr %14, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #48
   invoke void @_ZN5boost4json5arrayC1EONS0_6detail15unchecked_arrayE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %15 unwind label %32
@@ -32000,11 +32000,11 @@ define void @_ZN5boost4json11value_stack11push_objectEm(ptr noundef nonnull alig
 11:                                               ; preds = %.split, %.split6
   %.sink8 = phi ptr [ %10, %.split6 ], [ %8, %.split ]
   %.sink = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sink8, ptr %4, align 8
+  store ptr %.sink8, ptr %4, align 8, !tbaa !125
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %1, ptr %12, align 8
+  store i64 %1, ptr %12, align 8, !tbaa !124
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sink, ptr %13, align 8
+  store ptr %.sink, ptr %13, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #48
   invoke void @_ZN5boost4json6objectC1EONS0_6detail16unchecked_objectE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %14 unwind label %31
@@ -37866,7 +37866,7 @@ _ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit:   ; preds = %.lr.ph.i, %_ZN5boos
   %.0.i = phi ptr [ %108, %102 ], [ %95, %93 ]
   %118 = add i32 %.sink10.i, 1
   store i32 %118, ptr %.sink9.i, align 8, !tbaa !106
-  store i8 0, ptr %23, align 8
+  store i8 0, ptr %23, align 8, !tbaa !54
   %119 = load ptr, ptr %41, align 8, !tbaa !111
   %120 = icmp eq ptr %119, @_ZN5boost4json14key_value_pair6empty_E
   br i1 %120, label %_ZN5boost4json14key_value_pairD2Ev.exit, label %121
@@ -39921,7 +39921,7 @@ _ZN5boost4json6detail11count_validILb1EEEPKcS4_S4_.exit: ; preds = %104, %_ZN5bo
   %134 = trunc i16 %130 to i8
   %.sink.i44 = select i1 %.not.i43, i8 %133, i8 %134
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 166
-  store i8 %.sink.i44, ptr %135, align 2
+  store i8 %.sink.i44, ptr %135, align 2, !tbaa !679
   %136 = zext i8 %.sink.i44 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(7) %125, ptr nonnull align 1 %106, i64 %136, i1 false)
   %137 = load i8, ptr %135, align 2, !tbaa !679
@@ -40759,11 +40759,11 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit78: ; preds = %.lr.ph.i72, %1
   %.1204207 = phi ptr [ %.035.i, %.split6.i.i ], [ %.1204, %.split.i.i ]
   %.sink8.i.i = phi ptr [ %208, %.split6.i.i ], [ %206, %.split.i.i ]
   %.sink.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sink8.i.i, ptr %7, align 8
+  store ptr %.sink8.i.i, ptr %7, align 8, !tbaa !125
   %210 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.0209, ptr %210, align 8
+  store i64 %.0209, ptr %210, align 8, !tbaa !124
   %211 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink.i.i, ptr %211, align 8
+  store ptr %.sink.i.i, ptr %211, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #48
   invoke void @_ZN5boost4json6objectC1EONS0_6detail16unchecked_objectE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %212 unwind label %229
@@ -48344,7 +48344,7 @@ _ZN5boost4json6detail11count_validILb1EEEPKcS4_S4_.exit: ; preds = %108, %_ZN5bo
   %138 = trunc i16 %134 to i8
   %.sink.i44 = select i1 %.not.i43, i8 %137, i8 %138
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 166
-  store i8 %.sink.i44, ptr %139, align 2
+  store i8 %.sink.i44, ptr %139, align 2, !tbaa !679
   %140 = zext i8 %.sink.i44 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(7) %129, ptr nonnull align 1 %110, i64 %140, i1 false)
   %141 = load i8, ptr %139, align 2, !tbaa !679
@@ -49362,11 +49362,11 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit78: ; preds = %.lr.ph.i72, %2
   %.1204207 = phi ptr [ %.035.i, %.split6.i.i ], [ %.1204, %.split.i.i ]
   %.sink8.i.i = phi ptr [ %251, %.split6.i.i ], [ %249, %.split.i.i ]
   %.sink.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sink8.i.i, ptr %7, align 8
+  store ptr %.sink8.i.i, ptr %7, align 8, !tbaa !125
   %253 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.0209, ptr %253, align 8
+  store i64 %.0209, ptr %253, align 8, !tbaa !124
   %254 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink.i.i, ptr %254, align 8
+  store ptr %.sink.i.i, ptr %254, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #48
   invoke void @_ZN5boost4json6objectC1EONS0_6detail16unchecked_objectE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %255 unwind label %272
@@ -50580,7 +50580,7 @@ _ZN5boost4json6detail11count_validILb1EEEPKcS4_S4_.exit: ; preds = %106, %_ZN5bo
   %139 = trunc i16 %135 to i8
   %.sink.i54 = select i1 %.not.i53, i8 %138, i8 %139
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 166
-  store i8 %.sink.i54, ptr %140, align 2
+  store i8 %.sink.i54, ptr %140, align 2, !tbaa !679
   %141 = zext i8 %.sink.i54 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(7) %129, ptr nonnull align 1 %108, i64 %141, i1 false)
   %142 = load i8, ptr %140, align 2, !tbaa !679
@@ -51715,11 +51715,11 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit65: ; preds = %.lr.ph.i59, %2
 253:                                              ; preds = %.split6.i.i, %.split.i.i
   %.sink8.i.i = phi ptr [ %252, %.split6.i.i ], [ %250, %.split.i.i ]
   %.sink.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sink8.i.i, ptr %7, align 8
+  store ptr %.sink8.i.i, ptr %7, align 8, !tbaa !125
   %254 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.11, ptr %254, align 8
+  store i64 %.11, ptr %254, align 8, !tbaa !124
   %255 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink.i.i, ptr %255, align 8
+  store ptr %.sink.i.i, ptr %255, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #48
   invoke void @_ZN5boost4json6objectC1EONS0_6detail16unchecked_objectE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %256 unwind label %273
@@ -53389,7 +53389,7 @@ _ZN5boost4json6detail11count_validILb1EEEPKcS4_S4_.exit: ; preds = %110, %_ZN5bo
   %143 = trunc i16 %139 to i8
   %.sink.i54 = select i1 %.not.i53, i8 %142, i8 %143
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 166
-  store i8 %.sink.i54, ptr %144, align 2
+  store i8 %.sink.i54, ptr %144, align 2, !tbaa !679
   %145 = zext i8 %.sink.i54 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(7) %133, ptr nonnull align 1 %112, i64 %145, i1 false)
   %146 = load i8, ptr %144, align 2, !tbaa !679
@@ -57377,11 +57377,11 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit65: ; preds = %.lr.ph.i59, %2
 262:                                              ; preds = %.split6.i.i, %.split.i.i
   %.sink8.i.i = phi ptr [ %261, %.split6.i.i ], [ %259, %.split.i.i ]
   %.sink.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sink8.i.i, ptr %7, align 8
+  store ptr %.sink8.i.i, ptr %7, align 8, !tbaa !125
   %263 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.11, ptr %263, align 8
+  store i64 %.11, ptr %263, align 8, !tbaa !124
   %264 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink.i.i, ptr %264, align 8
+  store ptr %.sink.i.i, ptr %264, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #48
   invoke void @_ZN5boost4json6objectC1EONS0_6detail16unchecked_objectE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %265 unwind label %282
@@ -58358,7 +58358,7 @@ _ZN5boost4json6detail6digestIPKcEEmT_S5_m.exit:   ; preds = %.lr.ph.i, %_ZN5boos
   %96 = add i32 %.sink10.i, 1
   store i32 %96, ptr %.sink9.i, align 8, !tbaa !106
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 0, ptr %97, align 8
+  store i8 0, ptr %97, align 8, !tbaa !54
   %98 = load ptr, ptr %16, align 8, !tbaa !111
   %99 = icmp eq ptr %98, @_ZN5boost4json14key_value_pair6empty_E
   br i1 %99, label %_ZN5boost4json14key_value_pairD2Ev.exit, label %100

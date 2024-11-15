@@ -1624,7 +1624,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %38 = phi ptr [ %37, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %38, i64 %.idx.i.i
   %39 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %.sink.i, ptr %39, align 8
+  store ptr %.sink.i, ptr %39, align 8, !alias.scope !7
   %40 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sink.i, ptr %40, align 8, !alias.scope !7
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -2357,7 +2357,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %21 = phi ptr [ %20, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %21, i64 %.idx.i.i
   %22 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.sink.i, ptr %22, align 8
+  store ptr %.sink.i, ptr %22, align 8, !alias.scope !15
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.sink.i, ptr %23, align 8, !alias.scope !15
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -2699,7 +2699,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %52 = phi ptr [ %51, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %52, i64 %.idx.i.i
   %53 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %.sink.i, ptr %53, align 8
+  store ptr %.sink.i, ptr %53, align 8, !alias.scope !19
   %54 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %.sink.i, ptr %54, align 8, !alias.scope !19
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %11)
@@ -3744,7 +3744,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %30 = phi ptr [ %29, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %30, i64 %.idx.i.i
   %31 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %.sink.i, ptr %31, align 8
+  store ptr %.sink.i, ptr %31, align 8, !alias.scope !30
   %32 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sink.i, ptr %32, align 8, !alias.scope !30
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -4370,7 +4370,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %39 = phi ptr [ %38, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %39, i64 %.idx.i.i
   %40 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %.sink.i, ptr %40, align 8
+  store ptr %.sink.i, ptr %40, align 8, !alias.scope !37
   %41 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %.sink.i, ptr %41, align 8, !alias.scope !37
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %11)
@@ -5308,7 +5308,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %39 = phi ptr [ %38, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %39, i64 %.idx.i.i
   %40 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %.sink.i, ptr %40, align 8
+  store ptr %.sink.i, ptr %40, align 8, !alias.scope !47
   %41 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %.sink.i, ptr %41, align 8, !alias.scope !47
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %11)
@@ -6231,7 +6231,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %30 = phi ptr [ %29, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %30, i64 %.idx.i.i
   %31 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %.sink.i, ptr %31, align 8
+  store ptr %.sink.i, ptr %31, align 8, !alias.scope !57
   %32 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sink.i, ptr %32, align 8, !alias.scope !57
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -6852,7 +6852,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %36 = phi ptr [ %35, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %36, i64 %.idx.i.i
   %37 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sink.i, ptr %37, align 8
+  store ptr %.sink.i, ptr %37, align 8, !alias.scope !64
   %38 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %.sink.i, ptr %38, align 8, !alias.scope !64
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -7684,7 +7684,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %37 = phi ptr [ %36, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %37, i64 %.idx.i.i
   %38 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %.sink.i, ptr %38, align 8
+  store ptr %.sink.i, ptr %38, align 8, !alias.scope !73
   %39 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.sink.i, ptr %39, align 8, !alias.scope !73
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -8394,7 +8394,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %21 = phi ptr [ %20, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %21, i64 %.idx.i.i
   %22 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.sink.i, ptr %22, align 8
+  store ptr %.sink.i, ptr %22, align 8, !alias.scope !81
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.sink.i, ptr %23, align 8, !alias.scope !81
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -8694,7 +8694,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %29 = phi ptr [ %28, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %29, i64 %.idx.i.i
   %30 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %.sink.i, ptr %30, align 8
+  store ptr %.sink.i, ptr %30, align 8, !alias.scope !85
   %31 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.sink.i, ptr %31, align 8, !alias.scope !85
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -9205,7 +9205,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %29 = phi ptr [ %28, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %29, i64 %.idx.i.i
   %30 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %.sink.i, ptr %30, align 8
+  store ptr %.sink.i, ptr %30, align 8, !alias.scope !91
   %31 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.sink.i, ptr %31, align 8, !alias.scope !91
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -9723,7 +9723,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %33 = phi ptr [ %32, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %33, i64 %.idx.i.i
   %34 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %.sink.i, ptr %34, align 8
+  store ptr %.sink.i, ptr %34, align 8, !alias.scope !97
   %35 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sink.i, ptr %35, align 8, !alias.scope !97
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -10342,7 +10342,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %31 = phi ptr [ %30, %.noexc1 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %31, i64 %.idx.i.i
   %32 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %.sink.i, ptr %32, align 8
+  store ptr %.sink.i, ptr %32, align 8, !alias.scope !104
   %33 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.sink.i, ptr %33, align 8, !alias.scope !104
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -11400,7 +11400,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %154 = phi ptr [ %153, %.noexc4 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %154, i64 %.idx.i.i
   %155 = getelementptr inbounds i8, ptr %23, i64 16
-  store ptr %.sink.i, ptr %155, align 8
+  store ptr %.sink.i, ptr %155, align 8, !alias.scope !115
   %156 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %.sink.i, ptr %156, align 8, !alias.scope !115
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -12164,7 +12164,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %154 = phi ptr [ %153, %.noexc4 ], [ null, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i = getelementptr inbounds i8, ptr %154, i64 %.idx.i.i
   %155 = getelementptr inbounds i8, ptr %23, i64 16
-  store ptr %.sink.i, ptr %155, align 8
+  store ptr %.sink.i, ptr %155, align 8, !alias.scope !123
   %156 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %.sink.i, ptr %156, align 8, !alias.scope !123
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %23)

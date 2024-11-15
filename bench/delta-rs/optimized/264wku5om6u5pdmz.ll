@@ -19678,7 +19678,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1997
 
 2229:                                             ; preds = %2227, %2226
   %.sink = phi i128 [ 26, %2226 ], [ 38, %2227 ]
-  store i128 %.sink, ptr %0, align 16
+  store i128 %.sink, ptr %0, align 16, !alias.scope !2460, !noalias !2482
   %2230 = load i64, ptr %172, align 8, !range !784, !alias.scope !2514, !noalias !2469, !noundef !5
   %2231 = icmp eq i64 %2230, -9223372036854775790
   br i1 %2231, label %"_ZN4core3ptr150drop_in_place$LT$core..result..Result$LT$datafusion_expr..built_in_function..BuiltinScalarFunction$C$datafusion_common..error..DataFusionError$GT$$GT$17h1c2503db73c880edE.exit", label %2232
@@ -20033,11 +20033,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1997
   %.sink3050 = phi i128 [ 15, %2322 ], [ 2, %2324 ]
   %.sink3049 = phi i128 [ 2, %2322 ], [ 1, %2324 ]
   %2327 = getelementptr inbounds i8, ptr %154, i64 16
-  store i128 %.sink3050, ptr %2327, align 16
+  store i128 %.sink3050, ptr %2327, align 16, !noalias !2465
   %2328 = getelementptr inbounds i8, ptr %154, i64 80
-  store i128 %.sink3049, ptr %2328, align 16
+  store i128 %.sink3049, ptr %2328, align 16, !noalias !2465
   %2329 = getelementptr inbounds i8, ptr %154, i64 160
-  store i8 0, ptr %2329, align 16
+  store i8 0, ptr %2329, align 16, !noalias !2465
   br label %2307
 
 2330:                                             ; preds = %2307
@@ -34873,7 +34873,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1922
 
 2154:                                             ; preds = %2152, %2151
   %.sink = phi i128 [ 26, %2151 ], [ 38, %2152 ]
-  store i128 %.sink, ptr %0, align 16
+  store i128 %.sink, ptr %0, align 16, !alias.scope !3895, !noalias !3917
   %2155 = load i64, ptr %172, align 8, !range !784, !alias.scope !3947, !noalias !3904, !noundef !5
   %2156 = icmp eq i64 %2155, -9223372036854775790
   br i1 %2156, label %"_ZN4core3ptr150drop_in_place$LT$core..result..Result$LT$datafusion_expr..built_in_function..BuiltinScalarFunction$C$datafusion_common..error..DataFusionError$GT$$GT$17h1c2503db73c880edE.exit", label %2157
@@ -35228,11 +35228,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1922
   %.sink3032 = phi i128 [ 15, %2247 ], [ 2, %2249 ]
   %.sink3031 = phi i128 [ 2, %2247 ], [ 1, %2249 ]
   %2252 = getelementptr inbounds i8, ptr %154, i64 16
-  store i128 %.sink3032, ptr %2252, align 16
+  store i128 %.sink3032, ptr %2252, align 16, !noalias !3900
   %2253 = getelementptr inbounds i8, ptr %154, i64 80
-  store i128 %.sink3031, ptr %2253, align 16
+  store i128 %.sink3031, ptr %2253, align 16, !noalias !3900
   %2254 = getelementptr inbounds i8, ptr %154, i64 160
-  store i8 0, ptr %2254, align 16
+  store i8 0, ptr %2254, align 16, !noalias !3900
   br label %2232
 
 2255:                                             ; preds = %2232

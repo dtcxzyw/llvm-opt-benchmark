@@ -824,7 +824,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = %.lr.ph, %46
   %.sink = phi i8 [ 37, %46 ], [ %36, %.lr.ph ]
   %.3 = phi ptr [ %57, %46 ], [ %45, %.lr.ph ]
-  store i8 %.sink, ptr %.04970, align 1
+  store i8 %.sink, ptr %.04970, align 1, !tbaa !21
   %58 = add nuw i64 %.02871, 1
   %exitcond.not = icmp eq i64 %58, %.024
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
@@ -1668,7 +1668,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = %.lr.ph, %63
   %.sink = phi i8 [ 37, %63 ], [ %53, %.lr.ph ]
   %.8 = phi ptr [ %74, %63 ], [ %62, %.lr.ph ]
-  store i8 %.sink, ptr %.1106133, align 1
+  store i8 %.sink, ptr %.1106133, align 1, !tbaa !21
   %75 = add nuw i64 %.052134, 1
   %exitcond.not = icmp eq i64 %75, %.058
   br i1 %exitcond.not, label %.loopexit128, label %.lr.ph, !llvm.loop !124
@@ -1768,7 +1768,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit78: ; preds 
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit82: ; preds = %.lr.ph137, %117
   %.sink162 = phi i8 [ 37, %117 ], [ 48, %.lr.ph137 ]
   %.11 = phi ptr [ %119, %117 ], [ %116, %.lr.ph137 ]
-  store i8 %.sink162, ptr %.4135, align 1
+  store i8 %.sink162, ptr %.4135, align 1, !tbaa !21
   %120 = add nuw i64 %.051136, 1
   %exitcond160.not = icmp eq i64 %120, %.058166
   br i1 %exitcond160.not, label %.loopexit126, label %.lr.ph137, !llvm.loop !125
@@ -2042,7 +2042,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = %.lr.ph, %61
   %.sink = phi i8 [ 37, %61 ], [ %51, %.lr.ph ]
   %.8 = phi ptr [ %72, %61 ], [ %60, %.lr.ph ]
-  store i8 %.sink, ptr %.188115, align 1
+  store i8 %.sink, ptr %.188115, align 1, !tbaa !21
   %73 = add nuw i64 %.045116, 1
   %exitcond.not = icmp eq i64 %73, %.050
   br i1 %exitcond.not, label %.loopexit110.loopexit, label %.lr.ph, !llvm.loop !132
@@ -2122,7 +2122,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit65: ; preds 
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit67: ; preds = %.lr.ph119, %105
   %.sink144 = phi i8 [ 37, %105 ], [ 48, %.lr.ph119 ]
   %.10 = phi ptr [ %107, %105 ], [ %104, %.lr.ph119 ]
-  store i8 %.sink144, ptr %.4117, align 1
+  store i8 %.sink144, ptr %.4117, align 1, !tbaa !21
   %108 = add nuw i64 %.044118, 1
   %exitcond142.not = icmp eq i64 %108, %.050148
   br i1 %exitcond142.not, label %.loopexit108, label %.lr.ph119, !llvm.loop !133

@@ -13954,7 +13954,7 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_che
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i, i8 0, i64 96, i1 false)
-  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit48.i.i, label %for.body.i.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit47.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i
   %__cur.04.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
@@ -13999,13 +13999,13 @@ _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5
   %.sink5.i.i.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i = phi ptr [ %10, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i.i = phi i64 [ %11, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  store i32 %.sink7.i.i.i.i.i, ptr %6, align 8
+  store i32 %.sink7.i.i.i.i.i, ptr %6, align 8, !alias.scope !188, !noalias !191
   %12 = getelementptr inbounds i8, ptr %__cur.04.i.i.i.i.i, i64 24
-  store ptr %7, ptr %12, align 8
+  store ptr %7, ptr %12, align 8, !alias.scope !188, !noalias !191
   %13 = getelementptr inbounds i8, ptr %__cur.04.i.i.i.i.i, i64 32
-  store ptr %.sink5.i.i.i.i.i, ptr %13, align 8
+  store ptr %.sink5.i.i.i.i.i, ptr %13, align 8, !alias.scope !188, !noalias !191
   %14 = getelementptr inbounds i8, ptr %__cur.04.i.i.i.i.i, i64 40
-  store ptr %.sink.i.i.i.i.i, ptr %14, align 8
+  store ptr %.sink.i.i.i.i.i, ptr %14, align 8, !alias.scope !188, !noalias !191
   %15 = getelementptr inbounds i8, ptr %__cur.04.i.i.i.i.i, i64 48
   store i64 %.sink.i.i.i.i.i.i, ptr %15, align 8, !alias.scope !188, !noalias !191
   %audit_condition.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.04.i.i.i.i.i, i64 56
@@ -14033,19 +14033,19 @@ _ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_S
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.03.i.i.i.i.i, i64 96
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit48.i.i, label %for.body.i.i.i.i.i, !llvm.loop !194
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit47.i.i, label %for.body.i.i.i.i.i, !llvm.loop !194
 
-_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit48.i.i: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit47.i.i: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %tobool.not.i.i.i = icmp eq ptr %this.val10.i.i, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i49.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i48.i.i
 
-if.then.i49.i.i:                                  ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit48.i.i
+if.then.i48.i.i:                                  ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit47.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this.val10.i.i) #27
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i49.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit48.i.i
+_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i48.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit47.i.i
   store ptr %call5.i.i.i.i.i, ptr %dst, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RbacConfig::RbacPolicy", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i

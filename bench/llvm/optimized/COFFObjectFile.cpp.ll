@@ -9588,7 +9588,7 @@ _ZNKSt14default_deleteIN4llvm6object14COFFObjectFileEEclEPS2_.exit.i.i: ; preds 
 _ZN4llvm6object14COFFObjectFile6createENS_15MemoryBufferRefE.exit: ; preds = %.thread.i, %_ZNKSt14default_deleteIN4llvm6object14COFFObjectFileEEclEPS2_.exit.i.i
   %.sink = phi i8 [ %8, %.thread.i ], [ %9, %_ZNKSt14default_deleteIN4llvm6object14COFFObjectFileEEclEPS2_.exit.i.i ]
   %.sink.i = phi ptr [ %4, %.thread.i ], [ %5, %_ZNKSt14default_deleteIN4llvm6object14COFFObjectFileEEclEPS2_.exit.i.i ]
-  store i8 %.sink, ptr %6, align 8
+  store i8 %.sink, ptr %6, align 8, !alias.scope !472
   store ptr %.sink.i, ptr %0, align 8, !alias.scope !472
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void

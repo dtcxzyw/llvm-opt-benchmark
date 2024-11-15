@@ -43632,13 +43632,13 @@ _ZSt19__relocate_object_aIN18OpenImageIO_v2_6_08PSDInput5LayerES2_SaIS2_EEvPT_PT
   %.sink8.i.i.i = phi ptr [ %12, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %for.body.i.i.i34 ]
   %.sink.i.i.i = phi ptr [ %13, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %for.body.i.i.i34 ]
   %.sink.i.i.i.i = phi i64 [ %14, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i34 ]
-  store i32 %.sink10.i.i.i, ptr %9, align 8
+  store i32 %.sink10.i.i.i, ptr %9, align 8, !alias.scope !347, !noalias !350
   %15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 72
-  store ptr %10, ptr %15, align 8
+  store ptr %10, ptr %15, align 8, !alias.scope !347, !noalias !350
   %16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 80
-  store ptr %.sink8.i.i.i, ptr %16, align 8
+  store ptr %.sink8.i.i.i, ptr %16, align 8, !alias.scope !347, !noalias !350
   %17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 88
-  store ptr %.sink.i.i.i, ptr %17, align 8
+  store ptr %.sink.i.i.i, ptr %17, align 8, !alias.scope !347, !noalias !350
   %18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 96
   store i64 %.sink.i.i.i.i, ptr %18, align 8, !alias.scope !347, !noalias !350
   %bm_key.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 104

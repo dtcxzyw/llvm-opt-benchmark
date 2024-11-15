@@ -7197,7 +7197,7 @@ select.unfold.i:                                  ; preds = %.noexc391, %"_ZN3mb
 
 "_ZN4core6result19Result$LT$T$C$E$GT$11map_or_else17h7d689108d69142faE.exit.i": ; preds = %653, %652
   %.sink.i = phi i64 [ 4, %653 ], [ 1, %652 ]
-  store i64 %.sink.i, ptr %77, align 8, !alias.scope !1201, !noalias !1242
+  store i64 %.sink.i, ptr %77, align 8, !alias.scope !1397, !noalias !1242
   br label %770
 
 654:                                              ; preds = %.noexc40.i, %.noexc.i, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i39.i"

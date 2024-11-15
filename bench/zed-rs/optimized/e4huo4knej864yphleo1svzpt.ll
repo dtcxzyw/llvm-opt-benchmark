@@ -2079,7 +2079,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
 "_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$11add_summary17ha20b8dcc3acb329fE.exit": ; preds = %127, %132
   %.sink = phi i32 [ %128, %127 ], [ %125, %132 ]
   %storemerge149 = phi i32 [ %131, %127 ], [ %135, %132 ]
-  store i32 %.sink, ptr %52, align 4
+  store i32 %.sink, ptr %52, align 4, !alias.scope !581, !noalias !584
   store i32 %storemerge149, ptr %54, align 4, !alias.scope !591, !noalias !589
   %137 = call noundef i8 %17(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 1 %6), !range !56
   switch i8 %137, label %150 [
@@ -2251,7 +2251,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
 "_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$11add_summary17ha20b8dcc3acb329fE.exit66": ; preds = %178, %183
   %.sink205 = phi i32 [ %179, %178 ], [ %176, %183 ]
   %storemerge = phi i32 [ %182, %178 ], [ %186, %183 ]
-  store i32 %.sink205, ptr %59, align 4
+  store i32 %.sink205, ptr %59, align 4, !alias.scope !657, !noalias !660
   store i32 %storemerge, ptr %61, align 4, !alias.scope !667, !noalias !665
   %188 = call noundef i8 %17(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %6), !range !56
   switch i8 %188, label %193 [
@@ -2642,7 +2642,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
 "_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$11add_summary17h328c233e28c2763dE.exit": ; preds = %127, %132
   %.sink = phi i32 [ %128, %127 ], [ %125, %132 ]
   %storemerge149 = phi i32 [ %131, %127 ], [ %135, %132 ]
-  store i32 %.sink, ptr %52, align 4
+  store i32 %.sink, ptr %52, align 4, !alias.scope !764, !noalias !755
   store i32 %storemerge149, ptr %54, align 4, !alias.scope !773, !noalias !776
   %137 = call noundef i8 %17(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 1 %6), !range !56
   switch i8 %137, label %150 [
@@ -2814,7 +2814,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
 "_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$11add_summary17h328c233e28c2763dE.exit66": ; preds = %178, %183
   %.sink205 = phi i32 [ %179, %178 ], [ %176, %183 ]
   %storemerge = phi i32 [ %182, %178 ], [ %186, %183 ]
-  store i32 %.sink205, ptr %59, align 4
+  store i32 %.sink205, ptr %59, align 4, !alias.scope !840, !noalias !831
   store i32 %storemerge, ptr %61, align 4, !alias.scope !849, !noalias !852
   %188 = call noundef i8 %17(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %6), !range !56
   switch i8 %188, label %193 [

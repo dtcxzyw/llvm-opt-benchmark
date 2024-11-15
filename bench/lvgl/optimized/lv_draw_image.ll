@@ -183,13 +183,13 @@ define void @lv_image_buf_get_transformed_area(ptr nocapture noundef writeonly %
   %.sink.in = phi i32 [ %40, %12 ], [ %2, %7 ]
   %.sink = add nsw i32 %.sink.in, -1
   %.sink44 = add nsw i32 %.sink44.in, -1
-  store i32 %..sink, ptr %0, align 4
+  store i32 %..sink, ptr %0, align 4, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink45, ptr %42, align 4
+  store i32 %.sink45, ptr %42, align 4, !tbaa !26
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink44, ptr %43, align 4
+  store i32 %.sink44, ptr %43, align 4, !tbaa !33
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink, ptr %44, align 4
+  store i32 %.sink, ptr %44, align 4, !tbaa !34
   ret void
 }
 
@@ -278,7 +278,7 @@ define range(i32 0, 4) i32 @lv_image_src_get_type(ptr noundef readonly %0) local
   br i1 %2, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr %0, align 1, !tbaa !33
+  %4 = load i8, ptr %0, align 1, !tbaa !35
   %or.cond = icmp sgt i8 %4, 31
   br i1 %or.cond, label %8, label %5
 
@@ -310,13 +310,13 @@ define void @lv_draw_image_normal_helper(ptr noundef %0, ptr noundef %1, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %12, ptr %13, align 4, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !34
+  %15 = load i32, ptr %14, align 4, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %15, ptr %16, align 4, !tbaa !34
+  store i32 %15, ptr %16, align 4, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !35
+  %18 = load i32, ptr %17, align 4, !tbaa !34
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %18, ptr %19, align 4, !tbaa !35
+  store i32 %18, ptr %19, align 4, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %21 = load i32, ptr %20, align 4, !tbaa !24
   %.not = icmp eq i32 %21, 0
@@ -354,12 +354,12 @@ define void @lv_draw_image_normal_helper(ptr noundef %0, ptr noundef %1, ptr nou
   %43 = load i32, ptr %13, align 4, !tbaa !26
   %44 = add nsw i32 %43, %42
   store i32 %44, ptr %13, align 4, !tbaa !26
-  %45 = load i32, ptr %16, align 4, !tbaa !34
+  %45 = load i32, ptr %16, align 4, !tbaa !33
   %46 = add nsw i32 %45, %39
-  store i32 %46, ptr %16, align 4, !tbaa !34
-  %47 = load i32, ptr %19, align 4, !tbaa !35
+  store i32 %46, ptr %16, align 4, !tbaa !33
+  %47 = load i32, ptr %19, align 4, !tbaa !34
   %48 = add nsw i32 %47, %42
-  store i32 %48, ptr %19, align 4, !tbaa !35
+  store i32 %48, ptr %19, align 4, !tbaa !34
   br label %49
 
 49:                                               ; preds = %28, %25
@@ -455,10 +455,10 @@ define internal fastcc void @img_decode_and_draw(ptr noundef %0, ptr noundef %1,
   store i32 -536870911, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !26
   %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel.v = select i1 %36, ptr %10, ptr %3
   %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel.v, i64 8
-  store i32 -536870911, ptr %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel, align 4, !tbaa !34
+  store i32 -536870911, ptr %spec.store.select.sroa.sel35.v.sroa.sel.v.sroa.sel, align 4, !tbaa !33
   %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel.v = select i1 %36, ptr %10, ptr %3
   %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel.v, i64 12
-  store i32 -536870911, ptr %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel, align 4, !tbaa !35
+  store i32 -536870911, ptr %spec.store.select.sroa.sel38.v.sroa.sel.v.sroa.sel, align 4, !tbaa !34
   %37 = call i32 @lv_image_decoder_get_area(ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %spec.store.select) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %spec.store.select, i64 16, i1 false), !tbaa.struct !47
@@ -545,7 +545,7 @@ define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noun
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %32 = load i32, ptr %30, align 4, !tbaa !26
-  %33 = load i32, ptr %31, align 4, !tbaa !35
+  %33 = load i32, ptr %31, align 4, !tbaa !34
   %.not2228 = icmp sgt i32 %32, %33
   br i1 %.not2228, label %._crit_edge29, label %.preheader.lr.ph
 
@@ -564,7 +564,7 @@ define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noun
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %43 = add nsw i32 %23, -1
   %44 = add i32 %43, %29
-  %.pre = load i32, ptr %34, align 4, !tbaa !34
+  %.pre = load i32, ptr %34, align 4, !tbaa !33
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge27
@@ -609,8 +609,8 @@ define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noun
   call void @lv_area_move(ptr noundef nonnull %6, i32 noundef %60, i32 noundef %62) #6
   store i32 -536870911, ptr %11, align 4, !tbaa !25
   store i32 -536870911, ptr %spec.store.select.sroa.sel.v.sroa.sel.i, align 4, !tbaa !26
-  store i32 -536870911, ptr %spec.store.select.sroa.sel35.v.sroa.sel.i, align 4, !tbaa !34
-  store i32 -536870911, ptr %spec.store.select.sroa.sel38.v.sroa.sel.i, align 4, !tbaa !35
+  store i32 -536870911, ptr %spec.store.select.sroa.sel35.v.sroa.sel.i, align 4, !tbaa !33
+  store i32 -536870911, ptr %spec.store.select.sroa.sel38.v.sroa.sel.i, align 4, !tbaa !34
   %63 = call i32 @lv_image_decoder_get_area(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %11) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !47
@@ -654,17 +654,17 @@ img_decode_and_draw.exit:                         ; preds = %57, %._crit_edge
   %75 = load i32, ptr %10, align 4, !tbaa !25
   %76 = add nsw i32 %75, %23
   store i32 %76, ptr %10, align 4, !tbaa !25
-  %77 = load i32, ptr %41, align 4, !tbaa !34
+  %77 = load i32, ptr %41, align 4, !tbaa !33
   %78 = add nsw i32 %77, %23
-  store i32 %78, ptr %41, align 4, !tbaa !34
+  store i32 %78, ptr %41, align 4, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6
-  %79 = load i32, ptr %34, align 4, !tbaa !34
+  %79 = load i32, ptr %34, align 4, !tbaa !33
   %.not23 = icmp sgt i32 %76, %79
   br i1 %.not23, label %._crit_edge27.loopexit, label %.lr.ph26, !llvm.loop !51
 
 ._crit_edge27.loopexit:                           ; preds = %74
   %.pre30 = load i32, ptr %30, align 4, !tbaa !26
-  %.pre31 = load i32, ptr %31, align 4, !tbaa !35
+  %.pre31 = load i32, ptr %31, align 4, !tbaa !34
   br label %._crit_edge27
 
 ._crit_edge27:                                    ; preds = %._crit_edge27.loopexit, %.preheader
@@ -673,11 +673,11 @@ img_decode_and_draw.exit:                         ; preds = %57, %._crit_edge
   %82 = phi i32 [ %79, %._crit_edge27.loopexit ], [ %47, %.preheader ]
   %83 = add nsw i32 %81, %25
   store i32 %83, ptr %30, align 4, !tbaa !26
-  %84 = load i32, ptr %42, align 4, !tbaa !35
+  %84 = load i32, ptr %42, align 4, !tbaa !34
   %85 = add nsw i32 %84, %25
-  store i32 %85, ptr %42, align 4, !tbaa !35
+  store i32 %85, ptr %42, align 4, !tbaa !34
   store i32 %29, ptr %10, align 4, !tbaa !25
-  store i32 %44, ptr %41, align 4, !tbaa !34
+  store i32 %44, ptr %41, align 4, !tbaa !33
   %.not22 = icmp sgt i32 %83, %80
   br i1 %.not22, label %._crit_edge29, label %.preheader, !llvm.loop !52
 
@@ -754,12 +754,12 @@ attributes #6 = { nounwind }
 !30 = !{!"_Bool", !7, i64 0}
 !31 = !{!12, !9, i64 0}
 !32 = !{!12, !9, i64 4}
-!33 = !{!7, !7, i64 0}
-!34 = !{!15, !9, i64 8}
-!35 = !{!15, !9, i64 12}
+!33 = !{!15, !9, i64 8}
+!34 = !{!15, !9, i64 12}
+!35 = !{!7, !7, i64 0}
 !36 = !{!37, !6, i64 16}
 !37 = !{!"_lv_draw_unit_t", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56}
-!38 = !{i64 0, i64 1, !33, i64 1, i64 1, !33, i64 2, i64 1, !33}
+!38 = !{i64 0, i64 1, !35, i64 1, i64 1, !35, i64 2, i64 1, !35}
 !39 = !{!40, !6, i64 80}
 !40 = !{!"_lv_image_decoder_dsc_t", !6, i64 0, !41, i64 8, !6, i64 16, !9, i64 24, !42, i64 32, !11, i64 56, !6, i64 72, !6, i64 80, !9, i64 88, !9, i64 92, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120}
 !41 = !{!"_lv_image_decoder_args_t", !30, i64 0, !30, i64 1, !30, i64 2, !30, i64 3, !30, i64 4}

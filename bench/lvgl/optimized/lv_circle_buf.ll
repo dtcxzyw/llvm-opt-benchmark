@@ -517,7 +517,7 @@ lv_circle_buf_is_empty.exit:                      ; preds = %1
 9:                                                ; preds = %7, %6
   %.sink = phi i32 [ 0, %6 ], [ %8, %7 ]
   %.0 = phi i32 [ 0, %6 ], [ 1, %7 ]
-  store i32 %.sink, ptr %4, align 8
+  store i32 %.sink, ptr %4, align 8, !tbaa !3
   ret i32 %.0
 }
 

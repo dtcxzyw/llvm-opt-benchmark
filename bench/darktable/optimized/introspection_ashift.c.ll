@@ -8263,7 +8263,7 @@ define internal fastcc void @do_crop(ptr nocapture %0, ptr nocapture noundef %1)
   %173 = phi float [ 0x7FF8000000000000, %169 ], [ %168, %37 ]
   %174 = phi i32 [ 3, %169 ], [ 2, %37 ]
   %175 = getelementptr inbounds i8, ptr %4, i64 8
-  store <2 x float> splat (float 0x7FF8000000000000), ptr %175, align 8
+  store <2 x float> splat (float 0x7FF8000000000000), ptr %175, align 8, !tbaa !10
   %176 = getelementptr inbounds i8, ptr %4, i64 16
   store float %173, ptr %176, align 8, !tbaa !274
   %177 = call fastcc i32 @simplex(ptr noundef nonnull @crop_fitness, ptr noundef nonnull %3, i32 noundef %174, double noundef 1.000000e+02, double noundef 5.000000e-01, i32 noundef 100, ptr noundef nonnull @crop_constraint, ptr noundef nonnull %4)

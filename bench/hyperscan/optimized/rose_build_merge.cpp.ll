@@ -2429,8 +2429,8 @@ if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont43
 invoke.cont45:                                    ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %.sink359 = phi i32 [ 0, %if.else.i.i.i.i.i.i ], [ %27, %if.then.i.i.i.i.i.i ]
   %_M_node_count.i8.sink.i.i.i.i.i.i = phi ptr [ %_M_node_count17.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
-  store i32 %.sink359, ptr %2, align 8
-  store ptr %26, ptr %_M_parent6.i.i.i.i.i.i.i, align 8
+  store i32 %.sink359, ptr %2, align 8, !alias.scope !40
+  store ptr %26, ptr %_M_parent6.i.i.i.i.i.i.i, align 8, !alias.scope !40
   store i64 0, ptr %_M_node_count.i8.sink.i.i.i.i.i.i, align 8
   %call48 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapISt4pairImSt3setIjSt4lessIjESaIjEEESt6vectorIN3ue29suffix_idESaIS9_EES2_IS6_ESaIS0_IKS6_SB_EEEixEOS6_(ptr noundef nonnull align 8 dereferenceable(48) %part, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp36)
           to label %invoke.cont47 unwind label %lpad46.loopexit

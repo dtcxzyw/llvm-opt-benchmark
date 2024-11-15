@@ -1274,7 +1274,7 @@ ehcleanup124:                                     ; preds = %lpad119, %lpad116
 
 if.end145:                                        ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %if.then142
   %and.i.sink = phi i64 [ %or.i, %if.then142 ], [ %and.i, %_ZNSt14_Bit_referenceaSEb.exit ]
-  store i64 %and.i.sink, ptr %storemerge.i.i.i.i.i, align 8
+  store i64 %and.i.sink, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !8
   %inc = add nuw i64 %i.0345, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !58
@@ -1473,7 +1473,7 @@ ehcleanup188:                                     ; preds = %lpad183, %lpad180
 
 if.end210:                                        ; preds = %_ZNSt14_Bit_referenceaSEb.exit260, %if.then207
   %and.i257.sink = phi i64 [ %or.i259, %if.then207 ], [ %and.i257, %_ZNSt14_Bit_referenceaSEb.exit260 ]
-  store i64 %and.i257.sink, ptr %storemerge.i.i.i.i.i249, align 8
+  store i64 %and.i257.sink, ptr %storemerge.i.i.i.i.i249, align 8, !tbaa !8
   %inc215 = add nuw i64 %i158.0347, 1
   %exitcond349.not = icmp eq i64 %inc215, %umax348
   br i1 %exitcond349.not, label %for.cond.cleanup161, label %for.body162, !llvm.loop !60

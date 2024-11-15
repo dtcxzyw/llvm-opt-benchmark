@@ -11063,13 +11063,13 @@ _ZN3gmx19KeyValueTreeBuilder5buildEv.exit:        ; preds = %_ZNK3gmx17MDModules
   %3866 = phi ptr [ %3861, %3859 ], [ %3857, %_ZNK3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE6notifyES1_.exit ]
   %3867 = phi ptr [ %3862, %3859 ], [ %3857, %_ZNK3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE6notifyES1_.exit ]
   %.sink.i701 = phi i64 [ %3864, %3859 ], [ 0, %_ZNK3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE6notifyES1_.exit ]
-  store i32 %3865, ptr %3857, align 8
+  store i32 %3865, ptr %3857, align 8, !alias.scope !67
   %3868 = getelementptr inbounds i8, ptr %165, i64 16
-  store ptr %3858, ptr %3868, align 8
+  store ptr %3858, ptr %3868, align 8, !alias.scope !67
   %3869 = getelementptr inbounds i8, ptr %165, i64 24
-  store ptr %3866, ptr %3869, align 8
+  store ptr %3866, ptr %3869, align 8, !alias.scope !67
   %3870 = getelementptr inbounds i8, ptr %165, i64 32
-  store ptr %3867, ptr %3870, align 8
+  store ptr %3867, ptr %3870, align 8, !alias.scope !67
   %3871 = getelementptr inbounds i8, ptr %165, i64 40
   store i64 %.sink.i701, ptr %3871, align 8, !alias.scope !67
   %3872 = getelementptr inbounds i8, ptr %165, i64 48

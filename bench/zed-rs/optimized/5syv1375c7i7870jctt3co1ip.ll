@@ -2834,9 +2834,9 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hfc6409e52
   br label %"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E.exit.i.i16.i.i"
 
 "_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E.exit.i.i16.i.i": ; preds = %174, %._crit_edge.i.i
-  store i32 %.sroa.4.0.copyload.i.i, ptr %18, align 8, !noalias !1171
-  store i16 %.sroa.5.0.copyload.i.i, ptr %49, align 4, !noalias !1171
-  store i64 %.sroa.7.0.copyload.i.i, ptr %50, align 8, !noalias !1171
+  store i32 %.sroa.4.0.copyload.i.i, ptr %18, align 8, !alias.scope !1171, !noalias !1170
+  store i16 %.sroa.5.0.copyload.i.i, ptr %49, align 4, !alias.scope !1171, !noalias !1170
+  store i64 %.sroa.7.0.copyload.i.i, ptr %50, align 8, !alias.scope !1171, !noalias !1170
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !1156
   call void @llvm.experimental.noalias.scope.decl(metadata !1172)
   call void @llvm.experimental.noalias.scope.decl(metadata !1175)
@@ -3416,9 +3416,9 @@ _ZN4core5slice4sort8unstable9quicksort9partition17hadddd4d58c1c4ca0E.exit: ; pre
   br label %"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E.exit3.i.i.i18.i.i"
 
 "_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E.exit3.i.i.i18.i.i": ; preds = %307, %"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E.exit.i.i.i16.i.i"
-  store i32 %.sroa.4.0.copyload.i.i30, ptr %9, align 8, !noalias !1452
-  store i16 %.sroa.5.0.copyload.i.i32, ptr %39, align 4, !noalias !1452
-  store i64 %.sroa.7.0.copyload.i.i36, ptr %40, align 8, !noalias !1452
+  store i32 %.sroa.4.0.copyload.i.i30, ptr %9, align 8, !alias.scope !1452, !noalias !1451
+  store i16 %.sroa.5.0.copyload.i.i32, ptr %39, align 4, !alias.scope !1452, !noalias !1451
+  store i64 %.sroa.7.0.copyload.i.i36, ptr %40, align 8, !alias.scope !1452, !noalias !1451
   %308 = invoke noundef i8 @"_ZN56_$LT$clock..Lamport$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he3574e7f749d7364E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
           to label %.noexc20.i.i61 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i59, !noalias !1242
 
@@ -5027,7 +5027,7 @@ attributes #13 = { noreturn }
 !1168 = distinct !{!1168, !"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E"}
 !1169 = distinct !{!1169, !1168, !"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E: argument 1"}
 !1170 = !{!1154, !1158, !997, !1000, !989}
-!1171 = !{!997, !1000, !989}
+!1171 = !{!1164, !1166, !1167, !1169}
 !1172 = !{!1173}
 !1173 = distinct !{!1173, !1174, !"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E: argument 0"}
 !1174 = distinct !{!1174, !"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E"}
@@ -5308,7 +5308,7 @@ attributes #13 = { noreturn }
 !1449 = distinct !{!1449, !"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E"}
 !1450 = distinct !{!1450, !1449, !"_ZN8sum_tree16SumTree$LT$T$GT$4edit28_$u7b$$u7b$closure$u7d$$u7d$17h5cc3b4227a6b2ad4E: argument 1"}
 !1451 = !{!1409, !1407, !1323, !1240, !1243, !1232}
-!1452 = !{!1240, !1243, !1232}
+!1452 = !{!1445, !1447, !1448, !1450}
 !1453 = !{!1454, !1456}
 !1454 = distinct !{!1454, !1455, !"_ZN68_$LT$text..InsertionFragmentKey$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5a2dbcaa667a7c7E: argument 0"}
 !1455 = distinct !{!1455, !"_ZN68_$LT$text..InsertionFragmentKey$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5a2dbcaa667a7c7E"}

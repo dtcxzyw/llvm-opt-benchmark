@@ -36202,7 +36202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 256:                                              ; preds = %248, %252
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  store i8 0, ptr %257, align 4
+  store i8 0, ptr %257, align 4, !tbaa !413
   %258 = load ptr, ptr %25, align 8, !tbaa !320
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 1
   store ptr %259, ptr %25, align 8, !tbaa !320
@@ -82035,7 +82035,7 @@ _ZN5boost20read_graphviz_detail13node_and_portC2EOS1_.exit7: ; preds = %61, %_ZN
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit: ; preds = %82, %96
   %.sink.i.i.i.i = phi i32 [ 0, %96 ], [ %84, %82 ]
-  store i32 %.sink.i.i.i.i, ptr %79, align 8
+  store i32 %.sink.i.i.i.i, ptr %79, align 8, !tbaa !46
   ret void
 }
 

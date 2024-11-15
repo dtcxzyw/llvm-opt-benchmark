@@ -2124,8 +2124,8 @@ _ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i: ; preds = %_ZNSt3ma
 _ZNSt10unique_ptrIN4llvm12RISCVISAInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvm12RISCVISAInfo22postProcessAndCheckingEOSt10unique_ptrIS0_St14default_deleteIS0_EE.exit.thread, %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i
   %.sink10 = phi i8 [ %34, %_ZN4llvm12RISCVISAInfo22postProcessAndCheckingEOSt10unique_ptrIS0_St14default_deleteIS0_EE.exit.thread ], [ %35, %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i ]
   %.sink = phi ptr [ %6, %_ZN4llvm12RISCVISAInfo22postProcessAndCheckingEOSt10unique_ptrIS0_St14default_deleteIS0_EE.exit.thread ], [ %31, %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i ]
-  store i8 %.sink10, ptr %32, align 8
-  store ptr %.sink, ptr %0, align 8
+  store i8 %.sink10, ptr %32, align 8, !alias.scope !71
+  store ptr %.sink, ptr %0, align 8, !alias.scope !71
   ret void
 }
 
@@ -3542,8 +3542,8 @@ _ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i: ; preds = %._crit_e
 _ZNSt10unique_ptrIN4llvm12RISCVISAInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvm12RISCVISAInfo22postProcessAndCheckingEOSt10unique_ptrIS0_St14default_deleteIS0_EE.exit.thread, %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i
   %.sink60 = phi i8 [ %71, %_ZN4llvm12RISCVISAInfo22postProcessAndCheckingEOSt10unique_ptrIS0_St14default_deleteIS0_EE.exit.thread ], [ %72, %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i ]
   %.sink = phi ptr [ %11, %_ZN4llvm12RISCVISAInfo22postProcessAndCheckingEOSt10unique_ptrIS0_St14default_deleteIS0_EE.exit.thread ], [ %68, %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i ]
-  store i8 %.sink60, ptr %69, align 8
-  store ptr %.sink, ptr %0, align 8
+  store i8 %.sink60, ptr %69, align 8, !alias.scope !114
+  store ptr %.sink, ptr %0, align 8, !alias.scope !114
   ret void
 }
 

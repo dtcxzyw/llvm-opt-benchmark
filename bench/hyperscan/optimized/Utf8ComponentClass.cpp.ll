@@ -1822,7 +1822,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %call.i.i.noexc
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %.sink = phi i32 [ 0, %if.else.i.i.i.i.i.i.i ], [ %4, %if.then.i.i.i.i.i.i.i ]
-  store i32 %.sink, ptr %2, align 8
+  store i32 %.sink, ptr %2, align 8, !alias.scope !8
   %call = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaEaSES5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont7 unwind label %lpad6
 

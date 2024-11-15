@@ -619,11 +619,11 @@ define void @_ZN5paths7AbsPath9normalize17h54d05f3dece16b61E(ptr noalias nocaptu
   %.sink2 = phi i64 [ %19, %14 ], [ 0, %3 ]
   %.sink1 = phi ptr [ %20, %14 ], [ inttoptr (i64 1 to ptr), %3 ]
   %.sink = phi i64 [ %17, %14 ], [ 0, %3 ]
-  store i64 %.sink2, ptr %9, align 8
+  store i64 %.sink2, ptr %9, align 8, !noalias !58
   %22 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sink1, ptr %22, align 8
+  store ptr %.sink1, ptr %22, align 8, !noalias !58
   %23 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %.sink, ptr %23, align 8
+  store i64 %.sink, ptr %23, align 8, !noalias !58
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7), !noalias !58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(120) %10, i64 120, i1 false), !noalias !58
   %.sroa.522.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 1

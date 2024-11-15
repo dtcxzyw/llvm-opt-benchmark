@@ -15539,7 +15539,7 @@ define hidden void @"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hcb6e6d9471b2de1bE.llvm.6452179527160401088.exit": ; preds = %4, %12
   %.sink = phi ptr [ %1, %12 ], [ null, %4 ]
-  store ptr %.sink, ptr %0, align 8
+  store ptr %.sink, ptr %0, align 8, !alias.scope !3123
   ret void
 }
 
@@ -15564,7 +15564,7 @@ define hidden void @"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h5dbf400b95d24705E.llvm.6452179527160401088.exit": ; preds = %4, %12
   %.sink = phi ptr [ %1, %12 ], [ null, %4 ]
-  store ptr %.sink, ptr %0, align 8
+  store ptr %.sink, ptr %0, align 8, !alias.scope !3134
   ret void
 }
 

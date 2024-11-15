@@ -32971,7 +32971,7 @@ invoke.cont179:                                   ; preds = %invoke.cont169
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %call5.i.i.i.i2.i.i315, i8 0, i64 16, i1 false)
   %_M_finish.i.i7.i314 = getelementptr inbounds nuw i8, ptr %swapTenorNodes, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %swapTenorNodes, i64 16
-  store ptr %add.ptr.i.i.i313, ptr %107, align 8
+  store ptr %add.ptr.i.i.i313, ptr %107, align 8, !tbaa !265
   store ptr %add.ptr.i.i.i313, ptr %_M_finish.i.i7.i314, align 8, !tbaa !41
   %108 = load ptr, ptr %swapTenors_.i, align 8, !tbaa !43
   %add.ptr.i316 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %108, i64 %spec.select105

@@ -104441,7 +104441,7 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i
 for.body.i.preheader.i:                           ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i
   %add.ptr.i.i.i.i.sink = phi ptr [ %add.ptr.i.i.i.i, %invoke.cont.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
   %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %add.ptr.i.i.i.i.sink, ptr %4, align 8
+  store ptr %add.ptr.i.i.i.i.sink, ptr %4, align 8, !alias.scope !2290
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i

@@ -736,7 +736,7 @@ _ZSt11make_uniqueIN3gmx16HardwareTopologyEJS1_EENSt8__detail9_MakeUniqIT_E15__si
 83:                                               ; preds = %79, %66
   %.sink = phi i64 [ 0, %79 ], [ %78, %66 ]
   %84 = getelementptr inbounds i8, ptr %52, i64 72
-  store i64 %.sink, ptr %84, align 8
+  store i64 %.sink, ptr %84, align 8, !noalias !17
   %85 = getelementptr inbounds i8, ptr %52, i64 80
   %86 = getelementptr inbounds i8, ptr %12, i64 80
   %87 = load ptr, ptr %86, align 8, !noalias !17

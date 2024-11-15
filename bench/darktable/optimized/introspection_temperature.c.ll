@@ -1130,11 +1130,11 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
   %.sink1 = phi double [ 1.000000e+00, %38 ], [ %34, %27 ]
   %.sink = phi float [ %43, %38 ], [ %36, %27 ]
   %45 = phi double [ 1.000000e+00, %38 ], [ %37, %27 ]
-  store <2 x double> %.sink2, ptr %22, align 8
+  store <2 x double> %.sink2, ptr %22, align 8, !tbaa !67
   %46 = getelementptr inbounds i8, ptr %17, i64 2384
-  store double %.sink1, ptr %46, align 8
+  store double %.sink1, ptr %46, align 8, !tbaa !67
   %47 = getelementptr inbounds i8, ptr %6, i64 12
-  store float %.sink, ptr %47, align 4
+  store float %.sink, ptr %47, align 4, !tbaa !6
   %48 = getelementptr inbounds i8, ptr %17, i64 2392
   store double %45, ptr %48, align 8, !tbaa !67
   %49 = getelementptr inbounds i8, ptr %17, i64 1532

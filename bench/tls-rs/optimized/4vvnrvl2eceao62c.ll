@@ -8022,7 +8022,7 @@ define void @"_ZN87_$LT$rustls..msgs..alert..AlertMessagePayload$u20$as$u20$rust
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h2337af4d0330aeefE.exit": ; preds = %33, %37
   %.sink = phi i8 [ 14, %37 ], [ 20, %33 ]
-  store i8 %.sink, ptr %0, align 8
+  store i8 %.sink, ptr %0, align 8, !alias.scope !963
   br label %39
 
 38:                                               ; preds = %16
@@ -13912,7 +13912,7 @@ define void @"_ZN128_$LT$rustls..webpki..verify..ParsedCertificate$u20$as$u20$co
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfce018ebdbf7cf70E.llvm.6030771845222660662.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hfce018ebdbf7cf70E.llvm.6030771845222660662.exit": ; preds = %7, %8
-  store i64 %4, ptr %0, align 8
+  store i64 %4, ptr %0, align 8, !alias.scope !1940
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %.sroa.8)
   ret void

@@ -4779,13 +4779,13 @@ _ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5Chunk
   %.sink13.i.i.i = phi ptr [ %55, %51 ], [ %48, %.lr.ph.i.i.i ]
   %.sink.i.i.i = phi ptr [ %57, %51 ], [ %48, %.lr.ph.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %60, %51 ], [ 0, %.lr.ph.i.i.i ]
-  store i32 %.sink15.i.i.i, ptr %48, align 8
+  store i32 %.sink15.i.i.i, ptr %48, align 8, !alias.scope !71, !noalias !74
   %61 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  store ptr %50, ptr %61, align 8
+  store ptr %50, ptr %61, align 8, !alias.scope !71, !noalias !74
   %62 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  store ptr %.sink13.i.i.i, ptr %62, align 8
+  store ptr %.sink13.i.i.i, ptr %62, align 8, !alias.scope !71, !noalias !74
   %63 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  store ptr %.sink.i.i.i, ptr %63, align 8
+  store ptr %.sink.i.i.i, ptr %63, align 8, !alias.scope !71, !noalias !74
   %64 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
   store i64 %.sink.i.i.i.i, ptr %64, align 8, !alias.scope !71, !noalias !74
   %65 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
@@ -4834,13 +4834,13 @@ _ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5Chunk
   %.sink13.i.i.i23 = phi ptr [ %76, %72 ], [ %69, %.lr.ph.i.i.i17 ]
   %.sink.i.i.i24 = phi ptr [ %78, %72 ], [ %69, %.lr.ph.i.i.i17 ]
   %.sink.i.i.i.i25 = phi i64 [ %81, %72 ], [ 0, %.lr.ph.i.i.i17 ]
-  store i32 %.sink15.i.i.i22, ptr %69, align 8
+  store i32 %.sink15.i.i.i22, ptr %69, align 8, !alias.scope !78, !noalias !81
   %82 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 24
-  store ptr %71, ptr %82, align 8
+  store ptr %71, ptr %82, align 8, !alias.scope !78, !noalias !81
   %83 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  store ptr %.sink13.i.i.i23, ptr %83, align 8
+  store ptr %.sink13.i.i.i23, ptr %83, align 8, !alias.scope !78, !noalias !81
   %84 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
-  store ptr %.sink.i.i.i24, ptr %84, align 8
+  store ptr %.sink.i.i.i24, ptr %84, align 8, !alias.scope !78, !noalias !81
   %85 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
   store i64 %.sink.i.i.i.i25, ptr %85, align 8, !alias.scope !78, !noalias !81
   %86 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 56

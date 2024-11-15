@@ -215,7 +215,7 @@ define void @lv_draw_sw_box_shadow(ptr noundef %0, ptr nocapture noundef readonl
 136:                                              ; preds = %131, %.lr.ph.i
   %.sink.i = phi i16 [ %135, %131 ], [ %126, %.lr.ph.i ]
   %137 = getelementptr inbounds i16, ptr %.095106.i, i64 %indvars.iv.i
-  store i16 %.sink.i, ptr %137, align 2
+  store i16 %.sink.i, ptr %137, align 2, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit104.i, label %.lr.ph.i, !llvm.loop !31

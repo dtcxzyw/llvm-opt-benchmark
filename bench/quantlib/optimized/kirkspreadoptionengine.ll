@@ -2315,7 +2315,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %mul258.sink = phi double [ %mul253, %cond.true ], [ %mul258, %cond.false ]
   %cond = phi double [ %mul253, %cond.true ], [ %mul269, %cond.false ]
   %115 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store double %mul258.sink, ptr %115, align 8
+  store double %mul258.sink, ptr %115, align 8, !tbaa !93
   %call270 = call double @log(double noundef %call2.i175) #26, !tbaa !80
   %div271 = fdiv double %call270, %call209
   %mul273 = fmul double %call81, %call165
@@ -2339,7 +2339,7 @@ _ZNK8QuantLib18NormalDistributionclEd.exit:       ; preds = %cond.end, %cond.fal
   %116 = call double @llvm.fmuladd.f64(double %div271, double %cond, double %mul281)
   %fneg282 = fneg double %116
   %theta = getelementptr inbounds i8, ptr %this, i64 256
-  store double %fneg282, ptr %theta, align 8, !tbaa !93
+  store double %fneg282, ptr %theta, align 8, !tbaa !101
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %cum) #26
   %pn.i.i224 = getelementptr inbounds nuw i8, ptr %rfdc, i64 8
   %117 = load ptr, ptr %pn.i.i224, align 8, !tbaa !37
@@ -2661,13 +2661,13 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.6", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !95
+  %0 = load ptr, ptr %this, align 8, !tbaa !103
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib6HandleINS_21BlackVolTermStructureEE5emptyEv.exit, !prof !53
 
 cond.false.i.i:                                   ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_21BlackVolTermStructureEE4LinkEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
-  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !95
+  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !103
   br label %_ZNK8QuantLib6HandleINS_21BlackVolTermStructureEE5emptyEv.exit
 
 _ZNK8QuantLib6HandleINS_21BlackVolTermStructureEE5emptyEv.exit: ; preds = %entry, %cond.false.i.i
@@ -2852,13 +2852,13 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.6", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !97
+  %0 = load ptr, ptr %this, align 8, !tbaa !105
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib6HandleINS_18YieldTermStructureEE5emptyEv.exit, !prof !53
 
 cond.false.i.i:                                   ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
-  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !97
+  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !105
   br label %_ZNK8QuantLib6HandleINS_18YieldTermStructureEE5emptyEv.exit
 
 _ZNK8QuantLib6HandleINS_18YieldTermStructureEE5emptyEv.exit: ; preds = %entry, %cond.false.i.i
@@ -3047,7 +3047,7 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.6", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !99
+  %0 = load ptr, ptr %this, align 8, !tbaa !107
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then, label %_ZNK5boost10shared_ptrIN8QuantLib10DayCounter4ImplEEptEv.exit
 
@@ -3549,9 +3549,9 @@ define linkonce_odr void @_ZN8QuantLib13GenericEngineINS_6Option9argumentsENS_16
 entry:
   %ref.tmp2.i.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
-  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i.i, align 8, !tbaa !101
+  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i.i, align 8, !tbaa !109
   %value.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store double 0x47EFFFFFE0000000, ptr %value.i.i, align 8, !tbaa !109
+  store double 0x47EFFFFFE0000000, ptr %value.i.i, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i) #26
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i)
   %valuationDate.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -3587,7 +3587,7 @@ _ZN8QuantLib16MultiAssetOption7results5resetEv.exit: ; preds = %entry
   %vega.i.i = getelementptr inbounds i8, ptr %this, i64 264
   store double 0x47EFFFFFE0000000, ptr %vega.i.i, align 8, !tbaa !112
   %theta.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  store double 0x47EFFFFFE0000000, ptr %theta.i.i, align 8, !tbaa !93
+  store double 0x47EFFFFFE0000000, ptr %theta.i.i, align 8, !tbaa !101
   %gamma.i.i = getelementptr inbounds i8, ptr %this, i64 248
   store double 0x47EFFFFFE0000000, ptr %gamma.i.i, align 8, !tbaa !113
   %delta.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -4682,9 +4682,9 @@ define linkonce_odr void @_ZN8QuantLib10Instrument7results5resetEv(ptr noundef n
 entry:
   %ref.tmp2 = alloca %"class.QuantLib::Date", align 8
   %errorEstimate = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store double 0x47EFFFFFE0000000, ptr %errorEstimate, align 8, !tbaa !101
+  store double 0x47EFFFFFE0000000, ptr %errorEstimate, align 8, !tbaa !109
   %value = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store double 0x47EFFFFFE0000000, ptr %value, align 8, !tbaa !109
+  store double 0x47EFFFFFE0000000, ptr %value, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2) #26
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
   %valuationDate = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4764,9 +4764,9 @@ define linkonce_odr void @_ZN8QuantLib16MultiAssetOption7results5resetEv(ptr nou
 entry:
   %ref.tmp2.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i, align 8, !tbaa !101
+  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i, align 8, !tbaa !109
   %value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store double 0x47EFFFFFE0000000, ptr %value.i, align 8, !tbaa !109
+  store double 0x47EFFFFFE0000000, ptr %value.i, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i) #26
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i)
   %valuationDate.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4802,7 +4802,7 @@ _ZN8QuantLib10Instrument7results5resetEv.exit:    ; preds = %entry
   %vega.i = getelementptr inbounds i8, ptr %this, i64 112
   store double 0x47EFFFFFE0000000, ptr %vega.i, align 8, !tbaa !112
   %theta.i = getelementptr inbounds i8, ptr %this, i64 104
-  store double 0x47EFFFFFE0000000, ptr %theta.i, align 8, !tbaa !93
+  store double 0x47EFFFFFE0000000, ptr %theta.i, align 8, !tbaa !101
   %gamma.i = getelementptr inbounds i8, ptr %this, i64 96
   store double 0x47EFFFFFE0000000, ptr %gamma.i, align 8, !tbaa !113
   %delta.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -4860,9 +4860,9 @@ define linkonce_odr void @_ZThn80_N8QuantLib16MultiAssetOption7results5resetEv(p
 entry:
   %ref.tmp2.i.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i.i = getelementptr inbounds i8, ptr %this, i64 -64
-  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i.i, align 8, !tbaa !101
+  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i.i, align 8, !tbaa !109
   %value.i.i = getelementptr inbounds i8, ptr %this, i64 -72
-  store double 0x47EFFFFFE0000000, ptr %value.i.i, align 8, !tbaa !109
+  store double 0x47EFFFFFE0000000, ptr %value.i.i, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i) #26
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i)
   %valuationDate.i.i = getelementptr inbounds i8, ptr %this, i64 -56
@@ -4898,7 +4898,7 @@ _ZN8QuantLib16MultiAssetOption7results5resetEv.exit: ; preds = %entry
   %vega.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store double 0x47EFFFFFE0000000, ptr %vega.i.i, align 8, !tbaa !112
   %theta.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store double 0x47EFFFFFE0000000, ptr %theta.i.i, align 8, !tbaa !93
+  store double 0x47EFFFFFE0000000, ptr %theta.i.i, align 8, !tbaa !101
   %gamma.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store double 0x47EFFFFFE0000000, ptr %gamma.i.i, align 8, !tbaa !113
   %delta.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -5231,28 +5231,28 @@ attributes #31 = { builtin nounwind }
 !90 = !{!84, !79, i64 32}
 !91 = !{!84, !79, i64 24}
 !92 = !{!76, !78, i64 8}
-!93 = !{!94, !79, i64 24}
-!94 = !{!"_ZTSN8QuantLib6GreeksE", !79, i64 8, !79, i64 16, !79, i64 24, !79, i64 32, !79, i64 40, !79, i64 48}
-!95 = !{!96, !4, i64 0}
-!96 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_21BlackVolTermStructureEE4LinkEEE", !4, i64 0, !38, i64 8}
-!97 = !{!98, !4, i64 0}
-!98 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEEE", !4, i64 0, !38, i64 8}
-!99 = !{!100, !4, i64 0}
-!100 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEEE", !4, i64 0, !38, i64 8}
-!101 = !{!102, !79, i64 16}
-!102 = !{!"_ZTSN8QuantLib10Instrument7resultsE", !79, i64 8, !79, i64 16, !103, i64 24, !104, i64 32}
-!103 = !{!"_ZTSN8QuantLib4DateE", !12, i64 0}
-!104 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4lessIS5_ESaISt4pairIKS5_S7_EEE", !105, i64 0}
-!105 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE", !106, i64 0}
-!106 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE13_Rb_tree_implISE_Lb1EEE", !107, i64 0, !9, i64 8}
-!107 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !108, i64 0}
-!108 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
-!109 = !{!102, !79, i64 8}
-!110 = !{!94, !79, i64 48}
-!111 = !{!94, !79, i64 40}
-!112 = !{!94, !79, i64 32}
-!113 = !{!94, !79, i64 16}
-!114 = !{!94, !79, i64 8}
+!93 = !{!94, !79, i64 8}
+!94 = !{!"_ZTSN8QuantLib10Instrument7resultsE", !79, i64 8, !79, i64 16, !95, i64 24, !96, i64 32}
+!95 = !{!"_ZTSN8QuantLib4DateE", !12, i64 0}
+!96 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4lessIS5_ESaISt4pairIKS5_S7_EEE", !97, i64 0}
+!97 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE", !98, i64 0}
+!98 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE13_Rb_tree_implISE_Lb1EEE", !99, i64 0, !9, i64 8}
+!99 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !100, i64 0}
+!100 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
+!101 = !{!102, !79, i64 24}
+!102 = !{!"_ZTSN8QuantLib6GreeksE", !79, i64 8, !79, i64 16, !79, i64 24, !79, i64 32, !79, i64 40, !79, i64 48}
+!103 = !{!104, !4, i64 0}
+!104 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_21BlackVolTermStructureEE4LinkEEE", !4, i64 0, !38, i64 8}
+!105 = !{!106, !4, i64 0}
+!106 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEEE", !4, i64 0, !38, i64 8}
+!107 = !{!108, !4, i64 0}
+!108 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEEE", !4, i64 0, !38, i64 8}
+!109 = !{!94, !79, i64 16}
+!110 = !{!102, !79, i64 48}
+!111 = !{!102, !79, i64 40}
+!112 = !{!102, !79, i64 32}
+!113 = !{!102, !79, i64 16}
+!114 = !{!102, !79, i64 8}
 !115 = !{!10, !4, i64 24}
 !116 = !{!10, !4, i64 16}
 !117 = distinct !{!117, !46}

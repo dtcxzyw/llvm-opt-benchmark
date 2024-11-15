@@ -10258,13 +10258,13 @@ _ZN4llvm8ExpectedIN5clang7tooling12ReplacementsEEC2IS3_EEOT_PNSt9enable_ifIXsr3s
   %.sink32 = phi ptr [ %73, %69 ], [ %66, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit.i ]
   %.sink = phi ptr [ %75, %69 ], [ %66, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit.i ]
   %.sink.i = phi i64 [ %78, %69 ], [ 0, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit.i ]
-  store i32 %.sink34, ptr %66, align 8
+  store i32 %.sink34, ptr %66, align 8, !alias.scope !78
   %79 = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr %68, ptr %79, align 8
+  store ptr %68, ptr %79, align 8, !alias.scope !78
   %80 = getelementptr inbounds i8, ptr %19, i64 24
-  store ptr %.sink32, ptr %80, align 8
+  store ptr %.sink32, ptr %80, align 8, !alias.scope !78
   %81 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr %.sink, ptr %81, align 8
+  store ptr %.sink, ptr %81, align 8, !alias.scope !78
   %82 = getelementptr inbounds i8, ptr %19, i64 40
   store i64 %.sink.i, ptr %82, align 8, !alias.scope !78
   %83 = getelementptr inbounds i8, ptr %17, i64 16
@@ -10459,13 +10459,13 @@ _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EEC2ERKS4_.exit.i14: ; preds = %_ZNSt6v
   %.sink1.i.i = phi ptr [ %164, %160 ], [ %157, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EEC2ERKS4_.exit.i14 ]
   %.sink.i.i = phi ptr [ %166, %160 ], [ %157, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EEC2ERKS4_.exit.i14 ]
   %.sink.i.i.i = phi i64 [ %169, %160 ], [ 0, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EEC2ERKS4_.exit.i14 ]
-  store i32 %.sink3.i.i, ptr %157, align 8, !alias.scope !103, !noalias !94
+  store i32 %.sink3.i.i, ptr %157, align 8, !alias.scope !111, !noalias !94
   %170 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %159, ptr %170, align 8, !alias.scope !103, !noalias !94
+  store ptr %159, ptr %170, align 8, !alias.scope !111, !noalias !94
   %171 = getelementptr inbounds i8, ptr %11, i64 24
-  store ptr %.sink1.i.i, ptr %171, align 8, !alias.scope !103, !noalias !94
+  store ptr %.sink1.i.i, ptr %171, align 8, !alias.scope !111, !noalias !94
   %172 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr %.sink.i.i, ptr %172, align 8, !alias.scope !103, !noalias !94
+  store ptr %.sink.i.i, ptr %172, align 8, !alias.scope !111, !noalias !94
   %173 = getelementptr inbounds i8, ptr %11, i64 40
   store i64 %.sink.i.i.i, ptr %173, align 8, !alias.scope !111, !noalias !94
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !109
@@ -10511,13 +10511,13 @@ _ZN4llvm8ExpectedIN5clang7tooling12ReplacementsEEC2IS3_EEOT_PNSt9enable_ifIXsr3s
   %.sink36 = phi ptr [ %185, %181 ], [ %178, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit.i18 ]
   %.sink35 = phi ptr [ %187, %181 ], [ %178, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit.i18 ]
   %.sink.i21 = phi i64 [ %190, %181 ], [ 0, %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit.i18 ]
-  store i32 %.sink38, ptr %178, align 8
+  store i32 %.sink38, ptr %178, align 8, !alias.scope !94
   %191 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %180, ptr %191, align 8
+  store ptr %180, ptr %191, align 8, !alias.scope !94
   %192 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sink36, ptr %192, align 8
+  store ptr %.sink36, ptr %192, align 8, !alias.scope !94
   %193 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sink35, ptr %193, align 8
+  store ptr %.sink35, ptr %193, align 8, !alias.scope !94
   %194 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sink.i21, ptr %194, align 8, !alias.scope !94
   %195 = load ptr, ptr %170, align 8, !noalias !94
@@ -11551,13 +11551,13 @@ _ZN5clang7tooling12ReplacementsC2EOS1_.exit.i:    ; preds = %._crit_edge174.i, %
   %.sink25 = phi ptr [ %409, %407 ], [ %405, %._crit_edge174.i ]
   %.sink = phi ptr [ %410, %407 ], [ %405, %._crit_edge174.i ]
   %.sink.i = phi i64 [ %412, %407 ], [ 0, %._crit_edge174.i ]
-  store i32 %.sink27, ptr %405, align 8
+  store i32 %.sink27, ptr %405, align 8, !alias.scope !112
   %413 = getelementptr inbounds i8, ptr %43, i64 16
-  store ptr %406, ptr %413, align 8
+  store ptr %406, ptr %413, align 8, !alias.scope !112
   %414 = getelementptr inbounds i8, ptr %43, i64 24
-  store ptr %.sink25, ptr %414, align 8
+  store ptr %.sink25, ptr %414, align 8, !alias.scope !112
   %415 = getelementptr inbounds i8, ptr %43, i64 32
-  store ptr %.sink, ptr %415, align 8
+  store ptr %.sink, ptr %415, align 8, !alias.scope !112
   %416 = getelementptr inbounds i8, ptr %43, i64 40
   store i64 %.sink.i, ptr %416, align 8, !alias.scope !112
   %417 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %35) #27
@@ -11707,13 +11707,13 @@ _ZN4llvm8ExpectedIN5clang7tooling12ReplacementsEEC2IS3_EEOT_PNSt9enable_ifIXsr3s
   %.sink29 = phi ptr [ %470, %466 ], [ %463, %445 ]
   %.sink28 = phi ptr [ %472, %466 ], [ %463, %445 ]
   %.sink.i7 = phi i64 [ %475, %466 ], [ 0, %445 ]
-  store i32 %.sink31, ptr %463, align 8
+  store i32 %.sink31, ptr %463, align 8, !alias.scope !116
   %476 = getelementptr inbounds i8, ptr %45, i64 16
-  store ptr %465, ptr %476, align 8
+  store ptr %465, ptr %476, align 8, !alias.scope !116
   %477 = getelementptr inbounds i8, ptr %45, i64 24
-  store ptr %.sink29, ptr %477, align 8
+  store ptr %.sink29, ptr %477, align 8, !alias.scope !116
   %478 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr %.sink28, ptr %478, align 8
+  store ptr %.sink28, ptr %478, align 8, !alias.scope !116
   %479 = getelementptr inbounds i8, ptr %45, i64 40
   store i64 %.sink.i7, ptr %479, align 8, !alias.scope !116
   %480 = getelementptr inbounds i8, ptr %10, i64 16
@@ -11793,13 +11793,13 @@ _ZN4llvm8cantFailIN5clang7tooling12ReplacementsEEET_NS_8ExpectedIS4_EEPKc.exit: 
   %515 = phi ptr [ %508, %504 ], [ %501, %"_ZN5clang6formatL19processReplacementsIZNS0_25cleanupAroundReplacementsEN4llvm9StringRefERKNS_7tooling12ReplacementsERKNS0_11FormatStyleEE3$_0EENS2_8ExpectedIS5_EET_S3_S7_SA_.exit" ]
   %516 = phi ptr [ %510, %504 ], [ %501, %"_ZN5clang6formatL19processReplacementsIZNS0_25cleanupAroundReplacementsEN4llvm9StringRefERKNS_7tooling12ReplacementsERKNS0_11FormatStyleEE3$_0EENS2_8ExpectedIS5_EET_S3_S7_SA_.exit" ]
   %517 = phi i64 [ %513, %504 ], [ 0, %"_ZN5clang6formatL19processReplacementsIZNS0_25cleanupAroundReplacementsEN4llvm9StringRefERKNS_7tooling12ReplacementsERKNS0_11FormatStyleEE3$_0EENS2_8ExpectedIS5_EET_S3_S7_SA_.exit" ]
-  store i32 %514, ptr %501, align 8
+  store i32 %514, ptr %501, align 8, !alias.scope !125
   %518 = getelementptr inbounds i8, ptr %44, i64 16
-  store ptr %503, ptr %518, align 8
+  store ptr %503, ptr %518, align 8, !alias.scope !125
   %519 = getelementptr inbounds i8, ptr %44, i64 24
-  store ptr %515, ptr %519, align 8
+  store ptr %515, ptr %519, align 8, !alias.scope !125
   %520 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr %516, ptr %520, align 8
+  store ptr %516, ptr %520, align 8, !alias.scope !125
   %521 = getelementptr inbounds i8, ptr %44, i64 40
   store i64 %517, ptr %521, align 8, !alias.scope !125
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -14976,13 +14976,13 @@ _ZN5clang6format8reformatERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_
   %.sink9 = phi ptr [ %19, %15 ], [ %12, %8 ]
   %.sink = phi ptr [ %21, %15 ], [ %12, %8 ]
   %.sink.i = phi i64 [ %24, %15 ], [ 0, %8 ]
-  store i32 %.sink11, ptr %12, align 8
+  store i32 %.sink11, ptr %12, align 8, !alias.scope !137
   %25 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %14, ptr %25, align 8
+  store ptr %14, ptr %25, align 8, !alias.scope !137
   %26 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sink9, ptr %26, align 8
+  store ptr %.sink9, ptr %26, align 8, !alias.scope !137
   %27 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sink, ptr %27, align 8
+  store ptr %.sink, ptr %27, align 8, !alias.scope !137
   %28 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sink.i, ptr %28, align 8, !alias.scope !137
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)

@@ -6913,7 +6913,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %19, %17
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h095056befc32e9eaE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h095056befc32e9eaE.exit": ; preds = %27, %29
-  store i64 %25, ptr %0, align 8
+  store i64 %25, ptr %0, align 8, !alias.scope !1069
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.7)
   br label %30
 

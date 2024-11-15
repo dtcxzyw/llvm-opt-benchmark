@@ -2484,7 +2484,7 @@ _ZN3der6reader6Reader6decode17hd51f47996d597c4eE.exit.i: ; preds = %46
 _ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.exit: ; preds = %59, %63
   %.sink = phi i8 [ %.sroa.535.i.sroa.16.0, %63 ], [ 24, %59 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 64
-  store i8 %.sink, ptr %64, align 8
+  store i8 %.sink, ptr %64, align 8, !alias.scope !820
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.553)
   br label %67
 

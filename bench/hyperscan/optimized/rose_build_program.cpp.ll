@@ -8253,13 +8253,13 @@ call.i60.i.noexc:                                 ; preds = %call7.i.noexc
   %210 = load i32, ptr %lag.i, align 4, !noalias !80
   %211 = load i32, ptr %leftfix_report.i, align 4, !noalias !80
   %spec.select583 = select i1 %call7.i194, ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220RoseInstrCheckPrefixE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZTVN3ue219RoseInstrCheckInfixE, i64 16)
-  store ptr %spec.select583, ptr %call.i60.i195, align 8
+  store ptr %spec.select583, ptr %call.i60.i195, align 8, !noalias !80
   %212 = getelementptr inbounds i8, ptr %call.i60.i195, i64 8
-  store i32 %209, ptr %212, align 8
+  store i32 %209, ptr %212, align 8, !noalias !80
   %213 = getelementptr inbounds i8, ptr %call.i60.i195, i64 12
-  store i32 %210, ptr %213, align 4
+  store i32 %210, ptr %213, align 4, !noalias !80
   %214 = getelementptr inbounds i8, ptr %call.i60.i195, i64 16
-  store i32 %211, ptr %214, align 8
+  store i32 %211, ptr %214, align 8, !noalias !80
   %target.i.i66.sink.i = getelementptr inbounds i8, ptr %call.i60.i195, i64 24
   store ptr %208, ptr %target.i.i66.sink.i, align 8, !noalias !80
   %215 = ptrtoint ptr %call.i60.i195 to i64

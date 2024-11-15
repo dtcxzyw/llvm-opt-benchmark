@@ -10367,11 +10367,11 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   tail call void @llvm.assume(i1 %24)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sink9, ptr nonnull readonly align 1 %14, i64 %.sroa.4.0.copyload, i1 false)
   %.sink6 = extractvalue { i64, ptr } %.pn, 0
-  store i64 %.sink6, ptr %0, align 8
+  store i64 %.sink6, ptr %0, align 8, !noalias !7
   %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink9, ptr %25, align 8
+  store ptr %.sink9, ptr %25, align 8, !noalias !7
   %26 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %26, align 8
+  store i64 %.sroa.4.0.copyload, ptr %26, align 8, !noalias !7
   br label %27
 
 27:                                               ; preds = %23, %17

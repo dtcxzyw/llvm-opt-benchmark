@@ -1080,7 +1080,7 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
   %.sink = phi i16 [ %297, %291 ], [ %290, %286 ]
   %.sroa.07.1.i.i92.sroa.phi = phi ptr [ %21, %291 ], [ %.sroa.07.1.i.i92.sroa.gep242, %286 ]
   %.sroa.07.1.i.i92 = phi i64 [ 3, %291 ], [ 2, %286 ]
-  store i16 %.sink, ptr %.sroa.07.1.i.i92.sroa.gep242, align 1
+  store i16 %.sink, ptr %.sroa.07.1.i.i92.sroa.gep242, align 1, !alias.scope !148, !noalias !145
   %299 = load i64, ptr %1, align 8, !alias.scope !152, !noundef !4
   %300 = sub i64 %299, %284
   %301 = icmp ugt i64 %.sroa.07.1.i.i92, %300
@@ -1344,7 +1344,7 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
   %.sink252 = phi i16 [ %420, %414 ], [ %413, %409 ]
   %.sroa.07.1.i.i120.sroa.phi = phi ptr [ %18, %414 ], [ %.sroa.07.1.i.i120.sroa.gep246, %409 ]
   %.sroa.07.1.i.i120 = phi i64 [ 3, %414 ], [ 2, %409 ]
-  store i16 %.sink252, ptr %.sroa.07.1.i.i120.sroa.gep246, align 1
+  store i16 %.sink252, ptr %.sroa.07.1.i.i120.sroa.gep246, align 1, !alias.scope !191, !noalias !188
   %422 = load i64, ptr %1, align 8, !alias.scope !195, !noundef !4
   %423 = sub i64 %422, %407
   %424 = icmp ugt i64 %.sroa.07.1.i.i120, %423

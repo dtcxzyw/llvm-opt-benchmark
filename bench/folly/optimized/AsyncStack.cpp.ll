@@ -183,7 +183,7 @@ _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit7: ; preds = %entry,
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %atomic-temp.0.i.i.i9.sink = inttoptr i64 %3 to ptr
   %4 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %atomic-temp.0.i.i.i9.sink, ptr %4, align 8
+  store ptr %atomic-temp.0.i.i.i9.sink, ptr %4, align 8, !tbaa !21
   %5 = ptrtoint ptr %this to i64
   store atomic i64 %5, ptr %2 release, align 8
   ret void

@@ -11275,7 +11275,7 @@ if.end1739:                                       ; preds = %if.else1730, %if.th
   %switch182 = icmp eq i32 %895, 2
   %storemerge.sink = select i1 %switch182, double %.sroa.speculated, double %sub1738
   %896 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store double %storemerge.sink, ptr %896, align 8
+  store double %storemerge.sink, ptr %896, align 8, !tbaa !160
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1756) #28
   %897 = getelementptr inbounds nuw i8, ptr %ref.tmp1756, i64 16
   store ptr %897, ptr %ref.tmp1756, align 8, !tbaa !49

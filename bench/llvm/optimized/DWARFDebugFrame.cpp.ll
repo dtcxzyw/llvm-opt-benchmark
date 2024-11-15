@@ -12267,13 +12267,13 @@ _ZSt19__relocate_object_aIN4llvm5dwarf9UnwindRowES2_SaIS2_EEvPT_PT0_RT1_.exit.i.
   %.sink13.i.i.i = phi ptr [ %51, %47 ], [ %44, %.lr.ph.i.i.i ]
   %.sink.i.i.i = phi ptr [ %53, %47 ], [ %44, %.lr.ph.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %56, %47 ], [ 0, %.lr.ph.i.i.i ]
-  store i32 %.sink15.i.i.i, ptr %44, align 8
+  store i32 %.sink15.i.i.i, ptr %44, align 8, !alias.scope !577, !noalias !580
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 104
-  store ptr %46, ptr %57, align 8
+  store ptr %46, ptr %57, align 8, !alias.scope !577, !noalias !580
   %58 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 112
-  store ptr %.sink13.i.i.i, ptr %58, align 8
+  store ptr %.sink13.i.i.i, ptr %58, align 8, !alias.scope !577, !noalias !580
   %59 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 120
-  store ptr %.sink.i.i.i, ptr %59, align 8
+  store ptr %.sink.i.i.i, ptr %59, align 8, !alias.scope !577, !noalias !580
   %60 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 128
   store i64 %.sink.i.i.i.i, ptr %60, align 8, !alias.scope !577, !noalias !580
   %61 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 136
@@ -12321,13 +12321,13 @@ _ZSt19__relocate_object_aIN4llvm5dwarf9UnwindRowES2_SaIS2_EEvPT_PT0_RT1_.exit.i.
   %.sink13.i.i.i23 = phi ptr [ %71, %67 ], [ %64, %.lr.ph.i.i.i17 ]
   %.sink.i.i.i24 = phi ptr [ %73, %67 ], [ %64, %.lr.ph.i.i.i17 ]
   %.sink.i.i.i.i25 = phi i64 [ %76, %67 ], [ 0, %.lr.ph.i.i.i17 ]
-  store i32 %.sink15.i.i.i22, ptr %64, align 8
+  store i32 %.sink15.i.i.i22, ptr %64, align 8, !alias.scope !584, !noalias !587
   %77 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 104
-  store ptr %66, ptr %77, align 8
+  store ptr %66, ptr %77, align 8, !alias.scope !584, !noalias !587
   %78 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 112
-  store ptr %.sink13.i.i.i23, ptr %78, align 8
+  store ptr %.sink13.i.i.i23, ptr %78, align 8, !alias.scope !584, !noalias !587
   %79 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 120
-  store ptr %.sink.i.i.i24, ptr %79, align 8
+  store ptr %.sink.i.i.i24, ptr %79, align 8, !alias.scope !584, !noalias !587
   %80 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 128
   store i64 %.sink.i.i.i.i25, ptr %80, align 8, !alias.scope !584, !noalias !587
   %81 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 136
@@ -12513,13 +12513,13 @@ _ZSt19__relocate_object_aISt4pairIN4llvm5dwarf14UnwindLocationENS2_17RegisterLoc
   %.sink13.i.i.i = phi ptr [ %53, %49 ], [ %46, %.lr.ph.i.i.i ]
   %.sink.i.i.i = phi ptr [ %55, %49 ], [ %46, %.lr.ph.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %58, %49 ], [ 0, %.lr.ph.i.i.i ]
-  store i32 %.sink15.i.i.i, ptr %46, align 8
+  store i32 %.sink15.i.i.i, ptr %46, align 8, !alias.scope !590, !noalias !593
   %59 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 88
-  store ptr %48, ptr %59, align 8
+  store ptr %48, ptr %59, align 8, !alias.scope !590, !noalias !593
   %60 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 96
-  store ptr %.sink13.i.i.i, ptr %60, align 8
+  store ptr %.sink13.i.i.i, ptr %60, align 8, !alias.scope !590, !noalias !593
   %61 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 104
-  store ptr %.sink.i.i.i, ptr %61, align 8
+  store ptr %.sink.i.i.i, ptr %61, align 8, !alias.scope !590, !noalias !593
   %62 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 112
   store i64 %.sink.i.i.i.i, ptr %62, align 8, !alias.scope !590, !noalias !593
   %63 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 120
@@ -12567,13 +12567,13 @@ _ZSt19__relocate_object_aISt4pairIN4llvm5dwarf14UnwindLocationENS2_17RegisterLoc
   %.sink13.i.i.i23 = phi ptr [ %73, %69 ], [ %66, %.lr.ph.i.i.i17 ]
   %.sink.i.i.i24 = phi ptr [ %75, %69 ], [ %66, %.lr.ph.i.i.i17 ]
   %.sink.i.i.i.i25 = phi i64 [ %78, %69 ], [ 0, %.lr.ph.i.i.i17 ]
-  store i32 %.sink15.i.i.i22, ptr %66, align 8
+  store i32 %.sink15.i.i.i22, ptr %66, align 8, !alias.scope !597, !noalias !600
   %79 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 88
-  store ptr %68, ptr %79, align 8
+  store ptr %68, ptr %79, align 8, !alias.scope !597, !noalias !600
   %80 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 96
-  store ptr %.sink13.i.i.i23, ptr %80, align 8
+  store ptr %.sink13.i.i.i23, ptr %80, align 8, !alias.scope !597, !noalias !600
   %81 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 104
-  store ptr %.sink.i.i.i24, ptr %81, align 8
+  store ptr %.sink.i.i.i24, ptr %81, align 8, !alias.scope !597, !noalias !600
   %82 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 112
   store i64 %.sink.i.i.i.i25, ptr %82, align 8, !alias.scope !597, !noalias !600
   %83 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 120

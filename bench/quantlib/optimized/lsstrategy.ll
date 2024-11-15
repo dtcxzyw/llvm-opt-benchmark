@@ -1914,7 +1914,7 @@ cleanup.action6.i:                                ; preds = %entry
 
 invoke.cont:                                      ; preds = %cleanup.action6.i, %entry
   %.sink.i = phi ptr [ %3, %cleanup.action6.i ], [ null, %entry ]
-  store ptr %.sink.i, ptr %basisSystem_, align 8
+  store ptr %.sink.i, ptr %basisSystem_, align 8, !tbaa !10
   %basisCoefficients_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %basisCoefficients_3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1994,7 +1994,7 @@ cleanup.action6.i35:                              ; preds = %invoke.cont5
 
 invoke.cont8:                                     ; preds = %.noexc39, %invoke.cont5
   %.sink.i38 = phi ptr [ %13, %.noexc39 ], [ null, %invoke.cont5 ]
-  store ptr %.sink.i38, ptr %exercise_, align 8
+  store ptr %.sink.i38, ptr %exercise_, align 8, !tbaa !10
   %control_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %control_9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %control_9, align 8, !tbaa !10
@@ -2016,7 +2016,7 @@ cleanup.action6.i42:                              ; preds = %invoke.cont8
 
 invoke.cont11:                                    ; preds = %.noexc46, %invoke.cont8
   %.sink.i45 = phi ptr [ %16, %.noexc46 ], [ null, %invoke.cont8 ]
-  store ptr %.sink.i45, ptr %control_, align 8
+  store ptr %.sink.i45, ptr %control_, align 8, !tbaa !10
   %numeraires_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %numeraires_12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %_M_finish.i.i48 = getelementptr inbounds nuw i8, ptr %0, i64 64

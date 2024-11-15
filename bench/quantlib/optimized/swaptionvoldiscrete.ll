@@ -3527,7 +3527,7 @@ invoke.cont10:                                    ; preds = %call5.i.i.i.i2.i.i.
   %add.ptr.i.i.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseIN8QuantLib6PeriodESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %add.ptr.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr %add.ptr.i.i.sink.i, ptr %18, align 8
+  store ptr %add.ptr.i.i.sink.i, ptr %18, align 8, !tbaa !53
   store ptr %add.ptr.i.i.sink.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !33
   %optionDates_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %19 = load ptr, ptr %_M_finish.i, align 8, !tbaa !69

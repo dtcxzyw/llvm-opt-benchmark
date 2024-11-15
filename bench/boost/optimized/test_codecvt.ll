@@ -8240,7 +8240,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
 55:                                               ; preds = %34, %.thread59
   %.sink.i = phi i16 [ %32, %.thread59 ], [ %38, %34 ]
   %.0.i = phi ptr [ %33, %.thread59 ], [ %43, %34 ]
-  store i16 %.sink.i, ptr %.194, align 2
+  store i16 %.sink.i, ptr %.194, align 2, !tbaa !79
   %56 = icmp ult ptr %.0.i, %6
   %57 = load ptr, ptr %9, align 8
   %58 = icmp ult ptr %57, %3

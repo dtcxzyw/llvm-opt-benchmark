@@ -297,7 +297,7 @@ resolve_point_coord.exit113:                      ; preds = %resolve_point_coord
   %.pn = select i1 %142, float %.0.i109, float %145
   %storemerge = fadd float %.pn, %76
   %.sink = fadd float %.0.i99.pn, %76
-  store float %.sink, ptr %72, align 4
+  store float %.sink, ptr %72, align 4, !tbaa !30
   store float %storemerge, ptr %74, align 4, !tbaa !32
   call void @lv_draw_line(ptr noundef %53, ptr noundef nonnull %4) #5
   %146 = load i8, ptr %77, align 1

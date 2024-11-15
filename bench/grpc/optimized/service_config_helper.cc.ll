@@ -3183,13 +3183,13 @@ _ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_119ServiceConfigChoiceES2_SaIS
   %.sink4.i.i.i.i.i = phi ptr [ %16, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %13, %for.body.i.i.i.i.i ]
   %.sink.i.i.i.i.i = phi ptr [ %17, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %13, %for.body.i.i.i.i.i ]
   %.sink.i.i.i.i.i.i = phi i64 [ %18, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
-  store i32 %.sink6.i.i.i.i.i, ptr %13, align 8
+  store i32 %.sink6.i.i.i.i.i, ptr %13, align 8, !alias.scope !25, !noalias !28
   %19 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 72
-  store ptr %14, ptr %19, align 8
+  store ptr %14, ptr %19, align 8, !alias.scope !25, !noalias !28
   %20 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 80
-  store ptr %.sink4.i.i.i.i.i, ptr %20, align 8
+  store ptr %.sink4.i.i.i.i.i, ptr %20, align 8, !alias.scope !25, !noalias !28
   %21 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 88
-  store ptr %.sink.i.i.i.i.i, ptr %21, align 8
+  store ptr %.sink.i.i.i.i.i, ptr %21, align 8, !alias.scope !25, !noalias !28
   %22 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 96
   store i64 %.sink.i.i.i.i.i.i, ptr %22, align 8, !alias.scope !25, !noalias !28
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_119ServiceConfigChoiceD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %__first.addr.02.i.i.i.i.i) #21

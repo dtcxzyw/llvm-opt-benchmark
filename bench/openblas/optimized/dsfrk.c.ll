@@ -126,13 +126,13 @@ define void @dsfrk_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %31, label %77, label %.thread7
 
 77:                                               ; preds = %75
-  store i32 %74, ptr %12, align 4
-  store i32 %76, ptr %13, align 4
+  store i32 %74, ptr %12, align 4, !tbaa !3
+  store i32 %76, ptr %13, align 4, !tbaa !3
   br i1 %26, label %179, label %114
 
 .thread7:                                         ; preds = %75
-  store i32 %76, ptr %12, align 4
-  store i32 %74, ptr %13, align 4
+  store i32 %76, ptr %12, align 4, !tbaa !3
+  store i32 %74, ptr %13, align 4, !tbaa !3
   br i1 %26, label %.thread10, label %.thread9
 
 .thread9:                                         ; preds = %.thread7

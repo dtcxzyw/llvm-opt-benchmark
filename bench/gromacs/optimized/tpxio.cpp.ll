@@ -15892,13 +15892,13 @@ _ZN3gmx19KeyValueTreeBuilder5buildEv.exit:        ; preds = %3326, %3329
   %.sink1727 = phi ptr [ %3331, %3329 ], [ %3327, %3326 ]
   %.sink = phi ptr [ %3332, %3329 ], [ %3327, %3326 ]
   %.sink.i = phi i64 [ %3334, %3329 ], [ 0, %3326 ]
-  store i32 %.sink1729, ptr %3327, align 8
+  store i32 %.sink1729, ptr %3327, align 8, !alias.scope !130
   %3335 = getelementptr inbounds i8, ptr %3325, i64 16
-  store ptr %3328, ptr %3335, align 8
+  store ptr %3328, ptr %3335, align 8, !alias.scope !130
   %3336 = getelementptr inbounds i8, ptr %3325, i64 24
-  store ptr %.sink1727, ptr %3336, align 8
+  store ptr %.sink1727, ptr %3336, align 8, !alias.scope !130
   %3337 = getelementptr inbounds i8, ptr %3325, i64 32
-  store ptr %.sink, ptr %3337, align 8
+  store ptr %.sink, ptr %3337, align 8, !alias.scope !130
   %3338 = getelementptr inbounds i8, ptr %3325, i64 40
   store i64 %.sink.i, ptr %3338, align 8, !alias.scope !130
   %3339 = getelementptr inbounds i8, ptr %3325, i64 48

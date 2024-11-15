@@ -3609,8 +3609,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   %.sink520 = phi ptr [ %528, %527 ], [ %524, %526 ]
   %.sink = phi i64 [ %529, %527 ], [ %519, %526 ]
   %.sink.i117 = phi i64 [ -9223372036854775808, %527 ], [ %523, %526 ]
-  store ptr %.sink520, ptr %.sroa.038.sroa.3.0..sroa_idx.i, align 8
-  store i64 %.sink, ptr %.sroa.038.sroa.4.0..sroa_idx.i, align 8
+  store ptr %.sink520, ptr %.sroa.038.sroa.3.0..sroa_idx.i, align 8, !noalias !430
+  store i64 %.sink, ptr %.sroa.038.sroa.4.0..sroa_idx.i, align 8, !noalias !430
   store i64 %.sink.i117, ptr %20, align 8, !noalias !430
   %531 = load i64, ptr %62, align 8, !alias.scope !567, !noalias !570, !noundef !8
   %532 = load i64, ptr %21, align 8, !alias.scope !567, !noalias !570, !noundef !8

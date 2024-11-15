@@ -447,9 +447,9 @@ define internal noundef i32 @outline_move_to_cb(ptr noundef readonly %0, ptr nou
 ft_vector_to_lv_vector.exit10.i:                  ; preds = %9, %2
   %.sink.i9.i = phi i32 [ %11, %9 ], [ 0, %2 ]
   %15 = phi i32 [ %14, %9 ], [ 0, %2 ]
-  store i32 %.sink.i9.i, ptr %8, align 4
+  store i32 %.sink.i9.i, ptr %8, align 4, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %15, ptr %16, align 8, !tbaa !50
+  store i32 %15, ptr %16, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %.not.i11.i = icmp eq ptr %18, null
@@ -501,9 +501,9 @@ define internal noundef i32 @outline_line_to_cb(ptr noundef readonly %0, ptr nou
 ft_vector_to_lv_vector.exit10.i:                  ; preds = %9, %2
   %.sink.i9.i = phi i32 [ %11, %9 ], [ 0, %2 ]
   %15 = phi i32 [ %14, %9 ], [ 0, %2 ]
-  store i32 %.sink.i9.i, ptr %8, align 4
+  store i32 %.sink.i9.i, ptr %8, align 4, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %15, ptr %16, align 8, !tbaa !50
+  store i32 %15, ptr %16, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %.not.i11.i = icmp eq ptr %18, null
@@ -553,13 +553,13 @@ define internal noundef i32 @outline_conic_to_cb(ptr noundef readonly %0, ptr no
 ft_vector_to_lv_vector.exit.i:                    ; preds = %9, %3
   %.sink.i.i = phi i32 [ %11, %9 ], [ 0, %3 ]
   %15 = phi i32 [ %14, %9 ], [ 0, %3 ]
-  store i32 %.sink.i.i, ptr %8, align 4
+  store i32 %.sink.i.i, ptr %8, align 4, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %15, ptr %16, align 8, !tbaa !50
+  store i32 %15, ptr %16, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 0, ptr %17, align 4
+  store i32 0, ptr %17, align 4, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 0, ptr %18, align 8, !tbaa !50
+  store i32 0, ptr %18, align 8, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %.not.i8.i = icmp eq ptr %1, null
   br i1 %.not.i8.i, label %ft_vector_to_lv_vector.exit10.i, label %20
@@ -575,9 +575,9 @@ ft_vector_to_lv_vector.exit.i:                    ; preds = %9, %3
 ft_vector_to_lv_vector.exit10.i:                  ; preds = %20, %ft_vector_to_lv_vector.exit.i
   %.sink.i9.i = phi i32 [ %22, %20 ], [ 0, %ft_vector_to_lv_vector.exit.i ]
   %26 = phi i32 [ %25, %20 ], [ 0, %ft_vector_to_lv_vector.exit.i ]
-  store i32 %.sink.i9.i, ptr %19, align 4
+  store i32 %.sink.i9.i, ptr %19, align 4, !tbaa !50
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %26, ptr %27, align 8, !tbaa !50
+  store i32 %26, ptr %27, align 8, !tbaa !51
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %.not.i11.i = icmp eq ptr %29, null
@@ -627,9 +627,9 @@ define internal noundef i32 @outline_cubic_to_cb(ptr noundef readonly %0, ptr no
 ft_vector_to_lv_vector.exit.i:                    ; preds = %10, %4
   %.sink.i.i = phi i32 [ %12, %10 ], [ 0, %4 ]
   %16 = phi i32 [ %15, %10 ], [ 0, %4 ]
-  store i32 %.sink.i.i, ptr %9, align 4
+  store i32 %.sink.i.i, ptr %9, align 4, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %16, ptr %17, align 8, !tbaa !50
+  store i32 %16, ptr %17, align 8, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %.not.i5.i = icmp eq ptr %1, null
   br i1 %.not.i5.i, label %ft_vector_to_lv_vector.exit7.i, label %19
@@ -645,9 +645,9 @@ ft_vector_to_lv_vector.exit.i:                    ; preds = %10, %4
 ft_vector_to_lv_vector.exit7.i:                   ; preds = %19, %ft_vector_to_lv_vector.exit.i
   %.sink.i6.i = phi i32 [ %21, %19 ], [ 0, %ft_vector_to_lv_vector.exit.i ]
   %25 = phi i32 [ %24, %19 ], [ 0, %ft_vector_to_lv_vector.exit.i ]
-  store i32 %.sink.i6.i, ptr %18, align 4
+  store i32 %.sink.i6.i, ptr %18, align 4, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %25, ptr %26, align 8, !tbaa !50
+  store i32 %25, ptr %26, align 8, !tbaa !51
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %.not.i8.i = icmp eq ptr %2, null
   br i1 %.not.i8.i, label %ft_vector_to_lv_vector.exit10.i, label %28
@@ -663,9 +663,9 @@ ft_vector_to_lv_vector.exit7.i:                   ; preds = %19, %ft_vector_to_l
 ft_vector_to_lv_vector.exit10.i:                  ; preds = %28, %ft_vector_to_lv_vector.exit7.i
   %.sink.i9.i = phi i32 [ %30, %28 ], [ 0, %ft_vector_to_lv_vector.exit7.i ]
   %34 = phi i32 [ %33, %28 ], [ 0, %ft_vector_to_lv_vector.exit7.i ]
-  store i32 %.sink.i9.i, ptr %27, align 4
+  store i32 %.sink.i9.i, ptr %27, align 4, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %34, ptr %35, align 8, !tbaa !50
+  store i32 %34, ptr %35, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   %.not.i11.i = icmp eq ptr %37, null
@@ -748,9 +748,9 @@ define internal fastcc range(i32 0, 2) i32 @outline_push_point(ptr noundef %0, i
 ft_vector_to_lv_vector.exit:                      ; preds = %5, %11
   %.sink.i = phi i32 [ %13, %11 ], [ 0, %5 ]
   %17 = phi i32 [ %16, %11 ], [ 0, %5 ]
-  store i32 %.sink.i, ptr %10, align 4
+  store i32 %.sink.i, ptr %10, align 4, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %17, ptr %18, align 8, !tbaa !50
+  store i32 %17, ptr %18, align 8, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %.not.i5 = icmp eq ptr %3, null
   br i1 %.not.i5, label %ft_vector_to_lv_vector.exit7, label %20
@@ -766,9 +766,9 @@ ft_vector_to_lv_vector.exit:                      ; preds = %5, %11
 ft_vector_to_lv_vector.exit7:                     ; preds = %ft_vector_to_lv_vector.exit, %20
   %.sink.i6 = phi i32 [ %22, %20 ], [ 0, %ft_vector_to_lv_vector.exit ]
   %26 = phi i32 [ %25, %20 ], [ 0, %ft_vector_to_lv_vector.exit ]
-  store i32 %.sink.i6, ptr %19, align 4
+  store i32 %.sink.i6, ptr %19, align 4, !tbaa !50
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 %26, ptr %27, align 8, !tbaa !50
+  store i32 %26, ptr %27, align 8, !tbaa !51
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %.not.i8 = icmp eq ptr %4, null
   br i1 %.not.i8, label %ft_vector_to_lv_vector.exit10, label %29
@@ -784,9 +784,9 @@ ft_vector_to_lv_vector.exit7:                     ; preds = %ft_vector_to_lv_vec
 ft_vector_to_lv_vector.exit10:                    ; preds = %ft_vector_to_lv_vector.exit7, %29
   %.sink.i9 = phi i32 [ %31, %29 ], [ 0, %ft_vector_to_lv_vector.exit7 ]
   %35 = phi i32 [ %34, %29 ], [ 0, %ft_vector_to_lv_vector.exit7 ]
-  store i32 %.sink.i9, ptr %28, align 4
+  store i32 %.sink.i9, ptr %28, align 4, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %35, ptr %36, align 8, !tbaa !50
+  store i32 %35, ptr %36, align 8, !tbaa !51
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %.not.i11 = icmp eq ptr %38, null
@@ -889,4 +889,5 @@ attributes #9 = { nounwind }
 !47 = !{!48, !19, i64 0}
 !48 = !{!"FT_Vector_", !19, i64 0, !19, i64 8}
 !49 = !{!48, !19, i64 8}
-!50 = !{!33, !5, i64 4}
+!50 = !{!33, !5, i64 0}
+!51 = !{!33, !5, i64 4}

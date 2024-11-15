@@ -3410,13 +3410,15 @@ _ZN2EA4StdC8int128_t6NegateEv.exit:               ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
+  %tobool.not = icmp eq i64 %0, 0
   %conv = uitofp nneg i64 %0 to float
   %4 = tail call float @llvm.fmuladd.f32(float %conv, float 0x43F0000000000000, float 0.000000e+00)
+  %fReturnValue.0 = select i1 %tobool.not, float 0.000000e+00, float %4
   %5 = load i64, ptr %this, align 8
   %tobool6.not = icmp eq i64 %5, 0
   %conv9 = uitofp i64 %5 to float
-  %add = fadd float %4, %conv9
-  %fReturnValue.1 = select i1 %tobool6.not, float %4, float %add
+  %add = fadd float %fReturnValue.0, %conv9
+  %fReturnValue.1 = select i1 %tobool6.not, float %fReturnValue.0, float %add
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN2EA4StdC8int128_t6NegateEv.exit
@@ -3450,13 +3452,15 @@ _ZN2EA4StdC8int128_t6NegateEv.exit:               ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
+  %tobool.not = icmp eq i64 %0, 0
   %conv = uitofp nneg i64 %0 to double
   %4 = tail call double @llvm.fmuladd.f64(double %conv, double 0x43F0000000000000, double 0.000000e+00)
+  %fReturnValue.0 = select i1 %tobool.not, double 0.000000e+00, double %4
   %5 = load i64, ptr %this, align 8
   %tobool6.not = icmp eq i64 %5, 0
   %conv9 = uitofp i64 %5 to double
-  %add = fadd double %4, %conv9
-  %fReturnValue.1 = select i1 %tobool6.not, double %4, double %add
+  %add = fadd double %fReturnValue.0, %conv9
+  %fReturnValue.1 = select i1 %tobool6.not, double %fReturnValue.0, double %add
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN2EA4StdC8int128_t6NegateEv.exit
@@ -6160,13 +6164,15 @@ define dso_local noundef float @_ZNK2EA4StdC9uint128_t7AsFloatEv(ptr nocapture n
 entry:
   %mPart1 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mPart1, align 8
+  %tobool.not = icmp eq i64 %0, 0
   %conv = uitofp i64 %0 to float
   %1 = tail call float @llvm.fmuladd.f32(float %conv, float 0x43F0000000000000, float 0.000000e+00)
+  %fReturnValue.0 = select i1 %tobool.not, float 0.000000e+00, float %1
   %2 = load i64, ptr %this, align 8
   %tobool3.not = icmp eq i64 %2, 0
   %conv6 = uitofp i64 %2 to float
-  %add = fadd float %1, %conv6
-  %fReturnValue.1 = select i1 %tobool3.not, float %1, float %add
+  %add = fadd float %fReturnValue.0, %conv6
+  %fReturnValue.1 = select i1 %tobool3.not, float %fReturnValue.0, float %add
   ret float %fReturnValue.1
 }
 
@@ -6175,13 +6181,15 @@ define dso_local noundef double @_ZNK2EA4StdC9uint128_t8AsDoubleEv(ptr nocapture
 entry:
   %mPart1 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mPart1, align 8
+  %tobool.not = icmp eq i64 %0, 0
   %conv = uitofp i64 %0 to double
   %1 = tail call double @llvm.fmuladd.f64(double %conv, double 0x43F0000000000000, double 0.000000e+00)
+  %fReturnValue.0 = select i1 %tobool.not, double 0.000000e+00, double %1
   %2 = load i64, ptr %this, align 8
   %tobool3.not = icmp eq i64 %2, 0
   %conv6 = uitofp i64 %2 to double
-  %add = fadd double %1, %conv6
-  %fReturnValue.1 = select i1 %tobool3.not, double %1, double %add
+  %add = fadd double %fReturnValue.0, %conv6
+  %fReturnValue.1 = select i1 %tobool3.not, double %fReturnValue.0, double %add
   ret double %fReturnValue.1
 }
 

@@ -6356,8 +6356,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
 27:                                               ; preds = %22, %21
   %.sink.i12 = phi i64 [ -9223372036854775807, %22 ], [ %17, %21 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %20, ptr %28, align 8, !alias.scope !1296, !noalias !1314
-  store i64 %.sink.i12, ptr %0, align 8, !alias.scope !1296, !noalias !1314
+  store ptr %20, ptr %28, align 8, !alias.scope !1310, !noalias !1314
+  store i64 %.sink.i12, ptr %0, align 8, !alias.scope !1310, !noalias !1314
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 32, i64 noundef 8) #29, !noalias !1318
   %.pre = load i8, ptr %1, align 8, !range !25
@@ -6373,8 +6373,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
 .thread20:                                        ; preds = %12, %13
   %.sink.i = phi i64 [ -9223372036854775807, %13 ], [ %8, %12 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %11, ptr %32, align 8, !alias.scope !1277, !noalias !1295
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !1277, !noalias !1295
+  store ptr %11, ptr %32, align 8, !alias.scope !1291, !noalias !1295
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !1291, !noalias !1295
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %33
 
@@ -47577,8 +47577,8 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17ha286eace345da491E.llvm.13621867877897344372.exit": ; preds = %8, %9
   %.sink = phi i64 [ -9223372036854775807, %9 ], [ %4, %8 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %10, align 8
-  store i64 %.sink, ptr %0, align 8
+  store ptr %7, ptr %10, align 8, !alias.scope !10637
+  store i64 %.sink, ptr %0, align 8, !alias.scope !10637
   ret void
 }
 

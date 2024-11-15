@@ -61,7 +61,7 @@ define void @dlaic1_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 42:                                               ; preds = %31, %30
   %.sink = phi double [ 1.000000e+00, %30 ], [ %40, %31 ]
   %43 = phi double [ 0.000000e+00, %30 ], [ %41, %31 ]
-  store double %.sink, ptr %8, align 8
+  store double %.sink, ptr %8, align 8, !tbaa !3
   store double %43, ptr %6, align 8, !tbaa !3
   br label %256
 

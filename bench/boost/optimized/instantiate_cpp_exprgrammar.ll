@@ -21935,7 +21935,7 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #27, !noalias !613
   %spec.select = select i1 %17, i32 2, i32 1
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %15, ptr %18, align 8
+  store i64 %15, ptr %18, align 8, !tbaa !15
   store i32 %spec.select, ptr %13, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %19, align 8, !tbaa !21
@@ -21995,7 +21995,7 @@ _ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueES6_EENS_1
   %.sink4.i.i9 = load i32, ptr %3, align 4, !tbaa !58, !noalias !619
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27, !noalias !619
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %.sink, ptr %25, align 8
+  store i64 %.sink, ptr %25, align 8, !tbaa !15
   store i32 %.sink5.i.i10, ptr %13, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %.sink4.i.i9, ptr %26, align 8, !tbaa !21

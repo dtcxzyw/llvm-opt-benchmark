@@ -482,7 +482,7 @@ _ZN4llvm3msf15MSFStreamLayoutC2ERKS1_.exit.i.i.i: ; preds = %38, %_ZNSt12_Vector
   %40 = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit.i.i.i.i.thread.i ], [ %39, %38 ]
   %.sink = getelementptr inbounds i8, ptr %40, i64 %.idx.i
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store ptr %.sink, ptr %41, align 8
+  store ptr %.sink, ptr %41, align 8, !noalias !10
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %43 = getelementptr inbounds i8, ptr %40, i64 %.idx.i
   store ptr %43, ptr %42, align 8, !noalias !10

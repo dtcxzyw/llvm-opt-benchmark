@@ -739,11 +739,11 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
   %.sink62.in.in = trunc i32 %.sink62.in.in.in to i8
   %.sink62.in = and i8 %.sink62.in.in, 63
   %.sink62 = or disjoint i8 %.sink62.in, -128
-  store i8 %30, ptr %8, align 4
+  store i8 %30, ptr %8, align 4, !alias.scope !95
   %32 = getelementptr inbounds i8, ptr %8, i64 1
-  store i8 %.sink62, ptr %32, align 1
+  store i8 %.sink62, ptr %32, align 1, !alias.scope !95
   %33 = getelementptr inbounds i8, ptr %8, i64 2
-  store i8 %.sink, ptr %33, align 2
+  store i8 %.sink, ptr %33, align 2, !alias.scope !95
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %34 = icmp ult i64 %31, %2

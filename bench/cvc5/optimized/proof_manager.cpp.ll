@@ -7240,7 +7240,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1E
 invoke.cont:                                      ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEC2ES8_.exit.i, %_ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2EOS5_.exit.thread.i
   %8 = phi ptr [ %5, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEEC2ES8_.exit.i ], [ %7, %_ZNSt8functionIFbN4cvc58internal12NodeTemplateILb1EEEEEC2EOS5_.exit.thread.i ]
   %9 = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !alias.scope !31
   %call = invoke ptr @_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predISt8functionIFbS5_EEEEET_SH_SH_T0_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %agg.tmp3)
           to label %invoke.cont8 unwind label %lpad7
 

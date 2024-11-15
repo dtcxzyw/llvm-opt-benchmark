@@ -219,8 +219,8 @@ define void @dlaln2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %170 = fmul double %144, %169
   %. = select i1 %160, double %165, double %170
   %.34 = select i1 %160, double %170, double %165
-  store double %., ptr getelementptr inbounds (i8, ptr @dlaln2_.equiv_1, i64 8), align 8
-  store double %.34, ptr getelementptr inbounds (i8, ptr @dlaln2_.equiv_1, i64 16), align 16
+  store double %., ptr getelementptr inbounds (i8, ptr @dlaln2_.equiv_1, i64 8), align 8, !tbaa !7
+  store double %.34, ptr getelementptr inbounds (i8, ptr @dlaln2_.equiv_1, i64 16), align 16, !tbaa !7
   %171 = load i32, ptr %2, align 4, !tbaa !3
   %172 = icmp eq i32 %171, 1
   br i1 %172, label %.preheader, label %334

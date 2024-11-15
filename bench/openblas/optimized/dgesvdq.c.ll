@@ -133,7 +133,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 98:                                               ; preds = %93, %88
   %.sink = phi i32 [ %91, %88 ], [ %95, %93 ]
   %99 = phi i32 [ %92, %88 ], [ %97, %93 ]
-  store i32 %.sink, ptr %24, align 4
+  store i32 %.sink, ptr %24, align 4, !tbaa !3
   %100 = tail call i32 @llvm.smax.i32(i32 %87, i32 2)
   br label %109
 

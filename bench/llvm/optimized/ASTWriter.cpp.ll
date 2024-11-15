@@ -65376,13 +65376,13 @@ _ZNSt8optionalISt3setIPKN5clang9FileEntryESt4lessIS4_ESaIS4_EEEC2IS8_TnNSt9enabl
   %.sink203 = phi ptr [ %230, %228 ], [ %226, %._crit_edge41.i ]
   %.sink = phi ptr [ %231, %228 ], [ %226, %._crit_edge41.i ]
   %.sink.i = phi i64 [ %233, %228 ], [ 0, %._crit_edge41.i ]
-  store i32 %.sink205, ptr %226, align 8
+  store i32 %.sink205, ptr %226, align 8, !alias.scope !584
   %234 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %227, ptr %234, align 8
+  store ptr %227, ptr %234, align 8, !alias.scope !584
   %235 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr %.sink203, ptr %235, align 8
+  store ptr %.sink203, ptr %235, align 8, !alias.scope !584
   %236 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %.sink, ptr %236, align 8
+  store ptr %.sink, ptr %236, align 8, !alias.scope !584
   %237 = getelementptr inbounds i8, ptr %9, i64 40
   store i64 %.sink.i, ptr %237, align 8, !alias.scope !584
   %238 = getelementptr inbounds nuw i8, ptr %9, i64 48

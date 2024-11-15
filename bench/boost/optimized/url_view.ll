@@ -162,7 +162,7 @@ _ZNR5boost6system6resultINS_4urls8url_viewENS0_10error_codeEE5valueERKNS_15sourc
 _ZNO5boost6system6resultINS_4urls8url_viewENS0_10error_codeEE5valueIS3_EENSt9enable_ifIXsr3std21is_move_constructibleIT_EE5valueES3_E4typeERKNS_15source_locationE.exit: ; preds = %_ZNR5boost6system6resultINS_4urls8url_viewENS0_10error_codeEE5valueERKNS_15source_locationE.exit.i, %20
   %.sink.i.i.i = phi ptr [ %21, %20 ], [ %16, %_ZNR5boost6system6resultINS_4urls8url_viewENS0_10error_codeEE5valueERKNS_15source_locationE.exit.i ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store ptr %.sink.i.i.i, ptr %22, align 8, !alias.scope !12
+  store ptr %.sink.i.i.i, ptr %22, align 8, !tbaa !17, !alias.scope !12
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN5boost4urls13url_view_baseC2ERKNS0_6detail8url_implE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(171) %23) #17
   %24 = load ptr, ptr %22, align 8, !tbaa !17
@@ -179,7 +179,7 @@ _ZNO5boost6system6resultINS_4urls8url_viewENS0_10error_codeEE5valueIS3_EENSt9ena
 _ZN5boost4urls8url_viewC2ERKS1_.exit:             ; preds = %_ZNO5boost6system6resultINS_4urls8url_viewENS0_10error_codeEE5valueIS3_EENSt9enable_ifIXsr3std21is_move_constructibleIT_EE5valueES3_E4typeERKNS_15source_locationE.exit, %28
   %.sink.i.i = phi ptr [ %29, %28 ], [ %24, %_ZNO5boost6system6resultINS_4urls8url_viewENS0_10error_codeEE5valueIS3_EENSt9enable_ifIXsr3std21is_move_constructibleIT_EE5valueES3_E4typeERKNS_15source_locationE.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.sink.i.i, ptr %30, align 8
+  store ptr %.sink.i.i, ptr %30, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #17
@@ -210,7 +210,7 @@ define void @_ZN5boost4urls8url_viewC2ERKNS0_13url_view_baseE(ptr noundef nonnul
 11:                                               ; preds = %2, %9
   %.sink = phi ptr [ %10, %9 ], [ %5, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.sink, ptr %12, align 8
+  store ptr %.sink, ptr %12, align 8, !tbaa !17
   ret void
 }
 

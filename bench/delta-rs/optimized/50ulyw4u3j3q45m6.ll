@@ -7535,7 +7535,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h9755551b4b3fa375E.exit": ; preds = %1586, %1582
   %.sroa.5816.0.copyload.sink = phi i32 [ 1000000001, %1582 ], [ %.sroa.5816.0.copyload, %1586 ]
   %1588 = getelementptr inbounds i8, ptr %1, i64 1648
-  store i32 %.sroa.5816.0.copyload.sink, ptr %1588, align 8
+  store i32 %.sroa.5816.0.copyload.sink, ptr %1588, align 8, !alias.scope !783
   %1589 = invoke noundef align 8 dereferenceable(64) ptr @_ZN16aws_smithy_types7timeout13TimeoutConfig18take_defaults_from17hafcfb6867ec46869E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1580, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1579)
           to label %1592 unwind label %1590
 

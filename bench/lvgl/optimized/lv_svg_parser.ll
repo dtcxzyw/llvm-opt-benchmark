@@ -2169,9 +2169,9 @@ _parse_number.exit378.i:                          ; preds = %585, %.critedge.i36
 601:                                              ; preds = %596, %592
   %.sroa.0131.0621.sink.i = phi float [ %598, %596 ], [ %.sroa.0131.0621.i, %592 ]
   %.sroa.23.0620.sink.i = phi float [ %600, %596 ], [ %.sroa.23.0620.i, %592 ]
-  store float %.sroa.0131.0621.sink.i, ptr %593, align 4
+  store float %.sroa.0131.0621.sink.i, ptr %593, align 4, !tbaa !63
   %602 = getelementptr inbounds nuw i8, ptr %467, i64 8
-  store float %.sroa.23.0620.sink.i, ptr %602, align 4
+  store float %.sroa.23.0620.sink.i, ptr %602, align 4, !tbaa !65
   br label %612
 
 603:                                              ; preds = %_parse_number.exit412.i

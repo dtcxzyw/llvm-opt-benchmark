@@ -450,9 +450,9 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %.sink63.in.in.i.i.i.i = trunc i32 %.sink63.in.in.in.i.i.i.i to i8
   %.sink63.in.i.i.i.i = and i8 %.sink63.in.in.i.i.i.i, 63
   %.sink63.i.i.i.i = or disjoint i8 %.sink63.in.i.i.i.i, -128
-  store i8 %62, ptr %8, align 4, !noalias !62
-  store i8 %.sink63.i.i.i.i, ptr %19, align 1, !noalias !62
-  store i8 %.sink.i.i.i.i, ptr %20, align 2, !noalias !62
+  store i8 %62, ptr %8, align 4, !alias.scope !63, !noalias !62
+  store i8 %.sink63.i.i.i.i, ptr %19, align 1, !alias.scope !63, !noalias !62
+  store i8 %.sink.i.i.i.i, ptr %20, align 2, !alias.scope !63, !noalias !62
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %64 = icmp ult i64 %63, %2

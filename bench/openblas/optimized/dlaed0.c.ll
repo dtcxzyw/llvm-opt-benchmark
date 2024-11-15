@@ -502,8 +502,8 @@ thread-pre-split:                                 ; preds = %33
   %.sink = phi i32 [ %333, %331 ], [ %341, %334 ]
   %345 = phi i32 [ 0, %331 ], [ %343, %334 ]
   %346 = phi i32 [ 1, %331 ], [ %337, %334 ]
-  store i32 %.sink47, ptr %17, align 4
-  store i32 %.sink, ptr %18, align 4
+  store i32 %.sink47, ptr %17, align 4, !tbaa !3
+  store i32 %.sink, ptr %18, align 4, !tbaa !3
   store i32 %345, ptr %15, align 4, !tbaa !3
   %347 = load i32, ptr %0, align 4, !tbaa !3
   %348 = icmp eq i32 %347, 2

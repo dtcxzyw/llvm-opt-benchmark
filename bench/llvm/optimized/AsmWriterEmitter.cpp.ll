@@ -12091,13 +12091,13 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_19IAPrinterEEE9constructIS1_JS1_EEEvRS2
   %.sink4.i.i.i.i = phi ptr [ %2097, %2093 ], [ %2090, %.lr.ph.i.i.i.i777 ]
   %.sink.i.i.i.i779 = phi ptr [ %2099, %2093 ], [ %2090, %.lr.ph.i.i.i.i777 ]
   %.sink.i.i.i.i.i = phi i64 [ %2102, %2093 ], [ 0, %.lr.ph.i.i.i.i777 ]
-  store i32 %.sink6.i.i.i.i, ptr %2090, align 8
+  store i32 %.sink6.i.i.i.i, ptr %2090, align 8, !alias.scope !218, !noalias !221
   %2103 = getelementptr inbounds i8, ptr %.03.i.i.i.i778, i64 16
-  store ptr %2092, ptr %2103, align 8
+  store ptr %2092, ptr %2103, align 8, !alias.scope !218, !noalias !221
   %2104 = getelementptr inbounds i8, ptr %.03.i.i.i.i778, i64 24
-  store ptr %.sink4.i.i.i.i, ptr %2104, align 8
+  store ptr %.sink4.i.i.i.i, ptr %2104, align 8, !alias.scope !218, !noalias !221
   %2105 = getelementptr inbounds i8, ptr %.03.i.i.i.i778, i64 32
-  store ptr %.sink.i.i.i.i779, ptr %2105, align 8
+  store ptr %.sink.i.i.i.i779, ptr %2105, align 8, !alias.scope !218, !noalias !221
   %2106 = getelementptr inbounds i8, ptr %.03.i.i.i.i778, i64 40
   store i64 %.sink.i.i.i.i.i, ptr %2106, align 8, !alias.scope !218, !noalias !221
   %2107 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i778, i64 48

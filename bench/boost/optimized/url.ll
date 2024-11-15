@@ -383,7 +383,7 @@ define void @_ZN5boost4urls3url12reserve_implEmRNS0_8url_base4op_tE(ptr nocaptur
 
 31:                                               ; preds = %28, %16
   %.sink = phi ptr [ %30, %28 ], [ %21, %16 ]
-  store ptr %.sink, ptr %14, align 8
+  store ptr %.sink, ptr %14, align 8, !tbaa !6
   %32 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sink, ptr %32, align 8, !tbaa !30
   br label %33

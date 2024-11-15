@@ -21224,13 +21224,13 @@ _ZSt19__relocate_object_aIN7xgboost4tree16HistogramBuilderES2_SaIS2_EEvPT_PT0_RT
   %.sink13.i.i.i = phi ptr [ %64, %60 ], [ %57, %.lr.ph.i.i.i38 ]
   %.sink.i.i.i = phi ptr [ %66, %60 ], [ %57, %.lr.ph.i.i.i38 ]
   %.sink.i.i.i.i = phi i64 [ %69, %60 ], [ 0, %.lr.ph.i.i.i38 ]
-  store i32 %.sink15.i.i.i, ptr %57, align 8
+  store i32 %.sink15.i.i.i, ptr %57, align 8, !alias.scope !224, !noalias !227
   %70 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  store ptr %59, ptr %70, align 8
+  store ptr %59, ptr %70, align 8, !alias.scope !224, !noalias !227
   %71 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  store ptr %.sink13.i.i.i, ptr %71, align 8
+  store ptr %.sink13.i.i.i, ptr %71, align 8, !alias.scope !224, !noalias !227
   %72 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  store ptr %.sink.i.i.i, ptr %72, align 8
+  store ptr %.sink.i.i.i, ptr %72, align 8, !alias.scope !224, !noalias !227
   %73 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   store i64 %.sink.i.i.i.i, ptr %73, align 8, !alias.scope !224, !noalias !227
   %74 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48

@@ -103563,9 +103563,9 @@ common.resume:                                    ; preds = %201, %"_ZN4core3ptr
 142:                                              ; preds = %139, %141
   %.sroa.7143.sroa.7.i.sroa.0.0.copyload163.sink = phi i64 [ %.sroa.7143.sroa.7.i.sroa.0.0.copyload163, %141 ], [ 0, %139 ]
   %.sroa.7143.sroa.7.i.sroa.7.0.copyload169.sink = phi i64 [ %.sroa.7143.sroa.7.i.sroa.7.0.copyload169, %141 ], [ 0, %139 ]
-  store i64 %.sroa.7143.sroa.7.i.sroa.0.0.copyload163.sink, ptr %13, align 8
+  store i64 %.sroa.7143.sroa.7.i.sroa.0.0.copyload163.sink, ptr %13, align 8, !noalias !30320
   %143 = getelementptr inbounds i8, ptr %13, i64 16
-  store i64 %.sroa.7143.sroa.7.i.sroa.7.0.copyload169.sink, ptr %143, align 8
+  store i64 %.sroa.7143.sroa.7.i.sroa.7.0.copyload169.sink, ptr %143, align 8, !noalias !30320
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !30320
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10), !noalias !30320
   invoke void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h64816dbf901f321aE"(ptr noalias nocapture noundef nonnull sret([96 x i8]) align 8 dereferenceable(96) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %26)

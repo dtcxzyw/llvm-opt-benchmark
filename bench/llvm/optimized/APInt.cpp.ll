@@ -6870,7 +6870,7 @@ _ZNK4llvm5APInt6isIntNEj.exit:                    ; preds = %7, %_ZNK4llvm5APInt
 
 _ZN4llvm5APInt11getMaxValueEj.exit:               ; preds = %35, %.loopexit.i._crit_edge.i.i.i
   %.sink.i = phi ptr [ %43, %35 ], [ %48, %.loopexit.i._crit_edge.i.i.i ]
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !73
+  store ptr %.sink.i, ptr %0, align 8, !alias.scope !79
   br label %62
 
 62:                                               ; preds = %_ZN4llvm5APInt11getMaxValueEj.exit, %31
@@ -16662,7 +16662,7 @@ define dso_local void @_ZNK4llvm5APInt8uadd_satERKS0_(ptr dead_on_unwind noalias
 
 44:                                               ; preds = %.loopexit.i._crit_edge.i.i.i, %17
   %.sink.i = phi ptr [ %25, %17 ], [ %30, %.loopexit.i._crit_edge.i.i.i ]
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !286
+  store ptr %.sink.i, ptr %0, align 8, !alias.scope !292
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %45 = icmp ugt i32 %.pre, 64
@@ -17139,7 +17139,7 @@ define dso_local void @_ZNK4llvm5APInt8umul_satERKS0_(ptr dead_on_unwind noalias
 
 44:                                               ; preds = %.loopexit.i._crit_edge.i.i.i, %17
   %.sink.i = phi ptr [ %25, %17 ], [ %30, %.loopexit.i._crit_edge.i.i.i ]
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !313
+  store ptr %.sink.i, ptr %0, align 8, !alias.scope !319
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %45 = icmp ugt i32 %.pre, 64
@@ -17518,7 +17518,7 @@ define dso_local void @_ZNK4llvm5APInt8ushl_satEj(ptr dead_on_unwind noalias noc
 
 44:                                               ; preds = %.loopexit.i._crit_edge.i.i.i, %17
   %.sink.i = phi ptr [ %25, %17 ], [ %30, %.loopexit.i._crit_edge.i.i.i ]
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !330
+  store ptr %.sink.i, ptr %0, align 8, !alias.scope !336
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %45 = icmp ugt i32 %.pre, 64
@@ -19730,7 +19730,7 @@ _ZN4llvm5APIntD2Ev.exit17:                        ; preds = %156, %153, %_ZN4llv
 
 _ZN4llvm5APInt12getOneBitSetEjj.exit:             ; preds = %176, %181
   %205 = phi ptr [ %180, %176 ], [ %186, %181 ]
-  store ptr %205, ptr %10, align 8
+  store ptr %205, ptr %10, align 8, !alias.scope !365
   %206 = load i32, ptr %31, align 8
   %207 = icmp ult i32 %206, 65
   %208 = ptrtoint ptr %205 to i64

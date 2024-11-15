@@ -221,7 +221,7 @@ invoke.cont4.i:                                   ; preds = %_ZNSt6vectorIN3ue29
   %call5.i.i.i.i2.i.i8.i.sink = phi ptr [ %call5.i.i.i.i2.i.i8.i, %for.inc.preheader.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3ue29StateInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
   %add.ptr.i.i.sink.i.i = phi ptr [ %add.ptr.i.i.i.i, %for.inc.preheader.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3ue29StateInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %for.inc.preheader.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3ue29StateInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
-  store ptr %call5.i.i.i.i2.i.i8.i.sink, ptr %info, align 8
+  store ptr %call5.i.i.i.i2.i.i8.i.sink, ptr %info, align 8, !alias.scope !5
   %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %1 = getelementptr inbounds i8, ptr %info, i64 16
   store ptr %add.ptr.i.i.sink.i.i, ptr %1, align 8, !alias.scope !5
@@ -728,7 +728,7 @@ invoke.cont4.i:                                   ; preds = %_ZNSt6vectorIN3ue29
   %call5.i.i.i.i2.i.i8.i.sink = phi ptr [ %call5.i.i.i.i2.i.i8.i, %for.inc.preheader.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3ue29StateInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
   %add.ptr.i.i.sink.i.i = phi ptr [ %add.ptr.i.i.i.i, %for.inc.preheader.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3ue29StateInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %for.inc.preheader.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3ue29StateInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
-  store ptr %call5.i.i.i.i2.i.i8.i.sink, ptr %info, align 8
+  store ptr %call5.i.i.i.i2.i.i8.i.sink, ptr %info, align 8, !alias.scope !18
   %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %1 = getelementptr inbounds i8, ptr %info, i64 16
   store ptr %add.ptr.i.i.sink.i.i, ptr %1, align 8, !alias.scope !18
@@ -4470,7 +4470,7 @@ invoke.cont4.i:                                   ; preds = %_ZNSt6vectorIN3ue29
   %5 = phi ptr [ %call5.i.i.i.i2.i.i8.i, %for.inc.preheader.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3ue29StateInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
   %add.ptr.i.i.sink.i.i = phi ptr [ %add.ptr.i.i.i.i, %for.inc.preheader.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3ue29StateInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %for.inc.preheader.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3ue29StateInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
-  store ptr %5, ptr %ref.tmp, align 8
+  store ptr %5, ptr %ref.tmp, align 8, !alias.scope !95
   %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i.i.sink.i.i, ptr %6, align 8, !alias.scope !95

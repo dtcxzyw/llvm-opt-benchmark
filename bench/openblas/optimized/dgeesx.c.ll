@@ -166,7 +166,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %.sink32 = phi i32 [ %111, %104 ], [ %98, %95 ]
   %114 = add nsw i32 %.sink34, %102
   %115 = call i32 @llvm.smax.i32(i32 %.sink32, i32 %114)
-  store i32 %114, ptr %22, align 4
+  store i32 %114, ptr %22, align 4, !tbaa !3
   br i1 %68, label %116, label %121
 
 116:                                              ; preds = %113

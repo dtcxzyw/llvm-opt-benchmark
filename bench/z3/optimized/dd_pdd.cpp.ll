@@ -6292,7 +6292,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEC2
 invoke.cont:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEC2ES9_.exit.i, %_ZNSt8functionIFbRKSt4pairIj8rationalES4_EEC2EOS6_.exit.thread.i
   %8 = phi ptr [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIj8rationalES7_EEEC2ES9_.exit.i ], [ %7, %_ZNSt8functionIFbRKSt4pairIj8rationalES4_EEC2EOS6_.exit.thread.i ]
   %9 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !alias.scope !81
   invoke void @_ZSt6__sortIPSt4pairIj8rationalEN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKS2_S9_EEEEEvT_SD_T0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -14923,7 +14923,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRK7svectorIjjES6_EEEC2ES8_.ex
 invoke.cont:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRK7svectorIjjES6_EEEC2ES8_.exit.i, %_ZNSt8functionIFbRK7svectorIjjES3_EEC2EOS5_.exit.thread.i
   %8 = phi ptr [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRK7svectorIjjES6_EEEC2ES8_.exit.i ], [ %7, %_ZNSt8functionIFbRK7svectorIjjES3_EEC2EOS5_.exit.thread.i ]
   %9 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !alias.scope !137
   invoke void @_ZSt6__sortIP7svectorIjjEN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKS1_S8_EEEEEvT_SC_T0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
 

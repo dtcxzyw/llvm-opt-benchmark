@@ -14261,7 +14261,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
 720:                                              ; preds = %717, %.thread.i.i.i.i
   %.sroa.030.0.copyload.sink.i.i = phi i64 [ %719, %717 ], [ %.sroa.030.0.copyload.i.i, %.thread.i.i.i.i ]
   %storemerge.i.i.i.i = phi i32 [ 2, %717 ], [ 0, %.thread.i.i.i.i ]
-  store i64 %.sroa.030.0.copyload.sink.i.i, ptr %634, align 8, !noalias !2449
+  store i64 %.sroa.030.0.copyload.sink.i.i, ptr %634, align 8, !alias.scope !2481, !noalias !2483
   store i32 %storemerge.i.i.i.i, ptr %76, align 8, !alias.scope !2484, !noalias !2485
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75), !noalias !2474
   %721 = icmp ne ptr %.val98.i.i, null
@@ -33457,7 +33457,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   %.sroa.0156.0.copyload.sink = phi i64 [ %116, %114 ], [ %.sroa.0156.0.copyload, %.thread.i.i ]
   %storemerge.i.i = phi i32 [ 2, %114 ], [ 0, %.thread.i.i ]
   %117 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %.sroa.0156.0.copyload.sink, ptr %117, align 8
+  store i64 %.sroa.0156.0.copyload.sink, ptr %117, align 8, !alias.scope !6031, !noalias !6033
   store i32 %storemerge.i.i, ptr %9, align 8, !alias.scope !6034, !noalias !6035
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !6024
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !6024
@@ -57737,7 +57737,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 859:                                              ; preds = %757, %.thread.i.i.i
   %.sroa.0108.0.copyload109.i.sink.i = phi i64 [ %759, %757 ], [ %.sroa.0108.0.copyload109.i.i, %.thread.i.i.i ]
   %storemerge.i.i.i = phi i32 [ 2, %757 ], [ 0, %.thread.i.i.i ]
-  store i64 %.sroa.0108.0.copyload109.i.sink.i, ptr %631, align 8, !noalias !10665
+  store i64 %.sroa.0108.0.copyload109.i.sink.i, ptr %631, align 8, !alias.scope !10723, !noalias !10694
   store i32 %storemerge.i.i.i, ptr %111, align 8, !alias.scope !10725, !noalias !10726
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %110), !noalias !10694
   %.val.i.i = load i32, ptr %271, align 8, !range !75, !noalias !10701, !noundef !26
@@ -59852,7 +59852,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit105
 "_ZN8chalk_ir20WhereClause$LT$I$GT$18into_from_env_goal17hd0d411dd70afa619E.exit.i.i": ; preds = %1425, %.thread.i.i.i301
   %.sroa.030.0.copyload.sink.i = phi i64 [ %1427, %1425 ], [ %.sroa.030.0.copyload.i, %.thread.i.i.i301 ]
   %storemerge.i.i.i302 = phi i32 [ 2, %1425 ], [ 0, %.thread.i.i.i301 ]
-  store i64 %.sroa.030.0.copyload.sink.i, ptr %608, align 8, !noalias !11291
+  store i64 %.sroa.030.0.copyload.sink.i, ptr %608, align 8, !alias.scope !11321, !noalias !11323
   store i32 %storemerge.i.i.i302, ptr %7, align 8, !alias.scope !11324, !noalias !11325
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !11314
   %1428 = icmp ne ptr %.val98.i, null

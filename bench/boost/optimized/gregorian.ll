@@ -2607,7 +2607,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar12set_
 10:                                               ; preds = %8, %7
   %.sink = phi i32 [ 0, %7 ], [ %9, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %.sink, ptr %11, align 4
+  store i32 %.sink, ptr %11, align 4, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !24
   tail call void @_ZN5boost6locale4util18gregorian_calendar9from_timeEl(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %13)

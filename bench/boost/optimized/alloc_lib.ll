@@ -321,8 +321,8 @@ spin_acquire_lock.exit:                           ; preds = %10, %4, %7
 163:                                              ; preds = %156, %149
   %.sink164 = phi ptr [ %150, %149 ], [ null, %156 ]
   %.sink = phi i64 [ %146, %149 ], [ 0, %156 ]
-  store ptr %.sink164, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 32), align 8
-  store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 8), align 8
+  store ptr %.sink164, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 32), align 8, !tbaa !26
+  store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 8), align 8, !tbaa !24
   %164 = getelementptr inbounds nuw i8, ptr %147, i64 16
   br label %.thread
 
@@ -4422,8 +4422,8 @@ spin_acquire_lock.exit:                           ; preds = %10, %2, %6
 175:                                              ; preds = %168, %161
   %.sink202 = phi ptr [ %162, %161 ], [ null, %168 ]
   %.sink = phi i64 [ %157, %161 ], [ 0, %168 ]
-  store ptr %.sink202, ptr %158, align 8
-  store i64 %.sink, ptr %154, align 8
+  store ptr %.sink202, ptr %158, align 8, !tbaa !26
+  store i64 %.sink, ptr %154, align 8, !tbaa !24
   %176 = getelementptr inbounds nuw i8, ptr %159, i64 16
   br label %.thread
 
@@ -7403,8 +7403,8 @@ define hidden ptr @mspace_malloc_lockless(ptr noundef %0, i64 noundef %1) local_
 161:                                              ; preds = %154, %147
   %.sink193 = phi ptr [ %148, %147 ], [ null, %154 ]
   %.sink = phi i64 [ %143, %147 ], [ 0, %154 ]
-  store ptr %.sink193, ptr %144, align 8
-  store i64 %.sink, ptr %140, align 8
+  store ptr %.sink193, ptr %144, align 8, !tbaa !26
+  store i64 %.sink, ptr %140, align 8, !tbaa !24
   %162 = getelementptr inbounds nuw i8, ptr %145, i64 16
   br label %.thread
 

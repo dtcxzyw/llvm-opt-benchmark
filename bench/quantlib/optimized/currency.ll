@@ -327,7 +327,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %29, %if.then.i.i.i.i ]
-  store i32 %.sink.i.i.i.i, ptr %27, align 8
+  store i32 %.sink.i.i.i.i, ptr %27, align 8, !tbaa !37
   ret void
 }
 
@@ -549,7 +549,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2EOS9_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %34, %if.then.i.i.i.i ]
-  store i32 %.sink.i.i.i.i, ptr %32, align 8
+  store i32 %.sink.i.i.i.i, ptr %32, align 8, !tbaa !37
   ret void
 }
 

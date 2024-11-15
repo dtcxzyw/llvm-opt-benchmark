@@ -2195,7 +2195,7 @@ entry:
   %add38.sink = select i1 %or.cond.not, double %add38, double %mul26
   %fneg39 = fneg double %add38.sink
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double %fneg39, ptr %21, align 8
+  store double %fneg39, ptr %21, align 8, !tbaa !54
   ret i1 %or.cond.not
 }
 

@@ -1738,9 +1738,9 @@ lv_obj_get_scroll_dir.exit.thread:                ; preds = %lv_obj_get_scroll_t
 103:                                              ; preds = %98, %92
   %.sink303 = phi i32 [ %95, %92 ], [ %102, %98 ]
   %.sink = phi i32 [ %97, %92 ], [ %101, %98 ]
-  store i32 %.sink303, ptr %2, align 4
+  store i32 %.sink303, ptr %2, align 4, !tbaa !35
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %.sink, ptr %104, align 4
+  store i32 %.sink, ptr %104, align 4, !tbaa !36
   %105 = add i32 %.sroa.0.0.extract.trunc.i274, %.sroa.0.0.extract.trunc.i273
   %106 = add i32 %105, %spec.select
   %107 = sub i32 %69, %106

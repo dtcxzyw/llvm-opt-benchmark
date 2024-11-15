@@ -2704,7 +2704,7 @@ if.else:                                          ; preds = %if.end
 
 if.end18:                                         ; preds = %if.else, %if.then7
   %.sink = phi i64 [ %call3.i, %if.then7 ], [ %4, %if.else ]
-  store i64 %.sink, ptr %useDate, align 8
+  store i64 %.sink, ptr %useDate, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp19) #24
   %vtable20 = load ptr, ptr %this, align 8, !tbaa !28
   %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 16

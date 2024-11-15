@@ -8188,7 +8188,7 @@ if.else.i:                                        ; preds = %entry
 _ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit:     ; preds = %if.then.i, %if.else.i
   %call12.sink.i = phi double [ %retval.0.i.i, %if.then.i ], [ %call12.i, %if.else.i ]
   %storemerge.i = phi double [ %mul11.i, %if.then.i ], [ %2, %if.else.i ]
-  store double %call12.sink.i, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R12, align 8
+  store double %call12.sink.i, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R12, align 8, !tbaa !107
   %mul1 = fmul double %X, %RUB
   %3 = tail call double @llvm.fabs.f64(double %mul1)
   %sub.i21 = fsub double 0x3FF921FB54442D18, %3
@@ -8224,7 +8224,7 @@ if.else.i24:                                      ; preds = %_ZN8QuantLib12_GLOB
 _ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit45:   ; preds = %if.then.i29, %if.else.i24
   %call12.sink.i27 = phi double [ %retval.0.i.i37, %if.then.i29 ], [ %call12.i25, %if.else.i24 ]
   %storemerge.i28 = phi double [ %mul11.i44, %if.then.i29 ], [ %5, %if.else.i24 ]
-  store double %call12.sink.i27, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R13, align 8
+  store double %call12.sink.i27, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R13, align 8, !tbaa !107
   store double %storemerge.i28, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3RR3, align 8, !tbaa !107
   %cmp = fcmp ueq double %RUA, 0.000000e+00
   br i1 %cmp, label %if.end, label %if.then

@@ -1168,7 +1168,7 @@ _ZN3std2fs8metadata17h43aa415e564ab76cE.exit.i.i.i: ; preds = %53, %46
   br label %_ZN6ignore4walk11DirEntryRaw8metadata17hb70f01450b97a768E.exit.i
 
 _ZN6ignore4walk11DirEntryRaw8metadata17hb70f01450b97a768E.exit.i: ; preds = %57, %56
-  store i64 %.sroa.0.0.i.i.i, ptr %0, align 8, !alias.scope !211, !noalias !210
+  store i64 %.sroa.0.0.i.i.i, ptr %0, align 8, !alias.scope !251, !noalias !252
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.11.i.i.i)
   br label %_ZN6ignore4walk13DirEntryInner8metadata17h7e35ca5d6691a5f5E.exit
 

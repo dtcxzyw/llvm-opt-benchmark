@@ -7881,9 +7881,9 @@ _ZN5alloc11collections5btree4node12slice_insert17h146c04ac9f90530aE.exit.i.i: ; 
 
 _ZN5alloc11collections5btree4node12slice_insert17h146c04ac9f90530aE.exit.i62.i: ; preds = %187, %182
   %195 = phi i64 [ %191, %187 ], [ 2, %182 ]
-  store ptr %.sroa.846.1136153, ptr %183, align 8, !noalias !956
+  store ptr %.sroa.846.1136153, ptr %183, align 8, !alias.scope !979, !noalias !976
   %196 = getelementptr inbounds i8, ptr %183, i64 8
-  store i64 %132, ptr %196, align 8, !noalias !956
+  store i64 %132, ptr %196, align 8, !alias.scope !979, !noalias !976
   %197 = getelementptr inbounds i8, ptr %183, i64 192
   %198 = getelementptr inbounds i8, ptr %183, i64 200
   store ptr %.sroa.1052.1146151, ptr %198, align 8, !alias.scope !982, !noalias !976
@@ -8655,9 +8655,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 228:                                              ; preds = %217, %215
   %229 = phi i64 [ %224, %217 ], [ 2, %215 ]
-  store ptr %.sroa.0219.1, ptr %211, align 8, !noalias !1090
+  store ptr %.sroa.0219.1, ptr %211, align 8, !alias.scope !1122, !noalias !1117
   %230 = getelementptr inbounds i8, ptr %211, i64 8
-  store i64 %.sroa.7222.1, ptr %230, align 8, !noalias !1090
+  store i64 %.sroa.7222.1, ptr %230, align 8, !alias.scope !1122, !noalias !1117
   %231 = getelementptr inbounds i8, ptr %211, i64 984
   %232 = getelementptr inbounds i8, ptr %211, i64 992
   store ptr %.sroa.1063.1150160, ptr %232, align 8, !alias.scope !1130, !noalias !1117
@@ -10224,9 +10224,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 228:                                              ; preds = %217, %215
   %229 = phi i64 [ %224, %217 ], [ 2, %215 ]
-  store ptr %.sroa.0219.1, ptr %211, align 8, !noalias !1419
+  store ptr %.sroa.0219.1, ptr %211, align 8, !alias.scope !1451, !noalias !1446
   %230 = getelementptr inbounds i8, ptr %211, i64 8
-  store i64 %.sroa.7222.1, ptr %230, align 8, !noalias !1419
+  store i64 %.sroa.7222.1, ptr %230, align 8, !alias.scope !1451, !noalias !1446
   %231 = getelementptr inbounds i8, ptr %211, i64 632
   %232 = getelementptr inbounds i8, ptr %211, i64 640
   store ptr %.sroa.1063.1150160, ptr %232, align 8, !alias.scope !1459, !noalias !1446
@@ -11808,11 +11808,11 @@ _ZN5alloc11collections5btree4node12slice_insert17h197ae23c83587899E.exit.i.i: ; 
 
 _ZN5alloc11collections5btree4node12slice_insert17h197ae23c83587899E.exit.i64.i: ; preds = %212, %207
   %222 = phi i64 [ %218, %212 ], [ 2, %207 ]
-  store ptr %.sroa.31.1, ptr %208, align 8, !noalias !1786
+  store ptr %.sroa.31.1, ptr %208, align 8, !alias.scope !1812, !noalias !1809
   %223 = getelementptr inbounds i8, ptr %208, i64 8
-  store i64 %.sroa.35.1, ptr %223, align 8, !noalias !1786
+  store i64 %.sroa.35.1, ptr %223, align 8, !alias.scope !1812, !noalias !1809
   %224 = getelementptr inbounds i8, ptr %208, i64 188
-  store i8 %148, ptr %224, align 1, !noalias !1786
+  store i8 %148, ptr %224, align 1, !alias.scope !1815, !noalias !1809
   %225 = getelementptr inbounds i8, ptr %208, i64 200
   %226 = getelementptr inbounds i8, ptr %208, i64 208
   store ptr %.sroa.747.1139149, ptr %226, align 8, !alias.scope !1818, !noalias !1809
@@ -13955,9 +13955,9 @@ _ZN5alloc11collections5btree4node12slice_insert17h17b712b6a46e254fE.exit.i.i: ; 
 
 _ZN5alloc11collections5btree4node12slice_insert17h17b712b6a46e254fE.exit.i62.i: ; preds = %187, %182
   %195 = phi i64 [ %191, %187 ], [ 2, %182 ]
-  store ptr %.sroa.846.1136153, ptr %183, align 8, !noalias !2178
+  store ptr %.sroa.846.1136153, ptr %183, align 8, !alias.scope !2201, !noalias !2198
   %196 = getelementptr inbounds i8, ptr %183, i64 8
-  store i64 %132, ptr %196, align 8, !noalias !2178
+  store i64 %132, ptr %196, align 8, !alias.scope !2201, !noalias !2198
   %197 = getelementptr inbounds i8, ptr %183, i64 192
   %198 = getelementptr inbounds i8, ptr %183, i64 200
   store ptr %.sroa.1052.1146151, ptr %198, align 8, !alias.scope !2204, !noalias !2198
@@ -14729,9 +14729,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 228:                                              ; preds = %217, %215
   %229 = phi i64 [ %224, %217 ], [ 2, %215 ]
-  store ptr %.sroa.0219.1, ptr %211, align 8, !noalias !2312
+  store ptr %.sroa.0219.1, ptr %211, align 8, !alias.scope !2344, !noalias !2339
   %230 = getelementptr inbounds i8, ptr %211, i64 8
-  store i64 %.sroa.7222.1, ptr %230, align 8, !noalias !2312
+  store i64 %.sroa.7222.1, ptr %230, align 8, !alias.scope !2344, !noalias !2339
   %231 = getelementptr inbounds i8, ptr %211, i64 456
   %232 = getelementptr inbounds i8, ptr %211, i64 464
   store ptr %.sroa.1063.1150160, ptr %232, align 8, !alias.scope !2352, !noalias !2339
@@ -15539,9 +15539,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 228:                                              ; preds = %217, %215
   %229 = phi i64 [ %224, %217 ], [ 2, %215 ]
-  store ptr %.sroa.0219.1, ptr %211, align 8, !noalias !2472
+  store ptr %.sroa.0219.1, ptr %211, align 8, !alias.scope !2504, !noalias !2499
   %230 = getelementptr inbounds i8, ptr %211, i64 8
-  store i64 %.sroa.7222.1, ptr %230, align 8, !noalias !2472
+  store i64 %.sroa.7222.1, ptr %230, align 8, !alias.scope !2504, !noalias !2499
   %231 = getelementptr inbounds i8, ptr %211, i64 1424
   %232 = getelementptr inbounds i8, ptr %211, i64 1432
   store ptr %.sroa.1063.1150160, ptr %232, align 8, !alias.scope !2512, !noalias !2499
@@ -15908,9 +15908,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   unreachable
 
 .thread:                                          ; preds = %35, %39
-  store ptr %2, ptr %38, align 8, !noalias !2555
+  store ptr %2, ptr %38, align 8, !alias.scope !2558, !noalias !2561
   %75 = getelementptr inbounds i8, ptr %38, i64 8
-  store i64 %3, ptr %75, align 8, !noalias !2555
+  store i64 %3, ptr %75, align 8, !alias.scope !2558, !noalias !2561
   %76 = getelementptr inbounds i8, ptr %23, i64 176
   %77 = add nuw nsw i16 %25, 1
   %78 = getelementptr inbounds { [2 x i64] }, ptr %76, i64 %.sroa.5.0.copyload.i
@@ -15949,9 +15949,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
           to label %.critedge19 unwind label %73, !noalias !2555
 
 89:                                               ; preds = %60, %65
-  store ptr %2, ptr %64, align 8, !noalias !2555
+  store ptr %2, ptr %64, align 8, !alias.scope !2572, !noalias !2568
   %90 = getelementptr inbounds i8, ptr %64, i64 8
-  store i64 %3, ptr %90, align 8, !noalias !2555
+  store i64 %3, ptr %90, align 8, !alias.scope !2572, !noalias !2568
   %91 = getelementptr inbounds i8, ptr %.sroa.021.0.i, i64 176
   %92 = add i16 %62, 1
   %93 = getelementptr inbounds { [2 x i64] }, ptr %91, i64 %.sroa.10.0.i
@@ -16264,33 +16264,33 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %.not.i.i30.not, label %199, label %194
 
 194:                                              ; preds = %188
-  store ptr %.sroa.31.1, ptr %193, align 8, !noalias !2642
+  store ptr %.sroa.31.1, ptr %193, align 8, !alias.scope !2646, !noalias !2649
   %195 = getelementptr inbounds i8, ptr %193, i64 8
-  store i64 %.sroa.35.1, ptr %195, align 8, !noalias !2642
+  store i64 %.sroa.35.1, ptr %195, align 8, !alias.scope !2646, !noalias !2649
   %196 = getelementptr inbounds i8, ptr %171, i64 176
   %197 = getelementptr inbounds { [2 x i64] }, ptr %196, i64 %176
-  store ptr %.sroa.36.1, ptr %197, align 8, !alias.scope !2646, !noalias !2649
+  store ptr %.sroa.36.1, ptr %197, align 8, !alias.scope !2652, !noalias !2649
   %198 = getelementptr inbounds i8, ptr %197, i64 8
-  store i8 %170, ptr %198, align 8, !alias.scope !2646, !noalias !2649
+  store i8 %170, ptr %198, align 8, !alias.scope !2652, !noalias !2649
   br label %216
 
 199:                                              ; preds = %188
   %200 = getelementptr inbounds { [2 x i64] }, ptr %171, i64 %192
   %201 = sub nsw i64 %190, %176
   %202 = shl nsw i64 %201, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %200, ptr nonnull align 8 %193, i64 %202, i1 false), !alias.scope !2652, !noalias !2649
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %200, ptr nonnull align 8 %193, i64 %202, i1 false), !alias.scope !2646, !noalias !2649
   %203 = getelementptr inbounds i8, ptr %171, i64 176
   %204 = getelementptr inbounds { [2 x i64] }, ptr %203, i64 %176
   %205 = getelementptr inbounds { [2 x i64] }, ptr %203, i64 %192
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %205, ptr nonnull align 8 %204, i64 %202, i1 false), !alias.scope !2646, !noalias !2649
-  store ptr %.sroa.31.1, ptr %193, align 8, !noalias !2642
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %205, ptr nonnull align 8 %204, i64 %202, i1 false), !alias.scope !2652, !noalias !2649
+  store ptr %.sroa.31.1, ptr %193, align 8, !alias.scope !2646, !noalias !2649
   %206 = getelementptr inbounds i8, ptr %193, i64 8
-  store i64 %.sroa.35.1, ptr %206, align 8, !noalias !2642
+  store i64 %.sroa.35.1, ptr %206, align 8, !alias.scope !2646, !noalias !2649
   %207 = getelementptr inbounds i8, ptr %171, i64 176
   %208 = getelementptr inbounds { [2 x i64] }, ptr %207, i64 %176
-  store ptr %.sroa.36.1, ptr %208, align 8, !alias.scope !2646, !noalias !2649
+  store ptr %.sroa.36.1, ptr %208, align 8, !alias.scope !2652, !noalias !2649
   %209 = getelementptr inbounds i8, ptr %208, i64 8
-  store i8 %170, ptr %209, align 8, !alias.scope !2646, !noalias !2649
+  store i8 %170, ptr %209, align 8, !alias.scope !2652, !noalias !2649
   %210 = getelementptr inbounds i8, ptr %171, i64 368
   %211 = getelementptr inbounds ptr, ptr %210, i64 %192
   %212 = getelementptr inbounds ptr, ptr %210, i64 %176
@@ -16382,13 +16382,13 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 249:                                              ; preds = %239, %234
   %250 = phi i64 [ %245, %239 ], [ 2, %234 ]
-  store ptr %.sroa.31.1, ptr %235, align 8, !noalias !2642
+  store ptr %.sroa.31.1, ptr %235, align 8, !alias.scope !2668, !noalias !2665
   %251 = getelementptr inbounds i8, ptr %235, i64 8
-  store i64 %.sroa.35.1, ptr %251, align 8, !noalias !2642
+  store i64 %.sroa.35.1, ptr %251, align 8, !alias.scope !2668, !noalias !2665
   %252 = getelementptr inbounds i8, ptr %235, i64 176
-  store ptr %.sroa.36.1, ptr %252, align 8, !noalias !2642
+  store ptr %.sroa.36.1, ptr %252, align 8, !alias.scope !2671, !noalias !2665
   %253 = getelementptr inbounds i8, ptr %235, i64 184
-  store i8 %170, ptr %253, align 8, !noalias !2642
+  store i8 %170, ptr %253, align 8, !alias.scope !2671, !noalias !2665
   %254 = getelementptr inbounds i8, ptr %235, i64 368
   %255 = getelementptr inbounds i8, ptr %235, i64 376
   store ptr %.sroa.758.1154164, ptr %255, align 8, !alias.scope !2674, !noalias !2665
@@ -16436,31 +16436,31 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %.not.i69.not.i, label %278, label %273
 
 273:                                              ; preds = %266
-  store ptr %.sroa.31.1, ptr %272, align 8, !noalias !2642
+  store ptr %.sroa.31.1, ptr %272, align 8, !alias.scope !2686, !noalias !2683
   %274 = getelementptr inbounds i8, ptr %272, i64 8
-  store i64 %.sroa.35.1, ptr %274, align 8, !noalias !2642
+  store i64 %.sroa.35.1, ptr %274, align 8, !alias.scope !2686, !noalias !2683
   %275 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 176
   %276 = getelementptr inbounds { [2 x i64] }, ptr %275, i64 %.sroa.14.0.i
-  store ptr %.sroa.36.1, ptr %276, align 8, !alias.scope !2686, !noalias !2683
+  store ptr %.sroa.36.1, ptr %276, align 8, !alias.scope !2689, !noalias !2683
   %277 = getelementptr inbounds i8, ptr %276, i64 8
-  store i8 %170, ptr %277, align 8, !alias.scope !2686, !noalias !2683
+  store i8 %170, ptr %277, align 8, !alias.scope !2689, !noalias !2683
   br label %292
 
 278:                                              ; preds = %266
   %279 = getelementptr inbounds { [2 x i64] }, ptr %.sroa.0.0.i, i64 %271
   %280 = sub nuw nsw i64 %269, %.sroa.14.0.i
   %281 = shl nuw nsw i64 %280, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %279, ptr nonnull align 8 %272, i64 %281, i1 false), !alias.scope !2689, !noalias !2683
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %279, ptr nonnull align 8 %272, i64 %281, i1 false), !alias.scope !2686, !noalias !2683
   %282 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 176
   %283 = getelementptr inbounds { [2 x i64] }, ptr %282, i64 %.sroa.14.0.i
   %284 = getelementptr inbounds { [2 x i64] }, ptr %282, i64 %271
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %284, ptr nonnull align 8 %283, i64 %281, i1 false), !alias.scope !2686, !noalias !2683
-  store ptr %.sroa.31.1, ptr %272, align 8, !noalias !2642
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %284, ptr nonnull align 8 %283, i64 %281, i1 false), !alias.scope !2689, !noalias !2683
+  store ptr %.sroa.31.1, ptr %272, align 8, !alias.scope !2686, !noalias !2683
   %285 = getelementptr inbounds i8, ptr %272, i64 8
-  store i64 %.sroa.35.1, ptr %285, align 8, !noalias !2642
-  store ptr %.sroa.36.1, ptr %283, align 8, !alias.scope !2686, !noalias !2683
+  store i64 %.sroa.35.1, ptr %285, align 8, !alias.scope !2686, !noalias !2683
+  store ptr %.sroa.36.1, ptr %283, align 8, !alias.scope !2689, !noalias !2683
   %286 = getelementptr inbounds i8, ptr %283, i64 8
-  store i8 %170, ptr %286, align 8, !alias.scope !2686, !noalias !2683
+  store i8 %170, ptr %286, align 8, !alias.scope !2689, !noalias !2683
   %287 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 368
   %288 = getelementptr inbounds ptr, ptr %287, i64 %271
   %289 = getelementptr ptr, ptr %287, i64 %.sroa.14.0.i
@@ -34347,14 +34347,14 @@ attributes #44 = { noreturn nounwind }
 !2644 = distinct !{!2644, !"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$6insert17h7701023ecbbd4d8fE"}
 !2645 = distinct !{!2645, !2644, !"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$6insert17h7701023ecbbd4d8fE: argument 1"}
 !2646 = !{!2647}
-!2647 = distinct !{!2647, !2648, !"_ZN5alloc11collections5btree4node12slice_insert17hccb00e26d9b8b204E: argument 0"}
-!2648 = distinct !{!2648, !"_ZN5alloc11collections5btree4node12slice_insert17hccb00e26d9b8b204E"}
+!2647 = distinct !{!2647, !2648, !"_ZN5alloc11collections5btree4node12slice_insert17h56c9989523c1d44cE: argument 0"}
+!2648 = distinct !{!2648, !"_ZN5alloc11collections5btree4node12slice_insert17h56c9989523c1d44cE"}
 !2649 = !{!2650, !2643, !2645}
 !2650 = distinct !{!2650, !2651, !"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hef1544fe0596797cE: argument 0"}
 !2651 = distinct !{!2651, !"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hef1544fe0596797cE"}
 !2652 = !{!2653}
-!2653 = distinct !{!2653, !2654, !"_ZN5alloc11collections5btree4node12slice_insert17h56c9989523c1d44cE: argument 0"}
-!2654 = distinct !{!2654, !"_ZN5alloc11collections5btree4node12slice_insert17h56c9989523c1d44cE"}
+!2653 = distinct !{!2653, !2654, !"_ZN5alloc11collections5btree4node12slice_insert17hccb00e26d9b8b204E: argument 0"}
+!2654 = distinct !{!2654, !"_ZN5alloc11collections5btree4node12slice_insert17hccb00e26d9b8b204E"}
 !2655 = !{!2656}
 !2656 = distinct !{!2656, !2657, !"_ZN5alloc11collections5btree4node12slice_insert17ha832ae3a06ce7ad6E: argument 0"}
 !2657 = distinct !{!2657, !"_ZN5alloc11collections5btree4node12slice_insert17ha832ae3a06ce7ad6E"}
@@ -34387,11 +34387,11 @@ attributes #44 = { noreturn nounwind }
 !2684 = distinct !{!2684, !2685, !"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hef1544fe0596797cE: argument 0"}
 !2685 = distinct !{!2685, !"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17hef1544fe0596797cE"}
 !2686 = !{!2687}
-!2687 = distinct !{!2687, !2688, !"_ZN5alloc11collections5btree4node12slice_insert17hccb00e26d9b8b204E: argument 0"}
-!2688 = distinct !{!2688, !"_ZN5alloc11collections5btree4node12slice_insert17hccb00e26d9b8b204E"}
+!2687 = distinct !{!2687, !2688, !"_ZN5alloc11collections5btree4node12slice_insert17h56c9989523c1d44cE: argument 0"}
+!2688 = distinct !{!2688, !"_ZN5alloc11collections5btree4node12slice_insert17h56c9989523c1d44cE"}
 !2689 = !{!2690}
-!2690 = distinct !{!2690, !2691, !"_ZN5alloc11collections5btree4node12slice_insert17h56c9989523c1d44cE: argument 0"}
-!2691 = distinct !{!2691, !"_ZN5alloc11collections5btree4node12slice_insert17h56c9989523c1d44cE"}
+!2690 = distinct !{!2690, !2691, !"_ZN5alloc11collections5btree4node12slice_insert17hccb00e26d9b8b204E: argument 0"}
+!2691 = distinct !{!2691, !"_ZN5alloc11collections5btree4node12slice_insert17hccb00e26d9b8b204E"}
 !2692 = !{!2693}
 !2693 = distinct !{!2693, !2694, !"_ZN5alloc11collections5btree4node12slice_insert17ha832ae3a06ce7ad6E: argument 0"}
 !2694 = distinct !{!2694, !"_ZN5alloc11collections5btree4node12slice_insert17ha832ae3a06ce7ad6E"}

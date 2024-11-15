@@ -558,7 +558,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %382 = sext i32 %381 to i64
   %383 = getelementptr double, ptr %206, i64 %382
   %384 = select i1 %375, ptr %379, ptr %383
-  store i32 %374, ptr %24, align 4
+  store i32 %374, ptr %24, align 4, !tbaa !3
   %385 = getelementptr inbounds double, ptr %49, i64 %134
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %379, ptr noundef %384, ptr noundef nonnull %6, ptr noundef nonnull %385) #6
   store double 1.000000e+00, ptr %379, align 8, !tbaa !7
@@ -583,7 +583,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %399 = getelementptr double, ptr %338, i64 %398
   %.sink105 = select i1 %394, i32 1, i32 %395
   %400 = select i1 %394, ptr %339, ptr %399
-  store i32 %.sink105, ptr %24, align 4
+  store i32 %.sink105, ptr %24, align 4, !tbaa !3
   %401 = getelementptr inbounds double, ptr %50, i64 %134
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %339, ptr noundef %400, ptr noundef nonnull %8, ptr noundef nonnull %401) #6
   %.pre132 = load i32, ptr %4, align 4, !tbaa !3
@@ -1034,7 +1034,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %714 = getelementptr double, ptr %713, i64 %622
   %.sink106 = select i1 %710, i32 1, i32 %711
   %715 = select i1 %710, ptr %688, ptr %714
-  store i32 %.sink106, ptr %24, align 4
+  store i32 %.sink106, ptr %24, align 4, !tbaa !3
   %716 = getelementptr inbounds double, ptr %48, i64 %622
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %688, ptr noundef %715, ptr noundef nonnull %10, ptr noundef nonnull %716) #6
   store double 1.000000e+00, ptr %688, align 8, !tbaa !7
@@ -1223,7 +1223,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %835 = getelementptr double, ptr %619, i64 %622
   %836 = getelementptr double, ptr %835, i64 %690
   %837 = select i1 %832, ptr %834, ptr %836
-  store i32 %831, ptr %24, align 4
+  store i32 %831, ptr %24, align 4, !tbaa !3
   %838 = getelementptr inbounds double, ptr %49, i64 %622
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %834, ptr noundef %837, ptr noundef nonnull @c__1, ptr noundef nonnull %838) #6
   store double 1.000000e+00, ptr %834, align 8, !tbaa !7

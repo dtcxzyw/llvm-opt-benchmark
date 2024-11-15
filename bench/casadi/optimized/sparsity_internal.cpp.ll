@@ -2021,7 +2021,7 @@ _ZNK6casadi16SparsityInternal10get_colindEv.exit: ; preds = %_ZNSt6vectorIxSaIxE
   %29 = phi ptr [ %28, %.noexc4.i.i ], [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
   %.sink = getelementptr inbounds i8, ptr %29, i64 %gepdiff.i
   %30 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %.sink, ptr %30, align 8
+  store ptr %.sink, ptr %30, align 8, !alias.scope !46
   %31 = getelementptr inbounds i8, ptr %29, i64 %gepdiff.i
   %32 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %31, ptr %32, align 8, !alias.scope !46
@@ -2087,7 +2087,7 @@ _ZNK6casadi16SparsityInternal7get_rowEv.exit:     ; preds = %_ZNSt6vectorIxSaIxE
   %51 = phi ptr [ %50, %.noexc4.i.i12 ], [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i10 ]
   %.sink25 = getelementptr inbounds i8, ptr %51, i64 %.idx.i9
   %52 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %.sink25, ptr %52, align 8
+  store ptr %.sink25, ptr %52, align 8, !alias.scope !49
   %53 = getelementptr inbounds i8, ptr %51, i64 %.idx.i9
   %54 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %53, ptr %54, align 8, !alias.scope !49
@@ -2633,7 +2633,7 @@ _ZNK6casadi16SparsityInternal7get_rowEv.exit:     ; preds = %_ZNSt6vectorIxSaIxE
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %13, i64 %.idx.i, i1 false), !noalias !66
   %.sink = getelementptr inbounds i8, ptr %16, i64 %.idx.i
   %17 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.sink, ptr %17, align 8
+  store ptr %.sink, ptr %17, align 8, !alias.scope !66
   %18 = getelementptr inbounds i8, ptr %16, i64 %.idx.i
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %18, ptr %19, align 8, !alias.scope !66
@@ -2651,7 +2651,7 @@ _ZNK6casadi16SparsityInternal7get_rowEv.exit:     ; preds = %_ZNSt6vectorIxSaIxE
 _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sink15 = getelementptr inbounds i8, ptr null, i64 %.idx.i
   %21 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.sink15, ptr %21, align 8
+  store ptr %.sink15, ptr %21, align 8, !alias.scope !66
   %22 = getelementptr inbounds i8, ptr null, i64 %.idx.i
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %22, ptr %23, align 8, !alias.scope !66
@@ -12959,7 +12959,7 @@ _ZNK6casadi16SparsityInternal10get_colindEv.exit: ; preds = %_ZNSt6vectorIxSaIxE
   %265 = phi ptr [ %264, %.noexc4.i.i ], [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
   %.sink = getelementptr inbounds i8, ptr %265, i64 %gepdiff.i
   %266 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr %.sink, ptr %266, align 8
+  store ptr %.sink, ptr %266, align 8, !alias.scope !216
   %267 = getelementptr inbounds i8, ptr %265, i64 %gepdiff.i
   %268 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %267, ptr %268, align 8, !alias.scope !216
@@ -21037,7 +21037,7 @@ _ZNK6casadi16SparsityInternal7get_rowEv.exit:     ; preds = %_ZNSt6vectorIxSaIxE
   %104 = phi ptr [ %102, %.noexc4.i.i ], [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
   %105 = getelementptr inbounds i8, ptr %104, i64 %.idx.i
   %106 = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr %105, ptr %106, align 8
+  store ptr %105, ptr %106, align 8, !alias.scope !311
   %107 = getelementptr inbounds i8, ptr %104, i64 %.idx.i
   %108 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %107, ptr %108, align 8, !alias.scope !311
@@ -21514,7 +21514,7 @@ _ZNK6casadi16SparsityInternal7get_rowEv.exit:     ; preds = %_ZNSt6vectorIxSaIxE
   %99 = phi ptr [ %98, %.noexc4.i.i ], [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
   %.sink = getelementptr inbounds i8, ptr %99, i64 %.idx.i
   %100 = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr %.sink, ptr %100, align 8
+  store ptr %.sink, ptr %100, align 8, !alias.scope !318
   %101 = getelementptr inbounds i8, ptr %99, i64 %.idx.i
   %102 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %101, ptr %102, align 8, !alias.scope !318
@@ -22376,7 +22376,7 @@ _ZNK6casadi16SparsityInternal10get_colindEv.exit: ; preds = %_ZNSt6vectorIxSaIxE
   %191 = phi ptr [ %190, %.noexc4.i.i ], [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
   %.sink = getelementptr inbounds i8, ptr %191, i64 %gepdiff.i
   %192 = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr %.sink, ptr %192, align 8
+  store ptr %.sink, ptr %192, align 8, !alias.scope !329
   %193 = getelementptr inbounds i8, ptr %191, i64 %gepdiff.i
   %194 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %193, ptr %194, align 8, !alias.scope !329
@@ -23311,7 +23311,7 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %232
 _ZNK6casadi16SparsityInternal7get_rowEv.exit.thread: ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sink203 = getelementptr inbounds i8, ptr null, i64 %.idx.i
   %240 = getelementptr inbounds i8, ptr %39, i64 16
-  store ptr %.sink203, ptr %240, align 8
+  store ptr %.sink203, ptr %240, align 8, !alias.scope !345
   %241 = getelementptr inbounds i8, ptr null, i64 %.idx.i
   %242 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %241, ptr %242, align 8, !alias.scope !345
@@ -23323,7 +23323,7 @@ _ZNK6casadi16SparsityInternal7get_rowEv.exit:     ; preds = %_ZNSt6vectorIxSaIxE
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %243, ptr nonnull align 8 %237, i64 %.idx.i, i1 false), !noalias !345
   %.sink = getelementptr inbounds i8, ptr %243, i64 %.idx.i
   %244 = getelementptr inbounds i8, ptr %39, i64 16
-  store ptr %.sink, ptr %244, align 8
+  store ptr %.sink, ptr %244, align 8, !alias.scope !345
   %245 = getelementptr inbounds i8, ptr %243, i64 %.idx.i
   %246 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %245, ptr %246, align 8, !alias.scope !345
@@ -25166,7 +25166,7 @@ _ZNK6casadi16SparsityInternal10get_colindEv.exit: ; preds = %_ZNSt6vectorIxSaIxE
   %.pre139 = phi ptr [ %77, %.noexc4.i.i ], [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
   %.sink = getelementptr inbounds i8, ptr %.pre139, i64 %gepdiff.i
   %78 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr %.sink, ptr %78, align 8
+  store ptr %.sink, ptr %78, align 8, !alias.scope !374
   %79 = getelementptr inbounds i8, ptr %.pre139, i64 %gepdiff.i
   %80 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %79, ptr %80, align 8, !alias.scope !374

@@ -500,11 +500,11 @@ invoke.cont9:                                     ; preds = %if.else.i.i.i.i.i.i
   %.sink = phi ptr [ %7, %if.else.i.i.i.i.i.i ], [ %4, %if.then.i.i.i.i.i.i ]
   %.sink2.i = phi i64 [ 0, %if.else.i.i.i.i.i.i ], [ %5, %if.then.i.i.i.i.i.i ]
   %8 = getelementptr inbounds i8, ptr %this, i64 520
-  store ptr %0, ptr %8, align 8
+  store ptr %0, ptr %8, align 8, !alias.scope !8
   %9 = getelementptr inbounds i8, ptr %this, i64 528
-  store ptr %.sink16, ptr %9, align 8
+  store ptr %.sink16, ptr %9, align 8, !alias.scope !8
   %10 = getelementptr inbounds i8, ptr %this, i64 536
-  store ptr %.sink, ptr %10, align 8
+  store ptr %.sink, ptr %10, align 8, !alias.scope !8
   %11 = getelementptr inbounds i8, ptr %this, i64 544
   store i64 %.sink2.i, ptr %11, align 8, !alias.scope !8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i)

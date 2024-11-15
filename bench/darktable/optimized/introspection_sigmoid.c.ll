@@ -1402,8 +1402,8 @@ define hidden void @process_loglogistic_per_channel(ptr noundef %0, ptr nocaptur
   %.sink14 = phi float [ %433, %474 ], [ %473, %462 ]
   %.sink = phi float [ %483, %474 ], [ %472, %462 ]
   %487 = phi float [ %485, %474 ], [ %431, %462 ]
-  store float %.sink14, ptr %432, align 4
-  store float %.sink, ptr %427, align 4
+  store float %.sink14, ptr %432, align 4, !tbaa !19
+  store float %.sink, ptr %427, align 4, !tbaa !19
   store float %487, ptr %430, align 4
   %.0..0..0..0.2 = load float, ptr %13, align 16, !tbaa !19
   %.0..0..0..0.1 = load float, ptr %14, align 4, !tbaa !19

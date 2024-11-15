@@ -61948,12 +61948,12 @@ define hidden void @"_ZN86_$LT$F$u20$as$u20$itertools..adaptors..coalesce..Coale
   %.sroa.78.16.copyload.sink = phi i32 [ %11, %8 ], [ %.sroa.78.16.copyload, %7 ]
   %.sroa.0.0.copyload.sink = phi i32 [ 4, %8 ], [ %.sroa.0.0.copyload, %7 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.6.0.copyload.sink, ptr %12, align 8
+  store i32 %.sroa.6.0.copyload.sink, ptr %12, align 8, !noalias !11161
   %13 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.7.0.copyload.sink, ptr %13, align 4
+  store i32 %.sroa.7.0.copyload.sink, ptr %13, align 4, !noalias !11161
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.sroa.78.16.copyload.sink, ptr %14, align 8
-  store i32 %.sroa.0.0.copyload.sink, ptr %0, align 8
+  store i32 %.sroa.78.16.copyload.sink, ptr %14, align 8, !noalias !11161
+  store i32 %.sroa.0.0.copyload.sink, ptr %0, align 8, !noalias !11161
   ret void
 }
 

@@ -190,7 +190,7 @@ define noundef i32 @dsymm_thread_LL(ptr noundef %0, ptr noundef %1, ptr noundef 
 117:                                              ; preds = %75, %112
   %.sink = phi i64 [ %113, %112 ], [ 0, %75 ]
   %118 = phi i64 [ %116, %112 ], [ %78, %75 ]
-  store i64 %.sink, ptr %110, align 8
+  store i64 %.sink, ptr %110, align 8, !tbaa !10
   %119 = icmp sgt i64 %118, 0
   br i1 %119, label %.preheader, label %.thread
 

@@ -26620,11 +26620,11 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
   %.sink87.in.in = trunc i32 %.sink87.in.in.in to i8
   %.sink87.in = and i8 %.sink87.in.in, 63
   %.sink87 = or disjoint i8 %.sink87.in, -128
-  store i8 %29, ptr %7, align 4
+  store i8 %29, ptr %7, align 4, !alias.scope !5883
   %31 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %.sink87, ptr %31, align 1
+  store i8 %.sink87, ptr %31, align 1, !alias.scope !5883
   %32 = getelementptr inbounds i8, ptr %7, i64 2
-  store i8 %.sink, ptr %32, align 2
+  store i8 %.sink, ptr %32, align 2, !alias.scope !5883
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5886)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5889)
   %33 = icmp ult i64 %30, %2
@@ -43353,7 +43353,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h12d4cf53f373fde9E.exit.i: ; preds = %.
   %170 = getelementptr inbounds i8, ptr %10, i64 409
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !10006
   store i8 0, ptr %169, align 8, !alias.scope !10014, !noalias !10021
-  store i32 0, ptr %10, align 8, !noalias !10005
+  store i32 0, ptr %10, align 8, !alias.scope !10008, !noalias !10011
   store i8 %.sroa.0.0.i.i.i.i.i, ptr %170, align 1, !alias.scope !10026, !noalias !10021
   %171 = invoke noundef i64 @"_ZN12multi_buffer91_$LT$impl$u20$sum_tree..Dimension$LT$multi_buffer..ExcerptSummary$GT$$u20$for$u20$usize$GT$4zero17h03634c794a849ba1E"(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr))
           to label %.noexc35.i unwind label %152

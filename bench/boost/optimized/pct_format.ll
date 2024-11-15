@@ -404,7 +404,7 @@ define noundef ptr @_ZN5boost4urls6detail11pct_vformatERKNS0_7grammar9lut_charsE
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = %.preheader, %34
   %.sink = phi i8 [ 37, %34 ], [ %24, %.preheader ]
   %.098 = phi ptr [ %45, %34 ], [ %33, %.preheader ]
-  store i8 %.sink, ptr %23, align 1
+  store i8 %.sink, ptr %23, align 1, !tbaa !10
   store ptr %.098, ptr %14, align 8, !tbaa !54
   %46 = getelementptr inbounds nuw i8, ptr %.059110, i64 1
   %.not66 = icmp eq ptr %46, %.057.lcssa

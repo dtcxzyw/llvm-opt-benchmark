@@ -11052,7 +11052,7 @@ _ZN4llvh5APInt17getSignedMinValueEj.exit:         ; preds = %if.then.i.i, %if.el
   %shl.i.i.i.i.pre-phi = phi i64 [ %.pre1636, %if.then.i.i ], [ %shl.i.i.i, %if.else.i4.i ]
   %sub.i.i.pre-phi = phi i32 [ %.pre1633, %if.then.i.i ], [ %sub.i, %if.else.i4.i ]
   %6 = phi ptr [ %1, %if.then.i.i ], [ %call.i.i.i.i, %if.else.i4.i ]
-  store ptr %6, ptr %signedMin, align 8
+  store ptr %6, ptr %signedMin, align 8, !alias.scope !139
   %BitWidth.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 1, ptr %BitWidth.i.i16, align 8
   store i64 0, ptr %agg.result, align 8
@@ -13051,7 +13051,7 @@ _ZN4llvh5APInt17getSignedMaxValueEj.exit:         ; preds = %if.then.i.i54, %if.
   %26 = phi ptr [ %15, %if.then.i.i54 ], [ %call.i.i.i.i37, %if.else.i.i46 ]
   %27 = phi ptr [ %14, %if.then.i.i54 ], [ %call.i.i.i.i.i, %if.else.i.i46 ]
   %BitWidth.i.i.i442281 = phi ptr [ %BitWidth.i.i.i442280, %if.then.i.i54 ], [ %BitWidth.i.i.i44, %if.else.i.i46 ]
-  store ptr %27, ptr %signedMax, align 8
+  store ptr %27, ptr %signedMax, align 8, !alias.scope !230
   %28 = ptrtoint ptr %27 to i64
   br i1 %cmp.i.i.i, label %if.then.i7.i.i, label %if.else.i.i67
 
@@ -21512,7 +21512,7 @@ if.else.i3.i:                                     ; preds = %if.end13
 
 _ZN4llvh5APInt12getOneBitSetEjj.exit:             ; preds = %if.then.i.i67, %if.else.i3.i
   %30 = phi ptr [ %25, %if.then.i.i67 ], [ %call.i.i.i.i, %if.else.i3.i ]
-  store ptr %30, ptr %R, align 8
+  store ptr %30, ptr %R, align 8, !alias.scope !447
   %31 = load i32, ptr %BitWidth.i, align 8
   %cmp.i.i69 = icmp ult i32 %31, 65
   %32 = ptrtoint ptr %30 to i64

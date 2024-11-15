@@ -124,36 +124,36 @@ define nonnull ptr @lv_display_create(i32 noundef %0, i32 noundef %1) local_unna
 lv_display_add_event_cb.exit:                     ; preds = %41, %45
   %.sink = phi ptr [ %46, %45 ], [ %44, %41 ]
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 896
-  store ptr %.sink, ptr %47, align 8
+  store ptr %.sink, ptr %47, align 8, !tbaa !44
   %48 = tail call ptr @lv_obj_create(ptr noundef null) #13
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 808
-  store ptr %48, ptr %49, align 8, !tbaa !44
+  store ptr %48, ptr %49, align 8, !tbaa !45
   %50 = tail call ptr @lv_obj_create(ptr noundef null) #13
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 800
-  store ptr %50, ptr %51, align 8, !tbaa !45
+  store ptr %50, ptr %51, align 8, !tbaa !46
   %52 = tail call ptr @lv_obj_create(ptr noundef null) #13
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 792
-  store ptr %52, ptr %53, align 8, !tbaa !46
+  store ptr %52, ptr %53, align 8, !tbaa !47
   %54 = tail call ptr @lv_obj_create(ptr noundef null) #13
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 784
-  store ptr %54, ptr %55, align 8, !tbaa !47
-  %56 = load ptr, ptr %49, align 8, !tbaa !44
+  store ptr %54, ptr %55, align 8, !tbaa !48
+  %56 = load ptr, ptr %49, align 8, !tbaa !45
   tail call void @lv_obj_remove_style_all(ptr noundef %56) #13
-  %57 = load ptr, ptr %53, align 8, !tbaa !46
+  %57 = load ptr, ptr %53, align 8, !tbaa !47
   tail call void @lv_obj_remove_style_all(ptr noundef %57) #13
-  %58 = load ptr, ptr %55, align 8, !tbaa !47
+  %58 = load ptr, ptr %55, align 8, !tbaa !48
   tail call void @lv_obj_remove_style_all(ptr noundef %58) #13
-  %59 = load ptr, ptr %53, align 8, !tbaa !46
+  %59 = load ptr, ptr %53, align 8, !tbaa !47
   tail call void @lv_obj_remove_flag(ptr noundef %59, i32 noundef 2) #13
-  %60 = load ptr, ptr %55, align 8, !tbaa !47
+  %60 = load ptr, ptr %55, align 8, !tbaa !48
   tail call void @lv_obj_remove_flag(ptr noundef %60, i32 noundef 2) #13
-  %61 = load ptr, ptr %49, align 8, !tbaa !44
+  %61 = load ptr, ptr %49, align 8, !tbaa !45
   tail call void @lv_obj_set_scrollbar_mode(ptr noundef %61, i32 noundef 0) #13
-  %62 = load ptr, ptr %53, align 8, !tbaa !46
+  %62 = load ptr, ptr %53, align 8, !tbaa !47
   tail call void @lv_obj_set_scrollbar_mode(ptr noundef %62, i32 noundef 0) #13
-  %63 = load ptr, ptr %55, align 8, !tbaa !47
+  %63 = load ptr, ptr %55, align 8, !tbaa !48
   tail call void @lv_obj_set_scrollbar_mode(ptr noundef %63, i32 noundef 0) #13
-  %64 = load ptr, ptr %51, align 8, !tbaa !45
+  %64 = load ptr, ptr %51, align 8, !tbaa !46
   tail call void @lv_obj_invalidate(ptr noundef %64) #13
   %65 = icmp eq ptr %36, null
   %spec.select = select i1 %65, ptr %3, ptr %36
@@ -250,12 +250,12 @@ define void @lv_display_delete(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #13
   call void @lv_memset(ptr noundef nonnull %2, i8 noundef zeroext 0, i64 noundef 56) #13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 41, ptr %7, align 8, !tbaa !48
-  store ptr %0, ptr %2, align 8, !tbaa !50
+  store i32 41, ptr %7, align 8, !tbaa !49
+  store ptr %0, ptr %2, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %0, ptr %8, align 8, !tbaa !51
+  store ptr %0, ptr %8, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %9, align 8, !tbaa !52
+  store ptr null, ptr %9, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %11 = call i32 @lv_event_send(ptr noundef nonnull %10, ptr noundef nonnull %2, i1 noundef zeroext true) #13
   %.not.i = icmp eq i32 %11, 1
@@ -285,46 +285,46 @@ lv_display_send_event.exit:                       ; preds = %1, %12
 18:                                               ; preds = %17, %.lr.ph
   %19 = call ptr @lv_indev_get_next(ptr noundef nonnull %.046) #13
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %18, %lv_display_send_event.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %21 = load ptr, ptr %20, align 8, !tbaa !47
+  %21 = load ptr, ptr %20, align 8, !tbaa !48
   %.not39 = icmp eq ptr %21, null
   br i1 %.not39, label %23, label %22
 
 22:                                               ; preds = %._crit_edge
   call void @lv_obj_delete(ptr noundef nonnull %21) #13
-  store ptr null, ptr %20, align 8, !tbaa !47
+  store ptr null, ptr %20, align 8, !tbaa !48
   br label %23
 
 23:                                               ; preds = %22, %._crit_edge
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %25 = load ptr, ptr %24, align 8, !tbaa !46
+  %25 = load ptr, ptr %24, align 8, !tbaa !47
   %.not40 = icmp eq ptr %25, null
   br i1 %.not40, label %27, label %26
 
 26:                                               ; preds = %23
   call void @lv_obj_delete(ptr noundef nonnull %25) #13
-  store ptr null, ptr %24, align 8, !tbaa !46
+  store ptr null, ptr %24, align 8, !tbaa !47
   br label %27
 
 27:                                               ; preds = %26, %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %29 = load ptr, ptr %28, align 8, !tbaa !44
+  %29 = load ptr, ptr %28, align 8, !tbaa !45
   %.not41 = icmp eq ptr %29, null
   br i1 %.not41, label %31, label %30
 
 30:                                               ; preds = %27
   call void @lv_obj_delete(ptr noundef nonnull %29) #13
-  store ptr null, ptr %28, align 8, !tbaa !44
+  store ptr null, ptr %28, align 8, !tbaa !45
   br label %31
 
 31:                                               ; preds = %30, %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  store ptr null, ptr %32, align 8, !tbaa !45
+  store ptr null, ptr %32, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %34 = load i32, ptr %33, align 8, !tbaa !55
+  %34 = load i32, ptr %33, align 8, !tbaa !56
   %.not4247 = icmp eq i32 %34, 0
   br i1 %.not4247, label %._crit_edge50, label %.lr.ph49
 
@@ -333,12 +333,12 @@ lv_display_send_event.exit:                       ; preds = %1, %12
   br label %36
 
 36:                                               ; preds = %.lr.ph49, %36
-  %37 = load ptr, ptr %35, align 8, !tbaa !56
-  %38 = load ptr, ptr %37, align 8, !tbaa !57
+  %37 = load ptr, ptr %35, align 8, !tbaa !57
+  %38 = load ptr, ptr %37, align 8, !tbaa !58
   call void @lv_obj_delete(ptr noundef %38) #13
-  %39 = load i32, ptr %33, align 8, !tbaa !55
+  %39 = load i32, ptr %33, align 8, !tbaa !56
   %.not42 = icmp eq i32 %39, 0
-  br i1 %.not42, label %._crit_edge50, label %36, !llvm.loop !58
+  br i1 %.not42, label %._crit_edge50, label %36, !llvm.loop !59
 
 ._crit_edge50:                                    ; preds = %36, %31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -355,7 +355,7 @@ lv_display_send_event.exit:                       ; preds = %1, %12
 
 44:                                               ; preds = %43, %._crit_edge50
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %46 = load ptr, ptr %45, align 8, !tbaa !59
+  %46 = load ptr, ptr %45, align 8, !tbaa !60
   %.not44 = icmp eq ptr %46, null
   br i1 %.not44, label %50, label %47
 
@@ -402,12 +402,12 @@ define i32 @lv_display_send_event(ptr noundef %0, i32 noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #13
   call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 56) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %1, ptr %5, align 8, !tbaa !48
-  store ptr %0, ptr %4, align 8, !tbaa !50
+  store i32 %1, ptr %5, align 8, !tbaa !49
+  store ptr %0, ptr %4, align 8, !tbaa !51
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %0, ptr %6, align 8, !tbaa !51
+  store ptr %0, ptr %6, align 8, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %2, ptr %7, align 8, !tbaa !52
+  store ptr %2, ptr %7, align 8, !tbaa !53
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %9 = call i32 @lv_event_send(ptr noundef nonnull %8, ptr noundef nonnull %4, i1 noundef zeroext true) #13
   %.not = icmp eq i32 %9, 1
@@ -520,7 +520,7 @@ define internal fastcc void @update_resolution(ptr noundef nonnull %0) unnamed_a
 
 lv_display_get_horizontal_resolution.exit:        ; preds = %1, %7
   %.05.i.in = phi ptr [ %8, %7 ], [ %0, %1 ]
-  %.05.i = load i32, ptr %.05.i.in, align 4, !tbaa !60
+  %.05.i = load i32, ptr %.05.i.in, align 4, !tbaa !61
   switch i8 %6, label %9 [
     i8 1, label %lv_display_get_vertical_resolution.exit
     i8 3, label %lv_display_get_vertical_resolution.exit
@@ -532,13 +532,13 @@ lv_display_get_horizontal_resolution.exit:        ; preds = %1, %7
 
 lv_display_get_vertical_resolution.exit:          ; preds = %lv_display_get_horizontal_resolution.exit, %lv_display_get_horizontal_resolution.exit, %9
   %.05.i33.in = phi ptr [ %10, %9 ], [ %0, %lv_display_get_horizontal_resolution.exit ], [ %0, %lv_display_get_horizontal_resolution.exit ]
-  %.05.i33 = load i32, ptr %.05.i33.in, align 4, !tbaa !60
+  %.05.i33 = load i32, ptr %.05.i33.in, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %12 = load ptr, ptr %11, align 8, !tbaa !47
+  %12 = load ptr, ptr %11, align 8, !tbaa !48
   call void @lv_obj_get_coords(ptr noundef %12, ptr noundef nonnull %3) #13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %14 = load i32, ptr %13, align 8, !tbaa !55
+  %14 = load i32, ptr %13, align 8, !tbaa !56
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -548,71 +548,71 @@ lv_display_get_vertical_resolution.exit:          ; preds = %lv_display_get_hori
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = load ptr, ptr %15, align 8, !tbaa !56
+  %17 = load ptr, ptr %15, align 8, !tbaa !57
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8, !tbaa !57
+  %19 = load ptr, ptr %18, align 8, !tbaa !58
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   call void @lv_area_set_width(ptr noundef nonnull %20, i32 noundef %.05.i) #13
-  %21 = load ptr, ptr %15, align 8, !tbaa !56
+  %21 = load ptr, ptr %15, align 8, !tbaa !57
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !57
+  %23 = load ptr, ptr %22, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   call void @lv_area_set_height(ptr noundef nonnull %24, i32 noundef %.05.i33) #13
-  %25 = load ptr, ptr %15, align 8, !tbaa !56
+  %25 = load ptr, ptr %15, align 8, !tbaa !57
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8, !tbaa !57
+  %27 = load ptr, ptr %26, align 8, !tbaa !58
   %28 = call i32 @lv_obj_send_event(ptr noundef %27, i32 noundef 49, ptr noundef nonnull %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load i32, ptr %13, align 8, !tbaa !55
+  %29 = load i32, ptr %13, align 8, !tbaa !56
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %16, label %._crit_edge, !llvm.loop !61
+  br i1 %31, label %16, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %16, %lv_display_get_vertical_resolution.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %33 = load ptr, ptr %32, align 8, !tbaa !46
+  %33 = load ptr, ptr %32, align 8, !tbaa !47
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   call void @lv_area_set_width(ptr noundef nonnull %34, i32 noundef %.05.i) #13
-  %35 = load ptr, ptr %32, align 8, !tbaa !46
+  %35 = load ptr, ptr %32, align 8, !tbaa !47
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   call void @lv_area_set_height(ptr noundef nonnull %36, i32 noundef %.05.i33) #13
-  %37 = load ptr, ptr %32, align 8, !tbaa !46
+  %37 = load ptr, ptr %32, align 8, !tbaa !47
   %38 = call i32 @lv_obj_send_event(ptr noundef %37, i32 noundef 49, ptr noundef nonnull %3) #13
-  %39 = load ptr, ptr %11, align 8, !tbaa !47
+  %39 = load ptr, ptr %11, align 8, !tbaa !48
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   call void @lv_area_set_width(ptr noundef nonnull %40, i32 noundef %.05.i) #13
-  %41 = load ptr, ptr %11, align 8, !tbaa !47
+  %41 = load ptr, ptr %11, align 8, !tbaa !48
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   call void @lv_area_set_height(ptr noundef nonnull %42, i32 noundef %.05.i33) #13
-  %43 = load ptr, ptr %11, align 8, !tbaa !47
+  %43 = load ptr, ptr %11, align 8, !tbaa !48
   %44 = call i32 @lv_obj_send_event(ptr noundef %43, i32 noundef 49, ptr noundef nonnull %3) #13
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %46 = load ptr, ptr %45, align 8, !tbaa !44
+  %46 = load ptr, ptr %45, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   call void @lv_area_set_width(ptr noundef nonnull %47, i32 noundef %.05.i) #13
-  %48 = load ptr, ptr %45, align 8, !tbaa !44
+  %48 = load ptr, ptr %45, align 8, !tbaa !45
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   call void @lv_area_set_height(ptr noundef nonnull %49, i32 noundef %.05.i33) #13
-  %50 = load ptr, ptr %45, align 8, !tbaa !44
+  %50 = load ptr, ptr %45, align 8, !tbaa !45
   %51 = call i32 @lv_obj_send_event(ptr noundef %50, i32 noundef 49, ptr noundef nonnull %3) #13
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @lv_memset(ptr noundef nonnull %52, i8 noundef zeroext 0, i64 noundef 512) #13
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 608
   call void @lv_memset(ptr noundef nonnull %53, i8 noundef zeroext 0, i64 noundef 32) #13
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store i32 0, ptr %54, align 8, !tbaa !62
-  %55 = load ptr, ptr %11, align 8, !tbaa !47
+  store i32 0, ptr %54, align 8, !tbaa !63
+  %55 = load ptr, ptr %11, align 8, !tbaa !48
   call void @lv_obj_invalidate(ptr noundef %55) #13
   call void @lv_obj_tree_walk(ptr noundef null, ptr noundef nonnull @invalidate_layout_cb, ptr noundef null) #13
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #13
   call void @lv_memset(ptr noundef nonnull %2, i8 noundef zeroext 0, i64 noundef 56) #13
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 54, ptr %56, align 8, !tbaa !48
-  store ptr %0, ptr %2, align 8, !tbaa !50
+  store i32 54, ptr %56, align 8, !tbaa !49
+  store ptr %0, ptr %2, align 8, !tbaa !51
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %0, ptr %57, align 8, !tbaa !51
+  store ptr %0, ptr %57, align 8, !tbaa !52
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %58, align 8, !tbaa !52
+  store ptr null, ptr %58, align 8, !tbaa !53
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %60 = call i32 @lv_event_send(ptr noundef nonnull %59, ptr noundef nonnull %2, i1 noundef zeroext true) #13
   %.not.i = icmp eq i32 %60, 1
@@ -645,7 +645,7 @@ define void @lv_display_set_physical_resolution(ptr noundef %0, i32 noundef %1, 
   %9 = getelementptr inbounds nuw i8, ptr %.08, i64 12
   store i32 %2, ptr %9, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %.08, i64 784
-  %11 = load ptr, ptr %10, align 8, !tbaa !47
+  %11 = load ptr, ptr %10, align 8, !tbaa !48
   tail call void @lv_obj_invalidate(ptr noundef %11) #13
   br label %12
 
@@ -670,7 +670,7 @@ define void @lv_display_set_offset(ptr noundef %0, i32 noundef %1, i32 noundef %
   %9 = getelementptr inbounds nuw i8, ptr %.08, i64 20
   store i32 %2, ptr %9, align 4, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %.08, i64 784
-  %11 = load ptr, ptr %10, align 8, !tbaa !47
+  %11 = load ptr, ptr %10, align 8, !tbaa !48
   tail call void @lv_obj_invalidate(ptr noundef %11) #13
   br label %12
 
@@ -1034,11 +1034,11 @@ define void @lv_display_set_draw_buffers(ptr noundef writeonly %0, ptr noundef %
 .thread:                                          ; preds = %3, %5
   %.010 = phi ptr [ %6, %5 ], [ %0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %.010, i64 32
-  store ptr %1, ptr %8, align 8, !tbaa !63
+  store ptr %1, ptr %8, align 8, !tbaa !64
   %9 = getelementptr inbounds nuw i8, ptr %.010, i64 40
-  store ptr %2, ptr %9, align 8, !tbaa !64
+  store ptr %2, ptr %9, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %.010, i64 48
-  store ptr %1, ptr %10, align 8, !tbaa !65
+  store ptr %1, ptr %10, align 8, !tbaa !66
   br label %11
 
 11:                                               ; preds = %5, %.thread
@@ -1080,7 +1080,7 @@ define void @lv_display_set_buffers(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i50, %14
   %.05.i.in = phi ptr [ %15, %14 ], [ %.08.i, %.thread.i50 ]
-  %.05.i = load i32, ptr %.05.i.in, align 4, !tbaa !60
+  %.05.i = load i32, ptr %.05.i.in, align 4, !tbaa !61
   br i1 %7, label %16, label %.thread.i51
 
 16:                                               ; preds = %lv_display_get_horizontal_resolution.exit
@@ -1104,7 +1104,7 @@ lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i50, %14
 
 lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i51, %.thread.i51, %21
   %.05.i53.in = phi ptr [ %22, %21 ], [ %.08.i52, %.thread.i51 ], [ %.08.i52, %.thread.i51 ]
-  %.05.i53 = load i32, ptr %.05.i53.in, align 4, !tbaa !60
+  %.05.i53 = load i32, ptr %.05.i53.in, align 4, !tbaa !61
   %23 = icmp ne i32 %.05.i, 0
   %24 = icmp ne i32 %.05.i53, 0
   %or.cond = select i1 %23, i1 %24, i1 false
@@ -1174,13 +1174,13 @@ lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i51, %.thre
 .thread.i55:                                      ; preds = %46, %40
   %.sink90 = phi ptr [ %0, %40 ], [ %47, %46 ]
   %49 = getelementptr inbounds nuw i8, ptr %.sink90, i64 32
-  store ptr %41, ptr %49, align 8, !tbaa !63
+  store ptr %41, ptr %49, align 8, !tbaa !64
   %50 = getelementptr inbounds nuw i8, ptr %.sink90, i64 40
-  store ptr %45, ptr %50, align 8, !tbaa !64
+  store ptr %45, ptr %50, align 8, !tbaa !65
   %51 = getelementptr inbounds nuw i8, ptr %.sink90, i64 48
-  store ptr %41, ptr %51, align 8, !tbaa !65
+  store ptr %41, ptr %51, align 8, !tbaa !66
   %52 = getelementptr inbounds nuw i8, ptr %.sink90, i64 84
-  store i32 %4, ptr %52, align 4, !tbaa !66
+  store i32 %4, ptr %52, align 4, !tbaa !67
   br label %lv_display_set_render_mode.exit
 
 lv_display_set_render_mode.exit:                  ; preds = %46, %.thread.i55
@@ -1227,7 +1227,7 @@ define void @lv_display_set_render_mode(ptr noundef writeonly %0, i32 noundef %1
 .thread:                                          ; preds = %2, %4
   %.05 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %.05, i64 84
-  store i32 %1, ptr %7, align 4, !tbaa !66
+  store i32 %1, ptr %7, align 4, !tbaa !67
   br label %8
 
 8:                                                ; preds = %4, %.thread
@@ -1269,7 +1269,7 @@ define void @lv_display_set_buffers_with_stride(ptr noundef %0, ptr noundef %1, 
 
 lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i40, %15
   %.05.i.in = phi ptr [ %16, %15 ], [ %.08.i, %.thread.i40 ]
-  %.05.i = load i32, ptr %.05.i.in, align 4, !tbaa !60
+  %.05.i = load i32, ptr %.05.i.in, align 4, !tbaa !61
   br i1 %8, label %17, label %.thread.i41
 
 17:                                               ; preds = %lv_display_get_horizontal_resolution.exit
@@ -1293,7 +1293,7 @@ lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i40, %15
 
 lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i41, %.thread.i41, %22
   %.05.i43.in = phi ptr [ %23, %22 ], [ %.08.i42, %.thread.i41 ], [ %.08.i42, %.thread.i41 ]
-  %.05.i43 = load i32, ptr %.05.i43.in, align 4, !tbaa !60
+  %.05.i43 = load i32, ptr %.05.i43.in, align 4, !tbaa !61
   %24 = icmp ne i32 %.05.i, 0
   %25 = icmp ne i32 %.05.i43, 0
   %or.cond = select i1 %24, i1 %25, i1 false
@@ -1343,13 +1343,13 @@ lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i41, %.thre
 .thread.i45:                                      ; preds = %38, %32
   %.sink78 = phi ptr [ %0, %32 ], [ %39, %38 ]
   %41 = getelementptr inbounds nuw i8, ptr %.sink78, i64 32
-  store ptr %33, ptr %41, align 8, !tbaa !63
+  store ptr %33, ptr %41, align 8, !tbaa !64
   %42 = getelementptr inbounds nuw i8, ptr %.sink78, i64 40
-  store ptr %37, ptr %42, align 8, !tbaa !64
+  store ptr %37, ptr %42, align 8, !tbaa !65
   %43 = getelementptr inbounds nuw i8, ptr %.sink78, i64 48
-  store ptr %33, ptr %43, align 8, !tbaa !65
+  store ptr %33, ptr %43, align 8, !tbaa !66
   %44 = getelementptr inbounds nuw i8, ptr %.sink78, i64 84
-  store i32 %5, ptr %44, align 4, !tbaa !66
+  store i32 %5, ptr %44, align 4, !tbaa !67
   br label %lv_display_set_render_mode.exit
 
 lv_display_set_render_mode.exit:                  ; preds = %38, %.thread.i45
@@ -1369,7 +1369,7 @@ define void @lv_display_set_flush_cb(ptr noundef writeonly %0, ptr noundef %1) l
 .thread:                                          ; preds = %2, %4
   %.06 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %.06, i64 56
-  store ptr %1, ptr %7, align 8, !tbaa !67
+  store ptr %1, ptr %7, align 8, !tbaa !68
   br label %8
 
 8:                                                ; preds = %4, %.thread
@@ -1389,7 +1389,7 @@ define void @lv_display_set_flush_wait_cb(ptr noundef writeonly %0, ptr noundef 
 .thread:                                          ; preds = %2, %4
   %.06 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %.06, i64 64
-  store ptr %1, ptr %7, align 8, !tbaa !68
+  store ptr %1, ptr %7, align 8, !tbaa !69
   br label %8
 
 8:                                                ; preds = %4, %.thread
@@ -1416,7 +1416,7 @@ define void @lv_display_set_color_format(ptr noundef %0, i32 noundef %1) local_u
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %1, ptr %11, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %.017, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !63
+  %13 = load ptr, ptr %12, align 8, !tbaa !64
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %21, label %14
 
@@ -1432,7 +1432,7 @@ define void @lv_display_set_color_format(ptr noundef %0, i32 noundef %1) local_u
 
 21:                                               ; preds = %14, %.thread
   %22 = getelementptr inbounds nuw i8, ptr %.017, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !64
+  %23 = load ptr, ptr %22, align 8, !tbaa !65
   %.not15 = icmp eq ptr %23, null
   br i1 %.not15, label %31, label %24
 
@@ -1450,12 +1450,12 @@ define void @lv_display_set_color_format(ptr noundef %0, i32 noundef %1) local_u
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #13
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 56) #13
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 55, ptr %32, align 8, !tbaa !48
-  store ptr %.017, ptr %3, align 8, !tbaa !50
+  store i32 55, ptr %32, align 8, !tbaa !49
+  store ptr %.017, ptr %3, align 8, !tbaa !51
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.017, ptr %33, align 8, !tbaa !51
+  store ptr %.017, ptr %33, align 8, !tbaa !52
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %34, align 8, !tbaa !52
+  store ptr null, ptr %34, align 8, !tbaa !53
   %35 = getelementptr inbounds nuw i8, ptr %.017, i64 856
   %36 = call i32 @lv_event_send(ptr noundef nonnull %35, ptr noundef nonnull %3, i1 noundef zeroext true) #13
   %.not.i = icmp eq i32 %36, 1
@@ -1579,14 +1579,14 @@ define zeroext i1 @lv_display_get_antialiasing(ptr noundef readonly %0) local_un
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @lv_display_flush_ready(ptr noundef %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store volatile i32 0, ptr %2, align 8, !tbaa !69
+  store volatile i32 0, ptr %2, align 8, !tbaa !70
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define zeroext i1 @lv_display_flush_is_last(ptr noundef %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %3 = load volatile i32, ptr %2, align 4, !tbaa !70
+  %3 = load volatile i32, ptr %2, align 4, !tbaa !71
   %4 = icmp ne i32 %3, 0
   ret i1 %4
 }
@@ -1594,7 +1594,7 @@ define zeroext i1 @lv_display_flush_is_last(ptr noundef %0) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @lv_display_is_double_buffered(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   %4 = icmp ne ptr %3, null
   ret i1 %4
 }
@@ -1612,7 +1612,7 @@ define ptr @lv_display_get_screen_active(ptr noundef readonly %0) local_unnamed_
 .thread:                                          ; preds = %1, %2
   %.09 = phi ptr [ %3, %2 ], [ %0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.09, i64 800
-  %5 = load ptr, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   br label %6
 
 6:                                                ; preds = %2, %.thread
@@ -1633,7 +1633,7 @@ define ptr @lv_display_get_screen_prev(ptr noundef readonly %0) local_unnamed_ad
 .thread:                                          ; preds = %1, %2
   %.09 = phi ptr [ %3, %2 ], [ %0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.09, i64 816
-  %5 = load ptr, ptr %4, align 8, !tbaa !71
+  %5 = load ptr, ptr %4, align 8, !tbaa !72
   br label %6
 
 6:                                                ; preds = %2, %.thread
@@ -1654,7 +1654,7 @@ define ptr @lv_display_get_layer_top(ptr noundef readonly %0) local_unnamed_addr
 .thread:                                          ; preds = %1, %2
   %.09 = phi ptr [ %3, %2 ], [ %0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.09, i64 792
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
   br label %6
 
 6:                                                ; preds = %2, %.thread
@@ -1675,7 +1675,7 @@ define ptr @lv_display_get_layer_sys(ptr noundef readonly %0) local_unnamed_addr
 .thread:                                          ; preds = %1, %2
   %.09 = phi ptr [ %3, %2 ], [ %0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.09, i64 784
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
   br label %6
 
 6:                                                ; preds = %2, %.thread
@@ -1696,7 +1696,7 @@ define ptr @lv_display_get_layer_bottom(ptr noundef readonly %0) local_unnamed_a
 .thread:                                          ; preds = %1, %2
   %.09 = phi ptr [ %3, %2 ], [ %0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.09, i64 808
-  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   br label %6
 
 6:                                                ; preds = %2, %.thread
@@ -1716,13 +1716,13 @@ define void @lv_screen_load_anim(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %7 = alloca %struct._lv_anim_t, align 8
   %8 = tail call ptr @lv_obj_get_display(ptr noundef %0) #13
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 800
-  %10 = load ptr, ptr %9, align 8, !tbaa !45
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %145, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 824
-  %14 = load ptr, ptr %13, align 8, !tbaa !72
+  %14 = load ptr, ptr %13, align 8, !tbaa !73
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %145, label %16
 
@@ -1734,22 +1734,22 @@ define void @lv_screen_load_anim(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 17:                                               ; preds = %16
   %18 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %14, ptr noundef null) #13
-  %19 = load ptr, ptr %13, align 8, !tbaa !72
+  %19 = load ptr, ptr %13, align 8, !tbaa !73
   tail call void @lv_obj_set_pos(ptr noundef %19, i32 noundef 0, i32 noundef 0) #13
-  %20 = load ptr, ptr %13, align 8, !tbaa !72
+  %20 = load ptr, ptr %13, align 8, !tbaa !73
   %21 = tail call zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %20, i8 noundef zeroext 95, i32 noundef 0) #13
-  %22 = load ptr, ptr %9, align 8, !tbaa !45
+  %22 = load ptr, ptr %9, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 816
-  store ptr %22, ptr %23, align 8, !tbaa !71
-  %24 = load ptr, ptr %13, align 8, !tbaa !72
+  store ptr %22, ptr %23, align 8, !tbaa !72
+  %24 = load ptr, ptr %13, align 8, !tbaa !73
   tail call fastcc void @scr_load_internal(ptr noundef %24)
   br label %25
 
 25:                                               ; preds = %17, %16
   %.0 = phi ptr [ %24, %17 ], [ %10, %16 ]
-  store ptr %0, ptr %13, align 8, !tbaa !72
+  store ptr %0, ptr %13, align 8, !tbaa !73
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 816
-  %27 = load ptr, ptr %26, align 8, !tbaa !71
+  %27 = load ptr, ptr %26, align 8, !tbaa !72
   %.not74 = icmp eq ptr %27, null
   br i1 %.not74, label %33, label %28
 
@@ -1765,7 +1765,7 @@ define void @lv_screen_load_anim(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br label %33
 
 33:                                               ; preds = %32, %28, %25
-  store ptr null, ptr %26, align 8, !tbaa !71
+  store ptr null, ptr %26, align 8, !tbaa !72
   %.off.i = add i32 %1, -10
   %switch.i = icmp ult i32 %.off.i, 5
   %34 = zext i1 %switch.i to i8
@@ -1859,7 +1859,7 @@ define void @lv_screen_load_anim(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i, %57
   %.05.i.in = phi ptr [ %58, %57 ], [ %8, %.thread.i ]
-  %.05.i = load i32, ptr %.05.i.in, align 4, !tbaa !60
+  %.05.i = load i32, ptr %.05.i.in, align 4, !tbaa !61
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %.05.i, i32 noundef 0) #13
   br label %140
 
@@ -1879,7 +1879,7 @@ lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i, %57
 
 lv_display_get_horizontal_resolution.exit84:      ; preds = %.thread.i81, %62
   %.05.i83.in = phi ptr [ %63, %62 ], [ %8, %.thread.i81 ]
-  %.05.i83 = load i32, ptr %.05.i83.in, align 4, !tbaa !60
+  %.05.i83 = load i32, ptr %.05.i83.in, align 4, !tbaa !61
   %64 = sub nsw i32 0, %.05.i83
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %64, i32 noundef 0) #13
   br label %140
@@ -1900,7 +1900,7 @@ lv_display_get_horizontal_resolution.exit84:      ; preds = %.thread.i81, %62
 
 lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i85, %.thread.i85, %68
   %.05.i87.in = phi ptr [ %69, %68 ], [ %8, %.thread.i85 ], [ %8, %.thread.i85 ]
-  %.05.i87 = load i32, ptr %.05.i87.in, align 4, !tbaa !60
+  %.05.i87 = load i32, ptr %.05.i87.in, align 4, !tbaa !61
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %.05.i87, i32 noundef 0) #13
   br label %140
 
@@ -1920,7 +1920,7 @@ lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i85, %.thre
 
 lv_display_get_vertical_resolution.exit91:        ; preds = %.thread.i88, %.thread.i88, %73
   %.05.i90.in = phi ptr [ %74, %73 ], [ %8, %.thread.i88 ], [ %8, %.thread.i88 ]
-  %.05.i90 = load i32, ptr %.05.i90.in, align 4, !tbaa !60
+  %.05.i90 = load i32, ptr %.05.i90.in, align 4, !tbaa !61
   %75 = sub nsw i32 0, %.05.i90
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %75, i32 noundef 0) #13
   br label %140
@@ -1941,7 +1941,7 @@ lv_display_get_vertical_resolution.exit91:        ; preds = %.thread.i88, %.thre
 
 .thread.i96:                                      ; preds = %.thread.i92, %79
   %.05.i94.in = phi ptr [ %80, %79 ], [ %8, %.thread.i92 ]
-  %.05.i94 = load i32, ptr %.05.i94.in, align 4, !tbaa !60
+  %.05.i94 = load i32, ptr %.05.i94.in, align 4, !tbaa !61
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %.05.i94, i32 noundef 0) #13
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_x_anim) #13
   %81 = load i8, ptr %76, align 8
@@ -1957,7 +1957,7 @@ lv_display_get_vertical_resolution.exit91:        ; preds = %.thread.i88, %.thre
 
 lv_display_get_horizontal_resolution.exit99:      ; preds = %.thread.i96, %83
   %.05.i98.in = phi ptr [ %84, %83 ], [ %8, %.thread.i96 ]
-  %.05.i98 = load i32, ptr %.05.i98.in, align 4, !tbaa !60
+  %.05.i98 = load i32, ptr %.05.i98.in, align 4, !tbaa !61
   %85 = sub nsw i32 0, %.05.i98
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %85) #13
   br label %140
@@ -1978,7 +1978,7 @@ lv_display_get_horizontal_resolution.exit99:      ; preds = %.thread.i96, %83
 
 .thread.i104:                                     ; preds = %.thread.i100, %89
   %.05.i102.in = phi ptr [ %90, %89 ], [ %8, %.thread.i100 ]
-  %.05.i102 = load i32, ptr %.05.i102.in, align 4, !tbaa !60
+  %.05.i102 = load i32, ptr %.05.i102.in, align 4, !tbaa !61
   %91 = sub nsw i32 0, %.05.i102
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %91, i32 noundef 0) #13
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_x_anim) #13
@@ -1995,7 +1995,7 @@ lv_display_get_horizontal_resolution.exit99:      ; preds = %.thread.i96, %83
 
 lv_display_get_horizontal_resolution.exit107:     ; preds = %.thread.i104, %94
   %.05.i106.in = phi ptr [ %95, %94 ], [ %8, %.thread.i104 ]
-  %.05.i106 = load i32, ptr %.05.i106.in, align 4, !tbaa !60
+  %.05.i106 = load i32, ptr %.05.i106.in, align 4, !tbaa !61
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.05.i106) #13
   br label %140
 
@@ -2015,7 +2015,7 @@ lv_display_get_horizontal_resolution.exit107:     ; preds = %.thread.i104, %94
 
 .thread.i112:                                     ; preds = %.thread.i108, %.thread.i108, %99
   %.05.i110.in = phi ptr [ %100, %99 ], [ %8, %.thread.i108 ], [ %8, %.thread.i108 ]
-  %.05.i110 = load i32, ptr %.05.i110.in, align 4, !tbaa !60
+  %.05.i110 = load i32, ptr %.05.i110.in, align 4, !tbaa !61
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %.05.i110, i32 noundef 0) #13
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_y_anim) #13
   %101 = load i8, ptr %96, align 8
@@ -2031,7 +2031,7 @@ lv_display_get_horizontal_resolution.exit107:     ; preds = %.thread.i104, %94
 
 lv_display_get_vertical_resolution.exit115:       ; preds = %.thread.i112, %.thread.i112, %103
   %.05.i114.in = phi ptr [ %104, %103 ], [ %8, %.thread.i112 ], [ %8, %.thread.i112 ]
-  %.05.i114 = load i32, ptr %.05.i114.in, align 4, !tbaa !60
+  %.05.i114 = load i32, ptr %.05.i114.in, align 4, !tbaa !61
   %105 = sub nsw i32 0, %.05.i114
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %105) #13
   br label %140
@@ -2052,7 +2052,7 @@ lv_display_get_vertical_resolution.exit115:       ; preds = %.thread.i112, %.thr
 
 .thread.i120:                                     ; preds = %.thread.i116, %.thread.i116, %109
   %.05.i118.in = phi ptr [ %110, %109 ], [ %8, %.thread.i116 ], [ %8, %.thread.i116 ]
-  %.05.i118 = load i32, ptr %.05.i118.in, align 4, !tbaa !60
+  %.05.i118 = load i32, ptr %.05.i118.in, align 4, !tbaa !61
   %111 = sub nsw i32 0, %.05.i118
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %111, i32 noundef 0) #13
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_y_anim) #13
@@ -2069,7 +2069,7 @@ lv_display_get_vertical_resolution.exit115:       ; preds = %.thread.i112, %.thr
 
 lv_display_get_vertical_resolution.exit123:       ; preds = %.thread.i120, %.thread.i120, %114
   %.05.i122.in = phi ptr [ %115, %114 ], [ %8, %.thread.i120 ], [ %8, %.thread.i120 ]
-  %.05.i122 = load i32, ptr %.05.i122.in, align 4, !tbaa !60
+  %.05.i122 = load i32, ptr %.05.i122.in, align 4, !tbaa !61
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.05.i122) #13
   br label %140
 
@@ -2099,7 +2099,7 @@ lv_display_get_vertical_resolution.exit123:       ; preds = %.thread.i120, %.thr
 
 lv_display_get_horizontal_resolution.exit127:     ; preds = %.thread.i124, %121
   %.05.i126.in = phi ptr [ %122, %121 ], [ %8, %.thread.i124 ]
-  %.05.i126 = load i32, ptr %.05.i126.in, align 4, !tbaa !60
+  %.05.i126 = load i32, ptr %.05.i126.in, align 4, !tbaa !61
   %123 = sub nsw i32 0, %.05.i126
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %123) #13
   br label %140
@@ -2120,7 +2120,7 @@ lv_display_get_horizontal_resolution.exit127:     ; preds = %.thread.i124, %121
 
 lv_display_get_horizontal_resolution.exit131:     ; preds = %.thread.i128, %127
   %.05.i130.in = phi ptr [ %128, %127 ], [ %8, %.thread.i128 ]
-  %.05.i130 = load i32, ptr %.05.i130.in, align 4, !tbaa !60
+  %.05.i130 = load i32, ptr %.05.i130.in, align 4, !tbaa !61
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.05.i130) #13
   br label %140
 
@@ -2140,7 +2140,7 @@ lv_display_get_horizontal_resolution.exit131:     ; preds = %.thread.i128, %127
 
 lv_display_get_vertical_resolution.exit135:       ; preds = %.thread.i132, %.thread.i132, %132
   %.05.i134.in = phi ptr [ %133, %132 ], [ %8, %.thread.i132 ], [ %8, %.thread.i132 ]
-  %.05.i134 = load i32, ptr %.05.i134.in, align 4, !tbaa !60
+  %.05.i134 = load i32, ptr %.05.i134.in, align 4, !tbaa !61
   %134 = sub nsw i32 0, %.05.i134
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %134) #13
   br label %140
@@ -2161,7 +2161,7 @@ lv_display_get_vertical_resolution.exit135:       ; preds = %.thread.i132, %.thr
 
 lv_display_get_vertical_resolution.exit139:       ; preds = %.thread.i136, %.thread.i136, %138
   %.05.i138.in = phi ptr [ %139, %138 ], [ %8, %.thread.i136 ], [ %8, %.thread.i136 ]
-  %.05.i138 = load i32, ptr %.05.i138.in, align 4, !tbaa !60
+  %.05.i138 = load i32, ptr %.05.i138.in, align 4, !tbaa !61
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.05.i138) #13
   br label %140
 
@@ -2207,25 +2207,25 @@ define internal fastcc void @scr_load_internal(ptr noundef %0) unnamed_addr #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 800
-  %6 = load ptr, ptr %5, align 8, !tbaa !45
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
   %.not18 = icmp eq ptr %6, null
   br i1 %.not18, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %6, i32 noundef 45, ptr noundef null) #13
   %9 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 46, ptr noundef null) #13
-  store ptr %0, ptr %5, align 8, !tbaa !45
+  store ptr %0, ptr %5, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 824
-  store ptr null, ptr %10, align 8, !tbaa !72
+  store ptr null, ptr %10, align 8, !tbaa !73
   %11 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 47, ptr noundef null) #13
   %12 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %6, i32 noundef 48, ptr noundef null) #13
   br label %16
 
 .critedge:                                        ; preds = %4
   %13 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 46, ptr noundef null) #13
-  store ptr %0, ptr %5, align 8, !tbaa !45
+  store ptr %0, ptr %5, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 824
-  store ptr null, ptr %14, align 8, !tbaa !72
+  store ptr null, ptr %14, align 8, !tbaa !73
   %15 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 47, ptr noundef null) #13
   br label %16
 
@@ -2245,14 +2245,14 @@ declare void @lv_anim_set_start_cb(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @scr_load_anim_start(ptr nocapture noundef readonly %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !73
+  %2 = load ptr, ptr %0, align 8, !tbaa !74
   %3 = tail call ptr @lv_obj_get_display(ptr noundef %2) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
-  %5 = load ptr, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 816
-  store ptr %5, ptr %6, align 8, !tbaa !71
-  %7 = load ptr, ptr %0, align 8, !tbaa !73
-  store ptr %7, ptr %4, align 8, !tbaa !45
+  store ptr %5, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %0, align 8, !tbaa !74
+  store ptr %7, ptr %4, align 8, !tbaa !46
   %8 = tail call i32 @lv_obj_send_event(ptr noundef %7, i32 noundef 46, ptr noundef null) #13
   ret void
 }
@@ -2261,15 +2261,15 @@ declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal void @scr_anim_completed(ptr nocapture noundef readonly %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !73
+  %2 = load ptr, ptr %0, align 8, !tbaa !74
   %3 = tail call ptr @lv_obj_get_display(ptr noundef %2) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
-  %5 = load ptr, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = tail call i32 @lv_obj_send_event(ptr noundef %5, i32 noundef 47, ptr noundef null) #13
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 816
-  %8 = load ptr, ptr %7, align 8, !tbaa !71
+  %8 = load ptr, ptr %7, align 8, !tbaa !72
   %9 = tail call i32 @lv_obj_send_event(ptr noundef %8, i32 noundef 48, ptr noundef null) #13
-  %10 = load ptr, ptr %7, align 8, !tbaa !71
+  %10 = load ptr, ptr %7, align 8, !tbaa !72
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %16, label %11
 
@@ -2285,16 +2285,16 @@ define internal void @scr_anim_completed(ptr nocapture noundef readonly %0) #0 {
   br label %16
 
 16:                                               ; preds = %15, %11, %1
-  store ptr null, ptr %7, align 8, !tbaa !71
+  store ptr null, ptr %7, align 8, !tbaa !72
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 836
   %18 = load i8, ptr %17, align 4
   %19 = and i8 %18, -2
   store i8 %19, ptr %17, align 4
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 824
-  store ptr null, ptr %20, align 8, !tbaa !72
-  %21 = load ptr, ptr %0, align 8, !tbaa !73
+  store ptr null, ptr %20, align 8, !tbaa !73
+  %21 = load ptr, ptr %0, align 8, !tbaa !74
   %22 = tail call zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %21, i8 noundef zeroext 95, i32 noundef 0) #13
-  %23 = load ptr, ptr %4, align 8, !tbaa !45
+  %23 = load ptr, ptr %4, align 8, !tbaa !46
   tail call void @lv_obj_invalidate(ptr noundef %23) #13
   ret void
 }
@@ -2403,13 +2403,13 @@ lv_display_get_event_dsc.exit:                    ; preds = %lv_display_get_even
   br i1 %.not18, label %17, label %8
 
 8:                                                ; preds = %lv_display_get_event_dsc.exit
-  %9 = load ptr, ptr %7, align 8, !tbaa !75
+  %9 = load ptr, ptr %7, align 8, !tbaa !76
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !77
+  %13 = load ptr, ptr %12, align 8, !tbaa !78
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %lv_display_delete_event.exit, label %17
 
@@ -2422,7 +2422,7 @@ lv_display_delete_event.exit:                     ; preds = %11
   %.1 = phi i32 [ %16, %lv_display_delete_event.exit ], [ %.024, %11 ], [ %.024, %8 ], [ %.024, %lv_display_get_event_dsc.exit ]
   %.015 = add nsw i32 %.01525, -1
   %18 = icmp sgt i32 %.01525, 0
-  br i1 %18, label %lv_display_get_event_dsc.exit, label %._crit_edge, !llvm.loop !78
+  br i1 %18, label %lv_display_get_event_dsc.exit, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %17, %lv_display_get_event_count.exit
   %.0.lcssa = phi i32 [ 0, %lv_display_get_event_count.exit ], [ %.1, %17 ]
@@ -2434,7 +2434,7 @@ declare i32 @lv_event_send(ptr noundef, ptr noundef, i1 noundef zeroext) local_u
 ; Function Attrs: nounwind uwtable
 define ptr @lv_event_get_invalidated_area(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !48
+  %3 = load i32, ptr %2, align 8, !tbaa !49
   %4 = icmp eq i32 %3, 53
   br i1 %4, label %5, label %7
 
@@ -2511,39 +2511,39 @@ define void @lv_display_set_theme(ptr noundef %0, ptr noundef %1) local_unnamed_
 .thread:                                          ; preds = %2, %3
   %.013 = phi ptr [ %4, %3 ], [ %0, %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %.013, i64 896
-  store ptr %1, ptr %5, align 8, !tbaa !79
+  store ptr %1, ptr %5, align 8, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %.013, i64 832
-  %7 = load i32, ptr %6, align 8, !tbaa !55
+  %7 = load i32, ptr %6, align 8, !tbaa !56
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %9, label %30
 
 9:                                                ; preds = %.thread
   %10 = getelementptr inbounds nuw i8, ptr %.013, i64 776
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
-  %12 = load ptr, ptr %11, align 8, !tbaa !57
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
+  %12 = load ptr, ptr %11, align 8, !tbaa !58
   %13 = tail call i32 @lv_obj_get_child_count(ptr noundef %12) #13
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %30
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr %10, align 8, !tbaa !56
+  %16 = load ptr, ptr %10, align 8, !tbaa !57
   %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !57
+  %18 = load ptr, ptr %17, align 8, !tbaa !58
   %19 = tail call i32 @lv_obj_get_child_count(ptr noundef %18) #13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %10, align 8, !tbaa !56
+  %22 = load ptr, ptr %10, align 8, !tbaa !57
   %23 = getelementptr inbounds i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !57
+  %24 = load ptr, ptr %23, align 8, !tbaa !58
   %25 = tail call i32 @lv_obj_get_child_count(ptr noundef %24) #13
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %21
-  %28 = load ptr, ptr %10, align 8, !tbaa !56
-  %29 = load ptr, ptr %28, align 8, !tbaa !57
+  %28 = load ptr, ptr %10, align 8, !tbaa !57
+  %29 = load ptr, ptr %28, align 8, !tbaa !58
   tail call void @lv_theme_apply(ptr noundef %29) #13
   br label %30
 
@@ -2561,7 +2561,7 @@ define ptr @lv_display_get_theme(ptr noundef readonly %0) local_unnamed_addr #6 
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 40), align 8
   %spec.select = select i1 %2, ptr %3, ptr %0
   %4 = getelementptr inbounds nuw i8, ptr %spec.select, i64 896
-  %5 = load ptr, ptr %4, align 8, !tbaa !79
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
   ret ptr %5
 }
 
@@ -2807,7 +2807,7 @@ define ptr @lv_display_get_buf_active(ptr noundef readonly %0) local_unnamed_add
 .thread:                                          ; preds = %1, %2
   %.09 = phi ptr [ %3, %2 ], [ %0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.09, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
   br label %6
 
 6:                                                ; preds = %2, %.thread
@@ -2921,7 +2921,7 @@ define ptr @lv_screen_active() local_unnamed_addr #6 {
 
 .thread.i:                                        ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 800
-  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   br label %lv_display_get_screen_active.exit
 
 lv_display_get_screen_active.exit:                ; preds = %0, %.thread.i
@@ -2937,7 +2937,7 @@ define ptr @lv_layer_top() local_unnamed_addr #6 {
 
 .thread.i:                                        ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 792
-  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
   br label %lv_display_get_layer_top.exit
 
 lv_display_get_layer_top.exit:                    ; preds = %0, %.thread.i
@@ -2953,7 +2953,7 @@ define ptr @lv_layer_sys() local_unnamed_addr #6 {
 
 .thread.i:                                        ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
   br label %lv_display_get_layer_sys.exit
 
 lv_display_get_layer_sys.exit:                    ; preds = %0, %.thread.i
@@ -2969,7 +2969,7 @@ define ptr @lv_layer_bottom() local_unnamed_addr #6 {
 
 .thread.i:                                        ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 808
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
   br label %lv_display_get_layer_bottom.exit
 
 lv_display_get_layer_bottom.exit:                 ; preds = %0, %.thread.i
@@ -3148,43 +3148,43 @@ attributes #13 = { nounwind }
 !41 = !{!"long", !6, i64 0}
 !42 = !{!"", !8, i64 0, !5, i64 8, !6, i64 12}
 !43 = !{!4, !8, i64 904}
-!44 = !{!4, !8, i64 808}
-!45 = !{!4, !8, i64 800}
-!46 = !{!4, !8, i64 792}
-!47 = !{!4, !8, i64 784}
-!48 = !{!49, !5, i64 16}
-!49 = !{!"_lv_event_t", !8, i64 0, !8, i64 8, !5, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !6, i64 48, !6, i64 48, !6, i64 48}
-!50 = !{!49, !8, i64 0}
-!51 = !{!49, !8, i64 8}
-!52 = !{!49, !8, i64 32}
-!53 = distinct !{!53, !54}
-!54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!4, !5, i64 832}
-!56 = !{!4, !8, i64 776}
-!57 = !{!8, !8, i64 0}
-!58 = distinct !{!58, !54}
-!59 = !{!4, !8, i64 768}
-!60 = !{!5, !5, i64 0}
-!61 = distinct !{!61, !54}
-!62 = !{!4, !5, i64 640}
-!63 = !{!4, !8, i64 32}
-!64 = !{!4, !8, i64 40}
-!65 = !{!4, !8, i64 48}
-!66 = !{!4, !5, i64 84}
-!67 = !{!4, !8, i64 56}
-!68 = !{!4, !8, i64 64}
-!69 = !{!4, !5, i64 72}
-!70 = !{!4, !5, i64 76}
-!71 = !{!4, !8, i64 816}
-!72 = !{!4, !8, i64 824}
-!73 = !{!74, !8, i64 0}
-!74 = !{!"_lv_anim_t", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104, !6, i64 108, !5, i64 116, !6, i64 120, !6, i64 120, !6, i64 120, !6, i64 120}
-!75 = !{!76, !8, i64 0}
-!76 = !{!"_lv_event_dsc_t", !8, i64 0, !8, i64 8, !5, i64 16}
-!77 = !{!76, !8, i64 8}
-!78 = distinct !{!78, !54}
-!79 = !{!4, !8, i64 896}
-!80 = distinct !{!80, !54}
+!44 = !{!4, !8, i64 896}
+!45 = !{!4, !8, i64 808}
+!46 = !{!4, !8, i64 800}
+!47 = !{!4, !8, i64 792}
+!48 = !{!4, !8, i64 784}
+!49 = !{!50, !5, i64 16}
+!50 = !{!"_lv_event_t", !8, i64 0, !8, i64 8, !5, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !6, i64 48, !6, i64 48, !6, i64 48}
+!51 = !{!50, !8, i64 0}
+!52 = !{!50, !8, i64 8}
+!53 = !{!50, !8, i64 32}
+!54 = distinct !{!54, !55}
+!55 = !{!"llvm.loop.mustprogress"}
+!56 = !{!4, !5, i64 832}
+!57 = !{!4, !8, i64 776}
+!58 = !{!8, !8, i64 0}
+!59 = distinct !{!59, !55}
+!60 = !{!4, !8, i64 768}
+!61 = !{!5, !5, i64 0}
+!62 = distinct !{!62, !55}
+!63 = !{!4, !5, i64 640}
+!64 = !{!4, !8, i64 32}
+!65 = !{!4, !8, i64 40}
+!66 = !{!4, !8, i64 48}
+!67 = !{!4, !5, i64 84}
+!68 = !{!4, !8, i64 56}
+!69 = !{!4, !8, i64 64}
+!70 = !{!4, !5, i64 72}
+!71 = !{!4, !5, i64 76}
+!72 = !{!4, !8, i64 816}
+!73 = !{!4, !8, i64 824}
+!74 = !{!75, !8, i64 0}
+!75 = !{!"_lv_anim_t", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104, !6, i64 108, !5, i64 116, !6, i64 120, !6, i64 120, !6, i64 120, !6, i64 120}
+!76 = !{!77, !8, i64 0}
+!77 = !{!"_lv_event_dsc_t", !8, i64 0, !8, i64 8, !5, i64 16}
+!78 = !{!77, !8, i64 8}
+!79 = distinct !{!79, !55}
+!80 = distinct !{!80, !55}
 !81 = !{!4, !8, i64 848}
 !82 = !{!4, !8, i64 840}
 !83 = !{!15, !5, i64 0}

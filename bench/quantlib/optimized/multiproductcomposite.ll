@@ -1914,7 +1914,7 @@ cleanup.action6.i:                                ; preds = %entry
 
 _ZN8QuantLib5CloneINS_23MarketModelMultiProductEEC2ERKS2_.exit: ; preds = %entry, %cleanup.action6.i
   %.sink.i = phi ptr [ %3, %cleanup.action6.i ], [ null, %entry ]
-  store ptr %.sink.i, ptr %this, align 8
+  store ptr %.sink.i, ptr %this, align 8, !tbaa !3
   %multiplier = getelementptr inbounds nuw i8, ptr %this, i64 8
   %multiplier3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %multiplier3, align 8, !tbaa !70

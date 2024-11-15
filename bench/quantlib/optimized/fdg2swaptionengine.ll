@@ -6102,7 +6102,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZN5boost10shared_p
 
 _ZNSt3mapIdN8QuantLib4DateESt4lessIdESaISt4pairIKdS1_EEEC2EOS8_.exit: ; preds = %if.then.i.i.i.i124, %if.else.i.i.i.i
   %.sink.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i ], [ %44, %if.then.i.i.i.i124 ]
-  store i32 %.sink.i.i.i.i, ptr %42, align 8
+  store i32 %.sink.i.i.i.i, ptr %42, align 8, !tbaa !8
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %48 = load ptr, ptr %mesher, align 8, !tbaa !152
   store ptr %48, ptr %mesher_, align 8, !tbaa !152

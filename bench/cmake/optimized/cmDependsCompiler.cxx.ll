@@ -3819,7 +3819,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbRKNSt7__cxx1112basic_stringIcSt11c
 _ZN9__gnu_cxx5__ops11__pred_iterISt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10_Iter_predIT_EESE_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ESC_.exit.i, %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.thread.i
   %25 = phi ptr [ %21, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ESC_.exit.i ], [ %23, %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.thread.i ]
   %26 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %25, ptr %26, align 8
+  store ptr %25, ptr %26, align 8, !alias.scope !44
   %27 = invoke ptr @_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predISt8functionIFbRKS7_EEEEET_SL_SL_T0_(ptr %0, ptr %1, ptr noundef nonnull %4)
           to label %28 unwind label %42
 

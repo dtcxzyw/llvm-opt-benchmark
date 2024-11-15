@@ -6212,13 +6212,13 @@ _ZSt19__relocate_object_aIN9grpc_core19XdsListenerResource14FilterChainMap8Sourc
   %.sink8.i.i.i.i.i.i.i.i = phi ptr [ %270, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %267, %for.body.i.i.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i25.i.i.i = phi ptr [ %271, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %267, %for.body.i.i.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i.i26.i.i.i = phi i64 [ %272, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i.i.i ]
-  store i32 %.sink10.i.i.i.i.i.i.i.i, ptr %267, align 8, !noalias !156
+  store i32 %.sink10.i.i.i.i.i.i.i.i, ptr %267, align 8, !alias.scope !182, !noalias !190
   %273 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i.i, i64 160
-  store ptr %268, ptr %273, align 8, !noalias !156
+  store ptr %268, ptr %273, align 8, !alias.scope !182, !noalias !190
   %274 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i.i, i64 168
-  store ptr %.sink8.i.i.i.i.i.i.i.i, ptr %274, align 8, !noalias !156
+  store ptr %.sink8.i.i.i.i.i.i.i.i, ptr %274, align 8, !alias.scope !182, !noalias !190
   %275 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i.i, i64 176
-  store ptr %.sink.i.i.i.i.i25.i.i.i, ptr %275, align 8, !noalias !156
+  store ptr %.sink.i.i.i.i.i25.i.i.i, ptr %275, align 8, !alias.scope !182, !noalias !190
   %276 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i.i, i64 184
   store i64 %.sink.i.i.i.i.i.i26.i.i.i, ptr %276, align 8, !alias.scope !182, !noalias !190
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i.i.i, i64 192

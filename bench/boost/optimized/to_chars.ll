@@ -967,12 +967,12 @@ define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_c
 
 .thread161:                                       ; preds = %.loopexit
   %101 = sub nsw i32 1, %97
-  store i8 45, ptr %100, align 1
+  store i8 45, ptr %100, align 1, !tbaa !23
   br label %.lr.ph.i.preheader
 
 102:                                              ; preds = %.loopexit
   %103 = add nsw i32 %97, -1
-  store i8 43, ptr %100, align 1
+  store i8 43, ptr %100, align 1, !tbaa !23
   %.not5.i = icmp eq i32 %103, 0
   br i1 %.not5.i, label %._crit_edge141, label %.lr.ph.i.preheader
 

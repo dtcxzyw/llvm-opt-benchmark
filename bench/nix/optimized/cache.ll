@@ -3694,13 +3694,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3
   %.sink25 = phi ptr [ %32, %28 ], [ %25, %23 ]
   %.sink = phi ptr [ %34, %28 ], [ %25, %23 ]
   %.sink.i = phi i64 [ %37, %28 ], [ 0, %23 ]
-  store i32 %.sink27, ptr %25, align 8
+  store i32 %.sink27, ptr %25, align 8, !alias.scope !31
   %38 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %27, ptr %38, align 8
+  store ptr %27, ptr %38, align 8, !alias.scope !31
   %39 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %.sink25, ptr %39, align 8
+  store ptr %.sink25, ptr %39, align 8, !alias.scope !31
   %40 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %.sink, ptr %40, align 8
+  store ptr %.sink, ptr %40, align 8, !alias.scope !31
   %41 = getelementptr inbounds i8, ptr %8, i64 40
   store i64 %.sink.i, ptr %41, align 8, !alias.scope !31
   %42 = getelementptr inbounds i8, ptr %8, i64 48

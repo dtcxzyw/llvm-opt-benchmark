@@ -6917,8 +6917,8 @@ if.else:                                          ; preds = %entry
 if.end38:                                         ; preds = %if.else, %if.then
   %spec.select.sink = phi i32 [ %4, %if.then ], [ %spec.select, %if.else ]
   %.sink = phi float [ %5, %if.then ], [ %11, %if.else ]
-  store i32 %spec.select.sink, ptr %Color.i.3.i, align 4
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %TCoords.i.3.i, align 4
+  store i32 %spec.select.sink, ptr %Color.i.3.i, align 4, !tbaa !94
+  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %TCoords.i.3.i, align 4, !tbaa !22
   call void @_ZN3Sky14place_sky_bodyERSt5arrayIN3irr5video9S3DVertexELm4EEff(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef nonnull align 4 dereferenceable(144) %vertices, float noundef 9.000000e+01, float noundef %.sink)
   %vtable.i89 = load ptr, ptr %driver, align 8, !tbaa !20
   %vfn.i90 = getelementptr inbounds i8, ptr %vtable.i89, i64 344
@@ -7381,8 +7381,8 @@ if.end53:                                         ; preds = %if.else, %if.then
   %203 = phi float [ %conv46, %if.else ], [ %197, %if.then ]
   %204 = phi float [ %conv46, %if.else ], [ %198, %if.then ]
   %spec.select.sink = phi i32 [ %spec.select, %if.else ], [ %4, %if.then ]
-  store i32 %spec.select.sink, ptr %Color.i.3.i, align 4
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %TCoords.i.3.i, align 8
+  store i32 %spec.select.sink, ptr %Color.i.3.i, align 4, !tbaa !94
+  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %TCoords.i.3.i, align 8, !tbaa !22
   %body_orbit_tilt.i103 = getelementptr inbounds i8, ptr %this, i64 2736
   %205 = load float, ptr %body_orbit_tilt.i103, align 8, !tbaa !134
   %Z3.i.i104 = getelementptr inbounds i8, ptr %vertices, i64 8

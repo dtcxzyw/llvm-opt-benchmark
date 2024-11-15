@@ -818,9 +818,9 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit170: ; preds = %_ZN5boost9unit
 _ZNK5boost10test_tools16assertion_result7messageEv.exit: ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit170, %114
   %.sink1.i = phi ptr [ %116, %114 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit170 ]
   %.sink.i = phi ptr [ %119, %114 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit170 ]
-  store ptr %.sink1.i, ptr %13, align 8, !alias.scope !39
+  store ptr %.sink1.i, ptr %13, align 8, !tbaa !29, !alias.scope !39
   %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %.sink.i, ptr %120, align 8, !alias.scope !39
+  store ptr %.sink.i, ptr %120, align 8, !tbaa !31, !alias.scope !39
   %121 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull %13)
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
 
@@ -1022,9 +1022,9 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit205: ; preds = %198
 _ZNK5boost10test_tools16assertion_result7messageEv.exit209: ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit205, %204
   %.sink1.i207 = phi ptr [ %206, %204 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit205 ]
   %.sink.i208 = phi ptr [ %209, %204 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit205 ]
-  store ptr %.sink1.i207, ptr %22, align 8, !alias.scope !45
+  store ptr %.sink1.i207, ptr %22, align 8, !tbaa !29, !alias.scope !45
   %210 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %.sink.i208, ptr %210, align 8, !alias.scope !45
+  store ptr %.sink.i208, ptr %210, align 8, !tbaa !31, !alias.scope !45
   %211 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %202, ptr noundef nonnull %22)
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
 
@@ -1327,9 +1327,9 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit249: ; preds = %357
 _ZNK5boost10test_tools16assertion_result7messageEv.exit253: ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit249, %363
   %.sink1.i251 = phi ptr [ %365, %363 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit249 ]
   %.sink.i252 = phi ptr [ %368, %363 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit249 ]
-  store ptr %.sink1.i251, ptr %32, align 8, !alias.scope !48
+  store ptr %.sink1.i251, ptr %32, align 8, !tbaa !29, !alias.scope !48
   %369 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %.sink.i252, ptr %369, align 8, !alias.scope !48
+  store ptr %.sink.i252, ptr %369, align 8, !tbaa !31, !alias.scope !48
   %370 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %361, ptr noundef nonnull %32)
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
 
@@ -1484,9 +1484,9 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit256: ; preds = %443, %438
 _ZNK5boost10test_tools16assertion_result7messageEv.exit260: ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit256, %461
   %.sink1.i258 = phi ptr [ %463, %461 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit256 ]
   %.sink.i259 = phi ptr [ %466, %461 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit256 ]
-  store ptr %.sink1.i258, ptr %34, align 8, !alias.scope !51
+  store ptr %.sink1.i258, ptr %34, align 8, !tbaa !29, !alias.scope !51
   %467 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %.sink.i259, ptr %467, align 8, !alias.scope !51
+  store ptr %.sink.i259, ptr %467, align 8, !tbaa !31, !alias.scope !51
   %468 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %458, ptr noundef nonnull %34)
   store ptr @.str.47, ptr %35, align 8, !tbaa !29
   %469 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -1772,9 +1772,9 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit313: ; preds = %_ZN5boost9unit
 _ZNK5boost10test_tools16assertion_result7messageEv.exit317: ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit313, %611
   %.sink1.i315 = phi ptr [ %613, %611 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit313 ]
   %.sink.i316 = phi ptr [ %616, %611 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit313 ]
-  store ptr %.sink1.i315, ptr %49, align 8, !alias.scope !54
+  store ptr %.sink1.i315, ptr %49, align 8, !tbaa !29, !alias.scope !54
   %617 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %.sink.i316, ptr %617, align 8, !alias.scope !54
+  store ptr %.sink.i316, ptr %617, align 8, !tbaa !31, !alias.scope !54
   %618 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %609, ptr noundef nonnull %49)
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
 
@@ -2183,9 +2183,9 @@ _ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE6lengthEPS3_.exit.i343: ;
 772:                                              ; preds = %.noexc362, %764
   %.sink1.i360 = phi ptr [ %768, %.noexc362 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %764 ]
   %.sink.i361 = phi ptr [ %771, %.noexc362 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %764 ]
-  store ptr %.sink1.i360, ptr %60, align 8, !alias.scope !68
+  store ptr %.sink1.i360, ptr %60, align 8, !tbaa !29, !alias.scope !68
   %773 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %.sink.i361, ptr %773, align 8, !alias.scope !68
+  store ptr %.sink.i361, ptr %773, align 8, !tbaa !31, !alias.scope !68
   %774 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %763, ptr noundef nonnull %60)
           to label %775 unwind label %636
 
@@ -2543,9 +2543,9 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit414: ; preds = %_ZN5boost9unit
 _ZNK5boost10test_tools16assertion_result7messageEv.exit418: ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit414, %939
   %.sink1.i416 = phi ptr [ %941, %939 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit414 ]
   %.sink.i417 = phi ptr [ %944, %939 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit414 ]
-  store ptr %.sink1.i416, ptr %73, align 8, !alias.scope !71
+  store ptr %.sink1.i416, ptr %73, align 8, !tbaa !29, !alias.scope !71
   %945 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store ptr %.sink.i417, ptr %945, align 8, !alias.scope !71
+  store ptr %.sink.i417, ptr %945, align 8, !tbaa !31, !alias.scope !71
   %946 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %937, ptr noundef nonnull %73)
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
 
@@ -2748,9 +2748,9 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit445: ; preds = %_ZN5boost9unit
 _ZNK5boost10test_tools16assertion_result7messageEv.exit449: ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit445, %1036
   %.sink1.i447 = phi ptr [ %1038, %1036 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit445 ]
   %.sink.i448 = phi ptr [ %1041, %1036 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit445 ]
-  store ptr %.sink1.i447, ptr %80, align 8, !alias.scope !74
+  store ptr %.sink1.i447, ptr %80, align 8, !tbaa !29, !alias.scope !74
   %1042 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %.sink.i448, ptr %1042, align 8, !alias.scope !74
+  store ptr %.sink.i448, ptr %1042, align 8, !tbaa !31, !alias.scope !74
   %1043 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %1034, ptr noundef nonnull %80)
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
 
@@ -3380,9 +3380,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit163: ; preds = %35, 
 _ZNK5boost10test_tools16assertion_result7messageEv.exit: ; preds = %48, %51
   %.sink1.i = phi ptr [ %53, %51 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %48 ]
   %.sink.i = phi ptr [ %56, %51 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %48 ]
-  store ptr %.sink1.i, ptr %10, align 8, !alias.scope !90
+  store ptr %.sink1.i, ptr %10, align 8, !tbaa !29, !alias.scope !90
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.sink.i, ptr %57, align 8, !alias.scope !90
+  store ptr %.sink.i, ptr %57, align 8, !tbaa !31, !alias.scope !90
   %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #30
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
@@ -3449,9 +3449,9 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit173: ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !22, !noalias !93
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 %92
-  store ptr %90, ptr %11, align 8, !alias.scope !93
+  store ptr %90, ptr %11, align 8, !tbaa !29, !alias.scope !93
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %93, ptr %94, align 8, !alias.scope !93
+  store ptr %93, ptr %94, align 8, !tbaa !31, !alias.scope !93
   %95 = icmp eq i64 %92, 0
   br i1 %95, label %_ZNK5boost10test_tools16assertion_result7messageEv.exit173.thread, label %96
 
@@ -3545,9 +3545,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit177: ; preds = %126,
 _ZNK5boost10test_tools16assertion_result7messageEv.exit182: ; preds = %136, %139
   %.sink1.i180 = phi ptr [ %141, %139 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %136 ]
   %.sink.i181 = phi ptr [ %144, %139 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %136 ]
-  store ptr %.sink1.i180, ptr %12, align 8, !alias.scope !96
+  store ptr %.sink1.i180, ptr %12, align 8, !tbaa !29, !alias.scope !96
   %145 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %.sink.i181, ptr %145, align 8, !alias.scope !96
+  store ptr %.sink.i181, ptr %145, align 8, !tbaa !31, !alias.scope !96
   %146 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #30
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
@@ -3773,9 +3773,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit194: ; preds = %_ZSt
 _ZNK5boost10test_tools16assertion_result7messageEv.exit199: ; preds = %275, %278
   %.sink1.i197 = phi ptr [ %280, %278 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %275 ]
   %.sink.i198 = phi ptr [ %283, %278 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %275 ]
-  store ptr %.sink1.i197, ptr %13, align 8, !alias.scope !99
+  store ptr %.sink1.i197, ptr %13, align 8, !tbaa !29, !alias.scope !99
   %284 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %.sink.i198, ptr %284, align 8, !alias.scope !99
+  store ptr %.sink.i198, ptr %284, align 8, !tbaa !31, !alias.scope !99
   %285 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #30
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
@@ -3929,9 +3929,9 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit199: ; preds = %275, %278
 _ZNK5boost10test_tools16assertion_result7messageEv.exit203: ; preds = %366, %376
   %.sink1.i201 = phi ptr [ %378, %376 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %366 ]
   %.sink.i202 = phi ptr [ %381, %376 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %366 ]
-  store ptr %.sink1.i201, ptr %14, align 8, !alias.scope !102
+  store ptr %.sink1.i201, ptr %14, align 8, !tbaa !29, !alias.scope !102
   %382 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.sink.i202, ptr %382, align 8, !alias.scope !102
+  store ptr %.sink.i202, ptr %382, align 8, !tbaa !31, !alias.scope !102
   %383 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %14)
   %384 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %383, ptr noundef nonnull @.str.47, i64 noundef 10)
   %.not.i204 = icmp eq ptr %368, null
@@ -4142,9 +4142,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit210: ; preds = %483,
 _ZNK5boost10test_tools16assertion_result7messageEv.exit216: ; preds = %510, %513
   %.sink1.i214 = phi ptr [ %515, %513 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %510 ]
   %.sink.i215 = phi ptr [ %518, %513 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %510 ]
-  store ptr %.sink1.i214, ptr %15, align 8, !alias.scope !105
+  store ptr %.sink1.i214, ptr %15, align 8, !tbaa !29, !alias.scope !105
   %519 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %.sink.i215, ptr %519, align 8, !alias.scope !105
+  store ptr %.sink.i215, ptr %519, align 8, !tbaa !31, !alias.scope !105
   %520 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #30
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
@@ -4498,9 +4498,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit250: ; preds = %646
 655:                                              ; preds = %.noexc254, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit250
   %.sink1.i252 = phi ptr [ %651, %.noexc254 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit250 ]
   %.sink.i253 = phi ptr [ %654, %.noexc254 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit250 ]
-  store ptr %.sink1.i252, ptr %16, align 8, !alias.scope !115
+  store ptr %.sink1.i252, ptr %16, align 8, !tbaa !29, !alias.scope !115
   %656 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %.sink.i253, ptr %656, align 8, !alias.scope !115
+  store ptr %.sink.i253, ptr %656, align 8, !tbaa !31, !alias.scope !115
   %657 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %658 unwind label %659
 
@@ -4785,9 +4785,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit269: ; preds = %791,
 _ZNK5boost10test_tools16assertion_result7messageEv.exit274: ; preds = %804, %807
   %.sink1.i272 = phi ptr [ %809, %807 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %804 ]
   %.sink.i273 = phi ptr [ %812, %807 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %804 ]
-  store ptr %.sink1.i272, ptr %17, align 8, !alias.scope !118
+  store ptr %.sink1.i272, ptr %17, align 8, !tbaa !29, !alias.scope !118
   %813 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %.sink.i273, ptr %813, align 8, !alias.scope !118
+  store ptr %.sink.i273, ptr %813, align 8, !tbaa !31, !alias.scope !118
   %814 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #30
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit
@@ -4942,9 +4942,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit282: ; preds = %879,
 _ZNK5boost10test_tools16assertion_result7messageEv.exit287: ; preds = %892, %895
   %.sink1.i285 = phi ptr [ %897, %895 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %892 ]
   %.sink.i286 = phi ptr [ %900, %895 ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %892 ]
-  store ptr %.sink1.i285, ptr %18, align 8, !alias.scope !121
+  store ptr %.sink1.i285, ptr %18, align 8, !tbaa !29, !alias.scope !121
   %901 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %.sink.i286, ptr %901, align 8, !alias.scope !121
+  store ptr %.sink.i286, ptr %901, align 8, !tbaa !31, !alias.scope !121
   %902 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #30
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit

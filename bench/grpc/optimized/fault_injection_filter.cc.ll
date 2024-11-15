@@ -1022,7 +1022,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont16
 
 invoke.cont18:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i.i
   %.sink.i.i.i = phi i8 [ 1, %if.then.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i.i ]
-  store i8 0, ptr %active_fault_.i10, align 8
+  store i8 0, ptr %active_fault_.i10, align 8, !noalias !12
   %30 = getelementptr inbounds i8, ptr %ref.tmp8, i64 40
   store i8 %.sink.i.i.i, ptr %30, align 8, !alias.scope !12
   store i8 %frombool.i.i, ptr %.sink16.i.i.i.i.i.i.i.sroa.gep37, align 16, !alias.scope !12

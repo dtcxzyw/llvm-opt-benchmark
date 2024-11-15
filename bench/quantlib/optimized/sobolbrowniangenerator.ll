@@ -1616,7 +1616,7 @@ if.else:                                          ; preds = %for.body
 if.end98:                                         ; preds = %if.else, %if.then76
   %.sink = phi double [ %71, %if.else ], [ %65, %if.then76 ]
   %72 = getelementptr inbounds double, ptr %output.coerce, i64 %56
-  store double %.sink, ptr %72, align 8
+  store double %.sink, ptr %72, align 8, !tbaa !42
   %inc = add nuw i64 %i.0148, 1
   %exitcond.not = icmp eq i64 %inc, %sub.i.i
   br i1 %exitcond.not, label %for.cond102.preheader, label %for.body, !llvm.loop !69
@@ -2563,7 +2563,7 @@ if.else:                                          ; preds = %for.body
 if.end107:                                        ; preds = %if.else, %if.then79
   %.sink = phi double [ %71, %if.else ], [ %65, %if.then79 ]
   %72 = getelementptr inbounds double, ptr %output.coerce, i64 %56
-  store double %.sink, ptr %72, align 8
+  store double %.sink, ptr %72, align 8, !tbaa !42
   %inc = add nuw i64 %i.0154, 1
   %exitcond.not = icmp eq i64 %inc, %sub.i.i
   br i1 %exitcond.not, label %for.cond111.preheader, label %for.body, !llvm.loop !74

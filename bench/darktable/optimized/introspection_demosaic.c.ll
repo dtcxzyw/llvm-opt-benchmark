@@ -7253,7 +7253,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
 448:                                              ; preds = %430, %409
   %.sink = phi float [ %440, %430 ], [ %420, %409 ]
   %449 = phi float [ %447, %430 ], [ %429, %409 ]
-  store float %.sink, ptr %391, align 4
+  store float %.sink, ptr %391, align 4, !tbaa !24
   %450 = getelementptr inbounds i8, ptr %391, i64 8
   store float %449, ptr %450, align 4, !tbaa !24
   %451 = add nuw nsw i64 %390, 2

@@ -23181,7 +23181,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.else.i.i.i.i.i.i, %invoke.cont2.i.i.i.i.i.i
-  store i64 %4, ptr %2, align 8
+  store i64 %4, ptr %2, align 8, !alias.scope !301
   call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #39
   br label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit
 
@@ -38241,7 +38241,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
   br label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i.i.i.i.i.i.i, %invoke.cont2.i.i.i.i.i.i.i.i.i
-  store i64 %6, ptr %4, align 8, !alias.scope !953, !noalias !950
+  store i64 %6, ptr %4, align 8, !alias.scope !966, !noalias !950
   call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #39, !noalias !959
   %.pre.i.i = load i8, ptr %result.i.i, align 8, !noalias !950
   br label %invoke.cont.i.i
@@ -46784,7 +46784,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result.i.i.i.i.i.i.i.i), !noalias !1177
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i), !noalias !1177
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7.i.i.i.i.i.i.i.i), !noalias !1177
-  store i8 0, ptr %result.i.i.i.i.i.i, align 8, !noalias !1171
+  store i8 0, ptr %result.i.i.i.i.i.i, align 8, !alias.scope !1181, !noalias !1171
   br label %cleanup.i.i.i.i.i.i
 
 lpad.i.i.i.i.i.i:                                 ; preds = %_ZN9grpc_core10StatusCastISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEN4absl12lts_202308026StatusEEET_OT0_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
@@ -46803,7 +46803,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i), !noalias !1177
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7.i.i.i.i.i.i.i.i), !noalias !1177
   store i64 %17, ptr %15, align 8, !alias.scope !1181, !noalias !1171
-  store i8 1, ptr %result.i.i.i.i.i.i, align 8, !noalias !1171
+  store i8 1, ptr %result.i.i.i.i.i.i, align 8, !alias.scope !1181, !noalias !1171
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i
 

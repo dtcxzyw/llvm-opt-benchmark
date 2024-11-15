@@ -165,7 +165,7 @@ cleanup.action6.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 invoke.cont5:                                     ; preds = %.noexc, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %.sink.i = phi ptr [ %8, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
-  store ptr %.sink.i, ptr %exercise_, align 8
+  store ptr %.sink.i, ptr %exercise_, align 8, !tbaa !3
   %numberOfProducts_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i64 %numberOfProducts, ptr %numberOfProducts_, align 8, !tbaa !14
   %isExerciseTime_ = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -394,7 +394,7 @@ lor.rhs:                                          ; preds = %_ZSt4fillIN9__gnu_c
 lor.end:                                          ; preds = %if.end.thread, %lor.rhs
   %inc.sink = phi i64 [ %inc4, %if.end.thread ], [ %inc, %lor.rhs ]
   %22 = phi i1 [ true, %if.end.thread ], [ %cmp, %lor.rhs ]
-  store i64 %inc.sink, ptr %currentIndex_, align 8
+  store i64 %inc.sink, ptr %currentIndex_, align 8, !tbaa !44
   ret i1 %22
 }
 
@@ -528,7 +528,7 @@ cleanup.action6.i:                                ; preds = %_ZN8QuantLib21Multi
 
 invoke.cont:                                      ; preds = %.noexc, %_ZN8QuantLib21MultiProductMultiStepC2ERKS0_.exit
   %.sink.i = phi ptr [ %10, %.noexc ], [ null, %_ZN8QuantLib21MultiProductMultiStepC2ERKS0_.exit ]
-  store ptr %.sink.i, ptr %exercise_, align 8
+  store ptr %.sink.i, ptr %exercise_, align 8, !tbaa !3
   %numberOfProducts_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %numberOfProducts_3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load i64, ptr %numberOfProducts_3, align 8, !tbaa !14

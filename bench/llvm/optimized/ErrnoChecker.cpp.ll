@@ -1976,7 +1976,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, %15
   %.sroa.2.0.copyload18 = phi i64 [ %.sroa.2.0.copyload16, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread ], [ %.sroa.2.0.copyload, %15 ]
   %.sroa.0.0.copyload17 = phi ptr [ %.sroa.0.0.copyload14, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread ], [ %.sroa.0.0.copyload, %15 ]
-  store ptr %14, ptr %11, align 8
+  store ptr %14, ptr %11, align 8, !noalias !55
   call void @_ZN5clang4ento14errno_modeling11getErrnoLocEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.132") align 8 %10, ptr noundef nonnull %11) #18, !noalias !52
   %16 = load ptr, ptr %11, align 8, !noalias !52
   %.not.i.i1.i = icmp eq ptr %16, null
@@ -2034,7 +2034,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 32
   %44 = add nsw i64 %.047.i.i.i.i.i, -1
   %45 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %45, label %27, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !55
+  br i1 %45, label %27, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !56
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %42
   %46 = and i64 %.sroa.2.0.copyload18, 3
@@ -2143,7 +2143,7 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.e
   %82 = getelementptr inbounds i8, ptr %.02946.i.i.i.i20.i, i64 32
   %83 = add nsw i64 %.047.i.i.i.i19.i, -1
   %84 = icmp sgt i64 %.047.i.i.i.i19.i, 1
-  br i1 %84, label %66, label %._crit_edge.loopexit.i.i.i.i21.i, !llvm.loop !56
+  br i1 %84, label %66, label %._crit_edge.loopexit.i.i.i.i21.i, !llvm.loop !57
 
 ._crit_edge.loopexit.i.i.i.i21.i:                 ; preds = %81
   %85 = and i64 %.sroa.2.0.copyload18, 3
@@ -2344,5 +2344,6 @@ attributes #18 = { nounwind }
 !52 = !{!53}
 !53 = distinct !{!53, !54, !"_ZNK12_GLOBAL__N_112ErrnoChecker18checkRegionChangesEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_8DenseSetIPKNS4_7SymExprENS1_12DenseMapInfoISB_vEEEENS1_8ArrayRefIPKNS4_9MemRegionEEESL_PKNS3_15LocationContextEPKNS4_9CallEventE: argument 0"}
 !54 = distinct !{!54, !"_ZNK12_GLOBAL__N_112ErrnoChecker18checkRegionChangesEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_8DenseSetIPKNS4_7SymExprENS1_12DenseMapInfoISB_vEEEENS1_8ArrayRefIPKNS4_9MemRegionEEESL_PKNS3_15LocationContextEPKNS4_9CallEventE"}
-!55 = distinct !{!55, !5}
+!55 = !{}
 !56 = distinct !{!56, !5}
+!57 = distinct !{!57, !5}

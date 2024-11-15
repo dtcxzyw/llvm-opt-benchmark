@@ -1229,23 +1229,23 @@ invoke.cont:                                      ; preds = %_ZN5boost10shared_p
   %cmp = fcmp olt double %correlation, 0.000000e+00
   %.sink52 = select i1 %cmp, double -1.000000e+00, double 5.000000e+00
   %.sink51 = select i1 %cmp, double 5.000000e+00, double -1.000000e+00
-  store double %.sink52, ptr %call.i6, align 8
+  store double %.sink52, ptr %call.i6, align 8, !tbaa !80
   %8 = getelementptr inbounds i8, ptr %call.i6, i64 8
-  store double -4.000000e+00, ptr %8, align 8
+  store double -4.000000e+00, ptr %8, align 8, !tbaa !80
   %9 = getelementptr inbounds i8, ptr %call.i6, i64 16
-  store double %.sink51, ptr %9, align 8
+  store double %.sink51, ptr %9, align 8, !tbaa !80
   %10 = getelementptr inbounds nuw i8, ptr %call.i6, i64 24
-  store double -4.000000e+00, ptr %10, align 8
+  store double -4.000000e+00, ptr %10, align 8, !tbaa !80
   %11 = getelementptr inbounds i8, ptr %call.i6, i64 32
-  store double 8.000000e+00, ptr %11, align 8
+  store double 8.000000e+00, ptr %11, align 8, !tbaa !80
   %12 = getelementptr inbounds i8, ptr %call.i6, i64 40
-  store double -4.000000e+00, ptr %12, align 8
+  store double -4.000000e+00, ptr %12, align 8, !tbaa !80
   %13 = getelementptr inbounds nuw i8, ptr %call.i6, i64 48
-  store double %.sink51, ptr %13, align 8
+  store double %.sink51, ptr %13, align 8, !tbaa !80
   %14 = getelementptr inbounds i8, ptr %call.i6, i64 56
-  store double -4.000000e+00, ptr %14, align 8
+  store double -4.000000e+00, ptr %14, align 8, !tbaa !80
   %15 = getelementptr inbounds i8, ptr %call.i6, i64 64
-  store double %.sink52, ptr %15, align 8
+  store double %.sink52, ptr %15, align 8, !tbaa !80
   ret void
 
 lpad:                                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib13TrinomialTreeEEC2ERKS3_.exit
@@ -1288,10 +1288,10 @@ invoke.cont12:                                    ; preds = %invoke.cont8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i.i10, i8 0, i64 32, i1 false)
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %processes, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %processes, i64 16
-  store ptr %add.ptr.i.i.i, ptr %1, align 8
-  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !83
+  store ptr %add.ptr.i.i.i, ptr %1, align 8, !tbaa !83
+  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !84
   %xProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load ptr, ptr %xProcess_, align 8, !tbaa !84
+  %2 = load ptr, ptr %xProcess_, align 8, !tbaa !85
   %pn3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %pn3.i.i, align 8, !tbaa !16
   %cmp.not.i.i.i = icmp eq ptr %3, null
@@ -1351,7 +1351,7 @@ _ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEaSERKS3_.exit: ; preds = 
   %yProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load ptr, ptr %processes, align 8, !tbaa !81
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %12 = load ptr, ptr %yProcess_, align 8, !tbaa !84
+  %12 = load ptr, ptr %yProcess_, align 8, !tbaa !85
   %pn3.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %13 = load ptr, ptr %pn3.i.i11, align 8, !tbaa !16
   %cmp.not.i.i.i12 = icmp eq ptr %13, null
@@ -1412,7 +1412,7 @@ invoke.cont18:                                    ; preds = %_ZN5boost10shared_p
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18
-  store ptr %call19, ptr %agg.result, align 8, !tbaa !85
+  store ptr %call19, ptr %agg.result, align 8, !tbaa !86
   %pn.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !16
   %call.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
@@ -1457,10 +1457,10 @@ invoke.cont22:                                    ; preds = %invoke.cont21
   store i32 1, ptr %weak_count_.i.i.i.i.i35, align 4, !tbaa !47
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib22StochasticProcessArrayEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
-  store ptr %call19, ptr %px_.i.i.i.i, align 8, !tbaa !87
+  store ptr %call19, ptr %px_.i.i.i.i, align 8, !tbaa !88
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !16
   %29 = load ptr, ptr %processes, align 8, !tbaa !81
-  %30 = load ptr, ptr %_M_finish.i.i7.i, align 8, !tbaa !83
+  %30 = load ptr, ptr %_M_finish.i.i7.i, align 8, !tbaa !84
   %cmp.not3.i.i.i.i = icmp eq ptr %29, %30
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
@@ -1507,7 +1507,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %30
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !89
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !90
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %processes, align 8, !tbaa !81
@@ -1519,7 +1519,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEESaIS4_EED2Ev.exit, label %if.then.i.i.i36
 
 if.then.i.i.i36:                                  ; preds = %invoke.cont.i
-  %39 = load ptr, ptr %1, align 8, !tbaa !91
+  %39 = load ptr, ptr %1, align 8, !tbaa !83
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %39 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1584,7 +1584,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib19Stochasti
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !81
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !83
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !84
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
@@ -1631,7 +1631,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !89
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !90
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8, !tbaa !81
@@ -1644,7 +1644,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !91
+  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !83
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -4901,7 +4901,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib22StochasticProcessArrayEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !87
+  %0 = load ptr, ptr %px_, align 8, !tbaa !88
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib22StochasticProcessArrayEEEvPT_.exit, label %delete.notnull.i
 
@@ -6346,15 +6346,15 @@ attributes #31 = { nounwind willreturn memory(read) }
 !80 = !{!57, !57, i64 0}
 !81 = !{!82, !5, i64 0}
 !82 = !{!"_ZTSNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEESaIS4_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!83 = !{!82, !5, i64 8}
-!84 = !{!56, !5, i64 0}
-!85 = !{!86, !5, i64 0}
-!86 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib17StochasticProcessEEE", !5, i64 0, !17, i64 8}
-!87 = !{!88, !5, i64 16}
-!88 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib22StochasticProcessArrayEEE", !45, i64 0, !5, i64 16}
-!89 = distinct !{!89, !90}
-!90 = !{!"llvm.loop.mustprogress"}
-!91 = !{!82, !5, i64 16}
+!83 = !{!82, !5, i64 16}
+!84 = !{!82, !5, i64 8}
+!85 = !{!56, !5, i64 0}
+!86 = !{!87, !5, i64 0}
+!87 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib17StochasticProcessEEE", !5, i64 0, !17, i64 8}
+!88 = !{!89, !5, i64 16}
+!89 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib22StochasticProcessArrayEEE", !45, i64 0, !5, i64 16}
+!90 = distinct !{!90, !91}
+!91 = !{!"llvm.loop.mustprogress"}
 !92 = !{!93, !5, i64 0}
 !93 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib10ObservableEEE", !5, i64 0, !17, i64 8}
 !94 = !{!95, !5, i64 0}
@@ -6376,7 +6376,7 @@ attributes #31 = { nounwind willreturn memory(read) }
 !110 = !{!108, !57, i64 24}
 !111 = !{!109, !9, i64 8}
 !112 = !{!75, !5, i64 0}
-!113 = distinct !{!113, !90}
+!113 = distinct !{!113, !91}
 !114 = !{!69, !9, i64 112}
 !115 = !{!79, !5, i64 0}
 !116 = !{!117}
@@ -6392,53 +6392,53 @@ attributes #31 = { nounwind willreturn memory(read) }
 !126 = !{!124, !5, i64 32}
 !127 = !{!22, !5, i64 24}
 !128 = !{!22, !5, i64 16}
-!129 = distinct !{!129, !90}
-!130 = distinct !{!130, !90}
-!131 = distinct !{!131, !90}
-!132 = distinct !{!132, !90}
-!133 = distinct !{!133, !90}
-!134 = distinct !{!134, !90}
+!129 = distinct !{!129, !91}
+!130 = distinct !{!130, !91}
+!131 = distinct !{!131, !91}
+!132 = distinct !{!132, !91}
+!133 = distinct !{!133, !91}
+!134 = distinct !{!134, !91}
 !135 = !{!136, !5, i64 0}
 !136 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
 !137 = !{!136, !5, i64 8}
 !138 = !{!136, !5, i64 16}
-!139 = distinct !{!139, !90}
+!139 = distinct !{!139, !91}
 !140 = !{!75, !5, i64 16}
 !141 = !{!95, !5, i64 8}
 !142 = !{!105, !5, i64 0}
 !143 = !{!105, !5, i64 8}
-!144 = distinct !{!144, !90}
+!144 = distinct !{!144, !91}
 !145 = !{!105, !5, i64 16}
 !146 = !{!101, !5, i64 0}
 !147 = !{!101, !5, i64 16}
-!148 = distinct !{!148, !90}
+!148 = distinct !{!148, !91}
 !149 = !{!95, !5, i64 16}
 !150 = !{!75, !5, i64 8}
 !151 = !{!69, !9, i64 104}
 !152 = !{!79, !5, i64 8}
 !153 = !{!79, !5, i64 16}
-!154 = distinct !{!154, !90}
-!155 = distinct !{!155, !90}
-!156 = distinct !{!156, !90}
+!154 = distinct !{!154, !91}
+!155 = distinct !{!155, !91}
+!156 = distinct !{!156, !91}
 !157 = !{!"branch_weights", !"expected", i32 2861880, i32 2144621768}
 !158 = !{!46, !46, i64 0}
-!159 = distinct !{!159, !90}
+!159 = distinct !{!159, !91}
 !160 = !{!161, !57, i64 32}
 !161 = !{!"_ZTSN8QuantLib13TrinomialTreeE", !162, i64 0, !163, i64 8, !57, i64 32, !72, i64 40, !71, i64 64}
 !162 = !{!"_ZTSN8QuantLib4TreeINS_13TrinomialTreeEEE", !9, i64 0}
 !163 = !{!"_ZTSSt6vectorIN8QuantLib13TrinomialTree9BranchingESaIS2_EE", !164, i64 0}
 !164 = !{!"_ZTSSt12_Vector_baseIN8QuantLib13TrinomialTree9BranchingESaIS2_EE", !165, i64 0}
 !165 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib13TrinomialTree9BranchingESaIS2_EE12_Vector_implE", !95, i64 0}
-!166 = distinct !{!166, !90}
-!167 = distinct !{!167, !90}
-!168 = distinct !{!168, !90}
-!169 = distinct !{!169, !90}
+!166 = distinct !{!166, !91}
+!167 = distinct !{!167, !91}
+!168 = distinct !{!168, !91}
+!169 = distinct !{!169, !91}
 !170 = !{!171}
 !171 = distinct !{!171, !172, !"_ZSt19__relocate_object_aIN8QuantLib5ArrayES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
 !172 = distinct !{!172, !"_ZSt19__relocate_object_aIN8QuantLib5ArrayES1_SaIS1_EEvPT_PT0_RT1_"}
 !173 = !{!174}
 !174 = distinct !{!174, !172, !"_ZSt19__relocate_object_aIN8QuantLib5ArrayES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!175 = distinct !{!175, !90}
+!175 = distinct !{!175, !91}
 !176 = !{!177}
 !177 = distinct !{!177, !178, !"_ZSt19__relocate_object_aIN8QuantLib5ArrayES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
 !178 = distinct !{!178, !"_ZSt19__relocate_object_aIN8QuantLib5ArrayES1_SaIS1_EEvPT_PT0_RT1_"}

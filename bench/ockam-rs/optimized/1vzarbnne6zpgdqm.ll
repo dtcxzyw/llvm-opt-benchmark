@@ -669,7 +669,7 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hd0b7c18024abeae6E(ptr n
 _ZN3der6reader6Reader6finish17hb5d2304ba0bebbb6E.exit: ; preds = %74, %78
   %.sink = phi i8 [ %24, %78 ], [ 24, %74 ]
   %79 = getelementptr inbounds i8, ptr %0, i64 104
-  store i8 %.sink, ptr %79, align 8
+  store i8 %.sink, ptr %79, align 8, !alias.scope !103, !noalias !104
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.546)
   br label %82
 

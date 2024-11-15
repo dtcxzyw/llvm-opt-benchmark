@@ -40900,8 +40900,8 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0841d750bee90e72E.llvm.7452288157325931747.exit": ; preds = %7, %8
   %.sink = phi i64 [ -9223372036854775807, %8 ], [ %3, %7 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %6, ptr %10, align 8
-  store i64 %.sink, ptr %0, align 8
+  store ptr %6, ptr %10, align 8, !alias.scope !17140
+  store i64 %.sink, ptr %0, align 8, !alias.scope !17140
   ret void
 }
 

@@ -42054,7 +42054,7 @@ _ZNKSt8__detail6_StateIcE10_M_matchesEc.exit.i:   ; preds = %112
   %139 = phi ptr [ %133, %131 ], [ %.pre.i, %137 ]
   %.sink.i = phi i8 [ %136, %131 ], [ 1, %137 ]
   %140 = ptrtoint ptr %139 to i64
-  store i8 %.sink.i, ptr %8, align 4
+  store i8 %.sink.i, ptr %8, align 4, !tbaa !833
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %142 = load ptr, ptr %141, align 8, !tbaa !47
   %143 = icmp eq ptr %139, %142
@@ -51183,14 +51183,14 @@ _ZSt19__relocate_object_aIN5boost6fibers4numa4nodeES3_SaIS3_EEvPT_PT0_RT1_.exit.
   %.sink.i.i.i.i = phi i64 [ %38, %29 ], [ 0, %.lr.ph.i.i.i ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %31, %29 ], [ 0, %.lr.ph.i.i.i ]
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  store ptr %28, ptr %39, align 8
+  store ptr %28, ptr %39, align 8, !tbaa !38, !alias.scope !964, !noalias !967
   %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  store ptr %.sink6.i.i.i.i, ptr %40, align 8, !alias.scope !964, !noalias !967
+  store ptr %.sink6.i.i.i.i, ptr %40, align 8, !tbaa !39, !alias.scope !964, !noalias !967
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  store ptr %.sink5.i.i.i.i, ptr %41, align 8, !alias.scope !964, !noalias !967
+  store ptr %.sink5.i.i.i.i, ptr %41, align 8, !tbaa !40, !alias.scope !964, !noalias !967
   %42 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  store i64 %.sink.i.i.i.i, ptr %42, align 8, !alias.scope !964, !noalias !967
-  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i, ptr %26, align 8, !alias.scope !964, !noalias !967
+  store i64 %.sink.i.i.i.i, ptr %42, align 8, !tbaa !41, !alias.scope !964, !noalias !967
+  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i, ptr %26, align 8, !tbaa !34, !alias.scope !964, !noalias !967
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !139, !alias.scope !967, !noalias !964
@@ -51251,14 +51251,14 @@ _ZSt19__relocate_object_aIN5boost6fibers4numa4nodeES3_SaIS3_EEvPT_PT0_RT1_.exit.
   %.sink.i.i.i.i34 = phi i64 [ %68, %59 ], [ 0, %.lr.ph.i.i.i27 ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i35 = phi i32 [ %61, %59 ], [ 0, %.lr.ph.i.i.i27 ]
   %69 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
-  store ptr %58, ptr %69, align 8
+  store ptr %58, ptr %69, align 8, !tbaa !38, !alias.scope !971, !noalias !974
   %70 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
-  store ptr %.sink6.i.i.i.i32, ptr %70, align 8, !alias.scope !971, !noalias !974
+  store ptr %.sink6.i.i.i.i32, ptr %70, align 8, !tbaa !39, !alias.scope !971, !noalias !974
   %71 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 40
-  store ptr %.sink5.i.i.i.i33, ptr %71, align 8, !alias.scope !971, !noalias !974
+  store ptr %.sink5.i.i.i.i33, ptr %71, align 8, !tbaa !40, !alias.scope !971, !noalias !974
   %72 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 48
-  store i64 %.sink.i.i.i.i34, ptr %72, align 8, !alias.scope !971, !noalias !974
-  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i35, ptr %56, align 8, !alias.scope !971, !noalias !974
+  store i64 %.sink.i.i.i.i34, ptr %72, align 8, !tbaa !41, !alias.scope !971, !noalias !974
+  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i35, ptr %56, align 8, !tbaa !34, !alias.scope !971, !noalias !974
   %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 56
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 56
   %75 = load ptr, ptr %74, align 8, !tbaa !139, !alias.scope !974, !noalias !971

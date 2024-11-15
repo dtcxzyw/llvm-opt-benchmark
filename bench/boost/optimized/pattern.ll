@@ -1389,7 +1389,7 @@ _ZN5boost4urls8url_base7reserveEm.exit:           ; preds = %420
 433:                                              ; preds = %.lr.ph, %430
   %.sink = phi i8 [ 37, %430 ], [ %426, %.lr.ph ]
   %.1166 = phi ptr [ %432, %430 ], [ %427, %.lr.ph ]
-  store i8 %.sink, ptr %.0165362, align 1
+  store i8 %.sink, ptr %.0165362, align 1, !tbaa !13
   %.1168 = getelementptr inbounds nuw i8, ptr %.0167361, i64 1
   %.not186 = icmp eq ptr %.1168, %.1166
   br i1 %.not186, label %.critedge, label %.lr.ph, !llvm.loop !92

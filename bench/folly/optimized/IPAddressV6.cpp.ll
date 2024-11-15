@@ -2867,7 +2867,7 @@ if.end:                                           ; preds = %entry
 return:                                           ; preds = %if.end, %if.then
   %.sink = phi i8 [ 1, %if.end ], [ 0, %if.then ]
   %10 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i8 %.sink, ptr %10, align 1
+  store i8 %.sink, ptr %10, align 1, !tbaa !64
   ret void
 }
 

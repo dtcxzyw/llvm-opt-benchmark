@@ -8821,11 +8821,11 @@ define linkonce_odr hidden void @_ZN5boost9iostreams6detail18indirect_streambufI
   %.sink2 = select i1 %.not, ptr null, ptr %6
   %.sink = select i1 %.not, ptr null, ptr %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sink2, ptr %10, align 8
+  store ptr %.sink2, ptr %10, align 8, !tbaa !189
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink2, ptr %11, align 8
+  store ptr %.sink2, ptr %11, align 8, !tbaa !190
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sink, ptr %12, align 8
+  store ptr %.sink, ptr %12, align 8, !tbaa !191
   ret void
 }
 

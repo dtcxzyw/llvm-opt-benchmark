@@ -5537,7 +5537,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i35: ; preds = %163, 
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1add8872a324dd12E.llvm.11523544799934805625.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h1add8872a324dd12E.llvm.11523544799934805625.exit": ; preds = %174, %172
-  store i64 %170, ptr %0, align 8
+  store i64 %170, ptr %0, align 8, !alias.scope !789
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.761)
   br label %.critedge
 
@@ -5567,7 +5567,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i35: ; preds = %163, 
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0b6a1737213e8bd5E.llvm.11523544799934805625.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0b6a1737213e8bd5E.llvm.11523544799934805625.exit": ; preds = %177, %175
-  store i64 %140, ptr %0, align 8
+  store i64 %140, ptr %0, align 8, !alias.scope !795
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.758)
   br label %.critedge
 
@@ -5596,7 +5596,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i35: ; preds = %163, 
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha98141b78779b021E.llvm.11523544799934805625.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17ha98141b78779b021E.llvm.11523544799934805625.exit": ; preds = %180, %178
-  store i64 %91, ptr %0, align 8
+  store i64 %91, ptr %0, align 8, !alias.scope !801
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.7)
   br label %.critedge
 

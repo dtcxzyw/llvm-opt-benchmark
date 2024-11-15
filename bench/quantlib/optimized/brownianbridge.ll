@@ -604,7 +604,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %div127.sink = phi double [ %div127, %if.else ], [ %div96, %if.then ]
   %call128 = tail call double @sqrt(double noundef %div127.sink) #10, !tbaa !28
   %32 = getelementptr inbounds nuw double, ptr %11, i64 %i28.0108
-  store double %call128, ptr %32, align 8
+  store double %call128, ptr %32, align 8, !tbaa !19
   %33 = load i64, ptr %this, align 8, !tbaa !3
   %cmp133.not = icmp ult i64 %inc41, %33
   %spec.store.select = select i1 %cmp133.not, i64 %inc41, i64 0

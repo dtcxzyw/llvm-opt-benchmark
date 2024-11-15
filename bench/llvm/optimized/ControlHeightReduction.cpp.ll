@@ -14463,13 +14463,13 @@ _ZSt9make_pairIRPN4llvm5ValueESt3setIS2_St4lessIS2_ESaIS2_EEESt4pairINSt25__stri
   %.sink78 = phi ptr [ %87, %85 ], [ %84, %_ZNSt3setIPN4llvm5ValueESt4lessIS2_ESaIS2_EE6insertEOS2_.exit ]
   %.sink = phi ptr [ %88, %85 ], [ %84, %_ZNSt3setIPN4llvm5ValueESt4lessIS2_ESaIS2_EE6insertEOS2_.exit ]
   %.sink.i = phi i64 [ %90, %85 ], [ 0, %_ZNSt3setIPN4llvm5ValueESt4lessIS2_ESaIS2_EE6insertEOS2_.exit ]
-  store i32 %.sink80, ptr %84, align 8
+  store i32 %.sink80, ptr %84, align 8, !alias.scope !228
   %91 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %83, ptr %91, align 8
+  store ptr %83, ptr %91, align 8, !alias.scope !228
   %92 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %.sink78, ptr %92, align 8
+  store ptr %.sink78, ptr %92, align 8, !alias.scope !228
   %93 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %.sink, ptr %93, align 8
+  store ptr %.sink, ptr %93, align 8, !alias.scope !228
   %94 = getelementptr inbounds i8, ptr %6, i64 48
   store i64 %.sink.i, ptr %94, align 8, !alias.scope !228
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -14546,13 +14546,13 @@ _ZSt9make_pairIRPN4llvm5ValueESt3setIS2_St4lessIS2_ESaIS2_EEESt4pairINSt25__stri
   %.sink82 = phi ptr [ %123, %121 ], [ %119, %._crit_edge ]
   %.sink81 = phi ptr [ %124, %121 ], [ %119, %._crit_edge ]
   %.sink.i34 = phi i64 [ %126, %121 ], [ 0, %._crit_edge ]
-  store i32 %.sink84, ptr %119, align 8
+  store i32 %.sink84, ptr %119, align 8, !alias.scope !231
   %127 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %120, ptr %127, align 8
+  store ptr %120, ptr %127, align 8, !alias.scope !231
   %128 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %.sink82, ptr %128, align 8
+  store ptr %.sink82, ptr %128, align 8, !alias.scope !231
   %129 = getelementptr inbounds i8, ptr %8, i64 40
-  store ptr %.sink81, ptr %129, align 8
+  store ptr %.sink81, ptr %129, align 8, !alias.scope !231
   %130 = getelementptr inbounds i8, ptr %8, i64 48
   store i64 %.sink.i34, ptr %130, align 8, !alias.scope !231
   %131 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -14607,13 +14607,13 @@ _ZSt9make_pairIRPN4llvm5ValueESt3setIS2_St4lessIS2_ESaIS2_EEESt4pairINSt25__stri
   %.sink86 = phi ptr [ %146, %144 ], [ %137, %.thread ], [ %143, %138 ]
   %.sink85 = phi ptr [ %147, %144 ], [ %137, %.thread ], [ %143, %138 ]
   %.sink.i59 = phi i64 [ %149, %144 ], [ 0, %.thread ], [ 0, %138 ]
-  store i32 %.sink88, ptr %150, align 8
+  store i32 %.sink88, ptr %150, align 8, !alias.scope !237
   %151 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %.sink87, ptr %151, align 8
+  store ptr %.sink87, ptr %151, align 8, !alias.scope !237
   %152 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr %.sink86, ptr %152, align 8
+  store ptr %.sink86, ptr %152, align 8, !alias.scope !237
   %153 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr %.sink85, ptr %153, align 8
+  store ptr %.sink85, ptr %153, align 8, !alias.scope !237
   %154 = getelementptr inbounds i8, ptr %10, i64 48
   store i64 %.sink.i59, ptr %154, align 8, !alias.scope !237
   %155 = getelementptr inbounds nuw i8, ptr %10, i64 8

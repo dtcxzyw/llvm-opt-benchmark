@@ -77583,8 +77583,8 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %.sink.i.sink.i = phi i64 [ %20, %19 ], [ %.sink.i.i, %13 ]
   %.sink.i = phi ptr [ null, %19 ], [ %16, %13 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink.i.sink.i, ptr %21, align 8, !alias.scope !12644, !noalias !12647
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !12644, !noalias !12647
+  store i64 %.sink.i.sink.i, ptr %21, align 8, !alias.scope !12657, !noalias !12658
+  store ptr %.sink.i, ptr %0, align 8, !alias.scope !12657, !noalias !12658
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12659
   ret void
 }
@@ -77646,8 +77646,8 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %.sink.i.sink.i = phi i64 [ %20, %19 ], [ %.sink.i.i, %13 ]
   %.sink.i = phi ptr [ null, %19 ], [ %16, %13 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink.i.sink.i, ptr %21, align 8, !alias.scope !12660, !noalias !12663
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !12660, !noalias !12663
+  store i64 %.sink.i.sink.i, ptr %21, align 8, !alias.scope !12673, !noalias !12674
+  store ptr %.sink.i, ptr %0, align 8, !alias.scope !12673, !noalias !12674
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12675
   ret void
 }
@@ -85514,11 +85514,11 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload, i1 false)
   %.sink = extractvalue { ptr, i64 } %15, 1
-  store ptr %16, ptr %0, align 8
+  store ptr %16, ptr %0, align 8, !noalias !4
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink, ptr %18, align 8
+  store i64 %.sink, ptr %18, align 8, !noalias !4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %19, align 8
+  store i64 %.sroa.4.0.copyload, ptr %19, align 8, !noalias !4
   br label %22
 
 20:                                               ; preds = %2
@@ -85561,11 +85561,11 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload, i1 false)
   %.sink = extractvalue { ptr, i64 } %15, 1
-  store ptr %16, ptr %0, align 8
+  store ptr %16, ptr %0, align 8, !noalias !4
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink, ptr %18, align 8
+  store i64 %.sink, ptr %18, align 8, !noalias !4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %19, align 8
+  store i64 %.sroa.4.0.copyload, ptr %19, align 8, !noalias !4
   br label %22
 
 20:                                               ; preds = %2
@@ -85622,8 +85622,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %.sink.i.sink = phi i64 [ %20, %19 ], [ %.sink.i, %13 ]
   %.sink = phi ptr [ null, %19 ], [ %16, %13 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink.i.sink, ptr %21, align 8
-  store ptr %.sink, ptr %0, align 8
+  store i64 %.sink.i.sink, ptr %21, align 8, !alias.scope !13546, !noalias !13549
+  store ptr %.sink, ptr %0, align 8, !alias.scope !13546, !noalias !13549
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13554
   ret void
 }
@@ -85671,8 +85671,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %.sink.i.sink = phi i64 [ %20, %19 ], [ %.sink.i, %13 ]
   %.sink = phi ptr [ null, %19 ], [ %16, %13 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink.i.sink, ptr %21, align 8
-  store ptr %.sink, ptr %0, align 8
+  store i64 %.sink.i.sink, ptr %21, align 8, !alias.scope !13555, !noalias !13558
+  store ptr %.sink, ptr %0, align 8, !alias.scope !13555, !noalias !13558
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13563
   ret void
 }
@@ -86055,12 +86055,12 @@ define hidden void @"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$minicbor
   %.sroa.8.0.copyload.sink = phi i64 [ %23, %20 ], [ %19, %25 ]
   %.sroa.9.0.copyload.sink = phi i64 [ %19, %20 ], [ %.sroa.9.0.copyload, %25 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.639.0.copyload.sink, ptr %26, align 8
+  store ptr %.sroa.639.0.copyload.sink, ptr %26, align 8, !alias.scope !13618
   %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.8.0.copyload.sink, ptr %27, align 8
+  store i64 %.sroa.8.0.copyload.sink, ptr %27, align 8, !alias.scope !13618
   %28 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.9.0.copyload.sink, ptr %28, align 8
-  store i64 %14, ptr %0, align 8
+  store i64 %.sroa.9.0.copyload.sink, ptr %28, align 8, !alias.scope !13618
+  store i64 %14, ptr %0, align 8, !alias.scope !13618
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.10)
   br label %32
 
@@ -86480,7 +86480,7 @@ define hidden void @"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$minicbor
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h661e9520314bfcaaE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h661e9520314bfcaaE.exit": ; preds = %17, %19
-  store i64 %14, ptr %0, align 8
+  store i64 %14, ptr %0, align 8, !alias.scope !13673
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.738)
   br label %23
 
@@ -86747,8 +86747,8 @@ define hidden void @"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$minicbor
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17he543d603aaf6e609E.exit": ; preds = %18, %20
   %.sink45 = phi i64 [ 1, %18 ], [ %17, %20 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink45, ptr %21, align 8
-  store i64 %14, ptr %0, align 8
+  store i64 %.sink45, ptr %21, align 8, !alias.scope !13698
+  store i64 %14, ptr %0, align 8, !alias.scope !13698
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.738)
   br label %25
 
@@ -120375,7 +120375,7 @@ common.ret:                                       ; preds = %59, %66
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %62, %64
-  store i64 %56, ptr %3, align 8
+  store i64 %56, ptr %3, align 8, !alias.scope !18588, !noalias !18592
   %65 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.924)
           to label %66 unwind label %60
 
@@ -122394,7 +122394,7 @@ default.unreachable.i:                            ; preds = %84
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %202, %204
-  store i64 %196, ptr %4, align 8
+  store i64 %196, ptr %4, align 8, !alias.scope !18852, !noalias !18856
   %205 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.951)
           to label %206 unwind label %200
 
@@ -124408,7 +124408,7 @@ common.ret:                                       ; preds = %194, %173, %109, %6
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %112, %114
-  store i64 %106, ptr %5, align 8
+  store i64 %106, ptr %5, align 8, !alias.scope !19064, !noalias !19068
   %115 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.985)
           to label %116 unwind label %110
 
@@ -124630,7 +124630,7 @@ common.ret:                                       ; preds = %194, %173, %109, %6
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i109"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i109": ; preds = %176, %178
-  store i64 %170, ptr %4, align 8
+  store i64 %170, ptr %4, align 8, !alias.scope !19090, !noalias !19094
   %179 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.988)
           to label %180 unwind label %174
 
@@ -124704,7 +124704,7 @@ common.ret:                                       ; preds = %194, %173, %109, %6
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3b350198c86857d7E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h3b350198c86857d7E.llvm.18105196424206627646.exit.i": ; preds = %198, %200
-  store i64 %191, ptr %3, align 8
+  store i64 %191, ptr %3, align 8, !alias.scope !19099, !noalias !19103
   %201 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.990)
           to label %202 unwind label %196
 
@@ -125135,7 +125135,7 @@ common.ret:                                       ; preds = %394, %373, %335, %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %130, %132
-  store i64 %124, ptr %10, align 8
+  store i64 %124, ptr %10, align 8, !alias.scope !19133, !noalias !19137
   %133 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.996)
           to label %134 unwind label %128
 
@@ -125327,7 +125327,7 @@ common.ret:                                       ; preds = %394, %373, %335, %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i240"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i240": ; preds = %186, %188
-  store i64 %180, ptr %9, align 8
+  store i64 %180, ptr %9, align 8, !alias.scope !19159, !noalias !19163
   %189 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.999)
           to label %190 unwind label %184
 
@@ -125465,7 +125465,7 @@ common.ret:                                       ; preds = %394, %373, %335, %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i248"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i248": ; preds = %224, %226
-  store i64 %218, ptr %8, align 8
+  store i64 %218, ptr %8, align 8, !alias.scope !19176, !noalias !19180
   %227 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1002)
           to label %228 unwind label %222
 
@@ -125603,7 +125603,7 @@ common.ret:                                       ; preds = %394, %373, %335, %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i256"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i256": ; preds = %262, %264
-  store i64 %256, ptr %7, align 8
+  store i64 %256, ptr %7, align 8, !alias.scope !19193, !noalias !19197
   %265 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1005)
           to label %266 unwind label %260
 
@@ -125741,7 +125741,7 @@ common.ret:                                       ; preds = %394, %373, %335, %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i264"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i264": ; preds = %300, %302
-  store i64 %294, ptr %6, align 8
+  store i64 %294, ptr %6, align 8, !alias.scope !19210, !noalias !19214
   %303 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1008)
           to label %304 unwind label %298
 
@@ -125879,7 +125879,7 @@ common.ret:                                       ; preds = %394, %373, %335, %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i272"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i272": ; preds = %338, %340
-  store i64 %332, ptr %5, align 8
+  store i64 %332, ptr %5, align 8, !alias.scope !19227, !noalias !19231
   %341 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1011)
           to label %342 unwind label %336
 
@@ -126017,7 +126017,7 @@ common.ret:                                       ; preds = %394, %373, %335, %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i280"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i280": ; preds = %376, %378
-  store i64 %370, ptr %4, align 8
+  store i64 %370, ptr %4, align 8, !alias.scope !19244, !noalias !19248
   %379 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1014)
           to label %380 unwind label %374
 
@@ -126091,7 +126091,7 @@ common.ret:                                       ; preds = %394, %373, %335, %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3b350198c86857d7E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h3b350198c86857d7E.llvm.18105196424206627646.exit.i": ; preds = %398, %400
-  store i64 %391, ptr %3, align 8
+  store i64 %391, ptr %3, align 8, !alias.scope !19253, !noalias !19257
   %401 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1016)
           to label %402 unwind label %396
 
@@ -126423,7 +126423,7 @@ common.ret:                                       ; preds = %75, %82
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %78, %80
-  store i64 %72, ptr %4, align 8
+  store i64 %72, ptr %4, align 8, !alias.scope !19285, !noalias !19289
   %81 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1020)
           to label %82 unwind label %76
 
@@ -126654,7 +126654,7 @@ common.ret:                                       ; preds = %46, %53
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %49, %51
-  store i64 %43, ptr %3, align 8
+  store i64 %43, ptr %3, align 8, !alias.scope !19302, !noalias !19306
   %52 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1024)
           to label %53 unwind label %47
 
@@ -127220,7 +127220,7 @@ common.ret:                                       ; preds = %48, %55
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %51, %53
-  store i64 %45, ptr %3, align 8
+  store i64 %45, ptr %3, align 8, !alias.scope !19365, !noalias !19369
   %54 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1031)
           to label %55 unwind label %49
 
@@ -127418,7 +127418,7 @@ common.ret:                                       ; preds = %36, %43
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %39, %41
-  store i64 %33, ptr %3, align 8
+  store i64 %33, ptr %3, align 8, !alias.scope !19382, !noalias !19386
   %42 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1035)
           to label %43 unwind label %37
 
@@ -127653,7 +127653,7 @@ common.ret:                                       ; preds = %46, %53
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %49, %51
-  store i64 %43, ptr %3, align 8
+  store i64 %43, ptr %3, align 8, !alias.scope !19399, !noalias !19403
   %52 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1039)
           to label %53 unwind label %47
 
@@ -128989,7 +128989,7 @@ common.ret:                                       ; preds = %285, %265, %146, %7
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %268, %270
-  store i64 %262, ptr %4, align 8
+  store i64 %262, ptr %4, align 8, !alias.scope !19525, !noalias !19529
   %271 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1056)
           to label %272 unwind label %266
 
@@ -129062,7 +129062,7 @@ common.ret:                                       ; preds = %285, %265, %146, %7
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3b350198c86857d7E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h3b350198c86857d7E.llvm.18105196424206627646.exit.i": ; preds = %289, %291
-  store i64 %282, ptr %3, align 8
+  store i64 %282, ptr %3, align 8, !alias.scope !19534, !noalias !19538
   %292 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1058)
           to label %293 unwind label %287
 
@@ -129608,7 +129608,7 @@ common.ret:                                       ; preds = %47, %54
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %50, %52
-  store i64 %44, ptr %3, align 8
+  store i64 %44, ptr %3, align 8, !alias.scope !19582, !noalias !19586
   %53 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1068)
           to label %54 unwind label %48
 
@@ -130640,7 +130640,7 @@ common.ret:                                       ; preds = %37, %44
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %40, %42
-  store i64 %34, ptr %3, align 8
+  store i64 %34, ptr %3, align 8, !alias.scope !19712, !noalias !19716
   %43 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.1083)
           to label %44 unwind label %38
 

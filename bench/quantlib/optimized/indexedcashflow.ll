@@ -1597,7 +1597,7 @@ entry:
   %div.sink = select i1 %loadedv, double %sub, double %div
   %mul7 = fmul double %div.sink, %3
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store double %mul7, ptr %4, align 8
+  store double %mul7, ptr %4, align 8, !tbaa !60
   ret void
 }
 
@@ -1623,7 +1623,7 @@ entry:
   %div.sink.i = select i1 %loadedv.i, double %sub.i, double %div.i
   %mul7.i = fmul double %4, %div.sink.i
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  store double %mul7.i, ptr %5, align 8
+  store double %mul7.i, ptr %5, align 8, !tbaa !60
   ret void
 }
 

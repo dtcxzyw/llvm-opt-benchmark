@@ -135,11 +135,11 @@ if.end:                                           ; preds = %entry, %if.else
   %20 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %entry ]
   %21 = phi <4 x i32> [ <i32 3, i32 2, i32 3, i32 2>, %if.else ], [ <i32 2, i32 0, i32 2, i32 0>, %entry ]
   %Colors.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store i32 %.sink2, ptr %Colors.ptr, align 8
+  store i32 %.sink2, ptr %Colors.ptr, align 8, !tbaa !22
   %22 = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %.sink1, ptr %22, align 4
+  store i32 %.sink1, ptr %22, align 4, !tbaa !22
   %23 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %.sink, ptr %23, align 8
+  store i32 %.sink, ptr %23, align 8, !tbaa !22
   %arrayidx58 = getelementptr inbounds i8, ptr %this, i64 68
   %arrayidx46 = getelementptr inbounds i8, ptr %this, i64 52
   %arrayidx34 = getelementptr inbounds i8, ptr %this, i64 36
@@ -341,11 +341,11 @@ if.end:                                           ; preds = %entry, %if.else
   %14 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %entry ]
   %15 = phi <4 x i32> [ <i32 3, i32 2, i32 3, i32 2>, %if.else ], [ <i32 2, i32 0, i32 2, i32 0>, %entry ]
   %Colors.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store i32 %.sink2, ptr %Colors.ptr, align 8
+  store i32 %.sink2, ptr %Colors.ptr, align 8, !tbaa !22
   %16 = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %.sink1, ptr %16, align 4
+  store i32 %.sink1, ptr %16, align 4, !tbaa !22
   %17 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %.sink, ptr %17, align 8
+  store i32 %.sink, ptr %17, align 8, !tbaa !22
   %arrayidx57 = getelementptr inbounds i8, ptr %this, i64 68
   %arrayidx45 = getelementptr inbounds i8, ptr %this, i64 52
   %arrayidx33 = getelementptr inbounds i8, ptr %this, i64 36

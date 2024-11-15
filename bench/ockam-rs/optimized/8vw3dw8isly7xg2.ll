@@ -111572,9 +111572,9 @@ common.ret:                                       ; preds = %229, %225, %127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.0..sroa_idx47.i, ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.i, i64 152, i1 false), !alias.scope !15158, !noalias !15145
   %.sroa.4.0..sroa_idx51.i = getelementptr inbounds i8, ptr %1, i64 300
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx51.i, align 4, !alias.scope !15158, !noalias !15145
-  store ptr %.sroa.045.0.copyload.i, ptr %157, align 8, !noalias !15145
+  store ptr %.sroa.045.0.copyload.i, ptr %157, align 8, !alias.scope !15158, !noalias !15145
   %168 = getelementptr inbounds i8, ptr %1, i64 296
-  store i32 %154, ptr %168, align 8, !noalias !15145
+  store i32 %154, ptr %168, align 8, !alias.scope !15158, !noalias !15145
   %169 = getelementptr inbounds i8, ptr %1, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %169, ptr noundef nonnull align 8 dereferenceable(168) %157, i64 168, i1 false), !noalias !15145
   %170 = getelementptr inbounds i8, ptr %1, i64 88
@@ -111637,9 +111637,9 @@ common.ret:                                       ; preds = %229, %225, %127
 .thread129:                                       ; preds = %"_ZN4core3ptr124drop_in_place$LT$ockam_api..nodes..service..in_memory_node..InMemoryNode..create_controller..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4723c9d522771e40E.exit.i"
   %190 = icmp ne ptr %.sroa.045.0.copyload.i, null
   call void @llvm.assume(i1 %190)
-  store ptr %.sroa.045.0.copyload.i, ptr %157, align 8, !noalias !15145
+  store ptr %.sroa.045.0.copyload.i, ptr %157, align 8, !alias.scope !15158, !noalias !15145
   %191 = getelementptr inbounds i8, ptr %1, i64 296
-  store i32 1000000000, ptr %191, align 8, !noalias !15145
+  store i32 1000000000, ptr %191, align 8, !alias.scope !15158, !noalias !15145
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !15145
   store i8 1, ptr %137, align 8, !noalias !15145
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.3.i)
@@ -112353,9 +112353,9 @@ common.ret:                                       ; preds = %221, %218, %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.0..sroa_idx53.i, ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.i, i64 152, i1 false), !alias.scope !15230, !noalias !15220
   %.sroa.4.0..sroa_idx57.i = getelementptr inbounds i8, ptr %0, i64 300
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx57.i, align 4, !alias.scope !15230, !noalias !15220
-  store ptr %.sroa.051.0.copyload.i, ptr %152, align 8, !noalias !15220
+  store ptr %.sroa.051.0.copyload.i, ptr %152, align 8, !alias.scope !15230, !noalias !15220
   %163 = getelementptr inbounds i8, ptr %0, i64 296
-  store i32 %149, ptr %163, align 8, !noalias !15220
+  store i32 %149, ptr %163, align 8, !alias.scope !15230, !noalias !15220
   %164 = getelementptr inbounds i8, ptr %0, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %164, ptr noundef nonnull align 8 dereferenceable(168) %152, i64 168, i1 false), !noalias !15220
   %165 = getelementptr inbounds i8, ptr %0, i64 88
@@ -112418,9 +112418,9 @@ common.ret:                                       ; preds = %221, %218, %122
 185:                                              ; preds = %"_ZN4core3ptr124drop_in_place$LT$ockam_api..nodes..service..in_memory_node..InMemoryNode..create_controller..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4723c9d522771e40E.exit.i"
   %186 = icmp ne ptr %.sroa.051.0.copyload.i, null
   call void @llvm.assume(i1 %186)
-  store ptr %.sroa.051.0.copyload.i, ptr %152, align 8, !noalias !15220
+  store ptr %.sroa.051.0.copyload.i, ptr %152, align 8, !alias.scope !15230, !noalias !15220
   %187 = getelementptr inbounds i8, ptr %0, i64 296
-  store i32 1000000000, ptr %187, align 8, !noalias !15220
+  store i32 1000000000, ptr %187, align 8, !alias.scope !15230, !noalias !15220
   br label %"_ZN4core3ptr71drop_in_place$LT$ockam_api..cloud..secure_clients..ControllerClient$GT$17hf98a2ba91a5716a5E.exit.i"
 
 188:                                              ; preds = %212, %198, %.body.i, %145
@@ -157434,9 +157434,9 @@ common.ret:                                       ; preds = %530, %527, %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.0..sroa_idx67.i, ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.i, i64 152, i1 false), !alias.scope !20072, !noalias !20067
   %.sroa.4.0..sroa_idx71.i = getelementptr inbounds i8, ptr %1, i64 6132
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx71.i, align 4, !alias.scope !20072, !noalias !20067
-  store ptr %.sroa.065.0.copyload.i, ptr %161, align 8, !noalias !20067
+  store ptr %.sroa.065.0.copyload.i, ptr %161, align 8, !alias.scope !20072, !noalias !20067
   %163 = getelementptr inbounds i8, ptr %1, i64 6128
-  store i32 %148, ptr %163, align 8, !noalias !20067
+  store i32 %148, ptr %163, align 8, !alias.scope !20072, !noalias !20067
   %164 = getelementptr inbounds i8, ptr %1, i64 6136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %164, ptr noundef nonnull align 8 dereferenceable(168) %161, i64 168, i1 false), !noalias !20067
   %165 = getelementptr inbounds i8, ptr %1, i64 72
@@ -157468,9 +157468,9 @@ common.ret:                                       ; preds = %530, %527, %122
 169:                                              ; preds = %"_ZN4core3ptr124drop_in_place$LT$ockam_api..nodes..service..in_memory_node..InMemoryNode..create_controller..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4723c9d522771e40E.exit.i"
   %170 = icmp ne ptr %.sroa.065.0.copyload.i, null
   call void @llvm.assume(i1 %170)
-  store ptr %.sroa.065.0.copyload.i, ptr %161, align 8, !noalias !20067
+  store ptr %.sroa.065.0.copyload.i, ptr %161, align 8, !alias.scope !20072, !noalias !20067
   %171 = getelementptr inbounds i8, ptr %1, i64 6128
-  store i32 1000000000, ptr %171, align 8, !noalias !20067
+  store i32 1000000000, ptr %171, align 8, !alias.scope !20072, !noalias !20067
   call void @llvm.lifetime.end.p0(i64 5856, ptr nonnull %.sroa.11.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.12.i)
   br label %"_ZN4core3ptr71drop_in_place$LT$ockam_api..cloud..secure_clients..ControllerClient$GT$17hf98a2ba91a5716a5E.exit48.i"
@@ -159380,9 +159380,9 @@ common.ret:                                       ; preds = %1113, %1110, %164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.0..sroa_idx393.i, ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.i, i64 152, i1 false), !alias.scope !20237, !noalias !20232
   %.sroa.4397.0..sroa_idx398.i = getelementptr inbounds i8, ptr %1, i64 596
   store i32 %.sroa.4397.0.copyload.i, ptr %.sroa.4397.0..sroa_idx398.i, align 4, !alias.scope !20237, !noalias !20232
-  store ptr %.sroa.0391.0.copyload.i, ptr %235, align 8, !noalias !20232
+  store ptr %.sroa.0391.0.copyload.i, ptr %235, align 8, !alias.scope !20237, !noalias !20232
   %237 = getelementptr inbounds i8, ptr %1, i64 592
-  store i32 %222, ptr %237, align 8, !noalias !20232
+  store i32 %222, ptr %237, align 8, !alias.scope !20237, !noalias !20232
   %238 = getelementptr inbounds i8, ptr %1, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %238, ptr noundef nonnull align 8 dereferenceable(168) %235, i64 168, i1 false), !noalias !20232
   %239 = getelementptr inbounds i8, ptr %1, i64 632
@@ -159413,9 +159413,9 @@ common.ret:                                       ; preds = %1113, %1110, %164
 243:                                              ; preds = %"_ZN4core3ptr124drop_in_place$LT$ockam_api..nodes..service..in_memory_node..InMemoryNode..create_controller..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4723c9d522771e40E.exit.i"
   %244 = icmp ne ptr %.sroa.0391.0.copyload.i, null
   call void @llvm.assume(i1 %244)
-  store ptr %.sroa.0391.0.copyload.i, ptr %235, align 8, !noalias !20232
+  store ptr %.sroa.0391.0.copyload.i, ptr %235, align 8, !alias.scope !20237, !noalias !20232
   %245 = getelementptr inbounds i8, ptr %1, i64 592
-  store i32 1000000000, ptr %245, align 8, !noalias !20232
+  store i32 1000000000, ptr %245, align 8, !alias.scope !20237, !noalias !20232
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0374.i)
   call void @llvm.lifetime.end.p0(i64 5925, ptr nonnull %.sroa.12.i)
   br label %"_ZN4core3ptr71drop_in_place$LT$ockam_api..cloud..secure_clients..ControllerClient$GT$17hf98a2ba91a5716a5E.exit342.i"
@@ -162850,9 +162850,9 @@ common.ret:                                       ; preds = %497, %494, %150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.0..sroa_idx131.i, ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.i, i64 152, i1 false), !alias.scope !20670, !noalias !20665
   %.sroa.4.0..sroa_idx135.i = getelementptr inbounds i8, ptr %1, i64 9124
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx135.i, align 4, !alias.scope !20670, !noalias !20665
-  store ptr %.sroa.0129.0.copyload.i, ptr %201, align 8, !noalias !20665
+  store ptr %.sroa.0129.0.copyload.i, ptr %201, align 8, !alias.scope !20670, !noalias !20665
   %203 = getelementptr inbounds i8, ptr %1, i64 9120
-  store i32 %188, ptr %203, align 8, !noalias !20665
+  store i32 %188, ptr %203, align 8, !alias.scope !20670, !noalias !20665
   %204 = getelementptr inbounds i8, ptr %1, i64 9128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %204, ptr noundef nonnull align 8 dereferenceable(168) %201, i64 168, i1 false), !noalias !20665
   %205 = getelementptr inbounds i8, ptr %1, i64 1656
@@ -162886,9 +162886,9 @@ common.ret:                                       ; preds = %497, %494, %150
 210:                                              ; preds = %"_ZN4core3ptr124drop_in_place$LT$ockam_api..nodes..service..in_memory_node..InMemoryNode..create_controller..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4723c9d522771e40E.exit.i"
   %211 = icmp ne ptr %.sroa.0129.0.copyload.i, null
   call void @llvm.assume(i1 %211)
-  store ptr %.sroa.0129.0.copyload.i, ptr %201, align 8, !noalias !20665
+  store ptr %.sroa.0129.0.copyload.i, ptr %201, align 8, !alias.scope !20670, !noalias !20665
   %212 = getelementptr inbounds i8, ptr %1, i64 9120
-  store i32 1000000000, ptr %212, align 8, !noalias !20665
+  store i32 1000000000, ptr %212, align 8, !alias.scope !20670, !noalias !20665
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.12.i)
   call void @llvm.lifetime.end.p0(i64 5919, ptr nonnull %.sroa.13117.i)
   br label %"_ZN4core3ptr71drop_in_place$LT$ockam_api..cloud..secure_clients..ControllerClient$GT$17hf98a2ba91a5716a5E.exit92.i"
@@ -164526,9 +164526,9 @@ common.ret:                                       ; preds = %386, %383, %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.0..sroa_idx134.i, ptr noundef nonnull align 8 dereferenceable(152) %.sroa.3.i, i64 152, i1 false), !alias.scope !20861, !noalias !20856
   %.sroa.4.0..sroa_idx138.i = getelementptr inbounds i8, ptr %1, i64 9716
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx138.i, align 4, !alias.scope !20861, !noalias !20856
-  store ptr %.sroa.0132.0.copyload.i, ptr %192, align 8, !noalias !20856
+  store ptr %.sroa.0132.0.copyload.i, ptr %192, align 8, !alias.scope !20861, !noalias !20856
   %194 = getelementptr inbounds i8, ptr %1, i64 9712
-  store i32 %179, ptr %194, align 8, !noalias !20856
+  store i32 %179, ptr %194, align 8, !alias.scope !20861, !noalias !20856
   %195 = getelementptr inbounds i8, ptr %1, i64 9720
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %195, ptr noundef nonnull align 8 dereferenceable(168) %192, i64 168, i1 false), !noalias !20856
   %196 = getelementptr inbounds i8, ptr %1, i64 1656
@@ -164560,9 +164560,9 @@ common.ret:                                       ; preds = %386, %383, %141
 201:                                              ; preds = %"_ZN4core3ptr124drop_in_place$LT$ockam_api..nodes..service..in_memory_node..InMemoryNode..create_controller..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4723c9d522771e40E.exit.i"
   %202 = icmp ne ptr %.sroa.0132.0.copyload.i, null
   call void @llvm.assume(i1 %202)
-  store ptr %.sroa.0132.0.copyload.i, ptr %192, align 8, !noalias !20856
+  store ptr %.sroa.0132.0.copyload.i, ptr %192, align 8, !alias.scope !20861, !noalias !20856
   %203 = getelementptr inbounds i8, ptr %1, i64 9712
-  store i32 1000000000, ptr %203, align 8, !noalias !20856
+  store i32 1000000000, ptr %203, align 8, !alias.scope !20861, !noalias !20856
   call void @llvm.lifetime.end.p0(i64 6536, ptr nonnull %.sroa.12.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.13120.i)
   br label %"_ZN4core3ptr71drop_in_place$LT$ockam_api..cloud..secure_clients..ControllerClient$GT$17hf98a2ba91a5716a5E.exit95.i"

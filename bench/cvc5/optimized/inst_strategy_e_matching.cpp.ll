@@ -11843,11 +11843,11 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %.sink = phi ptr [ %13, %if.else.i.i.i.i.i.i.i ], [ %__x.addr.0.i.i5.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
   %.sink2.i = phi i64 [ 0, %if.else.i.i.i.i.i.i.i ], [ %9, %if.then.i.i.i.i.i.i.i ]
   %14 = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
-  store ptr %.sink10, ptr %14, align 8
+  store ptr %.sink10, ptr %14, align 8, !alias.scope !100
   %15 = getelementptr inbounds i8, ptr %agg.tmp3, i64 32
-  store ptr %.sink9, ptr %15, align 8
+  store ptr %.sink9, ptr %15, align 8, !alias.scope !100
   %16 = getelementptr inbounds i8, ptr %agg.tmp3, i64 40
-  store ptr %.sink, ptr %16, align 8
+  store ptr %.sink, ptr %16, align 8, !alias.scope !100
   %17 = getelementptr inbounds i8, ptr %agg.tmp3, i64 48
   store i64 %.sink2.i, ptr %17, align 8, !alias.scope !100
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp.i)

@@ -1655,11 +1655,11 @@ define void @commit_params(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   %48 = extractelement <4 x float> %.sink13, i64 3
   %49 = fsub reassoc nsz arcp contract afn float %.sink15, %48
   %50 = getelementptr inbounds i8, ptr %6, i64 32
-  store <2 x float> %45, ptr %50, align 4
+  store <2 x float> %45, ptr %50, align 4, !tbaa !41
   %51 = getelementptr inbounds i8, ptr %6, i64 40
-  store float %47, ptr %51, align 4
+  store float %47, ptr %51, align 4, !tbaa !41
   %52 = getelementptr inbounds i8, ptr %6, i64 16
-  store <4 x float> %.sink13, ptr %52, align 4
+  store <4 x float> %.sink13, ptr %52, align 4, !tbaa !41
   %53 = getelementptr inbounds i8, ptr %6, i64 44
   store float %49, ptr %53, align 4, !tbaa !41
   %54 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>

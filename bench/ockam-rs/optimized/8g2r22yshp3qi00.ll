@@ -107312,7 +107312,7 @@ _ZN9ockam_api9cli_state8journeys15project_journey14ProjectJourney30previous_open
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %192, %194
-  store i64 %186, ptr %4, align 8
+  store i64 %186, ptr %4, align 8, !alias.scope !22146, !noalias !22150
   %195 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a52d2cc049210bb5fe4320437cef3619.567)
           to label %196 unwind label %190
 
@@ -108642,7 +108642,7 @@ common.ret:                                       ; preds = %36, %43
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %39, %41
-  store i64 %33, ptr %3, align 8
+  store i64 %33, ptr %3, align 8, !alias.scope !22472, !noalias !22476
   %42 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a52d2cc049210bb5fe4320437cef3619.578)
           to label %43 unwind label %37
 
@@ -109324,7 +109324,7 @@ _ZN9ockam_api9cli_state8journeys7journey7Journey30previous_opentelemetry_context
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8f58d54460463e05E.llvm.18105196424206627646.exit.i": ; preds = %170, %172
-  store i64 %164, ptr %4, align 8
+  store i64 %164, ptr %4, align 8, !alias.scope !22632, !noalias !22636
   %173 = invoke noundef align 8 ptr @"_ZN144_$LT$core..result..Result$LT$T$C$sqlx_core..error..Error$GT$$u20$as$u20$ockam_node..storage..database..sqlx_database..FromSqlxError$LT$T$GT$$GT$9into_core17h24c41740f814d2f3E.llvm.18105196424206627646"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a52d2cc049210bb5fe4320437cef3619.582)
           to label %174 unwind label %168
 

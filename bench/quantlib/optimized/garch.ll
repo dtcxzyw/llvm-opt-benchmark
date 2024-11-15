@@ -6835,7 +6835,7 @@ invoke.cont8:                                     ; preds = %_ZNSt6vectorISt7com
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i9, i64 %mul.i.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i.i.i, ptr %3, align 8
+  store ptr %add.ptr.i.i.i, ptr %3, align 8, !tbaa !78
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !75
   invoke void @_ZNK8QuantLib20FastFourierTransform14transform_implIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS3_IPSt7complexIdES5_ISA_SaISA_EEEEEEvT_SF_T0_b(ptr noundef nonnull align 8 dereferenceable(48) %fft, ptr %begin.coerce, ptr %end.coerce, ptr nonnull %call5.i.i.i.i2.i.i9, i1 noundef zeroext false)
           to label %invoke.cont18 unwind label %lpad17

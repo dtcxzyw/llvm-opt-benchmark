@@ -14904,8 +14904,8 @@ common.ret.sink.split.i39.i.i.i.i:                ; preds = %767, %.body.i.i.i.i
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h7ebfb2fe68452c48E.exit.i.i.i": ; preds = %872, %870
   %.sroa.3220.0.copyload.sink.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %870 ], [ %.sroa.3220.0.copyload.i.i.i, %872 ]
   %873 = getelementptr inbounds i8, ptr %187, i64 8
-  store ptr %.sroa.3220.0.copyload.sink.i.i.i, ptr %873, align 8, !noalias !4618
-  store i64 %862, ptr %187, align 8, !noalias !4618
+  store ptr %.sroa.3220.0.copyload.sink.i.i.i, ptr %873, align 8, !alias.scope !4960, !noalias !4618
+  store i64 %862, ptr %187, align 8, !alias.scope !4960, !noalias !4618
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit115.i.i.i"
 
 874:                                              ; preds = %875, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit99.i.i.i"

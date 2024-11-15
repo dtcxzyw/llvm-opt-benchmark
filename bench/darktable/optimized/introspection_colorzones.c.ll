@@ -5052,7 +5052,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   %.sink.in = uitofp <8 x i16> %694 to <8 x float>
   %.sink = fmul reassoc nsz arcp contract afn <8 x float> %.sink.in, splat (float 0x3EF0000000000000)
   %704 = getelementptr inbounds i8, ptr %537, i64 992
-  store <8 x float> %.sink, ptr %704, align 4
+  store <8 x float> %.sink, ptr %704, align 4, !tbaa !14
   %705 = add nuw nsw i64 %396, 1
   %706 = icmp eq i64 %705, 3
   br i1 %706, label %.loopexit86, label %.preheader92

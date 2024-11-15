@@ -1294,12 +1294,12 @@ if.else268:                                       ; preds = %sw.epilog
   %cmp270 = fcmp ogt double %mul269, 0.000000e+00
   %.sink = select i1 %cmp270, double 1.000000e+00, double 0.000000e+00
   %147 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store double %.sink, ptr %147, align 8
+  store double %.sink, ptr %147, align 8, !tbaa !69
   %mul277 = fmul double %call182, %eta.0
   %cmp278 = fcmp ogt double %mul277, 0.000000e+00
   %.sink349 = select i1 %cmp278, double 1.000000e+00, double 0.000000e+00
   %148 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store double %.sink349, ptr %148, align 8
+  store double %.sink349, ptr %148, align 8, !tbaa !70
   %n_d1_284 = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n_d1_284, i8 0, i64 16, i1 false)
   br label %if.end286
@@ -1322,9 +1322,9 @@ if.then291:                                       ; preds = %sw.bb287
   %loadedv293 = trunc nuw i8 %152 to i1
   %.sink351 = select i1 %loadedv293, double 5.000000e-01, double 0.000000e+00
   %153 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store double %.sink351, ptr %153, align 8
+  store double %.sink351, ptr %153, align 8, !tbaa !69
   %154 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store double %.sink351, ptr %154, align 8
+  store double %.sink351, ptr %154, align 8, !tbaa !70
   %n_d1_301 = getelementptr inbounds nuw i8, ptr %this, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n_d1_301, i8 0, i64 16, i1 false)
   br label %land.lhs.true
@@ -1340,9 +1340,9 @@ if.then308:                                       ; preds = %sw.bb304
   %loadedv310 = trunc nuw i8 %157 to i1
   %.sink353 = select i1 %loadedv310, double 5.000000e-01, double 0.000000e+00
   %158 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store double %.sink353, ptr %158, align 8
+  store double %.sink353, ptr %158, align 8, !tbaa !69
   %159 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store double %.sink353, ptr %159, align 8
+  store double %.sink353, ptr %159, align 8, !tbaa !70
   %n_d1_318 = getelementptr inbounds nuw i8, ptr %this, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n_d1_318, i8 0, i64 16, i1 false)
   br label %land.rhs

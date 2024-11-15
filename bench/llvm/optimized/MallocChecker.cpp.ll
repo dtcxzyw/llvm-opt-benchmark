@@ -35049,7 +35049,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: 
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, %14
-  store ptr %13, ptr %9, align 8
+  store ptr %13, ptr %9, align 8, !noalias !147
   call fastcc void @_ZNK12_GLOBAL__N_113MallocChecker21checkPointerEscapeAuxEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS1_8DenseSetIPKNS4_7SymExprENS1_12DenseMapInfoISB_vEEEEPKNS4_9CallEventENS4_17PointerEscapeKindEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(620) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext false)
   %15 = load ptr, ptr %9, align 8, !noalias !631
   %.not.i.i3.i = icmp eq ptr %15, null
@@ -35226,7 +35226,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.thread
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i17
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i17: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.thread, %77
-  store ptr %76, ptr %8, align 8
+  store ptr %76, ptr %8, align 8, !noalias !147
   call fastcc void @_ZNK12_GLOBAL__N_113MallocChecker21checkPointerEscapeAuxEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS1_8DenseSetIPKNS4_7SymExprENS1_12DenseMapInfoISB_vEEEEPKNS4_9CallEventENS4_17PointerEscapeKindEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(620) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noundef %4, i32 noundef %5, i1 noundef zeroext false)
   %78 = load ptr, ptr %8, align 8, !noalias !641
   %.not.i.i3.i18 = icmp eq ptr %78, null
@@ -36770,7 +36770,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: 
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, %72
-  store ptr %71, ptr %8, align 8
+  store ptr %71, ptr %8, align 8, !noalias !147
   call fastcc void @_ZNK12_GLOBAL__N_113MallocChecker21checkPointerEscapeAuxEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS1_8DenseSetIPKNS4_7SymExprENS1_12DenseMapInfoISB_vEEEEPKNS4_9CallEventENS4_17PointerEscapeKindEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(620) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef %4, i32 noundef %5, i1 noundef zeroext true)
   %73 = load ptr, ptr %8, align 8, !noalias !659
   %.not.i.i3.i = icmp eq ptr %73, null

@@ -455,7 +455,7 @@ default.unreachable:                              ; preds = %27, %14
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h519f2b3c105395cfE.llvm.6147926235398410452.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h519f2b3c105395cfE.llvm.6147926235398410452.exit": ; preds = %24, %25
-  store i64 %22, ptr %0, align 8
+  store i64 %22, ptr %0, align 8, !alias.scope !55
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.6)
   br label %"_ZN3std4sync4mpmc17Receiver$LT$T$GT$13recv_deadline17h593bd82c96b88648E.llvm.6147926235398410452.exit"
 

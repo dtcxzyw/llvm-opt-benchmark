@@ -3994,7 +3994,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2778bb3d21f
   br label %17
 
 17:                                               ; preds = %7, %12
-  store i64 2, ptr %0, align 8
+  store i64 2, ptr %0, align 8, !noalias !9
   ret void
 }
 

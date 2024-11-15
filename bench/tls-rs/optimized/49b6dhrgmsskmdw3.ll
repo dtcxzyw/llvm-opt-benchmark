@@ -5717,7 +5717,7 @@ define void @"_ZN89_$LT$rustls..msgs..ccs..ChangeCipherSpecPayload$u20$as$u20$ru
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17he3bb4059f50895feE.llvm.17726792709170085280.exit": ; preds = %21, %23
   %.sink = phi i8 [ 14, %23 ], [ 20, %21 ]
-  store i8 %.sink, ptr %0, align 8
+  store i8 %.sink, ptr %0, align 8, !alias.scope !590
   br label %25
 
 24:                                               ; preds = %16

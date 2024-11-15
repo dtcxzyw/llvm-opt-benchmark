@@ -735,7 +735,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %52 = phi ptr [ %24, %42 ], [ %41, %27 ]
   %.sink = load float, ptr %.sink.in, align 4, !tbaa !26
   %53 = getelementptr inbounds i8, ptr %6, i64 36
-  store float %.sink, ptr %53, align 4
+  store float %.sink, ptr %53, align 4, !tbaa !26
   %54 = load float, ptr %52, align 4, !tbaa !26
   %55 = getelementptr inbounds i8, ptr %6, i64 40
   store float %54, ptr %55, align 4, !tbaa !26

@@ -16685,7 +16685,7 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
 
 .thread11.i:                                      ; preds = %27, %.noexc10.i
   %.sroa.01.0.copyload.sink.i = phi i32 [ %.sroa.01.0.copyload.i, %27 ], [ 5, %.noexc10.i ]
-  store i32 %.sroa.01.0.copyload.sink.i, ptr %0, align 8, !alias.scope !4601, !noalias !4604
+  store i32 %.sroa.01.0.copyload.sink.i, ptr %0, align 8, !alias.scope !4622, !noalias !4623
   br label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd98e84d127d531d7E.exit"
 
 "_ZN11ide_assists8handlers16extract_function12FunctionBody25extracted_function_params28_$u7b$$u7b$closure$u7d$$u7d$17ha28f805ecb3d11e8E.exit.thread.i": ; preds = %"_ZN11ide_assists8handlers16extract_function12FunctionBody25extracted_function_params28_$u7b$$u7b$closure$u7d$$u7d$17ha28f805ecb3d11e8E.exit.i", %.noexc.i

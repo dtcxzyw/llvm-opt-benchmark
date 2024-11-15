@@ -2825,12 +2825,12 @@ _ZNSt8functionIFdddEEC2EOS1_.exit.i:              ; preds = %if.else.i.i.i.i.i.i
   %.sink.i.i.i = phi i64 [ 0, %if.else.i.i.i.i.i.i.i.i ], [ %11, %if.then.i.i.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i.i.i.i = phi i32 [ 0, %if.else.i.i.i.i.i.i.i.i ], [ %8, %if.then.i.i.i.i.i.i.i.i ]
   %12 = getelementptr inbounds i8, ptr %call.i.i2.i1, i64 56
-  store ptr %.sink2.i.i.i, ptr %12, align 8
+  store ptr %.sink2.i.i.i, ptr %12, align 8, !tbaa !14
   %13 = getelementptr inbounds i8, ptr %call.i.i2.i1, i64 64
-  store ptr %.sink1.i.i.i, ptr %13, align 8
+  store ptr %.sink1.i.i.i, ptr %13, align 8, !tbaa !15
   %14 = getelementptr inbounds i8, ptr %call.i.i2.i1, i64 72
-  store i64 %.sink.i.i.i, ptr %14, align 8
-  store i32 %.sink.i.i.i.i.i.i.i.i, ptr %6, align 8
+  store i64 %.sink.i.i.i, ptr %14, align 8, !tbaa !16
+  store i32 %.sink.i.i.i.i.i.i.i.i, ptr %6, align 8, !tbaa !8
   %g_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #34
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24

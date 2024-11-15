@@ -2372,7 +2372,7 @@ _ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10Sc
   %87 = phi ptr [ %86, %.noexc5.i.i ], [ null, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i.i ]
   %.sink = getelementptr inbounds i8, ptr %87, i64 %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink, ptr %88, align 8
+  store ptr %.sink, ptr %88, align 8, !alias.scope !26
   %89 = getelementptr inbounds i8, ptr %87, i64 %84
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %89, ptr %90, align 8, !alias.scope !26
@@ -2433,7 +2433,7 @@ _ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10Sc
   %109 = phi ptr [ %108, %.noexc5.i36.i ], [ null, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i32.i ]
   %.sink21 = getelementptr inbounds i8, ptr %109, i64 %106
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink21, ptr %110, align 8
+  store ptr %.sink21, ptr %110, align 8, !alias.scope !26
   %111 = getelementptr inbounds i8, ptr %109, i64 %106
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %111, ptr %112, align 8, !alias.scope !26
@@ -2494,7 +2494,7 @@ _ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10Sc
   %130 = phi ptr [ %129, %.noexc5.i56.i ], [ null, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i52.i ]
   %.sink22 = getelementptr inbounds i8, ptr %130, i64 %.pre-phi6.i
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink22, ptr %131, align 8
+  store ptr %.sink22, ptr %131, align 8, !alias.scope !26
   %132 = getelementptr inbounds i8, ptr %130, i64 %.pre-phi6.i
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %132, ptr %133, align 8, !alias.scope !26
@@ -2555,7 +2555,7 @@ _ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10Sc
   %151 = phi ptr [ %150, %.noexc5.i76.i ], [ null, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry10SchemaInfoESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.i72.i ]
   %.sink23 = getelementptr inbounds i8, ptr %151, i64 %.pre-phi10.i
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink23, ptr %152, align 8
+  store ptr %.sink23, ptr %152, align 8, !alias.scope !26
   %153 = getelementptr inbounds i8, ptr %151, i64 %.pre-phi10.i
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %153, ptr %154, align 8, !alias.scope !26

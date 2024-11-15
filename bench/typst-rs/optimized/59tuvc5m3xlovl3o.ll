@@ -7133,7 +7133,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 "_ZN5typst6layout5frame5Frame9meta_iter28_$u7b$$u7b$closure$u7d$$u7d$17h653b1704e87be30cE.llvm.5857379167208991996.exit": ; preds = %6, %12
   %.sink = phi i64 [ 5, %12 ], [ 4, %6 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink, ptr %14, align 16
+  store i64 %.sink, ptr %14, align 16, !alias.scope !1177, !noalias !1185
   ret void
 }
 

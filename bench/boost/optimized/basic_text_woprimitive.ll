@@ -990,7 +990,7 @@ _ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit: ; preds = %_ZNK5boost
 
 _ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEppEv.exit: ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit, %82
   %.sink.i.i.i = phi i32 [ %83, %82 ], [ 0, %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit ]
-  store i32 %.sink.i.i.i, ptr %7, align 8
+  store i32 %.sink.i.i.i, ptr %7, align 8, !tbaa !62
   br label %10, !llvm.loop !75
 
 84:                                               ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit

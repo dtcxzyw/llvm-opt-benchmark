@@ -11942,7 +11942,7 @@ _ZN9__gnu_cxx5__ops11__pred_iterISt8functionIFbRKNSt7__cxx1112basic_stringIcSt11
   %25 = phi ptr [ %21, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ESC_.exit.i ], [ %23, %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.thread.i ]
   %26 = phi ptr [ %22, %_ZN9__gnu_cxx5__ops10_Iter_predISt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEC2ESC_.exit.i ], [ null, %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2EOS9_.exit.thread.i ]
   %27 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %25, ptr %27, align 8
+  store ptr %25, ptr %27, align 8, !alias.scope !70
   %.not5.i = icmp eq ptr %0, %1
   br i1 %.not5.i, label %_ZSt10__count_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predISt8functionIFbRKS7_EEEEENSt15iterator_traitsIT_E15difference_typeESM_SM_T0_.exit, label %.lr.ph.i
 

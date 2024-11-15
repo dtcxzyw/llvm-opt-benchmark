@@ -25288,7 +25288,7 @@ while.body.i140:                                  ; preds = %_ZN5eastl4copyINS_1
   %first2.addr.1.i = getelementptr inbounds i8, ptr %first2.addr.059.i, i64 %first2.addr.1.i.idx
   %first1.addr.1.i.idx = select i1 %cmp.i.i141, i64 0, i64 4
   %first1.addr.1.i = getelementptr inbounds i8, ptr %first1.addr.060.i, i64 %first1.addr.1.i.idx
-  store i32 %.sink, ptr %agg.tmp12.sroa.0.1, align 4
+  store i32 %.sink, ptr %agg.tmp12.sroa.0.1, align 4, !noalias !691
   %incdec.ptr.i.i144 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.0.1, i64 4
   %cmp.i13.i = icmp eq ptr %incdec.ptr.i.i144, %agg.tmp12.sroa.9.1
   br i1 %cmp.i13.i, label %if.then.i.i145, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i
@@ -25492,7 +25492,7 @@ while.body.i302:                                  ; preds = %_ZN5eastl4copyINS_1
   %first2.addr.1.i309 = getelementptr inbounds i8, ptr %first2.addr.059.i304, i64 %first2.addr.1.i309.idx
   %first1.addr.1.i310.idx = select i1 %cmp.i.i305, i64 0, i64 4
   %first1.addr.1.i310 = getelementptr inbounds i8, ptr %first1.addr.060.i303, i64 %first1.addr.1.i310.idx
-  store i32 %.sink479, ptr %agg.tmp23.sroa.0.1, align 4
+  store i32 %.sink479, ptr %agg.tmp23.sroa.0.1, align 4, !noalias !716
   %incdec.ptr.i.i311 = getelementptr inbounds i8, ptr %agg.tmp23.sroa.0.1, i64 4
   %cmp.i13.i312 = icmp eq ptr %incdec.ptr.i.i311, %agg.tmp23.sroa.9.1
   br i1 %cmp.i13.i312, label %if.then.i.i316, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i313
@@ -25613,7 +25613,7 @@ while.body.i400:                                  ; preds = %if.else25, %_ZN5eas
   %first2.addr.1.i407 = getelementptr inbounds i8, ptr %first2.addr.059.i402, i64 %first2.addr.1.i407.idx
   %first1.addr.1.i408.idx = select i1 %cmp.i.i403, i64 0, i64 4
   %first1.addr.1.i408 = getelementptr inbounds i8, ptr %first1.addr.060.i401, i64 %first1.addr.1.i408.idx
-  store i32 %.sink480, ptr %agg.tmp29.sroa.0.1, align 4
+  store i32 %.sink480, ptr %agg.tmp29.sroa.0.1, align 4, !noalias !737
   %incdec.ptr.i.i409 = getelementptr inbounds i8, ptr %agg.tmp29.sroa.0.1, i64 4
   %cmp.i13.i410 = icmp eq ptr %incdec.ptr.i.i409, %agg.tmp29.sroa.9.1
   br i1 %cmp.i13.i410, label %if.then.i.i414, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i411
@@ -28717,7 +28717,7 @@ while.body.i137:                                  ; preds = %_ZN5eastl4copyINS_1
   %first2.addr.1.i = getelementptr inbounds i8, ptr %first2.addr.059.i, i64 %first2.addr.1.i.idx
   %first1.addr.1.i.idx = select i1 %cmp.i.i138, i64 0, i64 4
   %first1.addr.1.i = getelementptr inbounds i8, ptr %first1.addr.060.i, i64 %first1.addr.1.i.idx
-  store i32 %.sink, ptr %agg.tmp13.sroa.0.1, align 4
+  store i32 %.sink, ptr %agg.tmp13.sroa.0.1, align 4, !noalias !900
   %incdec.ptr.i.i141 = getelementptr inbounds i8, ptr %agg.tmp13.sroa.0.1, i64 4
   %cmp.i13.i = icmp eq ptr %incdec.ptr.i.i141, %agg.tmp13.sroa.9.1
   br i1 %cmp.i13.i, label %if.then.i.i142, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i
@@ -28921,7 +28921,7 @@ while.body.i299:                                  ; preds = %_ZN5eastl4copyINS_1
   %first2.addr.1.i306 = getelementptr inbounds i8, ptr %first2.addr.059.i301, i64 %first2.addr.1.i306.idx
   %first1.addr.1.i307.idx = select i1 %cmp.i.i302, i64 0, i64 4
   %first1.addr.1.i307 = getelementptr inbounds i8, ptr %first1.addr.060.i300, i64 %first1.addr.1.i307.idx
-  store i32 %.sink476, ptr %agg.tmp25.sroa.0.1, align 4
+  store i32 %.sink476, ptr %agg.tmp25.sroa.0.1, align 4, !noalias !925
   %incdec.ptr.i.i308 = getelementptr inbounds i8, ptr %agg.tmp25.sroa.0.1, i64 4
   %cmp.i13.i309 = icmp eq ptr %incdec.ptr.i.i308, %agg.tmp25.sroa.9.1
   br i1 %cmp.i13.i309, label %if.then.i.i313, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i310
@@ -29042,7 +29042,7 @@ while.body.i397:                                  ; preds = %if.else28, %_ZN5eas
   %first2.addr.1.i404 = getelementptr inbounds i8, ptr %first2.addr.059.i399, i64 %first2.addr.1.i404.idx
   %first1.addr.1.i405.idx = select i1 %cmp.i.i400, i64 0, i64 4
   %first1.addr.1.i405 = getelementptr inbounds i8, ptr %first1.addr.060.i398, i64 %first1.addr.1.i405.idx
-  store i32 %.sink477, ptr %agg.tmp32.sroa.0.1, align 4
+  store i32 %.sink477, ptr %agg.tmp32.sroa.0.1, align 4, !noalias !946
   %incdec.ptr.i.i406 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.0.1, i64 4
   %cmp.i13.i407 = icmp eq ptr %incdec.ptr.i.i406, %agg.tmp32.sroa.9.1
   br i1 %cmp.i13.i407, label %if.then.i.i411, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i408

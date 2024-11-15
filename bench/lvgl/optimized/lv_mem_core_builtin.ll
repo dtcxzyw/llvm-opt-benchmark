@@ -224,10 +224,10 @@ define void @lv_mem_monitor_core(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %._crit_edge, %13
   %.sink = phi i8 [ %19, %13 ], [ 0, %._crit_edge ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 %.sink, ptr %21, align 1
+  store i8 %.sink, ptr %21, align 1, !tbaa !30
   %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %22, ptr %23, align 8, !tbaa !30
+  store i64 %22, ptr %23, align 8, !tbaa !31
   ret void
 }
 
@@ -243,16 +243,16 @@ define internal void @lv_mem_walker(ptr nocapture readnone %0, i64 noundef %1, i
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !31
+  %9 = load i64, ptr %8, align 8, !tbaa !32
   %10 = add i64 %9, 1
-  store i64 %10, ptr %8, align 8, !tbaa !31
+  store i64 %10, ptr %8, align 8, !tbaa !32
   br label %22
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !32
+  %13 = load i64, ptr %12, align 8, !tbaa !33
   %14 = add i64 %13, 1
-  store i64 %14, ptr %12, align 8, !tbaa !32
+  store i64 %14, ptr %12, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !25
   %17 = add i64 %16, %1
@@ -292,7 +292,7 @@ define range(i32 0, 2) i32 @lv_mem_test_core() local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph
   %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 808), ptr noundef nonnull %.07) #4
   %.not4 = icmp eq ptr %8, null
-  br i1 %.not4, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not4, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %7, %.lr.ph, %3, %0
   %.03 = phi i32 [ 0, %0 ], [ 1, %3 ], [ 1, %7 ], [ 0, %.lr.ph ]
@@ -349,7 +349,8 @@ attributes #4 = { nounwind }
 !27 = !{!26, !17, i64 0}
 !28 = !{!26, !6, i64 48}
 !29 = !{!26, !17, i64 24}
-!30 = !{!26, !17, i64 40}
-!31 = !{!26, !17, i64 32}
-!32 = !{!26, !17, i64 8}
-!33 = distinct !{!33, !21}
+!30 = !{!26, !6, i64 49}
+!31 = !{!26, !17, i64 40}
+!32 = !{!26, !17, i64 32}
+!33 = !{!26, !17, i64 8}
+!34 = distinct !{!34, !21}

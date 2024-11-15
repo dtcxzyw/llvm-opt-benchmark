@@ -21303,13 +21303,13 @@ _ZSt19__relocate_object_aIN9grpc_core22XdsRouteConfigResource11VirtualHostES2_Sa
   %.sink8.i.i.i = phi ptr [ %13, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %10, %for.body.i.i.i ]
   %.sink.i.i.i = phi ptr [ %14, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %10, %for.body.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %15, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i ]
-  store i32 %.sink10.i.i.i, ptr %10, align 8
+  store i32 %.sink10.i.i.i, ptr %10, align 8, !alias.scope !331, !noalias !334
   %16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 64
-  store ptr %11, ptr %16, align 8
+  store ptr %11, ptr %16, align 8, !alias.scope !331, !noalias !334
   %17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 72
-  store ptr %.sink8.i.i.i, ptr %17, align 8
+  store ptr %.sink8.i.i.i, ptr %17, align 8, !alias.scope !331, !noalias !334
   %18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 80
-  store ptr %.sink.i.i.i, ptr %18, align 8
+  store ptr %.sink.i.i.i, ptr %18, align 8, !alias.scope !331, !noalias !334
   %19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 88
   store i64 %.sink.i.i.i.i, ptr %19, align 8, !alias.scope !331, !noalias !334
   tail call void @_ZN9grpc_core22XdsRouteConfigResource11VirtualHostD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i) #21
@@ -21381,13 +21381,13 @@ _ZSt19__relocate_object_aIN9grpc_core22XdsRouteConfigResource11VirtualHostES2_Sa
   %.sink8.i.i.i35 = phi ptr [ %29, %if.then.i.i.i.i.i.i.i.i.i.i.i27 ], [ %26, %for.body.i.i.i12 ]
   %.sink.i.i.i36 = phi ptr [ %30, %if.then.i.i.i.i.i.i.i.i.i.i.i27 ], [ %26, %for.body.i.i.i12 ]
   %.sink.i.i.i.i37 = phi i64 [ %31, %if.then.i.i.i.i.i.i.i.i.i.i.i27 ], [ 0, %for.body.i.i.i12 ]
-  store i32 %.sink10.i.i.i34, ptr %26, align 8
+  store i32 %.sink10.i.i.i34, ptr %26, align 8, !alias.scope !338, !noalias !341
   %32 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 64
-  store ptr %27, ptr %32, align 8
+  store ptr %27, ptr %32, align 8, !alias.scope !338, !noalias !341
   %33 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 72
-  store ptr %.sink8.i.i.i35, ptr %33, align 8
+  store ptr %.sink8.i.i.i35, ptr %33, align 8, !alias.scope !338, !noalias !341
   %34 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 80
-  store ptr %.sink.i.i.i36, ptr %34, align 8
+  store ptr %.sink.i.i.i36, ptr %34, align 8, !alias.scope !338, !noalias !341
   %35 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 88
   store i64 %.sink.i.i.i.i37, ptr %35, align 8, !alias.scope !338, !noalias !341
   tail call void @_ZN9grpc_core22XdsRouteConfigResource11VirtualHostD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.06.i.i.i14) #21

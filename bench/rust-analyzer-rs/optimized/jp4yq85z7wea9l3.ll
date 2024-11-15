@@ -43654,10 +43654,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %61
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h1aa625fb44b08e1eE.exit": ; preds = %60, %63
   %75 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.5.0.copyload43, ptr %75, align 8
+  store i32 %.sroa.5.0.copyload43, ptr %75, align 8, !alias.scope !11044
   %76 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.6.0.copyload, ptr %76, align 4
-  store i64 %.sroa.0.0.copyload, ptr %0, align 8
+  store i32 %.sroa.6.0.copyload, ptr %76, align 4, !alias.scope !11044
+  store i64 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !11044
   call void @llvm.experimental.noalias.scope.decl(metadata !11061)
   call void @llvm.experimental.noalias.scope.decl(metadata !11064)
   call void @llvm.experimental.noalias.scope.decl(metadata !11067)

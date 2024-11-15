@@ -5025,9 +5025,9 @@ invoke.cont160:                                   ; preds = %_ZN8QuantLib10DayCo
   %add170.sink.p = select i1 %cmp122, double %84, double %call161
   %add170.sink = fadd double %call79, %add170.sink.p
   %85 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store double %add.sink, ptr %85, align 8
+  store double %add.sink, ptr %85, align 8, !tbaa !147
   %86 = getelementptr inbounds nuw i8, ptr %this, i64 424
-  store double %add170.sink, ptr %86, align 8
+  store double %add170.sink, ptr %86, align 8, !tbaa !148
   %87 = load ptr, ptr %fixedLeg, align 8, !tbaa !81
   %88 = load ptr, ptr %_M_finish.i.i.i117, align 8, !tbaa !82
   %cmp.not3.i.i.i.i = icmp eq ptr %87, %88
@@ -5462,11 +5462,11 @@ define linkonce_odr void @_ZN8QuantLib13GenericEngineINS_12CallableBond9argument
 entry:
   %ref.tmp2.i.i = alloca %"class.QuantLib::Date", align 8
   %settlementValue.i = getelementptr inbounds nuw i8, ptr %this, i64 424
-  store double 0x47EFFFFFE0000000, ptr %settlementValue.i, align 8, !tbaa !147
+  store double 0x47EFFFFFE0000000, ptr %settlementValue.i, align 8, !tbaa !148
   %errorEstimate.i.i = getelementptr inbounds nuw i8, ptr %this, i64 360
-  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i.i, align 8, !tbaa !148
+  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i.i, align 8, !tbaa !149
   %value.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store double 0x47EFFFFFE0000000, ptr %value.i.i, align 8, !tbaa !149
+  store double 0x47EFFFFFE0000000, ptr %value.i.i, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i) #25
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i)
   %valuationDate.i.i = getelementptr inbounds nuw i8, ptr %this, i64 368
@@ -6667,11 +6667,11 @@ define linkonce_odr void @_ZN8QuantLib4Bond7results5resetEv(ptr noundef nonnull 
 entry:
   %ref.tmp2.i = alloca %"class.QuantLib::Date", align 8
   %settlementValue = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store double 0x47EFFFFFE0000000, ptr %settlementValue, align 8, !tbaa !147
+  store double 0x47EFFFFFE0000000, ptr %settlementValue, align 8, !tbaa !148
   %errorEstimate.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i, align 8, !tbaa !148
+  store double 0x47EFFFFFE0000000, ptr %errorEstimate.i, align 8, !tbaa !149
   %value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store double 0x47EFFFFFE0000000, ptr %value.i, align 8, !tbaa !149
+  store double 0x47EFFFFFE0000000, ptr %value.i, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i) #25
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i)
   %valuationDate.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6751,9 +6751,9 @@ define linkonce_odr void @_ZN8QuantLib10Instrument7results5resetEv(ptr noundef n
 entry:
   %ref.tmp2 = alloca %"class.QuantLib::Date", align 8
   %errorEstimate = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store double 0x47EFFFFFE0000000, ptr %errorEstimate, align 8, !tbaa !148
+  store double 0x47EFFFFFE0000000, ptr %errorEstimate, align 8, !tbaa !149
   %value = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store double 0x47EFFFFFE0000000, ptr %value, align 8, !tbaa !149
+  store double 0x47EFFFFFE0000000, ptr %value, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2) #25
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
   %valuationDate = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8957,9 +8957,9 @@ attributes #30 = { builtin nounwind }
 !144 = !{!"_ZTSN5boost15optional_detail15aligned_storageIN8QuantLib4Bond5PriceEEE", !5, i64 0}
 !145 = !{!"_ZTSN8QuantLib11Callability4TypeE", !5, i64 0}
 !146 = !{!47, !47, i64 0}
-!147 = !{!128, !121, i64 80}
-!148 = !{!129, !121, i64 16}
-!149 = !{!129, !121, i64 8}
+!147 = !{!129, !121, i64 8}
+!148 = !{!128, !121, i64 80}
+!149 = !{!129, !121, i64 16}
 !150 = !{!10, !4, i64 24}
 !151 = !{!10, !4, i64 16}
 !152 = distinct !{!152, !61}

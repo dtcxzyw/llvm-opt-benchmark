@@ -5245,12 +5245,12 @@ define hidden void @"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$minicbor
   %.sroa.8.0.copyload.sink = phi i64 [ %23, %20 ], [ %19, %25 ]
   %.sroa.9.0.copyload.sink = phi i64 [ %19, %20 ], [ %.sroa.9.0.copyload, %25 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.639.0.copyload.sink, ptr %26, align 8
+  store ptr %.sroa.639.0.copyload.sink, ptr %26, align 8, !alias.scope !1082
   %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.8.0.copyload.sink, ptr %27, align 8
+  store i64 %.sroa.8.0.copyload.sink, ptr %27, align 8, !alias.scope !1082
   %28 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.9.0.copyload.sink, ptr %28, align 8
-  store i64 %14, ptr %0, align 8
+  store i64 %.sroa.9.0.copyload.sink, ptr %28, align 8, !alias.scope !1082
+  store i64 %14, ptr %0, align 8, !alias.scope !1082
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.10)
   br label %32
 

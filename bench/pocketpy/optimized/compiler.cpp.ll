@@ -7517,7 +7517,7 @@ _ZN4pkpy8ListExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS
   %.sink = phi ptr [ %261, %246 ], [ %264, %263 ]
   %.sink.i.i.i.i = phi ptr [ %262, %246 ], [ %265, %263 ]
   %266 = getelementptr inbounds i8, ptr %241, i64 56
-  store ptr %.sink, ptr %266, align 8
+  store ptr %.sink, ptr %266, align 8, !noalias !58
   %267 = getelementptr inbounds i8, ptr %241, i64 64
   store ptr %.sink.i.i.i.i, ptr %267, align 8, !noalias !58
   store ptr %2, ptr %21, align 8, !noalias !58
@@ -8937,7 +8937,7 @@ _ZN4pkpy8DictExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS
   %.sink = phi ptr [ %460, %445 ], [ %463, %462 ]
   %.sink.i.i.i.i = phi ptr [ %461, %445 ], [ %464, %462 ]
   %465 = getelementptr inbounds i8, ptr %440, i64 56
-  store ptr %.sink, ptr %465, align 8
+  store ptr %.sink, ptr %465, align 8, !noalias !92
   %466 = getelementptr inbounds i8, ptr %440, i64 64
   store ptr %.sink.i.i.i.i, ptr %466, align 8, !noalias !92
   store ptr %2, ptr %9, align 8, !noalias !92
@@ -9071,7 +9071,7 @@ _ZN4pkpy7SetExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128INS_
   %.sink384 = phi ptr [ %524, %509 ], [ %527, %526 ]
   %.sink.i.i.i.i193 = phi ptr [ %525, %509 ], [ %528, %526 ]
   %529 = getelementptr inbounds i8, ptr %504, i64 56
-  store ptr %.sink384, ptr %529, align 8
+  store ptr %.sink384, ptr %529, align 8, !noalias !95
   %530 = getelementptr inbounds i8, ptr %504, i64 64
   store ptr %.sink.i.i.i.i193, ptr %530, align 8, !noalias !95
   store ptr %2, ptr %9, align 8, !noalias !95
@@ -14770,7 +14770,7 @@ _ZN4pkpy9TupleExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128IN
   %.sink = phi ptr [ %234, %219 ], [ %237, %236 ]
   %.sink.i.i.i.i = phi ptr [ %235, %219 ], [ %238, %236 ]
   %239 = getelementptr inbounds i8, ptr %214, i64 56
-  store ptr %.sink, ptr %239, align 8
+  store ptr %.sink, ptr %239, align 8, !noalias !227
   %240 = getelementptr inbounds i8, ptr %214, i64 64
   store ptr %.sink.i.i.i.i, ptr %240, align 8, !noalias !227
   store ptr %3, ptr %37, align 8, !noalias !227
@@ -15380,7 +15380,7 @@ _ZN4pkpy9TupleExprCI2NS_12SequenceExprEEONS_12small_vectorINS_14unique_ptr_128IN
   %.sink = phi ptr [ %169, %154 ], [ %172, %171 ]
   %.sink.i.i.i.i = phi ptr [ %170, %154 ], [ %173, %171 ]
   %174 = getelementptr inbounds i8, ptr %149, i64 56
-  store ptr %.sink, ptr %174, align 8
+  store ptr %.sink, ptr %174, align 8, !noalias !236
   %175 = getelementptr inbounds i8, ptr %149, i64 64
   store ptr %.sink.i.i.i.i, ptr %175, align 8, !noalias !236
   store ptr %3, ptr %5, align 8, !noalias !236

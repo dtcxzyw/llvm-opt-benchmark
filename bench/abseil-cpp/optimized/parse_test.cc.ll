@@ -30349,7 +30349,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i.i.i12, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call5.i.i.i.i1.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(80) @constinit, i64 80, i1 false), !noalias !379
   %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store ptr %add.ptr.i.i.i.i.i, ptr %0, align 8, !alias.scope !373
+  store ptr %add.ptr.i.i.i.i.i, ptr %0, align 8, !alias.scope !379
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !379
   invoke void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherISt17basic_string_viewIcSt11char_traitsIcEEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_(ptr nonnull sret(%"class.testing::internal::PredicateFormatterFromMatcher.167") align 8 %ref.tmp, ptr noundef nonnull %agg.tmp)
@@ -37108,7 +37108,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i.i.i12, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i1.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(32) @constinit.625, i64 32, i1 false), !noalias !475
   %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store ptr %add.ptr.i.i.i.i.i, ptr %0, align 8, !alias.scope !469
+  store ptr %add.ptr.i.i.i.i.i, ptr %0, align 8, !alias.scope !475
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !475
   invoke void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherISt17basic_string_viewIcSt11char_traitsIcEEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_(ptr nonnull sret(%"class.testing::internal::PredicateFormatterFromMatcher.167") align 8 %ref.tmp, ptr noundef nonnull %agg.tmp)
@@ -37748,7 +37748,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i.i.i9, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5.i.i.i.i1.i.i.i.i9, ptr noundef nonnull align 8 dereferenceable(48) @constinit.629, i64 48, i1 false), !noalias !490
   %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store ptr %add.ptr.i.i.i.i.i, ptr %0, align 8, !alias.scope !484
+  store ptr %add.ptr.i.i.i.i.i, ptr %0, align 8, !alias.scope !490
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !490
   invoke void @_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_23ElementsAreArrayMatcherISt17basic_string_viewIcSt11char_traitsIcEEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_(ptr nonnull sret(%"class.testing::internal::PredicateFormatterFromMatcher.167") align 8 %ref.tmp, ptr noundef nonnull %agg.tmp)

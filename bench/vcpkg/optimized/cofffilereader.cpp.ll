@@ -4156,11 +4156,11 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaIS5_EE
   %.sink = phi ptr [ %505, %498 ], [ %490, %485 ]
   %.sink75.i = phi i64 [ 0, %498 ], [ %493, %485 ]
   %506 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %484, ptr %506, align 8
+  store ptr %484, ptr %506, align 8, !alias.scope !185
   %507 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %.sink99, ptr %507, align 8
+  store ptr %.sink99, ptr %507, align 8, !alias.scope !185
   %508 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %.sink, ptr %508, align 8
+  store ptr %.sink, ptr %508, align 8, !alias.scope !185
   %509 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %.sink75.i, ptr %509, align 8, !alias.scope !185
   %510 = getelementptr inbounds i8, ptr %0, i64 72

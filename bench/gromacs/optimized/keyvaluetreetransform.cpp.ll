@@ -6301,10 +6301,10 @@ _ZN3gmx19KeyValueTreeBuilder5buildEv.exit.i:      ; preds = %41, %_ZN3gmx8intern
   %62 = getelementptr inbounds i8, ptr %0, i64 32
   %63 = getelementptr inbounds i8, ptr %0, i64 24
   %64 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.sink6, ptr %58, align 8
-  store ptr %40, ptr %64, align 8
-  store ptr %.sink4, ptr %63, align 8
-  store ptr %.sink, ptr %62, align 8
+  store i32 %.sink6, ptr %58, align 8, !alias.scope !81
+  store ptr %40, ptr %64, align 8, !alias.scope !81
+  store ptr %.sink4, ptr %63, align 8, !alias.scope !81
+  store ptr %.sink, ptr %62, align 8, !alias.scope !81
   %65 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %.sink5.i, ptr %65, align 8, !alias.scope !81
   %66 = getelementptr inbounds i8, ptr %0, i64 48

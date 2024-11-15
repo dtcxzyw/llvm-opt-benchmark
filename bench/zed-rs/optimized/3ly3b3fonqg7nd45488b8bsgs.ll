@@ -4533,7 +4533,7 @@ define hidden void @"_ZN93_$LT$serde_json..value..de..BorrowedCowStrDeserializer
 
 11:                                               ; preds = %10, %5
   %.sink = phi i8 [ 13, %5 ], [ 12, %10 ]
-  store i8 %.sink, ptr %0, align 8
+  store i8 %.sink, ptr %0, align 8, !noalias !4
   ret void
 }
 

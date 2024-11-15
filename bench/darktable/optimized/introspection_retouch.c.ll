@@ -6199,8 +6199,8 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %426 = phi float [ %422, %410 ], [ %409, %395 ]
   %427 = load float, ptr %393, align 4, !tbaa !16
   %428 = fmul reassoc nsz arcp contract afn float %427, %.sink3.i
-  store float %.sink1.i, ptr %5, align 16
-  store float %428, ptr %216, align 8
+  store float %.sink1.i, ptr %5, align 16, !tbaa !16
+  store float %428, ptr %216, align 8, !tbaa !16
   %429 = getelementptr inbounds i8, ptr %361, i64 28
   %430 = load float, ptr %429, align 4, !tbaa !16
   %431 = fmul reassoc nsz arcp contract afn float %430, %424
@@ -9317,9 +9317,9 @@ define internal fastcc i32 @rt_masks_point_calc_delta(ptr nocapture noundef read
   %46 = phi float [ %42, %29 ], [ %28, %11 ]
   %47 = load float, ptr %4, align 4, !tbaa !16
   %48 = fmul reassoc nsz arcp contract afn float %47, %.sink3
-  store float %.sink1, ptr %9, align 16
+  store float %.sink1, ptr %9, align 16, !tbaa !16
   %49 = getelementptr inbounds i8, ptr %9, i64 8
-  store float %48, ptr %49, align 8
+  store float %48, ptr %49, align 8, !tbaa !16
   %50 = getelementptr inbounds i8, ptr %4, i64 4
   %51 = load float, ptr %50, align 4, !tbaa !16
   %52 = fmul reassoc nsz arcp contract afn float %51, %44

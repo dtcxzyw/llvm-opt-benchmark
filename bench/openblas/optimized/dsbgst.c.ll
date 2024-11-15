@@ -912,8 +912,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %637 = icmp slt i64 %633, %.
   %638 = select i1 %637, i32 %.526, i32 %635
   %639 = mul nsw i32 %636, %638
-  store i32 %.526, ptr %16, align 4
-  store i32 %635, ptr %15, align 4
+  store i32 %.526, ptr %16, align 4, !tbaa !3
+  store i32 %635, ptr %15, align 4, !tbaa !3
   %640 = add nsw i32 %632, %639
   %641 = load i32, ptr %4, align 4, !tbaa !3
   %642 = icmp sgt i32 %641, %630
@@ -2113,8 +2113,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %1476 = icmp slt i64 %1472, %.527
   %1477 = select i1 %1476, i32 %.528, i32 %1474
   %1478 = mul nsw i32 %1475, %1477
-  store i32 %.528, ptr %17, align 4
-  store i32 %1474, ptr %16, align 4
+  store i32 %.528, ptr %17, align 4, !tbaa !3
+  store i32 %1474, ptr %16, align 4, !tbaa !3
   %1479 = add nsw i32 %1471, %1478
   %1480 = load i32, ptr %4, align 4, !tbaa !3
   %1481 = sub nsw i32 %1480, %1469
@@ -3333,8 +3333,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %.sink522 = phi i32 [ %2322, %2321 ], [ %2320, %2319 ]
   %.sink354 = phi i32 [ 1, %2321 ], [ 2, %2319 ]
   %2324 = mul nsw i32 %2318, %.sink522
-  store i32 %.sink354, ptr %17, align 4
-  store i32 %2317, ptr %16, align 4
+  store i32 %.sink354, ptr %17, align 4, !tbaa !3
+  store i32 %2317, ptr %16, align 4, !tbaa !3
   %2325 = add i32 %2314, %2316
   %2326 = sub i32 %2325, %2324
   %2327 = load i32, ptr %4, align 4, !tbaa !3
@@ -4646,8 +4646,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %.sink524 = phi i32 [ %3226, %3225 ], [ %3224, %3223 ]
   %.sink356 = phi i32 [ 1, %3225 ], [ 2, %3223 ]
   %3228 = mul nsw i32 %3222, %.sink524
-  store i32 %.sink356, ptr %16, align 4
-  store i32 %3221, ptr %17, align 4
+  store i32 %.sink356, ptr %16, align 4, !tbaa !3
+  store i32 %3221, ptr %17, align 4, !tbaa !3
   %3229 = add i32 %3218, %3220
   %3230 = sub i32 %3229, %3228
   %3231 = load i32, ptr %4, align 4, !tbaa !3

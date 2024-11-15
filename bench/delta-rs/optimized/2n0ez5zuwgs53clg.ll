@@ -58551,8 +58551,8 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %.sink.i = phi ptr [ %16, %13 ], [ %12, %2 ]
   %.sink8.i.sink.i = phi i64 [ %.sink8.i.i, %13 ], [ -9223372036854775808, %2 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %19, align 8, !alias.scope !9183, !noalias !9186
-  store i64 %.sink8.i.sink.i, ptr %0, align 8, !alias.scope !9183, !noalias !9186
+  store ptr %.sink.i, ptr %19, align 8, !alias.scope !9196, !noalias !9197
+  store i64 %.sink8.i.sink.i, ptr %0, align 8, !alias.scope !9196, !noalias !9197
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !9198
   ret void
 }
@@ -58645,8 +58645,8 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %.sink.i = phi ptr [ %16, %13 ], [ %12, %2 ]
   %.sink8.i.sink.i = phi i64 [ %.sink8.i.i, %13 ], [ -9223372036854775808, %2 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %19, align 8, !alias.scope !9232, !noalias !9235
-  store i64 %.sink8.i.sink.i, ptr %0, align 8, !alias.scope !9232, !noalias !9235
+  store ptr %.sink.i, ptr %19, align 8, !alias.scope !9245, !noalias !9246
+  store i64 %.sink8.i.sink.i, ptr %0, align 8, !alias.scope !9245, !noalias !9246
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !9247
   ret void
 }
@@ -83868,11 +83868,11 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload, i1 false)
   %.sink8 = extractvalue { i64, ptr } %15, 0
-  store i64 %.sink8, ptr %0, align 8
+  store i64 %.sink8, ptr %0, align 8, !noalias !4
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %16, ptr %18, align 8
+  store ptr %16, ptr %18, align 8, !noalias !4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %19, align 8
+  store i64 %.sroa.4.0.copyload, ptr %19, align 8, !noalias !4
   br label %22
 
 20:                                               ; preds = %2
@@ -83915,11 +83915,11 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload, i1 false)
   %.sink8 = extractvalue { i64, ptr } %15, 0
-  store i64 %.sink8, ptr %0, align 8
+  store i64 %.sink8, ptr %0, align 8, !noalias !4
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %16, ptr %18, align 8
+  store ptr %16, ptr %18, align 8, !noalias !4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %19, align 8
+  store i64 %.sroa.4.0.copyload, ptr %19, align 8, !noalias !4
   br label %22
 
 20:                                               ; preds = %2
@@ -83972,8 +83972,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %.sink = phi ptr [ %16, %13 ], [ %12, %2 ]
   %.sink8.i.sink = phi i64 [ %.sink8.i, %13 ], [ -9223372036854775808, %2 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %19, align 8
-  store i64 %.sink8.i.sink, ptr %0, align 8
+  store ptr %.sink, ptr %19, align 8, !alias.scope !12431, !noalias !12434
+  store i64 %.sink8.i.sink, ptr %0, align 8, !alias.scope !12431, !noalias !12434
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12439
   ret void
 }
@@ -84062,8 +84062,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %.sink = phi ptr [ %16, %13 ], [ %12, %2 ]
   %.sink8.i.sink = phi i64 [ %.sink8.i, %13 ], [ -9223372036854775808, %2 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %19, align 8
-  store i64 %.sink8.i.sink, ptr %0, align 8
+  store ptr %.sink, ptr %19, align 8, !alias.scope !12466, !noalias !12469
+  store i64 %.sink8.i.sink, ptr %0, align 8, !alias.scope !12466, !noalias !12469
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12474
   ret void
 }

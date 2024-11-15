@@ -2419,7 +2419,7 @@ _ZN5boost3log11v2_mt_posix15attribute_value18detach_from_threadEv.exit.i: ; pred
   %.pre = load i32, ptr %35, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %43, ptr %45, align 8
+  store ptr %43, ptr %45, align 8, !tbaa !59
   store ptr %scevgep.i.i.i.i.i, ptr %44, align 8, !tbaa !57
   %46 = zext i32 %.pre to i64
   %.idx = shl nuw nsw i64 %46, 4

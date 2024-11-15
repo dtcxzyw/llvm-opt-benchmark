@@ -917,7 +917,7 @@ if.else64.i:                                      ; preds = %do.end50.i
 
 if.end88.i:                                       ; preds = %if.else64.i, %if.then53.i
   %.sink = phi ptr [ null, %if.then53.i ], [ %0, %if.else64.i ]
-  store ptr %.sink, ptr %agg.result, align 8
+  store ptr %.sink, ptr %agg.result, align 8, !alias.scope !64
   store i64 %split, ptr %data39.i, align 8, !noalias !64
   br label %grpc_slice_split_tail_maybe_ref.exit
 

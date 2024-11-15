@@ -32538,7 +32538,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIiEESt6vectorIT_SaIS3_EERKNS_7VtArrayIS3_EE.exit.thread: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sink33 = getelementptr inbounds i8, ptr null, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink33, ptr %18, align 8
+  store ptr %.sink33, ptr %18, align 8, !alias.scope !287
   %19 = getelementptr inbounds i8, ptr null, i64 %16
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %19, ptr %20, align 8, !alias.scope !287
@@ -32550,7 +32550,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIi
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %12, i64 %16, i1 false), !noalias !287
   %.sink = getelementptr inbounds i8, ptr %21, i64 %16
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink, ptr %22, align 8
+  store ptr %.sink, ptr %22, align 8, !alias.scope !287
   %23 = getelementptr inbounds i8, ptr %21, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8, !alias.scope !287
@@ -34801,7 +34801,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIlEESt6vectorIT_SaIS3_EERKNS_7VtArrayIS3_EE.exit.thread: ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sink33 = getelementptr inbounds i8, ptr null, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink33, ptr %18, align 8
+  store ptr %.sink33, ptr %18, align 8, !alias.scope !320
   %19 = getelementptr inbounds i8, ptr null, i64 %16
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %19, ptr %20, align 8, !alias.scope !320
@@ -34813,7 +34813,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIl
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %12, i64 %16, i1 false), !noalias !320
   %.sink = getelementptr inbounds i8, ptr %21, i64 %16
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink, ptr %22, align 8
+  store ptr %.sink, ptr %22, align 8, !alias.scope !320
   %23 = getelementptr inbounds i8, ptr %21, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8, !alias.scope !320
@@ -37059,7 +37059,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIjEESt6vectorIT_SaIS3_EERKNS_7VtArrayIS3_EE.exit.thread: ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sink33 = getelementptr inbounds i8, ptr null, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink33, ptr %18, align 8
+  store ptr %.sink33, ptr %18, align 8, !alias.scope !353
   %19 = getelementptr inbounds i8, ptr null, i64 %16
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %19, ptr %20, align 8, !alias.scope !353
@@ -37071,7 +37071,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIj
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %12, i64 %16, i1 false), !noalias !353
   %.sink = getelementptr inbounds i8, ptr %21, i64 %16
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink, ptr %22, align 8
+  store ptr %.sink, ptr %22, align 8, !alias.scope !353
   %23 = getelementptr inbounds i8, ptr %21, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8, !alias.scope !353
@@ -39317,7 +39317,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorImEESt6vectorIT_SaIS3_EERKNS_7VtArrayIS3_EE.exit.thread: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sink33 = getelementptr inbounds i8, ptr null, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink33, ptr %18, align 8
+  store ptr %.sink33, ptr %18, align 8, !alias.scope !386
   %19 = getelementptr inbounds i8, ptr null, i64 %16
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %19, ptr %20, align 8, !alias.scope !386
@@ -39329,7 +39329,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIm
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %12, i64 %16, i1 false), !noalias !386
   %.sink = getelementptr inbounds i8, ptr %21, i64 %16
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sink, ptr %22, align 8
+  store ptr %.sink, ptr %22, align 8, !alias.scope !386
   %23 = getelementptr inbounds i8, ptr %21, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8, !alias.scope !386

@@ -19999,7 +19999,7 @@ if.end.i152:                                      ; preds = %call10.i.noexc, %ca
 
 invoke.cont38:                                    ; preds = %if.end.i152
   %116 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store i64 %call25.i156, ptr %116, align 8
+  store i64 %call25.i156, ptr %116, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %refDate.i) #26
   ret void
 
@@ -20064,7 +20064,7 @@ if.end:                                           ; preds = %entry, %if.then
   %loadedv24 = trunc nuw i8 %3 to i1
   %call25 = call i64 @_ZNK8QuantLib8Calendar7advanceERKNS_4DateERKNS_6PeriodENS_21BusinessDayConventionEb(ptr noundef nonnull align 8 dereferenceable(16) %cal_.sink, ptr noundef nonnull align 8 dereferenceable(8) %earliestDate_, ptr noundef nonnull align 4 dereferenceable(8) %tenor_21, i32 noundef %2, i1 noundef zeroext %loadedv24)
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store i64 %call25, ptr %4, align 8
+  store i64 %call25, ptr %4, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %refDate) #26
   ret void
 }

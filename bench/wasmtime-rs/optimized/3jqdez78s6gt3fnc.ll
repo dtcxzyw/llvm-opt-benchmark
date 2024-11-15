@@ -3491,11 +3491,11 @@ define hidden void @"_ZN86_$LT$either..Either$LT$L$C$R$GT$$u20$as$u20$core..iter
 
 15:                                               ; preds = %9, %6
   %.sink1 = phi i64 [ %spec.select.i, %6 ], [ %14, %9 ]
-  store i64 %.sink1, ptr %0, align 8
+  store i64 %.sink1, ptr %0, align 8, !noalias !4
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 1, ptr %16, align 8
+  store i64 1, ptr %16, align 8, !noalias !4
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink1, ptr %17, align 8
+  store i64 %.sink1, ptr %17, align 8, !noalias !4
   ret void
 }
 

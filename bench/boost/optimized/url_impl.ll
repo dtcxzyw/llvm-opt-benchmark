@@ -977,11 +977,11 @@ define hidden void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind 
   %.sink1 = phi i64 [ %17, %13 ], [ %11, %4 ]
   %.sink.in = phi ptr [ %18, %13 ], [ %12, %4 ]
   %.sink = load i64, ptr %.sink.in, align 8, !tbaa !13
-  store ptr %.sink2, ptr %0, align 8
+  store ptr %.sink2, ptr %0, align 8, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink1, ptr %20, align 8
+  store i64 %.sink1, ptr %20, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %21, align 8
+  store i64 %.sink, ptr %21, align 8, !tbaa !18
   ret void
 }
 

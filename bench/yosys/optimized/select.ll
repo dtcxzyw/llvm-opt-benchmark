@@ -20263,13 +20263,13 @@ _ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i.i.i.i.i.
   %.sink5.i.i.i.i = phi ptr [ %215, %211 ], [ %208, %.lr.ph.i.i.i.i190 ]
   %.sink.i.i.i.i = phi ptr [ %217, %211 ], [ %208, %.lr.ph.i.i.i.i190 ]
   %.sink.i.i.i.i.i = phi i64 [ %220, %211 ], [ 0, %.lr.ph.i.i.i.i190 ]
-  store i32 %.sink7.i.i.i.i, ptr %208, align 8
+  store i32 %.sink7.i.i.i.i, ptr %208, align 8, !alias.scope !261, !noalias !264
   %221 = getelementptr inbounds i8, ptr %.04.i.i.i.i, i64 24
-  store ptr %210, ptr %221, align 8
+  store ptr %210, ptr %221, align 8, !alias.scope !261, !noalias !264
   %222 = getelementptr inbounds i8, ptr %.04.i.i.i.i, i64 32
-  store ptr %.sink5.i.i.i.i, ptr %222, align 8
+  store ptr %.sink5.i.i.i.i, ptr %222, align 8, !alias.scope !261, !noalias !264
   %223 = getelementptr inbounds i8, ptr %.04.i.i.i.i, i64 40
-  store ptr %.sink.i.i.i.i, ptr %223, align 8
+  store ptr %.sink.i.i.i.i, ptr %223, align 8, !alias.scope !261, !noalias !264
   %224 = getelementptr inbounds i8, ptr %.04.i.i.i.i, i64 48
   store i64 %.sink.i.i.i.i.i, ptr %224, align 8, !alias.scope !261, !noalias !264
   %225 = getelementptr inbounds i8, ptr %.04.i.i.i.i, i64 64
@@ -20300,6 +20300,7 @@ _ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i.i.i.i.i.
   store ptr %229, ptr %232, align 8, !alias.scope !264, !noalias !261
   store ptr %229, ptr %235, align 8, !alias.scope !264, !noalias !261
   store i64 0, ptr %239, align 8, !alias.scope !264, !noalias !261
+  %.pre.i.i.i.i = load ptr, ptr %209, align 8, !alias.scope !264, !noalias !261
   br label %_ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i.i.i.i
 
 241:                                              ; preds = %_ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i.i.i.i.i.i
@@ -20313,12 +20314,12 @@ _ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EEC2EOS6_.exit.i.i.i.i.i.i.i.
   br label %_ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %241, %228
+  %245 = phi ptr [ null, %241 ], [ %.pre.i.i.i.i, %228 ]
   %.sink1.i.i.i.i.i = phi i64 [ 0, %241 ], [ %240, %228 ]
-  %245 = getelementptr inbounds i8, ptr %.04.i.i.i.i, i64 96
-  store i64 %.sink1.i.i.i.i.i, ptr %245, align 8, !alias.scope !261, !noalias !264
-  %246 = getelementptr inbounds i8, ptr %.093.i.i.i.i, i64 8
-  %247 = load ptr, ptr %209, align 8, !alias.scope !264, !noalias !261
-  invoke void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %246, ptr noundef %247)
+  %246 = getelementptr inbounds i8, ptr %.04.i.i.i.i, i64 96
+  store i64 %.sink1.i.i.i.i.i, ptr %246, align 8, !alias.scope !261, !noalias !264
+  %247 = getelementptr inbounds i8, ptr %.093.i.i.i.i, i64 8
+  invoke void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %247, ptr noundef %245)
           to label %_ZSt19__relocate_object_aIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %248
 
 248:                                              ; preds = %_ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit.i.i.i.i.i.i.i.i

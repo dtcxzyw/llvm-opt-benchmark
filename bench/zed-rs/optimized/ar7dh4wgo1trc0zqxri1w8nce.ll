@@ -521,9 +521,9 @@ _ZN3der6reader6Reader6finish17h346823a70b8832bdE.exit: ; preds = %31, %33
   %.sroa.439.0.copyload.sink = phi i32 [ %.sroa.612.i.sroa.5.sroa.7.0.extract.trunc126, %33 ], [ %.sroa.439.0.copyload, %31 ]
   %.sink = phi i8 [ %.pre.i, %33 ], [ 24, %31 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.439.0.copyload.sink, ptr %34, align 4
+  store i32 %.sroa.439.0.copyload.sink, ptr %34, align 4, !alias.scope !51, !noalias !52
   %35 = getelementptr inbounds i8, ptr %0, i64 104
-  store i8 %.sink, ptr %35, align 8
+  store i8 %.sink, ptr %35, align 8, !alias.scope !51, !noalias !52
   br label %38
 
 36:                                               ; preds = %23, %24

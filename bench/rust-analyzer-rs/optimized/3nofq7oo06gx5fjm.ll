@@ -1704,11 +1704,11 @@ define void @_ZN4stdx7replace17hdad97c71450ef43fE(ptr noalias noundef align 8 de
   %.sink63.in.in.i = trunc i32 %.sink63.in.in.in.i to i8
   %.sink63.in.i = and i8 %.sink63.in.in.i, 63
   %.sink63.i = or disjoint i8 %.sink63.in.i, -128
-  store i8 %40, ptr %13, align 4, !noalias !249
+  store i8 %40, ptr %13, align 4, !alias.scope !252, !noalias !249
   %42 = getelementptr inbounds i8, ptr %13, i64 1
-  store i8 %.sink63.i, ptr %42, align 1, !noalias !249
+  store i8 %.sink63.i, ptr %42, align 1, !alias.scope !252, !noalias !249
   %43 = getelementptr inbounds i8, ptr %13, i64 2
-  store i8 %.sink.i, ptr %43, align 2, !noalias !249
+  store i8 %.sink.i, ptr %43, align 2, !alias.scope !252, !noalias !249
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
   %44 = icmp ult i64 %41, %17

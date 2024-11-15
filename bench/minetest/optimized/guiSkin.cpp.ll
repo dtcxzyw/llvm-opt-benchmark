@@ -157,11 +157,11 @@ if.end:                                           ; preds = %entry, %if.else
   %19 = phi <4 x i32> [ <i32 -803858922, i32 -798990240, i32 1007685648, i32 -251658241>, %if.else ], [ <i32 -922746881, i32 -938990485, i32 -261856156, i32 -1>, %entry ]
   %20 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %entry ]
   %21 = phi <4 x i32> [ <i32 3, i32 2, i32 3, i32 2>, %if.else ], [ <i32 2, i32 0, i32 2, i32 0>, %entry ]
-  store i32 %.sink9, ptr %Colors.ptr, align 8
+  store i32 %.sink9, ptr %Colors.ptr, align 8, !tbaa !23
   %22 = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %.sink8, ptr %22, align 4
+  store i32 %.sink8, ptr %22, align 4, !tbaa !23
   %23 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %.sink, ptr %23, align 8
+  store i32 %.sink, ptr %23, align 8, !tbaa !23
   store <4 x i32> %15, ptr %arrayidx33, align 4, !tbaa !23
   store <4 x i32> %16, ptr %arrayidx53, align 4, !tbaa !23
   store <4 x i32> %17, ptr %arrayidx73, align 4, !tbaa !23
@@ -510,11 +510,11 @@ if.end:                                           ; preds = %entry, %if.else
   %13 = phi <4 x i32> [ <i32 -803858922, i32 -798990240, i32 1007685648, i32 -251658241>, %if.else ], [ <i32 -922746881, i32 -938990485, i32 -261856156, i32 -1>, %entry ]
   %14 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %entry ]
   %15 = phi <4 x i32> [ <i32 3, i32 2, i32 3, i32 2>, %if.else ], [ <i32 2, i32 0, i32 2, i32 0>, %entry ]
-  store i32 %.sink9, ptr %Colors.ptr, align 8
+  store i32 %.sink9, ptr %Colors.ptr, align 8, !tbaa !23
   %16 = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %.sink8, ptr %16, align 4
+  store i32 %.sink8, ptr %16, align 4, !tbaa !23
   %17 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %.sink, ptr %17, align 8
+  store i32 %.sink, ptr %17, align 8, !tbaa !23
   store <4 x i32> %9, ptr %arrayidx32, align 4, !tbaa !23
   store <4 x i32> %10, ptr %arrayidx52, align 4, !tbaa !23
   store <4 x i32> %11, ptr %arrayidx72, align 4, !tbaa !23

@@ -371,9 +371,9 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr nocapture noundef readonly %1, p
 216:                                              ; preds = %209, %202
   %.sink45.i = phi i32 [ %207, %202 ], [ %212, %209 ]
   %.sink.i = phi i32 [ %208, %202 ], [ %215, %209 ]
-  store i32 %.sink45.i, ptr %18, align 4
+  store i32 %.sink45.i, ptr %18, align 4, !tbaa !30
   %217 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 %.sink.i, ptr %217, align 4
+  store i32 %.sink.i, ptr %217, align 4, !tbaa !33
   %218 = icmp sgt i32 %200, 0
   br i1 %218, label %219, label %226
 
@@ -399,9 +399,9 @@ get_rounded_area.exit:                            ; preds = %219, %226
   %.sink47.i = phi i32 [ %224, %219 ], [ %229, %226 ]
   %.sink46.i = phi i32 [ %225, %219 ], [ %232, %226 ]
   %233 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 %.sink47.i, ptr %233, align 4
+  store i32 %.sink47.i, ptr %233, align 4, !tbaa !32
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i32 %.sink46.i, ptr %234, align 4
+  store i32 %.sink46.i, ptr %234, align 4, !tbaa !34
   %235 = load i32, ptr %87, align 8, !tbaa !35
   %236 = load i32, ptr %89, align 4, !tbaa !36
   call void @lv_area_move(ptr noundef nonnull %18, i32 noundef %235, i32 noundef %236) #6
@@ -439,9 +439,9 @@ get_rounded_area.exit:                            ; preds = %219, %226
 262:                                              ; preds = %255, %248
   %.sink45.i145 = phi i32 [ %253, %248 ], [ %258, %255 ]
   %.sink.i146 = phi i32 [ %254, %248 ], [ %261, %255 ]
-  store i32 %.sink45.i145, ptr %19, align 4
+  store i32 %.sink45.i145, ptr %19, align 4, !tbaa !30
   %263 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 %.sink.i146, ptr %263, align 4
+  store i32 %.sink.i146, ptr %263, align 4, !tbaa !33
   %264 = icmp sgt i32 %246, 0
   br i1 %264, label %265, label %272
 
@@ -467,9 +467,9 @@ get_rounded_area.exit149:                         ; preds = %265, %272
   %.sink47.i147 = phi i32 [ %270, %265 ], [ %275, %272 ]
   %.sink46.i148 = phi i32 [ %271, %265 ], [ %278, %272 ]
   %279 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 %.sink47.i147, ptr %279, align 4
+  store i32 %.sink47.i147, ptr %279, align 4, !tbaa !32
   %280 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store i32 %.sink46.i148, ptr %280, align 4
+  store i32 %.sink46.i148, ptr %280, align 4, !tbaa !34
   %281 = load i32, ptr %87, align 8, !tbaa !35
   %282 = load i32, ptr %89, align 4, !tbaa !36
   call void @lv_area_move(ptr noundef nonnull %19, i32 noundef %281, i32 noundef %282) #6

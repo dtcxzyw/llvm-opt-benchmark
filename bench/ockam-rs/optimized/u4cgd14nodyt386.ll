@@ -61892,8 +61892,8 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$2u817h646742ff
 
 12:                                               ; preds = %10, %7
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %13, align 8
-  store ptr null, ptr %0, align 8
+  store ptr %1, ptr %13, align 8, !noalias !4
+  store ptr null, ptr %0, align 8, !noalias !4
   ret void
 }
 
@@ -61922,8 +61922,8 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$2u817hce3d59d1
 
 10:                                               ; preds = %9, %7
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %11, align 8
-  store ptr null, ptr %0, align 8
+  store ptr %1, ptr %11, align 8, !noalias !4
+  store ptr null, ptr %0, align 8, !noalias !4
   ret void
 }
 

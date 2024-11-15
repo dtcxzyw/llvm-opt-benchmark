@@ -1360,13 +1360,13 @@ define internal fastcc void @scale_draw_main(ptr noundef %0, ptr noundef %1) unn
 
 207:                                              ; preds = %204, %202
   %.sroa.0.0.extract.trunc.i.sink.i = phi i32 [ %203, %202 ], [ %.sroa.0.0.extract.trunc.i.i, %204 ]
-  store i32 %.sroa.0.0.extract.trunc.i.sink.i, ptr %174, align 4
+  store i32 %.sroa.0.0.extract.trunc.i.sink.i, ptr %174, align 4, !tbaa !74
   %208 = call i32 @lv_style_get_prop(ptr noundef nonnull %198, i8 noundef zeroext 82, ptr noundef nonnull %3) #9
   %209 = icmp eq i32 %208, 1
   br i1 %209, label %210, label %211
 
 210:                                              ; preds = %207
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %175, ptr noundef nonnull align 8 dereferenceable(3) %3, i64 3, i1 false), !tbaa.struct !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %175, ptr noundef nonnull align 8 dereferenceable(3) %3, i64 3, i1 false), !tbaa.struct !75
   br label %214
 
 211:                                              ; preds = %207
@@ -1394,7 +1394,7 @@ define internal fastcc void @scale_draw_main(ptr noundef %0, ptr noundef %1) unn
 
 224:                                              ; preds = %220, %217
   %.sink.i = phi i8 [ %219, %217 ], [ %223, %220 ]
-  store i8 %.sink.i, ptr %176, align 8
+  store i8 %.sink.i, ptr %176, align 8, !tbaa !76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   br label %scale_set_arc_properties.exit
 
@@ -1406,11 +1406,11 @@ define internal fastcc void @scale_draw_main(ptr noundef %0, ptr noundef %1) unn
   %228 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 77) #9
   %229 = ptrtoint ptr %228 to i64
   %230 = trunc i64 %229 to i8
-  store i8 %230, ptr %176, align 8, !tbaa !75
+  store i8 %230, ptr %176, align 8, !tbaa !76
   %231 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 72) #9
   %232 = ptrtoint ptr %231 to i64
   %.sroa.0.0.extract.trunc.i24.i = trunc i64 %232 to i32
-  store i32 %.sroa.0.0.extract.trunc.i24.i, ptr %174, align 4, !tbaa !76
+  store i32 %.sroa.0.0.extract.trunc.i24.i, ptr %174, align 4, !tbaa !74
   br label %scale_set_arc_properties.exit
 
 scale_set_arc_properties.exit:                    ; preds = %224, %225
@@ -1579,7 +1579,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %39, ptr noundef nonnull align 8 dereferenceable(3) %10, i64 3, i1 false), !tbaa.struct !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %39, ptr noundef nonnull align 8 dereferenceable(3) %10, i64 3, i1 false), !tbaa.struct !75
   br label %89
 
 86:                                               ; preds = %82
@@ -1607,7 +1607,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
 
 99:                                               ; preds = %95, %92
   %.sink.i = phi i8 [ %94, %92 ], [ %98, %95 ]
-  store i8 %.sink.i, ptr %40, align 4
+  store i8 %.sink.i, ptr %40, align 4, !tbaa !81
   %100 = call i32 @lv_style_get_prop(ptr noundef nonnull %81, i8 noundef zeroext 91, ptr noundef nonnull %10) #9
   %101 = icmp eq i32 %100, 1
   br i1 %101, label %102, label %104
@@ -1624,7 +1624,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
 
 107:                                              ; preds = %104, %102
   %.sroa.0.0.extract.trunc.i29.sink.i = phi i32 [ %103, %102 ], [ %.sroa.0.0.extract.trunc.i29.i, %104 ]
-  store i32 %.sroa.0.0.extract.trunc.i29.sink.i, ptr %41, align 8
+  store i32 %.sroa.0.0.extract.trunc.i29.sink.i, ptr %41, align 8, !tbaa !82
   %108 = call i32 @lv_style_get_prop(ptr noundef nonnull %81, i8 noundef zeroext 90, ptr noundef nonnull %10) #9
   %109 = icmp eq i32 %108, 1
   br i1 %109, label %110, label %112
@@ -1639,7 +1639,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
 
 114:                                              ; preds = %112, %110
   %.sink32.i = phi ptr [ %111, %110 ], [ %113, %112 ]
-  store ptr %.sink32.i, ptr %42, align 8
+  store ptr %.sink32.i, ptr %42, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
   br label %scale_set_indicator_label_properties.exit
 
@@ -1984,14 +1984,14 @@ define internal fastcc void @scale_set_line_properties(ptr noundef %0, ptr nocap
 14:                                               ; preds = %11, %9
   %.sroa.0.0.extract.trunc.i.sink = phi i32 [ %10, %9 ], [ %.sroa.0.0.extract.trunc.i, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 %.sroa.0.0.extract.trunc.i.sink, ptr %15, align 4
+  store i32 %.sroa.0.0.extract.trunc.i.sink, ptr %15, align 4, !tbaa !44
   %16 = call i32 @lv_style_get_prop(ptr noundef nonnull %2, i8 noundef zeroext 76, ptr noundef nonnull %5) #9
   %17 = icmp eq i32 %16, 1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br i1 %17, label %19, label %20
 
 19:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %18, ptr noundef nonnull align 8 dereferenceable(3) %5, i64 3, i1 false), !tbaa.struct !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %18, ptr noundef nonnull align 8 dereferenceable(3) %5, i64 3, i1 false), !tbaa.struct !75
   br label %23
 
 20:                                               ; preds = %14
@@ -2020,7 +2020,7 @@ define internal fastcc void @scale_set_line_properties(ptr noundef %0, ptr nocap
 33:                                               ; preds = %29, %26
   %.sink = phi i8 [ %28, %26 ], [ %32, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i8 %.sink, ptr %34, align 8
+  store i8 %.sink, ptr %34, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   br label %46
 
@@ -2709,9 +2709,9 @@ attributes #9 = { nounwind }
 !71 = !{!70, !26, i64 56}
 !72 = !{!70, !26, i64 60}
 !73 = !{!7, !7, i64 0}
-!74 = !{i64 0, i64 1, !73, i64 1, i64 1, !73, i64 2, i64 1, !73}
-!75 = !{!70, !7, i64 88}
-!76 = !{!70, !10, i64 52}
+!74 = !{!70, !10, i64 52}
+!75 = !{i64 0, i64 1, !73, i64 1, i64 1, !73, i64 2, i64 1, !73}
+!76 = !{!70, !7, i64 88}
 !77 = distinct !{!77, !23}
 !78 = !{!79, !10, i64 12}
 !79 = !{!"", !46, i64 0, !6, i64 48, !6, i64 56, !10, i64 64, !10, i64 68, !48, i64 72, !48, i64 75, !48, i64 78, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !7, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 116, !7, i64 116, !7, i64 116, !6, i64 120}

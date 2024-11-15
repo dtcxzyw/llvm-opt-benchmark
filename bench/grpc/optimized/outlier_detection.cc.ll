@@ -8559,11 +8559,11 @@ _ZNSt3setIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateESt4les
   %subchannels_.val.i.i.i.i.i.i = phi ptr [ %53, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %49, %if.then.i.i.i.i.i.i.i.i.i.i ]
   %.sink4.i.i.i.i.i = phi i64 [ 0, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %51, %if.then.i.i.i.i.i.i.i.i.i.i ]
   %55 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 24
-  store ptr %46, ptr %55, align 8
+  store ptr %46, ptr %55, align 8, !noalias !83
   %56 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 32
-  store ptr %46, ptr %56, align 8
+  store ptr %46, ptr %56, align 8, !noalias !83
   %57 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 40
-  store i64 0, ptr %57, align 8
+  store i64 0, ptr %57, align 8, !noalias !83
   %58 = getelementptr inbounds i8, ptr %call.i81.i.i.i.i, i64 56
   store i64 %.sink4.i.i.i.i.i, ptr %58, align 8, !noalias !83
   %current_bucket_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i81.i.i.i.i, i64 64

@@ -4266,8 +4266,8 @@ for.inc.i.i116:                                   ; preds = %if.else.i.i114, %if
   %.sink.i.i = phi i8 [ %64, %if.then15.i.i122 ], [ 0, %if.else.i.i114 ]
   %inc.i.i.i.sink.i = add nsw i64 %inc.i.i.i.sink.in.i, 1
   %inc4.i.i.i.i.sink.i = add nsw i64 %inc4.i.i.i.i.sink.in.i, 1
-  store i64 %inc4.i.i.i.i.sink.i, ptr %bit_length_.i.i.i47.i.i, align 8, !noalias !164
-  store i64 %inc.i.i.i.sink.i, ptr %length_.i.i.i.i106, align 8, !noalias !164
+  store i64 %inc4.i.i.i.i.sink.i, ptr %bit_length_.i.i.i47.i.i, align 8, !noalias !170
+  store i64 %inc.i.i.i.sink.i, ptr %length_.i.i.i.i106, align 8, !noalias !170
   %80 = load ptr, ptr %data_.i.i.i55.i.i, align 8, !noalias !170
   %81 = load i64, ptr %size_.i.i.i56.i.i, align 8, !noalias !170
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %80, i64 %81
@@ -4421,8 +4421,8 @@ for.inc.i.i178:                                   ; preds = %if.else.i.i170, %if
   %.sink.i.i181 = phi i8 [ %100, %if.then15.i.i194 ], [ 0, %if.else.i.i170 ]
   %inc.i.i.i.sink.i182 = add nsw i64 %inc.i.i.i.sink.in.i180, 1
   %inc4.i.i.i.i.sink.i183 = add nsw i64 %inc4.i.i.i.i.sink.in.i179, 1
-  store i64 %inc4.i.i.i.i.sink.i183, ptr %bit_length_.i.i.i47.i.i157, align 8, !noalias !185
-  store i64 %inc.i.i.i.sink.i182, ptr %length_.i.i.i.i159, align 8, !noalias !185
+  store i64 %inc4.i.i.i.i.sink.i183, ptr %bit_length_.i.i.i47.i.i157, align 8, !noalias !191
+  store i64 %inc.i.i.i.sink.i182, ptr %length_.i.i.i.i159, align 8, !noalias !191
   %116 = load ptr, ptr %data_.i.i.i55.i.i161, align 8, !noalias !191
   %117 = load i64, ptr %size_.i.i.i56.i.i162, align 8, !noalias !191
   %add.ptr.i.i.i.i.i184 = getelementptr inbounds i8, ptr %116, i64 %117
@@ -4576,8 +4576,8 @@ for.inc.i.i250:                                   ; preds = %if.else.i.i242, %if
   %.sink.i.i253 = phi i16 [ %136, %if.then15.i.i266 ], [ 0, %if.else.i.i242 ]
   %inc.i.i.i.sink.i254 = add nsw i64 %inc.i.i.i.sink.in.i252, 1
   %inc4.i.i.i.i.sink.i255 = add nsw i64 %inc4.i.i.i.i.sink.in.i251, 1
-  store i64 %inc4.i.i.i.i.sink.i255, ptr %bit_length_.i.i.i47.i.i229, align 8, !noalias !206
-  store i64 %inc.i.i.i.sink.i254, ptr %length_.i.i.i.i231, align 8, !noalias !206
+  store i64 %inc4.i.i.i.i.sink.i255, ptr %bit_length_.i.i.i47.i.i229, align 8, !noalias !212
+  store i64 %inc.i.i.i.sink.i254, ptr %length_.i.i.i.i231, align 8, !noalias !212
   %152 = load ptr, ptr %data_.i.i.i55.i.i233, align 8, !noalias !212
   %153 = load i64, ptr %size_.i.i.i56.i.i234, align 8, !noalias !212
   %add.ptr.i.i.i.i.i256 = getelementptr inbounds i8, ptr %152, i64 %153
@@ -4731,8 +4731,8 @@ for.inc.i.i322:                                   ; preds = %if.else.i.i314, %if
   %.sink.i.i325 = phi i16 [ %172, %if.then15.i.i338 ], [ 0, %if.else.i.i314 ]
   %inc.i.i.i.sink.i326 = add nsw i64 %inc.i.i.i.sink.in.i324, 1
   %inc4.i.i.i.i.sink.i327 = add nsw i64 %inc4.i.i.i.i.sink.in.i323, 1
-  store i64 %inc4.i.i.i.i.sink.i327, ptr %bit_length_.i.i.i47.i.i301, align 8, !noalias !227
-  store i64 %inc.i.i.i.sink.i326, ptr %length_.i.i.i.i303, align 8, !noalias !227
+  store i64 %inc4.i.i.i.i.sink.i327, ptr %bit_length_.i.i.i47.i.i301, align 8, !noalias !233
+  store i64 %inc.i.i.i.sink.i326, ptr %length_.i.i.i.i303, align 8, !noalias !233
   %188 = load ptr, ptr %data_.i.i.i55.i.i305, align 8, !noalias !233
   %189 = load i64, ptr %size_.i.i.i56.i.i306, align 8, !noalias !233
   %add.ptr.i.i.i.i.i328 = getelementptr inbounds i8, ptr %188, i64 %189
@@ -4886,8 +4886,8 @@ for.inc.i.i394:                                   ; preds = %if.else.i.i386, %if
   %.sink.i.i397 = phi i32 [ %208, %if.then15.i.i410 ], [ 0, %if.else.i.i386 ]
   %inc.i.i.i.sink.i398 = add nsw i64 %inc.i.i.i.sink.in.i396, 1
   %inc4.i.i.i.i.sink.i399 = add nsw i64 %inc4.i.i.i.i.sink.in.i395, 1
-  store i64 %inc4.i.i.i.i.sink.i399, ptr %bit_length_.i.i.i47.i.i373, align 8, !noalias !248
-  store i64 %inc.i.i.i.sink.i398, ptr %length_.i.i.i.i375, align 8, !noalias !248
+  store i64 %inc4.i.i.i.i.sink.i399, ptr %bit_length_.i.i.i47.i.i373, align 8, !noalias !254
+  store i64 %inc.i.i.i.sink.i398, ptr %length_.i.i.i.i375, align 8, !noalias !254
   %224 = load ptr, ptr %data_.i.i.i55.i.i377, align 8, !noalias !254
   %225 = load i64, ptr %size_.i.i.i56.i.i378, align 8, !noalias !254
   %add.ptr.i.i.i.i.i400 = getelementptr inbounds i8, ptr %224, i64 %225
@@ -5041,8 +5041,8 @@ for.inc.i.i466:                                   ; preds = %if.else.i.i458, %if
   %.sink.i.i469 = phi i32 [ %244, %if.then15.i.i482 ], [ 0, %if.else.i.i458 ]
   %inc.i.i.i.sink.i470 = add nsw i64 %inc.i.i.i.sink.in.i468, 1
   %inc4.i.i.i.i.sink.i471 = add nsw i64 %inc4.i.i.i.i.sink.in.i467, 1
-  store i64 %inc4.i.i.i.i.sink.i471, ptr %bit_length_.i.i.i47.i.i445, align 8, !noalias !269
-  store i64 %inc.i.i.i.sink.i470, ptr %length_.i.i.i.i447, align 8, !noalias !269
+  store i64 %inc4.i.i.i.i.sink.i471, ptr %bit_length_.i.i.i47.i.i445, align 8, !noalias !275
+  store i64 %inc.i.i.i.sink.i470, ptr %length_.i.i.i.i447, align 8, !noalias !275
   %260 = load ptr, ptr %data_.i.i.i55.i.i449, align 8, !noalias !275
   %261 = load i64, ptr %size_.i.i.i56.i.i450, align 8, !noalias !275
   %add.ptr.i.i.i.i.i472 = getelementptr inbounds i8, ptr %260, i64 %261
@@ -5196,8 +5196,8 @@ for.inc.i.i538:                                   ; preds = %if.else.i.i530, %if
   %.sink.i.i541 = phi i64 [ %280, %if.then15.i.i554 ], [ 0, %if.else.i.i530 ]
   %inc.i.i.i.sink.i542 = add nsw i64 %inc.i.i.i.sink.in.i540, 1
   %inc4.i.i.i.i.sink.i543 = add nsw i64 %inc4.i.i.i.i.sink.in.i539, 1
-  store i64 %inc4.i.i.i.i.sink.i543, ptr %bit_length_.i.i.i47.i.i517, align 8, !noalias !290
-  store i64 %inc.i.i.i.sink.i542, ptr %length_.i.i.i.i519, align 8, !noalias !290
+  store i64 %inc4.i.i.i.i.sink.i543, ptr %bit_length_.i.i.i47.i.i517, align 8, !noalias !296
+  store i64 %inc.i.i.i.sink.i542, ptr %length_.i.i.i.i519, align 8, !noalias !296
   %296 = load ptr, ptr %data_.i.i.i55.i.i521, align 8, !noalias !296
   %297 = load i64, ptr %size_.i.i.i56.i.i522, align 8, !noalias !296
   %add.ptr.i.i.i.i.i544 = getelementptr inbounds i8, ptr %296, i64 %297
@@ -5351,8 +5351,8 @@ for.inc.i.i610:                                   ; preds = %if.else.i.i602, %if
   %.sink.i.i613 = phi i64 [ %316, %if.then15.i.i626 ], [ 0, %if.else.i.i602 ]
   %inc.i.i.i.sink.i614 = add nsw i64 %inc.i.i.i.sink.in.i612, 1
   %inc4.i.i.i.i.sink.i615 = add nsw i64 %inc4.i.i.i.i.sink.in.i611, 1
-  store i64 %inc4.i.i.i.i.sink.i615, ptr %bit_length_.i.i.i47.i.i589, align 8, !noalias !311
-  store i64 %inc.i.i.i.sink.i614, ptr %length_.i.i.i.i591, align 8, !noalias !311
+  store i64 %inc4.i.i.i.i.sink.i615, ptr %bit_length_.i.i.i47.i.i589, align 8, !noalias !317
+  store i64 %inc.i.i.i.sink.i614, ptr %length_.i.i.i.i591, align 8, !noalias !317
   %332 = load ptr, ptr %data_.i.i.i55.i.i593, align 8, !noalias !317
   %333 = load i64, ptr %size_.i.i.i56.i.i594, align 8, !noalias !317
   %add.ptr.i.i.i.i.i616 = getelementptr inbounds i8, ptr %332, i64 %333
@@ -5506,8 +5506,8 @@ for.inc.i.i682:                                   ; preds = %if.else.i.i674, %if
   %.sink.i.i685 = phi i16 [ %352, %if.then15.i.i698 ], [ 0, %if.else.i.i674 ]
   %inc.i.i.i.sink.i686 = add nsw i64 %inc.i.i.i.sink.in.i684, 1
   %inc4.i.i.i.i.sink.i687 = add nsw i64 %inc4.i.i.i.i.sink.in.i683, 1
-  store i64 %inc4.i.i.i.i.sink.i687, ptr %bit_length_.i.i.i47.i.i661, align 8, !noalias !332
-  store i64 %inc.i.i.i.sink.i686, ptr %length_.i.i.i.i663, align 8, !noalias !332
+  store i64 %inc4.i.i.i.i.sink.i687, ptr %bit_length_.i.i.i47.i.i661, align 8, !noalias !338
+  store i64 %inc.i.i.i.sink.i686, ptr %length_.i.i.i.i663, align 8, !noalias !338
   %368 = load ptr, ptr %data_.i.i.i55.i.i665, align 8, !noalias !338
   %369 = load i64, ptr %size_.i.i.i56.i.i666, align 8, !noalias !338
   %add.ptr.i.i.i.i.i688 = getelementptr inbounds i8, ptr %368, i64 %369
@@ -5661,8 +5661,8 @@ for.inc.i.i754:                                   ; preds = %if.else.i.i746, %if
   %.sink.i.i757 = phi float [ %388, %if.then15.i.i770 ], [ 0.000000e+00, %if.else.i.i746 ]
   %inc.i.i.i.sink.i758 = add nsw i64 %inc.i.i.i.sink.in.i756, 1
   %inc4.i.i.i.i.sink.i759 = add nsw i64 %inc4.i.i.i.i.sink.in.i755, 1
-  store i64 %inc4.i.i.i.i.sink.i759, ptr %bit_length_.i.i.i47.i.i733, align 8, !noalias !353
-  store i64 %inc.i.i.i.sink.i758, ptr %length_.i.i.i.i735, align 8, !noalias !353
+  store i64 %inc4.i.i.i.i.sink.i759, ptr %bit_length_.i.i.i47.i.i733, align 8, !noalias !359
+  store i64 %inc.i.i.i.sink.i758, ptr %length_.i.i.i.i735, align 8, !noalias !359
   %404 = load ptr, ptr %data_.i.i.i55.i.i737, align 8, !noalias !359
   %405 = load i64, ptr %size_.i.i.i56.i.i738, align 8, !noalias !359
   %add.ptr.i.i.i.i.i760 = getelementptr inbounds i8, ptr %404, i64 %405
@@ -5816,8 +5816,8 @@ for.inc.i.i826:                                   ; preds = %if.else.i.i818, %if
   %.sink.i.i829 = phi double [ %424, %if.then15.i.i842 ], [ 0.000000e+00, %if.else.i.i818 ]
   %inc.i.i.i.sink.i830 = add nsw i64 %inc.i.i.i.sink.in.i828, 1
   %inc4.i.i.i.i.sink.i831 = add nsw i64 %inc4.i.i.i.i.sink.in.i827, 1
-  store i64 %inc4.i.i.i.i.sink.i831, ptr %bit_length_.i.i.i47.i.i805, align 8, !noalias !374
-  store i64 %inc.i.i.i.sink.i830, ptr %length_.i.i.i.i807, align 8, !noalias !374
+  store i64 %inc4.i.i.i.i.sink.i831, ptr %bit_length_.i.i.i47.i.i805, align 8, !noalias !380
+  store i64 %inc.i.i.i.sink.i830, ptr %length_.i.i.i.i807, align 8, !noalias !380
   %440 = load ptr, ptr %data_.i.i.i55.i.i809, align 8, !noalias !380
   %441 = load i64, ptr %size_.i.i.i56.i.i810, align 8, !noalias !380
   %add.ptr.i.i.i.i.i832 = getelementptr inbounds i8, ptr %440, i64 %441
@@ -6043,8 +6043,8 @@ for.inc56.i:                                      ; preds = %if.else.i, %if.then
   %inc.i.i.i.sink.in = phi i64 [ %480, %if.then51.i ], [ %492, %if.else.i ]
   %inc.i.i.i.sink = add nsw i64 %inc.i.i.i.sink.in, 1
   %inc4.i.i.i.i862.sink = add nsw i64 %inc4.i.i.i.i862.sink.in, 1
-  store i64 %inc4.i.i.i.i862.sink, ptr %bit_length_.i.i.i.i, align 8
-  store i64 %inc.i.i.i.sink, ptr %length_.i.i.i, align 8
+  store i64 %inc4.i.i.i.i862.sink, ptr %bit_length_.i.i.i.i, align 8, !noalias !395
+  store i64 %inc.i.i.i.sink, ptr %length_.i.i.i, align 8, !noalias !395
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %it41.011.i, i64 48
   %494 = load ptr, ptr %scalars_end_.i, align 8, !noalias !395
   %cmp45.not.i = icmp eq ptr %incdec.ptr57.i, %494
@@ -6565,8 +6565,8 @@ for.inc56.i1014:                                  ; preds = %if.else.i1001, %if.
   %inc.i.i.i1012.sink.in = phi i64 [ %586, %if.then51.i1022 ], [ %598, %if.else.i1001 ]
   %inc.i.i.i1012.sink = add nsw i64 %inc.i.i.i1012.sink.in, 1
   %inc4.i.i.i.i1011.sink = add nsw i64 %inc4.i.i.i.i1011.sink.in, 1
-  store i64 %inc4.i.i.i.i1011.sink, ptr %bit_length_.i.i.i.i989, align 8
-  store i64 %inc.i.i.i1012.sink, ptr %length_.i.i.i991, align 8
+  store i64 %inc4.i.i.i.i1011.sink, ptr %bit_length_.i.i.i.i989, align 8, !noalias !441
+  store i64 %inc.i.i.i1012.sink, ptr %length_.i.i.i991, align 8, !noalias !441
   %incdec.ptr57.i1015 = getelementptr inbounds i8, ptr %it41.011.i998, i64 48
   %600 = load ptr, ptr %scalars_end_.i951, align 8, !noalias !441
   %cmp45.not.i1016 = icmp eq ptr %incdec.ptr57.i1015, %600
@@ -7083,8 +7083,8 @@ for.inc56.i1266:                                  ; preds = %if.else.i1254, %if.
   %inc.i.i.i1264.sink.in = phi i64 [ %692, %if.then51.i1274 ], [ %704, %if.else.i1254 ]
   %inc.i.i.i1264.sink = add nsw i64 %inc.i.i.i1264.sink.in, 1
   %inc4.i.i.i.i1263.sink = add nsw i64 %inc4.i.i.i.i1263.sink.in, 1
-  store i64 %inc4.i.i.i.i1263.sink, ptr %bit_length_.i.i.i.i1242, align 8
-  store i64 %inc.i.i.i1264.sink, ptr %length_.i.i.i1244, align 8
+  store i64 %inc4.i.i.i.i1263.sink, ptr %bit_length_.i.i.i.i1242, align 8, !noalias !487
+  store i64 %inc.i.i.i1264.sink, ptr %length_.i.i.i1244, align 8, !noalias !487
   %incdec.ptr57.i1267 = getelementptr inbounds i8, ptr %it41.011.i1251, i64 48
   %706 = load ptr, ptr %scalars_end_.i1204, align 8, !noalias !487
   %cmp45.not.i1268 = icmp eq ptr %incdec.ptr57.i1267, %706
@@ -7300,8 +7300,8 @@ for.inc56.i1364:                                  ; preds = %if.else.i1352, %if.
   %inc.i.i.i1362.sink.in = phi i64 [ %744, %if.then51.i1372 ], [ %756, %if.else.i1352 ]
   %inc.i.i.i1362.sink = add nsw i64 %inc.i.i.i1362.sink.in, 1
   %inc4.i.i.i.i1361.sink = add nsw i64 %inc4.i.i.i.i1361.sink.in, 1
-  store i64 %inc4.i.i.i.i1361.sink, ptr %bit_length_.i.i.i.i1340, align 8
-  store i64 %inc.i.i.i1362.sink, ptr %length_.i.i.i1342, align 8
+  store i64 %inc4.i.i.i.i1361.sink, ptr %bit_length_.i.i.i.i1340, align 8, !noalias !510
+  store i64 %inc.i.i.i1362.sink, ptr %length_.i.i.i1342, align 8, !noalias !510
   %incdec.ptr57.i1365 = getelementptr inbounds i8, ptr %it41.011.i1349, i64 48
   %758 = load ptr, ptr %scalars_end_.i1302, align 8, !noalias !510
   %cmp45.not.i1366 = icmp eq ptr %incdec.ptr57.i1365, %758
@@ -7624,8 +7624,8 @@ for.inc.i.i1503:                                  ; preds = %if.else.i.i1495, %i
   %.sink.i.i1506 = phi i64 [ %818, %if.then15.i.i1519 ], [ 0, %if.else.i.i1495 ]
   %inc.i.i.i.sink.i1507 = add nsw i64 %inc.i.i.i.sink.in.i1505, 1
   %inc4.i.i.i.i.sink.i1508 = add nsw i64 %inc4.i.i.i.i.sink.in.i1504, 1
-  store i64 %inc4.i.i.i.i.sink.i1508, ptr %bit_length_.i.i.i47.i.i1482, align 8, !noalias !554
-  store i64 %inc.i.i.i.sink.i1507, ptr %length_.i.i.i.i1484, align 8, !noalias !554
+  store i64 %inc4.i.i.i.i.sink.i1508, ptr %bit_length_.i.i.i47.i.i1482, align 8, !noalias !560
+  store i64 %inc.i.i.i.sink.i1507, ptr %length_.i.i.i.i1484, align 8, !noalias !560
   %834 = load ptr, ptr %data_.i.i.i55.i.i1486, align 8, !noalias !560
   %835 = load i64, ptr %size_.i.i.i56.i.i1487, align 8, !noalias !560
   %add.ptr.i.i.i.i.i1509 = getelementptr inbounds i8, ptr %834, i64 %835
@@ -7779,8 +7779,8 @@ for.inc.i.i1575:                                  ; preds = %if.else.i.i1567, %i
   %.sink.i.i1578 = phi i32 [ %854, %if.then15.i.i1591 ], [ 0, %if.else.i.i1567 ]
   %inc.i.i.i.sink.i1579 = add nsw i64 %inc.i.i.i.sink.in.i1577, 1
   %inc4.i.i.i.i.sink.i1580 = add nsw i64 %inc4.i.i.i.i.sink.in.i1576, 1
-  store i64 %inc4.i.i.i.i.sink.i1580, ptr %bit_length_.i.i.i47.i.i1554, align 8, !noalias !575
-  store i64 %inc.i.i.i.sink.i1579, ptr %length_.i.i.i.i1556, align 8, !noalias !575
+  store i64 %inc4.i.i.i.i.sink.i1580, ptr %bit_length_.i.i.i47.i.i1554, align 8, !noalias !581
+  store i64 %inc.i.i.i.sink.i1579, ptr %length_.i.i.i.i1556, align 8, !noalias !581
   %870 = load ptr, ptr %data_.i.i.i55.i.i1558, align 8, !noalias !581
   %871 = load i64, ptr %size_.i.i.i56.i.i1559, align 8, !noalias !581
   %add.ptr.i.i.i.i.i1581 = getelementptr inbounds i8, ptr %870, i64 %871
@@ -7934,8 +7934,8 @@ for.inc.i.i1647:                                  ; preds = %if.else.i.i1639, %i
   %.sink.i.i1650 = phi i64 [ %890, %if.then15.i.i1663 ], [ 0, %if.else.i.i1639 ]
   %inc.i.i.i.sink.i1651 = add nsw i64 %inc.i.i.i.sink.in.i1649, 1
   %inc4.i.i.i.i.sink.i1652 = add nsw i64 %inc4.i.i.i.i.sink.in.i1648, 1
-  store i64 %inc4.i.i.i.i.sink.i1652, ptr %bit_length_.i.i.i47.i.i1626, align 8, !noalias !596
-  store i64 %inc.i.i.i.sink.i1651, ptr %length_.i.i.i.i1628, align 8, !noalias !596
+  store i64 %inc4.i.i.i.i.sink.i1652, ptr %bit_length_.i.i.i47.i.i1626, align 8, !noalias !602
+  store i64 %inc.i.i.i.sink.i1651, ptr %length_.i.i.i.i1628, align 8, !noalias !602
   %906 = load ptr, ptr %data_.i.i.i55.i.i1630, align 8, !noalias !602
   %907 = load i64, ptr %size_.i.i.i56.i.i1631, align 8, !noalias !602
   %add.ptr.i.i.i.i.i1653 = getelementptr inbounds i8, ptr %906, i64 %907
@@ -8089,8 +8089,8 @@ for.inc.i.i1719:                                  ; preds = %if.else.i.i1711, %i
   %.sink.i.i1722 = phi i64 [ %926, %if.then15.i.i1735 ], [ 0, %if.else.i.i1711 ]
   %inc.i.i.i.sink.i1723 = add nsw i64 %inc.i.i.i.sink.in.i1721, 1
   %inc4.i.i.i.i.sink.i1724 = add nsw i64 %inc4.i.i.i.i.sink.in.i1720, 1
-  store i64 %inc4.i.i.i.i.sink.i1724, ptr %bit_length_.i.i.i47.i.i1698, align 8, !noalias !617
-  store i64 %inc.i.i.i.sink.i1723, ptr %length_.i.i.i.i1700, align 8, !noalias !617
+  store i64 %inc4.i.i.i.i.sink.i1724, ptr %bit_length_.i.i.i47.i.i1698, align 8, !noalias !623
+  store i64 %inc.i.i.i.sink.i1723, ptr %length_.i.i.i.i1700, align 8, !noalias !623
   %942 = load ptr, ptr %data_.i.i.i55.i.i1702, align 8, !noalias !623
   %943 = load i64, ptr %size_.i.i.i56.i.i1703, align 8, !noalias !623
   %add.ptr.i.i.i.i.i1725 = getelementptr inbounds i8, ptr %942, i64 %943
@@ -8244,8 +8244,8 @@ for.inc.i.i1791:                                  ; preds = %if.else.i.i1783, %i
   %.sink.i.i1794 = phi i32 [ %962, %if.then15.i.i1807 ], [ 0, %if.else.i.i1783 ]
   %inc.i.i.i.sink.i1795 = add nsw i64 %inc.i.i.i.sink.in.i1793, 1
   %inc4.i.i.i.i.sink.i1796 = add nsw i64 %inc4.i.i.i.i.sink.in.i1792, 1
-  store i64 %inc4.i.i.i.i.sink.i1796, ptr %bit_length_.i.i.i47.i.i1770, align 8, !noalias !638
-  store i64 %inc.i.i.i.sink.i1795, ptr %length_.i.i.i.i1772, align 8, !noalias !638
+  store i64 %inc4.i.i.i.i.sink.i1796, ptr %bit_length_.i.i.i47.i.i1770, align 8, !noalias !644
+  store i64 %inc.i.i.i.sink.i1795, ptr %length_.i.i.i.i1772, align 8, !noalias !644
   %978 = load ptr, ptr %data_.i.i.i55.i.i1774, align 8, !noalias !644
   %979 = load i64, ptr %size_.i.i.i56.i.i1775, align 8, !noalias !644
   %add.ptr.i.i.i.i.i1797 = getelementptr inbounds i8, ptr %978, i64 %979
@@ -8399,8 +8399,8 @@ for.inc.i.i1863:                                  ; preds = %if.else.i.i1855, %i
   %.sink.i.i1866 = phi i64 [ %998, %if.then15.i.i1879 ], [ 0, %if.else.i.i1855 ]
   %inc.i.i.i.sink.i1867 = add nsw i64 %inc.i.i.i.sink.in.i1865, 1
   %inc4.i.i.i.i.sink.i1868 = add nsw i64 %inc4.i.i.i.i.sink.in.i1864, 1
-  store i64 %inc4.i.i.i.i.sink.i1868, ptr %bit_length_.i.i.i47.i.i1842, align 8, !noalias !659
-  store i64 %inc.i.i.i.sink.i1867, ptr %length_.i.i.i.i1844, align 8, !noalias !659
+  store i64 %inc4.i.i.i.i.sink.i1868, ptr %bit_length_.i.i.i47.i.i1842, align 8, !noalias !665
+  store i64 %inc.i.i.i.sink.i1867, ptr %length_.i.i.i.i1844, align 8, !noalias !665
   %1014 = load ptr, ptr %data_.i.i.i55.i.i1846, align 8, !noalias !665
   %1015 = load i64, ptr %size_.i.i.i56.i.i1847, align 8, !noalias !665
   %add.ptr.i.i.i.i.i1869 = getelementptr inbounds i8, ptr %1014, i64 %1015
@@ -8718,8 +8718,8 @@ for.inc.i.i2006:                                  ; preds = %if.else.i.i1998, %i
   %.sink.i.i2009 = phi i32 [ %1071, %if.then15.i.i2022 ], [ 0, %if.else.i.i1998 ]
   %inc.i.i.i.sink.i2010 = add nsw i64 %inc.i.i.i.sink.in.i2008, 1
   %inc4.i.i.i.i.sink.i2011 = add nsw i64 %inc4.i.i.i.i.sink.in.i2007, 1
-  store i64 %inc4.i.i.i.i.sink.i2011, ptr %bit_length_.i.i.i47.i.i1985, align 8, !noalias !701
-  store i64 %inc.i.i.i.sink.i2010, ptr %length_.i.i.i.i1987, align 8, !noalias !701
+  store i64 %inc4.i.i.i.i.sink.i2011, ptr %bit_length_.i.i.i47.i.i1985, align 8, !noalias !707
+  store i64 %inc.i.i.i.sink.i2010, ptr %length_.i.i.i.i1987, align 8, !noalias !707
   %1087 = load ptr, ptr %data_.i.i.i55.i.i1989, align 8, !noalias !707
   %1088 = load i64, ptr %size_.i.i.i56.i.i1990, align 8, !noalias !707
   %add.ptr.i.i.i.i.i2012 = getelementptr inbounds i8, ptr %1087, i64 %1088
@@ -8873,8 +8873,8 @@ for.inc.i.i2078:                                  ; preds = %if.else.i.i2070, %i
   %agg.tmp.sroa.0.0.copyload.sink.i.i = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i2095, %if.then15.i.i2093 ], [ 0, %if.else.i.i2070 ]
   %inc.i.i.i.sink.i2081 = add nsw i64 %inc.i.i.i.sink.in.i2080, 1
   %inc4.i.i.i.i.sink.i2082 = add nsw i64 %inc4.i.i.i.i.sink.in.i2079, 1
-  store i64 %inc4.i.i.i.i.sink.i2082, ptr %bit_length_.i.i.i47.i.i2057, align 8, !noalias !722
-  store i64 %inc.i.i.i.sink.i2081, ptr %length_.i.i.i.i2059, align 8, !noalias !722
+  store i64 %inc4.i.i.i.i.sink.i2082, ptr %bit_length_.i.i.i47.i.i2057, align 8, !noalias !728
+  store i64 %inc.i.i.i.sink.i2081, ptr %length_.i.i.i.i2059, align 8, !noalias !728
   %1122 = load ptr, ptr %data_.i.i.i55.i.i2061, align 8, !noalias !728
   %1123 = load i64, ptr %size_.i.i.i56.i.i2062, align 8, !noalias !728
   %add.ptr.i.i.i.i.i2083 = getelementptr inbounds i8, ptr %1122, i64 %1123
@@ -13646,8 +13646,8 @@ for.inc.i.i121:                                   ; preds = %if.else.i.i119, %if
   %.sink.i.i = phi i8 [ %52, %if.then17.i.i129 ], [ 0, %if.else.i.i119 ]
   %inc.i.i.i.sink.i = add nsw i64 %inc.i.i.i.sink.in.i, 1
   %inc4.i.i.i.i.sink.i = add nsw i64 %inc4.i.i.i.i.sink.in.i, 1
-  store i64 %inc4.i.i.i.i.sink.i, ptr %bit_length_.i.i.i47.i.i, align 8, !noalias !1387
-  store i64 %inc.i.i.i.sink.i, ptr %length_.i.i.i.i108, align 8, !noalias !1387
+  store i64 %inc4.i.i.i.i.sink.i, ptr %bit_length_.i.i.i47.i.i, align 8, !noalias !1393
+  store i64 %inc.i.i.i.sink.i, ptr %length_.i.i.i.i108, align 8, !noalias !1393
   %68 = load ptr, ptr %data_.i.i.i55.i.i, align 8, !noalias !1393
   %69 = load i64, ptr %size_.i.i.i56.i.i, align 8, !noalias !1393
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %68, i64 %69
@@ -13801,8 +13801,8 @@ for.inc.i.i190:                                   ; preds = %if.else.i.i182, %if
   %.sink.i.i193 = phi i8 [ %81, %if.then17.i.i208 ], [ 0, %if.else.i.i182 ]
   %inc.i.i.i.sink.i194 = add nsw i64 %inc.i.i.i.sink.in.i192, 1
   %inc4.i.i.i.i.sink.i195 = add nsw i64 %inc4.i.i.i.i.sink.in.i191, 1
-  store i64 %inc4.i.i.i.i.sink.i195, ptr %bit_length_.i.i.i47.i.i166, align 8, !noalias !1408
-  store i64 %inc.i.i.i.sink.i194, ptr %length_.i.i.i.i168, align 8, !noalias !1408
+  store i64 %inc4.i.i.i.i.sink.i195, ptr %bit_length_.i.i.i47.i.i166, align 8, !noalias !1414
+  store i64 %inc.i.i.i.sink.i194, ptr %length_.i.i.i.i168, align 8, !noalias !1414
   %97 = load ptr, ptr %data_.i.i.i55.i.i170, align 8, !noalias !1414
   %98 = load i64, ptr %size_.i.i.i56.i.i171, align 8, !noalias !1414
   %add.ptr.i.i.i.i.i196 = getelementptr inbounds i8, ptr %97, i64 %98
@@ -13956,8 +13956,8 @@ for.inc.i.i269:                                   ; preds = %if.else.i.i261, %if
   %.sink.i.i272 = phi i16 [ %110, %if.then17.i.i287 ], [ 0, %if.else.i.i261 ]
   %inc.i.i.i.sink.i273 = add nsw i64 %inc.i.i.i.sink.in.i271, 1
   %inc4.i.i.i.i.sink.i274 = add nsw i64 %inc4.i.i.i.i.sink.in.i270, 1
-  store i64 %inc4.i.i.i.i.sink.i274, ptr %bit_length_.i.i.i47.i.i245, align 8, !noalias !1429
-  store i64 %inc.i.i.i.sink.i273, ptr %length_.i.i.i.i247, align 8, !noalias !1429
+  store i64 %inc4.i.i.i.i.sink.i274, ptr %bit_length_.i.i.i47.i.i245, align 8, !noalias !1435
+  store i64 %inc.i.i.i.sink.i273, ptr %length_.i.i.i.i247, align 8, !noalias !1435
   %126 = load ptr, ptr %data_.i.i.i55.i.i249, align 8, !noalias !1435
   %127 = load i64, ptr %size_.i.i.i56.i.i250, align 8, !noalias !1435
   %add.ptr.i.i.i.i.i275 = getelementptr inbounds i8, ptr %126, i64 %127
@@ -14111,8 +14111,8 @@ for.inc.i.i348:                                   ; preds = %if.else.i.i340, %if
   %.sink.i.i351 = phi i16 [ %139, %if.then17.i.i366 ], [ 0, %if.else.i.i340 ]
   %inc.i.i.i.sink.i352 = add nsw i64 %inc.i.i.i.sink.in.i350, 1
   %inc4.i.i.i.i.sink.i353 = add nsw i64 %inc4.i.i.i.i.sink.in.i349, 1
-  store i64 %inc4.i.i.i.i.sink.i353, ptr %bit_length_.i.i.i47.i.i324, align 8, !noalias !1450
-  store i64 %inc.i.i.i.sink.i352, ptr %length_.i.i.i.i326, align 8, !noalias !1450
+  store i64 %inc4.i.i.i.i.sink.i353, ptr %bit_length_.i.i.i47.i.i324, align 8, !noalias !1456
+  store i64 %inc.i.i.i.sink.i352, ptr %length_.i.i.i.i326, align 8, !noalias !1456
   %155 = load ptr, ptr %data_.i.i.i55.i.i328, align 8, !noalias !1456
   %156 = load i64, ptr %size_.i.i.i56.i.i329, align 8, !noalias !1456
   %add.ptr.i.i.i.i.i354 = getelementptr inbounds i8, ptr %155, i64 %156
@@ -14266,8 +14266,8 @@ for.inc.i.i427:                                   ; preds = %if.else.i.i419, %if
   %.sink.i.i430 = phi i32 [ %168, %if.then17.i.i445 ], [ 0, %if.else.i.i419 ]
   %inc.i.i.i.sink.i431 = add nsw i64 %inc.i.i.i.sink.in.i429, 1
   %inc4.i.i.i.i.sink.i432 = add nsw i64 %inc4.i.i.i.i.sink.in.i428, 1
-  store i64 %inc4.i.i.i.i.sink.i432, ptr %bit_length_.i.i.i47.i.i403, align 8, !noalias !1471
-  store i64 %inc.i.i.i.sink.i431, ptr %length_.i.i.i.i405, align 8, !noalias !1471
+  store i64 %inc4.i.i.i.i.sink.i432, ptr %bit_length_.i.i.i47.i.i403, align 8, !noalias !1477
+  store i64 %inc.i.i.i.sink.i431, ptr %length_.i.i.i.i405, align 8, !noalias !1477
   %184 = load ptr, ptr %data_.i.i.i55.i.i407, align 8, !noalias !1477
   %185 = load i64, ptr %size_.i.i.i56.i.i408, align 8, !noalias !1477
   %add.ptr.i.i.i.i.i433 = getelementptr inbounds i8, ptr %184, i64 %185
@@ -14421,8 +14421,8 @@ for.inc.i.i506:                                   ; preds = %if.else.i.i498, %if
   %.sink.i.i509 = phi i32 [ %197, %if.then17.i.i524 ], [ 0, %if.else.i.i498 ]
   %inc.i.i.i.sink.i510 = add nsw i64 %inc.i.i.i.sink.in.i508, 1
   %inc4.i.i.i.i.sink.i511 = add nsw i64 %inc4.i.i.i.i.sink.in.i507, 1
-  store i64 %inc4.i.i.i.i.sink.i511, ptr %bit_length_.i.i.i47.i.i482, align 8, !noalias !1492
-  store i64 %inc.i.i.i.sink.i510, ptr %length_.i.i.i.i484, align 8, !noalias !1492
+  store i64 %inc4.i.i.i.i.sink.i511, ptr %bit_length_.i.i.i47.i.i482, align 8, !noalias !1498
+  store i64 %inc.i.i.i.sink.i510, ptr %length_.i.i.i.i484, align 8, !noalias !1498
   %213 = load ptr, ptr %data_.i.i.i55.i.i486, align 8, !noalias !1498
   %214 = load i64, ptr %size_.i.i.i56.i.i487, align 8, !noalias !1498
   %add.ptr.i.i.i.i.i512 = getelementptr inbounds i8, ptr %213, i64 %214
@@ -14576,8 +14576,8 @@ for.inc.i.i585:                                   ; preds = %if.else.i.i577, %if
   %.sink.i.i588 = phi i64 [ %226, %if.then17.i.i603 ], [ 0, %if.else.i.i577 ]
   %inc.i.i.i.sink.i589 = add nsw i64 %inc.i.i.i.sink.in.i587, 1
   %inc4.i.i.i.i.sink.i590 = add nsw i64 %inc4.i.i.i.i.sink.in.i586, 1
-  store i64 %inc4.i.i.i.i.sink.i590, ptr %bit_length_.i.i.i47.i.i561, align 8, !noalias !1513
-  store i64 %inc.i.i.i.sink.i589, ptr %length_.i.i.i.i563, align 8, !noalias !1513
+  store i64 %inc4.i.i.i.i.sink.i590, ptr %bit_length_.i.i.i47.i.i561, align 8, !noalias !1519
+  store i64 %inc.i.i.i.sink.i589, ptr %length_.i.i.i.i563, align 8, !noalias !1519
   %242 = load ptr, ptr %data_.i.i.i55.i.i565, align 8, !noalias !1519
   %243 = load i64, ptr %size_.i.i.i56.i.i566, align 8, !noalias !1519
   %add.ptr.i.i.i.i.i591 = getelementptr inbounds i8, ptr %242, i64 %243
@@ -14731,8 +14731,8 @@ for.inc.i.i664:                                   ; preds = %if.else.i.i656, %if
   %.sink.i.i667 = phi i64 [ %255, %if.then17.i.i682 ], [ 0, %if.else.i.i656 ]
   %inc.i.i.i.sink.i668 = add nsw i64 %inc.i.i.i.sink.in.i666, 1
   %inc4.i.i.i.i.sink.i669 = add nsw i64 %inc4.i.i.i.i.sink.in.i665, 1
-  store i64 %inc4.i.i.i.i.sink.i669, ptr %bit_length_.i.i.i47.i.i640, align 8, !noalias !1534
-  store i64 %inc.i.i.i.sink.i668, ptr %length_.i.i.i.i642, align 8, !noalias !1534
+  store i64 %inc4.i.i.i.i.sink.i669, ptr %bit_length_.i.i.i47.i.i640, align 8, !noalias !1540
+  store i64 %inc.i.i.i.sink.i668, ptr %length_.i.i.i.i642, align 8, !noalias !1540
   %271 = load ptr, ptr %data_.i.i.i55.i.i644, align 8, !noalias !1540
   %272 = load i64, ptr %size_.i.i.i56.i.i645, align 8, !noalias !1540
   %add.ptr.i.i.i.i.i670 = getelementptr inbounds i8, ptr %271, i64 %272
@@ -14886,8 +14886,8 @@ for.inc.i.i743:                                   ; preds = %if.else.i.i735, %if
   %.sink.i.i746 = phi i16 [ %284, %if.then17.i.i761 ], [ 0, %if.else.i.i735 ]
   %inc.i.i.i.sink.i747 = add nsw i64 %inc.i.i.i.sink.in.i745, 1
   %inc4.i.i.i.i.sink.i748 = add nsw i64 %inc4.i.i.i.i.sink.in.i744, 1
-  store i64 %inc4.i.i.i.i.sink.i748, ptr %bit_length_.i.i.i47.i.i719, align 8, !noalias !1555
-  store i64 %inc.i.i.i.sink.i747, ptr %length_.i.i.i.i721, align 8, !noalias !1555
+  store i64 %inc4.i.i.i.i.sink.i748, ptr %bit_length_.i.i.i47.i.i719, align 8, !noalias !1561
+  store i64 %inc.i.i.i.sink.i747, ptr %length_.i.i.i.i721, align 8, !noalias !1561
   %300 = load ptr, ptr %data_.i.i.i55.i.i723, align 8, !noalias !1561
   %301 = load i64, ptr %size_.i.i.i56.i.i724, align 8, !noalias !1561
   %add.ptr.i.i.i.i.i749 = getelementptr inbounds i8, ptr %300, i64 %301
@@ -15041,8 +15041,8 @@ for.inc.i.i822:                                   ; preds = %if.else.i.i814, %if
   %.sink.i.i825 = phi float [ %313, %if.then17.i.i840 ], [ 0.000000e+00, %if.else.i.i814 ]
   %inc.i.i.i.sink.i826 = add nsw i64 %inc.i.i.i.sink.in.i824, 1
   %inc4.i.i.i.i.sink.i827 = add nsw i64 %inc4.i.i.i.i.sink.in.i823, 1
-  store i64 %inc4.i.i.i.i.sink.i827, ptr %bit_length_.i.i.i47.i.i798, align 8, !noalias !1576
-  store i64 %inc.i.i.i.sink.i826, ptr %length_.i.i.i.i800, align 8, !noalias !1576
+  store i64 %inc4.i.i.i.i.sink.i827, ptr %bit_length_.i.i.i47.i.i798, align 8, !noalias !1582
+  store i64 %inc.i.i.i.sink.i826, ptr %length_.i.i.i.i800, align 8, !noalias !1582
   %329 = load ptr, ptr %data_.i.i.i55.i.i802, align 8, !noalias !1582
   %330 = load i64, ptr %size_.i.i.i56.i.i803, align 8, !noalias !1582
   %add.ptr.i.i.i.i.i828 = getelementptr inbounds i8, ptr %329, i64 %330
@@ -15196,8 +15196,8 @@ for.inc.i.i901:                                   ; preds = %if.else.i.i893, %if
   %.sink.i.i904 = phi double [ %342, %if.then17.i.i919 ], [ 0.000000e+00, %if.else.i.i893 ]
   %inc.i.i.i.sink.i905 = add nsw i64 %inc.i.i.i.sink.in.i903, 1
   %inc4.i.i.i.i.sink.i906 = add nsw i64 %inc4.i.i.i.i.sink.in.i902, 1
-  store i64 %inc4.i.i.i.i.sink.i906, ptr %bit_length_.i.i.i47.i.i877, align 8, !noalias !1597
-  store i64 %inc.i.i.i.sink.i905, ptr %length_.i.i.i.i879, align 8, !noalias !1597
+  store i64 %inc4.i.i.i.i.sink.i906, ptr %bit_length_.i.i.i47.i.i877, align 8, !noalias !1603
+  store i64 %inc.i.i.i.sink.i905, ptr %length_.i.i.i.i879, align 8, !noalias !1603
   %358 = load ptr, ptr %data_.i.i.i55.i.i881, align 8, !noalias !1603
   %359 = load i64, ptr %size_.i.i.i56.i.i882, align 8, !noalias !1603
   %add.ptr.i.i.i.i.i907 = getelementptr inbounds i8, ptr %358, i64 %359
@@ -15424,8 +15424,8 @@ for.inc60.i:                                      ; preds = %if.else.i, %if.then
   %inc.i.i.i.sink.in = phi i64 [ %393, %if.then55.i ], [ %405, %if.else.i ]
   %inc.i.i.i.sink = add nsw i64 %inc.i.i.i.sink.in, 1
   %inc4.i.i.i.i939.sink = add nsw i64 %inc4.i.i.i.i939.sink.in, 1
-  store i64 %inc4.i.i.i.i939.sink, ptr %bit_length_.i.i.i.i, align 8
-  store i64 %inc.i.i.i.sink, ptr %length_.i.i.i, align 8
+  store i64 %inc4.i.i.i.i939.sink, ptr %bit_length_.i.i.i.i, align 8, !noalias !1618
+  store i64 %inc.i.i.i.sink, ptr %length_.i.i.i, align 8, !noalias !1618
   %incdec.ptr.i.i131.i = getelementptr inbounds i8, ptr %it44.sroa.0.012.i, i64 16
   %scalars_end_.val11.i = load ptr, ptr %scalars_end_.i, align 8, !noalias !1618
   %cmp.i.i128.not.i = icmp eq ptr %incdec.ptr.i.i131.i, %scalars_end_.val11.i
@@ -15945,8 +15945,8 @@ for.inc60.i1100:                                  ; preds = %if.else.i1087, %if.
   %inc.i.i.i1098.sink.in = phi i64 [ %489, %if.then55.i1110 ], [ %501, %if.else.i1087 ]
   %inc.i.i.i1098.sink = add nsw i64 %inc.i.i.i1098.sink.in, 1
   %inc4.i.i.i.i1097.sink = add nsw i64 %inc4.i.i.i.i1097.sink.in, 1
-  store i64 %inc4.i.i.i.i1097.sink, ptr %bit_length_.i.i.i.i1072, align 8
-  store i64 %inc.i.i.i1098.sink, ptr %length_.i.i.i1074, align 8
+  store i64 %inc4.i.i.i.i1097.sink, ptr %bit_length_.i.i.i.i1072, align 8, !noalias !1664
+  store i64 %inc.i.i.i1098.sink, ptr %length_.i.i.i1074, align 8, !noalias !1664
   %incdec.ptr.i.i131.i1101 = getelementptr inbounds i8, ptr %it44.sroa.0.012.i1083, i64 16
   %scalars_end_.val11.i1102 = load ptr, ptr %scalars_end_.i1033, align 8, !noalias !1664
   %cmp.i.i128.not.i1103 = icmp eq ptr %incdec.ptr.i.i131.i1101, %scalars_end_.val11.i1102
@@ -16462,8 +16462,8 @@ for.inc60.i1363:                                  ; preds = %if.else.i1351, %if.
   %inc.i.i.i1361.sink.in = phi i64 [ %585, %if.then55.i1373 ], [ %597, %if.else.i1351 ]
   %inc.i.i.i1361.sink = add nsw i64 %inc.i.i.i1361.sink.in, 1
   %inc4.i.i.i.i1360.sink = add nsw i64 %inc4.i.i.i.i1360.sink.in, 1
-  store i64 %inc4.i.i.i.i1360.sink, ptr %bit_length_.i.i.i.i1336, align 8
-  store i64 %inc.i.i.i1361.sink, ptr %length_.i.i.i1338, align 8
+  store i64 %inc4.i.i.i.i1360.sink, ptr %bit_length_.i.i.i.i1336, align 8, !noalias !1710
+  store i64 %inc.i.i.i1361.sink, ptr %length_.i.i.i1338, align 8, !noalias !1710
   %incdec.ptr.i.i131.i1364 = getelementptr inbounds i8, ptr %it44.sroa.0.012.i1347, i64 16
   %scalars_end_.val11.i1365 = load ptr, ptr %scalars_end_.i1297, align 8, !noalias !1710
   %cmp.i.i128.not.i1366 = icmp eq ptr %incdec.ptr.i.i131.i1364, %scalars_end_.val11.i1365
@@ -16680,8 +16680,8 @@ for.inc60.i1467:                                  ; preds = %if.else.i1455, %if.
   %inc.i.i.i1465.sink.in = phi i64 [ %632, %if.then55.i1477 ], [ %644, %if.else.i1455 ]
   %inc.i.i.i1465.sink = add nsw i64 %inc.i.i.i1465.sink.in, 1
   %inc4.i.i.i.i1464.sink = add nsw i64 %inc4.i.i.i.i1464.sink.in, 1
-  store i64 %inc4.i.i.i.i1464.sink, ptr %bit_length_.i.i.i.i1440, align 8
-  store i64 %inc.i.i.i1465.sink, ptr %length_.i.i.i1442, align 8
+  store i64 %inc4.i.i.i.i1464.sink, ptr %bit_length_.i.i.i.i1440, align 8, !noalias !1733
+  store i64 %inc.i.i.i1465.sink, ptr %length_.i.i.i1442, align 8, !noalias !1733
   %incdec.ptr.i.i131.i1468 = getelementptr inbounds i8, ptr %it44.sroa.0.012.i1451, i64 16
   %scalars_end_.val11.i1469 = load ptr, ptr %scalars_end_.i1401, align 8, !noalias !1733
   %cmp.i.i128.not.i1470 = icmp eq ptr %incdec.ptr.i.i131.i1468, %scalars_end_.val11.i1469
@@ -17004,8 +17004,8 @@ for.inc.i.i1620:                                  ; preds = %if.else.i.i1612, %i
   %.sink.i.i1623 = phi i64 [ %692, %if.then17.i.i1638 ], [ 0, %if.else.i.i1612 ]
   %inc.i.i.i.sink.i1624 = add nsw i64 %inc.i.i.i.sink.in.i1622, 1
   %inc4.i.i.i.i.sink.i1625 = add nsw i64 %inc4.i.i.i.i.sink.in.i1621, 1
-  store i64 %inc4.i.i.i.i.sink.i1625, ptr %bit_length_.i.i.i47.i.i1596, align 8, !noalias !1777
-  store i64 %inc.i.i.i.sink.i1624, ptr %length_.i.i.i.i1598, align 8, !noalias !1777
+  store i64 %inc4.i.i.i.i.sink.i1625, ptr %bit_length_.i.i.i47.i.i1596, align 8, !noalias !1783
+  store i64 %inc.i.i.i.sink.i1624, ptr %length_.i.i.i.i1598, align 8, !noalias !1783
   %708 = load ptr, ptr %data_.i.i.i55.i.i1600, align 8, !noalias !1783
   %709 = load i64, ptr %size_.i.i.i56.i.i1601, align 8, !noalias !1783
   %add.ptr.i.i.i.i.i1626 = getelementptr inbounds i8, ptr %708, i64 %709
@@ -17159,8 +17159,8 @@ for.inc.i.i1699:                                  ; preds = %if.else.i.i1691, %i
   %.sink.i.i1702 = phi i32 [ %721, %if.then17.i.i1717 ], [ 0, %if.else.i.i1691 ]
   %inc.i.i.i.sink.i1703 = add nsw i64 %inc.i.i.i.sink.in.i1701, 1
   %inc4.i.i.i.i.sink.i1704 = add nsw i64 %inc4.i.i.i.i.sink.in.i1700, 1
-  store i64 %inc4.i.i.i.i.sink.i1704, ptr %bit_length_.i.i.i47.i.i1675, align 8, !noalias !1798
-  store i64 %inc.i.i.i.sink.i1703, ptr %length_.i.i.i.i1677, align 8, !noalias !1798
+  store i64 %inc4.i.i.i.i.sink.i1704, ptr %bit_length_.i.i.i47.i.i1675, align 8, !noalias !1804
+  store i64 %inc.i.i.i.sink.i1703, ptr %length_.i.i.i.i1677, align 8, !noalias !1804
   %737 = load ptr, ptr %data_.i.i.i55.i.i1679, align 8, !noalias !1804
   %738 = load i64, ptr %size_.i.i.i56.i.i1680, align 8, !noalias !1804
   %add.ptr.i.i.i.i.i1705 = getelementptr inbounds i8, ptr %737, i64 %738
@@ -17314,8 +17314,8 @@ for.inc.i.i1778:                                  ; preds = %if.else.i.i1770, %i
   %.sink.i.i1781 = phi i64 [ %750, %if.then17.i.i1796 ], [ 0, %if.else.i.i1770 ]
   %inc.i.i.i.sink.i1782 = add nsw i64 %inc.i.i.i.sink.in.i1780, 1
   %inc4.i.i.i.i.sink.i1783 = add nsw i64 %inc4.i.i.i.i.sink.in.i1779, 1
-  store i64 %inc4.i.i.i.i.sink.i1783, ptr %bit_length_.i.i.i47.i.i1754, align 8, !noalias !1819
-  store i64 %inc.i.i.i.sink.i1782, ptr %length_.i.i.i.i1756, align 8, !noalias !1819
+  store i64 %inc4.i.i.i.i.sink.i1783, ptr %bit_length_.i.i.i47.i.i1754, align 8, !noalias !1825
+  store i64 %inc.i.i.i.sink.i1782, ptr %length_.i.i.i.i1756, align 8, !noalias !1825
   %766 = load ptr, ptr %data_.i.i.i55.i.i1758, align 8, !noalias !1825
   %767 = load i64, ptr %size_.i.i.i56.i.i1759, align 8, !noalias !1825
   %add.ptr.i.i.i.i.i1784 = getelementptr inbounds i8, ptr %766, i64 %767
@@ -17469,8 +17469,8 @@ for.inc.i.i1857:                                  ; preds = %if.else.i.i1849, %i
   %.sink.i.i1860 = phi i64 [ %779, %if.then17.i.i1875 ], [ 0, %if.else.i.i1849 ]
   %inc.i.i.i.sink.i1861 = add nsw i64 %inc.i.i.i.sink.in.i1859, 1
   %inc4.i.i.i.i.sink.i1862 = add nsw i64 %inc4.i.i.i.i.sink.in.i1858, 1
-  store i64 %inc4.i.i.i.i.sink.i1862, ptr %bit_length_.i.i.i47.i.i1833, align 8, !noalias !1840
-  store i64 %inc.i.i.i.sink.i1861, ptr %length_.i.i.i.i1835, align 8, !noalias !1840
+  store i64 %inc4.i.i.i.i.sink.i1862, ptr %bit_length_.i.i.i47.i.i1833, align 8, !noalias !1846
+  store i64 %inc.i.i.i.sink.i1861, ptr %length_.i.i.i.i1835, align 8, !noalias !1846
   %795 = load ptr, ptr %data_.i.i.i55.i.i1837, align 8, !noalias !1846
   %796 = load i64, ptr %size_.i.i.i56.i.i1838, align 8, !noalias !1846
   %add.ptr.i.i.i.i.i1863 = getelementptr inbounds i8, ptr %795, i64 %796
@@ -17624,8 +17624,8 @@ for.inc.i.i1936:                                  ; preds = %if.else.i.i1928, %i
   %.sink.i.i1939 = phi i32 [ %808, %if.then17.i.i1954 ], [ 0, %if.else.i.i1928 ]
   %inc.i.i.i.sink.i1940 = add nsw i64 %inc.i.i.i.sink.in.i1938, 1
   %inc4.i.i.i.i.sink.i1941 = add nsw i64 %inc4.i.i.i.i.sink.in.i1937, 1
-  store i64 %inc4.i.i.i.i.sink.i1941, ptr %bit_length_.i.i.i47.i.i1912, align 8, !noalias !1861
-  store i64 %inc.i.i.i.sink.i1940, ptr %length_.i.i.i.i1914, align 8, !noalias !1861
+  store i64 %inc4.i.i.i.i.sink.i1941, ptr %bit_length_.i.i.i47.i.i1912, align 8, !noalias !1867
+  store i64 %inc.i.i.i.sink.i1940, ptr %length_.i.i.i.i1914, align 8, !noalias !1867
   %824 = load ptr, ptr %data_.i.i.i55.i.i1916, align 8, !noalias !1867
   %825 = load i64, ptr %size_.i.i.i56.i.i1917, align 8, !noalias !1867
   %add.ptr.i.i.i.i.i1942 = getelementptr inbounds i8, ptr %824, i64 %825
@@ -17779,8 +17779,8 @@ for.inc.i.i2015:                                  ; preds = %if.else.i.i2007, %i
   %.sink.i.i2018 = phi i64 [ %837, %if.then17.i.i2033 ], [ 0, %if.else.i.i2007 ]
   %inc.i.i.i.sink.i2019 = add nsw i64 %inc.i.i.i.sink.in.i2017, 1
   %inc4.i.i.i.i.sink.i2020 = add nsw i64 %inc4.i.i.i.i.sink.in.i2016, 1
-  store i64 %inc4.i.i.i.i.sink.i2020, ptr %bit_length_.i.i.i47.i.i1991, align 8, !noalias !1882
-  store i64 %inc.i.i.i.sink.i2019, ptr %length_.i.i.i.i1993, align 8, !noalias !1882
+  store i64 %inc4.i.i.i.i.sink.i2020, ptr %bit_length_.i.i.i47.i.i1991, align 8, !noalias !1888
+  store i64 %inc.i.i.i.sink.i2019, ptr %length_.i.i.i.i1993, align 8, !noalias !1888
   %853 = load ptr, ptr %data_.i.i.i55.i.i1995, align 8, !noalias !1888
   %854 = load i64, ptr %size_.i.i.i56.i.i1996, align 8, !noalias !1888
   %add.ptr.i.i.i.i.i2021 = getelementptr inbounds i8, ptr %853, i64 %854
@@ -18098,8 +18098,8 @@ for.inc.i.i2172:                                  ; preds = %if.else.i.i2164, %i
   %.sink.i.i2175 = phi i32 [ %896, %if.then17.i.i2190 ], [ 0, %if.else.i.i2164 ]
   %inc.i.i.i.sink.i2176 = add nsw i64 %inc.i.i.i.sink.in.i2174, 1
   %inc4.i.i.i.i.sink.i2177 = add nsw i64 %inc4.i.i.i.i.sink.in.i2173, 1
-  store i64 %inc4.i.i.i.i.sink.i2177, ptr %bit_length_.i.i.i47.i.i2148, align 8, !noalias !1924
-  store i64 %inc.i.i.i.sink.i2176, ptr %length_.i.i.i.i2150, align 8, !noalias !1924
+  store i64 %inc4.i.i.i.i.sink.i2177, ptr %bit_length_.i.i.i47.i.i2148, align 8, !noalias !1930
+  store i64 %inc.i.i.i.sink.i2176, ptr %length_.i.i.i.i2150, align 8, !noalias !1930
   %912 = load ptr, ptr %data_.i.i.i55.i.i2152, align 8, !noalias !1930
   %913 = load i64, ptr %size_.i.i.i56.i.i2153, align 8, !noalias !1930
   %add.ptr.i.i.i.i.i2178 = getelementptr inbounds i8, ptr %912, i64 %913
@@ -18253,8 +18253,8 @@ for.inc.i.i2251:                                  ; preds = %if.else.i.i2243, %i
   %agg.tmp.sroa.0.0.copyload.sink.i.i = phi i64 [ %agg.tmp.sroa.0.0.copyload.i.i2270, %if.then17.i.i2268 ], [ 0, %if.else.i.i2243 ]
   %inc.i.i.i.sink.i2254 = add nsw i64 %inc.i.i.i.sink.in.i2253, 1
   %inc4.i.i.i.i.sink.i2255 = add nsw i64 %inc4.i.i.i.i.sink.in.i2252, 1
-  store i64 %inc4.i.i.i.i.sink.i2255, ptr %bit_length_.i.i.i47.i.i2227, align 8, !noalias !1945
-  store i64 %inc.i.i.i.sink.i2254, ptr %length_.i.i.i.i2229, align 8, !noalias !1945
+  store i64 %inc4.i.i.i.i.sink.i2255, ptr %bit_length_.i.i.i47.i.i2227, align 8, !noalias !1951
+  store i64 %inc.i.i.i.sink.i2254, ptr %length_.i.i.i.i2229, align 8, !noalias !1951
   %940 = load ptr, ptr %data_.i.i.i55.i.i2231, align 8, !noalias !1951
   %941 = load i64, ptr %size_.i.i.i56.i.i2232, align 8, !noalias !1951
   %add.ptr.i.i.i.i.i2256 = getelementptr inbounds i8, ptr %940, i64 %941

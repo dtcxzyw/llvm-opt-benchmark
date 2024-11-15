@@ -1561,11 +1561,11 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %12, i64 %.sroa.4.0.copyload, i1 false)
   %.sink11 = extractvalue { i64, ptr } %15, 0
-  store i64 %.sink11, ptr %0, align 8
+  store i64 %.sink11, ptr %0, align 8, !noalias !4
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %16, ptr %18, align 8
+  store ptr %16, ptr %18, align 8, !noalias !4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %19, align 8
+  store i64 %.sroa.4.0.copyload, ptr %19, align 8, !noalias !4
   br label %22
 
 20:                                               ; preds = %2
@@ -2162,8 +2162,8 @@ define hidden void @"_ZN83_$LT$serde_json..value..de..KeyClassifier$u20$as$u20$s
   %.sink.i = phi ptr [ %16, %13 ], [ %12, %2 ]
   %.sink11.i.sink.i = phi i64 [ %.sink11.i.i, %13 ], [ -9223372036854775808, %2 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %19, align 8, !alias.scope !295, !noalias !298
-  store i64 %.sink11.i.sink.i, ptr %0, align 8, !alias.scope !295, !noalias !298
+  store ptr %.sink.i, ptr %19, align 8, !alias.scope !308, !noalias !309
+  store i64 %.sink11.i.sink.i, ptr %0, align 8, !alias.scope !308, !noalias !309
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !310
   ret void
 }
@@ -2471,8 +2471,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %.sink = phi ptr [ %16, %13 ], [ %12, %2 ]
   %.sink11.i.sink = phi i64 [ %.sink11.i, %13 ], [ -9223372036854775808, %2 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %19, align 8
-  store i64 %.sink11.i.sink, ptr %0, align 8
+  store ptr %.sink, ptr %19, align 8, !alias.scope !366, !noalias !369
+  store i64 %.sink11.i.sink, ptr %0, align 8, !alias.scope !366, !noalias !369
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !374
   ret void
 }

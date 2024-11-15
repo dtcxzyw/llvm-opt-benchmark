@@ -64684,7 +64684,7 @@ default.unreachable891:                           ; preds = %1296, %1134, %770, 
 
 125:                                              ; preds = %123, %121
   %.sink.i = phi i16 [ 1, %123 ], [ 0, %121 ]
-  store i16 %.sink.i, ptr %119, align 4, !noalias !15397
+  store i16 %.sink.i, ptr %119, align 4, !alias.scope !15404, !noalias !15406
   %126 = getelementptr inbounds i8, ptr %1, i64 1256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %126, i8 0, i64 10, i1 false), !noalias !15397
   %127 = getelementptr inbounds i8, ptr %1, i64 1120

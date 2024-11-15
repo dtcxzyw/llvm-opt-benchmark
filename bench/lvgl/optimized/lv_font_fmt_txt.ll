@@ -314,7 +314,7 @@ default.unreachable:                              ; preds = %.lr.ph167
   %.sink.in = getelementptr inbounds [16 x i8], ptr @opa4_table, i64 0, i64 %.pn
   %.sink = load i8, ptr %.sink.in, align 1, !tbaa !15
   %130 = getelementptr inbounds i8, ptr %.2118161, i64 %indvars.iv
-  store i8 %.sink, ptr %130, align 1
+  store i8 %.sink, ptr %130, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %131 = add nuw nsw i32 %126, 1
   %132 = load i8, ptr %15, align 4, !tbaa !18

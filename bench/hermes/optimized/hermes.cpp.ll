@@ -8954,7 +8954,7 @@ _ZN8facebook6hermes17HermesRuntimeImpl9HFContextC2ESt8functionIFNS_3jsi5ValueERN
 
 _ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFNS0_3jsi5ValueERNS5_7RuntimeERKS6_PS9_mEERS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZN8facebook6hermes17HermesRuntimeImpl9HFContextC2ESt8functionIFNS_3jsi5ValueERNS4_7RuntimeERKS5_PS8_mEERS1_.exit.thread.i, %_ZN8facebook6hermes17HermesRuntimeImpl9HFContextC2ESt8functionIFNS_3jsi5ValueERNS4_7RuntimeERKS5_PS8_mEERS1_.exit.i
   %2 = getelementptr inbounds i8, ptr %call.i, i64 24
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !noalias !157
   %3 = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %this, ptr %3, align 8, !noalias !157
   store ptr %call.i, ptr %context, align 8, !alias.scope !157
@@ -23739,7 +23739,7 @@ _ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i64 16, i1 false), !noalias !410
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i.i1.i.i, align 8, !noalias !410
   %3 = getelementptr inbounds i8, ptr %call.i.i7, i64 24
-  store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %3, align 8, !noalias !413
+  store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %3, align 8, !noalias !410
   %4 = getelementptr inbounds i8, ptr %call.i.i7, i64 32
   store ptr %0, ptr %4, align 8, !noalias !410
   store ptr %call.i.i7, ptr %context.i, align 8, !alias.scope !407, !noalias !413

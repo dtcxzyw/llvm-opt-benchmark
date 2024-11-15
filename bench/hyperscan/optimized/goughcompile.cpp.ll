@@ -22064,13 +22064,13 @@ _ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EE
   %.sink4.i.i.i.i = phi ptr [ %17, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %14, %for.body.i.i.i.i ]
   %.sink.i.i.i.i = phi ptr [ %18, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %14, %for.body.i.i.i.i ]
   %.sink.i.i.i.i.i = phi i64 [ %19, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i ]
-  store i32 %.sink6.i.i.i.i, ptr %14, align 8
+  store i32 %.sink6.i.i.i.i, ptr %14, align 8, !alias.scope !694, !noalias !697
   %20 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 16
-  store ptr %15, ptr %20, align 8
+  store ptr %15, ptr %20, align 8, !alias.scope !694, !noalias !697
   %21 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 24
-  store ptr %.sink4.i.i.i.i, ptr %21, align 8
+  store ptr %.sink4.i.i.i.i, ptr %21, align 8, !alias.scope !694, !noalias !697
   %22 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 32
-  store ptr %.sink.i.i.i.i, ptr %22, align 8
+  store ptr %.sink.i.i.i.i, ptr %22, align 8, !alias.scope !694, !noalias !697
   %23 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 40
   store i64 %.sink.i.i.i.i.i, ptr %23, align 8, !alias.scope !694, !noalias !697
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 48

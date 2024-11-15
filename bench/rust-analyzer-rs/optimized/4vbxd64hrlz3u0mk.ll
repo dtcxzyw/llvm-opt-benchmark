@@ -15930,7 +15930,7 @@ define hidden void @"_ZN6either19Either$LT$L$C$R$GT$6either17h131b50c18ca0cff8E"
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  store i32 3, ptr %0, align 4
+  store i32 3, ptr %0, align 4, !noalias !11
   ret void
 }
 

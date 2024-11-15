@@ -5431,7 +5431,7 @@ _ZN3rsa8pkcs1v157decrypt17h37271c9b3068f28fE.exit.thread: ; preds = %_ZN3rsa8pkc
   %.sink = phi i64 [ %.sroa.067.0, %844 ], [ -9223372036854775808, %843 ]
   %.sroa.067.0.sink = phi i64 [ %846, %844 ], [ %.sroa.067.0, %843 ]
   %.sroa.668.0.sink = phi ptr [ %847, %844 ], [ %.sroa.668.0, %843 ]
-  store i64 %.sink, ptr %95, align 8
+  store i64 %.sink, ptr %95, align 8, !noalias !1403
   %851 = getelementptr inbounds i8, ptr %95, i64 8
   store i64 %.sroa.067.0.sink, ptr %851, align 8
   %852 = getelementptr inbounds i8, ptr %95, i64 16

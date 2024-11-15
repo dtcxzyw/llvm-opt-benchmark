@@ -70,7 +70,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %.sink = phi i32 [ %35, %34 ], [ 1, %26 ]
   %39 = phi i32 [ %.pr8, %34 ], [ %31, %26 ]
   %40 = phi i32 [ %36, %34 ], [ %31, %26 ]
-  store i32 %.sink, ptr %11, align 4
+  store i32 %.sink, ptr %11, align 4, !tbaa !3
   store i32 %40, ptr %12, align 4, !tbaa !3
   %41 = icmp sgt i32 %.sink, %.pre-phi
   %42 = icmp slt i32 %.sink, 1

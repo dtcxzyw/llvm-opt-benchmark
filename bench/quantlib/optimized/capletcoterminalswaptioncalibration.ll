@@ -3191,9 +3191,9 @@ do.body777:                                       ; preds = %if.then768, %if.els
   %call774.sink = phi double [ 0.000000e+00, %if.then768 ], [ %call774, %if.else772 ]
   %failures.2 = phi i32 [ %inc769, %if.then768 ], [ %failures.1, %if.else772 ]
   %221 = getelementptr inbounds nuw double, ptr %a.sroa.0.01677, i64 %i459.0
-  store double %root.1, ptr %221, align 8
+  store double %root.1, ptr %221, align 8, !tbaa !77
   %222 = getelementptr inbounds nuw double, ptr %b.sroa.0.0, i64 %i459.0
-  store double %call774.sink, ptr %222, align 8
+  store double %call774.sink, ptr %222, align 8, !tbaa !77
   %cmp778 = fcmp ult double %root.1, 0.000000e+00
   %indvars.iv.next2129 = add i32 %indvars.iv2128, 1
   br i1 %cmp778, label %if.then779, label %for.cond460, !llvm.loop !112

@@ -8360,7 +8360,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %f
   br label %_ZSt19__relocate_object_aIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit.i.i.i.i.i.i.i.i, %if.else.i.i.i.i4.thread.i.i.i.i
-  store i64 %7, ptr %__cur.07.i.i.i, align 8
+  store i64 %7, ptr %__cur.07.i.i.i, align 8, !alias.scope !120, !noalias !123
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -8394,7 +8394,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit.i.i.i.i.i.i.i.i22: ; preds = 
   br label %_ZSt19__relocate_object_aIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i17
 
 _ZSt19__relocate_object_aIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i17: ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit.i.i.i.i.i.i.i.i22, %if.else.i.i.i.i4.thread.i.i.i.i16
-  store i64 %11, ptr %__cur.07.i.i.i13, align 8
+  store i64 %11, ptr %__cur.07.i.i.i13, align 8, !alias.scope !126, !noalias !129
   %incdec.ptr.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %incdec.ptr1.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %cmp.not.i.i.i20 = icmp eq ptr %incdec.ptr.i.i.i18, %0
@@ -8595,7 +8595,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %f
   br label %_ZSt19__relocate_object_aIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEES6_SaIS6_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit.i.i.i.i.i.i.i.i, %if.else.i.i.i.i4.thread.i.i.i.i
-  store i64 %19, ptr %__cur.07.i.i.i, align 8
+  store i64 %19, ptr %__cur.07.i.i.i, align 8, !alias.scope !132, !noalias !135
   %incdec.ptr.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i39 = icmp eq ptr %incdec.ptr.i.i.i38, %0
@@ -113171,7 +113171,7 @@ invoke.cont.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i
   br label %_ZSt19__relocate_object_aIN4absl8StatusOrISt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS6_EEEES9_SaIS9_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZSt19__relocate_object_aIN4absl8StatusOrISt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS6_EEEES9_SaIS9_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i4.thread.i.i.i.i.i
-  store i64 %3, ptr %__cur.07.i.i.i.i, align 8
+  store i64 %3, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !2020, !noalias !2023
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
@@ -113794,7 +113794,7 @@ invoke.cont.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i37
   br label %_ZSt19__relocate_object_aIN4absl8StatusOrISt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS6_EEEES9_SaIS9_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN4absl8StatusOrISt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS6_EEEES9_SaIS9_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i4.thread.i.i.i.i
-  store i64 %19, ptr %__cur.07.i.i.i, align 8
+  store i64 %19, ptr %__cur.07.i.i.i, align 8, !alias.scope !2029, !noalias !2032
   %incdec.ptr.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i39 = icmp eq ptr %incdec.ptr.i.i.i38, %0

@@ -5321,7 +5321,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit13.i.thre
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit13.i.thread, %62
   %64 = phi ptr [ %61, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit13.i.thread ], [ %63, %62 ]
-  store ptr %58, ptr %13, align 8
+  store ptr %58, ptr %13, align 8, !noalias !130
   %65 = load ptr, ptr %14, align 8, !noalias !130
   %.not.i.i16.i = icmp eq ptr %65, null
   br i1 %.not.i.i16.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit17.i, label %66

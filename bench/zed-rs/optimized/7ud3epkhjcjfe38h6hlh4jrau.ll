@@ -78572,8 +78572,8 @@ common.ret.sink.split.i39.i.i.i.i:                ; preds = %760, %.body.i.i.i.i
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hdba97be3811d25a6E.exit.i.i.i": ; preds = %865, %863
   %.sroa.3219.0.copyload.sink.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %863 ], [ %.sroa.3219.0.copyload.i.i.i, %865 ]
   %866 = getelementptr inbounds i8, ptr %187, i64 8
-  store ptr %.sroa.3219.0.copyload.sink.i.i.i, ptr %866, align 8, !noalias !18302
-  store i64 %855, ptr %187, align 8, !noalias !18302
+  store ptr %.sroa.3219.0.copyload.sink.i.i.i, ptr %866, align 8, !alias.scope !18643, !noalias !18302
+  store i64 %855, ptr %187, align 8, !alias.scope !18643, !noalias !18302
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit114.i.i.i"
 
 867:                                              ; preds = %868, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf900b049aca2ac23E.exit99.i.i.i"
@@ -111213,7 +111213,7 @@ define hidden void @_ZN5serde2de5Error15unknown_variant17h53ef203d44411d9eE(ptr 
   br label %20
 
 20:                                               ; preds = %"_ZN59_$LT$zvariant..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h365c840d124846d1E.exit29", %"_ZN59_$LT$zvariant..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h365c840d124846d1E.exit"
-  store i64 3, ptr %0, align 8
+  store i64 3, ptr %0, align 8, !noalias !22
   ret void
 }
 

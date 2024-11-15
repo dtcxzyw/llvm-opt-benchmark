@@ -6219,7 +6219,7 @@ invoke.cont13:                                    ; preds = %for.body.i.i.i.i.i.
   %40 = load i32, ptr %convention_.i16, align 8
   %spec.select = select i1 %loadedv.i.i, i32 %paymentConvention.sroa.3106.0.extract.trunc, i32 %40
   %41 = getelementptr inbounds nuw i8, ptr %this, i64 712
-  store i32 %spec.select, ptr %41, align 8
+  store i32 %spec.select, ptr %41, align 8, !tbaa !111
   invoke void @_ZN8QuantLib15NonstandardSwap4initEv(ptr noundef nonnull align 8 dereferenceable(718) %this)
           to label %invoke.cont25 unwind label %lpad18
 
@@ -6661,7 +6661,7 @@ invoke.cont11:                                    ; preds = %for.body.i.i.i.i.i.
   %38 = load i32, ptr %convention_.i21, align 8
   %spec.select = select i1 %loadedv.i.i, i32 %paymentConvention.sroa.3111.0.extract.trunc, i32 %38
   %39 = getelementptr inbounds nuw i8, ptr %this, i64 712
-  store i32 %spec.select, ptr %39, align 8
+  store i32 %spec.select, ptr %39, align 8, !tbaa !111
   invoke void @_ZN8QuantLib15NonstandardSwap4initEv(ptr noundef nonnull align 8 dereferenceable(718) %this)
           to label %invoke.cont23 unwind label %lpad16
 
@@ -7000,7 +7000,7 @@ _ZN8QuantLib8ScheduleC2EOS0_.exit31:              ; preds = %_ZN8QuantLib8Schedu
   %41 = load i32, ptr %convention_.i14, align 8
   %spec.select = select i1 %loadedv.i.i, i32 %paymentConvention.sroa.373.0.extract.trunc, i32 %41
   %42 = getelementptr inbounds nuw i8, ptr %this, i64 712
-  store i32 %spec.select, ptr %42, align 8
+  store i32 %spec.select, ptr %42, align 8, !tbaa !111
   invoke void @_ZN8QuantLib15NonstandardSwap4initEv(ptr noundef nonnull align 8 dereferenceable(718) %this)
           to label %invoke.cont16 unwind label %lpad
 
@@ -7322,7 +7322,7 @@ _ZN8QuantLib8ScheduleC2EOS0_.exit36:              ; preds = %_ZN8QuantLib8Schedu
   %39 = load i32, ptr %convention_.i19, align 8
   %spec.select = select i1 %loadedv.i.i, i32 %paymentConvention.sroa.378.0.extract.trunc, i32 %39
   %40 = getelementptr inbounds nuw i8, ptr %this, i64 712
-  store i32 %spec.select, ptr %40, align 8
+  store i32 %spec.select, ptr %40, align 8, !tbaa !111
   invoke void @_ZN8QuantLib15NonstandardSwap4initEv(ptr noundef nonnull align 8 dereferenceable(718) %this)
           to label %invoke.cont14 unwind label %lpad7
 

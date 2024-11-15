@@ -3263,7 +3263,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i:   ; preds = %if.then.i.i.i
 
 _ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.sink.split: ; preds = %if.then.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i
   %.sink = phi i64 [ 0, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i ], [ %11, %if.then.i.i.i ]
-  store i64 %.sink, ptr %9, align 8
+  store i64 %.sink, ptr %9, align 8, !alias.scope !106
   br label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit
 
 _ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit: ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.sink.split, %"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_EEEclEv.exit"
@@ -3455,7 +3455,7 @@ _ZN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core5
   store i8 %12, ptr %11, align 8, !alias.scope !119
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %13 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
-  store i64 0, ptr %9, align 8, !alias.scope !107
+  store i64 0, ptr %9, align 8, !alias.scope !119
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %14 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i8 %12, ptr %14, align 8

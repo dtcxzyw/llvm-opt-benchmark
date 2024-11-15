@@ -43259,13 +43259,13 @@ _ZSt19__relocate_object_aIN4cvc58internal6theory11quantifiers7fmcheck3DefES5_SaI
   %.sink8.i.i.i = phi ptr [ %7, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %4, %for.body.i.i.i ]
   %.sink.i.i.i = phi ptr [ %8, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %4, %for.body.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %9, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i ]
-  store i32 %.sink10.i.i.i, ptr %4, align 8
+  store i32 %.sink10.i.i.i, ptr %4, align 8, !alias.scope !395, !noalias !398
   %10 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
-  store ptr %5, ptr %10, align 8
+  store ptr %5, ptr %10, align 8, !alias.scope !395, !noalias !398
   %11 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
-  store ptr %.sink8.i.i.i, ptr %11, align 8
+  store ptr %.sink8.i.i.i, ptr %11, align 8, !alias.scope !395, !noalias !398
   %12 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
-  store ptr %.sink.i.i.i, ptr %12, align 8
+  store ptr %.sink.i.i.i, ptr %12, align 8, !alias.scope !395, !noalias !398
   %13 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 48
   store i64 %.sink.i.i.i.i, ptr %13, align 8, !alias.scope !395, !noalias !398
   %d_data.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 56
@@ -43363,13 +43363,13 @@ _ZSt19__relocate_object_aIN4cvc58internal6theory11quantifiers7fmcheck3DefES5_SaI
   %.sink8.i.i.i32 = phi ptr [ %29, %if.then.i.i.i.i.i.i.i.i.i.i.i.i24 ], [ %26, %for.body.i.i.i19 ]
   %.sink.i.i.i33 = phi ptr [ %30, %if.then.i.i.i.i.i.i.i.i.i.i.i.i24 ], [ %26, %for.body.i.i.i19 ]
   %.sink.i.i.i.i34 = phi i64 [ %31, %if.then.i.i.i.i.i.i.i.i.i.i.i.i24 ], [ 0, %for.body.i.i.i19 ]
-  store i32 %.sink10.i.i.i31, ptr %26, align 8
+  store i32 %.sink10.i.i.i31, ptr %26, align 8, !alias.scope !402, !noalias !405
   %32 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 24
-  store ptr %27, ptr %32, align 8
+  store ptr %27, ptr %32, align 8, !alias.scope !402, !noalias !405
   %33 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
-  store ptr %.sink8.i.i.i32, ptr %33, align 8
+  store ptr %.sink8.i.i.i32, ptr %33, align 8, !alias.scope !402, !noalias !405
   %34 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 40
-  store ptr %.sink.i.i.i33, ptr %34, align 8
+  store ptr %.sink.i.i.i33, ptr %34, align 8, !alias.scope !402, !noalias !405
   %35 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 48
   store i64 %.sink.i.i.i.i34, ptr %35, align 8, !alias.scope !402, !noalias !405
   %d_data.i.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 56

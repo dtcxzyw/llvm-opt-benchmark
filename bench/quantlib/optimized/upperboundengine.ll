@@ -4702,7 +4702,7 @@ cleanup.action6.i:                                ; preds = %entry
 
 invoke.cont:                                      ; preds = %cleanup.action6.i, %entry
   %.sink.i = phi ptr [ %3, %cleanup.action6.i ], [ null, %entry ]
-  store ptr %.sink.i, ptr %underlying_, align 8
+  store ptr %.sink.i, ptr %underlying_, align 8, !tbaa !3
   %strategy_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %strategy_3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %strategy_3, align 8, !tbaa !3
@@ -4724,7 +4724,7 @@ cleanup.action6.i20:                              ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %.noexc24, %invoke.cont
   %.sink.i23 = phi ptr [ %6, %.noexc24 ], [ null, %invoke.cont ]
-  store ptr %.sink.i23, ptr %strategy_, align 8
+  store ptr %.sink.i23, ptr %strategy_, align 8, !tbaa !3
   %rebate_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %rebate_6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %rebate_6, align 8, !tbaa !3
@@ -4746,7 +4746,7 @@ cleanup.action6.i27:                              ; preds = %invoke.cont5
 
 invoke.cont8:                                     ; preds = %.noexc31, %invoke.cont5
   %.sink.i30 = phi ptr [ %9, %.noexc31 ], [ null, %invoke.cont5 ]
-  store ptr %.sink.i30, ptr %rebate_, align 8
+  store ptr %.sink.i30, ptr %rebate_, align 8, !tbaa !3
   %evolution_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %evolution_9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZN8QuantLib20EvolutionDescriptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %evolution_, ptr noundef nonnull align 8 dereferenceable(128) %evolution_9)
@@ -6568,7 +6568,7 @@ cleanup.action6.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %.noexc.i.i.i.i, %for.body.i.i.i.i
   %.sink.i.i.i.i.i.i = phi ptr [ %6, %.noexc.i.i.i.i ], [ null, %for.body.i.i.i.i ]
-  store ptr %.sink.i.i.i.i.i.i, ptr %__cur.010.i.i.i.i, align 8
+  store ptr %.sink.i.i.i.i.i.i, ptr %__cur.010.i.i.i.i, align 8, !tbaa !3
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.09.i.i.i.i, i64 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3

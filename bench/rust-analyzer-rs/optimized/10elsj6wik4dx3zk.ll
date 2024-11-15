@@ -63768,8 +63768,8 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h74f025cdf77972e9E.llvm.13625555649392560756.exit": ; preds = %8, %9
   %.sink = phi i64 [ -9223372036854775807, %9 ], [ %4, %8 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %10, align 8
-  store i64 %.sink, ptr %0, align 8
+  store ptr %7, ptr %10, align 8, !alias.scope !14790
+  store i64 %.sink, ptr %0, align 8, !alias.scope !14790
   ret void
 }
 
@@ -81867,13 +81867,13 @@ define hidden void @"_ZN9lsp_types1_73_$LT$impl$u20$serde..ser..Serialize$u20$fo
   %.sink4 = phi ptr [ %10, %8 ], [ %6, %4 ]
   %.sink = phi i64 [ 8, %8 ], [ 9, %4 ]
   %.sink5 = extractvalue { i64, ptr } %.pn, 0
-  store i64 -9223372036854775805, ptr %0, align 8
+  store i64 -9223372036854775805, ptr %0, align 8, !noalias !4
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink5, ptr %13, align 8
+  store i64 %.sink5, ptr %13, align 8, !noalias !4
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink4, ptr %14, align 8
+  store ptr %.sink4, ptr %14, align 8, !noalias !4
   %15 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sink, ptr %15, align 8
+  store i64 %.sink, ptr %15, align 8, !noalias !4
   ret void
 }
 

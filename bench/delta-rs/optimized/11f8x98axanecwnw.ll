@@ -13710,8 +13710,8 @@ define hidden void @_ZN3std2io22inlined_slow_read_byte17h187af3f94c9beb15E.llvm.
   %.sink12 = phi i64 [ %9, %7 ], [ 0, %2 ]
   %.sink = phi i8 [ 0, %7 ], [ 2, %2 ]
   %.sink13 = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i.i
-  store ptr %.sink13, ptr %1, align 8
-  store i64 %.sink12, ptr %3, align 8
+  store ptr %.sink13, ptr %1, align 8, !alias.scope !3231, !noalias !3234
+  store i64 %.sink12, ptr %3, align 8, !alias.scope !3231, !noalias !3234
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -15488,8 +15488,8 @@ _ZN3std2io22inlined_slow_read_byte17h187af3f94c9beb15E.llvm.8226331118977765550.
   %.sink12.i = phi i64 [ %9, %7 ], [ 0, %2 ]
   %.sink.i = phi i8 [ 0, %7 ], [ 2, %2 ]
   %.sink13.i = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i.i.i
-  store ptr %.sink13.i, ptr %1, align 8, !alias.scope !3489, !noalias !3486
-  store i64 %.sink12.i, ptr %3, align 8, !alias.scope !3489, !noalias !3486
+  store ptr %.sink13.i, ptr %1, align 8, !alias.scope !3494, !noalias !3495
+  store i64 %.sink12.i, ptr %3, align 8, !alias.scope !3494, !noalias !3495
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !3486, !noalias !3489
   ret void
 }
@@ -59740,8 +59740,8 @@ define hidden void @"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..tr
   %.sink12.i.i = phi i64 [ %9, %7 ], [ 0, %2 ]
   %.sink.i.i = phi i8 [ 0, %7 ], [ 2, %2 ]
   %.sink13.i.i = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i.i.i.i
-  store ptr %.sink13.i.i, ptr %1, align 8, !alias.scope !12649, !noalias !12648
-  store i64 %.sink12.i.i, ptr %3, align 8, !alias.scope !12649, !noalias !12648
+  store ptr %.sink13.i.i, ptr %1, align 8, !alias.scope !12643, !noalias !12644
+  store i64 %.sink12.i.i, ptr %3, align 8, !alias.scope !12643, !noalias !12644
   store i8 %.sink.i.i, ptr %0, align 8, !alias.scope !12648, !noalias !12649
   ret void
 }

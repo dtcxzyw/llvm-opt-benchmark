@@ -14543,7 +14543,7 @@ define hidden void @"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$minicbor
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h875ef42d9b07c76eE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h875ef42d9b07c76eE.exit": ; preds = %17, %19
-  store i64 %14, ptr %0, align 8
+  store i64 %14, ptr %0, align 8, !alias.scope !1927
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.738)
   br label %23
 
@@ -14640,7 +14640,7 @@ define hidden void @"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$minicbor
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h237bb38f0e5c7694E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h237bb38f0e5c7694E.exit": ; preds = %17, %19
-  store i64 %14, ptr %0, align 8
+  store i64 %14, ptr %0, align 8, !alias.scope !1944
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.738)
   br label %23
 
@@ -14742,7 +14742,7 @@ define hidden void @"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$minicbor
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ad057b70c21427eE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ad057b70c21427eE.exit": ; preds = %17, %22
-  store i64 %14, ptr %0, align 8
+  store i64 %14, ptr %0, align 8, !alias.scope !1959
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.639)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.8)
   br label %26
@@ -27788,7 +27788,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !3411
   call void @llvm.experimental.noalias.scope.decl(metadata !3427)
   store <32 x i8> %.sroa.0.sroa.0.0.copyload.i.i.i, ptr %.sroa.227.0..sroa_idx.i, align 8, !alias.scope !3426, !noalias !3410
-  store i64 %85, ptr %43, align 8, !alias.scope !3403, !noalias !3410
+  store i64 %85, ptr %43, align 8, !alias.scope !3426, !noalias !3410
   br label %104
 
 90:                                               ; preds = %74
@@ -28288,7 +28288,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !3448
   call void @llvm.experimental.noalias.scope.decl(metadata !3464)
   store <32 x i8> %.sroa.0.sroa.0.0.copyload.i.i.i351, ptr %.sroa.227.0..sroa_idx.i347, align 8, !alias.scope !3463, !noalias !3447
-  store i64 %197, ptr %34, align 8, !alias.scope !3440, !noalias !3447
+  store i64 %197, ptr %34, align 8, !alias.scope !3463, !noalias !3447
   br label %216
 
 202:                                              ; preds = %.critedge
@@ -31308,9 +31308,9 @@ common.ret:                                       ; preds = %849, %.sink.split
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx554.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i, i64 16, i1 false), !alias.scope !3710, !noalias !3632
   %.sroa.4558.0..sroa_idx559.i = getelementptr inbounds i8, ptr %1, i64 185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(167) %.sroa.4558.0..sroa_idx559.i, ptr noundef nonnull align 1 dereferenceable(167) %.sroa.4558.i, i64 167, i1 false), !alias.scope !3710, !noalias !3632
-  store ptr %.sroa.0551.0.copyload.i, ptr %305, align 8, !noalias !3632
+  store ptr %.sroa.0551.0.copyload.i, ptr %305, align 8, !alias.scope !3710, !noalias !3632
   %308 = getelementptr inbounds i8, ptr %1, i64 184
-  store i8 %290, ptr %308, align 8, !noalias !3632
+  store i8 %290, ptr %308, align 8, !alias.scope !3710, !noalias !3632
   %309 = getelementptr inbounds i8, ptr %1, i64 137
   store i8 1, ptr %309, align 1, !noalias !3632
   %310 = getelementptr inbounds i8, ptr %1, i64 352
@@ -31323,9 +31323,9 @@ common.ret:                                       ; preds = %849, %.sink.split
 313:                                              ; preds = %"_ZN4core3ptr311drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4aa4dc48611d881eE.exit.i"
   %314 = icmp ne ptr %.sroa.0551.0.copyload.i, null
   call void @llvm.assume(i1 %314)
-  store ptr %.sroa.0551.0.copyload.i, ptr %305, align 8, !noalias !3632
+  store ptr %.sroa.0551.0.copyload.i, ptr %305, align 8, !alias.scope !3710, !noalias !3632
   %315 = getelementptr inbounds i8, ptr %1, i64 184
-  store i8 3, ptr %315, align 8, !noalias !3632
+  store i8 3, ptr %315, align 8, !alias.scope !3710, !noalias !3632
   br label %560
 
 316:                                              ; preds = %307

@@ -10502,9 +10502,9 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit: ; preds = 
   %56 = icmp eq ptr %53, %55
   %spec.select510 = select i1 %56, ptr @.str.36, ptr @.str.37
   %spec.select511 = select i1 %56, ptr getelementptr inbounds nuw (i8, ptr @.str.36, i64 18), ptr getelementptr inbounds nuw (i8, ptr @.str.37, i64 61)
-  store ptr %spec.select510, ptr %9, align 8
+  store ptr %spec.select510, ptr %9, align 8, !tbaa !13
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %spec.select511, ptr %57, align 8
+  store ptr %spec.select511, ptr %57, align 8, !tbaa !15
   invoke void @_ZN5boost9unit_test9framework11setup_errorC2ENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9)
           to label %58 unwind label %60
 
@@ -12651,8 +12651,8 @@ define linkonce_odr hidden noundef i32 @_ZN5boost9unit_test9framework5state17exe
 76:                                               ; preds = %.noexc, %.critedge1137
   %.sink1.i = phi ptr [ %72, %.noexc ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %.critedge1137 ]
   %.sink.i = phi ptr [ %75, %.noexc ], [ @_ZN5boost9unit_test13basic_cstringIKcE4nullE, %.critedge1137 ]
-  store ptr %.sink1.i, ptr %14, align 8, !alias.scope !377
-  store ptr %.sink.i, ptr %64, align 8, !alias.scope !377
+  store ptr %.sink1.i, ptr %14, align 8, !tbaa !13, !alias.scope !377
+  store ptr %.sink.i, ptr %64, align 8, !tbaa !15, !alias.scope !377
   %77 = load ptr, ptr %66, align 8, !tbaa !38
   %78 = getelementptr inbounds i8, ptr %77, i64 40
   %79 = load ptr, ptr %78, align 8

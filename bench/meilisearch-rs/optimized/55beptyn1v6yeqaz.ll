@@ -5548,7 +5548,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 197:                                              ; preds = %187, %186
   %198 = phi i64 [ %194, %187 ], [ 2, %186 ]
   %199 = getelementptr inbounds i8, ptr %181, i64 272
-  store i64 %.sroa.9.1, ptr %199, align 8, !noalias !576
+  store i64 %.sroa.9.1, ptr %199, align 8, !alias.scope !613, !noalias !604
   %200 = getelementptr inbounds i8, ptr %181, i64 368
   %201 = getelementptr inbounds i8, ptr %181, i64 376
   store ptr %.sroa.1063.1145155, ptr %201, align 8, !alias.scope !616, !noalias !604
@@ -8271,7 +8271,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hc749f7e6c56c9284E.exit.i.i: ; 
 
 _ZN5alloc11collections5btree4node12slice_insert17hc749f7e6c56c9284E.exit.i62.i: ; preds = %119, %113
   %127 = phi i64 [ %123, %119 ], [ 2, %113 ]
-  store i16 %.sroa.11.0125, ptr %118, align 2, !noalias !1147
+  store i16 %.sroa.11.0125, ptr %118, align 2, !alias.scope !1170, !noalias !1167
   %128 = getelementptr inbounds i8, ptr %114, i64 40
   %129 = getelementptr inbounds i8, ptr %114, i64 48
   store ptr %.sroa.7.0127, ptr %129, align 8, !alias.scope !1173, !noalias !1167
@@ -11627,7 +11627,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 196:                                              ; preds = %186, %185
   %197 = phi i64 [ %192, %186 ], [ 2, %185 ]
   %198 = getelementptr inbounds i8, ptr %180, i64 276
-  store i8 %.sroa.9.1, ptr %198, align 1, !noalias !1795
+  store i8 %.sroa.9.1, ptr %198, align 1, !alias.scope !1832, !noalias !1823
   %199 = getelementptr inbounds i8, ptr %180, i64 288
   %200 = getelementptr inbounds i8, ptr %180, i64 296
   store ptr %.sroa.1063.1145155, ptr %200, align 8, !alias.scope !1835, !noalias !1823

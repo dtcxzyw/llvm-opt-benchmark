@@ -9165,7 +9165,7 @@ invoke.cont189:                                   ; preds = %invoke.cont183
   %111 = or i1 %cmp191, %cmp198
   %type.0 = select i1 %111, i32 -1, i32 1
   %112 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  store double %.sink, ptr %112, align 8
+  store double %.sink, ptr %112, align 8, !tbaa !225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp200) #28
   invoke void @_ZN8QuantLib8ScheduleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp201, ptr noundef nonnull align 8 dereferenceable(136) %fixedSchedule)
           to label %invoke.cont203 unwind label %lpad202

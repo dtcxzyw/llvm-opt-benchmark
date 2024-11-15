@@ -9767,15 +9767,15 @@ if.end:                                           ; preds = %if.else, %if.then4
   %.sink10 = load double, ptr %.sink10.in, align 8, !tbaa !65
   %.sink11 = load double, ptr %.sink11.in, align 8, !tbaa !65
   %21 = getelementptr inbounds nuw i8, ptr %this, i64 328
-  store double %.sink11, ptr %21, align 8
+  store double %.sink11, ptr %21, align 8, !tbaa !124
   %22 = getelementptr inbounds nuw i8, ptr %this, i64 336
-  store double %.sink10, ptr %22, align 8
+  store double %.sink10, ptr %22, align 8, !tbaa !117
   %23 = getelementptr inbounds nuw i8, ptr %this, i64 344
-  store double %.sink9, ptr %23, align 8
+  store double %.sink9, ptr %23, align 8, !tbaa !126
   %24 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store double %.sink8, ptr %24, align 8
+  store double %.sink8, ptr %24, align 8, !tbaa !118
   %25 = getelementptr inbounds nuw i8, ptr %this, i64 360
-  store double %.sink, ptr %25, align 8
+  store double %.sink, ptr %25, align 8, !tbaa !114
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %26 = load ptr, ptr %integrator_, align 8, !tbaa !249
   %cmp.not.i = icmp eq ptr %26, null

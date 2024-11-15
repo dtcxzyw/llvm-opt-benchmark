@@ -44015,7 +44015,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
   %.sink1 = phi i64 [ 2, %if.then ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
   %.sink = phi i64 [ 18, %if.then ], [ 17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
   %1 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %.sink1, ptr %1, align 8
+  store i64 %.sink1, ptr %1, align 8, !tbaa !17
   %arrayidx.i.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 %.sink
   store i8 0, ptr %arrayidx.i.i.i9, align 1, !tbaa !16
   ret void

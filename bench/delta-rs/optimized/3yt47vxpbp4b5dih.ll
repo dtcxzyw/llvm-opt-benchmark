@@ -29166,8 +29166,8 @@ define internal fastcc void @_ZN13deltalake_aws29extract_required_string_field17
   %.sroa.7.8.copyload.sink = phi ptr [ %.val.i29, %48 ], [ %.sroa.7.8.copyload, %52 ]
   %.sink = phi i64 [ 8, %48 ], [ 0, %52 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.7.8.copyload.sink, ptr %57, align 8
-  store i64 %.sink, ptr %0, align 8
+  store ptr %.sroa.7.8.copyload.sink, ptr %57, align 8, !alias.scope !5779
+  store i64 %.sink, ptr %0, align 8, !alias.scope !5779
   br label %58
 
 58:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he62f4e9522540cd8E.exit", %.loopexit
