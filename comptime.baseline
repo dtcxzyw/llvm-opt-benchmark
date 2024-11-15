@@ -26300,7 +26300,7 @@ openssl/libcrypto-lib-wrap128.ll 153655952
 openssl/libcrypto-lib-x509_att.ll 139292609
 openssl/libcrypto-lib-x509_cmp.ll 218501043
 openssl/libcrypto-lib-x509_lu.ll 303843443
-openssl/libcrypto-lib-x509_req.ll 93226246
+openssl/libcrypto-lib-x509_req.ll 93132893
 openssl/libcrypto-lib-x509_set.ll 96713098
 openssl/libcrypto-lib-x509_v3.ll 92175379
 openssl/libcrypto-lib-x509_vfy.ll 1390544990
@@ -30117,7 +30117,7 @@ protobuf/struct.pb.cc.ll 1561915312
 protobuf/subprocess.cc.ll 155028435
 protobuf/text_format.cc.ll 5181658305
 protobuf/text_format_decode_data.cc.ll 288271609
-protobuf/time_util.cc.ll 432942684
+protobuf/time_util.cc.ll 432509356
 protobuf/timestamp.pb.cc.ll 146191365
 protobuf/tokenizer.cc.ll 1024917223
 protobuf/tracker.cc.ll 1139491746
