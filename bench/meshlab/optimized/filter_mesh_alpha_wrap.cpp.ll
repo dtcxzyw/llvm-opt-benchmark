@@ -180440,9 +180440,9 @@ define linkonce_odr i32 @_ZN4CGAL5Euler8add_faceINS_12Surface_meshINS_7Point_3IN
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = ptrtoint ptr %22 to i64
-  %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %26, %25
+  %25 = ptrtoint ptr %24 to i64
+  %26 = ptrtoint ptr %22 to i64
+  %27 = sub i64 %25, %26
   %28 = icmp ugt i64 %27, 9223372036854775804
   br i1 %28, label %.noexc.i, label %_ZNSt6vectorIN4CGAL15SM_Vertex_indexESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 

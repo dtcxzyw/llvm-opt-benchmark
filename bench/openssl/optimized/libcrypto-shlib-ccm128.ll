@@ -398,18 +398,16 @@ for.cond66.preheader:                             ; preds = %while.end
   br label %for.body70
 
 for.body70:                                       ; preds = %for.cond66.preheader, %for.body70
-  %conv6787 = phi i64 [ 0, %for.cond66.preheader ], [ %conv67, %for.body70 ]
-  %i.186 = phi i32 [ 0, %for.cond66.preheader ], [ %inc81, %for.body70 ]
-  %arrayidx72 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 %conv6787
+  %indvars.iv93 = phi i64 [ 0, %for.cond66.preheader ], [ %indvars.iv.next94, %for.body70 ]
+  %arrayidx72 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 %indvars.iv93
   %18 = load i8, ptr %arrayidx72, align 1
-  %arrayidx76 = getelementptr inbounds [16 x i8], ptr %cmac74, i64 0, i64 %conv6787
+  %arrayidx76 = getelementptr inbounds [16 x i8], ptr %cmac74, i64 0, i64 %indvars.iv93
   %19 = load i8, ptr %arrayidx76, align 1
   %xor7875 = xor i8 %19, %18
   store i8 %xor7875, ptr %arrayidx76, align 1
-  %inc81 = add i32 %i.186, 1
-  %conv67 = zext i32 %inc81 to i64
-  %cmp68 = icmp samesign ugt i64 %len.addr.0.lcssa, %conv67
-  br i1 %cmp68, label %for.body70, label %for.end82, !llvm.loop !10
+  %indvars.iv.next94 = add nuw i64 %indvars.iv93, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next94, %len.addr.0.lcssa
+  br i1 %exitcond96.not, label %for.end82, label %for.body70, !llvm.loop !10
 
 for.end82:                                        ; preds = %for.body70
   call void %1(ptr noundef nonnull %cmac74, ptr noundef nonnull %cmac74, ptr noundef %2) #6
@@ -417,19 +415,17 @@ for.end82:                                        ; preds = %for.body70
   br label %for.body94
 
 for.body94:                                       ; preds = %for.end82, %for.body94
-  %conv9189 = phi i64 [ 0, %for.end82 ], [ %conv91, %for.body94 ]
-  %i.288 = phi i32 [ 0, %for.end82 ], [ %inc106, %for.body94 ]
-  %arrayidx96 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %conv9189
+  %indvars.iv97 = phi i64 [ 0, %for.end82 ], [ %indvars.iv.next98, %for.body94 ]
+  %arrayidx96 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %indvars.iv97
   %20 = load i8, ptr %arrayidx96, align 1
-  %arrayidx99 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 %conv9189
+  %arrayidx99 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 %indvars.iv97
   %21 = load i8, ptr %arrayidx99, align 1
   %xor10174 = xor i8 %21, %20
-  %arrayidx104 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 %conv9189
+  %arrayidx104 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 %indvars.iv97
   store i8 %xor10174, ptr %arrayidx104, align 1
-  %inc106 = add i32 %i.288, 1
-  %conv91 = zext i32 %inc106 to i64
-  %cmp92 = icmp samesign ugt i64 %len.addr.0.lcssa, %conv91
-  br i1 %cmp92, label %for.body94, label %for.end119, !llvm.loop !11
+  %indvars.iv.next98 = add nuw i64 %indvars.iv97, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, %len.addr.0.lcssa
+  br i1 %exitcond100.not, label %for.end119, label %for.body94, !llvm.loop !11
 
 for.end119:                                       ; preds = %for.body94, %while.end
   %22 = zext nneg i32 %sub to i64
@@ -581,23 +577,21 @@ if.then54:                                        ; preds = %while.end
   br label %for.body62
 
 for.body62:                                       ; preds = %if.then54, %for.body62
-  %conv5976 = phi i64 [ 0, %if.then54 ], [ %conv59, %for.body62 ]
-  %i.175 = phi i32 [ 0, %if.then54 ], [ %inc81, %for.body62 ]
-  %arrayidx64 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %conv5976
+  %indvars.iv80 = phi i64 [ 0, %if.then54 ], [ %indvars.iv.next81, %for.body62 ]
+  %arrayidx64 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %indvars.iv80
   %14 = load i8, ptr %arrayidx64, align 1
-  %arrayidx67 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 %conv5976
+  %arrayidx67 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 %indvars.iv80
   %15 = load i8, ptr %arrayidx67, align 1
   %xor6963 = xor i8 %15, %14
-  %arrayidx72 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 %conv5976
+  %arrayidx72 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 %indvars.iv80
   store i8 %xor6963, ptr %arrayidx72, align 1
-  %arrayidx76 = getelementptr inbounds [16 x i8], ptr %cmac74, i64 0, i64 %conv5976
+  %arrayidx76 = getelementptr inbounds [16 x i8], ptr %cmac74, i64 0, i64 %indvars.iv80
   %16 = load i8, ptr %arrayidx76, align 1
   %xor7864 = xor i8 %16, %xor6963
   store i8 %xor7864, ptr %arrayidx76, align 1
-  %inc81 = add i32 %i.175, 1
-  %conv59 = zext i32 %inc81 to i64
-  %cmp60 = icmp samesign ugt i64 %len.addr.0.lcssa, %conv59
-  br i1 %cmp60, label %for.body62, label %for.end82, !llvm.loop !14
+  %indvars.iv.next81 = add nuw i64 %indvars.iv80, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next81, %len.addr.0.lcssa
+  br i1 %exitcond83.not, label %for.end82, label %for.body62, !llvm.loop !14
 
 for.end82:                                        ; preds = %for.body62
   call void %1(ptr noundef nonnull %cmac74, ptr noundef nonnull %cmac74, ptr noundef %2) #6

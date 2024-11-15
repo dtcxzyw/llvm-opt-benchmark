@@ -20712,7 +20712,7 @@ _ZN4core5slice4sort15partition_equal17h61e696ddb86de7deE.exit: ; preds = %243
 
 "_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc661165826adedb6E.exit.i": ; preds = %.outer._crit_edge, %_ZN4core5slice4sort11insert_tail17h264ff1e5e8ba667dE.exit.i
   %.sroa.01.03.i = phi i64 [ %262, %_ZN4core5slice4sort11insert_tail17h264ff1e5e8ba667dE.exit.i ], [ 1, %.outer._crit_edge ]
-  %262 = add nuw i64 %.sroa.01.03.i, 1
+  %262 = add nuw nsw i64 %.sroa.01.03.i, 1
   %263 = getelementptr { { i64, i64 }, i64 }, ptr %.sroa.0.0.lcssa, i64 %.sroa.01.03.i
   %264 = getelementptr i8, ptr %263, i64 -24
   %.val11.i.i = load i64, ptr %263, align 8, !alias.scope !2975, !noundef !4
@@ -20725,7 +20725,7 @@ _ZN4core5slice4sort15partition_equal17h61e696ddb86de7deE.exit: ; preds = %243
   %.sroa.4.0..sroa_idx.i.i = getelementptr i8, ptr %263, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %263, ptr noundef nonnull align 8 dereferenceable(24) %264, i64 24, i1 false), !alias.scope !2975
-  %267 = add i64 %.sroa.01.03.i, -1
+  %267 = add nsw i64 %.sroa.01.03.i, -1
   %.not9.i.i = icmp eq i64 %267, 0
   br i1 %.not9.i.i, label %.thread.i.i68, label %.lr.ph.i.i67
 
@@ -20740,7 +20740,7 @@ _ZN4core5slice4sort15partition_equal17h61e696ddb86de7deE.exit: ; preds = %243
 .lr.ph.i.i67:                                     ; preds = %266, %271
   %.sroa.4.011.i.i = phi i64 [ %268, %271 ], [ %267, %266 ]
   %.sroa.5.010.i.i = phi ptr [ %269, %271 ], [ %264, %266 ]
-  %268 = add i64 %.sroa.4.011.i.i, -1
+  %268 = add nsw i64 %.sroa.4.011.i.i, -1
   %269 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %.sroa.0.0.lcssa, i64 %268
   %.val10.i.i = load i64, ptr %269, align 8, !alias.scope !2975, !noundef !4
   %270 = icmp ult i64 %.val11.i.i, %.val10.i.i

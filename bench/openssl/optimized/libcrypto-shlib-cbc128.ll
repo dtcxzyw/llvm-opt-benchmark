@@ -43,10 +43,10 @@ while.cond7:                                      ; preds = %for.cond.preheader
   br i1 %tobool.not, label %while.end36, label %for.body12.preheader
 
 for.body12.preheader:                             ; preds = %while.cond.preheader, %while.cond7
-  %iv.0.lcssa64 = phi ptr [ %out.addr.046, %while.cond7 ], [ %ivec, %while.cond.preheader ]
-  %in.addr.0.lcssa63 = phi ptr [ %add.ptr5, %while.cond7 ], [ %in, %while.cond.preheader ]
-  %out.addr.0.lcssa62 = phi ptr [ %add.ptr6, %while.cond7 ], [ %out, %while.cond.preheader ]
-  %len.addr.0.lcssa61 = phi i64 [ %sub, %while.cond7 ], [ %len, %while.cond.preheader ]
+  %iv.0.lcssa65 = phi ptr [ %out.addr.046, %while.cond7 ], [ %ivec, %while.cond.preheader ]
+  %in.addr.0.lcssa64 = phi ptr [ %add.ptr5, %while.cond7 ], [ %in, %while.cond.preheader ]
+  %out.addr.0.lcssa63 = phi ptr [ %add.ptr6, %while.cond7 ], [ %out, %while.cond.preheader ]
+  %len.addr.0.lcssa62 = phi i64 [ %sub, %while.cond7 ], [ %len, %while.cond.preheader ]
   br label %for.body12
 
 for.cond20.preheader:                             ; preds = %for.body12
@@ -55,33 +55,33 @@ for.cond20.preheader:                             ; preds = %for.body12
 
 for.body12:                                       ; preds = %for.body12.preheader, %for.body12
   %n.152 = phi i64 [ %inc, %for.body12 ], [ 0, %for.body12.preheader ]
-  %arrayidx = getelementptr inbounds i8, ptr %in.addr.0.lcssa63, i64 %n.152
+  %arrayidx = getelementptr inbounds i8, ptr %in.addr.0.lcssa64, i64 %n.152
   %4 = load i8, ptr %arrayidx, align 1
-  %arrayidx13 = getelementptr inbounds i8, ptr %iv.0.lcssa64, i64 %n.152
+  %arrayidx13 = getelementptr inbounds i8, ptr %iv.0.lcssa65, i64 %n.152
   %5 = load i8, ptr %arrayidx13, align 1
   %xor1542 = xor i8 %5, %4
-  %arrayidx17 = getelementptr inbounds i8, ptr %out.addr.0.lcssa62, i64 %n.152
+  %arrayidx17 = getelementptr inbounds i8, ptr %out.addr.0.lcssa63, i64 %n.152
   store i8 %xor1542, ptr %arrayidx17, align 1
   %inc = add nuw nsw i64 %n.152, 1
-  %exitcond.not = icmp eq i64 %inc, %len.addr.0.lcssa61
+  %exitcond.not = icmp eq i64 %inc, %len.addr.0.lcssa62
   br i1 %exitcond.not, label %for.cond20.preheader, label %for.body12, !llvm.loop !6
 
 for.body23:                                       ; preds = %for.cond20.preheader, %for.body23
-  %n.254 = phi i64 [ %inc27, %for.body23 ], [ %len.addr.0.lcssa61, %for.cond20.preheader ]
-  %arrayidx24 = getelementptr inbounds i8, ptr %iv.0.lcssa64, i64 %n.254
+  %n.254 = phi i64 [ %inc27, %for.body23 ], [ %len.addr.0.lcssa62, %for.cond20.preheader ]
+  %arrayidx24 = getelementptr inbounds i8, ptr %iv.0.lcssa65, i64 %n.254
   %6 = load i8, ptr %arrayidx24, align 1
-  %arrayidx25 = getelementptr inbounds i8, ptr %out.addr.0.lcssa62, i64 %n.254
+  %arrayidx25 = getelementptr inbounds i8, ptr %out.addr.0.lcssa63, i64 %n.254
   store i8 %6, ptr %arrayidx25, align 1
-  %inc27 = add nuw nsw i64 %n.254, 1
-  %cmp21 = icmp samesign ult i64 %n.254, 15
-  br i1 %cmp21, label %for.body23, label %for.end28, !llvm.loop !7
+  %inc27 = add i64 %n.254, 1
+  %exitcond56.not = icmp eq i64 %inc27, 16
+  br i1 %exitcond56.not, label %for.end28, label %for.body23, !llvm.loop !7
 
 for.end28:                                        ; preds = %for.body23, %for.cond20.preheader
-  tail call void %block(ptr noundef nonnull %out.addr.0.lcssa62, ptr noundef nonnull %out.addr.0.lcssa62, ptr noundef %key) #2
+  tail call void %block(ptr noundef nonnull %out.addr.0.lcssa63, ptr noundef nonnull %out.addr.0.lcssa63, ptr noundef %key) #2
   br label %while.end36
 
 while.end36:                                      ; preds = %for.end28, %while.cond7
-  %iv.2 = phi ptr [ %out.addr.0.lcssa62, %for.end28 ], [ %out.addr.046, %while.cond7 ]
+  %iv.2 = phi ptr [ %out.addr.0.lcssa63, %for.end28 ], [ %out.addr.046, %while.cond7 ]
   %cmp37.not = icmp eq ptr %ivec, %iv.2
   br i1 %cmp37.not, label %if.end40, label %if.then39
 

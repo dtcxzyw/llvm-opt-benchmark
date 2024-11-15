@@ -46268,17 +46268,17 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %3 = alloca %"struct.boost::json::basic_parser<boost::json::detail::handler>::number", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8, !tbaa !243
-  %6 = ptrtoint ptr %5 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #48
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %10, align 8, !tbaa !178
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i64 0, ptr %9, align 8, !tbaa !178
+  %10 = ptrtoint ptr %5 to i64
   %11 = ptrtoint ptr %1 to i64
-  %12 = sub i64 %6, %11
+  %12 = sub i64 %10, %11
   %13 = icmp ugt i64 %12, 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   br i1 %13, label %14, label %.thread375
 
 14:                                               ; preds = %2
@@ -46325,7 +46325,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 40:                                               ; preds = %38
   %41 = sub nsw i32 0, %35
-  store i32 %41, ptr %7, align 8, !tbaa !684
+  store i32 %41, ptr %6, align 8, !tbaa !684
   %42 = zext nneg i16 %34 to i64
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !15
@@ -46366,7 +46366,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 .lr.ph.preheader:                                 ; preds = %.thread375.split.split.us
   %.2358513533 = ptrtoint ptr %.2358532 to i64
-  %60 = sub i64 %6, %.2358513533
+  %60 = sub i64 %10, %.2358513533
   %scevgep = getelementptr i8, ptr %.2358532, i64 %60
   br label %.lr.ph
 
@@ -46396,20 +46396,20 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 select.unfold398:                                 ; preds = %55
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i32 1, ptr %7, align 8, !tbaa !684
+  store i32 1, ptr %6, align 8, !tbaa !684
   %72 = icmp ult ptr %71, %5
   br i1 %72, label %.lr.ph481.preheader, label %._crit_edge, !prof !359
 
 .lr.ph481.preheader:                              ; preds = %select.unfold398
   %.us-phi470515 = ptrtoint ptr %71 to i64
   %scevgep514 = getelementptr i8, ptr %1, i64 2147483647
-  %73 = sub i64 %6, %.us-phi470515
+  %73 = sub i64 %10, %.us-phi470515
   %scevgep516 = getelementptr i8, ptr %71, i64 %73
-  %.promoted = load i32, ptr %7, align 8, !tbaa !684
+  %.promoted = load i32, ptr %6, align 8, !tbaa !684
   br label %.lr.ph481
 
 ._crit_edge.loopexit:                             ; preds = %90
-  store i32 %storemerge, ptr %7, align 8, !tbaa !684
+  store i32 %storemerge, ptr %6, align 8, !tbaa !684
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %select.unfold398
@@ -46437,12 +46437,12 @@ select.unfold398:                                 ; preds = %55
   br i1 %83, label %.thread408, label %90, !prof !245
 
 .thread408:                                       ; preds = %82
-  store i32 %storemerge547, ptr %7, align 8, !tbaa !684
+  store i32 %storemerge547, ptr %6, align 8, !tbaa !684
   %84 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep514, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #48
   br label %193
 
 85:                                               ; preds = %.lr.ph481
-  store i32 %storemerge547, ptr %7, align 8, !tbaa !684
+  store i32 %storemerge547, ptr %6, align 8, !tbaa !684
   %86 = icmp eq i8 %79, 46
   br i1 %86, label %92, label %87, !prof !244
 
@@ -46487,7 +46487,7 @@ select.unfold398:                                 ; preds = %55
 
 .lr.ph485.preheader:                              ; preds = %104
   %.13518 = ptrtoint ptr %.13 to i64
-  %106 = sub i64 %6, %.13518
+  %106 = sub i64 %10, %.13518
   %scevgep519 = getelementptr i8, ptr %.13, i64 %106
   br label %.lr.ph485
 
@@ -46606,7 +46606,7 @@ select.unfold398:                                 ; preds = %55
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %.us-phi469.sink, i64 2
-  store i8 1, ptr %9, align 8, !tbaa !685
+  store i8 1, ptr %8, align 8, !tbaa !685
   br label %159
 
 159:                                              ; preds = %153, %155, %157
@@ -46642,13 +46642,13 @@ select.unfold398:                                 ; preds = %55
 174:                                              ; preds = %169
   %175 = zext nneg i8 %170 to i32
   %176 = add nsw i32 %175, -48
-  store i32 %176, ptr %8, align 4, !tbaa !686
+  store i32 %176, ptr %7, align 4, !tbaa !686
   %.21488 = getelementptr inbounds nuw i8, ptr %.19, i64 1
   %177 = icmp ult ptr %.21488, %5
   br i1 %177, label %.lr.ph491.preheader, label %._crit_edge492, !prof !359
 
 .lr.ph491.preheader:                              ; preds = %174
-  %178 = sub i64 %6, %.19521
+  %178 = sub i64 %10, %.19521
   %scevgep522 = getelementptr i8, ptr %.19, i64 %178
   br label %.lr.ph491
 

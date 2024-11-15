@@ -9732,14 +9732,14 @@ lpad:                                             ; preds = %_ZNKSt6vectorISt17b
 if.end:                                           ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit, %entry
   %pending_op_strings.sroa.29.0 = phi ptr [ null, %entry ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ]
   %pending_op_strings.sroa.0.0 = phi ptr [ null, %entry ], [ %call5.i.i.i.i.i.i5, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ]
-  %pending_op_strings.sroa.0.0171 = ptrtoint ptr %pending_op_strings.sroa.0.0 to i64
-  %pending_op_strings.sroa.12.0169 = ptrtoint ptr %pending_op_strings.sroa.29.0 to i64
   %and2 = and i64 %pending_ops, 2
   %tobool3.not = icmp eq i64 %and2, 0
   br i1 %tobool3.not, label %if.end7, label %if.else.i.i13
 
 if.else.i.i13:                                    ; preds = %if.end
-  %sub.ptr.sub.i.i.i.i.i16 = sub i64 %pending_op_strings.sroa.12.0169, %pending_op_strings.sroa.0.0171
+  %sub.ptr.lhs.cast.i.i.i.i.i14 = ptrtoint ptr %pending_op_strings.sroa.29.0 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i15 = ptrtoint ptr %pending_op_strings.sroa.0.0 to i64
+  %sub.ptr.sub.i.i.i.i.i16 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i14, %sub.ptr.rhs.cast.i.i.i.i.i15
   %cmp.i.i.i.i17 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i16, 9223372036854775792
   br i1 %cmp.i.i.i.i17, label %if.then.i.i.i.i44, label %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i18
 
@@ -9775,8 +9775,8 @@ _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_alloc
   br i1 %cmp.not5.i.i.i.i.i.i30, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i37, label %for.body.i.i.i.i.i.i31.preheader
 
 for.body.i.i.i.i.i.i31.preheader:                 ; preds = %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i.i.i27
-  %2 = add i64 %pending_op_strings.sroa.12.0169, -16
-  %3 = sub i64 %2, %pending_op_strings.sroa.0.0171
+  %2 = add i64 %sub.ptr.lhs.cast.i.i.i.i.i14, -16
+  %3 = sub i64 %2, %sub.ptr.rhs.cast.i.i.i.i.i15
   %4 = and i64 %3, -16
   %5 = add i64 %4, 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i28, ptr align 8 %pending_op_strings.sroa.0.0, i64 %5, i1 false), !alias.scope !122

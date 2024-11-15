@@ -4879,9 +4879,9 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_16Select11writeOutput
 108:                                              ; preds = %._crit_edge133
   %109 = extractvalue { ptr, ptr } %107, 0
   %110 = extractvalue { ptr, ptr } %107, 1
-  %111 = ptrtoint ptr %109 to i64
-  %112 = ptrtoint ptr %110 to i64
-  %113 = sub i64 %112, %111
+  %111 = ptrtoint ptr %110 to i64
+  %112 = ptrtoint ptr %109 to i64
+  %113 = sub i64 %111, %112
   %reass.sub.fr.i.i = freeze i64 %113
   %114 = sdiv exact i64 %reass.sub.fr.i.i, 12
   %115 = icmp ugt i64 %114, 768614336404564650

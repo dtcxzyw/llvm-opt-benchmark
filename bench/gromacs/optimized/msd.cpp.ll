@@ -6706,9 +6706,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %.sroa.01.0.copyload.i.i = load ptr, ptr %1, align 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %9 = ptrtoint ptr %.sroa.01.0.copyload.i.i to i64
-  %10 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
-  %11 = sub i64 %10, %9
+  %9 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
+  %10 = ptrtoint ptr %.sroa.01.0.copyload.i.i to i64
+  %11 = sub i64 %9, %10
   %reass.sub.fr.i.i.i = freeze i64 %11
   %12 = sdiv exact i64 %reass.sub.fr.i.i.i, 12
   %13 = icmp ugt i64 %12, 768614336404564650
@@ -6829,9 +6829,9 @@ _ZNSt12_Vector_baseISt6vectorIN3gmx11BasicVectorIfEESaIS3_EESaIS5_EE11_M_allocat
   %.sroa.01.0.copyload.i.i = load ptr, ptr %2, align 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  %26 = ptrtoint ptr %.sroa.01.0.copyload.i.i to i64
-  %27 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
-  %28 = sub i64 %27, %26
+  %26 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
+  %27 = ptrtoint ptr %.sroa.01.0.copyload.i.i to i64
+  %28 = sub i64 %26, %27
   %reass.sub.fr.i.i.i = freeze i64 %28
   %29 = sdiv exact i64 %reass.sub.fr.i.i.i, 12
   %30 = icmp ugt i64 %29, 768614336404564650

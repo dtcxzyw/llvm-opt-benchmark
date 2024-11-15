@@ -23413,9 +23413,9 @@ invoke.cont11:
   %0 = load ptr, ptr %__c, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %__c, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %__first.coerce4.i.i = ptrtoint ptr %0 to i64
-  %__last.coerce3.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i, %__first.coerce4.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %reass.sub.fr.i = freeze i64 %sub.ptr.sub.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %reass.sub.fr.i, 40
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, 230584300921369395
@@ -28966,9 +28966,9 @@ invoke.cont11:
   %0 = load ptr, ptr %__c, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %__c, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %__first.coerce4.i.i = ptrtoint ptr %0 to i64
-  %__last.coerce3.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i, %__first.coerce4.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %reass.sub.fr.i = freeze i64 %sub.ptr.sub.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %reass.sub.fr.i, 24
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, 384307168202282325

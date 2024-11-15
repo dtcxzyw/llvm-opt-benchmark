@@ -65041,9 +65041,9 @@ define dso_local noundef zeroext i1 @_ZN4Luau11TypeChecker22handleSelfCallMismat
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load ptr, ptr %26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %67 = ptrtoint ptr %65 to i64
-  %68 = ptrtoint ptr %66 to i64
-  %69 = sub i64 %68, %67
+  %67 = ptrtoint ptr %66 to i64
+  %68 = ptrtoint ptr %65 to i64
+  %69 = sub i64 %67, %68
   %70 = icmp ugt i64 %69, 9223372036854775792
   br i1 %70, label %71, label %_ZNSt6vectorIN4Luau8LocationESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 

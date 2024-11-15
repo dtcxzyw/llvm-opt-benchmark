@@ -1732,9 +1732,9 @@ declare void @_ZN3gmx28updateCorrelationGridHistoryEPNS_22CorrelationGridHistory
 define void @_ZN3gmx4BiasC2EiRKNS_9AwhParamsERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_9DimParamsEEEddPKNS_11BiasSharingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_16ThisRankWillDoIOENS_10BiasParams18DisableUpdateSkipsE(ptr noundef nonnull align 8 dereferenceable(556) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(93) %3, ptr %4, ptr %5, double noundef %6, double noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %10, i32 noundef %11) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %13 = alloca %"class.gmx::ArrayRef.125", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %14 = ptrtoint ptr %4 to i64
-  %15 = ptrtoint ptr %5 to i64
-  %16 = sub i64 %15, %14
+  %14 = ptrtoint ptr %5 to i64
+  %15 = ptrtoint ptr %4 to i64
+  %16 = sub i64 %14, %15
   %reass.sub.fr.i = freeze i64 %16
   %17 = sdiv exact i64 %reass.sub.fr.i, 40
   %18 = icmp ugt i64 %17, 230584300921369395

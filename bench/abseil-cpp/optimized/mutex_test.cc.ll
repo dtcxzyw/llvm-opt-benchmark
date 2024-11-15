@@ -12834,9 +12834,9 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEEE, i64 16), ptr %call.i, align 8, !noalias !177
   %container_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container_.i.i, i8 0, i64 24, i1 false), !noalias !177
-  %__first.coerce4.i.i.i.i = ptrtoint ptr %container.0.val to i64
-  %__last.coerce3.i.i.i.i = ptrtoint ptr %container.8.val to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i, %__first.coerce4.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %container.8.val to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %container.0.val to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %reass.sub.fr.i.i.i = freeze i64 %sub.ptr.sub.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = sdiv exact i64 %reass.sub.fr.i.i.i, 56
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i.i, 164703072086692425
@@ -12854,9 +12854,9 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_S_check_init_lenEmRKS2
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i, label %for.body.i.i.i.i.preheader.i.i.i.i
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i
-  %add.ptr6.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %reass.sub.fr.i.i.i
-  %_M_end_of_storage7.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store ptr %add.ptr6.i.i.i.i, ptr %_M_end_of_storage7.i.i.i.i, align 8, !noalias !177
+  %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr null, i64 %reass.sub.fr.i.i.i
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  store ptr %add.ptr3.i.i.i.i, ptr %_M_end_of_storage4.i.i.i.i, align 8, !noalias !177
   br label %invoke.cont.i
 
 for.body.i.i.i.i.preheader.i.i.i.i:               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i

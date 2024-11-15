@@ -36110,9 +36110,9 @@ define linkonce_odr noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorISt4
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = ptrtoint ptr %2 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %6, %5
+  %5 = ptrtoint ptr %4 to i64
+  %6 = ptrtoint ptr %2 to i64
+  %7 = sub i64 %5, %6
   %8 = icmp ugt i64 %7, 9223372036854775800
   br i1 %8, label %9, label %_ZNSt6vectorISt4pairIihESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 
@@ -37563,9 +37563,9 @@ define linkonce_odr noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorISt4
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = ptrtoint ptr %2 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %6, %5
+  %5 = ptrtoint ptr %4 to i64
+  %6 = ptrtoint ptr %2 to i64
+  %7 = sub i64 %5, %6
   %8 = icmp ugt i64 %7, 9223372036854775800
   br i1 %8, label %9, label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 
@@ -43222,9 +43222,9 @@ define linkonce_odr noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorISt4
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = ptrtoint ptr %2 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %6, %5
+  %5 = ptrtoint ptr %4 to i64
+  %6 = ptrtoint ptr %2 to i64
+  %7 = sub i64 %5, %6
   %8 = icmp ugt i64 %7, 9223372036854775800
   br i1 %8, label %9, label %_ZNSt6vectorISt4pairIitESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 
@@ -50203,9 +50203,9 @@ define linkonce_odr noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorISt4
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = ptrtoint ptr %2 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %6, %5
+  %5 = ptrtoint ptr %4 to i64
+  %6 = ptrtoint ptr %2 to i64
+  %7 = sub i64 %5, %6
   %8 = icmp ugt i64 %7, 9223372036854775800
   br i1 %8, label %9, label %_ZNSt6vectorISt4pairIijESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 

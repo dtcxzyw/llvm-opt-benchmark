@@ -874,8 +874,6 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EEC2ERKS3_.exit.i: ; preds = %for.body.i.i.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i.i, i64 %sub.ptr.sub.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i189.i = ptrtoint ptr %incdec.ptr.i.i.i.i.i.i to i64
-  %cond.i.i.i.i175190.i = ptrtoint ptr %call5.i.i.i.i2.i6.i.i to i64
   %call2.i = invoke noundef zeroext i1 @_ZNK8QuantLib8Schedule12hasIsRegularEv(ptr noundef nonnull align 8 dereferenceable(136) %schedule_)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !41
 
@@ -968,6 +966,7 @@ invoke.cont37.i:                                  ; preds = %invoke.cont33.i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont37.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp29.i) #20, !noalias !41
+  %sub.ptr.lhs.cast.i.i53.i = ptrtoint ptr %call5.i.i.i.i2.i6.i.i to i64
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i.i, label %if.else26.i.i, label %if.else.i.i
 
@@ -980,7 +979,7 @@ if.else.i.i:                                      ; preds = %invoke.cont39.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.else.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %__cur.07.i.i.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %cond.i.i.i.i175190.i
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i53.i
   %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %incdec.ptr.i.i.i.i.i.i, i64 %idx.neg.i.i.i.i.i.i.i.i
@@ -1014,8 +1013,7 @@ cond.true.i.i.i:                                  ; preds = %if.else26.i.i
 for.body.i.i.i12.i.preheader.i:                   ; preds = %cond.true.i.i.i
   store i64 %call40.i, ptr %call5.i.i.i.i117.i, align 8, !tbaa !38, !noalias !41
   %incdec.ptr.i114.i = getelementptr i8, ptr %call5.i.i.i.i117.i, i64 8
-  %reass.sub = sub i64 %__cur.0.lcssa.i.i.i.i.i189.i, %cond.i.i.i.i175190.i
-  %17 = and i64 %reass.sub, -8
+  %17 = and i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %incdec.ptr.i114.i, ptr nonnull align 8 %call5.i.i.i.i2.i6.i.i, i64 %17, i1 false), !tbaa !38, !alias.scope !69, !noalias !41
   %18 = add i64 %sub.ptr.lhs.cast.i.i.i, -8
   %19 = sub i64 %18, %sub.ptr.rhs.cast.i.i.i.i.i

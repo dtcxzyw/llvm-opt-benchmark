@@ -220,8 +220,8 @@ for.body69:                                       ; preds = %stop_progress.exit,
   %pathspec70 = getelementptr inbounds [20 x %struct.thread_data], ptr %data, i64 0, i64 %indvars.iv61, i32 2
   call void @clear_pathspec(ptr noundef nonnull %pathspec70) #8
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count53
-  br i1 %exitcond66.not, label %do.body, label %for.body69, !llvm.loop !8
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count53
+  br i1 %exitcond65.not, label %do.body, label %for.body69, !llvm.loop !8
 
 do.body:                                          ; preds = %for.body69, %stop_progress.exit
   %trace_perf_key.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 8), align 8

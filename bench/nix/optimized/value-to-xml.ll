@@ -5174,9 +5174,9 @@ define linkonce_odr void @_ZNK3nix7Formals18lexicographicOrderERKNS_11SymbolTabl
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %7 = ptrtoint ptr %4 to i64
-  %8 = ptrtoint ptr %6 to i64
-  %9 = sub i64 %8, %7
+  %7 = ptrtoint ptr %6 to i64
+  %8 = ptrtoint ptr %4 to i64
+  %9 = sub i64 %7, %8
   %10 = icmp ugt i64 %9, 9223372036854775792
   br i1 %10, label %.noexc.i, label %_ZNSt6vectorIN3nix6FormalESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 

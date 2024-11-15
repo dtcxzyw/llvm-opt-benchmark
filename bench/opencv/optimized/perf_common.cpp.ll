@@ -5146,9 +5146,9 @@ _ZNSt6vectorISt5tupleIJN2cv3dnn14dnn4_v202405217BackendENS3_6TargetEEESaIS6_EE9p
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorISt5tupleIJN2cv3dnn14dnn4_v202405217BackendENS5_6TargetEEEEE, i64 16), ptr %227, align 8, !noalias !117
   %228 = getelementptr inbounds i8, ptr %227, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %228, i8 0, i64 24, i1 false), !noalias !117
-  %229 = ptrtoint ptr %.sroa.0237.13 to i64
-  %230 = ptrtoint ptr %.sroa.17.12 to i64
-  %231 = sub i64 %230, %229
+  %229 = ptrtoint ptr %.sroa.17.12 to i64
+  %230 = ptrtoint ptr %.sroa.0237.13 to i64
+  %231 = sub i64 %229, %230
   %232 = icmp ugt i64 %231, 9223372036854775800
   br i1 %232, label %233, label %_ZNSt6vectorISt5tupleIJN2cv3dnn14dnn4_v202405217BackendENS3_6TargetEEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i.i.i.i.i
 

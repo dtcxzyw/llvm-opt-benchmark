@@ -1712,8 +1712,6 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_tr
 invoke.cont179:                                   ; preds = %for.body.i.i.i.i.i, %do.end175
   %cond.i.i.i.i538 = phi ptr [ null, %do.end175 ], [ %call5.i.i.i.i2.i6.i169, %for.body.i.i.i.i.i ]
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %do.end175 ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i650 = ptrtoint ptr %__cur.0.lcssa.i.i.i.i.i to i64
-  %cond.i.i.i.i538651 = ptrtoint ptr %cond.i.i.i.i538 to i64
   %add.ptr.i.i.i539 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i538, i64 %sub.ptr.sub.i.i
   %102 = load ptr, ptr %exercise, align 8, !tbaa !82
   %cmp.not.i170 = icmp eq ptr %102, null
@@ -1741,7 +1739,9 @@ if.then.i.i176:                                   ; preds = %invoke.cont186
   br label %invoke.cont188
 
 if.else.i.i:                                      ; preds = %invoke.cont186
-  %sub.ptr.sub.i.i.i = sub i64 %__cur.0.lcssa.i.i.i.i.i650, %cond.i.i.i.i538651
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__cur.0.lcssa.i.i.i.i.i to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %cond.i.i.i.i538 to i64
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i, label %if.then.i.i496, label %_ZNKSt6vectorIN8QuantLib4DateESaIS1_EE12_M_check_lenEmPKc.exit.i
 
@@ -1775,8 +1775,8 @@ _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i: ; preds = %c
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i
-  %105 = add i64 %__cur.0.lcssa.i.i.i.i.i650, -8
-  %106 = sub i64 %105, %cond.i.i.i.i538651
+  %105 = add i64 %sub.ptr.lhs.cast.i.i.i, -8
+  %106 = sub i64 %105, %sub.ptr.rhs.cast.i.i.i
   %107 = and i64 %106, -8
   %108 = add i64 %107, 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %cond.i10.i, ptr align 8 %cond.i.i.i.i538, i64 %108, i1 false), !tbaa !30, !alias.scope !94, !noalias !27
@@ -2122,12 +2122,12 @@ for.body.lr.ph:                                   ; preds = %invoke.cont255
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZN8QuantLib10DayCounterD2Ev.exit478
-  %.pre652 = load ptr, ptr %pn.i, align 8, !tbaa !37
-  %cmp.not.i.i220 = icmp eq ptr %.pre652, null
+  %.pre650 = load ptr, ptr %pn.i, align 8, !tbaa !37
+  %cmp.not.i.i220 = icmp eq ptr %.pre650, null
   br i1 %cmp.not.i.i220, label %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit, label %if.then.i.i221
 
 if.then.i.i221:                                   ; preds = %invoke.cont255, %for.cond.cleanup
-  %145 = phi ptr [ %.pre652, %for.cond.cleanup ], [ %call.i.i.i, %invoke.cont255 ]
+  %145 = phi ptr [ %.pre650, %for.cond.cleanup ], [ %call.i.i.i, %invoke.cont255 ]
   %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 8
   %146 = atomicrmw sub ptr %use_count_.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i222 = icmp eq i32 %146, 1

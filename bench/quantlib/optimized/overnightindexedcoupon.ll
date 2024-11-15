@@ -2282,9 +2282,9 @@ if.then260:                                       ; preds = %invoke.cont253
   %197 = load ptr, ptr %valueDates_, align 8, !tbaa !3
   %198 = load ptr, ptr %_M_finish.i261, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %198, i64 -8
-  %__first.coerce4.i.i319 = ptrtoint ptr %197 to i64
-  %__last.coerce3.i.i320 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i321 = sub i64 %__last.coerce3.i.i320, %__first.coerce4.i.i319
+  %sub.ptr.lhs.cast.i.i.i.i.i319 = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i320 = ptrtoint ptr %197 to i64
+  %sub.ptr.sub.i.i.i.i.i321 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i319, %sub.ptr.rhs.cast.i.i.i.i.i320
   %cmp.i.i.i322 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i321, 9223372036854775800
   br i1 %cmp.i.i.i322, label %if.then.i.i.i344, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i323
 
@@ -6346,9 +6346,9 @@ if.then255:                                       ; preds = %invoke.cont248
   %193 = load ptr, ptr %valueDates_, align 8, !tbaa !3
   %194 = load ptr, ptr %_M_finish.i265, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %194, i64 -8
-  %__first.coerce4.i.i323 = ptrtoint ptr %193 to i64
-  %__last.coerce3.i.i324 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i325 = sub i64 %__last.coerce3.i.i324, %__first.coerce4.i.i323
+  %sub.ptr.lhs.cast.i.i.i.i.i323 = ptrtoint ptr %add.ptr.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i324 = ptrtoint ptr %193 to i64
+  %sub.ptr.sub.i.i.i.i.i325 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i323, %sub.ptr.rhs.cast.i.i.i.i.i324
   %cmp.i.i.i326 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i325, 9223372036854775800
   br i1 %cmp.i.i.i326, label %if.then.i.i.i348, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i327
 

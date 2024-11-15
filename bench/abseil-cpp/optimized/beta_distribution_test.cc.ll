@@ -8774,9 +8774,9 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorISt5tupleIJddEEEE, i64 16), ptr %call, align 8
   %container_.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container_.i, i8 0, i64 24, i1 false)
-  %__first.coerce4.i.i.i = ptrtoint ptr %begin.coerce to i64
-  %__last.coerce3.i.i.i = ptrtoint ptr %end.coerce to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i, %__first.coerce4.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %end.coerce to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %begin.coerce to i64
+  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorISt5tupleIJddEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
 
@@ -8792,9 +8792,9 @@ _ZNSt6vectorISt5tupleIJddEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i: ; pred
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt5tupleIJddEESaIS1_EE11_M_allocateEm.exit.thread.i.i.i, label %for.body.i.i.i.i.preheader.i.i.i
 
 _ZNSt12_Vector_baseISt5tupleIJddEESaIS1_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorISt5tupleIJddEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
-  %add.ptr6.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
-  %_M_end_of_storage7.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
-  store ptr %add.ptr6.i.i.i, ptr %_M_end_of_storage7.i.i.i, align 8
+  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
+  %_M_end_of_storage4.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  store ptr %add.ptr3.i.i.i, ptr %_M_end_of_storage4.i.i.i, align 8
   br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i.i.i:                 ; preds = %_ZNSt6vectorISt5tupleIJddEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i

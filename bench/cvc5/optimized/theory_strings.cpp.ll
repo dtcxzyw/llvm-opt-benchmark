@@ -5708,9 +5708,9 @@ if.then.i.i.i918:                                 ; preds = %lpad10.i
 invoke.cont290:                                   ; preds = %invoke.cont.i
   store ptr %call.i.i.i8.i, ptr %_M_finish.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %visit, i8 0, i64 24, i1 false)
-  %__first.coerce4.i.i = ptrtoint ptr %151 to i64
-  %__last.coerce3.i.i = ptrtoint ptr %call.i.i.i8.i to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %__last.coerce3.i.i, %__first.coerce4.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %call.i.i.i8.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %151 to i64
+  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i923 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i923, label %if.then.i.i.i931, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
 
@@ -5726,8 +5726,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_S_check_init_lenEmRK
   br i1 %cmp.not.i.i.i924, label %for.end353.thread, label %for.inc.i.i.i.i.preheader.i.i
 
 for.end353.thread:                                ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
-  %add.ptr6.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
-  store ptr %add.ptr6.i.i, ptr %_M_end_of_storage.i.i929, align 8
+  %add.ptr3.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
+  store ptr %add.ptr3.i.i, ptr %_M_end_of_storage.i.i929, align 8
   store ptr null, ptr %_M_finish.i.i930, align 8
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit
 

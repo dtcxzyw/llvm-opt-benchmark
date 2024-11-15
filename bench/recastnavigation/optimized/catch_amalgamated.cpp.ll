@@ -47061,9 +47061,9 @@ _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN5Catch14TestCaseHandleESt6vectorIS3_
   %34 = getelementptr %"class.Catch::TestCaseHandle", ptr %8, i64 %.sroa.speculated
   %35 = getelementptr %"class.Catch::TestCaseHandle", ptr %34, i64 %31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %36 = ptrtoint ptr %33 to i64
-  %37 = ptrtoint ptr %35 to i64
-  %38 = sub i64 %37, %36
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %33 to i64
+  %38 = sub i64 %36, %37
   %39 = icmp ugt i64 %38, 9223372036854775792
   br i1 %39, label %.noexc.i, label %_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
 

@@ -3917,9 +3917,9 @@ lpad86.loopexit.split-lp:                         ; preds = %if.then.i.i.i158, %
   br label %ehcleanup131
 
 for.end104:                                       ; preds = %while.end.i.i166
-  %__first.coerce4.i.i.i.i.i = ptrtoint ptr %flag_names_second_attempt.sroa.0.2 to i64
-  %__last.coerce3.i.i.i.i.i = ptrtoint ptr %flag_names_second_attempt.sroa.6.1 to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %__last.coerce3.i.i.i.i.i, %__first.coerce4.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %flag_names_second_attempt.sroa.6.1 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %flag_names_second_attempt.sroa.0.2 to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i.i.i
 

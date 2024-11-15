@@ -1309,19 +1309,17 @@ for.end898:                                       ; preds = %for.body857
   br label %for.body922
 
 for.body922:                                      ; preds = %for.end898, %for.body922
-  %conv9191204 = phi i64 [ 0, %for.end898 ], [ %conv919, %for.body922 ]
-  %i845.11203 = phi i32 [ 0, %for.end898 ], [ %inc932, %for.body922 ]
-  %arrayidx923 = getelementptr i8, ptr %m.addr.4.lcssa, i64 %conv9191204
+  %indvars.iv = phi i64 [ 0, %for.end898 ], [ %indvars.iv.next, %for.body922 ]
+  %arrayidx923 = getelementptr i8, ptr %m.addr.4.lcssa, i64 %indvars.iv
   %346 = load i8, ptr %arrayidx923, align 1
-  %arrayidx926 = getelementptr [64 x i8], ptr %partialblock, i64 0, i64 %conv9191204
+  %arrayidx926 = getelementptr [64 x i8], ptr %partialblock, i64 0, i64 %indvars.iv
   %347 = load i8, ptr %arrayidx926, align 1
   %xor1075 = xor i8 %347, %346
-  %arrayidx930 = getelementptr i8, ptr %c.addr.4.lcssa, i64 %conv9191204
+  %arrayidx930 = getelementptr i8, ptr %c.addr.4.lcssa, i64 %indvars.iv
   store i8 %xor1075, ptr %arrayidx930, align 1
-  %inc932 = add i32 %i845.11203, 1
-  %conv919 = zext i32 %inc932 to i64
-  %cmp920 = icmp samesign ugt i64 %bytes.addr.4.lcssa, %conv919
-  br i1 %cmp920, label %for.body922, label %for.end933, !llvm.loop !12
+  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %bytes.addr.4.lcssa
+  br i1 %exitcond.not, label %for.end933, label %for.body922, !llvm.loop !12
 
 for.end933:                                       ; preds = %for.body922
   call void @sodium_memzero(ptr noundef nonnull %partialblock, i64 noundef 64) #5
