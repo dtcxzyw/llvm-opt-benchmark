@@ -1637,7 +1637,7 @@ assimp/ComputeUVMappingProcess.cpp.ll 463853999
 assimp/ConvertToLHProcess.cpp.ll 382187776
 assimp/D3MFExporter.cpp.ll 535655190
 assimp/D3MFImporter.cpp.ll 1786139144
-assimp/D3MFOpcPackage.cpp.ll 2274241522
+assimp/D3MFOpcPackage.cpp.ll 2271967240
 assimp/DDLNode.cpp.ll 278523283
 assimp/DXFLoader.cpp.ll 2753020631
 assimp/DeboneProcess.cpp.ll 1319957189
