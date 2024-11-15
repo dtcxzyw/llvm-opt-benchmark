@@ -34664,7 +34664,7 @@ spike/s_subMagsF64.ll 64049011
 spike/sb.ll 401678062
 spike/sb_rl.ll 418762086
 spike/sc_d.ll 540659555
-spike/sc_w.ll 583434306
+spike/sc_w.ll 582850843
 spike/sclip16.ll 623698214
 spike/sclip32.ll 581728381
 spike/sclip8.ll 627925715
