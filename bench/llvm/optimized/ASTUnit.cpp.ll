@@ -32037,7 +32037,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRN5clang13serializ
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit" [
-    i32 4, label %8
+    i32 4, label %7
     i32 3, label %7
     i32 2, label %5
   ]
@@ -32048,14 +32048,11 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRN5clang13serializ
   store ptr %1, ptr %.val, align 8
   br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit"
 
-7:                                                ; preds = %2
+7:                                                ; preds = %2, %2
   br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit"
 
-8:                                                ; preds = %2
-  br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit"
-
-"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit": ; preds = %2, %5, %7, %8
-  %.0.i = phi i1 [ false, %8 ], [ false, %7 ], [ true, %5 ], [ true, %2 ]
+"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit": ; preds = %2, %5, %7
+  %.0.i = phi i1 [ false, %7 ], [ true, %5 ], [ true, %2 ]
   ret i1 %.0.i
 }
 

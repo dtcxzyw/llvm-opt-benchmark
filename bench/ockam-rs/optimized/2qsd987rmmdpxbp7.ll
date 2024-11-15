@@ -12006,38 +12006,32 @@ define { ptr, ptr } @"_ZN68_$LT$ockam_abac..error..ParseError$u20$as$u20$core..e
   %4 = add nsw i8 %3, -7
   %narrow = tail call i8 @llvm.umin.i8(i8 %4, i8 5)
   switch i8 %narrow, label %default.unreachable [
-    i8 0, label %10
+    i8 0, label %8
     i8 1, label %5
     i8 2, label %6
     i8 3, label %7
-    i8 4, label %8
-    i8 5, label %9
+    i8 4, label %7
+    i8 5, label %7
   ]
 
 default.unreachable:                              ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
-  br label %10
+  br label %8
 
 6:                                                ; preds = %1
-  br label %10
+  br label %8
 
-7:                                                ; preds = %1
-  br label %10
+7:                                                ; preds = %1, %1, %1
+  br label %8
 
-8:                                                ; preds = %1
-  br label %10
-
-9:                                                ; preds = %1
-  br label %10
-
-10:                                               ; preds = %1, %9, %8, %7, %6, %5
-  %.sroa.7.0 = phi ptr [ undef, %9 ], [ undef, %8 ], [ undef, %7 ], [ @anon.a4a44d9d39faeaa0202e9d9e390646c7.110, %6 ], [ @anon.a4a44d9d39faeaa0202e9d9e390646c7.108, %5 ], [ @anon.a4a44d9d39faeaa0202e9d9e390646c7.106, %1 ]
-  %.sroa.0.0 = phi ptr [ null, %9 ], [ null, %8 ], [ null, %7 ], [ %0, %6 ], [ %0, %5 ], [ %0, %1 ]
-  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.7.0, 1
-  ret { ptr, ptr } %12
+8:                                                ; preds = %1, %7, %6, %5
+  %.sroa.7.0 = phi ptr [ undef, %7 ], [ @anon.a4a44d9d39faeaa0202e9d9e390646c7.110, %6 ], [ @anon.a4a44d9d39faeaa0202e9d9e390646c7.108, %5 ], [ @anon.a4a44d9d39faeaa0202e9d9e390646c7.106, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %7 ], [ %0, %6 ], [ %0, %5 ], [ %0, %1 ]
+  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.7.0, 1
+  ret { ptr, ptr } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

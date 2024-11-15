@@ -1182,126 +1182,128 @@ define internal i32 @dissect_1722_aaf(ptr noundef %0, ptr noundef %1, ptr nounde
   %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %23, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #6
   %25 = load i32, ptr %8, align 4
   switch i32 %25, label %28 [
-    i32 5, label %.thread92
-    i32 1, label %.thread
-    i32 2, label %.thread
-    i32 3, label %26
-    i32 4, label %27
+    i32 5, label %27
+    i32 1, label %27
+    i32 2, label %27
+    i32 3, label %.thread
+    i32 4, label %26
   ]
 
 26:                                               ; preds = %4
   br label %.thread
 
-27:                                               ; preds = %4
-  br label %.thread
+27:                                               ; preds = %4, %4, %4
+  br label %28
 
-28:                                               ; preds = %4
-  %29 = icmp ult i32 %25, 5
-  br i1 %29, label %.thread, label %80
+28:                                               ; preds = %4, %27
+  %29 = phi i1 [ true, %4 ], [ false, %27 ]
+  %.084 = phi i32 [ 0, %4 ], [ 32, %27 ]
+  %30 = icmp ult i32 %25, 5
+  br i1 %30, label %.thread, label %81
 
-.thread:                                          ; preds = %4, %4, %26, %27, %28
-  %.08489 = phi i32 [ 0, %28 ], [ 24, %26 ], [ 16, %27 ], [ 32, %4 ], [ 32, %4 ]
-  %30 = phi i1 [ true, %28 ], [ false, %26 ], [ false, %27 ], [ false, %4 ], [ false, %4 ]
-  %31 = load i32, ptr @hf_1722_aaf_nominal_sample_rate, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %31, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef 0) #6
-  %33 = load i32, ptr @hf_1722_aaf_channels_per_frame, align 4
-  %34 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %33, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #6
-  %35 = load i32, ptr %6, align 4
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %39
+.thread:                                          ; preds = %4, %26, %28
+  %.08489 = phi i32 [ %.084, %28 ], [ 16, %26 ], [ 24, %4 ]
+  %31 = phi i1 [ %29, %28 ], [ false, %26 ], [ false, %4 ]
+  %32 = load i32, ptr @hf_1722_aaf_nominal_sample_rate, align 4
+  %33 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %32, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef 0) #6
+  %34 = load i32, ptr @hf_1722_aaf_channels_per_frame, align 4
+  %35 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %34, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #6
+  %36 = load i32, ptr %6, align 4
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %40
 
-37:                                               ; preds = %.thread
-  %38 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_aaf_channels_per_frame) #6
+38:                                               ; preds = %.thread
+  %39 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_aaf_channels_per_frame) #6
   br label %.loopexit
 
-39:                                               ; preds = %.thread
-  %40 = load i32, ptr @hf_1722_aaf_bit_depth, align 4
-  %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %40, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #6
-  %42 = load i32, ptr %7, align 4
-  %43 = add i32 %42, -1
-  %or.cond.not = icmp ult i32 %43, %.08489
-  br i1 %or.cond.not, label %46, label %44
+40:                                               ; preds = %.thread
+  %41 = load i32, ptr @hf_1722_aaf_bit_depth, align 4
+  %42 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %41, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #6
+  %43 = load i32, ptr %7, align 4
+  %44 = add i32 %43, -1
+  %or.cond.not = icmp ult i32 %44, %.08489
+  br i1 %or.cond.not, label %47, label %45
 
-44:                                               ; preds = %39
-  %45 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %41, ptr noundef nonnull @ei_aaf_incorrect_bit_depth) #6
-  br label %46
+45:                                               ; preds = %40
+  %46 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %42, ptr noundef nonnull @ei_aaf_incorrect_bit_depth) #6
+  br label %47
 
-46:                                               ; preds = %39, %44
-  %47 = load i32, ptr @hf_1722_aaf_stream_data_length, align 4
-  %48 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %47, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
+47:                                               ; preds = %40, %45
+  %48 = load i32, ptr @hf_1722_aaf_stream_data_length, align 4
+  %49 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %48, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   call void @proto_tree_add_bitmask_list(ptr noundef %14, ptr noundef %0, i32 noundef 22, i32 noundef 1, ptr noundef nonnull %10, i32 noundef 0) #6
-  %49 = load i32, ptr @hf_1722_aaf_reserved, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %49, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #6
-  %51 = load i32, ptr @hf_1722_aaf_data, align 4
-  %52 = load i32, ptr %5, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %51, ptr noundef %0, i32 noundef 24, i32 noundef %52, i32 noundef 0) #6
-  %54 = load i32, ptr @ett_1722_aaf_audio, align 4
-  %55 = call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54) #6
-  br i1 %30, label %61, label %.preheader
+  %50 = load i32, ptr @hf_1722_aaf_reserved, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %50, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #6
+  %52 = load i32, ptr @hf_1722_aaf_data, align 4
+  %53 = load i32, ptr %5, align 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %52, ptr noundef %0, i32 noundef 24, i32 noundef %53, i32 noundef 0) #6
+  %55 = load i32, ptr @ett_1722_aaf_audio, align 4
+  %56 = call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #6
+  br i1 %31, label %62, label %.preheader
 
-.preheader:                                       ; preds = %46
-  %56 = load i32, ptr %5, align 4
-  %57 = shl i32 %56, 3
-  %58 = load i32, ptr %6, align 4
-  %59 = mul i32 %58, %.08489
-  %.not = icmp ugt i32 %59, %57
-  br i1 %.not, label %.loopexit, label %.lr.ph97
+.preheader:                                       ; preds = %47
+  %57 = load i32, ptr %5, align 4
+  %58 = shl i32 %57, 3
+  %59 = load i32, ptr %6, align 4
+  %60 = mul i32 %59, %.08489
+  %.not = icmp ugt i32 %60, %58
+  br i1 %.not, label %.loopexit, label %.lr.ph94
 
-.lr.ph97:                                         ; preds = %.preheader
-  %60 = lshr exact i32 %.08489, 3
-  br label %63
+.lr.ph94:                                         ; preds = %.preheader
+  %61 = lshr exact i32 %.08489, 3
+  br label %64
 
-61:                                               ; preds = %46
-  %62 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_aaf_sample_width) #6
+62:                                               ; preds = %47
+  %63 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %54, ptr noundef nonnull @ei_aaf_sample_width) #6
   br label %.loopexit
 
-63:                                               ; preds = %.lr.ph97, %._crit_edge
-  %.096 = phi i32 [ 0, %.lr.ph97 ], [ %74, %._crit_edge ]
-  %.08595 = phi i32 [ 24, %.lr.ph97 ], [ %.1.lcssa, %._crit_edge ]
-  %64 = load i32, ptr @ett_1722_aaf_sample, align 4
-  %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %55, ptr noundef %0, i32 noundef %.08595, i32 noundef 1, i32 noundef %64, ptr noundef null, ptr noundef nonnull @.str.380, i32 noundef %.096) #6
-  %66 = load i32, ptr %6, align 4
-  %.not98 = icmp eq i32 %66, 0
-  br i1 %.not98, label %._crit_edge, label %.lr.ph
+64:                                               ; preds = %.lr.ph94, %._crit_edge
+  %.093 = phi i32 [ 0, %.lr.ph94 ], [ %75, %._crit_edge ]
+  %.08592 = phi i32 [ 24, %.lr.ph94 ], [ %.1.lcssa, %._crit_edge ]
+  %65 = load i32, ptr @ett_1722_aaf_sample, align 4
+  %66 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %56, ptr noundef %0, i32 noundef %.08592, i32 noundef 1, i32 noundef %65, ptr noundef null, ptr noundef nonnull @.str.380, i32 noundef %.093) #6
+  %67 = load i32, ptr %6, align 4
+  %.not95 = icmp eq i32 %67, 0
+  br i1 %.not95, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %63, %.lr.ph
-  %.08394 = phi i32 [ %70, %.lr.ph ], [ 0, %63 ]
-  %.193 = phi i32 [ %69, %.lr.ph ], [ %.08595, %63 ]
-  %67 = load i32, ptr @hf_1722_aaf_sample, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %67, ptr noundef %0, i32 noundef %.193, i32 noundef %60, i32 noundef 0) #6
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %68, ptr noundef nonnull @.str.381, i32 noundef %.08394) #6
-  %69 = add i32 %.193, %60
-  %70 = add nuw i32 %.08394, 1
-  %71 = load i32, ptr %6, align 4
-  %72 = icmp ult i32 %70, %71
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+.lr.ph:                                           ; preds = %64, %.lr.ph
+  %.08391 = phi i32 [ %71, %.lr.ph ], [ 0, %64 ]
+  %.190 = phi i32 [ %70, %.lr.ph ], [ %.08592, %64 ]
+  %68 = load i32, ptr @hf_1722_aaf_sample, align 4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %68, ptr noundef %0, i32 noundef %.190, i32 noundef %61, i32 noundef 0) #6
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %69, ptr noundef nonnull @.str.381, i32 noundef %.08391) #6
+  %70 = add i32 %.190, %61
+  %71 = add nuw i32 %.08391, 1
+  %72 = load i32, ptr %6, align 4
+  %73 = icmp ult i32 %71, %72
+  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %63
-  %73 = phi i32 [ 0, %63 ], [ %71, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %.08595, %63 ], [ %69, %.lr.ph ]
-  %74 = add nuw i32 %.096, 1
-  %75 = load i32, ptr %5, align 4
-  %76 = shl i32 %75, 3
-  %77 = mul i32 %73, %.08489
-  %78 = udiv i32 %76, %77
-  %79 = icmp ult i32 %74, %78
-  br i1 %79, label %63, label %.loopexit, !llvm.loop !9
+._crit_edge:                                      ; preds = %.lr.ph, %64
+  %74 = phi i32 [ 0, %64 ], [ %72, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %.08592, %64 ], [ %70, %.lr.ph ]
+  %75 = add nuw i32 %.093, 1
+  %76 = load i32, ptr %5, align 4
+  %77 = shl i32 %76, 3
+  %78 = mul i32 %74, %.08489
+  %79 = udiv i32 %77, %78
+  %80 = icmp ult i32 %75, %79
+  br i1 %80, label %64, label %.loopexit, !llvm.loop !9
 
-80:                                               ; preds = %28
-  %81 = icmp eq i32 %25, 5
-  br i1 %81, label %.thread92, label %83
+81:                                               ; preds = %28
+  %82 = icmp eq i32 %25, 5
+  br i1 %82, label %83, label %85
 
-.thread92:                                        ; preds = %4, %80
-  %82 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @ei_aaf_aes3_format) #6
+83:                                               ; preds = %81
+  %84 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @ei_aaf_aes3_format) #6
   br label %.loopexit
 
-83:                                               ; preds = %80
-  %84 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @ei_aaf_reserved_format) #6
+85:                                               ; preds = %81
+  %86 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @ei_aaf_reserved_format) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader, %.thread92, %83, %37, %61
-  %85 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  ret i32 %85
+.loopexit:                                        ; preds = %._crit_edge, %.preheader, %83, %85, %38, %62
+  %87 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  ret i32 %87
 }
 
 ; Function Attrs: nounwind uwtable

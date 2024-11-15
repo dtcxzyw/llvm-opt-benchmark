@@ -7702,8 +7702,8 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
-4:                                                ; preds = %switch.lookup, %1
-  %.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
+4:                                                ; preds = %1, %switch.lookup
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -8089,19 +8089,19 @@ _ZN4llvm12StringSwitchINS_12DISubprogram9DISPFlagsES2_E4CaseENS_13StringLiteralE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm12DISubprogram13getFlagStringENS0_9DISPFlagsE(i32 noundef %0) local_unnamed_addr #5 align 2 {
-  switch i32 %0, label %14 [
-    i32 2048, label %13
-    i32 0, label %2
-    i32 1, label %3
-    i32 2, label %4
-    i32 4, label %5
-    i32 8, label %6
-    i32 16, label %7
-    i32 32, label %8
-    i32 64, label %9
-    i32 128, label %10
-    i32 256, label %11
-    i32 512, label %12
+  switch i32 %0, label %13 [
+    i32 2048, label %12
+    i32 0, label %14
+    i32 1, label %2
+    i32 2, label %3
+    i32 4, label %4
+    i32 8, label %5
+    i32 16, label %6
+    i32 32, label %7
+    i32 64, label %8
+    i32 128, label %9
+    i32 256, label %10
+    i32 512, label %11
   ]
 
 2:                                                ; preds = %1
@@ -8141,8 +8141,8 @@ define dso_local { ptr, i64 } @_ZN4llvm12DISubprogram13getFlagStringENS0_9DISPFl
   br label %14
 
 14:                                               ; preds = %1, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.15.0 = phi i64 [ 18, %13 ], [ 15, %12 ], [ 22, %11 ], [ 17, %10 ], [ 17, %9 ], [ 12, %8 ], [ 17, %7 ], [ 18, %6 ], [ 19, %5 ], [ 19, %4 ], [ 15, %3 ], [ 12, %2 ], [ 0, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.59, %13 ], [ @.str.58, %12 ], [ @.str.57, %11 ], [ @.str.56, %10 ], [ @.str.55, %9 ], [ @.str.54, %8 ], [ @.str.53, %7 ], [ @.str.52, %6 ], [ @.str.51, %5 ], [ @.str.50, %4 ], [ @.str.49, %3 ], [ @.str.48, %2 ], [ @.str.36, %1 ]
+  %.sroa.15.0 = phi i64 [ 0, %13 ], [ 18, %12 ], [ 15, %11 ], [ 22, %10 ], [ 17, %9 ], [ 17, %8 ], [ 12, %7 ], [ 17, %6 ], [ 18, %5 ], [ 19, %4 ], [ 19, %3 ], [ 15, %2 ], [ 12, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.36, %13 ], [ @.str.59, %12 ], [ @.str.58, %11 ], [ @.str.57, %10 ], [ @.str.56, %9 ], [ @.str.55, %8 ], [ @.str.54, %7 ], [ @.str.53, %6 ], [ @.str.52, %5 ], [ @.str.51, %4 ], [ @.str.50, %3 ], [ @.str.49, %2 ], [ @.str.48, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.15.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -14772,7 +14772,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm12DIExpression10isConsta
   %12 = load i64, ptr %5, align 8
   %13 = and i64 %12, -2
   %switch = icmp eq i64 %13, 16
-  br i1 %switch, label %.thread, label %.thread14
+  br i1 %switch, label %15, label %.thread14
 
 .thread12:                                        ; preds = %1
   %14 = load i64, ptr %5, align 8
@@ -14781,42 +14781,42 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm12DIExpression10isConsta
     i64 16, label %.thread11
   ]
 
-.thread:                                          ; preds = %11
+15:                                               ; preds = %11
   switch i32 %10, label %.thread11 [
-    i32 3, label %15
-    i32 6, label %18
+    i32 3, label %16
+    i32 6, label %19
   ]
 
-15:                                               ; preds = %.thread
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = load i64, ptr %16, align 8
-  %.not5 = icmp eq i64 %17, 159
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = load i64, ptr %17, align 8
+  %.not5 = icmp eq i64 %18, 159
   br i1 %.not5, label %.thread11, label %.thread14
 
-18:                                               ; preds = %.thread
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
-  %20 = load i64, ptr %19, align 8
-  %.not6 = icmp eq i64 %20, 159
-  br i1 %.not6, label %21, label %.thread14
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = load i64, ptr %20, align 8
+  %.not6 = icmp eq i64 %21, 159
+  br i1 %.not6, label %22, label %.thread14
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %5, i64 24
-  %23 = load i64, ptr %22, align 8
-  %.not7 = icmp eq i64 %23, 4096
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = load i64, ptr %23, align 8
+  %.not7 = icmp eq i64 %24, 4096
   br i1 %.not7, label %.thread11, label %.thread14
 
-.thread11:                                        ; preds = %.thread, %.thread12, %15, %21
-  %24 = phi i64 [ %12, %21 ], [ %12, %15 ], [ %14, %.thread12 ], [ %12, %.thread ]
-  %25 = icmp eq i64 %24, 16
-  %26 = zext i1 %25 to i64
+.thread11:                                        ; preds = %15, %.thread12, %16, %22
+  %25 = phi i64 [ %12, %22 ], [ %12, %16 ], [ %14, %.thread12 ], [ %12, %15 ]
+  %26 = icmp eq i64 %25, 16
+  %27 = zext i1 %26 to i64
   br label %.thread14
 
 .thread14.fold.split:                             ; preds = %.thread12
   br label %.thread14
 
-.thread14:                                        ; preds = %11, %1, %.thread12, %.thread14.fold.split, %15, %18, %21, %.thread11
-  %.sroa.0.0 = phi i64 [ %26, %.thread11 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %.thread12 ], [ 0, %11 ], [ 0, %.thread14.fold.split ], [ 0, %1 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %.thread11 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 4294967296, %.thread12 ], [ 0, %11 ], [ 0, %.thread14.fold.split ], [ 0, %1 ]
+.thread14:                                        ; preds = %11, %1, %.thread12, %.thread14.fold.split, %16, %19, %22, %.thread11
+  %.sroa.0.0 = phi i64 [ %27, %.thread11 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %.thread12 ], [ 0, %11 ], [ 0, %.thread14.fold.split ], [ 0, %1 ]
+  %.sroa.3.0 = phi i64 [ 4294967296, %.thread11 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 4294967296, %.thread12 ], [ 0, %11 ], [ 0, %.thread14.fold.split ], [ 0, %1 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }

@@ -4119,19 +4119,19 @@ ubidi_getCustomizedClass_75.exit.i:               ; preds = %if.then.i.i, %lor.l
   %trunc.i = select i1 %cmp4.i.i, i8 10, i8 %29
   switch i8 %trunc.i, label %for.cond.i [
     i8 0, label %if.end30
-    i8 13, label %if.end30.loopexit228
-    i8 1, label %if.end30.loopexit228
+    i8 13, label %if.end30.loopexit227
+    i8 1, label %if.end30.loopexit227
     i8 7, label %if.end30.loopexit
   ]
 
 if.end30.loopexit:                                ; preds = %for.cond.i, %ubidi_getCustomizedClass_75.exit.i
   br label %if.end30
 
-if.end30.loopexit228:                             ; preds = %ubidi_getCustomizedClass_75.exit.i, %ubidi_getCustomizedClass_75.exit.i
+if.end30.loopexit227:                             ; preds = %ubidi_getCustomizedClass_75.exit.i, %ubidi_getCustomizedClass_75.exit.i
   br label %if.end30
 
-if.end30:                                         ; preds = %ubidi_getCustomizedClass_75.exit.i, %if.end30.loopexit228, %if.end30.loopexit, %land.lhs.true24, %land.end
-  %sor.addr.0 = phi i8 [ %sor, %land.lhs.true24 ], [ %sor, %land.end ], [ %sor, %if.end30.loopexit ], [ 1, %if.end30.loopexit228 ], [ 0, %ubidi_getCustomizedClass_75.exit.i ]
+if.end30:                                         ; preds = %ubidi_getCustomizedClass_75.exit.i, %if.end30.loopexit227, %if.end30.loopexit, %land.lhs.true24, %land.end
+  %sor.addr.0 = phi i8 [ %sor, %land.lhs.true24 ], [ %sor, %land.end ], [ %sor, %if.end30.loopexit ], [ 1, %if.end30.loopexit227 ], [ 0, %ubidi_getCustomizedClass_75.exit.i ]
   %arrayidx32 = getelementptr inbounds i8, ptr %0, i64 %idxprom
   %30 = load i8, ptr %arrayidx32, align 1
   %cmp34 = icmp eq i8 %30, 22

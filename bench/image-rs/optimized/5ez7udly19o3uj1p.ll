@@ -31814,15 +31814,15 @@ define void @_ZN5image6codecs3pnm7encoder15UncheckedHeader23check_header_dimensi
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !range !3857, !noundef !19
   %switch.not.i = icmp ult i64 %6, -9223372036854775801
-  %spec.select.i = select i1 %switch.not.i, i64 52, i64 36
-  %7 = getelementptr inbounds i8, ptr %1, i64 %spec.select.i
+  %..i = select i1 %switch.not.i, i64 52, i64 36
+  %7 = getelementptr inbounds i8, ptr %1, i64 %..i
   %.0.i = load i32, ptr %7, align 4, !alias.scope !3858, !noundef !19
   %.not = icmp eq i32 %.0.i, %2
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %4
-  %spec.select.i9 = select i1 %switch.not.i, i64 48, i64 32
-  %9 = getelementptr inbounds i8, ptr %1, i64 %spec.select.i9
+  %..i9 = select i1 %switch.not.i, i64 48, i64 32
+  %9 = getelementptr inbounds i8, ptr %1, i64 %..i9
   %.0.i10 = load i32, ptr %9, align 8, !alias.scope !3861, !noundef !19
   %.not7 = icmp eq i32 %.0.i10, %3
   br i1 %.not7, label %10, label %12

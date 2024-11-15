@@ -11389,7 +11389,7 @@ lpad299:                                          ; preds = %invoke.cont300, %in
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp296) #29
   br label %ehcleanup
 
-sw.epilog:                                        ; preds = %_ZN8proxygen10HPACKCodec25setEncoderHeaderTableSizeEj.exit, %cleanup.done218, %for.body, %for.body, %for.body, %sw.bb269, %for.body, %if.end170, %sw.bb78, %for.body, %lor.lhs.false
+sw.epilog:                                        ; preds = %_ZN8proxygen10HPACKCodec25setEncoderHeaderTableSizeEj.exit, %cleanup.done218, %for.body, %for.body, %sw.bb269, %if.end170, %sw.bb78, %for.body, %for.body, %for.body, %lor.lhs.false
   %44 = load i64, ptr %__begin1.sroa.0.084, align 8
   %second318 = getelementptr inbounds i8, ptr %__begin1.sroa.0.084, i64 8
   %45 = load i32, ptr %second318, align 8

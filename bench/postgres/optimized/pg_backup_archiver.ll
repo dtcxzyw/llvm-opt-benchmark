@@ -977,7 +977,7 @@ define dso_local void @ProcessArchiveRestoreOptions(ptr nocapture noundef %0) lo
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.1) #22
   br label %16
 
-16:                                               ; preds = %.sink.split, %9, %12, %13, %9, %7
+16:                                               ; preds = %.sink.split, %9, %9, %12, %13, %7
   %17 = getelementptr inbounds i8, ptr %.01828, i64 28
   %18 = load i32, ptr %17, align 4
   %.not23 = icmp eq i32 %18, 1

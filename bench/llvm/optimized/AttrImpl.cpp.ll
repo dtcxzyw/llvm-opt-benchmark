@@ -1429,18 +1429,12 @@ $_ZN4llvm15SmallVectorImplIPN5clang4ExprEEaSERKS4_ = comdat any
 @switch.table._ZN5clang11AlignedAttr6CreateERNS_10ASTContextEbPvNS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3408271, i32 21365135, i32 5636495], align 4
 @switch.table._ZNK5clang11AlignedAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.100, ptr @.str.100, ptr @.str.100, ptr @.str.101, ptr @.str.98, ptr @.str.99], align 8
 @switch.table._ZN5clang16AlwaysInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3277199, i32 4391311, i32 5636495], align 4
-@switch.table._ZNK5clang23ArgumentWithTypeTagAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.139, ptr @.str.139, ptr @.str.139, ptr @.str.140, ptr @.str.140, ptr @.str.140], align 8
-@switch.table._ZNK5clang20AssertCapabilityAttr11getSpellingEv = private unnamed_addr constant [4 x ptr] [ptr @.str.164, ptr @.str.164, ptr @.str.165, ptr @.str.165], align 8
 @switch.table._ZN5clang16BuiltinAliasAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [3 x i32] [i32 131471, i32 1245583, i32 2163087], align 4
 @switch.table._ZNK5clang9CDeclAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.218, ptr @.str.218, ptr @.str.218, ptr @.str.216, ptr @.str.217], align 8
 @switch.table._ZN5clang17CXX11NoReturnAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [3 x i32] [i32 131471, i32 1245583, i32 2294159], align 4
-@switch.table._ZNK5clang14CapabilityAttr11getSpellingEv = private unnamed_addr constant [4 x ptr] [ptr @.str.305, ptr @.str.305, ptr @.str.306, ptr @.str.306], align 8
 @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1294 = private unnamed_addr constant [4 x ptr] [ptr @.str.323, ptr @.str.323, ptr @.str.324, ptr @.str.325], align 8
-@switch.table._ZNK5clang9ConstAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.341, ptr @.str.341, ptr @.str.341, ptr @.str.342, ptr @.str.342, ptr @.str.342], align 8
 @switch.table._ZN5clang13ConstInitAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [3 x i32] [i32 393615, i32 1114511, i32 2228623], align 4
-@switch.table._ZNK5clang13ConstInitAttr11getSpellingEv = private unnamed_addr constant [3 x ptr] [ptr @.str.343, ptr @.str.346, ptr @.str.346], align 8
 @switch.table._ZN5clang14DeprecatedAttr6CreateERNS_10ASTContextEN4llvm9StringRefES4_NS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3408271, i32 4325775, i32 5439887], align 4
-@switch.table._ZNK5clang9ErrorAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.404, ptr @.str.404, ptr @.str.404, ptr @.str.405, ptr @.str.405, ptr @.str.405], align 8
 @switch.table._ZNK5clang12FastCallAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.450, ptr @.str.450, ptr @.str.450, ptr @.str.448, ptr @.str.449], align 8
 @switch.table._ZNK5clang21HLSLParamModifierAttr11getSpellingEv = private unnamed_addr constant [3 x ptr] [ptr @.str.492, ptr @.str.493, ptr @.str.494], align 8
 @switch.table._ZN5clang16HLSLResourceAttr24ConvertResourceKindToStrEN4llvm4dxil12ResourceKindE = private unnamed_addr constant [18 x ptr] [ptr @.str.497, ptr @.str.498, ptr @.str.499, ptr @.str.500, ptr @.str.501, ptr @.str.502, ptr @.str.503, ptr @.str.504, ptr @.str.505, ptr @.str.506, ptr @.str.507, ptr @.str.508, ptr @.str.509, ptr @.str.510, ptr @.str.511, ptr @.str.512, ptr @.str.513, ptr @.str.514], align 8
@@ -1451,10 +1445,7 @@ $_ZN4llvm15SmallVectorImplIPN5clang4ExprEEaSERKS4_ = comdat any
 @switch.table._ZNK5clang12LoopHintAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.487, ptr @.str.486, ptr @.str.609, ptr @.str.599, ptr @.str.610], align 8
 @switch.table._ZNK5clang17MSInheritanceAttr11getSpellingEv = private unnamed_addr constant [4 x ptr] [ptr @.str.624, ptr @.str.625, ptr @.str.626, ptr @.str.627], align 8
 @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1297 = private unnamed_addr constant [9 x ptr] [ptr @.str.651, ptr @.str.652, ptr @.str.653, ptr @.str.654, ptr @.str.655, ptr @.str.656, ptr @.str.657, ptr @.str.658, ptr @.str.659], align 8
-@switch.table._ZNK5clang16MipsLongCallAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.664, ptr @.str.664, ptr @.str.664, ptr @.str.665, ptr @.str.665, ptr @.str.665], align 8
-@switch.table._ZNK5clang17MipsShortCallAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.670, ptr @.str.670, ptr @.str.670, ptr @.str.671, ptr @.str.671, ptr @.str.671], align 8
 @switch.table._ZN5clang12NoInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [9 x i32] [i32 393615, i32 1114511, i32 2228623, i32 3342735, i32 4325775, i32 5439887, i32 6422927, i32 7537039, i32 8651151], align 4
-@switch.table._ZNK5clang12NoInlineAttr11getSpellingEv = private unnamed_addr constant [9 x ptr] [ptr @.str.729, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735, ptr @.str.735], align 8
 @switch.table._ZN5clang20NoStackProtectorAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3277199, i32 4391311, i32 5505423], align 4
 @switch.table._ZN5clang19OMPAllocateDeclAttr27ConvertAllocatorTypeTyToStrENS0_15AllocatorTypeTyE = private unnamed_addr constant [10 x ptr] [ptr @.str.797, ptr @.str.798, ptr @.str.799, ptr @.str.800, ptr @.str.801, ptr @.str.802, ptr @.str.803, ptr @.str.804, ptr @.str.805, ptr @.str.12], align 8
 @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1299 = private unnamed_addr constant [6 x ptr] [ptr @.str.879, ptr @.str.880, ptr @.str.881, ptr @.str.882, ptr @.str.883, ptr @.str.884], align 8
@@ -1469,15 +1460,11 @@ $_ZN4llvm15SmallVectorImplIPN5clang4ExprEEaSERKS4_ = comdat any
 @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv = private unnamed_addr constant [5 x i32] [i32 0, i32 0, i32 2, i32 3, i32 4], align 4
 @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.958, ptr @.str.959, ptr @.str.962, ptr @.str.962, ptr @.str.962], align 8
 @switch.table._ZN5clang13OwnershipAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoEPNS_8ParamIdxEjNS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [9 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3211663, i32 4325775, i32 5439887, i32 6357391, i32 7471503, i32 8585615], align 4
-@switch.table._ZNK5clang13OwnershipAttr11getSpellingEv = private unnamed_addr constant [9 x ptr] [ptr @.str.980, ptr @.str.980, ptr @.str.980, ptr @.str.981, ptr @.str.981, ptr @.str.981, ptr @.str.982, ptr @.str.982, ptr @.str.982], align 8
 @switch.table._ZNK5clang10PascalAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.993, ptr @.str.993, ptr @.str.993, ptr @.str.991, ptr @.str.992], align 8
-@switch.table._ZNK5clang18PassObjectSizeAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.998, ptr @.str.998, ptr @.str.998, ptr @.str.999, ptr @.str.999, ptr @.str.999], align 8
 @switch.table._ZN5clang17RISCVVectorCCAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [5 x i32] [i32 131471, i32 1245583, i32 2163087, i32 3277199, i32 4391311], align 4
-@switch.table._ZNK5clang17RISCVVectorCCAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.1040, ptr @.str.1040, ptr @.str.1041, ptr @.str.1041, ptr @.str.1041], align 8
 @switch.table._ZNK5clang21ReleaseCapabilityAttr11getSpellingEv = private unnamed_addr constant [8 x ptr] [ptr @.str.1063, ptr @.str.1063, ptr @.str.1064, ptr @.str.1064, ptr @.str.1065, ptr @.str.1065, ptr @.str.1066, ptr @.str.1066], align 8
 @switch.table._ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [8 x i32] [i32 65935, i32 1180047, i32 2163087, i32 3277199, i32 4260239, i32 5374351, i32 6357391, i32 7471503], align 4
 @switch.table._ZNK5clang22RequiresCapabilityAttr11getSpellingEv = private unnamed_addr constant [8 x ptr] [ptr @.str.1081, ptr @.str.1081, ptr @.str.1082, ptr @.str.1082, ptr @.str.1083, ptr @.str.1083, ptr @.str.1084, ptr @.str.1084], align 8
-@switch.table._ZNK5clang12RestrictAttr11getSpellingEv = private unnamed_addr constant [4 x ptr] [ptr @.str.1088, ptr @.str.1089, ptr @.str.1089, ptr @.str.1089], align 8
 @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [4 x i32] [i32 262543, i32 1114511, i32 2228623, i32 3342735], align 4
 @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1302 = private unnamed_addr constant [3 x ptr] [ptr @.str.289, ptr @.str.290, ptr @.str.291], align 8
 @switch.table._ZNK5clang11StdCallAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.1145, ptr @.str.1145, ptr @.str.1145, ptr @.str.1143, ptr @.str.1144], align 8
@@ -1487,9 +1474,7 @@ $_ZN4llvm15SmallVectorImplIPN5clang4ExprEEaSERKS4_ = comdat any
 @switch.table._ZNK5clang14SwiftErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE = private unnamed_addr constant [5 x ptr] [ptr @.str.879, ptr @.str.1163, ptr @.str.1183, ptr @.str.1184, ptr @.str.1185], align 8
 @switch.table._ZNK5clang12ThisCallAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.1227, ptr @.str.1227, ptr @.str.1227, ptr @.str.1225, ptr @.str.1226], align 8
 @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [4 x i32] [i32 65935, i32 1180047, i32 2163087, i32 3277199], align 4
-@switch.table._ZNK5clang24TryAcquireCapabilityAttr11getSpellingEv = private unnamed_addr constant [4 x ptr] [ptr @.str.1240, ptr @.str.1240, ptr @.str.1241, ptr @.str.1241], align 8
 @switch.table._ZN5clang10UnusedAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [5 x i32] [i32 131471, i32 1114511, i32 2228623, i32 3342735, i32 4391311], align 4
-@switch.table._ZNK5clang10UnusedAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.1272, ptr @.str.1273, ptr @.str.1273, ptr @.str.1273, ptr @.str.1272], align 8
 @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1314 = private unnamed_addr constant [4 x ptr] [ptr @.str.1286, ptr @.str.1287, ptr @.str.1288, ptr @.str.1289], align 8
 @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1315 = private unnamed_addr constant [3 x ptr] [ptr @.str.1290, ptr @.str.1291, ptr @.str.1292], align 8
 @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1316 = private unnamed_addr constant [4 x ptr] [ptr @.str.1293, ptr @.str.1294, ptr @.str.1295, ptr @.str.1296], align 8
@@ -1497,10 +1482,9 @@ $_ZN4llvm15SmallVectorImplIPN5clang4ExprEEaSERKS4_ = comdat any
 @switch.table._ZNK5clang14VectorCallAttr11getSpellingEv = private unnamed_addr constant [5 x ptr] [ptr @.str.1309, ptr @.str.1309, ptr @.str.1309, ptr @.str.1307, ptr @.str.1308], align 8
 @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1318 = private unnamed_addr constant [3 x ptr] [ptr @.str.1249, ptr @.str.1250, ptr @.str.1252], align 8
 @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 131471, i32 1245583, i32 2228623, i32 3211663, i32 4325775, i32 5439887], align 4
-@switch.table._ZNK5clang20WarnUnusedResultAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.1320, ptr @.str.1320, ptr @.str.1321, ptr @.str.1321, ptr @.str.1321, ptr @.str.1321], align 8
 @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE = private unnamed_addr constant [6 x i32] [i32 65935, i32 1180047, i32 2294159, i32 3211663, i32 4325775, i32 5439887], align 4
-@switch.table._ZNK5clang18XRayInstrumentAttr11getSpellingEv = private unnamed_addr constant [6 x ptr] [ptr @.str.1350, ptr @.str.1350, ptr @.str.1350, ptr @.str.1351, ptr @.str.1351, ptr @.str.1351], align 8
 @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1320 = private unnamed_addr constant [9 x ptr] [ptr @.str.1355, ptr @.str.1356, ptr @.str.1357, ptr @.str.1358, ptr @.str.1279, ptr @.str.1359, ptr @.str.1360, ptr @.str.1361, ptr @.str.1362], align 8
+@switch.table._ZNK5clang4Attr11getSpellingEv = private unnamed_addr constant [9 x ptr] [ptr @.str.980, ptr @.str.980, ptr @.str.980, ptr @.str.981, ptr @.str.981, ptr @.str.981, ptr @.str.982, ptr @.str.982, ptr @.str.982], align 8
 
 @_ZN5clang17AArch64SVEPcsAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang17AArch64SVEPcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE
 @_ZN5clang20AArch64VectorPcsAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang20AArch64VectorPcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE
@@ -21676,8 +21660,8 @@ define dso_local noundef nonnull ptr @_ZNK5clang16AlwaysInlineAttr11getSpellingE
 _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %switch = icmp ult i32 %10, 5
-  %spec.select = select i1 %switch, ptr @.str.118, ptr @.str.117
-  ret ptr %spec.select
+  %.str.118..str.117 = select i1 %switch, ptr @.str.118, ptr @.str.117
+  ret ptr %.str.118..str.117
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28518,18 +28502,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang23ArgumentWithTypeTagAttr11getSp
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang23ArgumentWithTypeTagAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 3
+  %.str.139..str.140 = select i1 %switch, ptr @.str.139, ptr @.str.140
+  ret ptr %.str.139..str.140
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -36835,18 +36818,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang20AssertCapabilityAttr11getSpell
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang20AssertCapabilityAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 2
+  %.str.164..str.165 = select i1 %switch, ptr @.str.164, ptr @.str.165
+  ret ptr %.str.164..str.165
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -47143,8 +47125,8 @@ define dso_local noundef nonnull ptr @_ZNK5clang16BuiltinAliasAttr11getSpellingE
 _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %switch = icmp ult i32 %10, 2
-  %spec.select = select i1 %switch, ptr @.str.211, ptr @.str.212
-  ret ptr %spec.select
+  %.str.211..str.212 = select i1 %switch, ptr @.str.211, ptr @.str.212
+  ret ptr %.str.211..str.212
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -59026,8 +59008,8 @@ define dso_local noundef nonnull ptr @_ZNK5clang17CXX11NoReturnAttr11getSpelling
 _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %switch = icmp ult i32 %10, 2
-  %spec.select = select i1 %switch, ptr @.str.284, ptr @.str.213
-  ret ptr %spec.select
+  %.str.284..str.213 = select i1 %switch, ptr @.str.284, ptr @.str.213
+  ret ptr %.str.284..str.213
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -63030,18 +63012,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang14CapabilityAttr11getSpellingEv(
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang14CapabilityAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 2
+  %.str.305..str.306 = select i1 %switch, ptr @.str.305, ptr @.str.306
+  ret ptr %.str.305..str.306
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -69688,18 +69669,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang9ConstAttr11getSpellingEv(ptr no
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang9ConstAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 3
+  %.str.341..str.342 = select i1 %switch, ptr @.str.341, ptr @.str.342
+  ret ptr %.str.341..str.342
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -70192,18 +70172,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang13ConstInitAttr11getSpellingEv(p
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang13ConstInitAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp eq i32 %10, 0
+  %.str.343..str.346 = select i1 %switch, ptr @.str.343, ptr @.str.346
+  ret ptr %.str.343..str.346
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -88988,18 +88967,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang9ErrorAttr11getSpellingEv(ptr no
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang9ErrorAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 3
+  %.str.404..str.405 = select i1 %switch, ptr @.str.404, ptr @.str.405
+  ret ptr %.str.404..str.405
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -126885,18 +126863,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang16MipsLongCallAttr11getSpellingE
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang16MipsLongCallAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 3
+  %.str.664..str.665 = select i1 %switch, ptr @.str.664, ptr @.str.665
+  ret ptr %.str.664..str.665
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -127521,18 +127498,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang17MipsShortCallAttr11getSpelling
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang17MipsShortCallAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 3
+  %.str.670..str.671 = select i1 %switch, ptr @.str.670, ptr @.str.671
+  ret ptr %.str.670..str.671
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -138767,18 +138743,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang12NoInlineAttr11getSpellingEv(pt
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang12NoInlineAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp eq i32 %10, 0
+  %.str.729..str.735 = select i1 %switch, ptr @.str.729, ptr @.str.735
+  ret ptr %.str.729..str.735
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -145179,8 +145154,8 @@ define dso_local noundef nonnull ptr @_ZNK5clang20NoStackProtectorAttr11getSpell
 _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %switch = icmp ult i32 %10, 5
-  %spec.select = select i1 %switch, ptr @.str.770, ptr @.str.771
-  ret ptr %spec.select
+  %.str.770..str.771 = select i1 %switch, ptr @.str.770, ptr @.str.771
+  ret ptr %.str.770..str.771
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -183483,7 +183458,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang13OwnershipAttr11getSpellingEv(p
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang13OwnershipAttr11getSpellingEv, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang4Attr11getSpellingEv, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -186157,18 +186132,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang18PassObjectSizeAttr11getSpellin
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang18PassObjectSizeAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 3
+  %.str.998..str.999 = select i1 %switch, ptr @.str.998, ptr @.str.999
+  ret ptr %.str.998..str.999
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -196816,18 +196790,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang17RISCVVectorCCAttr11getSpelling
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK5clang17RISCVVectorCCAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 2
+  %.str.1040..str.1041 = select i1 %switch, ptr @.str.1040, ptr @.str.1041
+  ret ptr %.str.1040..str.1041
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -198400,8 +198373,8 @@ define dso_local noundef nonnull ptr @_ZNK5clang11RegCallAttr11getSpellingEv(ptr
 _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %switch = icmp ult i32 %10, 3
-  %spec.select = select i1 %switch, ptr @.str.1051, ptr @.str.1050
-  ret ptr %spec.select
+  %.str.1051..str.1050 = select i1 %switch, ptr @.str.1051, ptr @.str.1050
+  ret ptr %.str.1051..str.1050
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -204157,18 +204130,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang12RestrictAttr11getSpellingEv(pt
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang12RestrictAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp eq i32 %10, 0
+  %.str.1088..str.1089 = select i1 %switch, ptr @.str.1088, ptr @.str.1089
+  ret ptr %.str.1088..str.1089
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209394,8 +209366,8 @@ define dso_local noundef nonnull ptr @_ZNK5clang11SectionAttr11getSpellingEv(ptr
 _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %switch = icmp ult i32 %10, 3
-  %spec.select = select i1 %switch, ptr @.str.1115, ptr @.str.1116
-  ret ptr %spec.select
+  %.str.1115..str.1116 = select i1 %switch, ptr @.str.1115, ptr @.str.1116
+  ret ptr %.str.1115..str.1116
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -236429,18 +236401,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang24TryAcquireCapabilityAttr11getS
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang24TryAcquireCapabilityAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 2
+  %.str.1240..str.1241 = select i1 %switch, ptr @.str.1240, ptr @.str.1241
+  ret ptr %.str.1240..str.1241
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -243633,18 +243604,18 @@ define dso_local noundef nonnull ptr @_ZNK5clang10UnusedAttr11getSpellingEv(ptr 
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK5clang10UnusedAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %.off = add i32 %10, -1
+  %switch = icmp ult i32 %.off, 3
+  %.str.1273..str.1272 = select i1 %switch, ptr @.str.1273, ptr @.str.1272
+  ret ptr %.str.1273..str.1272
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -252489,18 +252460,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang20WarnUnusedResultAttr11getSpell
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang20WarnUnusedResultAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 2
+  %.str.1320..str.1321 = select i1 %switch, ptr @.str.1320, ptr @.str.1321
+  ret ptr %.str.1320..str.1321
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -259175,18 +259145,17 @@ define dso_local noundef nonnull ptr @_ZNK5clang18XRayInstrumentAttr11getSpellin
 5:                                                ; preds = %1
   %6 = lshr i32 %3, 20
   %7 = and i32 %6, 15
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %switch.lookup
+  br label %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit
 
-switch.lookup:                                    ; preds = %8, %5
+_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds = %5, %8
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  %11 = sext i32 %10 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK5clang18XRayInstrumentAttr11getSpellingEv, i64 0, i64 %11
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %switch = icmp ult i32 %10, 3
+  %.str.1350..str.1351 = select i1 %switch, ptr @.str.1350, ptr @.str.1351
+  ret ptr %.str.1350..str.1351
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -260749,7 +260718,7 @@ _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit: ; preds =
 define dso_local noundef nonnull ptr @_ZNK5clang4Attr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i16, ptr %2, align 8
-  switch i16 %3, label %2292 [
+  switch i16 %3, label %2419 [
     i16 47, label %4
     i16 48, label %10
     i16 95, label %16
@@ -260785,388 +260754,388 @@ define dso_local noundef nonnull ptr @_ZNK5clang4Attr11getSpellingEv(ptr noundef
     i16 51, label %180
     i16 115, label %186
     i16 116, label %192
-    i16 117, label %194
-    i16 3, label %200
-    i16 4, label %206
-    i16 118, label %212
-    i16 5, label %218
-    i16 119, label %224
-    i16 6, label %230
-    i16 7, label %236
-    i16 8, label %242
-    i16 9, label %248
-    i16 120, label %254
-    i16 121, label %260
-    i16 122, label %270
-    i16 123, label %272
-    i16 124, label %278
-    i16 125, label %284
-    i16 126, label %290
-    i16 127, label %296
-    i16 128, label %302
-    i16 129, label %308
-    i16 130, label %314
-    i16 131, label %320
-    i16 10, label %326
-    i16 11, label %332
-    i16 132, label %338
+    i16 117, label %202
+    i16 3, label %208
+    i16 4, label %214
+    i16 118, label %220
+    i16 5, label %226
+    i16 119, label %232
+    i16 6, label %238
+    i16 7, label %244
+    i16 8, label %250
+    i16 9, label %256
+    i16 120, label %262
+    i16 121, label %268
+    i16 122, label %278
+    i16 123, label %288
+    i16 124, label %294
+    i16 125, label %300
+    i16 126, label %306
+    i16 127, label %312
+    i16 128, label %318
+    i16 129, label %324
+    i16 130, label %330
+    i16 131, label %336
+    i16 10, label %342
+    i16 11, label %348
+    i16 132, label %354
     i16 133, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 389, label %344
-    i16 134, label %354
-    i16 52, label %360
-    i16 135, label %362
-    i16 84, label %368
-    i16 136, label %374
-    i16 137, label %380
-    i16 138, label %386
-    i16 139, label %392
-    i16 140, label %398
-    i16 141, label %404
-    i16 142, label %410
-    i16 143, label %416
-    i16 144, label %426
-    i16 145, label %436
-    i16 146, label %446
-    i16 147, label %456
-    i16 148, label %466
+    i16 389, label %360
+    i16 134, label %370
+    i16 52, label %376
+    i16 135, label %378
+    i16 84, label %384
+    i16 136, label %390
+    i16 137, label %396
+    i16 138, label %402
+    i16 139, label %408
+    i16 140, label %414
+    i16 141, label %420
+    i16 142, label %426
+    i16 143, label %432
+    i16 144, label %442
+    i16 145, label %452
+    i16 146, label %462
+    i16 147, label %472
+    i16 148, label %482
     i16 149, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 150, label %476
-    i16 151, label %486
-    i16 152, label %496
-    i16 35, label %506
-    i16 153, label %512
-    i16 154, label %518
-    i16 390, label %524
-    i16 155, label %530
+    i16 150, label %492
+    i16 151, label %502
+    i16 152, label %512
+    i16 35, label %522
+    i16 153, label %528
+    i16 154, label %534
+    i16 390, label %540
+    i16 155, label %546
     i16 156, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 85, label %532
-    i16 157, label %538
-    i16 158, label %544
-    i16 12, label %550
-    i16 159, label %556
-    i16 36, label %562
-    i16 160, label %568
-    i16 161, label %574
-    i16 162, label %580
-    i16 163, label %586
-    i16 164, label %592
-    i16 165, label %594
-    i16 166, label %596
-    i16 167, label %602
-    i16 168, label %608
-    i16 169, label %614
-    i16 170, label %620
-    i16 171, label %626
-    i16 172, label %632
-    i16 173, label %638
-    i16 174, label %644
-    i16 175, label %650
-    i16 53, label %656
-    i16 54, label %662
-    i16 176, label %668
+    i16 85, label %556
+    i16 157, label %562
+    i16 158, label %568
+    i16 12, label %574
+    i16 159, label %580
+    i16 36, label %586
+    i16 160, label %592
+    i16 161, label %598
+    i16 162, label %604
+    i16 163, label %610
+    i16 164, label %616
+    i16 165, label %626
+    i16 166, label %636
+    i16 167, label %642
+    i16 168, label %648
+    i16 169, label %654
+    i16 170, label %660
+    i16 171, label %666
+    i16 172, label %672
+    i16 173, label %678
+    i16 174, label %684
+    i16 175, label %690
+    i16 53, label %696
+    i16 54, label %702
+    i16 176, label %708
     i16 177, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 178, label %674
+    i16 178, label %714
     i16 179, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 180, label %680
-    i16 181, label %686
-    i16 182, label %692
-    i16 183, label %698
-    i16 184, label %704
-    i16 185, label %710
-    i16 186, label %716
-    i16 187, label %722
-    i16 188, label %728
-    i16 189, label %734
-    i16 190, label %740
-    i16 191, label %746
-    i16 192, label %748
-    i16 193, label %754
-    i16 194, label %760
-    i16 37, label %766
-    i16 55, label %772
-    i16 195, label %774
-    i16 196, label %784
-    i16 197, label %790
-    i16 198, label %796
-    i16 199, label %802
-    i16 200, label %808
-    i16 201, label %814
-    i16 202, label %820
-    i16 203, label %826
-    i16 204, label %832
-    i16 13, label %842
-    i16 38, label %848
-    i16 205, label %858
-    i16 92, label %864
-    i16 78, label %870
-    i16 206, label %872
+    i16 180, label %720
+    i16 181, label %726
+    i16 182, label %732
+    i16 183, label %738
+    i16 184, label %744
+    i16 185, label %750
+    i16 186, label %756
+    i16 187, label %762
+    i16 188, label %768
+    i16 189, label %774
+    i16 190, label %780
+    i16 191, label %786
+    i16 192, label %796
+    i16 193, label %802
+    i16 194, label %808
+    i16 37, label %814
+    i16 55, label %820
+    i16 195, label %822
+    i16 196, label %832
+    i16 197, label %838
+    i16 198, label %844
+    i16 199, label %850
+    i16 200, label %856
+    i16 201, label %862
+    i16 202, label %868
+    i16 203, label %874
+    i16 204, label %880
+    i16 13, label %890
+    i16 38, label %896
+    i16 205, label %906
+    i16 92, label %912
+    i16 78, label %918
+    i16 206, label %920
     i16 207, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 208, label %878
-    i16 209, label %884
-    i16 93, label %890
-    i16 94, label %896
-    i16 210, label %902
-    i16 211, label %908
-    i16 212, label %914
-    i16 213, label %920
-    i16 214, label %926
-    i16 215, label %932
-    i16 216, label %938
-    i16 391, label %944
-    i16 217, label %950
-    i16 392, label %956
-    i16 56, label %962
-    i16 218, label %968
-    i16 219, label %974
-    i16 220, label %980
-    i16 221, label %986
-    i16 57, label %992
-    i16 39, label %998
-    i16 393, label %1004
-    i16 222, label %1010
-    i16 223, label %1016
-    i16 394, label %1022
-    i16 224, label %1024
-    i16 58, label %1030
-    i16 225, label %1036
-    i16 59, label %1042
-    i16 226, label %1048
-    i16 227, label %1054
-    i16 228, label %1060
-    i16 229, label %1062
-    i16 230, label %1068
-    i16 231, label %1074
+    i16 208, label %926
+    i16 209, label %932
+    i16 93, label %938
+    i16 94, label %944
+    i16 210, label %950
+    i16 211, label %956
+    i16 212, label %962
+    i16 213, label %968
+    i16 214, label %974
+    i16 215, label %980
+    i16 216, label %986
+    i16 391, label %992
+    i16 217, label %998
+    i16 392, label %1004
+    i16 56, label %1010
+    i16 218, label %1016
+    i16 219, label %1022
+    i16 220, label %1028
+    i16 221, label %1034
+    i16 57, label %1040
+    i16 39, label %1046
+    i16 393, label %1052
+    i16 222, label %1058
+    i16 223, label %1064
+    i16 394, label %1070
+    i16 224, label %1072
+    i16 58, label %1078
+    i16 225, label %1084
+    i16 59, label %1090
+    i16 226, label %1096
+    i16 227, label %1102
+    i16 228, label %1108
+    i16 229, label %1110
+    i16 230, label %1116
+    i16 231, label %1122
     i16 232, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
     i16 233, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 234, label %1080
-    i16 235, label %1086
-    i16 236, label %1092
-    i16 237, label %1098
-    i16 238, label %1104
-    i16 239, label %1110
-    i16 240, label %1116
-    i16 241, label %1122
-    i16 242, label %1124
-    i16 395, label %1126
-    i16 40, label %1132
-    i16 86, label %1138
-    i16 243, label %1144
-    i16 244, label %1150
-    i16 245, label %1156
-    i16 246, label %1162
-    i16 60, label %1168
-    i16 247, label %1174
-    i16 248, label %1180
-    i16 249, label %1186
-    i16 396, label %1192
-    i16 250, label %1198
-    i16 251, label %1204
-    i16 252, label %1210
-    i16 14, label %1216
-    i16 253, label %1222
-    i16 254, label %1228
-    i16 397, label %1234
-    i16 44, label %1240
-    i16 255, label %1242
-    i16 45, label %1248
-    i16 256, label %1254
-    i16 257, label %1260
-    i16 258, label %1266
-    i16 259, label %1272
-    i16 260, label %1278
-    i16 261, label %1284
-    i16 262, label %1290
-    i16 263, label %1296
-    i16 264, label %1302
-    i16 265, label %1312
-    i16 266, label %1318
-    i16 267, label %1324
-    i16 268, label %1330
-    i16 15, label %1336
-    i16 16, label %1342
-    i16 87, label %1348
-    i16 269, label %1354
+    i16 234, label %1128
+    i16 235, label %1134
+    i16 236, label %1140
+    i16 237, label %1146
+    i16 238, label %1152
+    i16 239, label %1158
+    i16 240, label %1164
+    i16 241, label %1170
+    i16 242, label %1180
+    i16 395, label %1190
+    i16 40, label %1196
+    i16 86, label %1202
+    i16 243, label %1208
+    i16 244, label %1214
+    i16 245, label %1220
+    i16 246, label %1226
+    i16 60, label %1232
+    i16 247, label %1238
+    i16 248, label %1244
+    i16 249, label %1250
+    i16 396, label %1256
+    i16 250, label %1262
+    i16 251, label %1268
+    i16 252, label %1274
+    i16 14, label %1280
+    i16 253, label %1286
+    i16 254, label %1292
+    i16 397, label %1298
+    i16 44, label %1304
+    i16 255, label %1314
+    i16 45, label %1320
+    i16 256, label %1326
+    i16 257, label %1332
+    i16 258, label %1338
+    i16 259, label %1344
+    i16 260, label %1350
+    i16 261, label %1356
+    i16 262, label %1362
+    i16 263, label %1368
+    i16 264, label %1374
+    i16 265, label %1384
+    i16 266, label %1390
+    i16 267, label %1396
+    i16 268, label %1402
+    i16 15, label %1408
+    i16 16, label %1414
+    i16 87, label %1420
+    i16 269, label %1426
     i16 270, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 271, label %1360
+    i16 271, label %1432
     i16 398, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
     i16 272, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 399, label %1366
-    i16 273, label %1372
-    i16 274, label %1378
+    i16 399, label %1438
+    i16 273, label %1444
+    i16 274, label %1450
     i16 400, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
     i16 275, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 88, label %1384
-    i16 276, label %1390
-    i16 277, label %1396
-    i16 278, label %1402
-    i16 279, label %1408
-    i16 280, label %1414
-    i16 401, label %1420
-    i16 281, label %1426
-    i16 282, label %1432
-    i16 283, label %1438
-    i16 402, label %1444
-    i16 403, label %1450
-    i16 404, label %1456
-    i16 405, label %1462
-    i16 284, label %1468
-    i16 285, label %1474
-    i16 286, label %1480
-    i16 17, label %1486
-    i16 287, label %1492
-    i16 18, label %1498
-    i16 19, label %1504
-    i16 288, label %1510
-    i16 289, label %1516
-    i16 406, label %1522
-    i16 407, label %1528
-    i16 61, label %1534
-    i16 290, label %1540
-    i16 291, label %1546
-    i16 292, label %1552
-    i16 293, label %1558
-    i16 294, label %1564
-    i16 408, label %1570
-    i16 409, label %1576
-    i16 295, label %1582
-    i16 410, label %1588
-    i16 20, label %1590
-    i16 21, label %1592
-    i16 22, label %1594
-    i16 23, label %1596
-    i16 24, label %1602
-    i16 296, label %1608
-    i16 297, label %1614
-    i16 25, label %1624
-    i16 26, label %1626
-    i16 41, label %1628
-    i16 298, label %1634
-    i16 411, label %1640
-    i16 299, label %1646
-    i16 300, label %1652
-    i16 301, label %1658
-    i16 302, label %1660
-    i16 303, label %1666
-    i16 62, label %1672
-    i16 89, label %1674
-    i16 304, label %1676
-    i16 63, label %1682
-    i16 305, label %1688
+    i16 88, label %1456
+    i16 276, label %1462
+    i16 277, label %1468
+    i16 278, label %1474
+    i16 279, label %1480
+    i16 280, label %1486
+    i16 401, label %1492
+    i16 281, label %1498
+    i16 282, label %1504
+    i16 283, label %1510
+    i16 402, label %1516
+    i16 403, label %1522
+    i16 404, label %1528
+    i16 405, label %1534
+    i16 284, label %1540
+    i16 285, label %1546
+    i16 286, label %1552
+    i16 17, label %1558
+    i16 287, label %1564
+    i16 18, label %1570
+    i16 19, label %1576
+    i16 288, label %1582
+    i16 289, label %1588
+    i16 406, label %1594
+    i16 407, label %1600
+    i16 61, label %1606
+    i16 290, label %1612
+    i16 291, label %1618
+    i16 292, label %1624
+    i16 293, label %1630
+    i16 294, label %1636
+    i16 408, label %1642
+    i16 409, label %1648
+    i16 295, label %1654
+    i16 410, label %1660
+    i16 20, label %1662
+    i16 21, label %1664
+    i16 22, label %1666
+    i16 23, label %1668
+    i16 24, label %1674
+    i16 296, label %1680
+    i16 297, label %1686
+    i16 25, label %1696
+    i16 26, label %1698
+    i16 41, label %1700
+    i16 298, label %1706
+    i16 411, label %1712
+    i16 299, label %1718
+    i16 300, label %1724
+    i16 301, label %1730
+    i16 302, label %1739
+    i16 303, label %1745
+    i16 62, label %1751
+    i16 89, label %1753
+    i16 304, label %1763
+    i16 63, label %1769
+    i16 305, label %1775
     i16 306, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
     i16 307, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
     i16 308, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
     i16 309, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
     i16 310, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 311, label %1694
-    i16 312, label %1700
-    i16 64, label %1706
-    i16 65, label %1712
-    i16 66, label %1718
-    i16 313, label %1724
-    i16 314, label %1730
-    i16 27, label %1736
-    i16 28, label %1742
-    i16 315, label %1748
-    i16 316, label %1754
-    i16 67, label %1760
-    i16 317, label %1762
-    i16 318, label %1768
-    i16 68, label %1774
-    i16 319, label %1784
-    i16 320, label %1790
-    i16 90, label %1792
-    i16 412, label %1798
-    i16 321, label %1804
-    i16 322, label %1810
-    i16 323, label %1812
-    i16 324, label %1814
-    i16 325, label %1820
-    i16 326, label %1826
-    i16 327, label %1832
-    i16 29, label %1838
-    i16 328, label %1844
-    i16 329, label %1850
-    i16 330, label %1856
-    i16 331, label %1862
-    i16 332, label %1872
-    i16 333, label %1878
-    i16 334, label %1884
-    i16 335, label %1890
-    i16 69, label %1896
-    i16 70, label %1902
-    i16 336, label %1908
-    i16 337, label %1914
-    i16 71, label %1920
+    i16 311, label %1781
+    i16 312, label %1787
+    i16 64, label %1793
+    i16 65, label %1799
+    i16 66, label %1805
+    i16 313, label %1811
+    i16 314, label %1817
+    i16 27, label %1823
+    i16 28, label %1829
+    i16 315, label %1835
+    i16 316, label %1841
+    i16 67, label %1847
+    i16 317, label %1857
+    i16 318, label %1863
+    i16 68, label %1869
+    i16 319, label %1879
+    i16 320, label %1885
+    i16 90, label %1887
+    i16 412, label %1893
+    i16 321, label %1899
+    i16 322, label %1905
+    i16 323, label %1907
+    i16 324, label %1917
+    i16 325, label %1923
+    i16 326, label %1929
+    i16 327, label %1935
+    i16 29, label %1941
+    i16 328, label %1947
+    i16 329, label %1953
+    i16 330, label %1959
+    i16 331, label %1965
+    i16 332, label %1975
+    i16 333, label %1981
+    i16 334, label %1987
+    i16 335, label %1993
+    i16 69, label %1999
+    i16 70, label %2005
+    i16 336, label %2011
+    i16 337, label %2017
+    i16 71, label %2023
     i16 338, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 339, label %1922
-    i16 46, label %1928
-    i16 340, label %1934
-    i16 72, label %1940
-    i16 79, label %1946
-    i16 341, label %1952
-    i16 342, label %1958
-    i16 343, label %1964
-    i16 344, label %1970
-    i16 345, label %1976
-    i16 73, label %1982
-    i16 80, label %1988
-    i16 346, label %1994
-    i16 81, label %2000
+    i16 339, label %2025
+    i16 46, label %2031
+    i16 340, label %2037
+    i16 72, label %2043
+    i16 79, label %2049
+    i16 341, label %2055
+    i16 342, label %2061
+    i16 343, label %2067
+    i16 344, label %2073
+    i16 345, label %2079
+    i16 73, label %2085
+    i16 80, label %2091
+    i16 346, label %2097
+    i16 81, label %2103
     i16 347, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
     i16 348, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 82, label %2006
-    i16 349, label %2012
-    i16 350, label %2018
-    i16 413, label %2028
-    i16 351, label %2034
+    i16 82, label %2109
+    i16 349, label %2115
+    i16 350, label %2121
+    i16 413, label %2131
+    i16 351, label %2137
     i16 414, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
     i16 415, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-    i16 74, label %2040
-    i16 352, label %2046
-    i16 353, label %2052
-    i16 354, label %2058
-    i16 355, label %2064
-    i16 356, label %2070
-    i16 75, label %2076
-    i16 416, label %2078
-    i16 357, label %2084
-    i16 358, label %2090
-    i16 359, label %2096
-    i16 30, label %2098
-    i16 31, label %2104
-    i16 76, label %2110
-    i16 32, label %2116
-    i16 360, label %2122
-    i16 361, label %2128
-    i16 33, label %2134
-    i16 362, label %2140
-    i16 363, label %2146
-    i16 42, label %2152
-    i16 364, label %2158
-    i16 365, label %2164
-    i16 91, label %2166
-    i16 366, label %2172
-    i16 367, label %2178
-    i16 368, label %2184
-    i16 369, label %2190
-    i16 370, label %2196
-    i16 371, label %2202
-    i16 77, label %2208
-    i16 372, label %2210
-    i16 373, label %2216
-    i16 374, label %2222
-    i16 375, label %2224
-    i16 376, label %2230
-    i16 377, label %2236
-    i16 378, label %2242
-    i16 34, label %2248
-    i16 379, label %2254
-    i16 380, label %2260
-    i16 381, label %2266
-    i16 382, label %2272
-    i16 383, label %2278
-    i16 384, label %2280
-    i16 385, label %2286
+    i16 74, label %2143
+    i16 352, label %2149
+    i16 353, label %2155
+    i16 354, label %2161
+    i16 355, label %2167
+    i16 356, label %2173
+    i16 75, label %2179
+    i16 416, label %2181
+    i16 357, label %2187
+    i16 358, label %2193
+    i16 359, label %2199
+    i16 30, label %2209
+    i16 31, label %2215
+    i16 76, label %2221
+    i16 32, label %2227
+    i16 360, label %2233
+    i16 361, label %2239
+    i16 33, label %2245
+    i16 362, label %2251
+    i16 363, label %2257
+    i16 42, label %2263
+    i16 364, label %2269
+    i16 365, label %2275
+    i16 91, label %2277
+    i16 366, label %2283
+    i16 367, label %2289
+    i16 368, label %2295
+    i16 369, label %2301
+    i16 370, label %2307
+    i16 371, label %2313
+    i16 77, label %2319
+    i16 372, label %2321
+    i16 373, label %2327
+    i16 374, label %2333
+    i16 375, label %2343
+    i16 376, label %2349
+    i16 377, label %2355
+    i16 378, label %2361
+    i16 34, label %2367
+    i16 379, label %2373
+    i16 380, label %2379
+    i16 381, label %2385
+    i16 382, label %2391
+    i16 383, label %2397
+    i16 384, label %2407
+    i16 385, label %2413
   ]
 
 4:                                                ; preds = %1
@@ -261438,7 +261407,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang4Attr11getSpellingEv(ptr noundef
 _ZNK5clang16AlwaysInlineAttr11getSpellingEv.exit: ; preds = %144, %147
   %149 = phi i32 [ %146, %144 ], [ %148, %147 ]
   %switch.i = icmp ult i32 %149, 5
-  %spec.select.i = select i1 %switch.i, ptr @.str.118, ptr @.str.117
+  %.str.118..str.117.i = select i1 %switch.i, ptr @.str.118, ptr @.str.117
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 150:                                              ; preds = %1
@@ -261519,308 +261488,311 @@ _ZNK5clang16AlwaysInlineAttr11getSpellingEv.exit: ; preds = %144, %147
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 192:                                              ; preds = %1
-  %193 = tail call noundef ptr @_ZNK5clang23ArgumentWithTypeTagAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(57) %0)
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %194 = load i32, ptr %193, align 4
+  %195 = and i32 %194, 15728640
+  %.not.i.i31 = icmp eq i32 %195, 15728640
+  br i1 %.not.i.i31, label %199, label %196
+
+196:                                              ; preds = %192
+  %197 = lshr i32 %194, 20
+  %198 = and i32 %197, 15
+  br label %_ZNK5clang23ArgumentWithTypeTagAttr11getSpellingEv.exit
+
+199:                                              ; preds = %192
+  %200 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(57) %0) #16
+  br label %_ZNK5clang23ArgumentWithTypeTagAttr11getSpellingEv.exit
+
+_ZNK5clang23ArgumentWithTypeTagAttr11getSpellingEv.exit: ; preds = %196, %199
+  %201 = phi i32 [ %198, %196 ], [ %200, %199 ]
+  %switch.i32 = icmp ult i32 %201, 3
+  %.str.139..str.140.i = select i1 %switch.i32, ptr @.str.139, ptr @.str.140
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-194:                                              ; preds = %1
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %196 = load i32, ptr %195, align 4
-  %197 = and i32 %196, 15728640
-  %.not.i.i31 = icmp eq i32 %197, 15728640
-  br i1 %.not.i.i31, label %198, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+202:                                              ; preds = %1
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %204 = load i32, ptr %203, align 4
+  %205 = and i32 %204, 15728640
+  %.not.i.i33 = icmp eq i32 %205, 15728640
+  br i1 %.not.i.i33, label %206, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-198:                                              ; preds = %194
-  %199 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+206:                                              ; preds = %202
+  %207 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-200:                                              ; preds = %1
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %202 = load i32, ptr %201, align 4
-  %203 = and i32 %202, 15728640
-  %.not.i.i32 = icmp eq i32 %203, 15728640
-  br i1 %.not.i.i32, label %204, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+208:                                              ; preds = %1
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %210 = load i32, ptr %209, align 4
+  %211 = and i32 %210, 15728640
+  %.not.i.i34 = icmp eq i32 %211, 15728640
+  br i1 %.not.i.i34, label %212, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-204:                                              ; preds = %200
-  %205 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+212:                                              ; preds = %208
+  %213 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-206:                                              ; preds = %1
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %208 = load i32, ptr %207, align 4
-  %209 = and i32 %208, 15728640
-  %.not.i.i33 = icmp eq i32 %209, 15728640
-  br i1 %.not.i.i33, label %210, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+214:                                              ; preds = %1
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %216 = load i32, ptr %215, align 4
+  %217 = and i32 %216, 15728640
+  %.not.i.i35 = icmp eq i32 %217, 15728640
+  br i1 %.not.i.i35, label %218, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-210:                                              ; preds = %206
-  %211 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+218:                                              ; preds = %214
+  %219 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-212:                                              ; preds = %1
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %214 = load i32, ptr %213, align 4
-  %215 = and i32 %214, 15728640
-  %.not.i.i34 = icmp eq i32 %215, 15728640
-  br i1 %.not.i.i34, label %216, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+220:                                              ; preds = %1
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %222 = load i32, ptr %221, align 4
+  %223 = and i32 %222, 15728640
+  %.not.i.i36 = icmp eq i32 %223, 15728640
+  br i1 %.not.i.i36, label %224, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-216:                                              ; preds = %212
-  %217 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+224:                                              ; preds = %220
+  %225 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-218:                                              ; preds = %1
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %220 = load i32, ptr %219, align 4
-  %221 = and i32 %220, 15728640
-  %.not.i.i35 = icmp eq i32 %221, 15728640
-  br i1 %.not.i.i35, label %222, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+226:                                              ; preds = %1
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %228 = load i32, ptr %227, align 4
+  %229 = and i32 %228, 15728640
+  %.not.i.i37 = icmp eq i32 %229, 15728640
+  br i1 %.not.i.i37, label %230, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-222:                                              ; preds = %218
-  %223 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+230:                                              ; preds = %226
+  %231 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-224:                                              ; preds = %1
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %226 = load i32, ptr %225, align 4
-  %227 = and i32 %226, 15728640
-  %.not.i.i36 = icmp eq i32 %227, 15728640
-  br i1 %.not.i.i36, label %228, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+232:                                              ; preds = %1
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %234 = load i32, ptr %233, align 4
+  %235 = and i32 %234, 15728640
+  %.not.i.i38 = icmp eq i32 %235, 15728640
+  br i1 %.not.i.i38, label %236, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-228:                                              ; preds = %224
-  %229 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+236:                                              ; preds = %232
+  %237 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-230:                                              ; preds = %1
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %232 = load i32, ptr %231, align 4
-  %233 = and i32 %232, 15728640
-  %.not.i.i37 = icmp eq i32 %233, 15728640
-  br i1 %.not.i.i37, label %234, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+238:                                              ; preds = %1
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %240 = load i32, ptr %239, align 4
+  %241 = and i32 %240, 15728640
+  %.not.i.i39 = icmp eq i32 %241, 15728640
+  br i1 %.not.i.i39, label %242, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-234:                                              ; preds = %230
-  %235 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+242:                                              ; preds = %238
+  %243 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-236:                                              ; preds = %1
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %238 = load i32, ptr %237, align 4
-  %239 = and i32 %238, 15728640
-  %.not.i.i38 = icmp eq i32 %239, 15728640
-  br i1 %.not.i.i38, label %240, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+244:                                              ; preds = %1
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %246 = load i32, ptr %245, align 4
+  %247 = and i32 %246, 15728640
+  %.not.i.i40 = icmp eq i32 %247, 15728640
+  br i1 %.not.i.i40, label %248, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-240:                                              ; preds = %236
-  %241 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+248:                                              ; preds = %244
+  %249 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-242:                                              ; preds = %1
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %244 = load i32, ptr %243, align 4
-  %245 = and i32 %244, 15728640
-  %.not.i.i39 = icmp eq i32 %245, 15728640
-  br i1 %.not.i.i39, label %246, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+250:                                              ; preds = %1
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %252 = load i32, ptr %251, align 4
+  %253 = and i32 %252, 15728640
+  %.not.i.i41 = icmp eq i32 %253, 15728640
+  br i1 %.not.i.i41, label %254, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-246:                                              ; preds = %242
-  %247 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+254:                                              ; preds = %250
+  %255 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-248:                                              ; preds = %1
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %250 = load i32, ptr %249, align 4
-  %251 = and i32 %250, 15728640
-  %.not.i.i40 = icmp eq i32 %251, 15728640
-  br i1 %.not.i.i40, label %252, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+256:                                              ; preds = %1
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %258 = load i32, ptr %257, align 4
+  %259 = and i32 %258, 15728640
+  %.not.i.i42 = icmp eq i32 %259, 15728640
+  br i1 %.not.i.i42, label %260, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-252:                                              ; preds = %248
-  %253 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+260:                                              ; preds = %256
+  %261 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-254:                                              ; preds = %1
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %256 = load i32, ptr %255, align 4
-  %257 = and i32 %256, 15728640
-  %.not.i.i41 = icmp eq i32 %257, 15728640
-  br i1 %.not.i.i41, label %258, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+262:                                              ; preds = %1
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %264 = load i32, ptr %263, align 4
+  %265 = and i32 %264, 15728640
+  %.not.i.i43 = icmp eq i32 %265, 15728640
+  br i1 %.not.i.i43, label %266, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-258:                                              ; preds = %254
-  %259 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+266:                                              ; preds = %262
+  %267 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-260:                                              ; preds = %1
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %262 = load i32, ptr %261, align 4
-  %263 = and i32 %262, 15728640
-  %.not.i.i42 = icmp eq i32 %263, 15728640
-  br i1 %.not.i.i42, label %267, label %264
+268:                                              ; preds = %1
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %270 = load i32, ptr %269, align 4
+  %271 = and i32 %270, 15728640
+  %.not.i.i44 = icmp eq i32 %271, 15728640
+  br i1 %.not.i.i44, label %275, label %272
 
-264:                                              ; preds = %260
-  %265 = lshr i32 %262, 20
-  %266 = and i32 %265, 15
+272:                                              ; preds = %268
+  %273 = lshr i32 %270, 20
+  %274 = and i32 %273, 15
   br label %_ZNK5clang12AsmLabelAttr11getSpellingEv.exit
 
-267:                                              ; preds = %260
-  %268 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(49) %0) #16
+275:                                              ; preds = %268
+  %276 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(49) %0) #16
   br label %_ZNK5clang12AsmLabelAttr11getSpellingEv.exit
 
-_ZNK5clang12AsmLabelAttr11getSpellingEv.exit:     ; preds = %264, %267
-  %269 = phi i32 [ %266, %264 ], [ %268, %267 ]
-  %switch.i43 = icmp eq i32 %269, 0
-  %.str.158..str.159.i = select i1 %switch.i43, ptr @.str.158, ptr @.str.159
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-270:                                              ; preds = %1
-  %271 = tail call noundef ptr @_ZNK5clang20AssertCapabilityAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-272:                                              ; preds = %1
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %274 = load i32, ptr %273, align 4
-  %275 = and i32 %274, 15728640
-  %.not.i.i44 = icmp eq i32 %275, 15728640
-  br i1 %.not.i.i44, label %276, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-276:                                              ; preds = %272
-  %277 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+_ZNK5clang12AsmLabelAttr11getSpellingEv.exit:     ; preds = %272, %275
+  %277 = phi i32 [ %274, %272 ], [ %276, %275 ]
+  %switch.i45 = icmp eq i32 %277, 0
+  %.str.158..str.159.i = select i1 %switch.i45, ptr @.str.158, ptr @.str.159
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 278:                                              ; preds = %1
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %280 = load i32, ptr %279, align 4
   %281 = and i32 %280, 15728640
-  %.not.i.i45 = icmp eq i32 %281, 15728640
-  br i1 %.not.i.i45, label %282, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i46 = icmp eq i32 %281, 15728640
+  br i1 %.not.i.i46, label %285, label %282
 
 282:                                              ; preds = %278
-  %283 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %283 = lshr i32 %280, 20
+  %284 = and i32 %283, 15
+  br label %_ZNK5clang20AssertCapabilityAttr11getSpellingEv.exit
+
+285:                                              ; preds = %278
+  %286 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang20AssertCapabilityAttr11getSpellingEv.exit
+
+_ZNK5clang20AssertCapabilityAttr11getSpellingEv.exit: ; preds = %282, %285
+  %287 = phi i32 [ %284, %282 ], [ %286, %285 ]
+  %switch.i47 = icmp ult i32 %287, 2
+  %.str.164..str.165.i = select i1 %switch.i47, ptr @.str.164, ptr @.str.165
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-284:                                              ; preds = %1
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %286 = load i32, ptr %285, align 4
-  %287 = and i32 %286, 15728640
-  %.not.i.i46 = icmp eq i32 %287, 15728640
-  br i1 %.not.i.i46, label %288, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+288:                                              ; preds = %1
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %290 = load i32, ptr %289, align 4
+  %291 = and i32 %290, 15728640
+  %.not.i.i48 = icmp eq i32 %291, 15728640
+  br i1 %.not.i.i48, label %292, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-288:                                              ; preds = %284
-  %289 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
+292:                                              ; preds = %288
+  %293 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-290:                                              ; preds = %1
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %292 = load i32, ptr %291, align 4
-  %293 = and i32 %292, 15728640
-  %.not.i.i47 = icmp eq i32 %293, 15728640
-  br i1 %.not.i.i47, label %294, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+294:                                              ; preds = %1
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %296 = load i32, ptr %295, align 4
+  %297 = and i32 %296, 15728640
+  %.not.i.i49 = icmp eq i32 %297, 15728640
+  br i1 %.not.i.i49, label %298, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-294:                                              ; preds = %290
-  %295 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #16
+298:                                              ; preds = %294
+  %299 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-296:                                              ; preds = %1
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %298 = load i32, ptr %297, align 4
-  %299 = and i32 %298, 15728640
-  %.not.i.i48 = icmp eq i32 %299, 15728640
-  br i1 %.not.i.i48, label %300, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+300:                                              ; preds = %1
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %302 = load i32, ptr %301, align 4
+  %303 = and i32 %302, 15728640
+  %.not.i.i50 = icmp eq i32 %303, 15728640
+  br i1 %.not.i.i50, label %304, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-300:                                              ; preds = %296
-  %301 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+304:                                              ; preds = %300
+  %305 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-302:                                              ; preds = %1
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %304 = load i32, ptr %303, align 4
-  %305 = and i32 %304, 15728640
-  %.not.i.i49 = icmp eq i32 %305, 15728640
-  br i1 %.not.i.i49, label %306, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+306:                                              ; preds = %1
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %308 = load i32, ptr %307, align 4
+  %309 = and i32 %308, 15728640
+  %.not.i.i51 = icmp eq i32 %309, 15728640
+  br i1 %.not.i.i51, label %310, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-306:                                              ; preds = %302
-  %307 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+310:                                              ; preds = %306
+  %311 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-308:                                              ; preds = %1
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %310 = load i32, ptr %309, align 4
-  %311 = and i32 %310, 15728640
-  %.not.i.i50 = icmp eq i32 %311, 15728640
-  br i1 %.not.i.i50, label %312, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+312:                                              ; preds = %1
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %314 = load i32, ptr %313, align 4
+  %315 = and i32 %314, 15728640
+  %.not.i.i52 = icmp eq i32 %315, 15728640
+  br i1 %.not.i.i52, label %316, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-312:                                              ; preds = %308
-  %313 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+316:                                              ; preds = %312
+  %317 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-314:                                              ; preds = %1
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %316 = load i32, ptr %315, align 4
-  %317 = and i32 %316, 15728640
-  %.not.i.i51 = icmp eq i32 %317, 15728640
-  br i1 %.not.i.i51, label %318, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+318:                                              ; preds = %1
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %320 = load i32, ptr %319, align 4
+  %321 = and i32 %320, 15728640
+  %.not.i.i53 = icmp eq i32 %321, 15728640
+  br i1 %.not.i.i53, label %322, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-318:                                              ; preds = %314
-  %319 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+322:                                              ; preds = %318
+  %323 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-320:                                              ; preds = %1
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %322 = load i32, ptr %321, align 4
-  %323 = and i32 %322, 15728640
-  %.not.i.i52 = icmp eq i32 %323, 15728640
-  br i1 %.not.i.i52, label %324, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+324:                                              ; preds = %1
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %326 = load i32, ptr %325, align 4
+  %327 = and i32 %326, 15728640
+  %.not.i.i54 = icmp eq i32 %327, 15728640
+  br i1 %.not.i.i54, label %328, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-324:                                              ; preds = %320
-  %325 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+328:                                              ; preds = %324
+  %329 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-326:                                              ; preds = %1
-  %327 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %328 = load i32, ptr %327, align 4
-  %329 = and i32 %328, 15728640
-  %.not.i.i53 = icmp eq i32 %329, 15728640
-  br i1 %.not.i.i53, label %330, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+330:                                              ; preds = %1
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %332 = load i32, ptr %331, align 4
+  %333 = and i32 %332, 15728640
+  %.not.i.i55 = icmp eq i32 %333, 15728640
+  br i1 %.not.i.i55, label %334, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-330:                                              ; preds = %326
-  %331 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+334:                                              ; preds = %330
+  %335 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-332:                                              ; preds = %1
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %334 = load i32, ptr %333, align 4
-  %335 = and i32 %334, 15728640
-  %.not.i.i54 = icmp eq i32 %335, 15728640
-  br i1 %.not.i.i54, label %336, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+336:                                              ; preds = %1
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %338 = load i32, ptr %337, align 4
+  %339 = and i32 %338, 15728640
+  %.not.i.i56 = icmp eq i32 %339, 15728640
+  br i1 %.not.i.i56, label %340, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-336:                                              ; preds = %332
-  %337 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+340:                                              ; preds = %336
+  %341 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-338:                                              ; preds = %1
-  %339 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %340 = load i32, ptr %339, align 4
-  %341 = and i32 %340, 15728640
-  %.not.i.i55 = icmp eq i32 %341, 15728640
-  br i1 %.not.i.i55, label %342, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+342:                                              ; preds = %1
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %344 = load i32, ptr %343, align 4
+  %345 = and i32 %344, 15728640
+  %.not.i.i57 = icmp eq i32 %345, 15728640
+  br i1 %.not.i.i57, label %346, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-342:                                              ; preds = %338
-  %343 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+346:                                              ; preds = %342
+  %347 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-344:                                              ; preds = %1
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %346 = load i32, ptr %345, align 4
-  %347 = and i32 %346, 15728640
-  %.not.i.i56 = icmp eq i32 %347, 15728640
-  br i1 %.not.i.i56, label %351, label %348
+348:                                              ; preds = %1
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %350 = load i32, ptr %349, align 4
+  %351 = and i32 %350, 15728640
+  %.not.i.i58 = icmp eq i32 %351, 15728640
+  br i1 %.not.i.i58, label %352, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-348:                                              ; preds = %344
-  %349 = lshr i32 %346, 20
-  %350 = and i32 %349, 15
-  br label %_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit
-
-351:                                              ; preds = %344
-  %352 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  br label %_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit
-
-_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit: ; preds = %348, %351
-  %353 = phi i32 [ %350, %348 ], [ %352, %351 ]
-  %switch.i57 = icmp ult i32 %353, 2
-  %spec.select.i58 = select i1 %switch.i57, ptr @.str.211, ptr @.str.212
+352:                                              ; preds = %348
+  %353 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 354:                                              ; preds = %1
@@ -261831,132 +261803,132 @@ _ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit: ; preds = %348, %351
   br i1 %.not.i.i59, label %358, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 358:                                              ; preds = %354
-  %359 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %359 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 360:                                              ; preds = %1
-  %361 = tail call noundef ptr @_ZNK5clang9CDeclAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %362 = load i32, ptr %361, align 4
+  %363 = and i32 %362, 15728640
+  %.not.i.i60 = icmp eq i32 %363, 15728640
+  br i1 %.not.i.i60, label %367, label %364
+
+364:                                              ; preds = %360
+  %365 = lshr i32 %362, 20
+  %366 = and i32 %365, 15
+  br label %_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit
+
+367:                                              ; preds = %360
+  %368 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit
+
+_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit: ; preds = %364, %367
+  %369 = phi i32 [ %366, %364 ], [ %368, %367 ]
+  %switch.i61 = icmp ult i32 %369, 2
+  %.str.211..str.212.i = select i1 %switch.i61, ptr @.str.211, ptr @.str.212
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-362:                                              ; preds = %1
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %364 = load i32, ptr %363, align 4
-  %365 = and i32 %364, 15728640
-  %.not.i.i60 = icmp eq i32 %365, 15728640
-  br i1 %.not.i.i60, label %366, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+370:                                              ; preds = %1
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %372 = load i32, ptr %371, align 4
+  %373 = and i32 %372, 15728640
+  %.not.i.i62 = icmp eq i32 %373, 15728640
+  br i1 %.not.i.i62, label %374, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-366:                                              ; preds = %362
-  %367 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+374:                                              ; preds = %370
+  %375 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-368:                                              ; preds = %1
-  %369 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %370 = load i32, ptr %369, align 4
-  %371 = and i32 %370, 15728640
-  %.not.i.i61 = icmp eq i32 %371, 15728640
-  br i1 %.not.i.i61, label %372, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-372:                                              ; preds = %368
-  %373 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+376:                                              ; preds = %1
+  %377 = tail call noundef ptr @_ZNK5clang9CDeclAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-374:                                              ; preds = %1
-  %375 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %376 = load i32, ptr %375, align 4
-  %377 = and i32 %376, 15728640
-  %.not.i.i62 = icmp eq i32 %377, 15728640
-  br i1 %.not.i.i62, label %378, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+378:                                              ; preds = %1
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %380 = load i32, ptr %379, align 4
+  %381 = and i32 %380, 15728640
+  %.not.i.i63 = icmp eq i32 %381, 15728640
+  br i1 %.not.i.i63, label %382, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-378:                                              ; preds = %374
-  %379 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+382:                                              ; preds = %378
+  %383 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-380:                                              ; preds = %1
-  %381 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %382 = load i32, ptr %381, align 4
-  %383 = and i32 %382, 15728640
-  %.not.i.i63 = icmp eq i32 %383, 15728640
-  br i1 %.not.i.i63, label %384, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+384:                                              ; preds = %1
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %386 = load i32, ptr %385, align 4
+  %387 = and i32 %386, 15728640
+  %.not.i.i64 = icmp eq i32 %387, 15728640
+  br i1 %.not.i.i64, label %388, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-384:                                              ; preds = %380
-  %385 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+388:                                              ; preds = %384
+  %389 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-386:                                              ; preds = %1
-  %387 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %388 = load i32, ptr %387, align 4
-  %389 = and i32 %388, 15728640
-  %.not.i.i64 = icmp eq i32 %389, 15728640
-  br i1 %.not.i.i64, label %390, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+390:                                              ; preds = %1
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %392 = load i32, ptr %391, align 4
+  %393 = and i32 %392, 15728640
+  %.not.i.i65 = icmp eq i32 %393, 15728640
+  br i1 %.not.i.i65, label %394, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-390:                                              ; preds = %386
-  %391 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+394:                                              ; preds = %390
+  %395 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-392:                                              ; preds = %1
-  %393 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %394 = load i32, ptr %393, align 4
-  %395 = and i32 %394, 15728640
-  %.not.i.i65 = icmp eq i32 %395, 15728640
-  br i1 %.not.i.i65, label %396, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+396:                                              ; preds = %1
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %398 = load i32, ptr %397, align 4
+  %399 = and i32 %398, 15728640
+  %.not.i.i66 = icmp eq i32 %399, 15728640
+  br i1 %.not.i.i66, label %400, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-396:                                              ; preds = %392
-  %397 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+400:                                              ; preds = %396
+  %401 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-398:                                              ; preds = %1
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %400 = load i32, ptr %399, align 4
-  %401 = and i32 %400, 15728640
-  %.not.i.i66 = icmp eq i32 %401, 15728640
-  br i1 %.not.i.i66, label %402, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+402:                                              ; preds = %1
+  %403 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %404 = load i32, ptr %403, align 4
+  %405 = and i32 %404, 15728640
+  %.not.i.i67 = icmp eq i32 %405, 15728640
+  br i1 %.not.i.i67, label %406, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-402:                                              ; preds = %398
-  %403 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+406:                                              ; preds = %402
+  %407 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-404:                                              ; preds = %1
-  %405 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %406 = load i32, ptr %405, align 4
-  %407 = and i32 %406, 15728640
-  %.not.i.i67 = icmp eq i32 %407, 15728640
-  br i1 %.not.i.i67, label %408, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+408:                                              ; preds = %1
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %410 = load i32, ptr %409, align 4
+  %411 = and i32 %410, 15728640
+  %.not.i.i68 = icmp eq i32 %411, 15728640
+  br i1 %.not.i.i68, label %412, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-408:                                              ; preds = %404
-  %409 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+412:                                              ; preds = %408
+  %413 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-410:                                              ; preds = %1
-  %411 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %412 = load i32, ptr %411, align 4
-  %413 = and i32 %412, 15728640
-  %.not.i.i68 = icmp eq i32 %413, 15728640
-  br i1 %.not.i.i68, label %414, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+414:                                              ; preds = %1
+  %415 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %416 = load i32, ptr %415, align 4
+  %417 = and i32 %416, 15728640
+  %.not.i.i69 = icmp eq i32 %417, 15728640
+  br i1 %.not.i.i69, label %418, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-414:                                              ; preds = %410
-  %415 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+418:                                              ; preds = %414
+  %419 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-416:                                              ; preds = %1
-  %417 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %418 = load i32, ptr %417, align 4
-  %419 = and i32 %418, 15728640
-  %.not.i.i69 = icmp eq i32 %419, 15728640
-  br i1 %.not.i.i69, label %423, label %420
+420:                                              ; preds = %1
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %422 = load i32, ptr %421, align 4
+  %423 = and i32 %422, 15728640
+  %.not.i.i70 = icmp eq i32 %423, 15728640
+  br i1 %.not.i.i70, label %424, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-420:                                              ; preds = %416
-  %421 = lshr i32 %418, 20
-  %422 = and i32 %421, 15
-  br label %_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit
-
-423:                                              ; preds = %416
-  %424 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit
-
-_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit: ; preds = %420, %423
-  %425 = phi i32 [ %422, %420 ], [ %424, %423 ]
-  %switch.i70 = icmp eq i32 %425, 0
-  %.str.252..str.253.i = select i1 %switch.i70, ptr @.str.252, ptr @.str.253
+424:                                              ; preds = %420
+  %425 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 426:                                              ; preds = %1
@@ -261964,267 +261936,274 @@ _ZNK5clang16CUDAConstantAttr11getSpellingEv.exit: ; preds = %420, %423
   %428 = load i32, ptr %427, align 4
   %429 = and i32 %428, 15728640
   %.not.i.i71 = icmp eq i32 %429, 15728640
-  br i1 %.not.i.i71, label %433, label %430
+  br i1 %.not.i.i71, label %430, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 430:                                              ; preds = %426
-  %431 = lshr i32 %428, 20
-  %432 = and i32 %431, 15
+  %431 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+432:                                              ; preds = %1
+  %433 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %434 = load i32, ptr %433, align 4
+  %435 = and i32 %434, 15728640
+  %.not.i.i72 = icmp eq i32 %435, 15728640
+  br i1 %.not.i.i72, label %439, label %436
+
+436:                                              ; preds = %432
+  %437 = lshr i32 %434, 20
+  %438 = and i32 %437, 15
+  br label %_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit
+
+439:                                              ; preds = %432
+  %440 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit
+
+_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit: ; preds = %436, %439
+  %441 = phi i32 [ %438, %436 ], [ %440, %439 ]
+  %switch.i73 = icmp eq i32 %441, 0
+  %.str.252..str.253.i = select i1 %switch.i73, ptr @.str.252, ptr @.str.253
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+442:                                              ; preds = %1
+  %443 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %444 = load i32, ptr %443, align 4
+  %445 = and i32 %444, 15728640
+  %.not.i.i74 = icmp eq i32 %445, 15728640
+  br i1 %.not.i.i74, label %449, label %446
+
+446:                                              ; preds = %442
+  %447 = lshr i32 %444, 20
+  %448 = and i32 %447, 15
   br label %_ZNK5clang14CUDADeviceAttr11getSpellingEv.exit
 
-433:                                              ; preds = %426
-  %434 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+449:                                              ; preds = %442
+  %450 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang14CUDADeviceAttr11getSpellingEv.exit
 
-_ZNK5clang14CUDADeviceAttr11getSpellingEv.exit:   ; preds = %430, %433
-  %435 = phi i32 [ %432, %430 ], [ %434, %433 ]
-  %switch.i72 = icmp eq i32 %435, 0
-  %.str.256..str.257.i = select i1 %switch.i72, ptr @.str.256, ptr @.str.257
+_ZNK5clang14CUDADeviceAttr11getSpellingEv.exit:   ; preds = %446, %449
+  %451 = phi i32 [ %448, %446 ], [ %450, %449 ]
+  %switch.i75 = icmp eq i32 %451, 0
+  %.str.256..str.257.i = select i1 %switch.i75, ptr @.str.256, ptr @.str.257
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-436:                                              ; preds = %1
-  %437 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %438 = load i32, ptr %437, align 4
-  %439 = and i32 %438, 15728640
-  %.not.i.i73 = icmp eq i32 %439, 15728640
-  br i1 %.not.i.i73, label %443, label %440
+452:                                              ; preds = %1
+  %453 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %454 = load i32, ptr %453, align 4
+  %455 = and i32 %454, 15728640
+  %.not.i.i76 = icmp eq i32 %455, 15728640
+  br i1 %.not.i.i76, label %459, label %456
 
-440:                                              ; preds = %436
-  %441 = lshr i32 %438, 20
-  %442 = and i32 %441, 15
+456:                                              ; preds = %452
+  %457 = lshr i32 %454, 20
+  %458 = and i32 %457, 15
   br label %_ZNK5clang32CUDADeviceBuiltinSurfaceTypeAttr11getSpellingEv.exit
 
-443:                                              ; preds = %436
-  %444 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+459:                                              ; preds = %452
+  %460 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang32CUDADeviceBuiltinSurfaceTypeAttr11getSpellingEv.exit
 
-_ZNK5clang32CUDADeviceBuiltinSurfaceTypeAttr11getSpellingEv.exit: ; preds = %440, %443
-  %445 = phi i32 [ %442, %440 ], [ %444, %443 ]
-  %switch.i74 = icmp eq i32 %445, 0
-  %.str.260..str.261.i = select i1 %switch.i74, ptr @.str.260, ptr @.str.261
+_ZNK5clang32CUDADeviceBuiltinSurfaceTypeAttr11getSpellingEv.exit: ; preds = %456, %459
+  %461 = phi i32 [ %458, %456 ], [ %460, %459 ]
+  %switch.i77 = icmp eq i32 %461, 0
+  %.str.260..str.261.i = select i1 %switch.i77, ptr @.str.260, ptr @.str.261
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-446:                                              ; preds = %1
-  %447 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %448 = load i32, ptr %447, align 4
-  %449 = and i32 %448, 15728640
-  %.not.i.i75 = icmp eq i32 %449, 15728640
-  br i1 %.not.i.i75, label %453, label %450
+462:                                              ; preds = %1
+  %463 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %464 = load i32, ptr %463, align 4
+  %465 = and i32 %464, 15728640
+  %.not.i.i78 = icmp eq i32 %465, 15728640
+  br i1 %.not.i.i78, label %469, label %466
 
-450:                                              ; preds = %446
-  %451 = lshr i32 %448, 20
-  %452 = and i32 %451, 15
+466:                                              ; preds = %462
+  %467 = lshr i32 %464, 20
+  %468 = and i32 %467, 15
   br label %_ZNK5clang32CUDADeviceBuiltinTextureTypeAttr11getSpellingEv.exit
 
-453:                                              ; preds = %446
-  %454 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+469:                                              ; preds = %462
+  %470 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang32CUDADeviceBuiltinTextureTypeAttr11getSpellingEv.exit
 
-_ZNK5clang32CUDADeviceBuiltinTextureTypeAttr11getSpellingEv.exit: ; preds = %450, %453
-  %455 = phi i32 [ %452, %450 ], [ %454, %453 ]
-  %switch.i76 = icmp eq i32 %455, 0
-  %.str.264..str.265.i = select i1 %switch.i76, ptr @.str.264, ptr @.str.265
+_ZNK5clang32CUDADeviceBuiltinTextureTypeAttr11getSpellingEv.exit: ; preds = %466, %469
+  %471 = phi i32 [ %468, %466 ], [ %470, %469 ]
+  %switch.i79 = icmp eq i32 %471, 0
+  %.str.264..str.265.i = select i1 %switch.i79, ptr @.str.264, ptr @.str.265
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-456:                                              ; preds = %1
-  %457 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %458 = load i32, ptr %457, align 4
-  %459 = and i32 %458, 15728640
-  %.not.i.i77 = icmp eq i32 %459, 15728640
-  br i1 %.not.i.i77, label %463, label %460
+472:                                              ; preds = %1
+  %473 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %474 = load i32, ptr %473, align 4
+  %475 = and i32 %474, 15728640
+  %.not.i.i80 = icmp eq i32 %475, 15728640
+  br i1 %.not.i.i80, label %479, label %476
 
-460:                                              ; preds = %456
-  %461 = lshr i32 %458, 20
-  %462 = and i32 %461, 15
+476:                                              ; preds = %472
+  %477 = lshr i32 %474, 20
+  %478 = and i32 %477, 15
   br label %_ZNK5clang14CUDAGlobalAttr11getSpellingEv.exit
 
-463:                                              ; preds = %456
-  %464 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+479:                                              ; preds = %472
+  %480 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang14CUDAGlobalAttr11getSpellingEv.exit
 
-_ZNK5clang14CUDAGlobalAttr11getSpellingEv.exit:   ; preds = %460, %463
-  %465 = phi i32 [ %462, %460 ], [ %464, %463 ]
-  %switch.i78 = icmp eq i32 %465, 0
-  %.str.268..str.269.i = select i1 %switch.i78, ptr @.str.268, ptr @.str.269
+_ZNK5clang14CUDAGlobalAttr11getSpellingEv.exit:   ; preds = %476, %479
+  %481 = phi i32 [ %478, %476 ], [ %480, %479 ]
+  %switch.i81 = icmp eq i32 %481, 0
+  %.str.268..str.269.i = select i1 %switch.i81, ptr @.str.268, ptr @.str.269
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-466:                                              ; preds = %1
-  %467 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %468 = load i32, ptr %467, align 4
-  %469 = and i32 %468, 15728640
-  %.not.i.i79 = icmp eq i32 %469, 15728640
-  br i1 %.not.i.i79, label %473, label %470
+482:                                              ; preds = %1
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %484 = load i32, ptr %483, align 4
+  %485 = and i32 %484, 15728640
+  %.not.i.i82 = icmp eq i32 %485, 15728640
+  br i1 %.not.i.i82, label %489, label %486
 
-470:                                              ; preds = %466
-  %471 = lshr i32 %468, 20
-  %472 = and i32 %471, 15
+486:                                              ; preds = %482
+  %487 = lshr i32 %484, 20
+  %488 = and i32 %487, 15
   br label %_ZNK5clang12CUDAHostAttr11getSpellingEv.exit
 
-473:                                              ; preds = %466
-  %474 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+489:                                              ; preds = %482
+  %490 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang12CUDAHostAttr11getSpellingEv.exit
 
-_ZNK5clang12CUDAHostAttr11getSpellingEv.exit:     ; preds = %470, %473
-  %475 = phi i32 [ %472, %470 ], [ %474, %473 ]
-  %switch.i80 = icmp eq i32 %475, 0
-  %.str.272..str.273.i = select i1 %switch.i80, ptr @.str.272, ptr @.str.273
+_ZNK5clang12CUDAHostAttr11getSpellingEv.exit:     ; preds = %486, %489
+  %491 = phi i32 [ %488, %486 ], [ %490, %489 ]
+  %switch.i83 = icmp eq i32 %491, 0
+  %.str.272..str.273.i = select i1 %switch.i83, ptr @.str.272, ptr @.str.273
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-476:                                              ; preds = %1
-  %477 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %478 = load i32, ptr %477, align 4
-  %479 = and i32 %478, 15728640
-  %.not.i.i81 = icmp eq i32 %479, 15728640
-  br i1 %.not.i.i81, label %483, label %480
+492:                                              ; preds = %1
+  %493 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %494 = load i32, ptr %493, align 4
+  %495 = and i32 %494, 15728640
+  %.not.i.i84 = icmp eq i32 %495, 15728640
+  br i1 %.not.i.i84, label %499, label %496
 
-480:                                              ; preds = %476
-  %481 = lshr i32 %478, 20
-  %482 = and i32 %481, 15
+496:                                              ; preds = %492
+  %497 = lshr i32 %494, 20
+  %498 = and i32 %497, 15
   br label %_ZNK5clang20CUDALaunchBoundsAttr11getSpellingEv.exit
 
-483:                                              ; preds = %476
-  %484 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+499:                                              ; preds = %492
+  %500 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   br label %_ZNK5clang20CUDALaunchBoundsAttr11getSpellingEv.exit
 
-_ZNK5clang20CUDALaunchBoundsAttr11getSpellingEv.exit: ; preds = %480, %483
-  %485 = phi i32 [ %482, %480 ], [ %484, %483 ]
-  %switch.i82 = icmp eq i32 %485, 0
-  %.str.276..str.277.i = select i1 %switch.i82, ptr @.str.276, ptr @.str.277
+_ZNK5clang20CUDALaunchBoundsAttr11getSpellingEv.exit: ; preds = %496, %499
+  %501 = phi i32 [ %498, %496 ], [ %500, %499 ]
+  %switch.i85 = icmp eq i32 %501, 0
+  %.str.276..str.277.i = select i1 %switch.i85, ptr @.str.276, ptr @.str.277
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-486:                                              ; preds = %1
-  %487 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %488 = load i32, ptr %487, align 4
-  %489 = and i32 %488, 15728640
-  %.not.i.i83 = icmp eq i32 %489, 15728640
-  br i1 %.not.i.i83, label %493, label %490
+502:                                              ; preds = %1
+  %503 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %504 = load i32, ptr %503, align 4
+  %505 = and i32 %504, 15728640
+  %.not.i.i86 = icmp eq i32 %505, 15728640
+  br i1 %.not.i.i86, label %509, label %506
 
-490:                                              ; preds = %486
-  %491 = lshr i32 %488, 20
-  %492 = and i32 %491, 15
+506:                                              ; preds = %502
+  %507 = lshr i32 %504, 20
+  %508 = and i32 %507, 15
   br label %_ZNK5clang14CUDASharedAttr11getSpellingEv.exit
 
-493:                                              ; preds = %486
-  %494 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+509:                                              ; preds = %502
+  %510 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang14CUDASharedAttr11getSpellingEv.exit
 
-_ZNK5clang14CUDASharedAttr11getSpellingEv.exit:   ; preds = %490, %493
-  %495 = phi i32 [ %492, %490 ], [ %494, %493 ]
-  %switch.i84 = icmp eq i32 %495, 0
-  %.str.280..str.281.i = select i1 %switch.i84, ptr @.str.280, ptr @.str.281
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-496:                                              ; preds = %1
-  %497 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %498 = load i32, ptr %497, align 4
-  %499 = and i32 %498, 15728640
-  %.not.i.i85 = icmp eq i32 %499, 15728640
-  br i1 %.not.i.i85, label %503, label %500
-
-500:                                              ; preds = %496
-  %501 = lshr i32 %498, 20
-  %502 = and i32 %501, 15
-  br label %_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit
-
-503:                                              ; preds = %496
-  %504 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit
-
-_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit: ; preds = %500, %503
-  %505 = phi i32 [ %502, %500 ], [ %504, %503 ]
-  %switch.i86 = icmp ult i32 %505, 2
-  %spec.select.i87 = select i1 %switch.i86, ptr @.str.284, ptr @.str.213
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-506:                                              ; preds = %1
-  %507 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %508 = load i32, ptr %507, align 4
-  %509 = and i32 %508, 15728640
-  %.not.i.i88 = icmp eq i32 %509, 15728640
-  br i1 %.not.i.i88, label %510, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-510:                                              ; preds = %506
-  %511 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+_ZNK5clang14CUDASharedAttr11getSpellingEv.exit:   ; preds = %506, %509
+  %511 = phi i32 [ %508, %506 ], [ %510, %509 ]
+  %switch.i87 = icmp eq i32 %511, 0
+  %.str.280..str.281.i = select i1 %switch.i87, ptr @.str.280, ptr @.str.281
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 512:                                              ; preds = %1
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %514 = load i32, ptr %513, align 4
   %515 = and i32 %514, 15728640
-  %.not.i.i89 = icmp eq i32 %515, 15728640
-  br i1 %.not.i.i89, label %516, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i88 = icmp eq i32 %515, 15728640
+  br i1 %.not.i.i88, label %519, label %516
 
 516:                                              ; preds = %512
-  %517 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %517 = lshr i32 %514, 20
+  %518 = and i32 %517, 15
+  br label %_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit
+
+519:                                              ; preds = %512
+  %520 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit
+
+_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit: ; preds = %516, %519
+  %521 = phi i32 [ %518, %516 ], [ %520, %519 ]
+  %switch.i89 = icmp ult i32 %521, 2
+  %.str.284..str.213.i = select i1 %switch.i89, ptr @.str.284, ptr @.str.213
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-518:                                              ; preds = %1
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %520 = load i32, ptr %519, align 4
-  %521 = and i32 %520, 15728640
-  %.not.i.i90 = icmp eq i32 %521, 15728640
-  br i1 %.not.i.i90, label %522, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+522:                                              ; preds = %1
+  %523 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %524 = load i32, ptr %523, align 4
+  %525 = and i32 %524, 15728640
+  %.not.i.i90 = icmp eq i32 %525, 15728640
+  br i1 %.not.i.i90, label %526, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-522:                                              ; preds = %518
-  %523 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+526:                                              ; preds = %522
+  %527 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-524:                                              ; preds = %1
-  %525 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %526 = load i32, ptr %525, align 4
-  %527 = and i32 %526, 15728640
-  %.not.i.i91 = icmp eq i32 %527, 15728640
-  br i1 %.not.i.i91, label %528, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+528:                                              ; preds = %1
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %530 = load i32, ptr %529, align 4
+  %531 = and i32 %530, 15728640
+  %.not.i.i91 = icmp eq i32 %531, 15728640
+  br i1 %.not.i.i91, label %532, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-528:                                              ; preds = %524
-  %529 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+532:                                              ; preds = %528
+  %533 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-530:                                              ; preds = %1
-  %531 = tail call noundef ptr @_ZNK5clang14CapabilityAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+534:                                              ; preds = %1
+  %535 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %536 = load i32, ptr %535, align 4
+  %537 = and i32 %536, 15728640
+  %.not.i.i92 = icmp eq i32 %537, 15728640
+  br i1 %.not.i.i92, label %538, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+538:                                              ; preds = %534
+  %539 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-532:                                              ; preds = %1
-  %533 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %534 = load i32, ptr %533, align 4
-  %535 = and i32 %534, 15728640
-  %.not.i.i92 = icmp eq i32 %535, 15728640
-  br i1 %.not.i.i92, label %536, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+540:                                              ; preds = %1
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %542 = load i32, ptr %541, align 4
+  %543 = and i32 %542, 15728640
+  %.not.i.i93 = icmp eq i32 %543, 15728640
+  br i1 %.not.i.i93, label %544, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-536:                                              ; preds = %532
-  %537 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+544:                                              ; preds = %540
+  %545 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-538:                                              ; preds = %1
-  %539 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %540 = load i32, ptr %539, align 4
-  %541 = and i32 %540, 15728640
-  %.not.i.i93 = icmp eq i32 %541, 15728640
-  br i1 %.not.i.i93, label %542, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+546:                                              ; preds = %1
+  %547 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %548 = load i32, ptr %547, align 4
+  %549 = and i32 %548, 15728640
+  %.not.i.i94 = icmp eq i32 %549, 15728640
+  br i1 %.not.i.i94, label %553, label %550
 
-542:                                              ; preds = %538
-  %543 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+550:                                              ; preds = %546
+  %551 = lshr i32 %548, 20
+  %552 = and i32 %551, 15
+  br label %_ZNK5clang14CapabilityAttr11getSpellingEv.exit
 
-544:                                              ; preds = %1
-  %545 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %546 = load i32, ptr %545, align 4
-  %547 = and i32 %546, 15728640
-  %.not.i.i94 = icmp eq i32 %547, 15728640
-  br i1 %.not.i.i94, label %548, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+553:                                              ; preds = %546
+  %554 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang14CapabilityAttr11getSpellingEv.exit
 
-548:                                              ; preds = %544
-  %549 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-550:                                              ; preds = %1
-  %551 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %552 = load i32, ptr %551, align 4
-  %553 = and i32 %552, 15728640
-  %.not.i.i95 = icmp eq i32 %553, 15728640
-  br i1 %.not.i.i95, label %554, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-554:                                              ; preds = %550
-  %555 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+_ZNK5clang14CapabilityAttr11getSpellingEv.exit:   ; preds = %550, %553
+  %555 = phi i32 [ %552, %550 ], [ %554, %553 ]
+  %switch.i95 = icmp ult i32 %555, 2
+  %.str.305..str.306.i = select i1 %switch.i95, ptr @.str.305, ptr @.str.306
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 556:                                              ; preds = %1
@@ -262257,7 +262236,7 @@ _ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit: ; preds = %500, %503
   br i1 %.not.i.i98, label %572, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 572:                                              ; preds = %568
-  %573 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  %573 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 574:                                              ; preds = %1
@@ -262268,7 +262247,7 @@ _ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit: ; preds = %500, %503
   br i1 %.not.i.i99, label %578, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 578:                                              ; preds = %574
-  %579 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %579 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 580:                                              ; preds = %1
@@ -262290,574 +262269,580 @@ _ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit: ; preds = %500, %503
   br i1 %.not.i.i101, label %590, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 590:                                              ; preds = %586
-  %591 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %591 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 592:                                              ; preds = %1
-  %593 = tail call noundef ptr @_ZNK5clang9ConstAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+  %593 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %594 = load i32, ptr %593, align 4
+  %595 = and i32 %594, 15728640
+  %.not.i.i102 = icmp eq i32 %595, 15728640
+  br i1 %.not.i.i102, label %596, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+596:                                              ; preds = %592
+  %597 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-594:                                              ; preds = %1
-  %595 = tail call noundef ptr @_ZNK5clang13ConstInitAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+598:                                              ; preds = %1
+  %599 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %600 = load i32, ptr %599, align 4
+  %601 = and i32 %600, 15728640
+  %.not.i.i103 = icmp eq i32 %601, 15728640
+  br i1 %.not.i.i103, label %602, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+602:                                              ; preds = %598
+  %603 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-596:                                              ; preds = %1
-  %597 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %598 = load i32, ptr %597, align 4
-  %599 = and i32 %598, 15728640
-  %.not.i.i102 = icmp eq i32 %599, 15728640
-  br i1 %.not.i.i102, label %600, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+604:                                              ; preds = %1
+  %605 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %606 = load i32, ptr %605, align 4
+  %607 = and i32 %606, 15728640
+  %.not.i.i104 = icmp eq i32 %607, 15728640
+  br i1 %.not.i.i104, label %608, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-600:                                              ; preds = %596
-  %601 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+608:                                              ; preds = %604
+  %609 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-602:                                              ; preds = %1
-  %603 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %604 = load i32, ptr %603, align 4
-  %605 = and i32 %604, 15728640
-  %.not.i.i103 = icmp eq i32 %605, 15728640
-  br i1 %.not.i.i103, label %606, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+610:                                              ; preds = %1
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %612 = load i32, ptr %611, align 4
+  %613 = and i32 %612, 15728640
+  %.not.i.i105 = icmp eq i32 %613, 15728640
+  br i1 %.not.i.i105, label %614, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-606:                                              ; preds = %602
-  %607 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+614:                                              ; preds = %610
+  %615 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-608:                                              ; preds = %1
-  %609 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %610 = load i32, ptr %609, align 4
-  %611 = and i32 %610, 15728640
-  %.not.i.i104 = icmp eq i32 %611, 15728640
-  br i1 %.not.i.i104, label %612, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+616:                                              ; preds = %1
+  %617 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %618 = load i32, ptr %617, align 4
+  %619 = and i32 %618, 15728640
+  %.not.i.i106 = icmp eq i32 %619, 15728640
+  br i1 %.not.i.i106, label %623, label %620
 
-612:                                              ; preds = %608
-  %613 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+620:                                              ; preds = %616
+  %621 = lshr i32 %618, 20
+  %622 = and i32 %621, 15
+  br label %_ZNK5clang9ConstAttr11getSpellingEv.exit
 
-614:                                              ; preds = %1
-  %615 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %616 = load i32, ptr %615, align 4
-  %617 = and i32 %616, 15728640
-  %.not.i.i105 = icmp eq i32 %617, 15728640
-  br i1 %.not.i.i105, label %618, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+623:                                              ; preds = %616
+  %624 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang9ConstAttr11getSpellingEv.exit
 
-618:                                              ; preds = %614
-  %619 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-620:                                              ; preds = %1
-  %621 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %622 = load i32, ptr %621, align 4
-  %623 = and i32 %622, 15728640
-  %.not.i.i106 = icmp eq i32 %623, 15728640
-  br i1 %.not.i.i106, label %624, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-624:                                              ; preds = %620
-  %625 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+_ZNK5clang9ConstAttr11getSpellingEv.exit:         ; preds = %620, %623
+  %625 = phi i32 [ %622, %620 ], [ %624, %623 ]
+  %switch.i107 = icmp ult i32 %625, 3
+  %.str.341..str.342.i = select i1 %switch.i107, ptr @.str.341, ptr @.str.342
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 626:                                              ; preds = %1
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %628 = load i32, ptr %627, align 4
   %629 = and i32 %628, 15728640
-  %.not.i.i107 = icmp eq i32 %629, 15728640
-  br i1 %.not.i.i107, label %630, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i108 = icmp eq i32 %629, 15728640
+  br i1 %.not.i.i108, label %633, label %630
 
 630:                                              ; preds = %626
-  %631 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %631 = lshr i32 %628, 20
+  %632 = and i32 %631, 15
+  br label %_ZNK5clang13ConstInitAttr11getSpellingEv.exit
+
+633:                                              ; preds = %626
+  %634 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang13ConstInitAttr11getSpellingEv.exit
+
+_ZNK5clang13ConstInitAttr11getSpellingEv.exit:    ; preds = %630, %633
+  %635 = phi i32 [ %632, %630 ], [ %634, %633 ]
+  %switch.i109 = icmp eq i32 %635, 0
+  %.str.343..str.346.i = select i1 %switch.i109, ptr @.str.343, ptr @.str.346
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-632:                                              ; preds = %1
-  %633 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %634 = load i32, ptr %633, align 4
-  %635 = and i32 %634, 15728640
-  %.not.i.i108 = icmp eq i32 %635, 15728640
-  br i1 %.not.i.i108, label %636, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+636:                                              ; preds = %1
+  %637 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %638 = load i32, ptr %637, align 4
+  %639 = and i32 %638, 15728640
+  %.not.i.i110 = icmp eq i32 %639, 15728640
+  br i1 %.not.i.i110, label %640, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-636:                                              ; preds = %632
-  %637 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+640:                                              ; preds = %636
+  %641 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-638:                                              ; preds = %1
-  %639 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %640 = load i32, ptr %639, align 4
-  %641 = and i32 %640, 15728640
-  %.not.i.i109 = icmp eq i32 %641, 15728640
-  br i1 %.not.i.i109, label %642, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+642:                                              ; preds = %1
+  %643 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %644 = load i32, ptr %643, align 4
+  %645 = and i32 %644, 15728640
+  %.not.i.i111 = icmp eq i32 %645, 15728640
+  br i1 %.not.i.i111, label %646, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-642:                                              ; preds = %638
-  %643 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+646:                                              ; preds = %642
+  %647 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-644:                                              ; preds = %1
-  %645 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %646 = load i32, ptr %645, align 4
-  %647 = and i32 %646, 15728640
-  %.not.i.i110 = icmp eq i32 %647, 15728640
-  br i1 %.not.i.i110, label %648, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+648:                                              ; preds = %1
+  %649 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %650 = load i32, ptr %649, align 4
+  %651 = and i32 %650, 15728640
+  %.not.i.i112 = icmp eq i32 %651, 15728640
+  br i1 %.not.i.i112, label %652, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-648:                                              ; preds = %644
-  %649 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+652:                                              ; preds = %648
+  %653 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-650:                                              ; preds = %1
-  %651 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %652 = load i32, ptr %651, align 4
-  %653 = and i32 %652, 15728640
-  %.not.i.i111 = icmp eq i32 %653, 15728640
-  br i1 %.not.i.i111, label %654, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+654:                                              ; preds = %1
+  %655 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %656 = load i32, ptr %655, align 4
+  %657 = and i32 %656, 15728640
+  %.not.i.i113 = icmp eq i32 %657, 15728640
+  br i1 %.not.i.i113, label %658, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-654:                                              ; preds = %650
-  %655 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+658:                                              ; preds = %654
+  %659 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-656:                                              ; preds = %1
-  %657 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %658 = load i32, ptr %657, align 4
-  %659 = and i32 %658, 15728640
-  %.not.i.i112 = icmp eq i32 %659, 15728640
-  br i1 %.not.i.i112, label %660, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+660:                                              ; preds = %1
+  %661 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %662 = load i32, ptr %661, align 4
+  %663 = and i32 %662, 15728640
+  %.not.i.i114 = icmp eq i32 %663, 15728640
+  br i1 %.not.i.i114, label %664, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-660:                                              ; preds = %656
-  %661 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
+664:                                              ; preds = %660
+  %665 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-662:                                              ; preds = %1
-  %663 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %664 = load i32, ptr %663, align 4
-  %665 = and i32 %664, 15728640
-  %.not.i.i113 = icmp eq i32 %665, 15728640
-  br i1 %.not.i.i113, label %666, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+666:                                              ; preds = %1
+  %667 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %668 = load i32, ptr %667, align 4
+  %669 = and i32 %668, 15728640
+  %.not.i.i115 = icmp eq i32 %669, 15728640
+  br i1 %.not.i.i115, label %670, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-666:                                              ; preds = %662
-  %667 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
+670:                                              ; preds = %666
+  %671 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-668:                                              ; preds = %1
-  %669 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %670 = load i32, ptr %669, align 4
-  %671 = and i32 %670, 15728640
-  %.not.i.i114 = icmp eq i32 %671, 15728640
-  br i1 %.not.i.i114, label %672, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+672:                                              ; preds = %1
+  %673 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %674 = load i32, ptr %673, align 4
+  %675 = and i32 %674, 15728640
+  %.not.i.i116 = icmp eq i32 %675, 15728640
+  br i1 %.not.i.i116, label %676, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-672:                                              ; preds = %668
-  %673 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+676:                                              ; preds = %672
+  %677 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-674:                                              ; preds = %1
-  %675 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %676 = load i32, ptr %675, align 4
-  %677 = and i32 %676, 15728640
-  %.not.i.i115 = icmp eq i32 %677, 15728640
-  br i1 %.not.i.i115, label %678, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+678:                                              ; preds = %1
+  %679 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %680 = load i32, ptr %679, align 4
+  %681 = and i32 %680, 15728640
+  %.not.i.i117 = icmp eq i32 %681, 15728640
+  br i1 %.not.i.i117, label %682, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-678:                                              ; preds = %674
-  %679 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+682:                                              ; preds = %678
+  %683 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-680:                                              ; preds = %1
-  %681 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %682 = load i32, ptr %681, align 4
-  %683 = and i32 %682, 15728640
-  %.not.i.i116 = icmp eq i32 %683, 15728640
-  br i1 %.not.i.i116, label %684, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+684:                                              ; preds = %1
+  %685 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %686 = load i32, ptr %685, align 4
+  %687 = and i32 %686, 15728640
+  %.not.i.i118 = icmp eq i32 %687, 15728640
+  br i1 %.not.i.i118, label %688, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-684:                                              ; preds = %680
-  %685 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+688:                                              ; preds = %684
+  %689 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-686:                                              ; preds = %1
-  %687 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %688 = load i32, ptr %687, align 4
-  %689 = and i32 %688, 15728640
-  %.not.i.i117 = icmp eq i32 %689, 15728640
-  br i1 %.not.i.i117, label %690, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+690:                                              ; preds = %1
+  %691 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %692 = load i32, ptr %691, align 4
+  %693 = and i32 %692, 15728640
+  %.not.i.i119 = icmp eq i32 %693, 15728640
+  br i1 %.not.i.i119, label %694, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-690:                                              ; preds = %686
-  %691 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+694:                                              ; preds = %690
+  %695 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-692:                                              ; preds = %1
-  %693 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %694 = load i32, ptr %693, align 4
-  %695 = and i32 %694, 15728640
-  %.not.i.i118 = icmp eq i32 %695, 15728640
-  br i1 %.not.i.i118, label %696, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+696:                                              ; preds = %1
+  %697 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %698 = load i32, ptr %697, align 4
+  %699 = and i32 %698, 15728640
+  %.not.i.i120 = icmp eq i32 %699, 15728640
+  br i1 %.not.i.i120, label %700, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-696:                                              ; preds = %692
-  %697 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+700:                                              ; preds = %696
+  %701 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-698:                                              ; preds = %1
-  %699 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %700 = load i32, ptr %699, align 4
-  %701 = and i32 %700, 15728640
-  %.not.i.i119 = icmp eq i32 %701, 15728640
-  br i1 %.not.i.i119, label %702, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+702:                                              ; preds = %1
+  %703 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %704 = load i32, ptr %703, align 4
+  %705 = and i32 %704, 15728640
+  %.not.i.i121 = icmp eq i32 %705, 15728640
+  br i1 %.not.i.i121, label %706, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-702:                                              ; preds = %698
-  %703 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
+706:                                              ; preds = %702
+  %707 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-704:                                              ; preds = %1
-  %705 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %706 = load i32, ptr %705, align 4
-  %707 = and i32 %706, 15728640
-  %.not.i.i120 = icmp eq i32 %707, 15728640
-  br i1 %.not.i.i120, label %708, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+708:                                              ; preds = %1
+  %709 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %710 = load i32, ptr %709, align 4
+  %711 = and i32 %710, 15728640
+  %.not.i.i122 = icmp eq i32 %711, 15728640
+  br i1 %.not.i.i122, label %712, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-708:                                              ; preds = %704
-  %709 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+712:                                              ; preds = %708
+  %713 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-710:                                              ; preds = %1
-  %711 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %712 = load i32, ptr %711, align 4
-  %713 = and i32 %712, 15728640
-  %.not.i.i121 = icmp eq i32 %713, 15728640
-  br i1 %.not.i.i121, label %714, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+714:                                              ; preds = %1
+  %715 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %716 = load i32, ptr %715, align 4
+  %717 = and i32 %716, 15728640
+  %.not.i.i123 = icmp eq i32 %717, 15728640
+  br i1 %.not.i.i123, label %718, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-714:                                              ; preds = %710
-  %715 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+718:                                              ; preds = %714
+  %719 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-716:                                              ; preds = %1
-  %717 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %718 = load i32, ptr %717, align 4
-  %719 = and i32 %718, 15728640
-  %.not.i.i122 = icmp eq i32 %719, 15728640
-  br i1 %.not.i.i122, label %720, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+720:                                              ; preds = %1
+  %721 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %722 = load i32, ptr %721, align 4
+  %723 = and i32 %722, 15728640
+  %.not.i.i124 = icmp eq i32 %723, 15728640
+  br i1 %.not.i.i124, label %724, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-720:                                              ; preds = %716
-  %721 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+724:                                              ; preds = %720
+  %725 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-722:                                              ; preds = %1
-  %723 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %724 = load i32, ptr %723, align 4
-  %725 = and i32 %724, 15728640
-  %.not.i.i123 = icmp eq i32 %725, 15728640
-  br i1 %.not.i.i123, label %726, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+726:                                              ; preds = %1
+  %727 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %728 = load i32, ptr %727, align 4
+  %729 = and i32 %728, 15728640
+  %.not.i.i125 = icmp eq i32 %729, 15728640
+  br i1 %.not.i.i125, label %730, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-726:                                              ; preds = %722
-  %727 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+730:                                              ; preds = %726
+  %731 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-728:                                              ; preds = %1
-  %729 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %730 = load i32, ptr %729, align 4
-  %731 = and i32 %730, 15728640
-  %.not.i.i124 = icmp eq i32 %731, 15728640
-  br i1 %.not.i.i124, label %732, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+732:                                              ; preds = %1
+  %733 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %734 = load i32, ptr %733, align 4
+  %735 = and i32 %734, 15728640
+  %.not.i.i126 = icmp eq i32 %735, 15728640
+  br i1 %.not.i.i126, label %736, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-732:                                              ; preds = %728
-  %733 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+736:                                              ; preds = %732
+  %737 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-734:                                              ; preds = %1
-  %735 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %736 = load i32, ptr %735, align 4
-  %737 = and i32 %736, 15728640
-  %.not.i.i125 = icmp eq i32 %737, 15728640
-  br i1 %.not.i.i125, label %738, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+738:                                              ; preds = %1
+  %739 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %740 = load i32, ptr %739, align 4
+  %741 = and i32 %740, 15728640
+  %.not.i.i127 = icmp eq i32 %741, 15728640
+  br i1 %.not.i.i127, label %742, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-738:                                              ; preds = %734
-  %739 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+742:                                              ; preds = %738
+  %743 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-740:                                              ; preds = %1
-  %741 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %742 = load i32, ptr %741, align 4
-  %743 = and i32 %742, 15728640
-  %.not.i.i126 = icmp eq i32 %743, 15728640
-  br i1 %.not.i.i126, label %744, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+744:                                              ; preds = %1
+  %745 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %746 = load i32, ptr %745, align 4
+  %747 = and i32 %746, 15728640
+  %.not.i.i128 = icmp eq i32 %747, 15728640
+  br i1 %.not.i.i128, label %748, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-744:                                              ; preds = %740
-  %745 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+748:                                              ; preds = %744
+  %749 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-746:                                              ; preds = %1
-  %747 = tail call noundef ptr @_ZNK5clang9ErrorAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+750:                                              ; preds = %1
+  %751 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %752 = load i32, ptr %751, align 4
+  %753 = and i32 %752, 15728640
+  %.not.i.i129 = icmp eq i32 %753, 15728640
+  br i1 %.not.i.i129, label %754, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+754:                                              ; preds = %750
+  %755 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-748:                                              ; preds = %1
-  %749 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %750 = load i32, ptr %749, align 4
-  %751 = and i32 %750, 15728640
-  %.not.i.i127 = icmp eq i32 %751, 15728640
-  br i1 %.not.i.i127, label %752, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+756:                                              ; preds = %1
+  %757 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %758 = load i32, ptr %757, align 4
+  %759 = and i32 %758, 15728640
+  %.not.i.i130 = icmp eq i32 %759, 15728640
+  br i1 %.not.i.i130, label %760, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-752:                                              ; preds = %748
-  %753 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+760:                                              ; preds = %756
+  %761 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-754:                                              ; preds = %1
-  %755 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %756 = load i32, ptr %755, align 4
-  %757 = and i32 %756, 15728640
-  %.not.i.i128 = icmp eq i32 %757, 15728640
-  br i1 %.not.i.i128, label %758, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+762:                                              ; preds = %1
+  %763 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %764 = load i32, ptr %763, align 4
+  %765 = and i32 %764, 15728640
+  %.not.i.i131 = icmp eq i32 %765, 15728640
+  br i1 %.not.i.i131, label %766, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-758:                                              ; preds = %754
-  %759 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+766:                                              ; preds = %762
+  %767 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-760:                                              ; preds = %1
-  %761 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %762 = load i32, ptr %761, align 4
-  %763 = and i32 %762, 15728640
-  %.not.i.i129 = icmp eq i32 %763, 15728640
-  br i1 %.not.i.i129, label %764, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+768:                                              ; preds = %1
+  %769 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %770 = load i32, ptr %769, align 4
+  %771 = and i32 %770, 15728640
+  %.not.i.i132 = icmp eq i32 %771, 15728640
+  br i1 %.not.i.i132, label %772, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-764:                                              ; preds = %760
-  %765 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-766:                                              ; preds = %1
-  %767 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %768 = load i32, ptr %767, align 4
-  %769 = and i32 %768, 15728640
-  %.not.i.i130 = icmp eq i32 %769, 15728640
-  br i1 %.not.i.i130, label %770, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-770:                                              ; preds = %766
-  %771 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-772:                                              ; preds = %1
-  %773 = tail call noundef ptr @_ZNK5clang12FastCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+772:                                              ; preds = %768
+  %773 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 774:                                              ; preds = %1
   %775 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %776 = load i32, ptr %775, align 4
   %777 = and i32 %776, 15728640
-  %.not.i.i131 = icmp eq i32 %777, 15728640
-  br i1 %.not.i.i131, label %781, label %778
+  %.not.i.i133 = icmp eq i32 %777, 15728640
+  br i1 %.not.i.i133, label %778, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 778:                                              ; preds = %774
-  %779 = lshr i32 %776, 20
-  %780 = and i32 %779, 15
-  br label %_ZNK5clang9FinalAttr11getSpellingEv.exit
-
-781:                                              ; preds = %774
-  %782 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang9FinalAttr11getSpellingEv.exit
-
-_ZNK5clang9FinalAttr11getSpellingEv.exit:         ; preds = %778, %781
-  %783 = phi i32 [ %780, %778 ], [ %782, %781 ]
-  %switch.i132 = icmp eq i32 %783, 0
-  %.str.451..str.452.i = select i1 %switch.i132, ptr @.str.451, ptr @.str.452
+  %779 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-784:                                              ; preds = %1
-  %785 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %786 = load i32, ptr %785, align 4
-  %787 = and i32 %786, 15728640
-  %.not.i.i133 = icmp eq i32 %787, 15728640
-  br i1 %.not.i.i133, label %788, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+780:                                              ; preds = %1
+  %781 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %782 = load i32, ptr %781, align 4
+  %783 = and i32 %782, 15728640
+  %.not.i.i134 = icmp eq i32 %783, 15728640
+  br i1 %.not.i.i134, label %784, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-788:                                              ; preds = %784
-  %789 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+784:                                              ; preds = %780
+  %785 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-790:                                              ; preds = %1
-  %791 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %792 = load i32, ptr %791, align 4
-  %793 = and i32 %792, 15728640
-  %.not.i.i134 = icmp eq i32 %793, 15728640
-  br i1 %.not.i.i134, label %794, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+786:                                              ; preds = %1
+  %787 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %788 = load i32, ptr %787, align 4
+  %789 = and i32 %788, 15728640
+  %.not.i.i135 = icmp eq i32 %789, 15728640
+  br i1 %.not.i.i135, label %793, label %790
 
-794:                                              ; preds = %790
-  %795 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+790:                                              ; preds = %786
+  %791 = lshr i32 %788, 20
+  %792 = and i32 %791, 15
+  br label %_ZNK5clang9ErrorAttr11getSpellingEv.exit
+
+793:                                              ; preds = %786
+  %794 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang9ErrorAttr11getSpellingEv.exit
+
+_ZNK5clang9ErrorAttr11getSpellingEv.exit:         ; preds = %790, %793
+  %795 = phi i32 [ %792, %790 ], [ %794, %793 ]
+  %switch.i136 = icmp ult i32 %795, 3
+  %.str.404..str.405.i = select i1 %switch.i136, ptr @.str.404, ptr @.str.405
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 796:                                              ; preds = %1
   %797 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %798 = load i32, ptr %797, align 4
   %799 = and i32 %798, 15728640
-  %.not.i.i135 = icmp eq i32 %799, 15728640
-  br i1 %.not.i.i135, label %800, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i137 = icmp eq i32 %799, 15728640
+  br i1 %.not.i.i137, label %800, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 800:                                              ; preds = %796
-  %801 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
+  %801 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 802:                                              ; preds = %1
   %803 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %804 = load i32, ptr %803, align 4
   %805 = and i32 %804, 15728640
-  %.not.i.i136 = icmp eq i32 %805, 15728640
-  br i1 %.not.i.i136, label %806, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i138 = icmp eq i32 %805, 15728640
+  br i1 %.not.i.i138, label %806, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 806:                                              ; preds = %802
-  %807 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  %807 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 808:                                              ; preds = %1
   %809 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %810 = load i32, ptr %809, align 4
   %811 = and i32 %810, 15728640
-  %.not.i.i137 = icmp eq i32 %811, 15728640
-  br i1 %.not.i.i137, label %812, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i139 = icmp eq i32 %811, 15728640
+  br i1 %.not.i.i139, label %812, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 812:                                              ; preds = %808
-  %813 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  %813 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 814:                                              ; preds = %1
   %815 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %816 = load i32, ptr %815, align 4
   %817 = and i32 %816, 15728640
-  %.not.i.i138 = icmp eq i32 %817, 15728640
-  br i1 %.not.i.i138, label %818, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i140 = icmp eq i32 %817, 15728640
+  br i1 %.not.i.i140, label %818, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 818:                                              ; preds = %814
   %819 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 820:                                              ; preds = %1
-  %821 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %822 = load i32, ptr %821, align 4
-  %823 = and i32 %822, 15728640
-  %.not.i.i139 = icmp eq i32 %823, 15728640
-  br i1 %.not.i.i139, label %824, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-824:                                              ; preds = %820
-  %825 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %821 = tail call noundef ptr @_ZNK5clang12FastCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-826:                                              ; preds = %1
-  %827 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %828 = load i32, ptr %827, align 4
-  %829 = and i32 %828, 15728640
-  %.not.i.i140 = icmp eq i32 %829, 15728640
-  br i1 %.not.i.i140, label %830, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+822:                                              ; preds = %1
+  %823 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %824 = load i32, ptr %823, align 4
+  %825 = and i32 %824, 15728640
+  %.not.i.i141 = icmp eq i32 %825, 15728640
+  br i1 %.not.i.i141, label %829, label %826
 
-830:                                              ; preds = %826
-  %831 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+826:                                              ; preds = %822
+  %827 = lshr i32 %824, 20
+  %828 = and i32 %827, 15
+  br label %_ZNK5clang9FinalAttr11getSpellingEv.exit
+
+829:                                              ; preds = %822
+  %830 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang9FinalAttr11getSpellingEv.exit
+
+_ZNK5clang9FinalAttr11getSpellingEv.exit:         ; preds = %826, %829
+  %831 = phi i32 [ %828, %826 ], [ %830, %829 ]
+  %switch.i142 = icmp eq i32 %831, 0
+  %.str.451..str.452.i = select i1 %switch.i142, ptr @.str.451, ptr @.str.452
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 832:                                              ; preds = %1
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %834 = load i32, ptr %833, align 4
   %835 = and i32 %834, 15728640
-  %.not.i.i141 = icmp eq i32 %835, 15728640
-  br i1 %.not.i.i141, label %839, label %836
+  %.not.i.i143 = icmp eq i32 %835, 15728640
+  br i1 %.not.i.i143, label %836, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 836:                                              ; preds = %832
-  %837 = lshr i32 %834, 20
-  %838 = and i32 %837, 15
+  %837 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+838:                                              ; preds = %1
+  %839 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %840 = load i32, ptr %839, align 4
+  %841 = and i32 %840, 15728640
+  %.not.i.i144 = icmp eq i32 %841, 15728640
+  br i1 %.not.i.i144, label %842, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+842:                                              ; preds = %838
+  %843 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+844:                                              ; preds = %1
+  %845 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %846 = load i32, ptr %845, align 4
+  %847 = and i32 %846, 15728640
+  %.not.i.i145 = icmp eq i32 %847, 15728640
+  br i1 %.not.i.i145, label %848, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+848:                                              ; preds = %844
+  %849 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+850:                                              ; preds = %1
+  %851 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %852 = load i32, ptr %851, align 4
+  %853 = and i32 %852, 15728640
+  %.not.i.i146 = icmp eq i32 %853, 15728640
+  br i1 %.not.i.i146, label %854, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+854:                                              ; preds = %850
+  %855 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+856:                                              ; preds = %1
+  %857 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %858 = load i32, ptr %857, align 4
+  %859 = and i32 %858, 15728640
+  %.not.i.i147 = icmp eq i32 %859, 15728640
+  br i1 %.not.i.i147, label %860, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+860:                                              ; preds = %856
+  %861 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+862:                                              ; preds = %1
+  %863 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %864 = load i32, ptr %863, align 4
+  %865 = and i32 %864, 15728640
+  %.not.i.i148 = icmp eq i32 %865, 15728640
+  br i1 %.not.i.i148, label %866, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+866:                                              ; preds = %862
+  %867 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+868:                                              ; preds = %1
+  %869 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %870 = load i32, ptr %869, align 4
+  %871 = and i32 %870, 15728640
+  %.not.i.i149 = icmp eq i32 %871, 15728640
+  br i1 %.not.i.i149, label %872, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+872:                                              ; preds = %868
+  %873 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+874:                                              ; preds = %1
+  %875 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %876 = load i32, ptr %875, align 4
+  %877 = and i32 %876, 15728640
+  %.not.i.i150 = icmp eq i32 %877, 15728640
+  br i1 %.not.i.i150, label %878, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+878:                                              ; preds = %874
+  %879 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+880:                                              ; preds = %1
+  %881 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %882 = load i32, ptr %881, align 4
+  %883 = and i32 %882, 15728640
+  %.not.i.i151 = icmp eq i32 %883, 15728640
+  br i1 %.not.i.i151, label %887, label %884
+
+884:                                              ; preds = %880
+  %885 = lshr i32 %882, 20
+  %886 = and i32 %885, 15
   br label %_ZNK5clang14HIPManagedAttr11getSpellingEv.exit
 
-839:                                              ; preds = %832
-  %840 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+887:                                              ; preds = %880
+  %888 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang14HIPManagedAttr11getSpellingEv.exit
 
-_ZNK5clang14HIPManagedAttr11getSpellingEv.exit:   ; preds = %836, %839
-  %841 = phi i32 [ %838, %836 ], [ %840, %839 ]
-  %switch.i142 = icmp eq i32 %841, 0
-  %.str.480..str.481.i = select i1 %switch.i142, ptr @.str.480, ptr @.str.481
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-842:                                              ; preds = %1
-  %843 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %844 = load i32, ptr %843, align 4
-  %845 = and i32 %844, 15728640
-  %.not.i.i143 = icmp eq i32 %845, 15728640
-  br i1 %.not.i.i143, label %846, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-846:                                              ; preds = %842
-  %847 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-848:                                              ; preds = %1
-  %849 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %850 = load i32, ptr %849, align 4
-  %851 = and i32 %850, 15728640
-  %.not.i.i144 = icmp eq i32 %851, 15728640
-  br i1 %.not.i.i144, label %855, label %852
-
-852:                                              ; preds = %848
-  %853 = lshr i32 %850, 20
-  %854 = and i32 %853, 15
-  br label %_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit
-
-855:                                              ; preds = %848
-  %856 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
-  br label %_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit
-
-_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit: ; preds = %852, %855
-  %857 = phi i32 [ %854, %852 ], [ %856, %855 ]
-  %switch.i145 = icmp eq i32 %857, 0
-  %.str.486..str.487.i = select i1 %switch.i145, ptr @.str.486, ptr @.str.487
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-858:                                              ; preds = %1
-  %859 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %860 = load i32, ptr %859, align 4
-  %861 = and i32 %860, 15728640
-  %.not.i.i146 = icmp eq i32 %861, 15728640
-  br i1 %.not.i.i146, label %862, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-862:                                              ; preds = %858
-  %863 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-864:                                              ; preds = %1
-  %865 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %866 = load i32, ptr %865, align 4
-  %867 = and i32 %866, 15728640
-  %.not.i.i147 = icmp eq i32 %867, 15728640
-  br i1 %.not.i.i147, label %868, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-868:                                              ; preds = %864
-  %869 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-870:                                              ; preds = %1
-  %871 = tail call noundef ptr @_ZNK5clang21HLSLParamModifierAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-872:                                              ; preds = %1
-  %873 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %874 = load i32, ptr %873, align 4
-  %875 = and i32 %874, 15728640
-  %.not.i.i148 = icmp eq i32 %875, 15728640
-  br i1 %.not.i.i148, label %876, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-876:                                              ; preds = %872
-  %877 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-878:                                              ; preds = %1
-  %879 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %880 = load i32, ptr %879, align 4
-  %881 = and i32 %880, 15728640
-  %.not.i.i149 = icmp eq i32 %881, 15728640
-  br i1 %.not.i.i149, label %882, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-882:                                              ; preds = %878
-  %883 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-884:                                              ; preds = %1
-  %885 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %886 = load i32, ptr %885, align 4
-  %887 = and i32 %886, 15728640
-  %.not.i.i150 = icmp eq i32 %887, 15728640
-  br i1 %.not.i.i150, label %888, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-888:                                              ; preds = %884
-  %889 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+_ZNK5clang14HIPManagedAttr11getSpellingEv.exit:   ; preds = %884, %887
+  %889 = phi i32 [ %886, %884 ], [ %888, %887 ]
+  %switch.i152 = icmp eq i32 %889, 0
+  %.str.480..str.481.i = select i1 %switch.i152, ptr @.str.480, ptr @.str.481
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 890:                                              ; preds = %1
   %891 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %892 = load i32, ptr %891, align 4
   %893 = and i32 %892, 15728640
-  %.not.i.i151 = icmp eq i32 %893, 15728640
-  br i1 %.not.i.i151, label %894, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i153 = icmp eq i32 %893, 15728640
+  br i1 %.not.i.i153, label %894, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 894:                                              ; preds = %890
   %895 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -262867,52 +262852,56 @@ _ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit: ; preds = %852, %855
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %898 = load i32, ptr %897, align 4
   %899 = and i32 %898, 15728640
-  %.not.i.i152 = icmp eq i32 %899, 15728640
-  br i1 %.not.i.i152, label %900, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i154 = icmp eq i32 %899, 15728640
+  br i1 %.not.i.i154, label %903, label %900
 
 900:                                              ; preds = %896
-  %901 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %901 = lshr i32 %898, 20
+  %902 = and i32 %901, 15
+  br label %_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit
+
+903:                                              ; preds = %896
+  %904 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  br label %_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit
+
+_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit: ; preds = %900, %903
+  %905 = phi i32 [ %902, %900 ], [ %904, %903 ]
+  %switch.i155 = icmp eq i32 %905, 0
+  %.str.486..str.487.i = select i1 %switch.i155, ptr @.str.486, ptr @.str.487
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-902:                                              ; preds = %1
-  %903 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %904 = load i32, ptr %903, align 4
-  %905 = and i32 %904, 15728640
-  %.not.i.i153 = icmp eq i32 %905, 15728640
-  br i1 %.not.i.i153, label %906, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+906:                                              ; preds = %1
+  %907 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %908 = load i32, ptr %907, align 4
+  %909 = and i32 %908, 15728640
+  %.not.i.i156 = icmp eq i32 %909, 15728640
+  br i1 %.not.i.i156, label %910, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-906:                                              ; preds = %902
-  %907 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+910:                                              ; preds = %906
+  %911 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-908:                                              ; preds = %1
-  %909 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %910 = load i32, ptr %909, align 4
-  %911 = and i32 %910, 15728640
-  %.not.i.i154 = icmp eq i32 %911, 15728640
-  br i1 %.not.i.i154, label %912, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+912:                                              ; preds = %1
+  %913 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %914 = load i32, ptr %913, align 4
+  %915 = and i32 %914, 15728640
+  %.not.i.i157 = icmp eq i32 %915, 15728640
+  br i1 %.not.i.i157, label %916, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-912:                                              ; preds = %908
-  %913 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
+916:                                              ; preds = %912
+  %917 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-914:                                              ; preds = %1
-  %915 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %916 = load i32, ptr %915, align 4
-  %917 = and i32 %916, 15728640
-  %.not.i.i155 = icmp eq i32 %917, 15728640
-  br i1 %.not.i.i155, label %918, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-918:                                              ; preds = %914
-  %919 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+918:                                              ; preds = %1
+  %919 = tail call noundef ptr @_ZNK5clang21HLSLParamModifierAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 920:                                              ; preds = %1
   %921 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %922 = load i32, ptr %921, align 4
   %923 = and i32 %922, 15728640
-  %.not.i.i156 = icmp eq i32 %923, 15728640
-  br i1 %.not.i.i156, label %924, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i158 = icmp eq i32 %923, 15728640
+  br i1 %.not.i.i158, label %924, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 924:                                              ; preds = %920
   %925 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -262922,52 +262911,52 @@ _ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit: ; preds = %852, %855
   %927 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %928 = load i32, ptr %927, align 4
   %929 = and i32 %928, 15728640
-  %.not.i.i157 = icmp eq i32 %929, 15728640
-  br i1 %.not.i.i157, label %930, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i159 = icmp eq i32 %929, 15728640
+  br i1 %.not.i.i159, label %930, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 930:                                              ; preds = %926
-  %931 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %931 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 932:                                              ; preds = %1
   %933 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %934 = load i32, ptr %933, align 4
   %935 = and i32 %934, 15728640
-  %.not.i.i158 = icmp eq i32 %935, 15728640
-  br i1 %.not.i.i158, label %936, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i160 = icmp eq i32 %935, 15728640
+  br i1 %.not.i.i160, label %936, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 936:                                              ; preds = %932
-  %937 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %937 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 938:                                              ; preds = %1
   %939 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %940 = load i32, ptr %939, align 4
   %941 = and i32 %940, 15728640
-  %.not.i.i159 = icmp eq i32 %941, 15728640
-  br i1 %.not.i.i159, label %942, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i161 = icmp eq i32 %941, 15728640
+  br i1 %.not.i.i161, label %942, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 942:                                              ; preds = %938
-  %943 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %943 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 944:                                              ; preds = %1
   %945 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %946 = load i32, ptr %945, align 4
   %947 = and i32 %946, 15728640
-  %.not.i.i160 = icmp eq i32 %947, 15728640
-  br i1 %.not.i.i160, label %948, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i162 = icmp eq i32 %947, 15728640
+  br i1 %.not.i.i162, label %948, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 948:                                              ; preds = %944
-  %949 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %949 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 950:                                              ; preds = %1
   %951 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %952 = load i32, ptr %951, align 4
   %953 = and i32 %952, 15728640
-  %.not.i.i161 = icmp eq i32 %953, 15728640
-  br i1 %.not.i.i161, label %954, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i163 = icmp eq i32 %953, 15728640
+  br i1 %.not.i.i163, label %954, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 954:                                              ; preds = %950
   %955 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
@@ -262977,19 +262966,19 @@ _ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit: ; preds = %852, %855
   %957 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %958 = load i32, ptr %957, align 4
   %959 = and i32 %958, 15728640
-  %.not.i.i162 = icmp eq i32 %959, 15728640
-  br i1 %.not.i.i162, label %960, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i164 = icmp eq i32 %959, 15728640
+  br i1 %.not.i.i164, label %960, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 960:                                              ; preds = %956
-  %961 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %961 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 962:                                              ; preds = %1
   %963 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %964 = load i32, ptr %963, align 4
   %965 = and i32 %964, 15728640
-  %.not.i.i163 = icmp eq i32 %965, 15728640
-  br i1 %.not.i.i163, label %966, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i165 = icmp eq i32 %965, 15728640
+  br i1 %.not.i.i165, label %966, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 966:                                              ; preds = %962
   %967 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -262999,8 +262988,8 @@ _ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit: ; preds = %852, %855
   %969 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %970 = load i32, ptr %969, align 4
   %971 = and i32 %970, 15728640
-  %.not.i.i164 = icmp eq i32 %971, 15728640
-  br i1 %.not.i.i164, label %972, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i166 = icmp eq i32 %971, 15728640
+  br i1 %.not.i.i166, label %972, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 972:                                              ; preds = %968
   %973 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263010,8 +262999,8 @@ _ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit: ; preds = %852, %855
   %975 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %976 = load i32, ptr %975, align 4
   %977 = and i32 %976, 15728640
-  %.not.i.i165 = icmp eq i32 %977, 15728640
-  br i1 %.not.i.i165, label %978, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i167 = icmp eq i32 %977, 15728640
+  br i1 %.not.i.i167, label %978, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 978:                                              ; preds = %974
   %979 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263021,247 +263010,247 @@ _ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit: ; preds = %852, %855
   %981 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %982 = load i32, ptr %981, align 4
   %983 = and i32 %982, 15728640
-  %.not.i.i166 = icmp eq i32 %983, 15728640
-  br i1 %.not.i.i166, label %984, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i168 = icmp eq i32 %983, 15728640
+  br i1 %.not.i.i168, label %984, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 984:                                              ; preds = %980
-  %985 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  %985 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 986:                                              ; preds = %1
   %987 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %988 = load i32, ptr %987, align 4
   %989 = and i32 %988, 15728640
-  %.not.i.i167 = icmp eq i32 %989, 15728640
-  br i1 %.not.i.i167, label %990, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i169 = icmp eq i32 %989, 15728640
+  br i1 %.not.i.i169, label %990, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 990:                                              ; preds = %986
-  %991 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %991 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 992:                                              ; preds = %1
   %993 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %994 = load i32, ptr %993, align 4
   %995 = and i32 %994, 15728640
-  %.not.i.i168 = icmp eq i32 %995, 15728640
-  br i1 %.not.i.i168, label %996, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i170 = icmp eq i32 %995, 15728640
+  br i1 %.not.i.i170, label %996, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 996:                                              ; preds = %992
-  %997 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %997 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 998:                                              ; preds = %1
   %999 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1000 = load i32, ptr %999, align 4
   %1001 = and i32 %1000, 15728640
-  %.not.i.i169 = icmp eq i32 %1001, 15728640
-  br i1 %.not.i.i169, label %1002, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i171 = icmp eq i32 %1001, 15728640
+  br i1 %.not.i.i171, label %1002, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1002:                                             ; preds = %998
-  %1003 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1003 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1004:                                             ; preds = %1
   %1005 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1006 = load i32, ptr %1005, align 4
   %1007 = and i32 %1006, 15728640
-  %.not.i.i170 = icmp eq i32 %1007, 15728640
-  br i1 %.not.i.i170, label %1008, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i172 = icmp eq i32 %1007, 15728640
+  br i1 %.not.i.i172, label %1008, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1008:                                             ; preds = %1004
-  %1009 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1009 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1010:                                             ; preds = %1
   %1011 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1012 = load i32, ptr %1011, align 4
   %1013 = and i32 %1012, 15728640
-  %.not.i.i171 = icmp eq i32 %1013, 15728640
-  br i1 %.not.i.i171, label %1014, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i173 = icmp eq i32 %1013, 15728640
+  br i1 %.not.i.i173, label %1014, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1014:                                             ; preds = %1010
-  %1015 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %1015 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1016:                                             ; preds = %1
   %1017 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1018 = load i32, ptr %1017, align 4
   %1019 = and i32 %1018, 15728640
-  %.not.i.i172 = icmp eq i32 %1019, 15728640
-  br i1 %.not.i.i172, label %1020, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i174 = icmp eq i32 %1019, 15728640
+  br i1 %.not.i.i174, label %1020, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1020:                                             ; preds = %1016
-  %1021 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %1021 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1022:                                             ; preds = %1
-  %1023 = tail call noundef ptr @_ZNK5clang12LoopHintAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  %1023 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1024 = load i32, ptr %1023, align 4
+  %1025 = and i32 %1024, 15728640
+  %.not.i.i175 = icmp eq i32 %1025, 15728640
+  br i1 %.not.i.i175, label %1026, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1026:                                             ; preds = %1022
+  %1027 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1024:                                             ; preds = %1
-  %1025 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1026 = load i32, ptr %1025, align 4
-  %1027 = and i32 %1026, 15728640
-  %.not.i.i173 = icmp eq i32 %1027, 15728640
-  br i1 %.not.i.i173, label %1028, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1028:                                             ; preds = %1
+  %1029 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1030 = load i32, ptr %1029, align 4
+  %1031 = and i32 %1030, 15728640
+  %.not.i.i176 = icmp eq i32 %1031, 15728640
+  br i1 %.not.i.i176, label %1032, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1028:                                             ; preds = %1024
-  %1029 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+1032:                                             ; preds = %1028
+  %1033 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1030:                                             ; preds = %1
-  %1031 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1032 = load i32, ptr %1031, align 4
-  %1033 = and i32 %1032, 15728640
-  %.not.i.i174 = icmp eq i32 %1033, 15728640
-  br i1 %.not.i.i174, label %1034, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1034:                                             ; preds = %1
+  %1035 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1036 = load i32, ptr %1035, align 4
+  %1037 = and i32 %1036, 15728640
+  %.not.i.i177 = icmp eq i32 %1037, 15728640
+  br i1 %.not.i.i177, label %1038, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1034:                                             ; preds = %1030
-  %1035 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1038:                                             ; preds = %1034
+  %1039 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1036:                                             ; preds = %1
-  %1037 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1038 = load i32, ptr %1037, align 4
-  %1039 = and i32 %1038, 15728640
-  %.not.i.i175 = icmp eq i32 %1039, 15728640
-  br i1 %.not.i.i175, label %1040, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1040:                                             ; preds = %1
+  %1041 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1042 = load i32, ptr %1041, align 4
+  %1043 = and i32 %1042, 15728640
+  %.not.i.i178 = icmp eq i32 %1043, 15728640
+  br i1 %.not.i.i178, label %1044, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1040:                                             ; preds = %1036
-  %1041 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1044:                                             ; preds = %1040
+  %1045 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1042:                                             ; preds = %1
-  %1043 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1044 = load i32, ptr %1043, align 4
-  %1045 = and i32 %1044, 15728640
-  %.not.i.i176 = icmp eq i32 %1045, 15728640
-  br i1 %.not.i.i176, label %1046, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1046:                                             ; preds = %1
+  %1047 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1048 = load i32, ptr %1047, align 4
+  %1049 = and i32 %1048, 15728640
+  %.not.i.i179 = icmp eq i32 %1049, 15728640
+  br i1 %.not.i.i179, label %1050, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1046:                                             ; preds = %1042
-  %1047 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1050:                                             ; preds = %1046
+  %1051 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1048:                                             ; preds = %1
-  %1049 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1050 = load i32, ptr %1049, align 4
-  %1051 = and i32 %1050, 15728640
-  %.not.i.i177 = icmp eq i32 %1051, 15728640
-  br i1 %.not.i.i177, label %1052, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1052:                                             ; preds = %1
+  %1053 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1054 = load i32, ptr %1053, align 4
+  %1055 = and i32 %1054, 15728640
+  %.not.i.i180 = icmp eq i32 %1055, 15728640
+  br i1 %.not.i.i180, label %1056, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1052:                                             ; preds = %1048
-  %1053 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1056:                                             ; preds = %1052
+  %1057 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1054:                                             ; preds = %1
-  %1055 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1056 = load i32, ptr %1055, align 4
-  %1057 = and i32 %1056, 15728640
-  %.not.i.i178 = icmp eq i32 %1057, 15728640
-  br i1 %.not.i.i178, label %1058, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1058:                                             ; preds = %1
+  %1059 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1060 = load i32, ptr %1059, align 4
+  %1061 = and i32 %1060, 15728640
+  %.not.i.i181 = icmp eq i32 %1061, 15728640
+  br i1 %.not.i.i181, label %1062, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1058:                                             ; preds = %1054
-  %1059 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1062:                                             ; preds = %1058
+  %1063 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1060:                                             ; preds = %1
-  %1061 = tail call noundef ptr @_ZNK5clang17MSInheritanceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
+1064:                                             ; preds = %1
+  %1065 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1066 = load i32, ptr %1065, align 4
+  %1067 = and i32 %1066, 15728640
+  %.not.i.i182 = icmp eq i32 %1067, 15728640
+  br i1 %.not.i.i182, label %1068, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1068:                                             ; preds = %1064
+  %1069 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1062:                                             ; preds = %1
-  %1063 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1064 = load i32, ptr %1063, align 4
-  %1065 = and i32 %1064, 15728640
-  %.not.i.i179 = icmp eq i32 %1065, 15728640
-  br i1 %.not.i.i179, label %1066, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1066:                                             ; preds = %1062
-  %1067 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1070:                                             ; preds = %1
+  %1071 = tail call noundef ptr @_ZNK5clang12LoopHintAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1068:                                             ; preds = %1
-  %1069 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1070 = load i32, ptr %1069, align 4
-  %1071 = and i32 %1070, 15728640
-  %.not.i.i180 = icmp eq i32 %1071, 15728640
-  br i1 %.not.i.i180, label %1072, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1072:                                             ; preds = %1
+  %1073 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1074 = load i32, ptr %1073, align 4
+  %1075 = and i32 %1074, 15728640
+  %.not.i.i183 = icmp eq i32 %1075, 15728640
+  br i1 %.not.i.i183, label %1076, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1072:                                             ; preds = %1068
-  %1073 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+1076:                                             ; preds = %1072
+  %1077 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1074:                                             ; preds = %1
-  %1075 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1076 = load i32, ptr %1075, align 4
-  %1077 = and i32 %1076, 15728640
-  %.not.i.i181 = icmp eq i32 %1077, 15728640
-  br i1 %.not.i.i181, label %1078, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1078:                                             ; preds = %1
+  %1079 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1080 = load i32, ptr %1079, align 4
+  %1081 = and i32 %1080, 15728640
+  %.not.i.i184 = icmp eq i32 %1081, 15728640
+  br i1 %.not.i.i184, label %1082, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1078:                                             ; preds = %1074
-  %1079 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1082:                                             ; preds = %1078
+  %1083 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1080:                                             ; preds = %1
-  %1081 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1082 = load i32, ptr %1081, align 4
-  %1083 = and i32 %1082, 15728640
-  %.not.i.i182 = icmp eq i32 %1083, 15728640
-  br i1 %.not.i.i182, label %1084, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1084:                                             ; preds = %1
+  %1085 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1086 = load i32, ptr %1085, align 4
+  %1087 = and i32 %1086, 15728640
+  %.not.i.i185 = icmp eq i32 %1087, 15728640
+  br i1 %.not.i.i185, label %1088, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1084:                                             ; preds = %1080
-  %1085 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1088:                                             ; preds = %1084
+  %1089 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1086:                                             ; preds = %1
-  %1087 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1088 = load i32, ptr %1087, align 4
-  %1089 = and i32 %1088, 15728640
-  %.not.i.i183 = icmp eq i32 %1089, 15728640
-  br i1 %.not.i.i183, label %1090, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1090:                                             ; preds = %1
+  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1092 = load i32, ptr %1091, align 4
+  %1093 = and i32 %1092, 15728640
+  %.not.i.i186 = icmp eq i32 %1093, 15728640
+  br i1 %.not.i.i186, label %1094, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1090:                                             ; preds = %1086
-  %1091 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1094:                                             ; preds = %1090
+  %1095 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1092:                                             ; preds = %1
-  %1093 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1094 = load i32, ptr %1093, align 4
-  %1095 = and i32 %1094, 15728640
-  %.not.i.i184 = icmp eq i32 %1095, 15728640
-  br i1 %.not.i.i184, label %1096, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1096:                                             ; preds = %1
+  %1097 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1098 = load i32, ptr %1097, align 4
+  %1099 = and i32 %1098, 15728640
+  %.not.i.i187 = icmp eq i32 %1099, 15728640
+  br i1 %.not.i.i187, label %1100, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1096:                                             ; preds = %1092
-  %1097 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1100:                                             ; preds = %1096
+  %1101 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1098:                                             ; preds = %1
-  %1099 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1100 = load i32, ptr %1099, align 4
-  %1101 = and i32 %1100, 15728640
-  %.not.i.i185 = icmp eq i32 %1101, 15728640
-  br i1 %.not.i.i185, label %1102, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1102:                                             ; preds = %1
+  %1103 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1104 = load i32, ptr %1103, align 4
+  %1105 = and i32 %1104, 15728640
+  %.not.i.i188 = icmp eq i32 %1105, 15728640
+  br i1 %.not.i.i188, label %1106, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1102:                                             ; preds = %1098
-  %1103 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1106:                                             ; preds = %1102
+  %1107 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1104:                                             ; preds = %1
-  %1105 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1106 = load i32, ptr %1105, align 4
-  %1107 = and i32 %1106, 15728640
-  %.not.i.i186 = icmp eq i32 %1107, 15728640
-  br i1 %.not.i.i186, label %1108, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1108:                                             ; preds = %1104
-  %1109 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+1108:                                             ; preds = %1
+  %1109 = tail call noundef ptr @_ZNK5clang17MSInheritanceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1110:                                             ; preds = %1
   %1111 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1112 = load i32, ptr %1111, align 4
   %1113 = and i32 %1112, 15728640
-  %.not.i.i187 = icmp eq i32 %1113, 15728640
-  br i1 %.not.i.i187, label %1114, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i189 = icmp eq i32 %1113, 15728640
+  br i1 %.not.i.i189, label %1114, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1114:                                             ; preds = %1110
   %1115 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263271,504 +263260,514 @@ _ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit: ; preds = %852, %855
   %1117 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1118 = load i32, ptr %1117, align 4
   %1119 = and i32 %1118, 15728640
-  %.not.i.i188 = icmp eq i32 %1119, 15728640
-  br i1 %.not.i.i188, label %1120, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i190 = icmp eq i32 %1119, 15728640
+  br i1 %.not.i.i190, label %1120, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1120:                                             ; preds = %1116
   %1121 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1122:                                             ; preds = %1
-  %1123 = tail call noundef ptr @_ZNK5clang16MipsLongCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+  %1123 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1124 = load i32, ptr %1123, align 4
+  %1125 = and i32 %1124, 15728640
+  %.not.i.i191 = icmp eq i32 %1125, 15728640
+  br i1 %.not.i.i191, label %1126, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1126:                                             ; preds = %1122
+  %1127 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1124:                                             ; preds = %1
-  %1125 = tail call noundef ptr @_ZNK5clang17MipsShortCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+1128:                                             ; preds = %1
+  %1129 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1130 = load i32, ptr %1129, align 4
+  %1131 = and i32 %1130, 15728640
+  %.not.i.i192 = icmp eq i32 %1131, 15728640
+  br i1 %.not.i.i192, label %1132, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1132:                                             ; preds = %1128
+  %1133 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1126:                                             ; preds = %1
-  %1127 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1128 = load i32, ptr %1127, align 4
-  %1129 = and i32 %1128, 15728640
-  %.not.i.i189 = icmp eq i32 %1129, 15728640
-  br i1 %.not.i.i189, label %1130, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1134:                                             ; preds = %1
+  %1135 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1136 = load i32, ptr %1135, align 4
+  %1137 = and i32 %1136, 15728640
+  %.not.i.i193 = icmp eq i32 %1137, 15728640
+  br i1 %.not.i.i193, label %1138, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1130:                                             ; preds = %1126
-  %1131 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1138:                                             ; preds = %1134
+  %1139 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1132:                                             ; preds = %1
-  %1133 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1134 = load i32, ptr %1133, align 4
-  %1135 = and i32 %1134, 15728640
-  %.not.i.i190 = icmp eq i32 %1135, 15728640
-  br i1 %.not.i.i190, label %1136, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1140:                                             ; preds = %1
+  %1141 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1142 = load i32, ptr %1141, align 4
+  %1143 = and i32 %1142, 15728640
+  %.not.i.i194 = icmp eq i32 %1143, 15728640
+  br i1 %.not.i.i194, label %1144, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1136:                                             ; preds = %1132
-  %1137 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1144:                                             ; preds = %1140
+  %1145 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1138:                                             ; preds = %1
-  %1139 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1140 = load i32, ptr %1139, align 4
-  %1141 = and i32 %1140, 15728640
-  %.not.i.i191 = icmp eq i32 %1141, 15728640
-  br i1 %.not.i.i191, label %1142, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1146:                                             ; preds = %1
+  %1147 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1148 = load i32, ptr %1147, align 4
+  %1149 = and i32 %1148, 15728640
+  %.not.i.i195 = icmp eq i32 %1149, 15728640
+  br i1 %.not.i.i195, label %1150, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1142:                                             ; preds = %1138
-  %1143 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1150:                                             ; preds = %1146
+  %1151 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1144:                                             ; preds = %1
-  %1145 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1146 = load i32, ptr %1145, align 4
-  %1147 = and i32 %1146, 15728640
-  %.not.i.i192 = icmp eq i32 %1147, 15728640
-  br i1 %.not.i.i192, label %1148, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1152:                                             ; preds = %1
+  %1153 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1154 = load i32, ptr %1153, align 4
+  %1155 = and i32 %1154, 15728640
+  %.not.i.i196 = icmp eq i32 %1155, 15728640
+  br i1 %.not.i.i196, label %1156, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1148:                                             ; preds = %1144
-  %1149 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1156:                                             ; preds = %1152
+  %1157 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1150:                                             ; preds = %1
-  %1151 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1152 = load i32, ptr %1151, align 4
-  %1153 = and i32 %1152, 15728640
-  %.not.i.i193 = icmp eq i32 %1153, 15728640
-  br i1 %.not.i.i193, label %1154, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1158:                                             ; preds = %1
+  %1159 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1160 = load i32, ptr %1159, align 4
+  %1161 = and i32 %1160, 15728640
+  %.not.i.i197 = icmp eq i32 %1161, 15728640
+  br i1 %.not.i.i197, label %1162, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1154:                                             ; preds = %1150
-  %1155 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1162:                                             ; preds = %1158
+  %1163 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1156:                                             ; preds = %1
-  %1157 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1158 = load i32, ptr %1157, align 4
-  %1159 = and i32 %1158, 15728640
-  %.not.i.i194 = icmp eq i32 %1159, 15728640
-  br i1 %.not.i.i194, label %1160, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1164:                                             ; preds = %1
+  %1165 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1166 = load i32, ptr %1165, align 4
+  %1167 = and i32 %1166, 15728640
+  %.not.i.i198 = icmp eq i32 %1167, 15728640
+  br i1 %.not.i.i198, label %1168, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1160:                                             ; preds = %1156
-  %1161 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1168:                                             ; preds = %1164
+  %1169 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1162:                                             ; preds = %1
-  %1163 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1164 = load i32, ptr %1163, align 4
-  %1165 = and i32 %1164, 15728640
-  %.not.i.i195 = icmp eq i32 %1165, 15728640
-  br i1 %.not.i.i195, label %1166, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1170:                                             ; preds = %1
+  %1171 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1172 = load i32, ptr %1171, align 4
+  %1173 = and i32 %1172, 15728640
+  %.not.i.i199 = icmp eq i32 %1173, 15728640
+  br i1 %.not.i.i199, label %1177, label %1174
 
-1166:                                             ; preds = %1162
-  %1167 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1174:                                             ; preds = %1170
+  %1175 = lshr i32 %1172, 20
+  %1176 = and i32 %1175, 15
+  br label %_ZNK5clang16MipsLongCallAttr11getSpellingEv.exit
 
-1168:                                             ; preds = %1
-  %1169 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1170 = load i32, ptr %1169, align 4
-  %1171 = and i32 %1170, 15728640
-  %.not.i.i196 = icmp eq i32 %1171, 15728640
-  br i1 %.not.i.i196, label %1172, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1177:                                             ; preds = %1170
+  %1178 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang16MipsLongCallAttr11getSpellingEv.exit
 
-1172:                                             ; preds = %1168
-  %1173 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1174:                                             ; preds = %1
-  %1175 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1176 = load i32, ptr %1175, align 4
-  %1177 = and i32 %1176, 15728640
-  %.not.i.i197 = icmp eq i32 %1177, 15728640
-  br i1 %.not.i.i197, label %1178, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1178:                                             ; preds = %1174
-  %1179 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+_ZNK5clang16MipsLongCallAttr11getSpellingEv.exit: ; preds = %1174, %1177
+  %1179 = phi i32 [ %1176, %1174 ], [ %1178, %1177 ]
+  %switch.i200 = icmp ult i32 %1179, 3
+  %.str.664..str.665.i = select i1 %switch.i200, ptr @.str.664, ptr @.str.665
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1180:                                             ; preds = %1
   %1181 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1182 = load i32, ptr %1181, align 4
   %1183 = and i32 %1182, 15728640
-  %.not.i.i198 = icmp eq i32 %1183, 15728640
-  br i1 %.not.i.i198, label %1184, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i201 = icmp eq i32 %1183, 15728640
+  br i1 %.not.i.i201, label %1187, label %1184
 
 1184:                                             ; preds = %1180
-  %1185 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1185 = lshr i32 %1182, 20
+  %1186 = and i32 %1185, 15
+  br label %_ZNK5clang17MipsShortCallAttr11getSpellingEv.exit
+
+1187:                                             ; preds = %1180
+  %1188 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17MipsShortCallAttr11getSpellingEv.exit
+
+_ZNK5clang17MipsShortCallAttr11getSpellingEv.exit: ; preds = %1184, %1187
+  %1189 = phi i32 [ %1186, %1184 ], [ %1188, %1187 ]
+  %switch.i202 = icmp ult i32 %1189, 3
+  %.str.670..str.671.i = select i1 %switch.i202, ptr @.str.670, ptr @.str.671
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1186:                                             ; preds = %1
-  %1187 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1188 = load i32, ptr %1187, align 4
-  %1189 = and i32 %1188, 15728640
-  %.not.i.i199 = icmp eq i32 %1189, 15728640
-  br i1 %.not.i.i199, label %1190, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1190:                                             ; preds = %1
+  %1191 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1192 = load i32, ptr %1191, align 4
+  %1193 = and i32 %1192, 15728640
+  %.not.i.i203 = icmp eq i32 %1193, 15728640
+  br i1 %.not.i.i203, label %1194, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1190:                                             ; preds = %1186
-  %1191 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1194:                                             ; preds = %1190
+  %1195 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1192:                                             ; preds = %1
-  %1193 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1194 = load i32, ptr %1193, align 4
-  %1195 = and i32 %1194, 15728640
-  %.not.i.i200 = icmp eq i32 %1195, 15728640
-  br i1 %.not.i.i200, label %1196, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1196:                                             ; preds = %1
+  %1197 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1198 = load i32, ptr %1197, align 4
+  %1199 = and i32 %1198, 15728640
+  %.not.i.i204 = icmp eq i32 %1199, 15728640
+  br i1 %.not.i.i204, label %1200, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1196:                                             ; preds = %1192
-  %1197 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1200:                                             ; preds = %1196
+  %1201 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1198:                                             ; preds = %1
-  %1199 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1200 = load i32, ptr %1199, align 4
-  %1201 = and i32 %1200, 15728640
-  %.not.i.i201 = icmp eq i32 %1201, 15728640
-  br i1 %.not.i.i201, label %1202, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1202:                                             ; preds = %1
+  %1203 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1204 = load i32, ptr %1203, align 4
+  %1205 = and i32 %1204, 15728640
+  %.not.i.i205 = icmp eq i32 %1205, 15728640
+  br i1 %.not.i.i205, label %1206, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1202:                                             ; preds = %1198
-  %1203 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1206:                                             ; preds = %1202
+  %1207 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1204:                                             ; preds = %1
-  %1205 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1206 = load i32, ptr %1205, align 4
-  %1207 = and i32 %1206, 15728640
-  %.not.i.i202 = icmp eq i32 %1207, 15728640
-  br i1 %.not.i.i202, label %1208, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1208:                                             ; preds = %1
+  %1209 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1210 = load i32, ptr %1209, align 4
+  %1211 = and i32 %1210, 15728640
+  %.not.i.i206 = icmp eq i32 %1211, 15728640
+  br i1 %.not.i.i206, label %1212, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1208:                                             ; preds = %1204
-  %1209 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1212:                                             ; preds = %1208
+  %1213 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1210:                                             ; preds = %1
-  %1211 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1212 = load i32, ptr %1211, align 4
-  %1213 = and i32 %1212, 15728640
-  %.not.i.i203 = icmp eq i32 %1213, 15728640
-  br i1 %.not.i.i203, label %1214, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1214:                                             ; preds = %1
+  %1215 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1216 = load i32, ptr %1215, align 4
+  %1217 = and i32 %1216, 15728640
+  %.not.i.i207 = icmp eq i32 %1217, 15728640
+  br i1 %.not.i.i207, label %1218, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1214:                                             ; preds = %1210
-  %1215 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1218:                                             ; preds = %1214
+  %1219 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1216:                                             ; preds = %1
-  %1217 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1218 = load i32, ptr %1217, align 4
-  %1219 = and i32 %1218, 15728640
-  %.not.i.i204 = icmp eq i32 %1219, 15728640
-  br i1 %.not.i.i204, label %1220, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1220:                                             ; preds = %1
+  %1221 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1222 = load i32, ptr %1221, align 4
+  %1223 = and i32 %1222, 15728640
+  %.not.i.i208 = icmp eq i32 %1223, 15728640
+  br i1 %.not.i.i208, label %1224, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1220:                                             ; preds = %1216
-  %1221 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1224:                                             ; preds = %1220
+  %1225 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1222:                                             ; preds = %1
-  %1223 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1224 = load i32, ptr %1223, align 4
-  %1225 = and i32 %1224, 15728640
-  %.not.i.i205 = icmp eq i32 %1225, 15728640
-  br i1 %.not.i.i205, label %1226, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1226:                                             ; preds = %1
+  %1227 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1228 = load i32, ptr %1227, align 4
+  %1229 = and i32 %1228, 15728640
+  %.not.i.i209 = icmp eq i32 %1229, 15728640
+  br i1 %.not.i.i209, label %1230, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1226:                                             ; preds = %1222
-  %1227 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1230:                                             ; preds = %1226
+  %1231 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1228:                                             ; preds = %1
-  %1229 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1230 = load i32, ptr %1229, align 4
-  %1231 = and i32 %1230, 15728640
-  %.not.i.i206 = icmp eq i32 %1231, 15728640
-  br i1 %.not.i.i206, label %1232, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1232:                                             ; preds = %1
+  %1233 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1234 = load i32, ptr %1233, align 4
+  %1235 = and i32 %1234, 15728640
+  %.not.i.i210 = icmp eq i32 %1235, 15728640
+  br i1 %.not.i.i210, label %1236, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1232:                                             ; preds = %1228
-  %1233 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1236:                                             ; preds = %1232
+  %1237 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1234:                                             ; preds = %1
-  %1235 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1236 = load i32, ptr %1235, align 4
-  %1237 = and i32 %1236, 15728640
-  %.not.i.i207 = icmp eq i32 %1237, 15728640
-  br i1 %.not.i.i207, label %1238, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1238:                                             ; preds = %1
+  %1239 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1240 = load i32, ptr %1239, align 4
+  %1241 = and i32 %1240, 15728640
+  %.not.i.i211 = icmp eq i32 %1241, 15728640
+  br i1 %.not.i.i211, label %1242, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1238:                                             ; preds = %1234
-  %1239 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1242:                                             ; preds = %1238
+  %1243 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1240:                                             ; preds = %1
-  %1241 = tail call noundef ptr @_ZNK5clang12NoInlineAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+1244:                                             ; preds = %1
+  %1245 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1246 = load i32, ptr %1245, align 4
+  %1247 = and i32 %1246, 15728640
+  %.not.i.i212 = icmp eq i32 %1247, 15728640
+  br i1 %.not.i.i212, label %1248, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1248:                                             ; preds = %1244
+  %1249 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1242:                                             ; preds = %1
-  %1243 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1244 = load i32, ptr %1243, align 4
-  %1245 = and i32 %1244, 15728640
-  %.not.i.i208 = icmp eq i32 %1245, 15728640
-  br i1 %.not.i.i208, label %1246, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1250:                                             ; preds = %1
+  %1251 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1252 = load i32, ptr %1251, align 4
+  %1253 = and i32 %1252, 15728640
+  %.not.i.i213 = icmp eq i32 %1253, 15728640
+  br i1 %.not.i.i213, label %1254, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1246:                                             ; preds = %1242
-  %1247 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1254:                                             ; preds = %1250
+  %1255 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1248:                                             ; preds = %1
-  %1249 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1250 = load i32, ptr %1249, align 4
-  %1251 = and i32 %1250, 15728640
-  %.not.i.i209 = icmp eq i32 %1251, 15728640
-  br i1 %.not.i.i209, label %1252, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1256:                                             ; preds = %1
+  %1257 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1258 = load i32, ptr %1257, align 4
+  %1259 = and i32 %1258, 15728640
+  %.not.i.i214 = icmp eq i32 %1259, 15728640
+  br i1 %.not.i.i214, label %1260, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1252:                                             ; preds = %1248
-  %1253 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1260:                                             ; preds = %1256
+  %1261 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1254:                                             ; preds = %1
-  %1255 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1256 = load i32, ptr %1255, align 4
-  %1257 = and i32 %1256, 15728640
-  %.not.i.i210 = icmp eq i32 %1257, 15728640
-  br i1 %.not.i.i210, label %1258, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1262:                                             ; preds = %1
+  %1263 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1264 = load i32, ptr %1263, align 4
+  %1265 = and i32 %1264, 15728640
+  %.not.i.i215 = icmp eq i32 %1265, 15728640
+  br i1 %.not.i.i215, label %1266, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1258:                                             ; preds = %1254
-  %1259 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1266:                                             ; preds = %1262
+  %1267 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1260:                                             ; preds = %1
-  %1261 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1262 = load i32, ptr %1261, align 4
-  %1263 = and i32 %1262, 15728640
-  %.not.i.i211 = icmp eq i32 %1263, 15728640
-  br i1 %.not.i.i211, label %1264, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1268:                                             ; preds = %1
+  %1269 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1270 = load i32, ptr %1269, align 4
+  %1271 = and i32 %1270, 15728640
+  %.not.i.i216 = icmp eq i32 %1271, 15728640
+  br i1 %.not.i.i216, label %1272, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1264:                                             ; preds = %1260
-  %1265 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1272:                                             ; preds = %1268
+  %1273 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1266:                                             ; preds = %1
-  %1267 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1268 = load i32, ptr %1267, align 4
-  %1269 = and i32 %1268, 15728640
-  %.not.i.i212 = icmp eq i32 %1269, 15728640
-  br i1 %.not.i.i212, label %1270, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1274:                                             ; preds = %1
+  %1275 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1276 = load i32, ptr %1275, align 4
+  %1277 = and i32 %1276, 15728640
+  %.not.i.i217 = icmp eq i32 %1277, 15728640
+  br i1 %.not.i.i217, label %1278, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1270:                                             ; preds = %1266
-  %1271 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1278:                                             ; preds = %1274
+  %1279 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1272:                                             ; preds = %1
-  %1273 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1274 = load i32, ptr %1273, align 4
-  %1275 = and i32 %1274, 15728640
-  %.not.i.i213 = icmp eq i32 %1275, 15728640
-  br i1 %.not.i.i213, label %1276, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1280:                                             ; preds = %1
+  %1281 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1282 = load i32, ptr %1281, align 4
+  %1283 = and i32 %1282, 15728640
+  %.not.i.i218 = icmp eq i32 %1283, 15728640
+  br i1 %.not.i.i218, label %1284, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1276:                                             ; preds = %1272
-  %1277 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1284:                                             ; preds = %1280
+  %1285 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1278:                                             ; preds = %1
-  %1279 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1280 = load i32, ptr %1279, align 4
-  %1281 = and i32 %1280, 15728640
-  %.not.i.i214 = icmp eq i32 %1281, 15728640
-  br i1 %.not.i.i214, label %1282, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1286:                                             ; preds = %1
+  %1287 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1288 = load i32, ptr %1287, align 4
+  %1289 = and i32 %1288, 15728640
+  %.not.i.i219 = icmp eq i32 %1289, 15728640
+  br i1 %.not.i.i219, label %1290, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1282:                                             ; preds = %1278
-  %1283 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1290:                                             ; preds = %1286
+  %1291 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1284:                                             ; preds = %1
-  %1285 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1286 = load i32, ptr %1285, align 4
-  %1287 = and i32 %1286, 15728640
-  %.not.i.i215 = icmp eq i32 %1287, 15728640
-  br i1 %.not.i.i215, label %1288, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1292:                                             ; preds = %1
+  %1293 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1294 = load i32, ptr %1293, align 4
+  %1295 = and i32 %1294, 15728640
+  %.not.i.i220 = icmp eq i32 %1295, 15728640
+  br i1 %.not.i.i220, label %1296, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1288:                                             ; preds = %1284
-  %1289 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1296:                                             ; preds = %1292
+  %1297 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1290:                                             ; preds = %1
-  %1291 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1292 = load i32, ptr %1291, align 4
-  %1293 = and i32 %1292, 15728640
-  %.not.i.i216 = icmp eq i32 %1293, 15728640
-  br i1 %.not.i.i216, label %1294, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1298:                                             ; preds = %1
+  %1299 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1300 = load i32, ptr %1299, align 4
+  %1301 = and i32 %1300, 15728640
+  %.not.i.i221 = icmp eq i32 %1301, 15728640
+  br i1 %.not.i.i221, label %1302, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1294:                                             ; preds = %1290
-  %1295 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1302:                                             ; preds = %1298
+  %1303 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1296:                                             ; preds = %1
-  %1297 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1298 = load i32, ptr %1297, align 4
-  %1299 = and i32 %1298, 15728640
-  %.not.i.i217 = icmp eq i32 %1299, 15728640
-  br i1 %.not.i.i217, label %1300, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1304:                                             ; preds = %1
+  %1305 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1306 = load i32, ptr %1305, align 4
+  %1307 = and i32 %1306, 15728640
+  %.not.i.i222 = icmp eq i32 %1307, 15728640
+  br i1 %.not.i.i222, label %1311, label %1308
 
-1300:                                             ; preds = %1296
-  %1301 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1308:                                             ; preds = %1304
+  %1309 = lshr i32 %1306, 20
+  %1310 = and i32 %1309, 15
+  br label %_ZNK5clang12NoInlineAttr11getSpellingEv.exit
+
+1311:                                             ; preds = %1304
+  %1312 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang12NoInlineAttr11getSpellingEv.exit
+
+_ZNK5clang12NoInlineAttr11getSpellingEv.exit:     ; preds = %1308, %1311
+  %1313 = phi i32 [ %1310, %1308 ], [ %1312, %1311 ]
+  %switch.i223 = icmp eq i32 %1313, 0
+  %.str.729..str.735.i = select i1 %switch.i223, ptr @.str.729, ptr @.str.735
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1302:                                             ; preds = %1
-  %1303 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1304 = load i32, ptr %1303, align 4
-  %1305 = and i32 %1304, 15728640
-  %.not.i.i218 = icmp eq i32 %1305, 15728640
-  br i1 %.not.i.i218, label %1309, label %1306
+1314:                                             ; preds = %1
+  %1315 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1316 = load i32, ptr %1315, align 4
+  %1317 = and i32 %1316, 15728640
+  %.not.i.i224 = icmp eq i32 %1317, 15728640
+  br i1 %.not.i.i224, label %1318, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1306:                                             ; preds = %1302
-  %1307 = lshr i32 %1304, 20
-  %1308 = and i32 %1307, 15
+1318:                                             ; preds = %1314
+  %1319 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1320:                                             ; preds = %1
+  %1321 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1322 = load i32, ptr %1321, align 4
+  %1323 = and i32 %1322, 15728640
+  %.not.i.i225 = icmp eq i32 %1323, 15728640
+  br i1 %.not.i.i225, label %1324, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1324:                                             ; preds = %1320
+  %1325 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1326:                                             ; preds = %1
+  %1327 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1328 = load i32, ptr %1327, align 4
+  %1329 = and i32 %1328, 15728640
+  %.not.i.i226 = icmp eq i32 %1329, 15728640
+  br i1 %.not.i.i226, label %1330, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1330:                                             ; preds = %1326
+  %1331 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1332:                                             ; preds = %1
+  %1333 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1334 = load i32, ptr %1333, align 4
+  %1335 = and i32 %1334, 15728640
+  %.not.i.i227 = icmp eq i32 %1335, 15728640
+  br i1 %.not.i.i227, label %1336, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1336:                                             ; preds = %1332
+  %1337 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1338:                                             ; preds = %1
+  %1339 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1340 = load i32, ptr %1339, align 4
+  %1341 = and i32 %1340, 15728640
+  %.not.i.i228 = icmp eq i32 %1341, 15728640
+  br i1 %.not.i.i228, label %1342, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1342:                                             ; preds = %1338
+  %1343 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1344:                                             ; preds = %1
+  %1345 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1346 = load i32, ptr %1345, align 4
+  %1347 = and i32 %1346, 15728640
+  %.not.i.i229 = icmp eq i32 %1347, 15728640
+  br i1 %.not.i.i229, label %1348, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1348:                                             ; preds = %1344
+  %1349 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1350:                                             ; preds = %1
+  %1351 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1352 = load i32, ptr %1351, align 4
+  %1353 = and i32 %1352, 15728640
+  %.not.i.i230 = icmp eq i32 %1353, 15728640
+  br i1 %.not.i.i230, label %1354, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1354:                                             ; preds = %1350
+  %1355 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1356:                                             ; preds = %1
+  %1357 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1358 = load i32, ptr %1357, align 4
+  %1359 = and i32 %1358, 15728640
+  %.not.i.i231 = icmp eq i32 %1359, 15728640
+  br i1 %.not.i.i231, label %1360, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1360:                                             ; preds = %1356
+  %1361 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1362:                                             ; preds = %1
+  %1363 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1364 = load i32, ptr %1363, align 4
+  %1365 = and i32 %1364, 15728640
+  %.not.i.i232 = icmp eq i32 %1365, 15728640
+  br i1 %.not.i.i232, label %1366, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1366:                                             ; preds = %1362
+  %1367 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1368:                                             ; preds = %1
+  %1369 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1370 = load i32, ptr %1369, align 4
+  %1371 = and i32 %1370, 15728640
+  %.not.i.i233 = icmp eq i32 %1371, 15728640
+  br i1 %.not.i.i233, label %1372, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1372:                                             ; preds = %1368
+  %1373 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1374:                                             ; preds = %1
+  %1375 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1376 = load i32, ptr %1375, align 4
+  %1377 = and i32 %1376, 15728640
+  %.not.i.i234 = icmp eq i32 %1377, 15728640
+  br i1 %.not.i.i234, label %1381, label %1378
+
+1378:                                             ; preds = %1374
+  %1379 = lshr i32 %1376, 20
+  %1380 = and i32 %1379, 15
   br label %_ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit
 
-1309:                                             ; preds = %1302
-  %1310 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1381:                                             ; preds = %1374
+  %1382 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit
 
-_ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
-  %1311 = phi i32 [ %1308, %1306 ], [ %1310, %1309 ]
-  %switch.i219 = icmp ult i32 %1311, 5
-  %spec.select.i220 = select i1 %switch.i219, ptr @.str.770, ptr @.str.771
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1312:                                             ; preds = %1
-  %1313 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1314 = load i32, ptr %1313, align 4
-  %1315 = and i32 %1314, 15728640
-  %.not.i.i221 = icmp eq i32 %1315, 15728640
-  br i1 %.not.i.i221, label %1316, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1316:                                             ; preds = %1312
-  %1317 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1318:                                             ; preds = %1
-  %1319 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1320 = load i32, ptr %1319, align 4
-  %1321 = and i32 %1320, 15728640
-  %.not.i.i222 = icmp eq i32 %1321, 15728640
-  br i1 %.not.i.i222, label %1322, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1322:                                             ; preds = %1318
-  %1323 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1324:                                             ; preds = %1
-  %1325 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1326 = load i32, ptr %1325, align 4
-  %1327 = and i32 %1326, 15728640
-  %.not.i.i223 = icmp eq i32 %1327, 15728640
-  br i1 %.not.i.i223, label %1328, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1328:                                             ; preds = %1324
-  %1329 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1330:                                             ; preds = %1
-  %1331 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1332 = load i32, ptr %1331, align 4
-  %1333 = and i32 %1332, 15728640
-  %.not.i.i224 = icmp eq i32 %1333, 15728640
-  br i1 %.not.i.i224, label %1334, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1334:                                             ; preds = %1330
-  %1335 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1336:                                             ; preds = %1
-  %1337 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1338 = load i32, ptr %1337, align 4
-  %1339 = and i32 %1338, 15728640
-  %.not.i.i225 = icmp eq i32 %1339, 15728640
-  br i1 %.not.i.i225, label %1340, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1340:                                             ; preds = %1336
-  %1341 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1342:                                             ; preds = %1
-  %1343 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1344 = load i32, ptr %1343, align 4
-  %1345 = and i32 %1344, 15728640
-  %.not.i.i226 = icmp eq i32 %1345, 15728640
-  br i1 %.not.i.i226, label %1346, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1346:                                             ; preds = %1342
-  %1347 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1348:                                             ; preds = %1
-  %1349 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1350 = load i32, ptr %1349, align 4
-  %1351 = and i32 %1350, 15728640
-  %.not.i.i227 = icmp eq i32 %1351, 15728640
-  br i1 %.not.i.i227, label %1352, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1352:                                             ; preds = %1348
-  %1353 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1354:                                             ; preds = %1
-  %1355 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1356 = load i32, ptr %1355, align 4
-  %1357 = and i32 %1356, 15728640
-  %.not.i.i228 = icmp eq i32 %1357, 15728640
-  br i1 %.not.i.i228, label %1358, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1358:                                             ; preds = %1354
-  %1359 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1360:                                             ; preds = %1
-  %1361 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1362 = load i32, ptr %1361, align 4
-  %1363 = and i32 %1362, 15728640
-  %.not.i.i229 = icmp eq i32 %1363, 15728640
-  br i1 %.not.i.i229, label %1364, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1364:                                             ; preds = %1360
-  %1365 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1366:                                             ; preds = %1
-  %1367 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1368 = load i32, ptr %1367, align 4
-  %1369 = and i32 %1368, 15728640
-  %.not.i.i230 = icmp eq i32 %1369, 15728640
-  br i1 %.not.i.i230, label %1370, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1370:                                             ; preds = %1366
-  %1371 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1372:                                             ; preds = %1
-  %1373 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1374 = load i32, ptr %1373, align 4
-  %1375 = and i32 %1374, 15728640
-  %.not.i.i231 = icmp eq i32 %1375, 15728640
-  br i1 %.not.i.i231, label %1376, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1376:                                             ; preds = %1372
-  %1377 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1378:                                             ; preds = %1
-  %1379 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1380 = load i32, ptr %1379, align 4
-  %1381 = and i32 %1380, 15728640
-  %.not.i.i232 = icmp eq i32 %1381, 15728640
-  br i1 %.not.i.i232, label %1382, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1382:                                             ; preds = %1378
-  %1383 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #16
+_ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1378, %1381
+  %1383 = phi i32 [ %1380, %1378 ], [ %1382, %1381 ]
+  %switch.i235 = icmp ult i32 %1383, 5
+  %.str.770..str.771.i = select i1 %switch.i235, ptr @.str.770, ptr @.str.771
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1384:                                             ; preds = %1
   %1385 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1386 = load i32, ptr %1385, align 4
   %1387 = and i32 %1386, 15728640
-  %.not.i.i233 = icmp eq i32 %1387, 15728640
-  br i1 %.not.i.i233, label %1388, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i236 = icmp eq i32 %1387, 15728640
+  br i1 %.not.i.i236, label %1388, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1388:                                             ; preds = %1384
   %1389 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263778,8 +263777,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1391 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1392 = load i32, ptr %1391, align 4
   %1393 = and i32 %1392, 15728640
-  %.not.i.i234 = icmp eq i32 %1393, 15728640
-  br i1 %.not.i.i234, label %1394, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i237 = icmp eq i32 %1393, 15728640
+  br i1 %.not.i.i237, label %1394, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1394:                                             ; preds = %1390
   %1395 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263789,8 +263788,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1397 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1398 = load i32, ptr %1397, align 4
   %1399 = and i32 %1398, 15728640
-  %.not.i.i235 = icmp eq i32 %1399, 15728640
-  br i1 %.not.i.i235, label %1400, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i238 = icmp eq i32 %1399, 15728640
+  br i1 %.not.i.i238, label %1400, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1400:                                             ; preds = %1396
   %1401 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263800,8 +263799,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1403 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1404 = load i32, ptr %1403, align 4
   %1405 = and i32 %1404, 15728640
-  %.not.i.i236 = icmp eq i32 %1405, 15728640
-  br i1 %.not.i.i236, label %1406, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i239 = icmp eq i32 %1405, 15728640
+  br i1 %.not.i.i239, label %1406, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1406:                                             ; preds = %1402
   %1407 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263811,52 +263810,52 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1409 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1410 = load i32, ptr %1409, align 4
   %1411 = and i32 %1410, 15728640
-  %.not.i.i237 = icmp eq i32 %1411, 15728640
-  br i1 %.not.i.i237, label %1412, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i240 = icmp eq i32 %1411, 15728640
+  br i1 %.not.i.i240, label %1412, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1412:                                             ; preds = %1408
-  %1413 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1413 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1414:                                             ; preds = %1
   %1415 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1416 = load i32, ptr %1415, align 4
   %1417 = and i32 %1416, 15728640
-  %.not.i.i238 = icmp eq i32 %1417, 15728640
-  br i1 %.not.i.i238, label %1418, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i241 = icmp eq i32 %1417, 15728640
+  br i1 %.not.i.i241, label %1418, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1418:                                             ; preds = %1414
-  %1419 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1419 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1420:                                             ; preds = %1
   %1421 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1422 = load i32, ptr %1421, align 4
   %1423 = and i32 %1422, 15728640
-  %.not.i.i239 = icmp eq i32 %1423, 15728640
-  br i1 %.not.i.i239, label %1424, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i242 = icmp eq i32 %1423, 15728640
+  br i1 %.not.i.i242, label %1424, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1424:                                             ; preds = %1420
-  %1425 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1425 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1426:                                             ; preds = %1
   %1427 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1428 = load i32, ptr %1427, align 4
   %1429 = and i32 %1428, 15728640
-  %.not.i.i240 = icmp eq i32 %1429, 15728640
-  br i1 %.not.i.i240, label %1430, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i243 = icmp eq i32 %1429, 15728640
+  br i1 %.not.i.i243, label %1430, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1430:                                             ; preds = %1426
-  %1431 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %1431 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1432:                                             ; preds = %1
   %1433 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1434 = load i32, ptr %1433, align 4
   %1435 = and i32 %1434, 15728640
-  %.not.i.i241 = icmp eq i32 %1435, 15728640
-  br i1 %.not.i.i241, label %1436, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i244 = icmp eq i32 %1435, 15728640
+  br i1 %.not.i.i244, label %1436, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1436:                                             ; preds = %1432
   %1437 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -263866,41 +263865,41 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1439 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1440 = load i32, ptr %1439, align 4
   %1441 = and i32 %1440, 15728640
-  %.not.i.i242 = icmp eq i32 %1441, 15728640
-  br i1 %.not.i.i242, label %1442, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i245 = icmp eq i32 %1441, 15728640
+  br i1 %.not.i.i245, label %1442, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1442:                                             ; preds = %1438
-  %1443 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+  %1443 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1444:                                             ; preds = %1
   %1445 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1446 = load i32, ptr %1445, align 4
   %1447 = and i32 %1446, 15728640
-  %.not.i.i243 = icmp eq i32 %1447, 15728640
-  br i1 %.not.i.i243, label %1448, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i246 = icmp eq i32 %1447, 15728640
+  br i1 %.not.i.i246, label %1448, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1448:                                             ; preds = %1444
-  %1449 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1449 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1450:                                             ; preds = %1
   %1451 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1452 = load i32, ptr %1451, align 4
   %1453 = and i32 %1452, 15728640
-  %.not.i.i244 = icmp eq i32 %1453, 15728640
-  br i1 %.not.i.i244, label %1454, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i247 = icmp eq i32 %1453, 15728640
+  br i1 %.not.i.i247, label %1454, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1454:                                             ; preds = %1450
-  %1455 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1455 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1456:                                             ; preds = %1
   %1457 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1458 = load i32, ptr %1457, align 4
   %1459 = and i32 %1458, 15728640
-  %.not.i.i245 = icmp eq i32 %1459, 15728640
-  br i1 %.not.i.i245, label %1460, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i248 = icmp eq i32 %1459, 15728640
+  br i1 %.not.i.i248, label %1460, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1460:                                             ; preds = %1456
   %1461 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263910,8 +263909,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1463 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1464 = load i32, ptr %1463, align 4
   %1465 = and i32 %1464, 15728640
-  %.not.i.i246 = icmp eq i32 %1465, 15728640
-  br i1 %.not.i.i246, label %1466, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i249 = icmp eq i32 %1465, 15728640
+  br i1 %.not.i.i249, label %1466, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1466:                                             ; preds = %1462
   %1467 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263921,8 +263920,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1469 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1470 = load i32, ptr %1469, align 4
   %1471 = and i32 %1470, 15728640
-  %.not.i.i247 = icmp eq i32 %1471, 15728640
-  br i1 %.not.i.i247, label %1472, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i250 = icmp eq i32 %1471, 15728640
+  br i1 %.not.i.i250, label %1472, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1472:                                             ; preds = %1468
   %1473 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263932,8 +263931,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1475 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1476 = load i32, ptr %1475, align 4
   %1477 = and i32 %1476, 15728640
-  %.not.i.i248 = icmp eq i32 %1477, 15728640
-  br i1 %.not.i.i248, label %1478, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i251 = icmp eq i32 %1477, 15728640
+  br i1 %.not.i.i251, label %1478, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1478:                                             ; preds = %1474
   %1479 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263943,8 +263942,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1481 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1482 = load i32, ptr %1481, align 4
   %1483 = and i32 %1482, 15728640
-  %.not.i.i249 = icmp eq i32 %1483, 15728640
-  br i1 %.not.i.i249, label %1484, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i252 = icmp eq i32 %1483, 15728640
+  br i1 %.not.i.i252, label %1484, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1484:                                             ; preds = %1480
   %1485 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263954,19 +263953,19 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1487 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1488 = load i32, ptr %1487, align 4
   %1489 = and i32 %1488, 15728640
-  %.not.i.i250 = icmp eq i32 %1489, 15728640
-  br i1 %.not.i.i250, label %1490, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i253 = icmp eq i32 %1489, 15728640
+  br i1 %.not.i.i253, label %1490, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1490:                                             ; preds = %1486
-  %1491 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %1491 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1492:                                             ; preds = %1
   %1493 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1494 = load i32, ptr %1493, align 4
   %1495 = and i32 %1494, 15728640
-  %.not.i.i251 = icmp eq i32 %1495, 15728640
-  br i1 %.not.i.i251, label %1496, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i254 = icmp eq i32 %1495, 15728640
+  br i1 %.not.i.i254, label %1496, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1496:                                             ; preds = %1492
   %1497 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -263976,41 +263975,41 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1499 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1500 = load i32, ptr %1499, align 4
   %1501 = and i32 %1500, 15728640
-  %.not.i.i252 = icmp eq i32 %1501, 15728640
-  br i1 %.not.i.i252, label %1502, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i255 = icmp eq i32 %1501, 15728640
+  br i1 %.not.i.i255, label %1502, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1502:                                             ; preds = %1498
-  %1503 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1503 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1504:                                             ; preds = %1
   %1505 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1506 = load i32, ptr %1505, align 4
   %1507 = and i32 %1506, 15728640
-  %.not.i.i253 = icmp eq i32 %1507, 15728640
-  br i1 %.not.i.i253, label %1508, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i256 = icmp eq i32 %1507, 15728640
+  br i1 %.not.i.i256, label %1508, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1508:                                             ; preds = %1504
-  %1509 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1509 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1510:                                             ; preds = %1
   %1511 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1512 = load i32, ptr %1511, align 4
   %1513 = and i32 %1512, 15728640
-  %.not.i.i254 = icmp eq i32 %1513, 15728640
-  br i1 %.not.i.i254, label %1514, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i257 = icmp eq i32 %1513, 15728640
+  br i1 %.not.i.i257, label %1514, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1514:                                             ; preds = %1510
-  %1515 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  %1515 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1516:                                             ; preds = %1
   %1517 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1518 = load i32, ptr %1517, align 4
   %1519 = and i32 %1518, 15728640
-  %.not.i.i255 = icmp eq i32 %1519, 15728640
-  br i1 %.not.i.i255, label %1520, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i258 = icmp eq i32 %1519, 15728640
+  br i1 %.not.i.i258, label %1520, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1520:                                             ; preds = %1516
   %1521 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264020,8 +264019,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1523 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1524 = load i32, ptr %1523, align 4
   %1525 = and i32 %1524, 15728640
-  %.not.i.i256 = icmp eq i32 %1525, 15728640
-  br i1 %.not.i.i256, label %1526, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i259 = icmp eq i32 %1525, 15728640
+  br i1 %.not.i.i259, label %1526, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1526:                                             ; preds = %1522
   %1527 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264031,8 +264030,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1529 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1530 = load i32, ptr %1529, align 4
   %1531 = and i32 %1530, 15728640
-  %.not.i.i257 = icmp eq i32 %1531, 15728640
-  br i1 %.not.i.i257, label %1532, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i260 = icmp eq i32 %1531, 15728640
+  br i1 %.not.i.i260, label %1532, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1532:                                             ; preds = %1528
   %1533 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264042,19 +264041,19 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1535 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1536 = load i32, ptr %1535, align 4
   %1537 = and i32 %1536, 15728640
-  %.not.i.i258 = icmp eq i32 %1537, 15728640
-  br i1 %.not.i.i258, label %1538, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i261 = icmp eq i32 %1537, 15728640
+  br i1 %.not.i.i261, label %1538, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1538:                                             ; preds = %1534
-  %1539 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %1539 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1540:                                             ; preds = %1
   %1541 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1542 = load i32, ptr %1541, align 4
   %1543 = and i32 %1542, 15728640
-  %.not.i.i259 = icmp eq i32 %1543, 15728640
-  br i1 %.not.i.i259, label %1544, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i262 = icmp eq i32 %1543, 15728640
+  br i1 %.not.i.i262, label %1544, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1544:                                             ; preds = %1540
   %1545 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264064,8 +264063,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1547 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1548 = load i32, ptr %1547, align 4
   %1549 = and i32 %1548, 15728640
-  %.not.i.i260 = icmp eq i32 %1549, 15728640
-  br i1 %.not.i.i260, label %1550, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i263 = icmp eq i32 %1549, 15728640
+  br i1 %.not.i.i263, label %1550, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1550:                                             ; preds = %1546
   %1551 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264075,8 +264074,8 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1553 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1554 = load i32, ptr %1553, align 4
   %1555 = and i32 %1554, 15728640
-  %.not.i.i261 = icmp eq i32 %1555, 15728640
-  br i1 %.not.i.i261, label %1556, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i264 = icmp eq i32 %1555, 15728640
+  br i1 %.not.i.i264, label %1556, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1556:                                             ; preds = %1552
   %1557 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264086,19 +264085,19 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1559 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1560 = load i32, ptr %1559, align 4
   %1561 = and i32 %1560, 15728640
-  %.not.i.i262 = icmp eq i32 %1561, 15728640
-  br i1 %.not.i.i262, label %1562, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i265 = icmp eq i32 %1561, 15728640
+  br i1 %.not.i.i265, label %1562, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1562:                                             ; preds = %1558
-  %1563 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1563 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1564:                                             ; preds = %1
   %1565 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1566 = load i32, ptr %1565, align 4
   %1567 = and i32 %1566, 15728640
-  %.not.i.i263 = icmp eq i32 %1567, 15728640
-  br i1 %.not.i.i263, label %1568, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i266 = icmp eq i32 %1567, 15728640
+  br i1 %.not.i.i266, label %1568, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1568:                                             ; preds = %1564
   %1569 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264108,19 +264107,19 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1571 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1572 = load i32, ptr %1571, align 4
   %1573 = and i32 %1572, 15728640
-  %.not.i.i264 = icmp eq i32 %1573, 15728640
-  br i1 %.not.i.i264, label %1574, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i267 = icmp eq i32 %1573, 15728640
+  br i1 %.not.i.i267, label %1574, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1574:                                             ; preds = %1570
-  %1575 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %1575 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1576:                                             ; preds = %1
   %1577 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1578 = load i32, ptr %1577, align 4
   %1579 = and i32 %1578, 15728640
-  %.not.i.i265 = icmp eq i32 %1579, 15728640
-  br i1 %.not.i.i265, label %1580, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i268 = icmp eq i32 %1579, 15728640
+  br i1 %.not.i.i268, label %1580, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1580:                                             ; preds = %1576
   %1581 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264130,242 +264129,241 @@ _ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit: ; preds = %1306, %1309
   %1583 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1584 = load i32, ptr %1583, align 4
   %1585 = and i32 %1584, 15728640
-  %.not.i.i266 = icmp eq i32 %1585, 15728640
-  br i1 %.not.i.i266, label %1586, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i269 = icmp eq i32 %1585, 15728640
+  br i1 %.not.i.i269, label %1586, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1586:                                             ; preds = %1582
-  %1587 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1587 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1588:                                             ; preds = %1
-  %1589 = tail call noundef ptr @_ZNK5clang16OpenCLAccessAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %1589 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1590 = load i32, ptr %1589, align 4
+  %1591 = and i32 %1590, 15728640
+  %.not.i.i270 = icmp eq i32 %1591, 15728640
+  br i1 %.not.i.i270, label %1592, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1590:                                             ; preds = %1
-  %1591 = tail call noundef ptr @_ZNK5clang30OpenCLConstantAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1592:                                             ; preds = %1
-  %1593 = tail call noundef ptr @_ZNK5clang29OpenCLGenericAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+1592:                                             ; preds = %1588
+  %1593 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1594:                                             ; preds = %1
-  %1595 = tail call noundef ptr @_ZNK5clang28OpenCLGlobalAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+  %1595 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1596 = load i32, ptr %1595, align 4
+  %1597 = and i32 %1596, 15728640
+  %.not.i.i271 = icmp eq i32 %1597, 15728640
+  br i1 %.not.i.i271, label %1598, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1598:                                             ; preds = %1594
+  %1599 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1596:                                             ; preds = %1
-  %1597 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1598 = load i32, ptr %1597, align 4
-  %1599 = and i32 %1598, 15728640
-  %.not.i.i267 = icmp eq i32 %1599, 15728640
-  br i1 %.not.i.i267, label %1600, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1600:                                             ; preds = %1
+  %1601 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1602 = load i32, ptr %1601, align 4
+  %1603 = and i32 %1602, 15728640
+  %.not.i.i272 = icmp eq i32 %1603, 15728640
+  br i1 %.not.i.i272, label %1604, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1600:                                             ; preds = %1596
-  %1601 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1604:                                             ; preds = %1600
+  %1605 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1602:                                             ; preds = %1
-  %1603 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1604 = load i32, ptr %1603, align 4
-  %1605 = and i32 %1604, 15728640
-  %.not.i.i268 = icmp eq i32 %1605, 15728640
-  br i1 %.not.i.i268, label %1606, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1606:                                             ; preds = %1
+  %1607 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1608 = load i32, ptr %1607, align 4
+  %1609 = and i32 %1608, 15728640
+  %.not.i.i273 = icmp eq i32 %1609, 15728640
+  br i1 %.not.i.i273, label %1610, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1606:                                             ; preds = %1602
-  %1607 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1610:                                             ; preds = %1606
+  %1611 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1608:                                             ; preds = %1
-  %1609 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1610 = load i32, ptr %1609, align 4
-  %1611 = and i32 %1610, 15728640
-  %.not.i.i269 = icmp eq i32 %1611, 15728640
-  br i1 %.not.i.i269, label %1612, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1612:                                             ; preds = %1
+  %1613 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1614 = load i32, ptr %1613, align 4
+  %1615 = and i32 %1614, 15728640
+  %.not.i.i274 = icmp eq i32 %1615, 15728640
+  br i1 %.not.i.i274, label %1616, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1612:                                             ; preds = %1608
-  %1613 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+1616:                                             ; preds = %1612
+  %1617 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1614:                                             ; preds = %1
-  %1615 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1616 = load i32, ptr %1615, align 4
-  %1617 = and i32 %1616, 15728640
-  %.not.i.i270 = icmp eq i32 %1617, 15728640
-  br i1 %.not.i.i270, label %1621, label %1618
+1618:                                             ; preds = %1
+  %1619 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1620 = load i32, ptr %1619, align 4
+  %1621 = and i32 %1620, 15728640
+  %.not.i.i275 = icmp eq i32 %1621, 15728640
+  br i1 %.not.i.i275, label %1622, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1618:                                             ; preds = %1614
-  %1619 = lshr i32 %1616, 20
-  %1620 = and i32 %1619, 15
-  br label %_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit
-
-1621:                                             ; preds = %1614
-  %1622 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit
-
-_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit: ; preds = %1618, %1621
-  %1623 = phi i32 [ %1620, %1618 ], [ %1622, %1621 ]
-  %switch.i271 = icmp eq i32 %1623, 0
-  %.str.951..str.952.i = select i1 %switch.i271, ptr @.str.951, ptr @.str.952
+1622:                                             ; preds = %1618
+  %1623 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1624:                                             ; preds = %1
-  %1625 = tail call noundef ptr @_ZNK5clang27OpenCLLocalAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+  %1625 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1626 = load i32, ptr %1625, align 4
+  %1627 = and i32 %1626, 15728640
+  %.not.i.i276 = icmp eq i32 %1627, 15728640
+  br i1 %.not.i.i276, label %1628, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1628:                                             ; preds = %1624
+  %1629 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1626:                                             ; preds = %1
-  %1627 = tail call noundef ptr @_ZNK5clang29OpenCLPrivateAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+1630:                                             ; preds = %1
+  %1631 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1632 = load i32, ptr %1631, align 4
+  %1633 = and i32 %1632, 15728640
+  %.not.i.i277 = icmp eq i32 %1633, 15728640
+  br i1 %.not.i.i277, label %1634, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1634:                                             ; preds = %1630
+  %1635 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1628:                                             ; preds = %1
-  %1629 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1630 = load i32, ptr %1629, align 4
-  %1631 = and i32 %1630, 15728640
-  %.not.i.i272 = icmp eq i32 %1631, 15728640
-  br i1 %.not.i.i272, label %1632, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1636:                                             ; preds = %1
+  %1637 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1638 = load i32, ptr %1637, align 4
+  %1639 = and i32 %1638, 15728640
+  %.not.i.i278 = icmp eq i32 %1639, 15728640
+  br i1 %.not.i.i278, label %1640, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1632:                                             ; preds = %1628
-  %1633 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+1640:                                             ; preds = %1636
+  %1641 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1634:                                             ; preds = %1
-  %1635 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1636 = load i32, ptr %1635, align 4
-  %1637 = and i32 %1636, 15728640
-  %.not.i.i273 = icmp eq i32 %1637, 15728640
-  br i1 %.not.i.i273, label %1638, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1642:                                             ; preds = %1
+  %1643 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1644 = load i32, ptr %1643, align 4
+  %1645 = and i32 %1644, 15728640
+  %.not.i.i279 = icmp eq i32 %1645, 15728640
+  br i1 %.not.i.i279, label %1646, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1638:                                             ; preds = %1634
-  %1639 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1646:                                             ; preds = %1642
+  %1647 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1640:                                             ; preds = %1
-  %1641 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1642 = load i32, ptr %1641, align 4
-  %1643 = and i32 %1642, 15728640
-  %.not.i.i274 = icmp eq i32 %1643, 15728640
-  br i1 %.not.i.i274, label %1644, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1648:                                             ; preds = %1
+  %1649 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1650 = load i32, ptr %1649, align 4
+  %1651 = and i32 %1650, 15728640
+  %.not.i.i280 = icmp eq i32 %1651, 15728640
+  br i1 %.not.i.i280, label %1652, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1644:                                             ; preds = %1640
-  %1645 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1652:                                             ; preds = %1648
+  %1653 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1646:                                             ; preds = %1
-  %1647 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1648 = load i32, ptr %1647, align 4
-  %1649 = and i32 %1648, 15728640
-  %.not.i.i275 = icmp eq i32 %1649, 15728640
-  br i1 %.not.i.i275, label %1650, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1654:                                             ; preds = %1
+  %1655 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1656 = load i32, ptr %1655, align 4
+  %1657 = and i32 %1656, 15728640
+  %.not.i.i281 = icmp eq i32 %1657, 15728640
+  br i1 %.not.i.i281, label %1658, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1650:                                             ; preds = %1646
-  %1651 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1652:                                             ; preds = %1
-  %1653 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1654 = load i32, ptr %1653, align 4
-  %1655 = and i32 %1654, 15728640
-  %.not.i.i276 = icmp eq i32 %1655, 15728640
-  br i1 %.not.i.i276, label %1656, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1656:                                             ; preds = %1652
-  %1657 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1658:                                             ; preds = %1
-  %1659 = tail call noundef ptr @_ZNK5clang13OwnershipAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
+1658:                                             ; preds = %1654
+  %1659 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1660:                                             ; preds = %1
-  %1661 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1662 = load i32, ptr %1661, align 4
-  %1663 = and i32 %1662, 15728640
-  %.not.i.i277 = icmp eq i32 %1663, 15728640
-  br i1 %.not.i.i277, label %1664, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %1661 = tail call noundef ptr @_ZNK5clang16OpenCLAccessAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1664:                                             ; preds = %1660
-  %1665 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1662:                                             ; preds = %1
+  %1663 = tail call noundef ptr @_ZNK5clang30OpenCLConstantAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1664:                                             ; preds = %1
+  %1665 = tail call noundef ptr @_ZNK5clang29OpenCLGenericAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1666:                                             ; preds = %1
-  %1667 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1668 = load i32, ptr %1667, align 4
-  %1669 = and i32 %1668, 15728640
-  %.not.i.i278 = icmp eq i32 %1669, 15728640
-  br i1 %.not.i.i278, label %1670, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1670:                                             ; preds = %1666
-  %1671 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  %1667 = tail call noundef ptr @_ZNK5clang28OpenCLGlobalAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1672:                                             ; preds = %1
-  %1673 = tail call noundef ptr @_ZNK5clang10PascalAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+1668:                                             ; preds = %1
+  %1669 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1670 = load i32, ptr %1669, align 4
+  %1671 = and i32 %1670, 15728640
+  %.not.i.i282 = icmp eq i32 %1671, 15728640
+  br i1 %.not.i.i282, label %1672, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1672:                                             ; preds = %1668
+  %1673 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1674:                                             ; preds = %1
-  %1675 = tail call noundef ptr @_ZNK5clang18PassObjectSizeAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %1675 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1676 = load i32, ptr %1675, align 4
+  %1677 = and i32 %1676, 15728640
+  %.not.i.i283 = icmp eq i32 %1677, 15728640
+  br i1 %.not.i.i283, label %1678, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1678:                                             ; preds = %1674
+  %1679 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1676:                                             ; preds = %1
-  %1677 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1678 = load i32, ptr %1677, align 4
-  %1679 = and i32 %1678, 15728640
-  %.not.i.i279 = icmp eq i32 %1679, 15728640
-  br i1 %.not.i.i279, label %1680, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1680:                                             ; preds = %1
+  %1681 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1682 = load i32, ptr %1681, align 4
+  %1683 = and i32 %1682, 15728640
+  %.not.i.i284 = icmp eq i32 %1683, 15728640
+  br i1 %.not.i.i284, label %1684, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1680:                                             ; preds = %1676
-  %1681 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
+1684:                                             ; preds = %1680
+  %1685 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1682:                                             ; preds = %1
-  %1683 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1684 = load i32, ptr %1683, align 4
-  %1685 = and i32 %1684, 15728640
-  %.not.i.i280 = icmp eq i32 %1685, 15728640
-  br i1 %.not.i.i280, label %1686, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1686:                                             ; preds = %1
+  %1687 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1688 = load i32, ptr %1687, align 4
+  %1689 = and i32 %1688, 15728640
+  %.not.i.i285 = icmp eq i32 %1689, 15728640
+  br i1 %.not.i.i285, label %1693, label %1690
 
-1686:                                             ; preds = %1682
-  %1687 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+1690:                                             ; preds = %1686
+  %1691 = lshr i32 %1688, 20
+  %1692 = and i32 %1691, 15
+  br label %_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit
+
+1693:                                             ; preds = %1686
+  %1694 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit
+
+_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit: ; preds = %1690, %1693
+  %1695 = phi i32 [ %1692, %1690 ], [ %1694, %1693 ]
+  %switch.i286 = icmp eq i32 %1695, 0
+  %.str.951..str.952.i = select i1 %switch.i286, ptr @.str.951, ptr @.str.952
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1688:                                             ; preds = %1
-  %1689 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1690 = load i32, ptr %1689, align 4
-  %1691 = and i32 %1690, 15728640
-  %.not.i.i281 = icmp eq i32 %1691, 15728640
-  br i1 %.not.i.i281, label %1692, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1692:                                             ; preds = %1688
-  %1693 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1696:                                             ; preds = %1
+  %1697 = tail call noundef ptr @_ZNK5clang27OpenCLLocalAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1694:                                             ; preds = %1
-  %1695 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1696 = load i32, ptr %1695, align 4
-  %1697 = and i32 %1696, 15728640
-  %.not.i.i282 = icmp eq i32 %1697, 15728640
-  br i1 %.not.i.i282, label %1698, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1698:                                             ; preds = %1694
-  %1699 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1698:                                             ; preds = %1
+  %1699 = tail call noundef ptr @_ZNK5clang29OpenCLPrivateAddressSpaceAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1700:                                             ; preds = %1
   %1701 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1702 = load i32, ptr %1701, align 4
   %1703 = and i32 %1702, 15728640
-  %.not.i.i283 = icmp eq i32 %1703, 15728640
-  br i1 %.not.i.i283, label %1704, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i287 = icmp eq i32 %1703, 15728640
+  br i1 %.not.i.i287, label %1704, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1704:                                             ; preds = %1700
-  %1705 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  %1705 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1706:                                             ; preds = %1
   %1707 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1708 = load i32, ptr %1707, align 4
   %1709 = and i32 %1708, 15728640
-  %.not.i.i284 = icmp eq i32 %1709, 15728640
-  br i1 %.not.i.i284, label %1710, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i288 = icmp eq i32 %1709, 15728640
+  br i1 %.not.i.i288, label %1710, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1710:                                             ; preds = %1706
   %1711 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264375,8 +264373,8 @@ _ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit: ; preds = %1618, %1621
   %1713 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1714 = load i32, ptr %1713, align 4
   %1715 = and i32 %1714, 15728640
-  %.not.i.i285 = icmp eq i32 %1715, 15728640
-  br i1 %.not.i.i285, label %1716, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i289 = icmp eq i32 %1715, 15728640
+  br i1 %.not.i.i289, label %1716, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1716:                                             ; preds = %1712
   %1717 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264386,8 +264384,8 @@ _ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit: ; preds = %1618, %1621
   %1719 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1720 = load i32, ptr %1719, align 4
   %1721 = and i32 %1720, 15728640
-  %.not.i.i286 = icmp eq i32 %1721, 15728640
-  br i1 %.not.i.i286, label %1722, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i290 = icmp eq i32 %1721, 15728640
+  br i1 %.not.i.i290, label %1722, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1722:                                             ; preds = %1718
   %1723 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
@@ -264397,8 +264395,8 @@ _ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit: ; preds = %1618, %1621
   %1725 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1726 = load i32, ptr %1725, align 4
   %1727 = and i32 %1726, 15728640
-  %.not.i.i287 = icmp eq i32 %1727, 15728640
-  br i1 %.not.i.i287, label %1728, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i291 = icmp eq i32 %1727, 15728640
+  br i1 %.not.i.i291, label %1728, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
 1728:                                             ; preds = %1724
   %1729 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -264408,1052 +264406,1312 @@ _ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit: ; preds = %1618, %1621
   %1731 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1732 = load i32, ptr %1731, align 4
   %1733 = and i32 %1732, 15728640
-  %.not.i.i288 = icmp eq i32 %1733, 15728640
-  br i1 %.not.i.i288, label %1734, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+  %.not.i.i292 = icmp eq i32 %1733, 15728640
+  br i1 %.not.i.i292, label %1737, label %1734
 
 1734:                                             ; preds = %1730
-  %1735 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  %1735 = lshr i32 %1732, 20
+  %1736 = and i32 %1735, 15
+  br label %switch.lookup
+
+1737:                                             ; preds = %1730
+  %1738 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+  br label %switch.lookup
+
+1739:                                             ; preds = %1
+  %1740 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1741 = load i32, ptr %1740, align 4
+  %1742 = and i32 %1741, 15728640
+  %.not.i.i293 = icmp eq i32 %1742, 15728640
+  br i1 %.not.i.i293, label %1743, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1743:                                             ; preds = %1739
+  %1744 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1736:                                             ; preds = %1
-  %1737 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1738 = load i32, ptr %1737, align 4
-  %1739 = and i32 %1738, 15728640
-  %.not.i.i289 = icmp eq i32 %1739, 15728640
-  br i1 %.not.i.i289, label %1740, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1745:                                             ; preds = %1
+  %1746 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1747 = load i32, ptr %1746, align 4
+  %1748 = and i32 %1747, 15728640
+  %.not.i.i295 = icmp eq i32 %1748, 15728640
+  br i1 %.not.i.i295, label %1749, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1740:                                             ; preds = %1736
-  %1741 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1749:                                             ; preds = %1745
+  %1750 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1742:                                             ; preds = %1
-  %1743 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1744 = load i32, ptr %1743, align 4
-  %1745 = and i32 %1744, 15728640
-  %.not.i.i290 = icmp eq i32 %1745, 15728640
-  br i1 %.not.i.i290, label %1746, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1746:                                             ; preds = %1742
-  %1747 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1751:                                             ; preds = %1
+  %1752 = tail call noundef ptr @_ZNK5clang10PascalAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1748:                                             ; preds = %1
-  %1749 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1750 = load i32, ptr %1749, align 4
-  %1751 = and i32 %1750, 15728640
-  %.not.i.i291 = icmp eq i32 %1751, 15728640
-  br i1 %.not.i.i291, label %1752, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1753:                                             ; preds = %1
+  %1754 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1755 = load i32, ptr %1754, align 4
+  %1756 = and i32 %1755, 15728640
+  %.not.i.i297 = icmp eq i32 %1756, 15728640
+  br i1 %.not.i.i297, label %1760, label %1757
 
-1752:                                             ; preds = %1748
-  %1753 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1757:                                             ; preds = %1753
+  %1758 = lshr i32 %1755, 20
+  %1759 = and i32 %1758, 15
+  br label %_ZNK5clang18PassObjectSizeAttr11getSpellingEv.exit
+
+1760:                                             ; preds = %1753
+  %1761 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  br label %_ZNK5clang18PassObjectSizeAttr11getSpellingEv.exit
+
+_ZNK5clang18PassObjectSizeAttr11getSpellingEv.exit: ; preds = %1757, %1760
+  %1762 = phi i32 [ %1759, %1757 ], [ %1761, %1760 ]
+  %switch.i299 = icmp ult i32 %1762, 3
+  %.str.998..str.999.i = select i1 %switch.i299, ptr @.str.998, ptr @.str.999
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1754:                                             ; preds = %1
-  %1755 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1756 = load i32, ptr %1755, align 4
-  %1757 = and i32 %1756, 15728640
-  %.not.i.i292 = icmp eq i32 %1757, 15728640
-  br i1 %.not.i.i292, label %1758, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1763:                                             ; preds = %1
+  %1764 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1765 = load i32, ptr %1764, align 4
+  %1766 = and i32 %1765, 15728640
+  %.not.i.i300 = icmp eq i32 %1766, 15728640
+  br i1 %.not.i.i300, label %1767, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1758:                                             ; preds = %1754
-  %1759 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+1767:                                             ; preds = %1763
+  %1768 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1760:                                             ; preds = %1
-  %1761 = tail call noundef ptr @_ZNK5clang17RISCVVectorCCAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+1769:                                             ; preds = %1
+  %1770 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1771 = load i32, ptr %1770, align 4
+  %1772 = and i32 %1771, 15728640
+  %.not.i.i302 = icmp eq i32 %1772, 15728640
+  br i1 %.not.i.i302, label %1773, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1773:                                             ; preds = %1769
+  %1774 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1762:                                             ; preds = %1
-  %1763 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1764 = load i32, ptr %1763, align 4
-  %1765 = and i32 %1764, 15728640
-  %.not.i.i293 = icmp eq i32 %1765, 15728640
-  br i1 %.not.i.i293, label %1766, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1775:                                             ; preds = %1
+  %1776 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1777 = load i32, ptr %1776, align 4
+  %1778 = and i32 %1777, 15728640
+  %.not.i.i304 = icmp eq i32 %1778, 15728640
+  br i1 %.not.i.i304, label %1779, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1766:                                             ; preds = %1762
-  %1767 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1779:                                             ; preds = %1775
+  %1780 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1768:                                             ; preds = %1
-  %1769 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1770 = load i32, ptr %1769, align 4
-  %1771 = and i32 %1770, 15728640
-  %.not.i.i294 = icmp eq i32 %1771, 15728640
-  br i1 %.not.i.i294, label %1772, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1781:                                             ; preds = %1
+  %1782 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1783 = load i32, ptr %1782, align 4
+  %1784 = and i32 %1783, 15728640
+  %.not.i.i306 = icmp eq i32 %1784, 15728640
+  br i1 %.not.i.i306, label %1785, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1772:                                             ; preds = %1768
-  %1773 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1785:                                             ; preds = %1781
+  %1786 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1774:                                             ; preds = %1
-  %1775 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1776 = load i32, ptr %1775, align 4
-  %1777 = and i32 %1776, 15728640
-  %.not.i.i295 = icmp eq i32 %1777, 15728640
-  br i1 %.not.i.i295, label %1781, label %1778
+1787:                                             ; preds = %1
+  %1788 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1789 = load i32, ptr %1788, align 4
+  %1790 = and i32 %1789, 15728640
+  %.not.i.i308 = icmp eq i32 %1790, 15728640
+  br i1 %.not.i.i308, label %1791, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1778:                                             ; preds = %1774
-  %1779 = lshr i32 %1776, 20
-  %1780 = and i32 %1779, 15
-  br label %_ZNK5clang11RegCallAttr11getSpellingEv.exit
-
-1781:                                             ; preds = %1774
-  %1782 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang11RegCallAttr11getSpellingEv.exit
-
-_ZNK5clang11RegCallAttr11getSpellingEv.exit:      ; preds = %1778, %1781
-  %1783 = phi i32 [ %1780, %1778 ], [ %1782, %1781 ]
-  %switch.i296 = icmp ult i32 %1783, 3
-  %spec.select.i297 = select i1 %switch.i296, ptr @.str.1051, ptr @.str.1050
+1791:                                             ; preds = %1787
+  %1792 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1784:                                             ; preds = %1
-  %1785 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1786 = load i32, ptr %1785, align 4
-  %1787 = and i32 %1786, 15728640
-  %.not.i.i298 = icmp eq i32 %1787, 15728640
-  br i1 %.not.i.i298, label %1788, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1793:                                             ; preds = %1
+  %1794 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1795 = load i32, ptr %1794, align 4
+  %1796 = and i32 %1795, 15728640
+  %.not.i.i310 = icmp eq i32 %1796, 15728640
+  br i1 %.not.i.i310, label %1797, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1788:                                             ; preds = %1784
-  %1789 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1797:                                             ; preds = %1793
+  %1798 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1790:                                             ; preds = %1
-  %1791 = tail call noundef ptr @_ZNK5clang21ReleaseCapabilityAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+1799:                                             ; preds = %1
+  %1800 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1801 = load i32, ptr %1800, align 4
+  %1802 = and i32 %1801, 15728640
+  %.not.i.i312 = icmp eq i32 %1802, 15728640
+  br i1 %.not.i.i312, label %1803, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1803:                                             ; preds = %1799
+  %1804 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1792:                                             ; preds = %1
-  %1793 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1794 = load i32, ptr %1793, align 4
-  %1795 = and i32 %1794, 15728640
-  %.not.i.i299 = icmp eq i32 %1795, 15728640
-  br i1 %.not.i.i299, label %1796, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1805:                                             ; preds = %1
+  %1806 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1807 = load i32, ptr %1806, align 4
+  %1808 = and i32 %1807, 15728640
+  %.not.i.i314 = icmp eq i32 %1808, 15728640
+  br i1 %.not.i.i314, label %1809, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1796:                                             ; preds = %1792
-  %1797 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1809:                                             ; preds = %1805
+  %1810 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1798:                                             ; preds = %1
-  %1799 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1800 = load i32, ptr %1799, align 4
-  %1801 = and i32 %1800, 15728640
-  %.not.i.i300 = icmp eq i32 %1801, 15728640
-  br i1 %.not.i.i300, label %1802, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1811:                                             ; preds = %1
+  %1812 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1813 = load i32, ptr %1812, align 4
+  %1814 = and i32 %1813, 15728640
+  %.not.i.i316 = icmp eq i32 %1814, 15728640
+  br i1 %.not.i.i316, label %1815, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1802:                                             ; preds = %1798
-  %1803 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1815:                                             ; preds = %1811
+  %1816 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1804:                                             ; preds = %1
-  %1805 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1806 = load i32, ptr %1805, align 4
-  %1807 = and i32 %1806, 15728640
-  %.not.i.i301 = icmp eq i32 %1807, 15728640
-  br i1 %.not.i.i301, label %1808, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1817:                                             ; preds = %1
+  %1818 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1819 = load i32, ptr %1818, align 4
+  %1820 = and i32 %1819, 15728640
+  %.not.i.i318 = icmp eq i32 %1820, 15728640
+  br i1 %.not.i.i318, label %1821, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1808:                                             ; preds = %1804
-  %1809 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1821:                                             ; preds = %1817
+  %1822 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1810:                                             ; preds = %1
-  %1811 = tail call noundef ptr @_ZNK5clang22RequiresCapabilityAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+1823:                                             ; preds = %1
+  %1824 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1825 = load i32, ptr %1824, align 4
+  %1826 = and i32 %1825, 15728640
+  %.not.i.i320 = icmp eq i32 %1826, 15728640
+  br i1 %.not.i.i320, label %1827, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1827:                                             ; preds = %1823
+  %1828 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1812:                                             ; preds = %1
-  %1813 = tail call noundef ptr @_ZNK5clang12RestrictAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+1829:                                             ; preds = %1
+  %1830 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1831 = load i32, ptr %1830, align 4
+  %1832 = and i32 %1831, 15728640
+  %.not.i.i322 = icmp eq i32 %1832, 15728640
+  br i1 %.not.i.i322, label %1833, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1833:                                             ; preds = %1829
+  %1834 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1814:                                             ; preds = %1
-  %1815 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1816 = load i32, ptr %1815, align 4
-  %1817 = and i32 %1816, 15728640
-  %.not.i.i302 = icmp eq i32 %1817, 15728640
-  br i1 %.not.i.i302, label %1818, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1835:                                             ; preds = %1
+  %1836 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1837 = load i32, ptr %1836, align 4
+  %1838 = and i32 %1837, 15728640
+  %.not.i.i324 = icmp eq i32 %1838, 15728640
+  br i1 %.not.i.i324, label %1839, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1818:                                             ; preds = %1814
-  %1819 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1839:                                             ; preds = %1835
+  %1840 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1820:                                             ; preds = %1
-  %1821 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1822 = load i32, ptr %1821, align 4
-  %1823 = and i32 %1822, 15728640
-  %.not.i.i303 = icmp eq i32 %1823, 15728640
-  br i1 %.not.i.i303, label %1824, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1841:                                             ; preds = %1
+  %1842 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1843 = load i32, ptr %1842, align 4
+  %1844 = and i32 %1843, 15728640
+  %.not.i.i326 = icmp eq i32 %1844, 15728640
+  br i1 %.not.i.i326, label %1845, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1824:                                             ; preds = %1820
-  %1825 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+1845:                                             ; preds = %1841
+  %1846 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1826:                                             ; preds = %1
-  %1827 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1828 = load i32, ptr %1827, align 4
-  %1829 = and i32 %1828, 15728640
-  %.not.i.i304 = icmp eq i32 %1829, 15728640
-  br i1 %.not.i.i304, label %1830, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1847:                                             ; preds = %1
+  %1848 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1849 = load i32, ptr %1848, align 4
+  %1850 = and i32 %1849, 15728640
+  %.not.i.i328 = icmp eq i32 %1850, 15728640
+  br i1 %.not.i.i328, label %1854, label %1851
 
-1830:                                             ; preds = %1826
-  %1831 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1851:                                             ; preds = %1847
+  %1852 = lshr i32 %1849, 20
+  %1853 = and i32 %1852, 15
+  br label %_ZNK5clang17RISCVVectorCCAttr11getSpellingEv.exit
 
-1832:                                             ; preds = %1
-  %1833 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1834 = load i32, ptr %1833, align 4
-  %1835 = and i32 %1834, 15728640
-  %.not.i.i305 = icmp eq i32 %1835, 15728640
-  br i1 %.not.i.i305, label %1836, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1836:                                             ; preds = %1832
-  %1837 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1838:                                             ; preds = %1
-  %1839 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1840 = load i32, ptr %1839, align 4
-  %1841 = and i32 %1840, 15728640
-  %.not.i.i306 = icmp eq i32 %1841, 15728640
-  br i1 %.not.i.i306, label %1842, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1842:                                             ; preds = %1838
-  %1843 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1844:                                             ; preds = %1
-  %1845 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1846 = load i32, ptr %1845, align 4
-  %1847 = and i32 %1846, 15728640
-  %.not.i.i307 = icmp eq i32 %1847, 15728640
-  br i1 %.not.i.i307, label %1848, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1848:                                             ; preds = %1844
-  %1849 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
-  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1850:                                             ; preds = %1
-  %1851 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1852 = load i32, ptr %1851, align 4
-  %1853 = and i32 %1852, 15728640
-  %.not.i.i308 = icmp eq i32 %1853, 15728640
-  br i1 %.not.i.i308, label %1854, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1854:                                             ; preds = %1850
+1854:                                             ; preds = %1847
   %1855 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17RISCVVectorCCAttr11getSpellingEv.exit
+
+_ZNK5clang17RISCVVectorCCAttr11getSpellingEv.exit: ; preds = %1851, %1854
+  %1856 = phi i32 [ %1853, %1851 ], [ %1855, %1854 ]
+  %switch.i330 = icmp ult i32 %1856, 2
+  %.str.1040..str.1041.i = select i1 %switch.i330, ptr @.str.1040, ptr @.str.1041
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1856:                                             ; preds = %1
-  %1857 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1858 = load i32, ptr %1857, align 4
-  %1859 = and i32 %1858, 15728640
-  %.not.i.i309 = icmp eq i32 %1859, 15728640
-  br i1 %.not.i.i309, label %1860, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1857:                                             ; preds = %1
+  %1858 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1859 = load i32, ptr %1858, align 4
+  %1860 = and i32 %1859, 15728640
+  %.not.i.i331 = icmp eq i32 %1860, 15728640
+  br i1 %.not.i.i331, label %1861, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1860:                                             ; preds = %1856
-  %1861 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1861:                                             ; preds = %1857
+  %1862 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1862:                                             ; preds = %1
-  %1863 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1864 = load i32, ptr %1863, align 4
-  %1865 = and i32 %1864, 15728640
-  %.not.i.i310 = icmp eq i32 %1865, 15728640
-  br i1 %.not.i.i310, label %1869, label %1866
+1863:                                             ; preds = %1
+  %1864 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1865 = load i32, ptr %1864, align 4
+  %1866 = and i32 %1865, 15728640
+  %.not.i.i333 = icmp eq i32 %1866, 15728640
+  br i1 %.not.i.i333, label %1867, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1866:                                             ; preds = %1862
-  %1867 = lshr i32 %1864, 20
-  %1868 = and i32 %1867, 15
-  br label %_ZNK5clang11SectionAttr11getSpellingEv.exit
-
-1869:                                             ; preds = %1862
-  %1870 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  br label %_ZNK5clang11SectionAttr11getSpellingEv.exit
-
-_ZNK5clang11SectionAttr11getSpellingEv.exit:      ; preds = %1866, %1869
-  %1871 = phi i32 [ %1868, %1866 ], [ %1870, %1869 ]
-  %switch.i311 = icmp ult i32 %1871, 3
-  %spec.select.i312 = select i1 %switch.i311, ptr @.str.1115, ptr @.str.1116
+1867:                                             ; preds = %1863
+  %1868 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1872:                                             ; preds = %1
-  %1873 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1874 = load i32, ptr %1873, align 4
-  %1875 = and i32 %1874, 15728640
-  %.not.i.i313 = icmp eq i32 %1875, 15728640
-  br i1 %.not.i.i313, label %1876, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1869:                                             ; preds = %1
+  %1870 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1871 = load i32, ptr %1870, align 4
+  %1872 = and i32 %1871, 15728640
+  %.not.i.i335 = icmp eq i32 %1872, 15728640
+  br i1 %.not.i.i335, label %1876, label %1873
 
-1876:                                             ; preds = %1872
+1873:                                             ; preds = %1869
+  %1874 = lshr i32 %1871, 20
+  %1875 = and i32 %1874, 15
+  br label %_ZNK5clang11RegCallAttr11getSpellingEv.exit
+
+1876:                                             ; preds = %1869
   %1877 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang11RegCallAttr11getSpellingEv.exit
+
+_ZNK5clang11RegCallAttr11getSpellingEv.exit:      ; preds = %1873, %1876
+  %1878 = phi i32 [ %1875, %1873 ], [ %1877, %1876 ]
+  %switch.i337 = icmp ult i32 %1878, 3
+  %.str.1051..str.1050.i = select i1 %switch.i337, ptr @.str.1051, ptr @.str.1050
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1878:                                             ; preds = %1
-  %1879 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1880 = load i32, ptr %1879, align 4
-  %1881 = and i32 %1880, 15728640
-  %.not.i.i314 = icmp eq i32 %1881, 15728640
-  br i1 %.not.i.i314, label %1882, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1879:                                             ; preds = %1
+  %1880 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1881 = load i32, ptr %1880, align 4
+  %1882 = and i32 %1881, 15728640
+  %.not.i.i338 = icmp eq i32 %1882, 15728640
+  br i1 %.not.i.i338, label %1883, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1882:                                             ; preds = %1878
-  %1883 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
+1883:                                             ; preds = %1879
+  %1884 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1884:                                             ; preds = %1
-  %1885 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1886 = load i32, ptr %1885, align 4
-  %1887 = and i32 %1886, 15728640
-  %.not.i.i315 = icmp eq i32 %1887, 15728640
-  br i1 %.not.i.i315, label %1888, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1888:                                             ; preds = %1884
-  %1889 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+1885:                                             ; preds = %1
+  %1886 = tail call noundef ptr @_ZNK5clang21ReleaseCapabilityAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1890:                                             ; preds = %1
-  %1891 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1892 = load i32, ptr %1891, align 4
-  %1893 = and i32 %1892, 15728640
-  %.not.i.i316 = icmp eq i32 %1893, 15728640
-  br i1 %.not.i.i316, label %1894, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1887:                                             ; preds = %1
+  %1888 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1889 = load i32, ptr %1888, align 4
+  %1890 = and i32 %1889, 15728640
+  %.not.i.i340 = icmp eq i32 %1890, 15728640
+  br i1 %.not.i.i340, label %1891, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1894:                                             ; preds = %1890
-  %1895 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+1891:                                             ; preds = %1887
+  %1892 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1896:                                             ; preds = %1
-  %1897 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1898 = load i32, ptr %1897, align 4
-  %1899 = and i32 %1898, 15728640
-  %.not.i.i317 = icmp eq i32 %1899, 15728640
-  br i1 %.not.i.i317, label %1900, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1893:                                             ; preds = %1
+  %1894 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1895 = load i32, ptr %1894, align 4
+  %1896 = and i32 %1895, 15728640
+  %.not.i.i342 = icmp eq i32 %1896, 15728640
+  br i1 %.not.i.i342, label %1897, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1900:                                             ; preds = %1896
-  %1901 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
+1897:                                             ; preds = %1893
+  %1898 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1902:                                             ; preds = %1
-  %1903 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1904 = load i32, ptr %1903, align 4
-  %1905 = and i32 %1904, 15728640
-  %.not.i.i318 = icmp eq i32 %1905, 15728640
-  br i1 %.not.i.i318, label %1906, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1899:                                             ; preds = %1
+  %1900 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1901 = load i32, ptr %1900, align 4
+  %1902 = and i32 %1901, 15728640
+  %.not.i.i344 = icmp eq i32 %1902, 15728640
+  br i1 %.not.i.i344, label %1903, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1906:                                             ; preds = %1902
-  %1907 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
+1903:                                             ; preds = %1899
+  %1904 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1908:                                             ; preds = %1
-  %1909 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1910 = load i32, ptr %1909, align 4
-  %1911 = and i32 %1910, 15728640
-  %.not.i.i319 = icmp eq i32 %1911, 15728640
-  br i1 %.not.i.i319, label %1912, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
-
-1912:                                             ; preds = %1908
-  %1913 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1905:                                             ; preds = %1
+  %1906 = tail call noundef ptr @_ZNK5clang22RequiresCapabilityAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1914:                                             ; preds = %1
-  %1915 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1916 = load i32, ptr %1915, align 4
-  %1917 = and i32 %1916, 15728640
-  %.not.i.i320 = icmp eq i32 %1917, 15728640
-  br i1 %.not.i.i320, label %1918, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1907:                                             ; preds = %1
+  %1908 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1909 = load i32, ptr %1908, align 4
+  %1910 = and i32 %1909, 15728640
+  %.not.i.i346 = icmp eq i32 %1910, 15728640
+  br i1 %.not.i.i346, label %1914, label %1911
 
-1918:                                             ; preds = %1914
-  %1919 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1911:                                             ; preds = %1907
+  %1912 = lshr i32 %1909, 20
+  %1913 = and i32 %1912, 15
+  br label %_ZNK5clang12RestrictAttr11getSpellingEv.exit
+
+1914:                                             ; preds = %1907
+  %1915 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang12RestrictAttr11getSpellingEv.exit
+
+_ZNK5clang12RestrictAttr11getSpellingEv.exit:     ; preds = %1911, %1914
+  %1916 = phi i32 [ %1913, %1911 ], [ %1915, %1914 ]
+  %switch.i348 = icmp eq i32 %1916, 0
+  %.str.1088..str.1089.i = select i1 %switch.i348, ptr @.str.1088, ptr @.str.1089
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1920:                                             ; preds = %1
-  %1921 = tail call noundef ptr @_ZNK5clang11StdCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+1917:                                             ; preds = %1
+  %1918 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1919 = load i32, ptr %1918, align 4
+  %1920 = and i32 %1919, 15728640
+  %.not.i.i349 = icmp eq i32 %1920, 15728640
+  br i1 %.not.i.i349, label %1921, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+1921:                                             ; preds = %1917
+  %1922 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1922:                                             ; preds = %1
-  %1923 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1924 = load i32, ptr %1923, align 4
-  %1925 = and i32 %1924, 15728640
-  %.not.i.i321 = icmp eq i32 %1925, 15728640
-  br i1 %.not.i.i321, label %1926, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1923:                                             ; preds = %1
+  %1924 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1925 = load i32, ptr %1924, align 4
+  %1926 = and i32 %1925, 15728640
+  %.not.i.i351 = icmp eq i32 %1926, 15728640
+  br i1 %.not.i.i351, label %1927, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1926:                                             ; preds = %1922
-  %1927 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1927:                                             ; preds = %1923
+  %1928 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1928:                                             ; preds = %1
-  %1929 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1930 = load i32, ptr %1929, align 4
-  %1931 = and i32 %1930, 15728640
-  %.not.i.i322 = icmp eq i32 %1931, 15728640
-  br i1 %.not.i.i322, label %1932, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1929:                                             ; preds = %1
+  %1930 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1931 = load i32, ptr %1930, align 4
+  %1932 = and i32 %1931, 15728640
+  %.not.i.i353 = icmp eq i32 %1932, 15728640
+  br i1 %.not.i.i353, label %1933, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1932:                                             ; preds = %1928
-  %1933 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1933:                                             ; preds = %1929
+  %1934 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1934:                                             ; preds = %1
-  %1935 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1936 = load i32, ptr %1935, align 4
-  %1937 = and i32 %1936, 15728640
-  %.not.i.i323 = icmp eq i32 %1937, 15728640
-  br i1 %.not.i.i323, label %1938, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1935:                                             ; preds = %1
+  %1936 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1937 = load i32, ptr %1936, align 4
+  %1938 = and i32 %1937, 15728640
+  %.not.i.i355 = icmp eq i32 %1938, 15728640
+  br i1 %.not.i.i355, label %1939, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1938:                                             ; preds = %1934
-  %1939 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
+1939:                                             ; preds = %1935
+  %1940 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1940:                                             ; preds = %1
-  %1941 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1942 = load i32, ptr %1941, align 4
-  %1943 = and i32 %1942, 15728640
-  %.not.i.i324 = icmp eq i32 %1943, 15728640
-  br i1 %.not.i.i324, label %1944, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1941:                                             ; preds = %1
+  %1942 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1943 = load i32, ptr %1942, align 4
+  %1944 = and i32 %1943, 15728640
+  %.not.i.i357 = icmp eq i32 %1944, 15728640
+  br i1 %.not.i.i357, label %1945, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1944:                                             ; preds = %1940
-  %1945 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1945:                                             ; preds = %1941
+  %1946 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1946:                                             ; preds = %1
-  %1947 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1948 = load i32, ptr %1947, align 4
-  %1949 = and i32 %1948, 15728640
-  %.not.i.i325 = icmp eq i32 %1949, 15728640
-  br i1 %.not.i.i325, label %1950, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1947:                                             ; preds = %1
+  %1948 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1949 = load i32, ptr %1948, align 4
+  %1950 = and i32 %1949, 15728640
+  %.not.i.i359 = icmp eq i32 %1950, 15728640
+  br i1 %.not.i.i359, label %1951, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1950:                                             ; preds = %1946
-  %1951 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1951:                                             ; preds = %1947
+  %1952 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1952:                                             ; preds = %1
-  %1953 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1954 = load i32, ptr %1953, align 4
-  %1955 = and i32 %1954, 15728640
-  %.not.i.i326 = icmp eq i32 %1955, 15728640
-  br i1 %.not.i.i326, label %1956, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1953:                                             ; preds = %1
+  %1954 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1955 = load i32, ptr %1954, align 4
+  %1956 = and i32 %1955, 15728640
+  %.not.i.i361 = icmp eq i32 %1956, 15728640
+  br i1 %.not.i.i361, label %1957, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1956:                                             ; preds = %1952
-  %1957 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
+1957:                                             ; preds = %1953
+  %1958 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1958:                                             ; preds = %1
-  %1959 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1960 = load i32, ptr %1959, align 4
-  %1961 = and i32 %1960, 15728640
-  %.not.i.i327 = icmp eq i32 %1961, 15728640
-  br i1 %.not.i.i327, label %1962, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1959:                                             ; preds = %1
+  %1960 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1961 = load i32, ptr %1960, align 4
+  %1962 = and i32 %1961, 15728640
+  %.not.i.i363 = icmp eq i32 %1962, 15728640
+  br i1 %.not.i.i363, label %1963, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1962:                                             ; preds = %1958
-  %1963 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1963:                                             ; preds = %1959
+  %1964 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1964:                                             ; preds = %1
-  %1965 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1966 = load i32, ptr %1965, align 4
-  %1967 = and i32 %1966, 15728640
-  %.not.i.i328 = icmp eq i32 %1967, 15728640
-  br i1 %.not.i.i328, label %1968, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1965:                                             ; preds = %1
+  %1966 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1967 = load i32, ptr %1966, align 4
+  %1968 = and i32 %1967, 15728640
+  %.not.i.i365 = icmp eq i32 %1968, 15728640
+  br i1 %.not.i.i365, label %1972, label %1969
 
-1968:                                             ; preds = %1964
-  %1969 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1969:                                             ; preds = %1965
+  %1970 = lshr i32 %1967, 20
+  %1971 = and i32 %1970, 15
+  br label %_ZNK5clang11SectionAttr11getSpellingEv.exit
+
+1972:                                             ; preds = %1965
+  %1973 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang11SectionAttr11getSpellingEv.exit
+
+_ZNK5clang11SectionAttr11getSpellingEv.exit:      ; preds = %1969, %1972
+  %1974 = phi i32 [ %1971, %1969 ], [ %1973, %1972 ]
+  %switch.i367 = icmp ult i32 %1974, 3
+  %.str.1115..str.1116.i = select i1 %switch.i367, ptr @.str.1115, ptr @.str.1116
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1970:                                             ; preds = %1
-  %1971 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1972 = load i32, ptr %1971, align 4
-  %1973 = and i32 %1972, 15728640
-  %.not.i.i329 = icmp eq i32 %1973, 15728640
-  br i1 %.not.i.i329, label %1974, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1975:                                             ; preds = %1
+  %1976 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1977 = load i32, ptr %1976, align 4
+  %1978 = and i32 %1977, 15728640
+  %.not.i.i368 = icmp eq i32 %1978, 15728640
+  br i1 %.not.i.i368, label %1979, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1974:                                             ; preds = %1970
-  %1975 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+1979:                                             ; preds = %1975
+  %1980 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1976:                                             ; preds = %1
-  %1977 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1978 = load i32, ptr %1977, align 4
-  %1979 = and i32 %1978, 15728640
-  %.not.i.i330 = icmp eq i32 %1979, 15728640
-  br i1 %.not.i.i330, label %1980, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1981:                                             ; preds = %1
+  %1982 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1983 = load i32, ptr %1982, align 4
+  %1984 = and i32 %1983, 15728640
+  %.not.i.i370 = icmp eq i32 %1984, 15728640
+  br i1 %.not.i.i370, label %1985, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1980:                                             ; preds = %1976
-  %1981 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1985:                                             ; preds = %1981
+  %1986 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1982:                                             ; preds = %1
-  %1983 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1984 = load i32, ptr %1983, align 4
-  %1985 = and i32 %1984, 15728640
-  %.not.i.i331 = icmp eq i32 %1985, 15728640
-  br i1 %.not.i.i331, label %1986, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1987:                                             ; preds = %1
+  %1988 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1989 = load i32, ptr %1988, align 4
+  %1990 = and i32 %1989, 15728640
+  %.not.i.i372 = icmp eq i32 %1990, 15728640
+  br i1 %.not.i.i372, label %1991, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1986:                                             ; preds = %1982
-  %1987 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1991:                                             ; preds = %1987
+  %1992 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1988:                                             ; preds = %1
-  %1989 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1990 = load i32, ptr %1989, align 4
-  %1991 = and i32 %1990, 15728640
-  %.not.i.i332 = icmp eq i32 %1991, 15728640
-  br i1 %.not.i.i332, label %1992, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1993:                                             ; preds = %1
+  %1994 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %1995 = load i32, ptr %1994, align 4
+  %1996 = and i32 %1995, 15728640
+  %.not.i.i374 = icmp eq i32 %1996, 15728640
+  br i1 %.not.i.i374, label %1997, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1992:                                             ; preds = %1988
-  %1993 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+1997:                                             ; preds = %1993
+  %1998 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1994:                                             ; preds = %1
-  %1995 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %1996 = load i32, ptr %1995, align 4
-  %1997 = and i32 %1996, 15728640
-  %.not.i.i333 = icmp eq i32 %1997, 15728640
-  br i1 %.not.i.i333, label %1998, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+1999:                                             ; preds = %1
+  %2000 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2001 = load i32, ptr %2000, align 4
+  %2002 = and i32 %2001, 15728640
+  %.not.i.i376 = icmp eq i32 %2002, 15728640
+  br i1 %.not.i.i376, label %2003, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-1998:                                             ; preds = %1994
-  %1999 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+2003:                                             ; preds = %1999
+  %2004 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2000:                                             ; preds = %1
-  %2001 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2002 = load i32, ptr %2001, align 4
-  %2003 = and i32 %2002, 15728640
-  %.not.i.i334 = icmp eq i32 %2003, 15728640
-  br i1 %.not.i.i334, label %2004, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2005:                                             ; preds = %1
+  %2006 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2007 = load i32, ptr %2006, align 4
+  %2008 = and i32 %2007, 15728640
+  %.not.i.i378 = icmp eq i32 %2008, 15728640
+  br i1 %.not.i.i378, label %2009, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2004:                                             ; preds = %2000
-  %2005 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2009:                                             ; preds = %2005
+  %2010 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2006:                                             ; preds = %1
-  %2007 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2008 = load i32, ptr %2007, align 4
-  %2009 = and i32 %2008, 15728640
-  %.not.i.i335 = icmp eq i32 %2009, 15728640
-  br i1 %.not.i.i335, label %2010, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2011:                                             ; preds = %1
+  %2012 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2013 = load i32, ptr %2012, align 4
+  %2014 = and i32 %2013, 15728640
+  %.not.i.i380 = icmp eq i32 %2014, 15728640
+  br i1 %.not.i.i380, label %2015, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2010:                                             ; preds = %2006
-  %2011 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2015:                                             ; preds = %2011
+  %2016 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2012:                                             ; preds = %1
-  %2013 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2014 = load i32, ptr %2013, align 4
-  %2015 = and i32 %2014, 15728640
-  %.not.i.i336 = icmp eq i32 %2015, 15728640
-  br i1 %.not.i.i336, label %2016, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2017:                                             ; preds = %1
+  %2018 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2019 = load i32, ptr %2018, align 4
+  %2020 = and i32 %2019, 15728640
+  %.not.i.i382 = icmp eq i32 %2020, 15728640
+  br i1 %.not.i.i382, label %2021, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2016:                                             ; preds = %2012
-  %2017 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2021:                                             ; preds = %2017
+  %2022 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2018:                                             ; preds = %1
-  %2019 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2020 = load i32, ptr %2019, align 4
-  %2021 = and i32 %2020, 15728640
-  %.not.i.i337 = icmp eq i32 %2021, 15728640
-  br i1 %.not.i.i337, label %2025, label %2022
+2023:                                             ; preds = %1
+  %2024 = tail call noundef ptr @_ZNK5clang11StdCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2022:                                             ; preds = %2018
-  %2023 = lshr i32 %2020, 20
-  %2024 = and i32 %2023, 15
+2025:                                             ; preds = %1
+  %2026 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2027 = load i32, ptr %2026, align 4
+  %2028 = and i32 %2027, 15728640
+  %.not.i.i384 = icmp eq i32 %2028, 15728640
+  br i1 %.not.i.i384, label %2029, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2029:                                             ; preds = %2025
+  %2030 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2031:                                             ; preds = %1
+  %2032 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2033 = load i32, ptr %2032, align 4
+  %2034 = and i32 %2033, 15728640
+  %.not.i.i386 = icmp eq i32 %2034, 15728640
+  br i1 %.not.i.i386, label %2035, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2035:                                             ; preds = %2031
+  %2036 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2037:                                             ; preds = %1
+  %2038 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2039 = load i32, ptr %2038, align 4
+  %2040 = and i32 %2039, 15728640
+  %.not.i.i388 = icmp eq i32 %2040, 15728640
+  br i1 %.not.i.i388, label %2041, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2041:                                             ; preds = %2037
+  %2042 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2043:                                             ; preds = %1
+  %2044 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2045 = load i32, ptr %2044, align 4
+  %2046 = and i32 %2045, 15728640
+  %.not.i.i390 = icmp eq i32 %2046, 15728640
+  br i1 %.not.i.i390, label %2047, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2047:                                             ; preds = %2043
+  %2048 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2049:                                             ; preds = %1
+  %2050 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2051 = load i32, ptr %2050, align 4
+  %2052 = and i32 %2051, 15728640
+  %.not.i.i392 = icmp eq i32 %2052, 15728640
+  br i1 %.not.i.i392, label %2053, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2053:                                             ; preds = %2049
+  %2054 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2055:                                             ; preds = %1
+  %2056 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2057 = load i32, ptr %2056, align 4
+  %2058 = and i32 %2057, 15728640
+  %.not.i.i394 = icmp eq i32 %2058, 15728640
+  br i1 %.not.i.i394, label %2059, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2059:                                             ; preds = %2055
+  %2060 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2061:                                             ; preds = %1
+  %2062 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2063 = load i32, ptr %2062, align 4
+  %2064 = and i32 %2063, 15728640
+  %.not.i.i396 = icmp eq i32 %2064, 15728640
+  br i1 %.not.i.i396, label %2065, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2065:                                             ; preds = %2061
+  %2066 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2067:                                             ; preds = %1
+  %2068 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2069 = load i32, ptr %2068, align 4
+  %2070 = and i32 %2069, 15728640
+  %.not.i.i398 = icmp eq i32 %2070, 15728640
+  br i1 %.not.i.i398, label %2071, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2071:                                             ; preds = %2067
+  %2072 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2073:                                             ; preds = %1
+  %2074 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2075 = load i32, ptr %2074, align 4
+  %2076 = and i32 %2075, 15728640
+  %.not.i.i400 = icmp eq i32 %2076, 15728640
+  br i1 %.not.i.i400, label %2077, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2077:                                             ; preds = %2073
+  %2078 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2079:                                             ; preds = %1
+  %2080 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2081 = load i32, ptr %2080, align 4
+  %2082 = and i32 %2081, 15728640
+  %.not.i.i402 = icmp eq i32 %2082, 15728640
+  br i1 %.not.i.i402, label %2083, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2083:                                             ; preds = %2079
+  %2084 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2085:                                             ; preds = %1
+  %2086 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2087 = load i32, ptr %2086, align 4
+  %2088 = and i32 %2087, 15728640
+  %.not.i.i404 = icmp eq i32 %2088, 15728640
+  br i1 %.not.i.i404, label %2089, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2089:                                             ; preds = %2085
+  %2090 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2091:                                             ; preds = %1
+  %2092 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2093 = load i32, ptr %2092, align 4
+  %2094 = and i32 %2093, 15728640
+  %.not.i.i406 = icmp eq i32 %2094, 15728640
+  br i1 %.not.i.i406, label %2095, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2095:                                             ; preds = %2091
+  %2096 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2097:                                             ; preds = %1
+  %2098 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2099 = load i32, ptr %2098, align 4
+  %2100 = and i32 %2099, 15728640
+  %.not.i.i408 = icmp eq i32 %2100, 15728640
+  br i1 %.not.i.i408, label %2101, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2101:                                             ; preds = %2097
+  %2102 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2103:                                             ; preds = %1
+  %2104 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2105 = load i32, ptr %2104, align 4
+  %2106 = and i32 %2105, 15728640
+  %.not.i.i410 = icmp eq i32 %2106, 15728640
+  br i1 %.not.i.i410, label %2107, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2107:                                             ; preds = %2103
+  %2108 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2109:                                             ; preds = %1
+  %2110 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2111 = load i32, ptr %2110, align 4
+  %2112 = and i32 %2111, 15728640
+  %.not.i.i412 = icmp eq i32 %2112, 15728640
+  br i1 %.not.i.i412, label %2113, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2113:                                             ; preds = %2109
+  %2114 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2115:                                             ; preds = %1
+  %2116 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2117 = load i32, ptr %2116, align 4
+  %2118 = and i32 %2117, 15728640
+  %.not.i.i414 = icmp eq i32 %2118, 15728640
+  br i1 %.not.i.i414, label %2119, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2119:                                             ; preds = %2115
+  %2120 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+2121:                                             ; preds = %1
+  %2122 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2123 = load i32, ptr %2122, align 4
+  %2124 = and i32 %2123, 15728640
+  %.not.i.i416 = icmp eq i32 %2124, 15728640
+  br i1 %.not.i.i416, label %2128, label %2125
+
+2125:                                             ; preds = %2121
+  %2126 = lshr i32 %2123, 20
+  %2127 = and i32 %2126, 15
   br label %_ZNK5clang16SwiftNewTypeAttr11getSpellingEv.exit
 
-2025:                                             ; preds = %2018
-  %2026 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+2128:                                             ; preds = %2121
+  %2129 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang16SwiftNewTypeAttr11getSpellingEv.exit
 
-_ZNK5clang16SwiftNewTypeAttr11getSpellingEv.exit: ; preds = %2022, %2025
-  %2027 = phi i32 [ %2024, %2022 ], [ %2026, %2025 ]
-  %switch.i338 = icmp eq i32 %2027, 0
-  %.str.1200..str.1201.i = select i1 %switch.i338, ptr @.str.1200, ptr @.str.1201
+_ZNK5clang16SwiftNewTypeAttr11getSpellingEv.exit: ; preds = %2125, %2128
+  %2130 = phi i32 [ %2127, %2125 ], [ %2129, %2128 ]
+  %switch.i418 = icmp eq i32 %2130, 0
+  %.str.1200..str.1201.i = select i1 %switch.i418, ptr @.str.1200, ptr @.str.1201
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2028:                                             ; preds = %1
-  %2029 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2030 = load i32, ptr %2029, align 4
-  %2031 = and i32 %2030, 15728640
-  %.not.i.i339 = icmp eq i32 %2031, 15728640
-  br i1 %.not.i.i339, label %2032, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2131:                                             ; preds = %1
+  %2132 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2133 = load i32, ptr %2132, align 4
+  %2134 = and i32 %2133, 15728640
+  %.not.i.i419 = icmp eq i32 %2134, 15728640
+  br i1 %.not.i.i419, label %2135, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2032:                                             ; preds = %2028
-  %2033 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2135:                                             ; preds = %2131
+  %2136 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2034:                                             ; preds = %1
-  %2035 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2036 = load i32, ptr %2035, align 4
-  %2037 = and i32 %2036, 15728640
-  %.not.i.i340 = icmp eq i32 %2037, 15728640
-  br i1 %.not.i.i340, label %2038, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2137:                                             ; preds = %1
+  %2138 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2139 = load i32, ptr %2138, align 4
+  %2140 = and i32 %2139, 15728640
+  %.not.i.i421 = icmp eq i32 %2140, 15728640
+  br i1 %.not.i.i421, label %2141, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2038:                                             ; preds = %2034
-  %2039 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2141:                                             ; preds = %2137
+  %2142 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2040:                                             ; preds = %1
-  %2041 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2042 = load i32, ptr %2041, align 4
-  %2043 = and i32 %2042, 15728640
-  %.not.i.i341 = icmp eq i32 %2043, 15728640
-  br i1 %.not.i.i341, label %2044, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2143:                                             ; preds = %1
+  %2144 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2145 = load i32, ptr %2144, align 4
+  %2146 = and i32 %2145, 15728640
+  %.not.i.i423 = icmp eq i32 %2146, 15728640
+  br i1 %.not.i.i423, label %2147, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2044:                                             ; preds = %2040
-  %2045 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2147:                                             ; preds = %2143
+  %2148 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2046:                                             ; preds = %1
-  %2047 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2048 = load i32, ptr %2047, align 4
-  %2049 = and i32 %2048, 15728640
-  %.not.i.i342 = icmp eq i32 %2049, 15728640
-  br i1 %.not.i.i342, label %2050, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2149:                                             ; preds = %1
+  %2150 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2151 = load i32, ptr %2150, align 4
+  %2152 = and i32 %2151, 15728640
+  %.not.i.i425 = icmp eq i32 %2152, 15728640
+  br i1 %.not.i.i425, label %2153, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2050:                                             ; preds = %2046
-  %2051 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2153:                                             ; preds = %2149
+  %2154 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2052:                                             ; preds = %1
-  %2053 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2054 = load i32, ptr %2053, align 4
-  %2055 = and i32 %2054, 15728640
-  %.not.i.i343 = icmp eq i32 %2055, 15728640
-  br i1 %.not.i.i343, label %2056, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2155:                                             ; preds = %1
+  %2156 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2157 = load i32, ptr %2156, align 4
+  %2158 = and i32 %2157, 15728640
+  %.not.i.i427 = icmp eq i32 %2158, 15728640
+  br i1 %.not.i.i427, label %2159, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2056:                                             ; preds = %2052
-  %2057 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2159:                                             ; preds = %2155
+  %2160 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2058:                                             ; preds = %1
-  %2059 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2060 = load i32, ptr %2059, align 4
-  %2061 = and i32 %2060, 15728640
-  %.not.i.i344 = icmp eq i32 %2061, 15728640
-  br i1 %.not.i.i344, label %2062, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2161:                                             ; preds = %1
+  %2162 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2163 = load i32, ptr %2162, align 4
+  %2164 = and i32 %2163, 15728640
+  %.not.i.i429 = icmp eq i32 %2164, 15728640
+  br i1 %.not.i.i429, label %2165, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2062:                                             ; preds = %2058
-  %2063 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2165:                                             ; preds = %2161
+  %2166 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2064:                                             ; preds = %1
-  %2065 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2066 = load i32, ptr %2065, align 4
-  %2067 = and i32 %2066, 15728640
-  %.not.i.i345 = icmp eq i32 %2067, 15728640
-  br i1 %.not.i.i345, label %2068, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2167:                                             ; preds = %1
+  %2168 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2169 = load i32, ptr %2168, align 4
+  %2170 = and i32 %2169, 15728640
+  %.not.i.i431 = icmp eq i32 %2170, 15728640
+  br i1 %.not.i.i431, label %2171, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2068:                                             ; preds = %2064
-  %2069 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2171:                                             ; preds = %2167
+  %2172 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2070:                                             ; preds = %1
-  %2071 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2072 = load i32, ptr %2071, align 4
-  %2073 = and i32 %2072, 15728640
-  %.not.i.i346 = icmp eq i32 %2073, 15728640
-  br i1 %.not.i.i346, label %2074, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2173:                                             ; preds = %1
+  %2174 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2175 = load i32, ptr %2174, align 4
+  %2176 = and i32 %2175, 15728640
+  %.not.i.i433 = icmp eq i32 %2176, 15728640
+  br i1 %.not.i.i433, label %2177, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2074:                                             ; preds = %2070
-  %2075 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+2177:                                             ; preds = %2173
+  %2178 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2076:                                             ; preds = %1
-  %2077 = tail call noundef ptr @_ZNK5clang12ThisCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+2179:                                             ; preds = %1
+  %2180 = tail call noundef ptr @_ZNK5clang12ThisCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2078:                                             ; preds = %1
-  %2079 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2080 = load i32, ptr %2079, align 4
-  %2081 = and i32 %2080, 15728640
-  %.not.i.i347 = icmp eq i32 %2081, 15728640
-  br i1 %.not.i.i347, label %2082, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2181:                                             ; preds = %1
+  %2182 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2183 = load i32, ptr %2182, align 4
+  %2184 = and i32 %2183, 15728640
+  %.not.i.i435 = icmp eq i32 %2184, 15728640
+  br i1 %.not.i.i435, label %2185, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2082:                                             ; preds = %2078
-  %2083 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2185:                                             ; preds = %2181
+  %2186 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2084:                                             ; preds = %1
-  %2085 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2086 = load i32, ptr %2085, align 4
-  %2087 = and i32 %2086, 15728640
-  %.not.i.i348 = icmp eq i32 %2087, 15728640
-  br i1 %.not.i.i348, label %2088, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2187:                                             ; preds = %1
+  %2188 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2189 = load i32, ptr %2188, align 4
+  %2190 = and i32 %2189, 15728640
+  %.not.i.i437 = icmp eq i32 %2190, 15728640
+  br i1 %.not.i.i437, label %2191, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2088:                                             ; preds = %2084
-  %2089 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2191:                                             ; preds = %2187
+  %2192 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2090:                                             ; preds = %1
-  %2091 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2092 = load i32, ptr %2091, align 4
-  %2093 = and i32 %2092, 15728640
-  %.not.i.i349 = icmp eq i32 %2093, 15728640
-  br i1 %.not.i.i349, label %2094, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2193:                                             ; preds = %1
+  %2194 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2195 = load i32, ptr %2194, align 4
+  %2196 = and i32 %2195, 15728640
+  %.not.i.i439 = icmp eq i32 %2196, 15728640
+  br i1 %.not.i.i439, label %2197, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2094:                                             ; preds = %2090
-  %2095 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2197:                                             ; preds = %2193
+  %2198 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2096:                                             ; preds = %1
-  %2097 = tail call noundef ptr @_ZNK5clang24TryAcquireCapabilityAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
+2199:                                             ; preds = %1
+  %2200 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2201 = load i32, ptr %2200, align 4
+  %2202 = and i32 %2201, 15728640
+  %.not.i.i441 = icmp eq i32 %2202, 15728640
+  br i1 %.not.i.i441, label %2206, label %2203
+
+2203:                                             ; preds = %2199
+  %2204 = lshr i32 %2201, 20
+  %2205 = and i32 %2204, 15
+  br label %_ZNK5clang24TryAcquireCapabilityAttr11getSpellingEv.exit
+
+2206:                                             ; preds = %2199
+  %2207 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
+  br label %_ZNK5clang24TryAcquireCapabilityAttr11getSpellingEv.exit
+
+_ZNK5clang24TryAcquireCapabilityAttr11getSpellingEv.exit: ; preds = %2203, %2206
+  %2208 = phi i32 [ %2205, %2203 ], [ %2207, %2206 ]
+  %switch.i443 = icmp ult i32 %2208, 2
+  %.str.1240..str.1241.i = select i1 %switch.i443, ptr @.str.1240, ptr @.str.1241
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2098:                                             ; preds = %1
-  %2099 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2100 = load i32, ptr %2099, align 4
-  %2101 = and i32 %2100, 15728640
-  %.not.i.i350 = icmp eq i32 %2101, 15728640
-  br i1 %.not.i.i350, label %2102, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2209:                                             ; preds = %1
+  %2210 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2211 = load i32, ptr %2210, align 4
+  %2212 = and i32 %2211, 15728640
+  %.not.i.i444 = icmp eq i32 %2212, 15728640
+  br i1 %.not.i.i444, label %2213, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2102:                                             ; preds = %2098
-  %2103 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2213:                                             ; preds = %2209
+  %2214 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2104:                                             ; preds = %1
-  %2105 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2106 = load i32, ptr %2105, align 4
-  %2107 = and i32 %2106, 15728640
-  %.not.i.i351 = icmp eq i32 %2107, 15728640
-  br i1 %.not.i.i351, label %2108, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2215:                                             ; preds = %1
+  %2216 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2217 = load i32, ptr %2216, align 4
+  %2218 = and i32 %2217, 15728640
+  %.not.i.i446 = icmp eq i32 %2218, 15728640
+  br i1 %.not.i.i446, label %2219, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2108:                                             ; preds = %2104
-  %2109 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2219:                                             ; preds = %2215
+  %2220 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2110:                                             ; preds = %1
-  %2111 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2112 = load i32, ptr %2111, align 4
-  %2113 = and i32 %2112, 15728640
-  %.not.i.i352 = icmp eq i32 %2113, 15728640
-  br i1 %.not.i.i352, label %2114, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2221:                                             ; preds = %1
+  %2222 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2223 = load i32, ptr %2222, align 4
+  %2224 = and i32 %2223, 15728640
+  %.not.i.i448 = icmp eq i32 %2224, 15728640
+  br i1 %.not.i.i448, label %2225, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2114:                                             ; preds = %2110
-  %2115 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2225:                                             ; preds = %2221
+  %2226 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2116:                                             ; preds = %1
-  %2117 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2118 = load i32, ptr %2117, align 4
-  %2119 = and i32 %2118, 15728640
-  %.not.i.i353 = icmp eq i32 %2119, 15728640
-  br i1 %.not.i.i353, label %2120, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2227:                                             ; preds = %1
+  %2228 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2229 = load i32, ptr %2228, align 4
+  %2230 = and i32 %2229, 15728640
+  %.not.i.i450 = icmp eq i32 %2230, 15728640
+  br i1 %.not.i.i450, label %2231, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2120:                                             ; preds = %2116
-  %2121 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2231:                                             ; preds = %2227
+  %2232 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2122:                                             ; preds = %1
-  %2123 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2124 = load i32, ptr %2123, align 4
-  %2125 = and i32 %2124, 15728640
-  %.not.i.i354 = icmp eq i32 %2125, 15728640
-  br i1 %.not.i.i354, label %2126, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2233:                                             ; preds = %1
+  %2234 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2235 = load i32, ptr %2234, align 4
+  %2236 = and i32 %2235, 15728640
+  %.not.i.i452 = icmp eq i32 %2236, 15728640
+  br i1 %.not.i.i452, label %2237, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2126:                                             ; preds = %2122
-  %2127 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(58) %0) #16
+2237:                                             ; preds = %2233
+  %2238 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(58) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2128:                                             ; preds = %1
-  %2129 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2130 = load i32, ptr %2129, align 4
-  %2131 = and i32 %2130, 15728640
-  %.not.i.i355 = icmp eq i32 %2131, 15728640
-  br i1 %.not.i.i355, label %2132, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2239:                                             ; preds = %1
+  %2240 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2241 = load i32, ptr %2240, align 4
+  %2242 = and i32 %2241, 15728640
+  %.not.i.i454 = icmp eq i32 %2242, 15728640
+  br i1 %.not.i.i454, label %2243, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2132:                                             ; preds = %2128
-  %2133 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+2243:                                             ; preds = %2239
+  %2244 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2134:                                             ; preds = %1
-  %2135 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2136 = load i32, ptr %2135, align 4
-  %2137 = and i32 %2136, 15728640
-  %.not.i.i356 = icmp eq i32 %2137, 15728640
-  br i1 %.not.i.i356, label %2138, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2245:                                             ; preds = %1
+  %2246 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2247 = load i32, ptr %2246, align 4
+  %2248 = and i32 %2247, 15728640
+  %.not.i.i456 = icmp eq i32 %2248, 15728640
+  br i1 %.not.i.i456, label %2249, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2138:                                             ; preds = %2134
-  %2139 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2249:                                             ; preds = %2245
+  %2250 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2140:                                             ; preds = %1
-  %2141 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2142 = load i32, ptr %2141, align 4
-  %2143 = and i32 %2142, 15728640
-  %.not.i.i357 = icmp eq i32 %2143, 15728640
-  br i1 %.not.i.i357, label %2144, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2251:                                             ; preds = %1
+  %2252 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2253 = load i32, ptr %2252, align 4
+  %2254 = and i32 %2253, 15728640
+  %.not.i.i458 = icmp eq i32 %2254, 15728640
+  br i1 %.not.i.i458, label %2255, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2144:                                             ; preds = %2140
-  %2145 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
+2255:                                             ; preds = %2251
+  %2256 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2146:                                             ; preds = %1
-  %2147 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2148 = load i32, ptr %2147, align 4
-  %2149 = and i32 %2148, 15728640
-  %.not.i.i358 = icmp eq i32 %2149, 15728640
-  br i1 %.not.i.i358, label %2150, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2257:                                             ; preds = %1
+  %2258 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2259 = load i32, ptr %2258, align 4
+  %2260 = and i32 %2259, 15728640
+  %.not.i.i460 = icmp eq i32 %2260, 15728640
+  br i1 %.not.i.i460, label %2261, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2150:                                             ; preds = %2146
-  %2151 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2261:                                             ; preds = %2257
+  %2262 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2152:                                             ; preds = %1
-  %2153 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2154 = load i32, ptr %2153, align 4
-  %2155 = and i32 %2154, 15728640
-  %.not.i.i359 = icmp eq i32 %2155, 15728640
-  br i1 %.not.i.i359, label %2156, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2263:                                             ; preds = %1
+  %2264 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2265 = load i32, ptr %2264, align 4
+  %2266 = and i32 %2265, 15728640
+  %.not.i.i462 = icmp eq i32 %2266, 15728640
+  br i1 %.not.i.i462, label %2267, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2156:                                             ; preds = %2152
-  %2157 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2267:                                             ; preds = %2263
+  %2268 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2158:                                             ; preds = %1
-  %2159 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2160 = load i32, ptr %2159, align 4
-  %2161 = and i32 %2160, 15728640
-  %.not.i.i360 = icmp eq i32 %2161, 15728640
-  br i1 %.not.i.i360, label %2162, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2269:                                             ; preds = %1
+  %2270 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2271 = load i32, ptr %2270, align 4
+  %2272 = and i32 %2271, 15728640
+  %.not.i.i464 = icmp eq i32 %2272, 15728640
+  br i1 %.not.i.i464, label %2273, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2162:                                             ; preds = %2158
-  %2163 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2273:                                             ; preds = %2269
+  %2274 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2164:                                             ; preds = %1
-  %2165 = tail call noundef ptr @_ZNK5clang10UnusedAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+2275:                                             ; preds = %1
+  %2276 = tail call noundef ptr @_ZNK5clang10UnusedAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2166:                                             ; preds = %1
-  %2167 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2168 = load i32, ptr %2167, align 4
-  %2169 = and i32 %2168, 15728640
-  %.not.i.i361 = icmp eq i32 %2169, 15728640
-  br i1 %.not.i.i361, label %2170, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2277:                                             ; preds = %1
+  %2278 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2279 = load i32, ptr %2278, align 4
+  %2280 = and i32 %2279, 15728640
+  %.not.i.i466 = icmp eq i32 %2280, 15728640
+  br i1 %.not.i.i466, label %2281, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2170:                                             ; preds = %2166
-  %2171 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2281:                                             ; preds = %2277
+  %2282 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2172:                                             ; preds = %1
-  %2173 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2174 = load i32, ptr %2173, align 4
-  %2175 = and i32 %2174, 15728640
-  %.not.i.i362 = icmp eq i32 %2175, 15728640
-  br i1 %.not.i.i362, label %2176, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2283:                                             ; preds = %1
+  %2284 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2285 = load i32, ptr %2284, align 4
+  %2286 = and i32 %2285, 15728640
+  %.not.i.i468 = icmp eq i32 %2286, 15728640
+  br i1 %.not.i.i468, label %2287, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2176:                                             ; preds = %2172
-  %2177 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2287:                                             ; preds = %2283
+  %2288 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2178:                                             ; preds = %1
-  %2179 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2180 = load i32, ptr %2179, align 4
-  %2181 = and i32 %2180, 15728640
-  %.not.i.i363 = icmp eq i32 %2181, 15728640
-  br i1 %.not.i.i363, label %2182, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2289:                                             ; preds = %1
+  %2290 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2291 = load i32, ptr %2290, align 4
+  %2292 = and i32 %2291, 15728640
+  %.not.i.i470 = icmp eq i32 %2292, 15728640
+  br i1 %.not.i.i470, label %2293, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2182:                                             ; preds = %2178
-  %2183 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2293:                                             ; preds = %2289
+  %2294 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2184:                                             ; preds = %1
-  %2185 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2186 = load i32, ptr %2185, align 4
-  %2187 = and i32 %2186, 15728640
-  %.not.i.i364 = icmp eq i32 %2187, 15728640
-  br i1 %.not.i.i364, label %2188, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2295:                                             ; preds = %1
+  %2296 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2297 = load i32, ptr %2296, align 4
+  %2298 = and i32 %2297, 15728640
+  %.not.i.i472 = icmp eq i32 %2298, 15728640
+  br i1 %.not.i.i472, label %2299, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2188:                                             ; preds = %2184
-  %2189 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
+2299:                                             ; preds = %2295
+  %2300 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2190:                                             ; preds = %1
-  %2191 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2192 = load i32, ptr %2191, align 4
-  %2193 = and i32 %2192, 15728640
-  %.not.i.i365 = icmp eq i32 %2193, 15728640
-  br i1 %.not.i.i365, label %2194, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2301:                                             ; preds = %1
+  %2302 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2303 = load i32, ptr %2302, align 4
+  %2304 = and i32 %2303, 15728640
+  %.not.i.i474 = icmp eq i32 %2304, 15728640
+  br i1 %.not.i.i474, label %2305, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2194:                                             ; preds = %2190
-  %2195 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
+2305:                                             ; preds = %2301
+  %2306 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2196:                                             ; preds = %1
-  %2197 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2198 = load i32, ptr %2197, align 4
-  %2199 = and i32 %2198, 15728640
-  %.not.i.i366 = icmp eq i32 %2199, 15728640
-  br i1 %.not.i.i366, label %2200, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2307:                                             ; preds = %1
+  %2308 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2309 = load i32, ptr %2308, align 4
+  %2310 = and i32 %2309, 15728640
+  %.not.i.i476 = icmp eq i32 %2310, 15728640
+  br i1 %.not.i.i476, label %2311, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2200:                                             ; preds = %2196
-  %2201 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2311:                                             ; preds = %2307
+  %2312 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2202:                                             ; preds = %1
-  %2203 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2204 = load i32, ptr %2203, align 4
-  %2205 = and i32 %2204, 15728640
-  %.not.i.i367 = icmp eq i32 %2205, 15728640
-  br i1 %.not.i.i367, label %2206, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2313:                                             ; preds = %1
+  %2314 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2315 = load i32, ptr %2314, align 4
+  %2316 = and i32 %2315, 15728640
+  %.not.i.i478 = icmp eq i32 %2316, 15728640
+  br i1 %.not.i.i478, label %2317, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2206:                                             ; preds = %2202
-  %2207 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2317:                                             ; preds = %2313
+  %2318 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2208:                                             ; preds = %1
-  %2209 = tail call noundef ptr @_ZNK5clang14VectorCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+2319:                                             ; preds = %1
+  %2320 = tail call noundef ptr @_ZNK5clang14VectorCallAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2210:                                             ; preds = %1
-  %2211 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2212 = load i32, ptr %2211, align 4
-  %2213 = and i32 %2212, 15728640
-  %.not.i.i368 = icmp eq i32 %2213, 15728640
-  br i1 %.not.i.i368, label %2214, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2321:                                             ; preds = %1
+  %2322 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2323 = load i32, ptr %2322, align 4
+  %2324 = and i32 %2323, 15728640
+  %.not.i.i480 = icmp eq i32 %2324, 15728640
+  br i1 %.not.i.i480, label %2325, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2214:                                             ; preds = %2210
-  %2215 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+2325:                                             ; preds = %2321
+  %2326 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2216:                                             ; preds = %1
-  %2217 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2218 = load i32, ptr %2217, align 4
-  %2219 = and i32 %2218, 15728640
-  %.not.i.i369 = icmp eq i32 %2219, 15728640
-  br i1 %.not.i.i369, label %2220, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2327:                                             ; preds = %1
+  %2328 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2329 = load i32, ptr %2328, align 4
+  %2330 = and i32 %2329, 15728640
+  %.not.i.i482 = icmp eq i32 %2330, 15728640
+  br i1 %.not.i.i482, label %2331, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2220:                                             ; preds = %2216
-  %2221 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2331:                                             ; preds = %2327
+  %2332 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2222:                                             ; preds = %1
-  %2223 = tail call noundef ptr @_ZNK5clang20WarnUnusedResultAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+2333:                                             ; preds = %1
+  %2334 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2335 = load i32, ptr %2334, align 4
+  %2336 = and i32 %2335, 15728640
+  %.not.i.i484 = icmp eq i32 %2336, 15728640
+  br i1 %.not.i.i484, label %2340, label %2337
+
+2337:                                             ; preds = %2333
+  %2338 = lshr i32 %2335, 20
+  %2339 = and i32 %2338, 15
+  br label %_ZNK5clang20WarnUnusedResultAttr11getSpellingEv.exit
+
+2340:                                             ; preds = %2333
+  %2341 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+  br label %_ZNK5clang20WarnUnusedResultAttr11getSpellingEv.exit
+
+_ZNK5clang20WarnUnusedResultAttr11getSpellingEv.exit: ; preds = %2337, %2340
+  %2342 = phi i32 [ %2339, %2337 ], [ %2341, %2340 ]
+  %switch.i486 = icmp ult i32 %2342, 2
+  %.str.1320..str.1321.i = select i1 %switch.i486, ptr @.str.1320, ptr @.str.1321
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2224:                                             ; preds = %1
-  %2225 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2226 = load i32, ptr %2225, align 4
-  %2227 = and i32 %2226, 15728640
-  %.not.i.i370 = icmp eq i32 %2227, 15728640
-  br i1 %.not.i.i370, label %2228, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2343:                                             ; preds = %1
+  %2344 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2345 = load i32, ptr %2344, align 4
+  %2346 = and i32 %2345, 15728640
+  %.not.i.i487 = icmp eq i32 %2346, 15728640
+  br i1 %.not.i.i487, label %2347, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2228:                                             ; preds = %2224
-  %2229 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2347:                                             ; preds = %2343
+  %2348 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2230:                                             ; preds = %1
-  %2231 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2232 = load i32, ptr %2231, align 4
-  %2233 = and i32 %2232, 15728640
-  %.not.i.i371 = icmp eq i32 %2233, 15728640
-  br i1 %.not.i.i371, label %2234, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2349:                                             ; preds = %1
+  %2350 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2351 = load i32, ptr %2350, align 4
+  %2352 = and i32 %2351, 15728640
+  %.not.i.i489 = icmp eq i32 %2352, 15728640
+  br i1 %.not.i.i489, label %2353, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2234:                                             ; preds = %2230
-  %2235 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2353:                                             ; preds = %2349
+  %2354 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2236:                                             ; preds = %1
-  %2237 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2238 = load i32, ptr %2237, align 4
-  %2239 = and i32 %2238, 15728640
-  %.not.i.i372 = icmp eq i32 %2239, 15728640
-  br i1 %.not.i.i372, label %2240, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2355:                                             ; preds = %1
+  %2356 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2357 = load i32, ptr %2356, align 4
+  %2358 = and i32 %2357, 15728640
+  %.not.i.i491 = icmp eq i32 %2358, 15728640
+  br i1 %.not.i.i491, label %2359, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2240:                                             ; preds = %2236
-  %2241 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2359:                                             ; preds = %2355
+  %2360 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2242:                                             ; preds = %1
-  %2243 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2244 = load i32, ptr %2243, align 4
-  %2245 = and i32 %2244, 15728640
-  %.not.i.i373 = icmp eq i32 %2245, 15728640
-  br i1 %.not.i.i373, label %2246, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2361:                                             ; preds = %1
+  %2362 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2363 = load i32, ptr %2362, align 4
+  %2364 = and i32 %2363, 15728640
+  %.not.i.i493 = icmp eq i32 %2364, 15728640
+  br i1 %.not.i.i493, label %2365, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2246:                                             ; preds = %2242
-  %2247 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2365:                                             ; preds = %2361
+  %2366 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2248:                                             ; preds = %1
-  %2249 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2250 = load i32, ptr %2249, align 4
-  %2251 = and i32 %2250, 15728640
-  %.not.i.i374 = icmp eq i32 %2251, 15728640
-  br i1 %.not.i.i374, label %2252, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2367:                                             ; preds = %1
+  %2368 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2369 = load i32, ptr %2368, align 4
+  %2370 = and i32 %2369, 15728640
+  %.not.i.i495 = icmp eq i32 %2370, 15728640
+  br i1 %.not.i.i495, label %2371, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2252:                                             ; preds = %2248
-  %2253 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2371:                                             ; preds = %2367
+  %2372 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2254:                                             ; preds = %1
-  %2255 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2256 = load i32, ptr %2255, align 4
-  %2257 = and i32 %2256, 15728640
-  %.not.i.i375 = icmp eq i32 %2257, 15728640
-  br i1 %.not.i.i375, label %2258, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2373:                                             ; preds = %1
+  %2374 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2375 = load i32, ptr %2374, align 4
+  %2376 = and i32 %2375, 15728640
+  %.not.i.i497 = icmp eq i32 %2376, 15728640
+  br i1 %.not.i.i497, label %2377, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2258:                                             ; preds = %2254
-  %2259 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2377:                                             ; preds = %2373
+  %2378 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2260:                                             ; preds = %1
-  %2261 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2262 = load i32, ptr %2261, align 4
-  %2263 = and i32 %2262, 15728640
-  %.not.i.i376 = icmp eq i32 %2263, 15728640
-  br i1 %.not.i.i376, label %2264, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2379:                                             ; preds = %1
+  %2380 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2381 = load i32, ptr %2380, align 4
+  %2382 = and i32 %2381, 15728640
+  %.not.i.i499 = icmp eq i32 %2382, 15728640
+  br i1 %.not.i.i499, label %2383, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2264:                                             ; preds = %2260
-  %2265 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2383:                                             ; preds = %2379
+  %2384 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2266:                                             ; preds = %1
-  %2267 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2268 = load i32, ptr %2267, align 4
-  %2269 = and i32 %2268, 15728640
-  %.not.i.i377 = icmp eq i32 %2269, 15728640
-  br i1 %.not.i.i377, label %2270, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2385:                                             ; preds = %1
+  %2386 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2387 = load i32, ptr %2386, align 4
+  %2388 = and i32 %2387, 15728640
+  %.not.i.i501 = icmp eq i32 %2388, 15728640
+  br i1 %.not.i.i501, label %2389, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2270:                                             ; preds = %2266
-  %2271 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
+2389:                                             ; preds = %2385
+  %2390 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2272:                                             ; preds = %1
-  %2273 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2274 = load i32, ptr %2273, align 4
-  %2275 = and i32 %2274, 15728640
-  %.not.i.i378 = icmp eq i32 %2275, 15728640
-  br i1 %.not.i.i378, label %2276, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2391:                                             ; preds = %1
+  %2392 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2393 = load i32, ptr %2392, align 4
+  %2394 = and i32 %2393, 15728640
+  %.not.i.i503 = icmp eq i32 %2394, 15728640
+  br i1 %.not.i.i503, label %2395, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2276:                                             ; preds = %2272
-  %2277 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+2395:                                             ; preds = %2391
+  %2396 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2278:                                             ; preds = %1
-  %2279 = tail call noundef ptr @_ZNK5clang18XRayInstrumentAttr11getSpellingEv(ptr noundef nonnull align 8 dereferenceable(35) %0)
+2397:                                             ; preds = %1
+  %2398 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2399 = load i32, ptr %2398, align 4
+  %2400 = and i32 %2399, 15728640
+  %.not.i.i505 = icmp eq i32 %2400, 15728640
+  br i1 %.not.i.i505, label %2404, label %2401
+
+2401:                                             ; preds = %2397
+  %2402 = lshr i32 %2399, 20
+  %2403 = and i32 %2402, 15
+  br label %_ZNK5clang18XRayInstrumentAttr11getSpellingEv.exit
+
+2404:                                             ; preds = %2397
+  %2405 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(35) %0) #16
+  br label %_ZNK5clang18XRayInstrumentAttr11getSpellingEv.exit
+
+_ZNK5clang18XRayInstrumentAttr11getSpellingEv.exit: ; preds = %2401, %2404
+  %2406 = phi i32 [ %2403, %2401 ], [ %2405, %2404 ]
+  %switch.i507 = icmp ult i32 %2406, 3
+  %.str.1350..str.1351.i = select i1 %switch.i507, ptr @.str.1350, ptr @.str.1351
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2280:                                             ; preds = %1
-  %2281 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2282 = load i32, ptr %2281, align 4
-  %2283 = and i32 %2282, 15728640
-  %.not.i.i379 = icmp eq i32 %2283, 15728640
-  br i1 %.not.i.i379, label %2284, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2407:                                             ; preds = %1
+  %2408 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2409 = load i32, ptr %2408, align 4
+  %2410 = and i32 %2409, 15728640
+  %.not.i.i508 = icmp eq i32 %2410, 15728640
+  br i1 %.not.i.i508, label %2411, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2284:                                             ; preds = %2280
-  %2285 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+2411:                                             ; preds = %2407
+  %2412 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2286:                                             ; preds = %1
-  %2287 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2288 = load i32, ptr %2287, align 4
-  %2289 = and i32 %2288, 15728640
-  %.not.i.i380 = icmp eq i32 %2289, 15728640
-  br i1 %.not.i.i380, label %2290, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+2413:                                             ; preds = %1
+  %2414 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %2415 = load i32, ptr %2414, align 4
+  %2416 = and i32 %2415, 15728640
+  %.not.i.i510 = icmp eq i32 %2416, 15728640
+  br i1 %.not.i.i510, label %2417, label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2290:                                             ; preds = %2286
-  %2291 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+2417:                                             ; preds = %2413
+  %2418 = tail call noundef i32 @_ZNK5clang19AttributeCommonInfo35calculateAttributeSpellingListIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
-2292:                                             ; preds = %1
+2419:                                             ; preds = %1
   unreachable
 
-_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit: ; preds = %2290, %2286, %2284, %2280, %2276, %2272, %2270, %2266, %2264, %2260, %2258, %2254, %2252, %2248, %2246, %2242, %2240, %2236, %2234, %2230, %2228, %2224, %2220, %2216, %2214, %2210, %2206, %2202, %2200, %2196, %2194, %2190, %2188, %2184, %2182, %2178, %2176, %2172, %2170, %2166, %2162, %2158, %2156, %2152, %2150, %2146, %2144, %2140, %2138, %2134, %2132, %2128, %2126, %2122, %2120, %2116, %2114, %2110, %2108, %2104, %2102, %2098, %2094, %2090, %2088, %2084, %2082, %2078, %2074, %2070, %2068, %2064, %2062, %2058, %2056, %2052, %2050, %2046, %2044, %2040, %1, %1, %2038, %2034, %2032, %2028, %2016, %2012, %2010, %2006, %1, %1, %2004, %2000, %1998, %1994, %1992, %1988, %1986, %1982, %1980, %1976, %1974, %1970, %1968, %1964, %1962, %1958, %1956, %1952, %1950, %1946, %1944, %1940, %1938, %1934, %1932, %1928, %1926, %1922, %1, %1918, %1914, %1912, %1908, %1906, %1902, %1900, %1896, %1894, %1890, %1888, %1884, %1882, %1878, %1876, %1872, %1860, %1856, %1854, %1850, %1848, %1844, %1842, %1838, %1836, %1832, %1830, %1826, %1824, %1820, %1818, %1814, %1808, %1804, %1802, %1798, %1796, %1792, %1788, %1784, %1772, %1768, %1766, %1762, %1758, %1754, %1752, %1748, %1746, %1742, %1740, %1736, %1734, %1730, %1728, %1724, %1722, %1718, %1716, %1712, %1710, %1706, %1704, %1700, %1698, %1694, %1, %1, %1, %1, %1, %1692, %1688, %1686, %1682, %1680, %1676, %1670, %1666, %1664, %1660, %1656, %1652, %1650, %1646, %1644, %1640, %1638, %1634, %1632, %1628, %1612, %1608, %1606, %1602, %1600, %1596, %1586, %1582, %1580, %1576, %1574, %1570, %1568, %1564, %1562, %1558, %1556, %1552, %1550, %1546, %1544, %1540, %1538, %1534, %1532, %1528, %1526, %1522, %1520, %1516, %1514, %1510, %1508, %1504, %1502, %1498, %1496, %1492, %1490, %1486, %1484, %1480, %1478, %1474, %1472, %1468, %1466, %1462, %1460, %1456, %1454, %1450, %1448, %1444, %1442, %1438, %1436, %1432, %1430, %1426, %1424, %1420, %1418, %1414, %1412, %1408, %1406, %1402, %1400, %1396, %1394, %1390, %1388, %1384, %1, %1, %1382, %1378, %1376, %1372, %1370, %1366, %1, %1, %1364, %1360, %1, %1358, %1354, %1352, %1348, %1346, %1342, %1340, %1336, %1334, %1330, %1328, %1324, %1322, %1318, %1316, %1312, %1300, %1296, %1294, %1290, %1288, %1284, %1282, %1278, %1276, %1272, %1270, %1266, %1264, %1260, %1258, %1254, %1252, %1248, %1246, %1242, %1238, %1234, %1232, %1228, %1226, %1222, %1220, %1216, %1214, %1210, %1208, %1204, %1202, %1198, %1196, %1192, %1190, %1186, %1184, %1180, %1178, %1174, %1172, %1168, %1166, %1162, %1160, %1156, %1154, %1150, %1148, %1144, %1142, %1138, %1136, %1132, %1130, %1126, %1120, %1116, %1114, %1110, %1108, %1104, %1102, %1098, %1096, %1092, %1090, %1086, %1084, %1080, %1, %1, %1078, %1074, %1072, %1068, %1066, %1062, %1058, %1054, %1052, %1048, %1046, %1042, %1040, %1036, %1034, %1030, %1028, %1024, %1020, %1016, %1014, %1010, %1008, %1004, %1002, %998, %996, %992, %990, %986, %984, %980, %978, %974, %972, %968, %966, %962, %960, %956, %954, %950, %948, %944, %942, %938, %936, %932, %930, %926, %924, %920, %918, %914, %912, %908, %906, %902, %900, %896, %894, %890, %888, %884, %882, %878, %1, %876, %872, %868, %864, %862, %858, %846, %842, %830, %826, %824, %820, %818, %814, %812, %808, %806, %802, %800, %796, %794, %790, %788, %784, %770, %766, %764, %760, %758, %754, %752, %748, %744, %740, %738, %734, %732, %728, %726, %722, %720, %716, %714, %710, %708, %704, %702, %698, %696, %692, %690, %686, %684, %680, %1, %678, %674, %1, %672, %668, %666, %662, %660, %656, %654, %650, %648, %644, %642, %638, %636, %632, %630, %626, %624, %620, %618, %614, %612, %608, %606, %602, %600, %596, %590, %586, %584, %580, %578, %574, %572, %568, %566, %562, %560, %556, %554, %550, %548, %544, %542, %538, %536, %532, %1, %528, %524, %522, %518, %516, %512, %510, %506, %1, %414, %410, %408, %404, %402, %398, %396, %392, %390, %386, %384, %380, %378, %374, %372, %368, %366, %362, %358, %354, %1, %342, %338, %336, %332, %330, %326, %324, %320, %318, %314, %312, %308, %306, %302, %300, %296, %294, %290, %288, %284, %282, %278, %276, %272, %258, %254, %252, %248, %246, %242, %240, %236, %234, %230, %228, %224, %222, %218, %216, %212, %210, %206, %204, %200, %198, %194, %190, %186, %184, %180, %178, %174, %172, %168, %166, %162, %160, %156, %154, %150, %138, %134, %132, %128, %126, %122, %120, %116, %112, %108, %1, %1, %106, %102, %100, %96, %94, %90, %88, %84, %82, %78, %74, %70, %68, %64, %62, %58, %56, %52, %50, %46, %44, %40, %38, %34, %32, %28, %26, %22, %20, %16, %14, %10, %8, %4, %2278, %2222, %2208, %2164, %2096, %2076, %_ZNK5clang16SwiftNewTypeAttr11getSpellingEv.exit, %1920, %_ZNK5clang11SectionAttr11getSpellingEv.exit, %1812, %1810, %1790, %_ZNK5clang11RegCallAttr11getSpellingEv.exit, %1760, %1674, %1672, %1658, %1626, %1624, %_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit, %1594, %1592, %1590, %1588, %_ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit, %1240, %1124, %1122, %1060, %1022, %870, %_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit, %_ZNK5clang14HIPManagedAttr11getSpellingEv.exit, %_ZNK5clang9FinalAttr11getSpellingEv.exit, %772, %746, %594, %592, %530, %_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit, %_ZNK5clang14CUDASharedAttr11getSpellingEv.exit, %_ZNK5clang20CUDALaunchBoundsAttr11getSpellingEv.exit, %_ZNK5clang12CUDAHostAttr11getSpellingEv.exit, %_ZNK5clang14CUDAGlobalAttr11getSpellingEv.exit, %_ZNK5clang32CUDADeviceBuiltinTextureTypeAttr11getSpellingEv.exit, %_ZNK5clang32CUDADeviceBuiltinSurfaceTypeAttr11getSpellingEv.exit, %_ZNK5clang14CUDADeviceAttr11getSpellingEv.exit, %_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit, %360, %_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit, %270, %_ZNK5clang12AsmLabelAttr11getSpellingEv.exit, %192, %_ZNK5clang16AlwaysInlineAttr11getSpellingEv.exit, %114, %76
-  %.0 = phi ptr [ %2279, %2278 ], [ %2223, %2222 ], [ %2209, %2208 ], [ %2165, %2164 ], [ %2097, %2096 ], [ %2077, %2076 ], [ %.str.1200..str.1201.i, %_ZNK5clang16SwiftNewTypeAttr11getSpellingEv.exit ], [ %1921, %1920 ], [ %spec.select.i312, %_ZNK5clang11SectionAttr11getSpellingEv.exit ], [ %1813, %1812 ], [ %1811, %1810 ], [ %1791, %1790 ], [ %spec.select.i297, %_ZNK5clang11RegCallAttr11getSpellingEv.exit ], [ %1761, %1760 ], [ %1675, %1674 ], [ %1673, %1672 ], [ %1659, %1658 ], [ %1627, %1626 ], [ %1625, %1624 ], [ %.str.951..str.952.i, %_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit ], [ %1595, %1594 ], [ %1593, %1592 ], [ %1591, %1590 ], [ %1589, %1588 ], [ %spec.select.i220, %_ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit ], [ %1241, %1240 ], [ %1125, %1124 ], [ %1123, %1122 ], [ %1061, %1060 ], [ %1023, %1022 ], [ %871, %870 ], [ %.str.486..str.487.i, %_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit ], [ %.str.480..str.481.i, %_ZNK5clang14HIPManagedAttr11getSpellingEv.exit ], [ %.str.451..str.452.i, %_ZNK5clang9FinalAttr11getSpellingEv.exit ], [ %773, %772 ], [ %747, %746 ], [ %595, %594 ], [ %593, %592 ], [ %531, %530 ], [ %spec.select.i87, %_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit ], [ %.str.280..str.281.i, %_ZNK5clang14CUDASharedAttr11getSpellingEv.exit ], [ %.str.276..str.277.i, %_ZNK5clang20CUDALaunchBoundsAttr11getSpellingEv.exit ], [ %.str.272..str.273.i, %_ZNK5clang12CUDAHostAttr11getSpellingEv.exit ], [ %.str.268..str.269.i, %_ZNK5clang14CUDAGlobalAttr11getSpellingEv.exit ], [ %.str.264..str.265.i, %_ZNK5clang32CUDADeviceBuiltinTextureTypeAttr11getSpellingEv.exit ], [ %.str.260..str.261.i, %_ZNK5clang32CUDADeviceBuiltinSurfaceTypeAttr11getSpellingEv.exit ], [ %.str.256..str.257.i, %_ZNK5clang14CUDADeviceAttr11getSpellingEv.exit ], [ %.str.252..str.253.i, %_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit ], [ %361, %360 ], [ %spec.select.i58, %_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit ], [ %271, %270 ], [ %.str.158..str.159.i, %_ZNK5clang12AsmLabelAttr11getSpellingEv.exit ], [ %193, %192 ], [ %spec.select.i, %_ZNK5clang16AlwaysInlineAttr11getSpellingEv.exit ], [ %115, %114 ], [ %77, %76 ], [ @.str.32, %4 ], [ @.str.32, %8 ], [ @.str.35, %10 ], [ @.str.35, %14 ], [ @.str.38, %16 ], [ @.str.38, %20 ], [ @.str.41, %22 ], [ @.str.41, %26 ], [ @.str.44, %28 ], [ @.str.44, %32 ], [ @.str.47, %34 ], [ @.str.47, %38 ], [ @.str.50, %40 ], [ @.str.50, %44 ], [ @.str.53, %46 ], [ @.str.53, %50 ], [ @.str.62, %52 ], [ @.str.62, %56 ], [ @.str.62, %58 ], [ @.str.62, %62 ], [ @.str.65, %64 ], [ @.str.65, %68 ], [ @.str.68, %70 ], [ @.str.68, %74 ], [ @.str.81, %78 ], [ @.str.81, %82 ], [ @.str.83, %84 ], [ @.str.83, %88 ], [ @.str.85, %90 ], [ @.str.85, %94 ], [ @.str.88, %96 ], [ @.str.88, %100 ], [ @.str.91, %102 ], [ @.str.91, %106 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.94, %108 ], [ @.str.94, %112 ], [ @.str.104, %116 ], [ @.str.104, %120 ], [ @.str.107, %122 ], [ @.str.107, %126 ], [ @.str.110, %128 ], [ @.str.110, %132 ], [ @.str.113, %134 ], [ @.str.113, %138 ], [ @.str.120, %150 ], [ @.str.120, %154 ], [ @.str.123, %156 ], [ @.str.123, %160 ], [ @.str.125, %162 ], [ @.str.125, %166 ], [ @.str.62, %168 ], [ @.str.62, %172 ], [ @.str.128, %174 ], [ @.str.128, %178 ], [ @.str.131, %180 ], [ @.str.131, %184 ], [ @.str.134, %186 ], [ @.str.134, %190 ], [ @.str.143, %194 ], [ @.str.143, %198 ], [ @.str.144, %200 ], [ @.str.144, %204 ], [ @.str.145, %206 ], [ @.str.145, %210 ], [ @.str.146, %212 ], [ @.str.146, %216 ], [ @.str.149, %218 ], [ @.str.149, %222 ], [ @.str.150, %224 ], [ @.str.150, %228 ], [ @.str.151, %230 ], [ @.str.151, %234 ], [ @.str.152, %236 ], [ @.str.152, %240 ], [ @.str.153, %242 ], [ @.str.153, %246 ], [ @.str.154, %248 ], [ @.str.154, %252 ], [ @.str.157, %254 ], [ @.str.157, %258 ], [ @.str.167, %272 ], [ @.str.167, %276 ], [ @.str.169, %278 ], [ @.str.169, %282 ], [ @.str.172, %284 ], [ @.str.172, %288 ], [ @.str.183, %290 ], [ @.str.183, %294 ], [ @.str.186, %296 ], [ @.str.186, %300 ], [ @.str.189, %302 ], [ @.str.189, %306 ], [ @.str.192, %308 ], [ @.str.192, %312 ], [ @.str.195, %314 ], [ @.str.195, %318 ], [ @.str.198, %320 ], [ @.str.198, %324 ], [ @.str.201, %326 ], [ @.str.201, %330 ], [ @.str.204, %332 ], [ @.str.204, %336 ], [ @.str.208, %338 ], [ @.str.208, %342 ], [ @.str.92, %1 ], [ @.str.213, %354 ], [ @.str.213, %358 ], [ @.str.221, %362 ], [ @.str.221, %366 ], [ @.str.224, %368 ], [ @.str.224, %372 ], [ @.str.229, %374 ], [ @.str.229, %378 ], [ @.str.232, %380 ], [ @.str.232, %384 ], [ @.str.235, %386 ], [ @.str.235, %390 ], [ @.str.238, %392 ], [ @.str.238, %396 ], [ @.str.241, %398 ], [ @.str.241, %402 ], [ @.str.245, %404 ], [ @.str.245, %408 ], [ @.str.249, %410 ], [ @.str.249, %414 ], [ @.str.92, %1 ], [ @.str.288, %506 ], [ @.str.288, %510 ], [ @.str.294, %512 ], [ @.str.294, %516 ], [ @.str.297, %518 ], [ @.str.297, %522 ], [ @.str.300, %524 ], [ @.str.300, %528 ], [ @.str.92, %1 ], [ @.str.309, %532 ], [ @.str.309, %536 ], [ @.str.312, %538 ], [ @.str.312, %542 ], [ @.str.315, %544 ], [ @.str.315, %548 ], [ @.str.317, %550 ], [ @.str.317, %554 ], [ @.str.319, %556 ], [ @.str.319, %560 ], [ @.str.322, %562 ], [ @.str.322, %566 ], [ @.str.328, %568 ], [ @.str.328, %572 ], [ @.str.330, %574 ], [ @.str.330, %578 ], [ @.str.333, %580 ], [ @.str.333, %584 ], [ @.str.336, %586 ], [ @.str.336, %590 ], [ @.str.349, %596 ], [ @.str.349, %600 ], [ @.str.352, %602 ], [ @.str.352, %606 ], [ @.str.355, %608 ], [ @.str.355, %612 ], [ @.str.358, %614 ], [ @.str.358, %618 ], [ @.str.361, %620 ], [ @.str.361, %624 ], [ @.str.364, %626 ], [ @.str.364, %630 ], [ @.str.367, %632 ], [ @.str.367, %636 ], [ @.str.370, %638 ], [ @.str.370, %642 ], [ @.str.373, %644 ], [ @.str.373, %648 ], [ @.str.376, %650 ], [ @.str.376, %654 ], [ @.str.379, %656 ], [ @.str.379, %660 ], [ @.str.382, %662 ], [ @.str.382, %666 ], [ @.str.386, %668 ], [ @.str.386, %672 ], [ @.str.92, %1 ], [ @.str.390, %674 ], [ @.str.390, %678 ], [ @.str.92, %1 ], [ @.str.397, %680 ], [ @.str.397, %684 ], [ @.str.400, %686 ], [ @.str.400, %690 ], [ @.str.403, %692 ], [ @.str.403, %696 ], [ @.str.407, %698 ], [ @.str.407, %702 ], [ @.str.410, %704 ], [ @.str.410, %708 ], [ @.str.413, %710 ], [ @.str.413, %714 ], [ @.str.415, %716 ], [ @.str.415, %720 ], [ @.str.417, %722 ], [ @.str.417, %726 ], [ @.str.420, %728 ], [ @.str.420, %732 ], [ @.str.423, %734 ], [ @.str.423, %738 ], [ @.str.428, %740 ], [ @.str.428, %744 ], [ @.str.435, %748 ], [ @.str.435, %752 ], [ @.str.437, %754 ], [ @.str.437, %758 ], [ @.str.440, %760 ], [ @.str.440, %764 ], [ @.str.445, %766 ], [ @.str.445, %770 ], [ @.str.455, %784 ], [ @.str.455, %788 ], [ @.str.458, %790 ], [ @.str.458, %794 ], [ @.str.461, %796 ], [ @.str.461, %800 ], [ @.str.464, %802 ], [ @.str.464, %806 ], [ @.str.469, %808 ], [ @.str.469, %812 ], [ @.str.472, %814 ], [ @.str.472, %818 ], [ @.str.474, %820 ], [ @.str.474, %824 ], [ @.str.477, %826 ], [ @.str.477, %830 ], [ @.str.482, %842 ], [ @.str.482, %846 ], [ @.str.489, %858 ], [ @.str.489, %862 ], [ @.str.491, %864 ], [ @.str.491, %868 ], [ @.str.496, %872 ], [ @.str.496, %876 ], [ @.str.92, %1 ], [ @.str.516, %878 ], [ @.str.516, %882 ], [ @.str.520, %884 ], [ @.str.520, %888 ], [ @.str.522, %890 ], [ @.str.522, %894 ], [ @.str.524, %896 ], [ @.str.524, %900 ], [ @.str.540, %902 ], [ @.str.540, %906 ], [ @.str.542, %908 ], [ @.str.542, %912 ], [ @.str.545, %914 ], [ @.str.545, %918 ], [ @.str.549, %920 ], [ @.str.549, %924 ], [ @.str.552, %926 ], [ @.str.552, %930 ], [ @.str.555, %932 ], [ @.str.555, %936 ], [ @.str.558, %938 ], [ @.str.558, %942 ], [ @.str.561, %944 ], [ @.str.561, %948 ], [ @.str.564, %950 ], [ @.str.564, %954 ], [ @.str.566, %956 ], [ @.str.566, %960 ], [ @.str.569, %962 ], [ @.str.569, %966 ], [ @.str.572, %968 ], [ @.str.572, %972 ], [ @.str.575, %974 ], [ @.str.575, %978 ], [ @.str.577, %980 ], [ @.str.577, %984 ], [ @.str.580, %986 ], [ @.str.580, %990 ], [ @.str.583, %992 ], [ @.str.583, %996 ], [ @.str.586, %998 ], [ @.str.586, %1002 ], [ @.str.589, %1004 ], [ @.str.589, %1008 ], [ @.str.591, %1010 ], [ @.str.591, %1014 ], [ @.str.593, %1016 ], [ @.str.593, %1020 ], [ @.str.62, %1024 ], [ @.str.62, %1028 ], [ @.str.613, %1030 ], [ @.str.613, %1034 ], [ @.str.616, %1036 ], [ @.str.616, %1040 ], [ @.str.619, %1042 ], [ @.str.619, %1046 ], [ @.str.621, %1048 ], [ @.str.621, %1052 ], [ @.str.623, %1054 ], [ @.str.623, %1058 ], [ @.str.629, %1062 ], [ @.str.629, %1066 ], [ @.str.62, %1068 ], [ @.str.62, %1072 ], [ @.str.632, %1074 ], [ @.str.632, %1078 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.635, %1080 ], [ @.str.635, %1084 ], [ @.str.638, %1086 ], [ @.str.638, %1090 ], [ @.str.641, %1092 ], [ @.str.641, %1096 ], [ @.str.644, %1098 ], [ @.str.644, %1102 ], [ @.str.647, %1104 ], [ @.str.647, %1108 ], [ @.str.650, %1110 ], [ @.str.650, %1114 ], [ @.str.62, %1116 ], [ @.str.62, %1120 ], [ @.str.674, %1126 ], [ @.str.674, %1130 ], [ @.str.677, %1132 ], [ @.str.677, %1136 ], [ @.str.680, %1138 ], [ @.str.680, %1142 ], [ @.str.683, %1144 ], [ @.str.683, %1148 ], [ @.str.685, %1150 ], [ @.str.685, %1154 ], [ @.str.688, %1156 ], [ @.str.688, %1160 ], [ @.str.691, %1162 ], [ @.str.691, %1166 ], [ @.str.694, %1168 ], [ @.str.694, %1172 ], [ @.str.697, %1174 ], [ @.str.697, %1178 ], [ @.str.701, %1180 ], [ @.str.701, %1184 ], [ @.str.703, %1186 ], [ @.str.703, %1190 ], [ @.str.706, %1192 ], [ @.str.706, %1196 ], [ @.str.709, %1198 ], [ @.str.709, %1202 ], [ @.str.713, %1204 ], [ @.str.713, %1208 ], [ @.str.716, %1210 ], [ @.str.716, %1214 ], [ @.str.719, %1216 ], [ @.str.719, %1220 ], [ @.str.722, %1222 ], [ @.str.722, %1226 ], [ @.str.725, %1228 ], [ @.str.725, %1232 ], [ @.str.728, %1234 ], [ @.str.728, %1238 ], [ @.str.738, %1242 ], [ @.str.738, %1246 ], [ @.str.741, %1248 ], [ @.str.741, %1252 ], [ @.str.744, %1254 ], [ @.str.744, %1258 ], [ @.str.747, %1260 ], [ @.str.747, %1264 ], [ @.str.750, %1266 ], [ @.str.750, %1270 ], [ @.str.753, %1272 ], [ @.str.753, %1276 ], [ @.str.284, %1278 ], [ @.str.284, %1282 ], [ @.str.759, %1284 ], [ @.str.759, %1288 ], [ @.str.762, %1290 ], [ @.str.762, %1294 ], [ @.str.765, %1296 ], [ @.str.765, %1300 ], [ @.str.774, %1312 ], [ @.str.774, %1316 ], [ @.str.778, %1318 ], [ @.str.778, %1322 ], [ @.str.781, %1324 ], [ @.str.781, %1328 ], [ @.str.784, %1330 ], [ @.str.784, %1334 ], [ @.str.787, %1336 ], [ @.str.787, %1340 ], [ @.str.790, %1342 ], [ @.str.790, %1346 ], [ @.str.793, %1348 ], [ @.str.793, %1352 ], [ @.str.796, %1354 ], [ @.str.796, %1358 ], [ @.str.92, %1 ], [ @.str.288, %1360 ], [ @.str.288, %1364 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.810, %1366 ], [ @.str.810, %1370 ], [ @.str.817, %1372 ], [ @.str.817, %1376 ], [ @.str.819, %1378 ], [ @.str.819, %1382 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.822, %1384 ], [ @.str.822, %1388 ], [ @.str.825, %1390 ], [ @.str.825, %1394 ], [ @.str.828, %1396 ], [ @.str.828, %1400 ], [ @.str.831, %1402 ], [ @.str.831, %1406 ], [ @.str.834, %1408 ], [ @.str.834, %1412 ], [ @.str.837, %1414 ], [ @.str.837, %1418 ], [ @.str.840, %1420 ], [ @.str.840, %1424 ], [ @.str.843, %1426 ], [ @.str.843, %1430 ], [ @.str.846, %1432 ], [ @.str.846, %1436 ], [ @.str.849, %1438 ], [ @.str.849, %1442 ], [ @.str.852, %1444 ], [ @.str.852, %1448 ], [ @.str.855, %1450 ], [ @.str.855, %1454 ], [ @.str.858, %1456 ], [ @.str.858, %1460 ], [ @.str.861, %1462 ], [ @.str.861, %1466 ], [ @.str.864, %1468 ], [ @.str.864, %1472 ], [ @.str.867, %1474 ], [ @.str.867, %1478 ], [ @.str.870, %1480 ], [ @.str.870, %1484 ], [ @.str.873, %1486 ], [ @.str.873, %1490 ], [ @.str.876, %1492 ], [ @.str.876, %1496 ], [ @.str.877, %1498 ], [ @.str.877, %1502 ], [ @.str.878, %1504 ], [ @.str.878, %1508 ], [ @.str.887, %1510 ], [ @.str.887, %1514 ], [ @.str.890, %1516 ], [ @.str.890, %1520 ], [ @.str.893, %1522 ], [ @.str.893, %1526 ], [ @.str.896, %1528 ], [ @.str.896, %1532 ], [ @.str.899, %1534 ], [ @.str.899, %1538 ], [ @.str.902, %1540 ], [ @.str.902, %1544 ], [ @.str.905, %1546 ], [ @.str.905, %1550 ], [ @.str.908, %1552 ], [ @.str.908, %1556 ], [ @.str.911, %1558 ], [ @.str.911, %1562 ], [ @.str.914, %1564 ], [ @.str.914, %1568 ], [ @.str.917, %1570 ], [ @.str.917, %1574 ], [ @.str.920, %1576 ], [ @.str.920, %1580 ], [ @.str.923, %1582 ], [ @.str.923, %1586 ], [ @.str.945, %1596 ], [ @.str.945, %1600 ], [ @.str.948, %1602 ], [ @.str.948, %1606 ], [ @.str.950, %1608 ], [ @.str.950, %1612 ], [ @.str.964, %1628 ], [ @.str.964, %1632 ], [ @.str.967, %1634 ], [ @.str.967, %1638 ], [ @.str.970, %1640 ], [ @.str.970, %1644 ], [ @.str.971, %1646 ], [ @.str.971, %1650 ], [ @.str.973, %1652 ], [ @.str.973, %1656 ], [ @.str.985, %1660 ], [ @.str.985, %1664 ], [ @.str.988, %1666 ], [ @.str.988, %1670 ], [ @.str.1002, %1676 ], [ @.str.1002, %1680 ], [ @.str.1007, %1682 ], [ @.str.1007, %1686 ], [ @.str.1009, %1688 ], [ @.str.1009, %1692 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.1012, %1694 ], [ @.str.1012, %1698 ], [ @.str.1015, %1700 ], [ @.str.1015, %1704 ], [ @.str.1018, %1706 ], [ @.str.1018, %1710 ], [ @.str.1021, %1712 ], [ @.str.1021, %1716 ], [ @.str.1024, %1718 ], [ @.str.1024, %1722 ], [ @.str.1026, %1724 ], [ @.str.1026, %1728 ], [ @.str.1029, %1730 ], [ @.str.1029, %1734 ], [ @.str.1030, %1736 ], [ @.str.1030, %1740 ], [ @.str.1031, %1742 ], [ @.str.1031, %1746 ], [ @.str.1034, %1748 ], [ @.str.1034, %1752 ], [ @.str.62, %1754 ], [ @.str.62, %1758 ], [ @.str.1044, %1762 ], [ @.str.1044, %1766 ], [ @.str.1047, %1768 ], [ @.str.1047, %1772 ], [ @.str.1054, %1784 ], [ @.str.1054, %1788 ], [ @.str.1069, %1792 ], [ @.str.1069, %1796 ], [ @.str.952, %1798 ], [ @.str.952, %1802 ], [ @.str.1072, %1804 ], [ @.str.1072, %1808 ], [ @.str.1092, %1814 ], [ @.str.1092, %1818 ], [ @.str.1095, %1820 ], [ @.str.1095, %1824 ], [ @.str.1098, %1826 ], [ @.str.1098, %1830 ], [ @.str.1101, %1832 ], [ @.str.1101, %1836 ], [ @.str.1102, %1838 ], [ @.str.1102, %1842 ], [ @.str.1105, %1844 ], [ @.str.1105, %1848 ], [ @.str.1108, %1850 ], [ @.str.1108, %1854 ], [ @.str.1111, %1856 ], [ @.str.1111, %1860 ], [ @.str.1120, %1872 ], [ @.str.1120, %1876 ], [ @.str.1123, %1878 ], [ @.str.1123, %1882 ], [ @.str.1126, %1884 ], [ @.str.1126, %1888 ], [ @.str.1128, %1890 ], [ @.str.1128, %1894 ], [ @.str.1131, %1896 ], [ @.str.1131, %1900 ], [ @.str.1134, %1902 ], [ @.str.1134, %1906 ], [ @.str.1137, %1908 ], [ @.str.1137, %1912 ], [ @.str.1140, %1914 ], [ @.str.1140, %1918 ], [ @.str.92, %1 ], [ @.str.1147, %1922 ], [ @.str.1147, %1926 ], [ @.str.1151, %1928 ], [ @.str.1151, %1932 ], [ @.str.1156, %1934 ], [ @.str.1156, %1938 ], [ @.str.1159, %1940 ], [ @.str.1159, %1944 ], [ @.str.1162, %1946 ], [ @.str.1162, %1950 ], [ @.str.1168, %1952 ], [ @.str.1168, %1956 ], [ @.str.1170, %1958 ], [ @.str.1170, %1962 ], [ @.str.1172, %1964 ], [ @.str.1172, %1968 ], [ @.str.1174, %1970 ], [ @.str.1174, %1974 ], [ @.str.1176, %1976 ], [ @.str.1176, %1980 ], [ @.str.1179, %1982 ], [ @.str.1179, %1986 ], [ @.str.1182, %1988 ], [ @.str.1182, %1992 ], [ @.str.1187, %1994 ], [ @.str.1187, %1998 ], [ @.str.1190, %2000 ], [ @.str.1190, %2004 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.1193, %2006 ], [ @.str.1193, %2010 ], [ @.str.1195, %2012 ], [ @.str.1195, %2016 ], [ @.str.1203, %2028 ], [ @.str.1203, %2032 ], [ @.str.1152, %2034 ], [ @.str.1152, %2038 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.1207, %2040 ], [ @.str.1207, %2044 ], [ @.str.1210, %2046 ], [ @.str.1210, %2050 ], [ @.str.1213, %2052 ], [ @.str.1213, %2056 ], [ @.str.1216, %2058 ], [ @.str.1216, %2062 ], [ @.str.1219, %2064 ], [ @.str.1219, %2068 ], [ @.str.1222, %2070 ], [ @.str.1222, %2074 ], [ @.str.1229, %2078 ], [ @.str.1229, %2082 ], [ @.str.1232, %2084 ], [ @.str.1232, %2088 ], [ @.str.1235, %2090 ], [ @.str.1235, %2094 ], [ @.str.1242, %2098 ], [ @.str.1242, %2102 ], [ @.str.1243, %2104 ], [ @.str.1243, %2108 ], [ @.str.1244, %2110 ], [ @.str.1244, %2114 ], [ @.str.1245, %2116 ], [ @.str.1245, %2120 ], [ @.str.1248, %2122 ], [ @.str.1248, %2126 ], [ @.str.1255, %2128 ], [ @.str.1255, %2132 ], [ @.str.1256, %2134 ], [ @.str.1256, %2138 ], [ @.str.1259, %2140 ], [ @.str.1259, %2144 ], [ @.str.1262, %2146 ], [ @.str.1262, %2150 ], [ @.str.1265, %2152 ], [ @.str.1265, %2156 ], [ @.str.1268, %2158 ], [ @.str.1268, %2162 ], [ @.str.1276, %2166 ], [ @.str.1276, %2170 ], [ @.str.1279, %2172 ], [ @.str.1279, %2176 ], [ @.str.1282, %2178 ], [ @.str.1282, %2182 ], [ @.str.1285, %2184 ], [ @.str.1285, %2188 ], [ @.str.1299, %2190 ], [ @.str.1299, %2194 ], [ @.str.1302, %2196 ], [ @.str.1302, %2200 ], [ @.str.1304, %2202 ], [ @.str.1304, %2206 ], [ @.str.1312, %2210 ], [ @.str.1312, %2214 ], [ @.str.1315, %2216 ], [ @.str.1315, %2220 ], [ @.str.1324, %2224 ], [ @.str.1324, %2228 ], [ @.str.1327, %2230 ], [ @.str.1327, %2234 ], [ @.str.1330, %2236 ], [ @.str.1330, %2240 ], [ @.str.1333, %2242 ], [ @.str.1333, %2246 ], [ @.str.1334, %2248 ], [ @.str.1334, %2252 ], [ @.str.1337, %2254 ], [ @.str.1337, %2258 ], [ @.str.1340, %2260 ], [ @.str.1340, %2264 ], [ @.str.1342, %2266 ], [ @.str.1342, %2270 ], [ @.str.1345, %2272 ], [ @.str.1345, %2276 ], [ @.str.1354, %2280 ], [ @.str.1354, %2284 ], [ @.str.1365, %2286 ], [ @.str.1365, %2290 ]
+switch.lookup:                                    ; preds = %1734, %1737
+  %2420 = phi i32 [ %1736, %1734 ], [ %1738, %1737 ]
+  %2421 = sext i32 %2420 to i64
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK5clang4Attr11getSpellingEv, i64 0, i64 %2421
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
+
+_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit: ; preds = %switch.lookup, %2417, %2413, %2411, %2407, %2395, %2391, %2389, %2385, %2383, %2379, %2377, %2373, %2371, %2367, %2365, %2361, %2359, %2355, %2353, %2349, %2347, %2343, %2331, %2327, %2325, %2321, %2317, %2313, %2311, %2307, %2305, %2301, %2299, %2295, %2293, %2289, %2287, %2283, %2281, %2277, %2273, %2269, %2267, %2263, %2261, %2257, %2255, %2251, %2249, %2245, %2243, %2239, %2237, %2233, %2231, %2227, %2225, %2221, %2219, %2215, %2213, %2209, %2197, %2193, %2191, %2187, %2185, %2181, %2177, %2173, %2171, %2167, %2165, %2161, %2159, %2155, %2153, %2149, %2147, %2143, %1, %1, %2141, %2137, %2135, %2131, %2119, %2115, %2113, %2109, %1, %1, %2107, %2103, %2101, %2097, %2095, %2091, %2089, %2085, %2083, %2079, %2077, %2073, %2071, %2067, %2065, %2061, %2059, %2055, %2053, %2049, %2047, %2043, %2041, %2037, %2035, %2031, %2029, %2025, %1, %2021, %2017, %2015, %2011, %2009, %2005, %2003, %1999, %1997, %1993, %1991, %1987, %1985, %1981, %1979, %1975, %1963, %1959, %1957, %1953, %1951, %1947, %1945, %1941, %1939, %1935, %1933, %1929, %1927, %1923, %1921, %1917, %1903, %1899, %1897, %1893, %1891, %1887, %1883, %1879, %1867, %1863, %1861, %1857, %1845, %1841, %1839, %1835, %1833, %1829, %1827, %1823, %1821, %1817, %1815, %1811, %1809, %1805, %1803, %1799, %1797, %1793, %1791, %1787, %1785, %1781, %1, %1, %1, %1, %1, %1779, %1775, %1773, %1769, %1767, %1763, %1749, %1745, %1743, %1739, %1728, %1724, %1722, %1718, %1716, %1712, %1710, %1706, %1704, %1700, %1684, %1680, %1678, %1674, %1672, %1668, %1658, %1654, %1652, %1648, %1646, %1642, %1640, %1636, %1634, %1630, %1628, %1624, %1622, %1618, %1616, %1612, %1610, %1606, %1604, %1600, %1598, %1594, %1592, %1588, %1586, %1582, %1580, %1576, %1574, %1570, %1568, %1564, %1562, %1558, %1556, %1552, %1550, %1546, %1544, %1540, %1538, %1534, %1532, %1528, %1526, %1522, %1520, %1516, %1514, %1510, %1508, %1504, %1502, %1498, %1496, %1492, %1490, %1486, %1484, %1480, %1478, %1474, %1472, %1468, %1466, %1462, %1460, %1456, %1, %1, %1454, %1450, %1448, %1444, %1442, %1438, %1, %1, %1436, %1432, %1, %1430, %1426, %1424, %1420, %1418, %1414, %1412, %1408, %1406, %1402, %1400, %1396, %1394, %1390, %1388, %1384, %1372, %1368, %1366, %1362, %1360, %1356, %1354, %1350, %1348, %1344, %1342, %1338, %1336, %1332, %1330, %1326, %1324, %1320, %1318, %1314, %1302, %1298, %1296, %1292, %1290, %1286, %1284, %1280, %1278, %1274, %1272, %1268, %1266, %1262, %1260, %1256, %1254, %1250, %1248, %1244, %1242, %1238, %1236, %1232, %1230, %1226, %1224, %1220, %1218, %1214, %1212, %1208, %1206, %1202, %1200, %1196, %1194, %1190, %1168, %1164, %1162, %1158, %1156, %1152, %1150, %1146, %1144, %1140, %1138, %1134, %1132, %1128, %1, %1, %1126, %1122, %1120, %1116, %1114, %1110, %1106, %1102, %1100, %1096, %1094, %1090, %1088, %1084, %1082, %1078, %1076, %1072, %1068, %1064, %1062, %1058, %1056, %1052, %1050, %1046, %1044, %1040, %1038, %1034, %1032, %1028, %1026, %1022, %1020, %1016, %1014, %1010, %1008, %1004, %1002, %998, %996, %992, %990, %986, %984, %980, %978, %974, %972, %968, %966, %962, %960, %956, %954, %950, %948, %944, %942, %938, %936, %932, %930, %926, %1, %924, %920, %916, %912, %910, %906, %894, %890, %878, %874, %872, %868, %866, %862, %860, %856, %854, %850, %848, %844, %842, %838, %836, %832, %818, %814, %812, %808, %806, %802, %800, %796, %784, %780, %778, %774, %772, %768, %766, %762, %760, %756, %754, %750, %748, %744, %742, %738, %736, %732, %730, %726, %724, %720, %1, %718, %714, %1, %712, %708, %706, %702, %700, %696, %694, %690, %688, %684, %682, %678, %676, %672, %670, %666, %664, %660, %658, %654, %652, %648, %646, %642, %640, %636, %614, %610, %608, %604, %602, %598, %596, %592, %590, %586, %584, %580, %578, %574, %572, %568, %566, %562, %560, %556, %1, %544, %540, %538, %534, %532, %528, %526, %522, %1, %430, %426, %424, %420, %418, %414, %412, %408, %406, %402, %400, %396, %394, %390, %388, %384, %382, %378, %374, %370, %1, %358, %354, %352, %348, %346, %342, %340, %336, %334, %330, %328, %324, %322, %318, %316, %312, %310, %306, %304, %300, %298, %294, %292, %288, %266, %262, %260, %256, %254, %250, %248, %244, %242, %238, %236, %232, %230, %226, %224, %220, %218, %214, %212, %208, %206, %202, %190, %186, %184, %180, %178, %174, %172, %168, %166, %162, %160, %156, %154, %150, %138, %134, %132, %128, %126, %122, %120, %116, %112, %108, %1, %1, %106, %102, %100, %96, %94, %90, %88, %84, %82, %78, %74, %70, %68, %64, %62, %58, %56, %52, %50, %46, %44, %40, %38, %34, %32, %28, %26, %22, %20, %16, %14, %10, %8, %4, %_ZNK5clang18XRayInstrumentAttr11getSpellingEv.exit, %_ZNK5clang20WarnUnusedResultAttr11getSpellingEv.exit, %2319, %2275, %_ZNK5clang24TryAcquireCapabilityAttr11getSpellingEv.exit, %2179, %_ZNK5clang16SwiftNewTypeAttr11getSpellingEv.exit, %2023, %_ZNK5clang11SectionAttr11getSpellingEv.exit, %_ZNK5clang12RestrictAttr11getSpellingEv.exit, %1905, %1885, %_ZNK5clang11RegCallAttr11getSpellingEv.exit, %_ZNK5clang17RISCVVectorCCAttr11getSpellingEv.exit, %_ZNK5clang18PassObjectSizeAttr11getSpellingEv.exit, %1751, %1698, %1696, %_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit, %1666, %1664, %1662, %1660, %_ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit, %_ZNK5clang12NoInlineAttr11getSpellingEv.exit, %_ZNK5clang17MipsShortCallAttr11getSpellingEv.exit, %_ZNK5clang16MipsLongCallAttr11getSpellingEv.exit, %1108, %1070, %918, %_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit, %_ZNK5clang14HIPManagedAttr11getSpellingEv.exit, %_ZNK5clang9FinalAttr11getSpellingEv.exit, %820, %_ZNK5clang9ErrorAttr11getSpellingEv.exit, %_ZNK5clang13ConstInitAttr11getSpellingEv.exit, %_ZNK5clang9ConstAttr11getSpellingEv.exit, %_ZNK5clang14CapabilityAttr11getSpellingEv.exit, %_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit, %_ZNK5clang14CUDASharedAttr11getSpellingEv.exit, %_ZNK5clang20CUDALaunchBoundsAttr11getSpellingEv.exit, %_ZNK5clang12CUDAHostAttr11getSpellingEv.exit, %_ZNK5clang14CUDAGlobalAttr11getSpellingEv.exit, %_ZNK5clang32CUDADeviceBuiltinTextureTypeAttr11getSpellingEv.exit, %_ZNK5clang32CUDADeviceBuiltinSurfaceTypeAttr11getSpellingEv.exit, %_ZNK5clang14CUDADeviceAttr11getSpellingEv.exit, %_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit, %376, %_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit, %_ZNK5clang20AssertCapabilityAttr11getSpellingEv.exit, %_ZNK5clang12AsmLabelAttr11getSpellingEv.exit, %_ZNK5clang23ArgumentWithTypeTagAttr11getSpellingEv.exit, %_ZNK5clang16AlwaysInlineAttr11getSpellingEv.exit, %114, %76
+  %.0 = phi ptr [ %.str.1350..str.1351.i, %_ZNK5clang18XRayInstrumentAttr11getSpellingEv.exit ], [ %.str.1320..str.1321.i, %_ZNK5clang20WarnUnusedResultAttr11getSpellingEv.exit ], [ %2320, %2319 ], [ %2276, %2275 ], [ %.str.1240..str.1241.i, %_ZNK5clang24TryAcquireCapabilityAttr11getSpellingEv.exit ], [ %2180, %2179 ], [ %.str.1200..str.1201.i, %_ZNK5clang16SwiftNewTypeAttr11getSpellingEv.exit ], [ %2024, %2023 ], [ %.str.1115..str.1116.i, %_ZNK5clang11SectionAttr11getSpellingEv.exit ], [ %.str.1088..str.1089.i, %_ZNK5clang12RestrictAttr11getSpellingEv.exit ], [ %1906, %1905 ], [ %1886, %1885 ], [ %.str.1051..str.1050.i, %_ZNK5clang11RegCallAttr11getSpellingEv.exit ], [ %.str.1040..str.1041.i, %_ZNK5clang17RISCVVectorCCAttr11getSpellingEv.exit ], [ %.str.998..str.999.i, %_ZNK5clang18PassObjectSizeAttr11getSpellingEv.exit ], [ %1752, %1751 ], [ %1699, %1698 ], [ %1697, %1696 ], [ %.str.951..str.952.i, %_ZNK5clang16OpenCLKernelAttr11getSpellingEv.exit ], [ %1667, %1666 ], [ %1665, %1664 ], [ %1663, %1662 ], [ %1661, %1660 ], [ %.str.770..str.771.i, %_ZNK5clang20NoStackProtectorAttr11getSpellingEv.exit ], [ %.str.729..str.735.i, %_ZNK5clang12NoInlineAttr11getSpellingEv.exit ], [ %.str.670..str.671.i, %_ZNK5clang17MipsShortCallAttr11getSpellingEv.exit ], [ %.str.664..str.665.i, %_ZNK5clang16MipsLongCallAttr11getSpellingEv.exit ], [ %1109, %1108 ], [ %1071, %1070 ], [ %919, %918 ], [ %.str.486..str.487.i, %_ZNK5clang16HLSLLoopHintAttr11getSpellingEv.exit ], [ %.str.480..str.481.i, %_ZNK5clang14HIPManagedAttr11getSpellingEv.exit ], [ %.str.451..str.452.i, %_ZNK5clang9FinalAttr11getSpellingEv.exit ], [ %821, %820 ], [ %.str.404..str.405.i, %_ZNK5clang9ErrorAttr11getSpellingEv.exit ], [ %.str.343..str.346.i, %_ZNK5clang13ConstInitAttr11getSpellingEv.exit ], [ %.str.341..str.342.i, %_ZNK5clang9ConstAttr11getSpellingEv.exit ], [ %.str.305..str.306.i, %_ZNK5clang14CapabilityAttr11getSpellingEv.exit ], [ %.str.284..str.213.i, %_ZNK5clang17CXX11NoReturnAttr11getSpellingEv.exit ], [ %.str.280..str.281.i, %_ZNK5clang14CUDASharedAttr11getSpellingEv.exit ], [ %.str.276..str.277.i, %_ZNK5clang20CUDALaunchBoundsAttr11getSpellingEv.exit ], [ %.str.272..str.273.i, %_ZNK5clang12CUDAHostAttr11getSpellingEv.exit ], [ %.str.268..str.269.i, %_ZNK5clang14CUDAGlobalAttr11getSpellingEv.exit ], [ %.str.264..str.265.i, %_ZNK5clang32CUDADeviceBuiltinTextureTypeAttr11getSpellingEv.exit ], [ %.str.260..str.261.i, %_ZNK5clang32CUDADeviceBuiltinSurfaceTypeAttr11getSpellingEv.exit ], [ %.str.256..str.257.i, %_ZNK5clang14CUDADeviceAttr11getSpellingEv.exit ], [ %.str.252..str.253.i, %_ZNK5clang16CUDAConstantAttr11getSpellingEv.exit ], [ %377, %376 ], [ %.str.211..str.212.i, %_ZNK5clang16BuiltinAliasAttr11getSpellingEv.exit ], [ %.str.164..str.165.i, %_ZNK5clang20AssertCapabilityAttr11getSpellingEv.exit ], [ %.str.158..str.159.i, %_ZNK5clang12AsmLabelAttr11getSpellingEv.exit ], [ %.str.139..str.140.i, %_ZNK5clang23ArgumentWithTypeTagAttr11getSpellingEv.exit ], [ %.str.118..str.117.i, %_ZNK5clang16AlwaysInlineAttr11getSpellingEv.exit ], [ %115, %114 ], [ %77, %76 ], [ @.str.32, %4 ], [ @.str.32, %8 ], [ @.str.35, %10 ], [ @.str.35, %14 ], [ @.str.38, %16 ], [ @.str.38, %20 ], [ @.str.41, %22 ], [ @.str.41, %26 ], [ @.str.44, %28 ], [ @.str.44, %32 ], [ @.str.47, %34 ], [ @.str.47, %38 ], [ @.str.50, %40 ], [ @.str.50, %44 ], [ @.str.53, %46 ], [ @.str.53, %50 ], [ @.str.62, %52 ], [ @.str.62, %56 ], [ @.str.62, %58 ], [ @.str.62, %62 ], [ @.str.65, %64 ], [ @.str.65, %68 ], [ @.str.68, %70 ], [ @.str.68, %74 ], [ @.str.81, %78 ], [ @.str.81, %82 ], [ @.str.83, %84 ], [ @.str.83, %88 ], [ @.str.85, %90 ], [ @.str.85, %94 ], [ @.str.88, %96 ], [ @.str.88, %100 ], [ @.str.91, %102 ], [ @.str.91, %106 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.94, %108 ], [ @.str.94, %112 ], [ @.str.104, %116 ], [ @.str.104, %120 ], [ @.str.107, %122 ], [ @.str.107, %126 ], [ @.str.110, %128 ], [ @.str.110, %132 ], [ @.str.113, %134 ], [ @.str.113, %138 ], [ @.str.120, %150 ], [ @.str.120, %154 ], [ @.str.123, %156 ], [ @.str.123, %160 ], [ @.str.125, %162 ], [ @.str.125, %166 ], [ @.str.62, %168 ], [ @.str.62, %172 ], [ @.str.128, %174 ], [ @.str.128, %178 ], [ @.str.131, %180 ], [ @.str.131, %184 ], [ @.str.134, %186 ], [ @.str.134, %190 ], [ @.str.143, %202 ], [ @.str.143, %206 ], [ @.str.144, %208 ], [ @.str.144, %212 ], [ @.str.145, %214 ], [ @.str.145, %218 ], [ @.str.146, %220 ], [ @.str.146, %224 ], [ @.str.149, %226 ], [ @.str.149, %230 ], [ @.str.150, %232 ], [ @.str.150, %236 ], [ @.str.151, %238 ], [ @.str.151, %242 ], [ @.str.152, %244 ], [ @.str.152, %248 ], [ @.str.153, %250 ], [ @.str.153, %254 ], [ @.str.154, %256 ], [ @.str.154, %260 ], [ @.str.157, %262 ], [ @.str.157, %266 ], [ @.str.167, %288 ], [ @.str.167, %292 ], [ @.str.169, %294 ], [ @.str.169, %298 ], [ @.str.172, %300 ], [ @.str.172, %304 ], [ @.str.183, %306 ], [ @.str.183, %310 ], [ @.str.186, %312 ], [ @.str.186, %316 ], [ @.str.189, %318 ], [ @.str.189, %322 ], [ @.str.192, %324 ], [ @.str.192, %328 ], [ @.str.195, %330 ], [ @.str.195, %334 ], [ @.str.198, %336 ], [ @.str.198, %340 ], [ @.str.201, %342 ], [ @.str.201, %346 ], [ @.str.204, %348 ], [ @.str.204, %352 ], [ @.str.208, %354 ], [ @.str.208, %358 ], [ @.str.92, %1 ], [ @.str.213, %370 ], [ @.str.213, %374 ], [ @.str.221, %378 ], [ @.str.221, %382 ], [ @.str.224, %384 ], [ @.str.224, %388 ], [ @.str.229, %390 ], [ @.str.229, %394 ], [ @.str.232, %396 ], [ @.str.232, %400 ], [ @.str.235, %402 ], [ @.str.235, %406 ], [ @.str.238, %408 ], [ @.str.238, %412 ], [ @.str.241, %414 ], [ @.str.241, %418 ], [ @.str.245, %420 ], [ @.str.245, %424 ], [ @.str.249, %426 ], [ @.str.249, %430 ], [ @.str.92, %1 ], [ @.str.288, %522 ], [ @.str.288, %526 ], [ @.str.294, %528 ], [ @.str.294, %532 ], [ @.str.297, %534 ], [ @.str.297, %538 ], [ @.str.300, %540 ], [ @.str.300, %544 ], [ @.str.92, %1 ], [ @.str.309, %556 ], [ @.str.309, %560 ], [ @.str.312, %562 ], [ @.str.312, %566 ], [ @.str.315, %568 ], [ @.str.315, %572 ], [ @.str.317, %574 ], [ @.str.317, %578 ], [ @.str.319, %580 ], [ @.str.319, %584 ], [ @.str.322, %586 ], [ @.str.322, %590 ], [ @.str.328, %592 ], [ @.str.328, %596 ], [ @.str.330, %598 ], [ @.str.330, %602 ], [ @.str.333, %604 ], [ @.str.333, %608 ], [ @.str.336, %610 ], [ @.str.336, %614 ], [ @.str.349, %636 ], [ @.str.349, %640 ], [ @.str.352, %642 ], [ @.str.352, %646 ], [ @.str.355, %648 ], [ @.str.355, %652 ], [ @.str.358, %654 ], [ @.str.358, %658 ], [ @.str.361, %660 ], [ @.str.361, %664 ], [ @.str.364, %666 ], [ @.str.364, %670 ], [ @.str.367, %672 ], [ @.str.367, %676 ], [ @.str.370, %678 ], [ @.str.370, %682 ], [ @.str.373, %684 ], [ @.str.373, %688 ], [ @.str.376, %690 ], [ @.str.376, %694 ], [ @.str.379, %696 ], [ @.str.379, %700 ], [ @.str.382, %702 ], [ @.str.382, %706 ], [ @.str.386, %708 ], [ @.str.386, %712 ], [ @.str.92, %1 ], [ @.str.390, %714 ], [ @.str.390, %718 ], [ @.str.92, %1 ], [ @.str.397, %720 ], [ @.str.397, %724 ], [ @.str.400, %726 ], [ @.str.400, %730 ], [ @.str.403, %732 ], [ @.str.403, %736 ], [ @.str.407, %738 ], [ @.str.407, %742 ], [ @.str.410, %744 ], [ @.str.410, %748 ], [ @.str.413, %750 ], [ @.str.413, %754 ], [ @.str.415, %756 ], [ @.str.415, %760 ], [ @.str.417, %762 ], [ @.str.417, %766 ], [ @.str.420, %768 ], [ @.str.420, %772 ], [ @.str.423, %774 ], [ @.str.423, %778 ], [ @.str.428, %780 ], [ @.str.428, %784 ], [ @.str.435, %796 ], [ @.str.435, %800 ], [ @.str.437, %802 ], [ @.str.437, %806 ], [ @.str.440, %808 ], [ @.str.440, %812 ], [ @.str.445, %814 ], [ @.str.445, %818 ], [ @.str.455, %832 ], [ @.str.455, %836 ], [ @.str.458, %838 ], [ @.str.458, %842 ], [ @.str.461, %844 ], [ @.str.461, %848 ], [ @.str.464, %850 ], [ @.str.464, %854 ], [ @.str.469, %856 ], [ @.str.469, %860 ], [ @.str.472, %862 ], [ @.str.472, %866 ], [ @.str.474, %868 ], [ @.str.474, %872 ], [ @.str.477, %874 ], [ @.str.477, %878 ], [ @.str.482, %890 ], [ @.str.482, %894 ], [ @.str.489, %906 ], [ @.str.489, %910 ], [ @.str.491, %912 ], [ @.str.491, %916 ], [ @.str.496, %920 ], [ @.str.496, %924 ], [ @.str.92, %1 ], [ @.str.516, %926 ], [ @.str.516, %930 ], [ @.str.520, %932 ], [ @.str.520, %936 ], [ @.str.522, %938 ], [ @.str.522, %942 ], [ @.str.524, %944 ], [ @.str.524, %948 ], [ @.str.540, %950 ], [ @.str.540, %954 ], [ @.str.542, %956 ], [ @.str.542, %960 ], [ @.str.545, %962 ], [ @.str.545, %966 ], [ @.str.549, %968 ], [ @.str.549, %972 ], [ @.str.552, %974 ], [ @.str.552, %978 ], [ @.str.555, %980 ], [ @.str.555, %984 ], [ @.str.558, %986 ], [ @.str.558, %990 ], [ @.str.561, %992 ], [ @.str.561, %996 ], [ @.str.564, %998 ], [ @.str.564, %1002 ], [ @.str.566, %1004 ], [ @.str.566, %1008 ], [ @.str.569, %1010 ], [ @.str.569, %1014 ], [ @.str.572, %1016 ], [ @.str.572, %1020 ], [ @.str.575, %1022 ], [ @.str.575, %1026 ], [ @.str.577, %1028 ], [ @.str.577, %1032 ], [ @.str.580, %1034 ], [ @.str.580, %1038 ], [ @.str.583, %1040 ], [ @.str.583, %1044 ], [ @.str.586, %1046 ], [ @.str.586, %1050 ], [ @.str.589, %1052 ], [ @.str.589, %1056 ], [ @.str.591, %1058 ], [ @.str.591, %1062 ], [ @.str.593, %1064 ], [ @.str.593, %1068 ], [ @.str.62, %1072 ], [ @.str.62, %1076 ], [ @.str.613, %1078 ], [ @.str.613, %1082 ], [ @.str.616, %1084 ], [ @.str.616, %1088 ], [ @.str.619, %1090 ], [ @.str.619, %1094 ], [ @.str.621, %1096 ], [ @.str.621, %1100 ], [ @.str.623, %1102 ], [ @.str.623, %1106 ], [ @.str.629, %1110 ], [ @.str.629, %1114 ], [ @.str.62, %1116 ], [ @.str.62, %1120 ], [ @.str.632, %1122 ], [ @.str.632, %1126 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.635, %1128 ], [ @.str.635, %1132 ], [ @.str.638, %1134 ], [ @.str.638, %1138 ], [ @.str.641, %1140 ], [ @.str.641, %1144 ], [ @.str.644, %1146 ], [ @.str.644, %1150 ], [ @.str.647, %1152 ], [ @.str.647, %1156 ], [ @.str.650, %1158 ], [ @.str.650, %1162 ], [ @.str.62, %1164 ], [ @.str.62, %1168 ], [ @.str.674, %1190 ], [ @.str.674, %1194 ], [ @.str.677, %1196 ], [ @.str.677, %1200 ], [ @.str.680, %1202 ], [ @.str.680, %1206 ], [ @.str.683, %1208 ], [ @.str.683, %1212 ], [ @.str.685, %1214 ], [ @.str.685, %1218 ], [ @.str.688, %1220 ], [ @.str.688, %1224 ], [ @.str.691, %1226 ], [ @.str.691, %1230 ], [ @.str.694, %1232 ], [ @.str.694, %1236 ], [ @.str.697, %1238 ], [ @.str.697, %1242 ], [ @.str.701, %1244 ], [ @.str.701, %1248 ], [ @.str.703, %1250 ], [ @.str.703, %1254 ], [ @.str.706, %1256 ], [ @.str.706, %1260 ], [ @.str.709, %1262 ], [ @.str.709, %1266 ], [ @.str.713, %1268 ], [ @.str.713, %1272 ], [ @.str.716, %1274 ], [ @.str.716, %1278 ], [ @.str.719, %1280 ], [ @.str.719, %1284 ], [ @.str.722, %1286 ], [ @.str.722, %1290 ], [ @.str.725, %1292 ], [ @.str.725, %1296 ], [ @.str.728, %1298 ], [ @.str.728, %1302 ], [ @.str.738, %1314 ], [ @.str.738, %1318 ], [ @.str.741, %1320 ], [ @.str.741, %1324 ], [ @.str.744, %1326 ], [ @.str.744, %1330 ], [ @.str.747, %1332 ], [ @.str.747, %1336 ], [ @.str.750, %1338 ], [ @.str.750, %1342 ], [ @.str.753, %1344 ], [ @.str.753, %1348 ], [ @.str.284, %1350 ], [ @.str.284, %1354 ], [ @.str.759, %1356 ], [ @.str.759, %1360 ], [ @.str.762, %1362 ], [ @.str.762, %1366 ], [ @.str.765, %1368 ], [ @.str.765, %1372 ], [ @.str.774, %1384 ], [ @.str.774, %1388 ], [ @.str.778, %1390 ], [ @.str.778, %1394 ], [ @.str.781, %1396 ], [ @.str.781, %1400 ], [ @.str.784, %1402 ], [ @.str.784, %1406 ], [ @.str.787, %1408 ], [ @.str.787, %1412 ], [ @.str.790, %1414 ], [ @.str.790, %1418 ], [ @.str.793, %1420 ], [ @.str.793, %1424 ], [ @.str.796, %1426 ], [ @.str.796, %1430 ], [ @.str.92, %1 ], [ @.str.288, %1432 ], [ @.str.288, %1436 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.810, %1438 ], [ @.str.810, %1442 ], [ @.str.817, %1444 ], [ @.str.817, %1448 ], [ @.str.819, %1450 ], [ @.str.819, %1454 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.822, %1456 ], [ @.str.822, %1460 ], [ @.str.825, %1462 ], [ @.str.825, %1466 ], [ @.str.828, %1468 ], [ @.str.828, %1472 ], [ @.str.831, %1474 ], [ @.str.831, %1478 ], [ @.str.834, %1480 ], [ @.str.834, %1484 ], [ @.str.837, %1486 ], [ @.str.837, %1490 ], [ @.str.840, %1492 ], [ @.str.840, %1496 ], [ @.str.843, %1498 ], [ @.str.843, %1502 ], [ @.str.846, %1504 ], [ @.str.846, %1508 ], [ @.str.849, %1510 ], [ @.str.849, %1514 ], [ @.str.852, %1516 ], [ @.str.852, %1520 ], [ @.str.855, %1522 ], [ @.str.855, %1526 ], [ @.str.858, %1528 ], [ @.str.858, %1532 ], [ @.str.861, %1534 ], [ @.str.861, %1538 ], [ @.str.864, %1540 ], [ @.str.864, %1544 ], [ @.str.867, %1546 ], [ @.str.867, %1550 ], [ @.str.870, %1552 ], [ @.str.870, %1556 ], [ @.str.873, %1558 ], [ @.str.873, %1562 ], [ @.str.876, %1564 ], [ @.str.876, %1568 ], [ @.str.877, %1570 ], [ @.str.877, %1574 ], [ @.str.878, %1576 ], [ @.str.878, %1580 ], [ @.str.887, %1582 ], [ @.str.887, %1586 ], [ @.str.890, %1588 ], [ @.str.890, %1592 ], [ @.str.893, %1594 ], [ @.str.893, %1598 ], [ @.str.896, %1600 ], [ @.str.896, %1604 ], [ @.str.899, %1606 ], [ @.str.899, %1610 ], [ @.str.902, %1612 ], [ @.str.902, %1616 ], [ @.str.905, %1618 ], [ @.str.905, %1622 ], [ @.str.908, %1624 ], [ @.str.908, %1628 ], [ @.str.911, %1630 ], [ @.str.911, %1634 ], [ @.str.914, %1636 ], [ @.str.914, %1640 ], [ @.str.917, %1642 ], [ @.str.917, %1646 ], [ @.str.920, %1648 ], [ @.str.920, %1652 ], [ @.str.923, %1654 ], [ @.str.923, %1658 ], [ @.str.945, %1668 ], [ @.str.945, %1672 ], [ @.str.948, %1674 ], [ @.str.948, %1678 ], [ @.str.950, %1680 ], [ @.str.950, %1684 ], [ @.str.964, %1700 ], [ @.str.964, %1704 ], [ @.str.967, %1706 ], [ @.str.967, %1710 ], [ @.str.970, %1712 ], [ @.str.970, %1716 ], [ @.str.971, %1718 ], [ @.str.971, %1722 ], [ @.str.973, %1724 ], [ @.str.973, %1728 ], [ @.str.985, %1739 ], [ @.str.985, %1743 ], [ @.str.988, %1745 ], [ @.str.988, %1749 ], [ @.str.1002, %1763 ], [ @.str.1002, %1767 ], [ @.str.1007, %1769 ], [ @.str.1007, %1773 ], [ @.str.1009, %1775 ], [ @.str.1009, %1779 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.1012, %1781 ], [ @.str.1012, %1785 ], [ @.str.1015, %1787 ], [ @.str.1015, %1791 ], [ @.str.1018, %1793 ], [ @.str.1018, %1797 ], [ @.str.1021, %1799 ], [ @.str.1021, %1803 ], [ @.str.1024, %1805 ], [ @.str.1024, %1809 ], [ @.str.1026, %1811 ], [ @.str.1026, %1815 ], [ @.str.1029, %1817 ], [ @.str.1029, %1821 ], [ @.str.1030, %1823 ], [ @.str.1030, %1827 ], [ @.str.1031, %1829 ], [ @.str.1031, %1833 ], [ @.str.1034, %1835 ], [ @.str.1034, %1839 ], [ @.str.62, %1841 ], [ @.str.62, %1845 ], [ @.str.1044, %1857 ], [ @.str.1044, %1861 ], [ @.str.1047, %1863 ], [ @.str.1047, %1867 ], [ @.str.1054, %1879 ], [ @.str.1054, %1883 ], [ @.str.1069, %1887 ], [ @.str.1069, %1891 ], [ @.str.952, %1893 ], [ @.str.952, %1897 ], [ @.str.1072, %1899 ], [ @.str.1072, %1903 ], [ @.str.1092, %1917 ], [ @.str.1092, %1921 ], [ @.str.1095, %1923 ], [ @.str.1095, %1927 ], [ @.str.1098, %1929 ], [ @.str.1098, %1933 ], [ @.str.1101, %1935 ], [ @.str.1101, %1939 ], [ @.str.1102, %1941 ], [ @.str.1102, %1945 ], [ @.str.1105, %1947 ], [ @.str.1105, %1951 ], [ @.str.1108, %1953 ], [ @.str.1108, %1957 ], [ @.str.1111, %1959 ], [ @.str.1111, %1963 ], [ @.str.1120, %1975 ], [ @.str.1120, %1979 ], [ @.str.1123, %1981 ], [ @.str.1123, %1985 ], [ @.str.1126, %1987 ], [ @.str.1126, %1991 ], [ @.str.1128, %1993 ], [ @.str.1128, %1997 ], [ @.str.1131, %1999 ], [ @.str.1131, %2003 ], [ @.str.1134, %2005 ], [ @.str.1134, %2009 ], [ @.str.1137, %2011 ], [ @.str.1137, %2015 ], [ @.str.1140, %2017 ], [ @.str.1140, %2021 ], [ @.str.92, %1 ], [ @.str.1147, %2025 ], [ @.str.1147, %2029 ], [ @.str.1151, %2031 ], [ @.str.1151, %2035 ], [ @.str.1156, %2037 ], [ @.str.1156, %2041 ], [ @.str.1159, %2043 ], [ @.str.1159, %2047 ], [ @.str.1162, %2049 ], [ @.str.1162, %2053 ], [ @.str.1168, %2055 ], [ @.str.1168, %2059 ], [ @.str.1170, %2061 ], [ @.str.1170, %2065 ], [ @.str.1172, %2067 ], [ @.str.1172, %2071 ], [ @.str.1174, %2073 ], [ @.str.1174, %2077 ], [ @.str.1176, %2079 ], [ @.str.1176, %2083 ], [ @.str.1179, %2085 ], [ @.str.1179, %2089 ], [ @.str.1182, %2091 ], [ @.str.1182, %2095 ], [ @.str.1187, %2097 ], [ @.str.1187, %2101 ], [ @.str.1190, %2103 ], [ @.str.1190, %2107 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.1193, %2109 ], [ @.str.1193, %2113 ], [ @.str.1195, %2115 ], [ @.str.1195, %2119 ], [ @.str.1203, %2131 ], [ @.str.1203, %2135 ], [ @.str.1152, %2137 ], [ @.str.1152, %2141 ], [ @.str.92, %1 ], [ @.str.92, %1 ], [ @.str.1207, %2143 ], [ @.str.1207, %2147 ], [ @.str.1210, %2149 ], [ @.str.1210, %2153 ], [ @.str.1213, %2155 ], [ @.str.1213, %2159 ], [ @.str.1216, %2161 ], [ @.str.1216, %2165 ], [ @.str.1219, %2167 ], [ @.str.1219, %2171 ], [ @.str.1222, %2173 ], [ @.str.1222, %2177 ], [ @.str.1229, %2181 ], [ @.str.1229, %2185 ], [ @.str.1232, %2187 ], [ @.str.1232, %2191 ], [ @.str.1235, %2193 ], [ @.str.1235, %2197 ], [ @.str.1242, %2209 ], [ @.str.1242, %2213 ], [ @.str.1243, %2215 ], [ @.str.1243, %2219 ], [ @.str.1244, %2221 ], [ @.str.1244, %2225 ], [ @.str.1245, %2227 ], [ @.str.1245, %2231 ], [ @.str.1248, %2233 ], [ @.str.1248, %2237 ], [ @.str.1255, %2239 ], [ @.str.1255, %2243 ], [ @.str.1256, %2245 ], [ @.str.1256, %2249 ], [ @.str.1259, %2251 ], [ @.str.1259, %2255 ], [ @.str.1262, %2257 ], [ @.str.1262, %2261 ], [ @.str.1265, %2263 ], [ @.str.1265, %2267 ], [ @.str.1268, %2269 ], [ @.str.1268, %2273 ], [ @.str.1276, %2277 ], [ @.str.1276, %2281 ], [ @.str.1279, %2283 ], [ @.str.1279, %2287 ], [ @.str.1282, %2289 ], [ @.str.1282, %2293 ], [ @.str.1285, %2295 ], [ @.str.1285, %2299 ], [ @.str.1299, %2301 ], [ @.str.1299, %2305 ], [ @.str.1302, %2307 ], [ @.str.1302, %2311 ], [ @.str.1304, %2313 ], [ @.str.1304, %2317 ], [ @.str.1312, %2321 ], [ @.str.1312, %2325 ], [ @.str.1315, %2327 ], [ @.str.1315, %2331 ], [ @.str.1324, %2343 ], [ @.str.1324, %2347 ], [ @.str.1327, %2349 ], [ @.str.1327, %2353 ], [ @.str.1330, %2355 ], [ @.str.1330, %2359 ], [ @.str.1333, %2361 ], [ @.str.1333, %2365 ], [ @.str.1334, %2367 ], [ @.str.1334, %2371 ], [ @.str.1337, %2373 ], [ @.str.1337, %2377 ], [ @.str.1340, %2379 ], [ @.str.1340, %2383 ], [ @.str.1342, %2385 ], [ @.str.1342, %2389 ], [ @.str.1345, %2391 ], [ @.str.1345, %2395 ], [ @.str.1354, %2407 ], [ @.str.1354, %2411 ], [ @.str.1365, %2413 ], [ @.str.1365, %2417 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }
 

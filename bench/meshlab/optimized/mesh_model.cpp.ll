@@ -3806,23 +3806,23 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 0, 1073741825) i32 @_ZN9MeshModel5io2mmEi(i32 noundef %0) local_unnamed_addr #18 align 2 {
-  switch i32 %0, label %18 [
-    i32 131072, label %17
-    i32 1, label %2
-    i32 4, label %3
-    i32 2, label %4
-    i32 8, label %5
-    i32 16, label %6
-    i32 32, label %7
-    i32 65536, label %8
-    i32 64, label %9
-    i32 128, label %10
-    i32 256, label %11
-    i32 512, label %12
-    i32 1024, label %13
-    i32 4096, label %14
-    i32 2048, label %15
-    i32 16384, label %16
+  switch i32 %0, label %17 [
+    i32 131072, label %16
+    i32 1, label %18
+    i32 4, label %2
+    i32 2, label %3
+    i32 8, label %4
+    i32 16, label %5
+    i32 32, label %6
+    i32 65536, label %7
+    i32 64, label %8
+    i32 128, label %9
+    i32 256, label %10
+    i32 512, label %11
+    i32 1024, label %12
+    i32 4096, label %13
+    i32 2048, label %14
+    i32 16384, label %15
   ]
 
 2:                                                ; preds = %1
@@ -3874,7 +3874,7 @@ define noundef range(i32 0, 1073741825) i32 @_ZN9MeshModel5io2mmEi(i32 noundef %
   br label %18
 
 18:                                               ; preds = %1, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 1073741824, %17 ], [ 4194304, %16 ], [ 8388608, %15 ], [ 2097152, %14 ], [ 8192, %13 ], [ 65536, %12 ], [ 32768, %11 ], [ 16384, %10 ], [ 4096, %9 ], [ 512, %8 ], [ 1024, %7 ], [ 2, %6 ], [ 16, %5 ], [ 4, %4 ], [ 8, %3 ], [ 1, %2 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %17 ], [ 1073741824, %16 ], [ 4194304, %15 ], [ 8388608, %14 ], [ 2097152, %13 ], [ 8192, %12 ], [ 65536, %11 ], [ 32768, %10 ], [ 16384, %9 ], [ 4096, %8 ], [ 512, %7 ], [ 1024, %6 ], [ 2, %5 ], [ 16, %4 ], [ 4, %3 ], [ 8, %2 ], [ %0, %1 ]
   ret i32 %.0
 }
 

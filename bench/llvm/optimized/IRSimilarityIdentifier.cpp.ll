@@ -1713,73 +1713,73 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN4llv
 define linkonce_odr hidden noundef i32 @_ZN4llvm11InstVisitorINS_12IRSimilarity19IRInstructionMapper25InstructionClassificationENS1_9InstrTypeEE5visitERNS_11InstructionE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i8, ptr %1, align 8
   switch i8 %3, label %4 [
-    i8 30, label %64
+    i8 30, label %16
     i8 31, label %5
-    i8 32, label %64
-    i8 33, label %64
-    i8 34, label %64
-    i8 35, label %64
-    i8 36, label %64
-    i8 37, label %64
-    i8 38, label %64
-    i8 39, label %64
-    i8 40, label %64
+    i8 32, label %16
+    i8 33, label %16
+    i8 34, label %16
+    i8 35, label %16
+    i8 36, label %16
+    i8 37, label %16
+    i8 38, label %16
+    i8 39, label %16
+    i8 40, label %16
     i8 41, label %9
-    i8 42, label %10
-    i8 43, label %11
-    i8 44, label %12
-    i8 45, label %13
-    i8 46, label %14
-    i8 47, label %15
-    i8 48, label %16
-    i8 49, label %17
-    i8 50, label %18
-    i8 51, label %19
-    i8 52, label %20
-    i8 53, label %21
-    i8 54, label %22
-    i8 55, label %23
-    i8 56, label %24
-    i8 57, label %25
-    i8 58, label %26
-    i8 59, label %27
-    i8 60, label %64
-    i8 61, label %28
-    i8 62, label %29
-    i8 63, label %30
-    i8 64, label %31
-    i8 65, label %32
-    i8 66, label %33
-    i8 67, label %34
-    i8 68, label %35
-    i8 69, label %36
-    i8 70, label %37
-    i8 71, label %38
-    i8 72, label %39
-    i8 73, label %40
-    i8 74, label %41
-    i8 75, label %42
-    i8 76, label %43
-    i8 77, label %44
-    i8 78, label %45
-    i8 79, label %46
-    i8 80, label %64
-    i8 81, label %64
-    i8 82, label %47
-    i8 83, label %48
-    i8 84, label %49
-    i8 85, label %53
-    i8 86, label %55
-    i8 87, label %56
-    i8 88, label %57
-    i8 89, label %64
-    i8 90, label %58
-    i8 91, label %59
-    i8 92, label %60
-    i8 93, label %61
-    i8 94, label %62
-    i8 95, label %64
-    i8 96, label %63
+    i8 42, label %9
+    i8 43, label %9
+    i8 44, label %9
+    i8 45, label %9
+    i8 46, label %9
+    i8 47, label %9
+    i8 48, label %9
+    i8 49, label %9
+    i8 50, label %9
+    i8 51, label %9
+    i8 52, label %9
+    i8 53, label %9
+    i8 54, label %9
+    i8 55, label %9
+    i8 56, label %9
+    i8 57, label %9
+    i8 58, label %9
+    i8 59, label %9
+    i8 60, label %16
+    i8 61, label %9
+    i8 62, label %9
+    i8 63, label %9
+    i8 64, label %9
+    i8 65, label %9
+    i8 66, label %9
+    i8 67, label %9
+    i8 68, label %9
+    i8 69, label %9
+    i8 70, label %9
+    i8 71, label %9
+    i8 72, label %9
+    i8 73, label %9
+    i8 74, label %9
+    i8 75, label %9
+    i8 76, label %9
+    i8 77, label %9
+    i8 78, label %9
+    i8 79, label %9
+    i8 80, label %16
+    i8 81, label %16
+    i8 82, label %9
+    i8 83, label %9
+    i8 84, label %10
+    i8 85, label %14
+    i8 86, label %9
+    i8 87, label %9
+    i8 88, label %9
+    i8 89, label %16
+    i8 90, label %9
+    i8 91, label %9
+    i8 92, label %9
+    i8 93, label %9
+    i8 94, label %9
+    i8 95, label %16
+    i8 96, label %9
   ]
 
 4:                                                ; preds = %2
@@ -1790,168 +1790,24 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm11InstVisitorINS_12IRSimilarity1
   %7 = and i8 %6, 1
   %8 = xor i8 %7, 1
   %..i.i = zext nneg i8 %8 to i32
-  br label %64
+  br label %16
 
-9:                                                ; preds = %2
-  br label %64
+9:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
+  br label %16
 
 10:                                               ; preds = %2
-  br label %64
-
-11:                                               ; preds = %2
-  br label %64
-
-12:                                               ; preds = %2
-  br label %64
-
-13:                                               ; preds = %2
-  br label %64
+  %11 = load i8, ptr %0, align 1
+  %12 = and i8 %11, 1
+  %13 = xor i8 %12, 1
+  %..i.i69 = zext nneg i8 %13 to i32
+  br label %16
 
 14:                                               ; preds = %2
-  br label %64
+  %15 = tail call noundef i32 @_ZN4llvm11InstVisitorINS_12IRSimilarity19IRInstructionMapper25InstructionClassificationENS1_9InstrTypeEE16delegateCallInstERNS_8CallInstE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(88) %1)
+  br label %16
 
-15:                                               ; preds = %2
-  br label %64
-
-16:                                               ; preds = %2
-  br label %64
-
-17:                                               ; preds = %2
-  br label %64
-
-18:                                               ; preds = %2
-  br label %64
-
-19:                                               ; preds = %2
-  br label %64
-
-20:                                               ; preds = %2
-  br label %64
-
-21:                                               ; preds = %2
-  br label %64
-
-22:                                               ; preds = %2
-  br label %64
-
-23:                                               ; preds = %2
-  br label %64
-
-24:                                               ; preds = %2
-  br label %64
-
-25:                                               ; preds = %2
-  br label %64
-
-26:                                               ; preds = %2
-  br label %64
-
-27:                                               ; preds = %2
-  br label %64
-
-28:                                               ; preds = %2
-  br label %64
-
-29:                                               ; preds = %2
-  br label %64
-
-30:                                               ; preds = %2
-  br label %64
-
-31:                                               ; preds = %2
-  br label %64
-
-32:                                               ; preds = %2
-  br label %64
-
-33:                                               ; preds = %2
-  br label %64
-
-34:                                               ; preds = %2
-  br label %64
-
-35:                                               ; preds = %2
-  br label %64
-
-36:                                               ; preds = %2
-  br label %64
-
-37:                                               ; preds = %2
-  br label %64
-
-38:                                               ; preds = %2
-  br label %64
-
-39:                                               ; preds = %2
-  br label %64
-
-40:                                               ; preds = %2
-  br label %64
-
-41:                                               ; preds = %2
-  br label %64
-
-42:                                               ; preds = %2
-  br label %64
-
-43:                                               ; preds = %2
-  br label %64
-
-44:                                               ; preds = %2
-  br label %64
-
-45:                                               ; preds = %2
-  br label %64
-
-46:                                               ; preds = %2
-  br label %64
-
-47:                                               ; preds = %2
-  br label %64
-
-48:                                               ; preds = %2
-  br label %64
-
-49:                                               ; preds = %2
-  %50 = load i8, ptr %0, align 1
-  %51 = and i8 %50, 1
-  %52 = xor i8 %51, 1
-  %..i.i69 = zext nneg i8 %52 to i32
-  br label %64
-
-53:                                               ; preds = %2
-  %54 = tail call noundef i32 @_ZN4llvm11InstVisitorINS_12IRSimilarity19IRInstructionMapper25InstructionClassificationENS1_9InstrTypeEE16delegateCallInstERNS_8CallInstE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(88) %1)
-  br label %64
-
-55:                                               ; preds = %2
-  br label %64
-
-56:                                               ; preds = %2
-  br label %64
-
-57:                                               ; preds = %2
-  br label %64
-
-58:                                               ; preds = %2
-  br label %64
-
-59:                                               ; preds = %2
-  br label %64
-
-60:                                               ; preds = %2
-  br label %64
-
-61:                                               ; preds = %2
-  br label %64
-
-62:                                               ; preds = %2
-  br label %64
-
-63:                                               ; preds = %2
-  br label %64
-
-64:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %63, %62, %61, %60, %59, %58, %57, %56, %55, %53, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %5
-  %.0 = phi i32 [ 0, %63 ], [ 0, %62 ], [ 0, %61 ], [ 0, %60 ], [ 0, %59 ], [ 0, %58 ], [ 0, %57 ], [ 0, %56 ], [ 0, %55 ], [ %54, %53 ], [ %..i.i69, %49 ], [ 0, %48 ], [ 0, %47 ], [ 0, %46 ], [ 0, %45 ], [ 0, %44 ], [ 0, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %37 ], [ 0, %36 ], [ 0, %35 ], [ 0, %34 ], [ 0, %33 ], [ 0, %32 ], [ 0, %31 ], [ 0, %30 ], [ 0, %29 ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %23 ], [ 0, %22 ], [ 0, %21 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ %..i.i, %5 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
+16:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %14, %10, %9, %5
+  %.0 = phi i32 [ %15, %14 ], [ %..i.i69, %10 ], [ 0, %9 ], [ %..i.i, %5 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
   ret i32 %.0
 }
 

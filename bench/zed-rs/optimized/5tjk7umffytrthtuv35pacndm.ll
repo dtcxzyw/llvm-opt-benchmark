@@ -775,12 +775,9 @@ define noundef zeroext i1 @_ZN12multi_buffer22ExpandExcerptDirection16should_exp
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN12multi_buffer22ExpandExcerptDirection18should_expand_down17hedcb29bc3ed5da43E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #7 {
-switch.lookup:
-  %1 = load i8, ptr %0, align 1, !range !49, !noundef !4
-  %switch.cast = trunc nuw nsw i8 %1 to i3
-  %switch.downshift = lshr i3 -2, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = load i8, ptr %0, align 1, !range !49, !noundef !4
+  %switch = icmp ne i8 %2, 0
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

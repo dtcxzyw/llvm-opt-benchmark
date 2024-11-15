@@ -28877,11 +28877,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6nowide13basic_filebufIcSt11cha
     i32 24, label %.fold.split20
     i32 56, label %.fold.split21
     i32 25, label %.fold.split22
-    i32 9, label %.fold.split23
+    i32 9, label %.fold.split22
     i32 20, label %.fold.split24
     i32 21, label %.fold.split25
-    i32 5, label %.fold.split26
-    i32 52, label %.fold.split27
+    i32 5, label %.fold.split25
+    i32 52, label %.fold.split24
     i32 12, label %.fold.split28
     i32 28, label %.fold.split29
     i32 60, label %.fold.split30
@@ -28902,22 +28902,13 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6nowide13basic_filebufIcSt11cha
 .fold.split21:                                    ; preds = %1
   br label %.fold.split
 
-.fold.split22:                                    ; preds = %1
+.fold.split22:                                    ; preds = %1, %1
   br label %.fold.split
 
-.fold.split23:                                    ; preds = %1
+.fold.split24:                                    ; preds = %1, %1
   br label %.fold.split
 
-.fold.split24:                                    ; preds = %1
-  br label %.fold.split
-
-.fold.split25:                                    ; preds = %1
-  br label %.fold.split
-
-.fold.split26:                                    ; preds = %1
-  br label %.fold.split
-
-.fold.split27:                                    ; preds = %1
+.fold.split25:                                    ; preds = %1, %1
   br label %.fold.split
 
 .fold.split28:                                    ; preds = %1
@@ -28935,8 +28926,8 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6nowide13basic_filebufIcSt11cha
 .fold.split32:                                    ; preds = %1, %1
   br label %.fold.split
 
-.fold.split:                                      ; preds = %1, %1, %.fold.split32, %.fold.split31, %.fold.split30, %.fold.split29, %.fold.split28, %.fold.split27, %.fold.split26, %.fold.split25, %.fold.split24, %.fold.split23, %.fold.split22, %.fold.split21, %.fold.split20, %.fold.split19, %2
-  %.0 = phi ptr [ @.str.46, %1 ], [ %.str.57., %2 ], [ @.str.48, %.fold.split19 ], [ @.str.49, %.fold.split20 ], [ @.str.50, %.fold.split21 ], [ @.str.51, %.fold.split22 ], [ @.str.51, %.fold.split23 ], [ @.str.52, %.fold.split24 ], [ @.str.53, %.fold.split25 ], [ @.str.53, %.fold.split26 ], [ @.str.52, %.fold.split27 ], [ @.str.54, %.fold.split28 ], [ @.str.55, %.fold.split29 ], [ @.str.56, %.fold.split30 ], [ @.str.57, %.fold.split31 ], [ @.str.47, %.fold.split32 ], [ @.str.46, %1 ]
+.fold.split:                                      ; preds = %1, %1, %.fold.split32, %.fold.split31, %.fold.split30, %.fold.split29, %.fold.split28, %.fold.split25, %.fold.split24, %.fold.split22, %.fold.split21, %.fold.split20, %.fold.split19, %2
+  %.0 = phi ptr [ @.str.46, %1 ], [ %.str.57., %2 ], [ @.str.48, %.fold.split19 ], [ @.str.49, %.fold.split20 ], [ @.str.50, %.fold.split21 ], [ @.str.51, %.fold.split22 ], [ @.str.52, %.fold.split24 ], [ @.str.53, %.fold.split25 ], [ @.str.54, %.fold.split28 ], [ @.str.55, %.fold.split29 ], [ @.str.56, %.fold.split30 ], [ @.str.57, %.fold.split31 ], [ @.str.47, %.fold.split32 ], [ @.str.46, %1 ]
   ret ptr %.0
 }
 

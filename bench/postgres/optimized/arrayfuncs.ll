@@ -9106,66 +9106,63 @@ define dso_local noundef ptr @construct_array(ptr nocapture noundef %0, i32 noun
 define dso_local noundef ptr @construct_array_builtin(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x i32], align 4
   %5 = alloca [1 x i32], align 4
-  switch i32 %2, label %15 [
-    i32 18, label %18
+  switch i32 %2, label %14 [
+    i32 18, label %17
     i32 2275, label %6
     i32 700, label %7
     i32 21, label %8
-    i32 23, label %9
-    i32 20, label %10
-    i32 19, label %11
-    i32 26, label %12
-    i32 2206, label %12
-    i32 25, label %13
-    i32 27, label %14
+    i32 23, label %7
+    i32 20, label %9
+    i32 19, label %10
+    i32 26, label %11
+    i32 2206, label %11
+    i32 25, label %12
+    i32 27, label %13
   ]
 
 6:                                                ; preds = %3
-  br label %18
+  br label %17
 
-7:                                                ; preds = %3
-  br label %18
+7:                                                ; preds = %3, %3
+  br label %17
 
 8:                                                ; preds = %3
-  br label %18
+  br label %17
 
 9:                                                ; preds = %3
-  br label %18
+  br label %17
 
 10:                                               ; preds = %3
-  br label %18
+  br label %17
 
-11:                                               ; preds = %3
-  br label %18
+11:                                               ; preds = %3, %3
+  br label %17
 
-12:                                               ; preds = %3, %3
-  br label %18
+12:                                               ; preds = %3
+  br label %17
 
 13:                                               ; preds = %3
-  br label %18
+  br label %17
 
 14:                                               ; preds = %3
-  br label %18
-
-15:                                               ; preds = %3
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %2) #17
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  tail call void @llvm.assume(i1 %15)
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %2) #17
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3445, ptr noundef nonnull @__func__.construct_array_builtin) #17
   unreachable
 
-18:                                               ; preds = %3, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.08 = phi i32 [ 6, %14 ], [ -1, %13 ], [ 4, %12 ], [ 64, %11 ], [ 8, %10 ], [ 4, %9 ], [ 2, %8 ], [ 4, %7 ], [ -2, %6 ], [ 1, %3 ]
-  %.07 = phi i1 [ false, %14 ], [ false, %13 ], [ true, %12 ], [ false, %11 ], [ true, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ false, %6 ], [ true, %3 ]
-  %.0 = phi i8 [ 115, %14 ], [ 105, %13 ], [ 105, %12 ], [ 99, %11 ], [ 100, %10 ], [ 105, %9 ], [ 115, %8 ], [ 105, %7 ], [ 99, %6 ], [ 99, %3 ]
+17:                                               ; preds = %3, %13, %12, %11, %10, %9, %8, %7, %6
+  %.08 = phi i32 [ 6, %13 ], [ -1, %12 ], [ 4, %11 ], [ 64, %10 ], [ 8, %9 ], [ 2, %8 ], [ 4, %7 ], [ -2, %6 ], [ 1, %3 ]
+  %.07 = phi i1 [ false, %13 ], [ false, %12 ], [ true, %11 ], [ false, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ false, %6 ], [ true, %3 ]
+  %.0 = phi i8 [ 115, %13 ], [ 105, %12 ], [ 105, %11 ], [ 99, %10 ], [ 100, %9 ], [ 115, %8 ], [ 105, %7 ], [ 99, %6 ], [ 99, %3 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %1, ptr %4, align 4
   store i32 1, ptr %5, align 4
-  %19 = call noundef ptr @construct_md_array(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %2, i32 noundef %.08, i1 noundef zeroext %.07, i8 noundef signext %.0)
+  %18 = call noundef ptr @construct_md_array(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %2, i32 noundef %.08, i1 noundef zeroext %.07, i8 noundef signext %.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  ret ptr %19
+  ret ptr %18
 }
 
 ; Function Attrs: nounwind uwtable

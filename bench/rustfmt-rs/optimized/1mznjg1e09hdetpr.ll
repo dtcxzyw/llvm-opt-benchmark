@@ -36298,8 +36298,8 @@ define { ptr, ptr } @"_ZN65_$LT$rustfmt_nightly..ErrorKind$u20$as$u20$core..erro
   %3 = icmp sgt i64 %2, -9223372036854775799
   %switch1 = icmp eq i64 %2, -9223372036854775803
   %switch = or i1 %3, %switch1
-  %spec.select = select i1 %switch, ptr %0, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %. = select i1 %switch, ptr %0, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %., 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.ac9b56db96481140084a14b3a62254c9.424, 1
   ret { ptr, ptr } %5
 }

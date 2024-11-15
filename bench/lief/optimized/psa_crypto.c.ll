@@ -45,8 +45,8 @@ define hidden range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %0) local
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
   %5 = select i1 %.not, i32 %0, i32 %4
-  switch i32 %5, label %70 [
-    i32 0, label %71
+  switch i32 %5, label %29 [
+    i32 0, label %30
     i32 -32, label %6
     i32 -34, label %6
     i32 -96, label %7
@@ -60,273 +60,150 @@ define hidden range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %0) local
     i32 -38, label %10
     i32 -13, label %11
     i32 -15, label %12
-    i32 -81, label %13
-    i32 -84, label %14
-    i32 -86, label %15
-    i32 -24704, label %16
-    i32 -24832, label %17
-    i32 -24960, label %18
-    i32 -25088, label %19
-    i32 -25216, label %20
-    i32 -25344, label %21
-    i32 -25472, label %22
-    i32 -52, label %23
-    i32 -54, label %24
-    i32 -56, label %24
-    i32 -58, label %25
-    i32 -50, label %26
-    i32 -64, label %27
-    i32 -61, label %27
-    i32 -60, label %27
-    i32 -18, label %28
-    i32 -22, label %29
-    i32 -20, label %30
-    i32 -20608, label %31
-    i32 -20736, label %32
-    i32 -20864, label %33
-    i32 -20992, label %34
-    i32 -2, label %35
-    i32 -4, label %36
-    i32 -6, label %37
-    i32 -8, label %38
-    i32 -10, label %39
-    i32 -12, label %40
-    i32 -14, label %41
-    i32 -16, label %42
-    i32 -16256, label %43
-    i32 -16128, label %44
-    i32 -16000, label %44
-    i32 -15872, label %45
-    i32 -15744, label %46
-    i32 -15616, label %46
-    i32 -15488, label %47
-    i32 -15360, label %48
-    i32 -15232, label %48
-    i32 -15104, label %49
-    i32 -14976, label %50
-    i32 -14848, label %50
-    i32 -14720, label %50
-    i32 -14592, label %51
-    i32 -14464, label %52
-    i32 -112, label %53
-    i32 -114, label %54
-    i32 -16512, label %55
-    i32 -16640, label %56
-    i32 -16768, label %57
-    i32 -16896, label %58
-    i32 -17024, label %59
-    i32 -17152, label %59
-    i32 -17280, label %60
-    i32 -17408, label %61
-    i32 -17536, label %62
-    i32 -20352, label %63
-    i32 -19584, label %63
-    i32 -20224, label %64
-    i32 -20096, label %65
-    i32 -19456, label %66
-    i32 -19968, label %66
-    i32 -19840, label %67
-    i32 -19712, label %68
-    i32 -110, label %69
+    i32 -81, label %11
+    i32 -84, label %13
+    i32 -86, label %12
+    i32 -24704, label %14
+    i32 -24832, label %11
+    i32 -24960, label %8
+    i32 -25088, label %15
+    i32 -25216, label %11
+    i32 -25344, label %12
+    i32 -25472, label %16
+    i32 -52, label %17
+    i32 -54, label %18
+    i32 -56, label %18
+    i32 -58, label %17
+    i32 -50, label %14
+    i32 -64, label %19
+    i32 -61, label %19
+    i32 -60, label %19
+    i32 -18, label %12
+    i32 -22, label %9
+    i32 -20, label %11
+    i32 -20608, label %14
+    i32 -20736, label %11
+    i32 -20864, label %8
+    i32 -20992, label %20
+    i32 -2, label %20
+    i32 -4, label %11
+    i32 -6, label %11
+    i32 -8, label %9
+    i32 -10, label %11
+    i32 -12, label %11
+    i32 -14, label %11
+    i32 -16, label %8
+    i32 -16256, label %8
+    i32 -16128, label %21
+    i32 -16000, label %21
+    i32 -15872, label %20
+    i32 -15744, label %22
+    i32 -15616, label %22
+    i32 -15488, label %14
+    i32 -15360, label %23
+    i32 -15232, label %23
+    i32 -15104, label %11
+    i32 -14976, label %24
+    i32 -14848, label %24
+    i32 -14720, label %24
+    i32 -14592, label %12
+    i32 -14464, label %9
+    i32 -112, label %25
+    i32 -114, label %14
+    i32 -16512, label %11
+    i32 -16640, label %15
+    i32 -16768, label %25
+    i32 -16896, label %11
+    i32 -17024, label %26
+    i32 -17152, label %26
+    i32 -17280, label %12
+    i32 -17408, label %9
+    i32 -17536, label %17
+    i32 -20352, label %27
+    i32 -19584, label %27
+    i32 -20224, label %9
+    i32 -20096, label %14
+    i32 -19456, label %28
+    i32 -19968, label %28
+    i32 -19840, label %8
+    i32 -19712, label %17
+    i32 -110, label %16
   ]
 
 6:                                                ; preds = %1, %1
-  br label %71
+  br label %30
 
 7:                                                ; preds = %1, %1, %1, %1, %1
-  br label %71
+  br label %30
 
-8:                                                ; preds = %1
-  br label %71
+8:                                                ; preds = %1, %1, %1, %1, %1, %1
+  br label %30
 
-9:                                                ; preds = %1
-  br label %71
+9:                                                ; preds = %1, %1, %1, %1, %1, %1
+  br label %30
 
 10:                                               ; preds = %1, %1
-  br label %71
+  br label %30
 
-11:                                               ; preds = %1
-  br label %71
+11:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %30
 
-12:                                               ; preds = %1
-  br label %71
+12:                                               ; preds = %1, %1, %1, %1, %1, %1
+  br label %30
 
 13:                                               ; preds = %1
-  br label %71
+  br label %30
 
-14:                                               ; preds = %1
-  br label %71
+14:                                               ; preds = %1, %1, %1, %1, %1, %1
+  br label %30
 
-15:                                               ; preds = %1
-  br label %71
+15:                                               ; preds = %1, %1
+  br label %30
 
-16:                                               ; preds = %1
-  br label %71
+16:                                               ; preds = %1, %1
+  br label %30
 
-17:                                               ; preds = %1
-  br label %71
+17:                                               ; preds = %1, %1, %1, %1
+  br label %30
 
-18:                                               ; preds = %1
-  br label %71
+18:                                               ; preds = %1, %1
+  br label %30
 
-19:                                               ; preds = %1
-  br label %71
+19:                                               ; preds = %1, %1, %1
+  br label %30
 
-20:                                               ; preds = %1
-  br label %71
+20:                                               ; preds = %1, %1, %1
+  br label %30
 
-21:                                               ; preds = %1
-  br label %71
+21:                                               ; preds = %1, %1
+  br label %30
 
-22:                                               ; preds = %1
-  br label %71
+22:                                               ; preds = %1, %1
+  br label %30
 
-23:                                               ; preds = %1
-  br label %71
+23:                                               ; preds = %1, %1
+  br label %30
 
-24:                                               ; preds = %1, %1
-  br label %71
+24:                                               ; preds = %1, %1, %1
+  br label %30
 
-25:                                               ; preds = %1
-  br label %71
+25:                                               ; preds = %1, %1
+  br label %30
 
-26:                                               ; preds = %1
-  br label %71
+26:                                               ; preds = %1, %1
+  br label %30
 
-27:                                               ; preds = %1, %1, %1
-  br label %71
+27:                                               ; preds = %1, %1
+  br label %30
 
-28:                                               ; preds = %1
-  br label %71
+28:                                               ; preds = %1, %1
+  br label %30
 
 29:                                               ; preds = %1
-  br label %71
+  br label %30
 
-30:                                               ; preds = %1
-  br label %71
-
-31:                                               ; preds = %1
-  br label %71
-
-32:                                               ; preds = %1
-  br label %71
-
-33:                                               ; preds = %1
-  br label %71
-
-34:                                               ; preds = %1
-  br label %71
-
-35:                                               ; preds = %1
-  br label %71
-
-36:                                               ; preds = %1
-  br label %71
-
-37:                                               ; preds = %1
-  br label %71
-
-38:                                               ; preds = %1
-  br label %71
-
-39:                                               ; preds = %1
-  br label %71
-
-40:                                               ; preds = %1
-  br label %71
-
-41:                                               ; preds = %1
-  br label %71
-
-42:                                               ; preds = %1
-  br label %71
-
-43:                                               ; preds = %1
-  br label %71
-
-44:                                               ; preds = %1, %1
-  br label %71
-
-45:                                               ; preds = %1
-  br label %71
-
-46:                                               ; preds = %1, %1
-  br label %71
-
-47:                                               ; preds = %1
-  br label %71
-
-48:                                               ; preds = %1, %1
-  br label %71
-
-49:                                               ; preds = %1
-  br label %71
-
-50:                                               ; preds = %1, %1, %1
-  br label %71
-
-51:                                               ; preds = %1
-  br label %71
-
-52:                                               ; preds = %1
-  br label %71
-
-53:                                               ; preds = %1
-  br label %71
-
-54:                                               ; preds = %1
-  br label %71
-
-55:                                               ; preds = %1
-  br label %71
-
-56:                                               ; preds = %1
-  br label %71
-
-57:                                               ; preds = %1
-  br label %71
-
-58:                                               ; preds = %1
-  br label %71
-
-59:                                               ; preds = %1, %1
-  br label %71
-
-60:                                               ; preds = %1
-  br label %71
-
-61:                                               ; preds = %1
-  br label %71
-
-62:                                               ; preds = %1
-  br label %71
-
-63:                                               ; preds = %1, %1
-  br label %71
-
-64:                                               ; preds = %1
-  br label %71
-
-65:                                               ; preds = %1
-  br label %71
-
-66:                                               ; preds = %1, %1
-  br label %71
-
-67:                                               ; preds = %1
-  br label %71
-
-68:                                               ; preds = %1
-  br label %71
-
-69:                                               ; preds = %1
-  br label %71
-
-70:                                               ; preds = %1
-  br label %71
-
-71:                                               ; preds = %1, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ -132, %70 ], [ -151, %69 ], [ -148, %68 ], [ -141, %67 ], [ -149, %66 ], [ -134, %65 ], [ -138, %64 ], [ -135, %63 ], [ -148, %62 ], [ -138, %61 ], [ -149, %60 ], [ -151, %59 ], [ -135, %58 ], [ -147, %57 ], [ -150, %56 ], [ -135, %55 ], [ -134, %54 ], [ -147, %53 ], [ -138, %52 ], [ -149, %51 ], [ -134, %50 ], [ -135, %49 ], [ -133, %48 ], [ -134, %47 ], [ -135, %46 ], [ -146, %45 ], [ -135, %44 ], [ -141, %43 ], [ -141, %42 ], [ -135, %41 ], [ -135, %40 ], [ -135, %39 ], [ -138, %38 ], [ -135, %37 ], [ -135, %36 ], [ -146, %35 ], [ -146, %34 ], [ -141, %33 ], [ -135, %32 ], [ -134, %31 ], [ -135, %30 ], [ -138, %29 ], [ -149, %28 ], [ -148, %27 ], [ -134, %26 ], [ -148, %25 ], [ -134, %24 ], [ -148, %23 ], [ -151, %22 ], [ -149, %21 ], [ -135, %20 ], [ -150, %19 ], [ -141, %18 ], [ -135, %17 ], [ -134, %16 ], [ -149, %15 ], [ -137, %14 ], [ -135, %13 ], [ -149, %12 ], [ -135, %11 ], [ -134, %10 ], [ -138, %9 ], [ -141, %8 ], [ -135, %7 ], [ -134, %6 ], [ %5, %1 ]
+30:                                               ; preds = %1, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
+  %.0 = phi i32 [ -132, %29 ], [ -149, %28 ], [ -135, %27 ], [ -151, %26 ], [ -147, %25 ], [ -134, %24 ], [ -133, %23 ], [ -135, %22 ], [ -135, %21 ], [ -146, %20 ], [ -148, %19 ], [ -134, %18 ], [ -148, %17 ], [ -151, %16 ], [ -150, %15 ], [ -134, %14 ], [ -137, %13 ], [ -149, %12 ], [ -135, %11 ], [ -134, %10 ], [ -138, %9 ], [ -141, %8 ], [ -135, %7 ], [ -134, %6 ], [ %5, %1 ]
   ret i32 %.0
 }
 
@@ -5013,7 +4890,7 @@ switch.lookup88:                                  ; preds = %switch.hole_check87
   %160 = getelementptr inbounds i8, ptr %0, i64 56
   %161 = getelementptr inbounds i8, ptr %0, i64 64
   %.in.i.i = getelementptr inbounds i8, ptr %0, i64 48
-  %.in124.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.in118.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %162 = getelementptr inbounds i8, ptr %4, i64 2
   %163 = getelementptr inbounds i8, ptr %4, i64 12
   %164 = getelementptr inbounds i8, ptr %0, i64 152
@@ -5126,7 +5003,7 @@ psa_key_derivation_start_hmac.exit.i.i:           ; preds = %178, %switch.lookup
 
 195:                                              ; preds = %190
   %196 = icmp eq i64 %192, 0
-  br i1 %196, label %psa_mac_update.exit.thread112.i.i, label %197
+  br i1 %196, label %psa_mac_update.exit.thread106.i.i, label %197
 
 197:                                              ; preds = %195
   %198 = call i32 @psa_driver_wrapper_mac_update(ptr noundef nonnull %6, ptr noundef %191, i64 noundef %192) #15
@@ -5143,22 +5020,22 @@ psa_key_derivation_start_hmac.exit.i.i:           ; preds = %178, %switch.lookup
   br label %psa_key_derivation_tls12_prf_generate_next_block.exit.i
 
 psa_mac_update.exit.i.i:                          ; preds = %197
-  br i1 %199, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %psa_mac_update.exit.thread112.i.i
+  br i1 %199, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %psa_mac_update.exit.thread106.i.i
 
-psa_mac_update.exit.thread112.i.i:                ; preds = %psa_mac_update.exit.i.i, %195
+psa_mac_update.exit.thread106.i.i:                ; preds = %psa_mac_update.exit.i.i, %195
   %203 = load i64, ptr %.in.i.i, align 8
   %204 = icmp eq i64 %203, 0
   br i1 %204, label %psa_mac_update.exit88.thread.i.i, label %206
 
-psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit.thread112.i.i
+psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit.thread106.i.i
   %205 = zext nneg i8 %175 to i64
-  br label %psa_mac_update.exit88.thread119.i.i
+  br label %psa_mac_update.exit88.thread113.i.i
 
-206:                                              ; preds = %psa_mac_update.exit.thread112.i.i
-  %207 = load ptr, ptr %.in124.i.i, align 8
+206:                                              ; preds = %psa_mac_update.exit.thread106.i.i
+  %207 = load ptr, ptr %.in118.i.i, align 8
   %208 = call i32 @psa_driver_wrapper_mac_update(ptr noundef nonnull %6, ptr noundef %207, i64 noundef %203) #15
   %.not.i86.i.i = icmp eq i32 %208, 0
-  %.pr118.pre125.i.i = load i32, ptr %6, align 8
+  %.pr112.pre119.i.i = load i32, ptr %6, align 8
   br i1 %.not.i86.i.i, label %.psa_mac_update.exit88.i_crit_edge.i, label %209
 
 .psa_mac_update.exit88.i_crit_edge.i:             ; preds = %206
@@ -5166,7 +5043,7 @@ psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit
   br label %psa_mac_update.exit88.i.i
 
 209:                                              ; preds = %206
-  %210 = icmp eq i32 %.pr118.pre125.i.i, 0
+  %210 = icmp eq i32 %.pr112.pre119.i.i, 0
   br i1 %210, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %211
 
 211:                                              ; preds = %209
@@ -5181,16 +5058,16 @@ psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit
 
 217:                                              ; preds = %213
   %218 = icmp eq i8 %175, 0
-  br i1 %218, label %psa_mac_update.exit88.thread119.i.i, label %219
+  br i1 %218, label %psa_mac_update.exit88.thread113.i.i, label %219
 
 219:                                              ; preds = %217
   %220 = call i32 @psa_driver_wrapper_mac_update(ptr noundef nonnull %6, ptr noundef nonnull %159, i64 noundef %214) #15
   %.not.i89.i.i = icmp eq i32 %220, 0
-  %.pr118.pre.i.i = load i32, ptr %6, align 8
+  %.pr112.pre.i.i = load i32, ptr %6, align 8
   br i1 %.not.i89.i.i, label %psa_mac_update.exit88.i.i, label %221
 
 221:                                              ; preds = %219
-  %222 = icmp eq i32 %.pr118.pre.i.i, 0
+  %222 = icmp eq i32 %.pr112.pre.i.i, 0
   br i1 %222, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %223
 
 223:                                              ; preds = %221
@@ -5199,18 +5076,18 @@ psa_mac_update.exit88.thread.i.i:                 ; preds = %psa_mac_update.exit
 
 psa_mac_update.exit88.i.i:                        ; preds = %219, %.psa_mac_update.exit88.i_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i40, %.psa_mac_update.exit88.i_crit_edge.i ], [ %214, %219 ]
-  %.pr118.i.i = phi i32 [ %.pr118.pre125.i.i, %.psa_mac_update.exit88.i_crit_edge.i ], [ %.pr118.pre.i.i, %219 ]
-  %225 = icmp eq i32 %.pr118.i.i, 0
-  br i1 %225, label %.thread.i.i.i, label %psa_mac_update.exit88.thread119.i.i
+  %.pr112.i.i = phi i32 [ %.pr112.pre119.i.i, %.psa_mac_update.exit88.i_crit_edge.i ], [ %.pr112.pre.i.i, %219 ]
+  %225 = icmp eq i32 %.pr112.i.i, 0
+  br i1 %225, label %.thread.i.i.i, label %psa_mac_update.exit88.thread113.i.i
 
-psa_mac_update.exit88.thread119.i.i:              ; preds = %psa_mac_update.exit88.i.i, %217, %psa_mac_update.exit88.thread.i.i
+psa_mac_update.exit88.thread113.i.i:              ; preds = %psa_mac_update.exit88.i.i, %217, %psa_mac_update.exit88.thread.i.i
   %226 = phi i64 [ %.pre-phi.i, %psa_mac_update.exit88.i.i ], [ 0, %217 ], [ %205, %psa_mac_update.exit88.thread.i.i ]
   %227 = load i8, ptr %.phi.trans.insert.i.i.i, align 1
   %228 = and i8 %227, 1
   %.not.i92.i.i = icmp eq i8 %228, 0
   br i1 %.not.i92.i.i, label %.thread.i.i.i, label %229
 
-229:                                              ; preds = %psa_mac_update.exit88.thread119.i.i
+229:                                              ; preds = %psa_mac_update.exit88.thread113.i.i
   %230 = load i8, ptr %157, align 4
   %231 = icmp eq i8 %230, 0
   br i1 %231, label %.thread.i.i.i, label %232
@@ -5230,9 +5107,9 @@ psa_mac_update.exit88.thread119.i.i:              ; preds = %psa_mac_update.exit
   %237 = zext i8 %.pre.i93.i.i to i64
   br label %239
 
-.thread.i.i.i:                                    ; preds = %235, %232, %229, %psa_mac_update.exit88.thread119.i.i, %psa_mac_update.exit88.i.i
-  %238 = phi i64 [ %226, %235 ], [ %226, %232 ], [ %226, %229 ], [ %226, %psa_mac_update.exit88.thread119.i.i ], [ %.pre-phi.i, %psa_mac_update.exit88.i.i ]
-  %.028.i.i.i = phi i32 [ %236, %235 ], [ -138, %232 ], [ -137, %229 ], [ -137, %psa_mac_update.exit88.thread119.i.i ], [ -137, %psa_mac_update.exit88.i.i ]
+.thread.i.i.i:                                    ; preds = %235, %232, %229, %psa_mac_update.exit88.thread113.i.i, %psa_mac_update.exit88.i.i
+  %238 = phi i64 [ %226, %235 ], [ %226, %232 ], [ %226, %229 ], [ %226, %psa_mac_update.exit88.thread113.i.i ], [ %.pre-phi.i, %psa_mac_update.exit88.i.i ]
+  %.028.i.i.i = phi i32 [ %236, %235 ], [ -138, %232 ], [ -137, %229 ], [ -137, %psa_mac_update.exit88.thread113.i.i ], [ -137, %psa_mac_update.exit88.i.i ]
   store i64 %238, ptr %7, align 8
   store i8 0, ptr %157, align 4
   br label %239
@@ -5292,13 +5169,13 @@ psa_mac_sign_finish.exit.i.i:                     ; preds = %249, %246
   %.not139 = xor i1 %169, true
   %switch.lobit118.not = xor i1 %switch.lobit118, true
   %brmerge140 = select i1 %.not139, i1 true, i1 %switch.lobit118.not
-  br i1 %brmerge140, label %psa_key_derivation_start_hmac.exit108.i.i, label %switch.lookup115
+  br i1 %brmerge140, label %psa_key_derivation_start_hmac.exit102.i.i, label %switch.lookup115
 
 switch.lookup115:                                 ; preds = %255
   %switch.load120 = load i8, ptr %switch.gep119, align 1
-  br label %psa_key_derivation_start_hmac.exit108.i.i
+  br label %psa_key_derivation_start_hmac.exit102.i.i
 
-psa_key_derivation_start_hmac.exit108.i.i:        ; preds = %255, %switch.lookup115
+psa_key_derivation_start_hmac.exit102.i.i:        ; preds = %255, %switch.lookup115
   %262 = phi i8 [ %switch.load120, %switch.lookup115 ], [ %151, %255 ]
   store i8 %262, ptr %157, align 4
   %263 = call i32 @psa_driver_wrapper_mac_sign_setup(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %256, i64 noundef %257, i32 noundef %158) #15
@@ -5307,7 +5184,7 @@ psa_key_derivation_start_hmac.exit108.i.i:        ; preds = %255, %switch.lookup
   %.not72.i.i = icmp eq i32 %263, 0
   br i1 %.not72.i.i, label %264, label %psa_mac_update.exit.thread.i.i
 
-264:                                              ; preds = %psa_key_derivation_start_hmac.exit108.i.i
+264:                                              ; preds = %psa_key_derivation_start_hmac.exit102.i.i
   %265 = load i32, ptr %6, align 8
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %267
@@ -5355,7 +5232,7 @@ psa_mac_update.exit60.thread63.i:                 ; preds = %psa_mac_update.exit
   br label %psa_key_derivation_tls12_prf_generate_next_block.exit.i
 
 psa_mac_update.exit.i39:                          ; preds = %277, %psa_mac_update.exit60.thread63.i
-  %285 = load ptr, ptr %.in124.i.i, align 8
+  %285 = load ptr, ptr %.in118.i.i, align 8
   %286 = load i64, ptr %.in.i.i, align 8
   %287 = call i32 @psa_mac_update(ptr noundef nonnull %6, ptr noundef %285, i64 noundef %286)
   %.not75.i.i = icmp eq i32 %287, 0
@@ -5365,10 +5242,10 @@ psa_mac_update.exit.i39:                          ; preds = %277, %psa_mac_updat
   %289 = call i32 @psa_mac_sign_finish(ptr noundef nonnull %6, ptr noundef nonnull %164, i64 noundef %240, ptr noundef nonnull %7)
   br label %psa_mac_update.exit.thread.i.i
 
-psa_mac_update.exit.thread.i.i:                   ; preds = %288, %psa_mac_update.exit.i39, %psa_key_derivation_start_hmac.exit108.i.i, %psa_mac_sign_finish.exit.i.i, %psa_key_derivation_start_hmac.exit.i.i
-  %.056.ph.ph.i.ph.ph.i = phi i32 [ %186, %psa_key_derivation_start_hmac.exit.i.i ], [ %spec.store.select.i.i, %psa_mac_sign_finish.exit.i.i ], [ %263, %psa_key_derivation_start_hmac.exit108.i.i ], [ %287, %psa_mac_update.exit.i39 ], [ %289, %288 ]
-  %.pr120.pr.i.pr.pr.i = load i32, ptr %6, align 8
-  %290 = icmp eq i32 %.pr120.pr.i.pr.pr.i, 0
+psa_mac_update.exit.thread.i.i:                   ; preds = %288, %psa_mac_update.exit.i39, %psa_key_derivation_start_hmac.exit102.i.i, %psa_mac_sign_finish.exit.i.i, %psa_key_derivation_start_hmac.exit.i.i
+  %.056.ph.ph.i.ph.ph.i = phi i32 [ %186, %psa_key_derivation_start_hmac.exit.i.i ], [ %spec.store.select.i.i, %psa_mac_sign_finish.exit.i.i ], [ %263, %psa_key_derivation_start_hmac.exit102.i.i ], [ %287, %psa_mac_update.exit.i39 ], [ %289, %288 ]
+  %.pr114.pr.i.pr.pr.i = load i32, ptr %6, align 8
+  %290 = icmp eq i32 %.pr114.pr.i.pr.pr.i, 0
   br i1 %290, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i, label %291
 
 291:                                              ; preds = %psa_mac_update.exit.thread.i.i
@@ -5376,12 +5253,12 @@ psa_mac_update.exit.thread.i.i:                   ; preds = %288, %psa_mac_updat
   br label %psa_key_derivation_tls12_prf_generate_next_block.exit.i
 
 psa_key_derivation_tls12_prf_generate_next_block.exit.i: ; preds = %291, %psa_mac_update.exit.thread.i.i, %283, %280, %psa_mac_update.exit60.i, %273, %272, %264, %223, %221, %213, %211, %209, %psa_mac_update.exit.i.i, %201, %200, %190
-  %.056123.i.i = phi i32 [ %.056.ph.ph.i.ph.ph.i, %291 ], [ %.056.ph.ph.i.ph.ph.i, %psa_mac_update.exit.thread.i.i ], [ -137, %213 ], [ %220, %221 ], [ %220, %223 ], [ %208, %209 ], [ %208, %211 ], [ -137, %190 ], [ %198, %200 ], [ %198, %201 ], [ -137, %psa_mac_update.exit.i.i ], [ %279, %280 ], [ %279, %283 ], [ -137, %264 ], [ %270, %272 ], [ %270, %273 ], [ -137, %psa_mac_update.exit60.i ]
-  %.0.i109.i.i = phi i32 [ %292, %291 ], [ 0, %psa_mac_update.exit.thread.i.i ], [ 0, %213 ], [ 0, %221 ], [ 0, %223 ], [ 0, %209 ], [ 0, %211 ], [ 0, %190 ], [ 0, %200 ], [ 0, %201 ], [ 0, %psa_mac_update.exit.i.i ], [ 0, %280 ], [ 0, %283 ], [ 0, %264 ], [ 0, %272 ], [ 0, %273 ], [ 0, %psa_mac_update.exit60.i ]
-  %293 = icmp eq i32 %.056123.i.i, 0
-  %294 = icmp ne i32 %.0.i109.i.i, 0
+  %.056117.i.i = phi i32 [ %.056.ph.ph.i.ph.ph.i, %291 ], [ %.056.ph.ph.i.ph.ph.i, %psa_mac_update.exit.thread.i.i ], [ -137, %213 ], [ %220, %221 ], [ %220, %223 ], [ %208, %209 ], [ %208, %211 ], [ -137, %190 ], [ %198, %200 ], [ %198, %201 ], [ -137, %psa_mac_update.exit.i.i ], [ %279, %280 ], [ %279, %283 ], [ -137, %264 ], [ %270, %272 ], [ %270, %273 ], [ -137, %psa_mac_update.exit60.i ]
+  %.0.i103.i.i = phi i32 [ %292, %291 ], [ 0, %psa_mac_update.exit.thread.i.i ], [ 0, %213 ], [ 0, %221 ], [ 0, %223 ], [ 0, %209 ], [ 0, %211 ], [ 0, %190 ], [ 0, %200 ], [ 0, %201 ], [ 0, %psa_mac_update.exit.i.i ], [ 0, %280 ], [ 0, %283 ], [ 0, %264 ], [ 0, %272 ], [ 0, %273 ], [ 0, %psa_mac_update.exit60.i ]
+  %293 = icmp eq i32 %.056117.i.i, 0
+  %294 = icmp ne i32 %.0.i103.i.i, 0
   %or.cond.i.i = select i1 %293, i1 %294, i1 false
-  %spec.select.i.i = select i1 %or.cond.i.i, i32 %.0.i109.i.i, i32 %.056123.i.i
+  %spec.select.i.i = select i1 %or.cond.i.i, i32 %.0.i103.i.i, i32 %.056117.i.i
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not43.i = icmp eq i32 %spec.select.i.i, 0
@@ -6144,8 +6021,8 @@ psa_key_derivation_start_hmac.exit.i:             ; preds = %switch.lookup, %36
   br i1 %.not101.i, label %54, label %psa_hkdf_input.exit
 
 54:                                               ; preds = %53
-  %trunc153.i = trunc i32 %.0.i to i8
-  %switch.tableidx45 = add i8 %trunc153.i, -3
+  %trunc147.i = trunc i32 %.0.i to i8
+  %switch.tableidx45 = add i8 %trunc147.i, -3
   %55 = icmp ult i8 %switch.tableidx45, 16
   br i1 %55, label %switch.hole_check46, label %56
 
@@ -6205,7 +6082,7 @@ switch.lookup47:                                  ; preds = %switch.hole_check46
 73:                                               ; preds = %switch.hole_check55, %68
   %74 = icmp eq i32 %20, 19
   %75 = select i1 %74, i8 64, i8 0
-  br label %psa_key_derivation_start_hmac.exit150.i
+  br label %psa_key_derivation_start_hmac.exit144.i
 
 switch.hole_check55:                              ; preds = %68
   %switch.maskindex57 = trunc nuw nsw i32 %switch.tableidx54 to i16
@@ -6217,9 +6094,9 @@ switch.lookup56:                                  ; preds = %switch.hole_check55
   %76 = zext nneg i32 %switch.tableidx54 to i64
   %switch.gep60 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %76
   %switch.load61 = load i8, ptr %switch.gep60, align 1
-  br label %psa_key_derivation_start_hmac.exit150.i
+  br label %psa_key_derivation_start_hmac.exit144.i
 
-psa_key_derivation_start_hmac.exit150.i:          ; preds = %switch.lookup56, %73
+psa_key_derivation_start_hmac.exit144.i:          ; preds = %switch.lookup56, %73
   %77 = phi i8 [ %75, %73 ], [ %switch.load61, %switch.lookup56 ]
   %78 = getelementptr inbounds i8, ptr %0, i64 172
   store i8 %77, ptr %78, align 4
@@ -6230,7 +6107,7 @@ psa_key_derivation_start_hmac.exit150.i:          ; preds = %switch.lookup56, %7
   %.not97.i = icmp eq i32 %80, 0
   br i1 %.not97.i, label %81, label %psa_hkdf_input.exit
 
-81:                                               ; preds = %psa_key_derivation_start_hmac.exit150.i
+81:                                               ; preds = %psa_key_derivation_start_hmac.exit144.i
   %82 = load i8, ptr %50, align 2
   %83 = and i8 %82, -4
   %84 = or disjoint i8 %83, 1
@@ -6288,10 +6165,10 @@ psa_mac_update.exit.i:                            ; preds = %94, %92
   %111 = getelementptr inbounds i8, ptr %0, i64 33
   store i8 0, ptr %111, align 1
   %112 = icmp eq i32 %15, 134218752
-  br i1 %112, label %113, label %._crit_edge156.i
+  br i1 %112, label %113, label %._crit_edge150.i
 
-._crit_edge156.i:                                 ; preds = %107
-  %.pre157.i = trunc i32 %.0.i to i8
+._crit_edge150.i:                                 ; preds = %107
+  %.pre151.i = trunc i32 %.0.i to i8
   br label %123
 
 113:                                              ; preds = %107
@@ -6325,9 +6202,9 @@ switch.lookup65:                                  ; preds = %switch.hole_check64
   store i8 0, ptr %122, align 8
   br label %psa_hkdf_input.exit
 
-123:                                              ; preds = %._crit_edge156.i, %.thread.i
-  %trunc154.pre-phi.i = phi i8 [ %.pre157.i, %._crit_edge156.i ], [ %trunc153.i, %.thread.i ]
-  %switch.tableidx72 = add i8 %trunc154.pre-phi.i, -3
+123:                                              ; preds = %._crit_edge150.i, %.thread.i
+  %trunc148.pre-phi.i = phi i8 [ %.pre151.i, %._crit_edge150.i ], [ %trunc147.i, %.thread.i ]
+  %switch.tableidx72 = add i8 %trunc148.pre-phi.i, -3
   %124 = icmp ult i8 %switch.tableidx72, 16
   br i1 %124, label %switch.hole_check73, label %125
 
@@ -6363,7 +6240,7 @@ switch.lookup74:                                  ; preds = %switch.hole_check73
 ._crit_edge.i:                                    ; preds = %132
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 34
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2
-  %.pre155.i = and i8 %.pre.i, 3
+  %.pre149.i = and i8 %.pre.i, 3
   br label %138
 
 133:                                              ; preds = %132
@@ -6374,7 +6251,7 @@ switch.lookup74:                                  ; preds = %switch.hole_check73
   br i1 %137, label %psa_hkdf_input.exit, label %138
 
 138:                                              ; preds = %133, %._crit_edge.i
-  %.pre-phi.i = phi i8 [ %.pre155.i, %._crit_edge.i ], [ %136, %133 ]
+  %.pre-phi.i = phi i8 [ %.pre149.i, %._crit_edge.i ], [ %136, %133 ]
   %139 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %135, %133 ]
   %140 = getelementptr inbounds i8, ptr %0, i64 34
   %141 = icmp ne i8 %.pre-phi.i, 3
@@ -6404,8 +6281,8 @@ switch.lookup74:                                  ; preds = %switch.hole_check73
   store i8 %150, ptr %140, align 2
   br label %psa_hkdf_input.exit
 
-psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_key_derivation_start_hmac.exit.i, %44, %53, %60, %66, %psa_key_derivation_start_hmac.exit150.i, %85, %88, %96, %99, %psa_mac_update.exit.i, %120, %129, %132, %133, %138, %145, %149
-  %.0.i30 = phi i32 [ 0, %149 ], [ 0, %44 ], [ -135, %21 ], [ -137, %23 ], [ %43, %psa_key_derivation_start_hmac.exit.i ], [ -137, %53 ], [ -135, %60 ], [ -137, %66 ], [ %80, %psa_key_derivation_start_hmac.exit150.i ], [ -137, %85 ], [ %106, %psa_mac_update.exit.i ], [ 0, %129 ], [ 0, %120 ], [ -135, %132 ], [ -137, %133 ], [ -137, %138 ], [ -141, %145 ], [ -135, %18 ], [ %95, %99 ], [ %95, %96 ], [ -137, %88 ]
+psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_key_derivation_start_hmac.exit.i, %44, %53, %60, %66, %psa_key_derivation_start_hmac.exit144.i, %85, %88, %96, %99, %psa_mac_update.exit.i, %120, %129, %132, %133, %138, %145, %149
+  %.0.i30 = phi i32 [ 0, %149 ], [ 0, %44 ], [ -135, %21 ], [ -137, %23 ], [ %43, %psa_key_derivation_start_hmac.exit.i ], [ -137, %53 ], [ -135, %60 ], [ -137, %66 ], [ %80, %psa_key_derivation_start_hmac.exit144.i ], [ -137, %85 ], [ %106, %psa_mac_update.exit.i ], [ 0, %129 ], [ 0, %120 ], [ -135, %132 ], [ -137, %133 ], [ -137, %138 ], [ -141, %145 ], [ -135, %18 ], [ %95, %99 ], [ %95, %96 ], [ -137, %88 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %psa_tls12_prf_psk_to_ms_input.exit
 
@@ -7629,16 +7506,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   switch i32 %71, label %72 [
     i32 33554435, label %84
     i32 33554436, label %.fold.split120
-    i32 33554437, label %.fold.split121
+    i32 33554437, label %.fold.split120
     i32 33554440, label %.fold.split122
     i32 33554441, label %.fold.split123
     i32 33554442, label %.fold.split124
     i32 33554443, label %.fold.split125
-    i32 33554444, label %.fold.split126
-    i32 33554445, label %.fold.split127
-    i32 33554448, label %.fold.split128
-    i32 33554449, label %.fold.split129
-    i32 33554450, label %.fold.split130
+    i32 33554444, label %.fold.split122
+    i32 33554445, label %.fold.split123
+    i32 33554448, label %.fold.split122
+    i32 33554449, label %.fold.split123
+    i32 33554450, label %.fold.split124
   ]
 
 72:                                               ; preds = %.thread
@@ -7657,42 +7534,24 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %83 = select i1 %79, i32 %82, i32 0
   br label %84
 
-.fold.split120:                                   ; preds = %.thread
+.fold.split120:                                   ; preds = %.thread, %.thread
   br label %84
 
-.fold.split121:                                   ; preds = %.thread
+.fold.split122:                                   ; preds = %.thread, %.thread, %.thread
   br label %84
 
-.fold.split122:                                   ; preds = %.thread
+.fold.split123:                                   ; preds = %.thread, %.thread, %.thread
   br label %84
 
-.fold.split123:                                   ; preds = %.thread
-  br label %84
-
-.fold.split124:                                   ; preds = %.thread
+.fold.split124:                                   ; preds = %.thread, %.thread
   br label %84
 
 .fold.split125:                                   ; preds = %.thread
   br label %84
 
-.fold.split126:                                   ; preds = %.thread
-  br label %84
-
-.fold.split127:                                   ; preds = %.thread
-  br label %84
-
-.fold.split128:                                   ; preds = %.thread
-  br label %84
-
-.fold.split129:                                   ; preds = %.thread
-  br label %84
-
-.fold.split130:                                   ; preds = %.thread
-  br label %84
-
-84:                                               ; preds = %67, %.thread, %.fold.split130, %.fold.split129, %.fold.split128, %.fold.split127, %.fold.split126, %.fold.split125, %.fold.split124, %.fold.split123, %.fold.split122, %.fold.split121, %.fold.split120, %72, %75
-  %85 = phi i32 [ %70, %.thread ], [ %70, %72 ], [ %76, %75 ], [ %70, %.fold.split120 ], [ %70, %.fold.split121 ], [ %70, %.fold.split122 ], [ %70, %.fold.split123 ], [ %70, %.fold.split124 ], [ %70, %.fold.split125 ], [ %70, %.fold.split126 ], [ %70, %.fold.split127 ], [ %70, %.fold.split128 ], [ %70, %.fold.split129 ], [ %70, %.fold.split130 ], [ %68, %67 ]
-  %86 = phi i32 [ 16, %.thread ], [ %74, %72 ], [ %83, %75 ], [ 20, %.fold.split120 ], [ 20, %.fold.split121 ], [ 28, %.fold.split122 ], [ 32, %.fold.split123 ], [ 48, %.fold.split124 ], [ 64, %.fold.split125 ], [ 28, %.fold.split126 ], [ 32, %.fold.split127 ], [ 28, %.fold.split128 ], [ 32, %.fold.split129 ], [ 48, %.fold.split130 ], [ 0, %67 ]
+84:                                               ; preds = %67, %.thread, %.fold.split125, %.fold.split124, %.fold.split123, %.fold.split122, %.fold.split120, %72, %75
+  %85 = phi i32 [ %70, %.thread ], [ %70, %72 ], [ %76, %75 ], [ %70, %.fold.split120 ], [ %70, %.fold.split122 ], [ %70, %.fold.split123 ], [ %70, %.fold.split124 ], [ %70, %.fold.split125 ], [ %68, %67 ]
+  %86 = phi i32 [ 16, %.thread ], [ %74, %72 ], [ %83, %75 ], [ 20, %.fold.split120 ], [ 28, %.fold.split122 ], [ 32, %.fold.split123 ], [ 48, %.fold.split124 ], [ 64, %.fold.split125 ], [ 0, %67 ]
   %87 = lshr i32 %1, 16
   %88 = and i32 %87, 63
   %89 = icmp eq i32 %88, 0
@@ -8112,16 +7971,16 @@ define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_vali
   switch i32 %21, label %.thread5 [
     i32 33554435, label %.thread
     i32 33554436, label %.fold.split
-    i32 33554437, label %.fold.split57
+    i32 33554437, label %.fold.split
     i32 33554440, label %.fold.split58
     i32 33554441, label %.fold.split59
     i32 33554442, label %.fold.split60
     i32 33554443, label %.fold.split61
-    i32 33554444, label %.fold.split62
-    i32 33554445, label %.fold.split63
-    i32 33554448, label %.fold.split64
-    i32 33554449, label %.fold.split65
-    i32 33554450, label %.fold.split66
+    i32 33554444, label %.fold.split58
+    i32 33554445, label %.fold.split59
+    i32 33554448, label %.fold.split58
+    i32 33554449, label %.fold.split59
+    i32 33554450, label %.fold.split60
     i32 33554451, label %.thread10.sink.split
   ]
 
@@ -8134,41 +7993,23 @@ define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_vali
   %28 = shl nuw nsw i32 1, %27
   br i1 %25, label %select.unfold4, label %.thread5
 
-.fold.split:                                      ; preds = %20
+.fold.split:                                      ; preds = %20, %20
   br label %.thread
 
-.fold.split57:                                    ; preds = %20
+.fold.split58:                                    ; preds = %20, %20, %20
   br label %.thread
 
-.fold.split58:                                    ; preds = %20
+.fold.split59:                                    ; preds = %20, %20, %20
   br label %.thread
 
-.fold.split59:                                    ; preds = %20
-  br label %.thread
-
-.fold.split60:                                    ; preds = %20
+.fold.split60:                                    ; preds = %20, %20
   br label %.thread
 
 .fold.split61:                                    ; preds = %20
   br label %.thread
 
-.fold.split62:                                    ; preds = %20
-  br label %.thread
-
-.fold.split63:                                    ; preds = %20
-  br label %.thread
-
-.fold.split64:                                    ; preds = %20
-  br label %.thread
-
-.fold.split65:                                    ; preds = %20
-  br label %.thread
-
-.fold.split66:                                    ; preds = %20
-  br label %.thread
-
-.thread:                                          ; preds = %20, %.fold.split, %.fold.split57, %.fold.split58, %.fold.split59, %.fold.split60, %.fold.split61, %.fold.split62, %.fold.split63, %.fold.split64, %.fold.split65, %.fold.split66
-  %.ph = phi i32 [ 48, %.fold.split66 ], [ 32, %.fold.split65 ], [ 28, %.fold.split64 ], [ 32, %.fold.split63 ], [ 28, %.fold.split62 ], [ 64, %.fold.split61 ], [ 48, %.fold.split60 ], [ 32, %.fold.split59 ], [ 28, %.fold.split58 ], [ 20, %.fold.split57 ], [ 20, %.fold.split ], [ 16, %20 ]
+.thread:                                          ; preds = %20, %.fold.split, %.fold.split58, %.fold.split59, %.fold.split60, %.fold.split61
+  %.ph = phi i32 [ 64, %.fold.split61 ], [ 48, %.fold.split60 ], [ 32, %.fold.split59 ], [ 28, %.fold.split58 ], [ 20, %.fold.split ], [ 16, %20 ]
   %29 = trunc nuw nsw i32 %.ph to i8
   br label %.thread10.sink.split
 
@@ -8202,16 +8043,16 @@ select.unfold4:                                   ; preds = %22, %17
   switch i32 %36, label %37 [
     i32 33554435, label %48
     i32 33554436, label %.fold.split67
-    i32 33554437, label %.fold.split68
+    i32 33554437, label %.fold.split67
     i32 33554440, label %.fold.split69
     i32 33554441, label %.fold.split70
     i32 33554442, label %.fold.split71
     i32 33554443, label %.fold.split72
-    i32 33554444, label %.fold.split73
-    i32 33554445, label %.fold.split74
-    i32 33554448, label %.fold.split75
-    i32 33554449, label %.fold.split76
-    i32 33554450, label %.fold.split77
+    i32 33554444, label %.fold.split69
+    i32 33554445, label %.fold.split70
+    i32 33554448, label %.fold.split69
+    i32 33554449, label %.fold.split70
+    i32 33554450, label %.fold.split71
   ]
 
 37:                                               ; preds = %.thread10
@@ -8229,43 +8070,25 @@ select.unfold4:                                   ; preds = %22, %17
   %47 = select i1 %43, i32 %46, i32 0
   br label %48
 
-.fold.split67:                                    ; preds = %.thread10
+.fold.split67:                                    ; preds = %.thread10, %.thread10
   br label %48
 
-.fold.split68:                                    ; preds = %.thread10
+.fold.split69:                                    ; preds = %.thread10, %.thread10, %.thread10
   br label %48
 
-.fold.split69:                                    ; preds = %.thread10
+.fold.split70:                                    ; preds = %.thread10, %.thread10, %.thread10
   br label %48
 
-.fold.split70:                                    ; preds = %.thread10
-  br label %48
-
-.fold.split71:                                    ; preds = %.thread10
+.fold.split71:                                    ; preds = %.thread10, %.thread10
   br label %48
 
 .fold.split72:                                    ; preds = %.thread10
   br label %48
 
-.fold.split73:                                    ; preds = %.thread10
-  br label %48
-
-.fold.split74:                                    ; preds = %.thread10
-  br label %48
-
-.fold.split75:                                    ; preds = %.thread10
-  br label %48
-
-.fold.split76:                                    ; preds = %.thread10
-  br label %48
-
-.fold.split77:                                    ; preds = %.thread10
-  br label %48
-
-48:                                               ; preds = %.thread10, %.fold.split77, %.fold.split76, %.fold.split75, %.fold.split74, %.fold.split73, %.fold.split72, %.fold.split71, %.fold.split70, %.fold.split69, %.fold.split68, %.fold.split67, %37, %40
-  %49 = phi i8 [ %34, %.thread10 ], [ %34, %37 ], [ %31, %40 ], [ %34, %.fold.split67 ], [ %34, %.fold.split68 ], [ %34, %.fold.split69 ], [ %34, %.fold.split70 ], [ %34, %.fold.split71 ], [ %34, %.fold.split72 ], [ %34, %.fold.split73 ], [ %34, %.fold.split74 ], [ %34, %.fold.split75 ], [ %34, %.fold.split76 ], [ %34, %.fold.split77 ]
-  %50 = phi i32 [ %35, %.thread10 ], [ %35, %37 ], [ %30, %40 ], [ %35, %.fold.split67 ], [ %35, %.fold.split68 ], [ %35, %.fold.split69 ], [ %35, %.fold.split70 ], [ %35, %.fold.split71 ], [ %35, %.fold.split72 ], [ %35, %.fold.split73 ], [ %35, %.fold.split74 ], [ %35, %.fold.split75 ], [ %35, %.fold.split76 ], [ %35, %.fold.split77 ]
-  %51 = phi i32 [ 16, %.thread10 ], [ %39, %37 ], [ %47, %40 ], [ 20, %.fold.split67 ], [ 20, %.fold.split68 ], [ 28, %.fold.split69 ], [ 32, %.fold.split70 ], [ 48, %.fold.split71 ], [ 64, %.fold.split72 ], [ 28, %.fold.split73 ], [ 32, %.fold.split74 ], [ 28, %.fold.split75 ], [ 32, %.fold.split76 ], [ 48, %.fold.split77 ]
+48:                                               ; preds = %.thread10, %.fold.split72, %.fold.split71, %.fold.split70, %.fold.split69, %.fold.split67, %37, %40
+  %49 = phi i8 [ %34, %.thread10 ], [ %34, %37 ], [ %31, %40 ], [ %34, %.fold.split67 ], [ %34, %.fold.split69 ], [ %34, %.fold.split70 ], [ %34, %.fold.split71 ], [ %34, %.fold.split72 ]
+  %50 = phi i32 [ %35, %.thread10 ], [ %35, %37 ], [ %30, %40 ], [ %35, %.fold.split67 ], [ %35, %.fold.split69 ], [ %35, %.fold.split70 ], [ %35, %.fold.split71 ], [ %35, %.fold.split72 ]
+  %51 = phi i32 [ 16, %.thread10 ], [ %39, %37 ], [ %47, %40 ], [ 20, %.fold.split67 ], [ 28, %.fold.split69 ], [ 32, %.fold.split70 ], [ 48, %.fold.split71 ], [ 64, %.fold.split72 ]
   %52 = icmp samesign ugt i32 %50, %51
   br i1 %52, label %psa_mac_key_can_do.exit, label %53
 

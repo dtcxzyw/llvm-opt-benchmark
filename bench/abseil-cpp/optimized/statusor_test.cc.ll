@@ -60603,9 +60603,9 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %switch.lookup, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
-  %retval.sroa.6.0.i = phi ptr [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.0.0.i = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load20, %switch.lookup ]
+_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i, %switch.lookup
+  %retval.sroa.6.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %switch.load20, %switch.lookup ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %retval.sroa.6.0.i, i64 noundef %retval.sroa.0.0.i)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoRKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(8) %status_or)
   %10 = load atomic i8, ptr @_ZGVZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces acquire, align 8
@@ -60639,9 +60639,9 @@ switch.lookup21:                                  ; preds = %_ZN4absl17internal_
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %switch.lookup21, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
-  %retval.sroa.6.0.i8 = phi ptr [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load24, %switch.lookup21 ]
-  %retval.sroa.0.0.i9 = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load26, %switch.lookup21 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6, %switch.lookup21
+  %retval.sroa.6.0.i8 = phi ptr [ %switch.load24, %switch.lookup21 ], [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
+  %retval.sroa.0.0.i9 = phi i64 [ %switch.load26, %switch.lookup21 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
   %call2.i18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %retval.sroa.6.0.i8, i64 noundef %retval.sroa.0.0.i9)
   br label %if.end
 
@@ -68154,9 +68154,9 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %switch.lookup, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
-  %retval.sroa.6.0.i = phi ptr [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.0.0.i = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load20, %switch.lookup ]
+_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i, %switch.lookup
+  %retval.sroa.6.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %switch.load20, %switch.lookup ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %retval.sroa.6.0.i, i64 noundef %retval.sroa.0.0.i)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoRKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(8) %status_or)
   %10 = load atomic i8, ptr @_ZGVZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces acquire, align 8
@@ -68190,9 +68190,9 @@ switch.lookup21:                                  ; preds = %_ZN4absl17internal_
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %switch.lookup21, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
-  %retval.sroa.6.0.i8 = phi ptr [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load24, %switch.lookup21 ]
-  %retval.sroa.0.0.i9 = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load26, %switch.lookup21 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6, %switch.lookup21
+  %retval.sroa.6.0.i8 = phi ptr [ %switch.load24, %switch.lookup21 ], [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
+  %retval.sroa.0.0.i9 = phi i64 [ %switch.load26, %switch.lookup21 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
   %call2.i18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %retval.sroa.6.0.i8, i64 noundef %retval.sroa.0.0.i9)
   br label %if.end
 
@@ -69095,9 +69095,9 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %switch.lookup, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
-  %retval.sroa.6.0.i = phi ptr [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.0.0.i = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load20, %switch.lookup ]
+_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i, %switch.lookup
+  %retval.sroa.6.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %switch.load20, %switch.lookup ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %retval.sroa.6.0.i, i64 noundef %retval.sroa.0.0.i)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoRKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(8) %status_or)
   %9 = load atomic i8, ptr @_ZGVZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces acquire, align 8
@@ -69131,9 +69131,9 @@ switch.lookup21:                                  ; preds = %_ZN4absl17internal_
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %switch.lookup21, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
-  %retval.sroa.6.0.i8 = phi ptr [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load24, %switch.lookup21 ]
-  %retval.sroa.0.0.i9 = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load26, %switch.lookup21 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6, %switch.lookup21
+  %retval.sroa.6.0.i8 = phi ptr [ %switch.load24, %switch.lookup21 ], [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
+  %retval.sroa.0.0.i9 = phi i64 [ %switch.load26, %switch.lookup21 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
   %call2.i18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %retval.sroa.6.0.i8, i64 noundef %retval.sroa.0.0.i9)
   br label %if.end
 
@@ -70075,9 +70075,9 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %switch.lookup, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
-  %retval.sroa.6.0.i = phi ptr [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.0.0.i = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load20, %switch.lookup ]
+_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i, %switch.lookup
+  %retval.sroa.6.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %switch.load20, %switch.lookup ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %retval.sroa.6.0.i, i64 noundef %retval.sroa.0.0.i)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoRKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(8) %status_or)
   %9 = load atomic i8, ptr @_ZGVZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces acquire, align 8
@@ -70111,9 +70111,9 @@ switch.lookup21:                                  ; preds = %_ZN4absl17internal_
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %switch.lookup21, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
-  %retval.sroa.6.0.i8 = phi ptr [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load24, %switch.lookup21 ]
-  %retval.sroa.0.0.i9 = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load26, %switch.lookup21 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6, %switch.lookup21
+  %retval.sroa.6.0.i8 = phi ptr [ %switch.load24, %switch.lookup21 ], [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
+  %retval.sroa.0.0.i9 = phi i64 [ %switch.load26, %switch.lookup21 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
   %call2.i18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %retval.sroa.6.0.i8, i64 noundef %retval.sroa.0.0.i9)
   br label %if.end
 
@@ -71760,9 +71760,9 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %switch.lookup, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
-  %retval.sroa.6.0.i = phi ptr [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.0.0.i = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load20, %switch.lookup ]
+_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i, %switch.lookup
+  %retval.sroa.6.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %switch.load20, %switch.lookup ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %retval.sroa.6.0.i, i64 noundef %retval.sroa.0.0.i)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoRKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(8) %status_or)
   %10 = load atomic i8, ptr @_ZGVZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces acquire, align 8
@@ -71796,9 +71796,9 @@ switch.lookup21:                                  ; preds = %_ZN4absl17internal_
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %switch.lookup21, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
-  %retval.sroa.6.0.i8 = phi ptr [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load24, %switch.lookup21 ]
-  %retval.sroa.0.0.i9 = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load26, %switch.lookup21 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6, %switch.lookup21
+  %retval.sroa.6.0.i8 = phi ptr [ %switch.load24, %switch.lookup21 ], [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
+  %retval.sroa.0.0.i9 = phi i64 [ %switch.load26, %switch.lookup21 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
   %call2.i18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %retval.sroa.6.0.i8, i64 noundef %retval.sroa.0.0.i9)
   br label %if.end
 
@@ -123859,9 +123859,9 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %switch.lookup, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
-  %retval.sroa.6.0.i = phi ptr [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.0.0.i = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ], [ %switch.load20, %switch.lookup ]
+_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i, %switch.lookup
+  %retval.sroa.6.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %switch.load20, %switch.lookup ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i ]
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %retval.sroa.6.0.i, i64 noundef %retval.sroa.0.0.i)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoRKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(8) %status_or)
   %7 = load atomic i8, ptr @_ZGVZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces acquire, align 8
@@ -123895,9 +123895,9 @@ switch.lookup21:                                  ; preds = %_ZN4absl17internal_
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %switch.lookup21, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6
-  %retval.sroa.6.0.i8 = phi ptr [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load24, %switch.lookup21 ]
-  %retval.sroa.0.0.i9 = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ], [ %switch.load26, %switch.lookup21 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6, %switch.lookup21
+  %retval.sroa.6.0.i8 = phi ptr [ %switch.load24, %switch.lookup21 ], [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
+  %retval.sroa.0.0.i9 = phi i64 [ %switch.load26, %switch.lookup21 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i6 ]
   %call2.i18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %retval.sroa.6.0.i8, i64 noundef %retval.sroa.0.0.i9)
   br label %if.end
 
@@ -123960,9 +123960,9 @@ switch.lookup:                                    ; preds = %_ZN4absl17internal_
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit.i.i
 
-_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit.i.i: ; preds = %switch.lookup, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i
-  %retval.sroa.6.0.i.i.i = phi ptr [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.0.0.i.i.i = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i ], [ %switch.load2, %switch.lookup ]
+_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit.i.i: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i, %switch.lookup
+  %retval.sroa.6.0.i.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.316, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i ]
+  %retval.sroa.0.0.i.i.i = phi i64 [ %switch.load2, %switch.lookup ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i ]
   store i64 %retval.sroa.0.0.i.i.i, ptr %ref.tmp5.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %ref.tmp5.i.i, i64 8
   store ptr %retval.sroa.6.0.i.i.i, ptr %8, align 8
@@ -123997,9 +123997,9 @@ switch.lookup3:                                   ; preds = %_ZN4absl17internal_
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i: ; preds = %switch.lookup3, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i9.i.i
-  %retval.sroa.6.0.i11.i.i = phi ptr [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i9.i.i ], [ %switch.load6, %switch.lookup3 ]
-  %retval.sroa.0.0.i12.i.i = phi i64 [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i9.i.i ], [ %switch.load8, %switch.lookup3 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i9.i.i, %switch.lookup3
+  %retval.sroa.6.0.i11.i.i = phi ptr [ %switch.load6, %switch.lookup3 ], [ @.str.261, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i9.i.i ]
+  %retval.sroa.0.0.i12.i.i = phi i64 [ %switch.load8, %switch.lookup3 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i9.i.i ]
   store i64 %retval.sroa.0.0.i12.i.i, ptr %ref.tmp8.i.i, align 8
   %16 = getelementptr inbounds i8, ptr %ref.tmp8.i.i, i64 8
   store ptr %retval.sroa.6.0.i11.i.i, ptr %16, align 8

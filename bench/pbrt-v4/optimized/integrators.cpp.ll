@@ -57441,7 +57441,7 @@ entry:
     i32 4, label %sw.bb7
     i32 5, label %return
     i32 6, label %sw.bb11
-    i32 7, label %sw.bb13
+    i32 7, label %sw.bb11
     i32 8, label %if.then.i
   ]
 
@@ -57512,10 +57512,7 @@ sw.bb7:                                           ; preds = %entry
   %or.i.i.i29 = or disjoint i32 %cond3.i.i28, %cond.i.i27
   br label %return
 
-sw.bb11:                                          ; preds = %entry
-  br label %return
-
-sw.bb13:                                          ; preds = %entry
+sw.bb11:                                          ; preds = %entry, %entry
   br label %return
 
 if.then.i:                                        ; preds = %entry
@@ -57531,8 +57528,8 @@ if.then.i:                                        ; preds = %entry
 return.fold.split:                                ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %return.fold.split, %if.then.i, %sw.bb13, %sw.bb11, %sw.bb7, %sw.bb5, %sw.bb3, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit
-  %retval.0 = phi i32 [ 9, %sw.bb13 ], [ 9, %sw.bb11 ], [ %or.i.i.i29, %sw.bb7 ], [ %call.i26, %sw.bb5 ], [ %call.i, %sw.bb3 ], [ %cond.i.i25, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit ], [ %or.i.i.i, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit ], [ 19, %entry ], [ %cond.i.i.i, %if.then.i ], [ 5, %return.fold.split ]
+return:                                           ; preds = %entry, %return.fold.split, %if.then.i, %sw.bb11, %sw.bb7, %sw.bb5, %sw.bb3, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit
+  %retval.0 = phi i32 [ 9, %sw.bb11 ], [ %or.i.i.i29, %sw.bb7 ], [ %call.i26, %sw.bb5 ], [ %call.i, %sw.bb3 ], [ %cond.i.i25, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_11DiffuseBxDFEEEDaS1_.exit ], [ %or.i.i.i, %_ZZNK4pbrt4BxDF5FlagsEvENKUlT_E_clIPKNS_23DiffuseTransmissionBxDFEEEDaS1_.exit ], [ 19, %entry ], [ %cond.i.i.i, %if.then.i ], [ 5, %return.fold.split ]
   ret i32 %retval.0
 }
 

@@ -16391,27 +16391,27 @@ define internal fastcc void @_ZL14UnescapeStringRNSt7__cxx1112basic_stringIcSt11
   %.not38 = icmp eq i64 %2, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %31
-  %3 = phi i64 [ %33, %31 ], [ 0, %1 ]
-  %.039 = phi i32 [ %32, %31 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %29
+  %3 = phi i64 [ %31, %29 ], [ 0, %1 ]
+  %.039 = phi i32 [ %30, %29 ], [ 0, %1 ]
   %4 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %3) #19
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 92
-  br i1 %6, label %7, label %31
+  br i1 %6, label %7, label %29
 
 7:                                                ; preds = %.lr.ph
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   %9 = add i64 %8, -1
   %.not34 = icmp eq i64 %9, %3
-  br i1 %.not34, label %31, label %10
+  br i1 %.not34, label %29, label %10
 
 10:                                               ; preds = %7
   %11 = add i32 %.039, 1
   %12 = zext i32 %11 to i64
   %13 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %12) #19
   %14 = load i8, ptr %13, align 1
-  switch i8 %14, label %31 [
-    i8 97, label %25
+  switch i8 %14, label %29 [
+    i8 97, label %23
     i8 98, label %15
     i8 101, label %16
     i8 102, label %17
@@ -16420,58 +16420,52 @@ define internal fastcc void @_ZL14UnescapeStringRNSt7__cxx1112basic_stringIcSt11
     i8 116, label %20
     i8 118, label %21
     i8 34, label %22
-    i8 39, label %23
-    i8 92, label %24
+    i8 39, label %22
+    i8 92, label %22
   ]
 
 15:                                               ; preds = %10
-  br label %25
+  br label %23
 
 16:                                               ; preds = %10
-  br label %25
+  br label %23
 
 17:                                               ; preds = %10
-  br label %25
+  br label %23
 
 18:                                               ; preds = %10
-  br label %25
+  br label %23
 
 19:                                               ; preds = %10
-  br label %25
+  br label %23
 
 20:                                               ; preds = %10
-  br label %25
+  br label %23
 
 21:                                               ; preds = %10
-  br label %25
+  br label %23
 
-22:                                               ; preds = %10
-  br label %25
+22:                                               ; preds = %10, %10, %10
+  br label %23
 
-23:                                               ; preds = %10
-  br label %25
+23:                                               ; preds = %10, %22, %21, %20, %19, %18, %17, %16, %15
+  %.sink = phi i8 [ %14, %22 ], [ 11, %21 ], [ 9, %20 ], [ 13, %19 ], [ 10, %18 ], [ 12, %17 ], [ 27, %16 ], [ 8, %15 ], [ 7, %10 ]
+  %24 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %3) #19
+  store i8 %.sink, ptr %24, align 1
+  %25 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
+  %26 = getelementptr inbounds i8, ptr %25, i64 %3
+  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  %28 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %27) #19
+  br label %29
 
-24:                                               ; preds = %10
-  br label %25
-
-25:                                               ; preds = %10, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15
-  %.sink = phi i8 [ %14, %24 ], [ %14, %23 ], [ %14, %22 ], [ 11, %21 ], [ 9, %20 ], [ 13, %19 ], [ 10, %18 ], [ 12, %17 ], [ 27, %16 ], [ 8, %15 ], [ 7, %10 ]
-  %26 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %3) #19
-  store i8 %.sink, ptr %26, align 1
-  %27 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
-  %28 = getelementptr inbounds i8, ptr %27, i64 %3
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
-  %30 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %29) #19
-  br label %31
-
-31:                                               ; preds = %.lr.ph, %7, %25, %10
-  %32 = add i32 %.039, 1
-  %33 = zext i32 %32 to i64
-  %34 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
-  %.not = icmp eq i64 %34, %33
+29:                                               ; preds = %.lr.ph, %7, %23, %10
+  %30 = add i32 %.039, 1
+  %31 = zext i32 %30 to i64
+  %32 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
+  %.not = icmp eq i64 %32, %31
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !265
 
-._crit_edge:                                      ; preds = %31, %1
+._crit_edge:                                      ; preds = %29, %1
   ret void
 }
 

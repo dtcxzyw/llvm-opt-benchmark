@@ -841,7 +841,7 @@ define hidden i32 @PORT_GetIntValue(ptr noundef readonly %0) local_unnamed_addr 
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, -2
   %switch = icmp eq i32 %6, 32
-  %spec.select = select i1 %switch, i32 0, i32 %5
+  %. = select i1 %switch, i32 0, i32 %5
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %magicptr = ptrtoint ptr %8 to i64
@@ -858,11 +858,11 @@ define hidden i32 @PORT_GetIntValue(ptr noundef readonly %0) local_unnamed_addr 
   br i1 %.not13, label %16, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 @snd_mixer_selem_get_playback_switch(ptr noundef %13, i32 noundef %spec.select, ptr noundef nonnull %2) #11
+  %15 = call i32 @snd_mixer_selem_get_playback_switch(ptr noundef %13, i32 noundef %., ptr noundef nonnull %2) #11
   br label %18
 
 16:                                               ; preds = %9
-  %17 = call i32 @snd_mixer_selem_get_capture_switch(ptr noundef %13, i32 noundef %spec.select, ptr noundef nonnull %2) #11
+  %17 = call i32 @snd_mixer_selem_get_capture_switch(ptr noundef %13, i32 noundef %., ptr noundef nonnull %2) #11
   br label %18
 
 18:                                               ; preds = %16, %14

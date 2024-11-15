@@ -199,21 +199,22 @@ define dso_local noundef ptr @_ZNK4llvm20DbgVariableIntrinsic21getVariableLocati
   %17 = zext i32 %1 to i64
   %18 = getelementptr inbounds ptr, ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8
-  br label %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i
+  br label %.sink.split.i
 
 20:                                               ; preds = %2
-  %.off.i = add i8 %12, -5
-  %switch.i = icmp ult i8 %.off.i, 31
-  br i1 %switch.i, label %_ZNK4llvm18RawLocationWrapper21getVariableLocationOpEj.exit, label %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i
+  %21 = zext i8 %12 to i32
+  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %21, -5
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm18RawLocationWrapper21getVariableLocationOpEj.exit, label %.sink.split.i
 
-_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i: ; preds = %20, %13
-  %.sink9.i = phi ptr [ %19, %13 ], [ %11, %20 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 128
-  %22 = load ptr, ptr %21, align 8
+.sink.split.i:                                    ; preds = %20, %13
+  %.sink8.i = phi ptr [ %19, %13 ], [ %11, %20 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 128
+  %23 = load ptr, ptr %22, align 8
   br label %_ZNK4llvm18RawLocationWrapper21getVariableLocationOpEj.exit
 
-_ZNK4llvm18RawLocationWrapper21getVariableLocationOpEj.exit: ; preds = %20, %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i
-  %.0.i = phi ptr [ null, %20 ], [ %22, %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i ]
+_ZNK4llvm18RawLocationWrapper21getVariableLocationOpEj.exit: ; preds = %20, %.sink.split.i
+  %.0.i = phi ptr [ null, %20 ], [ %23, %.sink.split.i ]
   ret ptr %.0.i
 }
 
@@ -231,21 +232,22 @@ define dso_local noundef ptr @_ZNK4llvm18RawLocationWrapper21getVariableLocation
   %9 = zext i32 %1 to i64
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
-  br label %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split
+  br label %.sink.split
 
 12:                                               ; preds = %2
-  %.off = add i8 %4, -5
-  %switch = icmp ult i8 %.off, 31
-  br i1 %switch, label %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread, label %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split
+  %13 = zext i8 %4 to i32
+  %.off.i.i.i.i.i.i.i.i = add nsw i32 %13, -5
+  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 31
+  br i1 %switch.i.i.i.i.i.i.i.i, label %16, label %.sink.split
 
-_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split: ; preds = %12, %5
-  %.sink9 = phi ptr [ %11, %5 ], [ %3, %12 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sink9, i64 128
-  %14 = load ptr, ptr %13, align 8
-  br label %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread
+.sink.split:                                      ; preds = %12, %5
+  %.sink8 = phi ptr [ %11, %5 ], [ %3, %12 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sink8, i64 128
+  %15 = load ptr, ptr %14, align 8
+  br label %16
 
-_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread: ; preds = %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split, %12
-  %.0 = phi ptr [ null, %12 ], [ %14, %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split ]
+16:                                               ; preds = %.sink.split, %12
+  %.0 = phi ptr [ null, %12 ], [ %15, %.sink.split ]
   ret ptr %.0
 }
 
@@ -803,7 +805,7 @@ _ZL13getAsMetadataPN4llvm5ValueE.exit:            ; preds = %46, %51
 _ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit: ; preds = %55, %66
   %.0.i.i = phi i64 [ %69, %66 ], [ 1, %55 ]
   %70 = icmp samesign ult i64 %indvars.iv, %.0.i.i
-  br i1 %70, label %71, label %112
+  br i1 %70, label %71, label %113
 
 71:                                               ; preds = %_ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit
   %72 = icmp eq i64 %indvars.iv, %54
@@ -828,128 +830,129 @@ _ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit: ; preds = %55
   %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %84) #17
   %87 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
-  br label %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i.i
+  br label %.sink.split.i.i
 
 89:                                               ; preds = %73
-  %.off.i.i = add i8 %82, -5
-  %switch.i.i = icmp ult i8 %.off.i.i, 31
-  br i1 %switch.i.i, label %_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj.exit, label %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i.i
+  %90 = zext i8 %82 to i32
+  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %90, -5
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 31
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj.exit, label %.sink.split.i.i
 
-_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i.i: ; preds = %89, %83
-  %.sink9.i.i = phi ptr [ %88, %83 ], [ %81, %89 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 128
-  %91 = load ptr, ptr %90, align 8
+.sink.split.i.i:                                  ; preds = %89, %83
+  %.sink8.i.i = phi ptr [ %88, %83 ], [ %81, %89 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.sink8.i.i, i64 128
+  %92 = load ptr, ptr %91, align 8
   br label %_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj.exit
 
-_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj.exit: ; preds = %89, %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i.i
-  %.0.i.i7 = phi ptr [ null, %89 ], [ %91, %_ZN4llvm3isaINS_6MDNodeEPNS_8MetadataEEEbRKT0_.exit.thread.sink.split.i.i ]
-  %92 = load i8, ptr %.0.i.i7, align 8
-  %93 = icmp eq i8 %92, 24
-  br i1 %93, label %94, label %99
+_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj.exit: ; preds = %89, %.sink.split.i.i
+  %.0.i.i7 = phi ptr [ null, %89 ], [ %92, %.sink.split.i.i ]
+  %93 = load i8, ptr %.0.i.i7, align 8
+  %94 = icmp eq i8 %93, 24
+  br i1 %94, label %95, label %100
 
-94:                                               ; preds = %_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj.exit
-  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 24
-  %96 = load ptr, ptr %95, align 8
-  %97 = load i8, ptr %96, align 4
-  %98 = add i8 %97, -1
-  %spec.select.i.i.i.i.i.i.i.i.i8 = icmp ult i8 %98, 2
-  %spec.select.i.i.i9 = select i1 %spec.select.i.i.i.i.i.i.i.i.i8, ptr %96, ptr null
+95:                                               ; preds = %_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj.exit
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 24
+  %97 = load ptr, ptr %96, align 8
+  %98 = load i8, ptr %97, align 4
+  %99 = add i8 %98, -1
+  %spec.select.i.i.i.i.i.i.i.i.i8 = icmp ult i8 %99, 2
+  %spec.select.i.i.i9 = select i1 %spec.select.i.i.i.i.i.i.i.i.i8, ptr %97, ptr null
   br label %_ZL13getAsMetadataPN4llvm5ValueE.exit10
 
-99:                                               ; preds = %_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj.exit
-  %100 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef nonnull %.0.i.i7) #17
+100:                                              ; preds = %_ZNK4llvm20DbgVariableIntrinsic21getVariableLocationOpEj.exit
+  %101 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef nonnull %.0.i.i7) #17
   br label %_ZL13getAsMetadataPN4llvm5ValueE.exit10
 
-_ZL13getAsMetadataPN4llvm5ValueE.exit10:          ; preds = %99, %94, %71
-  %101 = phi ptr [ %53, %71 ], [ %spec.select.i.i.i9, %94 ], [ %100, %99 ]
-  %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  %103 = add i64 %102, 1
-  %104 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  %.not.i.i.i = icmp ugt i64 %103, %104
-  br i1 %.not.i.i.i, label %105, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
+_ZL13getAsMetadataPN4llvm5ValueE.exit10:          ; preds = %100, %95, %71
+  %102 = phi ptr [ %53, %71 ], [ %spec.select.i.i.i9, %95 ], [ %101, %100 ]
+  %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %104 = add i64 %103, 1
+  %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %.not.i.i.i = icmp ugt i64 %104, %105
+  br i1 %.not.i.i.i, label %106, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
 
-105:                                              ; preds = %_ZL13getAsMetadataPN4llvm5ValueE.exit10
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %43, i64 noundef %103, i64 noundef 8) #17
+106:                                              ; preds = %_ZL13getAsMetadataPN4llvm5ValueE.exit10
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %43, i64 noundef %104, i64 noundef 8) #17
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit: ; preds = %_ZL13getAsMetadataPN4llvm5ValueE.exit10, %105
-  %106 = load ptr, ptr %4, align 8
-  %107 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  %108 = getelementptr inbounds ptr, ptr %106, i64 %107
-  %109 = ptrtoint ptr %101 to i64
-  store i64 %109, ptr %108, align 1
-  %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  %111 = add i64 %110, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %111) #17
+_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit: ; preds = %_ZL13getAsMetadataPN4llvm5ValueE.exit10, %106
+  %107 = load ptr, ptr %4, align 8
+  %108 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %109 = getelementptr inbounds ptr, ptr %107, i64 %108
+  %110 = ptrtoint ptr %102 to i64
+  store i64 %110, ptr %109, align 1
+  %111 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %112 = add i64 %111, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %112) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %55, !llvm.loop !25
 
-112:                                              ; preds = %_ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit
-  %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+113:                                              ; preds = %_ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit
   %114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
-  %115 = load ptr, ptr %4, align 8
-  %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  %117 = call noundef ptr @_ZN4llvm9DIArgList3getERNS_11LLVMContextENS_8ArrayRefIPNS_15ValueAsMetadataEEE(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr %115, i64 %116) #17
-  %118 = call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef %117) #17
-  %119 = load i32, ptr %5, align 4
-  %120 = and i32 %119, 134217727
-  %121 = zext nneg i32 %120 to i64
-  %122 = sub nsw i64 0, %121
-  %123 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %122
-  %124 = load ptr, ptr %123, align 8
-  %.not.i.i.i.i.i11 = icmp eq ptr %124, null
-  br i1 %.not.i.i.i.i.i11, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13, label %125
+  %115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
+  %116 = load ptr, ptr %4, align 8
+  %117 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %118 = call noundef ptr @_ZN4llvm9DIArgList3getERNS_11LLVMContextENS_8ArrayRefIPNS_15ValueAsMetadataEEE(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr %116, i64 %117) #17
+  %119 = call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef %118) #17
+  %120 = load i32, ptr %5, align 4
+  %121 = and i32 %120, 134217727
+  %122 = zext nneg i32 %121 to i64
+  %123 = sub nsw i64 0, %122
+  %124 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %123
+  %125 = load ptr, ptr %124, align 8
+  %.not.i.i.i.i.i11 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i.i.i11, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13, label %126
 
-125:                                              ; preds = %112
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %129 = load ptr, ptr %128, align 8
-  store ptr %127, ptr %129, align 8
-  %.not.i.i.i.i.i.i12 = icmp eq ptr %127, null
-  br i1 %.not.i.i.i.i.i.i12, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13, label %130
+126:                                              ; preds = %113
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %130 = load ptr, ptr %129, align 8
+  store ptr %128, ptr %130, align 8
+  %.not.i.i.i.i.i.i12 = icmp eq ptr %128, null
+  br i1 %.not.i.i.i.i.i.i12, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13, label %131
 
-130:                                              ; preds = %125
-  %131 = load ptr, ptr %128, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store ptr %131, ptr %132, align 8
+131:                                              ; preds = %126
+  %132 = load ptr, ptr %129, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  store ptr %132, ptr %133, align 8
   br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13
 
-_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13:  ; preds = %130, %125, %112
-  store ptr %118, ptr %123, align 8
-  %.not4.i.i.i.i.i14 = icmp eq ptr %118, null
-  br i1 %.not4.i.i.i.i.i14, label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17, label %133
+_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13:  ; preds = %131, %126, %113
+  store ptr %119, ptr %124, align 8
+  %.not4.i.i.i.i.i14 = icmp eq ptr %119, null
+  br i1 %.not4.i.i.i.i.i14, label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17, label %134
 
-133:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13
-  %134 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store ptr %135, ptr %136, align 8
-  %.not.i.i.i.i.i.i.i15 = icmp eq ptr %135, null
-  br i1 %.not.i.i.i.i.i.i.i15, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i16, label %137
+134:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13
+  %135 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  store ptr %136, ptr %137, align 8
+  %.not.i.i.i.i.i.i.i15 = icmp eq ptr %136, null
+  br i1 %.not.i.i.i.i.i.i.i15, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i16, label %138
 
-137:                                              ; preds = %133
-  %138 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  store ptr %136, ptr %138, align 8
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  store ptr %137, ptr %139, align 8
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i16
 
-_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i16: ; preds = %137, %133
-  %139 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store ptr %134, ptr %139, align 8
-  store ptr %123, ptr %134, align 8
+_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i16: ; preds = %138, %134
+  %140 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  store ptr %135, ptr %140, align 8
+  store ptr %124, ptr %135, align 8
   br label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17
 
 _ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17: ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i13, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i16
-  %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
-  %141 = load ptr, ptr %4, align 8
-  %142 = icmp eq ptr %141, %43
-  br i1 %142, label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit, label %143
+  %141 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
+  %142 = load ptr, ptr %4, align 8
+  %143 = icmp eq ptr %142, %43
+  br i1 %143, label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit, label %144
 
-143:                                              ; preds = %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17
-  call void @free(ptr noundef %141) #17
+144:                                              ; preds = %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17
+  call void @free(ptr noundef %142) #17
   br label %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit
 
-_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit: ; preds = %143, %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i
+_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit: ; preds = %144, %_ZN4llvm20DbgVariableIntrinsic13setArgOperandEjPNS_5ValueE.exit17, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i
   ret void
 }
 
@@ -2514,380 +2517,113 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic12getMaskParamEv(ptr nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic15getMaskParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
-  switch i32 %0, label %94 [
+  switch i32 %0, label %5 [
     i32 390, label %2
-    i32 391, label %3
-    i32 392, label %4
-    i32 425, label %5
-    i32 431, label %6
-    i32 433, label %7
-    i32 456, label %8
-    i32 459, label %9
-    i32 464, label %10
-    i32 467, label %11
-    i32 470, label %12
-    i32 474, label %13
-    i32 476, label %14
-    i32 462, label %15
-    i32 461, label %16
-    i32 473, label %17
-    i32 472, label %18
-    i32 389, label %19
-    i32 394, label %20
-    i32 393, label %21
-    i32 398, label %22
-    i32 397, label %23
-    i32 399, label %24
-    i32 400, label %25
-    i32 415, label %26
-    i32 416, label %27
-    i32 454, label %28
-    i32 469, label %29
-    i32 465, label %30
-    i32 475, label %31
-    i32 402, label %32
-    i32 417, label %33
-    i32 407, label %34
-    i32 404, label %35
-    i32 414, label %36
-    i32 409, label %37
-    i32 401, label %38
-    i32 463, label %39
-    i32 406, label %40
-    i32 408, label %41
-    i32 396, label %42
-    i32 430, label %43
-    i32 427, label %44
-    i32 429, label %45
-    i32 426, label %46
-    i32 395, label %47
-    i32 405, label %48
-    i32 451, label %49
-    i32 452, label %50
-    i32 453, label %51
-    i32 450, label %52
-    i32 432, label %53
-    i32 424, label %54
-    i32 422, label %55
-    i32 412, label %56
-    i32 411, label %57
-    i32 471, label %58
-    i32 460, label %59
-    i32 413, label %60
-    i32 410, label %61
-    i32 468, label %62
-    i32 477, label %63
-    i32 458, label %64
-    i32 434, label %65
-    i32 420, label %66
-    i32 403, label %67
-    i32 419, label %68
-    i32 421, label %69
-    i32 466, label %70
-    i32 162, label %71
-    i32 455, label %72
-    i32 423, label %73
-    i32 161, label %74
-    i32 418, label %75
-    i32 435, label %76
-    i32 443, label %77
-    i32 436, label %78
-    i32 444, label %79
-    i32 449, label %80
-    i32 445, label %81
-    i32 446, label %82
-    i32 447, label %83
-    i32 448, label %84
-    i32 438, label %85
-    i32 440, label %86
-    i32 439, label %87
-    i32 441, label %88
-    i32 437, label %89
-    i32 442, label %90
-    i32 159, label %93
-    i32 158, label %92
-    i32 160, label %91
+    i32 391, label %2
+    i32 392, label %2
+    i32 425, label %2
+    i32 431, label %2
+    i32 433, label %2
+    i32 456, label %2
+    i32 459, label %2
+    i32 464, label %2
+    i32 467, label %2
+    i32 470, label %2
+    i32 474, label %2
+    i32 476, label %2
+    i32 462, label %2
+    i32 461, label %2
+    i32 473, label %2
+    i32 472, label %2
+    i32 389, label %2
+    i32 394, label %3
+    i32 393, label %3
+    i32 398, label %3
+    i32 397, label %2
+    i32 399, label %2
+    i32 400, label %2
+    i32 415, label %4
+    i32 416, label %4
+    i32 454, label %2
+    i32 469, label %2
+    i32 465, label %2
+    i32 475, label %2
+    i32 402, label %2
+    i32 417, label %2
+    i32 407, label %2
+    i32 404, label %2
+    i32 414, label %2
+    i32 409, label %3
+    i32 401, label %3
+    i32 463, label %3
+    i32 406, label %4
+    i32 408, label %4
+    i32 396, label %2
+    i32 430, label %2
+    i32 427, label %2
+    i32 429, label %2
+    i32 426, label %2
+    i32 395, label %3
+    i32 405, label %3
+    i32 451, label %3
+    i32 452, label %3
+    i32 453, label %3
+    i32 450, label %3
+    i32 432, label %3
+    i32 424, label %3
+    i32 422, label %3
+    i32 412, label %3
+    i32 411, label %3
+    i32 471, label %3
+    i32 460, label %3
+    i32 413, label %3
+    i32 410, label %3
+    i32 468, label %3
+    i32 477, label %3
+    i32 458, label %3
+    i32 434, label %3
+    i32 420, label %3
+    i32 403, label %4
+    i32 419, label %4
+    i32 421, label %2
+    i32 466, label %2
+    i32 162, label %4
+    i32 455, label %2
+    i32 423, label %3
+    i32 161, label %2
+    i32 418, label %3
+    i32 435, label %2
+    i32 443, label %2
+    i32 436, label %2
+    i32 444, label %2
+    i32 449, label %2
+    i32 445, label %2
+    i32 446, label %2
+    i32 447, label %2
+    i32 448, label %2
+    i32 438, label %2
+    i32 440, label %2
+    i32 439, label %2
+    i32 441, label %2
+    i32 437, label %2
+    i32 442, label %2
+    i32 159, label %3
+    i32 158, label %3
+    i32 160, label %4
   ]
 
-2:                                                ; preds = %1
-  br label %94
+2:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %5
 
-3:                                                ; preds = %1
-  br label %94
+3:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %5
 
-4:                                                ; preds = %1
-  br label %94
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1
+  br label %5
 
-5:                                                ; preds = %1
-  br label %94
-
-6:                                                ; preds = %1
-  br label %94
-
-7:                                                ; preds = %1
-  br label %94
-
-8:                                                ; preds = %1
-  br label %94
-
-9:                                                ; preds = %1
-  br label %94
-
-10:                                               ; preds = %1
-  br label %94
-
-11:                                               ; preds = %1
-  br label %94
-
-12:                                               ; preds = %1
-  br label %94
-
-13:                                               ; preds = %1
-  br label %94
-
-14:                                               ; preds = %1
-  br label %94
-
-15:                                               ; preds = %1
-  br label %94
-
-16:                                               ; preds = %1
-  br label %94
-
-17:                                               ; preds = %1
-  br label %94
-
-18:                                               ; preds = %1
-  br label %94
-
-19:                                               ; preds = %1
-  br label %94
-
-20:                                               ; preds = %1
-  br label %94
-
-21:                                               ; preds = %1
-  br label %94
-
-22:                                               ; preds = %1
-  br label %94
-
-23:                                               ; preds = %1
-  br label %94
-
-24:                                               ; preds = %1
-  br label %94
-
-25:                                               ; preds = %1
-  br label %94
-
-26:                                               ; preds = %1
-  br label %94
-
-27:                                               ; preds = %1
-  br label %94
-
-28:                                               ; preds = %1
-  br label %94
-
-29:                                               ; preds = %1
-  br label %94
-
-30:                                               ; preds = %1
-  br label %94
-
-31:                                               ; preds = %1
-  br label %94
-
-32:                                               ; preds = %1
-  br label %94
-
-33:                                               ; preds = %1
-  br label %94
-
-34:                                               ; preds = %1
-  br label %94
-
-35:                                               ; preds = %1
-  br label %94
-
-36:                                               ; preds = %1
-  br label %94
-
-37:                                               ; preds = %1
-  br label %94
-
-38:                                               ; preds = %1
-  br label %94
-
-39:                                               ; preds = %1
-  br label %94
-
-40:                                               ; preds = %1
-  br label %94
-
-41:                                               ; preds = %1
-  br label %94
-
-42:                                               ; preds = %1
-  br label %94
-
-43:                                               ; preds = %1
-  br label %94
-
-44:                                               ; preds = %1
-  br label %94
-
-45:                                               ; preds = %1
-  br label %94
-
-46:                                               ; preds = %1
-  br label %94
-
-47:                                               ; preds = %1
-  br label %94
-
-48:                                               ; preds = %1
-  br label %94
-
-49:                                               ; preds = %1
-  br label %94
-
-50:                                               ; preds = %1
-  br label %94
-
-51:                                               ; preds = %1
-  br label %94
-
-52:                                               ; preds = %1
-  br label %94
-
-53:                                               ; preds = %1
-  br label %94
-
-54:                                               ; preds = %1
-  br label %94
-
-55:                                               ; preds = %1
-  br label %94
-
-56:                                               ; preds = %1
-  br label %94
-
-57:                                               ; preds = %1
-  br label %94
-
-58:                                               ; preds = %1
-  br label %94
-
-59:                                               ; preds = %1
-  br label %94
-
-60:                                               ; preds = %1
-  br label %94
-
-61:                                               ; preds = %1
-  br label %94
-
-62:                                               ; preds = %1
-  br label %94
-
-63:                                               ; preds = %1
-  br label %94
-
-64:                                               ; preds = %1
-  br label %94
-
-65:                                               ; preds = %1
-  br label %94
-
-66:                                               ; preds = %1
-  br label %94
-
-67:                                               ; preds = %1
-  br label %94
-
-68:                                               ; preds = %1
-  br label %94
-
-69:                                               ; preds = %1
-  br label %94
-
-70:                                               ; preds = %1
-  br label %94
-
-71:                                               ; preds = %1
-  br label %94
-
-72:                                               ; preds = %1
-  br label %94
-
-73:                                               ; preds = %1
-  br label %94
-
-74:                                               ; preds = %1
-  br label %94
-
-75:                                               ; preds = %1
-  br label %94
-
-76:                                               ; preds = %1
-  br label %94
-
-77:                                               ; preds = %1
-  br label %94
-
-78:                                               ; preds = %1
-  br label %94
-
-79:                                               ; preds = %1
-  br label %94
-
-80:                                               ; preds = %1
-  br label %94
-
-81:                                               ; preds = %1
-  br label %94
-
-82:                                               ; preds = %1
-  br label %94
-
-83:                                               ; preds = %1
-  br label %94
-
-84:                                               ; preds = %1
-  br label %94
-
-85:                                               ; preds = %1
-  br label %94
-
-86:                                               ; preds = %1
-  br label %94
-
-87:                                               ; preds = %1
-  br label %94
-
-88:                                               ; preds = %1
-  br label %94
-
-89:                                               ; preds = %1
-  br label %94
-
-90:                                               ; preds = %1
-  br label %94
-
-91:                                               ; preds = %1
-  br label %94
-
-92:                                               ; preds = %1
-  br label %94
-
-93:                                               ; preds = %1
-  br label %94
-
-94:                                               ; preds = %1, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i64 [ 1, %93 ], [ 1, %92 ], [ 3, %91 ], [ 2, %90 ], [ 2, %89 ], [ 2, %88 ], [ 2, %87 ], [ 2, %86 ], [ 2, %85 ], [ 2, %84 ], [ 2, %83 ], [ 2, %82 ], [ 2, %81 ], [ 2, %80 ], [ 2, %79 ], [ 2, %78 ], [ 2, %77 ], [ 2, %76 ], [ 1, %75 ], [ 2, %74 ], [ 1, %73 ], [ 2, %72 ], [ 3, %71 ], [ 2, %70 ], [ 2, %69 ], [ 3, %68 ], [ 3, %67 ], [ 1, %66 ], [ 1, %65 ], [ 1, %64 ], [ 1, %63 ], [ 1, %62 ], [ 1, %61 ], [ 1, %60 ], [ 1, %59 ], [ 1, %58 ], [ 1, %57 ], [ 1, %56 ], [ 1, %55 ], [ 1, %54 ], [ 1, %53 ], [ 1, %52 ], [ 1, %51 ], [ 1, %50 ], [ 1, %49 ], [ 1, %48 ], [ 1, %47 ], [ 2, %46 ], [ 2, %45 ], [ 2, %44 ], [ 2, %43 ], [ 2, %42 ], [ 3, %41 ], [ 3, %40 ], [ 1, %39 ], [ 1, %38 ], [ 1, %37 ], [ 2, %36 ], [ 2, %35 ], [ 2, %34 ], [ 2, %33 ], [ 2, %32 ], [ 2, %31 ], [ 2, %30 ], [ 2, %29 ], [ 2, %28 ], [ 3, %27 ], [ 3, %26 ], [ 2, %25 ], [ 2, %24 ], [ 2, %23 ], [ 1, %22 ], [ 1, %21 ], [ 1, %20 ], [ 2, %19 ], [ 2, %18 ], [ 2, %17 ], [ 2, %16 ], [ 2, %15 ], [ 2, %14 ], [ 2, %13 ], [ 2, %12 ], [ 2, %11 ], [ 2, %10 ], [ 2, %9 ], [ 2, %8 ], [ 2, %7 ], [ 2, %6 ], [ 2, %5 ], [ 2, %4 ], [ 2, %3 ], [ 2, %2 ], [ 0, %1 ]
-  %.sroa.93.0 = phi i64 [ 4294967296, %93 ], [ 4294967296, %92 ], [ 4294967296, %91 ], [ 4294967296, %90 ], [ 4294967296, %89 ], [ 4294967296, %88 ], [ 4294967296, %87 ], [ 4294967296, %86 ], [ 4294967296, %85 ], [ 4294967296, %84 ], [ 4294967296, %83 ], [ 4294967296, %82 ], [ 4294967296, %81 ], [ 4294967296, %80 ], [ 4294967296, %79 ], [ 4294967296, %78 ], [ 4294967296, %77 ], [ 4294967296, %76 ], [ 4294967296, %75 ], [ 4294967296, %74 ], [ 4294967296, %73 ], [ 4294967296, %72 ], [ 4294967296, %71 ], [ 4294967296, %70 ], [ 4294967296, %69 ], [ 4294967296, %68 ], [ 4294967296, %67 ], [ 4294967296, %66 ], [ 4294967296, %65 ], [ 4294967296, %64 ], [ 4294967296, %63 ], [ 4294967296, %62 ], [ 4294967296, %61 ], [ 4294967296, %60 ], [ 4294967296, %59 ], [ 4294967296, %58 ], [ 4294967296, %57 ], [ 4294967296, %56 ], [ 4294967296, %55 ], [ 4294967296, %54 ], [ 4294967296, %53 ], [ 4294967296, %52 ], [ 4294967296, %51 ], [ 4294967296, %50 ], [ 4294967296, %49 ], [ 4294967296, %48 ], [ 4294967296, %47 ], [ 4294967296, %46 ], [ 4294967296, %45 ], [ 4294967296, %44 ], [ 4294967296, %43 ], [ 4294967296, %42 ], [ 4294967296, %41 ], [ 4294967296, %40 ], [ 4294967296, %39 ], [ 4294967296, %38 ], [ 4294967296, %37 ], [ 4294967296, %36 ], [ 4294967296, %35 ], [ 4294967296, %34 ], [ 4294967296, %33 ], [ 4294967296, %32 ], [ 4294967296, %31 ], [ 4294967296, %30 ], [ 4294967296, %29 ], [ 4294967296, %28 ], [ 4294967296, %27 ], [ 4294967296, %26 ], [ 4294967296, %25 ], [ 4294967296, %24 ], [ 4294967296, %23 ], [ 4294967296, %22 ], [ 4294967296, %21 ], [ 4294967296, %20 ], [ 4294967296, %19 ], [ 4294967296, %18 ], [ 4294967296, %17 ], [ 4294967296, %16 ], [ 4294967296, %15 ], [ 4294967296, %14 ], [ 4294967296, %13 ], [ 4294967296, %12 ], [ 4294967296, %11 ], [ 4294967296, %10 ], [ 4294967296, %9 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ 4294967296, %6 ], [ 4294967296, %5 ], [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %2 ], [ 0, %1 ]
+5:                                                ; preds = %1, %4, %3, %2
+  %.sroa.0.0 = phi i64 [ 3, %4 ], [ 1, %3 ], [ 2, %2 ], [ 0, %1 ]
+  %.sroa.93.0 = phi i64 [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %2 ], [ 0, %1 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.93.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -3001,388 +2737,118 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
-  switch i32 %0, label %96 [
+  switch i32 %0, label %6 [
     i32 390, label %2
-    i32 391, label %3
-    i32 392, label %4
-    i32 425, label %5
-    i32 431, label %6
-    i32 433, label %7
-    i32 456, label %8
-    i32 459, label %9
-    i32 464, label %10
-    i32 467, label %11
-    i32 470, label %12
-    i32 474, label %13
-    i32 476, label %14
-    i32 462, label %15
-    i32 461, label %16
-    i32 473, label %17
-    i32 472, label %18
-    i32 389, label %19
-    i32 394, label %20
-    i32 393, label %21
-    i32 398, label %22
-    i32 397, label %23
-    i32 399, label %24
-    i32 400, label %25
-    i32 415, label %26
-    i32 416, label %27
-    i32 454, label %28
-    i32 469, label %29
-    i32 465, label %30
-    i32 475, label %31
-    i32 402, label %32
-    i32 417, label %33
-    i32 407, label %34
-    i32 404, label %35
-    i32 414, label %36
-    i32 409, label %37
-    i32 401, label %38
-    i32 463, label %39
-    i32 406, label %40
-    i32 408, label %41
-    i32 396, label %42
-    i32 430, label %43
-    i32 427, label %44
-    i32 429, label %45
-    i32 426, label %46
-    i32 395, label %47
-    i32 405, label %48
-    i32 451, label %49
-    i32 452, label %50
-    i32 453, label %51
-    i32 450, label %52
-    i32 432, label %53
-    i32 424, label %54
-    i32 422, label %55
-    i32 412, label %56
-    i32 411, label %57
-    i32 471, label %58
-    i32 460, label %59
-    i32 413, label %60
-    i32 410, label %61
-    i32 468, label %62
-    i32 477, label %63
-    i32 458, label %64
-    i32 434, label %65
-    i32 420, label %66
-    i32 403, label %67
-    i32 419, label %68
-    i32 421, label %69
-    i32 466, label %70
-    i32 162, label %71
-    i32 455, label %72
-    i32 423, label %73
-    i32 161, label %74
-    i32 418, label %75
-    i32 435, label %76
-    i32 443, label %77
-    i32 436, label %78
-    i32 444, label %79
-    i32 449, label %80
-    i32 445, label %81
-    i32 446, label %82
-    i32 447, label %83
-    i32 448, label %84
-    i32 438, label %85
-    i32 440, label %86
-    i32 439, label %87
-    i32 441, label %88
-    i32 437, label %89
-    i32 442, label %90
-    i32 457, label %91
-    i32 428, label %92
-    i32 160, label %93
-    i32 158, label %94
-    i32 159, label %95
+    i32 391, label %2
+    i32 392, label %2
+    i32 425, label %2
+    i32 431, label %2
+    i32 433, label %2
+    i32 456, label %2
+    i32 459, label %2
+    i32 464, label %2
+    i32 467, label %2
+    i32 470, label %2
+    i32 474, label %2
+    i32 476, label %2
+    i32 462, label %2
+    i32 461, label %2
+    i32 473, label %2
+    i32 472, label %2
+    i32 389, label %2
+    i32 394, label %3
+    i32 393, label %3
+    i32 398, label %3
+    i32 397, label %2
+    i32 399, label %2
+    i32 400, label %2
+    i32 415, label %4
+    i32 416, label %4
+    i32 454, label %2
+    i32 469, label %2
+    i32 465, label %2
+    i32 475, label %2
+    i32 402, label %2
+    i32 417, label %2
+    i32 407, label %2
+    i32 404, label %2
+    i32 414, label %2
+    i32 409, label %3
+    i32 401, label %3
+    i32 463, label %3
+    i32 406, label %4
+    i32 408, label %4
+    i32 396, label %2
+    i32 430, label %2
+    i32 427, label %2
+    i32 429, label %2
+    i32 426, label %2
+    i32 395, label %3
+    i32 405, label %3
+    i32 451, label %3
+    i32 452, label %3
+    i32 453, label %3
+    i32 450, label %3
+    i32 432, label %3
+    i32 424, label %3
+    i32 422, label %3
+    i32 412, label %3
+    i32 411, label %3
+    i32 471, label %3
+    i32 460, label %3
+    i32 413, label %3
+    i32 410, label %3
+    i32 468, label %3
+    i32 477, label %3
+    i32 458, label %3
+    i32 434, label %3
+    i32 420, label %3
+    i32 403, label %4
+    i32 419, label %4
+    i32 421, label %2
+    i32 466, label %2
+    i32 162, label %4
+    i32 455, label %2
+    i32 423, label %3
+    i32 161, label %2
+    i32 418, label %3
+    i32 435, label %2
+    i32 443, label %2
+    i32 436, label %2
+    i32 444, label %2
+    i32 449, label %2
+    i32 445, label %2
+    i32 446, label %2
+    i32 447, label %2
+    i32 448, label %2
+    i32 438, label %2
+    i32 440, label %2
+    i32 439, label %2
+    i32 441, label %2
+    i32 437, label %2
+    i32 442, label %2
+    i32 457, label %2
+    i32 428, label %2
+    i32 160, label %5
+    i32 158, label %3
+    i32 159, label %3
   ]
 
-2:                                                ; preds = %1
-  br label %96
+2:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %6
 
-3:                                                ; preds = %1
-  br label %96
+3:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %6
 
-4:                                                ; preds = %1
-  br label %96
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1
+  br label %6
 
 5:                                                ; preds = %1
-  br label %96
-
-6:                                                ; preds = %1
-  br label %96
-
-7:                                                ; preds = %1
-  br label %96
-
-8:                                                ; preds = %1
-  br label %96
-
-9:                                                ; preds = %1
-  br label %96
-
-10:                                               ; preds = %1
-  br label %96
-
-11:                                               ; preds = %1
-  br label %96
-
-12:                                               ; preds = %1
-  br label %96
-
-13:                                               ; preds = %1
-  br label %96
-
-14:                                               ; preds = %1
-  br label %96
-
-15:                                               ; preds = %1
-  br label %96
-
-16:                                               ; preds = %1
-  br label %96
-
-17:                                               ; preds = %1
-  br label %96
-
-18:                                               ; preds = %1
-  br label %96
-
-19:                                               ; preds = %1
-  br label %96
-
-20:                                               ; preds = %1
-  br label %96
-
-21:                                               ; preds = %1
-  br label %96
-
-22:                                               ; preds = %1
-  br label %96
-
-23:                                               ; preds = %1
-  br label %96
-
-24:                                               ; preds = %1
-  br label %96
-
-25:                                               ; preds = %1
-  br label %96
-
-26:                                               ; preds = %1
-  br label %96
-
-27:                                               ; preds = %1
-  br label %96
-
-28:                                               ; preds = %1
-  br label %96
-
-29:                                               ; preds = %1
-  br label %96
-
-30:                                               ; preds = %1
-  br label %96
-
-31:                                               ; preds = %1
-  br label %96
-
-32:                                               ; preds = %1
-  br label %96
-
-33:                                               ; preds = %1
-  br label %96
-
-34:                                               ; preds = %1
-  br label %96
-
-35:                                               ; preds = %1
-  br label %96
-
-36:                                               ; preds = %1
-  br label %96
-
-37:                                               ; preds = %1
-  br label %96
-
-38:                                               ; preds = %1
-  br label %96
-
-39:                                               ; preds = %1
-  br label %96
-
-40:                                               ; preds = %1
-  br label %96
-
-41:                                               ; preds = %1
-  br label %96
-
-42:                                               ; preds = %1
-  br label %96
-
-43:                                               ; preds = %1
-  br label %96
-
-44:                                               ; preds = %1
-  br label %96
-
-45:                                               ; preds = %1
-  br label %96
-
-46:                                               ; preds = %1
-  br label %96
-
-47:                                               ; preds = %1
-  br label %96
-
-48:                                               ; preds = %1
-  br label %96
-
-49:                                               ; preds = %1
-  br label %96
-
-50:                                               ; preds = %1
-  br label %96
-
-51:                                               ; preds = %1
-  br label %96
-
-52:                                               ; preds = %1
-  br label %96
-
-53:                                               ; preds = %1
-  br label %96
-
-54:                                               ; preds = %1
-  br label %96
-
-55:                                               ; preds = %1
-  br label %96
-
-56:                                               ; preds = %1
-  br label %96
-
-57:                                               ; preds = %1
-  br label %96
-
-58:                                               ; preds = %1
-  br label %96
-
-59:                                               ; preds = %1
-  br label %96
-
-60:                                               ; preds = %1
-  br label %96
-
-61:                                               ; preds = %1
-  br label %96
-
-62:                                               ; preds = %1
-  br label %96
-
-63:                                               ; preds = %1
-  br label %96
-
-64:                                               ; preds = %1
-  br label %96
-
-65:                                               ; preds = %1
-  br label %96
-
-66:                                               ; preds = %1
-  br label %96
-
-67:                                               ; preds = %1
-  br label %96
-
-68:                                               ; preds = %1
-  br label %96
-
-69:                                               ; preds = %1
-  br label %96
-
-70:                                               ; preds = %1
-  br label %96
-
-71:                                               ; preds = %1
-  br label %96
-
-72:                                               ; preds = %1
-  br label %96
-
-73:                                               ; preds = %1
-  br label %96
-
-74:                                               ; preds = %1
-  br label %96
-
-75:                                               ; preds = %1
-  br label %96
-
-76:                                               ; preds = %1
-  br label %96
-
-77:                                               ; preds = %1
-  br label %96
-
-78:                                               ; preds = %1
-  br label %96
-
-79:                                               ; preds = %1
-  br label %96
-
-80:                                               ; preds = %1
-  br label %96
-
-81:                                               ; preds = %1
-  br label %96
-
-82:                                               ; preds = %1
-  br label %96
-
-83:                                               ; preds = %1
-  br label %96
-
-84:                                               ; preds = %1
-  br label %96
-
-85:                                               ; preds = %1
-  br label %96
-
-86:                                               ; preds = %1
-  br label %96
-
-87:                                               ; preds = %1
-  br label %96
-
-88:                                               ; preds = %1
-  br label %96
-
-89:                                               ; preds = %1
-  br label %96
-
-90:                                               ; preds = %1
-  br label %96
-
-91:                                               ; preds = %1
-  br label %96
-
-92:                                               ; preds = %1
-  br label %96
-
-93:                                               ; preds = %1
-  br label %96
-
-94:                                               ; preds = %1
-  br label %96
-
-95:                                               ; preds = %1
-  br label %96
-
-96:                                               ; preds = %1, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i64 [ 2, %95 ], [ 2, %94 ], [ 5, %93 ], [ 3, %92 ], [ 3, %91 ], [ 3, %90 ], [ 3, %89 ], [ 3, %88 ], [ 3, %87 ], [ 3, %86 ], [ 3, %85 ], [ 3, %84 ], [ 3, %83 ], [ 3, %82 ], [ 3, %81 ], [ 3, %80 ], [ 3, %79 ], [ 3, %78 ], [ 3, %77 ], [ 3, %76 ], [ 2, %75 ], [ 3, %74 ], [ 2, %73 ], [ 3, %72 ], [ 4, %71 ], [ 3, %70 ], [ 3, %69 ], [ 4, %68 ], [ 4, %67 ], [ 2, %66 ], [ 2, %65 ], [ 2, %64 ], [ 2, %63 ], [ 2, %62 ], [ 2, %61 ], [ 2, %60 ], [ 2, %59 ], [ 2, %58 ], [ 2, %57 ], [ 2, %56 ], [ 2, %55 ], [ 2, %54 ], [ 2, %53 ], [ 2, %52 ], [ 2, %51 ], [ 2, %50 ], [ 2, %49 ], [ 2, %48 ], [ 2, %47 ], [ 3, %46 ], [ 3, %45 ], [ 3, %44 ], [ 3, %43 ], [ 3, %42 ], [ 4, %41 ], [ 4, %40 ], [ 2, %39 ], [ 2, %38 ], [ 2, %37 ], [ 3, %36 ], [ 3, %35 ], [ 3, %34 ], [ 3, %33 ], [ 3, %32 ], [ 3, %31 ], [ 3, %30 ], [ 3, %29 ], [ 3, %28 ], [ 4, %27 ], [ 4, %26 ], [ 3, %25 ], [ 3, %24 ], [ 3, %23 ], [ 2, %22 ], [ 2, %21 ], [ 2, %20 ], [ 3, %19 ], [ 3, %18 ], [ 3, %17 ], [ 3, %16 ], [ 3, %15 ], [ 3, %14 ], [ 3, %13 ], [ 3, %12 ], [ 3, %11 ], [ 3, %10 ], [ 3, %9 ], [ 3, %8 ], [ 3, %7 ], [ 3, %6 ], [ 3, %5 ], [ 3, %4 ], [ 3, %3 ], [ 3, %2 ], [ 0, %1 ]
-  %.sroa.95.0 = phi i64 [ 4294967296, %95 ], [ 4294967296, %94 ], [ 4294967296, %93 ], [ 4294967296, %92 ], [ 4294967296, %91 ], [ 4294967296, %90 ], [ 4294967296, %89 ], [ 4294967296, %88 ], [ 4294967296, %87 ], [ 4294967296, %86 ], [ 4294967296, %85 ], [ 4294967296, %84 ], [ 4294967296, %83 ], [ 4294967296, %82 ], [ 4294967296, %81 ], [ 4294967296, %80 ], [ 4294967296, %79 ], [ 4294967296, %78 ], [ 4294967296, %77 ], [ 4294967296, %76 ], [ 4294967296, %75 ], [ 4294967296, %74 ], [ 4294967296, %73 ], [ 4294967296, %72 ], [ 4294967296, %71 ], [ 4294967296, %70 ], [ 4294967296, %69 ], [ 4294967296, %68 ], [ 4294967296, %67 ], [ 4294967296, %66 ], [ 4294967296, %65 ], [ 4294967296, %64 ], [ 4294967296, %63 ], [ 4294967296, %62 ], [ 4294967296, %61 ], [ 4294967296, %60 ], [ 4294967296, %59 ], [ 4294967296, %58 ], [ 4294967296, %57 ], [ 4294967296, %56 ], [ 4294967296, %55 ], [ 4294967296, %54 ], [ 4294967296, %53 ], [ 4294967296, %52 ], [ 4294967296, %51 ], [ 4294967296, %50 ], [ 4294967296, %49 ], [ 4294967296, %48 ], [ 4294967296, %47 ], [ 4294967296, %46 ], [ 4294967296, %45 ], [ 4294967296, %44 ], [ 4294967296, %43 ], [ 4294967296, %42 ], [ 4294967296, %41 ], [ 4294967296, %40 ], [ 4294967296, %39 ], [ 4294967296, %38 ], [ 4294967296, %37 ], [ 4294967296, %36 ], [ 4294967296, %35 ], [ 4294967296, %34 ], [ 4294967296, %33 ], [ 4294967296, %32 ], [ 4294967296, %31 ], [ 4294967296, %30 ], [ 4294967296, %29 ], [ 4294967296, %28 ], [ 4294967296, %27 ], [ 4294967296, %26 ], [ 4294967296, %25 ], [ 4294967296, %24 ], [ 4294967296, %23 ], [ 4294967296, %22 ], [ 4294967296, %21 ], [ 4294967296, %20 ], [ 4294967296, %19 ], [ 4294967296, %18 ], [ 4294967296, %17 ], [ 4294967296, %16 ], [ 4294967296, %15 ], [ 4294967296, %14 ], [ 4294967296, %13 ], [ 4294967296, %12 ], [ 4294967296, %11 ], [ 4294967296, %10 ], [ 4294967296, %9 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ 4294967296, %6 ], [ 4294967296, %5 ], [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %2 ], [ 0, %1 ]
+  br label %6
+
+6:                                                ; preds = %1, %5, %4, %3, %2
+  %.sroa.0.0 = phi i64 [ 5, %5 ], [ 4, %4 ], [ 2, %3 ], [ 3, %2 ], [ 0, %1 ]
+  %.sroa.95.0 = phi i64 [ 4294967296, %5 ], [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %2 ], [ 0, %1 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.95.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }

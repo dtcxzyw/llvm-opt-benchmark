@@ -2058,81 +2058,81 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   switch i8 %8, label %157 [
     i8 1, label %158
     i8 2, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 3, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 3, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 4, label %..thread_crit_edge
     i8 5, label %165
-    i8 6, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 7, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 8, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 6, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 7, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 8, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 9, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 10, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 11, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 12, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 13, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 14, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 15, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 16, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 17, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 18, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 11, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 12, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 13, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 14, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 15, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 16, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 17, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 18, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 19, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 20, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 20, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 21, label %167
-    i8 22, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 23, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 24, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 25, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 26, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 27, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 28, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 29, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 30, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 31, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 32, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 33, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 34, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 35, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 36, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 37, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 38, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 39, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 40, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 41, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 42, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 43, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 44, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 45, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 22, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 23, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 24, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 25, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 26, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 27, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 28, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 29, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 30, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 31, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 32, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 33, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 34, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 35, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 36, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 37, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 38, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 39, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 40, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 41, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 42, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 43, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 44, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 45, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 46, label %170
-    i8 47, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 47, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 48, label %173
-    i8 49, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 50, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 51, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 49, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 50, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 51, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 52, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 53, label %182
-    i8 54, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 55, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 56, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 57, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 58, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 59, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 54, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 55, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 56, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 57, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 58, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 59, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 60, label %184
     i8 61, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 62, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 63, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 64, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 65, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 66, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 67, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 68, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 69, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 70, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 64, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 65, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 66, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 67, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 68, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 69, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 70, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 71, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 72, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 73, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 74, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 75, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 76, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 77, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 72, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 73, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 74, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 75, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 76, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 77, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 78, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 79, label %187
     i8 80, label %190
@@ -2149,155 +2149,155 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 91, label %221
     i8 92, label %223
     i8 93, label %225
-    i8 94, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 95, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 96, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 97, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 94, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 95, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 96, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 97, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 98, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 99, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 100, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 101, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 102, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 103, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 99, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 100, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 101, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 102, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 103, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 104, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 105, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 105, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 106, label %227
-    i8 107, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 108, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 109, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 110, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 111, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 107, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 108, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 109, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 110, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 111, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 112, label %229
     i8 113, label %231
     i8 114, label %233
     i8 115, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 116, label %235
-    i8 117, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 117, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 118, label %237
     i8 119, label %239
     i8 120, label %241
-    i8 121, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 122, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 121, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 122, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 123, label %243
-    i8 124, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 125, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 126, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 127, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 124, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 125, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 126, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 127, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 -128, label %245
-    i8 -127, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -126, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 -127, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -126, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 -125, label %247
     i8 -124, label %249
     i8 -123, label %251
-    i8 -122, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -121, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -120, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -119, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 -122, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -121, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -120, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -119, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 -118, label %253
-    i8 -117, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -116, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -115, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -114, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -113, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -112, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -111, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -110, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -109, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -108, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -107, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -106, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -105, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -104, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -103, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -102, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -101, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -100, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -99, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -98, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -97, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -96, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -95, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -94, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -93, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -92, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -91, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -90, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -89, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -88, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -87, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -86, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -85, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -84, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -83, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -82, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -81, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -80, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -79, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -78, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -77, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -76, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -75, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -74, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -73, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -72, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -71, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -70, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -69, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -68, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -67, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -66, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -65, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -64, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -63, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -62, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -61, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -60, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -59, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -58, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -57, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -56, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -55, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -54, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -53, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -52, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -51, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -50, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -49, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -48, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -47, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -46, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -45, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -44, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -43, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -42, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -41, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -40, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -39, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -38, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -37, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -36, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -35, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -34, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -33, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -32, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -31, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -30, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 -117, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -116, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -115, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -114, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -113, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -112, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -111, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -110, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -109, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -108, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -107, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -106, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -105, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -104, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -103, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -102, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -101, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -100, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -99, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -98, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -97, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -96, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -95, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -94, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -93, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -92, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -91, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -90, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -89, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -88, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -87, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -86, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -85, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -84, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -83, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -82, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -81, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -80, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -79, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -78, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -77, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -76, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -75, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -74, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -73, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -72, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -71, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -70, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -69, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -68, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -67, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -66, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -65, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -64, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -63, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -62, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -61, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -60, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -59, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -58, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -57, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -56, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -55, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -54, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -53, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -52, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -51, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -50, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -49, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -48, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -47, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -46, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -45, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -44, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -43, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -42, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -41, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -40, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -39, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -38, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -37, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -36, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -35, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -34, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -33, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -32, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -31, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -30, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 -29, label %256
     i8 -28, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 -27, label %258
     i8 -26, label %260
     i8 -25, label %262
-    i8 -24, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -23, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 -24, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -23, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 -22, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
     i8 -21, label %264
-    i8 -20, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -19, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 -20, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -19, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 -18, label %266
-    i8 -17, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 -17, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
     i8 -16, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
-    i8 -15, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
-    i8 -14, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981
+    i8 -15, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
+    i8 -14, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799
   ]
 
 ..thread_crit_edge:                               ; preds = %156
@@ -2317,8 +2317,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .thread:                                          ; preds = %82, %..thread_crit_edge
   %160 = phi i32 [ %.pre, %..thread_crit_edge ], [ %83, %82 ]
   %161 = and i32 %160, 8126464
-  %.not.i706 = icmp eq i32 %161, 3407872
-  br i1 %.not.i706, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981, label %162
+  %.not.i524 = icmp eq i32 %161, 3407872
+  br i1 %.not.i524, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799, label %162
 
 162:                                              ; preds = %.thread
   %163 = getelementptr inbounds nuw i8, ptr %.tr330, i64 16
@@ -2491,8 +2491,8 @@ tailrecurse.backedge:                             ; preds = %179, %173, %88, %93
 253:                                              ; preds = %156
   %254 = getelementptr inbounds nuw i8, ptr %.tr330, i64 8
   %255 = load ptr, ptr %254, align 8
-  %.not.i708 = icmp eq ptr %255, null
-  br i1 %.not.i708, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981, label %tailrecurse.backedge
+  %.not.i526 = icmp eq ptr %255, null
+  br i1 %.not.i526, label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799, label %tailrecurse.backedge
 
 256:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -2530,12 +2530,12 @@ tailrecurse.backedge:                             ; preds = %179, %173, %88, %93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981: ; preds = %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %.thread, %253
-  %.0.ph982 = phi i1 [ true, %253 ], [ false, %.thread ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ]
+_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799: ; preds = %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %.thread, %253
+  %.0.ph800 = phi i1 [ true, %253 ], [ false, %.thread ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ], [ false, %156 ]
   br label %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit
 
-_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit: ; preds = %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %151, %146, %141, %136, %131, %126, %121, %116, %111, %106, %101, %96, %91, %86, %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981, %266, %264, %262, %260, %258, %256, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %182, %165, %158, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14
-  %.0 = phi i1 [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ %257, %256 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %183, %182 ], [ %166, %165 ], [ %159, %158 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %.0.ph982, %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit981 ], [ false, %86 ], [ false, %91 ], [ false, %96 ], [ false, %101 ], [ false, %106 ], [ false, %111 ], [ false, %116 ], [ false, %121 ], [ false, %126 ], [ false, %131 ], [ false, %136 ], [ false, %141 ], [ false, %146 ], [ false, %151 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ]
+_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit: ; preds = %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %156, %151, %146, %141, %136, %131, %126, %121, %116, %111, %106, %101, %96, %91, %86, %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799, %266, %264, %262, %260, %258, %256, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %182, %165, %158, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14
+  %.0 = phi i1 [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ %257, %256 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %183, %182 ], [ %166, %165 ], [ %159, %158 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %.0.ph800, %_ZN5clang30TrivialFunctionAnalysisVisitor18VisitUnaryOperatorEPKNS_13UnaryOperatorE.exit.loopexit799 ], [ false, %86 ], [ false, %91 ], [ false, %96 ], [ false, %101 ], [ false, %106 ], [ false, %111 ], [ false, %116 ], [ false, %121 ], [ false, %126 ], [ false, %131 ], [ false, %136 ], [ false, %141 ], [ false, %146 ], [ false, %151 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ], [ true, %156 ]
   ret i1 %.0
 }
 

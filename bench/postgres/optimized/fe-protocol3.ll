@@ -761,7 +761,7 @@ getParamDescriptions.exit:                        ; preds = %._crit_edge.i, %.th
   store i32 %260, ptr %9, align 8
   br label %261
 
-261:                                              ; preds = %getParameterStatus.exit211.thread223, %getParameterStatus.exit.thread215, %233, %getParamDescriptions.exit, %.thread226, %60, %.thread307, %94, %117, %248, %251, %254, %255, %257, %106, %107, %108, %131, %120, %118, %77, %145, %134, %132, %154, %165, %186, %175, %173, %240, %242, %77, %65, %73, %58
+261:                                              ; preds = %getParameterStatus.exit211.thread223, %getParameterStatus.exit.thread215, %233, %getParamDescriptions.exit, %.thread226, %60, %.thread307, %94, %117, %248, %251, %254, %255, %257, %106, %107, %108, %131, %120, %118, %77, %77, %145, %134, %132, %154, %165, %186, %175, %173, %240, %242, %65, %73, %58
   %262 = load i32, ptr %9, align 8
   %263 = load i32, ptr %8, align 4
   %264 = add i32 %263, 5

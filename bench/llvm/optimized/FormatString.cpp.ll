@@ -127,7 +127,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 @_ZTVN5clang21analyze_format_string19FormatStringHandlerE = unnamed_addr constant { [18 x ptr] } { [18 x ptr] [ptr null, ptr null, ptr @_ZN5clang21analyze_format_string19FormatStringHandlerD1Ev, ptr @_ZN5clang21analyze_format_string19FormatStringHandlerD0Ev, ptr @_ZN5clang21analyze_format_string19FormatStringHandler14HandleNullCharEPKc, ptr @_ZN5clang21analyze_format_string19FormatStringHandler14HandlePositionEPKcj, ptr @_ZN5clang21analyze_format_string19FormatStringHandler21HandleInvalidPositionEPKcjNS0_15PositionContextE, ptr @_ZN5clang21analyze_format_string19FormatStringHandler18HandleZeroPositionEPKcj, ptr @_ZN5clang21analyze_format_string19FormatStringHandler25HandleIncompleteSpecifierEPKcj, ptr @_ZN5clang21analyze_format_string19FormatStringHandler27HandleEmptyObjCModifierFlagEPKcj, ptr @_ZN5clang21analyze_format_string19FormatStringHandler29HandleInvalidObjCModifierFlagEPKcj, ptr @_ZN5clang21analyze_format_string19FormatStringHandler36HandleObjCFlagsWithNonObjCConversionEPKcS3_S3_, ptr @_ZN5clang21analyze_format_string19FormatStringHandler38HandleInvalidPrintfConversionSpecifierERKNS_14analyze_printf15PrintfSpecifierEPKcj, ptr @_ZN5clang21analyze_format_string19FormatStringHandler21HandlePrintfSpecifierERKNS_14analyze_printf15PrintfSpecifierEPKcjRKNS_10TargetInfoE, ptr @_ZN5clang21analyze_format_string19FormatStringHandler21handleInvalidMaskTypeEN4llvm9StringRefE, ptr @_ZN5clang21analyze_format_string19FormatStringHandler37HandleInvalidScanfConversionSpecifierERKNS_13analyze_scanf14ScanfSpecifierEPKcj, ptr @_ZN5clang21analyze_format_string19FormatStringHandler20HandleScanfSpecifierERKNS_13analyze_scanf14ScanfSpecifierEPKcj, ptr @_ZN5clang21analyze_format_string19FormatStringHandler24HandleIncompleteScanListEPKcS3_] }, align 8
 @switch.table._ZNK5clang21analyze_format_string7ArgType11matchesTypeERNS_10ASTContextENS_8QualTypeE = private unnamed_addr constant [14 x i32] [i32 3, i32 0, i32 0, i32 0, i32 3, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3, i32 2], align 4
 @switch.table._ZNK5clang21analyze_format_string14LengthModifier8toStringEv = private unnamed_addr constant [17 x ptr] [ptr @.str.21, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20], align 8
-@switch.table._ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv = private unnamed_addr constant [40 x ptr] [ptr null, ptr @.str.40, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.22, ptr @.str.23, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.18, ptr @.str.39, ptr @.str.41, ptr @.str.42, ptr @.str.44, ptr @.str.45, ptr @.str.47, ptr @.str.48, ptr @.str.43, ptr @.str.52, ptr @.str.54, ptr @.str.55, ptr @.str.50, ptr @.str.53, ptr @.str.49, ptr @.str.22, ptr @.str.25, ptr @.str.50, ptr @.str.51, ptr @.str.19, ptr @.str.46], align 8
+@switch.table._ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv = private unnamed_addr constant [39 x ptr] [ptr @.str.40, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.22, ptr @.str.23, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.18, ptr @.str.39, ptr @.str.41, ptr @.str.42, ptr @.str.44, ptr @.str.45, ptr @.str.47, ptr @.str.48, ptr @.str.43, ptr @.str.52, ptr @.str.54, ptr @.str.55, ptr @.str.50, ptr @.str.53, ptr @.str.49, ptr @.str.22, ptr @.str.25, ptr @.str.50, ptr @.str.51, ptr @.str.19, ptr @.str.46], align 8
 
 @_ZN5clang21analyze_format_string19FormatStringHandlerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang21analyze_format_string19FormatStringHandlerD2Ev
 
@@ -2332,12 +2332,13 @@ switch.lookup:                                    ; preds = %1
 define dso_local noundef ptr @_ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
-  %4 = icmp ult i32 %3, 40
+  %switch.tableidx = add i32 %3, -1
+  %4 = icmp ult i32 %switch.tableidx, 39
   br i1 %4, label %switch.lookup, label %6
 
 switch.lookup:                                    ; preds = %1
-  %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [40 x ptr], ptr @switch.table._ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv, i64 0, i64 %5
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [39 x ptr], ptr @switch.table._ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

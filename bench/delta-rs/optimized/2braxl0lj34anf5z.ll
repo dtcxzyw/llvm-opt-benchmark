@@ -133964,211 +133964,220 @@ define void @"_ZN205_$LT$deltalake_core..writer..stats..AggregatedStats$u20$as$u
   %6 = alloca { i8, [31 x i8] }, align 8
   %7 = load i64, ptr %1, align 8, !range !22546, !noundef !4
   switch i64 %7, label %default.unreachable [
-    i64 0, label %8
-    i64 1, label %12
-    i64 2, label %16
-    i64 3, label %20
-    i64 4, label %24
-    i64 5, label %28
-    i64 6, label %32
-    i64 7, label %36
+    i64 0, label %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit.thread
+    i64 1, label %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
+    i64 2, label %11
+    i64 3, label %11
+    i64 4, label %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
+    i64 5, label %11
+    i64 6, label %12
+    i64 7, label %12
   ]
+
+_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit.thread: ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %.0.i12 = load i64, ptr %8, align 8, !noundef !4
+  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = load i8, ptr %9, align 4, !range !39, !noundef !4
+  %.not7.i = icmp eq i8 %10, 2
+  br i1 %.not7.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit
 
 default.unreachable:                              ; preds = %3
   unreachable
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %.0.i12 = load i64, ptr %9, align 8, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
-  %11 = load i8, ptr %10, align 4, !range !39, !noundef !4
-  %.not7.i = icmp eq i8 %11, 2
-  br i1 %.not7.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit
+11:                                               ; preds = %3, %3, %3
+  br label %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
-  %.0.i17 = load i64, ptr %13, align 8, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load i32, ptr %14, align 8, !range !22499, !noundef !4
-  %.not6.i = icmp eq i32 %15, 0
-  br i1 %.not6.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %40
+12:                                               ; preds = %3, %3
+  br label %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
-  %.0.i21 = load i64, ptr %17, align 8, !noundef !4
+_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit: ; preds = %3, %3, %11, %12
+  %.sink.i = phi i64 [ 104, %12 ], [ 56, %11 ], [ 40, %3 ], [ 40, %3 ]
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.sink.i
+  %.0.i = load i64, ptr %13, align 8, !noundef !4
+  switch i64 %7, label %default.unreachable8.i [
+    i64 7, label %32
+    i64 1, label %14
+    i64 2, label %17
+    i64 3, label %20
+    i64 4, label %23
+    i64 5, label %26
+    i64 6, label %29
+  ]
+
+default.unreachable8.i:                           ; preds = %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
+  unreachable
+
+14:                                               ; preds = %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
+  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = load i32, ptr %15, align 8, !range !22499, !noundef !4
+  %.not6.i = icmp eq i32 %16, 0
+  br i1 %.not6.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %35
+
+17:                                               ; preds = %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8, !range !2096, !noundef !4
   %.not5.i = icmp eq i64 %19, 0
-  br i1 %.not5.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %44
+  br i1 %.not5.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %39
 
-20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %1, i64 56
-  %.0.i25 = load i64, ptr %21, align 8, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
-  %23 = load i32, ptr %22, align 8, !range !22499, !noundef !4
-  %.not4.i = icmp eq i32 %23, 0
-  br i1 %.not4.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %48
+20:                                               ; preds = %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = load i32, ptr %21, align 8, !range !22499, !noundef !4
+  %.not4.i = icmp eq i32 %22, 0
+  br i1 %.not4.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %43
 
-24:                                               ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
-  %.0.i29 = load i64, ptr %25, align 8, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
-  %27 = load i32, ptr %26, align 8, !range !22499, !noundef !4
-  %.not3.i = icmp eq i32 %27, 0
-  br i1 %.not3.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %52
+23:                                               ; preds = %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
+  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = load i32, ptr %24, align 8, !range !22499, !noundef !4
+  %.not3.i = icmp eq i32 %25, 0
+  br i1 %.not3.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %47
 
-28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %1, i64 56
-  %.0.i33 = load i64, ptr %29, align 8, !noundef !4
+26:                                               ; preds = %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = load i64, ptr %27, align 8, !range !2096, !noundef !4
+  %.not2.i = icmp eq i64 %28, 0
+  br i1 %.not2.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %51
+
+29:                                               ; preds = %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   %31 = load i64, ptr %30, align 8, !range !2096, !noundef !4
-  %.not2.i = icmp eq i64 %31, 0
-  br i1 %.not2.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %56
+  %.not1.i = icmp eq i64 %31, 0
+  br i1 %.not1.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %55
 
-32:                                               ; preds = %3
-  %33 = getelementptr inbounds i8, ptr %1, i64 104
-  %.0.i37 = load i64, ptr %33, align 8, !noundef !4
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
-  %35 = load i64, ptr %34, align 8, !range !2096, !noundef !4
-  %.not1.i = icmp eq i64 %35, 0
-  br i1 %.not1.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %60
+32:                                               ; preds = %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = load i64, ptr %33, align 8, !range !2096, !noundef !4
+  %.not.i = icmp eq i64 %34, 0
+  br i1 %.not.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %59
 
-36:                                               ; preds = %3
-  %37 = getelementptr inbounds i8, ptr %1, i64 104
-  %.0.i = load i64, ptr %37, align 8, !noundef !4
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  %39 = load i64, ptr %38, align 8, !range !2096, !noundef !4
-  %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %64
+35:                                               ; preds = %14
+  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = load i32, ptr %36, align 8, !range !22499, !noundef !4
+  %38 = trunc nuw i32 %37 to i1
+  br i1 %38, label %67, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
 
-40:                                               ; preds = %12
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
-  %42 = load i32, ptr %41, align 8, !range !22499, !noundef !4
-  %43 = trunc nuw i32 %42 to i1
-  br i1 %43, label %72, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
+39:                                               ; preds = %17
+  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = load i64, ptr %40, align 8, !range !2096, !noundef !4
+  %42 = trunc nuw i64 %41 to i1
+  br i1 %42, label %67, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
 
-44:                                               ; preds = %16
-  %45 = getelementptr inbounds i8, ptr %1, i64 24
-  %46 = load i64, ptr %45, align 8, !range !2096, !noundef !4
-  %47 = trunc nuw i64 %46 to i1
-  br i1 %47, label %72, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
+43:                                               ; preds = %20
+  %44 = getelementptr inbounds i8, ptr %1, i64 40
+  %45 = load i32, ptr %44, align 8, !range !22499, !noundef !4
+  %46 = trunc nuw i32 %45 to i1
+  br i1 %46, label %67, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
 
-48:                                               ; preds = %20
-  %49 = getelementptr inbounds i8, ptr %1, i64 40
-  %50 = load i32, ptr %49, align 8, !range !22499, !noundef !4
-  %51 = trunc nuw i32 %50 to i1
-  br i1 %51, label %72, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
+47:                                               ; preds = %23
+  %48 = getelementptr inbounds i8, ptr %1, i64 32
+  %49 = load i32, ptr %48, align 8, !range !22499, !noundef !4
+  %50 = trunc nuw i32 %49 to i1
+  br i1 %50, label %67, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
 
-52:                                               ; preds = %24
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
-  %54 = load i32, ptr %53, align 8, !range !22499, !noundef !4
-  %55 = trunc nuw i32 %54 to i1
-  br i1 %55, label %72, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
+51:                                               ; preds = %26
+  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %53 = load i64, ptr %52, align 8, !range !2096, !noundef !4
+  %54 = trunc nuw i64 %53 to i1
+  br i1 %54, label %67, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
 
-56:                                               ; preds = %28
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
-  %58 = load i64, ptr %57, align 8, !range !2096, !noundef !4
-  %59 = trunc nuw i64 %58 to i1
-  br i1 %59, label %72, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
+55:                                               ; preds = %29
+  %56 = getelementptr inbounds i8, ptr %1, i64 48
+  %57 = load i64, ptr %56, align 8, !range !2096, !noundef !4
+  %58 = trunc nuw i64 %57 to i1
+  br i1 %58, label %67, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
 
-60:                                               ; preds = %32
-  %61 = getelementptr inbounds i8, ptr %1, i64 48
-  %62 = load i64, ptr %61, align 8, !range !2096, !noundef !4
-  %63 = trunc nuw i64 %62 to i1
-  br i1 %63, label %72, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
+59:                                               ; preds = %32
+  %60 = getelementptr inbounds i8, ptr %1, i64 48
+  %61 = load i64, ptr %60, align 8, !range !2096, !noundef !4
+  %62 = trunc nuw i64 %61 to i1
+  br i1 %62, label %67, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
 
-64:                                               ; preds = %36
-  %65 = getelementptr inbounds i8, ptr %1, i64 48
-  %66 = load i64, ptr %65, align 8, !range !2096, !noundef !4
-  %67 = trunc nuw i64 %66 to i1
-  br i1 %67, label %72, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
+_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit: ; preds = %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit.thread
+  %63 = getelementptr inbounds i8, ptr %1, i64 37
+  %64 = load i8, ptr %63, align 1, !range !39, !noundef !4
+  %.not = icmp eq i8 %64, 2
+  br i1 %.not, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %67
 
-_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit: ; preds = %8
-  %68 = getelementptr inbounds i8, ptr %1, i64 37
-  %69 = load i8, ptr %68, align 1, !range !39, !noundef !4
-  %.not = icmp eq i8 %69, 2
-  br i1 %.not, label %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread, label %72
-
-_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread: ; preds = %36, %32, %28, %24, %20, %16, %12, %8, %40, %44, %48, %52, %56, %60, %64, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit
-  %.0.i1341 = phi i64 [ %.0.i12, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit ], [ %.0.i, %64 ], [ %.0.i37, %60 ], [ %.0.i33, %56 ], [ %.0.i29, %52 ], [ %.0.i25, %48 ], [ %.0.i21, %44 ], [ %.0.i17, %40 ], [ %.0.i, %36 ], [ %.0.i37, %32 ], [ %.0.i33, %28 ], [ %.0.i29, %24 ], [ %.0.i25, %20 ], [ %.0.i21, %16 ], [ %.0.i17, %12 ], [ %.0.i12, %8 ]
+_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread: ; preds = %32, %29, %26, %23, %20, %17, %14, %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit.thread, %35, %39, %43, %47, %51, %55, %59, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit
+  %.0.i1317 = phi i64 [ %.0.i12, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit ], [ %.0.i, %59 ], [ %.0.i, %55 ], [ %.0.i, %51 ], [ %.0.i, %47 ], [ %.0.i, %43 ], [ %.0.i, %39 ], [ %.0.i, %35 ], [ %.0.i, %32 ], [ %.0.i, %29 ], [ %.0.i, %26 ], [ %.0.i, %23 ], [ %.0.i, %20 ], [ %.0.i, %17 ], [ %.0.i, %14 ], [ %.0.i12, %_ZN7parquet4file10statistics10Statistics10null_count17h159ac57b903cb4aaE.llvm.8022584466853825857.exit.thread ]
   store i8 11, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 11, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %.0.i1341, ptr %71, align 8
-  br label %75
+  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 11, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %.0.i1317, ptr %66, align 8
+  br label %70
 
-72:                                               ; preds = %40, %44, %48, %52, %56, %60, %64, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit
-  %.0.i1342 = phi i64 [ %.0.i, %64 ], [ %.0.i12, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit ], [ %.0.i37, %60 ], [ %.0.i33, %56 ], [ %.0.i29, %52 ], [ %.0.i25, %48 ], [ %.0.i21, %44 ], [ %.0.i17, %40 ]
+67:                                               ; preds = %35, %39, %43, %47, %51, %55, %59, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit
+  %.0.i1318 = phi i64 [ %.0.i, %59 ], [ %.0.i12, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit ], [ %.0.i, %55 ], [ %.0.i, %51 ], [ %.0.i, %47 ], [ %.0.i, %43 ], [ %.0.i, %39 ], [ %.0.i, %35 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   call void @_ZN14deltalake_core6writer5stats11StatsScalar14try_from_stats17h57cc667e366ea0bbE.llvm.8022584466853825857(ptr noalias nocapture noundef nonnull sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2, i1 noundef zeroext true)
-  %73 = load i64, ptr %5, align 8, !range !9281, !noundef !4
-  %74 = icmp eq i64 %73, 56
-  br i1 %74, label %.thread, label %78
+  %68 = load i64, ptr %5, align 8, !range !9281, !noundef !4
+  %69 = icmp eq i64 %68, 56
+  br i1 %69, label %.thread, label %73
 
-75:                                               ; preds = %85, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
+70:                                               ; preds = %80, %_ZN7parquet4file10statistics10Statistics15has_min_max_set17h694cd2a563655c67E.llvm.8022584466853825857.exit.thread
   ret void
 
-.thread:                                          ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 32, i1 false)
-  br label %77
+.thread:                                          ; preds = %67
+  %71 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
+  br label %72
 
-77:                                               ; preds = %.thread, %78
+72:                                               ; preds = %.thread, %73
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
   invoke void @_ZN14deltalake_core6writer5stats11StatsScalar14try_from_stats17h57cc667e366ea0bbE.llvm.8022584466853825857(ptr noalias nocapture noundef nonnull sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2, i1 noundef zeroext false)
-          to label %81 unwind label %79
+          to label %76 unwind label %74
 
-78:                                               ; preds = %72
+73:                                               ; preds = %67
   store i8 11, ptr %6, align 8
   call void @"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$deltalake_core..writer..stats..StatsScalar$C$deltalake_core..writer..DeltaWriterError$GT$$GT$17h3af785ffb97e19ffE.llvm.8022584466853825857"(ptr noalias noundef nonnull align 8 dereferenceable(88) %5)
-  br label %77
+  br label %72
 
-79:                                               ; preds = %88, %77
-  %80 = landingpad { ptr, i32 }
+74:                                               ; preds = %83, %72
+  %75 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$deltalake_core..writer..stats..StatsScalar$GT$$GT$17hf6a0eca9bfec19c7E.llvm.8022584466853825857"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #67
-          to label %91 unwind label %89
+          to label %86 unwind label %84
 
-81:                                               ; preds = %77
-  %82 = load i64, ptr %4, align 8, !range !9281, !noundef !4
-  %83 = icmp eq i64 %82, 56
-  br i1 %83, label %.thread43, label %88
+76:                                               ; preds = %72
+  %77 = load i64, ptr %4, align 8, !range !9281, !noundef !4
+  %78 = icmp eq i64 %77, 56
+  br i1 %78, label %.thread19, label %83
 
-.thread43:                                        ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.07.0.copyload = load i8, ptr %84, align 8
+.thread19:                                        ; preds = %76
+  %79 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.07.0.copyload = load i8, ptr %79, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false)
-  br label %85
+  br label %80
 
-85:                                               ; preds = %.thread43, %88
-  %.sroa.0.045 = phi i8 [ %.sroa.07.0.copyload, %.thread43 ], [ 11, %88 ]
+80:                                               ; preds = %.thread19, %83
+  %.sroa.0.021 = phi i8 [ %.sroa.07.0.copyload, %.thread19 ], [ 11, %83 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %86 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 %.sroa.0.045, ptr %86, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 %.sroa.0.021, ptr %81, align 8
   %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3, i64 31, i1 false)
-  %87 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %.0.i1342, ptr %87, align 8
+  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %.0.i1318, ptr %82, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %75
+  br label %70
 
-88:                                               ; preds = %81
+83:                                               ; preds = %76
   invoke void @"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$deltalake_core..writer..stats..StatsScalar$C$deltalake_core..writer..DeltaWriterError$GT$$GT$17h3af785ffb97e19ffE.llvm.8022584466853825857"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4)
-          to label %85 unwind label %79
+          to label %80 unwind label %74
 
-89:                                               ; preds = %79
-  %90 = landingpad { ptr, i32 }
+84:                                               ; preds = %74
+  %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #68
   unreachable
 
-91:                                               ; preds = %79
-  resume { ptr, i32 } %80
+86:                                               ; preds = %74
+  resume { ptr, i32 } %75
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -152470,7 +152479,7 @@ default.unreachable43:                            ; preds = %2
   %.012 = tail call i8 @llvm.ucmp.i8.i8(i8 %3, i8 %4)
   br label %"_ZN80_$LT$chrono..naive..datetime..NaiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h582e410e077a7586E.exit"
 
-"_ZN80_$LT$chrono..naive..datetime..NaiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h582e410e077a7586E.exit": ; preds = %83, %81, %75, %73, %67, %27, %92, %91, %61, %60, %52, %51, %33, %111, %102, %93, %62, %39, %34
+"_ZN80_$LT$chrono..naive..datetime..NaiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h582e410e077a7586E.exit": ; preds = %83, %81, %75, %73, %67, %92, %91, %61, %60, %52, %51, %33, %111, %102, %93, %62, %39, %34, %27
   %.0 = phi i8 [ %.0.i42, %111 ], [ %.012, %33 ], [ %.0.i.i.i41, %102 ], [ %.0.i.i.i, %93 ], [ %.010, %62 ], [ %.011, %39 ], [ %.014, %34 ], [ %32, %27 ], [ %.24, %51 ], [ %.25, %52 ], [ %.26, %60 ], [ %.27, %61 ], [ %.29, %91 ], [ %.30, %92 ], [ 1, %73 ], [ %.05.i.i, %83 ], [ 1, %81 ], [ -1, %75 ], [ -1, %67 ]
   ret i8 %.0
 

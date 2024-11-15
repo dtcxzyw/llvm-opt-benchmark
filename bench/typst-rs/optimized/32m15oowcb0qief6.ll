@@ -194,47 +194,47 @@ define hidden noundef ptr @_ZN6flate22gz14GzHeaderParser5parse17h792b75865d516b6
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
   %39 = phi i8 [ %.pre, %2 ], [ %.be, %.backedge.backedge ]
-  switch i8 %39, label %default.unreachable357 [
+  switch i8 %39, label %default.unreachable360 [
     i8 0, label %.preheader
     i8 1, label %42
     i8 2, label %48
     i8 3, label %55
     i8 4, label %59
     i8 5, label %63
-    i8 6, label %.loopexit314
+    i8 6, label %.loopexit317
   ]
 
 .preheader:                                       ; preds = %.backedge
   %40 = load i8, ptr %15, align 1, !noundef !10
   %41 = icmp ult i8 %40, 10
-  br i1 %41, label %.lr.ph339, label %._crit_edge340
+  br i1 %41, label %.lr.ph342, label %._crit_edge343
 
-default.unreachable357:                           ; preds = %.backedge, %281, %208, %173, %116
+default.unreachable360:                           ; preds = %.backedge, %281, %208, %173, %116
   unreachable
 
 42:                                               ; preds = %.backedge
   %43 = load i8, ptr %19, align 8, !noundef !10
   %44 = and i8 %43, 4
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit197", label %.preheader308
+  br i1 %45, label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit197", label %.preheader311
 
-.preheader308:                                    ; preds = %42
+.preheader311:                                    ; preds = %42
   %46 = load i8, ptr %15, align 1, !noundef !10
   %47 = icmp ult i8 %46, 2
-  br i1 %47, label %.lr.ph337, label %._crit_edge338
+  br i1 %47, label %.lr.ph340, label %._crit_edge341
 
 48:                                               ; preds = %.backedge
   %49 = load i64, ptr %0, align 8, !range !27, !noundef !10
   %50 = icmp eq i64 %49, -9223372036854775808
   %. = select i1 %50, ptr null, ptr %0
-  br i1 %50, label %192, label %.preheader310
+  br i1 %50, label %192, label %.preheader313
 
-.preheader310:                                    ; preds = %48
+.preheader313:                                    ; preds = %48
   %51 = load i16, ptr %16, align 2, !noundef !10
   %52 = zext i16 %51 to i64
   %53 = load i64, ptr %37, align 8, !noundef !10
   %54 = icmp ugt i64 %53, %52
-  br i1 %54, label %.lr.ph335, label %._crit_edge336
+  br i1 %54, label %.lr.ph338, label %._crit_edge339
 
 55:                                               ; preds = %.backedge
   %56 = load i8, ptr %19, align 8, !noundef !10
@@ -251,18 +251,18 @@ default.unreachable357:                           ; preds = %.backedge, %281, %2
 63:                                               ; preds = %.backedge
   %64 = load ptr, ptr %14, align 8, !noundef !10
   %.not = icmp eq ptr %64, null
-  br i1 %.not, label %.thread358, label %.preheader312
+  br i1 %.not, label %.thread361, label %.preheader315
 
-.preheader312:                                    ; preds = %63
+.preheader315:                                    ; preds = %63
   %65 = load i8, ptr %15, align 1, !noundef !10
   %66 = icmp ult i8 %65, 2
   br i1 %66, label %.lr.ph, label %._crit_edge
 
-.thread358:                                       ; preds = %63
+.thread361:                                       ; preds = %63
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.593)
   br label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit242"
 
-._crit_edge340:                                   ; preds = %130, %.preheader
+._crit_edge343:                                   ; preds = %130, %.preheader
   %67 = load i8, ptr %16, align 2, !noundef !10
   %68 = icmp eq i8 %67, 31
   %69 = load i8, ptr %26, align 1
@@ -270,14 +270,14 @@ default.unreachable357:                           ; preds = %.backedge, %281, %2
   %or.cond = select i1 %68, i1 %70, i1 false
   br i1 %or.cond, label %71, label %74
 
-71:                                               ; preds = %._crit_edge340
+71:                                               ; preds = %._crit_edge343
   %72 = load i8, ptr %31, align 4, !noundef !10
   %73 = icmp eq i8 %72, 8
   br i1 %73, label %76, label %79
 
-74:                                               ; preds = %._crit_edge340
+74:                                               ; preds = %._crit_edge343
   %75 = call noundef nonnull ptr @_ZN6flate22gz10bad_header17h2aa5418a913f4f2aE()
-  br label %.loopexit314
+  br label %.loopexit317
 
 76:                                               ; preds = %71
   %77 = load i8, ptr %32, align 1, !noundef !10
@@ -287,7 +287,7 @@ default.unreachable357:                           ; preds = %.backedge, %281, %2
 
 79:                                               ; preds = %71
   %80 = call noundef nonnull ptr @_ZN6flate22gz10bad_header17h2aa5418a913f4f2aE()
-  br label %.loopexit314
+  br label %.loopexit317
 
 81:                                               ; preds = %76
   %82 = load i32, ptr %33, align 2
@@ -300,7 +300,7 @@ default.unreachable357:                           ; preds = %.backedge, %281, %2
 
 86:                                               ; preds = %76
   %87 = call noundef nonnull ptr @_ZN6flate22gz10bad_header17h2aa5418a913f4f2aE()
-  br label %.loopexit314
+  br label %.loopexit317
 
 88:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -373,7 +373,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %88
   %.pn = phi { ptr, i32 } [ %162, %161 ], [ %105, %104 ]
   resume { ptr, i32 } %.pn
 
-.lr.ph339:                                        ; preds = %.preheader, %130
+.lr.ph342:                                        ; preds = %.preheader, %130
   %107 = phi i8 [ %133, %130 ], [ %40, %.preheader ]
   %108 = zext nneg i8 %107 to i64
   %109 = sub nuw nsw i64 10, %108
@@ -384,18 +384,18 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %88
   %trunc.i = trunc nuw i64 %111 to i1
   br i1 %trunc.i, label %116, label %112
 
-112:                                              ; preds = %.lr.ph339
+112:                                              ; preds = %.lr.ph342
   %113 = load i64, ptr %29, align 8, !noalias !31, !noundef !10
   %114 = icmp ne i64 %113, 0
   %115 = inttoptr i64 %113 to ptr
   %spec.select301 = select i1 %114, i64 %113, i64 158913789955
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread13.i
 
-116:                                              ; preds = %.lr.ph339
+116:                                              ; preds = %.lr.ph342
   %.val.i = load ptr, ptr %29, align 8, !noalias !31, !nonnull !10, !noundef !10
   %117 = ptrtoint ptr %.val.i to i64
   %118 = and i64 %117, 3
-  switch i64 %118, label %default.unreachable357 [
+  switch i64 %118, label %default.unreachable360 [
     i64 2, label %120
     i64 3, label %119
     i64 0, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i
@@ -449,7 +449,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i: ; preds = %121, %116
 
 _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit.thread: ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i, %120, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !31
-  br label %.loopexit314
+  br label %.loopexit317
 
 _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit: ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread13.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee124a95d3aa0f9eE.exit.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !31
@@ -461,26 +461,26 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit: ; preds = %_ZN3std2io5error5Er
   %133 = add i8 %132, %131
   store i8 %133, ptr %15, align 1
   %134 = icmp ult i8 %133, 10
-  br i1 %134, label %.lr.ph339, label %._crit_edge340
+  br i1 %134, label %.lr.ph342, label %._crit_edge343
 
 .loopexit:                                        ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit
   %135 = inttoptr i64 %.sroa.7.2 to ptr
-  br label %.loopexit314
+  br label %.loopexit317
 
-.loopexit309:                                     ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215
+.loopexit312:                                     ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215
   %136 = inttoptr i64 %.sroa.7260.3 to ptr
-  br label %.loopexit314
+  br label %.loopexit317
 
-.loopexit311:                                     ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233
+.loopexit314:                                     ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233
   %137 = inttoptr i64 %.sroa.7270.2 to ptr
-  br label %.loopexit314
+  br label %.loopexit317
 
-.loopexit313:                                     ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258
+.loopexit316:                                     ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258
   %138 = inttoptr i64 %.sroa.7272.3 to ptr
-  br label %.loopexit314
+  br label %.loopexit317
 
-.loopexit314:                                     ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit238", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit", %.backedge, %.loopexit313, %.loopexit311, %.loopexit309, %.loopexit, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258.thread, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233.thread, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215.thread, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit.thread, %270, %74, %79, %86
-  %.0 = phi ptr [ %271, %270 ], [ %87, %86 ], [ %80, %79 ], [ %75, %74 ], [ %.val.i, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit.thread ], [ %.val.i204, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215.thread ], [ %.val.i222, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233.thread ], [ %.val.i247, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258.thread ], [ %135, %.loopexit ], [ %136, %.loopexit309 ], [ %137, %.loopexit311 ], [ %138, %.loopexit313 ], [ %246, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit238" ], [ %233, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit" ], [ null, %.backedge ]
+.loopexit317:                                     ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit238", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit", %.backedge, %.loopexit316, %.loopexit314, %.loopexit312, %.loopexit, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258.thread, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233.thread, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215.thread, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit.thread, %270, %74, %79, %86
+  %.0 = phi ptr [ %271, %270 ], [ %87, %86 ], [ %80, %79 ], [ %75, %74 ], [ %.val.i, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit.thread ], [ %.val.i204, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215.thread ], [ %.val.i222, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233.thread ], [ %.val.i247, %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258.thread ], [ %135, %.loopexit ], [ %136, %.loopexit312 ], [ %137, %.loopexit314 ], [ %138, %.loopexit316 ], [ %246, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit238" ], [ %233, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit" ], [ null, %.backedge ]
   ret ptr %.0
 
 "_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit197": ; preds = %42
@@ -493,16 +493,16 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit: ; preds = %_ZN3std2io5error5Er
   %.be = phi i8 [ 3, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit197" ], [ 2, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h22ac557b2217b10dE.exit" ], [ 1, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit" ], [ 3, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit217" ], [ 4, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit235" ], [ 5, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit240" ], [ 6, %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit242" ]
   br label %.backedge
 
-._crit_edge338:                                   ; preds = %187, %.preheader308
+._crit_edge341:                                   ; preds = %187, %.preheader311
   %140 = load ptr, ptr %14, align 8, !noundef !10
   %.not161 = icmp eq ptr %140, null
   br i1 %.not161, label %142, label %141
 
-141:                                              ; preds = %._crit_edge338
+141:                                              ; preds = %._crit_edge341
   call void @_ZN6flate23crc3Crc6update17h0f9d9da3d28fbfafE(ptr noalias noundef nonnull align 8 dereferenceable(24) %140, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef 2)
   br label %142
 
-142:                                              ; preds = %141, %._crit_edge338
+142:                                              ; preds = %141, %._crit_edge341
   %143 = load i8, ptr %16, align 2, !noundef !10
   %144 = zext i8 %143 to i64
   %145 = load i8, ptr %26, align 1, !noundef !10
@@ -559,8 +559,8 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit: ; preds = %_ZN3std2io5error5Er
   store ptr %163, ptr %14, align 8
   br label %.backedge.backedge
 
-.lr.ph337:                                        ; preds = %.preheader308, %187
-  %164 = phi i8 [ %190, %187 ], [ %46, %.preheader308 ]
+.lr.ph340:                                        ; preds = %.preheader311, %187
+  %164 = phi i8 [ %190, %187 ], [ %46, %.preheader311 ]
   %165 = zext nneg i8 %164 to i64
   %166 = sub nuw nsw i64 2, %165
   %167 = getelementptr inbounds i8, ptr %16, i64 %165
@@ -570,18 +570,18 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit: ; preds = %_ZN3std2io5error5Er
   %trunc.i200 = trunc nuw i64 %168 to i1
   br i1 %trunc.i200, label %173, label %169
 
-169:                                              ; preds = %.lr.ph337
+169:                                              ; preds = %.lr.ph340
   %170 = load i64, ptr %24, align 8, !noalias !62, !noundef !10
   %171 = icmp ne i64 %170, 0
   %172 = inttoptr i64 %170 to ptr
   %spec.select303 = select i1 %171, i64 %170, i64 158913789955
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread13.i209
 
-173:                                              ; preds = %.lr.ph337
+173:                                              ; preds = %.lr.ph340
   %.val.i204 = load ptr, ptr %24, align 8, !noalias !62, !nonnull !10, !noundef !10
   %174 = ptrtoint ptr %.val.i204 to i64
   %175 = and i64 %174, 3
-  switch i64 %175, label %default.unreachable357 [
+  switch i64 %175, label %default.unreachable360 [
     i64 2, label %177
     i64 3, label %176
     i64 0, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i205
@@ -635,11 +635,11 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i205: ; preds = %178, %173
 
 _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215.thread: ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i205, %177, %176
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !62
-  br label %.loopexit314
+  br label %.loopexit317
 
 _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215: ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread13.i209, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee124a95d3aa0f9eE.exit.i203"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !62
-  br i1 %.sroa.0259.3, label %187, label %.loopexit309
+  br i1 %.sroa.0259.3, label %187, label %.loopexit312
 
 187:                                              ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215
   %188 = trunc i64 %.sroa.7260.3 to i8
@@ -647,34 +647,34 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215: ; preds = %_ZN3std2io5error
   %190 = add i8 %189, %188
   store i8 %190, ptr %15, align 1
   %191 = icmp ult i8 %190, 2
-  br i1 %191, label %.lr.ph337, label %._crit_edge338
+  br i1 %191, label %.lr.ph340, label %._crit_edge341
 
 192:                                              ; preds = %48
   call void @_ZN4core6option13unwrap_failed17hac39b9b7507453f8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bd2d6f40c6ea62ad7b786ddbc6976f26.10) #11
   unreachable
 
-._crit_edge336:                                   ; preds = %222, %.preheader310
-  %.lcssa317 = phi i64 [ %53, %.preheader310 ], [ %227, %222 ]
+._crit_edge339:                                   ; preds = %222, %.preheader313
+  %.lcssa320 = phi i64 [ %53, %.preheader313 ], [ %227, %222 ]
   %193 = load ptr, ptr %14, align 8, !noundef !10
   %.not158 = icmp eq ptr %193, null
   br i1 %.not158, label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit217", label %194
 
-194:                                              ; preds = %._crit_edge336
+194:                                              ; preds = %._crit_edge339
   %195 = getelementptr inbounds i8, ptr %., i64 8
   %196 = load ptr, ptr %195, align 8, !nonnull !10, !noundef !10
-  call void @_ZN6flate23crc3Crc6update17h0f9d9da3d28fbfafE(ptr noalias noundef nonnull align 8 dereferenceable(24) %193, ptr noalias noundef nonnull readonly align 1 %196, i64 noundef %.lcssa317)
-  %.pre356 = load ptr, ptr %14, align 8
+  call void @_ZN6flate23crc3Crc6update17h0f9d9da3d28fbfafE(ptr noalias noundef nonnull align 8 dereferenceable(24) %193, ptr noalias noundef nonnull readonly align 1 %196, i64 noundef %.lcssa320)
+  %.pre359 = load ptr, ptr %14, align 8
   br label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit217"
 
-"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit217": ; preds = %194, %._crit_edge336
-  %197 = phi ptr [ %.pre356, %194 ], [ null, %._crit_edge336 ]
+"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit217": ; preds = %194, %._crit_edge339
+  %197 = phi ptr [ %.pre359, %194 ], [ null, %._crit_edge339 ]
   store i8 3, ptr %13, align 8
   store ptr %197, ptr %14, align 8
   br label %.backedge.backedge
 
-.lr.ph335:                                        ; preds = %.preheader310, %222
-  %198 = phi i64 [ %227, %222 ], [ %53, %.preheader310 ]
-  %199 = phi i64 [ %226, %222 ], [ %52, %.preheader310 ]
+.lr.ph338:                                        ; preds = %.preheader313, %222
+  %198 = phi i64 [ %227, %222 ], [ %53, %.preheader313 ]
+  %199 = phi i64 [ %226, %222 ], [ %52, %.preheader313 ]
   %200 = load ptr, ptr %38, align 8, !nonnull !10, !noundef !10
   %201 = sub nuw i64 %198, %199
   %202 = getelementptr inbounds i8, ptr %200, i64 %199
@@ -684,18 +684,18 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit215: ; preds = %_ZN3std2io5error
   %trunc.i218 = trunc nuw i64 %203 to i1
   br i1 %trunc.i218, label %208, label %204
 
-204:                                              ; preds = %.lr.ph335
+204:                                              ; preds = %.lr.ph338
   %205 = load i64, ptr %22, align 8, !noalias !79, !noundef !10
   %206 = icmp ne i64 %205, 0
   %207 = inttoptr i64 %205 to ptr
   %spec.select304 = select i1 %206, i64 %205, i64 158913789955
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread13.i227
 
-208:                                              ; preds = %.lr.ph335
+208:                                              ; preds = %.lr.ph338
   %.val.i222 = load ptr, ptr %22, align 8, !noalias !79, !nonnull !10, !noundef !10
   %209 = ptrtoint ptr %.val.i222 to i64
   %210 = and i64 %209, 3
-  switch i64 %210, label %default.unreachable357 [
+  switch i64 %210, label %default.unreachable360 [
     i64 2, label %212
     i64 3, label %211
     i64 0, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i223
@@ -749,11 +749,11 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i223: ; preds = %213, %208
 
 _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233.thread: ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i223, %212, %211
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !79
-  br label %.loopexit314
+  br label %.loopexit317
 
 _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233: ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread13.i227, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee124a95d3aa0f9eE.exit.i221"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !79
-  br i1 %.sroa.0269.2, label %222, label %.loopexit311
+  br i1 %.sroa.0269.2, label %222, label %.loopexit314
 
 222:                                              ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233
   %223 = trunc i64 %.sroa.7270.2 to i16
@@ -763,7 +763,7 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233: ; preds = %_ZN3std2io5error
   %226 = zext i16 %225 to i64
   %227 = load i64, ptr %37, align 8, !noundef !10
   %228 = icmp ugt i64 %227, %226
-  br i1 %228, label %.lr.ph335, label %._crit_edge336
+  br i1 %228, label %.lr.ph338, label %._crit_edge339
 
 229:                                              ; preds = %55
   %230 = load i64, ptr %21, align 8, !range !27, !alias.scope !96, !noundef !10
@@ -779,7 +779,7 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233: ; preds = %_ZN3std2io5error
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit": ; preds = %229, %232
   %233 = call fastcc noundef ptr @_ZN6flate22gz11read_to_nul17h813a94eeabab0972E(ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(24) %21)
   %234 = icmp eq ptr %233, null
-  br i1 %234, label %236, label %.loopexit314
+  br i1 %234, label %236, label %.loopexit317
 
 "_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit235": ; preds = %55, %238, %236
   %235 = load ptr, ptr %14, align 8, !align !48, !noundef !10
@@ -814,7 +814,7 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233: ; preds = %_ZN3std2io5error
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h33607fb78558b346E.exit238": ; preds = %242, %245
   %246 = call fastcc noundef ptr @_ZN6flate22gz11read_to_nul17h813a94eeabab0972E(ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(24) %20)
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %249, label %.loopexit314
+  br i1 %247, label %249, label %.loopexit317
 
 "_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit240": ; preds = %59, %251, %249
   %248 = load ptr, ptr %14, align 8, !align !48, !noundef !10
@@ -874,11 +874,11 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233: ; preds = %_ZN3std2io5error
   br i1 %265, label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit242", label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$flate2..crc..Crc$GT$$GT$$GT$17h54c18410b312d8f5E.exit.sink.split.i241"
 
 ._crit_edge.loopexit:                             ; preds = %295
-  %.pre355 = load ptr, ptr %14, align 8
+  %.pre358 = load ptr, ptr %14, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader312
-  %266 = phi ptr [ %.pre355, %._crit_edge.loopexit ], [ %64, %.preheader312 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader315
+  %266 = phi ptr [ %.pre358, %._crit_edge.loopexit ], [ %64, %.preheader315 ]
   %267 = load i16, ptr %16, align 2
   %268 = call noundef i32 @_ZN6flate23crc3Crc3sum17h7f3d6d445638d452E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %266)
   %269 = trunc i32 %268 to i16
@@ -887,10 +887,10 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233: ; preds = %_ZN3std2io5error
 
 270:                                              ; preds = %._crit_edge
   %271 = call noundef nonnull ptr @_ZN6flate22gz7corrupt17hc639a190c117ea5bE()
-  br label %.loopexit314
+  br label %.loopexit317
 
-.lr.ph:                                           ; preds = %.preheader312, %295
-  %272 = phi i8 [ %298, %295 ], [ %65, %.preheader312 ]
+.lr.ph:                                           ; preds = %.preheader315, %295
+  %272 = phi i8 [ %298, %295 ], [ %65, %.preheader315 ]
   %273 = zext nneg i8 %272 to i64
   %274 = sub nuw nsw i64 2, %273
   %275 = getelementptr inbounds i8, ptr %16, i64 %273
@@ -911,7 +911,7 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit233: ; preds = %_ZN3std2io5error
   %.val.i247 = load ptr, ptr %17, align 8, !noalias !102, !nonnull !10, !noundef !10
   %282 = ptrtoint ptr %.val.i247 to i64
   %283 = and i64 %282, 3
-  switch i64 %283, label %default.unreachable357 [
+  switch i64 %283, label %default.unreachable360 [
     i64 2, label %285
     i64 3, label %284
     i64 0, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i248
@@ -965,11 +965,11 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i248: ; preds = %286, %281
 
 _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258.thread: ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i248, %285, %284
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !102
-  br label %.loopexit314
+  br label %.loopexit317
 
 _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258: ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.thread13.i252, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee124a95d3aa0f9eE.exit.i246"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !102
-  br i1 %.sroa.0271.3, label %295, label %.loopexit313
+  br i1 %.sroa.0271.3, label %295, label %.loopexit316
 
 295:                                              ; preds = %_ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258
   %296 = trunc i64 %.sroa.7272.3 to i8
@@ -979,7 +979,7 @@ _ZN6flate22gz9read_into17h55d1c73e69fdfa1bE.exit258: ; preds = %_ZN3std2io5error
   %299 = icmp ult i8 %298, 2
   br i1 %299, label %.lr.ph, label %._crit_edge.loopexit
 
-"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit242": ; preds = %.thread358, %264, %262, %260, %258, %256, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$flate2..crc..Crc$GT$$GT$$GT$17h54c18410b312d8f5E.exit.sink.split.i241", %255
+"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.exit242": ; preds = %.thread361, %264, %262, %260, %258, %256, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$flate2..crc..Crc$GT$$GT$$GT$17h54c18410b312d8f5E.exit.sink.split.i241", %255
   store i8 6, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %15, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.593, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.593)

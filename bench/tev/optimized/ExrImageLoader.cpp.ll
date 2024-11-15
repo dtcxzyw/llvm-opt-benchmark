@@ -1137,8 +1137,6 @@ $_ZTIZN3tev10ThreadPool11enqueueTaskIRNSt3__116coroutine_handleIvEEEEDaOT_iEUlvE
 @.str.93 = private unnamed_addr constant [40 x i8] c"~Task<T> was invoked before completion.\00", align 1
 @.str.94 = private unnamed_addr constant [45 x i8] c"Cannot co_await/get() a task multiple times.\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN3tev10RawChannel12registerWithERN7Imf_2_511FrameBufferERKN9Imath_2_53BoxINS4_4Vec2IiEEEE = private unnamed_addr constant [3 x i32] [i32 2, i32 1, i32 2], align 4
-@switch.table._ZN3tev10RawChannel12registerWithERN7Imf_2_511FrameBufferERKN9Imath_2_53BoxINS4_4Vec2IiEEEE.6 = private unnamed_addr constant [3 x i32] [i32 4, i32 2, i32 4], align 4
 @switch.table._ZN4tlog13ConsoleOutput9writeLineERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_9ESeverityES9_ = private unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds (i8, ptr @_ZN4tlog4ansiL4CYANE, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN4tlog4ansiL7MAGENTAE, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN4tlog4ansiL11BOLD_YELLOWE, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN4tlog4ansiL8BOLD_REDE, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN4tlog4ansiL5GREENE, i64 1), ptr getelementptr inbounds (i8, ptr @_ZN4tlog4ansiL4BLUEE, i64 1)], align 8
 @switch.table._ZN3tev10RawChannel6resizeEv = private unnamed_addr constant [3 x i64] [i64 4, i64 2, i64 4], align 8
 
@@ -4766,68 +4764,75 @@ _ZNSt3__110shared_ptrIN3tev15TaskSharedStateEED2B8ne190000Ev.exit: ; preds = %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3tev10RawChannel12registerWithERN7Imf_2_511FrameBufferERKN9Imath_2_53BoxINS4_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(16) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Imf_2_5::Slice", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = load i32, ptr %5, align 8
-  %7 = icmp ult i32 %6, 3
-  br i1 %7, label %switch.lookup, label %8
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = load i32, ptr %5, align 4
+  %7 = load i32, ptr %2, align 4
+  %8 = sub nsw i32 %6, %7
+  %9 = add nsw i32 %8, 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load i8, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = load i32, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = mul nsw i32 %19, %9
+  %21 = add nsw i32 %20, %7
+  switch i32 %15, label %23 [
+    i32 1, label %_ZNK3tev10RawChannel13bytesPerPixelEv.exit.thread
+    i32 2, label %_ZNK3tev10RawChannel13bytesPerPixelEv.exit
+    i32 0, label %_ZNK3tev10RawChannel13bytesPerPixelEv.exit
+  ]
 
-8:                                                ; preds = %3
-  %9 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.44)
-          to label %10 unwind label %11
+_ZNK3tev10RawChannel13bytesPerPixelEv.exit.thread: ; preds = %3
+  %22 = shl nsw i32 %21, 1
+  br label %_ZNK3tev10RawChannel13bytesPerPixelEv.exit10
 
-10:                                               ; preds = %8
-  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #27
+23:                                               ; preds = %3
+  %24 = tail call ptr @__cxa_allocate_exception(i64 16) #23
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull @.str.44)
+          to label %25 unwind label %26
+
+25:                                               ; preds = %23
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #27
   unreachable
 
-11:                                               ; preds = %8
-  %12 = landingpad { ptr, i32 }
+26:                                               ; preds = %23
+  %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #23
-  resume { ptr, i32 } %12
+  tail call void @__cxa_free_exception(ptr %24) #23
+  resume { ptr, i32 } %27
 
-switch.lookup:                                    ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
-  %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = load i8, ptr %19, align 8
-  %21 = load i32, ptr %2, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
-  %23 = load i32, ptr %22, align 4
-  %24 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN3tev10RawChannel12registerWithERN7Imf_2_511FrameBufferERKN9Imath_2_53BoxINS4_4Vec2IiEEEE, i64 0, i64 %24
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %25 = zext nneg i32 %6 to i64
-  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN3tev10RawChannel6resizeEv, i64 0, i64 %25
-  %switch.load20 = load i64, ptr %switch.gep19, align 8
-  %26 = zext nneg i32 %6 to i64
-  %switch.gep21 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN3tev10RawChannel12registerWithERN7Imf_2_511FrameBufferERKN9Imath_2_53BoxINS4_4Vec2IiEEEE.6, i64 0, i64 %26
-  %switch.load22 = load i32, ptr %switch.gep21, align 4
-  %27 = sub nsw i32 %23, %21
-  %28 = add nsw i32 %27, 1
-  %29 = mul nsw i32 %14, %28
-  %30 = add nsw i32 %29, %21
-  %31 = shl nsw i32 %30, %switch.load
-  %32 = sext i32 %31 to i64
-  %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds i8, ptr %16, i64 %33
-  %35 = and i8 %20, 1
-  %.not.i.i.i = icmp eq i8 %35, 0
-  %36 = getelementptr inbounds i8, ptr %0, i64 33
-  %37 = select i1 %.not.i.i.i, ptr %36, ptr %18
-  %38 = getelementptr inbounds i8, ptr %0, i64 60
-  %39 = load i32, ptr %38, align 4
-  %40 = sdiv i32 %28, %39
-  %41 = mul nsw i32 %40, %switch.load22
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 64
-  %44 = load i32, ptr %43, align 8
-  call void @_ZN7Imf_2_55SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %4, i32 noundef %6, ptr noundef %34, i64 noundef %switch.load20, i64 noundef %42, i32 noundef %39, i32 noundef %44, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @_ZN7Imf_2_511FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(50) %4)
+_ZNK3tev10RawChannel13bytesPerPixelEv.exit:       ; preds = %3, %3
+  %28 = shl nsw i32 %21, 2
+  %switch = icmp eq i32 %15, 1
+  %spec.select = select i1 %switch, i64 2, i64 4
+  %spec.select16 = select i1 %switch, i32 2, i32 4
+  br label %_ZNK3tev10RawChannel13bytesPerPixelEv.exit10
+
+_ZNK3tev10RawChannel13bytesPerPixelEv.exit10:     ; preds = %_ZNK3tev10RawChannel13bytesPerPixelEv.exit, %_ZNK3tev10RawChannel13bytesPerPixelEv.exit.thread
+  %29 = phi i64 [ 2, %_ZNK3tev10RawChannel13bytesPerPixelEv.exit.thread ], [ %spec.select, %_ZNK3tev10RawChannel13bytesPerPixelEv.exit ]
+  %.pn17.in = phi i32 [ %22, %_ZNK3tev10RawChannel13bytesPerPixelEv.exit.thread ], [ %28, %_ZNK3tev10RawChannel13bytesPerPixelEv.exit ]
+  %.0.i9 = phi i32 [ 2, %_ZNK3tev10RawChannel13bytesPerPixelEv.exit.thread ], [ %spec.select16, %_ZNK3tev10RawChannel13bytesPerPixelEv.exit ]
+  %.pn17 = sext i32 %.pn17.in to i64
+  %.pn = sub nsw i64 0, %.pn17
+  %30 = getelementptr inbounds i8, ptr %17, i64 %.pn
+  %31 = and i8 %11, 1
+  %.not.i.i.i = icmp eq i8 %31, 0
+  %32 = getelementptr inbounds i8, ptr %0, i64 33
+  %33 = select i1 %.not.i.i.i, ptr %32, ptr %13
+  %34 = getelementptr inbounds i8, ptr %0, i64 60
+  %35 = load i32, ptr %34, align 4
+  %36 = sdiv i32 %9, %35
+  %37 = mul nsw i32 %36, %.0.i9
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %40 = load i32, ptr %39, align 8
+  call void @_ZN7Imf_2_55SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %4, i32 noundef %15, ptr noundef %30, i64 noundef %29, i64 noundef %38, i32 noundef %35, i32 noundef %40, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
+  call void @_ZN7Imf_2_511FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(50) %4)
   ret void
 }
 

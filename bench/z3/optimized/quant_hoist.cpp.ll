@@ -2711,7 +2711,7 @@ entry:
     i32 32, label %sw.bb4
     i32 33, label %return
     i32 64, label %sw.bb9
-    i32 65, label %sw.bb10
+    i32 65, label %sw.bb9
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -2722,10 +2722,7 @@ sw.bb4:                                           ; preds = %entry
   %lnot6 = xor i1 %is_forall, true
   br label %return
 
-sw.bb9:                                           ; preds = %entry
-  br label %return
-
-sw.bb10:                                          ; preds = %entry
+sw.bb9:                                           ; preds = %entry, %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -2733,8 +2730,8 @@ sw.default:                                       ; preds = %entry
   tail call void @exit(i32 noundef 114) #18
   unreachable
 
-return:                                           ; preds = %entry, %entry, %sw.bb10, %sw.bb9, %sw.bb4, %sw.bb2
-  %retval.0 = phi i1 [ true, %sw.bb10 ], [ true, %sw.bb9 ], [ %lnot6, %sw.bb4 ], [ %lnot, %sw.bb2 ], [ %is_forall, %entry ], [ %is_forall, %entry ]
+return:                                           ; preds = %entry, %entry, %sw.bb9, %sw.bb4, %sw.bb2
+  %retval.0 = phi i1 [ true, %sw.bb9 ], [ %lnot6, %sw.bb4 ], [ %lnot, %sw.bb2 ], [ %is_forall, %entry ], [ %is_forall, %entry ]
   ret i1 %retval.0
 }
 

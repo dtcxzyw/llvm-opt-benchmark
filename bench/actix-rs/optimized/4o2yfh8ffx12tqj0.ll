@@ -6488,14 +6488,14 @@ define hidden void @_ZN2h25proto7streams7streams5Inner12recv_headers17hdf0ba3323
   ]
 
 113:                                              ; preds = %110
-  %switch3.i = icmp samesign ult i8 %108, 2
-  br i1 %switch3.i, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread
+  %switch.i269 = icmp samesign ult i8 %108, 2
+  br i1 %switch.i269, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread
 
 _ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit: ; preds = %113
   %.02.in.i = getelementptr inbounds i8, ptr %82, i64 81
   %.02.i = load i8, ptr %.02.in.i, align 1, !range !595, !noundef !4
-  %switch.i269 = icmp samesign ult i8 %.02.i, 2
-  br i1 %switch.i269, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread429
+  %switch3.i = icmp samesign ult i8 %.02.i, 2
+  br i1 %switch3.i, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread, label %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread429
 
 _ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit.thread429: ; preds = %106, %110, %_ZN2h25proto7streams5state5State14is_local_error17h1411022f523d270dE.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)

@@ -5387,8 +5387,8 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
-4:                                                ; preds = %switch.lookup, %1
-  %.0 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ]
+4:                                                ; preds = %1, %switch.lookup
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ null, %1 ]
   ret ptr %.0
 }
 

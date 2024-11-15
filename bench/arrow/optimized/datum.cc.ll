@@ -2646,8 +2646,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cond.i = icmp eq i8 %0, 2
-  br i1 %cond.i, label %_ZNK5arrow5Datum10make_arrayEv.exit, label %_ZNK5arrow5Datum13chunked_arrayEv.exit
+  %switch.selectcmp1.i = icmp eq i8 %0, 2
+  br i1 %switch.selectcmp1.i, label %_ZNK5arrow5Datum10make_arrayEv.exit, label %_ZNK5arrow5Datum13chunked_arrayEv.exit
 
 _ZNK5arrow5Datum10make_arrayEv.exit:              ; preds = %if.end
   call void @_ZN5arrow9MakeArrayERKSt10shared_ptrINS_9ArrayDataEE(ptr nonnull sret(%"class.std::shared_ptr.15") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)

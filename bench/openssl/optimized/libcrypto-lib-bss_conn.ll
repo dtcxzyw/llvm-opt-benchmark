@@ -359,9 +359,8 @@ entry:
     i32 13, label %sw.bb214
     i32 11, label %sw.epilog246
     i32 12, label %sw.bb216
-    i32 14, label %sw.bb236
-    i32 15, label %sw.bb237
     i32 2, label %sw.bb239
+    i32 15, label %sw.bb237
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -726,9 +725,6 @@ if.end228:                                        ; preds = %if.then225, %if.end
   %call234 = tail call i64 @BIO_callback_ctrl(ptr noundef %ptr, i32 noundef 14, ptr noundef %39) #11
   br label %sw.epilog246
 
-sw.bb236:                                         ; preds = %entry
-  br label %sw.epilog246
-
 sw.bb237:                                         ; preds = %entry
   %info_callback238 = getelementptr inbounds i8, ptr %0, i64 56
   %40 = load ptr, ptr %info_callback238, align 8
@@ -746,8 +742,8 @@ sw.bb239:                                         ; preds = %entry
 sw.default245:                                    ; preds = %entry
   br label %sw.epilog246
 
-sw.epilog246:                                     ; preds = %if.then66, %sw.bb196, %if.end164, %if.end133, %land.lhs.true137, %land.lhs.true141, %sw.bb120, %lor.lhs.false, %sw.bb106, %if.then47, %sw.bb5, %if.then8, %if.then24, %sw.bb3, %entry, %if.end204, %if.then192, %if.else193, %sw.bb172, %if.then183, %if.then168, %if.then146, %if.then123, %sw.bb44, %if.then98, %if.then85, %if.else93, %if.then50, %if.then61, %if.then15, %sw.default, %sw.bb29, %sw.bb28, %if.then34, %if.then19, %if.then11, %if.then, %sw.default245, %sw.bb239, %sw.bb237, %sw.bb236, %if.end228, %sw.bb214, %sw.bb211, %sw.bb209, %sw.bb117, %if.end115, %conn_close_socket.exit
-  %ret.0 = phi i64 [ 0, %sw.default245 ], [ %conv244, %sw.bb239 ], [ 1, %sw.bb237 ], [ 0, %sw.bb236 ], [ 1, %if.end228 ], [ 1, %entry ], [ 0, %sw.bb214 ], [ 1, %sw.bb211 ], [ %conv210, %sw.bb209 ], [ %conv206, %if.end204 ], [ 1, %if.then192 ], [ 1, %if.else193 ], [ %call185, %if.then183 ], [ 1, %sw.bb172 ], [ 1, %if.then168 ], [ %num.addr.0, %if.then146 ], [ 1, %if.then123 ], [ %conv119, %sw.bb117 ], [ 1, %if.end115 ], [ %conv57, %if.then61 ], [ %conv57, %if.then50 ], [ 1, %if.then85 ], [ 0, %if.else93 ], [ 1, %if.then98 ], [ 1, %sw.bb44 ], [ 1, %if.then11 ], [ 1, %if.then15 ], [ 1, %if.then19 ], [ -1, %sw.default ], [ %conv30, %sw.bb29 ], [ 4, %sw.bb28 ], [ %conv35, %if.then34 ], [ %conv, %if.then ], [ 0, %conn_close_socket.exit ], [ 1, %sw.bb3 ], [ 6, %if.then24 ], [ 0, %if.then8 ], [ 0, %sw.bb5 ], [ %spec.select, %if.then66 ], [ 0, %if.then47 ], [ 0, %sw.bb106 ], [ 0, %lor.lhs.false ], [ 0, %sw.bb120 ], [ 0, %land.lhs.true141 ], [ 0, %land.lhs.true137 ], [ 0, %if.end133 ], [ 0, %if.end164 ], [ -1, %sw.bb196 ]
+sw.epilog246:                                     ; preds = %if.then66, %sw.bb196, %if.end164, %if.end133, %land.lhs.true137, %land.lhs.true141, %sw.bb120, %lor.lhs.false, %sw.bb106, %if.then47, %sw.bb5, %if.then8, %if.then24, %sw.bb3, %entry, %if.end204, %if.then192, %if.else193, %sw.bb172, %if.then183, %if.then168, %if.then146, %if.then123, %sw.bb44, %if.then98, %if.then85, %if.else93, %if.then50, %if.then61, %if.then15, %sw.default, %sw.bb29, %sw.bb28, %if.then34, %if.then19, %if.then11, %if.then, %sw.default245, %sw.bb239, %sw.bb237, %if.end228, %sw.bb214, %sw.bb211, %sw.bb209, %sw.bb117, %if.end115, %conn_close_socket.exit
+  %ret.0 = phi i64 [ 0, %sw.default245 ], [ %conv244, %sw.bb239 ], [ 1, %sw.bb237 ], [ 1, %if.end228 ], [ 1, %entry ], [ 0, %sw.bb214 ], [ 1, %sw.bb211 ], [ %conv210, %sw.bb209 ], [ %conv206, %if.end204 ], [ 1, %if.then192 ], [ 1, %if.else193 ], [ %call185, %if.then183 ], [ 1, %sw.bb172 ], [ 1, %if.then168 ], [ %num.addr.0, %if.then146 ], [ 1, %if.then123 ], [ %conv119, %sw.bb117 ], [ 1, %if.end115 ], [ %conv57, %if.then61 ], [ %conv57, %if.then50 ], [ 1, %if.then85 ], [ 0, %if.else93 ], [ 1, %if.then98 ], [ 1, %sw.bb44 ], [ 1, %if.then11 ], [ 1, %if.then15 ], [ 1, %if.then19 ], [ -1, %sw.default ], [ %conv30, %sw.bb29 ], [ 4, %sw.bb28 ], [ %conv35, %if.then34 ], [ %conv, %if.then ], [ 0, %conn_close_socket.exit ], [ 1, %sw.bb3 ], [ 6, %if.then24 ], [ 0, %if.then8 ], [ 0, %sw.bb5 ], [ %spec.select, %if.then66 ], [ 0, %if.then47 ], [ 0, %sw.bb106 ], [ 0, %lor.lhs.false ], [ 0, %sw.bb120 ], [ 0, %land.lhs.true141 ], [ 0, %land.lhs.true137 ], [ 0, %if.end133 ], [ 0, %if.end164 ], [ -1, %sw.bb196 ]
   ret i64 %ret.0
 }
 

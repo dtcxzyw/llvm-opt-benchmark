@@ -3070,8 +3070,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2181 = private unnamed_addr constant [27 x i8] c"COMPRESSION_PAYLOAD_HEADER\00", align 1
 @.str.2182 = private unnamed_addr constant [26 x i8] c" 0x%02x repeated %u times\00", align 1
 @switch.table.dissect_smb2 = private unnamed_addr constant [3 x ptr] [ptr @smb_comp_transform_header_label, ptr @smb_transform_header_label, ptr @smb_header_label], align 8
-@switch.table.dissect_smb2_class_infolevel = private unnamed_addr constant [4 x ptr] [ptr @hf_smb2_infolevel_file_info, ptr @hf_smb2_infolevel_fs_info, ptr @hf_smb2_infolevel_sec_info, ptr @hf_smb2_infolevel], align 8
-@switch.table.dissect_smb2_class_infolevel.68 = private unnamed_addr constant [4 x ptr] [ptr @smb2_file_info_levels_ext, ptr @smb2_fs_info_levels_ext, ptr @smb2_sec_info_levels_ext, ptr null], align 8
+@switch.table.dissect_smb2_class_infolevel = private unnamed_addr constant [3 x ptr] [ptr @hf_smb2_infolevel_file_info, ptr @hf_smb2_infolevel_fs_info, ptr @hf_smb2_infolevel_sec_info], align 8
+@switch.table.dissect_smb2_class_infolevel.68 = private unnamed_addr constant [3 x ptr] [ptr @smb2_file_info_levels_ext, ptr @smb2_fs_info_levels_ext, ptr @smb2_sec_info_levels_ext], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dissect_smb2_ioctl_function(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
@@ -13887,15 +13887,15 @@ define internal fastcc noundef i32 @dissect_smb2_class_infolevel(ptr nocapture n
   %.036 = phi i8 [ %15, %12 ], [ %19, %22 ], [ %19, %16 ]
   %26 = zext i8 %.037 to i32
   %switch.tableidx = add i8 %.037, -1
-  %27 = icmp ult i8 %switch.tableidx, 4
+  %27 = icmp ult i8 %switch.tableidx, 3
   br i1 %27, label %switch.lookup, label %30
 
 switch.lookup:                                    ; preds = %25
   %28 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_smb2_class_infolevel, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_smb2_class_infolevel, i64 0, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %29 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep50 = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_smb2_class_infolevel.68, i64 0, i64 %29
+  %switch.gep50 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_smb2_class_infolevel.68, i64 0, i64 %29
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
   br label %30
 

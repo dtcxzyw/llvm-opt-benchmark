@@ -3318,12 +3318,9 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..s
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN12clap_builder7builder6action9ArgAction12takes_values17h8517f3e6786dc479E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #1 {
-switch.lookup:
-  %1 = load i8, ptr %0, align 1, !range !178, !noundef !5
-  %switch.cast = zext nneg i8 %1 to i9
-  %switch.downshift = lshr i9 3, %switch.cast
-  %switch.masked = trunc i9 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = load i8, ptr %0, align 1, !range !178, !noundef !5
+  %switch = icmp samesign ult i8 %2, 2
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

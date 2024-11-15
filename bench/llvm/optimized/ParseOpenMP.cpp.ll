@@ -6936,9 +6936,9 @@ define dso_local void @_ZN5clang6Parser23parseOMPContextPropertyERNS_16OMPTraitS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   switch i32 %.pr.pre, label %21 [
     i32 0, label %.thread
-    i32 43, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit.thread
-    i32 44, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit.thread
-    i32 45, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit.thread
+    i32 43, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit
+    i32 44, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit
+    i32 45, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit
   ]
 
 21:                                               ; preds = %19
@@ -6950,7 +6950,7 @@ define dso_local void @_ZN5clang6Parser23parseOMPContextPropertyERNS_16OMPTraitS
   %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #17
   %25 = getelementptr inbounds %"struct.clang::OMPTraitProperty", ptr %23, i64 %24
   %.not2.i = icmp eq i64 %24, 0
-  br i1 %.not2.i, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit.thread, label %.lr.ph.i
+  br i1 %.not2.i, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %101
   %.0253.i = phi ptr [ %102, %101 ], [ %23, %21 ]
@@ -7111,19 +7111,19 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i31.i:   ; preds = %79, %_ZNK5clang17Di
 101:                                              ; preds = %.lr.ph.i
   %102 = getelementptr inbounds i8, ptr %.0253.i, i64 24
   %.not.i = icmp eq ptr %102, %25
-  br i1 %.not.i, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit.thread, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit, label %.lr.ph.i
 
-_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit.thread: ; preds = %101, %21, %19, %19, %19
+_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit: ; preds = %101, %19, %19, %19, %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %103
 
-.thread:                                          ; preds = %19, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i31.i, %87, %94, %100
+.thread:                                          ; preds = %94, %100, %87, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i31.i, %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %105
 
-103:                                              ; preds = %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit.thread, %4
+103:                                              ; preds = %_ZL22checkExtensionPropertyRN5clang6ParserENS_14SourceLocationERNS_16OMPTraitPropertyERNS_16OMPTraitSelectorERN4llvm9StringMapIS2_NS7_15MallocAllocatorEEE.exit, %4
   %104 = icmp eq i32 %.pr.pre, 0
   br i1 %104, label %105, label %148
 

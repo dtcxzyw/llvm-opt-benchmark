@@ -34941,10 +34941,10 @@ define internal { i32, i32 } @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !4653, !noundef !5
   %switch.not = icmp ult i64 %3, -9223372036854775801
-  %spec.select = select i1 %switch.not, i64 52, i64 36
-  %spec.select15 = select i1 %switch.not, i64 48, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 %spec.select
-  %5 = getelementptr inbounds i8, ptr %0, i64 %spec.select15
+  %. = select i1 %switch.not, i64 52, i64 36
+  %.15 = select i1 %switch.not, i64 48, i64 32
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.15
   %.sroa.0.04 = load i32, ptr %4, align 4, !noundef !5
   %.sroa.01.0 = load i32, ptr %5, align 8, !noundef !5
   %6 = insertvalue { i32, i32 } poison, i32 %.sroa.0.04, 0

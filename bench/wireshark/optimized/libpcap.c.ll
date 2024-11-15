@@ -83,354 +83,351 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   %10 = load i32, ptr %1, align 4
   %.not84 = icmp ne i32 %10, -12
   %. = sext i1 %.not84 to i32
-  br label %148
+  br label %147
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %4, align 4
-  switch i32 %12, label %148 [
-    i32 -1582119980, label %19
+  switch i32 %12, label %147 [
+    i32 -1582119980, label %18
     i32 -725372255, label %13
     i32 469762476, label %14
     i32 469762475, label %14
     i32 -1409220580, label %15
     i32 -1425997796, label %15
-    i32 -1582117580, label %19
-    i32 885895841, label %16
-    i32 -1582154675, label %17
-    i32 1295823521, label %18
+    i32 -1582117580, label %18
+    i32 885895841, label %13
+    i32 -1582154675, label %16
+    i32 1295823521, label %17
   ]
 
-13:                                               ; preds = %11
-  br label %19
+13:                                               ; preds = %11, %11
+  br label %18
 
 14:                                               ; preds = %11, %11
-  br label %19
+  br label %18
 
 15:                                               ; preds = %11, %11
-  br label %19
+  br label %18
 
 16:                                               ; preds = %11
-  br label %19
+  br label %18
 
 17:                                               ; preds = %11
-  br label %19
+  br label %18
 
-18:                                               ; preds = %11
-  br label %19
+18:                                               ; preds = %11, %11, %17, %16, %15, %14, %13
+  %.not87 = phi i1 [ false, %17 ], [ true, %16 ], [ false, %15 ], [ true, %14 ], [ false, %13 ], [ true, %11 ], [ true, %11 ]
+  %.082 = phi i32 [ 1, %17 ], [ 0, %16 ], [ 1, %15 ], [ 0, %14 ], [ 1, %13 ], [ 0, %11 ], [ 0, %11 ]
+  %.081 = phi i32 [ 1, %17 ], [ 1, %16 ], [ 0, %15 ], [ 0, %14 ], [ 7, %13 ], [ 7, %11 ], [ 7, %11 ]
+  %19 = phi i1 [ false, %17 ], [ false, %16 ], [ true, %15 ], [ true, %14 ], [ false, %13 ], [ false, %11 ], [ false, %11 ]
+  %20 = load ptr, ptr %0, align 8
+  %21 = call i32 @wtap_read_bytes(ptr noundef %20, ptr noundef nonnull %5, i32 noundef 20, ptr noundef %1, ptr noundef %2) #7
+  %.not85 = icmp eq i32 %21, 0
+  br i1 %.not85, label %147, label %22
 
-19:                                               ; preds = %11, %11, %18, %17, %16, %15, %14, %13
-  %.not87 = phi i1 [ false, %18 ], [ true, %17 ], [ false, %16 ], [ false, %15 ], [ true, %14 ], [ false, %13 ], [ true, %11 ], [ true, %11 ]
-  %.082 = phi i32 [ 1, %18 ], [ 0, %17 ], [ 1, %16 ], [ 1, %15 ], [ 0, %14 ], [ 1, %13 ], [ 0, %11 ], [ 0, %11 ]
-  %.081 = phi i32 [ 1, %18 ], [ 1, %17 ], [ 7, %16 ], [ 0, %15 ], [ 0, %14 ], [ 7, %13 ], [ 7, %11 ], [ 7, %11 ]
-  %20 = phi i1 [ false, %18 ], [ false, %17 ], [ false, %16 ], [ true, %15 ], [ true, %14 ], [ false, %13 ], [ false, %11 ], [ false, %11 ]
-  %21 = load ptr, ptr %0, align 8
-  %22 = call i32 @wtap_read_bytes(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 20, ptr noundef %1, ptr noundef %2) #7
-  %.not85 = icmp eq i32 %22, 0
-  br i1 %.not85, label %148, label %23
+22:                                               ; preds = %18
+  br i1 %19, label %23, label %26
 
-23:                                               ; preds = %19
-  br i1 %20, label %24, label %27
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %0, align 8
+  %25 = call i32 @wtap_read_bytes(ptr noundef %24, ptr noundef nonnull %6, i32 noundef 4, ptr noundef %1, ptr noundef %2) #7
+  %.not86 = icmp eq i32 %25, 0
+  br i1 %.not86, label %147, label %26
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %0, align 8
-  %26 = call i32 @wtap_read_bytes(ptr noundef %25, ptr noundef nonnull %6, i32 noundef 4, ptr noundef %1, ptr noundef %2) #7
-  %.not86 = icmp eq i32 %26, 0
-  br i1 %.not86, label %148, label %27
-
-27:                                               ; preds = %24, %23
+26:                                               ; preds = %23, %22
   %.pre = load i16, ptr %5, align 4
-  br i1 %.not87, label %39, label %28
+  br i1 %.not87, label %38, label %27
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr %4, align 4
-  %30 = call i32 @llvm.bswap.i32(i32 %29)
-  store i32 %30, ptr %4, align 4
+27:                                               ; preds = %26
+  %28 = load i32, ptr %4, align 4
+  %29 = call i32 @llvm.bswap.i32(i32 %28)
+  store i32 %29, ptr %4, align 4
   %rev = call i16 @llvm.bswap.i16(i16 %.pre)
   store i16 %rev, ptr %5, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 2
-  %32 = load i16, ptr %31, align 2
-  %rev88 = call i16 @llvm.bswap.i16(i16 %32)
-  store i16 %rev88, ptr %31, align 2
-  %33 = getelementptr inbounds i8, ptr %5, i64 12
-  %34 = load i32, ptr %33, align 4
-  %35 = call i32 @llvm.bswap.i32(i32 %34)
-  store i32 %35, ptr %33, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 16
-  %37 = load i32, ptr %36, align 4
-  %38 = call i32 @llvm.bswap.i32(i32 %37)
-  store i32 %38, ptr %36, align 4
-  br label %39
+  %30 = getelementptr inbounds i8, ptr %5, i64 2
+  %31 = load i16, ptr %30, align 2
+  %rev88 = call i16 @llvm.bswap.i16(i16 %31)
+  store i16 %rev88, ptr %30, align 2
+  %32 = getelementptr inbounds i8, ptr %5, i64 12
+  %33 = load i32, ptr %32, align 4
+  %34 = call i32 @llvm.bswap.i32(i32 %33)
+  store i32 %34, ptr %32, align 4
+  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  %36 = load i32, ptr %35, align 4
+  %37 = call i32 @llvm.bswap.i32(i32 %36)
+  store i32 %37, ptr %35, align 4
+  br label %38
 
-39:                                               ; preds = %28, %27
-  %40 = phi i16 [ %rev, %28 ], [ %.pre, %27 ]
-  %41 = icmp ult i16 %40, 2
-  br i1 %41, label %42, label %45
+38:                                               ; preds = %27, %26
+  %39 = phi i16 [ %rev, %27 ], [ %.pre, %26 ]
+  %40 = icmp ult i16 %39, 2
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   store i32 -4, ptr %1, align 4
-  %43 = zext nneg i16 %40 to i32
-  %44 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %43) #7
-  store ptr %44, ptr %2, align 8
-  br label %148
-
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @libpcap_read, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @libpcap_seek_read, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr @libpcap_close, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 12
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %50, ptr %51, align 8
-  %52 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
-  %53 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %52, ptr %53, align 8
-  store i32 %.082, ptr %52, align 8
-  %54 = load i16, ptr %5, align 4
-  switch i16 %54, label %68 [
-    i16 2, label %55
-    i16 543, label %66
-  ]
-
-55:                                               ; preds = %45
-  %56 = getelementptr inbounds i8, ptr %5, i64 2
-  %57 = load i16, ptr %56, align 2
-  %58 = icmp ult i16 %57, 3
-  br i1 %58, label %59, label %61
-
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %52, i64 4
-  store i32 1, ptr %60, align 4
-  br label %70
-
-61:                                               ; preds = %55
-  %62 = icmp eq i16 %57, 3
-  %63 = getelementptr inbounds i8, ptr %52, i64 4
-  br i1 %62, label %64, label %65
-
-64:                                               ; preds = %61
-  store i32 2, ptr %63, align 4
-  br label %70
-
-65:                                               ; preds = %61
-  store i32 0, ptr %63, align 4
-  br label %70
-
-66:                                               ; preds = %45
-  %67 = getelementptr inbounds i8, ptr %52, i64 4
-  store i32 1, ptr %67, align 4
-  br label %70
-
-68:                                               ; preds = %45
-  %69 = getelementptr inbounds i8, ptr %52, i64 4
-  store i32 0, ptr %69, align 4
-  br label %70
-
-70:                                               ; preds = %59, %65, %64, %68, %66
-  %71 = getelementptr inbounds i8, ptr %52, i64 8
-  store i16 %54, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %5, i64 2
-  %73 = load i16, ptr %72, align 2
-  %74 = getelementptr inbounds i8, ptr %52, i64 10
-  store i16 %73, ptr %74, align 2
-  %75 = load i32, ptr %4, align 4
-  %76 = icmp eq i32 %75, -1582119980
-  %77 = icmp eq i16 %54, 2
-  %or.cond = and i1 %77, %76
-  %78 = icmp eq i16 %73, 2
-  %or.cond7 = select i1 %or.cond, i1 %78, i1 false
-  %79 = getelementptr inbounds i8, ptr %5, i64 16
-  %80 = load i32, ptr %79, align 4
-  br i1 %or.cond7, label %81, label %._crit_edge
-
-81:                                               ; preds = %70
-  switch i32 %80, label %._crit_edge [
-    i32 6, label %.thread102
-    i32 9, label %82
-    i32 15, label %83
-    i32 24, label %84
-  ]
-
-82:                                               ; preds = %81
-  br label %.thread102
-
-83:                                               ; preds = %81
-  br label %.thread102
-
-84:                                               ; preds = %81
-  br label %.thread102
-
-.thread102:                                       ; preds = %81, %84, %83, %82
-  %.sink = phi i32 [ 0, %84 ], [ 10, %83 ], [ 6, %82 ], [ 1, %81 ]
-  store i32 %.sink, ptr %79, align 4
-  %85 = getelementptr inbounds i8, ptr %5, i64 16
-  br label %90
-
-._crit_edge:                                      ; preds = %70, %81
-  %86 = getelementptr inbounds i8, ptr %5, i64 16
-  %87 = and i32 %80, 67043328
-  %.not95 = icmp eq i32 %87, 0
-  br i1 %.not95, label %90, label %88
-
-88:                                               ; preds = %._crit_edge
-  store i32 -4, ptr %1, align 4
-  %89 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %87) #7
-  store ptr %89, ptr %2, align 8
-  br label %148
-
-90:                                               ; preds = %.thread102, %._crit_edge
-  %91 = phi ptr [ %85, %.thread102 ], [ %86, %._crit_edge ]
-  %.1105 = phi i32 [ 2, %.thread102 ], [ %.081, %._crit_edge ]
-  %92 = phi i32 [ %.sink, %.thread102 ], [ %80, %._crit_edge ]
-  %93 = and i32 %92, 65535
-  %94 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %93) #7
-  %95 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %94, ptr %95, align 8
-  %96 = icmp eq i32 %94, 0
-  br i1 %96, label %97, label %100
-
-97:                                               ; preds = %90
-  store i32 -4, ptr %1, align 4
-  %98 = load i32, ptr %91, align 4
-  %99 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %98) #7
-  store ptr %99, ptr %2, align 8
-  br label %148
-
-100:                                              ; preds = %90
-  %101 = getelementptr inbounds i8, ptr %52, i64 16
-  store i32 -1, ptr %101, align 8
-  %102 = load i32, ptr %91, align 4
-  %103 = and i32 %102, 67108864
-  %.not96 = icmp eq i32 %103, 0
-  br i1 %.not96, label %107, label %104
-
-104:                                              ; preds = %100
-  %105 = lshr i32 %102, 24
-  %106 = and i32 %105, 240
-  store i32 %106, ptr %101, align 8
-  br label %107
-
-107:                                              ; preds = %104, %100
-  %108 = getelementptr inbounds i8, ptr %52, i64 24
-  store ptr null, ptr %108, align 8
-  %109 = load i32, ptr %4, align 4
-  switch i32 %109, label %.sink.split [
-    i32 -1582119980, label %110
-    i32 -1582117580, label %117
-  ]
-
-110:                                              ; preds = %107
-  %111 = icmp eq i32 %.1105, 7
-  br i1 %111, label %112, label %.sink.split
-
-112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %0, i64 16
-  %114 = load i32, ptr %113, align 8
-  %.not99 = icmp eq i32 %114, 0
-  br i1 %.not99, label %115, label %.sink.split
-
-115:                                              ; preds = %112
-  %116 = call fastcc i32 @libpcap_try_variants(ptr noundef nonnull %0, ptr noundef nonnull @variants_standard, i64 noundef 3, ptr noundef %1, ptr noundef %2)
-  %.not100 = icmp eq i32 %116, 0
-  br i1 %.not100, label %148, label %125
-
-117:                                              ; preds = %107
-  %118 = getelementptr inbounds i8, ptr %0, i64 16
-  %119 = load i32, ptr %118, align 8
-  %.not97 = icmp eq i32 %119, 0
-  br i1 %.not97, label %122, label %120
-
-120:                                              ; preds = %117
-  store i32 -4, ptr %1, align 4
-  %121 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #7
-  store ptr %121, ptr %2, align 8
-  br label %148
-
-122:                                              ; preds = %117
-  %123 = call fastcc i32 @libpcap_try_variants(ptr noundef nonnull %0, ptr noundef nonnull @variants_modified, i64 noundef 2, ptr noundef %1, ptr noundef %2)
-  %.not98 = icmp eq i32 %123, 0
-  br i1 %.not98, label %148, label %125
-
-.sink.split:                                      ; preds = %107, %110, %112
-  %.1105.sink = phi i32 [ 0, %112 ], [ %.1105, %110 ], [ %.1105, %107 ]
-  %124 = getelementptr inbounds i8, ptr %52, i64 12
-  store i32 %.1105.sink, ptr %124, align 4
-  br label %125
-
-125:                                              ; preds = %.sink.split, %122, %115
-  %126 = getelementptr inbounds i8, ptr %52, i64 12
-  %127 = load i32, ptr %126, align 4
-  switch i32 %127, label %139 [
-    i32 0, label %.sink.split107
-    i32 1, label %128
-    i32 3, label %129
-    i32 4, label %130
-    i32 5, label %131
-    i32 2, label %132
-    i32 6, label %133
-  ]
-
-128:                                              ; preds = %125
-  br label %.sink.split107
-
-129:                                              ; preds = %125
-  br label %.sink.split107
-
-130:                                              ; preds = %125
-  br label %.sink.split107
-
-131:                                              ; preds = %125
-  br label %.sink.split107
-
-132:                                              ; preds = %125
-  br label %.sink.split107
-
-133:                                              ; preds = %125
-  %134 = load i32, ptr @pcap_nokia_file_type_subtype, align 4
-  %135 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %134, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 6, ptr %136, align 4
-  %137 = load i32, ptr %91, align 4
-  %138 = icmp eq i32 %137, 13
-  br i1 %138, label %.thread, label %143
-
-.thread:                                          ; preds = %133
-  store i32 13, ptr %95, align 8
+  %42 = zext nneg i16 %39 to i32
+  %43 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %42) #7
+  store ptr %43, ptr %2, align 8
   br label %147
 
-139:                                              ; preds = %125
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @libpcap_read, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @libpcap_seek_read, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 136
+  store ptr @libpcap_close, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %5, i64 12
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %49, ptr %50, align 8
+  %51 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
+  %52 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %51, ptr %52, align 8
+  store i32 %.082, ptr %51, align 8
+  %53 = load i16, ptr %5, align 4
+  switch i16 %53, label %67 [
+    i16 2, label %54
+    i16 543, label %65
+  ]
+
+54:                                               ; preds = %44
+  %55 = getelementptr inbounds i8, ptr %5, i64 2
+  %56 = load i16, ptr %55, align 2
+  %57 = icmp ult i16 %56, 3
+  br i1 %57, label %58, label %60
+
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %51, i64 4
+  store i32 1, ptr %59, align 4
+  br label %69
+
+60:                                               ; preds = %54
+  %61 = icmp eq i16 %56, 3
+  %62 = getelementptr inbounds i8, ptr %51, i64 4
+  br i1 %61, label %63, label %64
+
+63:                                               ; preds = %60
+  store i32 2, ptr %62, align 4
+  br label %69
+
+64:                                               ; preds = %60
+  store i32 0, ptr %62, align 4
+  br label %69
+
+65:                                               ; preds = %44
+  %66 = getelementptr inbounds i8, ptr %51, i64 4
+  store i32 1, ptr %66, align 4
+  br label %69
+
+67:                                               ; preds = %44
+  %68 = getelementptr inbounds i8, ptr %51, i64 4
+  store i32 0, ptr %68, align 4
+  br label %69
+
+69:                                               ; preds = %58, %64, %63, %67, %65
+  %70 = getelementptr inbounds i8, ptr %51, i64 8
+  store i16 %53, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %5, i64 2
+  %72 = load i16, ptr %71, align 2
+  %73 = getelementptr inbounds i8, ptr %51, i64 10
+  store i16 %72, ptr %73, align 2
+  %74 = load i32, ptr %4, align 4
+  %75 = icmp eq i32 %74, -1582119980
+  %76 = icmp eq i16 %53, 2
+  %or.cond = and i1 %76, %75
+  %77 = icmp eq i16 %72, 2
+  %or.cond7 = select i1 %or.cond, i1 %77, i1 false
+  %78 = getelementptr inbounds i8, ptr %5, i64 16
+  %79 = load i32, ptr %78, align 4
+  br i1 %or.cond7, label %80, label %._crit_edge
+
+80:                                               ; preds = %69
+  switch i32 %79, label %._crit_edge [
+    i32 6, label %.thread102
+    i32 9, label %81
+    i32 15, label %82
+    i32 24, label %83
+  ]
+
+81:                                               ; preds = %80
+  br label %.thread102
+
+82:                                               ; preds = %80
+  br label %.thread102
+
+83:                                               ; preds = %80
+  br label %.thread102
+
+.thread102:                                       ; preds = %80, %83, %82, %81
+  %.sink = phi i32 [ 0, %83 ], [ 10, %82 ], [ 6, %81 ], [ 1, %80 ]
+  store i32 %.sink, ptr %78, align 4
+  %84 = getelementptr inbounds i8, ptr %5, i64 16
+  br label %89
+
+._crit_edge:                                      ; preds = %69, %80
+  %85 = getelementptr inbounds i8, ptr %5, i64 16
+  %86 = and i32 %79, 67043328
+  %.not95 = icmp eq i32 %86, 0
+  br i1 %.not95, label %89, label %87
+
+87:                                               ; preds = %._crit_edge
+  store i32 -4, ptr %1, align 4
+  %88 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %86) #7
+  store ptr %88, ptr %2, align 8
+  br label %147
+
+89:                                               ; preds = %.thread102, %._crit_edge
+  %90 = phi ptr [ %84, %.thread102 ], [ %85, %._crit_edge ]
+  %.1105 = phi i32 [ 2, %.thread102 ], [ %.081, %._crit_edge ]
+  %91 = phi i32 [ %.sink, %.thread102 ], [ %79, %._crit_edge ]
+  %92 = and i32 %91, 65535
+  %93 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %92) #7
+  %94 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %93, ptr %94, align 8
+  %95 = icmp eq i32 %93, 0
+  br i1 %95, label %96, label %99
+
+96:                                               ; preds = %89
+  store i32 -4, ptr %1, align 4
+  %97 = load i32, ptr %90, align 4
+  %98 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %97) #7
+  store ptr %98, ptr %2, align 8
+  br label %147
+
+99:                                               ; preds = %89
+  %100 = getelementptr inbounds i8, ptr %51, i64 16
+  store i32 -1, ptr %100, align 8
+  %101 = load i32, ptr %90, align 4
+  %102 = and i32 %101, 67108864
+  %.not96 = icmp eq i32 %102, 0
+  br i1 %.not96, label %106, label %103
+
+103:                                              ; preds = %99
+  %104 = lshr i32 %101, 24
+  %105 = and i32 %104, 240
+  store i32 %105, ptr %100, align 8
+  br label %106
+
+106:                                              ; preds = %103, %99
+  %107 = getelementptr inbounds i8, ptr %51, i64 24
+  store ptr null, ptr %107, align 8
+  %108 = load i32, ptr %4, align 4
+  switch i32 %108, label %.sink.split [
+    i32 -1582119980, label %109
+    i32 -1582117580, label %116
+  ]
+
+109:                                              ; preds = %106
+  %110 = icmp eq i32 %.1105, 7
+  br i1 %110, label %111, label %.sink.split
+
+111:                                              ; preds = %109
+  %112 = getelementptr inbounds i8, ptr %0, i64 16
+  %113 = load i32, ptr %112, align 8
+  %.not99 = icmp eq i32 %113, 0
+  br i1 %.not99, label %114, label %.sink.split
+
+114:                                              ; preds = %111
+  %115 = call fastcc i32 @libpcap_try_variants(ptr noundef nonnull %0, ptr noundef nonnull @variants_standard, i64 noundef 3, ptr noundef %1, ptr noundef %2)
+  %.not100 = icmp eq i32 %115, 0
+  br i1 %.not100, label %147, label %124
+
+116:                                              ; preds = %106
+  %117 = getelementptr inbounds i8, ptr %0, i64 16
+  %118 = load i32, ptr %117, align 8
+  %.not97 = icmp eq i32 %118, 0
+  br i1 %.not97, label %121, label %119
+
+119:                                              ; preds = %116
+  store i32 -4, ptr %1, align 4
+  %120 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #7
+  store ptr %120, ptr %2, align 8
+  br label %147
+
+121:                                              ; preds = %116
+  %122 = call fastcc i32 @libpcap_try_variants(ptr noundef nonnull %0, ptr noundef nonnull @variants_modified, i64 noundef 2, ptr noundef %1, ptr noundef %2)
+  %.not98 = icmp eq i32 %122, 0
+  br i1 %.not98, label %147, label %124
+
+.sink.split:                                      ; preds = %106, %109, %111
+  %.1105.sink = phi i32 [ 0, %111 ], [ %.1105, %109 ], [ %.1105, %106 ]
+  %123 = getelementptr inbounds i8, ptr %51, i64 12
+  store i32 %.1105.sink, ptr %123, align 4
+  br label %124
+
+124:                                              ; preds = %.sink.split, %121, %114
+  %125 = getelementptr inbounds i8, ptr %51, i64 12
+  %126 = load i32, ptr %125, align 4
+  switch i32 %126, label %138 [
+    i32 0, label %.sink.split107
+    i32 1, label %127
+    i32 3, label %128
+    i32 4, label %129
+    i32 5, label %130
+    i32 2, label %131
+    i32 6, label %132
+  ]
+
+127:                                              ; preds = %124
+  br label %.sink.split107
+
+128:                                              ; preds = %124
+  br label %.sink.split107
+
+129:                                              ; preds = %124
+  br label %.sink.split107
+
+130:                                              ; preds = %124
+  br label %.sink.split107
+
+131:                                              ; preds = %124
+  br label %.sink.split107
+
+132:                                              ; preds = %124
+  %133 = load i32, ptr @pcap_nokia_file_type_subtype, align 4
+  %134 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %133, ptr %134, align 4
+  %135 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 6, ptr %135, align 4
+  %136 = load i32, ptr %90, align 4
+  %137 = icmp eq i32 %136, 13
+  br i1 %137, label %.thread, label %142
+
+.thread:                                          ; preds = %132
+  store i32 13, ptr %94, align 8
+  br label %146
+
+138:                                              ; preds = %124
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull @.str.5, i64 noundef 637, ptr noundef nonnull @__func__.libpcap_open, ptr noundef nonnull @.str.6) #9
   unreachable
 
-.sink.split107:                                   ; preds = %125, %128, %129, %130, %131, %132
-  %pcap_aix_file_type_subtype.sink = phi ptr [ @pcap_aix_file_type_subtype, %132 ], [ @pcap_ss991029_file_type_subtype, %131 ], [ @pcap_ss990915_file_type_subtype, %130 ], [ @pcap_ss990417_file_type_subtype, %129 ], [ @pcap_nsec_file_type_subtype, %128 ], [ @pcap_file_type_subtype, %125 ]
-  %.sink108 = phi i32 [ 9, %132 ], [ 6, %131 ], [ 6, %130 ], [ 6, %129 ], [ 9, %128 ], [ 6, %125 ]
-  %140 = load i32, ptr %pcap_aix_file_type_subtype.sink, align 4
-  %141 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %140, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 %.sink108, ptr %142, align 4
-  br label %143
+.sink.split107:                                   ; preds = %124, %127, %128, %129, %130, %131
+  %pcap_aix_file_type_subtype.sink = phi ptr [ @pcap_aix_file_type_subtype, %131 ], [ @pcap_ss991029_file_type_subtype, %130 ], [ @pcap_ss990915_file_type_subtype, %129 ], [ @pcap_ss990417_file_type_subtype, %128 ], [ @pcap_nsec_file_type_subtype, %127 ], [ @pcap_file_type_subtype, %124 ]
+  %.sink108 = phi i32 [ 9, %131 ], [ 6, %130 ], [ 6, %129 ], [ 6, %128 ], [ 9, %127 ], [ 6, %124 ]
+  %139 = load i32, ptr %pcap_aix_file_type_subtype.sink, align 4
+  %140 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %139, ptr %140, align 4
+  %141 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 %.sink108, ptr %141, align 4
+  br label %142
 
-143:                                              ; preds = %.sink.split107, %133
-  %.pr = load i32, ptr %95, align 8
-  %144 = icmp eq i32 %.pr, 98
-  br i1 %144, label %145, label %147
+142:                                              ; preds = %.sink.split107, %132
+  %.pr = load i32, ptr %94, align 8
+  %143 = icmp eq i32 %.pr, 98
+  br i1 %143, label %144, label %146
 
-145:                                              ; preds = %143
-  %146 = call ptr @erf_priv_create() #7
-  store ptr %146, ptr %108, align 8
-  br label %148
+144:                                              ; preds = %142
+  %145 = call ptr @erf_priv_create() #7
+  store ptr %145, ptr %107, align 8
+  br label %147
 
-147:                                              ; preds = %.thread, %143
+146:                                              ; preds = %.thread, %142
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
-  br label %148
+  br label %147
 
-148:                                              ; preds = %145, %147, %122, %115, %24, %19, %11, %9, %120, %97, %88, %42
-  %.080 = phi i32 [ -1, %42 ], [ -1, %88 ], [ -1, %97 ], [ -1, %120 ], [ %., %9 ], [ 0, %11 ], [ -1, %19 ], [ -1, %24 ], [ -1, %115 ], [ -1, %122 ], [ 1, %147 ], [ 1, %145 ]
+147:                                              ; preds = %144, %146, %121, %114, %23, %18, %11, %9, %119, %96, %87, %41
+  %.080 = phi i32 [ -1, %41 ], [ -1, %87 ], [ -1, %96 ], [ -1, %119 ], [ %., %9 ], [ 0, %11 ], [ -1, %18 ], [ -1, %23 ], [ -1, %114 ], [ -1, %121 ], [ 1, %146 ], [ 1, %144 ]
   ret i32 %.080
 }
 

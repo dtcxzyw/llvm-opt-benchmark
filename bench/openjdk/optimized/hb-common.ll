@@ -622,71 +622,59 @@ define hidden range(i32 0, 2) i32 @hb_language_matches(ptr noundef readonly %0, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 0, 2139062144) i32 @hb_script_from_iso15924_tag(i32 noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq i32 %0, 0
-  br i1 %2, label %21, label %3
+  br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
   %4 = and i32 %0, -538976289
   %5 = or disjoint i32 %4, 2105376
-  switch i32 %5, label %18 [
-    i32 1365336425, label %21
+  switch i32 %5, label %14 [
+    i32 1365336425, label %17
     i32 1365336419, label %6
     i32 1098015086, label %7
     i32 1132032627, label %8
     i32 1197829995, label %9
     i32 1214344819, label %10
-    i32 1214344820, label %11
-    i32 1247898991, label %12
-    i32 1281455206, label %13
-    i32 1281455207, label %14
-    i32 1400468069, label %15
-    i32 1400468074, label %16
-    i32 1400468078, label %17
+    i32 1214344820, label %10
+    i32 1247898991, label %11
+    i32 1281455206, label %12
+    i32 1281455207, label %12
+    i32 1400468069, label %13
+    i32 1400468074, label %13
+    i32 1400468078, label %13
   ]
 
 6:                                                ; preds = %3
-  br label %21
+  br label %17
 
 7:                                                ; preds = %3
-  br label %21
+  br label %17
 
 8:                                                ; preds = %3
-  br label %21
+  br label %17
 
 9:                                                ; preds = %3
-  br label %21
+  br label %17
 
-10:                                               ; preds = %3
-  br label %21
+10:                                               ; preds = %3, %3
+  br label %17
 
 11:                                               ; preds = %3
-  br label %21
+  br label %17
 
-12:                                               ; preds = %3
-  br label %21
+12:                                               ; preds = %3, %3
+  br label %17
 
-13:                                               ; preds = %3
-  br label %21
+13:                                               ; preds = %3, %3, %3
+  br label %17
 
 14:                                               ; preds = %3
-  br label %21
+  %15 = and i32 %5, -1059004192
+  %16 = icmp eq i32 %15, 1080057952
+  %. = select i1 %16, i32 %5, i32 1517976186
+  br label %17
 
-15:                                               ; preds = %3
-  br label %21
-
-16:                                               ; preds = %3
-  br label %21
-
-17:                                               ; preds = %3
-  br label %21
-
-18:                                               ; preds = %3
-  %19 = and i32 %5, -1059004192
-  %20 = icmp eq i32 %19, 1080057952
-  %. = select i1 %20, i32 %5, i32 1517976186
-  br label %21
-
-21:                                               ; preds = %18, %3, %1, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ 1400468067, %17 ], [ 1400468067, %16 ], [ 1400468067, %15 ], [ 1281455214, %14 ], [ 1281455214, %13 ], [ 1214344807, %12 ], [ 1214344809, %11 ], [ 1214344809, %10 ], [ 1197830002, %9 ], [ 1132032620, %8 ], [ 1098015074, %7 ], [ 1131376756, %6 ], [ 0, %1 ], [ 1516858984, %3 ], [ %., %18 ]
+17:                                               ; preds = %14, %3, %1, %13, %12, %11, %10, %9, %8, %7, %6
+  %.0 = phi i32 [ 1400468067, %13 ], [ 1281455214, %12 ], [ 1214344807, %11 ], [ 1214344809, %10 ], [ 1197830002, %9 ], [ 1132032620, %8 ], [ 1098015074, %7 ], [ 1131376756, %6 ], [ 0, %1 ], [ 1516858984, %3 ], [ %., %14 ]
   ret i32 %.0
 }
 
@@ -769,20 +757,20 @@ hb_tag_from_string.exit:                          ; preds = %.critedge.i, %.lr.p
 36:                                               ; preds = %hb_tag_from_string.exit
   %37 = and i32 %34, -538976289
   %38 = or disjoint i32 %37, 2105376
-  switch i32 %38, label %51 [
+  switch i32 %38, label %47 [
     i32 1365336425, label %hb_script_from_iso15924_tag.exit
     i32 1365336419, label %39
     i32 1098015086, label %40
     i32 1132032627, label %41
     i32 1197829995, label %42
     i32 1214344819, label %43
-    i32 1214344820, label %44
-    i32 1247898991, label %45
-    i32 1281455206, label %46
-    i32 1281455207, label %47
-    i32 1400468069, label %48
-    i32 1400468074, label %49
-    i32 1400468078, label %50
+    i32 1214344820, label %43
+    i32 1247898991, label %44
+    i32 1281455206, label %45
+    i32 1281455207, label %45
+    i32 1400468069, label %46
+    i32 1400468074, label %46
+    i32 1400468078, label %46
   ]
 
 39:                                               ; preds = %36
@@ -797,38 +785,26 @@ hb_tag_from_string.exit:                          ; preds = %.critedge.i, %.lr.p
 42:                                               ; preds = %36
   br label %hb_script_from_iso15924_tag.exit
 
-43:                                               ; preds = %36
+43:                                               ; preds = %36, %36
   br label %hb_script_from_iso15924_tag.exit
 
 44:                                               ; preds = %36
   br label %hb_script_from_iso15924_tag.exit
 
-45:                                               ; preds = %36
+45:                                               ; preds = %36, %36
   br label %hb_script_from_iso15924_tag.exit
 
-46:                                               ; preds = %36
+46:                                               ; preds = %36, %36, %36
   br label %hb_script_from_iso15924_tag.exit
 
 47:                                               ; preds = %36
+  %48 = and i32 %38, -1059004192
+  %49 = icmp eq i32 %48, 1080057952
+  %..i = select i1 %49, i32 %38, i32 1517976186
   br label %hb_script_from_iso15924_tag.exit
 
-48:                                               ; preds = %36
-  br label %hb_script_from_iso15924_tag.exit
-
-49:                                               ; preds = %36
-  br label %hb_script_from_iso15924_tag.exit
-
-50:                                               ; preds = %36
-  br label %hb_script_from_iso15924_tag.exit
-
-51:                                               ; preds = %36
-  %52 = and i32 %38, -1059004192
-  %53 = icmp eq i32 %52, 1080057952
-  %..i = select i1 %53, i32 %38, i32 1517976186
-  br label %hb_script_from_iso15924_tag.exit
-
-hb_script_from_iso15924_tag.exit:                 ; preds = %hb_tag_from_string.exit.thread, %hb_tag_from_string.exit, %36, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51
-  %.0.i = phi i32 [ 1400468067, %50 ], [ 1400468067, %49 ], [ 1400468067, %48 ], [ 1281455214, %47 ], [ 1281455214, %46 ], [ 1214344807, %45 ], [ 1214344809, %44 ], [ 1214344809, %43 ], [ 1197830002, %42 ], [ 1132032620, %41 ], [ 1098015074, %40 ], [ 1131376756, %39 ], [ 0, %hb_tag_from_string.exit ], [ 1516858984, %36 ], [ %..i, %51 ], [ 0, %hb_tag_from_string.exit.thread ]
+hb_script_from_iso15924_tag.exit:                 ; preds = %hb_tag_from_string.exit.thread, %hb_tag_from_string.exit, %36, %39, %40, %41, %42, %43, %44, %45, %46, %47
+  %.0.i = phi i32 [ 1400468067, %46 ], [ 1281455214, %45 ], [ 1214344807, %44 ], [ 1214344809, %43 ], [ 1197830002, %42 ], [ 1132032620, %41 ], [ 1098015074, %40 ], [ 1131376756, %39 ], [ 0, %hb_tag_from_string.exit ], [ 1516858984, %36 ], [ %..i, %47 ], [ 0, %hb_tag_from_string.exit.thread ]
   ret i32 %.0.i
 }
 

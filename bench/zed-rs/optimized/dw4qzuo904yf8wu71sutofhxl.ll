@@ -2526,39 +2526,39 @@ default.unreachable.i:                            ; preds = %643
   store i8 %639, ptr %309, align 1, !noalias !336
   switch i8 %639, label %default.unreachable.i [
     i8 0, label %646
-    i8 1, label %.preheader360.i
+    i8 1, label %.preheader358.i
     i8 2, label %644
     i8 3, label %645
     i8 4, label %.split.i
   ]
 
 644:                                              ; preds = %643
-  br label %.preheader360.i
+  br label %.preheader358.i
 
 645:                                              ; preds = %643
-  br label %.preheader360.i
+  br label %.preheader358.i
 
 646:                                              ; preds = %643
-  br label %.preheader360.i
+  br label %.preheader358.i
 
-.preheader360.i:                                  ; preds = %646, %645, %644, %643
+.preheader358.i:                                  ; preds = %646, %645, %644, %643
   %.sroa.058.0.ph.i = phi i8 [ 0, %646 ], [ 3, %644 ], [ 1, %645 ], [ 2, %643 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %scevgep.i, i8 %.sroa.058.0.ph.i, i64 4, i1 false), !noalias !336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %.sroa.6.0..sroa_idx, i8 %.sroa.058.0.ph.i, i64 4, i1 false), !alias.scope !331, !noalias !334
-  br label %.thread308.i
+  br label %.thread306.i
 
 .loopexit.i84:                                    ; preds = %679
-  %exitcond393.not.i = icmp eq i64 %647, 4
-  br i1 %exitcond393.not.i, label %.thread308.i, label %.split.i
+  %exitcond391.not.i = icmp eq i64 %647, 4
+  br i1 %exitcond391.not.i, label %.thread306.i, label %.split.i
 
 .split.i:                                         ; preds = %643, %.loopexit.i84
-  %.sroa.0220.0378.i = phi i64 [ %647, %.loopexit.i84 ], [ 0, %643 ]
-  %647 = add nuw nsw i64 %.sroa.0220.0378.i, 1
-  %648 = getelementptr inbounds [16 x i8], ptr %.sroa.6.0..sroa_idx, i64 0, i64 %.sroa.0220.0378.i
-  %649 = shl nuw nsw i64 %.sroa.0220.0378.i, 2
+  %.sroa.0220.0376.i = phi i64 [ %647, %.loopexit.i84 ], [ 0, %643 ]
+  %647 = add nuw nsw i64 %.sroa.0220.0376.i, 1
+  %648 = getelementptr inbounds [16 x i8], ptr %.sroa.6.0..sroa_idx, i64 0, i64 %.sroa.0220.0376.i
+  %649 = shl nuw nsw i64 %.sroa.0220.0376.i, 2
   br label %653
 
-.thread308.i:                                     ; preds = %.loopexit.i84, %.preheader360.i
+.thread306.i:                                     ; preds = %.loopexit.i84, %.preheader358.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !336
   call void @_ZN10image_webp3vp810BoolReader14read_with_tree17h416b13657671d0f3E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(784) %1, ptr noalias noundef nonnull readonly align 1 @_ZN10image_webp3vp821KEYFRAME_UV_MODE_TREE17ha9208e3dc4af204eE, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @_ZN10image_webp3vp822KEYFRAME_UV_MODE_PROBS17ha75efae2977dd519E, i64 noundef 3, i64 noundef 0), !noalias !334
   %650 = load i8, ptr %13, align 8, !range !287, !noalias !336, !noundef !16
@@ -2567,8 +2567,8 @@ default.unreachable.i:                            ; preds = %643
   br i1 %651, label %682, label %684
 
 653:                                              ; preds = %679, %.split.i
-  %.sroa.0222.0377.i = phi i64 [ 0, %.split.i ], [ %654, %679 ]
-  %654 = add nuw nsw i64 %.sroa.0222.0377.i, 1
+  %.sroa.0222.0375.i = phi i64 [ 0, %.split.i ], [ %654, %679 ]
+  %654 = add nuw nsw i64 %.sroa.0222.0375.i, 1
   %655 = load i64, ptr %320, align 8, !alias.scope !331, !noalias !334, !noundef !16
   %656 = icmp ult i64 %.sroa.044.01155, %655
   br i1 %656, label %658, label %657
@@ -2578,7 +2578,7 @@ default.unreachable.i:                            ; preds = %643
   unreachable
 
 658:                                              ; preds = %653
-  %659 = or disjoint i64 %.sroa.0222.0377.i, 12
+  %659 = or disjoint i64 %.sroa.0222.0375.i, 12
   %660 = load ptr, ptr %319, align 8, !alias.scope !331, !noalias !334, !nonnull !16, !noundef !16
   %661 = getelementptr inbounds [0 x { i8, i8, i8, [16 x i8], [9 x i8], i8 }], ptr %660, i64 0, i64 %.sroa.044.01155, i32 3, i64 %659
   %662 = load i8, ptr %661, align 1, !range !343, !noalias !334, !noundef !16
@@ -2595,7 +2595,7 @@ default.unreachable.i:                            ; preds = %643
 
 670:                                              ; preds = %658
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !336
-  %spec.select255.i = call i8 @llvm.umin.i8(i8 %669, i8 10)
+  %.sroa.091.0.i = call i8 @llvm.umin.i8(i8 %669, i8 10)
   %671 = icmp ugt i8 %669, 9
   br i1 %671, label %.loopexit374, label %673
 
@@ -2616,9 +2616,9 @@ default.unreachable.i:                            ; preds = %643
   br label %.loopexit374
 
 673:                                              ; preds = %670
-  %674 = add nuw nsw i64 %.sroa.0222.0377.i, %649
+  %674 = add nuw nsw i64 %.sroa.0222.0375.i, %649
   %675 = getelementptr inbounds [16 x i8], ptr %308, i64 0, i64 %674
-  store i8 %spec.select255.i, ptr %675, align 1, !noalias !336
+  store i8 %.sroa.091.0.i, ptr %675, align 1, !noalias !336
   %676 = load i64, ptr %320, align 8, !alias.scope !331, !noalias !334, !noundef !16
   %677 = icmp ult i64 %.sroa.044.01155, %676
   br i1 %677, label %679, label %678
@@ -2630,17 +2630,17 @@ default.unreachable.i:                            ; preds = %643
 679:                                              ; preds = %673
   %680 = load ptr, ptr %319, align 8, !alias.scope !331, !noalias !334, !nonnull !16, !noundef !16
   %681 = getelementptr inbounds [0 x { i8, i8, i8, [16 x i8], [9 x i8], i8 }], ptr %680, i64 0, i64 %.sroa.044.01155, i32 3, i64 %659
-  store i8 %spec.select255.i, ptr %681, align 1, !noalias !334
-  store i8 %spec.select255.i, ptr %648, align 1, !alias.scope !331, !noalias !334
+  store i8 %.sroa.091.0.i, ptr %681, align 1, !noalias !334
+  store i8 %.sroa.091.0.i, ptr %648, align 1, !alias.scope !331, !noalias !334
   %exitcond.not.i83 = icmp eq i64 %654, 4
   br i1 %exitcond.not.i83, label %.loopexit.i84, label %653
 
-682:                                              ; preds = %.thread308.i
+682:                                              ; preds = %.thread306.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !336
   %683 = icmp ugt i8 %652, 3
   br i1 %683, label %.loopexit374, label %"_ZN4core3ptr55drop_in_place$LT$image_webp..decoder..DecodingError$GT$17h69ccabaaa9c287e7E.exit"
 
-684:                                              ; preds = %.thread308.i
+684:                                              ; preds = %.thread306.i
   %.sroa.5203.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 2
   %.sroa.26.sroa.0.0.copyload229 = load i8, ptr %.sroa.5203.0..sroa_idx.i, align 2, !noalias !331
   %.sroa.26.sroa.11.0..sroa.5203.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %13, i64 3

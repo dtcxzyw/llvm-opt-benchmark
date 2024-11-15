@@ -13764,11 +13764,11 @@ define hidden void @ssl_dissect_hnd_srv_keyex(ptr noundef %0, ptr noundef %1, pt
   %11 = tail call i32 @ssl_get_keyex_alg(i32 noundef %10)
   switch i32 %11, label %dissect_ssl3_hnd_srv_keyex_psk.exit [
     i32 19, label %12
-    i32 36, label %98
     i32 38, label %79
+    i32 30, label %40
     i32 16, label %15
     i32 18, label %15
-    i32 30, label %40
+    i32 36, label %98
     i32 25, label %18
     i32 31, label %24
     i32 26, label %21

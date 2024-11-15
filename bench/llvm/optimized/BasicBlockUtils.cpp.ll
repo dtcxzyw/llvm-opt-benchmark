@@ -14155,96 +14155,70 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm20DbgVariableIntrinsic14
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %17 = load i8, ptr %12, align 4
-  switch i8 %17, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i [
-    i8 4, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i
-    i8 5, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 6, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 7, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 8, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 9, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 10, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 11, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 12, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 13, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 14, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 15, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 16, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 17, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 18, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 19, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 20, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 21, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 22, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 23, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 24, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 25, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 26, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 27, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 28, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 29, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 30, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 31, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 32, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 33, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 34, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 35, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-  ]
+  %18 = icmp eq i8 %17, 4
+  br i1 %18, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i, label %19
+
+19:                                               ; preds = %1
+  %20 = zext i8 %17 to i32
+  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %20, -5
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
 
 _ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i: ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
-  %20 = and i64 %19, 4294967295
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
+  %23 = and i64 %22, 4294967295
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %25, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
 
-22:                                               ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i
-  %23 = tail call noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40) %16) #21
-  br i1 %23, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
+25:                                               ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i
+  %26 = tail call noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40) %16) #21
+  br i1 %26, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
 
-_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i: ; preds = %22, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i, %1
+_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i: ; preds = %25, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i, %19
   call void @_ZNK4llvm18RawLocationWrapper12location_opsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.367") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #21
-  %24 = load i64, ptr %2, align 8, !noalias !220
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i64, ptr %25, align 8, !noalias !229
-  %.not3.i.i.i.i.i.i.i = icmp eq i64 %24, %26
+  %27 = load i64, ptr %2, align 8, !noalias !220
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load i64, ptr %28, align 8, !noalias !229
+  %.not3.i.i.i.i.i.i.i = icmp eq i64 %27, %29
   br i1 %.not3.i.i.i.i.i.i.i, label %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, %38
-  %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i, %38 ], [ %24, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ]
-  %27 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, 4
-  %28 = icmp eq i64 %27, 0
-  %29 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -8
-  %30 = inttoptr i64 %29 to ptr
-  br i1 %28, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, label %31
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, %41
+  %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i, %41 ], [ %27, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ]
+  %30 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, 4
+  %31 = icmp eq i64 %30, 0
+  %32 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -8
+  %33 = inttoptr i64 %32 to ptr
+  br i1 %31, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, label %34
 
-31:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %32 = load ptr, ptr %30, align 8, !noalias !238
+34:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %35 = load ptr, ptr %33, align 8, !noalias !238
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i: ; preds = %31, %.lr.ph.i.i.i.i.i.i.i
-  %33 = phi ptr [ %32, %31 ], [ %30, %.lr.ph.i.i.i.i.i.i.i ]
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 128
-  %35 = load ptr, ptr %34, align 8, !noalias !238
-  %36 = load i8, ptr %35, align 8, !noalias !238
-  %37 = and i8 %36, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %37, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i, label %38
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i: ; preds = %34, %.lr.ph.i.i.i.i.i.i.i
+  %36 = phi ptr [ %35, %34 ], [ %33, %.lr.ph.i.i.i.i.i.i.i ]
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %38 = load ptr, ptr %37, align 8, !noalias !238
+  %39 = load i8, ptr %38, align 8, !noalias !238
+  %40 = and i8 %39, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %40, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i, label %41
 
-38:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i
-  %39 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -4
-  %40 = add nuw i64 %39, 8
-  %41 = add nuw i64 %29, 136
-  %storemerge.i.i.i.i.i.i.i.i = select i1 %28, i64 %41, i64 %40
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i, %26
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i
+  %42 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -4
+  %43 = add nuw i64 %42, 8
+  %44 = add nuw i64 %32, 136
+  %storemerge.i.i.i.i.i.i.i.i = select i1 %31, i64 %44, i64 %43
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i, %29
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !245
 
-_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i: ; preds = %38, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
-  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i = phi i64 [ %24, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ], [ %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i ], [ %26, %38 ]
-  %42 = icmp ne i64 %26, %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i
+_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i: ; preds = %41, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
+  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i = phi i64 [ %27, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ], [ %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i ], [ %29, %41 ]
+  %45 = icmp ne i64 %29, %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i
   br label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
 
-_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit: ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %22, %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i
-  %.0.i = phi i1 [ %42, %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i ], [ true, %22 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit: ; preds = %19, %25, %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i
+  %.0.i = phi i1 [ %45, %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i ], [ true, %19 ], [ true, %25 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret i1 %.0.i
 }

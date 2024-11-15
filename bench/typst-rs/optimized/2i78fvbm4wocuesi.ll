@@ -57305,8 +57305,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %494 = getelementptr inbounds i8, ptr %.sroa.0251.0322.us329, i64 88
   %495 = getelementptr inbounds i8, ptr %.sroa.0251.0322.us329, i64 73
   %496 = load i8, ptr %495, align 1, !range !472, !noundef !4
-  %cond349 = icmp eq i8 %496, 1
-  br i1 %cond349, label %497, label %.split.us
+  %cond350 = icmp eq i8 %496, 1
+  br i1 %cond350, label %497, label %.split.us
 
 497:                                              ; preds = %.lr.ph.split.split.us
   %498 = icmp eq ptr %494, %404
@@ -57328,8 +57328,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %501 = getelementptr inbounds i8, ptr %.sroa.0251.0322, i64 88
   %502 = getelementptr inbounds i8, ptr %.sroa.0251.0322, i64 73
   %503 = load i8, ptr %502, align 1, !range !472, !noundef !4
-  %switch350 = icmp samesign ult i8 %503, 2
-  br i1 %switch350, label %506, label %.split.us
+  %switch349 = icmp samesign ult i8 %503, 2
+  br i1 %switch349, label %506, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us
   %.us-phi = phi ptr [ %.sroa.0251.0.ph347, %.lr.ph.split.us.split.us ], [ %.sroa.0251.0322.us, %.lr.ph.split.us.split ], [ %.sroa.0251.0322.us329, %.lr.ph.split.split.us ], [ %.sroa.0251.0322, %.lr.ph.split.split ]

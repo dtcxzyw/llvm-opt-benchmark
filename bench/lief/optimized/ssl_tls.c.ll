@@ -1990,8 +1990,8 @@ switch.lookup31:                                  ; preds = %23
   %switch.load34 = load i64, ptr %switch.gep33, align 8
   br label %ssl_mfl_code_to_length.exit24
 
-ssl_mfl_code_to_length.exit24:                    ; preds = %switch.lookup31, %23
-  %.0.i23 = phi i64 [ 16384, %23 ], [ %switch.load34, %switch.lookup31 ]
+ssl_mfl_code_to_length.exit24:                    ; preds = %23, %switch.lookup31
+  %.0.i23 = phi i64 [ %switch.load34, %switch.lookup31 ], [ 16384, %23 ]
   %spec.select20 = tail call i64 @llvm.umin.i64(i64 %.0, i64 %.0.i23)
   br label %ssl_mfl_code_to_length.exit
 
@@ -2001,8 +2001,8 @@ switch.lookup:                                    ; preds = %10
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %ssl_mfl_code_to_length.exit
 
-ssl_mfl_code_to_length.exit:                      ; preds = %switch.lookup, %10, %ssl_mfl_code_to_length.exit24, %ssl_mfl_code_to_length.exit22
-  %.014 = phi i64 [ %.0, %ssl_mfl_code_to_length.exit22 ], [ %spec.select20, %ssl_mfl_code_to_length.exit24 ], [ 16384, %10 ], [ %switch.load, %switch.lookup ]
+ssl_mfl_code_to_length.exit:                      ; preds = %10, %switch.lookup, %ssl_mfl_code_to_length.exit24, %ssl_mfl_code_to_length.exit22
+  %.014 = phi i64 [ %.0, %ssl_mfl_code_to_length.exit22 ], [ %spec.select20, %ssl_mfl_code_to_length.exit24 ], [ %switch.load, %switch.lookup ], [ 16384, %10 ]
   ret i64 %.014
 }
 
@@ -2021,8 +2021,8 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ssl_mfl_code_to_length.exit
 
-ssl_mfl_code_to_length.exit:                      ; preds = %switch.lookup, %1
-  %.0.i = phi i32 [ 16384, %1 ], [ %switch.load, %switch.lookup ]
+ssl_mfl_code_to_length.exit:                      ; preds = %1, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 16384, %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -2144,8 +2144,8 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ssl_mfl_code_to_length.exit.i
 
-ssl_mfl_code_to_length.exit.i:                    ; preds = %switch.lookup, %1
-  %.0.i.i = phi i32 [ 16384, %1 ], [ %switch.load, %switch.lookup ]
+ssl_mfl_code_to_length.exit.i:                    ; preds = %1, %switch.lookup
+  %.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 16384, %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -2352,8 +2352,8 @@ switch.lookup15:                                  ; preds = %23
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   br label %ssl_mfl_code_to_length.exit24.i
 
-ssl_mfl_code_to_length.exit24.i:                  ; preds = %switch.lookup15, %23
-  %.0.i23.i = phi i64 [ 16384, %23 ], [ %switch.load18, %switch.lookup15 ]
+ssl_mfl_code_to_length.exit24.i:                  ; preds = %23, %switch.lookup15
+  %.0.i23.i = phi i64 [ %switch.load18, %switch.lookup15 ], [ 16384, %23 ]
   %spec.select20.i = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %.0.i23.i)
   br label %mbedtls_ssl_get_input_max_frag_len.exit
 

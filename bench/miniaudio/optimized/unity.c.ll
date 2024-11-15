@@ -804,9 +804,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @ma_dr_mp3_L12_subband_alloc_table.g_alloc_L2M1_lowrate = internal unnamed_addr constant [2 x %struct.ma_dr_mp3_L12_subband_alloc] [%struct.ma_dr_mp3_L12_subband_alloc { i8 44, i8 4, i8 2 }, %struct.ma_dr_mp3_L12_subband_alloc { i8 44, i8 3, i8 10 }], align 1
 @ma_dr_mp3_L12_read_scalefactors.g_deq_L12 = internal unnamed_addr constant [54 x float] [float 0x3E95555560000000, float 0x3E90EEA9C0000000, float 0x3E8AE0D960000000, float 0x3E824924A0000000, float 0x3E7D06D9E0000000, float 0x3E7709DEE0000000, float 0x3E71111120000000, float 0x3E6B177600000000, float 0x3E6580ADE0000000, float 0x3E60842100000000, float 0x3E5A37BC80000000, float 0x3E54CF1BE0000000, float 0x3E50410420000000, float 0x3E49CD3360000000, float 0x3E447A8D40000000, float 0x3E40204080000000, float 0x3E39993100000000, float 0x3E34514580000000, float 0x3E30101020000000, float 0x3E297F7E20000000, float 0x3E243CDFE0000000, float 0x3E20080400000000, float 0x3E1972B800000000, float 0x3E1432BC60000000, float 0x3E10040100000000, float 0x3E096C59C0000000, float 0x3E042DAE60000000, float 0x3E00020040000000, float 0x3DF9692BC0000000, float 0x3DF42B2860000000, float 0x3DF0010020000000, float 0x3DE9679520000000, float 0x3DE429E5A0000000, float 0x3DE0008000000000, float 0x3DD966C9E0000000, float 0x3DD4294440000000, float 0x3DD0004000000000, float 0x3DC9666440000000, float 0x3DC428F3A0000000, float 0x3DC0002000000000, float 0x3DB9663160000000, float 0x3DB428CB60000000, float 0x3DB0001000000000, float 0x3DA9661800000000, float 0x3DA428B720000000, float 0x3E95555560000000, float 0x3E90EEA9C0000000, float 0x3E8AE0D960000000, float 0x3E899999A0000000, float 0x3E84519880000000, float 0x3E80208260000000, float 0x3E7C71C720000000, float 0x3E76938D00000000, float 0x3E71EB3B80000000], align 16
 @switch.table.ma_result_from_errno = private unnamed_addr constant [130 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51, i32 -1, i32 -1, i32 -1, i32 -1], align 4
-@switch.table.ma_log_level_to_string = private unnamed_addr constant [4 x ptr] [ptr @.str.4, ptr @.str.3, ptr @.str.2, ptr @.str.1], align 8
+@switch.table.ma_log_level_to_string = private unnamed_addr constant [3 x ptr] [ptr @.str.3, ptr @.str.2, ptr @.str.1], align 8
 @switch.table.ma_is_backend_enabled = private unnamed_addr constant [8 x i32] [i32 1, i32 1, i32 1, i32 0, i32 0, i32 0, i32 1, i32 1], align 4
-@switch.table.ma_context_is_loopback_supported = private unnamed_addr constant [15 x i32] [i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], align 4
 @switch.table.ma_channel_map_apply_f32 = private unnamed_addr constant [6 x i64] [i64 2, i64 3, i64 4, i64 5, i64 11, i64 12], align 8
 @switch.table.ma_channel_map_apply_f32.52 = private unnamed_addr constant [5 x i64] [i64 2, i64 3, i64 4, i64 6, i64 7], align 8
 @switch.table.ma_channel_map_apply_f32.53 = private unnamed_addr constant [4 x i64] [i64 2, i64 3, i64 4, i64 10], align 8
@@ -1720,13 +1719,13 @@ if.end8:                                          ; preds = %if.then2, %entry, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @ma_log_level_to_string(i32 noundef %logLevel) local_unnamed_addr #1 {
 entry:
-  %switch.tableidx = add i32 %logLevel, -1
-  %0 = icmp ult i32 %switch.tableidx, 4
+  %switch.tableidx = add i32 %logLevel, -2
+  %0 = icmp ult i32 %switch.tableidx, 3
   br i1 %0, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.ma_log_level_to_string, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ma_log_level_to_string, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -4470,8 +4469,8 @@ switch.lookup:                                    ; preds = %entry
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
-return:                                           ; preds = %switch.lookup, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %switch.load, %switch.lookup ]
+return:                                           ; preds = %entry, %switch.lookup
+  %retval.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -4523,18 +4522,9 @@ return:                                           ; preds = %entry, %if.then11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 2) i32 @ma_is_loopback_supported(i32 noundef %backend) local_unnamed_addr #1 {
 entry:
-  %0 = icmp ult i32 %backend, 15
-  br i1 %0, label %switch.lookup, label %return
-
-switch.lookup:                                    ; preds = %entry
-  %1 = zext nneg i32 %backend to i64
-  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table.ma_context_is_loopback_supported, i64 0, i64 %1
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %return
-
-return:                                           ; preds = %entry, %switch.lookup
-  %retval.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %entry ]
-  ret i32 %retval.0
+  %cond = icmp eq i32 %backend, 0
+  %. = zext i1 %cond to i32
+  ret i32 %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
@@ -9474,17 +9464,12 @@ entry:
 if.end:                                           ; preds = %entry
   %backend = getelementptr inbounds i8, ptr %pContext, i64 104
   %0 = load i32, ptr %backend, align 8
-  %1 = icmp ult i32 %0, 15
-  br i1 %1, label %switch.lookup, label %return
-
-switch.lookup:                                    ; preds = %if.end
-  %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table.ma_context_is_loopback_supported, i64 0, i64 %2
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %cond.i = icmp eq i32 %0, 0
+  %..i = zext i1 %cond.i to i32
   br label %return
 
-return:                                           ; preds = %if.end, %switch.lookup, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %switch.load, %switch.lookup ], [ 0, %if.end ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i32 [ %..i, %if.end ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -46833,7 +46818,7 @@ define noundef nonnull ptr @ma_result_description(i32 noundef %result) local_unn
 entry:
   switch i32 %result, label %sw.default [
     i32 0, label %return
-    i32 -1, label %sw.bb1
+    i32 -403, label %sw.bb65
     i32 -2, label %sw.bb2
     i32 -3, label %sw.bb3
     i32 -4, label %sw.bb4
@@ -46897,11 +46882,7 @@ entry:
     i32 -400, label %sw.bb62
     i32 -401, label %sw.bb63
     i32 -402, label %sw.bb64
-    i32 -403, label %sw.bb65
   ]
-
-sw.bb1:                                           ; preds = %entry
-  br label %return
 
 sw.bb2:                                           ; preds = %entry
   br label %return
@@ -47098,8 +47079,8 @@ sw.bb65:                                          ; preds = %entry
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.default, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %sw.bb54, %sw.bb53, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb44, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi ptr [ @.str.98, %sw.default ], [ @.str.162, %sw.bb65 ], [ @.str.161, %sw.bb64 ], [ @.str.160, %sw.bb63 ], [ @.str.159, %sw.bb62 ], [ @.str.158, %sw.bb61 ], [ @.str.157, %sw.bb60 ], [ @.str.156, %sw.bb59 ], [ @.str.155, %sw.bb58 ], [ @.str.154, %sw.bb57 ], [ @.str.153, %sw.bb56 ], [ @.str.152, %sw.bb55 ], [ @.str.151, %sw.bb54 ], [ @.str.150, %sw.bb53 ], [ @.str.149, %sw.bb52 ], [ @.str.148, %sw.bb51 ], [ @.str.147, %sw.bb50 ], [ @.str.146, %sw.bb49 ], [ @.str.145, %sw.bb48 ], [ @.str.144, %sw.bb47 ], [ @.str.143, %sw.bb46 ], [ @.str.142, %sw.bb45 ], [ @.str.141, %sw.bb44 ], [ @.str.140, %sw.bb43 ], [ @.str.139, %sw.bb42 ], [ @.str.138, %sw.bb41 ], [ @.str.137, %sw.bb40 ], [ @.str.136, %sw.bb39 ], [ @.str.135, %sw.bb38 ], [ @.str.134, %sw.bb37 ], [ @.str.133, %sw.bb36 ], [ @.str.132, %sw.bb35 ], [ @.str.131, %sw.bb34 ], [ @.str.130, %sw.bb33 ], [ @.str.129, %sw.bb32 ], [ @.str.128, %sw.bb31 ], [ @.str.127, %sw.bb30 ], [ @.str.126, %sw.bb29 ], [ @.str.125, %sw.bb28 ], [ @.str.124, %sw.bb27 ], [ @.str.123, %sw.bb26 ], [ @.str.122, %sw.bb25 ], [ @.str.121, %sw.bb24 ], [ @.str.120, %sw.bb23 ], [ @.str.119, %sw.bb22 ], [ @.str.118, %sw.bb21 ], [ @.str.117, %sw.bb20 ], [ @.str.116, %sw.bb19 ], [ @.str.115, %sw.bb18 ], [ @.str.114, %sw.bb17 ], [ @.str.113, %sw.bb16 ], [ @.str.112, %sw.bb15 ], [ @.str.111, %sw.bb14 ], [ @.str.110, %sw.bb13 ], [ @.str.109, %sw.bb12 ], [ @.str.108, %sw.bb11 ], [ @.str.107, %sw.bb10 ], [ @.str.106, %sw.bb9 ], [ @.str.105, %sw.bb8 ], [ @.str.104, %sw.bb7 ], [ @.str.103, %sw.bb6 ], [ @.str.102, %sw.bb5 ], [ @.str.101, %sw.bb4 ], [ @.str.100, %sw.bb3 ], [ @.str.99, %sw.bb2 ], [ @.str.98, %sw.bb1 ], [ @.str.97, %entry ]
+return:                                           ; preds = %entry, %sw.default, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %sw.bb54, %sw.bb53, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb44, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2
+  %retval.0 = phi ptr [ @.str.98, %sw.default ], [ @.str.162, %sw.bb65 ], [ @.str.161, %sw.bb64 ], [ @.str.160, %sw.bb63 ], [ @.str.159, %sw.bb62 ], [ @.str.158, %sw.bb61 ], [ @.str.157, %sw.bb60 ], [ @.str.156, %sw.bb59 ], [ @.str.155, %sw.bb58 ], [ @.str.154, %sw.bb57 ], [ @.str.153, %sw.bb56 ], [ @.str.152, %sw.bb55 ], [ @.str.151, %sw.bb54 ], [ @.str.150, %sw.bb53 ], [ @.str.149, %sw.bb52 ], [ @.str.148, %sw.bb51 ], [ @.str.147, %sw.bb50 ], [ @.str.146, %sw.bb49 ], [ @.str.145, %sw.bb48 ], [ @.str.144, %sw.bb47 ], [ @.str.143, %sw.bb46 ], [ @.str.142, %sw.bb45 ], [ @.str.141, %sw.bb44 ], [ @.str.140, %sw.bb43 ], [ @.str.139, %sw.bb42 ], [ @.str.138, %sw.bb41 ], [ @.str.137, %sw.bb40 ], [ @.str.136, %sw.bb39 ], [ @.str.135, %sw.bb38 ], [ @.str.134, %sw.bb37 ], [ @.str.133, %sw.bb36 ], [ @.str.132, %sw.bb35 ], [ @.str.131, %sw.bb34 ], [ @.str.130, %sw.bb33 ], [ @.str.129, %sw.bb32 ], [ @.str.128, %sw.bb31 ], [ @.str.127, %sw.bb30 ], [ @.str.126, %sw.bb29 ], [ @.str.125, %sw.bb28 ], [ @.str.124, %sw.bb27 ], [ @.str.123, %sw.bb26 ], [ @.str.122, %sw.bb25 ], [ @.str.121, %sw.bb24 ], [ @.str.120, %sw.bb23 ], [ @.str.119, %sw.bb22 ], [ @.str.118, %sw.bb21 ], [ @.str.117, %sw.bb20 ], [ @.str.116, %sw.bb19 ], [ @.str.115, %sw.bb18 ], [ @.str.114, %sw.bb17 ], [ @.str.113, %sw.bb16 ], [ @.str.112, %sw.bb15 ], [ @.str.111, %sw.bb14 ], [ @.str.110, %sw.bb13 ], [ @.str.109, %sw.bb12 ], [ @.str.108, %sw.bb11 ], [ @.str.107, %sw.bb10 ], [ @.str.106, %sw.bb9 ], [ @.str.105, %sw.bb8 ], [ @.str.104, %sw.bb7 ], [ @.str.103, %sw.bb6 ], [ @.str.102, %sw.bb5 ], [ @.str.101, %sw.bb4 ], [ @.str.100, %sw.bb3 ], [ @.str.99, %sw.bb2 ], [ @.str.97, %entry ]
   ret ptr %retval.0
 }
 
@@ -115922,8 +115903,8 @@ switch.lookup:                                    ; preds = %entry
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %return
 
-return:                                           ; preds = %switch.lookup, %entry
-  %retval.0 = phi i8 [ 0, %entry ], [ %switch.load, %switch.lookup ]
+return:                                           ; preds = %entry, %switch.lookup
+  %retval.0 = phi i8 [ %switch.load, %switch.lookup ], [ 0, %entry ]
   ret i8 %retval.0
 }
 
@@ -124993,25 +124974,14 @@ for.cond:                                         ; preds = %if.end17
 
 for.body:                                         ; preds = %for.cond
   %cmp.i16 = icmp eq ptr %pChannelMapIn, null
-  br i1 %cmp.i16, label %if.end.i30, label %for.body.if.end.i_crit_edge
+  br i1 %cmp.i16, label %for.body.lr.ph.i.i19, label %for.body.if.end.i_crit_edge
 
 for.body.if.end.i_crit_edge:                      ; preds = %for.body
   %.pre = load i8, ptr %pChannelMapIn, align 1
   br label %for.body.lr.ph.i.i19
 
-if.end.i30:                                       ; preds = %for.body
-  %8 = icmp ult i32 %channelsOut, 8
-  br i1 %8, label %switch.lookup, label %for.body.lr.ph.i.i19
-
-switch.lookup:                                    ; preds = %if.end.i30
-  %9 = shl nuw nsw i32 %channelsOut, 3
-  %switch.shiftamt = zext nneg i32 %9 to i64
-  %switch.downshift = lshr i64 144680345676153090, %switch.shiftamt
-  %switch.masked = trunc i64 %switch.downshift to i8
-  br label %for.body.lr.ph.i.i19
-
-for.body.lr.ph.i.i19:                             ; preds = %if.end.i30, %switch.lookup, %if.end17.thread, %for.body.if.end.i_crit_edge
-  %retval.0.i1755 = phi i8 [ %.pre, %for.body.if.end.i_crit_edge ], [ %7, %if.end17.thread ], [ %switch.masked, %switch.lookup ], [ 2, %if.end.i30 ]
+for.body.lr.ph.i.i19:                             ; preds = %if.end17.thread, %for.body, %for.body.if.end.i_crit_edge
+  %retval.0.i1755 = phi i8 [ %.pre, %for.body.if.end.i_crit_edge ], [ 2, %for.body ], [ %7, %if.end17.thread ]
   %cmp.i.i.i20 = icmp eq ptr %pChannelMapOut, null
   br i1 %cmp.i.i.i20, label %for.body.us.i.i26, label %for.body.preheader.i.i
 
@@ -125033,8 +125003,8 @@ for.inc.us.i.i:                                   ; preds = %for.body.us.i.i26
 for.body.i.i21:                                   ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i22 = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i24, %for.inc.i.i ]
   %arrayidx.i.i.i23 = getelementptr inbounds i8, ptr %pChannelMapOut, i64 %indvars.iv.i.i22
-  %10 = load i8, ptr %arrayidx.i.i.i23, align 1
-  %cmp3.i.i = icmp eq i8 %10, %retval.0.i1755
+  %8 = load i8, ptr %arrayidx.i.i.i23, align 1
+  %cmp3.i.i = icmp eq i8 %8, %retval.0.i1755
   br i1 %cmp3.i.i, label %return, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i21

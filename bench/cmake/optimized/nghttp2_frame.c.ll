@@ -1184,20 +1184,9 @@ define dso_local range(i32 -501, -502) i32 @nghttp2_frame_pack_goaway(ptr nounde
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = tail call i32 @nghttp2_bufs_add(ptr noundef nonnull %0, ptr noundef %29, i64 noundef %31) #17
-  switch i32 %32, label %33 [
-    i32 -502, label %35
-    i32 0, label %34
-  ]
-
-33:                                               ; preds = %2
-  br label %35
-
-34:                                               ; preds = %2
-  br label %35
-
-35:                                               ; preds = %2, %34, %33
-  %.0 = phi i32 [ %32, %33 ], [ %32, %34 ], [ -522, %2 ]
-  ret i32 %.0
+  %cond = icmp eq i32 %32, -502
+  %spec.select = select i1 %cond, i32 -522, i32 %32
+  ret i32 %spec.select
 }
 
 declare i32 @nghttp2_bufs_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

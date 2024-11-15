@@ -8199,13 +8199,13 @@ _ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.
     i32 5, label %83
     i32 26, label %85
     i32 27, label %86
-    i32 29, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
-    i32 30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+    i32 29, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
+    i32 30, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   ]
 
 83:                                               ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit
   %84 = icmp eq i32 %.val43, 24
-  br i1 %84, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, label %85
+  br i1 %84, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, label %85
 
 85:                                               ; preds = %83, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit
@@ -8232,16 +8232,16 @@ _ZNK4llvm12VersionTuple5emptyEv.exit:             ; preds = %_ZL40targetVersionO
   %97 = and i32 %96, 2147483647
   %98 = icmp uge i32 %89, %88
   %99 = icmp samesign ult i32 %97, %94
-  %or.cond174 = select i1 %98, i1 %99, i1 false
-  br i1 %or.cond174, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+  %or.cond167 = select i1 %98, i1 %99, i1 false
+  br i1 %or.cond167, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
 
-_ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %91, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %83
+_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %83, %91
   %100 = icmp eq i32 %.val43, 24
   %101 = icmp ne ptr %3, null
   %or.cond = and i1 %101, %100
   br i1 %or.cond, label %102, label %132
 
-102:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+102:                                              ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, -9
@@ -8299,13 +8299,13 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106
   %124 = lshr i64 %.sroa.speculated.i, 32
   %125 = trunc nuw i64 %124 to i32
   %126 = and i32 %125, 2147483647
-  %.not168 = icmp sgt i64 %.sroa.speculated.i, -1
-  %.0.i53 = select i1 %.not168, i32 0, i32 %126
+  %.not161 = icmp sgt i64 %.sroa.speculated.i, -1
+  %.0.i53 = select i1 %.not161, i32 0, i32 %126
   %127 = trunc i64 %.sroa.phi.sroa.speculated.i to i32
   %.sroa.0132.0.extract.trunc = and i32 %127, 2147483647
   %128 = and i64 %.sroa.phi.sroa.speculated.i, 2147483648
-  %.not169 = icmp eq i64 %128, 0
-  %.0.i59 = select i1 %.not169, i32 0, i32 %.sroa.0132.0.extract.trunc
+  %.not162 = icmp eq i64 %128, 0
+  %.0.i59 = select i1 %.not162, i32 0, i32 %.sroa.0132.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %129 = load ptr, ptr %0, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 256
@@ -8313,7 +8313,7 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106
   call void %131(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %.0.i, i32 noundef %123, i32 noundef %.0.i53, i32 noundef %.0.i59, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %8) #23
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-132:                                              ; preds = %102, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+132:                                              ; preds = %102, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   switch i32 %.val, label %147 [
     i32 9, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
     i32 1, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61
@@ -8359,13 +8359,13 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit61: ; preds = %132, %1
   %149 = lshr i64 %.sroa.speculated.i, 32
   %150 = trunc nuw i64 %149 to i32
   %151 = and i32 %150, 2147483647
-  %.not166 = icmp sgt i64 %.sroa.speculated.i, -1
-  %.0.i68 = select i1 %.not166, i32 0, i32 %151
+  %.not159 = icmp sgt i64 %.sroa.speculated.i, -1
+  %.0.i68 = select i1 %.not159, i32 0, i32 %151
   %152 = trunc i64 %.sroa.phi.sroa.speculated.i to i32
   %.sroa.0124.0.extract.trunc = and i32 %152, 2147483647
   %153 = and i64 %.sroa.phi.sroa.speculated.i, 2147483648
-  %.not167 = icmp eq i64 %153, 0
-  %.0.i74 = select i1 %.not167, i32 0, i32 %.sroa.0124.0.extract.trunc
+  %.not160 = icmp eq i64 %153, 0
+  %.0.i74 = select i1 %.not160, i32 0, i32 %.sroa.0124.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %154 = load ptr, ptr %0, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 248
@@ -8405,13 +8405,13 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12Ver
   %174 = lshr i64 %169, 32
   %175 = trunc nuw i64 %174 to i32
   %176 = and i32 %175, 2147483647
-  %.not170 = icmp sgt i64 %169, -1
-  %.0.i82 = select i1 %.not170, i32 0, i32 %176
+  %.not163 = icmp sgt i64 %169, -1
+  %.0.i82 = select i1 %.not163, i32 0, i32 %176
   %177 = trunc i64 %170 to i32
   %.sroa.0110.0.extract.trunc = and i32 %177, 2147483647
   %178 = and i64 %170, 2147483648
-  %.not171 = icmp eq i64 %178, 0
-  %.0.i88 = select i1 %.not171, i32 0, i32 %.sroa.0110.0.extract.trunc
+  %.not164 = icmp eq i64 %178, 0
+  %.0.i88 = select i1 %.not164, i32 0, i32 %.sroa.0110.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   %179 = load ptr, ptr %0, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 256
@@ -8450,13 +8450,13 @@ _ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit: ; preds = %183, %18
   %189 = lshr i64 %.sroa.speculated.i, 32
   %190 = trunc nuw i64 %189 to i32
   %191 = and i32 %190, 2147483647
-  %.not172 = icmp sgt i64 %.sroa.speculated.i, -1
-  %.0.i96 = select i1 %.not172, i32 0, i32 %191
+  %.not165 = icmp sgt i64 %.sroa.speculated.i, -1
+  %.0.i96 = select i1 %.not165, i32 0, i32 %191
   %192 = trunc i64 %.sroa.phi.sroa.speculated.i to i32
   %.sroa.0.0.extract.trunc = and i32 %192, 2147483647
   %193 = and i64 %.sroa.phi.sroa.speculated.i, 2147483648
-  %.not173 = icmp eq i64 %193, 0
-  %.0.i102 = select i1 %.not173, i32 0, i32 %.sroa.0.0.extract.trunc
+  %.not166 = icmp eq i64 %193, 0
+  %.0.i102 = select i1 %.not166, i32 0, i32 %.sroa.0.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %194 = load ptr, ptr %0, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 240

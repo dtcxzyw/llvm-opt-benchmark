@@ -123,7 +123,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN = external local_unnamed_addr constant i32, align 4
 @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN = external local_unnamed_addr constant i32, align 4
 @FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER = external local_unnamed_addr constant i64, align 8
-@switch.table.read_callback_proxy_ = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 5], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define noalias noundef ptr @FLAC__stream_decoder_new() local_unnamed_addr #0 {
@@ -6445,18 +6444,11 @@ entry:
   %read_callback = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %read_callback, align 8
   %call = tail call i32 %1(ptr noundef %void_decoder, ptr noundef %buffer, ptr noundef %bytes, ptr noundef %client_data) #21
-  %2 = icmp ult i32 %call, 3
-  br i1 %2, label %switch.lookup, label %return
-
-switch.lookup:                                    ; preds = %entry
-  %3 = zext nneg i32 %call to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.read_callback_proxy_, i64 0, i64 %3
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %return
-
-return:                                           ; preds = %entry, %switch.lookup
-  %retval.0 = phi i32 [ %switch.load, %switch.lookup ], [ 5, %entry ]
-  ret i32 %retval.0
+  %switch.selectcmp = icmp eq i32 %call, 1
+  %switch.select = select i1 %switch.selectcmp, i32 1, i32 5
+  %switch.selectcmp2 = icmp eq i32 %call, 0
+  %switch.select3 = select i1 %switch.selectcmp2, i32 0, i32 %switch.select
+  ret i32 %switch.select3
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable

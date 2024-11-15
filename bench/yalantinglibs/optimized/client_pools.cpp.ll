@@ -75874,7 +75874,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
   tail call void @__clang_call_terminate(ptr %23) #39
   unreachable
 
-cleanup409:                                       ; preds = %invoke.cont.i.i12, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry.destroy
+cleanup409:                                       ; preds = %invoke.cont.i.i12, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry.destroy, %entry.destroy
   %_exception.i = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load ptr, ptr %_exception.i, align 8
   %tobool.not.i.i = icmp eq ptr %24, null
@@ -92249,7 +92249,7 @@ _ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit:
   store ptr null, ptr %client.reload.addr, align 8
   br label %cleanup176
 
-cleanup176:                                       ; preds = %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS5_EELb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %_ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit, %entry.destroy
+cleanup176:                                       ; preds = %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS5_EELb0EE12ValueAwaiterD2Ev.exit, %_ZNSt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS1_EED2Ev.exit, %entry.destroy, %entry.destroy
   %_value.i = getelementptr inbounds i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8

@@ -9421,8 +9421,8 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc range(i32 2, 75) i32 @rsvp_class_to_tree_type(i32 noundef range(i32 0, 256) %0) unnamed_addr #5 {
   %trunc = trunc nuw i32 %0 to i8
-  switch i8 %trunc, label %45 [
-    i8 1, label %46
+  switch i8 %trunc, label %43 [
+    i8 1, label %44
     i8 3, label %2
     i8 4, label %3
     i8 5, label %4
@@ -9449,174 +9449,166 @@ define internal fastcc range(i32 2, 75) i32 @rsvp_class_to_tree_type(i32 noundef
     i8 25, label %22
     i8 36, label %23
     i8 37, label %24
-    i8 -126, label %25
-    i8 -125, label %26
-    i8 -123, label %27
-    i8 -122, label %28
-    i8 65, label %29
-    i8 66, label %30
-    i8 -61, label %31
-    i8 -60, label %32
-    i8 -59, label %33
-    i8 67, label %33
-    i8 -57, label %34
-    i8 -54, label %35
-    i8 -52, label %36
-    i8 -49, label %37
-    i8 -27, label %38
-    i8 -26, label %39
-    i8 -25, label %40
-    i8 -31, label %41
-    i8 -63, label %42
-    i8 -24, label %43
-    i8 124, label %44
-    i8 125, label %44
-    i8 126, label %44
-    i8 127, label %44
-    i8 -68, label %44
-    i8 -67, label %44
-    i8 -66, label %44
-    i8 -65, label %44
-    i8 -4, label %44
-    i8 -3, label %44
-    i8 -2, label %44
-    i8 -1, label %44
+    i8 -1, label %42
+    i8 -125, label %25
+    i8 -123, label %26
+    i8 -122, label %27
+    i8 65, label %28
+    i8 66, label %29
+    i8 -2, label %42
+    i8 -60, label %30
+    i8 -59, label %31
+    i8 67, label %31
+    i8 -57, label %32
+    i8 -54, label %33
+    i8 -52, label %34
+    i8 -49, label %35
+    i8 -27, label %36
+    i8 -26, label %37
+    i8 -25, label %38
+    i8 -31, label %39
+    i8 -63, label %40
+    i8 -24, label %41
+    i8 124, label %42
+    i8 125, label %42
+    i8 126, label %42
+    i8 127, label %42
+    i8 -68, label %42
+    i8 -67, label %42
+    i8 -66, label %42
+    i8 -65, label %42
+    i8 -4, label %42
+    i8 -3, label %42
   ]
 
 2:                                                ; preds = %1
-  br label %46
+  br label %44
 
 3:                                                ; preds = %1
-  br label %46
+  br label %44
 
 4:                                                ; preds = %1
-  br label %46
+  br label %44
 
 5:                                                ; preds = %1
-  br label %46
+  br label %44
 
 6:                                                ; preds = %1
-  br label %46
+  br label %44
 
 7:                                                ; preds = %1
-  br label %46
+  br label %44
 
 8:                                                ; preds = %1
-  br label %46
+  br label %44
 
 9:                                                ; preds = %1
-  br label %46
+  br label %44
 
 10:                                               ; preds = %1
-  br label %46
+  br label %44
 
 11:                                               ; preds = %1
-  br label %46
+  br label %44
 
 12:                                               ; preds = %1
-  br label %46
+  br label %44
 
 13:                                               ; preds = %1
-  br label %46
+  br label %44
 
 14:                                               ; preds = %1
-  br label %46
+  br label %44
 
 15:                                               ; preds = %1, %1, %1, %1
-  br label %46
+  br label %44
 
 16:                                               ; preds = %1
-  br label %46
+  br label %44
 
 17:                                               ; preds = %1
-  br label %46
+  br label %44
 
 18:                                               ; preds = %1
-  br label %46
+  br label %44
 
 19:                                               ; preds = %1
-  br label %46
+  br label %44
 
 20:                                               ; preds = %1
-  br label %46
+  br label %44
 
 21:                                               ; preds = %1
-  br label %46
+  br label %44
 
 22:                                               ; preds = %1
-  br label %46
+  br label %44
 
 23:                                               ; preds = %1
-  br label %46
+  br label %44
 
 24:                                               ; preds = %1
-  br label %46
+  br label %44
 
 25:                                               ; preds = %1
-  br label %46
+  br label %44
 
 26:                                               ; preds = %1
-  br label %46
+  br label %44
 
 27:                                               ; preds = %1
-  br label %46
+  br label %44
 
 28:                                               ; preds = %1
-  br label %46
+  br label %44
 
 29:                                               ; preds = %1
-  br label %46
+  br label %44
 
 30:                                               ; preds = %1
-  br label %46
+  br label %44
 
-31:                                               ; preds = %1
-  br label %46
+31:                                               ; preds = %1, %1
+  br label %44
 
 32:                                               ; preds = %1
-  br label %46
+  br label %44
 
-33:                                               ; preds = %1, %1
-  br label %46
+33:                                               ; preds = %1
+  br label %44
 
 34:                                               ; preds = %1
-  br label %46
+  br label %44
 
 35:                                               ; preds = %1
-  br label %46
+  br label %44
 
 36:                                               ; preds = %1
-  br label %46
+  br label %44
 
 37:                                               ; preds = %1
-  br label %46
+  br label %44
 
 38:                                               ; preds = %1
-  br label %46
+  br label %44
 
 39:                                               ; preds = %1
-  br label %46
+  br label %44
 
 40:                                               ; preds = %1
-  br label %46
+  br label %44
 
 41:                                               ; preds = %1
-  br label %46
+  br label %44
 
-42:                                               ; preds = %1
-  br label %46
+42:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %44
 
 43:                                               ; preds = %1
-  br label %46
+  br label %44
 
-44:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %46
-
-45:                                               ; preds = %1
-  br label %46
-
-46:                                               ; preds = %1, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 70, %45 ], [ 68, %44 ], [ 38, %43 ], [ 24, %42 ], [ 23, %41 ], [ 51, %40 ], [ 50, %39 ], [ 48, %38 ], [ 33, %37 ], [ 69, %36 ], [ 74, %35 ], [ 47, %34 ], [ 45, %33 ], [ 43, %32 ], [ 70, %31 ], [ 67, %30 ], [ 64, %29 ], [ 55, %28 ], [ 54, %27 ], [ 53, %26 ], [ 70, %25 ], [ 57, %24 ], [ 31, %23 ], [ 29, %22 ], [ 28, %21 ], [ 27, %20 ], [ 40, %19 ], [ 36, %18 ], [ 35, %17 ], [ 32, %16 ], [ 30, %15 ], [ 11, %14 ], [ 26, %13 ], [ 19, %12 ], [ 14, %11 ], [ 12, %10 ], [ 13, %9 ], [ 16, %8 ], [ 10, %7 ], [ 9, %6 ], [ 6, %5 ], [ 5, %4 ], [ 21, %3 ], [ 3, %2 ], [ 2, %1 ]
+44:                                               ; preds = %1, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ 70, %43 ], [ 68, %42 ], [ 38, %41 ], [ 24, %40 ], [ 23, %39 ], [ 51, %38 ], [ 50, %37 ], [ 48, %36 ], [ 33, %35 ], [ 69, %34 ], [ 74, %33 ], [ 47, %32 ], [ 45, %31 ], [ 43, %30 ], [ 67, %29 ], [ 64, %28 ], [ 55, %27 ], [ 54, %26 ], [ 53, %25 ], [ 57, %24 ], [ 31, %23 ], [ 29, %22 ], [ 28, %21 ], [ 27, %20 ], [ 40, %19 ], [ 36, %18 ], [ 35, %17 ], [ 32, %16 ], [ 30, %15 ], [ 11, %14 ], [ 26, %13 ], [ 19, %12 ], [ 14, %11 ], [ 12, %10 ], [ 13, %9 ], [ 16, %8 ], [ 10, %7 ], [ 9, %6 ], [ 6, %5 ], [ 5, %4 ], [ 21, %3 ], [ 3, %2 ], [ 2, %1 ]
   ret i32 %.0
 }
 

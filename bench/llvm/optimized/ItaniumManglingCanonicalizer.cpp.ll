@@ -42457,71 +42457,69 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   store i64 %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
-  switch i32 %21, label %26 [
-    i32 0, label %29
-    i32 1, label %22
-    i32 2, label %27
-    i32 3, label %23
-    i32 4, label %24
-    i32 5, label %25
+  switch i32 %21, label %24 [
+    i32 0, label %27
+    i32 1, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i
+    i32 2, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i
+    i32 3, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread.i
+    i32 4, label %22
+    i32 5, label %23
   ]
 
 22:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
-  br label %29
+  br label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread.i
 
 23:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
-  br label %27
+  br label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread.i
 
 24:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
-  br label %27
-
-25:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
-  br label %27
-
-26:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
   unreachable
 
-27:                                               ; preds = %25, %24, %23, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
-  %.sroa.7.0.i.ph.i = phi ptr [ @.str.202, %23 ], [ @.str.203, %24 ], [ @.str.204, %25 ], [ @.str.201, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ]
-  %.sroa.0.0.i.ph.i = phi i64 [ 7, %23 ], [ 7, %24 ], [ 8, %25 ], [ 6, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ]
-  %28 = getelementptr inbounds i8, ptr %.sroa.7.0.i.ph.i, i64 6
-  br label %29
+_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
+  %25 = icmp samesign ugt i32 %21, 1
+  br i1 %25, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread.i, label %27
 
-29:                                               ; preds = %27, %22, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
-  %.sroa.4.0.i = phi ptr [ %28, %27 ], [ @.str.201, %22 ], [ @.str.200, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.i.ph.i, %27 ], [ 12, %22 ], [ 9, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ]
-  %30 = add i64 %19, %.sroa.0.0.i
-  %31 = load i64, ptr %6, align 8
-  %32 = icmp ugt i64 %30, %31
+_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread.i: ; preds = %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i, %23, %22, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
+  %.sroa.0.0.i7.i = phi i64 [ 6, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i ], [ 7, %22 ], [ 8, %23 ], [ 7, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ]
+  %.sroa.7.0.i6.i = phi ptr [ @.str.201, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i ], [ @.str.203, %22 ], [ @.str.204, %23 ], [ @.str.202, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ]
+  %26 = getelementptr inbounds i8, ptr %.sroa.7.0.i6.i, i64 6
+  br label %27
+
+27:                                               ; preds = %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread.i, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
+  %.sroa.4.0.i = phi ptr [ %26, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread.i ], [ @.str.201, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i ], [ @.str.200, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.i7.i, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread.i ], [ 12, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i ], [ 9, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ]
+  %28 = add i64 %19, %.sroa.0.0.i
+  %29 = load i64, ptr %6, align 8
+  %30 = icmp ugt i64 %28, %29
   %.pre.i.i3 = load ptr, ptr %1, align 8
-  br i1 %32, label %33, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit8
+  br i1 %30, label %31, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit8
 
-33:                                               ; preds = %29
-  %34 = add i64 %30, 992
-  %35 = shl i64 %31, 1
-  %spec.select.i.i.i5 = tail call i64 @llvm.umax.i64(i64 %35, i64 %34)
+31:                                               ; preds = %27
+  %32 = add i64 %28, 992
+  %33 = shl i64 %29, 1
+  %spec.select.i.i.i5 = tail call i64 @llvm.umax.i64(i64 %33, i64 %32)
   store i64 %spec.select.i.i.i5, ptr %6, align 8
-  %36 = tail call ptr @realloc(ptr noundef %.pre.i.i3, i64 noundef %spec.select.i.i.i5) #24
-  store ptr %36, ptr %1, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6
+  %34 = tail call ptr @realloc(ptr noundef %.pre.i.i3, i64 noundef %spec.select.i.i.i5) #24
+  store ptr %34, ptr %1, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6: ; preds = %33
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6: ; preds = %31
   %.pre4.i.i7 = load i64, ptr %3, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit8
 
-38:                                               ; preds = %33
+36:                                               ; preds = %31
   tail call void @abort() #23
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit8: ; preds = %29, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6
-  %39 = phi i64 [ %19, %29 ], [ %.pre4.i.i7, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6 ]
-  %40 = phi ptr [ %.pre.i.i3, %29 ], [ %36, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.4.0.i, i64 %.sroa.0.0.i, i1 false)
-  %42 = load i64, ptr %3, align 8
-  %43 = add i64 %42, %.sroa.0.0.i
-  store i64 %43, ptr %3, align 8
+_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit8: ; preds = %27, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6
+  %37 = phi i64 [ %19, %27 ], [ %.pre4.i.i7, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6 ]
+  %38 = phi ptr [ %.pre.i.i3, %27 ], [ %34, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i6 ]
+  %39 = getelementptr inbounds i8, ptr %38, i64 %37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.4.0.i, i64 %.sroa.0.0.i, i1 false)
+  %40 = load i64, ptr %3, align 8
+  %41 = add i64 %40, %.sroa.0.0.i
+  store i64 %41, ptr %3, align 8
   ret void
 }
 
@@ -42529,39 +42527,37 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle19SpecialSubstitution11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  switch i32 %3, label %8 [
-    i32 0, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit
-    i32 1, label %4
-    i32 2, label %9
-    i32 3, label %5
-    i32 4, label %6
-    i32 5, label %7
+  switch i32 %3, label %6 [
+    i32 0, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread8
+    i32 1, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit
+    i32 2, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit
+    i32 3, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread
+    i32 4, label %4
+    i32 5, label %5
   ]
 
 4:                                                ; preds = %1
-  br label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit
+  br label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread
 
 5:                                                ; preds = %1
-  br label %9
+  br label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread
 
 6:                                                ; preds = %1
-  br label %9
-
-7:                                                ; preds = %1
-  br label %9
-
-8:                                                ; preds = %1
   unreachable
 
-9:                                                ; preds = %1, %5, %6, %7
-  %.sroa.7.0.i.ph = phi ptr [ @.str.202, %5 ], [ @.str.203, %6 ], [ @.str.204, %7 ], [ @.str.201, %1 ]
-  %.sroa.0.0.i.ph = phi i64 [ 7, %5 ], [ 7, %6 ], [ 8, %7 ], [ 6, %1 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.7.0.i.ph, i64 6
-  br label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit
+_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit: ; preds = %1, %1
+  %7 = icmp samesign ugt i32 %3, 1
+  br i1 %7, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread8
 
-_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit: ; preds = %4, %1, %9
-  %.sroa.4.0 = phi ptr [ %10, %9 ], [ @.str.201, %4 ], [ @.str.200, %1 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i.ph, %9 ], [ 12, %4 ], [ 9, %1 ]
+_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread: ; preds = %1, %5, %4, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit
+  %.sroa.0.0.i7 = phi i64 [ 6, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit ], [ 7, %4 ], [ 8, %5 ], [ 7, %1 ]
+  %.sroa.7.0.i6 = phi ptr [ @.str.201, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit ], [ @.str.203, %4 ], [ @.str.204, %5 ], [ @.str.202, %1 ]
+  %8 = getelementptr inbounds i8, ptr %.sroa.7.0.i6, i64 6
+  br label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread8
+
+_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread8: ; preds = %1, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit
+  %.sroa.4.0 = phi ptr [ %8, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread ], [ @.str.201, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit ], [ @.str.200, %1 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i7, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread ], [ 12, %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit ], [ 9, %1 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert

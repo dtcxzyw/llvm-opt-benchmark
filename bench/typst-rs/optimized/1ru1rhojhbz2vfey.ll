@@ -64848,9 +64848,9 @@ switch.lookup:                                    ; preds = %3
   %.sroa.4.0.extract.shift.i.i = lshr i16 %0, 8
   %.sroa.4.0.extract.trunc.i.i = trunc nuw i16 %.sroa.4.0.extract.shift.i.i to i8
   %switch.i.i = icmp eq i16 %5, 4
-  %spec.select.i.i = select i1 %switch.i.i, i8 5, i8 %.sroa.4.0.extract.trunc.i.i
-  %7 = icmp eq i8 %spec.select.i.i, 5
-  %..i = select i1 %7, i8 0, i8 %spec.select.i.i
+  %.04.i.i = select i1 %switch.i.i, i8 5, i8 %.sroa.4.0.extract.trunc.i.i
+  %7 = icmp eq i8 %.04.i.i, 5
+  %..i = select i1 %7, i8 0, i8 %.04.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !12510
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
   %8 = call noundef i8 @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$6dir_in17h91fbe166f0f8ff67E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4), !range !387, !noalias !12510
@@ -96922,9 +96922,9 @@ switch.lookup:
   %.sroa.4.0.extract.trunc.i = trunc nuw i16 %.sroa.4.0.extract.shift.i to i8
   %3 = and i16 %1, 255
   %switch.i = icmp eq i16 %3, 4
-  %spec.select.i = select i1 %switch.i, i8 5, i8 %.sroa.4.0.extract.trunc.i
-  %4 = icmp eq i8 %spec.select.i, 5
-  %. = select i1 %4, i8 0, i8 %spec.select.i
+  %.04.i = select i1 %switch.i, i8 5, i8 %.sroa.4.0.extract.trunc.i
+  %4 = icmp eq i8 %.04.i, 5
+  %. = select i1 %4, i8 0, i8 %.04.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = call noundef i8 @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$6dir_in17h91fbe166f0f8ff67E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2), !range !387

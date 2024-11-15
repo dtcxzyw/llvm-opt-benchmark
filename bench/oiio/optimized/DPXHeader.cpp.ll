@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [20 x i8] c"%c%c:%c%c:%c%c:%c%c\00", align 1
 @.str.2 = private unnamed_addr constant [20 x i8] c"%Y:%m:%d:%H:%M:%S%Z\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_DPXHeader.cpp, ptr null }]
-@switch.table._ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 4, i32 4, i32 8], align 4
+@switch.table._ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 4, i32 4], align 4
 
 @_ZN3dpx6HeaderC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3dpx6HeaderC2Ev
 @_ZN3dpx13GenericHeaderC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3dpx13GenericHeaderC2Ev
@@ -1837,43 +1837,28 @@ entry:
     i8 -101, label %sw.bb14
     i8 -102, label %sw.bb13
     i8 -103, label %sw.bb12
-    i8 -104, label %sw.bb11
-    i8 -105, label %sw.bb10
-    i8 -106, label %sw.bb9
+    i8 -104, label %sw.bb8
+    i8 -105, label %sw.bb3
+    i8 -106, label %sw.bb5
     i8 103, label %sw.bb8
-    i8 102, label %sw.bb7
+    i8 102, label %sw.bb3
     i8 50, label %sw.bb3
     i8 51, label %sw.bb4
     i8 52, label %sw.bb4
     i8 100, label %sw.bb5
-    i8 101, label %sw.bb6
+    i8 101, label %sw.bb3
   ]
 
-sw.bb3:                                           ; preds = %entry
+sw.bb3:                                           ; preds = %entry, %entry, %entry, %entry
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
-sw.bb5:                                           ; preds = %entry
+sw.bb5:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
-sw.bb6:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb7:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb8:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb9:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb10:                                          ; preds = %entry
-  br label %sw.epilog
-
-sw.bb11:                                          ; preds = %entry
+sw.bb8:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
@@ -1888,8 +1873,8 @@ sw.bb14:                                          ; preds = %entry
 sw.bb15:                                          ; preds = %entry
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %entry
-  %count.0 = phi i32 [ 8, %sw.bb15 ], [ 7, %sw.bb14 ], [ 6, %sw.bb13 ], [ 5, %sw.bb12 ], [ 4, %sw.bb11 ], [ 3, %sw.bb10 ], [ 2, %sw.bb9 ], [ 4, %sw.bb8 ], [ 3, %sw.bb7 ], [ 3, %sw.bb6 ], [ 2, %sw.bb5 ], [ 4, %sw.bb4 ], [ 3, %sw.bb3 ], [ 1, %entry ]
+sw.epilog:                                        ; preds = %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb8, %sw.bb5, %sw.bb4, %sw.bb3, %entry
+  %count.0 = phi i32 [ 8, %sw.bb15 ], [ 7, %sw.bb14 ], [ 6, %sw.bb13 ], [ 5, %sw.bb12 ], [ 4, %sw.bb8 ], [ 2, %sw.bb5 ], [ 4, %sw.bb4 ], [ 3, %sw.bb3 ], [ 1, %entry ]
   ret i32 %count.0
 }
 
@@ -1954,7 +1939,6 @@ if.end:                                           ; preds = %entry
     i8 12, label %sw.bb3
     i8 16, label %sw.bb3
     i8 32, label %sw.bb4
-    i8 64, label %sw.bb5
   ]
 
 sw.bb3:                                           ; preds = %if.end, %if.end, %if.end
@@ -1963,14 +1947,11 @@ sw.bb3:                                           ; preds = %if.end, %if.end, %i
 sw.bb4:                                           ; preds = %if.end
   br label %return
 
-sw.bb5:                                           ; preds = %if.end
-  br label %return
-
 sw.default:                                       ; preds = %if.end
   br label %return
 
-return:                                           ; preds = %sw.bb3, %sw.bb4, %sw.bb5, %sw.default, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 4, %sw.default ], [ 4, %sw.bb5 ], [ 3, %sw.bb4 ], [ 1, %sw.bb3 ], [ 0, %if.end ]
+return:                                           ; preds = %sw.bb3, %sw.bb4, %sw.default, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 4, %sw.default ], [ 3, %sw.bb4 ], [ 1, %sw.bb3 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1993,7 +1974,6 @@ if.end:                                           ; preds = %entry
     i8 12, label %sw.bb3
     i8 16, label %sw.bb3
     i8 32, label %sw.bb4
-    i8 64, label %sw.bb5
   ]
 
 sw.bb3:                                           ; preds = %if.end, %if.end, %if.end
@@ -2002,26 +1982,23 @@ sw.bb3:                                           ; preds = %if.end, %if.end, %i
 sw.bb4:                                           ; preds = %if.end
   br label %return
 
-sw.bb5:                                           ; preds = %if.end
-  br label %return
-
 sw.default:                                       ; preds = %if.end
   br label %return
 
-return:                                           ; preds = %sw.bb3, %sw.bb4, %sw.bb5, %sw.default, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 8, %sw.default ], [ 8, %sw.bb5 ], [ 4, %sw.bb4 ], [ 2, %sw.bb3 ], [ 1, %if.end ]
+return:                                           ; preds = %sw.bb3, %sw.bb4, %sw.default, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 8, %sw.default ], [ 4, %sw.bb4 ], [ 2, %sw.bb3 ], [ 1, %if.end ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i32 1, 9) i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %ds) local_unnamed_addr #3 align 2 {
 entry:
-  %0 = icmp ult i32 %ds, 5
+  %0 = icmp ult i32 %ds, 4
   br i1 %0, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %ds to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog
 

@@ -1463,8 +1463,8 @@ switch.lookup:                                    ; preds = %if.end17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
-return:                                           ; preds = %switch.lookup, %if.end17, %if.end.i179, %if.end.i162, %if.then8, %if.end.i170, %land.rhs.i84, %land.rhs.i75
-  %retval.0 = phi i32 [ 26, %land.rhs.i75 ], [ 26, %land.rhs.i84 ], [ 0, %if.end17 ], [ 24, %if.end.i170 ], [ 0, %if.then8 ], [ 23, %if.end.i162 ], [ %spec.select, %if.end.i179 ], [ %switch.load, %switch.lookup ]
+return:                                           ; preds = %if.end17, %switch.lookup, %if.end.i179, %if.end.i162, %if.then8, %if.end.i170, %land.rhs.i84, %land.rhs.i75
+  %retval.0 = phi i32 [ 26, %land.rhs.i75 ], [ 26, %land.rhs.i84 ], [ 24, %if.end.i170 ], [ 0, %if.then8 ], [ 23, %if.end.i162 ], [ %spec.select, %if.end.i179 ], [ %switch.load, %switch.lookup ], [ 0, %if.end17 ]
   ret i32 %retval.0
 }
 

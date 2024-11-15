@@ -33484,7 +33484,7 @@ define noundef zeroext i1 @_ZNK6casadi2MX14is_commutativeEv(ptr noundef nonnull 
 
 40:                                               ; preds = %39
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTIN6casadi15CasadiExceptionE, ptr nonnull @_ZN6casadi15CasadiExceptionD2Ev) #30
-          to label %78 unwind label %54
+          to label %72 unwind label %54
 
 .thread:                                          ; preds = %29
   %41 = landingpad { ptr, i32 }
@@ -33566,12 +33566,12 @@ define noundef zeroext i1 @_ZNK6casadi2MX14is_commutativeEv(ptr noundef nonnull 
   %.2 = phi i1 [ %.3, %60 ], [ true, %42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #29
-  br i1 %.2, label %62, label %77
+  br i1 %.2, label %62, label %71
 
 62:                                               ; preds = %.thread, %61
   %.pn.pn.pn.pn.pn.pn.pn29 = phi { ptr, i32 } [ %41, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %61 ]
   call void @__cxa_free_exception(ptr %30) #29
-  br label %77
+  br label %71
 
 63:                                               ; preds = %23, %17
   %64 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -33580,46 +33580,28 @@ define noundef zeroext i1 @_ZNK6casadi2MX14is_commutativeEv(ptr noundef nonnull 
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(64) %64)
   %69 = trunc i64 %68 to i32
-  switch i32 %69, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit [
-    i32 95, label %76
-    i32 1, label %70
-    i32 25, label %75
-    i32 3, label %71
-    i32 24, label %74
-    i32 22, label %73
-    i32 21, label %72
+  switch i32 %69, label %70 [
+    i32 95, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+    i32 1, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+    i32 25, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+    i32 3, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+    i32 24, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+    i32 22, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
+    i32 21, label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
   ]
 
 70:                                               ; preds = %63
   br label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
 
-71:                                               ; preds = %63
-  br label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
-
-72:                                               ; preds = %63
-  br label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
-
-73:                                               ; preds = %63
-  br label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
-
-74:                                               ; preds = %63
-  br label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
-
-75:                                               ; preds = %63
-  br label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
-
-76:                                               ; preds = %63
-  br label %_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit
-
-_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit: ; preds = %76, %75, %74, %73, %72, %71, %70, %63, %1
-  %.018 = phi i1 [ true, %1 ], [ true, %76 ], [ true, %75 ], [ true, %74 ], [ true, %73 ], [ true, %72 ], [ true, %71 ], [ true, %70 ], [ false, %63 ]
+_ZN6casadi17operation_checkerINS_11CommCheckerEEEbx.exit: ; preds = %70, %63, %63, %63, %63, %63, %63, %63, %1
+  %.018 = phi i1 [ true, %1 ], [ false, %70 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ]
   ret i1 %.018
 
-77:                                               ; preds = %61, %62
+71:                                               ; preds = %61, %62
   %.pn.pn.pn.pn.pn.pn.pn28 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %61 ], [ %.pn.pn.pn.pn.pn.pn.pn29, %62 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn28
 
-78:                                               ; preds = %40
+72:                                               ; preds = %40
   unreachable
 }
 

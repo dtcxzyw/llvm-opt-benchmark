@@ -977,12 +977,12 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr dso_local noundef ptr @_ZN4absl14flags_internal7FlagOpsI3UDTEEPvNS0_6FlagOpEPKvS3_S3_(i32 noundef %op, ptr noundef %v1, ptr noundef %v2, ptr noundef %v3) #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  switch i32 %op, label %return [
+  switch i32 %op, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %invoke.cont4
     i32 9, label %sw.bb16
     i32 8, label %sw.bb14
-    i32 4, label %sw.bb7
+    i32 4, label %return
     i32 5, label %sw.bb8
     i32 6, label %sw.bb10
     i32 7, label %sw.bb12
@@ -994,9 +994,6 @@ sw.bb:                                            ; preds = %entry
 
 invoke.cont4:                                     ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %v2) #23
-  br label %return
-
-sw.bb7:                                           ; preds = %entry
   br label %return
 
 sw.bb8:                                           ; preds = %entry
@@ -1017,8 +1014,11 @@ sw.bb14:                                          ; preds = %entry
 sw.bb16:                                          ; preds = %entry
   br label %return
 
-return:                                           ; preds = %sw.bb, %entry, %sw.bb12, %sw.bb16, %sw.bb14, %sw.bb10, %sw.bb8, %sw.bb7, %invoke.cont4
-  %retval.0 = phi ptr [ inttoptr (i64 80 to ptr), %sw.bb16 ], [ null, %sw.bb14 ], [ @_ZTI3UDT, %sw.bb10 ], [ @_ZN4absl13base_internal11FastTypeTagI3UDTE9dummy_varE, %sw.bb8 ], [ inttoptr (i64 1 to ptr), %sw.bb7 ], [ null, %invoke.cont4 ], [ %v2, %sw.bb12 ], [ null, %entry ], [ %call5.i.i7, %sw.bb ]
+sw.epilog:                                        ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %sw.bb, %sw.bb12, %entry, %sw.epilog, %sw.bb16, %sw.bb14, %sw.bb10, %sw.bb8, %invoke.cont4
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb16 ], [ null, %sw.bb14 ], [ @_ZTI3UDT, %sw.bb10 ], [ @_ZN4absl13base_internal11FastTypeTagI3UDTE9dummy_varE, %sw.bb8 ], [ null, %invoke.cont4 ], [ inttoptr (i64 1 to ptr), %entry ], [ %v2, %sw.bb12 ], [ %call5.i.i7, %sw.bb ]
   ret ptr %retval.0
 }
 

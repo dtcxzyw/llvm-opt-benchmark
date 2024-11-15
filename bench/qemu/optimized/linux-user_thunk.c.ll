@@ -729,16 +729,16 @@ tailrecurse.i55:                                  ; preds = %sw.bb9.i64, %sw.bb3
   %type_ptr.tr.i57 = phi ptr [ %incdec.ptr35, %sw.bb34 ], [ %add.ptr.i66, %sw.bb9.i64 ]
   %11 = load i32, ptr %type_ptr.tr.i57, align 4
   switch i32 %11, label %do.body.i72 [
-    i32 1, label %thunk_type_size.exit73.loopexit174
-    i32 2, label %thunk_type_size.exit73
-    i32 3, label %thunk_type_size.exit73.loopexit192
+    i32 1, label %thunk_type_size.exit73
+    i32 2, label %thunk_type_size.exit73.loopexit170
+    i32 3, label %thunk_type_size.exit73.loopexit188
     i32 7, label %thunk_type_size.exit73.loopexit
     i32 8, label %thunk_type_size.exit73.loopexit
     i32 4, label %thunk_type_size.exit73.loopexit
     i32 5, label %thunk_type_size.exit73.loopexit
     i32 6, label %thunk_type_size.exit73.loopexit
     i32 9, label %thunk_type_size.exit73.loopexit
-    i32 12, label %thunk_type_size.exit73
+    i32 12, label %thunk_type_size.exit73.loopexit170
     i32 10, label %sw.bb9.i64
     i32 11, label %sw.bb10.i58
   ]
@@ -763,33 +763,33 @@ do.body.i72:                                      ; preds = %tailrecurse.i55
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #9
   unreachable
 
-thunk_type_size.exit73.loopexit174:               ; preds = %tailrecurse.i55
+thunk_type_size.exit73.loopexit170:               ; preds = %tailrecurse.i55, %tailrecurse.i55
   br label %thunk_type_size.exit73
 
-thunk_type_size.exit73.loopexit192:               ; preds = %tailrecurse.i55
+thunk_type_size.exit73.loopexit188:               ; preds = %tailrecurse.i55
   br label %thunk_type_size.exit73
 
 thunk_type_size.exit73.loopexit:                  ; preds = %tailrecurse.i55, %tailrecurse.i55, %tailrecurse.i55, %tailrecurse.i55, %tailrecurse.i55, %tailrecurse.i55
   br label %thunk_type_size.exit73
 
-thunk_type_size.exit73:                           ; preds = %tailrecurse.i55, %tailrecurse.i55, %thunk_type_size.exit73.loopexit, %thunk_type_size.exit73.loopexit192, %thunk_type_size.exit73.loopexit174, %sw.bb10.i58
-  %retval.0.i62 = phi i32 [ %15, %sw.bb10.i58 ], [ 1, %thunk_type_size.exit73.loopexit174 ], [ 4, %thunk_type_size.exit73.loopexit192 ], [ 8, %thunk_type_size.exit73.loopexit ], [ 2, %tailrecurse.i55 ], [ 2, %tailrecurse.i55 ]
+thunk_type_size.exit73:                           ; preds = %tailrecurse.i55, %thunk_type_size.exit73.loopexit, %thunk_type_size.exit73.loopexit188, %thunk_type_size.exit73.loopexit170, %sw.bb10.i58
+  %retval.0.i62 = phi i32 [ %15, %sw.bb10.i58 ], [ 2, %thunk_type_size.exit73.loopexit170 ], [ 4, %thunk_type_size.exit73.loopexit188 ], [ 8, %thunk_type_size.exit73.loopexit ], [ 1, %tailrecurse.i55 ]
   %accumulator.ret.tr.i63 = mul i32 %retval.0.i62, %accumulator.tr.i56
   %16 = load i32, ptr %incdec.ptr35, align 4
   %cmp.not = icmp eq i32 %16, 1
-  %cmp38122 = icmp sgt i32 %10, 0
+  %cmp38118 = icmp sgt i32 %10, 0
   br i1 %cmp.not, label %if.end, label %if.end.thread
 
 if.end:                                           ; preds = %thunk_type_size.exit73
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11) #11
-  br i1 %cmp38122, label %for.body.us.preheader, label %if.end49
+  br i1 %cmp38118, label %for.body.us.preheader, label %if.end49
 
 if.end.thread:                                    ; preds = %thunk_type_size.exit73
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12) #11
-  br i1 %cmp38122, label %for.body.preheader, label %if.else48
+  br i1 %cmp38118, label %for.body.preheader, label %if.else48
 
 for.body.preheader:                               ; preds = %if.end.thread
-  %idx.ext170 = sext i32 %accumulator.ret.tr.i63 to i64
+  %idx.ext166 = sext i32 %accumulator.ret.tr.i63 to i64
   br label %for.body
 
 for.body.us.preheader:                            ; preds = %if.end
@@ -797,18 +797,18 @@ for.body.us.preheader:                            ; preds = %if.end
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
-  %i.0124.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.us.preheader ]
-  %a.0123.us = phi ptr [ %add.ptr45.us, %for.body.us ], [ %arg, %for.body.us.preheader ]
-  %call44.us = tail call ptr @thunk_print(ptr noundef %a.0123.us, ptr noundef nonnull %incdec.ptr35)
-  %add.ptr45.us = getelementptr i8, ptr %a.0123.us, i64 %idx.ext
-  %inc.us = add nuw nsw i32 %i.0124.us, 1
-  %exitcond168.not = icmp eq i32 %inc.us, %10
-  br i1 %exitcond168.not, label %for.end, label %for.body.us, !llvm.loop !11
+  %i.0120.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.us.preheader ]
+  %a.0119.us = phi ptr [ %add.ptr45.us, %for.body.us ], [ %arg, %for.body.us.preheader ]
+  %call44.us = tail call ptr @thunk_print(ptr noundef %a.0119.us, ptr noundef nonnull %incdec.ptr35)
+  %add.ptr45.us = getelementptr i8, ptr %a.0119.us, i64 %idx.ext
+  %inc.us = add nuw nsw i32 %i.0120.us, 1
+  %exitcond164.not = icmp eq i32 %inc.us, %10
+  br i1 %exitcond164.not, label %for.end, label %for.body.us, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.preheader, %if.end43
-  %i.0124 = phi i32 [ %inc, %if.end43 ], [ 0, %for.body.preheader ]
-  %a.0123 = phi ptr [ %add.ptr45, %if.end43 ], [ %arg, %for.body.preheader ]
-  %cmp40 = icmp eq i32 %i.0124, 0
+  %i.0120 = phi i32 [ %inc, %if.end43 ], [ 0, %for.body.preheader ]
+  %a.0119 = phi ptr [ %add.ptr45, %if.end43 ], [ %arg, %for.body.preheader ]
+  %cmp40 = icmp eq i32 %i.0120, 0
   br i1 %cmp40, label %if.end43, label %if.then42
 
 if.then42:                                        ; preds = %for.body
@@ -816,9 +816,9 @@ if.then42:                                        ; preds = %for.body
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %for.body
-  %call44 = tail call ptr @thunk_print(ptr noundef %a.0123, ptr noundef nonnull %incdec.ptr35)
-  %add.ptr45 = getelementptr i8, ptr %a.0123, i64 %idx.ext170
-  %inc = add nuw nsw i32 %i.0124, 1
+  %call44 = tail call ptr @thunk_print(ptr noundef %a.0119, ptr noundef nonnull %incdec.ptr35)
+  %add.ptr45 = getelementptr i8, ptr %a.0119, i64 %idx.ext166
+  %inc = add nuw nsw i32 %i.0120, 1
   %exitcond.not = icmp eq i32 %inc, %10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
@@ -886,12 +886,12 @@ if.else61:                                        ; preds = %sw.bb51
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15) #11
   %nb_fields = getelementptr inbounds i8, ptr %add.ptr56, i64 8
   %23 = load i32, ptr %nb_fields, align 8
-  %cmp64119 = icmp sgt i32 %23, 0
-  br i1 %cmp64119, label %for.body66, label %for.end77
+  %cmp64115 = icmp sgt i32 %23, 0
+  br i1 %cmp64115, label %for.body66, label %for.end77
 
 for.body66:                                       ; preds = %if.else61, %if.end70
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end70 ], [ 0, %if.else61 ]
-  %field_types.0121 = phi ptr [ %call74, %if.end70 ], [ %21, %if.else61 ]
+  %field_types.0117 = phi ptr [ %call74, %if.end70 ], [ %21, %if.else61 ]
   %cmp67.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp67.not, label %if.end70, label %if.then69
 
@@ -904,7 +904,7 @@ if.end70:                                         ; preds = %if.then69, %for.bod
   %24 = load i32, ptr %arrayidx71, align 4
   %idx.ext72 = sext i32 %24 to i64
   %add.ptr73 = getelementptr i8, ptr %arg, i64 %idx.ext72
-  %call74 = tail call ptr @thunk_print(ptr noundef %add.ptr73, ptr noundef %field_types.0121)
+  %call74 = tail call ptr @thunk_print(ptr noundef %add.ptr73, ptr noundef %field_types.0117)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %nb_fields, align 8
   %26 = sext i32 %25 to i64

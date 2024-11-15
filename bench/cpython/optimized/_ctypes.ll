@@ -8299,8 +8299,8 @@ declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_add
 define internal fastcc ptr @_ctypes_alloc_format_string_for_type(i8 noundef signext %code) unnamed_addr #0 {
 entry:
   switch i8 %code, label %sw.epilog [
-    i8 76, label %sw.bb3
     i8 108, label %sw.bb2
+    i8 76, label %sw.bb3
   ]
 
 sw.bb2:                                           ; preds = %entry

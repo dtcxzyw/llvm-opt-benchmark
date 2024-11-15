@@ -349,10 +349,8 @@ $_ZN5clang13SanitizerKind8AllGroupE = comdat any
 @.str.77 = private unnamed_addr constant [7 x i8] c"always\00", align 1
 @.str.78 = private unnamed_addr constant [8 x i8] c"runtime\00", align 1
 @.str.79 = private unnamed_addr constant [6 x i8] c"never\00", align 1
-@switch.table._ZN5clang20AsanDtorKindToStringEN4llvm12AsanDtorKindE = private unnamed_addr constant [3 x i64] [i64 4, i64 6, i64 7], align 8
-@switch.table._ZN5clang20AsanDtorKindToStringEN4llvm12AsanDtorKindE.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.74, ptr @.str.75, ptr @.str.76], align 8
-@switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE = private unnamed_addr constant [4 x i64] [i64 5, i64 7, i64 6, i64 7], align 8
-@switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE.2 = private unnamed_addr constant [4 x ptr] [ptr @.str.79, ptr @.str.78, ptr @.str.77, ptr @.str.76], align 8
+@switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE = private unnamed_addr constant [3 x i64] [i64 5, i64 7, i64 6], align 8
+@switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.79, ptr @.str.78, ptr @.str.77], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i64, i64 } @_ZN5clang19parseSanitizerValueEN4llvm9StringRefEb(ptr nocapture readonly %0, i64 %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -3172,21 +3170,20 @@ define dso_local i64 @_ZN5clang10hash_valueERKNS_13SanitizerMaskE(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang20AsanDtorKindToStringEN4llvm12AsanDtorKindE(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = icmp ult i32 %0, 3
-  br i1 %2, label %switch.lookup, label %5
+  switch i32 %0, label %3 [
+    i32 0, label %4
+    i32 1, label %2
+  ]
 
-switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5clang20AsanDtorKindToStringEN4llvm12AsanDtorKindE, i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang20AsanDtorKindToStringEN4llvm12AsanDtorKindE.1, i64 0, i64 %4
-  %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  br label %5
+2:                                                ; preds = %1
+  br label %4
 
-5:                                                ; preds = %1, %switch.lookup
-  %.sroa.5.0 = phi i64 [ %switch.load, %switch.lookup ], [ 7, %1 ]
-  %.sroa.0.0 = phi ptr [ %switch.load2, %switch.lookup ], [ @.str.76, %1 ]
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %1, %3, %2
+  %.sroa.5.0 = phi i64 [ 7, %3 ], [ 6, %2 ], [ 4, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.76, %3 ], [ @.str.75, %2 ], [ @.str.74, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3223,15 +3220,15 @@ _ZN4llvm12StringSwitchINS_12AsanDtorKindES1_E4CaseENS_13StringLiteralES1_.exit10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = icmp ult i32 %0, 4
+  %2 = icmp ult i32 %0, 3
   br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE.2, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang41AsanDetectStackUseAfterReturnModeToStringEN4llvm33AsanDetectStackUseAfterReturnModeE.1, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 

@@ -10166,8 +10166,8 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZNK5clang16Templat
 134:                                              ; preds = %16
   unreachable
 
-_ZN4llvm6APSIntD2Ev.exit46:                       ; preds = %.lr.ph, %.preheader, %121, %92, %89, %_ZN4llvm6APSIntD2Ev.exit, %16, %23, %16, %3, %119, %111, %105, %99, %93, %17
-  %.0 = phi i1 [ %120, %119 ], [ %118, %111 ], [ %110, %105 ], [ %104, %99 ], [ %98, %93 ], [ %22, %17 ], [ false, %3 ], [ true, %16 ], [ false, %23 ], [ true, %16 ], [ %.not.i, %_ZN4llvm6APSIntD2Ev.exit ], [ %.not.i, %89 ], [ %.not.i, %92 ], [ false, %121 ], [ true, %.preheader ], [ %133, %.lr.ph ]
+_ZN4llvm6APSIntD2Ev.exit46:                       ; preds = %.lr.ph, %.preheader, %121, %92, %89, %_ZN4llvm6APSIntD2Ev.exit, %23, %16, %16, %3, %119, %111, %105, %99, %93, %17
+  %.0 = phi i1 [ %120, %119 ], [ %118, %111 ], [ %110, %105 ], [ %104, %99 ], [ %98, %93 ], [ %22, %17 ], [ false, %3 ], [ true, %16 ], [ true, %16 ], [ false, %23 ], [ %.not.i, %_ZN4llvm6APSIntD2Ev.exit ], [ %.not.i, %89 ], [ %.not.i, %92 ], [ false, %121 ], [ true, %.preheader ], [ %133, %.lr.ph ]
   ret i1 %.0
 }
 

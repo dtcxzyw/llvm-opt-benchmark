@@ -2626,20 +2626,20 @@ if.end:                                           ; preds = %entry, %tailrecurse
     i32 13, label %tailrecurse.backedge.sink.split
     i32 14, label %tailrecurse.backedge.sink.split
     i32 15, label %if.then28
-    i32 24, label %if.then35
+    i32 24, label %if.then8
     i32 25, label %return.loopexit
     i32 26, label %if.then45
     i32 28, label %if.then52
-    i32 67, label %if.then60
+    i32 67, label %if.then8
     i32 29, label %if.then67
     i32 74, label %return.loopexit
   ]
 
-if.then8:                                         ; preds = %if.end
+if.then8:                                         ; preds = %if.end, %if.end, %if.end
   br label %tailrecurse.backedge.sink.split
 
-tailrecurse.backedge.sink.split:                  ; preds = %if.then67, %if.then52, %if.end, %if.end, %if.then60, %if.then45, %if.then35, %if.then28, %if.then8
-  %.sink = phi i64 [ 56, %if.then8 ], [ 80, %if.then28 ], [ 56, %if.then35 ], [ 64, %if.then45 ], [ 56, %if.then60 ], [ 72, %if.end ], [ 72, %if.end ], [ 56, %if.then52 ], [ 56, %if.then67 ]
+tailrecurse.backedge.sink.split:                  ; preds = %if.then67, %if.then52, %if.end, %if.end, %if.then45, %if.then28, %if.then8
+  %.sink = phi i64 [ 56, %if.then8 ], [ 80, %if.then28 ], [ 64, %if.then45 ], [ 72, %if.end ], [ 72, %if.end ], [ 56, %if.then52 ], [ 56, %if.then67 ]
   %_consequent = getelementptr inbounds i8, ptr %node.tr67, i64 %.sink
   %1 = load ptr, ptr %_consequent, align 8
   br label %tailrecurse.backedge
@@ -2652,9 +2652,6 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 if.then28:                                        ; preds = %if.end
   br label %tailrecurse.backedge.sink.split
 
-if.then35:                                        ; preds = %if.end
-  br label %tailrecurse.backedge.sink.split
-
 if.then45:                                        ; preds = %if.end
   br label %tailrecurse.backedge.sink.split
 
@@ -2663,9 +2660,6 @@ if.then52:                                        ; preds = %if.end
   %2 = load ptr, ptr %_finalizer, align 8
   %tobool53.not = icmp eq ptr %2, null
   br i1 %tobool53.not, label %tailrecurse.backedge.sink.split, label %tailrecurse.backedge
-
-if.then60:                                        ; preds = %if.end
-  br label %tailrecurse.backedge.sink.split
 
 if.then67:                                        ; preds = %if.end
   %_alternate = getelementptr inbounds i8, ptr %node.tr67, i64 64
@@ -3781,20 +3775,20 @@ entry:
     i32 70, label %return
     i32 93, label %return
     i32 55, label %return.fold.split
-    i32 65, label %return.fold.split35
-    i32 48, label %return.fold.split36
+    i32 65, label %return.fold.split
+    i32 48, label %return.fold.split
     i32 43, label %land.lhs.true
     i32 71, label %return.fold.split37
-    i32 46, label %return.fold.split38
+    i32 46, label %return.fold.split37
     i32 53, label %land.lhs.true50
     i32 52, label %return.fold.split41
     i32 60, label %if.then62
     i32 58, label %if.then69
     i32 59, label %return.fold.split49
     i32 51, label %return.fold.split42
-    i32 94, label %return.fold.split43
+    i32 94, label %return.fold.split42
     i32 44, label %return.fold.split44
-    i32 5, label %return.fold.split45
+    i32 5, label %return.fold.split44
     i32 39, label %return.fold.split46
   ]
 
@@ -3840,34 +3834,19 @@ if.then69:                                        ; preds = %entry
 if.end91:                                         ; preds = %entry
   br label %return
 
-return.fold.split:                                ; preds = %entry
+return.fold.split:                                ; preds = %entry, %entry, %entry
   br label %return
 
-return.fold.split35:                              ; preds = %entry
-  br label %return
-
-return.fold.split36:                              ; preds = %entry
-  br label %return
-
-return.fold.split37:                              ; preds = %entry
-  br label %return
-
-return.fold.split38:                              ; preds = %entry
+return.fold.split37:                              ; preds = %entry, %entry
   br label %return
 
 return.fold.split41:                              ; preds = %entry
   br label %return
 
-return.fold.split42:                              ; preds = %entry
+return.fold.split42:                              ; preds = %entry, %entry
   br label %return
 
-return.fold.split43:                              ; preds = %entry
-  br label %return
-
-return.fold.split44:                              ; preds = %entry
-  br label %return
-
-return.fold.split45:                              ; preds = %entry
+return.fold.split44:                              ; preds = %entry, %entry
   br label %return
 
 return.fold.split46:                              ; preds = %entry
@@ -3876,9 +3855,9 @@ return.fold.split46:                              ; preds = %entry
 return.fold.split49:                              ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %return.fold.split49, %land.lhs.true50, %lor.lhs.false36, %return.fold.split46, %return.fold.split45, %return.fold.split44, %return.fold.split43, %return.fold.split42, %return.fold.split41, %return.fold.split38, %return.fold.split37, %return.fold.split36, %return.fold.split35, %return.fold.split, %land.lhs.true, %if.end91, %if.then69, %if.then62
-  %retval.sroa.0.0 = phi i32 [ 0, %if.end91 ], [ %call73, %if.then69 ], [ %call64, %if.then62 ], [ 32, %entry ], [ 31, %land.lhs.true ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 31, %return.fold.split ], [ 31, %return.fold.split35 ], [ 31, %return.fold.split36 ], [ %spec.select, %lor.lhs.false36 ], [ 29, %return.fold.split37 ], [ 29, %return.fold.split38 ], [ %spec.select39, %land.lhs.true50 ], [ 27, %return.fold.split41 ], [ 4, %return.fold.split42 ], [ 4, %return.fold.split43 ], [ 3, %return.fold.split44 ], [ 3, %return.fold.split45 ], [ 1, %return.fold.split46 ], [ 5, %return.fold.split49 ]
-  %retval.sroa.15.0 = phi i64 [ 0, %if.end91 ], [ 0, %if.then69 ], [ 0, %if.then62 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %return.fold.split ], [ 0, %return.fold.split35 ], [ 0, %return.fold.split36 ], [ 0, %lor.lhs.false36 ], [ 0, %return.fold.split37 ], [ 0, %return.fold.split38 ], [ %4, %land.lhs.true50 ], [ 4294967296, %return.fold.split41 ], [ 4294967296, %return.fold.split42 ], [ 4294967296, %return.fold.split43 ], [ 0, %return.fold.split44 ], [ 0, %return.fold.split45 ], [ 4294967296, %return.fold.split46 ], [ 4294967296, %return.fold.split49 ]
+return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %return.fold.split49, %land.lhs.true50, %lor.lhs.false36, %return.fold.split46, %return.fold.split44, %return.fold.split42, %return.fold.split41, %return.fold.split37, %return.fold.split, %land.lhs.true, %if.end91, %if.then69, %if.then62
+  %retval.sroa.0.0 = phi i32 [ 0, %if.end91 ], [ %call73, %if.then69 ], [ %call64, %if.then62 ], [ 32, %entry ], [ 31, %land.lhs.true ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 32, %entry ], [ 31, %return.fold.split ], [ %spec.select, %lor.lhs.false36 ], [ 29, %return.fold.split37 ], [ %spec.select39, %land.lhs.true50 ], [ 27, %return.fold.split41 ], [ 4, %return.fold.split42 ], [ 3, %return.fold.split44 ], [ 1, %return.fold.split46 ], [ 5, %return.fold.split49 ]
+  %retval.sroa.15.0 = phi i64 [ 0, %if.end91 ], [ 0, %if.then69 ], [ 0, %if.then62 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %return.fold.split ], [ 0, %lor.lhs.false36 ], [ 0, %return.fold.split37 ], [ %4, %land.lhs.true50 ], [ 4294967296, %return.fold.split41 ], [ 4294967296, %return.fold.split42 ], [ 0, %return.fold.split44 ], [ 4294967296, %return.fold.split46 ], [ 4294967296, %return.fold.split49 ]
   %retval.sroa.0.0.insert.ext = zext nneg i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.15.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -3906,9 +3885,9 @@ if.end.i.i854:                                    ; preds = %land.lhs.true.i877
     i8 37, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
     i8 47, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
     i8 43, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split
-    i8 45, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split426
+    i8 45, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split
     i8 60, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427
-    i8 62, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split428
+    i8 62, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427
     i8 38, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429
     i8 94, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430
     i8 124, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431
@@ -3988,16 +3967,10 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i877
   %spec.select = select i1 %14, i32 14, i32 0
   br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
 
-_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split: ; preds = %if.end.i.i854
+_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split: ; preds = %if.end.i.i854, %if.end.i.i854
   br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
 
-_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split426: ; preds = %if.end.i.i854
-  br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
-
-_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427: ; preds = %if.end.i.i854
-  br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
-
-_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split428: ; preds = %if.end.i.i854
+_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427: ; preds = %if.end.i.i854, %if.end.i.i854
   br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
 
 _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429: ; preds = %if.end.i.i854
@@ -4009,8 +3982,8 @@ _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.
 _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431: ; preds = %if.end.i.i854
   br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
 
-_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit: ; preds = %if.end.i.i854, %if.end.i.i854, %if.end.i.i854, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split428, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split426, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split, %if.end.i.i, %land.lhs.true.i877, %if.end.i.i84, %if.end.i.i119, %if.end.i.i154, %if.end.i.i189, %if.end.i.i329, %if.end.i.i364, %if.end.i.i399, %if.end.i.i434, %if.end.i.i469, %if.end.i.i504, %if.end.i.i609, %if.end.i.i644, %if.end.i.i679, %if.end.i.i889, %land.lhs.true.i.thread
-  %retval.i.0 = phi i32 [ 0, %land.lhs.true.i.thread ], [ 18, %if.end.i.i889 ], [ 17, %if.end.i.i854 ], [ 15, %if.end.i.i679 ], [ 15, %if.end.i.i644 ], [ 15, %if.end.i.i609 ], [ 14, %if.end.i.i504 ], [ 14, %if.end.i.i469 ], [ 13, %if.end.i.i434 ], [ 13, %if.end.i.i399 ], [ 13, %if.end.i.i364 ], [ 13, %if.end.i.i329 ], [ 9, %if.end.i.i189 ], [ 8, %if.end.i.i154 ], [ 7, %if.end.i.i119 ], [ 14, %if.end.i.i84 ], [ 0, %land.lhs.true.i877 ], [ %spec.select, %if.end.i.i ], [ 17, %if.end.i.i854 ], [ 17, %if.end.i.i854 ], [ 16, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split ], [ 16, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split426 ], [ 14, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427 ], [ 14, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split428 ], [ 12, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429 ], [ 11, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430 ], [ 10, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431 ]
+_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit: ; preds = %if.end.i.i854, %if.end.i.i854, %if.end.i.i854, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split, %if.end.i.i, %land.lhs.true.i877, %if.end.i.i84, %if.end.i.i119, %if.end.i.i154, %if.end.i.i189, %if.end.i.i329, %if.end.i.i364, %if.end.i.i399, %if.end.i.i434, %if.end.i.i469, %if.end.i.i504, %if.end.i.i609, %if.end.i.i644, %if.end.i.i679, %if.end.i.i889, %land.lhs.true.i.thread
+  %retval.i.0 = phi i32 [ 0, %land.lhs.true.i.thread ], [ 18, %if.end.i.i889 ], [ 17, %if.end.i.i854 ], [ 15, %if.end.i.i679 ], [ 15, %if.end.i.i644 ], [ 15, %if.end.i.i609 ], [ 14, %if.end.i.i504 ], [ 14, %if.end.i.i469 ], [ 13, %if.end.i.i434 ], [ 13, %if.end.i.i399 ], [ 13, %if.end.i.i364 ], [ 13, %if.end.i.i329 ], [ 9, %if.end.i.i189 ], [ 8, %if.end.i.i154 ], [ 7, %if.end.i.i119 ], [ 14, %if.end.i.i84 ], [ 0, %land.lhs.true.i877 ], [ %spec.select, %if.end.i.i ], [ 17, %if.end.i.i854 ], [ 17, %if.end.i.i854 ], [ 16, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split ], [ 14, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427 ], [ 12, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429 ], [ 11, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430 ], [ 10, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431 ]
   ret i32 %retval.i.0
 }
 

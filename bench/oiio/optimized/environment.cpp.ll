@@ -1297,12 +1297,8 @@ if.end120:                                        ; preds = %_ZN18OpenImageIO_v2
   %57 = load i32, ptr %interpmode, align 4
   switch i32 %57, label %sw.default [
     i32 0, label %sw.epilog
-    i32 1, label %sw.bb121
     i32 2, label %sw.bb122
   ]
-
-sw.bb121:                                         ; preds = %if.end120
-  br label %sw.epilog
 
 sw.bb122:                                         ; preds = %if.end120
   br label %sw.epilog
@@ -1310,9 +1306,9 @@ sw.bb122:                                         ; preds = %if.end120
 sw.default:                                       ; preds = %if.end120
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end120, %sw.default, %sw.bb122, %sw.bb121
-  %.sink = phi i64 [ 312, %sw.default ], [ 320, %sw.bb122 ], [ 312, %sw.bb121 ], [ 304, %if.end120 ]
-  %sampler.sroa.0.0 = phi i64 [ ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl15sample_bilinearEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), %sw.default ], [ ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14sample_bicubicEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), %sw.bb122 ], [ ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl15sample_bilinearEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), %sw.bb121 ], [ ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14sample_closestEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), %if.end120 ]
+sw.epilog:                                        ; preds = %if.end120, %sw.default, %sw.bb122
+  %.sink = phi i64 [ 312, %sw.default ], [ 320, %sw.bb122 ], [ 304, %if.end120 ]
+  %sampler.sroa.0.0 = phi i64 [ ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl15sample_bilinearEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), %sw.default ], [ ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14sample_bicubicEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), %sw.bb122 ], [ ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14sample_closestEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), %if.end120 ]
   %bilinear_interps123 = getelementptr inbounds i8, ptr %call22, i64 %.sink
   %mipmode124 = getelementptr inbounds i8, ptr %options, i64 24
   %58 = load i32, ptr %mipmode124, align 8

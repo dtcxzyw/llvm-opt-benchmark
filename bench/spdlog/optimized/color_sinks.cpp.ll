@@ -635,7 +635,6 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit: 
   switch i32 %mode, label %sw.default.i [
     i32 0, label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE14set_color_modeENS_10color_modeE.exit
     i32 1, label %sw.bb2.i
-    i32 2, label %sw.bb5.i
   ]
 
 sw.bb2.i:                                         ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit
@@ -648,14 +647,11 @@ land.rhs.i:                                       ; preds = %sw.bb2.i
   %2 = zext i1 %call3.i to i8
   br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE14set_color_modeENS_10color_modeE.exit
 
-sw.bb5.i:                                         ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit
-  br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE14set_color_modeENS_10color_modeE.exit
-
 sw.default.i:                                     ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit
   br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE14set_color_modeENS_10color_modeE.exit
 
-_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE14set_color_modeENS_10color_modeE.exit: ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit, %sw.bb2.i, %land.rhs.i, %sw.bb5.i, %sw.default.i
-  %.sink.i = phi i8 [ 0, %sw.default.i ], [ 0, %sw.bb5.i ], [ 1, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit ], [ 0, %sw.bb2.i ], [ %2, %land.rhs.i ]
+_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE14set_color_modeENS_10color_modeE.exit: ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit, %sw.bb2.i, %land.rhs.i, %sw.default.i
+  %.sink.i = phi i8 [ 0, %sw.default.i ], [ 1, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit ], [ 0, %sw.bb2.i ], [ %2, %land.rhs.i ]
   %should_do_colors_7.i = getelementptr inbounds i8, ptr %this, i64 464
   store i8 %.sink.i, ptr %should_do_colors_7.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -862,7 +858,6 @@ entry:
   switch i32 %mode, label %sw.default [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb2
-    i32 2, label %sw.bb5
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -876,14 +871,11 @@ land.rhs:                                         ; preds = %sw.bb2
   %1 = zext i1 %call3 to i8
   br label %sw.epilog
 
-sw.bb5:                                           ; preds = %entry
-  br label %sw.epilog
-
 sw.default:                                       ; preds = %entry
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb2, %land.rhs, %entry, %sw.default, %sw.bb5
-  %.sink = phi i8 [ 0, %sw.default ], [ 0, %sw.bb5 ], [ 1, %entry ], [ 0, %sw.bb2 ], [ %1, %land.rhs ]
+sw.epilog:                                        ; preds = %sw.bb2, %land.rhs, %entry, %sw.default
+  %.sink = phi i8 [ 0, %sw.default ], [ 1, %entry ], [ 0, %sw.bb2 ], [ %1, %land.rhs ]
   %should_do_colors_7 = getelementptr inbounds i8, ptr %this, i64 464
   store i8 %.sink, ptr %should_do_colors_7, align 8
   ret void
@@ -1599,7 +1591,6 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit: 
   switch i32 %mode, label %sw.default.i [
     i32 0, label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE14set_color_modeENS_10color_modeE.exit
     i32 1, label %sw.bb2.i
-    i32 2, label %sw.bb5.i
   ]
 
 sw.bb2.i:                                         ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit
@@ -1612,14 +1603,11 @@ land.rhs.i:                                       ; preds = %sw.bb2.i
   %2 = zext i1 %call3.i to i8
   br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE14set_color_modeENS_10color_modeE.exit
 
-sw.bb5.i:                                         ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit
-  br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE14set_color_modeENS_10color_modeE.exit
-
 sw.default.i:                                     ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit
   br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE14set_color_modeENS_10color_modeE.exit
 
-_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE14set_color_modeENS_10color_modeE.exit: ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit, %sw.bb2.i, %land.rhs.i, %sw.bb5.i, %sw.default.i
-  %.sink.i = phi i8 [ 0, %sw.default.i ], [ 0, %sw.bb5.i ], [ 1, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit ], [ 0, %sw.bb2.i ], [ %2, %land.rhs.i ]
+_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE14set_color_modeENS_10color_modeE.exit: ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit, %sw.bb2.i, %land.rhs.i, %sw.default.i
+  %.sink.i = phi i8 [ 0, %sw.default.i ], [ 1, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit ], [ 0, %sw.bb2.i ], [ %2, %land.rhs.i ]
   %should_do_colors_7.i = getelementptr inbounds i8, ptr %this, i64 464
   store i8 %.sink.i, ptr %should_do_colors_7.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -1786,7 +1774,6 @@ entry:
   switch i32 %mode, label %sw.default [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb2
-    i32 2, label %sw.bb5
   ]
 
 sw.bb2:                                           ; preds = %entry
@@ -1800,14 +1787,11 @@ land.rhs:                                         ; preds = %sw.bb2
   %1 = zext i1 %call3 to i8
   br label %sw.epilog
 
-sw.bb5:                                           ; preds = %entry
-  br label %sw.epilog
-
 sw.default:                                       ; preds = %entry
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb2, %land.rhs, %entry, %sw.default, %sw.bb5
-  %.sink = phi i8 [ 0, %sw.default ], [ 0, %sw.bb5 ], [ 1, %entry ], [ 0, %sw.bb2 ], [ %1, %land.rhs ]
+sw.epilog:                                        ; preds = %sw.bb2, %land.rhs, %entry, %sw.default
+  %.sink = phi i8 [ 0, %sw.default ], [ 1, %entry ], [ 0, %sw.bb2 ], [ %1, %land.rhs ]
   %should_do_colors_7 = getelementptr inbounds i8, ptr %this, i64 464
   store i8 %.sink, ptr %should_do_colors_7, align 8
   ret void

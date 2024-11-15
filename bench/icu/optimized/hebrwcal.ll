@@ -491,10 +491,11 @@ entry:
   %cmp = icmp sgt i32 %call, 380
   %sub = add nsw i32 %call, -30
   %spec.select = select i1 %cmp, i32 %sub, i32 %call
-  %switch.tableidx = add i32 %spec.select, -353
-  %1 = icmp ult i32 %switch.tableidx, 3
-  %switch.tableidx. = select i1 %1, i32 %switch.tableidx, i32 1
-  ret i32 %switch.tableidx.
+  %switch.selectcmp = icmp eq i32 %spec.select, 355
+  %switch.select = select i1 %switch.selectcmp, i32 2, i32 1
+  %switch.selectcmp3 = icmp eq i32 %spec.select, 353
+  %switch.select4 = select i1 %switch.selectcmp3, i32 0, i32 %switch.select
+  ret i32 %switch.select4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -563,11 +564,11 @@ sw.bb:                                            ; preds = %while.end6
   %cmp.i = icmp sgt i32 %call.i, 380
   %sub.i = add nsw i32 %call.i, -30
   %spec.select.i = select i1 %cmp.i, i32 %sub.i, i32 %call.i
-  %switch.tableidx = add i32 %spec.select.i, -353
-  %1 = icmp ult i32 %switch.tableidx, 3
-  %narrow = select i1 %1, i32 %switch.tableidx, i32 1
-  %type.0.i = zext nneg i32 %narrow to i64
-  %arrayidx9 = getelementptr inbounds [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %idxprom, i64 %type.0.i
+  %switch.selectcmp.i = icmp eq i32 %spec.select.i, 355
+  %switch.select.i = select i1 %switch.selectcmp.i, i64 2, i64 1
+  %switch.selectcmp3.i = icmp eq i32 %spec.select.i, 353
+  %switch.select4.i = select i1 %switch.selectcmp3.i, i64 0, i64 %switch.select.i
+  %arrayidx9 = getelementptr inbounds [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %idxprom, i64 %switch.select4.i
   br label %return
 
 sw.default:                                       ; preds = %while.end6
@@ -672,10 +673,10 @@ while.end:                                        ; preds = %while.body, %entry
   %cmp.i = icmp sgt i32 %call.i36, 380
   %sub.i = add nsw i32 %call.i36, -30
   %spec.select.i = select i1 %cmp.i, i32 %sub.i, i32 %call.i36
-  %switch.tableidx = add i32 %spec.select.i, -353
-  %2 = icmp ult i32 %switch.tableidx, 3
-  %narrow = select i1 %2, i32 %switch.tableidx, i32 1
-  %type.0.i = zext nneg i32 %narrow to i64
+  %switch.selectcmp.i = icmp eq i32 %spec.select.i, 355
+  %switch.select.i = select i1 %switch.selectcmp.i, i64 2, i64 1
+  %switch.selectcmp3.i = icmp eq i32 %spec.select.i, 353
+  %switch.select4.i = select i1 %switch.selectcmp3.i, i64 0, i64 %switch.select.i
   %mul.i = mul nsw i32 %year.0.lcssa, 12
   %add.i = add nsw i32 %mul.i, 17
   %rem.i = srem i32 %add.i, 19
@@ -687,7 +688,7 @@ while.end:                                        ; preds = %while.body, %entry
 
 land.rhs.us:                                      ; preds = %while.end, %while.body21.us
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %while.body21.us ], [ 0, %while.end ]
-  %arrayidx18.us = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %indvars.iv84, i64 %type.0.i
+  %arrayidx18.us = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %indvars.iv84, i64 %switch.select4.i
   %cond.us = load i16, ptr %arrayidx18.us, align 2
   %conv19.us = sext i16 %cond.us to i32
   %cmp20.us = icmp sgt i32 %dayOfYear.0.lcssa, %conv19.us
@@ -700,7 +701,7 @@ while.body21.us:                                  ; preds = %land.rhs.us
 
 land.rhs:                                         ; preds = %while.end, %while.body21
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body21 ], [ 0, %while.end ]
-  %arrayidx14 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %indvars.iv, i64 %type.0.i
+  %arrayidx14 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %indvars.iv, i64 %switch.select4.i
   %cond = load i16, ptr %arrayidx14, align 2
   %conv19 = sext i16 %cond to i32
   %cmp20 = icmp sgt i32 %dayOfYear.0.lcssa, %conv19
@@ -724,8 +725,8 @@ if.then:                                          ; preds = %while.body21, %whil
 if.end:                                           ; preds = %while.end22
   %dec25 = add nsw i32 %.us-phi, -1
   %idxprom28 = zext nneg i32 %dec25 to i64
-  %arrayidx31 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %idxprom28, i64 %type.0.i
-  %arrayidx36 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %idxprom28, i64 %type.0.i
+  %arrayidx31 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %idxprom28, i64 %switch.select4.i
+  %arrayidx36 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %idxprom28, i64 %switch.select4.i
   %cond38.in = select i1 %cmp1.i.not.fr, ptr %arrayidx36, ptr %arrayidx31
   %cond38 = load i16, ptr %cond38.in, align 2
   %conv39 = sext i16 %cond38 to i32
@@ -826,17 +827,17 @@ define noundef range(i32 -2147135651, -2147483648) i32 @_ZNK6icu_7514HebrewCalen
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %cmp36 = icmp slt i32 %month, 0
-  br i1 %cmp36, label %while.body, label %while.cond2.preheader
+  %cmp35 = icmp slt i32 %month, 0
+  br i1 %cmp35, label %while.body, label %while.cond2.preheader
 
 while.cond2.preheader:                            ; preds = %entry
-  %cmp340 = icmp samesign ugt i32 %month, 12
-  br i1 %cmp340, label %while.body4, label %while.end6
+  %cmp339 = icmp samesign ugt i32 %month, 12
+  br i1 %cmp339, label %while.body4, label %while.end6
 
 while.body:                                       ; preds = %entry, %while.body
-  %month.addr.038 = phi i32 [ %add, %while.body ], [ %month, %entry ]
-  %eyear.addr.037 = phi i32 [ %dec, %while.body ], [ %eyear, %entry ]
-  %dec = add nsw i32 %eyear.addr.037, -1
+  %month.addr.037 = phi i32 [ %add, %while.body ], [ %month, %entry ]
+  %eyear.addr.036 = phi i32 [ %dec, %while.body ], [ %eyear, %entry ]
+  %dec = add nsw i32 %eyear.addr.036, -1
   %mul.i.i = mul nsw i32 %dec, 12
   %add.i.i = add nsw i32 %mul.i.i, 17
   %rem.i.i = srem i32 %add.i.i, 19
@@ -844,22 +845,22 @@ while.body:                                       ; preds = %entry, %while.body
   %cond.i.i = select i1 %cmp.i.i, i32 -7, i32 12
   %cmp1.i.not.i = icmp slt i32 %rem.i.i, %cond.i.i
   %cond.i = select i1 %cmp1.i.not.i, i32 12, i32 13
-  %add = add nsw i32 %cond.i, %month.addr.038
+  %add = add nsw i32 %cond.i, %month.addr.037
   %cmp = icmp slt i32 %add, 0
   br i1 %cmp, label %while.body, label %while.end6, !llvm.loop !11
 
 while.body4:                                      ; preds = %while.cond2.preheader, %while.body4
-  %month.addr.142 = phi i32 [ %sub, %while.body4 ], [ %month, %while.cond2.preheader ]
-  %eyear.addr.141 = phi i32 [ %inc, %while.body4 ], [ %eyear, %while.cond2.preheader ]
-  %inc = add nsw i32 %eyear.addr.141, 1
-  %mul.i.i14 = mul nsw i32 %eyear.addr.141, 12
+  %month.addr.141 = phi i32 [ %sub, %while.body4 ], [ %month, %while.cond2.preheader ]
+  %eyear.addr.140 = phi i32 [ %inc, %while.body4 ], [ %eyear, %while.cond2.preheader ]
+  %inc = add nsw i32 %eyear.addr.140, 1
+  %mul.i.i14 = mul nsw i32 %eyear.addr.140, 12
   %add.i.i15 = add nsw i32 %mul.i.i14, 17
   %rem.i.i16 = srem i32 %add.i.i15, 19
   %cmp.i.i17 = icmp slt i32 %rem.i.i16, 0
   %cond.i.i18 = select i1 %cmp.i.i17, i32 -7, i32 12
   %cmp1.i.not.i19 = icmp slt i32 %rem.i.i16, %cond.i.i18
   %cond.i20.neg = select i1 %cmp1.i.not.i19, i32 -12, i32 -13
-  %sub = add i32 %cond.i20.neg, %month.addr.142
+  %sub = add i32 %cond.i20.neg, %month.addr.141
   %cmp3 = icmp samesign ugt i32 %sub, 12
   br i1 %cmp3, label %while.body4, label %while.end6, !llvm.loop !12
 
@@ -890,14 +891,14 @@ if.then10:                                        ; preds = %if.end
   %cmp.i28 = icmp sgt i32 %call.i27, 380
   %sub.i29 = add nsw i32 %call.i27, -30
   %spec.select.i30 = select i1 %cmp.i28, i32 %sub.i29, i32 %call.i27
-  %switch.tableidx51 = add i32 %spec.select.i30, -353
-  %3 = icmp ult i32 %switch.tableidx51, 3
-  %narrow = select i1 %3, i32 %switch.tableidx51, i32 1
-  %type.0.i32 = zext nneg i32 %narrow to i64
+  %switch.selectcmp.i31 = icmp eq i32 %spec.select.i30, 355
+  %switch.select.i32 = select i1 %switch.selectcmp.i31, i64 2, i64 1
+  %switch.selectcmp3.i33 = icmp eq i32 %spec.select.i30, 353
+  %switch.select4.i34 = select i1 %switch.selectcmp3.i33, i64 0, i64 %switch.select.i32
   %_ZL11MONTH_START._ZL16LEAP_MONTH_START = select i1 %cmp1.i.not, ptr @_ZL11MONTH_START, ptr @_ZL16LEAP_MONTH_START
-  %arrayidx16 = getelementptr inbounds [14 x [3 x i16]], ptr %_ZL11MONTH_START._ZL16LEAP_MONTH_START, i64 0, i64 %idxprom18, i64 %type.0.i32
-  %4 = load i16, ptr %arrayidx16, align 2
-  %conv = sext i16 %4 to i32
+  %arrayidx16 = getelementptr inbounds [14 x [3 x i16]], ptr %_ZL11MONTH_START._ZL16LEAP_MONTH_START, i64 0, i64 %idxprom18, i64 %switch.select4.i34
+  %3 = load i16, ptr %arrayidx16, align 2
+  %conv = sext i16 %3 to i32
   %add17 = add nsw i32 %call7, %conv
   br label %if.end26
 

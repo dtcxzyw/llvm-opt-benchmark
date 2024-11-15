@@ -20748,8 +20748,8 @@ define internal noundef zeroext i1 @"_ZN85_$LT$cpp_demangle..ast..ArrayType$u20$
   %30 = icmp samesign ult i64 %29, 59
   %switch37 = icmp eq i64 %29, 60
   %switch = or i1 %30, %switch37
-  %spec.select = select i1 %switch, i64 120, i64 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 %spec.select
+  %. = select i1 %switch, i64 120, i64 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 %.
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2655)
@@ -39562,8 +39562,8 @@ _ZN8wasmtime7runtime5types8FuncType22from_shared_type_index17ha0be65bdf64456b8E.
   %146 = load i8, ptr %145, align 4, !range !286, !alias.scope !5114, !noalias !5115, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !5118)
   %147 = icmp samesign ult i32 %143, -7
-  %switch4143.i.i = icmp eq i32 %142, 5
-  %switch41.i.i = or i1 %switch4143.i.i, %147
+  %switch4142.i.i = icmp eq i32 %142, 5
+  %switch41.i.i = or i1 %switch4142.i.i, %147
   br i1 %switch41.i.i, label %148, label %"_ZN4core3ptr54drop_in_place$LT$wasmtime..runtime..types..ValType$GT$17hcb6eec4705d363fcE.llvm.14851531119274094909.exit.i.i36"
 
 148:                                              ; preds = %144
@@ -40129,8 +40129,8 @@ _ZN8wasmtime7runtime5types8FuncType22from_shared_type_index17ha0be65bdf64456b8E.
   %300 = load i8, ptr %299, align 4, !range !286, !alias.scope !5261, !noalias !5262, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !5265)
   %301 = icmp samesign ult i32 %297, -7
-  %switch4143.i.i50 = icmp eq i32 %296, 5
-  %switch41.i.i51 = or i1 %switch4143.i.i50, %301
+  %switch4142.i.i50 = icmp eq i32 %296, 5
+  %switch41.i.i51 = or i1 %switch4142.i.i50, %301
   br i1 %switch41.i.i51, label %302, label %"_ZN4core3ptr54drop_in_place$LT$wasmtime..runtime..types..ValType$GT$17hcb6eec4705d363fcE.llvm.14851531119274094909.exit.i.i52"
 
 302:                                              ; preds = %298

@@ -259,6 +259,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Hashtable.458" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %class.anon.510 = type { ptr }
 %class.anon.512 = type { ptr }
+%"class.std::chrono::duration" = type { i64 }
 %"struct.std::__basic_future<void>::_Reset" = type { ptr }
 
 $_ZNK8V3Global5rootpEv = comdat any
@@ -1622,6 +1623,8 @@ $_ZNK7AstNode7isEventEv = comdat any
 $_ZN12V3ThreadPool17waitForFuturesImpERNSt7__cxx114listISt6futureIvESaIS3_EEE = comdat any
 
 $_ZN12V3ThreadPool13waitForFutureIvEET_RSt6futureIS1_E = comdat any
+
+$_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE = comdat any
 
 $_ZNSt6futureIvE3getEv = comdat any
 
@@ -63946,101 +63949,118 @@ _ZNSt7__cxx114listISt6futureIvESaIS2_EE9pop_frontEv.exit: ; preds = %5, %29, %42
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12V3ThreadPool13waitForFutureIvEET_RSt6futureIS1_E(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  br label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
+  %2 = alloca %"class.std::chrono::duration", align 8
+  br label %3
 
-_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, %1
-  %2 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
-  %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %_ZN12V3ThreadPool1sEv.exit, !prof !5
+3:                                                ; preds = %_ZN12V3ThreadPool1sEv.exit, %1
+  %4 = load atomic i8, ptr @_ZGVZN12V3ThreadPool1sEvE3s_s acquire, align 8
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %6, label %_ZN12V3ThreadPool1sEv.exit, !prof !5
 
-4:                                                ; preds = %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #31
-  %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %_ZN12V3ThreadPool1sEv.exit, label %6
+6:                                                ; preds = %3
+  %7 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #31
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %_ZN12V3ThreadPool1sEv.exit, label %8
 
-6:                                                ; preds = %4
+8:                                                ; preds = %6
   invoke void @_ZN12V3ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
-          to label %7 unwind label %9
+          to label %9 unwind label %11
 
-7:                                                ; preds = %6
-  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #31
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #31
+9:                                                ; preds = %8
+  %10 = call i32 @__cxa_atexit(ptr nonnull @_ZN12V3ThreadPoolD2Ev, ptr nonnull @_ZZN12V3ThreadPool1sEvE3s_s, ptr nonnull @__dso_handle) #31
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #31
   br label %_ZN12V3ThreadPool1sEv.exit
 
-9:                                                ; preds = %6
-  %10 = landingpad { ptr, i32 }
+11:                                               ; preds = %8
+  %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #31
-  resume { ptr, i32 } %10
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12V3ThreadPool1sEvE3s_s) #31
+  resume { ptr, i32 } %12
 
-_ZN12V3ThreadPool1sEv.exit:                       ; preds = %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, %4, %7
-  %11 = tail call noundef zeroext i1 @_ZN12V3ThreadPool19waitIfStopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
-  %12 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %13, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
+_ZN12V3ThreadPool1sEv.exit:                       ; preds = %3, %6, %9
+  %13 = call noundef zeroext i1 @_ZN12V3ThreadPool19waitIfStopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392) @_ZZN12V3ThreadPool1sEvE3s_s)
+  store i64 100, ptr %2, align 8
+  %14 = call noundef i32 @_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %cond = icmp eq i32 %14, 0
+  br i1 %cond, label %15, label %3, !llvm.loop !666
 
-13:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit
-  tail call void @_ZSt20__throw_future_errori(i32 noundef 3) #32
-  unreachable
-
-_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i: ; preds = %_ZN12V3ThreadPool1sEv.exit
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
-  %15 = load atomic i32, ptr %14 acquire, align 4
-  %16 = and i32 %15, 2147483647
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %.loopexit, label %18
-
-18:                                               ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
-  %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(28) %12)
-  br i1 %22, label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %23
-
-_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge: ; preds = %18, %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i
-  br label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !666
-
-23:                                               ; preds = %18
-  %24 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #31
-  %25 = load atomic i32, ptr %14 acquire, align 4
-  %26 = and i32 %25, 2147483647
-  %27 = icmp eq i32 %26, 1
-  br i1 %27, label %.critedge35.i.i, label %28
-
-28:                                               ; preds = %23
-  %29 = add nsw i64 %24, 100000000
-  %30 = sdiv i64 %29, 1000000000
-  %.neg.i.i.i.i.i = mul nsw i64 %30, -1000000000
-  %31 = add i64 %.neg.i.i.i.i.i, %29
-  br label %32
-
-32:                                               ; preds = %32, %28
-  %.025.us.i.i.i = phi i32 [ %26, %28 ], [ %37, %32 ]
-  %33 = atomicrmw or ptr %14, i32 -2147483648 monotonic, align 4
-  %34 = or disjoint i32 %.025.us.i.i.i, -2147483648
-  %35 = tail call noundef zeroext i1 @_ZNSt28__atomic_futex_unsigned_base26_M_futex_wait_until_steadyEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE(ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %14, i32 noundef %34, i1 noundef zeroext true, i64 %30, i64 %31)
-  %36 = load atomic i32, ptr %14 acquire, align 4
-  %37 = and i32 %36, 2147483647
-  %38 = icmp ne i32 %37, 1
-  %or.cond.not.us.i.i.i = select i1 %35, i1 %38, i1 false
-  br i1 %or.cond.not.us.i.i.i, label %32, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, !llvm.loop !667
-
-_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i: ; preds = %32
-  br i1 %38, label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.backedge, label %.critedge35.i.i
-
-.critedge35.i.i:                                  ; preds = %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i.i, %23
-  %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(28) %12)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i, %.critedge35.i.i
-  tail call void @_ZNSt6futureIvE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+15:                                               ; preds = %_ZN12V3ThreadPool1sEv.exit
+  call void @_ZNSt6futureIvE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
 }
 
 declare noundef zeroext i1 @_ZN12V3ThreadPool19waitIfStopRequestedEv(ptr noundef nonnull align 8 dereferenceable(392)) #0
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef i32 @_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = load ptr, ptr %0, align 8
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %4, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit
+
+4:                                                ; preds = %2
+  tail call void @_ZSt20__throw_future_errori(i32 noundef 3) #32
+  unreachable
+
+_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit: ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = load atomic i32, ptr %5 acquire, align 4
+  %7 = and i32 %6, 2147483647
+  %8 = icmp eq i32 %7, 1
+  br i1 %8, label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, label %9
+
+9:                                                ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(28) %3)
+  br i1 %13, label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, label %14
+
+14:                                               ; preds = %9
+  %15 = load i64, ptr %1, align 8
+  %16 = icmp sgt i64 %15, 0
+  br i1 %16, label %17, label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
+
+17:                                               ; preds = %14
+  %18 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #31
+  %19 = load i64, ptr %1, align 8
+  %20 = load atomic i32, ptr %5 acquire, align 4
+  %21 = and i32 %20, 2147483647
+  %22 = icmp eq i32 %21, 1
+  br i1 %22, label %.critedge35.i, label %23
+
+23:                                               ; preds = %17
+  %24 = mul nsw i64 %19, 1000000
+  %25 = add nsw i64 %24, %18
+  %26 = sdiv i64 %25, 1000000000
+  %.neg.i.i.i.i = mul nsw i64 %26, -1000000000
+  %27 = add i64 %.neg.i.i.i.i, %25
+  br label %28
+
+28:                                               ; preds = %28, %23
+  %.025.us.i.i = phi i32 [ %21, %23 ], [ %33, %28 ]
+  %29 = atomicrmw or ptr %5, i32 -2147483648 monotonic, align 4
+  %30 = or disjoint i32 %.025.us.i.i, -2147483648
+  %31 = tail call noundef zeroext i1 @_ZNSt28__atomic_futex_unsigned_base26_M_futex_wait_until_steadyEPjjbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS2_IlS3_ILl1ELl1000000000EEEE(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %30, i1 noundef zeroext true, i64 %26, i64 %27)
+  %32 = load atomic i32, ptr %5 acquire, align 4
+  %33 = and i32 %32, 2147483647
+  %34 = icmp ne i32 %33, 1
+  %or.cond.not.us.i.i = select i1 %31, i1 %34, i1 false
+  br i1 %or.cond.not.us.i.i, label %28, label %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i, !llvm.loop !667
+
+_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i: ; preds = %28
+  br i1 %34, label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, label %.critedge35.i
+
+.critedge35.i:                                    ; preds = %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i, %17
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(28) %3)
+  br label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
+
+_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit, %9, %14, %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i, %.critedge35.i
+  %.031.i = phi i32 [ 0, %.critedge35.i ], [ 0, %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit ], [ 2, %9 ], [ 1, %14 ], [ 1, %_ZNSt23__atomic_futex_unsignedILj2147483648EE29_M_load_and_test_until_steadyEjjbSt12memory_orderbNSt6chrono8durationIlSt5ratioILl1ELl1EEEENS3_IlS4_ILl1ELl1000000000EEEE.exit.i ]
+  ret i32 %.031.i
+}
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6futureIvE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {

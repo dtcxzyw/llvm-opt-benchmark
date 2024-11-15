@@ -3818,13 +3818,13 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
     i8 12, label %24
     i8 13, label %25
     i8 14, label %26
-    i8 16, label %.thread188
-    i8 17, label %.thread188
-    i8 18, label %.thread188
-    i8 19, label %.thread188
-    i8 20, label %.thread188
-    i8 21, label %.thread188
-    i8 22, label %.thread188
+    i8 16, label %.thread186
+    i8 17, label %.thread186
+    i8 18, label %.thread186
+    i8 19, label %.thread186
+    i8 20, label %.thread186
+    i8 21, label %.thread186
+    i8 22, label %.thread186
     i8 23, label %27
     i8 24, label %28
     i8 25, label %29
@@ -3833,16 +3833,16 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
     i8 31, label %32
     i8 32, label %33
     i8 33, label %34
-    i8 36, label %.thread188
+    i8 36, label %.thread186
     i8 40, label %35
     i8 41, label %41
     i8 42, label %42
     i8 43, label %43
     i8 44, label %44
     i8 45, label %45
-    i8 46, label %.thread188
+    i8 46, label %.thread186
     i8 47, label %46
-    i8 48, label %.thread188
+    i8 48, label %.thread186
     i8 49, label %47
     i8 50, label %61
     i8 51, label %61
@@ -3855,10 +3855,10 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
     i8 65, label %61
     i8 66, label %61
     i8 67, label %51
-    i8 -23, label %.thread188
+    i8 -23, label %.thread186
     i8 -22, label %55
     i8 -21, label %56
-    i8 -20, label %.thread188
+    i8 -20, label %.thread186
   ]
 
 17:                                               ; preds = %4
@@ -3879,7 +3879,7 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
 
 21:                                               ; preds = %4
   tail call fastcc void @dissect_isup_continuity_message(ptr noundef %16, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 22:                                               ; preds = %4
   tail call fastcc void @dissect_ansi_isup_address_complete_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
@@ -3903,23 +3903,23 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
 
 27:                                               ; preds = %4
   tail call fastcc void @dissect_isup_circuit_group_reset_query_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 28:                                               ; preds = %4
   tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 29:                                               ; preds = %4
   tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 30:                                               ; preds = %4
   tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 31:                                               ; preds = %4
   tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 32:                                               ; preds = %4
   tail call fastcc void @dissect_isup_facility_request_accepted_message(ptr noundef %16, ptr noundef %2)
@@ -3940,19 +3940,19 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
   %39 = tail call ptr @val_to_str_ext_const(i32 noundef %38, ptr noundef nonnull @isup_message_type_value_acro_ext, ptr noundef nonnull @.str.1120) #5
   %40 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %16, i32 noundef 1, i32 noundef -1, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.1654, ptr noundef %39, i32 noundef %38) #5
   tail call fastcc void @dissect_ansi_isup_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %40, i32 noundef %3)
-  br label %.thread188
+  br label %.thread186
 
 41:                                               ; preds = %4
   tail call fastcc void @dissect_isup_circuit_group_reset_acknowledgement_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 42:                                               ; preds = %4
   tail call fastcc void @dissect_isup_circuit_group_reset_query_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 43:                                               ; preds = %4
   tail call fastcc void @dissect_isup_circuit_group_query_response_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 44:                                               ; preds = %4
   tail call fastcc void @dissect_isup_call_progress_message(ptr noundef %16, ptr noundef %2)
@@ -3969,24 +3969,24 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
 47:                                               ; preds = %4
   %48 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %.not179 = icmp eq i32 %48, 0
-  br i1 %.not179, label %.thread192, label %49
+  br i1 %.not179, label %.thread189, label %49
 
 49:                                               ; preds = %47
   %50 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_isup_format_national_matter, ptr noundef %16, i32 noundef 0, i32 noundef %48) #5
-  br label %.thread192
+  br label %.thread189
 
 51:                                               ; preds = %4
   %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %.thread188, label %53
+  br i1 %.not, label %.thread186, label %53
 
 53:                                               ; preds = %51
   %54 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_isup_format_national_matter, ptr noundef %16, i32 noundef 0, i32 noundef %52) #5
-  br label %.thread188
+  br label %.thread186
 
 55:                                               ; preds = %4
   tail call fastcc void @dissect_ansi_isup_circuit_reservation_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread188
+  br label %.thread186
 
 56:                                               ; preds = %4
   tail call fastcc void @dissect_ansi_isup_circuit_validation_test_resp_message(ptr noundef %16, ptr noundef %2)
@@ -4001,46 +4001,46 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
   %60 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull @ei_isup_message_type_unknown) #5
   br label %72
 
-61:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %56, %46, %45, %44, %34, %33, %32, %26, %25, %24, %23, %22, %20, %19, %18, %17
-  %.0.ph = phi i32 [ 7, %17 ], [ 2, %18 ], [ 3, %19 ], [ 3, %20 ], [ 3, %22 ], [ 3, %23 ], [ 2, %24 ], [ 2, %25 ], [ 2, %26 ], [ 2, %32 ], [ 2, %33 ], [ 3, %34 ], [ 2, %44 ], [ 2, %45 ], [ 2, %46 ], [ 3, %56 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
-  %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.ph) #5
+61:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %17, %18, %19, %20, %22, %23, %24, %25, %26, %32, %33, %34, %44, %45, %46, %56
+  %.0 = phi i32 [ 3, %56 ], [ 2, %46 ], [ 2, %45 ], [ 2, %44 ], [ 3, %34 ], [ 2, %33 ], [ 2, %32 ], [ 2, %26 ], [ 2, %25 ], [ 2, %24 ], [ 3, %23 ], [ 3, %22 ], [ 3, %20 ], [ 3, %19 ], [ 2, %18 ], [ 7, %17 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
+  %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #5
   %.not182 = icmp eq i8 %62, 0
   br i1 %.not182, label %69, label %63
 
 63:                                               ; preds = %61
   %64 = zext i8 %62 to i32
   %65 = load i32, ptr @hf_isup_pointer_to_start_of_optional_part, align 4
-  %66 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.0.ph, i32 noundef 1, i32 noundef %64, ptr noundef nonnull @.str.1655, i32 noundef %64) #5
-  %67 = add nuw nsw i32 %.0.ph, %64
+  %66 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef %64, ptr noundef nonnull @.str.1655, i32 noundef %64) #5
+  %67 = add nuw nsw i32 %.0, %64
   %68 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %67) #5
   tail call fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %68, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread192
+  br label %.thread189
 
 69:                                               ; preds = %61
   %70 = load i32, ptr @hf_isup_pointer_to_start_of_optional_part, align 4
-  %71 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %.0.ph, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.1656, i32 noundef 0) #5
-  br label %.thread192
+  %71 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.1656, i32 noundef 0) #5
+  br label %.thread189
 
 72:                                               ; preds = %59, %57
   %.not181 = icmp eq i8 %5, 49
-  br i1 %.not181, label %.thread192, label %.thread188
+  br i1 %.not181, label %.thread189, label %.thread186
 
-.thread188:                                       ; preds = %51, %53, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %55, %43, %42, %41, %35, %31, %30, %29, %28, %27, %21, %72
+.thread186:                                       ; preds = %21, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %27, %28, %29, %30, %31, %35, %41, %42, %43, %51, %53, %55, %72
   %73 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull @ei_isup_message_type_no_optional_parameters) #5
-  br label %.thread192
+  br label %.thread189
 
-.thread192:                                       ; preds = %47, %49, %72, %.thread188, %63, %69
+.thread189:                                       ; preds = %47, %49, %72, %.thread186, %63, %69
   %74 = load ptr, ptr @tap_calling_number, align 8
   %.not183 = icmp eq ptr %74, null
   br i1 %.not183, label %75, label %78
 
-75:                                               ; preds = %.thread192
+75:                                               ; preds = %.thread189
   %76 = load ptr, ptr %10, align 8
   %77 = tail call noalias ptr @wmem_strdup(ptr noundef %76, ptr noundef nonnull @.str.1657) #5
   br label %78
 
-78:                                               ; preds = %.thread192, %75
-  %79 = phi ptr [ %77, %75 ], [ %74, %.thread192 ]
+78:                                               ; preds = %.thread189, %75
+  %79 = phi ptr [ %77, %75 ], [ %74, %.thread189 ]
   %80 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %79, ptr %80, align 8
   %81 = load ptr, ptr @tap_called_number, align 8
@@ -4100,12 +4100,12 @@ switch.lookup:                                    ; preds = %5
     i8 13, label %43
     i8 14, label %44
     i8 16, label %92
-    i8 17, label %.thread251
-    i8 18, label %.thread251
-    i8 19, label %.thread251
-    i8 20, label %.thread251
-    i8 21, label %.thread251
-    i8 22, label %.thread251
+    i8 17, label %.thread249
+    i8 18, label %.thread249
+    i8 19, label %.thread249
+    i8 20, label %.thread249
+    i8 21, label %.thread249
+    i8 22, label %.thread249
     i8 23, label %45
     i8 24, label %46
     i8 25, label %47
@@ -4114,16 +4114,16 @@ switch.lookup:                                    ; preds = %5
     i8 31, label %50
     i8 32, label %51
     i8 33, label %52
-    i8 36, label %.thread251
+    i8 36, label %.thread249
     i8 40, label %53
     i8 41, label %59
     i8 42, label %60
     i8 43, label %61
     i8 44, label %62
     i8 45, label %63
-    i8 46, label %.thread251
+    i8 46, label %.thread249
     i8 47, label %64
-    i8 48, label %.thread251
+    i8 48, label %.thread249
     i8 49, label %65
     i8 50, label %92
     i8 51, label %92
@@ -4171,7 +4171,7 @@ switch.lookup:                                    ; preds = %5
   %39 = zext i8 %35 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.1714, i32 noundef %39) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %.thread251
+  br label %.thread249
 
 40:                                               ; preds = %14
   tail call fastcc void @dissect_isup_address_complete_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
@@ -4195,23 +4195,23 @@ switch.lookup:                                    ; preds = %5
 
 45:                                               ; preds = %14
   tail call fastcc void @dissect_isup_circuit_group_reset_query_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 46:                                               ; preds = %14
   tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 47:                                               ; preds = %14
   tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 48:                                               ; preds = %14
   tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 49:                                               ; preds = %14
   tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 50:                                               ; preds = %14
   tail call fastcc void @dissect_isup_facility_request_accepted_message(ptr noundef %21, ptr noundef %2)
@@ -4232,19 +4232,19 @@ switch.lookup:                                    ; preds = %5
   %57 = tail call ptr @val_to_str_ext_const(i32 noundef %56, ptr noundef nonnull @isup_message_type_value_acro_ext, ptr noundef nonnull @.str.1120) #5
   %58 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %21, i32 noundef 1, i32 noundef -1, i32 noundef %55, ptr noundef null, ptr noundef nonnull @.str.1654, ptr noundef %57, i32 noundef %56) #5
   tail call fastcc void @dissect_isup_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %58, i8 noundef zeroext %3, i32 noundef %4)
-  br label %.thread251
+  br label %.thread249
 
 59:                                               ; preds = %14
   tail call fastcc void @dissect_isup_circuit_group_reset_acknowledgement_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 60:                                               ; preds = %14
   tail call fastcc void @dissect_isup_circuit_group_reset_query_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 61:                                               ; preds = %14
   tail call fastcc void @dissect_isup_circuit_group_query_response_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 62:                                               ; preds = %14
   tail call fastcc void @dissect_isup_call_progress_message(ptr noundef %21, ptr noundef %2)
@@ -4261,20 +4261,20 @@ switch.lookup:                                    ; preds = %5
 65:                                               ; preds = %14
   %66 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %.not238 = icmp eq i32 %66, 0
-  br i1 %.not238, label %.thread255, label %67
+  br i1 %.not238, label %.thread252, label %67
 
 67:                                               ; preds = %65
   %68 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_isup_format_national_matter, ptr noundef %21, i32 noundef 0, i32 noundef %66) #5
-  br label %.thread255
+  br label %.thread252
 
 69:                                               ; preds = %14
   %70 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %.not = icmp eq i32 %70, 0
-  br i1 %.not, label %.thread251, label %71
+  br i1 %.not, label %.thread249, label %71
 
 71:                                               ; preds = %69
   %72 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_isup_format_national_matter, ptr noundef %21, i32 noundef 0, i32 noundef %70) #5
-  br label %.thread251
+  br label %.thread249
 
 73:                                               ; preds = %14
   switch i8 %3, label %104 [
@@ -4289,7 +4289,7 @@ switch.lookup:                                    ; preds = %5
 74:                                               ; preds = %73
   %75 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %.not243 = icmp eq i32 %75, 0
-  br i1 %.not243, label %104, label %.sink.split262
+  br i1 %.not243, label %104, label %.sink.split258
 
 76:                                               ; preds = %73
   switch i8 %7, label %78 [
@@ -4304,38 +4304,38 @@ switch.lookup:                                    ; preds = %5
 78:                                               ; preds = %76
   %79 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %.not242 = icmp eq i32 %79, 0
-  br i1 %.not242, label %104, label %.sink.split262
+  br i1 %.not242, label %104, label %.sink.split258
 
 80:                                               ; preds = %73
   switch i8 %7, label %83 [
     i8 -24, label %81
     i8 -23, label %82
-    i8 -22, label %.thread251
+    i8 -22, label %.thread249
   ]
 
 81:                                               ; preds = %80
   tail call fastcc void @dissect_israeli_backward_charging_message(ptr noundef %21, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 82:                                               ; preds = %80
   tail call fastcc void @dissect_israeli_traffic_change_message(ptr noundef %21, ptr noundef %2)
-  br label %.thread251
+  br label %.thread249
 
 83:                                               ; preds = %80
   %84 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %.not241 = icmp eq i32 %84, 0
-  br i1 %.not241, label %104, label %.sink.split262
+  br i1 %.not241, label %104, label %.sink.split258
 
 85:                                               ; preds = %73
   switch i8 %7, label %86 [
-    i8 -4, label %.thread251
+    i8 -4, label %.thread249
     i8 -1, label %92
   ]
 
 86:                                               ; preds = %85
   %87 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %.not240 = icmp eq i32 %87, 0
-  br i1 %.not240, label %104, label %.sink.split262
+  br i1 %.not240, label %104, label %.sink.split258
 
 88:                                               ; preds = %73, %73
   %cond1 = icmp eq i8 %7, -2
@@ -4348,52 +4348,52 @@ switch.lookup:                                    ; preds = %5
 90:                                               ; preds = %88
   %91 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %.not239 = icmp eq i32 %91, 0
-  br i1 %.not239, label %104, label %.sink.split262
+  br i1 %.not239, label %104, label %.sink.split258
 
-92:                                               ; preds = %85, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %89, %77, %64, %63, %62, %52, %51, %50, %44, %43, %42, %41, %40, %25, %24, %23, %22, %76
-  %.0233.ph = phi i32 [ 1, %76 ], [ 7, %22 ], [ 2, %23 ], [ 3, %24 ], [ 3, %25 ], [ 3, %40 ], [ 3, %41 ], [ 2, %42 ], [ 2, %43 ], [ 2, %44 ], [ 2, %50 ], [ 2, %51 ], [ 3, %52 ], [ 2, %62 ], [ 2, %63 ], [ 2, %64 ], [ 3, %77 ], [ 3, %89 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %85 ]
-  %93 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0233.ph) #5
+92:                                               ; preds = %85, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %22, %23, %24, %25, %40, %41, %42, %43, %44, %50, %51, %52, %62, %63, %64, %89, %77, %76
+  %.0233 = phi i32 [ 3, %89 ], [ 3, %77 ], [ 2, %64 ], [ 2, %63 ], [ 2, %62 ], [ 3, %52 ], [ 2, %51 ], [ 2, %50 ], [ 2, %44 ], [ 2, %43 ], [ 2, %42 ], [ 3, %41 ], [ 3, %40 ], [ 3, %25 ], [ 3, %24 ], [ 2, %23 ], [ 7, %22 ], [ 1, %76 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %85 ]
+  %93 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0233) #5
   %.not245 = icmp eq i8 %93, 0
   br i1 %.not245, label %100, label %94
 
 94:                                               ; preds = %92
   %95 = zext i8 %93 to i32
   %96 = load i32, ptr @hf_isup_pointer_to_start_of_optional_part, align 4
-  %97 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %.0233.ph, i32 noundef 1, i32 noundef %95, ptr noundef nonnull @.str.1655, i32 noundef %95) #5
-  %98 = add nuw nsw i32 %.0233.ph, %95
+  %97 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %.0233, i32 noundef 1, i32 noundef %95, ptr noundef nonnull @.str.1655, i32 noundef %95) #5
+  %98 = add nuw nsw i32 %.0233, %95
   %99 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %98) #5
   tail call fastcc void @dissect_isup_optional_parameter(ptr noundef %99, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext %3)
-  br label %.thread255
+  br label %.thread252
 
 100:                                              ; preds = %92
   %101 = load i32, ptr @hf_isup_pointer_to_start_of_optional_part, align 4
-  %102 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %101, ptr noundef %0, i32 noundef %.0233.ph, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.1656, i32 noundef 0) #5
-  br label %.thread255
+  %102 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %101, ptr noundef %0, i32 noundef %.0233, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.1656, i32 noundef 0) #5
+  br label %.thread252
 
-.sink.split262:                                   ; preds = %90, %86, %83, %78, %74
+.sink.split258:                                   ; preds = %90, %86, %83, %78, %74
   %103 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0, ptr noundef nonnull @ei_isup_message_type_unknown) #5
   br label %104
 
-104:                                              ; preds = %.sink.split262, %90, %86, %83, %78, %74, %73
+104:                                              ; preds = %.sink.split258, %73, %90, %86, %83, %78, %74
   %.not244 = icmp eq i8 %7, 49
-  br i1 %.not244, label %.thread255, label %.thread251
+  br i1 %.not244, label %.thread252, label %.thread249
 
-.thread251:                                       ; preds = %80, %82, %81, %85, %69, %71, %14, %14, %14, %14, %14, %14, %14, %14, %14, %61, %60, %59, %53, %49, %48, %47, %46, %45, %26, %104
+.thread249:                                       ; preds = %26, %14, %14, %14, %14, %14, %14, %14, %14, %14, %45, %46, %47, %48, %49, %53, %59, %60, %61, %69, %71, %81, %82, %80, %85, %104
   %105 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0, ptr noundef nonnull @ei_isup_message_type_no_optional_parameters) #5
-  br label %.thread255
+  br label %.thread252
 
-.thread255:                                       ; preds = %67, %65, %104, %.thread251, %94, %100
+.thread252:                                       ; preds = %67, %65, %104, %.thread249, %94, %100
   %106 = load ptr, ptr @tap_calling_number, align 8
   %.not246 = icmp eq ptr %106, null
   br i1 %.not246, label %107, label %110
 
-107:                                              ; preds = %.thread255
+107:                                              ; preds = %.thread252
   %108 = load ptr, ptr %15, align 8
   %109 = call noalias ptr @wmem_strdup(ptr noundef %108, ptr noundef nonnull @.str.1657) #5
   br label %110
 
-110:                                              ; preds = %.thread255, %107
-  %111 = phi ptr [ %109, %107 ], [ %106, %.thread255 ]
+110:                                              ; preds = %.thread252, %107
+  %111 = phi ptr [ %109, %107 ], [ %106, %.thread252 ]
   %112 = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %111, ptr %112, align 8
   %113 = load ptr, ptr @tap_called_number, align 8

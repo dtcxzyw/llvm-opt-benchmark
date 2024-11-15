@@ -9731,9 +9731,9 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %223 = load ptr, ptr %222, align 8, !alias.scope !1666, !noalias !1672, !nonnull !4, !align !75, !noundef !4
   %224 = load i64, ptr %223, align 8, !range !1788, !noalias !1713, !noundef !4
   %switch.i = icmp slt i64 %224, -9223372036854775806
-  br i1 %switch.i, label %.thread110.i, label %225
+  br i1 %switch.i, label %.critedge.i, label %225
 
-.thread110.i:                                     ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0fbe51636edf7827E.exit.thread.i"
+.critedge.i:                                      ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0fbe51636edf7827E.exit.thread.i"
   store i64 -9223372036854775807, ptr %10, align 8, !noalias !1669
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12), !noalias !1669
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !1669
@@ -9840,7 +9840,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #34, !noalias !1666
   unreachable
 
-246:                                              ; preds = %.thread110.i
+246:                                              ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1669
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12), !noalias !1669
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !1669
@@ -9893,9 +9893,9 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %.pn49109176.i = phi { ptr, i32 } [ %.pn49109177.i, %261 ], [ %.pn.i, %259 ]
   br i1 %.sroa.012.1108178.i, label %268, label %267
 
-258:                                              ; preds = %225, %.thread110.i
-  %.sroa.086.0.ph.i = phi i64 [ %.sroa.0100.0.copyload.i, %225 ], [ -9223372036854775807, %.thread110.i ]
-  %.sroa.10.0.ph.i = phi ptr [ %.sroa.4101.0.copyload.i, %225 ], [ undef, %.thread110.i ]
+258:                                              ; preds = %225, %.critedge.i
+  %.sroa.086.0.ph.i = phi i64 [ %.sroa.0100.0.copyload.i, %225 ], [ -9223372036854775807, %.critedge.i ]
+  %.sroa.10.0.ph.i = phi ptr [ %.sroa.4101.0.copyload.i, %225 ], [ undef, %.critedge.i ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$language..buffer..AutoindentMode$GT$$GT$17h13a74a1e74bd3077E"(i64 %.sroa.086.0.ph.i, ptr %.sroa.10.0.ph.i) #33, !noalias !1666

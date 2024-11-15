@@ -4374,44 +4374,42 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler12demangleTypeERSt1
 4:                                                ; preds = %3
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split.sink.split, label %7
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %9, i64 1
-  store ptr %11, ptr %8, align 8
-  %12 = add i64 %5, -1
-  store i64 %12, ptr %1, align 8
-  switch i8 %10, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split.sink.split [
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %8, align 8
+  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
+
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i8, ptr %11, align 1
+  %13 = getelementptr inbounds i8, ptr %11, i64 1
+  store ptr %13, ptr %10, align 8
+  %14 = add i64 %5, -1
+  store i64 %14, ptr %1, align 8
+  switch i8 %12, label %17 [
     i8 81, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-    i8 82, label %13
-    i8 83, label %14
-    i8 84, label %15
+    i8 82, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
+    i8 83, label %15
+    i8 84, label %16
     i8 65, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-    i8 66, label %16
-    i8 67, label %17
-    i8 68, label %18
+    i8 66, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
+    i8 67, label %15
+    i8 68, label %16
   ]
 
-13:                                               ; preds = %7
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
+15:                                               ; preds = %9, %9
+  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
 
-14:                                               ; preds = %7
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
+16:                                               ; preds = %9, %9
+  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
 
-15:                                               ; preds = %7
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-
-16:                                               ; preds = %7
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-
-17:                                               ; preds = %7
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-
-18:                                               ; preds = %7
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
+17:                                               ; preds = %9
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %18, align 8
+  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
 
 19:                                               ; preds = %3
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
@@ -4431,179 +4429,173 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %25 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %25, ptr %1, align 8
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split.sink.split, label %27
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23
-  %28 = load i8, ptr %24, align 1
-  %29 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 2
-  store ptr %29, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %30 = add i64 %.sroa.0.0.copyload.i, -2
-  store i64 %30, ptr %1, align 8
-  switch i8 %28, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split.sink.split [
-    i8 81, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-    i8 82, label %31
-    i8 83, label %32
-    i8 84, label %33
-    i8 65, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-    i8 66, label %34
-    i8 67, label %35
-    i8 68, label %36
-  ]
-
-31:                                               ; preds = %27
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-
-32:                                               ; preds = %27
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-
-33:                                               ; preds = %27
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-
-34:                                               ; preds = %27
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-
-35:                                               ; preds = %27
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-
-36:                                               ; preds = %27
-  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-
-_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split.sink.split: ; preds = %27, %23, %7, %4
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %37, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %28, align 8
   br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
 
-_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split.sink.split, %3, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
+29:                                               ; preds = %23
+  %30 = load i8, ptr %24, align 1
+  %31 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 2
+  store ptr %31, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %32 = add i64 %.sroa.0.0.copyload.i, -2
+  store i64 %32, ptr %1, align 8
+  switch i8 %30, label %35 [
+    i8 81, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
+    i8 82, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
+    i8 83, label %33
+    i8 84, label %34
+    i8 65, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
+    i8 66, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
+    i8 67, label %33
+    i8 68, label %34
+  ]
+
+33:                                               ; preds = %29, %29
+  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
+
+34:                                               ; preds = %29, %29
+  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
+
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %36, align 8
+  br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
+
+_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split: ; preds = %29, %29, %9, %9, %3, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, %7, %15, %16, %17, %27, %33, %34, %35
+  %.058.ph.ph = phi i8 [ 2, %33 ], [ 3, %34 ], [ 0, %35 ], [ 0, %27 ], [ 2, %15 ], [ 3, %16 ], [ 0, %17 ], [ 0, %7 ], [ 0, %3 ], [ 0, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ], [ 1, %9 ], [ 1, %9 ], [ 1, %29 ], [ 1, %29 ]
   %.pr.pr = load i64, ptr %1, align 8
   br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
 
-_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split, %36, %35, %34, %33, %32, %31, %27, %27, %18, %17, %16, %15, %14, %13, %7, %7
-  %.pr = phi i64 [ %.pr.pr, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split ], [ %30, %36 ], [ %30, %35 ], [ %30, %34 ], [ %30, %33 ], [ %30, %32 ], [ %30, %31 ], [ %30, %27 ], [ %30, %27 ], [ %12, %18 ], [ %12, %17 ], [ %12, %16 ], [ %12, %15 ], [ %12, %14 ], [ %12, %13 ], [ %12, %7 ], [ %12, %7 ]
-  %.058.ph = phi i8 [ 0, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split ], [ 3, %36 ], [ 2, %35 ], [ 1, %34 ], [ 3, %33 ], [ 2, %32 ], [ 1, %31 ], [ 0, %27 ], [ 0, %27 ], [ 3, %18 ], [ 2, %17 ], [ 1, %16 ], [ 3, %15 ], [ 2, %14 ], [ 1, %13 ], [ 0, %7 ], [ 0, %7 ]
-  %38 = icmp eq i64 %.pr, 0
-  br i1 %38, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread, label %40
+_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split, %29, %29, %9, %9
+  %.pr = phi i64 [ %.pr.pr, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split ], [ %32, %29 ], [ %32, %29 ], [ %14, %9 ], [ %14, %9 ]
+  %.058.ph = phi i8 [ %.058.ph.ph, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split ], [ 0, %29 ], [ 0, %29 ], [ 0, %9 ], [ 0, %9 ]
+  %37 = icmp eq i64 %.pr, 0
+  br i1 %37, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread, label %39
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread: ; preds = %19, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %39, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %38, align 8
   br label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread
 
-40:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
+39:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.210.0.copyload = load ptr, ptr %.sroa.210.0..sroa_idx, align 8
-  %41 = load i8, ptr %.sroa.210.0.copyload, align 1
-  %42 = and i8 %41, -4
-  %switch.i = icmp eq i8 %42, 84
-  br i1 %switch.i, label %43, label %45
+  %40 = load i8, ptr %.sroa.210.0.copyload, align 1
+  %41 = and i8 %40, -4
+  %switch.i = icmp eq i8 %41, 84
+  br i1 %switch.i, label %42, label %44
 
-43:                                               ; preds = %40
-  %44 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler17demangleClassTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %98
+42:                                               ; preds = %39
+  %43 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler17demangleClassTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  br label %97
 
-45:                                               ; preds = %40
-  %46 = icmp ult i64 %.pr, 3
-  br i1 %46, label %48, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+44:                                               ; preds = %39
+  %45 = icmp ult i64 %.pr, 3
+  br i1 %45, label %47, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %45
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %44
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.210.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.90, i64 3)
-  %47 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %47, label %49, label %48
+  %46 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %46, label %48, label %47
 
-48:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %45
-  switch i8 %41, label %80 [
-    i8 65, label %49
-    i8 80, label %49
-    i8 81, label %49
-    i8 82, label %49
-    i8 83, label %49
-    i8 89, label %78
+47:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %44
+  switch i8 %40, label %79 [
+    i8 65, label %48
+    i8 80, label %48
+    i8 81, label %48
+    i8 82, label %48
+    i8 83, label %48
+    i8 89, label %77
   ]
 
-49:                                               ; preds = %48, %48, %48, %48, %48, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %50, align 8
-  %51 = load i8, ptr %.sroa.210.0.copyload, align 1
-  %52 = getelementptr inbounds i8, ptr %.sroa.210.0.copyload, i64 1
-  %53 = add i64 %.pr, -1
-  %54 = and i8 %51, -4
-  %switch.i42 = icmp eq i8 %54, 80
-  br i1 %switch.i42, label %55, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread
+48:                                               ; preds = %47, %47, %47, %47, %47, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %49, align 8
+  %50 = load i8, ptr %.sroa.210.0.copyload, align 1
+  %51 = getelementptr inbounds i8, ptr %.sroa.210.0.copyload, i64 1
+  %52 = add i64 %.pr, -1
+  %53 = and i8 %50, -4
+  %switch.i42 = icmp eq i8 %53, 80
+  br i1 %switch.i42, label %54, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread
 
-55:                                               ; preds = %49
-  %56 = icmp eq i64 %53, 0
-  br i1 %56, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
+54:                                               ; preds = %48
+  %55 = icmp eq i64 %52, 0
+  br i1 %55, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
-_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %55
-  %57 = load i8, ptr %52, align 1
-  %58 = sext i8 %57 to i32
-  %isdigittmp.i.i = add nsw i32 %58, -48
+_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %54
+  %56 = load i8, ptr %51, align 1
+  %57 = sext i8 %56 to i32
+  %isdigittmp.i.i = add nsw i32 %57, -48
   %isdigit.i.i = icmp ult i32 %isdigittmp.i.i, 10
-  br i1 %isdigit.i.i, label %59, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
+  br i1 %isdigit.i.i, label %58, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
 
-59:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
-  switch i8 %57, label %60 [
+58:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
+  switch i8 %56, label %59 [
     i8 56, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread61
     i8 54, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread
   ]
 
-60:                                               ; preds = %59
-  store i8 1, ptr %50, align 8
+59:                                               ; preds = %58
+  store i8 1, ptr %49, align 8
   br label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i: ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
-  %61 = icmp eq i8 %57, 69
-  br i1 %61, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
+  %60 = icmp eq i8 %56, 69
+  br i1 %60, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %62 = add i64 %.pr, -2
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i
+  %61 = add i64 %.pr, -2
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %64 = getelementptr inbounds i8, ptr %.sroa.210.0.copyload, i64 2
-  %.pr.i = load i8, ptr %64, align 1
+  %63 = getelementptr inbounds i8, ptr %.sroa.210.0.copyload, i64 2
+  %.pr.i = load i8, ptr %63, align 1
   br label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %65 = phi i8 [ %.pr.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i ], [ %57, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ]
-  %.sroa.0.032.i = phi i64 [ %62, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i ], [ %53, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ]
-  %.sroa.11.031.i = phi ptr [ %64, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i ], [ %52, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ]
-  %66 = icmp eq i8 %65, 73
-  br i1 %66, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
+  %64 = phi i8 [ %.pr.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i ], [ %56, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ]
+  %.sroa.0.032.i = phi i64 [ %61, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i ], [ %52, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ]
+  %.sroa.11.031.i = phi ptr [ %63, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i ], [ %51, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ]
+  %65 = icmp eq i8 %64, 73
+  br i1 %65, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
-  %67 = add i64 %.sroa.0.032.i, -1
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i
+  %66 = add i64 %.sroa.0.032.i, -1
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.i
-  %69 = getelementptr inbounds i8, ptr %.sroa.11.031.i, i64 1
-  %.pre.i = load i8, ptr %69, align 1
+  %68 = getelementptr inbounds i8, ptr %.sroa.11.031.i, i64 1
+  %.pre.i = load i8, ptr %68, align 1
   br label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
-  %70 = phi i8 [ %.pre.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i ], [ %65, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i ]
-  %.sroa.0.139.i = phi i64 [ %67, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i ], [ %.sroa.0.032.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i ]
-  %.sroa.11.138.i = phi ptr [ %69, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i ], [ %.sroa.11.031.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i ]
-  %71 = icmp eq i8 %70, 70
-  br i1 %71, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.i, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i
+  %69 = phi i8 [ %.pre.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i ], [ %64, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i ]
+  %.sroa.0.139.i = phi i64 [ %66, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i ], [ %.sroa.0.032.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i ]
+  %.sroa.11.138.i = phi ptr [ %68, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i ], [ %.sroa.11.031.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i ]
+  %70 = icmp eq i8 %69, 70
+  br i1 %70, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.i, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
-  %72 = icmp eq i64 %.sroa.0.139.i, 1
-  br i1 %72, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %thread-pre-split.i
+  %71 = icmp eq i64 %.sroa.0.139.i, 1
+  br i1 %71, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %thread-pre-split.i
 
-_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, %55
-  store i8 1, ptr %50, align 8
+_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, %54
+  store i8 1, ptr %49, align 8
   br label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread
 
 thread-pre-split.i:                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.i
-  %73 = getelementptr inbounds i8, ptr %.sroa.11.138.i, i64 1
-  %.pr46.i = load i8, ptr %73, align 1
+  %72 = getelementptr inbounds i8, ptr %.sroa.11.138.i, i64 1
+  %.pr46.i = load i8, ptr %72, align 1
   br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i: ; preds = %thread-pre-split.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
-  %74 = phi i8 [ %.pr46.i, %thread-pre-split.i ], [ %70, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i ]
-  switch i8 %74, label %75 [
+  %73 = phi i8 [ %.pr46.i, %thread-pre-split.i ], [ %69, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i ]
+  switch i8 %73, label %74 [
     i8 65, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread
     i8 66, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread
     i8 67, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread
@@ -4614,95 +4606,95 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i:
     i8 84, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread61
   ]
 
-75:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i
-  store i8 1, ptr %50, align 8
+74:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i
+  store i8 1, ptr %49, align 8
   br label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread
 
-_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread61: ; preds = %59, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i
-  %76 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler25demangleMemberPointerTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %98
+_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread61: ; preds = %58, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i
+  %75 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler25demangleMemberPointerTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  br label %97
 
-_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread: ; preds = %49, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %59
-  %77 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler19demanglePointerTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %98
+_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread: ; preds = %48, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i, %58
+  %76 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler19demanglePointerTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  br label %97
 
-78:                                               ; preds = %48
-  %79 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler17demangleArrayTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %98
+77:                                               ; preds = %47
+  %78 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler17demangleArrayTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  br label %97
 
-80:                                               ; preds = %48
-  %81 = icmp ult i64 %.pr, 6
-  br i1 %81, label %83, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44
+79:                                               ; preds = %47
+  %80 = icmp ult i64 %.pr, 6
+  br i1 %80, label %82, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44: ; preds = %80
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44: ; preds = %79
   %bcmp.i.i.i45 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %.sroa.210.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.27, i64 6)
-  %82 = icmp eq i32 %bcmp.i.i.i45, 0
-  br i1 %82, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread66
+  %81 = icmp eq i32 %bcmp.i.i.i45, 0
+  br i1 %81, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread66
 
-83:                                               ; preds = %80
-  %84 = icmp samesign ult i64 %.pr, 4
-  br i1 %84, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit
+82:                                               ; preds = %79
+  %83 = icmp samesign ult i64 %.pr, 4
+  br i1 %83, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %83
+_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82
   %bcmp.i.i6.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.210.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.28, i64 4)
-  %85 = icmp eq i32 %bcmp.i.i6.i, 0
-  br i1 %85, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63
+  %84 = icmp eq i32 %bcmp.i.i6.i, 0
+  br i1 %84, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63
 
 _ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread66: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44
   %bcmp.i.i6.i67 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %.sroa.210.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.28, i64 4)
-  %86 = icmp eq i32 %bcmp.i.i6.i67, 0
-  br i1 %86, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63
+  %85 = icmp eq i32 %bcmp.i.i6.i67, 0
+  br i1 %85, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46: ; preds = %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread66, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44
   %bcmp.i.i.i47 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.210.0.copyload, ptr noundef nonnull readonly dereferenceable(6) @.str.27, i64 6)
-  %87 = icmp eq i32 %bcmp.i.i.i47, 0
-  br i1 %87, label %88, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
+  %86 = icmp eq i32 %bcmp.i.i.i47, 0
+  br i1 %86, label %87, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
-88:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46
-  %89 = getelementptr inbounds i8, ptr %.sroa.210.0.copyload, i64 6
-  store ptr %89, ptr %.sroa.210.0..sroa_idx, align 8
-  %90 = add i64 %.pr, -6
-  store i64 %90, ptr %1, align 8
-  %91 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext true)
-  br label %98
+87:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46
+  %88 = getelementptr inbounds i8, ptr %.sroa.210.0.copyload, i64 6
+  store ptr %88, ptr %.sroa.210.0..sroa_idx, align 8
+  %89 = add i64 %.pr, -6
+  store i64 %89, ptr %1, align 8
+  %90 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext true)
+  br label %97
 
 _ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46
   tail call fastcc void @_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 4, ptr nonnull @.str.28)
-  %92 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false)
-  br label %98
+  %91 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false)
+  br label %97
 
-_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63: ; preds = %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread66, %83, %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %93 = icmp eq i8 %41, 63
-  br i1 %93, label %94, label %96
+_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63: ; preds = %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread66, %82, %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %92 = icmp eq i8 %40, 63
+  br i1 %92, label %93, label %95
 
-94:                                               ; preds = %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63
-  %95 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler18demangleCustomTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %98
+93:                                               ; preds = %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63
+  %94 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler18demangleCustomTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  br label %97
 
-96:                                               ; preds = %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63
-  %97 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler21demanglePrimitiveTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %98
+95:                                               ; preds = %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63
+  %96 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler21demanglePrimitiveTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  br label %97
 
-98:                                               ; preds = %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread, %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread61, %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %88, %96, %94, %78, %43
-  %.038 = phi ptr [ %44, %43 ], [ %76, %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread61 ], [ %77, %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread ], [ %79, %78 ], [ %91, %88 ], [ %92, %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ], [ %95, %94 ], [ %97, %96 ]
+97:                                               ; preds = %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread, %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread61, %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %87, %95, %93, %77, %42
+  %.038 = phi ptr [ %43, %42 ], [ %75, %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread61 ], [ %76, %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread ], [ %78, %77 ], [ %90, %87 ], [ %91, %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ], [ %94, %93 ], [ %96, %95 ]
   %.not = icmp eq ptr %.038, null
-  br i1 %.not, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread, label %99
+  br i1 %.not, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread, label %98
 
-99:                                               ; preds = %98
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %101 = load i8, ptr %100, align 8
-  %102 = trunc i8 %101 to i1
-  br i1 %102, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread, label %103
+98:                                               ; preds = %97
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %100 = load i8, ptr %99, align 8
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread, label %102
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds nuw i8, ptr %.038, i64 12
-  %105 = load i8, ptr %104, align 4
-  %106 = or i8 %105, %.058.ph
-  store i8 %106, ptr %104, align 4
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %.038, i64 12
+  %104 = load i8, ptr %103, align 4
+  %105 = or i8 %104, %.058.ph
+  store i8 %105, ptr %103, align 4
   br label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread
 
-_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread: ; preds = %60, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, %75, %98, %99, %103, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread
-  %.0 = phi ptr [ null, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread ], [ %.038, %103 ], [ %.038, %99 ], [ null, %98 ], [ null, %75 ], [ null, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i ], [ null, %60 ]
+_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread: ; preds = %59, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, %74, %97, %98, %102, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread
+  %.0 = phi ptr [ null, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread ], [ %.038, %102 ], [ %.038, %98 ], [ null, %97 ], [ null, %74 ], [ null, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i ], [ null, %59 ]
   ret ptr %.0
 }
 
@@ -10886,7 +10878,7 @@ _ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %67 = icmp eq i64 %.sroa.01.0.copyload.i, 0
-  br i1 %67, label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  br i1 %67, label %100, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
   %lhsc = load i8, ptr %.sroa.22.0.copyload.i, align 1
@@ -10894,16 +10886,16 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvm11ms_dema
   store ptr %68, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %69 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %69, ptr %1, align 8
-  switch i8 %lhsc, label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split [
+  switch i8 %lhsc, label %104 [
     i8 56, label %70
     i8 81, label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
-    i8 82, label %100
-    i8 83, label %101
-    i8 84, label %102
+    i8 82, label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split
+    i8 83, label %102
+    i8 84, label %103
     i8 65, label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
-    i8 66, label %103
-    i8 67, label %104
-    i8 68, label %105
+    i8 66, label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split
+    i8 67, label %102
+    i8 68, label %103
   ]
 
 70:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -10977,116 +10969,113 @@ _ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_strin
   %98 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext true)
   %99 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 32
   store ptr %98, ptr %99, align 8
-  br label %138
+  br label %137
 
-100:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
+100:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %101, align 8
+  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split
 
-101:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
+102:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split
 
-102:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
-
-103:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
+103:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split
 
 104:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %105, align 8
+  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split
 
-105:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
-
-_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %106, align 8
+_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %104, %103, %102, %100
+  %.sroa.0.0.i20.ph = phi i8 [ 2, %102 ], [ 3, %103 ], [ 0, %104 ], [ 0, %100 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %.sroa.01.0.copyload.i38.pr = load i64, ptr %1, align 8
   %.sroa.22.0.copyload.i40.pre = load ptr, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split, %100, %101, %102, %103, %104, %105
-  %.sroa.22.0.copyload.i40 = phi ptr [ %.sroa.22.0.copyload.i40.pre, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split ], [ %68, %100 ], [ %68, %101 ], [ %68, %102 ], [ %68, %103 ], [ %68, %104 ], [ %68, %105 ], [ %68, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %68, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
-  %.sroa.01.0.copyload.i38 = phi i64 [ %.sroa.01.0.copyload.i38.pr, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split ], [ %69, %100 ], [ %69, %101 ], [ %69, %102 ], [ %69, %103 ], [ %69, %104 ], [ %69, %105 ], [ %69, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %69, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
-  %.sroa.0.0.i20 = phi i8 [ 0, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split ], [ 1, %100 ], [ 2, %101 ], [ 3, %102 ], [ 1, %103 ], [ 2, %104 ], [ 3, %105 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
-  %107 = icmp eq i64 %.sroa.01.0.copyload.i38, 0
-  br i1 %107, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i41
+_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split
+  %.sroa.22.0.copyload.i40 = phi ptr [ %.sroa.22.0.copyload.i40.pre, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split ], [ %68, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %68, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.01.0.copyload.i38 = phi i64 [ %.sroa.01.0.copyload.i38.pr, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split ], [ %69, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %69, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.0.0.i20 = phi i8 [ %.sroa.0.0.i20.ph, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %106 = icmp eq i64 %.sroa.01.0.copyload.i38, 0
+  br i1 %106, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i41
 
 _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i41: ; preds = %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %108 = load i8, ptr %.sroa.22.0.copyload.i40, align 1
-  %109 = sext i8 %108 to i32
-  %isdigittmp.i.i42 = add nsw i32 %109, -48
+  %107 = load i8, ptr %.sroa.22.0.copyload.i40, align 1
+  %108 = sext i8 %107 to i32
+  %isdigittmp.i.i42 = add nsw i32 %108, -48
   %isdigit.i.i43 = icmp ult i32 %isdigittmp.i.i42, 10
-  br i1 %isdigit.i.i43, label %110, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i44
+  br i1 %isdigit.i.i43, label %109, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i44
 
-110:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i41
-  %111 = sext i8 %108 to i64
-  %112 = add nsw i64 %111, -48
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %114 = load i64, ptr %113, align 8
-  %.not.i.i50 = icmp ult i64 %112, %114
-  br i1 %.not.i.i50, label %117, label %115
+109:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i41
+  %110 = sext i8 %107 to i64
+  %111 = add nsw i64 %110, -48
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %113 = load i64, ptr %112, align 8
+  %.not.i.i50 = icmp ult i64 %111, %113
+  br i1 %.not.i.i50, label %116, label %114
 
-115:                                              ; preds = %110
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %116, align 8
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %115, align 8
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51
 
-117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i40, i64 1
-  store ptr %118, ptr %.sroa.22.0..sroa_idx.i.i, align 8
-  %119 = add i64 %.sroa.01.0.copyload.i38, -1
-  store i64 %119, ptr %1, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %121 = getelementptr inbounds [10 x ptr], ptr %120, i64 0, i64 %112
-  %122 = load ptr, ptr %121, align 8
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i40, i64 1
+  store ptr %117, ptr %.sroa.22.0..sroa_idx.i.i, align 8
+  %118 = add i64 %.sroa.01.0.copyload.i38, -1
+  store i64 %118, ptr %1, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %120 = getelementptr inbounds [10 x ptr], ptr %119, i64 0, i64 %111
+  %121 = load ptr, ptr %120, align 8
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51
 
 _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i44: ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i41
-  %123 = icmp eq i64 %.sroa.01.0.copyload.i38, 1
-  br i1 %123, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45
+  %122 = icmp eq i64 %.sroa.01.0.copyload.i38, 1
+  br i1 %122, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45: ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i44
   %bcmp.i.i.i46 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.sroa.22.0.copyload.i40, ptr noundef nonnull dereferenceable(2) @.str.17, i64 2)
-  %124 = icmp eq i32 %bcmp.i.i.i46, 0
-  br i1 %124, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i49, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47
+  %123 = icmp eq i32 %bcmp.i.i.i46, 0
+  br i1 %123, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i49, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i49: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45
-  %125 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler33demangleTemplateInstantiationNameERSt17basic_string_viewIcSt11char_traitsIcEENS0_19NameBackrefBehaviorE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i8 noundef zeroext 1)
+  %124 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler33demangleTemplateInstantiationNameERSt17basic_string_viewIcSt11char_traitsIcEENS0_19NameBackrefBehaviorE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i8 noundef zeroext 1)
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51
 
 _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i44, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %126 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler18demangleSimpleNameERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext true)
+  %125 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler18demangleSimpleNameERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext true)
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51
 
-_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51: ; preds = %115, %117, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i49, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47
-  %.0.i48 = phi ptr [ %125, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i49 ], [ %126, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47 ], [ null, %115 ], [ %122, %117 ]
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %128 = load i8, ptr %127, align 8
-  %129 = trunc i8 %128 to i1
-  br i1 %129, label %_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit23, label %130
+_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51: ; preds = %114, %116, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i49, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47
+  %.0.i48 = phi ptr [ %124, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i49 ], [ %125, %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i47 ], [ null, %114 ], [ %121, %116 ]
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %127 = load i8, ptr %126, align 8
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit23, label %129
 
-130:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51
-  %131 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler22demangleNameScopeChainERSt17basic_string_viewIcSt11char_traitsIcEEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i48)
-  %132 = load i8, ptr %127, align 8
-  %133 = trunc i8 %132 to i1
-  %..i21 = select i1 %133, ptr null, ptr %131
+129:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51
+  %130 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler22demangleNameScopeChainERSt17basic_string_viewIcSt11char_traitsIcEEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i48)
+  %131 = load i8, ptr %126, align 8
+  %132 = trunc i8 %131 to i1
+  %..i21 = select i1 %132, ptr null, ptr %130
   br label %_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit23
 
-_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit23: ; preds = %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51, %130
-  %.0.i22 = phi ptr [ null, %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51 ], [ %..i21, %130 ]
+_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit23: ; preds = %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51, %129
+  %.0.i22 = phi ptr [ null, %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51 ], [ %..i21, %129 ]
   store ptr %.0.i22, ptr %29, align 8
-  %134 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler12demangleTypeERSt17basic_string_viewIcSt11char_traitsIcEENS0_19QualifierMangleModeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
-  %135 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 32
-  store ptr %134, ptr %135, align 8
-  %.not = icmp eq ptr %134, null
-  br i1 %.not, label %138, label %136
+  %133 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler12demangleTypeERSt17basic_string_viewIcSt11char_traitsIcEENS0_19QualifierMangleModeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
+  %134 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 32
+  store ptr %133, ptr %134, align 8
+  %.not = icmp eq ptr %133, null
+  br i1 %.not, label %137, label %135
 
-136:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit23
-  %137 = getelementptr inbounds nuw i8, ptr %134, i64 12
-  store i8 %.sroa.0.0.i20, ptr %137, align 4
-  br label %138
+135:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit23
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 12
+  store i8 %.sroa.0.0.i20, ptr %136, align 4
+  br label %137
 
-138:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit23, %136, %_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit
+137:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit23, %135, %_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit
   ret ptr %.sink12.i
 }
 

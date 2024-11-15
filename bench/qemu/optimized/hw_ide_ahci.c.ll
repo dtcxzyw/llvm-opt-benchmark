@@ -1189,7 +1189,7 @@ trace_ahci_mem_write_host_unimpl.exit:            ; preds = %do.end37, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i42)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then6, %if.then6, %if.then15, %if.else16, %if.then6, %trace_ahci_mem_write_host_unimpl.exit, %sw.bb20
+sw.epilog:                                        ; preds = %if.then15, %if.else16, %if.then6, %if.then6, %if.then6, %trace_ahci_mem_write_host_unimpl.exit, %sw.bb20
   %arrayidx41 = getelementptr [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %div39
   %19 = load ptr, ptr %arrayidx41, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i56)

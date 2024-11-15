@@ -2324,7 +2324,7 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
   %19 = load i32, ptr %9, align 4
   %20 = icmp eq i32 %19, -1
   %. = select i1 %20, i32 -1, i32 -2
-  br label %57
+  br label %56
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2335,7 +2335,7 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
   br i1 %.not26, label %compact_struct_type_to_generic_type.exit, label %26
 
 26:                                               ; preds = %21
-  switch i32 %25, label %38 [
+  switch i32 %25, label %37 [
     i32 0, label %compact_struct_type_to_generic_type.exit.thread
     i32 1, label %compact_struct_type_to_generic_type.exit
     i32 2, label %compact_struct_type_to_generic_type.exit
@@ -2348,11 +2348,11 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
     i32 9, label %33
     i32 10, label %34
     i32 11, label %35
-    i32 12, label %36
-    i32 13, label %37
+    i32 12, label %27
+    i32 13, label %36
   ]
 
-27:                                               ; preds = %26
+27:                                               ; preds = %26, %26
   br label %compact_struct_type_to_generic_type.exit
 
 28:                                               ; preds = %26
@@ -2383,53 +2383,50 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
   br label %compact_struct_type_to_generic_type.exit
 
 37:                                               ; preds = %26
-  br label %compact_struct_type_to_generic_type.exit
-
-38:                                               ; preds = %26
   br label %compact_struct_type_to_generic_type.exit.thread
 
-compact_struct_type_to_generic_type.exit:         ; preds = %21, %26, %26, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27
-  %.0 = phi i32 [ 16, %37 ], [ %25, %36 ], [ 13, %35 ], [ 14, %34 ], [ 15, %33 ], [ 11, %32 ], [ 4, %31 ], [ 10, %30 ], [ 8, %29 ], [ 6, %28 ], [ %25, %27 ], [ 2, %26 ], [ 2, %26 ], [ %25, %21 ]
+compact_struct_type_to_generic_type.exit:         ; preds = %21, %26, %26, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27
+  %.0 = phi i32 [ 16, %36 ], [ 13, %35 ], [ 14, %34 ], [ 15, %33 ], [ 11, %32 ], [ 4, %31 ], [ 10, %30 ], [ 8, %29 ], [ 6, %28 ], [ %25, %27 ], [ 2, %26 ], [ 2, %26 ], [ %25, %21 ]
   %.not27 = icmp eq i32 %.0, %5
-  br i1 %.not27, label %43, label %compact_struct_type_to_generic_type.exit.thread
+  br i1 %.not27, label %42, label %compact_struct_type_to_generic_type.exit.thread
 
-compact_struct_type_to_generic_type.exit.thread:  ; preds = %26, %38, %compact_struct_type_to_generic_type.exit
-  %.032 = phi i32 [ %.0, %compact_struct_type_to_generic_type.exit ], [ %25, %26 ], [ 1, %38 ]
-  %39 = load i32, ptr %9, align 4
-  %40 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @thrift_type_vals, ptr noundef nonnull @.str.141) #7
-  %41 = tail call ptr @val_to_str(i32 noundef %.032, ptr noundef nonnull @thrift_type_vals, ptr noundef nonnull @.str.141) #7
-  %42 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_thrift_wrong_type, ptr noundef %0, i32 noundef %39, i32 noundef 1, ptr noundef nonnull @.str.140, ptr noundef %40, ptr noundef %41) #7
-  br label %57
+compact_struct_type_to_generic_type.exit.thread:  ; preds = %26, %37, %compact_struct_type_to_generic_type.exit
+  %.032 = phi i32 [ %.0, %compact_struct_type_to_generic_type.exit ], [ %25, %26 ], [ 1, %37 ]
+  %38 = load i32, ptr %9, align 4
+  %39 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @thrift_type_vals, ptr noundef nonnull @.str.141) #7
+  %40 = tail call ptr @val_to_str(i32 noundef %.032, ptr noundef nonnull @thrift_type_vals, ptr noundef nonnull @.str.141) #7
+  %41 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_thrift_wrong_type, ptr noundef %0, i32 noundef %38, i32 noundef 1, ptr noundef nonnull @.str.140, ptr noundef %39, ptr noundef %40) #7
+  br label %56
 
-43:                                               ; preds = %compact_struct_type_to_generic_type.exit
-  %44 = getelementptr inbounds i8, ptr %10, i64 8
-  %45 = load i64, ptr %44, align 8
-  %46 = sext i32 %6 to i64
-  %.not28 = icmp eq i64 %45, %46
-  br i1 %.not28, label %51, label %47
+42:                                               ; preds = %compact_struct_type_to_generic_type.exit
+  %43 = getelementptr inbounds i8, ptr %10, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = sext i32 %6 to i64
+  %.not28 = icmp eq i64 %44, %45
+  br i1 %.not28, label %50, label %46
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %10, i64 32
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_thrift_wrong_field_id, ptr noundef nonnull @.str.142, i32 noundef %6, i64 noundef %45) #7
-  br label %51
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %10, i64 32
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %48, ptr noundef nonnull @ei_thrift_wrong_field_id, ptr noundef nonnull @.str.142, i32 noundef %6, i64 noundef %44) #7
+  br label %50
 
-51:                                               ; preds = %47, %43
+50:                                               ; preds = %46, %42
   %.not29 = icmp eq ptr %7, null
-  br i1 %.not29, label %55, label %52
+  br i1 %.not29, label %54, label %51
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %10, i64 40
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %7, align 8
-  br label %55
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds i8, ptr %10, i64 40
+  %53 = load ptr, ptr %52, align 8
+  store ptr %53, ptr %7, align 8
+  br label %54
 
-55:                                               ; preds = %52, %51
-  %56 = load i32, ptr %9, align 4
-  br label %57
+54:                                               ; preds = %51, %50
+  %55 = load i32, ptr %9, align 4
+  br label %56
 
-57:                                               ; preds = %18, %55, %compact_struct_type_to_generic_type.exit.thread
-  %.021 = phi i32 [ -2, %compact_struct_type_to_generic_type.exit.thread ], [ %56, %55 ], [ %., %18 ]
+56:                                               ; preds = %18, %54, %compact_struct_type_to_generic_type.exit.thread
+  %.021 = phi i32 [ -2, %compact_struct_type_to_generic_type.exit.thread ], [ %55, %54 ], [ %., %18 ]
   ret i32 %.021
 }
 

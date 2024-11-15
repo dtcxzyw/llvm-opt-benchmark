@@ -866,7 +866,6 @@ $_ZTIN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE = comdat any
 @_ZTIN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE, ptr @_ZTIN3vcg18SimpleTempDataBaseE }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_filter_fractal.cpp, ptr null }]
 @switch.table._ZThn16_NK13FilterFractal8getClassEPK7QAction = private unnamed_addr constant [3 x i32] [i32 64, i32 128, i32 128], align 4
-@switch.table._ZThn16_NK13FilterFractal11filterArityEPK7QAction = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 3], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -25643,8 +25642,8 @@ define noundef range(i32 0, 262145) i32 @_ZN13FilterFractal15getRequirementsEPK7
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
   %.off = add i32 %7, -1
   %switch = icmp ult i32 %.off, 2
-  %spec.select = select i1 %switch, i32 262144, i32 0
-  ret i32 %spec.select
+  %. = select i1 %switch, i32 262144, i32 0
+  ret i32 %.
 }
 
 ; Function Attrs: uwtable
@@ -25655,8 +25654,8 @@ define noundef range(i32 0, 262145) i32 @_ZThn16_N13FilterFractal15getRequiremen
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
   %.off.i = add i32 %6, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  %spec.select.i = select i1 %switch.i, i32 262144, i32 0
-  ret i32 %spec.select.i
+  %..i = select i1 %switch.i, i32 262144, i32 0
+  ret i32 %..i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25685,18 +25684,11 @@ define noundef range(i32 0, 4) i32 @_ZNK13FilterFractal11filterArityEPK7QAction(
   %5 = getelementptr inbounds i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
-  %8 = icmp ult i32 %7, 3
-  br i1 %8, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZThn16_NK13FilterFractal11filterArityEPK7QAction, i64 0, i64 %9
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %10
-
-10:                                               ; preds = %2, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
-  ret i32 %.0
+  %switch.selectcmp = icmp eq i32 %7, 2
+  %switch.select = select i1 %switch.selectcmp, i32 3, i32 0
+  %switch.selectcmp2 = icmp eq i32 %7, 1
+  %switch.select3 = select i1 %switch.selectcmp2, i32 1, i32 %switch.select
+  ret i32 %switch.select3
 }
 
 ; Function Attrs: uwtable
@@ -25705,18 +25697,11 @@ define noundef range(i32 0, 4) i32 @_ZThn16_NK13FilterFractal11filterArityEPK7QA
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 3
-  br i1 %7, label %switch.lookup, label %_ZNK13FilterFractal11filterArityEPK7QAction.exit
-
-switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZThn16_NK13FilterFractal11filterArityEPK7QAction, i64 0, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZNK13FilterFractal11filterArityEPK7QAction.exit
-
-_ZNK13FilterFractal11filterArityEPK7QAction.exit: ; preds = %2, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
-  ret i32 %.0.i
+  %switch.selectcmp.i = icmp eq i32 %6, 2
+  %switch.select.i = select i1 %switch.selectcmp.i, i32 3, i32 0
+  %switch.selectcmp2.i = icmp eq i32 %6, 1
+  %switch.select3.i = select i1 %switch.selectcmp2.i, i32 1, i32 %switch.select.i
+  ret i32 %switch.select3.i
 }
 
 ; Function Attrs: uwtable

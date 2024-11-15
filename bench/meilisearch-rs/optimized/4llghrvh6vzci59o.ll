@@ -38337,9 +38337,9 @@ define hidden { i64, ptr } @"_ZN5milli6update8settings16Setting$LT$T$GT$6as_ref1
   %2 = load i64, ptr %0, align 8, !range !209, !noundef !11
   %switch = icmp eq i64 %2, 0
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr undef
+  %.sroa.4.0 = select i1 %switch, ptr %3, ptr undef
   %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %spec.select, 1
+  %5 = insertvalue { i64, ptr } %4, ptr %.sroa.4.0, 1
   ret { i64, ptr } %5
 }
 
@@ -38348,9 +38348,9 @@ define hidden { i64, ptr } @"_ZN5milli6update8settings16Setting$LT$T$GT$6as_ref1
   %2 = load i64, ptr %0, align 8, !range !209, !noundef !11
   %switch = icmp eq i64 %2, 0
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr undef
+  %.sroa.4.0 = select i1 %switch, ptr %3, ptr undef
   %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %spec.select, 1
+  %5 = insertvalue { i64, ptr } %4, ptr %.sroa.4.0, 1
   ret { i64, ptr } %5
 }
 
@@ -38359,9 +38359,9 @@ define hidden { i64, ptr } @"_ZN5milli6update8settings16Setting$LT$T$GT$6as_ref1
   %2 = load i64, ptr %0, align 8, !range !209, !noundef !11
   %switch = icmp eq i64 %2, 0
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr undef
+  %.sroa.4.0 = select i1 %switch, ptr %3, ptr undef
   %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %spec.select, 1
+  %5 = insertvalue { i64, ptr } %4, ptr %.sroa.4.0, 1
   ret { i64, ptr } %5
 }
 
@@ -38370,9 +38370,9 @@ define hidden { i64, ptr } @"_ZN5milli6update8settings16Setting$LT$T$GT$6as_ref1
   %2 = load i64, ptr %0, align 8, !range !209, !noundef !11
   %switch = icmp eq i64 %2, 0
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr undef
+  %.sroa.4.0 = select i1 %switch, ptr %3, ptr undef
   %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %spec.select, 1
+  %5 = insertvalue { i64, ptr } %4, ptr %.sroa.4.0, 1
   ret { i64, ptr } %5
 }
 
@@ -38404,9 +38404,9 @@ define hidden { i64, ptr } @"_ZN5milli6update8settings16Setting$LT$T$GT$6as_ref1
   %2 = load i64, ptr %0, align 8, !range !209, !noundef !11
   %switch = icmp eq i64 %2, 0
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr undef
+  %.sroa.4.0 = select i1 %switch, ptr %3, ptr undef
   %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %spec.select, 1
+  %5 = insertvalue { i64, ptr } %4, ptr %.sroa.4.0, 1
   ret { i64, ptr } %5
 }
 
@@ -38451,9 +38451,9 @@ define hidden { i64, ptr } @"_ZN5milli6update8settings16Setting$LT$T$GT$6as_ref1
   %2 = load i64, ptr %0, align 8, !range !209, !noundef !11
   %switch = icmp eq i64 %2, 0
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr undef
+  %.sroa.4.0 = select i1 %switch, ptr %3, ptr undef
   %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %spec.select, 1
+  %5 = insertvalue { i64, ptr } %4, ptr %.sroa.4.0, 1
   ret { i64, ptr } %5
 }
 

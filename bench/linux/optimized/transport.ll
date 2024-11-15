@@ -327,23 +327,21 @@ define dso_local range(i32 0, 5) i32 @usb_stor_ctrl_transfer(ptr noundef %0, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 0, 5) i32 @interpret_urb_result(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
-  switch i32 %3, label %58 [
+  switch i32 %3, label %56 [
     i32 0, label %6
     i32 -32, label %9
-    i32 -75, label %59
-    i32 -104, label %55
-    i32 -121, label %56
-    i32 -5, label %57
+    i32 -75, label %57
+    i32 -121, label %55
   ]
 
 6:                                                ; preds = %5
   %7 = icmp ne i32 %4, %2
   %8 = zext i1 %7 to i32
-  br label %59
+  br label %57
 
 9:                                                ; preds = %5
   %10 = icmp slt i32 %1, -1073741824
-  br i1 %10, label %59, label %11
+  br i1 %10, label %57, label %11
 
 11:                                               ; preds = %9
   %12 = lshr i32 %1, 15
@@ -410,23 +408,17 @@ define internal fastcc range(i32 0, 5) i32 @interpret_urb_result(ptr noundef %0,
 52:                                               ; preds = %50, %47
   %53 = icmp slt i32 %48, 0
   %54 = select i1 %53, i32 4, i32 2
-  br label %59
+  br label %57
 
 55:                                               ; preds = %5
-  br label %59
+  br label %57
 
 56:                                               ; preds = %5
-  br label %59
+  br label %57
 
-57:                                               ; preds = %5
-  br label %59
-
-58:                                               ; preds = %5
-  br label %59
-
-59:                                               ; preds = %58, %57, %56, %55, %52, %9, %6, %5
-  %60 = phi i32 [ 4, %58 ], [ 4, %57 ], [ 1, %56 ], [ 4, %55 ], [ %8, %6 ], [ 2, %9 ], [ %54, %52 ], [ 3, %5 ]
-  ret i32 %60
+57:                                               ; preds = %56, %55, %52, %9, %6, %5
+  %58 = phi i32 [ 4, %56 ], [ 1, %55 ], [ %8, %6 ], [ 2, %9 ], [ %54, %52 ], [ 3, %5 ]
+  ret i32 %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2049,10 +2041,9 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
 
 210:                                              ; preds = %._crit_edge, %204, %185, %183
   %211 = load i8, ptr %23, align 4
-  switch i8 %211, label %218 [
+  switch i8 %211, label %217 [
     i8 0, label %212
     i8 1, label %.thread7
-    i8 2, label %217
   ]
 
 212:                                              ; preds = %210
@@ -2068,12 +2059,9 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
 217:                                              ; preds = %210
   br label %.thread7
 
-218:                                              ; preds = %210
-  br label %.thread7
-
-.thread7:                                         ; preds = %78, %218, %217, %214, %212, %210, %181, %172, %168, %159, %44
-  %219 = phi i32 [ 3, %218 ], [ 3, %217 ], [ 2, %214 ], [ 3, %44 ], [ 3, %159 ], [ 3, %168 ], [ 3, %172 ], [ 3, %181 ], [ 0, %212 ], [ 1, %210 ], [ 3, %78 ]
-  ret i32 %219
+.thread7:                                         ; preds = %78, %217, %214, %212, %210, %181, %172, %168, %159, %44
+  %218 = phi i32 [ 3, %217 ], [ 2, %214 ], [ 3, %44 ], [ 3, %159 ], [ 3, %168 ], [ 3, %172 ], [ 3, %181 ], [ 0, %212 ], [ 1, %210 ], [ 3, %78 ]
+  ret i32 %218
 }
 
 ; Function Attrs: null_pointer_is_valid

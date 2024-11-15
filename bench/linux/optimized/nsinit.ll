@@ -55,107 +55,104 @@ define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr
   %8 = tail call i32 @acpi_ns_get_type(ptr noundef %0) #6
   %9 = tail call ptr @acpi_ns_get_attached_object(ptr noundef %0) #6
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %58, label %11
+  br i1 %10, label %57, label %11
 
 11:                                               ; preds = %4
-  switch i32 %8, label %58 [
-    i32 10, label %16
+  switch i32 %8, label %57 [
+    i32 10, label %15
     i32 14, label %12
-    i32 18, label %13
-    i32 3, label %14
-    i32 4, label %15
+    i32 18, label %12
+    i32 3, label %13
+    i32 4, label %14
   ]
 
-12:                                               ; preds = %11
-  br label %16
+12:                                               ; preds = %11, %11
+  br label %15
 
 13:                                               ; preds = %11
-  br label %16
+  br label %15
 
 14:                                               ; preds = %11
-  br label %16
+  br label %15
 
-15:                                               ; preds = %11
-  br label %16
+15:                                               ; preds = %14, %13, %12, %11
+  %16 = phi i64 [ 40, %14 ], [ 36, %13 ], [ 32, %12 ], [ 28, %11 ]
+  %17 = getelementptr inbounds i8, ptr %2, i64 %16
+  %18 = load i32, ptr %17, align 4
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 4
+  %20 = getelementptr inbounds i8, ptr %9, i64 12
+  %21 = load i8, ptr %20, align 4
+  %22 = and i8 %21, 4
+  %23 = icmp eq i8 %22, 0
+  br i1 %23, label %24, label %57
 
-16:                                               ; preds = %15, %14, %13, %12, %11
-  %17 = phi i64 [ 40, %15 ], [ 36, %14 ], [ 32, %13 ], [ 32, %12 ], [ 28, %11 ]
-  %18 = getelementptr inbounds i8, ptr %2, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %9, i64 12
-  %22 = load i8, ptr %21, align 4
-  %23 = and i8 %22, 4
-  %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %58
-
-25:                                               ; preds = %16
+24:                                               ; preds = %15
   tail call void @acpi_ex_enter_interpreter() #6
   switch i32 %8, label %.thread3 [
-    i32 18, label %48
-    i32 4, label %26
+    i32 18, label %47
+    i32 4, label %25
   ]
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %2, i64 56
-  %28 = load i32, ptr %27, align 4
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 4
-  %30 = tail call ptr @acpi_ns_get_attached_object(ptr noundef %0) #6
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %32
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds i8, ptr %2, i64 56
+  %27 = load i32, ptr %26, align 4
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %26, align 4
+  %29 = tail call ptr @acpi_ns_get_attached_object(ptr noundef %0) #6
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.thread, label %31
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %30, i64 12
-  %34 = load i8, ptr %33, align 4
-  %35 = and i8 %34, 4
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %.thread
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %29, i64 12
+  %33 = load i8, ptr %32, align 4
+  %34 = and i8 %33, 4
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %36, label %.thread
 
-37:                                               ; preds = %32
-  %38 = tail call i32 @acpi_ds_get_package_arguments(ptr noundef nonnull %30) #6
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %.thread
+36:                                               ; preds = %31
+  %37 = tail call i32 @acpi_ds_get_package_arguments(ptr noundef nonnull %29) #6
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %.thread
 
-40:                                               ; preds = %37
-  %41 = tail call i32 @acpi_ut_walk_package_tree(ptr noundef nonnull %30, ptr noundef null, ptr noundef nonnull @acpi_ds_init_package_element, ptr noundef null) #6
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %.thread
+39:                                               ; preds = %36
+  %40 = tail call i32 @acpi_ut_walk_package_tree(ptr noundef nonnull %29, ptr noundef null, ptr noundef nonnull @acpi_ds_init_package_element, ptr noundef null) #6
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %.thread
 
-43:                                               ; preds = %40
-  %44 = load i8, ptr %33, align 4
-  %45 = or i8 %44, 4
-  store i8 %45, ptr %33, align 4
+42:                                               ; preds = %39
+  %43 = load i8, ptr %32, align 4
+  %44 = or i8 %43, 4
+  store i8 %44, ptr %32, align 4
   br label %.thread
 
-.thread3:                                         ; preds = %25
-  %46 = tail call ptr @acpi_ut_get_node_name(ptr noundef %0) #6
-  %47 = tail call ptr @acpi_ut_get_type_name(i32 noundef %8) #6
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 411, i32 noundef 8, ptr noundef nonnull @.str.5, ptr noundef %46, ptr noundef %47) #6
-  br label %54
+.thread3:                                         ; preds = %24
+  %45 = tail call ptr @acpi_ut_get_node_name(ptr noundef %0) #6
+  %46 = tail call ptr @acpi_ut_get_type_name(i32 noundef %8) #6
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 411, i32 noundef 8, ptr noundef nonnull @.str.5, ptr noundef %45, ptr noundef %46) #6
+  br label %53
 
-48:                                               ; preds = %25
-  %49 = getelementptr inbounds i8, ptr %2, i64 48
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  %52 = tail call i32 @acpi_ds_get_bank_field_arguments(ptr noundef nonnull %9) #6
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %.thread, label %54
+47:                                               ; preds = %24
+  %48 = getelementptr inbounds i8, ptr %2, i64 48
+  %49 = load i32, ptr %48, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %48, align 4
+  %51 = tail call i32 @acpi_ds_get_bank_field_arguments(ptr noundef nonnull %9) #6
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %.thread, label %53
 
-54:                                               ; preds = %.thread3, %48
-  %55 = phi i32 [ 8, %.thread3 ], [ %52, %48 ]
-  %56 = tail call ptr @acpi_ut_get_node_name(ptr noundef %0) #6
-  %57 = tail call ptr @acpi_ut_get_type_name(i32 noundef %8) #6
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 419, i32 noundef %55, ptr noundef nonnull @.str.6, ptr noundef %56, ptr noundef %57) #6
+53:                                               ; preds = %.thread3, %47
+  %54 = phi i32 [ 8, %.thread3 ], [ %51, %47 ]
+  %55 = tail call ptr @acpi_ut_get_node_name(ptr noundef %0) #6
+  %56 = tail call ptr @acpi_ut_get_type_name(i32 noundef %8) #6
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 419, i32 noundef %54, ptr noundef nonnull @.str.6, ptr noundef %55, ptr noundef %56) #6
   br label %.thread
 
-.thread:                                          ; preds = %43, %40, %37, %32, %26, %54, %48
+.thread:                                          ; preds = %42, %39, %36, %31, %25, %53, %47
   tail call void @acpi_ex_exit_interpreter() #6
-  br label %58
+  br label %57
 
-58:                                               ; preds = %.thread, %16, %11, %4
+57:                                               ; preds = %.thread, %15, %11, %4
   ret i32 0
 }
 

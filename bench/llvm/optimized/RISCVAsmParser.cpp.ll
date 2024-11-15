@@ -10127,26 +10127,26 @@ _ZN4llvm11raw_ostreamlsEPKc.exit65:               ; preds = %133, %135
 154:                                              ; preds = %145
   %155 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.49, i64 noundef 6) #24
   %.pre = load ptr, ptr %148, align 8
-  br label %_ZN4llvm14RISCVFPRndModeL20roundingModeToStringENS0_12RoundingModeE.exit
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit72
 
 156:                                              ; preds = %145
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %149, ptr noundef nonnull align 1 dereferenceable(6) @.str.49, i64 6, i1 false)
   %157 = load ptr, ptr %148, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 6
   store ptr %158, ptr %148, align 8
-  br label %_ZN4llvm14RISCVFPRndModeL20roundingModeToStringENS0_12RoundingModeE.exit
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit72
 
-_ZN4llvm14RISCVFPRndModeL20roundingModeToStringENS0_12RoundingModeE.exit: ; preds = %156, %154
-  %159 = phi ptr [ %158, %156 ], [ %.pre, %154 ]
+_ZN4llvm11raw_ostreamlsEPKc.exit72:               ; preds = %154, %156
+  %159 = phi ptr [ %.pre, %154 ], [ %158, %156 ]
   %160 = load ptr, ptr %146, align 8
   %.not.i75 = icmp ult ptr %159, %160
   br i1 %.not.i75, label %163, label %161
 
-161:                                              ; preds = %_ZN4llvm14RISCVFPRndModeL20roundingModeToStringENS0_12RoundingModeE.exit
+161:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit72
   %162 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 62) #24
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit40
 
-163:                                              ; preds = %_ZN4llvm14RISCVFPRndModeL20roundingModeToStringENS0_12RoundingModeE.exit
+163:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit72
   %164 = getelementptr inbounds i8, ptr %159, i64 1
   store ptr %164, ptr %148, align 8
   store i8 62, ptr %159, align 1

@@ -4685,7 +4685,7 @@ _ZN12_GLOBAL__N_17PPValueD2Ev.exit439:            ; preds = %_ZN4llvm6APSIntD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef range(i32 -1, 15) i32 @_ZL13getPrecedenceN5clang3tok9TokenKindE(i16 noundef zeroext %0) unnamed_addr #3 {
-  switch i16 %0, label %17 [
+  switch i16 %0, label %16 [
     i16 45, label %2
     i16 43, label %2
     i16 31, label %2
@@ -4708,56 +4708,53 @@ define internal fastcc noundef range(i32 -1, 15) i32 @_ZL13getPrecedenceN5clang3
     i16 66, label %13
     i16 62, label %14
     i16 23, label %15
-    i16 2, label %16
+    i16 2, label %15
   ]
 
 2:                                                ; preds = %1, %1, %1
-  br label %17
+  br label %16
 
 3:                                                ; preds = %1, %1
-  br label %17
+  br label %16
 
 4:                                                ; preds = %1, %1
-  br label %17
+  br label %16
 
 5:                                                ; preds = %1, %1, %1, %1
-  br label %17
+  br label %16
 
 6:                                                ; preds = %1, %1
-  br label %17
+  br label %16
 
 7:                                                ; preds = %1
-  br label %17
+  br label %16
 
 8:                                                ; preds = %1
-  br label %17
+  br label %16
 
 9:                                                ; preds = %1
-  br label %17
+  br label %16
 
 10:                                               ; preds = %1
-  br label %17
+  br label %16
 
 11:                                               ; preds = %1
-  br label %17
+  br label %16
 
 12:                                               ; preds = %1
-  br label %17
+  br label %16
 
 13:                                               ; preds = %1
-  br label %17
+  br label %16
 
 14:                                               ; preds = %1
-  br label %17
+  br label %16
 
-15:                                               ; preds = %1
-  br label %17
+15:                                               ; preds = %1, %1
+  br label %16
 
-16:                                               ; preds = %1
-  br label %17
-
-17:                                               ; preds = %1, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %16 ], [ 0, %15 ], [ 2, %14 ], [ 3, %13 ], [ 4, %12 ], [ 5, %11 ], [ 6, %10 ], [ 7, %9 ], [ 8, %8 ], [ 9, %7 ], [ 10, %6 ], [ 11, %5 ], [ 12, %4 ], [ 13, %3 ], [ 14, %2 ], [ -1, %1 ]
+16:                                               ; preds = %1, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ 0, %15 ], [ 2, %14 ], [ 3, %13 ], [ 4, %12 ], [ 5, %11 ], [ 6, %10 ], [ 7, %9 ], [ 8, %8 ], [ 9, %7 ], [ 10, %6 ], [ 11, %5 ], [ 12, %4 ], [ 13, %3 ], [ 14, %2 ], [ -1, %1 ]
   ret i32 %.0
 }
 

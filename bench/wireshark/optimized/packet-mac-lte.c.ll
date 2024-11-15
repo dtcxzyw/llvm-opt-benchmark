@@ -12065,7 +12065,7 @@ write_pdu_label_and_info_literal.exit284:         ; preds = %99
   %176 = add i32 %152, %.3320
   br label %177
 
-177:                                              ; preds = %143, %._crit_edge
+177:                                              ; preds = %._crit_edge, %143
   %.4 = phi i32 [ %176, %._crit_edge ], [ %.3320, %143 ]
   %178 = add nuw nsw i16 %.0248319, 1
   %exitcond.not = icmp eq i16 %178, %indvars.iv340

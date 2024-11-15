@@ -1863,7 +1863,7 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_18StateDot10visitChildEPKNS_4T
   %.sroa.06.0.in.i.i.i = phi ptr [ %15, %14 ], [ %.sroa.06.0.i.i.i, %17 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread, label %17
+  br i1 %.not.i.i.i, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
@@ -1880,7 +1880,7 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_18StateDot10visitChildEPKNS_4T
   %27 = getelementptr inbounds ptr, ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8
   %.not.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread, label %29
+  br i1 %.not.i.i.i.i.i, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit, label %29
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr %28, align 8
@@ -1897,7 +1897,7 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_18StateDot10visitChildEPKNS_4T
   %.018.i.i.i.i.i = phi ptr [ %36, %34 ], [ %30, %29 ]
   %36 = load ptr, ptr %.018.i.i.i.i.i, align 8
   %.not16.i.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not16.i.i.i.i.i, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread, label %37
+  br i1 %.not16.i.i.i.i.i, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit, label %37
 
 37:                                               ; preds = %.lr.ph.i.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %36, i64 8
@@ -1905,7 +1905,7 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_18StateDot10visitChildEPKNS_4T
   %40 = ptrtoint ptr %39 to i64
   %41 = urem i64 %40, %24
   %.not17.i.i.i.i.i = icmp eq i64 %41, %25
-  br i1 %.not17.i.i.i.i.i, label %34, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread, !llvm.loop !7
+  br i1 %.not17.i.i.i.i.i, label %34, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %34, %17, %29
   %42 = getelementptr inbounds i8, ptr %0, i64 1
@@ -1913,18 +1913,18 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_18StateDot10visitChildEPKNS_4T
   %44 = trunc i8 %43 to i1
   %.not.i.i.i21 = icmp ne ptr %1, null
   %or.cond.not = and i1 %.not.i.i.i21, %44
-  br i1 %or.cond.not, label %45, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
+  br i1 %or.cond.not, label %45, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit.thread
 
 45:                                               ; preds = %.loopexit
   %46 = load i32, ptr %1, align 8
-  switch i32 %46, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit [
-    i32 17, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread
-    i32 4, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread
-    i32 12, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread
-    i32 16, label %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread
+  switch i32 %46, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit.thread [
+    i32 17, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
+    i32 4, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
+    i32 12, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
+    i32 16, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
   ]
 
-_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread: ; preds = %37, %.lr.ph.i.i.i.i.i, %16, %45, %45, %45, %45, %21
+_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit: ; preds = %37, %.lr.ph.i.i.i.i.i, %16, %21, %45, %45, %45, %45
   %47 = getelementptr inbounds i8, ptr %0, i64 232
   %48 = load i32, ptr %47, align 8
   %49 = add nsw i32 %48, 1
@@ -1939,7 +1939,7 @@ _ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_
   %.not.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %57
 
-57:                                               ; preds = %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread
+57:                                               ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
   %58 = load ptr, ptr %56, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
@@ -1964,7 +1964,7 @@ _ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_
   %.not17.i.i.i.i = icmp eq i64 %69, %53
   br i1 %.not17.i.i.i.i, label %62, label %.loopexit.i.i, !llvm.loop !7
 
-.loopexit.i.i:                                    ; preds = %65, %.lr.ph.i.i.i.i, %_ZNKSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5countERS9_.exit.thread
+.loopexit.i.i:                                    ; preds = %65, %.lr.ph.i.i.i.i, %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
   %70 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   store ptr null, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
@@ -1988,9 +1988,9 @@ _ZNSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_i
   %.0.i.pn.i.i = phi ptr [ %58, %57 ], [ %73, %.loopexit.i.i ], [ %64, %62 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
   store i32 %48, ptr %.0.i.i, align 4
-  br label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
+  br label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit.thread
 
-_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit: ; preds = %45, %_ZNSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEixERS9_.exit, %.loopexit
+_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit.thread: ; preds = %45, %_ZNSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEixERS9_.exit, %.loopexit
   %75 = ptrtoint ptr %1 to i64
   %76 = getelementptr inbounds i8, ptr %0, i64 128
   %77 = load i64, ptr %76, align 8
@@ -2001,7 +2001,7 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit: ; preds
   %.not.i.i.i.i22 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i22, label %.loopexit.i.i27, label %82
 
-82:                                               ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
+82:                                               ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit.thread
   %83 = load ptr, ptr %81, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -2026,7 +2026,7 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit: ; preds
   %.not17.i.i.i.i26 = icmp eq i64 %94, %78
   br i1 %.not17.i.i.i.i26, label %87, label %.loopexit.i.i27, !llvm.loop !7
 
-.loopexit.i.i27:                                  ; preds = %90, %.lr.ph.i.i.i.i23, %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
+.loopexit.i.i27:                                  ; preds = %90, %.lr.ph.i.i.i.i23, %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit.thread
   %95 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   store ptr null, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
@@ -2067,12 +2067,12 @@ _ZNSt13unordered_mapIPKN4Luau4TypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_i
   %107 = load i8, ptr %106, align 1
   %108 = trunc i8 %107 to i1
   %.not.i.i.i32 = icmp ne ptr %1, null
-  %or.cond62.not = and i1 %.not.i.i.i32, %108
-  br i1 %or.cond62.not, label %109, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38
+  %or.cond59.not = and i1 %.not.i.i.i32, %108
+  br i1 %or.cond59.not, label %109, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit35.thread
 
 109:                                              ; preds = %105
   %110 = load i32, ptr %1, align 8
-  switch i32 %110, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38 [
+  switch i32 %110, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit35.thread [
     i32 4, label %111
     i32 12, label %138
     i32 16, label %140
@@ -2156,7 +2156,7 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %109
   tail call void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull @.str.60, i32 noundef %100)
   br label %183
 
-_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38: ; preds = %109, %105
+_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit35.thread: ; preds = %109, %105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -2168,15 +2168,15 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38: ; pre
   %.not.not.i.i.i.i = icmp eq i64 %145, 0
   br i1 %.not.not.i.i.i.i, label %146, label %153
 
-146:                                              ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38
+146:                                              ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit35.thread
   %147 = getelementptr inbounds i8, ptr %0, i64 24
   br label %148
 
 148:                                              ; preds = %149, %146
   %.sroa.06.0.in.i.i.i.i = phi ptr [ %147, %146 ], [ %.sroa.06.0.i.i.i.i, %149 ]
   %.sroa.06.0.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i, align 8
-  %.not.i.i.i.i43 = icmp eq ptr %.sroa.06.0.i.i.i.i, null
-  br i1 %.not.i.i.i.i43, label %.loopexit.i, label %149
+  %.not.i.i.i.i40 = icmp eq ptr %.sroa.06.0.i.i.i.i, null
+  br i1 %.not.i.i.i.i40, label %.loopexit.i, label %149
 
 149:                                              ; preds = %148
   %150 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i, i64 8
@@ -2184,7 +2184,7 @@ _ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38: ; pre
   %152 = icmp eq ptr %1, %151
   br i1 %152, label %_ZN4Luau12_GLOBAL__N_18StateDot13visitChildrenEPKNS_4TypeEi.exit, label %148, !llvm.loop !11
 
-153:                                              ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit38
+153:                                              ; preds = %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit35.thread
   %154 = getelementptr inbounds i8, ptr %0, i64 16
   %155 = load i64, ptr %154, align 8
   %156 = urem i64 %75, %155

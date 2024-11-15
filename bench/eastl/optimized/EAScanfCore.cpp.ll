@@ -1358,20 +1358,17 @@ if.then216:                                       ; preds = %sw.bb214
     i32 1, label %sw.epilog223
     i32 13, label %sw.bb219
     i32 14, label %sw.bb220
-    i32 11, label %sw.bb221
+    i32 11, label %sw.bb220
   ]
 
 sw.bb219:                                         ; preds = %if.then216
   br label %sw.epilog223
 
-sw.bb220:                                         ; preds = %if.then216
+sw.bb220:                                         ; preds = %if.then216, %if.then216
   br label %sw.epilog223
 
-sw.bb221:                                         ; preds = %if.then216
-  br label %sw.epilog223
-
-sw.epilog223:                                     ; preds = %if.then216, %if.then216, %sw.bb221, %sw.bb220, %sw.bb219
-  %stringTypeSize.0 = phi i32 [ 4, %sw.bb221 ], [ 4, %sw.bb220 ], [ 2, %sw.bb219 ], [ 1, %if.then216 ], [ 1, %if.then216 ]
+sw.epilog223:                                     ; preds = %if.then216, %if.then216, %sw.bb220, %sw.bb219
+  %stringTypeSize.0 = phi i32 [ 4, %sw.bb220 ], [ 2, %sw.bb219 ], [ 1, %if.then216 ], [ 1, %if.then216 ]
   %call224 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize.0, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
   br i1 %call224, label %if.end226, label %Done
 
@@ -1467,20 +1464,17 @@ if.then256:                                       ; preds = %if.end254
     i32 1, label %sw.epilog263
     i32 13, label %sw.bb259
     i32 14, label %sw.bb260
-    i32 11, label %sw.bb261
+    i32 11, label %sw.bb260
   ]
 
 sw.bb259:                                         ; preds = %if.then256
   br label %sw.epilog263
 
-sw.bb260:                                         ; preds = %if.then256
+sw.bb260:                                         ; preds = %if.then256, %if.then256
   br label %sw.epilog263
 
-sw.bb261:                                         ; preds = %if.then256
-  br label %sw.epilog263
-
-sw.epilog263:                                     ; preds = %if.then256, %if.then256, %sw.bb261, %sw.bb260, %sw.bb259
-  %charTypeSize.0 = phi i32 [ 4, %sw.bb261 ], [ 4, %sw.bb260 ], [ 2, %sw.bb259 ], [ 1, %if.then256 ], [ 1, %if.then256 ]
+sw.epilog263:                                     ; preds = %if.then256, %if.then256, %sw.bb260, %sw.bb259
+  %charTypeSize.0 = phi i32 [ 4, %sw.bb260 ], [ 2, %sw.bb259 ], [ 1, %if.then256 ], [ 1, %if.then256 ]
   %67 = load i32, ptr %fd, align 4
   %dec242 = add nsw i32 %67, -1
   store i32 %dec242, ptr %fd, align 4
@@ -2216,20 +2210,17 @@ if.then216:                                       ; preds = %sw.bb214
     i32 1, label %sw.epilog223
     i32 13, label %sw.bb219
     i32 14, label %sw.bb220
-    i32 11, label %sw.bb221
+    i32 11, label %sw.bb220
   ]
 
 sw.bb219:                                         ; preds = %if.then216
   br label %sw.epilog223
 
-sw.bb220:                                         ; preds = %if.then216
+sw.bb220:                                         ; preds = %if.then216, %if.then216
   br label %sw.epilog223
 
-sw.bb221:                                         ; preds = %if.then216
-  br label %sw.epilog223
-
-sw.epilog223:                                     ; preds = %if.then216, %if.then216, %sw.bb221, %sw.bb220, %sw.bb219
-  %stringTypeSize.0 = phi i32 [ 4, %sw.bb221 ], [ 4, %sw.bb220 ], [ 2, %sw.bb219 ], [ 1, %if.then216 ], [ 1, %if.then216 ]
+sw.epilog223:                                     ; preds = %if.then216, %if.then216, %sw.bb220, %sw.bb219
+  %stringTypeSize.0 = phi i32 [ 4, %sw.bb220 ], [ 2, %sw.bb219 ], [ 1, %if.then216 ], [ 1, %if.then216 ]
   %call224 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize.0, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
   br i1 %call224, label %if.end226, label %Done
 
@@ -2325,20 +2316,17 @@ if.then256:                                       ; preds = %if.end254
     i32 1, label %sw.epilog263
     i32 13, label %sw.bb259
     i32 14, label %sw.bb260
-    i32 11, label %sw.bb261
+    i32 11, label %sw.bb260
   ]
 
 sw.bb259:                                         ; preds = %if.then256
   br label %sw.epilog263
 
-sw.bb260:                                         ; preds = %if.then256
+sw.bb260:                                         ; preds = %if.then256, %if.then256
   br label %sw.epilog263
 
-sw.bb261:                                         ; preds = %if.then256
-  br label %sw.epilog263
-
-sw.epilog263:                                     ; preds = %if.then256, %if.then256, %sw.bb261, %sw.bb260, %sw.bb259
-  %charTypeSize.0 = phi i32 [ 4, %sw.bb261 ], [ 4, %sw.bb260 ], [ 2, %sw.bb259 ], [ 1, %if.then256 ], [ 1, %if.then256 ]
+sw.epilog263:                                     ; preds = %if.then256, %if.then256, %sw.bb260, %sw.bb259
+  %charTypeSize.0 = phi i32 [ 4, %sw.bb260 ], [ 2, %sw.bb259 ], [ 1, %if.then256 ], [ 1, %if.then256 ]
   %68 = load i32, ptr %fd, align 4
   %dec286 = add nsw i32 %68, -1
   store i32 %dec286, ptr %fd, align 4
@@ -3064,20 +3052,17 @@ if.then211:                                       ; preds = %sw.bb209
     i32 1, label %sw.epilog218
     i32 13, label %sw.bb214
     i32 14, label %sw.bb215
-    i32 11, label %sw.bb216
+    i32 11, label %sw.bb215
   ]
 
 sw.bb214:                                         ; preds = %if.then211
   br label %sw.epilog218
 
-sw.bb215:                                         ; preds = %if.then211
+sw.bb215:                                         ; preds = %if.then211, %if.then211
   br label %sw.epilog218
 
-sw.bb216:                                         ; preds = %if.then211
-  br label %sw.epilog218
-
-sw.epilog218:                                     ; preds = %if.then211, %if.then211, %sw.bb216, %sw.bb215, %sw.bb214
-  %stringTypeSize.0 = phi i32 [ 4, %sw.bb216 ], [ 4, %sw.bb215 ], [ 2, %sw.bb214 ], [ 1, %if.then211 ], [ 1, %if.then211 ]
+sw.epilog218:                                     ; preds = %if.then211, %if.then211, %sw.bb215, %sw.bb214
+  %stringTypeSize.0 = phi i32 [ 4, %sw.bb215 ], [ 2, %sw.bb214 ], [ 1, %if.then211 ], [ 1, %if.then211 ]
   %call219 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize.0, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
   br i1 %call219, label %if.end221, label %Done
 
@@ -3173,20 +3158,17 @@ if.then251:                                       ; preds = %if.end249
     i32 1, label %sw.epilog258
     i32 13, label %sw.bb254
     i32 14, label %sw.bb255
-    i32 11, label %sw.bb256
+    i32 11, label %sw.bb255
   ]
 
 sw.bb254:                                         ; preds = %if.then251
   br label %sw.epilog258
 
-sw.bb255:                                         ; preds = %if.then251
+sw.bb255:                                         ; preds = %if.then251, %if.then251
   br label %sw.epilog258
 
-sw.bb256:                                         ; preds = %if.then251
-  br label %sw.epilog258
-
-sw.epilog258:                                     ; preds = %if.then251, %if.then251, %sw.bb256, %sw.bb255, %sw.bb254
-  %charTypeSize.0 = phi i32 [ 4, %sw.bb256 ], [ 4, %sw.bb255 ], [ 2, %sw.bb254 ], [ 1, %if.then251 ], [ 1, %if.then251 ]
+sw.epilog258:                                     ; preds = %if.then251, %if.then251, %sw.bb255, %sw.bb254
+  %charTypeSize.0 = phi i32 [ 4, %sw.bb255 ], [ 2, %sw.bb254 ], [ 1, %if.then251 ], [ 1, %if.then251 ]
   %62 = load i32, ptr %fd, align 4
   %dec285 = add nsw i32 %62, -1
   store i32 %dec285, ptr %fd, align 4

@@ -332,13 +332,13 @@ define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizont
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %7 [
     i32 1, label %12
-    i32 2, label %12
+    i32 2, label %4
     i32 4, label %4
     i32 16, label %5
     i32 36, label %6
   ]
 
-4:                                                ; preds = %1
+4:                                                ; preds = %1, %1
   br label %12
 
 5:                                                ; preds = %1
@@ -362,8 +362,8 @@ define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizont
   tail call void @__cxa_free_exception(ptr %8) #5
   resume { ptr, i32 } %11
 
-12:                                               ; preds = %1, %1, %6, %5, %4
-  %.0 = phi i32 [ 6, %6 ], [ 4, %5 ], [ 2, %4 ], [ %3, %1 ], [ %3, %1 ]
+12:                                               ; preds = %1, %6, %5, %4
+  %.0 = phi i32 [ 6, %6 ], [ 4, %5 ], [ 2, %4 ], [ %3, %1 ]
   ret i32 %.0
 }
 

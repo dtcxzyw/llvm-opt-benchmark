@@ -1647,7 +1647,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
     i32 1, label %sw.bb.invoke
     i32 2, label %sw.bb49
     i32 3, label %sw.bb.invoke
-    i32 4, label %sw.bb55
+    i32 4, label %sw.bb49
     i32 5, label %sw.bb58
     i32 6, label %sw.bb61
   ]
@@ -1655,19 +1655,16 @@ invoke.cont42:                                    ; preds = %invoke.cont40
 sw.bb:                                            ; preds = %invoke.cont42
   br label %sw.bb.invoke
 
-sw.bb.invoke:                                     ; preds = %invoke.cont42, %invoke.cont42, %call.i9.i.noexc, %call.i.noexc98, %sw.bb55, %sw.bb49, %sw.bb
-  %35 = phi ptr [ %30, %sw.bb ], [ %30, %sw.bb49 ], [ %30, %sw.bb55 ], [ %data.i94, %call.i.noexc98 ], [ %z.i, %call.i9.i.noexc ], [ %30, %invoke.cont42 ], [ %30, %invoke.cont42 ]
-  %36 = phi i64 [ 1, %sw.bb ], [ 8, %sw.bb49 ], [ 8, %sw.bb55 ], [ %conv.i91, %call.i.noexc98 ], [ 4, %call.i9.i.noexc ], [ 4, %invoke.cont42 ], [ 4, %invoke.cont42 ]
+sw.bb.invoke:                                     ; preds = %invoke.cont42, %invoke.cont42, %call.i9.i.noexc, %call.i.noexc98, %sw.bb49, %sw.bb
+  %35 = phi ptr [ %30, %sw.bb ], [ %30, %sw.bb49 ], [ %data.i94, %call.i.noexc98 ], [ %z.i, %call.i9.i.noexc ], [ %30, %invoke.cont42 ], [ %30, %invoke.cont42 ]
+  %36 = phi i64 [ 1, %sw.bb ], [ 8, %sw.bb49 ], [ %conv.i91, %call.i.noexc98 ], [ 4, %call.i9.i.noexc ], [ 4, %invoke.cont42 ], [ 4, %invoke.cont42 ]
   %vtable.i10.i = load ptr, ptr %chunk, align 8
   %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i, i64 24
   %37 = load ptr, ptr %vfn.i11.i, align 8
   %38 = invoke noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %35, i64 noundef %36, i64 noundef 1)
           to label %for.inc64 unwind label %lpad.loopexit
 
-sw.bb49:                                          ; preds = %invoke.cont42
-  br label %sw.bb.invoke
-
-sw.bb55:                                          ; preds = %invoke.cont42
+sw.bb49:                                          ; preds = %invoke.cont42, %invoke.cont42
   br label %sw.bb.invoke
 
 sw.bb58:                                          ; preds = %invoke.cont42

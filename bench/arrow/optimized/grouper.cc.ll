@@ -7068,16 +7068,13 @@ invoke.cont13.i:                                  ; preds = %do.end.i
   store ptr null, ptr %storage_.i.i4.i, align 8, !noalias !154
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %datum.i, i64 16
   store i8 %16, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !155, !noalias !145
-  switch i8 %16, label %_ZNK5arrow5Datum4kindEv.exit.i [
+  switch i8 %16, label %sw.default.i.i [
     i8 2, label %invoke.cont22.i
     i8 5, label %sw.bb6.i.i
-    i8 1, label %sw.bb2.i.i
+    i8 1, label %_ZNK5arrow5Datum4kindEv.exit.i
     i8 4, label %sw.bb5.i.i
     i8 3, label %sw.bb4.i.i
   ]
-
-sw.bb2.i.i:                                       ; preds = %invoke.cont13.i
-  br label %_ZNK5arrow5Datum4kindEv.exit.i
 
 sw.bb4.i.i:                                       ; preds = %invoke.cont13.i
   br label %_ZNK5arrow5Datum4kindEv.exit.i
@@ -7088,9 +7085,12 @@ sw.bb5.i.i:                                       ; preds = %invoke.cont13.i
 sw.bb6.i.i:                                       ; preds = %invoke.cont13.i
   br label %_ZNK5arrow5Datum4kindEv.exit.i
 
-_ZNK5arrow5Datum4kindEv.exit.i:                   ; preds = %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb2.i.i, %invoke.cont13.i, %if.then15.thread.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i46.i = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %sw.bb6.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %sw.bb5.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %sw.bb4.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %sw.bb2.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i1.i, %if.then15.thread.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont13.i ]
-  %retval.0.i.i = phi i32 [ 5, %sw.bb6.i.i ], [ 4, %sw.bb5.i.i ], [ 3, %sw.bb4.i.i ], [ 1, %sw.bb2.i.i ], [ 0, %if.then15.thread.i ], [ 0, %invoke.cont13.i ]
+sw.default.i.i:                                   ; preds = %invoke.cont13.i
+  br label %_ZNK5arrow5Datum4kindEv.exit.i
+
+_ZNK5arrow5Datum4kindEv.exit.i:                   ; preds = %sw.default.i.i, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %invoke.cont13.i, %if.then15.thread.i
+  %_M_index.i.i.i.i.i.i.i.i.i.i46.i = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %sw.bb6.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %sw.bb5.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %sw.bb4.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i1.i, %if.then15.thread.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %sw.default.i.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont13.i ]
+  %retval.0.i.i = phi i32 [ 5, %sw.bb6.i.i ], [ 4, %sw.bb5.i.i ], [ 3, %sw.bb4.i.i ], [ 0, %if.then15.thread.i ], [ 0, %sw.default.i.i ], [ 1, %invoke.cont13.i ]
   store i32 %retval.0.i.i, ptr %ref.tmp17.i, align 4, !noalias !145
   invoke void @_ZN5arrow6Status8FromArgsIJRA34_KcNS_5Datum4KindEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp16.i, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(34) @.str.9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17.i)
           to label %invoke.cont20.i unwind label %lpad12.i, !noalias !145
@@ -7300,11 +7300,11 @@ _ZNKSt14default_deleteIN5arrow7compute7GrouperEEclEPS2_.exit.i.i.i.i: ; preds = 
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %49 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(8) %48) #28
-  %.pre147 = load ptr, ptr %13, align 8
+  %.pre148 = load ptr, ptr %13, align 8
   br label %_ZNSt10unique_ptrIN5arrow7compute7GrouperESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5arrow7compute7GrouperESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5arrow7compute7GrouperEEclEPS2_.exit.i.i.i.i, %invoke.cont45
-  %50 = phi ptr [ %.pre147, %_ZNKSt14default_deleteIN5arrow7compute7GrouperEEclEPS2_.exit.i.i.i.i ], [ %47, %invoke.cont45 ]
+  %50 = phi ptr [ %.pre148, %_ZNKSt14default_deleteIN5arrow7compute7GrouperEEclEPS2_.exit.i.i.i.i ], [ %47, %invoke.cont45 ]
   %vtable = load ptr, ptr %50, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %51 = load ptr, ptr %vfn, align 8
@@ -7345,10 +7345,10 @@ invoke.cont66:                                    ; preds = %do.end63
   store ptr null, ptr %storage_.i.i74, align 8, !noalias !167
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %datum, i64 16
   store i8 %53, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !167
-  switch i8 %53, label %_ZNK5arrow5Datum4kindEv.exit [
+  switch i8 %53, label %sw.default.i [
     i8 2, label %if.then68
     i8 5, label %sw.bb6.i
-    i8 1, label %sw.bb2.i
+    i8 1, label %_ZNK5arrow5Datum4kindEv.exit
     i8 4, label %sw.bb5.i
     i8 3, label %sw.bb4.i
   ]
@@ -7382,8 +7382,8 @@ _ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit:     ; preds = %invoke.cont69, %if.
   %retval.0.i.i76 = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ null, %invoke.cont69 ]
   %length109 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load i64, ptr %length109, align 8
-  %cmp110144 = icmp sgt i64 %62, 1
-  br i1 %cmp110144, label %for.body.lr.ph, label %cond.true
+  %cmp110145 = icmp sgt i64 %62, 1
+  br i1 %cmp110145, label %for.body.lr.ph, label %cond.true
 
 for.body.lr.ph:                                   ; preds = %_ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit
   %63 = load i32, ptr %retval.0.i.i76, align 4
@@ -7397,19 +7397,19 @@ lpad65:                                           ; preds = %_ZNK5arrow5Datum4ki
   br label %ehcleanup130
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %cursor.0145 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx111 = getelementptr inbounds i32, ptr %retval.0.i.i76, i64 %cursor.0145
+  %cursor.0146 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx111 = getelementptr inbounds i32, ptr %retval.0.i.i76, i64 %cursor.0146
   %65 = load i32, ptr %arrayidx111, align 4
   %cmp112.not = icmp eq i32 %63, %65
   br i1 %cmp112.not, label %for.inc, label %cond.true
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %cursor.0145, 1
+  %inc = add nuw nsw i64 %cursor.0146, 1
   %exitcond.not = icmp eq i64 %inc, %62
   br i1 %exitcond.not, label %cond.true, label %for.body, !llvm.loop !168
 
 cond.true:                                        ; preds = %for.body, %for.inc, %_ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit
-  %cursor.0.lcssa = phi i64 [ 1, %_ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit ], [ %62, %for.inc ], [ %cursor.0145, %for.body ]
+  %cursor.0.lcssa = phi i64 [ 1, %_ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit ], [ %62, %for.inc ], [ %cursor.0146, %for.body ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
   store ptr %retval.0.i.i76, ptr %__args.addr.i, align 8
   %66 = load ptr, ptr %_M_manager.i.i, align 8
@@ -7446,9 +7446,6 @@ cond.end:                                         ; preds = %if.end.i78
   store i8 %frombool.i, ptr %ref.tmp119.sroa.4.0.storage_.i.i87.sroa_idx, align 1
   br label %cleanup127
 
-sw.bb2.i:                                         ; preds = %invoke.cont66
-  br label %_ZNK5arrow5Datum4kindEv.exit
-
 sw.bb4.i:                                         ; preds = %invoke.cont66
   br label %_ZNK5arrow5Datum4kindEv.exit
 
@@ -7458,9 +7455,12 @@ sw.bb5.i:                                         ; preds = %invoke.cont66
 sw.bb6.i:                                         ; preds = %invoke.cont66
   br label %_ZNK5arrow5Datum4kindEv.exit
 
-_ZNK5arrow5Datum4kindEv.exit:                     ; preds = %invoke.cont66, %if.else.thread, %sw.bb2.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i
-  %_M_index.i.i.i.i.i.i.i.i.i.i141143 = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i, %sw.bb6.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i, %sw.bb5.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i, %sw.bb4.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i, %sw.bb2.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i138, %if.else.thread ], [ %_M_index.i.i.i.i.i.i.i.i.i.i, %invoke.cont66 ]
-  %retval.0.i = phi i32 [ 5, %sw.bb6.i ], [ 4, %sw.bb5.i ], [ 3, %sw.bb4.i ], [ 1, %sw.bb2.i ], [ 0, %if.else.thread ], [ 0, %invoke.cont66 ]
+sw.default.i:                                     ; preds = %invoke.cont66
+  br label %_ZNK5arrow5Datum4kindEv.exit
+
+_ZNK5arrow5Datum4kindEv.exit:                     ; preds = %invoke.cont66, %if.else.thread, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.default.i
+  %_M_index.i.i.i.i.i.i.i.i.i.i141143 = phi ptr [ %_M_index.i.i.i.i.i.i.i.i.i.i, %sw.bb6.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i, %sw.bb5.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i, %sw.bb4.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i138, %if.else.thread ], [ %_M_index.i.i.i.i.i.i.i.i.i.i, %sw.default.i ], [ %_M_index.i.i.i.i.i.i.i.i.i.i, %invoke.cont66 ]
+  %retval.0.i = phi i32 [ 5, %sw.bb6.i ], [ 4, %sw.bb5.i ], [ 3, %sw.bb4.i ], [ 0, %if.else.thread ], [ 0, %sw.default.i ], [ 1, %invoke.cont66 ]
   store i32 %retval.0.i, ptr %ref.tmp123, align 4
   invoke void @_ZN5arrow6Status8FromArgsIJRA35_KcNS_5Datum4KindEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp122, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(35) @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp123)
           to label %invoke.cont126 unwind label %lpad65

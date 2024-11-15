@@ -61354,14 +61354,14 @@ _ZN7hir_def8ModuleId7def_map17h12ba535c1628be3bE.exit.i: ; preds = %214
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h2492a024853fd6d2E.exit.thread.i.i.i.i: ; preds = %309
   %311 = and i32 %.sroa.9200.0.i, -2
-  %switch525.i = icmp eq i32 %311, 2
-  br i1 %switch525.i, label %_ZN4core3ops8function6FnOnce9call_once17hcf834a8bb74e6dc4E.exit.thread.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5e46fcdf49792024E.exit.thread432.i"
+  %switch526.i = icmp eq i32 %311, 2
+  br i1 %switch526.i, label %_ZN4core3ops8function6FnOnce9call_once17hcf834a8bb74e6dc4E.exit.thread.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5e46fcdf49792024E.exit.thread432.i"
 
 _ZN4core3ops8function6FnOnce9call_once17hcf834a8bb74e6dc4E.exit.thread.i.i: ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h2492a024853fd6d2E.exit.thread.i.i.i.i, %307
   %.sroa.4198.3.ph.i = phi i32 [ %.sroa.4198.0.i, %307 ], [ 3, %_ZN4core4iter8adapters5chain17and_then_or_clear17h2492a024853fd6d2E.exit.thread.i.i.i.i ]
   %312 = and i32 %.sroa.15.0.i, -2
-  %switch526.i = icmp eq i32 %312, 2
-  br i1 %switch526.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5e46fcdf49792024E.exit.thread.i", label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5e46fcdf49792024E.exit.thread432.i"
+  %switch527.i = icmp eq i32 %312, 2
+  br i1 %switch527.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5e46fcdf49792024E.exit.thread.i", label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5e46fcdf49792024E.exit.thread432.i"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h5e46fcdf49792024E.exit.thread432.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hcf834a8bb74e6dc4E.exit.thread.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h2492a024853fd6d2E.exit.thread.i.i.i.i, %309
   %.sroa.15.1468.i = phi i32 [ %.sroa.15.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h2492a024853fd6d2E.exit.thread.i.i.i.i ], [ %.sroa.15.0.i, %309 ], [ 2, %_ZN4core3ops8function6FnOnce9call_once17hcf834a8bb74e6dc4E.exit.thread.i.i ]
@@ -61382,8 +61382,8 @@ _ZN4core3ops8function6FnOnce9call_once17hcf834a8bb74e6dc4E.exit.thread.i.i: ; pr
   br i1 %315, label %317, label %.thread470.i
 
 316:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h5e46fcdf49792024E.exit.thread432.i"
-  %switch527.i = icmp ult i32 %.sroa.0202.sroa.0.3465.i, 2
-  br i1 %switch527.i, label %351, label %361
+  %switch522.i = icmp ult i32 %.sroa.0202.sroa.0.3465.i, 2
+  br i1 %switch522.i, label %351, label %361
 
 317:                                              ; preds = %314
   %.sroa.534.0.extract.shift.i = lshr exact i64 %.sroa.10.3466.i, 32
@@ -62628,8 +62628,8 @@ _ZN8smallvec10infallible17h7538e96c459630deE.exit.i: ; preds = %633
   store i64 %672, ptr %.05.i.i, align 8, !alias.scope !13854, !noalias !13845
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52), !noalias !13288
   %673 = icmp eq i32 %379, 0
-  %or.cond524.i = select i1 %switch.i.i, i1 %673, i1 false
-  br i1 %or.cond524.i, label %674, label %_ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit142.thread.i
+  %or.cond525.i = select i1 %switch.i.i, i1 %673, i1 false
+  br i1 %or.cond525.i, label %674, label %_ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit142.thread.i
 
 _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit142.thread.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69d3d4e43f241b3eE.exit.i", %668
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %54), !noalias !13288

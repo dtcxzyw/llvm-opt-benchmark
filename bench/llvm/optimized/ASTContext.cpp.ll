@@ -24394,67 +24394,64 @@ define dso_local noundef nonnull align 1 ptr @_ZNK5clang10ASTContext21getFloatTy
   %12 = lshr i32 %11, 19
   %13 = and i32 %12, 511
   switch i32 %13, label %14 [
-    i32 478, label %34
+    i32 478, label %33
     i32 477, label %15
-    i32 473, label %16
-    i32 474, label %17
-    i32 475, label %18
-    i32 480, label %19
-    i32 476, label %20
-    i32 479, label %27
+    i32 473, label %15
+    i32 474, label %16
+    i32 475, label %17
+    i32 480, label %18
+    i32 476, label %19
+    i32 479, label %26
   ]
 
 14:                                               ; preds = %2
   unreachable
 
-15:                                               ; preds = %2
-  br label %34
+15:                                               ; preds = %2, %2
+  br label %33
 
 16:                                               ; preds = %2
-  br label %34
+  br label %33
 
 17:                                               ; preds = %2
-  br label %34
+  br label %33
 
 18:                                               ; preds = %2
-  br label %34
+  br label %33
 
 19:                                               ; preds = %2
-  br label %34
-
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  %24 = load i64, ptr %23, align 8
-  %25 = and i64 %24, 4294967295
-  %.not3 = icmp eq i64 %25, 0
-  %26 = and i64 %24, 34359738368
-  %.not4 = icmp eq i64 %26, 0
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %23 = load i64, ptr %22, align 8
+  %24 = and i64 %23, 4294967295
+  %.not3 = icmp eq i64 %24, 0
+  %25 = and i64 %23, 34359738368
+  %.not4 = icmp eq i64 %25, 0
   %or.cond = or i1 %.not3, %.not4
   %. = select i1 %or.cond, i64 17240, i64 17248
-  br label %34
+  br label %33
 
-27:                                               ; preds = %2
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %31 = load i64, ptr %30, align 8
-  %32 = and i64 %31, 4294967295
-  %.not = icmp eq i64 %32, 0
-  %33 = and i64 %31, 34359738368
-  %.not2 = icmp eq i64 %33, 0
+26:                                               ; preds = %2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %30 = load i64, ptr %29, align 8
+  %31 = and i64 %30, 4294967295
+  %.not = icmp eq i64 %31, 0
+  %32 = and i64 %30, 34359738368
+  %.not2 = icmp eq i64 %32, 0
   %or.cond5 = or i1 %.not, %.not2
   %.8 = select i1 %or.cond5, i64 17240, i64 17248
-  br label %34
+  br label %33
 
-34:                                               ; preds = %27, %20, %2, %19, %18, %17, %16, %15
-  %.sink = phi i64 [ 17240, %19 ], [ 17240, %18 ], [ 17240, %17 ], [ 17240, %16 ], [ 17240, %15 ], [ 17240, %2 ], [ %., %20 ], [ %.8, %27 ]
-  %.sink6 = phi i64 [ 128, %19 ], [ 104, %18 ], [ 96, %17 ], [ 80, %16 ], [ 80, %15 ], [ 88, %2 ], [ 112, %20 ], [ 120, %27 ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 %.sink6
-  %.0 = load ptr, ptr %37, align 8
+33:                                               ; preds = %26, %19, %2, %18, %17, %16, %15
+  %.sink = phi i64 [ 17240, %18 ], [ 17240, %17 ], [ 17240, %16 ], [ 17240, %15 ], [ 17240, %2 ], [ %., %19 ], [ %.8, %26 ]
+  %.sink6 = phi i64 [ 128, %18 ], [ 104, %17 ], [ 96, %16 ], [ 80, %15 ], [ 88, %2 ], [ 112, %19 ], [ 120, %26 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 %.sink6
+  %.0 = load ptr, ptr %36, align 8
   ret ptr %.0
 }
 
@@ -25252,7 +25249,7 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
 define dso_local { i64, i64 } @_ZNK5clang10ASTContext15getTypeInfoImplEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 16
-  switch i8 %4, label %1189 [
+  switch i8 %4, label %903 [
     i8 4, label %5
     i8 15, label %5
     i8 18, label %13
@@ -25271,7 +25268,7 @@ define dso_local { i64, i64 } @_ZNK5clang10ASTContext15getTypeInfoImplEPKNS_4Typ
     i8 50, label %42
     i8 51, label %50
     i8 53, label %58
-    i8 40, label %1171
+    i8 40, label %885
     i8 25, label %66
     i8 26, label %66
     i8 5, label %67
@@ -25282,34 +25279,34 @@ define dso_local { i64, i64 } @_ZNK5clang10ASTContext15getTypeInfoImplEPKNS_4Typ
     i8 56, label %103
     i8 30, label %157
     i8 13, label %173
-    i8 33, label %796
-    i8 11, label %805
-    i8 42, label %842
-    i8 43, label %842
-    i8 41, label %893
-    i8 32, label %930
-    i8 14, label %939
-    i8 34, label %948
-    i8 0, label %956
-    i8 1, label %956
-    i8 35, label %964
-    i8 10, label %987
-    i8 47, label %1012
-    i8 46, label %1012
-    i8 45, label %1049
-    i8 16, label %1058
-    i8 17, label %1058
-    i8 39, label %1066
-    i8 29, label %1074
-    i8 36, label %1082
-    i8 55, label %1090
-    i8 52, label %1098
-    i8 24, label %1109
-    i8 8, label %1117
-    i8 12, label %1125
-    i8 9, label %1133
-    i8 27, label %1141
-    i8 7, label %1149
+    i8 33, label %510
+    i8 11, label %519
+    i8 42, label %556
+    i8 43, label %556
+    i8 41, label %607
+    i8 32, label %644
+    i8 14, label %653
+    i8 34, label %662
+    i8 0, label %670
+    i8 1, label %670
+    i8 35, label %678
+    i8 10, label %701
+    i8 47, label %726
+    i8 46, label %726
+    i8 45, label %763
+    i8 16, label %772
+    i8 17, label %772
+    i8 39, label %780
+    i8 29, label %788
+    i8 36, label %796
+    i8 55, label %804
+    i8 52, label %812
+    i8 24, label %823
+    i8 8, label %831
+    i8 12, label %839
+    i8 9, label %847
+    i8 27, label %855
+    i8 7, label %863
   ]
 
 5:                                                ; preds = %2, %2
@@ -25322,7 +25319,7 @@ define dso_local { i64, i64 } @_ZNK5clang10ASTContext15getTypeInfoImplEPKNS_4Typ
   %12 = extractvalue { i64, i64 } %10, 1
   %.sroa.22.8.extract.trunc297 = trunc i64 %12 to i32
   %.sroa.45.8.extract.shift336 = lshr i64 %12, 32
-  br label %1189
+  br label %903
 
 13:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   %14 = tail call i64 @_ZNK5clang16PackIndexingType16getSelectedIndexEv(ptr noundef nonnull align 16 dereferenceable(64) %1) #29
@@ -25352,7 +25349,7 @@ _ZNK5clang16PackIndexingType7desugarEv.exit:      ; preds = %16, %21
   %28 = extractvalue { i64, i64 } %26, 1
   %.sroa.22.8.extract.trunc296 = trunc i64 %28 to i32
   %.sroa.45.8.extract.shift334 = lshr i64 %28, 32
-  br label %1189
+  br label %903
 
 29:                                               ; preds = %2, %2
   %30 = load i32, ptr %3, align 16
@@ -25379,7 +25376,7 @@ _ZNK5clang26TemplateSpecializationType7desugarEv.exit: ; preds = %32, %34
   %41 = extractvalue { i64, i64 } %39, 1
   %.sroa.22.8.extract.trunc295 = trunc i64 %41 to i32
   %.sroa.45.8.extract.shift332 = lshr i64 %41, 32
-  br label %1189
+  br label %903
 
 42:                                               ; preds = %2, %2
   %43 = tail call i64 @_ZNK5clang14TypeOfExprType7desugarEv(ptr noundef nonnull align 16 dereferenceable(40) %1) #29
@@ -25391,7 +25388,7 @@ _ZNK5clang26TemplateSpecializationType7desugarEv.exit: ; preds = %32, %34
   %49 = extractvalue { i64, i64 } %47, 1
   %.sroa.22.8.extract.trunc294 = trunc i64 %49 to i32
   %.sroa.45.8.extract.shift330 = lshr i64 %49, 32
-  br label %1189
+  br label %903
 
 50:                                               ; preds = %2
   %51 = tail call i64 @_ZNK5clang10TypeOfType7desugarEv(ptr noundef nonnull align 16 dereferenceable(40) %1) #29
@@ -25403,7 +25400,7 @@ _ZNK5clang26TemplateSpecializationType7desugarEv.exit: ; preds = %32, %34
   %57 = extractvalue { i64, i64 } %55, 1
   %.sroa.22.8.extract.trunc293 = trunc i64 %57 to i32
   %.sroa.45.8.extract.shift328 = lshr i64 %57, 32
-  br label %1189
+  br label %903
 
 58:                                               ; preds = %2
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -25416,10 +25413,10 @@ _ZNK5clang26TemplateSpecializationType7desugarEv.exit: ; preds = %32, %34
   %65 = extractvalue { i64, i64 } %63, 1
   %.sroa.22.8.extract.trunc292 = trunc i64 %65 to i32
   %.sroa.45.8.extract.shift326 = lshr i64 %65, 32
-  br label %1189
+  br label %903
 
 66:                                               ; preds = %2, %2
-  br label %1189
+  br label %903
 
 67:                                               ; preds = %2, %2, %2, %2
   %68 = and i8 %4, -2
@@ -25471,7 +25468,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %69, %73
   %93 = getelementptr inbounds i8, ptr %90, i64 8
   %94 = load i8, ptr %93, align 8
   %95 = icmp eq i8 %94, 64
-  br i1 %95, label %.critedge, label %1189
+  br i1 %95, label %.critedge, label %903
 
 .critedge:                                        ; preds = %80, %92
   %96 = icmp ne i64 %88, 0
@@ -25481,7 +25478,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %69, %73
   %100 = udiv i64 %98, %99
   %101 = add i64 %100, %97
   %102 = mul i64 %101, %99
-  br label %1189
+  br label %903
 
 103:                                              ; preds = %2, %2
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -25564,7 +25561,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %153 = lshr i32 %152, 19
   %154 = and i32 %153, 15
   switch i32 %154, label %.fold.split353 [
-    i32 6, label %1189
+    i32 6, label %903
     i32 7, label %.fold.split
     i32 8, label %155
     i32 9, label %155
@@ -25576,7 +25573,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
 155:                                              ; preds = %151, %151, %151, %151, %151
   %156 = trunc i64 %.1 to i32
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %156, i32 64)
-  br label %1189
+  br label %903
 
 157:                                              ; preds = %2
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -25596,14 +25593,14 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %170 = load i32, ptr %169, align 4
   %171 = zext i32 %170 to i64
   %172 = mul i64 %168, %171
-  br label %1189
+  br label %903
 
 173:                                              ; preds = %2
   %174 = load i32, ptr %3, align 16
   %175 = lshr i32 %174, 19
   %176 = and i32 %175, 511
   switch i32 %176, label %177 [
-    i32 428, label %1189
+    i32 428, label %903
     i32 429, label %178
     i32 441, label %187
     i32 430, label %187
@@ -25714,385 +25711,385 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
     i32 46, label %473
     i32 47, label %473
     i32 48, label %503
-    i32 49, label %504
-    i32 50, label %505
-    i32 51, label %506
-    i32 52, label %507
-    i32 53, label %508
-    i32 54, label %509
-    i32 55, label %510
-    i32 56, label %511
-    i32 57, label %512
-    i32 58, label %513
-    i32 59, label %514
-    i32 60, label %515
-    i32 61, label %516
-    i32 62, label %517
-    i32 63, label %518
-    i32 64, label %519
-    i32 65, label %520
-    i32 66, label %521
-    i32 67, label %522
-    i32 68, label %523
-    i32 69, label %524
-    i32 70, label %525
-    i32 71, label %526
-    i32 72, label %527
-    i32 73, label %528
-    i32 74, label %529
-    i32 75, label %530
-    i32 76, label %531
-    i32 77, label %532
-    i32 78, label %533
-    i32 79, label %534
-    i32 80, label %535
-    i32 81, label %536
-    i32 82, label %537
-    i32 83, label %538
-    i32 84, label %539
-    i32 85, label %540
-    i32 86, label %541
-    i32 87, label %542
-    i32 88, label %543
-    i32 89, label %544
-    i32 90, label %545
-    i32 91, label %546
-    i32 92, label %547
-    i32 93, label %548
-    i32 94, label %549
-    i32 95, label %550
-    i32 96, label %551
-    i32 97, label %552
-    i32 98, label %553
-    i32 99, label %554
-    i32 100, label %555
-    i32 101, label %556
-    i32 102, label %1189
-    i32 103, label %1189
-    i32 104, label %1189
-    i32 105, label %1189
-    i32 106, label %1189
-    i32 107, label %1189
-    i32 108, label %1189
-    i32 109, label %1189
-    i32 110, label %1189
-    i32 111, label %1189
-    i32 112, label %1189
-    i32 113, label %1189
-    i32 114, label %1189
-    i32 115, label %1189
-    i32 116, label %557
-    i32 117, label %558
-    i32 118, label %559
-    i32 119, label %560
-    i32 120, label %561
-    i32 121, label %562
-    i32 122, label %563
-    i32 123, label %564
-    i32 124, label %565
-    i32 125, label %566
-    i32 126, label %567
-    i32 127, label %568
-    i32 128, label %569
-    i32 129, label %570
-    i32 130, label %571
-    i32 131, label %572
-    i32 132, label %573
-    i32 133, label %574
-    i32 134, label %575
-    i32 135, label %576
-    i32 136, label %577
-    i32 137, label %578
-    i32 138, label %579
-    i32 139, label %580
-    i32 140, label %581
-    i32 141, label %582
-    i32 142, label %583
-    i32 143, label %584
-    i32 144, label %585
-    i32 145, label %586
-    i32 146, label %587
-    i32 147, label %588
-    i32 148, label %589
-    i32 149, label %590
-    i32 150, label %591
-    i32 151, label %592
-    i32 152, label %593
-    i32 153, label %594
-    i32 154, label %595
-    i32 155, label %596
-    i32 156, label %597
-    i32 157, label %598
-    i32 158, label %599
-    i32 159, label %600
-    i32 160, label %601
-    i32 161, label %602
-    i32 162, label %603
-    i32 163, label %604
-    i32 164, label %605
-    i32 165, label %606
-    i32 166, label %607
-    i32 167, label %1189
-    i32 168, label %1189
-    i32 169, label %1189
-    i32 170, label %1189
-    i32 171, label %1189
-    i32 172, label %1189
-    i32 173, label %1189
-    i32 174, label %1189
-    i32 175, label %1189
-    i32 176, label %1189
-    i32 177, label %1189
-    i32 178, label %1189
-    i32 179, label %1189
-    i32 180, label %1189
-    i32 181, label %1189
-    i32 182, label %1189
-    i32 183, label %1189
-    i32 184, label %1189
-    i32 185, label %1189
-    i32 186, label %1189
-    i32 187, label %1189
-    i32 188, label %1189
-    i32 189, label %1189
-    i32 190, label %1189
-    i32 191, label %1189
-    i32 192, label %1189
-    i32 193, label %1189
-    i32 194, label %1189
-    i32 195, label %1189
-    i32 196, label %1189
-    i32 197, label %1189
-    i32 198, label %1189
-    i32 199, label %1189
-    i32 200, label %1189
-    i32 201, label %1189
-    i32 202, label %1189
-    i32 203, label %1189
-    i32 204, label %1189
-    i32 205, label %1189
-    i32 206, label %1189
-    i32 207, label %1189
-    i32 208, label %1189
-    i32 209, label %1189
-    i32 210, label %1189
-    i32 211, label %1189
-    i32 212, label %1189
-    i32 213, label %1189
-    i32 214, label %1189
-    i32 215, label %1189
-    i32 216, label %1189
-    i32 217, label %1189
-    i32 218, label %1189
-    i32 219, label %1189
-    i32 220, label %1189
-    i32 221, label %1189
-    i32 222, label %1189
-    i32 223, label %1189
-    i32 224, label %1189
-    i32 225, label %1189
-    i32 226, label %1189
-    i32 227, label %1189
-    i32 228, label %1189
-    i32 229, label %1189
-    i32 230, label %1189
-    i32 231, label %1189
-    i32 232, label %1189
-    i32 233, label %1189
-    i32 234, label %1189
-    i32 235, label %1189
-    i32 236, label %1189
-    i32 237, label %1189
-    i32 238, label %608
-    i32 239, label %609
-    i32 240, label %610
-    i32 241, label %611
-    i32 242, label %612
-    i32 243, label %613
-    i32 244, label %614
-    i32 245, label %615
-    i32 246, label %616
-    i32 247, label %617
-    i32 248, label %618
-    i32 249, label %619
-    i32 250, label %620
-    i32 251, label %621
-    i32 252, label %622
-    i32 253, label %623
-    i32 254, label %624
-    i32 255, label %625
-    i32 256, label %626
-    i32 257, label %627
-    i32 258, label %628
-    i32 259, label %629
-    i32 260, label %630
-    i32 261, label %631
-    i32 262, label %632
-    i32 263, label %633
-    i32 264, label %634
-    i32 265, label %635
-    i32 266, label %636
-    i32 267, label %637
-    i32 268, label %638
-    i32 269, label %639
-    i32 270, label %640
-    i32 271, label %641
-    i32 272, label %642
-    i32 273, label %643
-    i32 274, label %644
-    i32 275, label %645
-    i32 276, label %646
-    i32 277, label %647
-    i32 278, label %648
-    i32 279, label %649
-    i32 280, label %650
-    i32 281, label %651
-    i32 282, label %652
-    i32 283, label %653
-    i32 284, label %654
-    i32 285, label %655
-    i32 286, label %656
-    i32 287, label %657
-    i32 288, label %658
-    i32 289, label %659
-    i32 290, label %660
-    i32 291, label %661
-    i32 292, label %662
-    i32 293, label %663
-    i32 294, label %664
-    i32 295, label %665
-    i32 296, label %666
-    i32 297, label %667
-    i32 298, label %668
-    i32 299, label %669
-    i32 300, label %670
-    i32 301, label %671
-    i32 302, label %672
-    i32 303, label %673
-    i32 304, label %674
-    i32 305, label %675
-    i32 306, label %676
-    i32 307, label %677
-    i32 308, label %678
-    i32 309, label %679
-    i32 310, label %680
-    i32 311, label %681
-    i32 312, label %682
-    i32 313, label %683
-    i32 314, label %684
-    i32 315, label %685
-    i32 316, label %686
-    i32 317, label %687
-    i32 318, label %688
-    i32 319, label %689
-    i32 320, label %690
-    i32 321, label %691
-    i32 322, label %692
-    i32 323, label %693
-    i32 324, label %694
-    i32 325, label %695
-    i32 326, label %696
-    i32 327, label %697
-    i32 328, label %698
-    i32 329, label %699
-    i32 330, label %700
-    i32 331, label %701
-    i32 332, label %702
-    i32 333, label %703
-    i32 334, label %704
-    i32 335, label %705
-    i32 336, label %706
-    i32 337, label %707
-    i32 338, label %708
-    i32 339, label %709
-    i32 340, label %710
-    i32 341, label %711
-    i32 342, label %712
-    i32 343, label %713
-    i32 344, label %714
-    i32 345, label %715
-    i32 346, label %716
-    i32 347, label %717
-    i32 348, label %718
-    i32 349, label %719
-    i32 350, label %720
-    i32 351, label %721
-    i32 352, label %722
-    i32 353, label %723
-    i32 354, label %724
-    i32 355, label %725
-    i32 356, label %726
-    i32 357, label %727
-    i32 358, label %728
-    i32 359, label %729
-    i32 360, label %730
-    i32 361, label %731
-    i32 362, label %732
-    i32 363, label %733
-    i32 364, label %734
-    i32 365, label %735
-    i32 366, label %736
-    i32 367, label %737
-    i32 368, label %738
-    i32 369, label %739
-    i32 370, label %740
-    i32 371, label %741
-    i32 372, label %742
-    i32 373, label %743
-    i32 374, label %744
-    i32 375, label %745
-    i32 376, label %746
-    i32 377, label %747
-    i32 378, label %748
-    i32 379, label %749
-    i32 380, label %750
-    i32 381, label %751
-    i32 382, label %752
-    i32 383, label %753
-    i32 384, label %754
-    i32 385, label %755
-    i32 386, label %756
-    i32 387, label %757
-    i32 388, label %758
-    i32 389, label %759
-    i32 390, label %760
-    i32 391, label %761
-    i32 392, label %762
-    i32 393, label %763
-    i32 394, label %764
-    i32 395, label %765
-    i32 396, label %766
-    i32 397, label %767
-    i32 398, label %768
-    i32 399, label %769
-    i32 400, label %770
-    i32 401, label %771
-    i32 402, label %772
-    i32 403, label %773
-    i32 404, label %774
-    i32 405, label %775
-    i32 406, label %776
-    i32 407, label %777
-    i32 408, label %778
-    i32 409, label %779
-    i32 410, label %780
-    i32 411, label %781
-    i32 412, label %782
-    i32 413, label %783
-    i32 414, label %784
-    i32 415, label %785
-    i32 416, label %786
-    i32 417, label %787
-    i32 418, label %788
-    i32 419, label %789
-    i32 420, label %790
-    i32 421, label %791
-    i32 422, label %792
-    i32 423, label %793
-    i32 424, label %794
-    i32 425, label %1189
-    i32 426, label %795
-    i32 427, label %1189
+    i32 49, label %503
+    i32 50, label %503
+    i32 51, label %503
+    i32 52, label %503
+    i32 53, label %503
+    i32 54, label %503
+    i32 55, label %503
+    i32 56, label %503
+    i32 57, label %503
+    i32 58, label %503
+    i32 59, label %503
+    i32 60, label %503
+    i32 61, label %503
+    i32 62, label %503
+    i32 63, label %503
+    i32 64, label %503
+    i32 65, label %503
+    i32 66, label %503
+    i32 67, label %503
+    i32 68, label %503
+    i32 69, label %503
+    i32 70, label %503
+    i32 71, label %503
+    i32 72, label %503
+    i32 73, label %503
+    i32 74, label %503
+    i32 75, label %503
+    i32 76, label %503
+    i32 77, label %503
+    i32 78, label %503
+    i32 79, label %503
+    i32 80, label %503
+    i32 81, label %503
+    i32 82, label %503
+    i32 83, label %503
+    i32 84, label %503
+    i32 85, label %503
+    i32 86, label %503
+    i32 87, label %503
+    i32 88, label %503
+    i32 89, label %503
+    i32 90, label %503
+    i32 91, label %503
+    i32 92, label %503
+    i32 93, label %503
+    i32 94, label %503
+    i32 95, label %503
+    i32 96, label %504
+    i32 97, label %504
+    i32 98, label %504
+    i32 99, label %504
+    i32 100, label %505
+    i32 101, label %506
+    i32 102, label %903
+    i32 103, label %903
+    i32 104, label %903
+    i32 105, label %903
+    i32 106, label %903
+    i32 107, label %903
+    i32 108, label %903
+    i32 109, label %903
+    i32 110, label %903
+    i32 111, label %903
+    i32 112, label %903
+    i32 113, label %903
+    i32 114, label %903
+    i32 115, label %903
+    i32 116, label %504
+    i32 117, label %504
+    i32 118, label %504
+    i32 119, label %504
+    i32 120, label %504
+    i32 121, label %504
+    i32 122, label %504
+    i32 123, label %504
+    i32 124, label %504
+    i32 125, label %504
+    i32 126, label %504
+    i32 127, label %504
+    i32 128, label %507
+    i32 129, label %507
+    i32 130, label %507
+    i32 131, label %507
+    i32 132, label %507
+    i32 133, label %507
+    i32 134, label %507
+    i32 135, label %507
+    i32 136, label %507
+    i32 137, label %507
+    i32 138, label %508
+    i32 139, label %508
+    i32 140, label %508
+    i32 141, label %508
+    i32 142, label %508
+    i32 143, label %508
+    i32 144, label %508
+    i32 145, label %508
+    i32 146, label %504
+    i32 147, label %504
+    i32 148, label %504
+    i32 149, label %504
+    i32 150, label %504
+    i32 151, label %504
+    i32 152, label %504
+    i32 153, label %504
+    i32 154, label %504
+    i32 155, label %504
+    i32 156, label %504
+    i32 157, label %504
+    i32 158, label %507
+    i32 159, label %507
+    i32 160, label %507
+    i32 161, label %507
+    i32 162, label %507
+    i32 163, label %508
+    i32 164, label %508
+    i32 165, label %508
+    i32 166, label %508
+    i32 167, label %903
+    i32 168, label %903
+    i32 169, label %903
+    i32 170, label %903
+    i32 171, label %903
+    i32 172, label %903
+    i32 173, label %903
+    i32 174, label %903
+    i32 175, label %903
+    i32 176, label %903
+    i32 177, label %903
+    i32 178, label %903
+    i32 179, label %903
+    i32 180, label %903
+    i32 181, label %903
+    i32 182, label %903
+    i32 183, label %903
+    i32 184, label %903
+    i32 185, label %903
+    i32 186, label %903
+    i32 187, label %903
+    i32 188, label %903
+    i32 189, label %903
+    i32 190, label %903
+    i32 191, label %903
+    i32 192, label %903
+    i32 193, label %903
+    i32 194, label %903
+    i32 195, label %903
+    i32 196, label %903
+    i32 197, label %903
+    i32 198, label %903
+    i32 199, label %903
+    i32 200, label %903
+    i32 201, label %903
+    i32 202, label %903
+    i32 203, label %903
+    i32 204, label %903
+    i32 205, label %903
+    i32 206, label %903
+    i32 207, label %903
+    i32 208, label %903
+    i32 209, label %903
+    i32 210, label %903
+    i32 211, label %903
+    i32 212, label %903
+    i32 213, label %903
+    i32 214, label %903
+    i32 215, label %903
+    i32 216, label %903
+    i32 217, label %903
+    i32 218, label %903
+    i32 219, label %903
+    i32 220, label %903
+    i32 221, label %903
+    i32 222, label %903
+    i32 223, label %903
+    i32 224, label %903
+    i32 225, label %903
+    i32 226, label %903
+    i32 227, label %903
+    i32 228, label %903
+    i32 229, label %903
+    i32 230, label %903
+    i32 231, label %903
+    i32 232, label %903
+    i32 233, label %903
+    i32 234, label %903
+    i32 235, label %903
+    i32 236, label %903
+    i32 237, label %903
+    i32 238, label %504
+    i32 239, label %504
+    i32 240, label %504
+    i32 241, label %504
+    i32 242, label %504
+    i32 243, label %504
+    i32 244, label %504
+    i32 245, label %504
+    i32 246, label %504
+    i32 247, label %504
+    i32 248, label %504
+    i32 249, label %504
+    i32 250, label %504
+    i32 251, label %504
+    i32 252, label %504
+    i32 253, label %504
+    i32 254, label %504
+    i32 255, label %504
+    i32 256, label %504
+    i32 257, label %504
+    i32 258, label %504
+    i32 259, label %504
+    i32 260, label %504
+    i32 261, label %504
+    i32 262, label %504
+    i32 263, label %504
+    i32 264, label %504
+    i32 265, label %504
+    i32 266, label %504
+    i32 267, label %504
+    i32 268, label %504
+    i32 269, label %504
+    i32 270, label %504
+    i32 271, label %504
+    i32 272, label %504
+    i32 273, label %504
+    i32 274, label %504
+    i32 275, label %504
+    i32 276, label %504
+    i32 277, label %504
+    i32 278, label %504
+    i32 279, label %504
+    i32 280, label %504
+    i32 281, label %504
+    i32 282, label %504
+    i32 283, label %504
+    i32 284, label %504
+    i32 285, label %504
+    i32 286, label %504
+    i32 287, label %504
+    i32 288, label %507
+    i32 289, label %507
+    i32 290, label %507
+    i32 291, label %507
+    i32 292, label %507
+    i32 293, label %507
+    i32 294, label %507
+    i32 295, label %507
+    i32 296, label %507
+    i32 297, label %507
+    i32 298, label %507
+    i32 299, label %507
+    i32 300, label %507
+    i32 301, label %507
+    i32 302, label %507
+    i32 303, label %507
+    i32 304, label %507
+    i32 305, label %507
+    i32 306, label %507
+    i32 307, label %507
+    i32 308, label %507
+    i32 309, label %507
+    i32 310, label %507
+    i32 311, label %507
+    i32 312, label %507
+    i32 313, label %507
+    i32 314, label %507
+    i32 315, label %507
+    i32 316, label %507
+    i32 317, label %507
+    i32 318, label %507
+    i32 319, label %507
+    i32 320, label %507
+    i32 321, label %507
+    i32 322, label %507
+    i32 323, label %507
+    i32 324, label %508
+    i32 325, label %508
+    i32 326, label %508
+    i32 327, label %508
+    i32 328, label %508
+    i32 329, label %508
+    i32 330, label %508
+    i32 331, label %508
+    i32 332, label %508
+    i32 333, label %508
+    i32 334, label %508
+    i32 335, label %508
+    i32 336, label %508
+    i32 337, label %508
+    i32 338, label %508
+    i32 339, label %508
+    i32 340, label %508
+    i32 341, label %508
+    i32 342, label %508
+    i32 343, label %508
+    i32 344, label %508
+    i32 345, label %508
+    i32 346, label %504
+    i32 347, label %504
+    i32 348, label %504
+    i32 349, label %504
+    i32 350, label %504
+    i32 351, label %504
+    i32 352, label %504
+    i32 353, label %504
+    i32 354, label %504
+    i32 355, label %504
+    i32 356, label %504
+    i32 357, label %504
+    i32 358, label %504
+    i32 359, label %504
+    i32 360, label %504
+    i32 361, label %504
+    i32 362, label %504
+    i32 363, label %504
+    i32 364, label %504
+    i32 365, label %504
+    i32 366, label %504
+    i32 367, label %504
+    i32 368, label %504
+    i32 369, label %504
+    i32 370, label %504
+    i32 371, label %507
+    i32 372, label %507
+    i32 373, label %507
+    i32 374, label %507
+    i32 375, label %507
+    i32 376, label %507
+    i32 377, label %507
+    i32 378, label %507
+    i32 379, label %507
+    i32 380, label %507
+    i32 381, label %507
+    i32 382, label %507
+    i32 383, label %507
+    i32 384, label %507
+    i32 385, label %507
+    i32 386, label %507
+    i32 387, label %507
+    i32 388, label %507
+    i32 389, label %508
+    i32 390, label %508
+    i32 391, label %508
+    i32 392, label %508
+    i32 393, label %508
+    i32 394, label %508
+    i32 395, label %508
+    i32 396, label %508
+    i32 397, label %508
+    i32 398, label %508
+    i32 399, label %508
+    i32 400, label %504
+    i32 401, label %504
+    i32 402, label %504
+    i32 403, label %504
+    i32 404, label %504
+    i32 405, label %504
+    i32 406, label %504
+    i32 407, label %504
+    i32 408, label %504
+    i32 409, label %504
+    i32 410, label %504
+    i32 411, label %504
+    i32 412, label %504
+    i32 413, label %504
+    i32 414, label %504
+    i32 415, label %504
+    i32 416, label %504
+    i32 417, label %504
+    i32 418, label %504
+    i32 419, label %504
+    i32 420, label %504
+    i32 421, label %504
+    i32 422, label %504
+    i32 423, label %504
+    i32 424, label %504
+    i32 425, label %903
+    i32 426, label %509
+    i32 427, label %903
   ]
 
 177:                                              ; preds = %173
@@ -26107,10 +26104,10 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %184 = getelementptr inbounds i8, ptr %180, i64 11
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i32
-  br label %1189
+  br label %903
 
 187:                                              ; preds = %173, %173, %173, %173, %173
-  br label %1189
+  br label %903
 
 188:                                              ; preds = %173, %173
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26123,7 +26120,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %196 = getelementptr inbounds i8, ptr %195, i64 152
   %197 = load i32, ptr %196, align 8
   %198 = tail call noundef i32 @_ZNK5clang10TargetInfo12getTypeAlignENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %195, i32 noundef %197) #29
-  br label %1189
+  br label %903
 
 199:                                              ; preds = %173
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26136,7 +26133,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %207 = getelementptr inbounds i8, ptr %206, i64 160
   %208 = load i32, ptr %207, align 8
   %209 = tail call noundef i32 @_ZNK5clang10TargetInfo12getTypeAlignENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %206, i32 noundef %208) #29
-  br label %1189
+  br label %903
 
 210:                                              ; preds = %173
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26149,10 +26146,10 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %218 = getelementptr inbounds i8, ptr %217, i64 164
   %219 = load i32, ptr %218, align 4
   %220 = tail call noundef i32 @_ZNK5clang10TargetInfo12getTypeAlignENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %217, i32 noundef %219) #29
-  br label %1189
+  br label %903
 
 221:                                              ; preds = %173, %173
-  br label %1189
+  br label %903
 
 222:                                              ; preds = %173, %173
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26163,7 +26160,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %228 = getelementptr inbounds i8, ptr %224, i64 13
   %229 = load i8, ptr %228, align 1
   %230 = zext i8 %229 to i32
-  br label %1189
+  br label %903
 
 231:                                              ; preds = %173, %173
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26174,7 +26171,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %237 = getelementptr inbounds i8, ptr %233, i64 29
   %238 = load i8, ptr %237, align 1
   %239 = zext i8 %238 to i32
-  br label %1189
+  br label %903
 
 240:                                              ; preds = %173, %173
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26185,7 +26182,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %246 = getelementptr inbounds i8, ptr %242, i64 31
   %247 = load i8, ptr %246, align 1
   %248 = zext i8 %247 to i32
-  br label %1189
+  br label %903
 
 249:                                              ; preds = %173, %173
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26193,7 +26190,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %252 = getelementptr inbounds i8, ptr %251, i64 32
   %253 = load i8, ptr %252, align 8
   %254 = zext i8 %253 to i32
-  br label %1189
+  br label %903
 
 255:                                              ; preds = %173, %173, %173, %173
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26204,7 +26201,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %261 = getelementptr inbounds i8, ptr %257, i64 45
   %262 = load i8, ptr %261, align 1
   %263 = zext i8 %262 to i32
-  br label %1189
+  br label %903
 
 264:                                              ; preds = %173, %173, %173, %173
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26215,7 +26212,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %270 = getelementptr inbounds i8, ptr %266, i64 47
   %271 = load i8, ptr %270, align 1
   %272 = zext i8 %271 to i32
-  br label %1189
+  br label %903
 
 273:                                              ; preds = %173, %173, %173, %173
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26226,7 +26223,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %279 = getelementptr inbounds i8, ptr %275, i64 49
   %280 = load i8, ptr %279, align 1
   %281 = zext i8 %280 to i32
-  br label %1189
+  br label %903
 
 282:                                              ; preds = %173, %173, %173, %173
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26237,7 +26234,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %288 = getelementptr inbounds i8, ptr %284, i64 51
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
-  br label %1189
+  br label %903
 
 291:                                              ; preds = %173, %173, %173, %173
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26248,7 +26245,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %297 = getelementptr inbounds i8, ptr %293, i64 53
   %298 = load i8, ptr %297, align 1
   %299 = zext i8 %298 to i32
-  br label %1189
+  br label %903
 
 300:                                              ; preds = %173, %173, %173, %173
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26259,7 +26256,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %306 = getelementptr inbounds i8, ptr %302, i64 55
   %307 = load i8, ptr %306, align 1
   %308 = zext i8 %307 to i32
-  br label %1189
+  br label %903
 
 309:                                              ; preds = %173
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26278,7 +26275,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %321 = getelementptr inbounds i8, ptr %317, i64 17
   %322 = load i8, ptr %321, align 1
   %323 = zext i8 %322 to i32
-  br label %1189
+  br label %903
 
 324:                                              ; preds = %309
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 2112
@@ -26297,7 +26294,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %334 = and i64 %332, 34359738368
   %.not159 = icmp eq i64 %334, 0
   %or.cond354 = or i1 %.not158, %.not159
-  br i1 %or.cond354, label %1189, label %335
+  br i1 %or.cond354, label %903, label %335
 
 335:                                              ; preds = %330, %324
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 17248
@@ -26306,7 +26303,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %339 = getelementptr inbounds i8, ptr %338, i64 104
   %340 = load ptr, ptr %339, align 8
   %341 = tail call noundef zeroext i1 %340(ptr noundef nonnull align 8 dereferenceable(489) %337) #29
-  br i1 %341, label %342, label %1189
+  br i1 %341, label %342, label %903
 
 342:                                              ; preds = %335
   %343 = load ptr, ptr %336, align 8
@@ -26316,7 +26313,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %347 = getelementptr inbounds i8, ptr %343, i64 17
   %348 = load i8, ptr %347, align 1
   %349 = zext i8 %348 to i32
-  br label %1189
+  br label %903
 
 350:                                              ; preds = %173, %173
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26347,7 +26344,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %369 = getelementptr inbounds i8, ptr %365, i64 15
   %370 = load i8, ptr %369, align 1
   %371 = zext i8 %370 to i32
-  br label %1189
+  br label %903
 
 372:                                              ; preds = %357
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 17248
@@ -26358,7 +26355,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %378 = getelementptr inbounds i8, ptr %374, i64 15
   %379 = load i8, ptr %378, align 1
   %380 = zext i8 %379 to i32
-  br label %1189
+  br label %903
 
 381:                                              ; preds = %173
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26369,7 +26366,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %387 = getelementptr inbounds i8, ptr %383, i64 19
   %388 = load i8, ptr %387, align 1
   %389 = zext i8 %388 to i32
-  br label %1189
+  br label %903
 
 390:                                              ; preds = %173
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26380,7 +26377,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %396 = getelementptr inbounds i8, ptr %392, i64 21
   %397 = load i8, ptr %396, align 1
   %398 = zext i8 %397 to i32
-  br label %1189
+  br label %903
 
 399:                                              ; preds = %173
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26388,7 +26385,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %402 = getelementptr inbounds i8, ptr %401, i64 25
   %403 = load i8, ptr %402, align 1
   %404 = zext i8 %403 to i32
-  br label %1189
+  br label %903
 
 405:                                              ; preds = %173
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 2112
@@ -26436,13 +26433,13 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %423 = phi i8 [ %.pre, %._crit_edge ], [ %421, %417 ]
   %424 = zext i8 %416 to i64
   %425 = zext i8 %423 to i32
-  br label %1189
+  br label %903
 
 426:                                              ; preds = %._crit_edge364, %417
   %427 = phi i8 [ %.pre370, %._crit_edge364 ], [ %419, %417 ]
   %428 = zext i8 %.pre368 to i64
   %429 = zext i8 %427 to i32
-  br label %1189
+  br label %903
 
 430:                                              ; preds = %173
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26470,7 +26467,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %446 = getelementptr inbounds i8, ptr %445, i64 24
   %447 = load i8, ptr %446, align 8
   %448 = zext i8 %447 to i32
-  br label %1189
+  br label %903
 
 449:                                              ; preds = %437
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 17248
@@ -26478,7 +26475,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %452 = getelementptr inbounds i8, ptr %451, i64 24
   %453 = load i8, ptr %452, align 8
   %454 = zext i8 %453 to i32
-  br label %1189
+  br label %903
 
 455:                                              ; preds = %173
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26489,7 +26486,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %461 = getelementptr inbounds i8, ptr %457, i64 9
   %462 = load i8, ptr %461, align 1
   %463 = zext i8 %462 to i32
-  br label %1189
+  br label %903
 
 464:                                              ; preds = %173, %173, %173
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26500,7 +26497,7 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit:                  ; preds = %139
   %470 = getelementptr inbounds i8, ptr %466, i64 9
   %471 = load i8, ptr %470, align 1
   %472 = zext i8 %471 to i32
-  br label %1189
+  br label %903
 
 473:                                              ; preds = %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173
   %474 = getelementptr inbounds nuw i8, ptr %0, i64 17240
@@ -26539,1507 +26536,649 @@ _ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit: ; preds = %483, %490
   %500 = phi i64 [ %486, %483 ], [ %494, %490 ]
   %501 = phi i64 [ %489, %483 ], [ %499, %490 ]
   %502 = trunc i64 %501 to i32
-  br label %1189
+  br label %903
 
-503:                                              ; preds = %173
-  br label %1189
+503:                                              ; preds = %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173
+  br label %903
 
-504:                                              ; preds = %173
-  br label %1189
+504:                                              ; preds = %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173
+  br label %903
 
 505:                                              ; preds = %173
-  br label %1189
+  br label %903
 
 506:                                              ; preds = %173
-  br label %1189
+  br label %903
 
-507:                                              ; preds = %173
-  br label %1189
+507:                                              ; preds = %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173
+  br label %903
 
-508:                                              ; preds = %173
-  br label %1189
+508:                                              ; preds = %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173
+  br label %903
 
 509:                                              ; preds = %173
-  br label %1189
-
-510:                                              ; preds = %173
-  br label %1189
-
-511:                                              ; preds = %173
-  br label %1189
-
-512:                                              ; preds = %173
-  br label %1189
-
-513:                                              ; preds = %173
-  br label %1189
-
-514:                                              ; preds = %173
-  br label %1189
-
-515:                                              ; preds = %173
-  br label %1189
-
-516:                                              ; preds = %173
-  br label %1189
-
-517:                                              ; preds = %173
-  br label %1189
-
-518:                                              ; preds = %173
-  br label %1189
-
-519:                                              ; preds = %173
-  br label %1189
-
-520:                                              ; preds = %173
-  br label %1189
-
-521:                                              ; preds = %173
-  br label %1189
-
-522:                                              ; preds = %173
-  br label %1189
-
-523:                                              ; preds = %173
-  br label %1189
-
-524:                                              ; preds = %173
-  br label %1189
-
-525:                                              ; preds = %173
-  br label %1189
-
-526:                                              ; preds = %173
-  br label %1189
-
-527:                                              ; preds = %173
-  br label %1189
-
-528:                                              ; preds = %173
-  br label %1189
-
-529:                                              ; preds = %173
-  br label %1189
-
-530:                                              ; preds = %173
-  br label %1189
-
-531:                                              ; preds = %173
-  br label %1189
-
-532:                                              ; preds = %173
-  br label %1189
-
-533:                                              ; preds = %173
-  br label %1189
-
-534:                                              ; preds = %173
-  br label %1189
-
-535:                                              ; preds = %173
-  br label %1189
-
-536:                                              ; preds = %173
-  br label %1189
-
-537:                                              ; preds = %173
-  br label %1189
-
-538:                                              ; preds = %173
-  br label %1189
-
-539:                                              ; preds = %173
-  br label %1189
-
-540:                                              ; preds = %173
-  br label %1189
-
-541:                                              ; preds = %173
-  br label %1189
-
-542:                                              ; preds = %173
-  br label %1189
-
-543:                                              ; preds = %173
-  br label %1189
-
-544:                                              ; preds = %173
-  br label %1189
-
-545:                                              ; preds = %173
-  br label %1189
-
-546:                                              ; preds = %173
-  br label %1189
-
-547:                                              ; preds = %173
-  br label %1189
-
-548:                                              ; preds = %173
-  br label %1189
-
-549:                                              ; preds = %173
-  br label %1189
-
-550:                                              ; preds = %173
-  br label %1189
-
-551:                                              ; preds = %173
-  br label %1189
-
-552:                                              ; preds = %173
-  br label %1189
-
-553:                                              ; preds = %173
-  br label %1189
-
-554:                                              ; preds = %173
-  br label %1189
-
-555:                                              ; preds = %173
-  br label %1189
-
-556:                                              ; preds = %173
-  br label %1189
-
-557:                                              ; preds = %173
-  br label %1189
-
-558:                                              ; preds = %173
-  br label %1189
-
-559:                                              ; preds = %173
-  br label %1189
-
-560:                                              ; preds = %173
-  br label %1189
-
-561:                                              ; preds = %173
-  br label %1189
-
-562:                                              ; preds = %173
-  br label %1189
-
-563:                                              ; preds = %173
-  br label %1189
-
-564:                                              ; preds = %173
-  br label %1189
-
-565:                                              ; preds = %173
-  br label %1189
-
-566:                                              ; preds = %173
-  br label %1189
-
-567:                                              ; preds = %173
-  br label %1189
-
-568:                                              ; preds = %173
-  br label %1189
-
-569:                                              ; preds = %173
-  br label %1189
-
-570:                                              ; preds = %173
-  br label %1189
-
-571:                                              ; preds = %173
-  br label %1189
-
-572:                                              ; preds = %173
-  br label %1189
-
-573:                                              ; preds = %173
-  br label %1189
-
-574:                                              ; preds = %173
-  br label %1189
-
-575:                                              ; preds = %173
-  br label %1189
-
-576:                                              ; preds = %173
-  br label %1189
-
-577:                                              ; preds = %173
-  br label %1189
-
-578:                                              ; preds = %173
-  br label %1189
-
-579:                                              ; preds = %173
-  br label %1189
-
-580:                                              ; preds = %173
-  br label %1189
-
-581:                                              ; preds = %173
-  br label %1189
-
-582:                                              ; preds = %173
-  br label %1189
-
-583:                                              ; preds = %173
-  br label %1189
-
-584:                                              ; preds = %173
-  br label %1189
-
-585:                                              ; preds = %173
-  br label %1189
-
-586:                                              ; preds = %173
-  br label %1189
-
-587:                                              ; preds = %173
-  br label %1189
-
-588:                                              ; preds = %173
-  br label %1189
-
-589:                                              ; preds = %173
-  br label %1189
-
-590:                                              ; preds = %173
-  br label %1189
-
-591:                                              ; preds = %173
-  br label %1189
-
-592:                                              ; preds = %173
-  br label %1189
-
-593:                                              ; preds = %173
-  br label %1189
-
-594:                                              ; preds = %173
-  br label %1189
-
-595:                                              ; preds = %173
-  br label %1189
-
-596:                                              ; preds = %173
-  br label %1189
-
-597:                                              ; preds = %173
-  br label %1189
-
-598:                                              ; preds = %173
-  br label %1189
-
-599:                                              ; preds = %173
-  br label %1189
-
-600:                                              ; preds = %173
-  br label %1189
-
-601:                                              ; preds = %173
-  br label %1189
-
-602:                                              ; preds = %173
-  br label %1189
-
-603:                                              ; preds = %173
-  br label %1189
-
-604:                                              ; preds = %173
-  br label %1189
-
-605:                                              ; preds = %173
-  br label %1189
-
-606:                                              ; preds = %173
-  br label %1189
-
-607:                                              ; preds = %173
-  br label %1189
-
-608:                                              ; preds = %173
-  br label %1189
-
-609:                                              ; preds = %173
-  br label %1189
-
-610:                                              ; preds = %173
-  br label %1189
-
-611:                                              ; preds = %173
-  br label %1189
-
-612:                                              ; preds = %173
-  br label %1189
-
-613:                                              ; preds = %173
-  br label %1189
-
-614:                                              ; preds = %173
-  br label %1189
-
-615:                                              ; preds = %173
-  br label %1189
-
-616:                                              ; preds = %173
-  br label %1189
-
-617:                                              ; preds = %173
-  br label %1189
-
-618:                                              ; preds = %173
-  br label %1189
-
-619:                                              ; preds = %173
-  br label %1189
-
-620:                                              ; preds = %173
-  br label %1189
-
-621:                                              ; preds = %173
-  br label %1189
-
-622:                                              ; preds = %173
-  br label %1189
-
-623:                                              ; preds = %173
-  br label %1189
-
-624:                                              ; preds = %173
-  br label %1189
-
-625:                                              ; preds = %173
-  br label %1189
-
-626:                                              ; preds = %173
-  br label %1189
-
-627:                                              ; preds = %173
-  br label %1189
-
-628:                                              ; preds = %173
-  br label %1189
-
-629:                                              ; preds = %173
-  br label %1189
-
-630:                                              ; preds = %173
-  br label %1189
-
-631:                                              ; preds = %173
-  br label %1189
-
-632:                                              ; preds = %173
-  br label %1189
-
-633:                                              ; preds = %173
-  br label %1189
-
-634:                                              ; preds = %173
-  br label %1189
-
-635:                                              ; preds = %173
-  br label %1189
-
-636:                                              ; preds = %173
-  br label %1189
-
-637:                                              ; preds = %173
-  br label %1189
-
-638:                                              ; preds = %173
-  br label %1189
-
-639:                                              ; preds = %173
-  br label %1189
-
-640:                                              ; preds = %173
-  br label %1189
-
-641:                                              ; preds = %173
-  br label %1189
-
-642:                                              ; preds = %173
-  br label %1189
-
-643:                                              ; preds = %173
-  br label %1189
-
-644:                                              ; preds = %173
-  br label %1189
-
-645:                                              ; preds = %173
-  br label %1189
-
-646:                                              ; preds = %173
-  br label %1189
-
-647:                                              ; preds = %173
-  br label %1189
-
-648:                                              ; preds = %173
-  br label %1189
-
-649:                                              ; preds = %173
-  br label %1189
-
-650:                                              ; preds = %173
-  br label %1189
-
-651:                                              ; preds = %173
-  br label %1189
-
-652:                                              ; preds = %173
-  br label %1189
-
-653:                                              ; preds = %173
-  br label %1189
-
-654:                                              ; preds = %173
-  br label %1189
-
-655:                                              ; preds = %173
-  br label %1189
-
-656:                                              ; preds = %173
-  br label %1189
-
-657:                                              ; preds = %173
-  br label %1189
-
-658:                                              ; preds = %173
-  br label %1189
-
-659:                                              ; preds = %173
-  br label %1189
-
-660:                                              ; preds = %173
-  br label %1189
-
-661:                                              ; preds = %173
-  br label %1189
-
-662:                                              ; preds = %173
-  br label %1189
-
-663:                                              ; preds = %173
-  br label %1189
-
-664:                                              ; preds = %173
-  br label %1189
-
-665:                                              ; preds = %173
-  br label %1189
-
-666:                                              ; preds = %173
-  br label %1189
-
-667:                                              ; preds = %173
-  br label %1189
-
-668:                                              ; preds = %173
-  br label %1189
-
-669:                                              ; preds = %173
-  br label %1189
-
-670:                                              ; preds = %173
-  br label %1189
-
-671:                                              ; preds = %173
-  br label %1189
-
-672:                                              ; preds = %173
-  br label %1189
-
-673:                                              ; preds = %173
-  br label %1189
-
-674:                                              ; preds = %173
-  br label %1189
-
-675:                                              ; preds = %173
-  br label %1189
-
-676:                                              ; preds = %173
-  br label %1189
-
-677:                                              ; preds = %173
-  br label %1189
-
-678:                                              ; preds = %173
-  br label %1189
-
-679:                                              ; preds = %173
-  br label %1189
-
-680:                                              ; preds = %173
-  br label %1189
-
-681:                                              ; preds = %173
-  br label %1189
-
-682:                                              ; preds = %173
-  br label %1189
-
-683:                                              ; preds = %173
-  br label %1189
-
-684:                                              ; preds = %173
-  br label %1189
-
-685:                                              ; preds = %173
-  br label %1189
-
-686:                                              ; preds = %173
-  br label %1189
-
-687:                                              ; preds = %173
-  br label %1189
-
-688:                                              ; preds = %173
-  br label %1189
-
-689:                                              ; preds = %173
-  br label %1189
-
-690:                                              ; preds = %173
-  br label %1189
-
-691:                                              ; preds = %173
-  br label %1189
-
-692:                                              ; preds = %173
-  br label %1189
-
-693:                                              ; preds = %173
-  br label %1189
-
-694:                                              ; preds = %173
-  br label %1189
-
-695:                                              ; preds = %173
-  br label %1189
-
-696:                                              ; preds = %173
-  br label %1189
-
-697:                                              ; preds = %173
-  br label %1189
-
-698:                                              ; preds = %173
-  br label %1189
-
-699:                                              ; preds = %173
-  br label %1189
-
-700:                                              ; preds = %173
-  br label %1189
-
-701:                                              ; preds = %173
-  br label %1189
-
-702:                                              ; preds = %173
-  br label %1189
-
-703:                                              ; preds = %173
-  br label %1189
-
-704:                                              ; preds = %173
-  br label %1189
-
-705:                                              ; preds = %173
-  br label %1189
-
-706:                                              ; preds = %173
-  br label %1189
-
-707:                                              ; preds = %173
-  br label %1189
-
-708:                                              ; preds = %173
-  br label %1189
-
-709:                                              ; preds = %173
-  br label %1189
-
-710:                                              ; preds = %173
-  br label %1189
-
-711:                                              ; preds = %173
-  br label %1189
-
-712:                                              ; preds = %173
-  br label %1189
-
-713:                                              ; preds = %173
-  br label %1189
-
-714:                                              ; preds = %173
-  br label %1189
-
-715:                                              ; preds = %173
-  br label %1189
-
-716:                                              ; preds = %173
-  br label %1189
-
-717:                                              ; preds = %173
-  br label %1189
-
-718:                                              ; preds = %173
-  br label %1189
-
-719:                                              ; preds = %173
-  br label %1189
-
-720:                                              ; preds = %173
-  br label %1189
-
-721:                                              ; preds = %173
-  br label %1189
-
-722:                                              ; preds = %173
-  br label %1189
-
-723:                                              ; preds = %173
-  br label %1189
-
-724:                                              ; preds = %173
-  br label %1189
-
-725:                                              ; preds = %173
-  br label %1189
-
-726:                                              ; preds = %173
-  br label %1189
-
-727:                                              ; preds = %173
-  br label %1189
-
-728:                                              ; preds = %173
-  br label %1189
-
-729:                                              ; preds = %173
-  br label %1189
-
-730:                                              ; preds = %173
-  br label %1189
-
-731:                                              ; preds = %173
-  br label %1189
-
-732:                                              ; preds = %173
-  br label %1189
-
-733:                                              ; preds = %173
-  br label %1189
-
-734:                                              ; preds = %173
-  br label %1189
-
-735:                                              ; preds = %173
-  br label %1189
-
-736:                                              ; preds = %173
-  br label %1189
-
-737:                                              ; preds = %173
-  br label %1189
-
-738:                                              ; preds = %173
-  br label %1189
-
-739:                                              ; preds = %173
-  br label %1189
-
-740:                                              ; preds = %173
-  br label %1189
-
-741:                                              ; preds = %173
-  br label %1189
-
-742:                                              ; preds = %173
-  br label %1189
-
-743:                                              ; preds = %173
-  br label %1189
-
-744:                                              ; preds = %173
-  br label %1189
-
-745:                                              ; preds = %173
-  br label %1189
-
-746:                                              ; preds = %173
-  br label %1189
-
-747:                                              ; preds = %173
-  br label %1189
-
-748:                                              ; preds = %173
-  br label %1189
-
-749:                                              ; preds = %173
-  br label %1189
-
-750:                                              ; preds = %173
-  br label %1189
-
-751:                                              ; preds = %173
-  br label %1189
-
-752:                                              ; preds = %173
-  br label %1189
-
-753:                                              ; preds = %173
-  br label %1189
-
-754:                                              ; preds = %173
-  br label %1189
-
-755:                                              ; preds = %173
-  br label %1189
-
-756:                                              ; preds = %173
-  br label %1189
-
-757:                                              ; preds = %173
-  br label %1189
-
-758:                                              ; preds = %173
-  br label %1189
-
-759:                                              ; preds = %173
-  br label %1189
-
-760:                                              ; preds = %173
-  br label %1189
-
-761:                                              ; preds = %173
-  br label %1189
-
-762:                                              ; preds = %173
-  br label %1189
-
-763:                                              ; preds = %173
-  br label %1189
-
-764:                                              ; preds = %173
-  br label %1189
-
-765:                                              ; preds = %173
-  br label %1189
-
-766:                                              ; preds = %173
-  br label %1189
-
-767:                                              ; preds = %173
-  br label %1189
-
-768:                                              ; preds = %173
-  br label %1189
-
-769:                                              ; preds = %173
-  br label %1189
-
-770:                                              ; preds = %173
-  br label %1189
-
-771:                                              ; preds = %173
-  br label %1189
-
-772:                                              ; preds = %173
-  br label %1189
-
-773:                                              ; preds = %173
-  br label %1189
-
-774:                                              ; preds = %173
-  br label %1189
-
-775:                                              ; preds = %173
-  br label %1189
-
-776:                                              ; preds = %173
-  br label %1189
-
-777:                                              ; preds = %173
-  br label %1189
-
-778:                                              ; preds = %173
-  br label %1189
-
-779:                                              ; preds = %173
-  br label %1189
-
-780:                                              ; preds = %173
-  br label %1189
-
-781:                                              ; preds = %173
-  br label %1189
-
-782:                                              ; preds = %173
-  br label %1189
-
-783:                                              ; preds = %173
-  br label %1189
-
-784:                                              ; preds = %173
-  br label %1189
-
-785:                                              ; preds = %173
-  br label %1189
-
-786:                                              ; preds = %173
-  br label %1189
-
-787:                                              ; preds = %173
-  br label %1189
-
-788:                                              ; preds = %173
-  br label %1189
-
-789:                                              ; preds = %173
-  br label %1189
-
-790:                                              ; preds = %173
-  br label %1189
-
-791:                                              ; preds = %173
-  br label %1189
-
-792:                                              ; preds = %173
-  br label %1189
-
-793:                                              ; preds = %173
-  br label %1189
-
-794:                                              ; preds = %173
-  br label %1189
-
-795:                                              ; preds = %173
-  br label %1189
-
-796:                                              ; preds = %2
-  %797 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %798 = load ptr, ptr %797, align 8
-  %799 = getelementptr inbounds i8, ptr %798, i64 8
-  %800 = load i8, ptr %799, align 8
-  %801 = zext i8 %800 to i64
-  %802 = getelementptr inbounds i8, ptr %798, i64 9
-  %803 = load i8, ptr %802, align 1
-  %804 = zext i8 %803 to i32
-  br label %1189
-
-805:                                              ; preds = %2
-  %806 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i180 = load i64, ptr %806, align 16
-  %807 = and i64 %.sroa.0.0.copyload.i180, -16
-  %808 = inttoptr i64 %807 to ptr
-  %809 = getelementptr inbounds nuw i8, ptr %808, i64 8
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %809, align 8
-  %810 = and i64 %.0.copyload.i.i.i.i.i.i.i, 8
-  %.not.i.i.i = icmp eq i64 %810, 0
+  br label %903
+
+510:                                              ; preds = %2
+  %511 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %512 = load ptr, ptr %511, align 8
+  %513 = getelementptr inbounds i8, ptr %512, i64 8
+  %514 = load i8, ptr %513, align 8
+  %515 = zext i8 %514 to i64
+  %516 = getelementptr inbounds i8, ptr %512, i64 9
+  %517 = load i8, ptr %516, align 1
+  %518 = zext i8 %517 to i32
+  br label %903
+
+519:                                              ; preds = %2
+  %520 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i180 = load i64, ptr %520, align 16
+  %521 = and i64 %.sroa.0.0.copyload.i180, -16
+  %522 = inttoptr i64 %521 to ptr
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %523, align 8
+  %524 = and i64 %.0.copyload.i.i.i.i.i.i.i, 8
+  %.not.i.i.i = icmp eq i64 %524, 0
   br i1 %.not.i.i.i, label %_ZNK5clang8QualType15getAddressSpaceEv.exit.thread, label %_ZNK5clang8QualType15getAddressSpaceEv.exit
 
-_ZNK5clang8QualType15getAddressSpaceEv.exit.thread: ; preds = %805
-  %811 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %812 = load ptr, ptr %811, align 8
-  br label %821
+_ZNK5clang8QualType15getAddressSpaceEv.exit.thread: ; preds = %519
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %526 = load ptr, ptr %525, align 8
+  br label %535
 
-_ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %805
-  %813 = and i64 %.0.copyload.i.i.i.i.i.i.i, -16
-  %814 = inttoptr i64 %813 to ptr
-  %815 = getelementptr inbounds nuw i8, ptr %814, i64 24
-  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %815, align 8
-  %816 = lshr i64 %.sroa.0.0.copyload.i.i.i.i, 9
-  %817 = trunc i64 %816 to i32
-  %818 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %819 = load ptr, ptr %818, align 8
-  %820 = icmp eq i32 %817, 0
-  br i1 %820, label %821, label %829
+_ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %519
+  %527 = and i64 %.0.copyload.i.i.i.i.i.i.i, -16
+  %528 = inttoptr i64 %527 to ptr
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 24
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %529, align 8
+  %530 = lshr i64 %.sroa.0.0.copyload.i.i.i.i, 9
+  %531 = trunc i64 %530 to i32
+  %532 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %533 = load ptr, ptr %532, align 8
+  %534 = icmp eq i32 %531, 0
+  br i1 %534, label %535, label %543
 
-821:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit, %_ZNK5clang8QualType15getAddressSpaceEv.exit.thread
-  %822 = phi ptr [ %812, %_ZNK5clang8QualType15getAddressSpaceEv.exit.thread ], [ %819, %_ZNK5clang8QualType15getAddressSpaceEv.exit ]
-  %823 = getelementptr inbounds i8, ptr %822, i64 8
-  %824 = load i8, ptr %823, align 8
-  %825 = zext i8 %824 to i64
-  %826 = getelementptr inbounds i8, ptr %822, i64 9
-  %827 = load i8, ptr %826, align 1
-  %828 = zext i8 %827 to i64
+535:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit, %_ZNK5clang8QualType15getAddressSpaceEv.exit.thread
+  %536 = phi ptr [ %526, %_ZNK5clang8QualType15getAddressSpaceEv.exit.thread ], [ %533, %_ZNK5clang8QualType15getAddressSpaceEv.exit ]
+  %537 = getelementptr inbounds i8, ptr %536, i64 8
+  %538 = load i8, ptr %537, align 8
+  %539 = zext i8 %538 to i64
+  %540 = getelementptr inbounds i8, ptr %536, i64 9
+  %541 = load i8, ptr %540, align 1
+  %542 = zext i8 %541 to i64
   br label %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182
 
-829:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit
-  %830 = load ptr, ptr %819, align 8
-  %831 = getelementptr inbounds i8, ptr %830, i64 920
-  %832 = load ptr, ptr %831, align 8
-  %833 = tail call noundef i64 %832(ptr noundef nonnull align 8 dereferenceable(489) %819, i32 noundef %817) #29
-  %834 = load ptr, ptr %818, align 8
-  %835 = load ptr, ptr %834, align 8
-  %836 = getelementptr inbounds i8, ptr %835, i64 928
-  %837 = load ptr, ptr %836, align 8
-  %838 = tail call noundef i64 %837(ptr noundef nonnull align 8 dereferenceable(489) %834, i32 noundef %817) #29
+543:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit
+  %544 = load ptr, ptr %533, align 8
+  %545 = getelementptr inbounds i8, ptr %544, i64 920
+  %546 = load ptr, ptr %545, align 8
+  %547 = tail call noundef i64 %546(ptr noundef nonnull align 8 dereferenceable(489) %533, i32 noundef %531) #29
+  %548 = load ptr, ptr %532, align 8
+  %549 = load ptr, ptr %548, align 8
+  %550 = getelementptr inbounds i8, ptr %549, i64 928
+  %551 = load ptr, ptr %550, align 8
+  %552 = tail call noundef i64 %551(ptr noundef nonnull align 8 dereferenceable(489) %548, i32 noundef %531) #29
   br label %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182
 
-_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182: ; preds = %821, %829
-  %839 = phi i64 [ %825, %821 ], [ %833, %829 ]
-  %840 = phi i64 [ %828, %821 ], [ %838, %829 ]
-  %841 = trunc i64 %840 to i32
-  br label %1189
+_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182: ; preds = %535, %543
+  %553 = phi i64 [ %539, %535 ], [ %547, %543 ]
+  %554 = phi i64 [ %542, %535 ], [ %552, %543 ]
+  %555 = trunc i64 %554 to i32
+  br label %903
 
-842:                                              ; preds = %2, %2
-  %843 = load i24, ptr %3, align 16
-  %844 = and i24 %843, 1048576
-  %.not4.i = icmp eq i24 %844, 0
+556:                                              ; preds = %2, %2
+  %557 = load i24, ptr %3, align 16
+  %558 = and i24 %557, 1048576
+  %.not4.i = icmp eq i24 %558, 0
   br i1 %.not4.i, label %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %842, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
-  %.05.i = phi ptr [ %.0.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %1, %842 ]
-  %845 = getelementptr inbounds nuw i8, ptr %.05.i, i64 32
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %845, align 8
-  %846 = and i64 %.0.copyload.i.i.i.i.i.i, -16
-  %847 = inttoptr i64 %846 to ptr
-  %848 = load ptr, ptr %847, align 16
-  %849 = getelementptr inbounds nuw i8, ptr %848, i64 16
-  %850 = load i8, ptr %849, align 16
-  %851 = and i8 %850, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i = icmp eq i8 %851, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i, label %852
+.lr.ph.i:                                         ; preds = %556, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
+  %.05.i = phi ptr [ %.0.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %1, %556 ]
+  %559 = getelementptr inbounds nuw i8, ptr %.05.i, i64 32
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %559, align 8
+  %560 = and i64 %.0.copyload.i.i.i.i.i.i, -16
+  %561 = inttoptr i64 %560 to ptr
+  %562 = load ptr, ptr %561, align 16
+  %563 = getelementptr inbounds nuw i8, ptr %562, i64 16
+  %564 = load i8, ptr %563, align 16
+  %565 = and i8 %564, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i = icmp eq i8 %565, 42
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i, label %566
 
-852:                                              ; preds = %.lr.ph.i
-  %853 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %848) #29
+566:                                              ; preds = %.lr.ph.i
+  %567 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %562) #29
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
-_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %852, %.lr.ph.i
-  %.0.i.i = phi ptr [ %853, %852 ], [ %848, %.lr.ph.i ]
-  %854 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %855 = load i24, ptr %854, align 16
-  %856 = and i24 %855, 1048576
-  %.not.i183 = icmp eq i24 %856, 0
+_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %566, %.lr.ph.i
+  %.0.i.i = phi ptr [ %567, %566 ], [ %562, %.lr.ph.i ]
+  %568 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %569 = load i24, ptr %568, align 16
+  %570 = and i24 %569, 1048576
+  %.not.i183 = icmp eq i24 %570, 0
   br i1 %.not.i183, label %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit, label %.lr.ph.i, !llvm.loop !84
 
-_ZNK5clang13ReferenceType14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i, %842
-  %.0.lcssa.i = phi ptr [ %1, %842 ], [ %.0.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i ]
-  %857 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 32
-  %.sroa.0.0.copyload.i184 = load i64, ptr %857, align 16
-  %858 = and i64 %.sroa.0.0.copyload.i184, -16
-  %859 = inttoptr i64 %858 to ptr
-  %860 = getelementptr inbounds nuw i8, ptr %859, i64 8
-  %.0.copyload.i.i.i.i.i.i.i186 = load i64, ptr %860, align 8
-  %861 = and i64 %.0.copyload.i.i.i.i.i.i.i186, 8
-  %.not.i.i.i187 = icmp eq i64 %861, 0
+_ZNK5clang13ReferenceType14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i, %556
+  %.0.lcssa.i = phi ptr [ %1, %556 ], [ %.0.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i ]
+  %571 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 32
+  %.sroa.0.0.copyload.i184 = load i64, ptr %571, align 16
+  %572 = and i64 %.sroa.0.0.copyload.i184, -16
+  %573 = inttoptr i64 %572 to ptr
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 8
+  %.0.copyload.i.i.i.i.i.i.i186 = load i64, ptr %574, align 8
+  %575 = and i64 %.0.copyload.i.i.i.i.i.i.i186, 8
+  %.not.i.i.i187 = icmp eq i64 %575, 0
   br i1 %.not.i.i.i187, label %_ZNK5clang8QualType15getAddressSpaceEv.exit190.thread, label %_ZNK5clang8QualType15getAddressSpaceEv.exit190
 
 _ZNK5clang8QualType15getAddressSpaceEv.exit190.thread: ; preds = %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit
-  %862 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %863 = load ptr, ptr %862, align 8
-  br label %872
+  %576 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %577 = load ptr, ptr %576, align 8
+  br label %586
 
 _ZNK5clang8QualType15getAddressSpaceEv.exit190:   ; preds = %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit
-  %864 = and i64 %.0.copyload.i.i.i.i.i.i.i186, -16
-  %865 = inttoptr i64 %864 to ptr
-  %866 = getelementptr inbounds nuw i8, ptr %865, i64 24
-  %.sroa.0.0.copyload.i.i.i.i188 = load i64, ptr %866, align 8
-  %867 = lshr i64 %.sroa.0.0.copyload.i.i.i.i188, 9
-  %868 = trunc i64 %867 to i32
-  %869 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %870 = load ptr, ptr %869, align 8
-  %871 = icmp eq i32 %868, 0
-  br i1 %871, label %872, label %880
+  %578 = and i64 %.0.copyload.i.i.i.i.i.i.i186, -16
+  %579 = inttoptr i64 %578 to ptr
+  %580 = getelementptr inbounds nuw i8, ptr %579, i64 24
+  %.sroa.0.0.copyload.i.i.i.i188 = load i64, ptr %580, align 8
+  %581 = lshr i64 %.sroa.0.0.copyload.i.i.i.i188, 9
+  %582 = trunc i64 %581 to i32
+  %583 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %584 = load ptr, ptr %583, align 8
+  %585 = icmp eq i32 %582, 0
+  br i1 %585, label %586, label %594
 
-872:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit190, %_ZNK5clang8QualType15getAddressSpaceEv.exit190.thread
-  %873 = phi ptr [ %863, %_ZNK5clang8QualType15getAddressSpaceEv.exit190.thread ], [ %870, %_ZNK5clang8QualType15getAddressSpaceEv.exit190 ]
-  %874 = getelementptr inbounds i8, ptr %873, i64 8
-  %875 = load i8, ptr %874, align 8
-  %876 = zext i8 %875 to i64
-  %877 = getelementptr inbounds i8, ptr %873, i64 9
-  %878 = load i8, ptr %877, align 1
-  %879 = zext i8 %878 to i64
+586:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit190, %_ZNK5clang8QualType15getAddressSpaceEv.exit190.thread
+  %587 = phi ptr [ %577, %_ZNK5clang8QualType15getAddressSpaceEv.exit190.thread ], [ %584, %_ZNK5clang8QualType15getAddressSpaceEv.exit190 ]
+  %588 = getelementptr inbounds i8, ptr %587, i64 8
+  %589 = load i8, ptr %588, align 8
+  %590 = zext i8 %589 to i64
+  %591 = getelementptr inbounds i8, ptr %587, i64 9
+  %592 = load i8, ptr %591, align 1
+  %593 = zext i8 %592 to i64
   br label %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192
 
-880:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit190
-  %881 = load ptr, ptr %870, align 8
-  %882 = getelementptr inbounds i8, ptr %881, i64 920
-  %883 = load ptr, ptr %882, align 8
-  %884 = tail call noundef i64 %883(ptr noundef nonnull align 8 dereferenceable(489) %870, i32 noundef %868) #29
-  %885 = load ptr, ptr %869, align 8
-  %886 = load ptr, ptr %885, align 8
-  %887 = getelementptr inbounds i8, ptr %886, i64 928
-  %888 = load ptr, ptr %887, align 8
-  %889 = tail call noundef i64 %888(ptr noundef nonnull align 8 dereferenceable(489) %885, i32 noundef %868) #29
+594:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit190
+  %595 = load ptr, ptr %584, align 8
+  %596 = getelementptr inbounds i8, ptr %595, i64 920
+  %597 = load ptr, ptr %596, align 8
+  %598 = tail call noundef i64 %597(ptr noundef nonnull align 8 dereferenceable(489) %584, i32 noundef %582) #29
+  %599 = load ptr, ptr %583, align 8
+  %600 = load ptr, ptr %599, align 8
+  %601 = getelementptr inbounds i8, ptr %600, i64 928
+  %602 = load ptr, ptr %601, align 8
+  %603 = tail call noundef i64 %602(ptr noundef nonnull align 8 dereferenceable(489) %599, i32 noundef %582) #29
   br label %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192
 
-_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192: ; preds = %872, %880
-  %890 = phi i64 [ %876, %872 ], [ %884, %880 ]
-  %891 = phi i64 [ %879, %872 ], [ %889, %880 ]
-  %892 = trunc i64 %891 to i32
-  br label %1189
+_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192: ; preds = %586, %594
+  %604 = phi i64 [ %590, %586 ], [ %598, %594 ]
+  %605 = phi i64 [ %593, %586 ], [ %603, %594 ]
+  %606 = trunc i64 %605 to i32
+  br label %903
 
-893:                                              ; preds = %2
-  %894 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i193 = load i64, ptr %894, align 16
-  %895 = and i64 %.sroa.0.0.copyload.i193, -16
-  %896 = inttoptr i64 %895 to ptr
-  %897 = getelementptr inbounds nuw i8, ptr %896, i64 8
-  %.0.copyload.i.i.i.i.i.i.i195 = load i64, ptr %897, align 8
-  %898 = and i64 %.0.copyload.i.i.i.i.i.i.i195, 8
-  %.not.i.i.i196 = icmp eq i64 %898, 0
+607:                                              ; preds = %2
+  %608 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i193 = load i64, ptr %608, align 16
+  %609 = and i64 %.sroa.0.0.copyload.i193, -16
+  %610 = inttoptr i64 %609 to ptr
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
+  %.0.copyload.i.i.i.i.i.i.i195 = load i64, ptr %611, align 8
+  %612 = and i64 %.0.copyload.i.i.i.i.i.i.i195, 8
+  %.not.i.i.i196 = icmp eq i64 %612, 0
   br i1 %.not.i.i.i196, label %_ZNK5clang8QualType15getAddressSpaceEv.exit199.thread, label %_ZNK5clang8QualType15getAddressSpaceEv.exit199
 
-_ZNK5clang8QualType15getAddressSpaceEv.exit199.thread: ; preds = %893
-  %899 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %900 = load ptr, ptr %899, align 8
-  br label %909
+_ZNK5clang8QualType15getAddressSpaceEv.exit199.thread: ; preds = %607
+  %613 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %614 = load ptr, ptr %613, align 8
+  br label %623
 
-_ZNK5clang8QualType15getAddressSpaceEv.exit199:   ; preds = %893
-  %901 = and i64 %.0.copyload.i.i.i.i.i.i.i195, -16
-  %902 = inttoptr i64 %901 to ptr
-  %903 = getelementptr inbounds nuw i8, ptr %902, i64 24
-  %.sroa.0.0.copyload.i.i.i.i197 = load i64, ptr %903, align 8
-  %904 = lshr i64 %.sroa.0.0.copyload.i.i.i.i197, 9
-  %905 = trunc i64 %904 to i32
-  %906 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %907 = load ptr, ptr %906, align 8
-  %908 = icmp eq i32 %905, 0
-  br i1 %908, label %909, label %917
+_ZNK5clang8QualType15getAddressSpaceEv.exit199:   ; preds = %607
+  %615 = and i64 %.0.copyload.i.i.i.i.i.i.i195, -16
+  %616 = inttoptr i64 %615 to ptr
+  %617 = getelementptr inbounds nuw i8, ptr %616, i64 24
+  %.sroa.0.0.copyload.i.i.i.i197 = load i64, ptr %617, align 8
+  %618 = lshr i64 %.sroa.0.0.copyload.i.i.i.i197, 9
+  %619 = trunc i64 %618 to i32
+  %620 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %621 = load ptr, ptr %620, align 8
+  %622 = icmp eq i32 %619, 0
+  br i1 %622, label %623, label %631
 
-909:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit199, %_ZNK5clang8QualType15getAddressSpaceEv.exit199.thread
-  %910 = phi ptr [ %900, %_ZNK5clang8QualType15getAddressSpaceEv.exit199.thread ], [ %907, %_ZNK5clang8QualType15getAddressSpaceEv.exit199 ]
-  %911 = getelementptr inbounds i8, ptr %910, i64 8
-  %912 = load i8, ptr %911, align 8
-  %913 = zext i8 %912 to i64
-  %914 = getelementptr inbounds i8, ptr %910, i64 9
-  %915 = load i8, ptr %914, align 1
-  %916 = zext i8 %915 to i64
+623:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit199, %_ZNK5clang8QualType15getAddressSpaceEv.exit199.thread
+  %624 = phi ptr [ %614, %_ZNK5clang8QualType15getAddressSpaceEv.exit199.thread ], [ %621, %_ZNK5clang8QualType15getAddressSpaceEv.exit199 ]
+  %625 = getelementptr inbounds i8, ptr %624, i64 8
+  %626 = load i8, ptr %625, align 8
+  %627 = zext i8 %626 to i64
+  %628 = getelementptr inbounds i8, ptr %624, i64 9
+  %629 = load i8, ptr %628, align 1
+  %630 = zext i8 %629 to i64
   br label %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201
 
-917:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit199
-  %918 = load ptr, ptr %907, align 8
-  %919 = getelementptr inbounds i8, ptr %918, i64 920
-  %920 = load ptr, ptr %919, align 8
-  %921 = tail call noundef i64 %920(ptr noundef nonnull align 8 dereferenceable(489) %907, i32 noundef %905) #29
-  %922 = load ptr, ptr %906, align 8
-  %923 = load ptr, ptr %922, align 8
-  %924 = getelementptr inbounds i8, ptr %923, i64 928
-  %925 = load ptr, ptr %924, align 8
-  %926 = tail call noundef i64 %925(ptr noundef nonnull align 8 dereferenceable(489) %922, i32 noundef %905) #29
+631:                                              ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit199
+  %632 = load ptr, ptr %621, align 8
+  %633 = getelementptr inbounds i8, ptr %632, i64 920
+  %634 = load ptr, ptr %633, align 8
+  %635 = tail call noundef i64 %634(ptr noundef nonnull align 8 dereferenceable(489) %621, i32 noundef %619) #29
+  %636 = load ptr, ptr %620, align 8
+  %637 = load ptr, ptr %636, align 8
+  %638 = getelementptr inbounds i8, ptr %637, i64 928
+  %639 = load ptr, ptr %638, align 8
+  %640 = tail call noundef i64 %639(ptr noundef nonnull align 8 dereferenceable(489) %636, i32 noundef %619) #29
   br label %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201
 
-_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201: ; preds = %909, %917
-  %927 = phi i64 [ %913, %909 ], [ %921, %917 ]
-  %928 = phi i64 [ %916, %909 ], [ %926, %917 ]
-  %929 = trunc i64 %928 to i32
-  br label %1189
+_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201: ; preds = %623, %631
+  %641 = phi i64 [ %627, %623 ], [ %635, %631 ]
+  %642 = phi i64 [ %630, %623 ], [ %640, %631 ]
+  %643 = trunc i64 %642 to i32
+  br label %903
 
-930:                                              ; preds = %2
-  %931 = getelementptr inbounds nuw i8, ptr %0, i64 17224
-  %932 = load ptr, ptr %931, align 8
-  %933 = load ptr, ptr %932, align 8
-  %934 = getelementptr inbounds i8, ptr %933, i64 16
-  %935 = load ptr, ptr %934, align 8
-  %936 = tail call { i64, i64 } %935(ptr noundef nonnull align 8 dereferenceable(8) %932, ptr noundef nonnull %1) #29
-  %937 = extractvalue { i64, i64 } %936, 0
-  %938 = extractvalue { i64, i64 } %936, 1
-  %.sroa.237.8.extract.trunc = trunc i64 %938 to i32
-  br label %1189
+644:                                              ; preds = %2
+  %645 = getelementptr inbounds nuw i8, ptr %0, i64 17224
+  %646 = load ptr, ptr %645, align 8
+  %647 = load ptr, ptr %646, align 8
+  %648 = getelementptr inbounds i8, ptr %647, i64 16
+  %649 = load ptr, ptr %648, align 8
+  %650 = tail call { i64, i64 } %649(ptr noundef nonnull align 8 dereferenceable(8) %646, ptr noundef nonnull %1) #29
+  %651 = extractvalue { i64, i64 } %650, 0
+  %652 = extractvalue { i64, i64 } %650, 1
+  %.sroa.237.8.extract.trunc = trunc i64 %652 to i32
+  br label %903
 
-939:                                              ; preds = %2
-  %940 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i202 = load i64, ptr %940, align 16
-  %941 = and i64 %.sroa.0.0.copyload.i202, -16
-  %942 = inttoptr i64 %941 to ptr
-  %943 = load ptr, ptr %942, align 16
-  %944 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %943)
-  %945 = extractvalue { i64, i64 } %944, 0
-  %946 = extractvalue { i64, i64 } %944, 1
-  %.sroa.234.8.extract.trunc = trunc i64 %946 to i32
-  %947 = shl i64 %945, 1
-  br label %1189
+653:                                              ; preds = %2
+  %654 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i202 = load i64, ptr %654, align 16
+  %655 = and i64 %.sroa.0.0.copyload.i202, -16
+  %656 = inttoptr i64 %655 to ptr
+  %657 = load ptr, ptr %656, align 16
+  %658 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %657)
+  %659 = extractvalue { i64, i64 } %658, 0
+  %660 = extractvalue { i64, i64 } %658, 1
+  %.sroa.234.8.extract.trunc = trunc i64 %660 to i32
+  %661 = shl i64 %659, 1
+  br label %903
 
-948:                                              ; preds = %2
-  %949 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i203 = load i64, ptr %949, align 8
-  %950 = and i64 %.sroa.0.0.copyload.i203, -16
-  %951 = inttoptr i64 %950 to ptr
-  %952 = load ptr, ptr %951, align 16
-  %953 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %952)
-  %954 = extractvalue { i64, i64 } %953, 0
-  %955 = extractvalue { i64, i64 } %953, 1
-  %.sroa.22.8.extract.trunc291 = trunc i64 %955 to i32
-  %.sroa.45.8.extract.shift324 = lshr i64 %955, 32
-  br label %1189
+662:                                              ; preds = %2
+  %663 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i203 = load i64, ptr %663, align 8
+  %664 = and i64 %.sroa.0.0.copyload.i203, -16
+  %665 = inttoptr i64 %664 to ptr
+  %666 = load ptr, ptr %665, align 16
+  %667 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %666)
+  %668 = extractvalue { i64, i64 } %667, 0
+  %669 = extractvalue { i64, i64 } %667, 1
+  %.sroa.22.8.extract.trunc291 = trunc i64 %669 to i32
+  %.sroa.45.8.extract.shift324 = lshr i64 %669, 32
+  br label %903
 
-956:                                              ; preds = %2, %2
-  %957 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i205 = load i64, ptr %957, align 8
-  %958 = and i64 %.sroa.0.0.copyload.i205, -16
-  %959 = inttoptr i64 %958 to ptr
-  %960 = load ptr, ptr %959, align 16
-  %961 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %960)
-  %962 = extractvalue { i64, i64 } %961, 0
-  %963 = extractvalue { i64, i64 } %961, 1
-  %.sroa.22.8.extract.trunc290 = trunc i64 %963 to i32
-  %.sroa.45.8.extract.shift322 = lshr i64 %963, 32
-  br label %1189
+670:                                              ; preds = %2, %2
+  %671 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload.i205 = load i64, ptr %671, align 8
+  %672 = and i64 %.sroa.0.0.copyload.i205, -16
+  %673 = inttoptr i64 %672 to ptr
+  %674 = load ptr, ptr %673, align 16
+  %675 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %674)
+  %676 = extractvalue { i64, i64 } %675, 0
+  %677 = extractvalue { i64, i64 } %675, 1
+  %.sroa.22.8.extract.trunc290 = trunc i64 %677 to i32
+  %.sroa.45.8.extract.shift322 = lshr i64 %677, 32
+  br label %903
 
-964:                                              ; preds = %2
-  %965 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %1) #29
-  %966 = getelementptr inbounds nuw i8, ptr %965, i64 28
-  %967 = load i32, ptr %966, align 4
-  %968 = and i32 %967, 128
-  %.not362 = icmp eq i32 %968, 0
-  br i1 %.not362, label %969, label %1189
+678:                                              ; preds = %2
+  %679 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %1) #29
+  %680 = getelementptr inbounds nuw i8, ptr %679, i64 28
+  %681 = load i32, ptr %680, align 4
+  %682 = and i32 %681, 128
+  %.not362 = icmp eq i32 %682, 0
+  br i1 %.not362, label %683, label %903
 
-969:                                              ; preds = %964
-  %970 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %1) #29
-  %971 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext13getObjCLayoutEPKNS_17ObjCInterfaceDeclEPKNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %970, ptr noundef null) #29
-  %.sroa.0.0.copyload.i207 = load i64, ptr %971, align 8
-  %972 = getelementptr inbounds nuw i8, ptr %0, i64 18440
-  %.sroa.0.0.copyload.i.i371 = load i64, ptr %972, align 8
-  %973 = and i64 %.sroa.0.0.copyload.i.i371, -16
-  %974 = inttoptr i64 %973 to ptr
-  %975 = load ptr, ptr %974, align 16
-  %976 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %975)
-  %977 = extractvalue { i64, i64 } %976, 0
-  %978 = mul i64 %977, %.sroa.0.0.copyload.i207
-  %979 = getelementptr inbounds nuw i8, ptr %971, i64 16
-  %.sroa.0.0.copyload.i208 = load i64, ptr %979, align 8
-  %.sroa.0.0.copyload.i.i372 = load i64, ptr %972, align 8
-  %980 = and i64 %.sroa.0.0.copyload.i.i372, -16
-  %981 = inttoptr i64 %980 to ptr
-  %982 = load ptr, ptr %981, align 16
-  %983 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %982)
-  %984 = extractvalue { i64, i64 } %983, 0
-  %985 = mul i64 %984, %.sroa.0.0.copyload.i208
-  %986 = trunc i64 %985 to i32
-  br label %1189
+683:                                              ; preds = %678
+  %684 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %1) #29
+  %685 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext13getObjCLayoutEPKNS_17ObjCInterfaceDeclEPKNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %684, ptr noundef null) #29
+  %.sroa.0.0.copyload.i207 = load i64, ptr %685, align 8
+  %686 = getelementptr inbounds nuw i8, ptr %0, i64 18440
+  %.sroa.0.0.copyload.i.i371 = load i64, ptr %686, align 8
+  %687 = and i64 %.sroa.0.0.copyload.i.i371, -16
+  %688 = inttoptr i64 %687 to ptr
+  %689 = load ptr, ptr %688, align 16
+  %690 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %689)
+  %691 = extractvalue { i64, i64 } %690, 0
+  %692 = mul i64 %691, %.sroa.0.0.copyload.i207
+  %693 = getelementptr inbounds nuw i8, ptr %685, i64 16
+  %.sroa.0.0.copyload.i208 = load i64, ptr %693, align 8
+  %.sroa.0.0.copyload.i.i372 = load i64, ptr %686, align 8
+  %694 = and i64 %.sroa.0.0.copyload.i.i372, -16
+  %695 = inttoptr i64 %694 to ptr
+  %696 = load ptr, ptr %695, align 16
+  %697 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %696)
+  %698 = extractvalue { i64, i64 } %697, 0
+  %699 = mul i64 %698, %.sroa.0.0.copyload.i208
+  %700 = trunc i64 %699 to i32
+  br label %903
 
-987:                                              ; preds = %2
-  %988 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %989 = load ptr, ptr %988, align 8
-  %990 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %991 = load i32, ptr %990, align 16
-  %992 = lshr i32 %991, 1
-  %993 = and i32 %992, 16777215
-  %or.cond.i.i = icmp eq i32 %993, 0
-  br i1 %or.cond.i.i, label %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit, label %994
+701:                                              ; preds = %2
+  %702 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %703 = load ptr, ptr %702, align 8
+  %704 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %705 = load i32, ptr %704, align 16
+  %706 = lshr i32 %705, 1
+  %707 = and i32 %706, 16777215
+  %or.cond.i.i = icmp eq i32 %707, 0
+  br i1 %or.cond.i.i, label %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit, label %708
 
-994:                                              ; preds = %987
-  %995 = zext nneg i32 %993 to i64
-  %996 = add nsw i64 %995, -1
-  %997 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %996, i1 false)
-  %998 = sub nuw nsw i64 64, %997
-  %999 = shl nuw nsw i64 1, %998
-  %1000 = trunc i64 %999 to i32
+708:                                              ; preds = %701
+  %709 = zext nneg i32 %707 to i64
+  %710 = add nsw i64 %709, -1
+  %711 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %710, i1 false)
+  %712 = sub nuw nsw i64 64, %711
+  %713 = shl nuw nsw i64 1, %712
+  %714 = trunc i64 %713 to i32
   br label %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit
 
-_ZNK5clang10TargetInfo14getBitIntAlignEj.exit:    ; preds = %987, %994
-  %.0.i.i209 = phi i32 [ %1000, %994 ], [ 0, %987 ]
-  %1001 = getelementptr inbounds i8, ptr %989, i64 36
-  %1002 = getelementptr inbounds i8, ptr %989, i64 31
-  %1003 = getelementptr inbounds i8, ptr %989, i64 40
-  %1004 = load i8, ptr %1003, align 4
-  %1005 = trunc i8 %1004 to i1
-  %1006 = load i32, ptr %1001, align 4
-  %1007 = load i8, ptr %1002, align 1
-  %1008 = zext i8 %1007 to i32
-  %.0.i.i.i = select i1 %1005, i32 %1006, i32 %1008
-  %1009 = tail call i32 @llvm.umax.i32(i32 %.0.i.i209, i32 8)
-  %.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %.0.i.i.i, i32 %1009)
-  %1010 = tail call noundef i32 @_ZNK5clang10TargetInfo14getBitIntWidthEj(ptr noundef nonnull align 8 dereferenceable(489) %989, i32 noundef %993)
-  %1011 = zext i32 %1010 to i64
-  br label %1189
+_ZNK5clang10TargetInfo14getBitIntAlignEj.exit:    ; preds = %701, %708
+  %.0.i.i209 = phi i32 [ %714, %708 ], [ 0, %701 ]
+  %715 = getelementptr inbounds i8, ptr %703, i64 36
+  %716 = getelementptr inbounds i8, ptr %703, i64 31
+  %717 = getelementptr inbounds i8, ptr %703, i64 40
+  %718 = load i8, ptr %717, align 4
+  %719 = trunc i8 %718 to i1
+  %720 = load i32, ptr %715, align 4
+  %721 = load i8, ptr %716, align 1
+  %722 = zext i8 %721 to i32
+  %.0.i.i.i = select i1 %719, i32 %720, i32 %722
+  %723 = tail call i32 @llvm.umax.i32(i32 %.0.i.i209, i32 8)
+  %.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %.0.i.i.i, i32 %723)
+  %724 = tail call noundef i32 @_ZNK5clang10TargetInfo14getBitIntWidthEj(ptr noundef nonnull align 8 dereferenceable(489) %703, i32 noundef %707)
+  %725 = zext i32 %724 to i64
+  br label %903
 
-1012:                                             ; preds = %2, %2
-  %1013 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %1) #29
-  %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 28
-  %1015 = load i32, ptr %1014, align 4
-  %1016 = and i32 %1015, 128
-  %.not359 = icmp eq i32 %1016, 0
-  br i1 %.not359, label %1017, label %1189
+726:                                              ; preds = %2, %2
+  %727 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %1) #29
+  %728 = getelementptr inbounds nuw i8, ptr %727, i64 28
+  %729 = load i32, ptr %728, align 4
+  %730 = and i32 %729, 128
+  %.not359 = icmp eq i32 %730, 0
+  br i1 %.not359, label %731, label %903
 
-1017:                                             ; preds = %1012
-  %1018 = load i8, ptr %3, align 16
-  %.not361 = icmp eq i8 %1018, 46
-  %1019 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %1) #29
-  br i1 %.not361, label %1020, label %1030
+731:                                              ; preds = %726
+  %732 = load i8, ptr %3, align 16
+  %.not361 = icmp eq i8 %732, 46
+  %733 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %1) #29
+  br i1 %.not361, label %734, label %744
 
-1020:                                             ; preds = %1017
-  %1021 = tail call i64 @_ZNK5clang8EnumDecl14getIntegerTypeEv(ptr noundef nonnull align 8 dereferenceable(156) %1019)
-  %1022 = and i64 %1021, -16
-  %1023 = inttoptr i64 %1022 to ptr
-  %1024 = load ptr, ptr %1023, align 16
-  %1025 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %1024) #29
-  %1026 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1025)
-  %1027 = extractvalue { i64, i64 } %1026, 0
-  %1028 = extractvalue { i64, i64 } %1026, 1
-  %.sroa.22.8.extract.trunc289 = trunc i64 %1028 to i32
-  %.sroa.45.8.extract.shift320 = lshr i64 %1028, 32
-  %1029 = tail call noundef i32 @_ZNK5clang4Decl15getMaxAlignmentEv(ptr noundef nonnull align 8 dereferenceable(33) %1019) #29
-  %.not148 = icmp eq i32 %1029, 0
-  %spec.select = select i1 %.not148, i32 %.sroa.22.8.extract.trunc289, i32 %1029
+734:                                              ; preds = %731
+  %735 = tail call i64 @_ZNK5clang8EnumDecl14getIntegerTypeEv(ptr noundef nonnull align 8 dereferenceable(156) %733)
+  %736 = and i64 %735, -16
+  %737 = inttoptr i64 %736 to ptr
+  %738 = load ptr, ptr %737, align 16
+  %739 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %738) #29
+  %740 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %739)
+  %741 = extractvalue { i64, i64 } %740, 0
+  %742 = extractvalue { i64, i64 } %740, 1
+  %.sroa.22.8.extract.trunc289 = trunc i64 %742 to i32
+  %.sroa.45.8.extract.shift320 = lshr i64 %742, 32
+  %743 = tail call noundef i32 @_ZNK5clang4Decl15getMaxAlignmentEv(ptr noundef nonnull align 8 dereferenceable(33) %733) #29
+  %.not148 = icmp eq i32 %743, 0
+  %spec.select = select i1 %.not148, i32 %.sroa.22.8.extract.trunc289, i32 %743
   %spec.select358 = select i1 %.not148, i64 %.sroa.45.8.extract.shift320, i64 3
-  br label %1189
+  br label %903
 
-1030:                                             ; preds = %1017
-  %1031 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1019) #29
-  %.sroa.0.0.copyload.i212 = load i64, ptr %1031, align 8
-  %1032 = getelementptr inbounds nuw i8, ptr %0, i64 18440
-  %.sroa.0.0.copyload.i.i373 = load i64, ptr %1032, align 8
-  %1033 = and i64 %.sroa.0.0.copyload.i.i373, -16
-  %1034 = inttoptr i64 %1033 to ptr
-  %1035 = load ptr, ptr %1034, align 16
-  %1036 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1035)
-  %1037 = extractvalue { i64, i64 } %1036, 0
-  %1038 = mul i64 %1037, %.sroa.0.0.copyload.i212
-  %1039 = getelementptr inbounds nuw i8, ptr %1031, i64 16
-  %.sroa.0.0.copyload.i213 = load i64, ptr %1039, align 8
-  %.sroa.0.0.copyload.i.i374 = load i64, ptr %1032, align 8
-  %1040 = and i64 %.sroa.0.0.copyload.i.i374, -16
-  %1041 = inttoptr i64 %1040 to ptr
-  %1042 = load ptr, ptr %1041, align 16
-  %1043 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1042)
-  %1044 = extractvalue { i64, i64 } %1043, 0
-  %1045 = mul i64 %1044, %.sroa.0.0.copyload.i213
-  %1046 = trunc i64 %1045 to i32
-  %1047 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_11AlignedAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %1019)
-  %1048 = select i1 %1047, i64 2, i64 0
-  br label %1189
+744:                                              ; preds = %731
+  %745 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %733) #29
+  %.sroa.0.0.copyload.i212 = load i64, ptr %745, align 8
+  %746 = getelementptr inbounds nuw i8, ptr %0, i64 18440
+  %.sroa.0.0.copyload.i.i373 = load i64, ptr %746, align 8
+  %747 = and i64 %.sroa.0.0.copyload.i.i373, -16
+  %748 = inttoptr i64 %747 to ptr
+  %749 = load ptr, ptr %748, align 16
+  %750 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %749)
+  %751 = extractvalue { i64, i64 } %750, 0
+  %752 = mul i64 %751, %.sroa.0.0.copyload.i212
+  %753 = getelementptr inbounds nuw i8, ptr %745, i64 16
+  %.sroa.0.0.copyload.i213 = load i64, ptr %753, align 8
+  %.sroa.0.0.copyload.i.i374 = load i64, ptr %746, align 8
+  %754 = and i64 %.sroa.0.0.copyload.i.i374, -16
+  %755 = inttoptr i64 %754 to ptr
+  %756 = load ptr, ptr %755, align 16
+  %757 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %756)
+  %758 = extractvalue { i64, i64 } %757, 0
+  %759 = mul i64 %758, %.sroa.0.0.copyload.i213
+  %760 = trunc i64 %759 to i32
+  %761 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_11AlignedAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %733)
+  %762 = select i1 %761, i64 2, i64 0
+  br label %903
 
-1049:                                             ; preds = %2
-  %1050 = load i64, ptr %3, align 16
-  %1051 = and i64 %1050, 524288
-  %.not.i214 = icmp eq i64 %1051, 0
+763:                                              ; preds = %2
+  %764 = load i64, ptr %3, align 16
+  %765 = and i64 %764, 524288
+  %.not.i214 = icmp eq i64 %765, 0
   %.sroa.0.0.in.v.i = select i1 %.not.i214, i64 8, i64 48
   %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %1, i64 %.sroa.0.0.in.v.i
   %.sroa.0.0.i215 = load i64, ptr %.sroa.0.0.in.i, align 8
-  %1052 = and i64 %.sroa.0.0.i215, -16
-  %1053 = inttoptr i64 %1052 to ptr
-  %1054 = load ptr, ptr %1053, align 16
-  %1055 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1054)
-  %1056 = extractvalue { i64, i64 } %1055, 0
-  %1057 = extractvalue { i64, i64 } %1055, 1
-  %.sroa.22.8.extract.trunc288 = trunc i64 %1057 to i32
-  %.sroa.45.8.extract.shift318 = lshr i64 %1057, 32
-  br label %1189
+  %766 = and i64 %.sroa.0.0.i215, -16
+  %767 = inttoptr i64 %766 to ptr
+  %768 = load ptr, ptr %767, align 16
+  %769 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %768)
+  %770 = extractvalue { i64, i64 } %769, 0
+  %771 = extractvalue { i64, i64 } %769, 1
+  %.sroa.22.8.extract.trunc288 = trunc i64 %771 to i32
+  %.sroa.45.8.extract.shift318 = lshr i64 %771, 32
+  br label %903
 
-1058:                                             ; preds = %2, %2
-  %1059 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i217 = load i64, ptr %1059, align 8
-  %1060 = and i64 %.sroa.0.0.copyload.i217, -16
-  %1061 = inttoptr i64 %1060 to ptr
-  %1062 = load ptr, ptr %1061, align 16
-  %1063 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1062)
-  %1064 = extractvalue { i64, i64 } %1063, 0
-  %1065 = extractvalue { i64, i64 } %1063, 1
-  %.sroa.22.8.extract.trunc287 = trunc i64 %1065 to i32
-  %.sroa.45.8.extract.shift316 = lshr i64 %1065, 32
-  br label %1189
+772:                                              ; preds = %2, %2
+  %773 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i217 = load i64, ptr %773, align 8
+  %774 = and i64 %.sroa.0.0.copyload.i217, -16
+  %775 = inttoptr i64 %774 to ptr
+  %776 = load ptr, ptr %775, align 16
+  %777 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %776)
+  %778 = extractvalue { i64, i64 } %777, 0
+  %779 = extractvalue { i64, i64 } %777, 1
+  %.sroa.22.8.extract.trunc287 = trunc i64 %779 to i32
+  %.sroa.45.8.extract.shift316 = lshr i64 %779, 32
+  br label %903
 
-1066:                                             ; preds = %2
-  %1067 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i219 = load i64, ptr %1067, align 16
-  %1068 = and i64 %.sroa.0.0.copyload.i219, -16
-  %1069 = inttoptr i64 %1068 to ptr
-  %1070 = load ptr, ptr %1069, align 16
-  %1071 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1070)
-  %1072 = extractvalue { i64, i64 } %1071, 0
-  %1073 = extractvalue { i64, i64 } %1071, 1
-  %.sroa.22.8.extract.trunc286 = trunc i64 %1073 to i32
-  %.sroa.45.8.extract.shift314 = lshr i64 %1073, 32
-  br label %1189
+780:                                              ; preds = %2
+  %781 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i219 = load i64, ptr %781, align 16
+  %782 = and i64 %.sroa.0.0.copyload.i219, -16
+  %783 = inttoptr i64 %782 to ptr
+  %784 = load ptr, ptr %783, align 16
+  %785 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %784)
+  %786 = extractvalue { i64, i64 } %785, 0
+  %787 = extractvalue { i64, i64 } %785, 1
+  %.sroa.22.8.extract.trunc286 = trunc i64 %787 to i32
+  %.sroa.45.8.extract.shift314 = lshr i64 %787, 32
+  br label %903
 
-1074:                                             ; preds = %2
-  %1075 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i221 = load i64, ptr %1075, align 8
-  %1076 = and i64 %.sroa.0.0.copyload.i221, -16
-  %1077 = inttoptr i64 %1076 to ptr
-  %1078 = load ptr, ptr %1077, align 16
-  %1079 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1078)
-  %1080 = extractvalue { i64, i64 } %1079, 0
-  %1081 = extractvalue { i64, i64 } %1079, 1
-  %.sroa.22.8.extract.trunc285 = trunc i64 %1081 to i32
-  %.sroa.45.8.extract.shift312 = lshr i64 %1081, 32
-  br label %1189
+788:                                              ; preds = %2
+  %789 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i221 = load i64, ptr %789, align 8
+  %790 = and i64 %.sroa.0.0.copyload.i221, -16
+  %791 = inttoptr i64 %790 to ptr
+  %792 = load ptr, ptr %791, align 16
+  %793 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %792)
+  %794 = extractvalue { i64, i64 } %793, 0
+  %795 = extractvalue { i64, i64 } %793, 1
+  %.sroa.22.8.extract.trunc285 = trunc i64 %795 to i32
+  %.sroa.45.8.extract.shift312 = lshr i64 %795, 32
+  br label %903
 
-1082:                                             ; preds = %2
-  %1083 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload.i.i223 = load i64, ptr %1083, align 8
-  %1084 = and i64 %.sroa.0.0.copyload.i.i223, -16
-  %1085 = inttoptr i64 %1084 to ptr
-  %1086 = load ptr, ptr %1085, align 16
-  %1087 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1086)
-  %1088 = extractvalue { i64, i64 } %1087, 0
-  %1089 = extractvalue { i64, i64 } %1087, 1
-  %.sroa.22.8.extract.trunc284 = trunc i64 %1089 to i32
-  %.sroa.45.8.extract.shift310 = lshr i64 %1089, 32
-  br label %1189
+796:                                              ; preds = %2
+  %797 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload.i.i223 = load i64, ptr %797, align 8
+  %798 = and i64 %.sroa.0.0.copyload.i.i223, -16
+  %799 = inttoptr i64 %798 to ptr
+  %800 = load ptr, ptr %799, align 16
+  %801 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %800)
+  %802 = extractvalue { i64, i64 } %801, 0
+  %803 = extractvalue { i64, i64 } %801, 1
+  %.sroa.22.8.extract.trunc284 = trunc i64 %803 to i32
+  %.sroa.45.8.extract.shift310 = lshr i64 %803, 32
+  br label %903
 
-1090:                                             ; preds = %2
-  %1091 = tail call i64 @_ZNK5clang9UsingType17getUnderlyingTypeEv(ptr noundef nonnull align 16 dereferenceable(48) %1) #29
-  %1092 = and i64 %1091, -16
-  %1093 = inttoptr i64 %1092 to ptr
-  %1094 = load ptr, ptr %1093, align 16
-  %1095 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1094)
-  %1096 = extractvalue { i64, i64 } %1095, 0
-  %1097 = extractvalue { i64, i64 } %1095, 1
-  %.sroa.22.8.extract.trunc283 = trunc i64 %1097 to i32
-  %.sroa.45.8.extract.shift308 = lshr i64 %1097, 32
-  br label %1189
+804:                                              ; preds = %2
+  %805 = tail call i64 @_ZNK5clang9UsingType17getUnderlyingTypeEv(ptr noundef nonnull align 16 dereferenceable(48) %1) #29
+  %806 = and i64 %805, -16
+  %807 = inttoptr i64 %806 to ptr
+  %808 = load ptr, ptr %807, align 16
+  %809 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %808)
+  %810 = extractvalue { i64, i64 } %809, 0
+  %811 = extractvalue { i64, i64 } %809, 1
+  %.sroa.22.8.extract.trunc283 = trunc i64 %811 to i32
+  %.sroa.45.8.extract.shift308 = lshr i64 %811, 32
+  br label %903
 
-1098:                                             ; preds = %2
-  %1099 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %1) #29
-  %1100 = and i64 %1099, -16
-  %1101 = inttoptr i64 %1100 to ptr
-  %1102 = load ptr, ptr %1101, align 16
-  %1103 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1102)
-  %1104 = extractvalue { i64, i64 } %1103, 0
-  %1105 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %1106 = load ptr, ptr %1105, align 16
-  %1107 = tail call noundef i32 @_ZNK5clang4Decl15getMaxAlignmentEv(ptr noundef nonnull align 8 dereferenceable(33) %1106) #29
-  %.not146 = icmp eq i32 %1107, 0
-  %1108 = extractvalue { i64, i64 } %1103, 1
-  %.sroa.45.8.extract.shift = lshr i64 %1108, 32
-  %.sroa.24.8.extract.trunc = trunc i64 %1108 to i32
+812:                                              ; preds = %2
+  %813 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %1) #29
+  %814 = and i64 %813, -16
+  %815 = inttoptr i64 %814 to ptr
+  %816 = load ptr, ptr %815, align 16
+  %817 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %816)
+  %818 = extractvalue { i64, i64 } %817, 0
+  %819 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %820 = load ptr, ptr %819, align 16
+  %821 = tail call noundef i32 @_ZNK5clang4Decl15getMaxAlignmentEv(ptr noundef nonnull align 8 dereferenceable(33) %820) #29
+  %.not146 = icmp eq i32 %821, 0
+  %822 = extractvalue { i64, i64 } %817, 1
+  %.sroa.45.8.extract.shift = lshr i64 %822, 32
+  %.sroa.24.8.extract.trunc = trunc i64 %822 to i32
   %.1137 = select i1 %.not146, i64 %.sroa.45.8.extract.shift, i64 1
-  %.3 = select i1 %.not146, i32 %.sroa.24.8.extract.trunc, i32 %1107
-  br label %1189
+  %.3 = select i1 %.not146, i32 %.sroa.24.8.extract.trunc, i32 %821
+  br label %903
 
-1109:                                             ; preds = %2
-  %1110 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i227 = load i64, ptr %1110, align 8
-  %1111 = and i64 %.sroa.0.0.copyload.i227, -16
-  %1112 = inttoptr i64 %1111 to ptr
-  %1113 = load ptr, ptr %1112, align 16
-  %1114 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1113)
-  %1115 = extractvalue { i64, i64 } %1114, 0
-  %1116 = extractvalue { i64, i64 } %1114, 1
-  %.sroa.22.8.extract.trunc282 = trunc i64 %1116 to i32
-  %.sroa.45.8.extract.shift306 = lshr i64 %1116, 32
-  br label %1189
+823:                                              ; preds = %2
+  %824 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload.i227 = load i64, ptr %824, align 8
+  %825 = and i64 %.sroa.0.0.copyload.i227, -16
+  %826 = inttoptr i64 %825 to ptr
+  %827 = load ptr, ptr %826, align 16
+  %828 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %827)
+  %829 = extractvalue { i64, i64 } %828, 0
+  %830 = extractvalue { i64, i64 } %828, 1
+  %.sroa.22.8.extract.trunc282 = trunc i64 %830 to i32
+  %.sroa.45.8.extract.shift306 = lshr i64 %830, 32
+  br label %903
 
-1117:                                             ; preds = %2
-  %1118 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i229 = load i64, ptr %1118, align 8
-  %1119 = and i64 %.sroa.0.0.copyload.i229, -16
-  %1120 = inttoptr i64 %1119 to ptr
-  %1121 = load ptr, ptr %1120, align 16
-  %1122 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1121)
-  %1123 = extractvalue { i64, i64 } %1122, 0
-  %1124 = extractvalue { i64, i64 } %1122, 1
-  %.sroa.22.8.extract.trunc281 = trunc i64 %1124 to i32
-  %.sroa.45.8.extract.shift304 = lshr i64 %1124, 32
-  br label %1189
+831:                                              ; preds = %2
+  %832 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload.i229 = load i64, ptr %832, align 8
+  %833 = and i64 %.sroa.0.0.copyload.i229, -16
+  %834 = inttoptr i64 %833 to ptr
+  %835 = load ptr, ptr %834, align 16
+  %836 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %835)
+  %837 = extractvalue { i64, i64 } %836, 0
+  %838 = extractvalue { i64, i64 } %836, 1
+  %.sroa.22.8.extract.trunc281 = trunc i64 %838 to i32
+  %.sroa.45.8.extract.shift304 = lshr i64 %838, 32
+  br label %903
 
-1125:                                             ; preds = %2
-  %1126 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i231 = load i64, ptr %1126, align 16
-  %1127 = and i64 %.sroa.0.0.copyload.i231, -16
-  %1128 = inttoptr i64 %1127 to ptr
-  %1129 = load ptr, ptr %1128, align 16
-  %1130 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1129)
-  %1131 = extractvalue { i64, i64 } %1130, 0
-  %1132 = extractvalue { i64, i64 } %1130, 1
-  %.sroa.22.8.extract.trunc280 = trunc i64 %1132 to i32
-  %.sroa.45.8.extract.shift302 = lshr i64 %1132, 32
-  br label %1189
+839:                                              ; preds = %2
+  %840 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i231 = load i64, ptr %840, align 16
+  %841 = and i64 %.sroa.0.0.copyload.i231, -16
+  %842 = inttoptr i64 %841 to ptr
+  %843 = load ptr, ptr %842, align 16
+  %844 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %843)
+  %845 = extractvalue { i64, i64 } %844, 0
+  %846 = extractvalue { i64, i64 } %844, 1
+  %.sroa.22.8.extract.trunc280 = trunc i64 %846 to i32
+  %.sroa.45.8.extract.shift302 = lshr i64 %846, 32
+  br label %903
 
-1133:                                             ; preds = %2
-  %1134 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i233 = load i64, ptr %1134, align 16
-  %1135 = and i64 %.sroa.0.0.copyload.i233, -16
-  %1136 = inttoptr i64 %1135 to ptr
-  %1137 = load ptr, ptr %1136, align 16
-  %1138 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1137)
-  %1139 = extractvalue { i64, i64 } %1138, 0
-  %1140 = extractvalue { i64, i64 } %1138, 1
-  %.sroa.22.8.extract.trunc279 = trunc i64 %1140 to i32
-  %.sroa.45.8.extract.shift300 = lshr i64 %1140, 32
-  br label %1189
+847:                                              ; preds = %2
+  %848 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i233 = load i64, ptr %848, align 16
+  %849 = and i64 %.sroa.0.0.copyload.i233, -16
+  %850 = inttoptr i64 %849 to ptr
+  %851 = load ptr, ptr %850, align 16
+  %852 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %851)
+  %853 = extractvalue { i64, i64 } %852, 0
+  %854 = extractvalue { i64, i64 } %852, 1
+  %.sroa.22.8.extract.trunc279 = trunc i64 %854 to i32
+  %.sroa.45.8.extract.shift300 = lshr i64 %854, 32
+  br label %903
 
-1141:                                             ; preds = %2
-  %1142 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i235 = load i64, ptr %1142, align 16
-  %1143 = and i64 %.sroa.0.0.copyload.i235, -16
-  %1144 = inttoptr i64 %1143 to ptr
-  %1145 = load ptr, ptr %1144, align 16
-  %1146 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1145)
-  %1147 = extractvalue { i64, i64 } %1146, 0
-  %1148 = extractvalue { i64, i64 } %1146, 1
-  %.sroa.22.8.extract.trunc = trunc i64 %1148 to i32
-  %.sroa.45.8.extract.shift298 = lshr i64 %1148, 32
-  br label %1189
+855:                                              ; preds = %2
+  %856 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i235 = load i64, ptr %856, align 16
+  %857 = and i64 %.sroa.0.0.copyload.i235, -16
+  %858 = inttoptr i64 %857 to ptr
+  %859 = load ptr, ptr %858, align 16
+  %860 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %859)
+  %861 = extractvalue { i64, i64 } %860, 0
+  %862 = extractvalue { i64, i64 } %860, 1
+  %.sroa.22.8.extract.trunc = trunc i64 %862 to i32
+  %.sroa.45.8.extract.shift298 = lshr i64 %862, 32
+  br label %903
 
-1149:                                             ; preds = %2
-  %1150 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i237 = load i64, ptr %1150, align 16
-  %1151 = and i64 %.sroa.0.0.copyload.i237, -16
-  %1152 = inttoptr i64 %1151 to ptr
-  %1153 = load ptr, ptr %1152, align 16
-  %1154 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %1153)
-  %1155 = extractvalue { i64, i64 } %1154, 0
-  %1156 = extractvalue { i64, i64 } %1154, 1
-  %.sroa.2.8.extract.trunc = trunc i64 %1156 to i32
-  %.not = icmp eq i64 %1155, 0
-  br i1 %.not, label %1189, label %1157
+863:                                              ; preds = %2
+  %864 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i237 = load i64, ptr %864, align 16
+  %865 = and i64 %.sroa.0.0.copyload.i237, -16
+  %866 = inttoptr i64 %865 to ptr
+  %867 = load ptr, ptr %866, align 16
+  %868 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %867)
+  %869 = extractvalue { i64, i64 } %868, 0
+  %870 = extractvalue { i64, i64 } %868, 1
+  %.sroa.2.8.extract.trunc = trunc i64 %870 to i32
+  %.not = icmp eq i64 %869, 0
+  br i1 %.not, label %903, label %871
 
-1157:                                             ; preds = %1149
-  %1158 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %1159 = load ptr, ptr %1158, align 8
-  %1160 = getelementptr inbounds nuw i8, ptr %1159, i64 286
-  %1161 = load i8, ptr %1160, align 2
-  %1162 = zext i8 %1161 to i64
-  %.not145 = icmp ugt i64 %1155, %1162
-  br i1 %.not145, label %1189, label %1163
+871:                                              ; preds = %863
+  %872 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %873 = load ptr, ptr %872, align 8
+  %874 = getelementptr inbounds nuw i8, ptr %873, i64 286
+  %875 = load i8, ptr %874, align 2
+  %876 = zext i8 %875 to i64
+  %.not145 = icmp ugt i64 %869, %876
+  br i1 %.not145, label %903, label %877
 
-1163:                                             ; preds = %1157
-  %1164 = icmp eq i64 %1155, 1
-  br i1 %1164, label %_ZN4llvm8bit_ceilImEET_S1_.exit, label %1165
+877:                                              ; preds = %871
+  %878 = icmp eq i64 %869, 1
+  br i1 %878, label %_ZN4llvm8bit_ceilImEET_S1_.exit, label %879
 
-1165:                                             ; preds = %1163
-  %1166 = add nsw i64 %1155, -1
-  %1167 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1166, i1 false)
-  %1168 = sub nuw nsw i64 64, %1167
-  %1169 = shl nuw nsw i64 1, %1168
+879:                                              ; preds = %877
+  %880 = add nsw i64 %869, -1
+  %881 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %880, i1 false)
+  %882 = sub nuw nsw i64 64, %881
+  %883 = shl nuw nsw i64 1, %882
   br label %_ZN4llvm8bit_ceilImEET_S1_.exit
 
-_ZN4llvm8bit_ceilImEET_S1_.exit:                  ; preds = %1163, %1165
-  %.0.i238 = phi i64 [ %1169, %1165 ], [ 1, %1163 ]
-  %1170 = trunc i64 %.0.i238 to i32
-  br label %1189
+_ZN4llvm8bit_ceilImEET_S1_.exit:                  ; preds = %877, %879
+  %.0.i238 = phi i64 [ %883, %879 ], [ 1, %877 ]
+  %884 = trunc i64 %.0.i238 to i32
+  br label %903
 
-1171:                                             ; preds = %2
-  %1172 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %1173 = load ptr, ptr %1172, align 8
-  %1174 = load ptr, ptr %1173, align 8
-  %1175 = getelementptr inbounds i8, ptr %1174, i64 920
-  %1176 = load ptr, ptr %1175, align 8
-  %1177 = tail call noundef i64 %1176(ptr noundef nonnull align 8 dereferenceable(489) %1173, i32 noundef 1) #29
-  %1178 = load ptr, ptr %1172, align 8
-  %1179 = load ptr, ptr %1178, align 8
-  %1180 = getelementptr inbounds i8, ptr %1179, i64 928
-  %1181 = load ptr, ptr %1180, align 8
-  %1182 = tail call noundef i64 %1181(ptr noundef nonnull align 8 dereferenceable(489) %1178, i32 noundef 1) #29
-  %1183 = trunc i64 %1182 to i32
-  br label %1189
+885:                                              ; preds = %2
+  %886 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %887 = load ptr, ptr %886, align 8
+  %888 = load ptr, ptr %887, align 8
+  %889 = getelementptr inbounds i8, ptr %888, i64 920
+  %890 = load ptr, ptr %889, align 8
+  %891 = tail call noundef i64 %890(ptr noundef nonnull align 8 dereferenceable(489) %887, i32 noundef 1) #29
+  %892 = load ptr, ptr %886, align 8
+  %893 = load ptr, ptr %892, align 8
+  %894 = getelementptr inbounds i8, ptr %893, i64 928
+  %895 = load ptr, ptr %894, align 8
+  %896 = tail call noundef i64 %895(ptr noundef nonnull align 8 dereferenceable(489) %892, i32 noundef 1) #29
+  %897 = trunc i64 %896 to i32
+  br label %903
 
 .fold.split:                                      ; preds = %151
-  br label %1189
+  br label %903
 
 .fold.split353:                                   ; preds = %151
-  %1184 = getelementptr inbounds nuw i8, ptr %0, i64 17240
-  %1185 = load ptr, ptr %1184, align 8
-  %1186 = getelementptr inbounds i8, ptr %1185, i64 68
-  %1187 = load i32, ptr %1186, align 4
-  %.not161.not = icmp eq i32 %1187, 0
-  %1188 = tail call i32 @llvm.umin.i32(i32 %1187, i32 %.1135)
-  %.2 = select i1 %.not161.not, i32 %.1135, i32 %1188
-  br label %1189
+  %898 = getelementptr inbounds nuw i8, ptr %0, i64 17240
+  %899 = load ptr, ptr %898, align 8
+  %900 = getelementptr inbounds i8, ptr %899, i64 68
+  %901 = load i32, ptr %900, align 4
+  %.not161.not = icmp eq i32 %901, 0
+  %902 = tail call i32 @llvm.umin.i32(i32 %901, i32 %.1135)
+  %.2 = select i1 %.not161.not, i32 %.1135, i32 %902
+  br label %903
 
-1189:                                             ; preds = %1149, %1020, %151, %.fold.split353, %.fold.split, %2, %66, %157, %796, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201, %930, %939, %969, %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit, %1030, %1098, %1171, %.critedge, %92, %155, %444, %449, %422, %426, %364, %372, %316, %342, %335, %330, %795, %794, %793, %792, %791, %790, %789, %788, %787, %786, %785, %784, %783, %782, %781, %780, %779, %778, %777, %776, %775, %774, %773, %772, %771, %770, %769, %768, %767, %766, %765, %764, %763, %762, %761, %760, %759, %758, %757, %756, %755, %754, %753, %752, %751, %750, %749, %748, %747, %746, %745, %744, %743, %742, %741, %740, %739, %738, %737, %736, %735, %734, %733, %732, %731, %730, %729, %728, %727, %726, %725, %724, %723, %722, %721, %720, %719, %718, %717, %716, %715, %714, %713, %712, %711, %710, %709, %708, %707, %706, %705, %704, %703, %702, %701, %700, %699, %698, %697, %696, %695, %694, %693, %692, %691, %690, %689, %688, %687, %686, %685, %684, %683, %682, %681, %680, %679, %678, %677, %676, %675, %674, %673, %672, %671, %670, %669, %668, %667, %666, %665, %664, %663, %662, %661, %660, %659, %658, %657, %656, %655, %654, %653, %652, %651, %650, %649, %648, %647, %646, %645, %644, %643, %642, %641, %640, %639, %638, %637, %636, %635, %634, %633, %632, %631, %630, %629, %628, %627, %626, %625, %624, %623, %622, %621, %620, %619, %618, %617, %616, %615, %614, %613, %612, %611, %610, %609, %608, %607, %606, %605, %604, %603, %602, %601, %600, %599, %598, %597, %596, %595, %594, %593, %592, %591, %590, %589, %588, %587, %586, %585, %584, %583, %582, %581, %580, %579, %578, %577, %576, %575, %574, %573, %572, %571, %570, %569, %568, %567, %566, %565, %564, %563, %562, %561, %560, %559, %558, %557, %556, %555, %554, %553, %552, %551, %550, %549, %548, %547, %546, %545, %544, %543, %542, %541, %540, %539, %538, %537, %536, %535, %534, %533, %532, %531, %530, %529, %528, %527, %526, %525, %524, %523, %522, %521, %520, %519, %518, %517, %516, %515, %514, %513, %512, %511, %510, %509, %508, %507, %506, %505, %504, %503, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit, %464, %455, %399, %390, %381, %300, %291, %282, %273, %264, %255, %249, %240, %231, %222, %221, %210, %199, %188, %187, %178, %1157, %_ZN4llvm8bit_ceilImEET_S1_.exit, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %964, %1012, %1141, %1133, %1125, %1117, %1109, %1090, %1082, %1074, %1066, %1058, %1049, %956, %948, %58, %50, %42, %_ZNK5clang26TemplateSpecializationType7desugarEv.exit, %_ZNK5clang16PackIndexingType7desugarEv.exit, %5
-  %.sroa.0278.0 = phi i64 [ %1147, %1141 ], [ %1139, %1133 ], [ %1131, %1125 ], [ %1123, %1117 ], [ %1115, %1109 ], [ %1096, %1090 ], [ %1088, %1082 ], [ %1080, %1074 ], [ %1072, %1066 ], [ %1064, %1058 ], [ %1056, %1049 ], [ %962, %956 ], [ %954, %948 ], [ %64, %58 ], [ %56, %50 ], [ %48, %42 ], [ %40, %_ZNK5clang26TemplateSpecializationType7desugarEv.exit ], [ %27, %_ZNK5clang16PackIndexingType7desugarEv.exit ], [ %11, %5 ], [ 0, %2 ], [ %.0.i238, %_ZN4llvm8bit_ceilImEET_S1_.exit ], [ %1155, %1157 ], [ %1104, %1098 ], [ %1038, %1030 ], [ %1011, %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit ], [ %978, %969 ], [ %947, %939 ], [ %937, %930 ], [ %927, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201 ], [ %890, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192 ], [ %839, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182 ], [ %801, %796 ], [ 128, %795 ], [ 0, %794 ], [ 0, %793 ], [ 0, %792 ], [ 0, %791 ], [ 0, %790 ], [ 0, %789 ], [ 0, %788 ], [ 0, %787 ], [ 0, %786 ], [ 0, %785 ], [ 0, %784 ], [ 0, %783 ], [ 0, %782 ], [ 0, %781 ], [ 0, %780 ], [ 0, %779 ], [ 0, %778 ], [ 0, %777 ], [ 0, %776 ], [ 0, %775 ], [ 0, %774 ], [ 0, %773 ], [ 0, %772 ], [ 0, %771 ], [ 0, %770 ], [ 0, %769 ], [ 0, %768 ], [ 0, %767 ], [ 0, %766 ], [ 0, %765 ], [ 0, %764 ], [ 0, %763 ], [ 0, %762 ], [ 0, %761 ], [ 0, %760 ], [ 0, %759 ], [ 0, %758 ], [ 0, %757 ], [ 0, %756 ], [ 0, %755 ], [ 0, %754 ], [ 0, %753 ], [ 0, %752 ], [ 0, %751 ], [ 0, %750 ], [ 0, %749 ], [ 0, %748 ], [ 0, %747 ], [ 0, %746 ], [ 0, %745 ], [ 0, %744 ], [ 0, %743 ], [ 0, %742 ], [ 0, %741 ], [ 0, %740 ], [ 0, %739 ], [ 0, %738 ], [ 0, %737 ], [ 0, %736 ], [ 0, %735 ], [ 0, %734 ], [ 0, %733 ], [ 0, %732 ], [ 0, %731 ], [ 0, %730 ], [ 0, %729 ], [ 0, %728 ], [ 0, %727 ], [ 0, %726 ], [ 0, %725 ], [ 0, %724 ], [ 0, %723 ], [ 0, %722 ], [ 0, %721 ], [ 0, %720 ], [ 0, %719 ], [ 0, %718 ], [ 0, %717 ], [ 0, %716 ], [ 0, %715 ], [ 0, %714 ], [ 0, %713 ], [ 0, %712 ], [ 0, %711 ], [ 0, %710 ], [ 0, %709 ], [ 0, %708 ], [ 0, %707 ], [ 0, %706 ], [ 0, %705 ], [ 0, %704 ], [ 0, %703 ], [ 0, %702 ], [ 0, %701 ], [ 0, %700 ], [ 0, %699 ], [ 0, %698 ], [ 0, %697 ], [ 0, %696 ], [ 0, %695 ], [ 0, %694 ], [ 0, %693 ], [ 0, %692 ], [ 0, %691 ], [ 0, %690 ], [ 0, %689 ], [ 0, %688 ], [ 0, %687 ], [ 0, %686 ], [ 0, %685 ], [ 0, %684 ], [ 0, %683 ], [ 0, %682 ], [ 0, %681 ], [ 0, %680 ], [ 0, %679 ], [ 0, %678 ], [ 0, %677 ], [ 0, %676 ], [ 0, %675 ], [ 0, %674 ], [ 0, %673 ], [ 0, %672 ], [ 0, %671 ], [ 0, %670 ], [ 0, %669 ], [ 0, %668 ], [ 0, %667 ], [ 0, %666 ], [ 0, %665 ], [ 0, %664 ], [ 0, %663 ], [ 0, %662 ], [ 0, %661 ], [ 0, %660 ], [ 0, %659 ], [ 0, %658 ], [ 0, %657 ], [ 0, %656 ], [ 0, %655 ], [ 0, %654 ], [ 0, %653 ], [ 0, %652 ], [ 0, %651 ], [ 0, %650 ], [ 0, %649 ], [ 0, %648 ], [ 0, %647 ], [ 0, %646 ], [ 0, %645 ], [ 0, %644 ], [ 0, %643 ], [ 0, %642 ], [ 0, %641 ], [ 0, %640 ], [ 0, %639 ], [ 0, %638 ], [ 0, %637 ], [ 0, %636 ], [ 0, %635 ], [ 0, %634 ], [ 0, %633 ], [ 0, %632 ], [ 0, %631 ], [ 0, %630 ], [ 0, %629 ], [ 0, %628 ], [ 0, %627 ], [ 0, %626 ], [ 0, %625 ], [ 0, %624 ], [ 0, %623 ], [ 0, %622 ], [ 0, %621 ], [ 0, %620 ], [ 0, %619 ], [ 0, %618 ], [ 0, %617 ], [ 0, %616 ], [ 0, %615 ], [ 0, %614 ], [ 0, %613 ], [ 0, %612 ], [ 0, %611 ], [ 0, %610 ], [ 0, %609 ], [ 0, %608 ], [ 0, %607 ], [ 0, %606 ], [ 0, %605 ], [ 0, %604 ], [ 0, %603 ], [ 0, %602 ], [ 0, %601 ], [ 0, %600 ], [ 0, %599 ], [ 0, %598 ], [ 0, %597 ], [ 0, %596 ], [ 0, %595 ], [ 0, %594 ], [ 0, %593 ], [ 0, %592 ], [ 0, %591 ], [ 0, %590 ], [ 0, %589 ], [ 0, %588 ], [ 0, %587 ], [ 0, %586 ], [ 0, %585 ], [ 0, %584 ], [ 0, %583 ], [ 0, %582 ], [ 0, %581 ], [ 0, %580 ], [ 0, %579 ], [ 0, %578 ], [ 0, %577 ], [ 0, %576 ], [ 0, %575 ], [ 0, %574 ], [ 0, %573 ], [ 0, %572 ], [ 0, %571 ], [ 0, %570 ], [ 0, %569 ], [ 0, %568 ], [ 0, %567 ], [ 0, %566 ], [ 0, %565 ], [ 0, %564 ], [ 0, %563 ], [ 0, %562 ], [ 0, %561 ], [ 0, %560 ], [ 0, %559 ], [ 0, %558 ], [ 0, %557 ], [ 256, %556 ], [ 512, %555 ], [ 0, %554 ], [ 0, %553 ], [ 0, %552 ], [ 0, %551 ], [ 0, %550 ], [ 0, %549 ], [ 0, %548 ], [ 0, %547 ], [ 0, %546 ], [ 0, %545 ], [ 0, %544 ], [ 0, %543 ], [ 0, %542 ], [ 0, %541 ], [ 0, %540 ], [ 0, %539 ], [ 0, %538 ], [ 0, %537 ], [ 0, %536 ], [ 0, %535 ], [ 0, %534 ], [ 0, %533 ], [ 0, %532 ], [ 0, %531 ], [ 0, %530 ], [ 0, %529 ], [ 0, %528 ], [ 0, %527 ], [ 0, %526 ], [ 0, %525 ], [ 0, %524 ], [ 0, %523 ], [ 0, %522 ], [ 0, %521 ], [ 0, %520 ], [ 0, %519 ], [ 0, %518 ], [ 0, %517 ], [ 0, %516 ], [ 0, %515 ], [ 0, %514 ], [ 0, %513 ], [ 0, %512 ], [ 0, %511 ], [ 0, %510 ], [ 0, %509 ], [ 0, %508 ], [ 0, %507 ], [ 0, %506 ], [ 0, %505 ], [ 0, %504 ], [ 0, %503 ], [ %500, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit ], [ %469, %464 ], [ %460, %455 ], [ 128, %444 ], [ 128, %449 ], [ %424, %422 ], [ %428, %426 ], [ 128, %399 ], [ %395, %390 ], [ %386, %381 ], [ %368, %364 ], [ %377, %372 ], [ %320, %316 ], [ %346, %342 ], [ 0, %335 ], [ 0, %330 ], [ %305, %300 ], [ %296, %291 ], [ %287, %282 ], [ %278, %273 ], [ %269, %264 ], [ %260, %255 ], [ 128, %249 ], [ %245, %240 ], [ %236, %231 ], [ %227, %222 ], [ 16, %221 ], [ %216, %210 ], [ %205, %199 ], [ %194, %188 ], [ 8, %187 ], [ %183, %178 ], [ %172, %157 ], [ %.1, %155 ], [ %102, %.critedge ], [ %88, %92 ], [ 0, %66 ], [ %1177, %1171 ], [ %.1, %151 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 8, %964 ], [ 8, %1012 ], [ %.1, %.fold.split ], [ %.1, %.fold.split353 ], [ %1027, %1020 ], [ 8, %1149 ]
-  %.sroa.22.0 = phi i32 [ %.sroa.22.8.extract.trunc, %1141 ], [ %.sroa.22.8.extract.trunc279, %1133 ], [ %.sroa.22.8.extract.trunc280, %1125 ], [ %.sroa.22.8.extract.trunc281, %1117 ], [ %.sroa.22.8.extract.trunc282, %1109 ], [ %.sroa.22.8.extract.trunc283, %1090 ], [ %.sroa.22.8.extract.trunc284, %1082 ], [ %.sroa.22.8.extract.trunc285, %1074 ], [ %.sroa.22.8.extract.trunc286, %1066 ], [ %.sroa.22.8.extract.trunc287, %1058 ], [ %.sroa.22.8.extract.trunc288, %1049 ], [ %.sroa.22.8.extract.trunc290, %956 ], [ %.sroa.22.8.extract.trunc291, %948 ], [ %.sroa.22.8.extract.trunc292, %58 ], [ %.sroa.22.8.extract.trunc293, %50 ], [ %.sroa.22.8.extract.trunc294, %42 ], [ %.sroa.22.8.extract.trunc295, %_ZNK5clang26TemplateSpecializationType7desugarEv.exit ], [ %.sroa.22.8.extract.trunc296, %_ZNK5clang16PackIndexingType7desugarEv.exit ], [ %.sroa.22.8.extract.trunc297, %5 ], [ 8, %2 ], [ %1170, %_ZN4llvm8bit_ceilImEET_S1_.exit ], [ %.sroa.2.8.extract.trunc, %1157 ], [ %.3, %1098 ], [ %1046, %1030 ], [ %.sroa.speculated.i, %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit ], [ %986, %969 ], [ %.sroa.234.8.extract.trunc, %939 ], [ %.sroa.237.8.extract.trunc, %930 ], [ %929, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201 ], [ %892, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192 ], [ %841, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182 ], [ %804, %796 ], [ 128, %795 ], [ 16, %794 ], [ 16, %793 ], [ 16, %792 ], [ 16, %791 ], [ 16, %790 ], [ 16, %789 ], [ 16, %788 ], [ 16, %787 ], [ 16, %786 ], [ 16, %785 ], [ 16, %784 ], [ 16, %783 ], [ 16, %782 ], [ 16, %781 ], [ 16, %780 ], [ 16, %779 ], [ 16, %778 ], [ 16, %777 ], [ 16, %776 ], [ 16, %775 ], [ 16, %774 ], [ 16, %773 ], [ 16, %772 ], [ 16, %771 ], [ 16, %770 ], [ 64, %769 ], [ 64, %768 ], [ 64, %767 ], [ 64, %766 ], [ 64, %765 ], [ 64, %764 ], [ 64, %763 ], [ 64, %762 ], [ 64, %761 ], [ 64, %760 ], [ 64, %759 ], [ 32, %758 ], [ 32, %757 ], [ 32, %756 ], [ 32, %755 ], [ 32, %754 ], [ 32, %753 ], [ 32, %752 ], [ 32, %751 ], [ 32, %750 ], [ 32, %749 ], [ 32, %748 ], [ 32, %747 ], [ 32, %746 ], [ 32, %745 ], [ 32, %744 ], [ 32, %743 ], [ 32, %742 ], [ 32, %741 ], [ 16, %740 ], [ 16, %739 ], [ 16, %738 ], [ 16, %737 ], [ 16, %736 ], [ 16, %735 ], [ 16, %734 ], [ 16, %733 ], [ 16, %732 ], [ 16, %731 ], [ 16, %730 ], [ 16, %729 ], [ 16, %728 ], [ 16, %727 ], [ 16, %726 ], [ 16, %725 ], [ 16, %724 ], [ 16, %723 ], [ 16, %722 ], [ 16, %721 ], [ 16, %720 ], [ 16, %719 ], [ 16, %718 ], [ 16, %717 ], [ 16, %716 ], [ 64, %715 ], [ 64, %714 ], [ 64, %713 ], [ 64, %712 ], [ 64, %711 ], [ 64, %710 ], [ 64, %709 ], [ 64, %708 ], [ 64, %707 ], [ 64, %706 ], [ 64, %705 ], [ 64, %704 ], [ 64, %703 ], [ 64, %702 ], [ 64, %701 ], [ 64, %700 ], [ 64, %699 ], [ 64, %698 ], [ 64, %697 ], [ 64, %696 ], [ 64, %695 ], [ 64, %694 ], [ 32, %693 ], [ 32, %692 ], [ 32, %691 ], [ 32, %690 ], [ 32, %689 ], [ 32, %688 ], [ 32, %687 ], [ 32, %686 ], [ 32, %685 ], [ 32, %684 ], [ 32, %683 ], [ 32, %682 ], [ 32, %681 ], [ 32, %680 ], [ 32, %679 ], [ 32, %678 ], [ 32, %677 ], [ 32, %676 ], [ 32, %675 ], [ 32, %674 ], [ 32, %673 ], [ 32, %672 ], [ 32, %671 ], [ 32, %670 ], [ 32, %669 ], [ 32, %668 ], [ 32, %667 ], [ 32, %666 ], [ 32, %665 ], [ 32, %664 ], [ 32, %663 ], [ 32, %662 ], [ 32, %661 ], [ 32, %660 ], [ 32, %659 ], [ 32, %658 ], [ 16, %657 ], [ 16, %656 ], [ 16, %655 ], [ 16, %654 ], [ 16, %653 ], [ 16, %652 ], [ 16, %651 ], [ 16, %650 ], [ 16, %649 ], [ 16, %648 ], [ 16, %647 ], [ 16, %646 ], [ 16, %645 ], [ 16, %644 ], [ 16, %643 ], [ 16, %642 ], [ 16, %641 ], [ 16, %640 ], [ 16, %639 ], [ 16, %638 ], [ 16, %637 ], [ 16, %636 ], [ 16, %635 ], [ 16, %634 ], [ 16, %633 ], [ 16, %632 ], [ 16, %631 ], [ 16, %630 ], [ 16, %629 ], [ 16, %628 ], [ 16, %627 ], [ 16, %626 ], [ 16, %625 ], [ 16, %624 ], [ 16, %623 ], [ 16, %622 ], [ 16, %621 ], [ 16, %620 ], [ 16, %619 ], [ 16, %618 ], [ 16, %617 ], [ 16, %616 ], [ 16, %615 ], [ 16, %614 ], [ 16, %613 ], [ 16, %612 ], [ 16, %611 ], [ 16, %610 ], [ 16, %609 ], [ 16, %608 ], [ 64, %607 ], [ 64, %606 ], [ 64, %605 ], [ 64, %604 ], [ 32, %603 ], [ 32, %602 ], [ 32, %601 ], [ 32, %600 ], [ 32, %599 ], [ 16, %598 ], [ 16, %597 ], [ 16, %596 ], [ 16, %595 ], [ 16, %594 ], [ 16, %593 ], [ 16, %592 ], [ 16, %591 ], [ 16, %590 ], [ 16, %589 ], [ 16, %588 ], [ 16, %587 ], [ 64, %586 ], [ 64, %585 ], [ 64, %584 ], [ 64, %583 ], [ 64, %582 ], [ 64, %581 ], [ 64, %580 ], [ 64, %579 ], [ 32, %578 ], [ 32, %577 ], [ 32, %576 ], [ 32, %575 ], [ 32, %574 ], [ 32, %573 ], [ 32, %572 ], [ 32, %571 ], [ 32, %570 ], [ 32, %569 ], [ 16, %568 ], [ 16, %567 ], [ 16, %566 ], [ 16, %565 ], [ 16, %564 ], [ 16, %563 ], [ 16, %562 ], [ 16, %561 ], [ 16, %560 ], [ 16, %559 ], [ 16, %558 ], [ 16, %557 ], [ 256, %556 ], [ 512, %555 ], [ 16, %554 ], [ 16, %553 ], [ 16, %552 ], [ 16, %551 ], [ 128, %550 ], [ 128, %549 ], [ 128, %548 ], [ 128, %547 ], [ 128, %546 ], [ 128, %545 ], [ 128, %544 ], [ 128, %543 ], [ 128, %542 ], [ 128, %541 ], [ 128, %540 ], [ 128, %539 ], [ 128, %538 ], [ 128, %537 ], [ 128, %536 ], [ 128, %535 ], [ 128, %534 ], [ 128, %533 ], [ 128, %532 ], [ 128, %531 ], [ 128, %530 ], [ 128, %529 ], [ 128, %528 ], [ 128, %527 ], [ 128, %526 ], [ 128, %525 ], [ 128, %524 ], [ 128, %523 ], [ 128, %522 ], [ 128, %521 ], [ 128, %520 ], [ 128, %519 ], [ 128, %518 ], [ 128, %517 ], [ 128, %516 ], [ 128, %515 ], [ 128, %514 ], [ 128, %513 ], [ 128, %512 ], [ 128, %511 ], [ 128, %510 ], [ 128, %509 ], [ 128, %508 ], [ 128, %507 ], [ 128, %506 ], [ 128, %505 ], [ 128, %504 ], [ 128, %503 ], [ %502, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit ], [ %472, %464 ], [ %463, %455 ], [ %448, %444 ], [ %454, %449 ], [ %425, %422 ], [ %429, %426 ], [ %404, %399 ], [ %398, %390 ], [ %389, %381 ], [ %371, %364 ], [ %380, %372 ], [ %323, %316 ], [ %349, %342 ], [ 8, %335 ], [ 8, %330 ], [ %308, %300 ], [ %299, %291 ], [ %290, %282 ], [ %281, %273 ], [ %272, %264 ], [ %263, %255 ], [ %254, %249 ], [ %248, %240 ], [ %239, %231 ], [ %230, %222 ], [ 16, %221 ], [ %220, %210 ], [ %209, %199 ], [ %198, %188 ], [ 8, %187 ], [ %186, %178 ], [ %.sroa.242.8.extract.trunc, %157 ], [ %.sroa.speculated, %155 ], [ %.sroa.266.8.extract.trunc, %.critedge ], [ %.sroa.266.8.extract.trunc, %92 ], [ 32, %66 ], [ %1183, %1171 ], [ 128, %151 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %964 ], [ 8, %1012 ], [ 16, %.fold.split ], [ %.2, %.fold.split353 ], [ %spec.select, %1020 ], [ %.sroa.2.8.extract.trunc, %1149 ]
-  %.sroa.45.0 = phi i64 [ %.sroa.45.8.extract.shift298, %1141 ], [ %.sroa.45.8.extract.shift300, %1133 ], [ %.sroa.45.8.extract.shift302, %1125 ], [ %.sroa.45.8.extract.shift304, %1117 ], [ %.sroa.45.8.extract.shift306, %1109 ], [ %.sroa.45.8.extract.shift308, %1090 ], [ %.sroa.45.8.extract.shift310, %1082 ], [ %.sroa.45.8.extract.shift312, %1074 ], [ %.sroa.45.8.extract.shift314, %1066 ], [ %.sroa.45.8.extract.shift316, %1058 ], [ %.sroa.45.8.extract.shift318, %1049 ], [ %.sroa.45.8.extract.shift322, %956 ], [ %.sroa.45.8.extract.shift324, %948 ], [ %.sroa.45.8.extract.shift326, %58 ], [ %.sroa.45.8.extract.shift328, %50 ], [ %.sroa.45.8.extract.shift330, %42 ], [ %.sroa.45.8.extract.shift332, %_ZNK5clang26TemplateSpecializationType7desugarEv.exit ], [ %.sroa.45.8.extract.shift334, %_ZNK5clang16PackIndexingType7desugarEv.exit ], [ %.sroa.45.8.extract.shift336, %5 ], [ 0, %2 ], [ 0, %_ZN4llvm8bit_ceilImEET_S1_.exit ], [ 0, %1157 ], [ %.1137, %1098 ], [ %1048, %1030 ], [ 0, %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit ], [ 0, %969 ], [ 0, %939 ], [ 0, %930 ], [ 0, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201 ], [ 0, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192 ], [ 0, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182 ], [ 0, %796 ], [ 0, %795 ], [ 0, %794 ], [ 0, %793 ], [ 0, %792 ], [ 0, %791 ], [ 0, %790 ], [ 0, %789 ], [ 0, %788 ], [ 0, %787 ], [ 0, %786 ], [ 0, %785 ], [ 0, %784 ], [ 0, %783 ], [ 0, %782 ], [ 0, %781 ], [ 0, %780 ], [ 0, %779 ], [ 0, %778 ], [ 0, %777 ], [ 0, %776 ], [ 0, %775 ], [ 0, %774 ], [ 0, %773 ], [ 0, %772 ], [ 0, %771 ], [ 0, %770 ], [ 0, %769 ], [ 0, %768 ], [ 0, %767 ], [ 0, %766 ], [ 0, %765 ], [ 0, %764 ], [ 0, %763 ], [ 0, %762 ], [ 0, %761 ], [ 0, %760 ], [ 0, %759 ], [ 0, %758 ], [ 0, %757 ], [ 0, %756 ], [ 0, %755 ], [ 0, %754 ], [ 0, %753 ], [ 0, %752 ], [ 0, %751 ], [ 0, %750 ], [ 0, %749 ], [ 0, %748 ], [ 0, %747 ], [ 0, %746 ], [ 0, %745 ], [ 0, %744 ], [ 0, %743 ], [ 0, %742 ], [ 0, %741 ], [ 0, %740 ], [ 0, %739 ], [ 0, %738 ], [ 0, %737 ], [ 0, %736 ], [ 0, %735 ], [ 0, %734 ], [ 0, %733 ], [ 0, %732 ], [ 0, %731 ], [ 0, %730 ], [ 0, %729 ], [ 0, %728 ], [ 0, %727 ], [ 0, %726 ], [ 0, %725 ], [ 0, %724 ], [ 0, %723 ], [ 0, %722 ], [ 0, %721 ], [ 0, %720 ], [ 0, %719 ], [ 0, %718 ], [ 0, %717 ], [ 0, %716 ], [ 0, %715 ], [ 0, %714 ], [ 0, %713 ], [ 0, %712 ], [ 0, %711 ], [ 0, %710 ], [ 0, %709 ], [ 0, %708 ], [ 0, %707 ], [ 0, %706 ], [ 0, %705 ], [ 0, %704 ], [ 0, %703 ], [ 0, %702 ], [ 0, %701 ], [ 0, %700 ], [ 0, %699 ], [ 0, %698 ], [ 0, %697 ], [ 0, %696 ], [ 0, %695 ], [ 0, %694 ], [ 0, %693 ], [ 0, %692 ], [ 0, %691 ], [ 0, %690 ], [ 0, %689 ], [ 0, %688 ], [ 0, %687 ], [ 0, %686 ], [ 0, %685 ], [ 0, %684 ], [ 0, %683 ], [ 0, %682 ], [ 0, %681 ], [ 0, %680 ], [ 0, %679 ], [ 0, %678 ], [ 0, %677 ], [ 0, %676 ], [ 0, %675 ], [ 0, %674 ], [ 0, %673 ], [ 0, %672 ], [ 0, %671 ], [ 0, %670 ], [ 0, %669 ], [ 0, %668 ], [ 0, %667 ], [ 0, %666 ], [ 0, %665 ], [ 0, %664 ], [ 0, %663 ], [ 0, %662 ], [ 0, %661 ], [ 0, %660 ], [ 0, %659 ], [ 0, %658 ], [ 0, %657 ], [ 0, %656 ], [ 0, %655 ], [ 0, %654 ], [ 0, %653 ], [ 0, %652 ], [ 0, %651 ], [ 0, %650 ], [ 0, %649 ], [ 0, %648 ], [ 0, %647 ], [ 0, %646 ], [ 0, %645 ], [ 0, %644 ], [ 0, %643 ], [ 0, %642 ], [ 0, %641 ], [ 0, %640 ], [ 0, %639 ], [ 0, %638 ], [ 0, %637 ], [ 0, %636 ], [ 0, %635 ], [ 0, %634 ], [ 0, %633 ], [ 0, %632 ], [ 0, %631 ], [ 0, %630 ], [ 0, %629 ], [ 0, %628 ], [ 0, %627 ], [ 0, %626 ], [ 0, %625 ], [ 0, %624 ], [ 0, %623 ], [ 0, %622 ], [ 0, %621 ], [ 0, %620 ], [ 0, %619 ], [ 0, %618 ], [ 0, %617 ], [ 0, %616 ], [ 0, %615 ], [ 0, %614 ], [ 0, %613 ], [ 0, %612 ], [ 0, %611 ], [ 0, %610 ], [ 0, %609 ], [ 0, %608 ], [ 0, %607 ], [ 0, %606 ], [ 0, %605 ], [ 0, %604 ], [ 0, %603 ], [ 0, %602 ], [ 0, %601 ], [ 0, %600 ], [ 0, %599 ], [ 0, %598 ], [ 0, %597 ], [ 0, %596 ], [ 0, %595 ], [ 0, %594 ], [ 0, %593 ], [ 0, %592 ], [ 0, %591 ], [ 0, %590 ], [ 0, %589 ], [ 0, %588 ], [ 0, %587 ], [ 0, %586 ], [ 0, %585 ], [ 0, %584 ], [ 0, %583 ], [ 0, %582 ], [ 0, %581 ], [ 0, %580 ], [ 0, %579 ], [ 0, %578 ], [ 0, %577 ], [ 0, %576 ], [ 0, %575 ], [ 0, %574 ], [ 0, %573 ], [ 0, %572 ], [ 0, %571 ], [ 0, %570 ], [ 0, %569 ], [ 0, %568 ], [ 0, %567 ], [ 0, %566 ], [ 0, %565 ], [ 0, %564 ], [ 0, %563 ], [ 0, %562 ], [ 0, %561 ], [ 0, %560 ], [ 0, %559 ], [ 0, %558 ], [ 0, %557 ], [ 0, %556 ], [ 0, %555 ], [ 0, %554 ], [ 0, %553 ], [ 0, %552 ], [ 0, %551 ], [ 0, %550 ], [ 0, %549 ], [ 0, %548 ], [ 0, %547 ], [ 0, %546 ], [ 0, %545 ], [ 0, %544 ], [ 0, %543 ], [ 0, %542 ], [ 0, %541 ], [ 0, %540 ], [ 0, %539 ], [ 0, %538 ], [ 0, %537 ], [ 0, %536 ], [ 0, %535 ], [ 0, %534 ], [ 0, %533 ], [ 0, %532 ], [ 0, %531 ], [ 0, %530 ], [ 0, %529 ], [ 0, %528 ], [ 0, %527 ], [ 0, %526 ], [ 0, %525 ], [ 0, %524 ], [ 0, %523 ], [ 0, %522 ], [ 0, %521 ], [ 0, %520 ], [ 0, %519 ], [ 0, %518 ], [ 0, %517 ], [ 0, %516 ], [ 0, %515 ], [ 0, %514 ], [ 0, %513 ], [ 0, %512 ], [ 0, %511 ], [ 0, %510 ], [ 0, %509 ], [ 0, %508 ], [ 0, %507 ], [ 0, %506 ], [ 0, %505 ], [ 0, %504 ], [ 0, %503 ], [ 0, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit ], [ 0, %464 ], [ 0, %455 ], [ 0, %444 ], [ 0, %449 ], [ 0, %422 ], [ 0, %426 ], [ 0, %399 ], [ 0, %390 ], [ 0, %381 ], [ 0, %364 ], [ 0, %372 ], [ 0, %316 ], [ 0, %342 ], [ 0, %335 ], [ 0, %330 ], [ 0, %300 ], [ 0, %291 ], [ 0, %282 ], [ 0, %273 ], [ 0, %264 ], [ 0, %255 ], [ 0, %249 ], [ 0, %240 ], [ 0, %231 ], [ 0, %222 ], [ 0, %221 ], [ 0, %210 ], [ 0, %199 ], [ 0, %188 ], [ 0, %187 ], [ 0, %178 ], [ 0, %157 ], [ 0, %155 ], [ %.sroa.467.8.extract.shift, %.critedge ], [ %.sroa.467.8.extract.shift, %92 ], [ 0, %66 ], [ 0, %1171 ], [ 0, %151 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %964 ], [ 0, %1012 ], [ 0, %.fold.split ], [ 0, %.fold.split353 ], [ %spec.select358, %1020 ], [ 0, %1149 ]
+903:                                              ; preds = %863, %734, %151, %.fold.split353, %.fold.split, %2, %66, %157, %510, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201, %644, %653, %683, %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit, %744, %812, %885, %.critedge, %92, %155, %444, %449, %422, %426, %364, %372, %316, %342, %335, %330, %509, %508, %507, %506, %505, %504, %503, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit, %464, %455, %399, %390, %381, %300, %291, %282, %273, %264, %255, %249, %240, %231, %222, %221, %210, %199, %188, %187, %178, %871, %_ZN4llvm8bit_ceilImEET_S1_.exit, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %173, %678, %726, %855, %847, %839, %831, %823, %804, %796, %788, %780, %772, %763, %670, %662, %58, %50, %42, %_ZNK5clang26TemplateSpecializationType7desugarEv.exit, %_ZNK5clang16PackIndexingType7desugarEv.exit, %5
+  %.sroa.0278.0 = phi i64 [ %861, %855 ], [ %853, %847 ], [ %845, %839 ], [ %837, %831 ], [ %829, %823 ], [ %810, %804 ], [ %802, %796 ], [ %794, %788 ], [ %786, %780 ], [ %778, %772 ], [ %770, %763 ], [ %676, %670 ], [ %668, %662 ], [ %64, %58 ], [ %56, %50 ], [ %48, %42 ], [ %40, %_ZNK5clang26TemplateSpecializationType7desugarEv.exit ], [ %27, %_ZNK5clang16PackIndexingType7desugarEv.exit ], [ %11, %5 ], [ 0, %2 ], [ %.0.i238, %_ZN4llvm8bit_ceilImEET_S1_.exit ], [ %869, %871 ], [ %818, %812 ], [ %752, %744 ], [ %725, %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit ], [ %692, %683 ], [ %661, %653 ], [ %651, %644 ], [ %641, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201 ], [ %604, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192 ], [ %553, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182 ], [ %515, %510 ], [ 128, %509 ], [ 0, %508 ], [ 0, %507 ], [ 256, %506 ], [ 512, %505 ], [ 0, %504 ], [ 0, %503 ], [ %500, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit ], [ %469, %464 ], [ %460, %455 ], [ 128, %444 ], [ 128, %449 ], [ %424, %422 ], [ %428, %426 ], [ 128, %399 ], [ %395, %390 ], [ %386, %381 ], [ %368, %364 ], [ %377, %372 ], [ %320, %316 ], [ %346, %342 ], [ 0, %335 ], [ 0, %330 ], [ %305, %300 ], [ %296, %291 ], [ %287, %282 ], [ %278, %273 ], [ %269, %264 ], [ %260, %255 ], [ 128, %249 ], [ %245, %240 ], [ %236, %231 ], [ %227, %222 ], [ 16, %221 ], [ %216, %210 ], [ %205, %199 ], [ %194, %188 ], [ 8, %187 ], [ %183, %178 ], [ %172, %157 ], [ %.1, %155 ], [ %102, %.critedge ], [ %88, %92 ], [ 0, %66 ], [ %891, %885 ], [ %.1, %151 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 8, %678 ], [ 8, %726 ], [ %.1, %.fold.split ], [ %.1, %.fold.split353 ], [ %741, %734 ], [ 8, %863 ]
+  %.sroa.22.0 = phi i32 [ %.sroa.22.8.extract.trunc, %855 ], [ %.sroa.22.8.extract.trunc279, %847 ], [ %.sroa.22.8.extract.trunc280, %839 ], [ %.sroa.22.8.extract.trunc281, %831 ], [ %.sroa.22.8.extract.trunc282, %823 ], [ %.sroa.22.8.extract.trunc283, %804 ], [ %.sroa.22.8.extract.trunc284, %796 ], [ %.sroa.22.8.extract.trunc285, %788 ], [ %.sroa.22.8.extract.trunc286, %780 ], [ %.sroa.22.8.extract.trunc287, %772 ], [ %.sroa.22.8.extract.trunc288, %763 ], [ %.sroa.22.8.extract.trunc290, %670 ], [ %.sroa.22.8.extract.trunc291, %662 ], [ %.sroa.22.8.extract.trunc292, %58 ], [ %.sroa.22.8.extract.trunc293, %50 ], [ %.sroa.22.8.extract.trunc294, %42 ], [ %.sroa.22.8.extract.trunc295, %_ZNK5clang26TemplateSpecializationType7desugarEv.exit ], [ %.sroa.22.8.extract.trunc296, %_ZNK5clang16PackIndexingType7desugarEv.exit ], [ %.sroa.22.8.extract.trunc297, %5 ], [ 8, %2 ], [ %884, %_ZN4llvm8bit_ceilImEET_S1_.exit ], [ %.sroa.2.8.extract.trunc, %871 ], [ %.3, %812 ], [ %760, %744 ], [ %.sroa.speculated.i, %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit ], [ %700, %683 ], [ %.sroa.234.8.extract.trunc, %653 ], [ %.sroa.237.8.extract.trunc, %644 ], [ %643, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201 ], [ %606, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192 ], [ %555, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182 ], [ %518, %510 ], [ 128, %509 ], [ 64, %508 ], [ 32, %507 ], [ 256, %506 ], [ 512, %505 ], [ 16, %504 ], [ 128, %503 ], [ %502, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit ], [ %472, %464 ], [ %463, %455 ], [ %448, %444 ], [ %454, %449 ], [ %425, %422 ], [ %429, %426 ], [ %404, %399 ], [ %398, %390 ], [ %389, %381 ], [ %371, %364 ], [ %380, %372 ], [ %323, %316 ], [ %349, %342 ], [ 8, %335 ], [ 8, %330 ], [ %308, %300 ], [ %299, %291 ], [ %290, %282 ], [ %281, %273 ], [ %272, %264 ], [ %263, %255 ], [ %254, %249 ], [ %248, %240 ], [ %239, %231 ], [ %230, %222 ], [ 16, %221 ], [ %220, %210 ], [ %209, %199 ], [ %198, %188 ], [ 8, %187 ], [ %186, %178 ], [ %.sroa.242.8.extract.trunc, %157 ], [ %.sroa.speculated, %155 ], [ %.sroa.266.8.extract.trunc, %.critedge ], [ %.sroa.266.8.extract.trunc, %92 ], [ 32, %66 ], [ %897, %885 ], [ 128, %151 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %173 ], [ 8, %678 ], [ 8, %726 ], [ 16, %.fold.split ], [ %.2, %.fold.split353 ], [ %spec.select, %734 ], [ %.sroa.2.8.extract.trunc, %863 ]
+  %.sroa.45.0 = phi i64 [ %.sroa.45.8.extract.shift298, %855 ], [ %.sroa.45.8.extract.shift300, %847 ], [ %.sroa.45.8.extract.shift302, %839 ], [ %.sroa.45.8.extract.shift304, %831 ], [ %.sroa.45.8.extract.shift306, %823 ], [ %.sroa.45.8.extract.shift308, %804 ], [ %.sroa.45.8.extract.shift310, %796 ], [ %.sroa.45.8.extract.shift312, %788 ], [ %.sroa.45.8.extract.shift314, %780 ], [ %.sroa.45.8.extract.shift316, %772 ], [ %.sroa.45.8.extract.shift318, %763 ], [ %.sroa.45.8.extract.shift322, %670 ], [ %.sroa.45.8.extract.shift324, %662 ], [ %.sroa.45.8.extract.shift326, %58 ], [ %.sroa.45.8.extract.shift328, %50 ], [ %.sroa.45.8.extract.shift330, %42 ], [ %.sroa.45.8.extract.shift332, %_ZNK5clang26TemplateSpecializationType7desugarEv.exit ], [ %.sroa.45.8.extract.shift334, %_ZNK5clang16PackIndexingType7desugarEv.exit ], [ %.sroa.45.8.extract.shift336, %5 ], [ 0, %2 ], [ 0, %_ZN4llvm8bit_ceilImEET_S1_.exit ], [ 0, %871 ], [ %.1137, %812 ], [ %762, %744 ], [ 0, %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit ], [ 0, %683 ], [ 0, %653 ], [ 0, %644 ], [ 0, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit201 ], [ 0, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit192 ], [ 0, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit182 ], [ 0, %510 ], [ 0, %509 ], [ 0, %508 ], [ 0, %507 ], [ 0, %506 ], [ 0, %505 ], [ 0, %504 ], [ 0, %503 ], [ 0, %_ZNK5clang10TargetInfo15getPointerAlignENS_6LangASE.exit ], [ 0, %464 ], [ 0, %455 ], [ 0, %444 ], [ 0, %449 ], [ 0, %422 ], [ 0, %426 ], [ 0, %399 ], [ 0, %390 ], [ 0, %381 ], [ 0, %364 ], [ 0, %372 ], [ 0, %316 ], [ 0, %342 ], [ 0, %335 ], [ 0, %330 ], [ 0, %300 ], [ 0, %291 ], [ 0, %282 ], [ 0, %273 ], [ 0, %264 ], [ 0, %255 ], [ 0, %249 ], [ 0, %240 ], [ 0, %231 ], [ 0, %222 ], [ 0, %221 ], [ 0, %210 ], [ 0, %199 ], [ 0, %188 ], [ 0, %187 ], [ 0, %178 ], [ 0, %157 ], [ 0, %155 ], [ %.sroa.467.8.extract.shift, %.critedge ], [ %.sroa.467.8.extract.shift, %92 ], [ 0, %66 ], [ 0, %885 ], [ 0, %151 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %173 ], [ 0, %678 ], [ 0, %726 ], [ 0, %.fold.split ], [ 0, %.fold.split353 ], [ %spec.select358, %734 ], [ 0, %863 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0278.0, 0
   %.sroa.45.8.insert.shift = shl nuw i64 %.sroa.45.0, 32
   %.sroa.22.8.insert.ext = zext i32 %.sroa.22.0 to i64
@@ -77099,18 +76238,18 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZNK5clang10ASTContext28getFloati
   switch i32 %14, label %15 [
     i32 478, label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
     i32 477, label %16
-    i32 473, label %17
-    i32 474, label %18
-    i32 475, label %19
-    i32 480, label %20
-    i32 476, label %21
-    i32 479, label %28
+    i32 473, label %16
+    i32 474, label %17
+    i32 475, label %18
+    i32 480, label %19
+    i32 476, label %20
+    i32 479, label %27
   ]
 
 15:                                               ; preds = %3
   unreachable
 
-16:                                               ; preds = %3
+16:                                               ; preds = %3, %3
   br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
 
 17:                                               ; preds = %3
@@ -77123,66 +76262,66 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZNK5clang10ASTContext28getFloati
   br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
 
 20:                                               ; preds = %3
-  br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
-
-21:                                               ; preds = %3
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %25 = load i64, ptr %24, align 8
-  %26 = and i64 %25, 4294967295
-  %.not3.i = icmp eq i64 %26, 0
-  %27 = and i64 %25, 34359738368
-  %.not4.i = icmp eq i64 %27, 0
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  %24 = load i64, ptr %23, align 8
+  %25 = and i64 %24, 4294967295
+  %.not3.i = icmp eq i64 %25, 0
+  %26 = and i64 %24, 34359738368
+  %.not4.i = icmp eq i64 %26, 0
   %or.cond.i = or i1 %.not3.i, %.not4.i
   %..i = select i1 %or.cond.i, i64 17240, i64 17248
   br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
 
-28:                                               ; preds = %3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %32 = load i64, ptr %31, align 8
-  %33 = and i64 %32, 4294967295
-  %.not.i = icmp eq i64 %33, 0
-  %34 = and i64 %32, 34359738368
-  %.not2.i = icmp eq i64 %34, 0
+27:                                               ; preds = %3
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %31 = load i64, ptr %30, align 8
+  %32 = and i64 %31, 4294967295
+  %.not.i = icmp eq i64 %32, 0
+  %33 = and i64 %31, 34359738368
+  %.not2.i = icmp eq i64 %33, 0
   %or.cond5.i = or i1 %.not.i, %.not2.i
   %.8.i = select i1 %or.cond5.i, i64 17240, i64 17248
   br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
 
-_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit: ; preds = %3, %16, %17, %18, %19, %20, %21, %28
-  %.sink.i = phi i64 [ 17240, %20 ], [ 17240, %19 ], [ 17240, %18 ], [ 17240, %17 ], [ 17240, %16 ], [ 17240, %3 ], [ %..i, %21 ], [ %.8.i, %28 ]
-  %.sink6.i = phi i64 [ 128, %20 ], [ 104, %19 ], [ 96, %18 ], [ 80, %17 ], [ 80, %16 ], [ 88, %3 ], [ 112, %21 ], [ 120, %28 ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 %.sink6.i
-  %.0.i = load ptr, ptr %37, align 8
-  %38 = and i64 %2, -16
-  %39 = inttoptr i64 %38 to ptr
-  %40 = load ptr, ptr %39, align 16
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i8 = load i64, ptr %41, align 8
-  %42 = and i64 %.sroa.0.0.copyload.i.i.i.i.i8, -16
-  %43 = inttoptr i64 %42 to ptr
-  %44 = load ptr, ptr %43, align 16
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load i32, ptr %45, align 16
-  %47 = lshr i32 %46, 19
-  %48 = and i32 %47, 511
-  switch i32 %48, label %49 [
+_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit: ; preds = %3, %16, %17, %18, %19, %20, %27
+  %.sink.i = phi i64 [ 17240, %19 ], [ 17240, %18 ], [ 17240, %17 ], [ 17240, %16 ], [ 17240, %3 ], [ %..i, %20 ], [ %.8.i, %27 ]
+  %.sink6.i = phi i64 [ 128, %19 ], [ 104, %18 ], [ 96, %17 ], [ 80, %16 ], [ 88, %3 ], [ 112, %20 ], [ 120, %27 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 %.sink6.i
+  %.0.i = load ptr, ptr %36, align 8
+  %37 = and i64 %2, -16
+  %38 = inttoptr i64 %37 to ptr
+  %39 = load ptr, ptr %38, align 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i8 = load i64, ptr %40, align 8
+  %41 = and i64 %.sroa.0.0.copyload.i.i.i.i.i8, -16
+  %42 = inttoptr i64 %41 to ptr
+  %43 = load ptr, ptr %42, align 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load i32, ptr %44, align 16
+  %46 = lshr i32 %45, 19
+  %47 = and i32 %46, 511
+  switch i32 %47, label %48 [
     i32 478, label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
-    i32 477, label %50
-    i32 473, label %51
-    i32 474, label %52
-    i32 475, label %53
-    i32 480, label %54
-    i32 476, label %55
-    i32 479, label %62
+    i32 477, label %49
+    i32 473, label %49
+    i32 474, label %50
+    i32 475, label %51
+    i32 480, label %52
+    i32 476, label %53
+    i32 479, label %60
   ]
 
-49:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
+48:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
   unreachable
+
+49:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit, %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
+  br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
 
 50:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
   br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
@@ -77194,53 +76333,47 @@ _ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit: ; preds = %3, 
   br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
 
 53:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
-  br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
-
-54:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
-  br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
-
-55:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = load i64, ptr %58, align 8
-  %60 = and i64 %59, 4294967295
-  %.not3.i16 = icmp eq i64 %60, 0
-  %61 = and i64 %59, 34359738368
-  %.not4.i17 = icmp eq i64 %61, 0
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
+  %57 = load i64, ptr %56, align 8
+  %58 = and i64 %57, 4294967295
+  %.not3.i16 = icmp eq i64 %58, 0
+  %59 = and i64 %57, 34359738368
+  %.not4.i17 = icmp eq i64 %59, 0
   %or.cond.i18 = or i1 %.not3.i16, %.not4.i17
   %..i19 = select i1 %or.cond.i18, i64 17240, i64 17248
   br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
 
-62:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  %66 = load i64, ptr %65, align 8
-  %67 = and i64 %66, 4294967295
-  %.not.i9 = icmp eq i64 %67, 0
-  %68 = and i64 %66, 34359738368
-  %.not2.i10 = icmp eq i64 %68, 0
+60:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, 4294967295
+  %.not.i9 = icmp eq i64 %65, 0
+  %66 = and i64 %64, 34359738368
+  %.not2.i10 = icmp eq i64 %66, 0
   %or.cond5.i11 = or i1 %.not.i9, %.not2.i10
   %.8.i12 = select i1 %or.cond5.i11, i64 17240, i64 17248
   br label %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
 
-_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20: ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit, %50, %51, %52, %53, %54, %55, %62
-  %.sink.i13 = phi i64 [ 17240, %54 ], [ 17240, %53 ], [ 17240, %52 ], [ 17240, %51 ], [ 17240, %50 ], [ 17240, %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit ], [ %..i19, %55 ], [ %.8.i12, %62 ]
-  %.sink6.i14 = phi i64 [ 128, %54 ], [ 104, %53 ], [ 96, %52 ], [ 80, %51 ], [ 80, %50 ], [ 88, %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit ], [ 112, %55 ], [ 120, %62 ]
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i13
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 %.sink6.i14
-  %.0.i15 = load ptr, ptr %71, align 8
-  %72 = icmp eq ptr %.0.i, %.0.i15
-  br i1 %72, label %75, label %73
+_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20: ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit, %49, %50, %51, %52, %53, %60
+  %.sink.i13 = phi i64 [ 17240, %52 ], [ 17240, %51 ], [ 17240, %50 ], [ 17240, %49 ], [ 17240, %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit ], [ %..i19, %53 ], [ %.8.i12, %60 ]
+  %.sink6.i14 = phi i64 [ 128, %52 ], [ 104, %51 ], [ 96, %50 ], [ 80, %49 ], [ 88, %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit ], [ 112, %53 ], [ 120, %60 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i13
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 %.sink6.i14
+  %.0.i15 = load ptr, ptr %69, align 8
+  %70 = icmp eq ptr %.0.i, %.0.i15
+  br i1 %70, label %73, label %71
 
-73:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
-  %74 = tail call noundef i32 @_ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_(ptr nonnull align 8 poison, i64 %1, i64 %2)
-  br label %75
+71:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20
+  %72 = tail call noundef i32 @_ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_(ptr nonnull align 8 poison, i64 %1, i64 %2)
+  br label %73
 
-75:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20, %73
-  %.0 = phi i32 [ %74, %73 ], [ 0, %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20 ]
+73:                                               ; preds = %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20, %71
+  %.0 = phi i32 [ %72, %71 ], [ 0, %_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE.exit20 ]
   ret i32 %.0
 }
 

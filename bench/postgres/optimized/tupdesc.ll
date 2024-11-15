@@ -1147,52 +1147,49 @@ define dso_local void @TupleDescInitBuiltinEntry(ptr noundef %0, i16 noundef sig
   store i16 0, ptr %19, align 2
   %20 = getelementptr inbounds i8, ptr %10, i64 68
   store i32 %3, ptr %20, align 4
-  switch i32 %3, label %25 [
-    i32 25, label %28
-    i32 1009, label %28
+  switch i32 %3, label %24 [
+    i32 25, label %27
+    i32 1009, label %27
     i32 16, label %21
     i32 23, label %22
     i32 20, label %23
-    i32 26, label %24
+    i32 26, label %22
   ]
 
 21:                                               ; preds = %6
-  br label %28
+  br label %27
 
-22:                                               ; preds = %6
-  br label %28
+22:                                               ; preds = %6, %6
+  br label %27
 
 23:                                               ; preds = %6
-  br label %28
+  br label %27
 
 24:                                               ; preds = %6
-  br label %28
-
-25:                                               ; preds = %6
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %3) #11
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %25)
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %3) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 774, ptr noundef nonnull @__func__.TupleDescInitBuiltinEntry) #11
   unreachable
 
-28:                                               ; preds = %6, %6, %24, %23, %22, %21
-  %.sink61 = phi i16 [ 4, %24 ], [ 8, %23 ], [ 4, %22 ], [ 1, %21 ], [ -1, %6 ], [ -1, %6 ]
-  %.sink59 = phi i8 [ 1, %24 ], [ 1, %23 ], [ 1, %22 ], [ 1, %21 ], [ 0, %6 ], [ 0, %6 ]
-  %.sink57 = phi i8 [ 105, %24 ], [ 100, %23 ], [ 105, %22 ], [ 99, %21 ], [ 105, %6 ], [ 105, %6 ]
-  %.sink55 = phi i8 [ 112, %24 ], [ 112, %23 ], [ 112, %22 ], [ 112, %21 ], [ 120, %6 ], [ 120, %6 ]
-  %.sink = phi i32 [ 0, %24 ], [ 0, %23 ], [ 0, %22 ], [ 0, %21 ], [ 100, %6 ], [ 100, %6 ]
-  %29 = getelementptr inbounds i8, ptr %10, i64 72
-  store i16 %.sink61, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %10, i64 86
-  store i8 %.sink59, ptr %30, align 2
-  %31 = getelementptr inbounds i8, ptr %10, i64 87
-  store i8 %.sink57, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %10, i64 88
-  store i8 %.sink55, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %10, i64 89
-  store i8 0, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %10, i64 100
-  store i32 %.sink, ptr %34, align 4
+27:                                               ; preds = %6, %6, %23, %22, %21
+  %.sink61 = phi i16 [ 8, %23 ], [ 4, %22 ], [ 1, %21 ], [ -1, %6 ], [ -1, %6 ]
+  %.sink59 = phi i8 [ 1, %23 ], [ 1, %22 ], [ 1, %21 ], [ 0, %6 ], [ 0, %6 ]
+  %.sink57 = phi i8 [ 100, %23 ], [ 105, %22 ], [ 99, %21 ], [ 105, %6 ], [ 105, %6 ]
+  %.sink55 = phi i8 [ 112, %23 ], [ 112, %22 ], [ 112, %21 ], [ 120, %6 ], [ 120, %6 ]
+  %.sink = phi i32 [ 0, %23 ], [ 0, %22 ], [ 0, %21 ], [ 100, %6 ], [ 100, %6 ]
+  %28 = getelementptr inbounds i8, ptr %10, i64 72
+  store i16 %.sink61, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %10, i64 86
+  store i8 %.sink59, ptr %29, align 2
+  %30 = getelementptr inbounds i8, ptr %10, i64 87
+  store i8 %.sink57, ptr %30, align 1
+  %31 = getelementptr inbounds i8, ptr %10, i64 88
+  store i8 %.sink55, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %10, i64 89
+  store i8 0, ptr %32, align 1
+  %33 = getelementptr inbounds i8, ptr %10, i64 100
+  store i32 %.sink, ptr %33, align 4
   ret void
 }
 

@@ -217,8 +217,8 @@ switch.lookup:                                    ; preds = %for.end40
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %switch.lookup, %for.end40
-  %.sink = phi i32 [ 0, %for.end40 ], [ %switch.load, %switch.lookup ]
+sw.epilog:                                        ; preds = %for.end40, %switch.lookup
+  %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 0, %for.end40 ]
   store i32 %.sink, ptr %m_charSet, align 4
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 40

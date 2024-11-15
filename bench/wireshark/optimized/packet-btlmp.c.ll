@@ -1028,13 +1028,13 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
     i16 20, label %89
     i16 21, label %89
     i16 23, label %.preheader
-    i16 1056, label %.preheader753
+    i16 1054, label %535
     i16 31, label %113
     i16 32, label %113
-    i16 1055, label %539
-    i16 1054, label %535
     i16 1050, label %525
-    i16 36, label %.preheader754
+    i16 1049, label %525
+    i16 1046, label %515
+    i16 36, label %.preheader753
     i16 37, label %120
     i16 38, label %120
     i16 39, label %.preheader907
@@ -1045,18 +1045,18 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
     i16 44, label %207
     i16 45, label %214
     i16 46, label %214
-    i16 1049, label %525
-    i16 48, label %218
-    i16 1046, label %515
     i16 1045, label %515
-    i16 1041, label %.preheader755
+    i16 48, label %218
+    i16 1041, label %.preheader754
+    i16 1040, label %497
+    i16 1037, label %489
     i16 52, label %225
     i16 53, label %232
     i16 54, label %232
     i16 55, label %239
-    i16 1040, label %497
+    i16 1056, label %.preheader756
     i16 57, label %243
-    i16 1037, label %489
+    i16 1055, label %539
     i16 59, label %268
     i16 60, label %272
     i16 61, label %284
@@ -1199,14 +1199,14 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %116 = add nuw nsw i32 %.0720, 1
   br label %.loopexit
 
-.preheader754:                                    ; preds = %31, %.preheader754
-  %indvars.iv889 = phi i64 [ %indvars.iv.next890, %.preheader754 ], [ 0, %31 ]
-  %117 = getelementptr [6 x i32], ptr @hf_param_datarate, i64 0, i64 %indvars.iv889
+.preheader753:                                    ; preds = %31, %.preheader753
+  %indvars.iv893 = phi i64 [ %indvars.iv.next894, %.preheader753 ], [ 0, %31 ]
+  %117 = getelementptr [6 x i32], ptr @hf_param_datarate, i64 0, i64 %indvars.iv893
   %118 = load i32, ptr %117, align 4
   %119 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %118, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 1
-  %exitcond892.not = icmp eq i64 %indvars.iv.next890, 6
-  br i1 %exitcond892.not, label %.loopexit, label %.preheader754, !llvm.loop !8
+  %indvars.iv.next894 = add nuw nsw i64 %indvars.iv893, 1
+  %exitcond896.not = icmp eq i64 %indvars.iv.next894, 6
+  br i1 %exitcond896.not, label %.loopexit, label %.preheader753, !llvm.loop !8
 
 120:                                              ; preds = %31, %31
   %121 = load i32, ptr @hf_param_versnr, align 4
@@ -1221,104 +1221,104 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 130:                                              ; preds = %.preheader907, %130
-  %indvars.iv857 = phi i64 [ %indvars.iv.next858, %130 ], [ 0, %.preheader907 ]
-  %131 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte0, i64 0, i64 %indvars.iv857
+  %indvars.iv861 = phi i64 [ %indvars.iv.next862, %130 ], [ 0, %.preheader907 ]
+  %131 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte0, i64 0, i64 %indvars.iv861
   %132 = load i32, ptr %131, align 4
   %133 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %132, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next858 = add nuw nsw i64 %indvars.iv857, 1
-  %exitcond860.not = icmp eq i64 %indvars.iv.next858, 9
-  br i1 %exitcond860.not, label %134, label %130, !llvm.loop !9
+  %indvars.iv.next862 = add nuw nsw i64 %indvars.iv861, 1
+  %exitcond864.not = icmp eq i64 %indvars.iv.next862, 9
+  br i1 %exitcond864.not, label %134, label %130, !llvm.loop !9
 
 134:                                              ; preds = %130
   %135 = add nuw nsw i32 %.0720, 1
   br label %136
 
 136:                                              ; preds = %134, %136
-  %indvars.iv861 = phi i64 [ 0, %134 ], [ %indvars.iv.next862, %136 ]
-  %137 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte1, i64 0, i64 %indvars.iv861
+  %indvars.iv865 = phi i64 [ 0, %134 ], [ %indvars.iv.next866, %136 ]
+  %137 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte1, i64 0, i64 %indvars.iv865
   %138 = load i32, ptr %137, align 4
   %139 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %138, ptr noundef %0, i32 noundef %135, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next862 = add nuw nsw i64 %indvars.iv861, 1
-  %exitcond864.not = icmp eq i64 %indvars.iv.next862, 9
-  br i1 %exitcond864.not, label %140, label %136, !llvm.loop !10
+  %indvars.iv.next866 = add nuw nsw i64 %indvars.iv865, 1
+  %exitcond868.not = icmp eq i64 %indvars.iv.next866, 9
+  br i1 %exitcond868.not, label %140, label %136, !llvm.loop !10
 
 140:                                              ; preds = %136
   %141 = add nuw nsw i32 %.0720, 2
   br label %142
 
 142:                                              ; preds = %140, %142
-  %indvars.iv865 = phi i64 [ 0, %140 ], [ %indvars.iv.next866, %142 ]
-  %143 = getelementptr [7 x i32], ptr @hf_param_feature_page0_byte2, i64 0, i64 %indvars.iv865
+  %indvars.iv869 = phi i64 [ 0, %140 ], [ %indvars.iv.next870, %142 ]
+  %143 = getelementptr [7 x i32], ptr @hf_param_feature_page0_byte2, i64 0, i64 %indvars.iv869
   %144 = load i32, ptr %143, align 4
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %144, ptr noundef %0, i32 noundef %141, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next866 = add nuw nsw i64 %indvars.iv865, 1
-  %exitcond868.not = icmp eq i64 %indvars.iv.next866, 7
-  br i1 %exitcond868.not, label %146, label %142, !llvm.loop !11
+  %indvars.iv.next870 = add nuw nsw i64 %indvars.iv869, 1
+  %exitcond872.not = icmp eq i64 %indvars.iv.next870, 7
+  br i1 %exitcond872.not, label %146, label %142, !llvm.loop !11
 
 146:                                              ; preds = %142
   %147 = add nuw nsw i32 %.0720, 3
   br label %148
 
 148:                                              ; preds = %146, %148
-  %indvars.iv869 = phi i64 [ 0, %146 ], [ %indvars.iv.next870, %148 ]
-  %149 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte3, i64 0, i64 %indvars.iv869
+  %indvars.iv873 = phi i64 [ 0, %146 ], [ %indvars.iv.next874, %148 ]
+  %149 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte3, i64 0, i64 %indvars.iv873
   %150 = load i32, ptr %149, align 4
   %151 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %150, ptr noundef %0, i32 noundef %147, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next870 = add nuw nsw i64 %indvars.iv869, 1
-  %exitcond872.not = icmp eq i64 %indvars.iv.next870, 9
-  br i1 %exitcond872.not, label %152, label %148, !llvm.loop !12
+  %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
+  %exitcond876.not = icmp eq i64 %indvars.iv.next874, 9
+  br i1 %exitcond876.not, label %152, label %148, !llvm.loop !12
 
 152:                                              ; preds = %148
   %153 = or disjoint i32 %.0720, 4
   br label %154
 
 154:                                              ; preds = %152, %154
-  %indvars.iv873 = phi i64 [ 0, %152 ], [ %indvars.iv.next874, %154 ]
-  %155 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte4, i64 0, i64 %indvars.iv873
+  %indvars.iv877 = phi i64 [ 0, %152 ], [ %indvars.iv.next878, %154 ]
+  %155 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte4, i64 0, i64 %indvars.iv877
   %156 = load i32, ptr %155, align 4
   %157 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %156, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
-  %exitcond876.not = icmp eq i64 %indvars.iv.next874, 9
-  br i1 %exitcond876.not, label %158, label %154, !llvm.loop !13
+  %indvars.iv.next878 = add nuw nsw i64 %indvars.iv877, 1
+  %exitcond880.not = icmp eq i64 %indvars.iv.next878, 9
+  br i1 %exitcond880.not, label %158, label %154, !llvm.loop !13
 
 158:                                              ; preds = %154
   %159 = add nuw nsw i32 %.0720, 5
   br label %160
 
 160:                                              ; preds = %158, %160
-  %indvars.iv877 = phi i64 [ 0, %158 ], [ %indvars.iv.next878, %160 ]
-  %161 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte5, i64 0, i64 %indvars.iv877
+  %indvars.iv881 = phi i64 [ 0, %158 ], [ %indvars.iv.next882, %160 ]
+  %161 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte5, i64 0, i64 %indvars.iv881
   %162 = load i32, ptr %161, align 4
   %163 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %162, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next878 = add nuw nsw i64 %indvars.iv877, 1
-  %exitcond880.not = icmp eq i64 %indvars.iv.next878, 9
-  br i1 %exitcond880.not, label %164, label %160, !llvm.loop !14
+  %indvars.iv.next882 = add nuw nsw i64 %indvars.iv881, 1
+  %exitcond884.not = icmp eq i64 %indvars.iv.next882, 9
+  br i1 %exitcond884.not, label %164, label %160, !llvm.loop !14
 
 164:                                              ; preds = %160
   %165 = add nuw nsw i32 %.0720, 6
   br label %166
 
 166:                                              ; preds = %164, %166
-  %indvars.iv881 = phi i64 [ 0, %164 ], [ %indvars.iv.next882, %166 ]
-  %167 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte6, i64 0, i64 %indvars.iv881
+  %indvars.iv885 = phi i64 [ 0, %164 ], [ %indvars.iv.next886, %166 ]
+  %167 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte6, i64 0, i64 %indvars.iv885
   %168 = load i32, ptr %167, align 4
   %169 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %168, ptr noundef %0, i32 noundef %165, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next882 = add nuw nsw i64 %indvars.iv881, 1
-  %exitcond884.not = icmp eq i64 %indvars.iv.next882, 9
-  br i1 %exitcond884.not, label %170, label %166, !llvm.loop !15
+  %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
+  %exitcond888.not = icmp eq i64 %indvars.iv.next886, 9
+  br i1 %exitcond888.not, label %170, label %166, !llvm.loop !15
 
 170:                                              ; preds = %166
   %171 = add nuw nsw i32 %.0720, 7
   br label %172
 
 172:                                              ; preds = %170, %172
-  %indvars.iv885 = phi i64 [ 0, %170 ], [ %indvars.iv.next886, %172 ]
-  %173 = getelementptr [6 x i32], ptr @hf_param_feature_page0_byte7, i64 0, i64 %indvars.iv885
+  %indvars.iv889 = phi i64 [ 0, %170 ], [ %indvars.iv.next890, %172 ]
+  %173 = getelementptr [6 x i32], ptr @hf_param_feature_page0_byte7, i64 0, i64 %indvars.iv889
   %174 = load i32, ptr %173, align 4
   %175 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %174, ptr noundef %0, i32 noundef %171, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
-  %exitcond888.not = icmp eq i64 %indvars.iv.next886, 6
-  br i1 %exitcond888.not, label %176, label %172, !llvm.loop !16
+  %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 1
+  %exitcond892.not = icmp eq i64 %indvars.iv.next890, 6
+  br i1 %exitcond892.not, label %176, label %172, !llvm.loop !16
 
 176:                                              ; preds = %172
   %177 = or disjoint i32 %.0720, 8
@@ -1340,13 +1340,13 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %189
 
 189:                                              ; preds = %185, %189
-  %indvars.iv853 = phi i64 [ 0, %185 ], [ %indvars.iv.next854, %189 ]
-  %190 = getelementptr [5 x i32], ptr @hf_param_timingcontrolflags, i64 0, i64 %indvars.iv853
+  %indvars.iv857 = phi i64 [ 0, %185 ], [ %indvars.iv.next858, %189 ]
+  %190 = getelementptr [5 x i32], ptr @hf_param_timingcontrolflags, i64 0, i64 %indvars.iv857
   %191 = load i32, ptr %190, align 4
   %192 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %191, ptr noundef %0, i32 noundef %188, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next854 = add nuw nsw i64 %indvars.iv853, 1
-  %exitcond856.not = icmp eq i64 %indvars.iv.next854, 5
-  br i1 %exitcond856.not, label %193, label %189, !llvm.loop !17
+  %indvars.iv.next858 = add nuw nsw i64 %indvars.iv857, 1
+  %exitcond860.not = icmp eq i64 %indvars.iv.next858, 5
+  br i1 %exitcond860.not, label %193, label %189, !llvm.loop !17
 
 193:                                              ; preds = %189
   %194 = add nuw nsw i32 %.0720, 2
@@ -1810,25 +1810,25 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %506 = add nuw nsw i32 %.0720, 5
   br label %.loopexit
 
-.preheader755:                                    ; preds = %31, %513
-  %indvars.iv849 = phi i64 [ %indvars.iv.next850, %513 ], [ 0, %31 ]
-  %507 = trunc i64 %indvars.iv849 to i32
+.preheader754:                                    ; preds = %31, %513
+  %indvars.iv853 = phi i64 [ %indvars.iv.next854, %513 ], [ 0, %31 ]
+  %507 = trunc i64 %indvars.iv853 to i32
   %508 = add i32 %.0720, %507
   br label %509
 
-509:                                              ; preds = %.preheader755, %509
-  %indvars.iv845 = phi i64 [ 0, %.preheader755 ], [ %indvars.iv.next846, %509 ]
-  %510 = getelementptr [10 x [4 x i32]], ptr @hf_param_afh_channelclass, i64 0, i64 %indvars.iv849, i64 %indvars.iv845
+509:                                              ; preds = %.preheader754, %509
+  %indvars.iv849 = phi i64 [ 0, %.preheader754 ], [ %indvars.iv.next850, %509 ]
+  %510 = getelementptr [10 x [4 x i32]], ptr @hf_param_afh_channelclass, i64 0, i64 %indvars.iv853, i64 %indvars.iv849
   %511 = load i32, ptr %510, align 4
   %512 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %511, ptr noundef %0, i32 noundef %508, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next846 = add nuw nsw i64 %indvars.iv845, 1
-  %exitcond848.not = icmp eq i64 %indvars.iv.next846, 4
-  br i1 %exitcond848.not, label %513, label %509, !llvm.loop !31
+  %indvars.iv.next850 = add nuw nsw i64 %indvars.iv849, 1
+  %exitcond852.not = icmp eq i64 %indvars.iv.next850, 4
+  br i1 %exitcond852.not, label %513, label %509, !llvm.loop !31
 
 513:                                              ; preds = %509
-  %indvars.iv.next850 = add nuw nsw i64 %indvars.iv849, 1
-  %exitcond852.not = icmp eq i64 %indvars.iv.next850, 10
-  br i1 %exitcond852.not, label %514, label %.preheader755, !llvm.loop !32
+  %indvars.iv.next854 = add nuw nsw i64 %indvars.iv853, 1
+  %exitcond856.not = icmp eq i64 %indvars.iv.next854, 10
+  br i1 %exitcond856.not, label %514, label %.preheader754, !llvm.loop !32
 
 514:                                              ; preds = %513
   %narrow752 = add nuw nsw i32 %.0720, 10
@@ -1870,16 +1870,16 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %542 = add nuw nsw i32 %.0720, 1
   br label %.loopexit
 
-.preheader753:                                    ; preds = %31, %.preheader753
-  %indvars.iv893 = phi i64 [ %indvars.iv.next894, %.preheader753 ], [ 0, %31 ]
-  %543 = getelementptr [5 x i32], ptr @hf_param_poweradjresp, i64 0, i64 %indvars.iv893
+.preheader756:                                    ; preds = %31, %.preheader756
+  %indvars.iv845 = phi i64 [ %indvars.iv.next846, %.preheader756 ], [ 0, %31 ]
+  %543 = getelementptr [5 x i32], ptr @hf_param_poweradjresp, i64 0, i64 %indvars.iv845
   %544 = load i32, ptr %543, align 4
   %545 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %544, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648) #4
-  %indvars.iv.next894 = add nuw nsw i64 %indvars.iv893, 1
-  %exitcond896.not = icmp eq i64 %indvars.iv.next894, 5
-  br i1 %exitcond896.not, label %546, label %.preheader753, !llvm.loop !33
+  %indvars.iv.next846 = add nuw nsw i64 %indvars.iv845, 1
+  %exitcond848.not = icmp eq i64 %indvars.iv.next846, 5
+  br i1 %exitcond848.not, label %546, label %.preheader756, !llvm.loop !33
 
-546:                                              ; preds = %.preheader753
+546:                                              ; preds = %.preheader756
   %547 = add nuw nsw i32 %.0720, 1
   br label %.loopexit
 
@@ -1932,8 +1932,8 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %583 = add nuw nsw i32 %.0720, 7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %279, %.preheader754, %31, %388, %393, %404, %335, %32, %576, %555, %548, %546, %539, %535, %525, %515, %514, %497, %489, %462, %439, %429, %425, %406, %321, %310, %306, %302, %298, %294, %284, %268, %243, %239, %232, %225, %218, %214, %207, %193, %178, %176, %120, %113, %99, %89, %85, %81, %77, %73, %69, %65, %61, %57, %50, %46, %41
-  %.1 = phi i32 [ %.0720, %31 ], [ %488, %462 ], [ %442, %439 ], [ %438, %429 ], [ %428, %425 ], [ %424, %406 ], [ %341, %335 ], [ %405, %404 ], [ %394, %393 ], [ %389, %388 ], [ %334, %321 ], [ %320, %310 ], [ %309, %306 ], [ %305, %302 ], [ %301, %298 ], [ %297, %294 ], [ %293, %284 ], [ %271, %268 ], [ %496, %489 ], [ %267, %243 ], [ %506, %497 ], [ %242, %239 ], [ %238, %232 ], [ %231, %225 ], [ %narrow752, %514 ], [ %524, %515 ], [ %224, %218 ], [ %217, %214 ], [ %213, %207 ], [ %206, %193 ], [ %184, %178 ], [ %177, %176 ], [ %129, %120 ], [ %534, %525 ], [ %538, %535 ], [ %542, %539 ], [ %116, %113 ], [ %547, %546 ], [ %112, %99 ], [ %95, %89 ], [ %88, %85 ], [ %554, %548 ], [ %84, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %567, %555 ], [ %56, %50 ], [ %49, %46 ], [ %38, %32 ], [ %45, %41 ], [ %583, %576 ], [ %.0720, %.preheader754 ], [ %283, %279 ]
+.loopexit:                                        ; preds = %279, %.preheader753, %31, %388, %393, %404, %335, %32, %576, %555, %548, %546, %539, %535, %525, %515, %514, %497, %489, %462, %439, %429, %425, %406, %321, %310, %306, %302, %298, %294, %284, %268, %243, %239, %232, %225, %218, %214, %207, %193, %178, %176, %120, %113, %99, %89, %85, %81, %77, %73, %69, %65, %61, %57, %50, %46, %41
+  %.1 = phi i32 [ %.0720, %31 ], [ %488, %462 ], [ %442, %439 ], [ %438, %429 ], [ %428, %425 ], [ %424, %406 ], [ %341, %335 ], [ %405, %404 ], [ %394, %393 ], [ %389, %388 ], [ %334, %321 ], [ %320, %310 ], [ %309, %306 ], [ %305, %302 ], [ %301, %298 ], [ %297, %294 ], [ %293, %284 ], [ %271, %268 ], [ %542, %539 ], [ %267, %243 ], [ %547, %546 ], [ %242, %239 ], [ %238, %232 ], [ %231, %225 ], [ %496, %489 ], [ %506, %497 ], [ %narrow752, %514 ], [ %224, %218 ], [ %217, %214 ], [ %213, %207 ], [ %206, %193 ], [ %184, %178 ], [ %177, %176 ], [ %129, %120 ], [ %524, %515 ], [ %534, %525 ], [ %116, %113 ], [ %538, %535 ], [ %112, %99 ], [ %95, %89 ], [ %88, %85 ], [ %554, %548 ], [ %84, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %567, %555 ], [ %56, %50 ], [ %49, %46 ], [ %38, %32 ], [ %45, %41 ], [ %583, %576 ], [ %.0720, %.preheader753 ], [ %283, %279 ]
   %584 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #4
   %585 = icmp sgt i32 %584, 0
   br i1 %585, label %586, label %591

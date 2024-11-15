@@ -4056,10 +4056,10 @@ define dso_local i32 @scsi_vpd_lun_id(ptr noundef %0, ptr nocapture noundef writ
   br label %21
 
 21:                                               ; preds = %.thread, %17
-  %22 = phi i8 [ 0, %17 ], [ %93, %.thread ]
-  %23 = phi i8 [ 0, %17 ], [ %92, %.thread ]
-  %24 = phi i32 [ -22, %17 ], [ %91, %.thread ]
-  %25 = phi ptr [ %11, %17 ], [ %98, %.thread ]
+  %22 = phi i8 [ 0, %17 ], [ %92, %.thread ]
+  %23 = phi i8 [ 0, %17 ], [ %91, %.thread ]
+  %24 = phi i32 [ -22, %17 ], [ %90, %.thread ]
+  %25 = phi ptr [ %11, %17 ], [ %97, %.thread ]
   %26 = getelementptr i8, ptr %25, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
@@ -4076,10 +4076,10 @@ define dso_local i32 @scsi_vpd_lun_id(ptr noundef %0, ptr nocapture noundef writ
 35:                                               ; preds = %31
   %36 = and i32 %28, 15
   switch i32 %36, label %.thread [
-    i32 8, label %48
+    i32 8, label %47
     i32 3, label %37
-    i32 2, label %44
-    i32 1, label %47
+    i32 2, label %43
+    i32 1, label %46
   ]
 
 37:                                               ; preds = %35
@@ -4087,142 +4087,139 @@ define dso_local i32 @scsi_vpd_lun_id(ptr noundef %0, ptr nocapture noundef writ
   %39 = load i8, ptr %38, align 1
   %40 = lshr i8 %39, 4
   switch i8 %40, label %.thread [
-    i8 6, label %48
+    i8 6, label %47
     i8 5, label %41
-    i8 4, label %42
-    i8 3, label %43
+    i8 4, label %41
+    i8 3, label %42
   ]
 
-41:                                               ; preds = %37
-  br label %48
+41:                                               ; preds = %37, %37
+  br label %47
 
 42:                                               ; preds = %37
-  br label %48
+  br label %47
 
-43:                                               ; preds = %37
-  br label %48
-
-44:                                               ; preds = %35
+43:                                               ; preds = %35
   switch i8 %33, label %.thread [
-    i8 16, label %48
-    i8 12, label %45
-    i8 8, label %46
+    i8 16, label %47
+    i8 12, label %44
+    i8 8, label %45
   ]
 
-45:                                               ; preds = %44
-  br label %48
+44:                                               ; preds = %43
+  br label %47
 
-46:                                               ; preds = %44
-  br label %48
+45:                                               ; preds = %43
+  br label %47
 
-47:                                               ; preds = %35
-  br label %48
+46:                                               ; preds = %35
+  br label %47
 
-48:                                               ; preds = %47, %46, %45, %44, %43, %42, %41, %37, %35
-  %49 = phi i8 [ 1, %47 ], [ 3, %46 ], [ 6, %45 ], [ 1, %43 ], [ %40, %42 ], [ %40, %41 ], [ 9, %35 ], [ 8, %37 ], [ 7, %44 ]
-  %50 = icmp ugt i8 %22, %49
-  br i1 %50, label %.thread, label %51
+47:                                               ; preds = %46, %45, %44, %43, %42, %41, %37, %35
+  %48 = phi i8 [ 1, %46 ], [ 3, %45 ], [ 6, %44 ], [ 1, %42 ], [ %40, %41 ], [ 9, %35 ], [ 8, %37 ], [ 7, %43 ]
+  %49 = icmp ugt i8 %22, %48
+  br i1 %49, label %.thread, label %50
 
-51:                                               ; preds = %48
-  %52 = and i8 %27, 15
-  switch i8 %52, label %.thread [
-    i8 1, label %53
-    i8 2, label %63
-    i8 3, label %71
-    i8 8, label %77
+50:                                               ; preds = %47
+  %51 = and i8 %27, 15
+  switch i8 %51, label %.thread [
+    i8 1, label %52
+    i8 2, label %62
+    i8 3, label %70
+    i8 8, label %76
   ]
 
-53:                                               ; preds = %51
-  %54 = icmp ugt i8 %23, %33
-  br i1 %54, label %.thread, label %55
+52:                                               ; preds = %50
+  %53 = icmp ugt i8 %23, %33
+  br i1 %53, label %.thread, label %54
 
-55:                                               ; preds = %53
-  %56 = zext i8 %33 to i64
-  %57 = add nuw nsw i64 %56, 4
-  %58 = icmp ugt i64 %57, %2
-  %59 = select i1 %58, i8 %20, i8 %33
-  %60 = getelementptr i8, ptr %25, i64 4
-  %61 = zext i8 %59 to i32
-  %62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.6, i32 noundef %61, ptr noundef %60) #16
+54:                                               ; preds = %52
+  %55 = zext i8 %33 to i64
+  %56 = add nuw nsw i64 %55, 4
+  %57 = icmp ugt i64 %56, %2
+  %58 = select i1 %57, i8 %20, i8 %33
+  %59 = getelementptr i8, ptr %25, i64 4
+  %60 = zext i8 %58 to i32
+  %61 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.6, i32 noundef %60, ptr noundef %59) #16
   br label %.thread
 
-63:                                               ; preds = %51
-  %64 = getelementptr i8, ptr %25, i64 4
+62:                                               ; preds = %50
+  %63 = getelementptr i8, ptr %25, i64 4
   switch i8 %33, label %.thread [
-    i8 8, label %65
-    i8 12, label %67
-    i8 16, label %69
+    i8 8, label %64
+    i8 12, label %66
+    i8 16, label %68
   ]
 
-65:                                               ; preds = %63
-  %66 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.7, ptr noundef %64) #16
+64:                                               ; preds = %62
+  %65 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.7, ptr noundef %63) #16
   br label %.thread
 
-67:                                               ; preds = %63
-  %68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.8, ptr noundef %64) #16
+66:                                               ; preds = %62
+  %67 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.8, ptr noundef %63) #16
   br label %.thread
 
-69:                                               ; preds = %63
-  %70 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.9, ptr noundef %64) #16
+68:                                               ; preds = %62
+  %69 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.9, ptr noundef %63) #16
   br label %.thread
 
-71:                                               ; preds = %51
-  %72 = getelementptr i8, ptr %25, i64 4
+70:                                               ; preds = %50
+  %71 = getelementptr i8, ptr %25, i64 4
   switch i8 %33, label %.thread [
-    i8 8, label %73
-    i8 16, label %75
+    i8 8, label %72
+    i8 16, label %74
   ]
 
-73:                                               ; preds = %71
-  %74 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.10, ptr noundef %72) #16
+72:                                               ; preds = %70
+  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.10, ptr noundef %71) #16
   br label %.thread
 
-75:                                               ; preds = %71
-  %76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.11, ptr noundef %72) #16
+74:                                               ; preds = %70
+  %75 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.11, ptr noundef %71) #16
   br label %.thread
 
-77:                                               ; preds = %51
-  %78 = icmp ugt i8 %23, %33
-  br i1 %78, label %.thread, label %79
+76:                                               ; preds = %50
+  %77 = icmp ugt i8 %23, %33
+  br i1 %77, label %.thread, label %78
 
-79:                                               ; preds = %77
-  %80 = zext i8 %33 to i64
-  %81 = icmp ult i64 %2, %80
-  br i1 %81, label %82, label %84
+78:                                               ; preds = %76
+  %79 = zext i8 %33 to i64
+  %80 = icmp ult i64 %2, %79
+  br i1 %80, label %81, label %83
 
-82:                                               ; preds = %79
-  %83 = icmp samesign ugt i8 %22, 2
-  br i1 %83, label %.thread, label %84
+81:                                               ; preds = %78
+  %82 = icmp samesign ugt i8 %22, 2
+  br i1 %82, label %.thread, label %83
 
-84:                                               ; preds = %82, %79
-  %85 = phi i8 [ 2, %82 ], [ %49, %79 ]
-  %86 = zext i8 %33 to i32
-  %87 = getelementptr i8, ptr %25, i64 4
-  %88 = icmp ugt i64 %2, %80
-  %89 = select i1 %88, i8 %33, i8 %19
-  %90 = zext i8 %89 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %87, i64 %90, i1 false)
+83:                                               ; preds = %81, %78
+  %84 = phi i8 [ 2, %81 ], [ %48, %78 ]
+  %85 = zext i8 %33 to i32
+  %86 = getelementptr i8, ptr %25, i64 4
+  %87 = icmp ugt i64 %2, %79
+  %88 = select i1 %87, i8 %33, i8 %19
+  %89 = zext i8 %88 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %86, i64 %89, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %35, %37, %44, %31, %21, %84, %82, %77, %75, %73, %71, %69, %67, %65, %63, %55, %53, %51, %48
-  %91 = phi i32 [ %24, %48 ], [ %24, %51 ], [ %24, %77 ], [ %24, %82 ], [ %86, %84 ], [ %24, %71 ], [ %76, %75 ], [ %74, %73 ], [ %24, %63 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %24, %53 ], [ %62, %55 ], [ %24, %21 ], [ %24, %31 ], [ %24, %44 ], [ %24, %37 ], [ %24, %35 ]
-  %92 = phi i8 [ %23, %48 ], [ %23, %51 ], [ %23, %77 ], [ %23, %82 ], [ %89, %84 ], [ %33, %71 ], [ 16, %75 ], [ 8, %73 ], [ %33, %63 ], [ 16, %69 ], [ 12, %67 ], [ 8, %65 ], [ %23, %53 ], [ %59, %55 ], [ %23, %21 ], [ %23, %31 ], [ %23, %44 ], [ %23, %37 ], [ %23, %35 ]
-  %93 = phi i8 [ %22, %48 ], [ %22, %51 ], [ %22, %77 ], [ %22, %82 ], [ %85, %84 ], [ %49, %71 ], [ %49, %75 ], [ %49, %73 ], [ %49, %63 ], [ %49, %69 ], [ %49, %67 ], [ %49, %65 ], [ %22, %53 ], [ %49, %55 ], [ %22, %21 ], [ %22, %31 ], [ %22, %44 ], [ %22, %37 ], [ %22, %35 ]
-  %94 = getelementptr i8, ptr %25, i64 3
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i64
-  %97 = add nuw nsw i64 %96, 4
-  %98 = getelementptr i8, ptr %25, i64 %97
-  %99 = load i32, ptr %12, align 8
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr i8, ptr %10, i64 %100
-  %102 = icmp ult ptr %98, %101
-  br i1 %102, label %21, label %.loopexit, !llvm.loop !94
+.thread:                                          ; preds = %35, %37, %43, %31, %21, %83, %81, %76, %74, %72, %70, %68, %66, %64, %62, %54, %52, %50, %47
+  %90 = phi i32 [ %24, %47 ], [ %24, %50 ], [ %24, %76 ], [ %24, %81 ], [ %85, %83 ], [ %24, %70 ], [ %75, %74 ], [ %73, %72 ], [ %24, %62 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %24, %52 ], [ %61, %54 ], [ %24, %21 ], [ %24, %31 ], [ %24, %43 ], [ %24, %37 ], [ %24, %35 ]
+  %91 = phi i8 [ %23, %47 ], [ %23, %50 ], [ %23, %76 ], [ %23, %81 ], [ %88, %83 ], [ %33, %70 ], [ 16, %74 ], [ 8, %72 ], [ %33, %62 ], [ 16, %68 ], [ 12, %66 ], [ 8, %64 ], [ %23, %52 ], [ %58, %54 ], [ %23, %21 ], [ %23, %31 ], [ %23, %43 ], [ %23, %37 ], [ %23, %35 ]
+  %92 = phi i8 [ %22, %47 ], [ %22, %50 ], [ %22, %76 ], [ %22, %81 ], [ %84, %83 ], [ %48, %70 ], [ %48, %74 ], [ %48, %72 ], [ %48, %62 ], [ %48, %68 ], [ %48, %66 ], [ %48, %64 ], [ %22, %52 ], [ %48, %54 ], [ %22, %21 ], [ %22, %31 ], [ %22, %43 ], [ %22, %37 ], [ %22, %35 ]
+  %93 = getelementptr i8, ptr %25, i64 3
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i64
+  %96 = add nuw nsw i64 %95, 4
+  %97 = getelementptr i8, ptr %25, i64 %96
+  %98 = load i32, ptr %12, align 8
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr i8, ptr %10, i64 %99
+  %101 = icmp ult ptr %97, %100
+  br i1 %101, label %21, label %.loopexit, !llvm.loop !94
 
 .loopexit:                                        ; preds = %.thread, %9, %7, %3
-  %103 = phi i32 [ -6, %3 ], [ -22, %7 ], [ -22, %9 ], [ %91, %.thread ]
+  %102 = phi i32 [ -6, %3 ], [ -22, %7 ], [ -22, %9 ], [ %90, %.thread ]
   tail call void @__rcu_read_unlock() #16
-  ret i32 %103
+  ret i32 %102
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

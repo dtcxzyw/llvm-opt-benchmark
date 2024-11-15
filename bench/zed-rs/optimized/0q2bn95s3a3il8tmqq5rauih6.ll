@@ -63891,8 +63891,8 @@ define hidden { ptr, ptr } @"_ZN65_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$cor
   %3 = load i64, ptr %2, align 8, !range !2356, !alias.scope !18446, !noundef !12
   %switch.i = icmp eq i64 %3, -9223372036854775808
   %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %spec.select.i = select i1 %switch.i, ptr %4, ptr null
-  %5 = insertvalue { ptr, ptr } poison, ptr %spec.select.i, 0
+  %.sroa.0.0.i = select i1 %switch.i, ptr %4, ptr null
+  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %6 = insertvalue { ptr, ptr } %5, ptr @anon.056909d58185468a4c5e660ab0f52ad7.299, 1
   ret { ptr, ptr } %6
 }

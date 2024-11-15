@@ -582,10 +582,10 @@ if.then85:                                        ; preds = %lor.lhs.false82, %s
 
 while.cond.preheader:                             ; preds = %lor.lhs.false82, %lor.lhs.false82, %sw.bb1.i
   %29 = load ptr, ptr %s3, align 8
-  %hello_request_len193 = getelementptr inbounds i8, ptr %29, i64 136
-  %30 = load i8, ptr %hello_request_len193, align 8
-  %cmp89194 = icmp ult i8 %30, 4
-  br i1 %cmp89194, label %while.body.lr.ph, label %while.end
+  %hello_request_len194 = getelementptr inbounds i8, ptr %29, i64 136
+  %30 = load i8, ptr %hello_request_len194, align 8
+  %cmp89195 = icmp ult i8 %30, 4
+  br i1 %cmp89195, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %data97 = getelementptr inbounds i8, ptr %0, i64 128
@@ -738,16 +738,16 @@ if.end185:                                        ; preds = %if.end162
   br i1 %cmp186.not, label %if.end193, label %if.then188
 
 if.then188:                                       ; preds = %if.end162, %if.end185
-  %cb.1113 = phi ptr [ %spec.select, %if.end185 ], [ %56, %if.end162 ]
+  %cb.1114 = phi ptr [ %spec.select, %if.end185 ], [ %56, %if.end162 ]
   %conv189 = zext i8 %54 to i32
   %shl = shl nuw nsw i32 %conv189, 8
   %conv190 = zext i8 %55 to i32
   %or = or disjoint i32 %shl, %conv190
-  call void %cb.1113(ptr noundef nonnull %ssl, i32 noundef 16388, i32 noundef %or) #5
+  call void %cb.1114(ptr noundef nonnull %ssl, i32 noundef 16388, i32 noundef %or) #5
   br label %if.end193
 
 if.end193:                                        ; preds = %if.then188, %if.end185
-  %cb.1114 = phi ptr [ %cb.1113, %if.then188 ], [ null, %if.end185 ]
+  %cb.1115 = phi ptr [ %cb.1114, %if.then188 ], [ null, %if.end185 ]
   switch i8 %54, label %if.else229 [
     i8 1, label %if.then197
     i8 2, label %if.then220
@@ -778,7 +778,7 @@ if.end205:                                        ; preds = %if.then197
   br i1 %cmp212, label %if.then214, label %start.outer
 
 start.outer:                                      ; preds = %start.preheader, %if.end205
-  %cb.0.ph = phi ptr [ null, %start.preheader ], [ %cb.1114, %if.end205 ]
+  %cb.0.ph = phi ptr [ null, %start.preheader ], [ %cb.1115, %if.end205 ]
   br label %start
 
 if.then214:                                       ; preds = %if.end205
@@ -825,14 +825,14 @@ f_err:                                            ; preds = %if.end237, %if.else
   %session.i = getelementptr inbounds i8, ptr %ssl, i64 184
   %67 = load ptr, ptr %session.i, align 8
   %cmp1.not.i = icmp eq ptr %67, null
-  br i1 %cmp1.not.i, label %if.end.i103, label %if.then.i
+  br i1 %cmp1.not.i, label %if.end.i104, label %if.then.i
 
 if.then.i:                                        ; preds = %f_err
   %68 = load ptr, ptr %ctx, align 8
-  %call.i102 = call i32 @SSL_CTX_remove_session(ptr noundef %68, ptr noundef nonnull %67) #5
-  br label %if.end.i103
+  %call.i103 = call i32 @SSL_CTX_remove_session(ptr noundef %68, ptr noundef nonnull %67) #5
+  br label %if.end.i104
 
-if.end.i103:                                      ; preds = %if.then.i, %f_err
+if.end.i104:                                      ; preds = %if.then.i, %f_err
   %69 = load ptr, ptr %s3, align 8
   %alert_dispatch.i = getelementptr inbounds i8, ptr %69, i64 244
   store i32 1, ptr %alert_dispatch.i, align 4
@@ -842,11 +842,11 @@ if.end.i103:                                      ; preds = %if.then.i, %f_err
   %71 = load ptr, ptr %s3, align 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %71, i64 249
   store i8 %al.0, ptr %arrayidx7.i, align 1
-  %call8.i105 = call i32 @ssl_write_buffer_is_pending(ptr noundef nonnull %ssl) #5
-  %tobool.not.i = icmp eq i32 %call8.i105, 0
+  %call8.i106 = call i32 @ssl_write_buffer_is_pending(ptr noundef nonnull %ssl) #5
+  %tobool.not.i = icmp eq i32 %call8.i106, 0
   br i1 %tobool.not.i, label %if.then9.i, label %return
 
-if.then9.i:                                       ; preds = %if.end.i103
+if.then9.i:                                       ; preds = %if.end.i104
   %method.i = getelementptr inbounds i8, ptr %ssl, i64 8
   %72 = load ptr, ptr %method.i, align 8
   %ssl_dispatch_alert.i = getelementptr inbounds i8, ptr %72, i64 80
@@ -854,8 +854,8 @@ if.then9.i:                                       ; preds = %if.end.i103
   %call10.i = call i32 %73(ptr noundef nonnull %ssl) #5
   br label %return
 
-return:                                           ; preds = %if.end131, %if.then9.i, %if.end.i103, %ssl3_get_record.exit.thread, %if.then122, %if.end49, %if.then69, %if.then60, %if.end45, %if.then220, %if.then201, %if.then141, %if.then17, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ 0, %if.then17 ], [ -1, %if.then141 ], [ 0, %if.then201 ], [ 0, %if.then220 ], [ %len, %if.end45 ], [ %conv41.len, %if.then60 ], [ %conv41.len, %if.then69 ], [ %conv41.len, %if.end49 ], [ -1, %if.then122 ], [ %retval.0.i.ph, %ssl3_get_record.exit.thread ], [ -1, %if.end.i103 ], [ -1, %if.then9.i ], [ %call134, %if.end131 ]
+return:                                           ; preds = %if.end131, %if.then9.i, %if.end.i104, %ssl3_get_record.exit.thread, %if.then122, %if.end49, %if.then69, %if.then60, %if.end45, %if.then220, %if.then201, %if.then141, %if.then17, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ 0, %if.then17 ], [ -1, %if.then141 ], [ 0, %if.then201 ], [ 0, %if.then220 ], [ %len, %if.end45 ], [ %conv41.len, %if.then60 ], [ %conv41.len, %if.then69 ], [ %conv41.len, %if.end49 ], [ -1, %if.then122 ], [ %retval.0.i.ph, %ssl3_get_record.exit.thread ], [ -1, %if.end.i104 ], [ -1, %if.then9.i ], [ %call134, %if.end131 ]
   ret i32 %retval.0
 }
 

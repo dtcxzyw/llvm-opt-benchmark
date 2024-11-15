@@ -935,8 +935,8 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12regex_syntax
   %3 = load i64, ptr %2, align 8, !range !106, !noundef !4
   %4 = add i64 %3, 9223372036854775806
   %switch = icmp ult i64 %4, 4
-  %spec.select = select i1 %switch, i64 32, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 %spec.select
+  %. = select i1 %switch, i64 32, i64 56
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.
   ret ptr %5
 }
 

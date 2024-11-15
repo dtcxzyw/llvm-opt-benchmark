@@ -10285,7 +10285,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets13PPCTargetInfo
   br label %46
 
 46:                                               ; preds = %31, %20, %13, %6, %3, %45
-  %.0 = phi i1 [ true, %45 ], [ false, %6 ], [ false, %13 ], [ false, %20 ], [ false, %31 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %45 ], [ false, %3 ], [ false, %6 ], [ false, %13 ], [ false, %20 ], [ false, %31 ]
   ret i1 %.0
 }
 

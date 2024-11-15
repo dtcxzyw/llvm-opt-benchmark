@@ -24606,25 +24606,22 @@ define hidden noundef zeroext i1 @_ZN14ide_completion7context12TypeLocation14com
   %3 = add nsw i64 %2, -4
   %4 = icmp ult i64 %3, 9
   %5 = select i1 %4, i64 %3, i64 2
-  switch i64 %5, label %10 [
+  switch i64 %5, label %9 [
     i64 2, label %6
-    i64 7, label %9
+    i64 7, label %8
     i64 4, label %8
   ]
 
 6:                                                ; preds = %1
   %7 = and i64 %2, 14
   %spec.select = icmp eq i64 %7, 2
-  br label %10
+  br label %9
 
-8:                                                ; preds = %1
-  br label %10
+8:                                                ; preds = %1, %1
+  br label %9
 
-9:                                                ; preds = %1
-  br label %10
-
-10:                                               ; preds = %6, %1, %9, %8
-  %.0 = phi i1 [ false, %9 ], [ false, %8 ], [ true, %1 ], [ %spec.select, %6 ]
+9:                                                ; preds = %6, %1, %8
+  %.0 = phi i1 [ false, %8 ], [ true, %1 ], [ %spec.select, %6 ]
   ret i1 %.0
 }
 
@@ -24634,24 +24631,24 @@ define hidden noundef zeroext i1 @_ZN14ide_completion7context12TypeLocation18com
   %3 = add nsw i64 %2, -4
   %4 = icmp ult i64 %3, 9
   %5 = select i1 %4, i64 %3, i64 2
-  switch i64 %5, label %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4_crit_edge [
+  switch i64 %5, label %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge [
     i64 2, label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit
-    i64 7, label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread
-    i64 4, label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread
+    i64 7, label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4
+    i64 4, label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4
   ]
 
-._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4_crit_edge: ; preds = %1
+._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge: ; preds = %1
   %.pre = and i64 %2, 14
   %6 = icmp ne i64 %.pre, 10
-  br label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread
+  br label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4
 
 _ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit: ; preds = %1
   %7 = and i64 %2, 14
   %spec.select.i = icmp eq i64 %7, 2
-  br label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread
+  br label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4
 
-_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread: ; preds = %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4_crit_edge, %1, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %1 ], [ %6, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4_crit_edge ], [ %spec.select.i, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit ]
+_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4: ; preds = %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge, %1, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %1 ], [ %6, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge ], [ %spec.select.i, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit ]
   ret i1 %.0
 }
 

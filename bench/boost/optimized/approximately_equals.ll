@@ -33728,7 +33728,7 @@ define dso_local noundef range(i32 -5, 1) i32 @_ZN5boost9unit_test19unit_test_mo
 
 _ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit: ; preds = %46, %50, %52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #58
-  br label %80
+  br label %78
 
 58:                                               ; preds = %30, %22, %14, %3
   %59 = landingpad { ptr, i32 }
@@ -33740,7 +33740,7 @@ _ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit: ; preds = %46,
   %60 = extractvalue { ptr, i32 } %eh.lpad-body, 1
   %61 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost19execution_exceptionE) #58
   %62 = icmp eq i32 %60, %61
-  br i1 %62, label %63, label %81
+  br i1 %62, label %63, label %79
 
 63:                                               ; preds = %.body
   %64 = extractvalue { ptr, i32 } %eh.lpad-body, 0
@@ -33758,58 +33758,50 @@ _ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit: ; preds = %46,
 
 69:                                               ; preds = %68
   %70 = load i32, ptr %65, align 8, !tbaa !201
-  switch i32 %70, label %78 [
-    i32 0, label %79
-    i32 200, label %73
-    i32 205, label %74
-    i32 210, label %75
-    i32 215, label %76
-    i32 220, label %77
-    i32 225, label %77
+  switch i32 %70, label %76 [
+    i32 0, label %77
+    i32 225, label %75
+    i32 220, label %75
+    i32 210, label %73
+    i32 215, label %74
   ]
 
 71:                                               ; preds = %68, %66, %63
   %72 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %81 unwind label %82
+          to label %79 unwind label %80
 
 73:                                               ; preds = %69
-  br label %79
+  br label %77
 
 74:                                               ; preds = %69
-  br label %79
+  br label %77
 
-75:                                               ; preds = %69
-  br label %79
+75:                                               ; preds = %69, %69
+  br label %77
 
 76:                                               ; preds = %69
-  br label %79
+  br label %77
 
-77:                                               ; preds = %69, %69
-  br label %79
-
-78:                                               ; preds = %69
-  br label %79
-
-79:                                               ; preds = %69, %78, %77, %76, %75, %74, %73
-  %.0 = phi i32 [ -2, %78 ], [ -5, %77 ], [ -4, %76 ], [ -3, %75 ], [ -2, %74 ], [ -2, %73 ], [ %70, %69 ]
+77:                                               ; preds = %69, %76, %75, %74, %73
+  %.0 = phi i32 [ -2, %76 ], [ -5, %75 ], [ -4, %74 ], [ -3, %73 ], [ %70, %69 ]
   call void @__cxa_end_catch()
-  br label %80
+  br label %78
 
-80:                                               ; preds = %_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit, %79
-  %.1 = phi i32 [ %.0, %79 ], [ 0, %_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit ]
+78:                                               ; preds = %_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit, %77
+  %.1 = phi i32 [ %.0, %77 ], [ 0, %_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit ]
   ret i32 %.1
 
-81:                                               ; preds = %71, %.body
+79:                                               ; preds = %71, %.body
   %.merged = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %72, %71 ]
   resume { ptr, i32 } %.merged
 
-82:                                               ; preds = %71
-  %83 = landingpad { ptr, i32 }
+80:                                               ; preds = %71
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #59
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #59
   unreachable
 }
 
@@ -168215,9 +168207,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail7overlay
   %38 = load double, ptr %2, align 8, !tbaa !1455
   %39 = call noundef nonnull align 16 dereferenceable(69) ptr @_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EE12assign_floatIdEENSt9enable_ifIXaasr3std17is_floating_pointIT_EE5valuelesr3std14numeric_limitsIS7_EE6digitsLj100EERS4_E4typeES7_(ptr noundef nonnull align 16 dereferenceable(80) %8, double noundef %38)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #58
-  %cond.i.i.i.i.i = icmp eq i32 %12, 2147482982
-  %cond.i2.i.i.i.i = icmp eq i32 %18, 2147482982
-  %40 = select i1 %cond.i.i.i.i.i, i1 true, i1 %cond.i2.i.i.i.i
+  %switch.selectcmp.i.i.i.i.i = icmp eq i32 %12, 2147482982
+  %switch.selectcmp.i2.i.i.i.i = icmp eq i32 %18, 2147482982
+  %40 = select i1 %switch.selectcmp.i.i.i.i.i, i1 true, i1 %switch.selectcmp.i2.i.i.i.i
   br i1 %40, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27, label %41
 
 41:                                               ; preds = %3
@@ -168284,9 +168276,9 @@ _ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_
   br i1 %68, label %69, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27
 
 69:                                               ; preds = %42, %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit
-  %cond.i.i.i.i.i13 = icmp eq i32 %25, 2147482982
-  %cond.i2.i.i.i.i14 = icmp eq i32 %32, 2147482982
-  %70 = select i1 %cond.i.i.i.i.i13, i1 true, i1 %cond.i2.i.i.i.i14
+  %switch.selectcmp.i.i.i.i.i13 = icmp eq i32 %25, 2147482982
+  %switch.selectcmp.i2.i.i.i.i14 = icmp eq i32 %32, 2147482982
+  %70 = select i1 %switch.selectcmp.i.i.i.i.i13, i1 true, i1 %switch.selectcmp.i2.i.i.i.i14
   br i1 %70, label %_ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_8backends13cpp_bin_floatILj100ELNS6_15digit_base_typeE10EviLi0ELi0EEELNS4_26expression_template_optionE0EEESB_NS2_20equals_factor_policyISB_Lb0EEEEEbRKT_RKT0_RKT1_.exit27, label %71
 
 71:                                               ; preds = %69

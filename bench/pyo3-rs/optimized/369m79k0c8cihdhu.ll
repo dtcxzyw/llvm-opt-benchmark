@@ -654,8 +654,8 @@ define hidden zeroext i1 @"_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3n
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -39
   %switch = icmp ult i64 %5, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %6 = getelementptr inbounds i8, ptr %3, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.
   %7 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %6, ptr nonnull align 1 @anon.0a3de5dc611eb9e73e124dc0c16747ee.3, i64 4)
   ret i1 %7
 }

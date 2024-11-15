@@ -868,9 +868,8 @@ target triple = "x86_64-pc-linux-gnu"
 @sintable = internal unnamed_addr constant [32 x i16] [i16 0, i16 24, i16 49, i16 74, i16 97, i16 120, i16 141, i16 161, i16 180, i16 197, i16 212, i16 224, i16 235, i16 244, i16 250, i16 253, i16 255, i16 253, i16 250, i16 244, i16 235, i16 224, i16 212, i16 197, i16 180, i16 161, i16 141, i16 120, i16 97, i16 74, i16 49, i16 24], align 16
 @.str.613 = private unnamed_addr constant [5 x i8] c"M.K.\00", align 1
 @switch.table.ma_result_from_errno = private unnamed_addr constant [130 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51, i32 -1, i32 -1, i32 -1, i32 -1], align 4
-@switch.table.ma_log_level_to_string = private unnamed_addr constant [4 x ptr] [ptr @.str.4, ptr @.str.3, ptr @.str.2, ptr @.str.1], align 8
+@switch.table.ma_log_level_to_string = private unnamed_addr constant [3 x ptr] [ptr @.str.3, ptr @.str.2, ptr @.str.1], align 8
 @switch.table.ma_is_backend_enabled = private unnamed_addr constant [8 x i32] [i32 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1], align 4
-@switch.table.ma_context_is_loopback_supported = private unnamed_addr constant [15 x i32] [i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], align 4
 @switch.table.ma_channel_map_apply_f32 = private unnamed_addr constant [6 x i64] [i64 2, i64 3, i64 4, i64 5, i64 11, i64 12], align 8
 @switch.table.ma_channel_map_apply_f32.45 = private unnamed_addr constant [5 x i64] [i64 2, i64 3, i64 4, i64 6, i64 7], align 8
 @switch.table.ma_channel_map_apply_f32.46 = private unnamed_addr constant [4 x i64] [i64 2, i64 3, i64 4, i64 10], align 8
@@ -888,7 +887,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ma_device__pa_buffer_attr_new = private unnamed_addr constant [10 x i64] [i64 1, i64 0, i64 0, i64 2, i64 0, i64 5, i64 0, i64 4, i64 0, i64 3], align 8
 @switch.table.ma_channel_position_from_pulse = private unnamed_addr constant [51 x i8] c"\01\02\03\04\0A\06\07\05\08\09\0B\0C\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123\0D\0E\10\0F\11\13\12", align 1
 @switch.table.ma_convert_alsa_channel_position_to_ma_channel = private unnamed_addr constant [26 x i8] c"\01\02\03\06\07\04\05\0B\0C\0A\08\09\00\00\00\00\00\00\00\0D\0E\10\0F\11\13\12", align 1
-@switch.table.drwav_result_from_errno = private unnamed_addr constant [134 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1], align 4
+@switch.table.drwav_result_from_errno = private unnamed_addr constant [126 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @ma_version(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
@@ -1770,13 +1769,13 @@ define hidden void @ma_free(ptr noundef %0, ptr noundef readonly %1) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @ma_log_level_to_string(i32 noundef %0) local_unnamed_addr #1 {
-  %switch.tableidx = add i32 %0, -1
-  %2 = icmp ult i32 %switch.tableidx, 4
+  %switch.tableidx = add i32 %0, -2
+  %2 = icmp ult i32 %switch.tableidx, 3
   br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.ma_log_level_to_string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ma_log_level_to_string, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -4383,68 +4382,59 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
-4:                                                ; preds = %switch.lookup, %1
-  %.0 = phi i32 [ 0, %1 ], [ %switch.load, %switch.lookup ]
+4:                                                ; preds = %1, %switch.lookup
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden range(i32 -18, 1) i32 @ma_get_enabled_backends(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #18 {
   %4 = icmp eq ptr %2, null
-  br i1 %4, label %13, label %.preheader
+  br i1 %4, label %12, label %.preheader
 
-.preheader:                                       ; preds = %3, %ma_is_backend_enabled.exit
-  %.01622 = phi i64 [ %11, %ma_is_backend_enabled.exit ], [ 0, %3 ]
-  %.01721 = phi i64 [ %.1, %ma_is_backend_enabled.exit ], [ 0, %3 ]
+.preheader:                                       ; preds = %3, %ma_is_backend_enabled.exit.thread
+  %.01622 = phi i64 [ %10, %ma_is_backend_enabled.exit.thread ], [ 0, %3 ]
+  %.01721 = phi i64 [ %.1, %ma_is_backend_enabled.exit.thread ], [ 0, %3 ]
   %5 = trunc nuw nsw i64 %.01622 to i32
-  switch i32 %5, label %ma_is_backend_enabled.exit [
-    i32 14, label %6
-    i32 13, label %6
-    i32 8, label %6
-    i32 7, label %6
+  switch i32 %5, label %ma_is_backend_enabled.exit.thread [
+    i32 14, label %ma_is_backend_enabled.exit
+    i32 13, label %ma_is_backend_enabled.exit
+    i32 8, label %ma_is_backend_enabled.exit
+    i32 7, label %ma_is_backend_enabled.exit
   ]
 
-6:                                                ; preds = %.preheader, %.preheader, %.preheader, %.preheader
-  %7 = icmp eq i64 %.01721, %1
-  br i1 %7, label %12, label %8
+ma_is_backend_enabled.exit:                       ; preds = %.preheader, %.preheader, %.preheader, %.preheader
+  %6 = icmp eq i64 %.01721, %1
+  br i1 %6, label %11, label %7
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds i32, ptr %0, i64 %.01721
-  store i32 %5, ptr %9, align 4
-  %10 = add i64 %.01721, 1
-  br label %ma_is_backend_enabled.exit
+7:                                                ; preds = %ma_is_backend_enabled.exit
+  %8 = getelementptr inbounds i32, ptr %0, i64 %.01721
+  store i32 %5, ptr %8, align 4
+  %9 = add i64 %.01721, 1
+  br label %ma_is_backend_enabled.exit.thread
 
-ma_is_backend_enabled.exit:                       ; preds = %.preheader, %8
-  %.1 = phi i64 [ %10, %8 ], [ %.01721, %.preheader ]
-  %11 = add nuw nsw i64 %.01622, 1
-  %exitcond.not = icmp eq i64 %11, 15
-  br i1 %exitcond.not, label %12, label %.preheader
+ma_is_backend_enabled.exit.thread:                ; preds = %.preheader, %7
+  %.1 = phi i64 [ %9, %7 ], [ %.01721, %.preheader ]
+  %10 = add nuw nsw i64 %.01622, 1
+  %exitcond.not = icmp eq i64 %10, 15
+  br i1 %exitcond.not, label %11, label %.preheader
 
-12:                                               ; preds = %ma_is_backend_enabled.exit, %6
-  %.017.lcssa = phi i64 [ %.1, %ma_is_backend_enabled.exit ], [ %1, %6 ]
-  %.015 = phi i32 [ 0, %ma_is_backend_enabled.exit ], [ -18, %6 ]
+11:                                               ; preds = %ma_is_backend_enabled.exit.thread, %ma_is_backend_enabled.exit
+  %.017.lcssa = phi i64 [ %.1, %ma_is_backend_enabled.exit.thread ], [ %1, %ma_is_backend_enabled.exit ]
+  %.015 = phi i32 [ 0, %ma_is_backend_enabled.exit.thread ], [ -18, %ma_is_backend_enabled.exit ]
   store i64 %.017.lcssa, ptr %2, align 8
-  br label %13
+  br label %12
 
-13:                                               ; preds = %3, %12
-  %.0 = phi i32 [ %.015, %12 ], [ -2, %3 ]
+12:                                               ; preds = %3, %11
+  %.0 = phi i32 [ %.015, %11 ], [ -2, %3 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 0, 2) i32 @ma_is_loopback_supported(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = icmp ult i32 %0, 15
-  br i1 %2, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table.ma_context_is_loopback_supported, i64 0, i64 %3
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %4
-
-4:                                                ; preds = %1, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1 ]
-  ret i32 %.0
+  %cond = icmp eq i32 %0, 0
+  %. = zext i1 %cond to i32
+  ret i32 %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
@@ -8929,22 +8919,17 @@ define hidden i32 @ma_context_get_device_info(ptr noundef %0, i32 noundef %1, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @ma_context_is_loopback_supported(ptr noundef readonly %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %ma_is_loopback_supported.exit, label %3
+  br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
-  %6 = icmp ult i32 %5, 15
-  br i1 %6, label %switch.lookup, label %ma_is_loopback_supported.exit
+  %cond.i = icmp eq i32 %5, 0
+  %..i = zext i1 %cond.i to i32
+  br label %6
 
-switch.lookup:                                    ; preds = %3
-  %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table.ma_context_is_loopback_supported, i64 0, i64 %7
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %ma_is_loopback_supported.exit
-
-ma_is_loopback_supported.exit:                    ; preds = %3, %switch.lookup, %1
-  %.0 = phi i32 [ 0, %1 ], [ %switch.load, %switch.lookup ], [ 0, %3 ]
+6:                                                ; preds = %1, %3
+  %.0 = phi i32 [ %..i, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -45806,275 +45791,271 @@ define hidden void @ma_pcm_rb_set_sample_rate(ptr noundef writeonly %0, i32 noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @ma_result_description(i32 noundef %0) local_unnamed_addr #1 {
-  switch i32 %0, label %67 [
-    i32 0, label %68
-    i32 -1, label %2
-    i32 -2, label %3
-    i32 -3, label %4
-    i32 -4, label %5
-    i32 -5, label %6
-    i32 -6, label %7
-    i32 -7, label %8
-    i32 -8, label %9
-    i32 -9, label %10
-    i32 -10, label %11
-    i32 -11, label %12
-    i32 -12, label %13
-    i32 -13, label %14
-    i32 -14, label %15
-    i32 -15, label %16
-    i32 -16, label %17
-    i32 -17, label %18
-    i32 -18, label %19
-    i32 -19, label %20
-    i32 -20, label %21
-    i32 -21, label %22
-    i32 -22, label %23
-    i32 -23, label %24
-    i32 -24, label %25
-    i32 -25, label %26
-    i32 -26, label %27
-    i32 -27, label %28
-    i32 -28, label %29
-    i32 -29, label %30
-    i32 -30, label %31
-    i32 -31, label %32
-    i32 -32, label %33
-    i32 -33, label %34
-    i32 -34, label %35
-    i32 -35, label %36
-    i32 -36, label %37
-    i32 -37, label %38
-    i32 -38, label %39
-    i32 -39, label %40
-    i32 -40, label %41
-    i32 -41, label %42
-    i32 -42, label %43
-    i32 -43, label %44
-    i32 -44, label %45
-    i32 -45, label %46
-    i32 -46, label %47
-    i32 -47, label %48
-    i32 -48, label %49
-    i32 -49, label %50
-    i32 -50, label %51
-    i32 -51, label %52
-    i32 -52, label %53
-    i32 -200, label %54
-    i32 -201, label %55
-    i32 -202, label %56
-    i32 -203, label %57
-    i32 -204, label %58
-    i32 -205, label %59
-    i32 -206, label %60
-    i32 -300, label %61
-    i32 -302, label %62
-    i32 -400, label %63
-    i32 -401, label %64
-    i32 -402, label %65
-    i32 -403, label %66
+  switch i32 %0, label %66 [
+    i32 0, label %67
+    i32 -403, label %65
+    i32 -2, label %2
+    i32 -3, label %3
+    i32 -4, label %4
+    i32 -5, label %5
+    i32 -6, label %6
+    i32 -7, label %7
+    i32 -8, label %8
+    i32 -9, label %9
+    i32 -10, label %10
+    i32 -11, label %11
+    i32 -12, label %12
+    i32 -13, label %13
+    i32 -14, label %14
+    i32 -15, label %15
+    i32 -16, label %16
+    i32 -17, label %17
+    i32 -18, label %18
+    i32 -19, label %19
+    i32 -20, label %20
+    i32 -21, label %21
+    i32 -22, label %22
+    i32 -23, label %23
+    i32 -24, label %24
+    i32 -25, label %25
+    i32 -26, label %26
+    i32 -27, label %27
+    i32 -28, label %28
+    i32 -29, label %29
+    i32 -30, label %30
+    i32 -31, label %31
+    i32 -32, label %32
+    i32 -33, label %33
+    i32 -34, label %34
+    i32 -35, label %35
+    i32 -36, label %36
+    i32 -37, label %37
+    i32 -38, label %38
+    i32 -39, label %39
+    i32 -40, label %40
+    i32 -41, label %41
+    i32 -42, label %42
+    i32 -43, label %43
+    i32 -44, label %44
+    i32 -45, label %45
+    i32 -46, label %46
+    i32 -47, label %47
+    i32 -48, label %48
+    i32 -49, label %49
+    i32 -50, label %50
+    i32 -51, label %51
+    i32 -52, label %52
+    i32 -200, label %53
+    i32 -201, label %54
+    i32 -202, label %55
+    i32 -203, label %56
+    i32 -204, label %57
+    i32 -205, label %58
+    i32 -206, label %59
+    i32 -300, label %60
+    i32 -302, label %61
+    i32 -400, label %62
+    i32 -401, label %63
+    i32 -402, label %64
   ]
 
 2:                                                ; preds = %1
-  br label %68
+  br label %67
 
 3:                                                ; preds = %1
-  br label %68
+  br label %67
 
 4:                                                ; preds = %1
-  br label %68
+  br label %67
 
 5:                                                ; preds = %1
-  br label %68
+  br label %67
 
 6:                                                ; preds = %1
-  br label %68
+  br label %67
 
 7:                                                ; preds = %1
-  br label %68
+  br label %67
 
 8:                                                ; preds = %1
-  br label %68
+  br label %67
 
 9:                                                ; preds = %1
-  br label %68
+  br label %67
 
 10:                                               ; preds = %1
-  br label %68
+  br label %67
 
 11:                                               ; preds = %1
-  br label %68
+  br label %67
 
 12:                                               ; preds = %1
-  br label %68
+  br label %67
 
 13:                                               ; preds = %1
-  br label %68
+  br label %67
 
 14:                                               ; preds = %1
-  br label %68
+  br label %67
 
 15:                                               ; preds = %1
-  br label %68
+  br label %67
 
 16:                                               ; preds = %1
-  br label %68
+  br label %67
 
 17:                                               ; preds = %1
-  br label %68
+  br label %67
 
 18:                                               ; preds = %1
-  br label %68
+  br label %67
 
 19:                                               ; preds = %1
-  br label %68
+  br label %67
 
 20:                                               ; preds = %1
-  br label %68
+  br label %67
 
 21:                                               ; preds = %1
-  br label %68
+  br label %67
 
 22:                                               ; preds = %1
-  br label %68
+  br label %67
 
 23:                                               ; preds = %1
-  br label %68
+  br label %67
 
 24:                                               ; preds = %1
-  br label %68
+  br label %67
 
 25:                                               ; preds = %1
-  br label %68
+  br label %67
 
 26:                                               ; preds = %1
-  br label %68
+  br label %67
 
 27:                                               ; preds = %1
-  br label %68
+  br label %67
 
 28:                                               ; preds = %1
-  br label %68
+  br label %67
 
 29:                                               ; preds = %1
-  br label %68
+  br label %67
 
 30:                                               ; preds = %1
-  br label %68
+  br label %67
 
 31:                                               ; preds = %1
-  br label %68
+  br label %67
 
 32:                                               ; preds = %1
-  br label %68
+  br label %67
 
 33:                                               ; preds = %1
-  br label %68
+  br label %67
 
 34:                                               ; preds = %1
-  br label %68
+  br label %67
 
 35:                                               ; preds = %1
-  br label %68
+  br label %67
 
 36:                                               ; preds = %1
-  br label %68
+  br label %67
 
 37:                                               ; preds = %1
-  br label %68
+  br label %67
 
 38:                                               ; preds = %1
-  br label %68
+  br label %67
 
 39:                                               ; preds = %1
-  br label %68
+  br label %67
 
 40:                                               ; preds = %1
-  br label %68
+  br label %67
 
 41:                                               ; preds = %1
-  br label %68
+  br label %67
 
 42:                                               ; preds = %1
-  br label %68
+  br label %67
 
 43:                                               ; preds = %1
-  br label %68
+  br label %67
 
 44:                                               ; preds = %1
-  br label %68
+  br label %67
 
 45:                                               ; preds = %1
-  br label %68
+  br label %67
 
 46:                                               ; preds = %1
-  br label %68
+  br label %67
 
 47:                                               ; preds = %1
-  br label %68
+  br label %67
 
 48:                                               ; preds = %1
-  br label %68
+  br label %67
 
 49:                                               ; preds = %1
-  br label %68
+  br label %67
 
 50:                                               ; preds = %1
-  br label %68
+  br label %67
 
 51:                                               ; preds = %1
-  br label %68
+  br label %67
 
 52:                                               ; preds = %1
-  br label %68
+  br label %67
 
 53:                                               ; preds = %1
-  br label %68
+  br label %67
 
 54:                                               ; preds = %1
-  br label %68
+  br label %67
 
 55:                                               ; preds = %1
-  br label %68
+  br label %67
 
 56:                                               ; preds = %1
-  br label %68
+  br label %67
 
 57:                                               ; preds = %1
-  br label %68
+  br label %67
 
 58:                                               ; preds = %1
-  br label %68
+  br label %67
 
 59:                                               ; preds = %1
-  br label %68
+  br label %67
 
 60:                                               ; preds = %1
-  br label %68
+  br label %67
 
 61:                                               ; preds = %1
-  br label %68
+  br label %67
 
 62:                                               ; preds = %1
-  br label %68
+  br label %67
 
 63:                                               ; preds = %1
-  br label %68
+  br label %67
 
 64:                                               ; preds = %1
-  br label %68
+  br label %67
 
 65:                                               ; preds = %1
-  br label %68
+  br label %67
 
 66:                                               ; preds = %1
-  br label %68
+  br label %67
 
-67:                                               ; preds = %1
-  br label %68
-
-68:                                               ; preds = %1, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.98, %67 ], [ @.str.162, %66 ], [ @.str.161, %65 ], [ @.str.160, %64 ], [ @.str.159, %63 ], [ @.str.158, %62 ], [ @.str.157, %61 ], [ @.str.156, %60 ], [ @.str.155, %59 ], [ @.str.154, %58 ], [ @.str.153, %57 ], [ @.str.152, %56 ], [ @.str.151, %55 ], [ @.str.150, %54 ], [ @.str.149, %53 ], [ @.str.148, %52 ], [ @.str.147, %51 ], [ @.str.146, %50 ], [ @.str.145, %49 ], [ @.str.144, %48 ], [ @.str.143, %47 ], [ @.str.142, %46 ], [ @.str.141, %45 ], [ @.str.140, %44 ], [ @.str.139, %43 ], [ @.str.138, %42 ], [ @.str.137, %41 ], [ @.str.136, %40 ], [ @.str.135, %39 ], [ @.str.134, %38 ], [ @.str.133, %37 ], [ @.str.132, %36 ], [ @.str.131, %35 ], [ @.str.130, %34 ], [ @.str.129, %33 ], [ @.str.128, %32 ], [ @.str.127, %31 ], [ @.str.126, %30 ], [ @.str.125, %29 ], [ @.str.124, %28 ], [ @.str.123, %27 ], [ @.str.122, %26 ], [ @.str.121, %25 ], [ @.str.120, %24 ], [ @.str.119, %23 ], [ @.str.118, %22 ], [ @.str.117, %21 ], [ @.str.116, %20 ], [ @.str.115, %19 ], [ @.str.114, %18 ], [ @.str.113, %17 ], [ @.str.112, %16 ], [ @.str.111, %15 ], [ @.str.110, %14 ], [ @.str.109, %13 ], [ @.str.108, %12 ], [ @.str.107, %11 ], [ @.str.106, %10 ], [ @.str.105, %9 ], [ @.str.104, %8 ], [ @.str.103, %7 ], [ @.str.102, %6 ], [ @.str.101, %5 ], [ @.str.100, %4 ], [ @.str.99, %3 ], [ @.str.98, %2 ], [ @.str.97, %1 ]
+67:                                               ; preds = %1, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi ptr [ @.str.98, %66 ], [ @.str.162, %65 ], [ @.str.161, %64 ], [ @.str.160, %63 ], [ @.str.159, %62 ], [ @.str.158, %61 ], [ @.str.157, %60 ], [ @.str.156, %59 ], [ @.str.155, %58 ], [ @.str.154, %57 ], [ @.str.153, %56 ], [ @.str.152, %55 ], [ @.str.151, %54 ], [ @.str.150, %53 ], [ @.str.149, %52 ], [ @.str.148, %51 ], [ @.str.147, %50 ], [ @.str.146, %49 ], [ @.str.145, %48 ], [ @.str.144, %47 ], [ @.str.143, %46 ], [ @.str.142, %45 ], [ @.str.141, %44 ], [ @.str.140, %43 ], [ @.str.139, %42 ], [ @.str.138, %41 ], [ @.str.137, %40 ], [ @.str.136, %39 ], [ @.str.135, %38 ], [ @.str.134, %37 ], [ @.str.133, %36 ], [ @.str.132, %35 ], [ @.str.131, %34 ], [ @.str.130, %33 ], [ @.str.129, %32 ], [ @.str.128, %31 ], [ @.str.127, %30 ], [ @.str.126, %29 ], [ @.str.125, %28 ], [ @.str.124, %27 ], [ @.str.123, %26 ], [ @.str.122, %25 ], [ @.str.121, %24 ], [ @.str.120, %23 ], [ @.str.119, %22 ], [ @.str.118, %21 ], [ @.str.117, %20 ], [ @.str.116, %19 ], [ @.str.115, %18 ], [ @.str.114, %17 ], [ @.str.113, %16 ], [ @.str.112, %15 ], [ @.str.111, %14 ], [ @.str.110, %13 ], [ @.str.109, %12 ], [ @.str.108, %11 ], [ @.str.107, %10 ], [ @.str.106, %9 ], [ @.str.105, %8 ], [ @.str.104, %7 ], [ @.str.103, %6 ], [ @.str.102, %5 ], [ @.str.101, %4 ], [ @.str.100, %3 ], [ @.str.99, %2 ], [ @.str.97, %1 ]
   ret ptr %.0
 }
 
@@ -103352,8 +103333,8 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
-4:                                                ; preds = %switch.lookup, %1
-  %.0 = phi i8 [ 0, %1 ], [ %switch.load, %switch.lookup ]
+4:                                                ; preds = %1, %switch.lookup
+  %.0 = phi i8 [ %switch.load, %switch.lookup ], [ 0, %1 ]
   ret i8 %.0
 }
 
@@ -110237,57 +110218,46 @@ ma_channel_map_is_passthrough.exit:               ; preds = %ma_channel_map_get_
 
 44:                                               ; preds = %43
   %45 = icmp eq ptr %0, null
-  br i1 %45, label %46, label %..thread46_crit_edge
+  br i1 %45, label %.lr.ph.i.i33, label %..thread46_crit_edge
 
 ..thread46_crit_edge:                             ; preds = %44
   %.pre = load i8, ptr %0, align 1
   br label %.lr.ph.i.i33
 
-46:                                               ; preds = %44
-  %47 = icmp ult i32 %3, 8
-  br i1 %47, label %switch.lookup, label %.lr.ph.i.i33
-
-switch.lookup:                                    ; preds = %46
-  %48 = shl nuw nsw i32 %3, 3
-  %switch.shiftamt = zext nneg i32 %48 to i64
-  %switch.downshift = lshr i64 144680345676153090, %switch.shiftamt
-  %switch.masked = trunc i64 %switch.downshift to i8
-  br label %.lr.ph.i.i33
-
-.lr.ph.i.i33:                                     ; preds = %46, %switch.lookup, %.thread, %..thread46_crit_edge
-  %.0.i3265 = phi i8 [ %.pre, %..thread46_crit_edge ], [ %38, %.thread ], [ %switch.masked, %switch.lookup ], [ 2, %46 ]
-  %49 = icmp eq ptr %2, null
-  br i1 %49, label %ma_channel_map_get_channel.exit.us.i.i38, label %ma_channel_map_get_channel.exit.preheader.i.i
+.lr.ph.i.i33:                                     ; preds = %.thread, %44, %..thread46_crit_edge
+  %.0.i3265 = phi i8 [ %.pre, %..thread46_crit_edge ], [ 2, %44 ], [ %38, %.thread ]
+  %46 = icmp eq ptr %2, null
+  br i1 %46, label %ma_channel_map_get_channel.exit.us.i.i38, label %ma_channel_map_get_channel.exit.preheader.i.i
 
 ma_channel_map_get_channel.exit.preheader.i.i:    ; preds = %.lr.ph.i.i33
   %wide.trip.count.i.i = zext i32 %3 to i64
   br label %ma_channel_map_get_channel.exit.i.i34
 
-ma_channel_map_get_channel.exit.us.i.i38:         ; preds = %.lr.ph.i.i33, %52
-  %.016.us.i.i = phi i32 [ %53, %52 ], [ 0, %.lr.ph.i.i33 ]
-  %50 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %.016.us.i.i)
-  %51 = icmp eq i8 %50, %.0.i3265
-  br i1 %51, label %.critedge, label %52
+ma_channel_map_get_channel.exit.us.i.i38:         ; preds = %.lr.ph.i.i33, %49
+  %.016.us.i.i = phi i32 [ %50, %49 ], [ 0, %.lr.ph.i.i33 ]
+  %47 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %.016.us.i.i)
+  %48 = icmp eq i8 %47, %.0.i3265
+  br i1 %48, label %.critedge, label %49
 
-52:                                               ; preds = %ma_channel_map_get_channel.exit.us.i.i38
-  %53 = add nuw i32 %.016.us.i.i, 1
-  %exitcond23.not.i.i = icmp eq i32 %53, %3
+49:                                               ; preds = %ma_channel_map_get_channel.exit.us.i.i38
+  %50 = add nuw i32 %.016.us.i.i, 1
+  %exitcond23.not.i.i = icmp eq i32 %50, %3
   br i1 %exitcond23.not.i.i, label %.critedge, label %ma_channel_map_get_channel.exit.us.i.i38
 
-ma_channel_map_get_channel.exit.i.i34:            ; preds = %57, %ma_channel_map_get_channel.exit.preheader.i.i
-  %indvars.iv.i.i35 = phi i64 [ 0, %ma_channel_map_get_channel.exit.preheader.i.i ], [ %indvars.iv.next.i.i36, %57 ]
-  %54 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i35
-  %55 = load i8, ptr %54, align 1
-  %56 = icmp eq i8 %55, %.0.i3265
-  br i1 %56, label %.critedge, label %57
+ma_channel_map_get_channel.exit.i.i34:            ; preds = %54, %ma_channel_map_get_channel.exit.preheader.i.i
+  %indvars.iv.i.i35 = phi i64 [ 0, %ma_channel_map_get_channel.exit.preheader.i.i ], [ %indvars.iv.next.i.i36, %54 ]
+  %51 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i35
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp eq i8 %52, %.0.i3265
+  br i1 %53, label %.critedge, label %54
 
-57:                                               ; preds = %ma_channel_map_get_channel.exit.i.i34
+54:                                               ; preds = %ma_channel_map_get_channel.exit.i.i34
   %indvars.iv.next.i.i36 = add nuw nsw i64 %indvars.iv.i.i35, 1
   %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.next.i.i36, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i37, label %.critedge, label %ma_channel_map_get_channel.exit.i.i34
 
-.critedge:                                        ; preds = %22, %21, %16, %ma_channel_map_get_channel.exit.i.i34, %57, %ma_channel_map_get_channel.exit.us.i.i38, %52, %.lr.ph.split.us.i.i, %7, %.thread, %43, %40, %35, %37, %28, %30
-  %.024 = phi i32 [ 2, %30 ], [ 2, %28 ], [ 3, %37 ], [ 3, %35 ], [ 5, %40 ], [ 4, %43 ], [ 5, %.thread ], [ 1, %7 ], [ 1, %.lr.ph.split.us.i.i ], [ 5, %52 ], [ 4, %ma_channel_map_get_channel.exit.us.i.i38 ], [ 5, %57 ], [ 4, %ma_channel_map_get_channel.exit.i.i34 ], [ 1, %16 ], [ 1, %21 ], [ 1, %22 ]
+.critedge:                                        ; preds = %22, %21, %16, %ma_channel_map_get_channel.exit.i.i34, %54, %ma_channel_map_get_channel.exit.us.i.i38, %49, %.lr.ph.split.us.i.i, %7, %.thread, %43, %40, %35, %37, %28, %30
+  %.024 = phi i32 [ 2, %30 ], [ 2, %28 ], [ 3, %37 ], [ 3, %35 ], [ 5, %40 ], [ 4, %43 ], [ 5, %.thread ], [ 1, %7 ], [ 1, %.lr.ph.split.us.i.i ], [ 5, %49 ], [ 4, %ma_channel_map_get_channel.exit.us.i.i38 ], [ 5, %54 ], [ 4, %ma_channel_map_get_channel.exit.i.i34 ], [ 1, %16 ], [ 1, %21 ], [ 1, %22 ]
   ret i32 %.024
 }
 
@@ -114725,12 +114695,12 @@ declare i32 @llvm.bswap.i32(i32) #35
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc range(i32 -51, 1) i32 @drwav_result_from_errno(i32 noundef %0) unnamed_addr #1 {
-  %2 = icmp ult i32 %0, 134
+  %2 = icmp ult i32 %0, 126
   br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [134 x i32], ptr @switch.table.drwav_result_from_errno, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [126 x i32], ptr @switch.table.drwav_result_from_errno, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

@@ -4421,11 +4421,11 @@ _ZN7rocksdb16WBWIIteratorImpl7NextKeyEv.exit:     ; preds = %_ZN7rocksdb16WBWIIt
   %vfn16 = getelementptr inbounds i8, ptr %vtable12, i64 %.
   %29 = load ptr, ptr %vfn16, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(65) %this)
-  %vtable1726 = load ptr, ptr %this, align 8
-  %vfn1827 = getelementptr inbounds i8, ptr %vtable1726, i64 16
-  %30 = load ptr, ptr %vfn1827, align 8
-  %call1928 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(65) %this)
-  br i1 %call1928, label %while.body.lr.ph, label %while.end
+  %vtable1725 = load ptr, ptr %this, align 8
+  %vfn1826 = getelementptr inbounds i8, ptr %vtable1725, i64 16
+  %30 = load ptr, ptr %vfn1826, align 8
+  %call1927 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(65) %this)
+  br i1 %call1927, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %_ZN7rocksdb16WBWIIteratorImpl7NextKeyEv.exit
   %key25 = getelementptr inbounds i8, ptr %entry20, i64 8
@@ -4433,7 +4433,7 @@ while.body.lr.ph:                                 ; preds = %_ZN7rocksdb16WBWIIt
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
-  %result.029 = phi i8 [ 2, %while.body.lr.ph ], [ %result.1, %sw.epilog ]
+  %result.028 = phi i8 [ 2, %while.body.lr.ph ], [ %result.1, %sw.epilog ]
   %vtable21 = load ptr, ptr %this, align 8
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 72
   %31 = load ptr, ptr %vfn22, align 8
@@ -4475,8 +4475,8 @@ if.end29:                                         ; preds = %_ZNK7rocksdb25Write
   %39 = load i32, ptr %entry20, align 8
   switch i32 %39, label %return [
     i32 0, label %return.loopexit
-    i32 2, label %return.loopexit33
-    i32 3, label %return.loopexit33
+    i32 2, label %return.loopexit32
+    i32 3, label %return.loopexit32
     i32 1, label %sw.bb32
     i32 5, label %sw.epilog
     i32 6, label %sw.epilog
@@ -4488,7 +4488,7 @@ sw.bb32:                                          ; preds = %if.end29
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end29, %if.end29, %sw.bb32
-  %result.1 = phi i8 [ %result.029, %if.end29 ], [ %result.029, %if.end29 ], [ 3, %sw.bb32 ]
+  %result.1 = phi i8 [ %result.028, %if.end29 ], [ %result.028, %if.end29 ], [ 3, %sw.bb32 ]
   %vtable36 = load ptr, ptr %this, align 8
   %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 64
   %40 = load ptr, ptr %vfn37, align 8
@@ -4500,7 +4500,7 @@ sw.epilog:                                        ; preds = %if.end29, %if.end29
   br i1 %call19, label %while.body, label %while.end, !llvm.loop !52
 
 while.end:                                        ; preds = %sw.epilog, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit21, %_ZN7rocksdb16WBWIIteratorImpl7NextKeyEv.exit
-  %result.0.lcssa = phi i8 [ 2, %_ZN7rocksdb16WBWIIteratorImpl7NextKeyEv.exit ], [ %result.029, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit21 ], [ %result.1, %sw.epilog ]
+  %result.0.lcssa = phi i8 [ 2, %_ZN7rocksdb16WBWIIteratorImpl7NextKeyEv.exit ], [ %result.028, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit21 ], [ %result.1, %sw.epilog ]
   %vtable38 = load ptr, ptr %this, align 8
   %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 16
   %42 = load ptr, ptr %vfn39, align 8
@@ -4523,11 +4523,11 @@ if.else44:                                        ; preds = %while.end
 return.loopexit:                                  ; preds = %if.end29, %if.end29
   br label %return
 
-return.loopexit33:                                ; preds = %if.end29, %if.end29
+return.loopexit32:                                ; preds = %if.end29, %if.end29
   br label %return
 
-return:                                           ; preds = %if.end29, %return.loopexit33, %return.loopexit, %if.then41, %if.else44, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit, %_ZN7rocksdb12MergeContext5ClearEv.exit
-  %retval.0 = phi i8 [ 2, %_ZN7rocksdb12MergeContext5ClearEv.exit ], [ 2, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit ], [ %result.0.lcssa, %if.else44 ], [ %result.0.lcssa, %if.then41 ], [ 0, %return.loopexit ], [ 1, %return.loopexit33 ], [ 4, %if.end29 ]
+return:                                           ; preds = %if.end29, %return.loopexit32, %return.loopexit, %if.then41, %if.else44, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit, %_ZN7rocksdb12MergeContext5ClearEv.exit
+  %retval.0 = phi i8 [ 2, %_ZN7rocksdb12MergeContext5ClearEv.exit ], [ 2, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit ], [ %result.0.lcssa, %if.else44 ], [ %result.0.lcssa, %if.then41 ], [ 0, %return.loopexit ], [ 1, %return.loopexit32 ], [ 4, %if.end29 ]
   ret i8 %retval.0
 }
 

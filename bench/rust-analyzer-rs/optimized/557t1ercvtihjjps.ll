@@ -1806,8 +1806,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 8, !range !202, !alias.scope !203, !noundef !10
   %switch.i.i = icmp eq i32 %7, 1
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 32
-  %8 = getelementptr inbounds i8, ptr %1, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i64 8, i64 32
+  %8 = getelementptr inbounds i8, ptr %1, i64 %..i.i
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !alias.scope !199, !noundef !10
   %.not.i = icmp ne i32 %10, -2
@@ -35937,8 +35937,8 @@ define hidden noundef zeroext i1 @"_ZN10hir_expand5fixup15reverse_fixups_28_$u7b
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 8, !range !202, !alias.scope !7560, !noundef !10
   %switch.i = icmp eq i32 %7, 1
-  %spec.select.i = select i1 %switch.i, i64 8, i64 32
-  %8 = getelementptr inbounds i8, ptr %1, i64 %spec.select.i
+  %..i = select i1 %switch.i, i64 8, i64 32
+  %8 = getelementptr inbounds i8, ptr %1, i64 %..i
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !noundef !10
   %.not = icmp ne i32 %10, -2
@@ -35992,16 +35992,16 @@ define hidden void @"_ZN10hir_expand5fixup15reverse_fixups_28_$u7b$$u7b$closure$
   %23 = load i32, ptr %9, align 8, !range !202, !noundef !10
   %switch.i = icmp eq i32 %23, 1
   %.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
-  %spec.select.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 24, i64 48
-  %spec.select.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %9, i64 %spec.select.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %24 = load i32, ptr %spec.select.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !noundef !10
+  %..i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 24, i64 48
+  %..i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %9, i64 %..i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %24 = load i32, ptr %..i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !noundef !10
   %25 = icmp eq i32 %24, -2
   br i1 %25, label %26, label %86
 
 26:                                               ; preds = %22
-  %spec.select.i32.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 12, i64 36
-  %spec.select.i32.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %9, i64 %spec.select.i32.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %27 = load i32, ptr %spec.select.i32.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !noundef !10
+  %..i32.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 12, i64 36
+  %..i32.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %9, i64 %..i32.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %27 = load i32, ptr %..i32.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !noundef !10
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %1, i64 8
   %30 = load i64, ptr %29, align 8, !noundef !10

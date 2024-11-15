@@ -2815,28 +2815,21 @@ entry:
     i32 2, label %return
     i32 4, label %return
     i32 8, label %sw.bb2
-    i32 16, label %sw.bb3
+    i32 16, label %sw.bb2
     i32 1, label %sw.bb4
-    i32 0, label %sw.bb5
   ]
 
-sw.bb2:                                           ; preds = %entry
-  br label %return
-
-sw.bb3:                                           ; preds = %entry
+sw.bb2:                                           ; preds = %entry, %entry
   br label %return
 
 sw.bb4:                                           ; preds = %entry
   br label %return
 
-sw.bb5:                                           ; preds = %entry
-  br label %return
-
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %entry, %sw.default, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2
-  %retval.0 = phi i64 [ 0, %sw.default ], [ 0, %sw.bb5 ], [ 3, %sw.bb4 ], [ 4, %sw.bb3 ], [ 4, %sw.bb2 ], [ 2, %entry ], [ 2, %entry ]
+return:                                           ; preds = %entry, %entry, %sw.default, %sw.bb4, %sw.bb2
+  %retval.0 = phi i64 [ 0, %sw.default ], [ 3, %sw.bb4 ], [ 4, %sw.bb2 ], [ 2, %entry ], [ 2, %entry ]
   ret i64 %retval.0
 }
 

@@ -102585,8 +102585,8 @@ default.unreachable62:                            ; preds = %2
   %.35 = select i1 %41, i8 1, i8 2
   br label %42
 
-42:                                               ; preds = %85, %75, %74, %66, %65, %40, %31, %120, %115, %106, %101, %96, %91, %76, %53, %48, %43, %35
-  %.0 = phi i8 [ %125, %120 ], [ %.018, %115 ], [ %.0.i.i.i61, %106 ], [ %.017, %101 ], [ %.016, %96 ], [ %.015, %91 ], [ %.0.i.i.i, %76 ], [ %.013, %53 ], [ %.012, %48 ], [ %.011, %43 ], [ %.010, %35 ], [ %., %31 ], [ %.35, %40 ], [ %.40, %65 ], [ %.41, %66 ], [ %.42, %74 ], [ %.43, %75 ], [ %90, %85 ]
+42:                                               ; preds = %75, %74, %66, %65, %40, %31, %120, %115, %106, %101, %96, %91, %85, %76, %53, %48, %43, %35
+  %.0 = phi i8 [ %125, %120 ], [ %.018, %115 ], [ %.0.i.i.i61, %106 ], [ %.017, %101 ], [ %.016, %96 ], [ %.015, %91 ], [ %90, %85 ], [ %.0.i.i.i, %76 ], [ %.013, %53 ], [ %.012, %48 ], [ %.011, %43 ], [ %.010, %35 ], [ %., %31 ], [ %.35, %40 ], [ %.40, %65 ], [ %.41, %66 ], [ %.42, %74 ], [ %.43, %75 ]
   ret i8 %.0
 
 43:                                               ; preds = %7
@@ -109021,7 +109021,7 @@ default.unreachable:                              ; preds = %"_ZN83_$LT$datafusi
 
 "_ZN83_$LT$datafusion_common..stats..Precision$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdbabf11c4ba969b2E.exit.i.i.i": ; preds = %"_ZN83_$LT$datafusion_common..stats..Precision$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdbabf11c4ba969b2E.exit.i.sink.split.i.i", %40
   %.sroa.0.i.sroa.0.0.copyload.i = phi i128 [ 2, %40 ], [ %.sink.ph.i.i, %"_ZN83_$LT$datafusion_common..stats..Precision$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdbabf11c4ba969b2E.exit.i.sink.split.i.i" ]
-  %switch.i.i.i.i = phi i1 [ false, %40 ], [ true, %"_ZN83_$LT$datafusion_common..stats..Precision$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdbabf11c4ba969b2E.exit.i.sink.split.i.i" ]
+  %switch.i8.i.i.i = phi i1 [ false, %40 ], [ true, %"_ZN83_$LT$datafusion_common..stats..Precision$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdbabf11c4ba969b2E.exit.i.sink.split.i.i" ]
   store i128 %.sroa.0.i.sroa.0.0.copyload.i, ptr %7, align 16, !alias.scope !16353, !noalias !16360
   %47 = getelementptr inbounds i8, ptr %38, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !16361)
@@ -109062,7 +109062,7 @@ default.unreachable:                              ; preds = %"_ZN83_$LT$datafusi
 54:                                               ; preds = %52, %50
   %55 = landingpad { ptr, i32 }
           cleanup
-  br i1 %switch.i.i.i.i, label %.sink.split.i.i.i.i, label %.body
+  br i1 %switch.i8.i.i.i, label %.sink.split.i.i.i.i, label %.body
 
 56:                                               ; preds = %.sink.split.i.i.i.i
   %57 = landingpad { ptr, i32 }
@@ -109072,10 +109072,14 @@ default.unreachable:                              ; preds = %"_ZN83_$LT$datafusi
 
 "_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i": ; preds = %.noexc6.i.i.i, %.noexc.i.i.i, %"_ZN83_$LT$datafusion_common..stats..Precision$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdbabf11c4ba969b2E.exit.i.i.i"
   %.sroa.0.0.i.i.i = phi i128 [ 1, %.noexc6.i.i.i ], [ 0, %.noexc.i.i.i ], [ 2, %"_ZN83_$LT$datafusion_common..stats..Precision$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdbabf11c4ba969b2E.exit.i.i.i" ]
+  %switch.i.i.i.i = icmp samesign ult i64 %.val.i.i.i, 2
+  %spec.select.i.i.i.i = select i1 %switch.i.i.i.i, i64 %.val2.i.i.i, i64 undef
   %58 = getelementptr inbounds i8, ptr %38, i64 176
   %.val3.i.i.i = load i64, ptr %58, align 8, !range !152, !alias.scope !16347, !noalias !16348, !noundef !5
   %59 = getelementptr inbounds i8, ptr %38, i64 184
   %.val4.i.i.i = load i64, ptr %59, align 8, !alias.scope !16347, !noalias !16348
+  %switch.i10.i.i.i = icmp samesign ult i64 %.val3.i.i.i, 2
+  %spec.select.i11.i.i.i = select i1 %switch.i10.i.i.i, i64 %.val4.i.i.i, i64 undef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.0.sroa.5.i, ptr noundef nonnull align 16 dereferenceable(64) %35, i64 64, i1 false), !noalias !16369
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7), !noalias !16352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.6.i, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.6.i.i.i, i64 64, i1 false), !noalias !16369
@@ -109157,9 +109161,9 @@ default.unreachable:                              ; preds = %"_ZN83_$LT$datafusi
 
 "_ZN14deltalake_core6kernel8snapshot8log_data10datafusion76_$LT$impl$u20$deltalake_core..kernel..snapshot..log_data..LogDataHandler$GT$12column_stats28_$u7b$$u7b$closure$u7d$$u7d$17ha74f19b8099d3052E.exit.i": ; preds = %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i", %"_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i"
   %.sroa.0.sroa.0.0.i = phi i128 [ %.sroa.0.i.sroa.0.0.copyload.i, %"_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i" ], [ %.sroa.0.sroa.0.0.copyload.i, %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i" ]
-  %.sroa.10.0.i = phi i64 [ %.val4.i.i.i, %"_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i" ], [ %.sroa.10.0.copyload25.i, %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i" ]
+  %.sroa.10.0.i = phi i64 [ %spec.select.i11.i.i.i, %"_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i" ], [ %.sroa.10.0.copyload25.i, %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i" ]
   %.sroa.9.0.i = phi i64 [ %.val3.i.i.i, %"_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i" ], [ %.sroa.9.0.copyload23.i, %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i" ]
-  %.sroa.8.0.i = phi i64 [ %.val2.i.i.i, %"_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i" ], [ %.sroa.8.0.copyload21.i, %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i" ]
+  %.sroa.8.0.i = phi i64 [ %spec.select.i.i.i.i, %"_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i" ], [ %.sroa.8.0.copyload21.i, %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i" ]
   %.sroa.7.0.i = phi i64 [ %.val.i.i.i, %"_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i" ], [ %.sroa.7.0.copyload19.i, %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i" ]
   %.sroa.5.0.i = phi i128 [ %.sroa.0.0.i.i.i, %"_ZN81_$LT$datafusion_common..stats..ColumnStatistics$u20$as$u20$core..clone..Clone$GT$5clone17hf4627fee6dbd1dfbE.exit.i.i" ], [ %.sroa.5.0.copyload16.i, %"_ZN4core3ptr63drop_in_place$LT$datafusion_common..stats..ColumnStatistics$GT$17hb6f670b5bbb5cabaE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.6.i.i.i)

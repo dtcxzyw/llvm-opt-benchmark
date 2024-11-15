@@ -45,11 +45,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -334, 1) i32 @prte_pmix_convert_rc(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %34 [
-    i32 -67, label %35
-    i32 -68, label %35
-    i32 64, label %35
-    i32 58, label %35
+  switch i32 %0, label %33 [
+    i32 -67, label %34
+    i32 -68, label %34
+    i32 64, label %34
+    i32 58, label %34
     i32 61, label %2
     i32 62, label %2
     i32 -41, label %3
@@ -95,118 +95,114 @@ define range(i32 -334, 1) i32 @prte_pmix_convert_rc(i32 noundef %0) local_unname
     i32 -14, label %29
     i32 -56, label %30
     i32 -69, label %31
-    i32 -1, label %32
-    i32 0, label %33
+    i32 0, label %32
   ]
 
 2:                                                ; preds = %1, %1
-  br label %35
+  br label %34
 
 3:                                                ; preds = %1, %1, %1, %1, %1, %1, %1
-  br label %35
+  br label %34
 
 4:                                                ; preds = %1
-  br label %35
+  br label %34
 
 5:                                                ; preds = %1
-  br label %35
+  br label %34
 
 6:                                                ; preds = %1
-  br label %35
+  br label %34
 
 7:                                                ; preds = %1
-  br label %35
+  br label %34
 
 8:                                                ; preds = %1
-  br label %35
+  br label %34
 
 9:                                                ; preds = %1
-  br label %35
+  br label %34
 
 10:                                               ; preds = %1
-  br label %35
+  br label %34
 
 11:                                               ; preds = %1
-  br label %35
+  br label %34
 
 12:                                               ; preds = %1
-  br label %35
+  br label %34
 
 13:                                               ; preds = %1
-  br label %35
+  br label %34
 
 14:                                               ; preds = %1
-  br label %35
+  br label %34
 
 15:                                               ; preds = %1
-  br label %35
+  br label %34
 
 16:                                               ; preds = %1
-  br label %35
+  br label %34
 
 17:                                               ; preds = %1, %1
-  br label %35
+  br label %34
 
 18:                                               ; preds = %1
-  br label %35
+  br label %34
 
 19:                                               ; preds = %1, %1, %1
-  br label %35
+  br label %34
 
 20:                                               ; preds = %1
-  br label %35
+  br label %34
 
 21:                                               ; preds = %1, %1, %1, %1, %1
-  br label %35
+  br label %34
 
 22:                                               ; preds = %1
-  br label %35
+  br label %34
 
 23:                                               ; preds = %1
-  br label %35
+  br label %34
 
 24:                                               ; preds = %1
-  br label %35
+  br label %34
 
 25:                                               ; preds = %1
-  br label %35
+  br label %34
 
 26:                                               ; preds = %1, %1
-  br label %35
+  br label %34
 
 27:                                               ; preds = %1
-  br label %35
+  br label %34
 
 28:                                               ; preds = %1
-  br label %35
+  br label %34
 
 29:                                               ; preds = %1
-  br label %35
+  br label %34
 
 30:                                               ; preds = %1
-  br label %35
+  br label %34
 
 31:                                               ; preds = %1
-  br label %35
+  br label %34
 
 32:                                               ; preds = %1
-  br label %35
+  br label %34
 
 33:                                               ; preds = %1
-  br label %35
+  br label %34
 
-34:                                               ; preds = %1
-  br label %35
-
-35:                                               ; preds = %1, %1, %1, %1, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %34 ], [ %0, %33 ], [ %0, %32 ], [ -147, %31 ], [ -104, %30 ], [ -11, %29 ], [ -15, %28 ], [ -24, %27 ], [ -190, %26 ], [ -233, %25 ], [ -30, %24 ], [ -29, %23 ], [ -235, %22 ], [ -234, %21 ], [ -27, %20 ], [ -25, %19 ], [ -46, %18 ], [ -47, %17 ], [ -144, %16 ], [ -6, %15 ], [ -5, %14 ], [ -4, %13 ], [ -145, %12 ], [ -232, %11 ], [ -231, %10 ], [ -9, %9 ], [ -8, %8 ], [ -7, %7 ], [ -334, %6 ], [ -3, %5 ], [ -180, %4 ], [ -179, %3 ], [ -178, %2 ], [ -186, %1 ], [ -186, %1 ], [ -186, %1 ], [ -186, %1 ]
+34:                                               ; preds = %1, %1, %1, %1, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ -1, %33 ], [ 0, %32 ], [ -147, %31 ], [ -104, %30 ], [ -11, %29 ], [ -15, %28 ], [ -24, %27 ], [ -190, %26 ], [ -233, %25 ], [ -30, %24 ], [ -29, %23 ], [ -235, %22 ], [ -234, %21 ], [ -27, %20 ], [ -25, %19 ], [ -46, %18 ], [ -47, %17 ], [ -144, %16 ], [ -6, %15 ], [ -5, %14 ], [ -4, %13 ], [ -145, %12 ], [ -232, %11 ], [ -231, %10 ], [ -9, %9 ], [ -8, %8 ], [ -7, %7 ], [ -334, %6 ], [ -3, %5 ], [ -180, %4 ], [ -179, %3 ], [ -178, %2 ], [ -186, %1 ], [ -186, %1 ], [ -186, %1 ], [ -186, %1 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -5, -7) i32 @prte_pmix_convert_status(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %31 [
-    i32 -3, label %32
+  switch i32 %0, label %30 [
+    i32 -3, label %31
     i32 -334, label %2
     i32 -7, label %3
     i32 -8, label %4
@@ -233,127 +229,124 @@ define range(i32 -5, -7) i32 @prte_pmix_convert_status(i32 noundef %0) local_unn
     i32 -109, label %24
     i32 -110, label %25
     i32 -147, label %26
-    i32 -1, label %27
-    i32 -2, label %28
-    i32 0, label %29
-    i32 -157, label %29
-    i32 -50, label %30
+    i32 -1, label %16
+    i32 -2, label %27
+    i32 0, label %28
+    i32 -157, label %28
+    i32 -50, label %29
   ]
 
 2:                                                ; preds = %1
-  br label %32
+  br label %31
 
 3:                                                ; preds = %1
-  br label %32
+  br label %31
 
 4:                                                ; preds = %1
-  br label %32
+  br label %31
 
 5:                                                ; preds = %1
-  br label %32
+  br label %31
 
 6:                                                ; preds = %1
-  br label %32
+  br label %31
 
 7:                                                ; preds = %1
-  br label %32
+  br label %31
 
 8:                                                ; preds = %1
-  br label %32
+  br label %31
 
 9:                                                ; preds = %1
-  br label %32
+  br label %31
 
 10:                                               ; preds = %1
-  br label %32
+  br label %31
 
 11:                                               ; preds = %1
-  br label %32
+  br label %31
 
 12:                                               ; preds = %1
-  br label %32
+  br label %31
 
 13:                                               ; preds = %1
-  br label %32
+  br label %31
 
 14:                                               ; preds = %1
-  br label %32
+  br label %31
 
 15:                                               ; preds = %1
-  br label %32
+  br label %31
 
-16:                                               ; preds = %1
-  br label %32
+16:                                               ; preds = %1, %1
+  br label %31
 
 17:                                               ; preds = %1
-  br label %32
+  br label %31
 
 18:                                               ; preds = %1, %1
-  br label %32
+  br label %31
 
 19:                                               ; preds = %1
-  br label %32
+  br label %31
 
 20:                                               ; preds = %1
-  br label %32
+  br label %31
 
 21:                                               ; preds = %1
-  br label %32
+  br label %31
 
 22:                                               ; preds = %1
-  br label %32
+  br label %31
 
 23:                                               ; preds = %1
-  br label %32
+  br label %31
 
 24:                                               ; preds = %1
-  br label %32
+  br label %31
 
 25:                                               ; preds = %1
-  br label %32
+  br label %31
 
 26:                                               ; preds = %1
-  br label %32
+  br label %31
 
 27:                                               ; preds = %1
-  br label %32
+  br label %31
 
-28:                                               ; preds = %1
-  br label %32
+28:                                               ; preds = %1, %1
+  br label %31
 
-29:                                               ; preds = %1, %1
-  br label %32
+29:                                               ; preds = %1
+  br label %31
 
 30:                                               ; preds = %1
-  br label %32
+  br label %31
 
-31:                                               ; preds = %1
-  br label %32
-
-32:                                               ; preds = %1, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ %0, %31 ], [ -26, %30 ], [ 0, %29 ], [ -43, %28 ], [ %0, %27 ], [ -69, %26 ], [ -68, %25 ], [ -67, %24 ], [ -56, %23 ], [ -14, %22 ], [ -51, %21 ], [ -10, %20 ], [ -15, %19 ], [ -12, %18 ], [ -5, %17 ], [ -1, %16 ], [ -2, %15 ], [ -13, %14 ], [ -8, %13 ], [ -66, %12 ], [ -65, %11 ], [ -64, %10 ], [ -63, %9 ], [ -62, %8 ], [ -61, %7 ], [ -60, %6 ], [ -59, %5 ], [ -58, %4 ], [ -57, %3 ], [ -55, %2 ], [ -54, %1 ]
+31:                                               ; preds = %1, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ %0, %30 ], [ -26, %29 ], [ 0, %28 ], [ -43, %27 ], [ -69, %26 ], [ -68, %25 ], [ -67, %24 ], [ -56, %23 ], [ -14, %22 ], [ -51, %21 ], [ -10, %20 ], [ -15, %19 ], [ -12, %18 ], [ -5, %17 ], [ -1, %16 ], [ -2, %15 ], [ -13, %14 ], [ -8, %13 ], [ -66, %12 ], [ -65, %11 ], [ -64, %10 ], [ -63, %9 ], [ -62, %8 ], [ -61, %7 ], [ -60, %6 ], [ -59, %5 ], [ -58, %4 ], [ -57, %3 ], [ -55, %2 ], [ -54, %1 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 64) i8 @prte_pmix_convert_state(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %18 [
-    i32 63, label %17
-    i32 1, label %2
-    i32 2, label %3
-    i32 3, label %4
-    i32 4, label %5
-    i32 5, label %6
-    i32 51, label %7
-    i32 52, label %8
-    i32 53, label %9
-    i32 54, label %10
-    i32 55, label %11
-    i32 56, label %12
-    i32 58, label %13
-    i32 59, label %14
-    i32 61, label %15
-    i32 62, label %16
+  switch i32 %0, label %17 [
+    i32 63, label %16
+    i32 1, label %18
+    i32 2, label %2
+    i32 3, label %3
+    i32 4, label %4
+    i32 5, label %5
+    i32 51, label %6
+    i32 52, label %7
+    i32 53, label %8
+    i32 54, label %9
+    i32 55, label %10
+    i32 56, label %11
+    i32 58, label %12
+    i32 59, label %13
+    i32 61, label %14
+    i32 62, label %15
   ]
 
 2:                                                ; preds = %1
@@ -405,35 +398,35 @@ define zeroext range(i8 0, 64) i8 @prte_pmix_convert_state(i32 noundef %0) local
   br label %18
 
 18:                                               ; preds = %1, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i8 [ 63, %17 ], [ 62, %16 ], [ 61, %15 ], [ 60, %14 ], [ 58, %13 ], [ 56, %12 ], [ 55, %11 ], [ 54, %10 ], [ 53, %9 ], [ 52, %8 ], [ 51, %7 ], [ 6, %6 ], [ 5, %5 ], [ 4, %4 ], [ 3, %3 ], [ 2, %2 ], [ 0, %1 ]
+  %.0 = phi i8 [ 0, %17 ], [ 63, %16 ], [ 62, %15 ], [ 61, %14 ], [ 60, %13 ], [ 58, %12 ], [ 56, %11 ], [ 55, %10 ], [ 54, %9 ], [ 53, %8 ], [ 52, %7 ], [ 51, %6 ], [ 6, %5 ], [ 5, %4 ], [ 4, %3 ], [ 3, %2 ], [ 2, %1 ]
   ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 64) i32 @prte_pmix_convert_pstate(i8 noundef zeroext %0) local_unnamed_addr #0 {
-  switch i8 %0, label %20 [
-    i8 63, label %19
-    i8 1, label %2
-    i8 2, label %2
-    i8 3, label %3
-    i8 4, label %4
-    i8 5, label %5
-    i8 6, label %6
-    i8 15, label %7
-    i8 20, label %8
-    i8 51, label %9
-    i8 52, label %10
-    i8 53, label %11
-    i8 54, label %12
-    i8 55, label %13
-    i8 56, label %14
-    i8 58, label %15
-    i8 60, label %16
-    i8 61, label %17
-    i8 62, label %18
+  switch i8 %0, label %19 [
+    i8 63, label %18
+    i8 1, label %20
+    i8 2, label %20
+    i8 3, label %2
+    i8 4, label %3
+    i8 5, label %4
+    i8 6, label %5
+    i8 15, label %6
+    i8 20, label %7
+    i8 51, label %8
+    i8 52, label %9
+    i8 53, label %10
+    i8 54, label %11
+    i8 55, label %12
+    i8 56, label %13
+    i8 58, label %14
+    i8 60, label %15
+    i8 61, label %16
+    i8 62, label %17
   ]
 
-2:                                                ; preds = %1, %1
+2:                                                ; preds = %1
   br label %20
 
 3:                                                ; preds = %1
@@ -487,8 +480,8 @@ define range(i32 0, 64) i32 @prte_pmix_convert_pstate(i8 noundef zeroext %0) loc
 19:                                               ; preds = %1
   br label %20
 
-20:                                               ; preds = %1, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 63, %19 ], [ 62, %18 ], [ 61, %17 ], [ 60, %16 ], [ 58, %15 ], [ 56, %14 ], [ 55, %13 ], [ 54, %12 ], [ 53, %11 ], [ 52, %10 ], [ 51, %9 ], [ 20, %8 ], [ 15, %7 ], [ 5, %6 ], [ 4, %5 ], [ 3, %4 ], [ 2, %3 ], [ 1, %2 ], [ 0, %1 ]
+20:                                               ; preds = %1, %1, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ 0, %19 ], [ 63, %18 ], [ 62, %17 ], [ 61, %16 ], [ 60, %15 ], [ 58, %14 ], [ 56, %13 ], [ 55, %12 ], [ 54, %11 ], [ 53, %10 ], [ 52, %9 ], [ 51, %8 ], [ 20, %7 ], [ 15, %6 ], [ 5, %5 ], [ 4, %4 ], [ 3, %3 ], [ 2, %2 ], [ 1, %1 ], [ 1, %1 ]
   ret i32 %.0
 }
 

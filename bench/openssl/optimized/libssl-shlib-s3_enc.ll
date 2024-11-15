@@ -836,102 +836,53 @@ entry:
   switch i32 %code, label %sw.default [
     i32 0, label %return
     i32 10, label %return
-    i32 20, label %return
-    i32 21, label %sw.bb3
-    i32 22, label %sw.bb4
+    i32 20, label %sw.bb2
+    i32 21, label %sw.bb2
+    i32 22, label %sw.bb2
     i32 30, label %return
-    i32 40, label %return
+    i32 40, label %sw.bb6
     i32 41, label %return
-    i32 42, label %return
+    i32 42, label %sw.bb8
     i32 43, label %return
     i32 44, label %return
     i32 45, label %return
     i32 46, label %return
     i32 47, label %return
-    i32 48, label %sw.bb14
-    i32 49, label %sw.bb15
-    i32 50, label %sw.bb16
-    i32 51, label %sw.bb17
-    i32 60, label %sw.bb18
-    i32 70, label %sw.bb19
-    i32 71, label %sw.bb20
-    i32 80, label %sw.bb21
-    i32 90, label %sw.bb22
-    i32 100, label %sw.bb23
-    i32 110, label %sw.bb24
-    i32 111, label %sw.bb25
-    i32 112, label %sw.bb26
-    i32 113, label %sw.bb27
-    i32 114, label %sw.bb28
+    i32 48, label %sw.bb8
+    i32 49, label %sw.bb6
+    i32 50, label %sw.bb6
+    i32 51, label %sw.bb6
+    i32 60, label %sw.bb6
+    i32 70, label %sw.bb6
+    i32 71, label %sw.bb6
+    i32 80, label %sw.bb6
+    i32 90, label %sw.bb6
+    i32 109, label %sw.bb6
+    i32 110, label %sw.bb6
+    i32 111, label %sw.bb6
+    i32 112, label %sw.bb6
+    i32 113, label %sw.bb6
+    i32 114, label %sw.bb6
     i32 115, label %return
     i32 86, label %return
     i32 120, label %return
-    i32 116, label %sw.bb32
-    i32 109, label %sw.bb33
+    i32 116, label %sw.bb6
   ]
 
-sw.bb3:                                           ; preds = %entry
+sw.bb2:                                           ; preds = %entry, %entry, %entry
   br label %return
 
-sw.bb4:                                           ; preds = %entry
+sw.bb6:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
   br label %return
 
-sw.bb14:                                          ; preds = %entry
-  br label %return
-
-sw.bb15:                                          ; preds = %entry
-  br label %return
-
-sw.bb16:                                          ; preds = %entry
-  br label %return
-
-sw.bb17:                                          ; preds = %entry
-  br label %return
-
-sw.bb18:                                          ; preds = %entry
-  br label %return
-
-sw.bb19:                                          ; preds = %entry
-  br label %return
-
-sw.bb20:                                          ; preds = %entry
-  br label %return
-
-sw.bb21:                                          ; preds = %entry
-  br label %return
-
-sw.bb22:                                          ; preds = %entry
-  br label %return
-
-sw.bb23:                                          ; preds = %entry
-  br label %return
-
-sw.bb24:                                          ; preds = %entry
-  br label %return
-
-sw.bb25:                                          ; preds = %entry
-  br label %return
-
-sw.bb26:                                          ; preds = %entry
-  br label %return
-
-sw.bb27:                                          ; preds = %entry
-  br label %return
-
-sw.bb28:                                          ; preds = %entry
-  br label %return
-
-sw.bb32:                                          ; preds = %entry
-  br label %return
-
-sw.bb33:                                          ; preds = %entry
+sw.bb8:                                           ; preds = %entry, %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.default, %sw.bb33, %sw.bb32, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb4, %sw.bb3
-  %retval.0 = phi i32 [ -1, %sw.default ], [ 40, %sw.bb33 ], [ 40, %sw.bb32 ], [ 40, %sw.bb28 ], [ 40, %sw.bb27 ], [ 40, %sw.bb26 ], [ 40, %sw.bb25 ], [ 40, %sw.bb24 ], [ -1, %sw.bb23 ], [ 40, %sw.bb22 ], [ 40, %sw.bb21 ], [ 40, %sw.bb20 ], [ 40, %sw.bb19 ], [ 40, %sw.bb18 ], [ 40, %sw.bb17 ], [ 40, %sw.bb16 ], [ 40, %sw.bb15 ], [ 42, %sw.bb14 ], [ 20, %sw.bb4 ], [ 20, %sw.bb3 ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ]
+return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.default, %sw.bb8, %sw.bb6, %sw.bb2
+  %retval.0 = phi i32 [ -1, %sw.default ], [ 42, %sw.bb8 ], [ 40, %sw.bb6 ], [ 20, %sw.bb2 ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ]
   ret i32 %retval.0
 }
 

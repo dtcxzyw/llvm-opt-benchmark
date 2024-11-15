@@ -27753,8 +27753,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h061d5074375b025bE(ptr n
   %2 = load i8, ptr %0, align 8, !range !8503, !alias.scope !8504, !noundef !4
   %switch.i = icmp eq i8 %2, 13
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select.i = select i1 %switch.i, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select.i, 0
+  %.sroa.0.0.i = select i1 %switch.i, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.9d03637af66879b119a0e8676174f730.107.llvm.7317464949808959923, 1
   ret { ptr, ptr } %5
 }

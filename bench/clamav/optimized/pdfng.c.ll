@@ -343,7 +343,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %2, i64 %3, i1 false)
   %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 92) #16
   %.not112 = icmp eq ptr %12, null
-  br i1 %.not112, label %73, label %13
+  br i1 %.not112, label %71, label %13
 
 13:                                               ; preds = %11
   %14 = tail call ptr @cli_max_calloc(i64 noundef %9, i64 noundef 1) #14
@@ -362,9 +362,9 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   tail call void @free(ptr noundef nonnull %10) #14
   br label %.critedge
 
-17:                                               ; preds = %.lr.ph, %66
-  %.093132 = phi i64 [ 0, %.lr.ph ], [ %67, %66 ]
-  %.094131 = phi i64 [ 0, %.lr.ph ], [ %.3, %66 ]
+17:                                               ; preds = %.lr.ph, %64
+  %.093132 = phi i64 [ 0, %.lr.ph ], [ %65, %64 ]
+  %.094131 = phi i64 [ 0, %.lr.ph ], [ %.3, %64 ]
   %18 = add nuw i64 %.093132, 1
   %19 = icmp ult i64 %18, %3
   %20 = getelementptr inbounds i8, ptr %10, i64 %.093132
@@ -421,7 +421,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   %50 = call i64 @strtoul(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 8) #14
   %51 = load ptr, ptr %7, align 8
   %52 = icmp eq ptr %51, %15
-  br i1 %52, label %53, label %66
+  br i1 %52, label %53, label %64
 
 53:                                               ; preds = %49
   %54 = trunc i64 %50 to i8
@@ -429,15 +429,15 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 55:                                               ; preds = %._crit_edge139, %42, %35, %26
   %56 = phi i8 [ %.pre141, %._crit_edge139 ], [ %30, %42 ], [ %30, %35 ], [ %30, %26 ]
-  switch i8 %56, label %66 [
+  switch i8 %56, label %64 [
     i8 110, label %.sink.split
     i8 114, label %57
     i8 116, label %58
     i8 98, label %59
     i8 102, label %60
     i8 40, label %61
-    i8 41, label %62
-    i8 92, label %63
+    i8 41, label %61
+    i8 92, label %61
   ]
 
 57:                                               ; preds = %55
@@ -452,188 +452,182 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
 60:                                               ; preds = %55
   br label %.sink.split
 
-61:                                               ; preds = %55
+61:                                               ; preds = %55, %55, %55
   br label %.sink.split
 
-62:                                               ; preds = %55
-  br label %.sink.split
+.sink.split:                                      ; preds = %17, %55, %53, %61, %60, %59, %58, %57
+  %.sink = phi i8 [ 13, %57 ], [ 9, %58 ], [ 8, %59 ], [ 12, %60 ], [ %56, %61 ], [ %54, %53 ], [ 10, %55 ], [ %21, %17 ]
+  %.1.ph = phi i64 [ %18, %57 ], [ %18, %58 ], [ %18, %59 ], [ %18, %60 ], [ %18, %61 ], [ %24, %53 ], [ %18, %55 ], [ %.093132, %17 ]
+  %62 = add i64 %.094131, 1
+  %63 = getelementptr inbounds i8, ptr %14, i64 %.094131
+  store i8 %.sink, ptr %63, align 1
+  br label %64
 
-63:                                               ; preds = %55
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %17, %55, %53, %63, %62, %61, %60, %59, %58, %57
-  %.sink = phi i8 [ 13, %57 ], [ 9, %58 ], [ 8, %59 ], [ 12, %60 ], [ %56, %61 ], [ %56, %62 ], [ %56, %63 ], [ %54, %53 ], [ 10, %55 ], [ %21, %17 ]
-  %.1.ph = phi i64 [ %18, %57 ], [ %18, %58 ], [ %18, %59 ], [ %18, %60 ], [ %18, %61 ], [ %18, %62 ], [ %18, %63 ], [ %24, %53 ], [ %18, %55 ], [ %.093132, %17 ]
-  %64 = add i64 %.094131, 1
-  %65 = getelementptr inbounds i8, ptr %14, i64 %.094131
-  store i8 %.sink, ptr %65, align 1
-  br label %66
-
-66:                                               ; preds = %.sink.split, %55, %49
-  %.3 = phi i64 [ %.094131, %49 ], [ %.094131, %55 ], [ %64, %.sink.split ]
+64:                                               ; preds = %.sink.split, %55, %49
+  %.3 = phi i64 [ %.094131, %49 ], [ %.094131, %55 ], [ %62, %.sink.split ]
   %.1 = phi i64 [ %24, %49 ], [ %18, %55 ], [ %.1.ph, %.sink.split ]
-  %67 = add i64 %.1, 1
-  %68 = icmp ult i64 %67, %3
-  br i1 %68, label %17, label %._crit_edge
+  %65 = add i64 %.1, 1
+  %66 = icmp ult i64 %65, %3
+  br i1 %66, label %17, label %._crit_edge
 
-._crit_edge:                                      ; preds = %66, %.preheader
-  %.094.lcssa = phi i64 [ 0, %.preheader ], [ %.3, %66 ]
+._crit_edge:                                      ; preds = %64, %.preheader
+  %.094.lcssa = phi i64 [ 0, %.preheader ], [ %.3, %64 ]
   call void @free(ptr noundef nonnull %10) #14
-  %69 = add i64 %.094.lcssa, 1
-  %70 = call ptr @cli_max_calloc(i64 noundef %69, i64 noundef 1) #14
-  %.not114 = icmp eq ptr %70, null
-  br i1 %.not114, label %71, label %72
+  %67 = add i64 %.094.lcssa, 1
+  %68 = call ptr @cli_max_calloc(i64 noundef %67, i64 noundef 1) #14
+  %.not114 = icmp eq ptr %68, null
+  br i1 %.not114, label %69, label %70
 
-71:                                               ; preds = %._crit_edge
+69:                                               ; preds = %._crit_edge
   call void @free(ptr noundef %14) #14
   br label %.critedge
 
-72:                                               ; preds = %._crit_edge
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull align 1 %14, i64 %.094.lcssa, i1 false)
+70:                                               ; preds = %._crit_edge
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull align 1 %14, i64 %.094.lcssa, i1 false)
   call void @free(ptr noundef %14) #14
-  br label %73
+  br label %71
 
-73:                                               ; preds = %72, %11
-  %.099 = phi ptr [ %70, %72 ], [ %10, %11 ]
-  %.097 = phi i64 [ %.094.lcssa, %72 ], [ %3, %11 ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 12
-  %75 = load i32, ptr %74, align 4
-  %76 = and i32 %75, 131072
-  %.not115 = icmp eq i32 %76, 0
-  br i1 %.not115, label %115, label %77
+71:                                               ; preds = %70, %11
+  %.099 = phi ptr [ %68, %70 ], [ %10, %11 ]
+  %.097 = phi i64 [ %.094.lcssa, %70 ], [ %3, %11 ]
+  %72 = getelementptr inbounds i8, ptr %0, i64 12
+  %73 = load i32, ptr %72, align 4
+  %74 = and i32 %73, 131072
+  %.not115 = icmp eq i32 %74, 0
+  br i1 %.not115, label %113, label %75
 
-77:                                               ; preds = %73
+75:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %78 = and i32 %75, 524288
-  %.not.i = icmp eq i32 %78, 0
-  br i1 %.not.i, label %pdf_decrypt_string.exit.thread, label %79
+  %76 = and i32 %73, 524288
+  %.not.i = icmp eq i32 %76, 0
+  br i1 %.not.i, label %pdf_decrypt_string.exit.thread, label %77
 
-79:                                               ; preds = %77
-  %80 = call i32 @get_enc_method(ptr noundef nonnull %0, ptr noundef %1) #14
-  %81 = icmp ult i64 %.097, 2
-  br i1 %81, label %82, label %83
+77:                                               ; preds = %75
+  %78 = call i32 @get_enc_method(ptr noundef nonnull %0, ptr noundef %1) #14
+  %79 = icmp ult i64 %.097, 2
+  br i1 %79, label %80, label %81
 
-82:                                               ; preds = %79
+80:                                               ; preds = %77
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #14
   br label %pdf_decrypt_string.exit.thread
 
-83:                                               ; preds = %79
-  %84 = load i8, ptr %.099, align 1
-  %85 = icmp eq i8 %84, 60
-  %86 = getelementptr inbounds i8, ptr %.099, i64 1
-  %spec.select.i = select i1 %85, ptr %86, ptr %.099
-  %87 = getelementptr inbounds i8, ptr %.099, i64 %.097
-  %88 = getelementptr inbounds i8, ptr %87, i64 -1
-  %89 = load i8, ptr %88, align 1
-  %90 = icmp eq i8 %89, 62
-  %.0.i = select i1 %90, ptr %88, ptr %87
-  %91 = ptrtoint ptr %.0.i to i64
-  %92 = ptrtoint ptr %spec.select.i to i64
-  %93 = sub i64 %91, %92
-  br i1 %85, label %94, label %100
+81:                                               ; preds = %77
+  %82 = load i8, ptr %.099, align 1
+  %83 = icmp eq i8 %82, 60
+  %84 = getelementptr inbounds i8, ptr %.099, i64 1
+  %spec.select.i = select i1 %83, ptr %84, ptr %.099
+  %85 = getelementptr inbounds i8, ptr %.099, i64 %.097
+  %86 = getelementptr inbounds i8, ptr %85, i64 -1
+  %87 = load i8, ptr %86, align 1
+  %88 = icmp eq i8 %87, 62
+  %.0.i = select i1 %88, ptr %86, ptr %85
+  %89 = ptrtoint ptr %.0.i to i64
+  %90 = ptrtoint ptr %spec.select.i to i64
+  %91 = sub i64 %89, %90
+  br i1 %83, label %92, label %98
 
-94:                                               ; preds = %83
-  %95 = lshr i64 %93, 1
-  store i64 %95, ptr %5, align 8
-  %96 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %95) #14
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %pdf_decrypt_string.exit.thread, label %98
-
-98:                                               ; preds = %94
-  %99 = call i32 @cli_hex2str_to(ptr noundef nonnull %86, ptr noundef nonnull %96, i64 noundef %93) #14
-  %.not44.i = icmp eq i32 %99, 0
-  br i1 %.not44.i, label %101, label %.thread50.i
-
-.thread50.i:                                      ; preds = %98
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #14
-  br label %109
-
-100:                                              ; preds = %83
+92:                                               ; preds = %81
+  %93 = lshr i64 %91, 1
   store i64 %93, ptr %5, align 8
-  br label %101
+  %94 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %93) #14
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %pdf_decrypt_string.exit.thread, label %96
 
-101:                                              ; preds = %100, %98
-  %.039.i = phi ptr [ %.099, %100 ], [ %96, %98 ]
-  %.1.i = phi ptr [ null, %100 ], [ %96, %98 ]
-  %102 = getelementptr inbounds i8, ptr %1, i64 16
-  %103 = load i32, ptr %102, align 8
-  %104 = call ptr @decrypt_any(ptr noundef nonnull %0, i32 noundef %103, ptr noundef nonnull %.039.i, ptr noundef nonnull %5, i32 noundef %80) #14
-  %.not45.i = icmp eq ptr %104, null
-  br i1 %.not45.i, label %105, label %106
+96:                                               ; preds = %92
+  %97 = call i32 @cli_hex2str_to(ptr noundef nonnull %84, ptr noundef nonnull %94, i64 noundef %91) #14
+  %.not44.i = icmp eq i32 %97, 0
+  br i1 %.not44.i, label %99, label %.thread50.i
 
-105:                                              ; preds = %101
+.thread50.i:                                      ; preds = %96
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #14
+  br label %107
+
+98:                                               ; preds = %81
+  store i64 %91, ptr %5, align 8
+  br label %99
+
+99:                                               ; preds = %98, %96
+  %.039.i = phi ptr [ %.099, %98 ], [ %94, %96 ]
+  %.1.i = phi ptr [ null, %98 ], [ %94, %96 ]
+  %100 = getelementptr inbounds i8, ptr %1, i64 16
+  %101 = load i32, ptr %100, align 8
+  %102 = call ptr @decrypt_any(ptr noundef nonnull %0, i32 noundef %101, ptr noundef nonnull %.039.i, ptr noundef nonnull %5, i32 noundef %78) #14
+  %.not45.i = icmp eq ptr %102, null
+  br i1 %.not45.i, label %103, label %104
+
+103:                                              ; preds = %99
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #14
-  br label %108
+  br label %106
 
-106:                                              ; preds = %101
-  %107 = load i64, ptr %5, align 8
-  br label %108
+104:                                              ; preds = %99
+  %105 = load i64, ptr %5, align 8
+  br label %106
 
-108:                                              ; preds = %106, %105
-  %.0125 = phi i64 [ %93, %105 ], [ %107, %106 ]
+106:                                              ; preds = %104, %103
+  %.0125 = phi i64 [ %91, %103 ], [ %105, %104 ]
   %.not46.i = icmp eq ptr %.1.i, null
-  br i1 %.not46.i, label %pdf_decrypt_string.exit, label %109
+  br i1 %.not46.i, label %pdf_decrypt_string.exit, label %107
 
-109:                                              ; preds = %108, %.thread50.i
-  %.1126 = phi i64 [ %.0125, %108 ], [ %93, %.thread50.i ]
-  %.03755.i = phi ptr [ %104, %108 ], [ null, %.thread50.i ]
-  %.03854.i = phi ptr [ %.1.i, %108 ], [ %96, %.thread50.i ]
+107:                                              ; preds = %106, %.thread50.i
+  %.1126 = phi i64 [ %.0125, %106 ], [ %91, %.thread50.i ]
+  %.03755.i = phi ptr [ %102, %106 ], [ null, %.thread50.i ]
+  %.03854.i = phi ptr [ %.1.i, %106 ], [ %94, %.thread50.i ]
   call void @free(ptr noundef nonnull %.03854.i) #14
   br label %pdf_decrypt_string.exit
 
-pdf_decrypt_string.exit.thread:                   ; preds = %82, %94, %77
+pdf_decrypt_string.exit.thread:                   ; preds = %80, %92, %75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @free(ptr noundef nonnull %.099) #14
   br label %.critedge
 
-pdf_decrypt_string.exit:                          ; preds = %108, %109
-  %.2127 = phi i64 [ %.0125, %108 ], [ %.1126, %109 ]
-  %.036.i = phi ptr [ %104, %108 ], [ %.03755.i, %109 ]
+pdf_decrypt_string.exit:                          ; preds = %106, %107
+  %.2127 = phi i64 [ %.0125, %106 ], [ %.1126, %107 ]
+  %.036.i = phi ptr [ %102, %106 ], [ %.03755.i, %107 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @free(ptr noundef nonnull %.099) #14
   %.not116 = icmp eq ptr %.036.i, null
-  br i1 %.not116, label %.critedge, label %110
+  br i1 %.not116, label %.critedge, label %108
 
-110:                                              ; preds = %pdf_decrypt_string.exit
-  %111 = add i64 %.2127, 1
-  %112 = call ptr @cli_max_calloc(i64 noundef %111, i64 noundef 1) #14
-  %.not117 = icmp eq ptr %112, null
-  br i1 %.not117, label %113, label %114
+108:                                              ; preds = %pdf_decrypt_string.exit
+  %109 = add i64 %.2127, 1
+  %110 = call ptr @cli_max_calloc(i64 noundef %109, i64 noundef 1) #14
+  %.not117 = icmp eq ptr %110, null
+  br i1 %.not117, label %111, label %112
 
-113:                                              ; preds = %110
+111:                                              ; preds = %108
   call void @free(ptr noundef nonnull %.036.i) #14
   br label %.critedge
 
-114:                                              ; preds = %110
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %112, ptr nonnull align 1 %.036.i, i64 %.2127, i1 false)
+112:                                              ; preds = %108
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr nonnull align 1 %.036.i, i64 %.2127, i1 false)
   call void @free(ptr noundef nonnull %.036.i) #14
-  br label %115
+  br label %113
 
-115:                                              ; preds = %114, %73
-  %.1100 = phi ptr [ %112, %114 ], [ %.099, %73 ]
-  %.198 = phi i64 [ %.2127, %114 ], [ %.097, %73 ]
+113:                                              ; preds = %112, %71
+  %.1100 = phi ptr [ %110, %112 ], [ %.099, %71 ]
+  %.198 = phi i64 [ %.2127, %112 ], [ %.097, %71 ]
   %.not119133.not = icmp eq i64 %.198, 0
   br i1 %.not119133.not, label %.critedge, label %.lr.ph136
 
-116:                                              ; preds = %.lr.ph136
-  %117 = add nuw i64 %.2134, 1
-  %exitcond.not = icmp eq i64 %117, %.198
+114:                                              ; preds = %.lr.ph136
+  %115 = add nuw i64 %.2134, 1
+  %exitcond.not = icmp eq i64 %115, %.198
   br i1 %exitcond.not, label %.critedge, label %.lr.ph136
 
-.lr.ph136:                                        ; preds = %115, %116
-  %.2134 = phi i64 [ %117, %116 ], [ 0, %115 ]
-  %118 = getelementptr inbounds i8, ptr %.1100, i64 %.2134
-  %119 = load i8, ptr %118, align 1
-  %or.cond = icmp slt i8 %119, 1
-  br i1 %or.cond, label %120, label %116
+.lr.ph136:                                        ; preds = %113, %114
+  %.2134 = phi i64 [ %115, %114 ], [ 0, %113 ]
+  %116 = getelementptr inbounds i8, ptr %.1100, i64 %.2134
+  %117 = load i8, ptr %116, align 1
+  %or.cond = icmp slt i8 %117, 1
+  br i1 %or.cond, label %118, label %114
 
-120:                                              ; preds = %.lr.ph136
-  %121 = call ptr @pdf_convert_utf(ptr noundef nonnull %.1100, i64 noundef %.198)
+118:                                              ; preds = %.lr.ph136
+  %119 = call ptr @pdf_convert_utf(ptr noundef nonnull %.1100, i64 noundef %.198)
   call void @free(ptr noundef nonnull %.1100) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %116, %115, %pdf_decrypt_string.exit.thread, %120, %pdf_decrypt_string.exit, %8, %4, %113, %71, %16
-  %.0 = phi ptr [ null, %113 ], [ null, %71 ], [ null, %16 ], [ null, %4 ], [ null, %8 ], [ null, %pdf_decrypt_string.exit ], [ %121, %120 ], [ null, %pdf_decrypt_string.exit.thread ], [ %.1100, %115 ], [ %.1100, %116 ]
+.critedge:                                        ; preds = %114, %113, %pdf_decrypt_string.exit.thread, %118, %pdf_decrypt_string.exit, %8, %4, %111, %69, %16
+  %.0 = phi ptr [ null, %111 ], [ null, %69 ], [ null, %16 ], [ null, %4 ], [ null, %8 ], [ null, %pdf_decrypt_string.exit ], [ %119, %118 ], [ null, %pdf_decrypt_string.exit.thread ], [ %.1100, %113 ], [ %.1100, %114 ]
   ret ptr %.0
 }
 

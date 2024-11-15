@@ -560,27 +560,21 @@ if.then:                                          ; preds = %entry
   switch i32 %rel, label %if.end [
     i32 70, label %return
     i32 71, label %sw.bb1
-    i32 5, label %sw.bb3
+    i32 5, label %sw.bb1
     i32 6, label %return
-    i32 73, label %sw.bb7
+    i32 73, label %sw.bb1
     i32 72, label %return
   ]
 
-sw.bb1:                                           ; preds = %if.then
-  br label %return
-
-sw.bb3:                                           ; preds = %if.then
-  br label %return
-
-sw.bb7:                                           ; preds = %if.then
+sw.bb1:                                           ; preds = %if.then, %if.then, %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.then, %if.then, %if.end, %sw.bb7, %sw.bb3, %sw.bb1
-  %retval.sroa.0.0 = phi i16 [ 0, %if.end ], [ 1, %sw.bb7 ], [ 1, %sw.bb3 ], [ 1, %sw.bb1 ], [ 0, %if.then ], [ 0, %if.then ], [ 0, %if.then ]
-  %retval.sroa.7.0 = phi i16 [ 0, %if.end ], [ 256, %sw.bb7 ], [ 256, %sw.bb3 ], [ 256, %sw.bb1 ], [ 256, %if.then ], [ 256, %if.then ], [ 256, %if.then ]
+return:                                           ; preds = %if.then, %if.then, %if.then, %if.end, %sw.bb1
+  %retval.sroa.0.0 = phi i16 [ 0, %if.end ], [ 1, %sw.bb1 ], [ 0, %if.then ], [ 0, %if.then ], [ 0, %if.then ]
+  %retval.sroa.7.0 = phi i16 [ 0, %if.end ], [ 256, %sw.bb1 ], [ 256, %if.then ], [ 256, %if.then ], [ 256, %if.then ]
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.7.0, %retval.sroa.0.0
   ret i16 %retval.sroa.0.0.insert.insert
 }

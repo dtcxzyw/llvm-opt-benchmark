@@ -1742,8 +1742,21 @@ define internal noundef range(i32 0, 2) i32 @ite_router_probe(ptr nocapture noun
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: readwrite)
 define internal noundef range(i32 0, 2) i32 @via_router_probe(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) #10 section ".init.text" align 16 {
-  switch i16 %2, label %11 [
-    i16 1414, label %4
+  %4 = icmp eq i16 %2, 1414
+  br i1 %4, label %5, label %8
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds i8, ptr %1, i64 62
+  %7 = load i16, ptr %6, align 2
+  switch i16 %7, label %.thread [
+    i16 1670, label %8
+    i16 12663, label %8
+    i16 12839, label %8
+  ]
+
+8:                                                ; preds = %5, %5, %5, %3
+  %9 = phi i16 [ %2, %3 ], [ %7, %5 ], [ %7, %5 ], [ %7, %5 ]
+  switch i16 %9, label %14 [
     i16 12839, label %.thread
     i16 1430, label %.thread
     i16 1670, label %.thread
@@ -1752,31 +1765,19 @@ define internal noundef range(i32 0, 2) i32 @via_router_probe(ptr nocapture noun
     i16 12663, label %.thread
   ]
 
-4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 62
-  %6 = load i16, ptr %5, align 2
-  switch i16 %6, label %.thread3 [
-    i16 1670, label %.thread
-    i16 12663, label %.thread
-    i16 12839, label %.thread
-  ]
-
-.thread:                                          ; preds = %3, %3, %3, %3, %3, %3, %4, %4, %4
-  br label %.thread3
-
-.thread3:                                         ; preds = %4, %.thread
-  %7 = phi ptr [ @pirq_via_get, %.thread ], [ @pirq_via586_get, %4 ]
-  %8 = phi ptr [ @pirq_via_set, %.thread ], [ @pirq_via586_set, %4 ]
+.thread:                                          ; preds = %8, %8, %8, %8, %8, %8, %5
+  %10 = phi ptr [ @pirq_via586_get, %5 ], [ @pirq_via_get, %8 ], [ @pirq_via_get, %8 ], [ @pirq_via_get, %8 ], [ @pirq_via_get, %8 ], [ @pirq_via_get, %8 ], [ @pirq_via_get, %8 ]
+  %11 = phi ptr [ @pirq_via586_set, %5 ], [ @pirq_via_set, %8 ], [ @pirq_via_set, %8 ], [ @pirq_via_set, %8 ], [ @pirq_via_set, %8 ], [ @pirq_via_set, %8 ], [ @pirq_via_set, %8 ]
   store ptr @.str.24, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %8, ptr %10, align 8
-  br label %11
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %10, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %11, ptr %13, align 8
+  br label %14
 
-11:                                               ; preds = %3, %.thread3
-  %12 = phi i32 [ 1, %.thread3 ], [ 0, %3 ]
-  ret i32 %12
+14:                                               ; preds = %.thread, %8
+  %15 = phi i32 [ 0, %8 ], [ 1, %.thread ]
+  ret i32 %15
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: write)

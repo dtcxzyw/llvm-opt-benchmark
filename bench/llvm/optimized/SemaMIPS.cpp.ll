@@ -177,294 +177,270 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaMIPS19CheckMipsBuiltinCpuERKN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang8SemaMIPS24CheckMipsBuiltinArgumentEjPNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  switch i32 %1, label %51 [
-    i32 1486, label %42
+  switch i32 %1, label %43 [
+    i32 1486, label %34
     i32 1487, label %4
     i32 1509, label %5
     i32 1510, label %6
-    i32 1529, label %7
-    i32 1530, label %8
-    i32 1531, label %9
-    i32 1597, label %10
-    i32 1625, label %10
-    i32 1640, label %10
-    i32 1974, label %10
-    i32 1978, label %10
-    i32 1997, label %10
-    i32 2013, label %10
-    i32 2021, label %10
-    i32 2029, label %10
-    i32 2037, label %10
-    i32 1605, label %11
-    i32 1613, label %11
-    i32 1598, label %12
-    i32 1626, label %12
-    i32 1641, label %12
-    i32 1975, label %12
-    i32 1979, label %12
-    i32 1998, label %12
-    i32 2014, label %12
-    i32 2022, label %12
-    i32 2030, label %12
-    i32 2038, label %12
-    i32 1606, label %13
-    i32 1614, label %13
-    i32 1657, label %14
-    i32 1698, label %14
-    i32 1670, label %15
-    i32 1671, label %15
-    i32 1672, label %15
-    i32 1673, label %15
-    i32 1686, label %15
-    i32 1687, label %15
-    i32 1688, label %15
-    i32 1689, label %15
-    i32 1901, label %15
-    i32 1902, label %15
-    i32 1903, label %15
-    i32 1904, label %15
-    i32 1921, label %15
-    i32 1922, label %15
-    i32 1923, label %15
-    i32 1924, label %15
-    i32 1563, label %15
-    i32 1564, label %15
-    i32 1565, label %15
-    i32 1566, label %15
-    i32 1599, label %15
-    i32 1627, label %15
-    i32 1642, label %15
-    i32 1976, label %15
-    i32 1980, label %15
-    i32 1999, label %15
-    i32 2015, label %15
-    i32 2023, label %15
-    i32 2031, label %15
-    i32 2039, label %15
-    i32 2067, label %15
-    i32 2068, label %15
-    i32 2069, label %15
-    i32 2070, label %15
-    i32 1607, label %16
-    i32 1615, label %16
-    i32 1600, label %42
-    i32 1628, label %42
-    i32 1643, label %42
-    i32 1977, label %42
-    i32 1981, label %42
-    i32 2000, label %42
-    i32 2016, label %42
-    i32 2024, label %42
-    i32 2032, label %42
-    i32 2040, label %42
-    i32 1608, label %17
-    i32 1616, label %17
-    i32 1653, label %18
-    i32 1654, label %18
-    i32 1655, label %18
-    i32 1656, label %18
-    i32 1682, label %18
-    i32 1683, label %18
-    i32 1684, label %18
-    i32 1685, label %18
-    i32 1666, label %18
-    i32 1667, label %18
-    i32 1668, label %18
-    i32 1669, label %18
-    i32 1897, label %18
-    i32 1898, label %18
-    i32 1899, label %18
-    i32 1900, label %18
-    i32 1917, label %18
-    i32 1918, label %18
-    i32 1919, label %18
-    i32 1920, label %18
-    i32 1568, label %19
-    i32 1959, label %19
-    i32 1961, label %19
-    i32 1982, label %19
-    i32 1983, label %19
-    i32 1984, label %19
-    i32 2076, label %19
-    i32 1635, label %20
-    i32 1618, label %20
-    i32 1620, label %20
-    i32 1690, label %21
-    i32 1694, label %21
-    i32 1863, label %21
-    i32 2005, label %21
-    i32 1989, label %22
-    i32 1691, label %23
-    i32 1695, label %23
-    i32 1864, label %23
-    i32 2006, label %23
-    i32 1990, label %24
-    i32 1692, label %25
-    i32 1696, label %25
-    i32 1865, label %25
-    i32 2007, label %25
-    i32 1991, label %26
-    i32 1693, label %27
-    i32 1697, label %27
-    i32 1866, label %27
-    i32 2008, label %27
-    i32 1992, label %28
-    i32 1873, label %29
-    i32 1874, label %30
-    i32 1875, label %30
-    i32 1876, label %30
-    i32 1867, label %45
-    i32 1868, label %31
-    i32 1869, label %32
-    i32 1870, label %33
-    i32 1871, label %34
-    i32 1872, label %35
-    i32 2041, label %36
-    i32 2042, label %37
-    i32 2043, label %38
-    i32 2044, label %39
-    i32 2045, label %40
-    i32 2046, label %41
+    i32 1529, label %5
+    i32 1530, label %5
+    i32 1531, label %5
+    i32 1597, label %7
+    i32 1625, label %7
+    i32 1640, label %7
+    i32 1974, label %7
+    i32 1978, label %7
+    i32 1997, label %7
+    i32 2013, label %7
+    i32 2021, label %7
+    i32 2029, label %7
+    i32 2037, label %7
+    i32 1605, label %8
+    i32 1613, label %8
+    i32 1598, label %9
+    i32 1626, label %9
+    i32 1641, label %9
+    i32 1975, label %9
+    i32 1979, label %9
+    i32 1998, label %9
+    i32 2014, label %9
+    i32 2022, label %9
+    i32 2030, label %9
+    i32 2038, label %9
+    i32 1606, label %10
+    i32 1614, label %10
+    i32 1657, label %11
+    i32 1698, label %11
+    i32 1670, label %12
+    i32 1671, label %12
+    i32 1672, label %12
+    i32 1673, label %12
+    i32 1686, label %12
+    i32 1687, label %12
+    i32 1688, label %12
+    i32 1689, label %12
+    i32 1901, label %12
+    i32 1902, label %12
+    i32 1903, label %12
+    i32 1904, label %12
+    i32 1921, label %12
+    i32 1922, label %12
+    i32 1923, label %12
+    i32 1924, label %12
+    i32 1563, label %12
+    i32 1564, label %12
+    i32 1565, label %12
+    i32 1566, label %12
+    i32 1599, label %12
+    i32 1627, label %12
+    i32 1642, label %12
+    i32 1976, label %12
+    i32 1980, label %12
+    i32 1999, label %12
+    i32 2015, label %12
+    i32 2023, label %12
+    i32 2031, label %12
+    i32 2039, label %12
+    i32 2067, label %12
+    i32 2068, label %12
+    i32 2069, label %12
+    i32 2070, label %12
+    i32 1607, label %13
+    i32 1615, label %13
+    i32 1600, label %34
+    i32 1628, label %34
+    i32 1643, label %34
+    i32 1977, label %34
+    i32 1981, label %34
+    i32 2000, label %34
+    i32 2016, label %34
+    i32 2024, label %34
+    i32 2032, label %34
+    i32 2040, label %34
+    i32 1608, label %14
+    i32 1616, label %14
+    i32 1653, label %15
+    i32 1654, label %15
+    i32 1655, label %15
+    i32 1656, label %15
+    i32 1682, label %15
+    i32 1683, label %15
+    i32 1684, label %15
+    i32 1685, label %15
+    i32 1666, label %15
+    i32 1667, label %15
+    i32 1668, label %15
+    i32 1669, label %15
+    i32 1897, label %15
+    i32 1898, label %15
+    i32 1899, label %15
+    i32 1900, label %15
+    i32 1917, label %15
+    i32 1918, label %15
+    i32 1919, label %15
+    i32 1920, label %15
+    i32 1568, label %16
+    i32 1959, label %16
+    i32 1961, label %16
+    i32 1982, label %16
+    i32 1983, label %16
+    i32 1984, label %16
+    i32 2076, label %16
+    i32 1635, label %17
+    i32 1618, label %17
+    i32 1620, label %17
+    i32 1690, label %18
+    i32 1694, label %18
+    i32 1863, label %18
+    i32 2005, label %18
+    i32 1989, label %19
+    i32 1691, label %20
+    i32 1695, label %20
+    i32 1864, label %20
+    i32 2006, label %20
+    i32 1990, label %21
+    i32 1692, label %22
+    i32 1696, label %22
+    i32 1865, label %22
+    i32 2007, label %22
+    i32 1991, label %6
+    i32 1693, label %23
+    i32 1697, label %23
+    i32 1866, label %23
+    i32 2008, label %23
+    i32 1992, label %24
+    i32 1873, label %25
+    i32 1874, label %26
+    i32 1875, label %26
+    i32 1876, label %26
+    i32 1867, label %37
+    i32 1868, label %27
+    i32 1869, label %28
+    i32 1870, label %29
+    i32 1871, label %29
+    i32 1872, label %28
+    i32 2041, label %30
+    i32 2042, label %31
+    i32 2043, label %32
+    i32 2044, label %33
+    i32 2045, label %33
+    i32 2046, label %32
   ]
 
 4:                                                ; preds = %3
-  br label %42
+  br label %34
 
-5:                                                ; preds = %3
-  br label %42
+5:                                                ; preds = %3, %3, %3, %3
+  br label %34
 
-6:                                                ; preds = %3
-  br label %42
+6:                                                ; preds = %3, %3
+  br label %34
 
-7:                                                ; preds = %3
-  br label %42
+7:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %34
 
-8:                                                ; preds = %3
-  br label %42
+8:                                                ; preds = %3, %3
+  br label %34
 
-9:                                                ; preds = %3
-  br label %42
+9:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %34
 
-10:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  br label %42
+10:                                               ; preds = %3, %3
+  br label %34
 
 11:                                               ; preds = %3, %3
-  br label %42
+  br label %34
 
-12:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  br label %42
+12:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %34
 
 13:                                               ; preds = %3, %3
-  br label %42
+  br label %34
 
 14:                                               ; preds = %3, %3
-  br label %42
+  br label %34
 
-15:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  br label %42
+15:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %34
 
-16:                                               ; preds = %3, %3
-  br label %42
+16:                                               ; preds = %3, %3, %3, %3, %3, %3, %3
+  br label %34
 
-17:                                               ; preds = %3, %3
-  br label %42
+17:                                               ; preds = %3, %3, %3
+  br label %34
 
-18:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  br label %42
+18:                                               ; preds = %3, %3, %3, %3
+  br label %34
 
-19:                                               ; preds = %3, %3, %3, %3, %3, %3, %3
-  br label %42
+19:                                               ; preds = %3
+  br label %34
 
-20:                                               ; preds = %3, %3, %3
-  br label %42
+20:                                               ; preds = %3, %3, %3, %3
+  br label %34
 
-21:                                               ; preds = %3, %3, %3, %3
-  br label %42
+21:                                               ; preds = %3
+  br label %34
 
-22:                                               ; preds = %3
-  br label %42
+22:                                               ; preds = %3, %3, %3, %3
+  br label %34
 
 23:                                               ; preds = %3, %3, %3, %3
-  br label %42
+  br label %34
 
 24:                                               ; preds = %3
-  br label %42
+  br label %34
 
-25:                                               ; preds = %3, %3, %3, %3
-  br label %42
+25:                                               ; preds = %3
+  br label %34
 
-26:                                               ; preds = %3
-  br label %42
+26:                                               ; preds = %3, %3, %3
+  br label %34
 
-27:                                               ; preds = %3, %3, %3, %3
-  br label %42
+27:                                               ; preds = %3
+  br label %37
 
-28:                                               ; preds = %3
-  br label %42
+28:                                               ; preds = %3, %3
+  br label %37
 
-29:                                               ; preds = %3
-  br label %42
+29:                                               ; preds = %3, %3
+  br label %37
 
-30:                                               ; preds = %3, %3, %3
-  br label %42
+30:                                               ; preds = %3
+  br label %37
 
 31:                                               ; preds = %3
-  br label %45
+  br label %37
 
-32:                                               ; preds = %3
-  br label %45
+32:                                               ; preds = %3, %3
+  br label %37
 
-33:                                               ; preds = %3
-  br label %45
+33:                                               ; preds = %3, %3
+  br label %37
 
-34:                                               ; preds = %3
-  br label %45
+34:                                               ; preds = %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %.016.ph = phi i32 [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 0, %4 ], [ 2, %5 ], [ 2, %6 ], [ 1, %7 ], [ 2, %8 ], [ 1, %9 ], [ 2, %10 ], [ 0, %11 ], [ 1, %12 ], [ 2, %13 ], [ 2, %14 ], [ 1, %15 ], [ 1, %16 ], [ 2, %17 ], [ 1, %18 ], [ 2, %19 ], [ 1, %20 ], [ 2, %21 ], [ 1, %22 ], [ 1, %23 ], [ 2, %24 ], [ 0, %25 ], [ 0, %26 ]
+  %.015.ph = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 0, %12 ], [ 0, %13 ], [ 0, %14 ], [ -16, %15 ], [ 0, %16 ], [ 0, %17 ], [ 0, %18 ], [ 0, %19 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ -128, %25 ], [ -512, %26 ]
+  %.014.ph = phi i32 [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %4 ], [ 31, %5 ], [ 3, %6 ], [ 7, %7 ], [ 7, %8 ], [ 15, %9 ], [ 15, %10 ], [ 31, %11 ], [ 31, %12 ], [ 31, %13 ], [ 63, %14 ], [ 15, %15 ], [ 255, %16 ], [ 255, %17 ], [ 15, %18 ], [ 15, %19 ], [ 7, %20 ], [ 7, %21 ], [ 3, %22 ], [ 1, %23 ], [ 1, %24 ], [ 255, %25 ], [ 511, %26 ]
+  %35 = load ptr, ptr %0, align 8
+  %36 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17560) %35, ptr noundef %2, i32 noundef %.016.ph, i32 noundef %.015.ph, i32 noundef %.014.ph, i1 noundef zeroext true) #12
+  br label %43
 
-35:                                               ; preds = %3
-  br label %45
+37:                                               ; preds = %3, %27, %28, %29, %30, %31, %32, %33
+  %.016 = phi i32 [ 2, %33 ], [ 2, %32 ], [ 2, %31 ], [ 2, %30 ], [ 1, %29 ], [ 1, %28 ], [ 1, %27 ], [ 1, %3 ]
+  %.015 = phi i32 [ -4096, %33 ], [ -2048, %32 ], [ -1024, %31 ], [ -512, %30 ], [ -4096, %29 ], [ -2048, %28 ], [ -1024, %27 ], [ -512, %3 ]
+  %.014 = phi i32 [ 4088, %33 ], [ 2044, %32 ], [ 1022, %31 ], [ 511, %30 ], [ 4088, %29 ], [ 2044, %28 ], [ 1022, %27 ], [ 511, %3 ]
+  %.0 = phi i32 [ 8, %33 ], [ 4, %32 ], [ 2, %31 ], [ 1, %30 ], [ 8, %29 ], [ 4, %28 ], [ 2, %27 ], [ 1, %3 ]
+  %38 = load ptr, ptr %0, align 8
+  %39 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17560) %38, ptr noundef %2, i32 noundef %.016, i32 noundef %.015, i32 noundef %.014, i1 noundef zeroext true) #12
+  br i1 %39, label %43, label %40
 
-36:                                               ; preds = %3
-  br label %45
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %0, align 8
+  %42 = tail call noundef zeroext i1 @_ZN5clang4Sema26BuiltinConstantArgMultipleEPNS_8CallExprEij(ptr noundef nonnull align 8 dereferenceable(17560) %41, ptr noundef %2, i32 noundef %.016, i32 noundef %.0) #12
+  br label %43
 
-37:                                               ; preds = %3
-  br label %45
-
-38:                                               ; preds = %3
-  br label %45
-
-39:                                               ; preds = %3
-  br label %45
-
-40:                                               ; preds = %3
-  br label %45
-
-41:                                               ; preds = %3
-  br label %45
-
-42:                                               ; preds = %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %.016.ph = phi i32 [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 0, %4 ], [ 2, %5 ], [ 2, %6 ], [ 2, %7 ], [ 2, %8 ], [ 2, %9 ], [ 1, %10 ], [ 2, %11 ], [ 1, %12 ], [ 2, %13 ], [ 0, %14 ], [ 1, %15 ], [ 2, %16 ], [ 2, %17 ], [ 1, %18 ], [ 1, %19 ], [ 2, %20 ], [ 1, %21 ], [ 2, %22 ], [ 1, %23 ], [ 2, %24 ], [ 1, %25 ], [ 2, %26 ], [ 1, %27 ], [ 2, %28 ], [ 0, %29 ], [ 0, %30 ]
-  %.015.ph = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 0, %12 ], [ 0, %13 ], [ 0, %14 ], [ 0, %15 ], [ 0, %16 ], [ 0, %17 ], [ -16, %18 ], [ 0, %19 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %27 ], [ 0, %28 ], [ -128, %29 ], [ -512, %30 ]
-  %.014.ph = phi i32 [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %3 ], [ 63, %4 ], [ 31, %5 ], [ 3, %6 ], [ 31, %7 ], [ 31, %8 ], [ 31, %9 ], [ 7, %10 ], [ 7, %11 ], [ 15, %12 ], [ 15, %13 ], [ 31, %14 ], [ 31, %15 ], [ 31, %16 ], [ 63, %17 ], [ 15, %18 ], [ 255, %19 ], [ 255, %20 ], [ 15, %21 ], [ 15, %22 ], [ 7, %23 ], [ 7, %24 ], [ 3, %25 ], [ 3, %26 ], [ 1, %27 ], [ 1, %28 ], [ 255, %29 ], [ 511, %30 ]
-  %43 = load ptr, ptr %0, align 8
-  %44 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17560) %43, ptr noundef %2, i32 noundef %.016.ph, i32 noundef %.015.ph, i32 noundef %.014.ph, i1 noundef zeroext true) #12
-  br label %51
-
-45:                                               ; preds = %3, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41
-  %.016 = phi i32 [ 2, %41 ], [ 2, %40 ], [ 2, %39 ], [ 2, %38 ], [ 2, %37 ], [ 2, %36 ], [ 1, %35 ], [ 1, %34 ], [ 1, %33 ], [ 1, %32 ], [ 1, %31 ], [ 1, %3 ]
-  %.015 = phi i32 [ -2048, %41 ], [ -4096, %40 ], [ -4096, %39 ], [ -2048, %38 ], [ -1024, %37 ], [ -512, %36 ], [ -2048, %35 ], [ -4096, %34 ], [ -4096, %33 ], [ -2048, %32 ], [ -1024, %31 ], [ -512, %3 ]
-  %.014 = phi i32 [ 2044, %41 ], [ 4088, %40 ], [ 4088, %39 ], [ 2044, %38 ], [ 1022, %37 ], [ 511, %36 ], [ 2044, %35 ], [ 4088, %34 ], [ 4088, %33 ], [ 2044, %32 ], [ 1022, %31 ], [ 511, %3 ]
-  %.0 = phi i32 [ 4, %41 ], [ 8, %40 ], [ 8, %39 ], [ 4, %38 ], [ 2, %37 ], [ 1, %36 ], [ 4, %35 ], [ 8, %34 ], [ 8, %33 ], [ 4, %32 ], [ 2, %31 ], [ 1, %3 ]
-  %46 = load ptr, ptr %0, align 8
-  %47 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17560) %46, ptr noundef %2, i32 noundef %.016, i32 noundef %.015, i32 noundef %.014, i1 noundef zeroext true) #12
-  br i1 %47, label %51, label %48
-
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %0, align 8
-  %50 = tail call noundef zeroext i1 @_ZN5clang4Sema26BuiltinConstantArgMultipleEPNS_8CallExprEij(ptr noundef nonnull align 8 dereferenceable(17560) %49, ptr noundef %2, i32 noundef %.016, i32 noundef %.0) #12
-  br label %51
-
-51:                                               ; preds = %45, %48, %3, %42
-  %.017 = phi i1 [ %44, %42 ], [ false, %3 ], [ true, %45 ], [ %50, %48 ]
+43:                                               ; preds = %37, %40, %3, %34
+  %.017 = phi i1 [ %36, %34 ], [ false, %3 ], [ true, %37 ], [ %42, %40 ]
   ret i1 %.017
 }
 

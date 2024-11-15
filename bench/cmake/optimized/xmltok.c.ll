@@ -5049,16 +5049,16 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
-  switch i8 %14, label %.loopexit.sink.split [
-    i8 30, label %45
+  switch i8 %14, label %45 [
+    i8 30, label %.loopexit.sink.split
     i8 22, label %46
     i8 24, label %46
     i8 5, label %15
     i8 6, label %25
     i8 7, label %35
-    i8 21, label %45
-    i8 10, label %45
-    i8 9, label %45
+    i8 21, label %.loopexit.sink.split
+    i8 10, label %.loopexit.sink.split
+    i8 9, label %.loopexit.sink.split
   ]
 
 15:                                               ; preds = %9
@@ -5115,7 +5115,7 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   %.not91 = icmp eq i32 %44, 0
   br i1 %.not91, label %.loopexit.sink.split, label %46
 
-45:                                               ; preds = %9, %9, %9, %9
+45:                                               ; preds = %9
   br label %.loopexit.sink.split
 
 46:                                               ; preds = %41, %31, %21, %9, %9
@@ -5214,9 +5214,9 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   %93 = icmp sgt i64 %92, 0
   br i1 %93, label %57, label %.loopexit, !llvm.loop !33
 
-.loopexit.sink.split:                             ; preds = %57, %81, %84, %73, %76, %65, %68, %9, %37, %41, %27, %31, %17, %21, %45, %87
-  %.1108.lcssa.sink = phi ptr [ %88, %87 ], [ %1, %45 ], [ %1, %21 ], [ %1, %17 ], [ %1, %31 ], [ %1, %27 ], [ %1, %41 ], [ %1, %37 ], [ %1, %9 ], [ %.1108, %68 ], [ %.1108, %65 ], [ %.1108, %76 ], [ %.1108, %73 ], [ %.1108, %84 ], [ %.1108, %81 ], [ %.1108, %57 ]
-  %.0.ph = phi i32 [ 28, %87 ], [ 22, %45 ], [ 0, %21 ], [ 0, %17 ], [ 0, %31 ], [ 0, %27 ], [ 0, %41 ], [ 0, %37 ], [ 0, %9 ], [ 0, %68 ], [ 0, %65 ], [ 0, %76 ], [ 0, %73 ], [ 0, %84 ], [ 0, %81 ], [ 0, %57 ]
+.loopexit.sink.split:                             ; preds = %57, %81, %84, %73, %76, %65, %68, %9, %9, %9, %9, %37, %41, %27, %31, %17, %21, %45, %87
+  %.1108.lcssa.sink = phi ptr [ %88, %87 ], [ %1, %45 ], [ %1, %21 ], [ %1, %17 ], [ %1, %31 ], [ %1, %27 ], [ %1, %41 ], [ %1, %37 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %.1108, %68 ], [ %.1108, %65 ], [ %.1108, %76 ], [ %.1108, %73 ], [ %.1108, %84 ], [ %.1108, %81 ], [ %.1108, %57 ]
+  %.0.ph = phi i32 [ 28, %87 ], [ 0, %45 ], [ 0, %21 ], [ 0, %17 ], [ 0, %31 ], [ 0, %27 ], [ 0, %41 ], [ 0, %37 ], [ 22, %9 ], [ 22, %9 ], [ 22, %9 ], [ 22, %9 ], [ 0, %68 ], [ 0, %65 ], [ 0, %76 ], [ 0, %73 ], [ 0, %84 ], [ 0, %81 ], [ 0, %57 ]
   store ptr %.1108.lcssa.sink, ptr %3, align 8
   br label %.loopexit
 

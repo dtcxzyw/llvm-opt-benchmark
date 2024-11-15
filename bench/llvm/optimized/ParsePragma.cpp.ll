@@ -4310,7 +4310,7 @@ define dso_local void @_ZN5clang6Parser22HandlePragmaFEnvAccessEv(ptr noundef no
   %5 = ptrtoint ptr %4 to i64
   %6 = trunc i64 %5 to i32
   %7 = add i32 %6, -3
-  %switch.selectcmp = icmp ult i32 %7, -2
+  %switch = icmp ult i32 %7, -2
   %8 = load i32, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
@@ -4323,7 +4323,7 @@ define dso_local void @_ZN5clang6Parser22HandlePragmaFEnvAccessEv(ptr noundef no
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %14, ptr noundef nonnull align 8 dereferenceable(20) %2) #20
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
-  tail call void @_ZN5clang4Sema21ActOnPragmaFEnvAccessENS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(17560) %16, i32 %8, i1 noundef zeroext %switch.selectcmp) #20
+  tail call void @_ZN5clang4Sema21ActOnPragmaFEnvAccessENS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(17560) %16, i32 %8, i1 noundef zeroext %switch) #20
   ret void
 }
 

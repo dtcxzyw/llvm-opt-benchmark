@@ -4379,7 +4379,7 @@ define internal fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %14, %66, %62, %9
-  %.sroa.8.0 = phi ptr [ %13, %9 ], [ %.sroa.8.1, %66 ], [ %spec.select, %62 ], [ null, %14 ]
+  %.sroa.8.0 = phi ptr [ %13, %9 ], [ %.sroa.8.1, %66 ], [ %.sroa.8.2, %62 ], [ null, %14 ]
   %.sroa.0.0 = phi i64 [ 0, %9 ], [ %.sroa.0.1, %66 ], [ 0, %62 ], [ 0, %14 ]
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, ptr } %18, ptr %.sroa.8.0, 1
@@ -4517,7 +4517,7 @@ common.resume:                                    ; preds = %59, %52, %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.24..sroa_idx, i64 32, i1 false)
   %switch = icmp eq i64 %22, 1
   %61 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %spec.select = select i1 %switch, ptr %61, ptr null
+  %.sroa.8.2 = select i1 %switch, ptr %61, ptr null
   br i1 %switch, label %62, label %63
 
 62:                                               ; preds = %63, %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit"

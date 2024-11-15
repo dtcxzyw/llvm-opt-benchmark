@@ -238,7 +238,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %5 = load i8, ptr %.tr183, align 8
   switch i8 %5, label %290 [
     i8 103, label %282
-    i8 15, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
+    i8 15, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
     i8 72, label %279
     i8 73, label %279
     i8 53, label %268
@@ -294,53 +294,53 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 9, label %44
     i8 61, label %41
     i8 98, label %36
-    i8 66, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 16, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 75, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 12, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 67, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 45, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 126, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 125, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 108, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 120, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 36, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 121, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 8, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 13, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 20, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 41, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 40, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 38, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 42, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 39, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 29, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 31, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 30, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 65, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 122, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 7, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 100, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 105, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 62, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 117, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 54, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 110, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 127, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 78, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 63, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 52, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 74, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 14, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 97, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 27, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 58, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 55, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 104, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 106, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 5, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 102, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
-    i8 115, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423
+    i8 66, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 16, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 75, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 12, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 67, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 45, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 126, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 125, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 108, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 120, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 36, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 121, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 8, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 13, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 20, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 41, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 40, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 38, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 42, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 39, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 29, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 31, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 30, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 65, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 122, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 7, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 100, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 105, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 62, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 117, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 54, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 110, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 127, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 78, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 63, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 52, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 74, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 14, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 97, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 27, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 58, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 55, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 104, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 106, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 5, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 102, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
+    i8 115, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420
     i8 76, label %18
     i8 19, label %12
     i8 37, label %6
@@ -534,7 +534,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %106 = load i32, ptr %.tr183, align 8
   %107 = lshr i32 %106, 18
   %108 = and i32 %107, 31
-  switch i32 %108, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423 [
+  switch i32 %108, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420 [
     i32 5, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit
     i32 12, label %109
     i32 10, label %112
@@ -854,11 +854,11 @@ _ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit: ; preds = %t
   %.0.ph = phi i32 [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit ], [ 0, %47 ], [ 0, %71 ], [ 0, %68 ], [ 0, %105 ], [ 11, %145 ], [ 5, %179 ], [ 0, %181 ], [ 0, %12 ]
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
-_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423: ; preds = %105, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420: ; preds = %105, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
-_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, %243, %_ZNK5clang12CompoundStmt9body_backEv.exit, %254, %282, %226, %217, %208, %196, %159, %117, %112, %23, %18, %273, %262, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit, %238, %232, %220, %211, %203, %199, %164, %162, %136, %130, %124, %120, %103, %101, %94, %36, %6
-  %.0 = phi i32 [ %11, %6 ], [ %40, %36 ], [ %100, %94 ], [ %102, %101 ], [ %104, %103 ], [ %123, %120 ], [ %129, %124 ], [ %135, %130 ], [ %141, %136 ], [ %163, %162 ], [ %166, %164 ], [ %202, %199 ], [ %207, %203 ], [ %216, %211 ], [ %225, %220 ], [ %237, %232 ], [ %240, %238 ], [ %258, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit ], [ %267, %262 ], [ %274, %273 ], [ %.0.i, %23 ], [ 0, %18 ], [ %116, %112 ], [ %., %117 ], [ 11, %159 ], [ 11, %196 ], [ 11, %208 ], [ 11, %217 ], [ 11, %226 ], [ %.142, %282 ], [ 11, %254 ], [ 11, %_ZNK5clang12CompoundStmt9body_backEv.exit ], [ 11, %243 ], [ %.0.ph, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit ], [ 11, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit423 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
+_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, %243, %_ZNK5clang12CompoundStmt9body_backEv.exit, %254, %282, %226, %217, %208, %196, %159, %117, %112, %23, %18, %273, %262, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit, %238, %232, %220, %211, %203, %199, %164, %162, %136, %130, %124, %120, %103, %101, %94, %36, %6
+  %.0 = phi i32 [ %11, %6 ], [ %40, %36 ], [ %100, %94 ], [ %102, %101 ], [ %104, %103 ], [ %123, %120 ], [ %129, %124 ], [ %135, %130 ], [ %141, %136 ], [ %163, %162 ], [ %166, %164 ], [ %202, %199 ], [ %207, %203 ], [ %216, %211 ], [ %225, %220 ], [ %237, %232 ], [ %240, %238 ], [ %258, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit ], [ %267, %262 ], [ %274, %273 ], [ %.0.i, %23 ], [ 0, %18 ], [ %116, %112 ], [ %., %117 ], [ 11, %159 ], [ 11, %196 ], [ 11, %208 ], [ 11, %217 ], [ 11, %226 ], [ %.142, %282 ], [ 11, %254 ], [ 11, %_ZNK5clang12CompoundStmt9body_backEv.exit ], [ 11, %243 ], [ %.0.ph, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit ], [ 11, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit420 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
   ret i32 %.0
 }
 

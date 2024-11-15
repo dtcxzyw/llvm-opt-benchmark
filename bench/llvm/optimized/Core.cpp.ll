@@ -274,7 +274,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDefTIPNS_5ValueEEELb0EE19mo
 @_ZTVN4llvm14ConstantFolderE = external unnamed_addr constant { [22 x ptr] }, align 8
 @_ZTVN4llvm24IRBuilderDefaultInserterE = external unnamed_addr constant { [5 x ptr] }, align 8
 @switch.table.LLVMGetTypeKind = private unnamed_addr constant [21 x i32] [i32 1, i32 18, i32 2, i32 3, i32 4, i32 5, i32 6, i32 0, i32 7, i32 14, i32 19, i32 16, i32 8, i32 9, i32 12, i32 10, i32 11, i32 13, i32 17, i32 0, i32 20], align 4
-@switch.table.LLVMGetValueKind = private unnamed_addr constant [30 x i32] [i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 24, i32 24, i32 27, i32 11, i32 12, i32 13, i32 14, i32 25, i32 15, i32 16, i32 17, i32 18, i32 19, i32 26, i32 20, i32 21, i32 0, i32 1, i32 22, i32 23, i32 2, i32 3, i32 4, i32 24], align 4
+@switch.table.LLVMGetValueKind = private unnamed_addr constant [29 x i32] [i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 24, i32 24, i32 27, i32 11, i32 12, i32 13, i32 14, i32 25, i32 15, i32 16, i32 17, i32 18, i32 19, i32 26, i32 20, i32 21, i32 0, i32 1, i32 22, i32 23, i32 2, i32 3, i32 4], align 4
 @switch.table._ZL17map_to_llvmopcodei = private unnamed_addr constant [67 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 58, i32 7, i32 61, i32 62, i32 65, i32 67, i32 66, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 55, i32 56, i32 57, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 60, i32 64, i32 63, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 59, i32 68], align 4
 @switch.table.LLVMGetLinkage = private unnamed_addr constant [11 x i32] [i32 0, i32 1, i32 2, i32 3, i32 5, i32 6, i32 7, i32 8, i32 9, i32 12, i32 14], align 4
 @switch.table._ZL19map_from_llvmopcode10LLVMOpcode = private unnamed_addr constant [68 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 1, i32 7, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63, i32 64, i32 65, i32 35, i32 36, i32 37, i32 6, i32 66, i32 50, i32 8, i32 9, i32 52, i32 51, i32 10, i32 12, i32 11, i32 67], align 4
@@ -2657,12 +2657,12 @@ define dso_local ptr @LLVMTypeOf(ptr nocapture noundef readonly %0) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 28) i32 @LLVMGetValueKind(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = load i8, ptr %0, align 8
-  %3 = icmp ult i8 %2, 30
+  %3 = icmp ult i8 %2, 29
   br i1 %3, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [30 x i32], ptr @switch.table.LLVMGetValueKind, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds [29 x i32], ptr @switch.table.LLVMGetValueKind, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -2940,7 +2940,7 @@ declare noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8Metada
 define dso_local void @LLVMSetMetadata(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %11, label %5
+  br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -2948,23 +2948,24 @@ define dso_local void @LLVMSetMetadata(ptr noundef %0, i32 noundef %1, ptr nound
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
   %8 = load i8, ptr %7, align 4
-  %.off.i = add i8 %8, -5
-  %switch.i = icmp ult i8 %.off.i, 31
-  br i1 %switch.i, label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit, label %_ZN4llvm8dyn_castINS_6MDNodeENS_8MetadataEEEDcPT0_.exit.i
+  %9 = zext i8 %8 to i32
+  %10 = add nsw i32 %9, -36
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %10, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %11, label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
 
-_ZN4llvm8dyn_castINS_6MDNodeENS_8MetadataEEEDcPT0_.exit.i: ; preds = %5
-  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #35
-  %10 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr nonnull %4, i64 1, i32 noundef 0, i1 noundef zeroext true) #35
+11:                                               ; preds = %5
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #35
+  %13 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr nonnull %4, i64 1, i32 noundef 0, i1 noundef zeroext true) #35
   br label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
 
-_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %5, %_ZN4llvm8dyn_castINS_6MDNodeENS_8MetadataEEEDcPT0_.exit.i
-  %.0.i = phi ptr [ %10, %_ZN4llvm8dyn_castINS_6MDNodeENS_8MetadataEEEDcPT0_.exit.i ], [ %7, %5 ]
+_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %5, %11
+  %.0.i = phi ptr [ %13, %11 ], [ %7, %5 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %11
+  br label %14
 
-11:                                               ; preds = %3, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
-  %12 = phi ptr [ %.0.i, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit ], [ null, %3 ]
-  call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, ptr noundef %12) #35
+14:                                               ; preds = %3, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
+  %15 = phi ptr [ %.0.i, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit ], [ null, %3 ]
+  call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, ptr noundef %15) #35
   ret void
 }
 
@@ -4825,11 +4826,12 @@ _ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit: ; preds
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 4
-  %.off = add i8 %7, -5
-  %switch = icmp ult i8 %.off, 31
-  %8 = add i8 %7, -1
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %8, 2
-  %or.cond = or i1 %switch, %spec.select.i.i.i.i.i.i.i.i
+  %8 = zext i8 %7 to i32
+  %.off.i.i.i.i.i.i.i.i = add nsw i32 %8, -5
+  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 31
+  %9 = add i8 %7, -1
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %9, 2
+  %or.cond = or i1 %spec.select.i.i.i.i.i.i.i.i, %switch.i.i.i.i.i.i.i.i
   br i1 %or.cond, label %.critedge, label %_ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit, %1, %2
@@ -5764,7 +5766,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %3, %5
   %9 = icmp ne ptr %8, null
   %10 = icmp ne ptr %2, null
   %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %17
+  br i1 %or.cond, label %11, label %20
 
 11:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -5772,22 +5774,23 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %3, %5
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %4, align 8
   %14 = load i8, ptr %13, align 4
-  %.off.i = add i8 %14, -5
-  %switch.i = icmp ult i8 %.off.i, 31
-  br i1 %switch.i, label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit, label %_ZN4llvm8dyn_castINS_6MDNodeENS_8MetadataEEEDcPT0_.exit.i
+  %15 = zext i8 %14 to i32
+  %16 = add nsw i32 %15, -36
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %16, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %17, label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
 
-_ZN4llvm8dyn_castINS_6MDNodeENS_8MetadataEEEDcPT0_.exit.i: ; preds = %11
-  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #35
-  %16 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr nonnull %4, i64 1, i32 noundef 0, i1 noundef zeroext true) #35
+17:                                               ; preds = %11
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #35
+  %19 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr nonnull %4, i64 1, i32 noundef 0, i1 noundef zeroext true) #35
   br label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
 
-_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %11, %_ZN4llvm8dyn_castINS_6MDNodeENS_8MetadataEEEDcPT0_.exit.i
-  %.0.i = phi ptr [ %16, %_ZN4llvm8dyn_castINS_6MDNodeENS_8MetadataEEEDcPT0_.exit.i ], [ %13, %11 ]
+_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %11, %17
+  %.0.i = phi ptr [ %19, %17 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN4llvm11NamedMDNode10addOperandEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %.0.i) #35
-  br label %17
+  br label %20
 
-17:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
+20:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
   ret void
 }
 

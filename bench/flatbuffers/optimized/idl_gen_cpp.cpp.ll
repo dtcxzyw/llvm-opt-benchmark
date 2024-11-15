@@ -63403,7 +63403,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 define linkonce_odr dso_local noundef i64 @_ZN11flatbuffers15InlineAlignmentERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %type) local_unnamed_addr #0 comdat {
 entry:
   %0 = load i32, ptr %type, align 8
-  switch i32 %0, label %sw.epilog.i30 [
+  switch i32 %0, label %sw.epilog.i19 [
     i32 15, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit
     i32 17, label %if.then2
     i32 0, label %return
@@ -63411,18 +63411,18 @@ entry:
     i32 2, label %return
     i32 3, label %return
     i32 4, label %return
-    i32 5, label %sw.bb5.i29
-    i32 6, label %sw.bb6.i28
-    i32 7, label %sw.bb7.i27
-    i32 8, label %sw.bb8.i26
-    i32 9, label %sw.bb9.i25
-    i32 10, label %sw.bb10.i24
-    i32 11, label %sw.bb11.i23
-    i32 12, label %sw.bb12.i22
-    i32 13, label %sw.bb13.i21
-    i32 14, label %sw.bb14.i20
-    i32 18, label %sw.bb15.i19
-    i32 16, label %sw.bb17.i17
+    i32 5, label %sw.bb5.i18
+    i32 6, label %sw.bb5.i18
+    i32 7, label %sw.bb7.i15
+    i32 8, label %sw.bb7.i15
+    i32 9, label %sw.bb9.i17
+    i32 10, label %sw.bb9.i17
+    i32 11, label %sw.bb7.i15
+    i32 12, label %sw.bb9.i17
+    i32 13, label %sw.bb7.i15
+    i32 14, label %sw.bb7.i15
+    i32 18, label %sw.bb9.i17
+    i32 16, label %sw.bb7.i15
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit:       ; preds = %entry
@@ -63431,7 +63431,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit:       ; preds = %entry
   %fixed.i = getelementptr inbounds i8, ptr %1, i64 272
   %2 = load i8, ptr %fixed.i, align 8
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.then, label %return
+  br i1 %tobool.i, label %if.then, label %sw.bb7.i15
 
 if.then:                                          ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit
   %minalign = getelementptr inbounds i8, ptr %1, i64 280
@@ -63451,114 +63451,57 @@ if.then2:                                         ; preds = %entry
     i32 3, label %return
     i32 4, label %return
     i32 5, label %sw.bb5.i
-    i32 6, label %sw.bb6.i
+    i32 6, label %sw.bb5.i
     i32 7, label %sw.bb7.i
-    i32 8, label %sw.bb8.i
+    i32 8, label %sw.bb7.i
     i32 9, label %sw.bb9.i
-    i32 10, label %sw.bb10.i
-    i32 11, label %sw.bb11.i
-    i32 12, label %sw.bb12.i
-    i32 13, label %sw.bb13.i
-    i32 14, label %sw.bb14.i
-    i32 18, label %sw.bb15.i
-    i32 17, label %sw.bb18.i
-    i32 16, label %sw.bb17.i
+    i32 10, label %sw.bb9.i
+    i32 11, label %sw.bb7.i
+    i32 12, label %sw.bb9.i
+    i32 13, label %sw.bb7.i
+    i32 14, label %sw.bb7.i
+    i32 18, label %sw.bb9.i
+    i32 17, label %sw.bb7.i
+    i32 16, label %sw.bb7.i
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit14:     ; preds = %if.then2
   %fixed.i12 = getelementptr inbounds i8, ptr %5, i64 272
   %6 = load i8, ptr %fixed.i12, align 8
   %tobool.i13 = trunc i8 %6 to i1
-  br i1 %tobool.i13, label %cond.true, label %return
+  br i1 %tobool.i13, label %cond.true, label %sw.bb7.i
 
 cond.true:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit14
   %minalign5 = getelementptr inbounds i8, ptr %5, i64 280
   %7 = load i64, ptr %minalign5, align 8
   br label %return
 
-sw.bb5.i:                                         ; preds = %if.then2
+sw.bb5.i:                                         ; preds = %if.then2, %if.then2
   br label %return
 
-sw.bb6.i:                                         ; preds = %if.then2
+sw.bb7.i:                                         ; preds = %if.then2, %if.then2, %if.then2, %if.then2, %if.then2, %if.then2, %if.then2, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit14
   br label %return
 
-sw.bb7.i:                                         ; preds = %if.then2
-  br label %return
-
-sw.bb8.i:                                         ; preds = %if.then2
-  br label %return
-
-sw.bb9.i:                                         ; preds = %if.then2
-  br label %return
-
-sw.bb10.i:                                        ; preds = %if.then2
-  br label %return
-
-sw.bb11.i:                                        ; preds = %if.then2
-  br label %return
-
-sw.bb12.i:                                        ; preds = %if.then2
-  br label %return
-
-sw.bb13.i:                                        ; preds = %if.then2
-  br label %return
-
-sw.bb14.i:                                        ; preds = %if.then2
-  br label %return
-
-sw.bb15.i:                                        ; preds = %if.then2
-  br label %return
-
-sw.bb17.i:                                        ; preds = %if.then2
-  br label %return
-
-sw.bb18.i:                                        ; preds = %if.then2
+sw.bb9.i:                                         ; preds = %if.then2, %if.then2, %if.then2, %if.then2
   br label %return
 
 sw.epilog.i:                                      ; preds = %if.then2
   br label %return
 
-sw.bb5.i29:                                       ; preds = %entry
+sw.bb5.i18:                                       ; preds = %entry, %entry
   br label %return
 
-sw.bb6.i28:                                       ; preds = %entry
+sw.bb7.i15:                                       ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit
   br label %return
 
-sw.bb7.i27:                                       ; preds = %entry
+sw.bb9.i17:                                       ; preds = %entry, %entry, %entry, %entry
   br label %return
 
-sw.bb8.i26:                                       ; preds = %entry
+sw.epilog.i19:                                    ; preds = %entry
   br label %return
 
-sw.bb9.i25:                                       ; preds = %entry
-  br label %return
-
-sw.bb10.i24:                                      ; preds = %entry
-  br label %return
-
-sw.bb11.i23:                                      ; preds = %entry
-  br label %return
-
-sw.bb12.i22:                                      ; preds = %entry
-  br label %return
-
-sw.bb13.i21:                                      ; preds = %entry
-  br label %return
-
-sw.bb14.i20:                                      ; preds = %entry
-  br label %return
-
-sw.bb15.i19:                                      ; preds = %entry
-  br label %return
-
-sw.bb17.i17:                                      ; preds = %entry
-  br label %return
-
-sw.epilog.i30:                                    ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit, %entry, %entry, %entry, %entry, %entry, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit14, %if.then2, %if.then2, %if.then2, %if.then2, %if.then2, %sw.epilog.i30, %sw.bb17.i17, %sw.bb15.i19, %sw.bb14.i20, %sw.bb13.i21, %sw.bb12.i22, %sw.bb11.i23, %sw.bb10.i24, %sw.bb9.i25, %sw.bb8.i26, %sw.bb7.i27, %sw.bb6.i28, %sw.bb5.i29, %sw.epilog.i, %sw.bb18.i, %sw.bb17.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %cond.true, %if.then
-  %retval.0 = phi i64 [ %3, %if.then ], [ %7, %cond.true ], [ 0, %sw.epilog.i ], [ 4, %sw.bb18.i ], [ 4, %sw.bb17.i ], [ 8, %sw.bb15.i ], [ 4, %sw.bb14.i ], [ 4, %sw.bb13.i ], [ 8, %sw.bb12.i ], [ 4, %sw.bb11.i ], [ 8, %sw.bb10.i ], [ 8, %sw.bb9.i ], [ 4, %sw.bb8.i ], [ 4, %sw.bb7.i ], [ 2, %sw.bb6.i ], [ 2, %sw.bb5.i ], [ 0, %sw.epilog.i30 ], [ 4, %sw.bb17.i17 ], [ 8, %sw.bb15.i19 ], [ 4, %sw.bb14.i20 ], [ 4, %sw.bb13.i21 ], [ 8, %sw.bb12.i22 ], [ 4, %sw.bb11.i23 ], [ 8, %sw.bb10.i24 ], [ 8, %sw.bb9.i25 ], [ 4, %sw.bb8.i26 ], [ 4, %sw.bb7.i27 ], [ 2, %sw.bb6.i28 ], [ 2, %sw.bb5.i29 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit14 ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit ]
+return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %if.then2, %if.then2, %if.then2, %if.then2, %if.then2, %sw.epilog.i19, %sw.bb9.i17, %sw.bb7.i15, %sw.bb5.i18, %sw.epilog.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %cond.true, %if.then
+  %retval.0 = phi i64 [ %3, %if.then ], [ %7, %cond.true ], [ 0, %sw.epilog.i ], [ 8, %sw.bb9.i ], [ 4, %sw.bb7.i ], [ 2, %sw.bb5.i ], [ 0, %sw.epilog.i19 ], [ 8, %sw.bb9.i17 ], [ 4, %sw.bb7.i15 ], [ 2, %sw.bb5.i18 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %if.then2 ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ]
   ret i64 %retval.0
 }
 

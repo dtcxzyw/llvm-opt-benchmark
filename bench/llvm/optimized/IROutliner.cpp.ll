@@ -15168,73 +15168,73 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_12IRSimilarity17IRInstructionDataEE8Alloca
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm11InstVisitorINS_10IROutliner18InstructionAllowedEbE5visitERNS_11InstructionE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i8, ptr %1, align 8
   switch i8 %3, label %4 [
-    i8 30, label %61
+    i8 30, label %14
     i8 31, label %5
-    i8 32, label %61
-    i8 33, label %61
-    i8 34, label %61
-    i8 35, label %61
-    i8 36, label %61
-    i8 37, label %61
-    i8 38, label %61
-    i8 39, label %61
-    i8 40, label %61
+    i8 32, label %14
+    i8 33, label %14
+    i8 34, label %14
+    i8 35, label %14
+    i8 36, label %14
+    i8 37, label %14
+    i8 38, label %14
+    i8 39, label %14
+    i8 40, label %14
     i8 41, label %8
-    i8 42, label %9
-    i8 43, label %10
-    i8 44, label %11
-    i8 45, label %12
-    i8 46, label %13
-    i8 47, label %14
-    i8 48, label %15
-    i8 49, label %16
-    i8 50, label %17
-    i8 51, label %18
-    i8 52, label %19
-    i8 53, label %20
-    i8 54, label %21
-    i8 55, label %22
-    i8 56, label %23
-    i8 57, label %24
-    i8 58, label %25
-    i8 59, label %26
-    i8 60, label %61
-    i8 61, label %27
-    i8 62, label %28
-    i8 63, label %29
-    i8 64, label %30
-    i8 65, label %31
-    i8 66, label %32
-    i8 67, label %33
-    i8 68, label %34
-    i8 69, label %35
-    i8 70, label %36
-    i8 71, label %37
-    i8 72, label %38
-    i8 73, label %39
-    i8 74, label %40
-    i8 75, label %41
-    i8 76, label %42
-    i8 77, label %43
-    i8 78, label %44
-    i8 79, label %45
-    i8 80, label %61
-    i8 81, label %61
-    i8 82, label %46
-    i8 83, label %47
-    i8 84, label %48
-    i8 85, label %51
-    i8 86, label %53
-    i8 87, label %54
-    i8 88, label %55
-    i8 89, label %61
-    i8 90, label %56
-    i8 91, label %57
-    i8 92, label %58
-    i8 93, label %59
-    i8 94, label %60
-    i8 95, label %61
-    i8 96, label %61
+    i8 42, label %8
+    i8 43, label %8
+    i8 44, label %8
+    i8 45, label %8
+    i8 46, label %8
+    i8 47, label %8
+    i8 48, label %8
+    i8 49, label %8
+    i8 50, label %8
+    i8 51, label %8
+    i8 52, label %8
+    i8 53, label %8
+    i8 54, label %8
+    i8 55, label %8
+    i8 56, label %8
+    i8 57, label %8
+    i8 58, label %8
+    i8 59, label %8
+    i8 60, label %14
+    i8 61, label %8
+    i8 62, label %8
+    i8 63, label %8
+    i8 64, label %8
+    i8 65, label %8
+    i8 66, label %8
+    i8 67, label %8
+    i8 68, label %8
+    i8 69, label %8
+    i8 70, label %8
+    i8 71, label %8
+    i8 72, label %8
+    i8 73, label %8
+    i8 74, label %8
+    i8 75, label %8
+    i8 76, label %8
+    i8 77, label %8
+    i8 78, label %8
+    i8 79, label %8
+    i8 80, label %14
+    i8 81, label %14
+    i8 82, label %8
+    i8 83, label %8
+    i8 84, label %9
+    i8 85, label %12
+    i8 86, label %8
+    i8 87, label %8
+    i8 88, label %8
+    i8 89, label %14
+    i8 90, label %8
+    i8 91, label %8
+    i8 92, label %8
+    i8 93, label %8
+    i8 94, label %8
+    i8 95, label %14
+    i8 96, label %14
   ]
 
 4:                                                ; preds = %2
@@ -15243,163 +15243,22 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm11InstVisitorINS_10IROutl
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 1
   %7 = trunc i8 %6 to i1
-  br label %61
+  br label %14
 
-8:                                                ; preds = %2
-  br label %61
+8:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
+  br label %14
 
 9:                                                ; preds = %2
-  br label %61
-
-10:                                               ; preds = %2
-  br label %61
-
-11:                                               ; preds = %2
-  br label %61
+  %10 = load i8, ptr %0, align 1
+  %11 = trunc i8 %10 to i1
+  br label %14
 
 12:                                               ; preds = %2
-  br label %61
+  %13 = tail call noundef zeroext i1 @_ZN4llvm11InstVisitorINS_10IROutliner18InstructionAllowedEbE9visitCallERNS_8CallInstE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(88) %1)
+  br label %14
 
-13:                                               ; preds = %2
-  br label %61
-
-14:                                               ; preds = %2
-  br label %61
-
-15:                                               ; preds = %2
-  br label %61
-
-16:                                               ; preds = %2
-  br label %61
-
-17:                                               ; preds = %2
-  br label %61
-
-18:                                               ; preds = %2
-  br label %61
-
-19:                                               ; preds = %2
-  br label %61
-
-20:                                               ; preds = %2
-  br label %61
-
-21:                                               ; preds = %2
-  br label %61
-
-22:                                               ; preds = %2
-  br label %61
-
-23:                                               ; preds = %2
-  br label %61
-
-24:                                               ; preds = %2
-  br label %61
-
-25:                                               ; preds = %2
-  br label %61
-
-26:                                               ; preds = %2
-  br label %61
-
-27:                                               ; preds = %2
-  br label %61
-
-28:                                               ; preds = %2
-  br label %61
-
-29:                                               ; preds = %2
-  br label %61
-
-30:                                               ; preds = %2
-  br label %61
-
-31:                                               ; preds = %2
-  br label %61
-
-32:                                               ; preds = %2
-  br label %61
-
-33:                                               ; preds = %2
-  br label %61
-
-34:                                               ; preds = %2
-  br label %61
-
-35:                                               ; preds = %2
-  br label %61
-
-36:                                               ; preds = %2
-  br label %61
-
-37:                                               ; preds = %2
-  br label %61
-
-38:                                               ; preds = %2
-  br label %61
-
-39:                                               ; preds = %2
-  br label %61
-
-40:                                               ; preds = %2
-  br label %61
-
-41:                                               ; preds = %2
-  br label %61
-
-42:                                               ; preds = %2
-  br label %61
-
-43:                                               ; preds = %2
-  br label %61
-
-44:                                               ; preds = %2
-  br label %61
-
-45:                                               ; preds = %2
-  br label %61
-
-46:                                               ; preds = %2
-  br label %61
-
-47:                                               ; preds = %2
-  br label %61
-
-48:                                               ; preds = %2
-  %49 = load i8, ptr %0, align 1
-  %50 = trunc i8 %49 to i1
-  br label %61
-
-51:                                               ; preds = %2
-  %52 = tail call noundef zeroext i1 @_ZN4llvm11InstVisitorINS_10IROutliner18InstructionAllowedEbE9visitCallERNS_8CallInstE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(88) %1)
-  br label %61
-
-53:                                               ; preds = %2
-  br label %61
-
-54:                                               ; preds = %2
-  br label %61
-
-55:                                               ; preds = %2
-  br label %61
-
-56:                                               ; preds = %2
-  br label %61
-
-57:                                               ; preds = %2
-  br label %61
-
-58:                                               ; preds = %2
-  br label %61
-
-59:                                               ; preds = %2
-  br label %61
-
-60:                                               ; preds = %2
-  br label %61
-
-61:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %60, %59, %58, %57, %56, %55, %54, %53, %51, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5
-  %.0 = phi i1 [ true, %60 ], [ true, %59 ], [ true, %58 ], [ true, %57 ], [ true, %56 ], [ true, %55 ], [ true, %54 ], [ true, %53 ], [ %52, %51 ], [ %50, %48 ], [ true, %47 ], [ true, %46 ], [ true, %45 ], [ true, %44 ], [ true, %43 ], [ true, %42 ], [ true, %41 ], [ true, %40 ], [ true, %39 ], [ true, %38 ], [ true, %37 ], [ true, %36 ], [ true, %35 ], [ true, %34 ], [ true, %33 ], [ true, %32 ], [ true, %31 ], [ true, %30 ], [ true, %29 ], [ true, %28 ], [ true, %27 ], [ true, %26 ], [ true, %25 ], [ true, %24 ], [ true, %23 ], [ true, %22 ], [ true, %21 ], [ true, %20 ], [ true, %19 ], [ true, %18 ], [ true, %17 ], [ true, %16 ], [ true, %15 ], [ true, %14 ], [ true, %13 ], [ true, %12 ], [ true, %11 ], [ true, %10 ], [ true, %9 ], [ true, %8 ], [ %7, %5 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+14:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %12, %9, %8, %5
+  %.0 = phi i1 [ %13, %12 ], [ %11, %9 ], [ true, %8 ], [ %7, %5 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -30646,11 +30505,8 @@ _ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit58.us106: ; preds =
   %49 = zext i32 %.039 to i64
   %50 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.673", ptr %4, i64 %49
   %.sroa.08.0.copyload = load ptr, ptr %50, align 8
-  %magicptr143 = ptrtoint ptr %.sroa.08.0.copyload to i64
-  switch i64 %magicptr143, label %51 [
-    i64 -1, label %.split65.us
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit58
-  ]
+  %switch = icmp ugt ptr %.sroa.08.0.copyload, inttoptr (i64 -3 to ptr)
+  br i1 %switch, label %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50, label %51
 
 51:                                               ; preds = %.split.split.split
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 8
@@ -30663,18 +30519,18 @@ _ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit: ; preds = %51
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50
 
-_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50: ; preds = %51, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit
+_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50: ; preds = %.split.split.split, %51, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit
   %52 = icmp eq ptr %.sroa.08.0.copyload, inttoptr (i64 -1 to ptr)
   br i1 %52, label %.split65.us, label %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit58
 
-.split65.us:                                      ; preds = %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50, %.split.split.split, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us105, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us80, %.split.split.us.split, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us.us
-  %.us-phi66 = phi ptr [ %.038.us.us, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us.us ], [ %.038.us, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us ], [ %.038.us73, %.split.split.us.split ], [ %.038.us73, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us80 ], [ %.038.us95, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us105 ], [ %.038, %.split.split.split ], [ %.038, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50 ]
-  %.us-phi67 = phi ptr [ %16, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us.us ], [ %25, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us ], [ %34, %.split.split.us.split ], [ %34, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us80 ], [ %42, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us105 ], [ %50, %.split.split.split ], [ %50, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50 ]
+.split65.us:                                      ; preds = %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us105, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us80, %.split.split.us.split, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us.us
+  %.us-phi66 = phi ptr [ %.038.us.us, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us.us ], [ %.038.us, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us ], [ %.038.us73, %.split.split.us.split ], [ %.038.us73, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us80 ], [ %.038.us95, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us105 ], [ %.038, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50 ]
+  %.us-phi67 = phi ptr [ %16, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us.us ], [ %25, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us ], [ %34, %.split.split.us.split ], [ %34, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us80 ], [ %42, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50.us105 ], [ %50, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50 ]
   %.not = icmp eq ptr %.us-phi66, null
   %53 = select i1 %.not, ptr %.us-phi67, ptr %.us-phi66
   br label %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit.thread
 
-_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit58: ; preds = %.split.split.split, %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50
+_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit58: ; preds = %_ZN4llvm12DenseMapInfoINS_8ArrayRefIjEEvE7isEqualES2_S2_.exit50
   %54 = icmp eq ptr %.sroa.08.0.copyload, inttoptr (i64 -2 to ptr)
   %55 = icmp eq ptr %.038, null
   %or.cond.not = select i1 %54, i1 %55, i1 false

@@ -1896,13 +1896,12 @@ sw.default.i.i.i.i:                               ; preds = %sw.default.i.i.i16
 
 _ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %sw.default.i.i.i16
   %storemerge.i.i.i.i = load i64, ptr %28, align 8
-  %37 = inttoptr i64 %storemerge.i.i.i.i to ptr
   switch i32 %conv.i.i.i10, label %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i [
     i32 1, label %sw.bb.i.i.i27
     i32 2, label %sw.bb1.i.i.i26
     i32 3, label %sw.bb3.i.i.i25
     i32 4, label %sw.bb5.i.i.i24
-    i32 5, label %sw.bb7.i.i.i23
+    i32 5, label %sw.bb5.i.i.i24
     i32 6, label %sw.bb9.i.i.i22
     i32 7, label %_ZNK4pbrt8Material12GetNormalMapEv.exit
     i32 8, label %sw.bb13.i.i.i20
@@ -1911,25 +1910,23 @@ _ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %sw.default.i.i.i16
 sw.bb.i.i.i27:                                    ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread, %_ZNK4pbrt8Material15GetDisplacementEv.exit
   %storemerge.i.sink.i.i.i187 = phi i64 [ %29, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread ], [ %storemerge.i.i.i.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit ]
   %normalMap.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
-  %38 = load ptr, ptr %normalMap.i.i.i.i.i, align 8
+  %37 = load ptr, ptr %normalMap.i.i.i.i.i, align 8
   br label %_ZNK4pbrt8Material12GetNormalMapEv.exit
 
 sw.bb1.i.i.i26:                                   ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread188, %_ZNK4pbrt8Material15GetDisplacementEv.exit
   %storemerge.i.sink.i.i.i190 = phi i64 [ %30, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread188 ], [ %storemerge.i.i.i.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit ]
   %normalMap.i.i18.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
-  %39 = load ptr, ptr %normalMap.i.i18.i.i.i, align 8
+  %38 = load ptr, ptr %normalMap.i.i18.i.i.i, align 8
   br label %_ZNK4pbrt8Material12GetNormalMapEv.exit
 
 sw.bb3.i.i.i25:                                   ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread191, %_ZNK4pbrt8Material15GetDisplacementEv.exit
   %storemerge.i.sink.i.i.i193 = phi i64 [ %31, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread191 ], [ %storemerge.i.i.i.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit ]
   %normalMap.i.i19.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
-  %40 = load ptr, ptr %normalMap.i.i19.i.i.i, align 8
+  %39 = load ptr, ptr %normalMap.i.i19.i.i.i, align 8
   br label %_ZNK4pbrt8Material12GetNormalMapEv.exit
 
-sw.bb5.i.i.i24:                                   ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit
-  br label %_ZNK4pbrt8Material12GetNormalMapEv.exit
-
-sw.bb7.i.i.i23:                                   ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit
+sw.bb5.i.i.i24:                                   ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit, %_ZNK4pbrt8Material15GetDisplacementEv.exit
+  %40 = inttoptr i64 %storemerge.i.i.i.i to ptr
   br label %_ZNK4pbrt8Material12GetNormalMapEv.exit
 
 sw.bb9.i.i.i22:                                   ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread200, %_ZNK4pbrt8Material15GetDisplacementEv.exit
@@ -1949,9 +1946,9 @@ _ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18
   %retval.0.i.i.i.i = load ptr, ptr %retval.0.in.i.i.i.i, align 8
   br label %_ZNK4pbrt8Material12GetNormalMapEv.exit
 
-_ZNK4pbrt8Material12GetNormalMapEv.exit:          ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread197, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread194, %if.end, %_ZNK4pbrt8Material15GetDisplacementEv.exit, %sw.bb.i.i.i27, %sw.bb1.i.i.i26, %sw.bb3.i.i.i25, %sw.bb5.i.i.i24, %sw.bb7.i.i.i23, %sw.bb9.i.i.i22, %sw.bb13.i.i.i20, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
-  %storemerge.i.sink.i.i.i186 = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %storemerge.i.sink.i.i.i207, %sw.bb13.i.i.i20 ], [ %storemerge.i.sink.i.i.i202, %sw.bb9.i.i.i22 ], [ %storemerge.i.sink.i.i.i193, %sw.bb3.i.i.i25 ], [ %storemerge.i.sink.i.i.i190, %sw.bb1.i.i.i26 ], [ %storemerge.i.sink.i.i.i187, %sw.bb.i.i.i27 ], [ %storemerge.i.i.i.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ 0, %if.end ], [ %32, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread194 ], [ %storemerge.i.i.i.i, %sw.bb5.i.i.i24 ], [ %33, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread197 ], [ %storemerge.i.i.i.i, %sw.bb7.i.i.i23 ]
-  %retval.0.i.i.i21 = phi ptr [ %retval.0.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %42, %sw.bb13.i.i.i20 ], [ %41, %sw.bb9.i.i.i22 ], [ %40, %sw.bb3.i.i.i25 ], [ %39, %sw.bb1.i.i.i26 ], [ %38, %sw.bb.i.i.i27 ], [ null, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ null, %if.end ], [ %.pre211, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread194 ], [ %37, %sw.bb5.i.i.i24 ], [ %.pre, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread197 ], [ %37, %sw.bb7.i.i.i23 ]
+_ZNK4pbrt8Material12GetNormalMapEv.exit:          ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread197, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread194, %if.end, %_ZNK4pbrt8Material15GetDisplacementEv.exit, %sw.bb.i.i.i27, %sw.bb1.i.i.i26, %sw.bb3.i.i.i25, %sw.bb5.i.i.i24, %sw.bb9.i.i.i22, %sw.bb13.i.i.i20, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
+  %storemerge.i.sink.i.i.i186 = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %storemerge.i.sink.i.i.i207, %sw.bb13.i.i.i20 ], [ %storemerge.i.sink.i.i.i202, %sw.bb9.i.i.i22 ], [ %storemerge.i.sink.i.i.i193, %sw.bb3.i.i.i25 ], [ %storemerge.i.sink.i.i.i190, %sw.bb1.i.i.i26 ], [ %storemerge.i.sink.i.i.i187, %sw.bb.i.i.i27 ], [ %storemerge.i.i.i.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ 0, %if.end ], [ %32, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread194 ], [ %storemerge.i.i.i.i, %sw.bb5.i.i.i24 ], [ %33, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread197 ]
+  %retval.0.i.i.i21 = phi ptr [ %retval.0.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %42, %sw.bb13.i.i.i20 ], [ %41, %sw.bb9.i.i.i22 ], [ %39, %sw.bb3.i.i.i25 ], [ %38, %sw.bb1.i.i.i26 ], [ %37, %sw.bb.i.i.i27 ], [ null, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ null, %if.end ], [ %.pre211, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread194 ], [ %40, %sw.bb5.i.i.i24 ], [ %.pre, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread197 ]
   %and.i32 = and i64 %storemerge.i.sink.i.i.i186, 144115188075855871
   %cmp.i33 = icmp ne i64 %and.i32, 0
   %tobool = icmp ne ptr %retval.0.i.i.i21, null

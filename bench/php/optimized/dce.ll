@@ -1099,8 +1099,6 @@ add_to_phi_worklist_no_val.exit1616:              ; preds = %add_to_phi_worklist
     i8 -62, label %may_have_side_effects.exit.thread1698
     i8 72, label %606
     i8 125, label %802
-    i8 77, label %802
-    i8 49, label %761
     i8 -73, label %750
     i8 -121, label %734
     i8 -122, label %734
@@ -1114,7 +1112,9 @@ add_to_phi_worklist_no_val.exit1616:              ; preds = %add_to_phi_worklist
     i8 36, label %684
     i8 34, label %684
     i8 -103, label %643
+    i8 49, label %761
     i8 22, label %614
+    i8 77, label %802
   ]
 
 606:                                              ; preds = %600
@@ -1282,8 +1282,8 @@ is_bad_mod.exit280.i:                             ; preds = %688
   %701 = getelementptr inbounds %struct._zend_ssa_var, ptr %699, i64 %700, i32 7
   %702 = load i8, ptr %701, align 8
   %703 = and i8 %702, 48
-  %.not1756 = icmp eq i8 %703, 16
-  br i1 %.not1756, label %may_have_side_effects.exit.thread1698, label %may_have_side_effects.exit.thread
+  %.not1757 = icmp eq i8 %703, 16
+  br i1 %.not1757, label %may_have_side_effects.exit.thread1698, label %may_have_side_effects.exit.thread
 
 704:                                              ; preds = %600, %600
   %705 = getelementptr inbounds i8, ptr %603, i64 12
@@ -1453,8 +1453,8 @@ is_bad_mod.exit286.i:                             ; preds = %734
 .thread296.i:                                     ; preds = %797, %790, %785, %783
   %.0229.i = phi i32 [ %784, %783 ], [ %spec.select272.i, %790 ], [ %800, %797 ], [ %787, %785 ]
   %801 = and i32 %.0229.i, 1
-  %.not1757 = icmp eq i32 %801, 0
-  br i1 %.not1757, label %may_have_side_effects.exit.thread1698, label %may_have_side_effects.exit.thread
+  %.not1756 = icmp eq i32 %801, 0
+  br i1 %.not1756, label %may_have_side_effects.exit.thread1698, label %may_have_side_effects.exit.thread
 
 802:                                              ; preds = %600, %600
   %803 = getelementptr inbounds i8, ptr %601, i64 29

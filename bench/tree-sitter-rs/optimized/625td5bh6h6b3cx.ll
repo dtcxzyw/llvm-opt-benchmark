@@ -5355,20 +5355,20 @@ define internal fastcc void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv28_$u
   %12 = load atomic i64, ptr %11 seq_cst, align 128
   %.unshifted.i = xor i64 %12, %10
   %13 = icmp ult i64 %.unshifted.i, 2
-  br i1 %13, label %17, label %14
+  br i1 %13, label %16, label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
 
-14:                                               ; preds = %17, %2
-  %15 = getelementptr inbounds i8, ptr %.val4, i64 24
-  %16 = cmpxchg ptr %15, i64 0, i64 1 acq_rel acquire, align 8
-  br label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
+_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds = %16, %2
+  %14 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %15 = cmpxchg ptr %14, i64 0, i64 1 acq_rel acquire, align 8
+  br label %19
 
-17:                                               ; preds = %2
-  %18 = load atomic i64, ptr %11 seq_cst, align 128
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit, label %14
+16:                                               ; preds = %2
+  %17 = load atomic i64, ptr %11 seq_cst, align 128
+  %18 = and i64 %17, 1
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %19, label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
 
-_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds = %14, %17
+19:                                               ; preds = %16, %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !5, !noundef !4
   %22 = load i64, ptr %21, align 8
@@ -5380,7 +5380,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds 
   %.not.i = icmp eq i32 %24, 1000000000
   br i1 %.not.i, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit, %28
+.split.us.i:                                      ; preds = %19, %28
   %27 = load atomic i64, ptr %26 acquire, align 8
   switch i64 %27, label %_ZN3std4sync4mpmc7context7Context10wait_until17h9093ecd82f76e10eE.exit.thread9 [
     i64 0, label %28
@@ -5392,7 +5392,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds 
   tail call void @_ZN3std6thread4park17h2b943ecc788da73cE()
   br label %.split.us.i
 
-.split.i:                                         ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.14413389980263760380.exit.thread.i"
+.split.i:                                         ; preds = %19, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.14413389980263760380.exit.thread.i"
   %29 = load atomic i64, ptr %26 acquire, align 8
   switch i64 %29, label %_ZN3std4sync4mpmc7context7Context10wait_until17h9093ecd82f76e10eE.exit.thread9 [
     i64 0, label %30
@@ -5500,20 +5500,20 @@ define internal fastcc void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv28_$u
   %12 = load atomic i64, ptr %11 seq_cst, align 128
   %.unshifted.i = xor i64 %12, %10
   %13 = icmp ult i64 %.unshifted.i, 2
-  br i1 %13, label %17, label %14
+  br i1 %13, label %16, label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
 
-14:                                               ; preds = %17, %2
-  %15 = getelementptr inbounds i8, ptr %.val4, i64 24
-  %16 = cmpxchg ptr %15, i64 0, i64 1 acq_rel acquire, align 8
-  br label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
+_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds = %16, %2
+  %14 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %15 = cmpxchg ptr %14, i64 0, i64 1 acq_rel acquire, align 8
+  br label %19
 
-17:                                               ; preds = %2
-  %18 = load atomic i64, ptr %11 seq_cst, align 128
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit, label %14
+16:                                               ; preds = %2
+  %17 = load atomic i64, ptr %11 seq_cst, align 128
+  %18 = and i64 %17, 1
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %19, label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
 
-_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds = %14, %17
+19:                                               ; preds = %16, %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !5, !noundef !4
   %22 = load i64, ptr %21, align 8
@@ -5525,7 +5525,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds 
   %.not.i = icmp eq i32 %24, 1000000000
   br i1 %.not.i, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit, %28
+.split.us.i:                                      ; preds = %19, %28
   %27 = load atomic i64, ptr %26 acquire, align 8
   switch i64 %27, label %_ZN3std4sync4mpmc7context7Context10wait_until17h9093ecd82f76e10eE.exit.thread9 [
     i64 0, label %28
@@ -5537,7 +5537,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds 
   tail call void @_ZN3std6thread4park17h2b943ecc788da73cE()
   br label %.split.us.i
 
-.split.i:                                         ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.14413389980263760380.exit.thread.i"
+.split.i:                                         ; preds = %19, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.14413389980263760380.exit.thread.i"
   %29 = load atomic i64, ptr %26 acquire, align 8
   switch i64 %29, label %_ZN3std4sync4mpmc7context7Context10wait_until17h9093ecd82f76e10eE.exit.thread9 [
     i64 0, label %30
@@ -5635,20 +5635,20 @@ define internal fastcc void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv28_$u
   %12 = load atomic i64, ptr %11 seq_cst, align 128
   %.unshifted.i = xor i64 %12, %10
   %13 = icmp ult i64 %.unshifted.i, 2
-  br i1 %13, label %17, label %14
+  br i1 %13, label %16, label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
 
-14:                                               ; preds = %17, %2
-  %15 = getelementptr inbounds i8, ptr %.val4, i64 24
-  %16 = cmpxchg ptr %15, i64 0, i64 1 acq_rel acquire, align 8
-  br label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
+_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds = %16, %2
+  %14 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %15 = cmpxchg ptr %14, i64 0, i64 1 acq_rel acquire, align 8
+  br label %19
 
-17:                                               ; preds = %2
-  %18 = load atomic i64, ptr %11 seq_cst, align 128
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit, label %14
+16:                                               ; preds = %2
+  %17 = load atomic i64, ptr %11 seq_cst, align 128
+  %18 = and i64 %17, 1
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %19, label %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
 
-_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds = %14, %17
+19:                                               ; preds = %16, %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !5, !noundef !4
   %22 = load i64, ptr %21, align 8
@@ -5660,7 +5660,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds 
   %.not.i = icmp eq i32 %24, 1000000000
   br i1 %.not.i, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit, %28
+.split.us.i:                                      ; preds = %19, %28
   %27 = load atomic i64, ptr %26 acquire, align 8
   switch i64 %27, label %_ZN3std4sync4mpmc7context7Context10wait_until17h9093ecd82f76e10eE.exit.thread9 [
     i64 0, label %28
@@ -5672,7 +5672,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit: ; preds 
   tail call void @_ZN3std6thread4park17h2b943ecc788da73cE()
   br label %.split.us.i
 
-.split.i:                                         ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h4e9eb88654edf6b1E.exit, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.14413389980263760380.exit.thread.i"
+.split.i:                                         ; preds = %19, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.14413389980263760380.exit.thread.i"
   %29 = load atomic i64, ptr %26 acquire, align 8
   switch i64 %29, label %_ZN3std4sync4mpmc7context7Context10wait_until17h9093ecd82f76e10eE.exit.thread9 [
     i64 0, label %30

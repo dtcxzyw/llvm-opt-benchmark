@@ -1395,12 +1395,12 @@ tiff_data_len.exit.thread:                        ; preds = %switch.lookup
   br label %28
 
 28:                                               ; preds = %.preheader, %28
-  %.071 = phi i32 [ %33, %28 ], [ 0, %.preheader ]
+  %.050 = phi i32 [ %33, %28 ], [ 0, %.preheader ]
   %29 = load i32, ptr %9, align 4
-  %30 = mul i32 %.071, %switch.load
+  %30 = mul i32 %.050, %switch.load
   %31 = add i32 %29, %30
   %32 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %31, i32 noundef %switch.load, i32 noundef %6) #3
-  %33 = add nuw i32 %.071, 1
+  %33 = add nuw i32 %.050, 1
   %exitcond.not = icmp eq i32 %33, %5
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !7
 

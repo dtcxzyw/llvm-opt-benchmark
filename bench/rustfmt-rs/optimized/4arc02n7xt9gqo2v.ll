@@ -27893,14 +27893,14 @@ define hidden void @_ZN15rustfmt_nightly5items18rewrite_type_alias17h4e47f8fe605
   %24 = icmp eq ptr %23, null
   %. = select i1 %24, ptr null, ptr %22
   %25 = load i64, ptr %5, align 8, !range !1337, !noundef !10
-  switch i64 %25, label %default.unreachable50 [
+  switch i64 %25, label %default.unreachable51 [
     i64 0, label %26
     i64 1, label %48
     i64 2, label %48
     i64 3, label %31
   ]
 
-default.unreachable50:                            ; preds = %7
+default.unreachable51:                            ; preds = %7
   unreachable
 
 26:                                               ; preds = %7
@@ -28022,8 +28022,8 @@ _ZN15rustfmt_nightly5types9opaque_ty17h8b3b5cf35ed5712cE.exit: ; preds = %44
   store ptr @anon.68b887a773b1ffe49eb9a07ee8b917ec.230, ptr %9, align 8, !noalias !4957
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !4957
-  %.sroa.738.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %11, ptr %.sroa.738.0..sroa_idx, align 8, !noalias !4957
+  %.sroa.739.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %11, ptr %.sroa.739.0..sroa_idx, align 8, !noalias !4957
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !4957
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
@@ -38383,8 +38383,8 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49), !noalias !6674
   %157 = load i64, ptr %2, align 8, !range !1277, !alias.scope !6658, !noalias !6702, !noundef !10
   %switch.i.i.i = icmp samesign ult i64 %157, 2
-  %spec.select.i.i.i = select i1 %switch.i.i.i, i64 48, i64 24
-  %158 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i.i.i
+  %..i.i.i = select i1 %switch.i.i.i, i64 48, i64 24
+  %158 = getelementptr inbounds i8, ptr %2, i64 %..i.i.i
   %.sroa.03.0.i.i.i = load i64, ptr %158, align 8, !alias.scope !6658, !noalias !6702
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !6674
   call void @llvm.experimental.noalias.scope.decl(metadata !6703)
@@ -39033,8 +39033,8 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   %350 = getelementptr inbounds [0 x { i64, [6 x i64] }], ptr %2, i64 0, i64 %349
   %351 = load i64, ptr %350, align 8, !range !1277, !alias.scope !6830, !noalias !6831, !noundef !10
   %switch52.i.i = icmp samesign ult i64 %351, 2
-  %spec.select53.i.i = select i1 %switch52.i.i, i64 48, i64 24
-  %352 = getelementptr inbounds i8, ptr %350, i64 %spec.select53.i.i
+  %.53.i.i = select i1 %switch52.i.i, i64 48, i64 24
+  %352 = getelementptr inbounds i8, ptr %350, i64 %.53.i.i
   %.sroa.07.0.i.i = load i64, ptr %352, align 8, !alias.scope !6830, !noalias !6831
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !6814
   call void @llvm.experimental.noalias.scope.decl(metadata !6832)
@@ -39504,8 +39504,8 @@ _ZN15rustfmt_nightly5items30rewrite_where_clause_rfc_style17h45dab2e32c81a96cE.e
   store i64 %508, ptr %83, align 8
   %509 = load i64, ptr %2, align 8, !range !1277, !noundef !10
   %switch = icmp samesign ult i64 %509, 2
-  %spec.select179 = select i1 %switch, i64 48, i64 24
-  %510 = getelementptr inbounds i8, ptr %2, i64 %spec.select179
+  %.179 = select i1 %switch, i64 48, i64 24
+  %510 = getelementptr inbounds i8, ptr %2, i64 %.179
   %.sroa.024.0 = load i64, ptr %510, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6913)
@@ -39590,8 +39590,8 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   %538 = getelementptr inbounds [0 x { i64, [6 x i64] }], ptr %2, i64 0, i64 %537
   %539 = load i64, ptr %538, align 8, !range !1277, !noundef !10
   %switch180 = icmp samesign ult i64 %539, 2
-  %spec.select182 = select i1 %switch180, i64 48, i64 24
-  %540 = getelementptr inbounds i8, ptr %538, i64 %spec.select182
+  %.182 = select i1 %switch180, i64 48, i64 24
+  %540 = getelementptr inbounds i8, ptr %538, i64 %.182
   %.sroa.027.0 = load i64, ptr %540, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69)
   call void @llvm.experimental.noalias.scope.decl(metadata !6923)

@@ -34909,58 +34909,52 @@ define linkonce_odr hidden noundef i32 @_ZNK8WasmEdge4LLVM4Type22getPrimitiveSiz
   %2 = alloca %"class.WasmEdge::LLVM::Type", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @LLVMGetTypeKind(ptr noundef %3) #16
-  switch i32 %4, label %21 [
-    i32 18, label %22
-    i32 1, label %22
+  switch i32 %4, label %19 [
+    i32 18, label %20
+    i32 1, label %20
     i32 2, label %5
     i32 3, label %6
     i32 4, label %7
     i32 5, label %8
-    i32 6, label %9
-    i32 15, label %10
-    i32 8, label %11
-    i32 13, label %14
+    i32 6, label %8
+    i32 15, label %6
+    i32 8, label %9
+    i32 13, label %12
   ]
 
 5:                                                ; preds = %1
-  br label %22
+  br label %20
 
-6:                                                ; preds = %1
-  br label %22
+6:                                                ; preds = %1, %1
+  br label %20
 
 7:                                                ; preds = %1
-  br label %22
+  br label %20
 
-8:                                                ; preds = %1
-  br label %22
+8:                                                ; preds = %1, %1
+  br label %20
 
 9:                                                ; preds = %1
-  br label %22
+  %10 = load ptr, ptr %0, align 8
+  %11 = tail call noundef i32 @LLVMGetIntTypeWidth(ptr noundef %10) #16
+  br label %20
 
-10:                                               ; preds = %1
-  br label %22
-
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %0, align 8
-  %13 = tail call noundef i32 @LLVMGetIntTypeWidth(ptr noundef %12) #16
-  br label %22
-
-14:                                               ; preds = %1
+12:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6448)
-  %15 = load ptr, ptr %0, align 8, !noalias !6448
-  %16 = tail call ptr @LLVMGetElementType(ptr noundef %15) #16, !noalias !6448
-  store ptr %16, ptr %2, align 8, !alias.scope !6448
-  %17 = call noundef i32 @_ZNK8WasmEdge4LLVM4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
-  %18 = load ptr, ptr %0, align 8
-  %19 = call noundef i32 @LLVMGetVectorSize(ptr noundef %18) #16
-  %20 = mul i32 %19, %17
-  br label %22
+  %13 = load ptr, ptr %0, align 8, !noalias !6448
+  %14 = tail call ptr @LLVMGetElementType(ptr noundef %13) #16, !noalias !6448
+  store ptr %14, ptr %2, align 8, !alias.scope !6448
+  %15 = call noundef i32 @_ZNK8WasmEdge4LLVM4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
+  %16 = load ptr, ptr %0, align 8
+  %17 = call noundef i32 @LLVMGetVectorSize(ptr noundef %16) #16
+  %18 = mul i32 %17, %15
+  br label %20
 
-21:                                               ; preds = %1
-  br label %22
+19:                                               ; preds = %1
+  br label %20
 
-22:                                               ; preds = %1, %1, %21, %14, %11, %10, %9, %8, %7, %6, %5
-  %.0 = phi i32 [ 0, %21 ], [ %20, %14 ], [ %13, %11 ], [ 64, %10 ], [ 128, %9 ], [ 128, %8 ], [ 80, %7 ], [ 64, %6 ], [ 32, %5 ], [ 16, %1 ], [ 16, %1 ]
+20:                                               ; preds = %1, %1, %19, %12, %9, %8, %7, %6, %5
+  %.0 = phi i32 [ 0, %19 ], [ %18, %12 ], [ %11, %9 ], [ 128, %8 ], [ 80, %7 ], [ 64, %6 ], [ 32, %5 ], [ 16, %1 ], [ 16, %1 ]
   ret i32 %.0
 }
 

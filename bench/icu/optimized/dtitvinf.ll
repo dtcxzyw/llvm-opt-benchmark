@@ -2827,7 +2827,7 @@ if.then:                                          ; preds = %land.lhs.true
     i8 77, label %if.then14
     i8 100, label %if.then18
     i8 97, label %if.then22
-    i8 66, label %if.then26
+    i8 66, label %if.then22
   ]
 
 if.then10:                                        ; preds = %if.then
@@ -2839,10 +2839,7 @@ if.then14:                                        ; preds = %if.then
 if.then18:                                        ; preds = %if.then
   br label %return
 
-if.then22:                                        ; preds = %if.then
-  br label %return
-
-if.then26:                                        ; preds = %if.then
+if.then22:                                        ; preds = %if.then, %if.then
   br label %return
 
 if.else27:                                        ; preds = %if.then
@@ -2857,8 +2854,8 @@ if.else33:                                        ; preds = %if.else27
 if.end44:                                         ; preds = %if.else33, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %if.else33, %if.else27, %if.then, %if.end44, %if.then26, %if.then22, %if.then18, %if.then14, %if.then10
-  %retval.0 = phi i32 [ 1, %if.then10 ], [ 2, %if.then14 ], [ 5, %if.then18 ], [ 9, %if.then22 ], [ 9, %if.then26 ], [ 24, %if.end44 ], [ 0, %if.then ], [ 10, %if.else27 ], [ 12, %if.else33 ]
+return:                                           ; preds = %if.else33, %if.else27, %if.then, %if.end44, %if.then22, %if.then18, %if.then14, %if.then10
+  %retval.0 = phi i32 [ 1, %if.then10 ], [ 2, %if.then14 ], [ 5, %if.then18 ], [ 9, %if.then22 ], [ 24, %if.end44 ], [ 0, %if.then ], [ 10, %if.else27 ], [ 12, %if.else33 ]
   ret i32 %retval.0
 }
 

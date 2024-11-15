@@ -417,9 +417,8 @@ if.else.i:                                        ; preds = %if.then
     i32 34, label %sw.bb26.i
     i32 10, label %if.end.i
     i32 11, label %sw.bb29.i
-    i32 51, label %sw.bb30.i
+    i32 54, label %sw.bb31.i
     i32 53, label %sw.bb31.i
-    i32 54, label %sw.bb32.i
   ]
 
 sw.bb.i:                                          ; preds = %if.else.i
@@ -497,20 +496,14 @@ sw.bb26.i:                                        ; preds = %if.else.i
 sw.bb29.i:                                        ; preds = %if.else.i
   br label %if.end.i
 
-sw.bb30.i:                                        ; preds = %if.else.i
-  br label %if.end.i
-
-sw.bb31.i:                                        ; preds = %if.else.i
-  br label %if.end.i
-
-sw.bb32.i:                                        ; preds = %if.else.i
+sw.bb31.i:                                        ; preds = %if.else.i, %if.else.i
   br label %if.end.i
 
 sw.default.i:                                     ; preds = %if.else.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %sw.default.i, %sw.bb32.i, %sw.bb31.i, %sw.bb30.i, %sw.bb29.i, %sw.bb26.i, %sw.bb24.i, %sw.bb22.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb10.i, %sw.bb8.i, %sw.bb6.i, %sw.bb4.i, %sw.bb.i, %if.else.i, %if.then.i
-  %ret.0.i = phi i32 [ %conv.i, %if.then.i ], [ 0, %sw.default.i ], [ 64, %sw.bb32.i ], [ 64, %sw.bb31.i ], [ 0, %sw.bb30.i ], [ 67, %sw.bb29.i ], [ %shr27.i, %sw.bb26.i ], [ %shr25.i, %sw.bb24.i ], [ %conv23.i, %sw.bb22.i ], [ %conv21.i, %sw.bb17.i ], [ %conv16.i, %sw.bb15.i ], [ %conv14.i, %sw.bb13.i ], [ %shr12.i, %sw.bb10.i ], [ %and9.i, %sw.bb8.i ], [ %conv7.i, %sw.bb6.i ], [ %conv5.i, %sw.bb4.i ], [ %conv3.i, %sw.bb.i ], [ 80, %if.else.i ]
+if.end.i:                                         ; preds = %sw.default.i, %sw.bb31.i, %sw.bb29.i, %sw.bb26.i, %sw.bb24.i, %sw.bb22.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb10.i, %sw.bb8.i, %sw.bb6.i, %sw.bb4.i, %sw.bb.i, %if.else.i, %if.then.i
+  %ret.0.i = phi i32 [ %conv.i, %if.then.i ], [ 0, %sw.default.i ], [ 64, %sw.bb31.i ], [ 67, %sw.bb29.i ], [ %shr27.i, %sw.bb26.i ], [ %shr25.i, %sw.bb24.i ], [ %conv23.i, %sw.bb22.i ], [ %conv21.i, %sw.bb17.i ], [ %conv16.i, %sw.bb15.i ], [ %conv14.i, %sw.bb13.i ], [ %shr12.i, %sw.bb10.i ], [ %and9.i, %sw.bb8.i ], [ %conv7.i, %sw.bb6.i ], [ %conv5.i, %sw.bb4.i ], [ %conv3.i, %sw.bb.i ], [ 80, %if.else.i ]
   %conv34.i = zext nneg i32 %ret.0.i to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %14 = load i32, ptr @trace_events_enabled_count, align 4

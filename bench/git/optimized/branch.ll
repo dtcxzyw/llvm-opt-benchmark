@@ -115,8 +115,8 @@ entry:
   %friendly_ref_names = alloca %struct.string_list, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) @__const.submodule_create_branch.out_buf, i64 24, i1 false)
   %0 = load i32, ptr @autorebase, align 4
-  switch i32 %0, label %should_setup_rebase.exit [
-    i32 3, label %sw.bb5.i
+  switch i32 %0, label %sw.epilog.i [
+    i32 3, label %should_setup_rebase.exit
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb2.i
   ]
@@ -129,11 +129,11 @@ sw.bb2.i:                                         ; preds = %entry
   %cmp3.i = icmp ne ptr %origin, null
   br label %should_setup_rebase.exit
 
-sw.bb5.i:                                         ; preds = %entry
+sw.epilog.i:                                      ; preds = %entry
   br label %should_setup_rebase.exit
 
-should_setup_rebase.exit:                         ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb5.i
-  %retval.0.shrunk.i = phi i1 [ true, %sw.bb5.i ], [ %cmp3.i, %sw.bb2.i ], [ %cmp.i, %sw.bb1.i ], [ false, %entry ]
+should_setup_rebase.exit:                         ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.epilog.i
+  %retval.0.shrunk.i = phi i1 [ false, %sw.epilog.i ], [ %cmp3.i, %sw.bb2.i ], [ %cmp.i, %sw.bb1.i ], [ true, %entry ]
   %nr = getelementptr inbounds i8, ptr %remotes, i64 8
   %1 = load i64, ptr %nr, align 8
   %tobool.not = icmp eq i64 %1, 0

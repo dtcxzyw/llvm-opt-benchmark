@@ -6310,7 +6310,7 @@ entry:
     i8 100, label %sw.bb10
     i8 101, label %sw.bb11
     i8 63, label %land.lhs.true
-    i8 80, label %sw.bb13
+    i8 80, label %sw.bb10
   ]
 
 sw.bb4:                                           ; preds = %entry, %entry
@@ -6331,17 +6331,14 @@ sw.bb8:                                           ; preds = %entry, %entry
 sw.bb9:                                           ; preds = %entry
   br label %land.lhs.true
 
-sw.bb10:                                          ; preds = %entry
+sw.bb10:                                          ; preds = %entry, %entry
   br label %land.lhs.true
 
 sw.bb11:                                          ; preds = %entry
   br label %land.lhs.true
 
-sw.bb13:                                          ; preds = %entry
-  br label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry, %entry, %entry, %entry, %sw.bb13, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4
-  %size.0.ph = phi i64 [ 2, %sw.bb4 ], [ 4, %sw.bb5 ], [ 8, %sw.bb6 ], [ 8, %sw.bb7 ], [ 8, %sw.bb8 ], [ 4, %sw.bb9 ], [ 8, %sw.bb10 ], [ 2, %sw.bb11 ], [ 8, %sw.bb13 ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ]
+land.lhs.true:                                    ; preds = %entry, %entry, %entry, %entry, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4
+  %size.0.ph = phi i64 [ 2, %sw.bb4 ], [ 4, %sw.bb5 ], [ 8, %sw.bb6 ], [ 8, %sw.bb7 ], [ 8, %sw.bb8 ], [ 4, %sw.bb9 ], [ 8, %sw.bb10 ], [ 2, %sw.bb11 ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ]
   %arrayidx16 = getelementptr i8, ptr %spec.select, i64 1
   %2 = load i8, ptr %arrayidx16, align 1
   %cmp18 = icmp eq i8 %2, 0

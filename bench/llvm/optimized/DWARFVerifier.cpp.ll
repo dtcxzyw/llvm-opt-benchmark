@@ -8077,147 +8077,48 @@ declare { ptr, i64 } @_ZN4llvm5dwarf15AttributeStringEj(i32 noundef) local_unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm5dwarf6isTypeENS0_3TagE(i16 noundef zeroext %0) local_unnamed_addr #0 comdat {
-  switch i16 %0, label %36 [
-    i16 -20476, label %35
+  switch i16 %0, label %3 [
+    i16 -20476, label %2
     i16 1, label %2
-    i16 2, label %3
-    i16 -20477, label %34
-    i16 4, label %4
-    i16 -20478, label %33
-    i16 -20479, label %32
-    i16 17152, label %31
-    i16 75, label %30
-    i16 71, label %29
-    i16 15, label %5
-    i16 16, label %6
-    i16 70, label %28
-    i16 18, label %7
-    i16 19, label %8
-    i16 21, label %9
-    i16 22, label %10
-    i16 23, label %11
-    i16 68, label %27
-    i16 67, label %26
-    i16 66, label %25
-    i16 64, label %24
-    i16 59, label %23
-    i16 56, label %22
-    i16 55, label %21
-    i16 31, label %12
-    i16 32, label %13
-    i16 33, label %14
-    i16 53, label %20
-    i16 49, label %19
-    i16 36, label %15
-    i16 45, label %18
-    i16 38, label %16
-    i16 41, label %17
+    i16 2, label %2
+    i16 -20477, label %2
+    i16 4, label %2
+    i16 -20478, label %2
+    i16 -20479, label %2
+    i16 17152, label %2
+    i16 75, label %2
+    i16 71, label %2
+    i16 15, label %2
+    i16 16, label %2
+    i16 70, label %2
+    i16 18, label %2
+    i16 19, label %2
+    i16 21, label %2
+    i16 22, label %2
+    i16 23, label %2
+    i16 68, label %2
+    i16 67, label %2
+    i16 66, label %2
+    i16 64, label %2
+    i16 59, label %2
+    i16 56, label %2
+    i16 55, label %2
+    i16 31, label %2
+    i16 32, label %2
+    i16 33, label %2
+    i16 53, label %2
+    i16 49, label %2
+    i16 36, label %2
+    i16 45, label %2
+    i16 38, label %2
+    i16 41, label %2
   ]
 
-2:                                                ; preds = %1
-  br label %36
+2:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %3
 
-3:                                                ; preds = %1
-  br label %36
-
-4:                                                ; preds = %1
-  br label %36
-
-5:                                                ; preds = %1
-  br label %36
-
-6:                                                ; preds = %1
-  br label %36
-
-7:                                                ; preds = %1
-  br label %36
-
-8:                                                ; preds = %1
-  br label %36
-
-9:                                                ; preds = %1
-  br label %36
-
-10:                                               ; preds = %1
-  br label %36
-
-11:                                               ; preds = %1
-  br label %36
-
-12:                                               ; preds = %1
-  br label %36
-
-13:                                               ; preds = %1
-  br label %36
-
-14:                                               ; preds = %1
-  br label %36
-
-15:                                               ; preds = %1
-  br label %36
-
-16:                                               ; preds = %1
-  br label %36
-
-17:                                               ; preds = %1
-  br label %36
-
-18:                                               ; preds = %1
-  br label %36
-
-19:                                               ; preds = %1
-  br label %36
-
-20:                                               ; preds = %1
-  br label %36
-
-21:                                               ; preds = %1
-  br label %36
-
-22:                                               ; preds = %1
-  br label %36
-
-23:                                               ; preds = %1
-  br label %36
-
-24:                                               ; preds = %1
-  br label %36
-
-25:                                               ; preds = %1
-  br label %36
-
-26:                                               ; preds = %1
-  br label %36
-
-27:                                               ; preds = %1
-  br label %36
-
-28:                                               ; preds = %1
-  br label %36
-
-29:                                               ; preds = %1
-  br label %36
-
-30:                                               ; preds = %1
-  br label %36
-
-31:                                               ; preds = %1
-  br label %36
-
-32:                                               ; preds = %1
-  br label %36
-
-33:                                               ; preds = %1
-  br label %36
-
-34:                                               ; preds = %1
-  br label %36
-
-35:                                               ; preds = %1
-  br label %36
-
-36:                                               ; preds = %1, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i1 [ true, %35 ], [ true, %34 ], [ true, %33 ], [ true, %32 ], [ true, %31 ], [ true, %30 ], [ true, %29 ], [ true, %28 ], [ true, %27 ], [ true, %26 ], [ true, %25 ], [ true, %24 ], [ true, %23 ], [ true, %22 ], [ true, %21 ], [ true, %20 ], [ true, %19 ], [ true, %18 ], [ true, %17 ], [ true, %16 ], [ true, %15 ], [ true, %14 ], [ true, %13 ], [ true, %12 ], [ true, %11 ], [ true, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ true, %6 ], [ true, %5 ], [ true, %4 ], [ true, %3 ], [ true, %2 ], [ false, %1 ]
+3:                                                ; preds = %1, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %1 ]
   ret i1 %.0
 }
 

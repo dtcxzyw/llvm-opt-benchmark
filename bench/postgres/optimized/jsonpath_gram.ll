@@ -43,11 +43,11 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br label %10
 
-8:                                                ; preds = %768, %772, %74
-  %.1356 = phi ptr [ %75, %74 ], [ %751, %772 ], [ %751, %768 ]
-  %.1347 = phi ptr [ %.2348, %74 ], [ %750, %772 ], [ %750, %768 ]
-  %.1335 = phi i32 [ %70, %74 ], [ %775, %772 ], [ %771, %768 ]
-  %.1 = phi i32 [ -2, %74 ], [ %.7, %772 ], [ %.7, %768 ]
+8:                                                ; preds = %766, %770, %74
+  %.1356 = phi ptr [ %75, %74 ], [ %749, %770 ], [ %749, %766 ]
+  %.1347 = phi ptr [ %.2348, %74 ], [ %748, %770 ], [ %748, %766 ]
+  %.1335 = phi i32 [ %70, %74 ], [ %773, %770 ], [ %769, %766 ]
+  %.1 = phi i32 [ -2, %74 ], [ %.7, %770 ], [ %.7, %766 ]
   %9 = getelementptr i8, ptr %.1347, i64 1
   br label %10
 
@@ -285,24 +285,24 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
     i32 81, label %670
     i32 82, label %671
     i32 83, label %682
-    i32 84, label %684
-    i32 85, label %685
-    i32 86, label %695
-    i32 87, label %697
-    i32 88, label %698
-    i32 124, label %708
-    i32 125, label %711
-    i32 126, label %714
-    i32 127, label %717
-    i32 128, label %720
-    i32 129, label %723
-    i32 130, label %726
-    i32 131, label %729
-    i32 132, label %732
-    i32 133, label %735
-    i32 134, label %738
-    i32 135, label %741
-    i32 136, label %744
+    i32 84, label %670
+    i32 85, label %684
+    i32 86, label %694
+    i32 87, label %670
+    i32 88, label %696
+    i32 124, label %706
+    i32 125, label %709
+    i32 126, label %712
+    i32 127, label %715
+    i32 128, label %718
+    i32 129, label %721
+    i32 130, label %724
+    i32 131, label %727
+    i32 132, label %730
+    i32 133, label %733
+    i32 134, label %736
+    i32 135, label %739
+    i32 136, label %742
   ]
 
 89:                                               ; preds = %81
@@ -1400,14 +1400,14 @@ makeItemBinary.exit494:                           ; preds = %559, %566
 
 570:                                              ; preds = %list_length.exit
   %571 = call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #5
-  br i1 %571, label %572, label %777
+  br i1 %571, label %572, label %775
 
 572:                                              ; preds = %570
   %573 = call i32 @errcode(i32 noundef 16801924) #5
   %574 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
   %575 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.2) #5
   call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef 267, ptr noundef nonnull @__func__.jsonpath_yyparse) #5
-  br label %777
+  br label %775
 
 576:                                              ; preds = %81
   %577 = getelementptr i8, ptr %.2357, i64 -16
@@ -1620,7 +1620,7 @@ makeItemNumeric.exit528:                          ; preds = %648, %651
   %669 = load ptr, ptr %.2357, align 8
   br label %makeItemList.exit
 
-670:                                              ; preds = %81
+670:                                              ; preds = %81, %81, %81
   br label %makeItemList.exit
 
 671:                                              ; preds = %81
@@ -1651,194 +1651,188 @@ makeItemNumeric.exit531:                          ; preds = %671, %674
   br label %makeItemList.exit
 
 684:                                              ; preds = %81
-  br label %makeItemList.exit
+  %685 = call ptr @palloc(i64 noundef 40) #5
+  %686 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i.i532 = icmp eq i32 %686, 0
+  br i1 %.not.i.i532, label %makeItemString.exit535, label %687
 
-685:                                              ; preds = %81
-  %686 = call ptr @palloc(i64 noundef 40) #5
-  %687 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i532 = icmp eq i32 %687, 0
-  br i1 %.not.i.i532, label %makeItemString.exit535, label %688
-
-688:                                              ; preds = %685
+687:                                              ; preds = %684
   call void @ProcessInterrupts() #5
   br label %makeItemString.exit535
 
-makeItemString.exit535:                           ; preds = %685, %688
-  store i32 1, ptr %686, align 8
-  %689 = getelementptr inbounds i8, ptr %686, i64 8
-  store ptr null, ptr %689, align 8
-  %690 = load ptr, ptr %.2357, align 8
-  %691 = getelementptr inbounds i8, ptr %686, i64 16
-  %692 = getelementptr inbounds i8, ptr %686, i64 24
-  store ptr %690, ptr %692, align 8
-  %693 = getelementptr inbounds i8, ptr %.2357, i64 8
-  %694 = load i32, ptr %693, align 8
-  store i32 %694, ptr %691, align 8
+makeItemString.exit535:                           ; preds = %684, %687
+  store i32 1, ptr %685, align 8
+  %688 = getelementptr inbounds i8, ptr %685, i64 8
+  store ptr null, ptr %688, align 8
+  %689 = load ptr, ptr %.2357, align 8
+  %690 = getelementptr inbounds i8, ptr %685, i64 16
+  %691 = getelementptr inbounds i8, ptr %685, i64 24
+  store ptr %689, ptr %691, align 8
+  %692 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %693 = load i32, ptr %692, align 8
+  store i32 %693, ptr %690, align 8
   br label %makeItemList.exit
 
-695:                                              ; preds = %81
-  %696 = load ptr, ptr %.2357, align 8
+694:                                              ; preds = %81
+  %695 = load ptr, ptr %.2357, align 8
   br label %makeItemList.exit
 
-697:                                              ; preds = %81
-  br label %makeItemList.exit
+696:                                              ; preds = %81
+  %697 = call ptr @palloc(i64 noundef 40) #5
+  %698 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i.i.i = icmp eq i32 %698, 0
+  br i1 %.not.i.i.i, label %makeItemKey.exit, label %699
 
-698:                                              ; preds = %81
-  %699 = call ptr @palloc(i64 noundef 40) #5
-  %700 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i.i = icmp eq i32 %700, 0
-  br i1 %.not.i.i.i, label %makeItemKey.exit, label %701
-
-701:                                              ; preds = %698
+699:                                              ; preds = %696
   call void @ProcessInterrupts() #5
   br label %makeItemKey.exit
 
-makeItemKey.exit:                                 ; preds = %698, %701
-  store i32 1, ptr %699, align 8
-  %702 = getelementptr inbounds i8, ptr %699, i64 8
-  store ptr null, ptr %702, align 8
-  %703 = load ptr, ptr %.2357, align 8
-  %704 = getelementptr inbounds i8, ptr %699, i64 16
-  %705 = getelementptr inbounds i8, ptr %699, i64 24
-  store ptr %703, ptr %705, align 8
-  %706 = getelementptr inbounds i8, ptr %.2357, i64 8
-  %707 = load i32, ptr %706, align 8
-  store i32 %707, ptr %704, align 8
-  store i32 25, ptr %699, align 8
+makeItemKey.exit:                                 ; preds = %696, %699
+  store i32 1, ptr %697, align 8
+  %700 = getelementptr inbounds i8, ptr %697, i64 8
+  store ptr null, ptr %700, align 8
+  %701 = load ptr, ptr %.2357, align 8
+  %702 = getelementptr inbounds i8, ptr %697, i64 16
+  %703 = getelementptr inbounds i8, ptr %697, i64 24
+  store ptr %701, ptr %703, align 8
+  %704 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %705 = load i32, ptr %704, align 8
+  store i32 %705, ptr %702, align 8
+  store i32 25, ptr %697, align 8
   br label %makeItemList.exit
 
-708:                                              ; preds = %81
-  %709 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask69 = and i64 %709, -4294967296
+706:                                              ; preds = %81
+  %707 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask69 = and i64 %707, -4294967296
   %.sroa.044.0.insert.insert70 = or disjoint i64 %.sroa.044.0.insert.mask69, 33
-  %710 = inttoptr i64 %.sroa.044.0.insert.insert70 to ptr
+  %708 = inttoptr i64 %.sroa.044.0.insert.insert70 to ptr
   br label %makeItemList.exit
 
-711:                                              ; preds = %81
-  %712 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask72 = and i64 %712, -4294967296
+709:                                              ; preds = %81
+  %710 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask72 = and i64 %710, -4294967296
   %.sroa.044.0.insert.insert73 = or disjoint i64 %.sroa.044.0.insert.mask72, 32
-  %713 = inttoptr i64 %.sroa.044.0.insert.insert73 to ptr
+  %711 = inttoptr i64 %.sroa.044.0.insert.insert73 to ptr
   br label %makeItemList.exit
 
-714:                                              ; preds = %81
-  %715 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask75 = and i64 %715, -4294967296
+712:                                              ; preds = %81
+  %713 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask75 = and i64 %713, -4294967296
   %.sroa.044.0.insert.insert76 = or disjoint i64 %.sroa.044.0.insert.mask75, 31
-  %716 = inttoptr i64 %.sroa.044.0.insert.insert76 to ptr
+  %714 = inttoptr i64 %.sroa.044.0.insert.insert76 to ptr
   br label %makeItemList.exit
 
-717:                                              ; preds = %81
-  %718 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask78 = and i64 %718, -4294967296
+715:                                              ; preds = %81
+  %716 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask78 = and i64 %716, -4294967296
   %.sroa.044.0.insert.insert79 = or disjoint i64 %.sroa.044.0.insert.mask78, 34
-  %719 = inttoptr i64 %.sroa.044.0.insert.insert79 to ptr
+  %717 = inttoptr i64 %.sroa.044.0.insert.insert79 to ptr
   br label %makeItemList.exit
 
-720:                                              ; preds = %81
-  %721 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask81 = and i64 %721, -4294967296
+718:                                              ; preds = %81
+  %719 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask81 = and i64 %719, -4294967296
   %.sroa.044.0.insert.insert82 = or disjoint i64 %.sroa.044.0.insert.mask81, 36
-  %722 = inttoptr i64 %.sroa.044.0.insert.insert82 to ptr
+  %720 = inttoptr i64 %.sroa.044.0.insert.insert82 to ptr
   br label %makeItemList.exit
 
-723:                                              ; preds = %81
-  %724 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask84 = and i64 %724, -4294967296
+721:                                              ; preds = %81
+  %722 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask84 = and i64 %722, -4294967296
   %.sroa.044.0.insert.insert85 = or disjoint i64 %.sroa.044.0.insert.mask84, 35
-  %725 = inttoptr i64 %.sroa.044.0.insert.insert85 to ptr
+  %723 = inttoptr i64 %.sroa.044.0.insert.insert85 to ptr
   br label %makeItemList.exit
 
-726:                                              ; preds = %81
-  %727 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask87 = and i64 %727, -4294967296
+724:                                              ; preds = %81
+  %725 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask87 = and i64 %725, -4294967296
   %.sroa.044.0.insert.insert88 = or disjoint i64 %.sroa.044.0.insert.mask87, 38
-  %728 = inttoptr i64 %.sroa.044.0.insert.insert88 to ptr
+  %726 = inttoptr i64 %.sroa.044.0.insert.insert88 to ptr
   br label %makeItemList.exit
 
-729:                                              ; preds = %81
-  %730 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask90 = and i64 %730, -4294967296
+727:                                              ; preds = %81
+  %728 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask90 = and i64 %728, -4294967296
   %.sroa.044.0.insert.insert91 = or disjoint i64 %.sroa.044.0.insert.mask90, 43
-  %731 = inttoptr i64 %.sroa.044.0.insert.insert91 to ptr
+  %729 = inttoptr i64 %.sroa.044.0.insert.insert91 to ptr
   br label %makeItemList.exit
 
-732:                                              ; preds = %81
-  %733 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask93 = and i64 %733, -4294967296
+730:                                              ; preds = %81
+  %731 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask93 = and i64 %731, -4294967296
   %.sroa.044.0.insert.insert94 = or disjoint i64 %.sroa.044.0.insert.mask93, 44
-  %734 = inttoptr i64 %.sroa.044.0.insert.insert94 to ptr
+  %732 = inttoptr i64 %.sroa.044.0.insert.insert94 to ptr
   br label %makeItemList.exit
 
-735:                                              ; preds = %81
-  %736 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask96 = and i64 %736, -4294967296
+733:                                              ; preds = %81
+  %734 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask96 = and i64 %734, -4294967296
   %.sroa.044.0.insert.insert97 = or disjoint i64 %.sroa.044.0.insert.mask96, 45
-  %737 = inttoptr i64 %.sroa.044.0.insert.insert97 to ptr
+  %735 = inttoptr i64 %.sroa.044.0.insert.insert97 to ptr
   br label %makeItemList.exit
 
-738:                                              ; preds = %81
-  %739 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask99 = and i64 %739, -4294967296
+736:                                              ; preds = %81
+  %737 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask99 = and i64 %737, -4294967296
   %.sroa.044.0.insert.insert100 = or disjoint i64 %.sroa.044.0.insert.mask99, 47
-  %740 = inttoptr i64 %.sroa.044.0.insert.insert100 to ptr
+  %738 = inttoptr i64 %.sroa.044.0.insert.insert100 to ptr
   br label %makeItemList.exit
 
-741:                                              ; preds = %81
-  %742 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask102 = and i64 %742, -4294967296
+739:                                              ; preds = %81
+  %740 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask102 = and i64 %740, -4294967296
   %.sroa.044.0.insert.insert103 = or disjoint i64 %.sroa.044.0.insert.mask102, 48
-  %743 = inttoptr i64 %.sroa.044.0.insert.insert103 to ptr
+  %741 = inttoptr i64 %.sroa.044.0.insert.insert103 to ptr
   br label %makeItemList.exit
 
-744:                                              ; preds = %81
-  %745 = ptrtoint ptr %.sroa.044.0.copyload to i64
-  %.sroa.044.0.insert.mask105 = and i64 %745, -4294967296
+742:                                              ; preds = %81
+  %743 = ptrtoint ptr %.sroa.044.0.copyload to i64
+  %.sroa.044.0.insert.mask105 = and i64 %743, -4294967296
   %.sroa.044.0.insert.insert106 = or disjoint i64 %.sroa.044.0.insert.mask105, 49
-  %746 = inttoptr i64 %.sroa.044.0.insert.insert106 to ptr
+  %744 = inttoptr i64 %.sroa.044.0.insert.insert106 to ptr
   br label %makeItemList.exit
 
-makeItemList.exit:                                ; preds = %.lr.ph27.i, %.lr.ph.i, %makeItemType.exit16.i522, %640, %.lr.ph.i462, %list_length.exit.i, %makeItemType.exit16.i, %350, %.preheader.i, %326, %81, %makeItemBinary.exit484, %makeItemBinary.exit494, %makeItemBinary.exit489, %744, %741, %738, %735, %732, %729, %726, %723, %720, %717, %714, %711, %708, %makeItemKey.exit, %697, %695, %makeItemString.exit535, %684, %682, %makeItemNumeric.exit531, %670, %668, %663, %660, %makeItemNumeric.exit528, %makeItemNumeric.exit517, %makeItemUnary.exit514, %makeItemUnary.exit510, %makeItemUnary.exit506, %makeItemUnary.exit502, %makeItemUnary.exit498, %makeItemUnary.exit480, %makeItemType.exit476, %524, %522, %makeItemType.exit474, %515, %makeAny.exit472, %makeAny.exit469, %makeAny.exit, %482, %477, %makeItemType.exit459, %433, %430, %makeItemBinary.exit457, %makeItemBinary.exit454, %makeItemBinary.exit451, %makeItemBinary.exit448, %makeItemBinary.exit445, %makeItemBinary.exit442, %makeItemBinary.exit439, %359, %343, %321, %316, %311, %308, %makeItemType.exit432, %makeItemType.exit430, %makeItemType.exit, %291, %makeItemVariable.exit428, %makeItemString.exit425, %269, %262, %makeItemBinary.exit421, %makeItemUnary.exit418, %makeItemUnary.exit416, %makeItemBinary.exit414, %makeItemBinary.exit411, %makeItemBinary.exit, %199, %makeItemUnary.exit, %188, %185, %182, %179, %176, %173, %170, %makeItemVariable.exit, %makeItemNumeric.exit404, %makeItemNumeric.exit, %makeItemBool.exit399, %makeItemBool.exit, %makeItemString.exit394, %makeItemString.exit, %108, %105, %102, %100, %98, %97, %89
-  %.sroa.044.0 = phi ptr [ %.sroa.044.0.copyload, %81 ], [ %746, %744 ], [ %743, %741 ], [ %740, %738 ], [ %737, %735 ], [ %734, %732 ], [ %731, %729 ], [ %728, %726 ], [ %725, %723 ], [ %722, %720 ], [ %719, %717 ], [ %716, %714 ], [ %713, %711 ], [ %710, %708 ], [ %699, %makeItemKey.exit ], [ null, %697 ], [ %696, %695 ], [ %686, %makeItemString.exit535 ], [ null, %684 ], [ %683, %682 ], [ %672, %makeItemNumeric.exit531 ], [ null, %670 ], [ %669, %668 ], [ %667, %663 ], [ %662, %660 ], [ %659, %makeItemNumeric.exit528 ], [ %617, %makeItemNumeric.exit517 ], [ %611, %makeItemUnary.exit514 ], [ %603, %makeItemUnary.exit510 ], [ %595, %makeItemUnary.exit506 ], [ %587, %makeItemUnary.exit502 ], [ %579, %makeItemUnary.exit498 ], [ %546, %makeItemBinary.exit484 ], [ %553, %makeItemBinary.exit489 ], [ %564, %makeItemBinary.exit494 ], [ %536, %makeItemUnary.exit480 ], [ %529, %makeItemType.exit476 ], [ %525, %524 ], [ %523, %522 ], [ %518, %makeItemType.exit474 ], [ %516, %515 ], [ %507, %makeAny.exit472 ], [ %495, %makeAny.exit469 ], [ %486, %makeAny.exit ], [ %484, %482 ], [ %481, %477 ], [ %439, %makeItemType.exit459 ], [ %437, %433 ], [ %432, %430 ], [ %424, %makeItemBinary.exit457 ], [ %414, %makeItemBinary.exit454 ], [ %406, %makeItemBinary.exit451 ], [ %396, %makeItemBinary.exit448 ], [ %386, %makeItemBinary.exit445 ], [ %376, %makeItemBinary.exit442 ], [ %366, %makeItemBinary.exit439 ], [ %361, %359 ], [ %345, %343 ], [ %325, %321 ], [ %320, %316 ], [ %315, %311 ], [ %310, %308 ], [ %304, %makeItemType.exit432 ], [ %299, %makeItemType.exit430 ], [ %294, %makeItemType.exit ], [ %292, %291 ], [ %282, %makeItemVariable.exit428 ], [ %272, %makeItemString.exit425 ], [ %270, %269 ], [ %263, %262 ], [ %252, %makeItemBinary.exit421 ], [ %243, %makeItemUnary.exit418 ], [ %235, %makeItemUnary.exit416 ], [ %227, %makeItemBinary.exit414 ], [ %217, %makeItemBinary.exit411 ], [ %207, %makeItemBinary.exit ], [ %200, %199 ], [ %194, %makeItemUnary.exit ], [ %190, %188 ], [ %187, %185 ], [ %184, %182 ], [ %181, %179 ], [ %178, %176 ], [ %175, %173 ], [ %172, %170 ], [ %161, %makeItemVariable.exit ], [ %150, %makeItemNumeric.exit404 ], [ %139, %makeItemNumeric.exit ], [ %133, %makeItemBool.exit399 ], [ %127, %makeItemBool.exit ], [ %122, %makeItemString.exit394 ], [ %112, %makeItemString.exit ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %100 ], [ %99, %98 ], [ %.sroa.044.0.copyload, %97 ], [ %.sroa.044.0.copyload, %89 ], [ %329, %326 ], [ %329, %.preheader.i ], [ %347, %350 ], [ %354, %makeItemType.exit16.i ], [ %446, %list_length.exit.i ], [ %446, %.lr.ph.i462 ], [ %628, %640 ], [ %643, %makeItemType.exit16.i522 ], [ %329, %.lr.ph.i ], [ %446, %.lr.ph27.i ]
-  %747 = sext i8 %84 to i64
-  %748 = sub nsw i64 0, %747
-  %749 = getelementptr %union.YYSTYPE, ptr %.2357, i64 %748
-  %750 = getelementptr i8, ptr %.2348, i64 %748
-  %751 = getelementptr i8, ptr %749, i64 16
-  store ptr %.sroa.044.0, ptr %751, align 8
-  %.sroa.102.0..sroa_idx46 = getelementptr i8, ptr %749, i64 24
+makeItemList.exit:                                ; preds = %.lr.ph27.i, %.lr.ph.i, %makeItemType.exit16.i522, %640, %.lr.ph.i462, %list_length.exit.i, %makeItemType.exit16.i, %350, %.preheader.i, %326, %81, %makeItemBinary.exit484, %makeItemBinary.exit494, %makeItemBinary.exit489, %742, %739, %736, %733, %730, %727, %724, %721, %718, %715, %712, %709, %706, %makeItemKey.exit, %694, %makeItemString.exit535, %682, %makeItemNumeric.exit531, %670, %668, %663, %660, %makeItemNumeric.exit528, %makeItemNumeric.exit517, %makeItemUnary.exit514, %makeItemUnary.exit510, %makeItemUnary.exit506, %makeItemUnary.exit502, %makeItemUnary.exit498, %makeItemUnary.exit480, %makeItemType.exit476, %524, %522, %makeItemType.exit474, %515, %makeAny.exit472, %makeAny.exit469, %makeAny.exit, %482, %477, %makeItemType.exit459, %433, %430, %makeItemBinary.exit457, %makeItemBinary.exit454, %makeItemBinary.exit451, %makeItemBinary.exit448, %makeItemBinary.exit445, %makeItemBinary.exit442, %makeItemBinary.exit439, %359, %343, %321, %316, %311, %308, %makeItemType.exit432, %makeItemType.exit430, %makeItemType.exit, %291, %makeItemVariable.exit428, %makeItemString.exit425, %269, %262, %makeItemBinary.exit421, %makeItemUnary.exit418, %makeItemUnary.exit416, %makeItemBinary.exit414, %makeItemBinary.exit411, %makeItemBinary.exit, %199, %makeItemUnary.exit, %188, %185, %182, %179, %176, %173, %170, %makeItemVariable.exit, %makeItemNumeric.exit404, %makeItemNumeric.exit, %makeItemBool.exit399, %makeItemBool.exit, %makeItemString.exit394, %makeItemString.exit, %108, %105, %102, %100, %98, %97, %89
+  %.sroa.044.0 = phi ptr [ %.sroa.044.0.copyload, %81 ], [ %744, %742 ], [ %741, %739 ], [ %738, %736 ], [ %735, %733 ], [ %732, %730 ], [ %729, %727 ], [ %726, %724 ], [ %723, %721 ], [ %720, %718 ], [ %717, %715 ], [ %714, %712 ], [ %711, %709 ], [ %708, %706 ], [ %697, %makeItemKey.exit ], [ %695, %694 ], [ %685, %makeItemString.exit535 ], [ %683, %682 ], [ %672, %makeItemNumeric.exit531 ], [ null, %670 ], [ %669, %668 ], [ %667, %663 ], [ %662, %660 ], [ %659, %makeItemNumeric.exit528 ], [ %617, %makeItemNumeric.exit517 ], [ %611, %makeItemUnary.exit514 ], [ %603, %makeItemUnary.exit510 ], [ %595, %makeItemUnary.exit506 ], [ %587, %makeItemUnary.exit502 ], [ %579, %makeItemUnary.exit498 ], [ %546, %makeItemBinary.exit484 ], [ %553, %makeItemBinary.exit489 ], [ %564, %makeItemBinary.exit494 ], [ %536, %makeItemUnary.exit480 ], [ %529, %makeItemType.exit476 ], [ %525, %524 ], [ %523, %522 ], [ %518, %makeItemType.exit474 ], [ %516, %515 ], [ %507, %makeAny.exit472 ], [ %495, %makeAny.exit469 ], [ %486, %makeAny.exit ], [ %484, %482 ], [ %481, %477 ], [ %439, %makeItemType.exit459 ], [ %437, %433 ], [ %432, %430 ], [ %424, %makeItemBinary.exit457 ], [ %414, %makeItemBinary.exit454 ], [ %406, %makeItemBinary.exit451 ], [ %396, %makeItemBinary.exit448 ], [ %386, %makeItemBinary.exit445 ], [ %376, %makeItemBinary.exit442 ], [ %366, %makeItemBinary.exit439 ], [ %361, %359 ], [ %345, %343 ], [ %325, %321 ], [ %320, %316 ], [ %315, %311 ], [ %310, %308 ], [ %304, %makeItemType.exit432 ], [ %299, %makeItemType.exit430 ], [ %294, %makeItemType.exit ], [ %292, %291 ], [ %282, %makeItemVariable.exit428 ], [ %272, %makeItemString.exit425 ], [ %270, %269 ], [ %263, %262 ], [ %252, %makeItemBinary.exit421 ], [ %243, %makeItemUnary.exit418 ], [ %235, %makeItemUnary.exit416 ], [ %227, %makeItemBinary.exit414 ], [ %217, %makeItemBinary.exit411 ], [ %207, %makeItemBinary.exit ], [ %200, %199 ], [ %194, %makeItemUnary.exit ], [ %190, %188 ], [ %187, %185 ], [ %184, %182 ], [ %181, %179 ], [ %178, %176 ], [ %175, %173 ], [ %172, %170 ], [ %161, %makeItemVariable.exit ], [ %150, %makeItemNumeric.exit404 ], [ %139, %makeItemNumeric.exit ], [ %133, %makeItemBool.exit399 ], [ %127, %makeItemBool.exit ], [ %122, %makeItemString.exit394 ], [ %112, %makeItemString.exit ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %100 ], [ %99, %98 ], [ %.sroa.044.0.copyload, %97 ], [ %.sroa.044.0.copyload, %89 ], [ %329, %326 ], [ %329, %.preheader.i ], [ %347, %350 ], [ %354, %makeItemType.exit16.i ], [ %446, %list_length.exit.i ], [ %446, %.lr.ph.i462 ], [ %628, %640 ], [ %643, %makeItemType.exit16.i522 ], [ %329, %.lr.ph.i ], [ %446, %.lr.ph27.i ]
+  %745 = sext i8 %84 to i64
+  %746 = sub nsw i64 0, %745
+  %747 = getelementptr %union.YYSTYPE, ptr %.2357, i64 %746
+  %748 = getelementptr i8, ptr %.2348, i64 %746
+  %749 = getelementptr i8, ptr %747, i64 16
+  store ptr %.sroa.044.0, ptr %749, align 8
+  %.sroa.102.0..sroa_idx46 = getelementptr i8, ptr %747, i64 24
   store i64 %88, ptr %.sroa.102.0..sroa_idx46, align 8
-  %752 = getelementptr [137 x i8], ptr @yyr1, i64 0, i64 %82
-  %753 = load i8, ptr %752, align 1
-  %754 = sext i8 %753 to i64
-  %755 = add nsw i64 %754, -68
-  %756 = getelementptr [28 x i16], ptr @yypgoto, i64 0, i64 %755
-  %757 = load i16, ptr %756, align 2
-  %758 = sext i16 %757 to i32
-  %759 = load i8, ptr %750, align 1
-  %760 = zext i8 %759 to i32
-  %761 = add nsw i32 %760, %758
-  %or.cond5 = icmp ult i32 %761, 240
-  br i1 %or.cond5, label %762, label %772
+  %750 = getelementptr [137 x i8], ptr @yyr1, i64 0, i64 %82
+  %751 = load i8, ptr %750, align 1
+  %752 = sext i8 %751 to i64
+  %753 = add nsw i64 %752, -68
+  %754 = getelementptr [28 x i16], ptr @yypgoto, i64 0, i64 %753
+  %755 = load i16, ptr %754, align 2
+  %756 = sext i16 %755 to i32
+  %757 = load i8, ptr %748, align 1
+  %758 = zext i8 %757 to i32
+  %759 = add nsw i32 %758, %756
+  %or.cond5 = icmp ult i32 %759, 240
+  br i1 %or.cond5, label %760, label %770
 
-762:                                              ; preds = %makeItemList.exit
-  %763 = zext nneg i32 %761 to i64
-  %764 = getelementptr [240 x i16], ptr @yycheck, i64 0, i64 %763
-  %765 = load i16, ptr %764, align 2
-  %766 = sext i16 %765 to i32
-  %767 = icmp eq i32 %766, %760
-  br i1 %767, label %768, label %772
+760:                                              ; preds = %makeItemList.exit
+  %761 = zext nneg i32 %759 to i64
+  %762 = getelementptr [240 x i16], ptr @yycheck, i64 0, i64 %761
+  %763 = load i16, ptr %762, align 2
+  %764 = sext i16 %763 to i32
+  %765 = icmp eq i32 %764, %758
+  br i1 %765, label %766, label %770
 
-768:                                              ; preds = %762
-  %769 = getelementptr [240 x i16], ptr @yytable, i64 0, i64 %763
-  %770 = load i16, ptr %769, align 2
-  %771 = sext i16 %770 to i32
+766:                                              ; preds = %760
+  %767 = getelementptr [240 x i16], ptr @yytable, i64 0, i64 %761
+  %768 = load i16, ptr %767, align 2
+  %769 = sext i16 %768 to i32
   br label %8
 
-772:                                              ; preds = %762, %makeItemList.exit
-  %773 = getelementptr [28 x i8], ptr @yydefgoto, i64 0, i64 %755
-  %774 = load i8, ptr %773, align 1
-  %775 = zext i8 %774 to i32
+770:                                              ; preds = %760, %makeItemList.exit
+  %771 = getelementptr [28 x i8], ptr @yydefgoto, i64 0, i64 %753
+  %772 = load i8, ptr %771, align 1
+  %773 = zext i8 %772 to i32
   br label %8
 
 .loopexit539.sink.split:                          ; preds = %14, %20, %76
@@ -1852,14 +1846,14 @@ makeItemList.exit:                                ; preds = %.lr.ph27.i, %.lr.ph
   %.0363 = phi i32 [ %.0363.ph, %.loopexit539.sink.split ], [ 0, %37 ], [ 1, %51 ], [ 1, %31 ], [ 1, %258 ], [ 1, %264 ]
   %.3345 = phi ptr [ %.3345.ph, %.loopexit539.sink.split ], [ %.1343, %37 ], [ %.1343, %51 ], [ %24, %31 ], [ %.1343, %258 ], [ %.1343, %264 ]
   %.not389 = icmp eq ptr %.3345, %4
-  br i1 %.not389, label %777, label %776
+  br i1 %.not389, label %775, label %774
 
-776:                                              ; preds = %.loopexit539
+774:                                              ; preds = %.loopexit539
   call void @pfree(ptr noundef %.3345) #5
-  br label %777
+  br label %775
 
-777:                                              ; preds = %.loopexit539, %776, %572, %570
-  %.0 = phi i32 [ 0, %570 ], [ 0, %572 ], [ %.0363, %776 ], [ %.0363, %.loopexit539 ]
+775:                                              ; preds = %.loopexit539, %774, %572, %570
+  %.0 = phi i32 [ 0, %570 ], [ 0, %572 ], [ %.0363, %774 ], [ %.0363, %.loopexit539 ]
   ret i32 %.0
 }
 

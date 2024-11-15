@@ -54427,8 +54427,8 @@ define hidden void @"_ZN4time18format_description5parse5lexer3lex28_$u7b$$u7b$cl
   store i32 %62, ptr %60, align 8, !alias.scope !14678, !noalias !14683
   %63 = load i8, ptr %54, align 1, !noundef !4
   %.off = add i8 %63, -91
-  %switch206 = icmp ult i8 %.off, 3
-  br i1 %switch206, label %66, label %64
+  %switch205 = icmp ult i8 %.off, 3
+  br i1 %switch205, label %66, label %64
 
 64:                                               ; preds = %58
   %65 = zext i32 %61 to i64
@@ -54462,13 +54462,13 @@ define hidden void @"_ZN4time18format_description5parse5lexer3lex28_$u7b$$u7b$cl
   %77 = getelementptr inbounds i8, ptr %1, i64 72
   %78 = load i8, ptr %77, align 8, !noundef !4
   %79 = icmp eq i8 %78, 0
-  %.205 = select i1 %79, i8 0, i8 2
+  %.206 = select i1 %79, i8 0, i8 2
   br label %80
 
 80:                                               ; preds = %71, %169, %118, %99, %88
   %.sroa.1611.0 = phi i32 [ undef, %118 ], [ undef, %169 ], [ %..sroa.4110.0359, %99 ], [ %..sroa.4110.0359, %88 ], [ undef, %71 ]
   %.sroa.11.0 = phi i8 [ undef, %118 ], [ %.0183, %169 ], [ 1, %99 ], [ 0, %88 ], [ 1, %71 ]
-  %.sroa.010.0 = phi i8 [ 0, %118 ], [ 2, %169 ], [ 1, %99 ], [ 1, %88 ], [ %.205, %71 ]
+  %.sroa.010.0 = phi i8 [ 0, %118 ], [ 2, %169 ], [ 1, %99 ], [ 1, %88 ], [ %.206, %71 ]
   %.sroa.19.sroa.0.0 = phi ptr [ %120, %118 ], [ %171, %169 ], [ undef, %99 ], [ undef, %88 ], [ %74, %71 ]
   %.sroa.19.sroa.8.0 = phi i64 [ %.us-phi291, %118 ], [ %.us-phi253, %169 ], [ undef, %99 ], [ undef, %88 ], [ 1, %71 ]
   %.sroa.19.sroa.9.0 = phi i32 [ %..sroa.4110.0359, %118 ], [ %..sroa.4110.0359, %169 ], [ undef, %99 ], [ undef, %88 ], [ %..sroa.4110.0359, %71 ]

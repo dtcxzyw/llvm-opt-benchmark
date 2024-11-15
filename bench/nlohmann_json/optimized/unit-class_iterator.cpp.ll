@@ -3256,16 +3256,16 @@ invoke.cont699:                                   ; preds = %_ZN8nlohmann16json_
 invoke.cont701:                                   ; preds = %invoke.cont699
   %228 = load i8, ptr %call702, align 8
   %229 = icmp ult i8 %228, 10
-  br i1 %229, label %switch.lookup2220, label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit564
+  br i1 %229, label %switch.lookup2208, label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit564
 
-switch.lookup2220:                                ; preds = %invoke.cont701
+switch.lookup2208:                                ; preds = %invoke.cont701
   %230 = zext nneg i8 %228 to i64
-  %switch.gep2221 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 0, i64 %230
-  %switch.load2222 = load ptr, ptr %switch.gep2221, align 8
+  %switch.gep2209 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 0, i64 %230
+  %switch.load2210 = load ptr, ptr %switch.gep2209, align 8
   br label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit564
 
-_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit564: ; preds = %invoke.cont701, %switch.lookup2220
-  %retval.0.i557 = phi ptr [ %switch.load2222, %switch.lookup2220 ], [ @.str.20, %invoke.cont701 ]
+_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit564: ; preds = %invoke.cont701, %switch.lookup2208
+  %retval.0.i557 = phi ptr [ %switch.load2210, %switch.lookup2208 ], [ @.str.20, %invoke.cont701 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp704) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp700, ptr noundef nonnull %retval.0.i557, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp704)
           to label %invoke.cont708 unwind label %lpad705
@@ -3340,16 +3340,16 @@ invoke.cont729:                                   ; preds = %invoke.cont727
 invoke.cont733:                                   ; preds = %invoke.cont729
   %237 = load i8, ptr %call734, align 8
   %238 = icmp ult i8 %237, 10
-  br i1 %238, label %switch.lookup2223, label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit585
+  br i1 %238, label %switch.lookup2211, label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit585
 
-switch.lookup2223:                                ; preds = %invoke.cont733
+switch.lookup2211:                                ; preds = %invoke.cont733
   %239 = zext nneg i8 %237 to i64
-  %switch.gep2224 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 0, i64 %239
-  %switch.load2225 = load ptr, ptr %switch.gep2224, align 8
+  %switch.gep2212 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 0, i64 %239
+  %switch.load2213 = load ptr, ptr %switch.gep2212, align 8
   br label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit585
 
-_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit585: ; preds = %invoke.cont733, %switch.lookup2223
-  %retval.0.i578 = phi ptr [ %switch.load2225, %switch.lookup2223 ], [ @.str.20, %invoke.cont733 ]
+_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit585: ; preds = %invoke.cont733, %switch.lookup2211
+  %retval.0.i578 = phi ptr [ %switch.load2213, %switch.lookup2211 ], [ @.str.20, %invoke.cont733 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp736) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured731, ptr noundef nonnull %retval.0.i578, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp736)
           to label %invoke.cont738 unwind label %lpad737
@@ -3655,16 +3655,16 @@ invoke.cont855:                                   ; preds = %_ZN8nlohmann16json_
 invoke.cont857:                                   ; preds = %invoke.cont855
   %271 = load i8, ptr %call858, align 8
   %272 = icmp ult i8 %271, 10
-  br i1 %272, label %switch.lookup2226, label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit629
+  br i1 %272, label %switch.lookup2214, label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit629
 
-switch.lookup2226:                                ; preds = %invoke.cont857
+switch.lookup2214:                                ; preds = %invoke.cont857
   %273 = zext nneg i8 %271 to i64
-  %switch.gep2227 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 0, i64 %273
-  %switch.load2228 = load ptr, ptr %switch.gep2227, align 8
+  %switch.gep2215 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 0, i64 %273
+  %switch.load2216 = load ptr, ptr %switch.gep2215, align 8
   br label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit629
 
-_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit629: ; preds = %invoke.cont857, %switch.lookup2226
-  %retval.0.i622 = phi ptr [ %switch.load2228, %switch.lookup2226 ], [ @.str.20, %invoke.cont857 ]
+_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit629: ; preds = %invoke.cont857, %switch.lookup2214
+  %retval.0.i622 = phi ptr [ %switch.load2216, %switch.lookup2214 ], [ @.str.20, %invoke.cont857 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp860) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp856, ptr noundef nonnull %retval.0.i622, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp860)
           to label %invoke.cont864 unwind label %lpad861
@@ -3894,16 +3894,16 @@ invoke.cont934:                                   ; preds = %_ZN8nlohmann16json_
 invoke.cont936:                                   ; preds = %invoke.cont934
   %296 = load i8, ptr %call937, align 8
   %297 = icmp ult i8 %296, 10
-  br i1 %297, label %switch.lookup2229, label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit670
+  br i1 %297, label %switch.lookup2217, label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit670
 
-switch.lookup2229:                                ; preds = %invoke.cont936
+switch.lookup2217:                                ; preds = %invoke.cont936
   %298 = zext nneg i8 %296 to i64
-  %switch.gep2230 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 0, i64 %298
-  %switch.load2231 = load ptr, ptr %switch.gep2230, align 8
+  %switch.gep2218 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 0, i64 %298
+  %switch.load2219 = load ptr, ptr %switch.gep2218, align 8
   br label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit670
 
-_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit670: ; preds = %invoke.cont936, %switch.lookup2229
-  %retval.0.i663 = phi ptr [ %switch.load2231, %switch.lookup2229 ], [ @.str.20, %invoke.cont936 ]
+_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv.exit670: ; preds = %invoke.cont936, %switch.lookup2217
+  %retval.0.i663 = phi ptr [ %switch.load2219, %switch.lookup2217 ], [ @.str.20, %invoke.cont936 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp939) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp935, ptr noundef nonnull %retval.0.i663, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp939)
           to label %invoke.cont943 unwind label %lpad940
@@ -4427,8 +4427,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 arraydestroy.done1169:                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit791
   %354 = load i8, ptr %j1120, align 8, !noalias !75
-  %cond2170 = icmp eq i8 %354, 1
-  br i1 %cond2170, label %sw.bb.i.i798, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit802
+  %cond2188 = icmp eq i8 %354, 1
+  br i1 %cond2188, label %sw.bb.i.i798, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit802
 
 sw.bb.i.i798:                                     ; preds = %arraydestroy.done1169
   %m_value.i.i799 = getelementptr inbounds i8, ptr %j1120, i64 8
@@ -4641,8 +4641,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 arraydestroy.done1277:                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit847
   %378 = load i8, ptr %j1243, align 8, !noalias !81
-  %cond2171 = icmp eq i8 %378, 2
-  br i1 %cond2171, label %sw.bb4.i.i851, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit858
+  %cond2189 = icmp eq i8 %378, 2
+  br i1 %cond2189, label %sw.bb4.i.i851, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit858
 
 sw.bb4.i.i851:                                    ; preds = %arraydestroy.done1277
   %m_value8.i.i852 = getelementptr inbounds i8, ptr %j1243, i64 8
@@ -4677,16 +4677,16 @@ invoke.cont1305:                                  ; preds = %invoke.cont1303
   %m_decomp.i865 = getelementptr inbounds i8, ptr %ref.tmp1286, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i865) #21
   %384 = load i8, ptr %j1243, align 8, !noalias !84
-  %cond2172 = icmp eq i8 %384, 2
-  %spec.select.idx = select i1 %cond2172, i64 16, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %it1285.sroa.28.0, i64 %spec.select.idx
+  %cond2168 = icmp eq i8 %384, 2
+  %it1285.sroa.28.1.idx = select i1 %cond2168, i64 16, i64 0
+  %it1285.sroa.28.1 = getelementptr inbounds i8, ptr %it1285.sroa.28.0, i64 %it1285.sroa.28.1.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1312, i32 noundef 10)
           to label %invoke.cont1325 unwind label %lpad1289
 
 invoke.cont1325:                                  ; preds = %invoke.cont1305
   %385 = load ptr, ptr %m_value1296, align 8
   %386 = load ptr, ptr %385, align 8
-  %cmp.i878 = icmp ne ptr %spec.select, %386
+  %cmp.i878 = icmp ne ptr %it1285.sroa.28.1, %386
   %387 = load i32, ptr %ref.tmp1312, align 4
   %retval.sroa.21.0.insert.ext.i880 = zext i32 %387 to i64
   %retval.sroa.21.0.insert.shift.i881 = shl nuw i64 %retval.sroa.21.0.insert.ext.i880, 32
@@ -4710,7 +4710,7 @@ invoke.cont1347:                                  ; preds = %invoke.cont1329
   %388 = load ptr, ptr %m_value1296, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %388, i64 8
   %389 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i885 = icmp ne ptr %spec.select, %389
+  %cmp.i885 = icmp ne ptr %it1285.sroa.28.1, %389
   %390 = load i32, ptr %ref.tmp1334, align 4
   %retval.sroa.21.0.insert.ext.i887 = zext i32 %390 to i64
   %retval.sroa.21.0.insert.shift.i888 = shl nuw i64 %retval.sroa.21.0.insert.ext.i887, 32
@@ -4728,16 +4728,16 @@ invoke.cont1351:                                  ; preds = %invoke.cont1349
   %m_decomp.i891 = getelementptr inbounds i8, ptr %ref.tmp1332, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i891) #21
   %391 = load i8, ptr %j1243, align 8, !noalias !87
-  %cond2173 = icmp eq i8 %391, 2
-  %spec.select2174.idx = select i1 %cond2173, i64 16, i64 0
-  %spec.select2174 = getelementptr inbounds i8, ptr %spec.select, i64 %spec.select2174.idx
+  %cond2169 = icmp eq i8 %391, 2
+  %it1285.sroa.28.2.idx = select i1 %cond2169, i64 16, i64 0
+  %it1285.sroa.28.2 = getelementptr inbounds i8, ptr %it1285.sroa.28.1, i64 %it1285.sroa.28.2.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1358, i32 noundef 10)
           to label %invoke.cont1371 unwind label %lpad1289
 
 invoke.cont1371:                                  ; preds = %invoke.cont1351
   %392 = load ptr, ptr %m_value1296, align 8
   %393 = load ptr, ptr %392, align 8
-  %cmp.i904 = icmp ne ptr %spec.select2174, %393
+  %cmp.i904 = icmp ne ptr %it1285.sroa.28.2, %393
   %394 = load i32, ptr %ref.tmp1358, align 4
   %retval.sroa.21.0.insert.ext.i906 = zext i32 %394 to i64
   %retval.sroa.21.0.insert.shift.i907 = shl nuw i64 %retval.sroa.21.0.insert.ext.i906, 32
@@ -4761,7 +4761,7 @@ invoke.cont1393:                                  ; preds = %invoke.cont1375
   %395 = load ptr, ptr %m_value1296, align 8
   %_M_finish.i911 = getelementptr inbounds i8, ptr %395, i64 8
   %396 = load ptr, ptr %_M_finish.i911, align 8
-  %cmp.i912 = icmp ne ptr %spec.select2174, %396
+  %cmp.i912 = icmp ne ptr %it1285.sroa.28.2, %396
   %397 = load i32, ptr %ref.tmp1380, align 4
   %retval.sroa.21.0.insert.ext.i914 = zext i32 %397 to i64
   %retval.sroa.21.0.insert.shift.i915 = shl nuw i64 %retval.sroa.21.0.insert.ext.i914, 32
@@ -4779,16 +4779,16 @@ invoke.cont1397:                                  ; preds = %invoke.cont1395
   %m_decomp.i918 = getelementptr inbounds i8, ptr %ref.tmp1378, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i918) #21
   %398 = load i8, ptr %j1243, align 8, !noalias !90
-  %cond2175 = icmp eq i8 %398, 2
-  %spec.select2176.idx = select i1 %cond2175, i64 16, i64 0
-  %spec.select2176 = getelementptr inbounds i8, ptr %spec.select2174, i64 %spec.select2176.idx
+  %cond2170 = icmp eq i8 %398, 2
+  %it1285.sroa.28.3.idx = select i1 %cond2170, i64 16, i64 0
+  %it1285.sroa.28.3 = getelementptr inbounds i8, ptr %it1285.sroa.28.2, i64 %it1285.sroa.28.3.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1404, i32 noundef 10)
           to label %invoke.cont1417 unwind label %lpad1289
 
 invoke.cont1417:                                  ; preds = %invoke.cont1397
   %399 = load ptr, ptr %m_value1296, align 8
   %400 = load ptr, ptr %399, align 8
-  %cmp.i931 = icmp ne ptr %spec.select2176, %400
+  %cmp.i931 = icmp ne ptr %it1285.sroa.28.3, %400
   %401 = load i32, ptr %ref.tmp1404, align 4
   %retval.sroa.21.0.insert.ext.i933 = zext i32 %401 to i64
   %retval.sroa.21.0.insert.shift.i934 = shl nuw i64 %retval.sroa.21.0.insert.ext.i933, 32
@@ -4812,7 +4812,7 @@ invoke.cont1439:                                  ; preds = %invoke.cont1421
   %402 = load ptr, ptr %m_value1296, align 8
   %_M_finish.i938 = getelementptr inbounds i8, ptr %402, i64 8
   %403 = load ptr, ptr %_M_finish.i938, align 8
-  %cmp.i939 = icmp ne ptr %spec.select2176, %403
+  %cmp.i939 = icmp ne ptr %it1285.sroa.28.3, %403
   %404 = load i32, ptr %ref.tmp1426, align 4
   %retval.sroa.21.0.insert.ext.i941 = zext i32 %404 to i64
   %retval.sroa.21.0.insert.shift.i942 = shl nuw i64 %retval.sroa.21.0.insert.ext.i941, 32
@@ -4832,7 +4832,7 @@ invoke.cont1443:                                  ; preds = %invoke.cont1441
   %405 = load i8, ptr %j1243, align 8, !noalias !93
   %cond2147 = icmp eq i8 %405, 2
   %spec.select2152.idx = select i1 %cond2147, i64 16, i64 0
-  %spec.select2152 = getelementptr inbounds i8, ptr %spec.select2176, i64 %spec.select2152.idx
+  %spec.select2152 = getelementptr inbounds i8, ptr %it1285.sroa.28.3, i64 %spec.select2152.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1450, i32 noundef 10)
           to label %invoke.cont1463 unwind label %lpad1289
 
@@ -5186,12 +5186,12 @@ invoke.cont1594:                                  ; preds = %invoke.cont1592
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1041) #21
   %444 = load i8, ptr %j1576, align 8
   %445 = add i8 %444, -3
-  %switch.selectcmp2169 = icmp ult i8 %445, -2
+  %switch.selectcmp2172 = icmp ult i8 %445, -2
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1601, i32 noundef 10)
           to label %invoke.cont1609 unwind label %lpad1582
 
 invoke.cont1609:                                  ; preds = %invoke.cont1594
-  %446 = zext i1 %switch.selectcmp2169 to i64
+  %446 = zext i1 %switch.selectcmp2172 to i64
   %447 = load i32, ptr %ref.tmp1601, align 4
   %retval.sroa.21.0.insert.ext.i1054 = zext i32 %447 to i64
   %retval.sroa.21.0.insert.shift.i1055 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1054, 32
@@ -5214,7 +5214,7 @@ invoke.cont1613:                                  ; preds = %invoke.cont1611
 invoke.cont1634:                                  ; preds = %invoke.cont1613
   %449 = add i8 %448, -3
   %switch2157 = icmp ult i8 %449, -2
-  %450 = and i1 %switch2157, %switch.selectcmp2169
+  %450 = and i1 %switch2157, %switch.selectcmp2172
   %451 = load i32, ptr %ref.tmp1620, align 4
   %retval.sroa.21.0.insert.ext.i1071 = zext i32 %451 to i64
   %retval.sroa.21.0.insert.shift.i1072 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1071, 32
@@ -5381,8 +5381,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 arraydestroy.done1703:                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit1098
   %470 = load i8, ptr %j1654, align 8, !noalias !96
-  %cond2177 = icmp eq i8 %470, 1
-  br i1 %cond2177, label %sw.bb.i.i1105, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit1109
+  %cond2190 = icmp eq i8 %470, 1
+  br i1 %cond2190, label %sw.bb.i.i1105, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit1109
 
 sw.bb.i.i1105:                                    ; preds = %arraydestroy.done1703
   %m_value.i.i1106 = getelementptr inbounds i8, ptr %j1654, i64 8
@@ -5595,8 +5595,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 arraydestroy.done1816:                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit1156
   %494 = load i8, ptr %j1782, align 8, !noalias !99
-  %cond2178 = icmp eq i8 %494, 2
-  br i1 %cond2178, label %sw.bb4.i.i1160, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit1167
+  %cond2191 = icmp eq i8 %494, 2
+  br i1 %cond2191, label %sw.bb4.i.i1160, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit1167
 
 sw.bb4.i.i1160:                                   ; preds = %arraydestroy.done1816
   %m_value8.i.i1161 = getelementptr inbounds i8, ptr %j1782, i64 8
@@ -5631,16 +5631,16 @@ invoke.cont1845:                                  ; preds = %invoke.cont1843
   %m_decomp.i1174 = getelementptr inbounds i8, ptr %ref.tmp1825, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1174) #21
   %500 = load i8, ptr %j1782, align 8
-  %cond2179 = icmp eq i8 %500, 2
-  %spec.select2180.idx = select i1 %cond2179, i64 16, i64 0
-  %spec.select2180 = getelementptr inbounds i8, ptr %it1824.sroa.24.0, i64 %spec.select2180.idx
+  %cond2173 = icmp eq i8 %500, 2
+  %it1824.sroa.24.1.idx = select i1 %cond2173, i64 16, i64 0
+  %it1824.sroa.24.1 = getelementptr inbounds i8, ptr %it1824.sroa.24.0, i64 %it1824.sroa.24.1.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1852, i32 noundef 10)
           to label %invoke.cont1865 unwind label %lpad1828
 
 invoke.cont1865:                                  ; preds = %invoke.cont1845
   %501 = load ptr, ptr %m_value1836, align 8
   %502 = load ptr, ptr %501, align 8
-  %cmp.i1186 = icmp ne ptr %spec.select2180, %502
+  %cmp.i1186 = icmp ne ptr %it1824.sroa.24.1, %502
   %503 = load i32, ptr %ref.tmp1852, align 4
   %retval.sroa.21.0.insert.ext.i1188 = zext i32 %503 to i64
   %retval.sroa.21.0.insert.shift.i1189 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1188, 32
@@ -5664,7 +5664,7 @@ invoke.cont1887:                                  ; preds = %invoke.cont1869
   %504 = load ptr, ptr %m_value1836, align 8
   %_M_finish.i1193 = getelementptr inbounds i8, ptr %504, i64 8
   %505 = load ptr, ptr %_M_finish.i1193, align 8
-  %cmp.i1194 = icmp ne ptr %spec.select2180, %505
+  %cmp.i1194 = icmp ne ptr %it1824.sroa.24.1, %505
   %506 = load i32, ptr %ref.tmp1874, align 4
   %retval.sroa.21.0.insert.ext.i1196 = zext i32 %506 to i64
   %retval.sroa.21.0.insert.shift.i1197 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1196, 32
@@ -5682,16 +5682,16 @@ invoke.cont1891:                                  ; preds = %invoke.cont1889
   %m_decomp.i1200 = getelementptr inbounds i8, ptr %ref.tmp1872, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1200) #21
   %507 = load i8, ptr %j1782, align 8
-  %cond2181 = icmp eq i8 %507, 2
-  %spec.select2182.idx = select i1 %cond2181, i64 16, i64 0
-  %spec.select2182 = getelementptr inbounds i8, ptr %spec.select2180, i64 %spec.select2182.idx
+  %cond2174 = icmp eq i8 %507, 2
+  %it1824.sroa.24.2.idx = select i1 %cond2174, i64 16, i64 0
+  %it1824.sroa.24.2 = getelementptr inbounds i8, ptr %it1824.sroa.24.1, i64 %it1824.sroa.24.2.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1898, i32 noundef 10)
           to label %invoke.cont1911 unwind label %lpad1828
 
 invoke.cont1911:                                  ; preds = %invoke.cont1891
   %508 = load ptr, ptr %m_value1836, align 8
   %509 = load ptr, ptr %508, align 8
-  %cmp.i1212 = icmp ne ptr %spec.select2182, %509
+  %cmp.i1212 = icmp ne ptr %it1824.sroa.24.2, %509
   %510 = load i32, ptr %ref.tmp1898, align 4
   %retval.sroa.21.0.insert.ext.i1214 = zext i32 %510 to i64
   %retval.sroa.21.0.insert.shift.i1215 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1214, 32
@@ -5715,7 +5715,7 @@ invoke.cont1933:                                  ; preds = %invoke.cont1915
   %511 = load ptr, ptr %m_value1836, align 8
   %_M_finish.i1219 = getelementptr inbounds i8, ptr %511, i64 8
   %512 = load ptr, ptr %_M_finish.i1219, align 8
-  %cmp.i1220 = icmp ne ptr %spec.select2182, %512
+  %cmp.i1220 = icmp ne ptr %it1824.sroa.24.2, %512
   %513 = load i32, ptr %ref.tmp1920, align 4
   %retval.sroa.21.0.insert.ext.i1222 = zext i32 %513 to i64
   %retval.sroa.21.0.insert.shift.i1223 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1222, 32
@@ -5733,16 +5733,16 @@ invoke.cont1937:                                  ; preds = %invoke.cont1935
   %m_decomp.i1226 = getelementptr inbounds i8, ptr %ref.tmp1918, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1226) #21
   %514 = load i8, ptr %j1782, align 8
-  %cond2183 = icmp eq i8 %514, 2
-  %spec.select2184.idx = select i1 %cond2183, i64 16, i64 0
-  %spec.select2184 = getelementptr inbounds i8, ptr %spec.select2182, i64 %spec.select2184.idx
+  %cond2175 = icmp eq i8 %514, 2
+  %it1824.sroa.24.3.idx = select i1 %cond2175, i64 16, i64 0
+  %it1824.sroa.24.3 = getelementptr inbounds i8, ptr %it1824.sroa.24.2, i64 %it1824.sroa.24.3.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1944, i32 noundef 10)
           to label %invoke.cont1957 unwind label %lpad1828
 
 invoke.cont1957:                                  ; preds = %invoke.cont1937
   %515 = load ptr, ptr %m_value1836, align 8
   %516 = load ptr, ptr %515, align 8
-  %cmp.i1238 = icmp ne ptr %spec.select2184, %516
+  %cmp.i1238 = icmp ne ptr %it1824.sroa.24.3, %516
   %517 = load i32, ptr %ref.tmp1944, align 4
   %retval.sroa.21.0.insert.ext.i1240 = zext i32 %517 to i64
   %retval.sroa.21.0.insert.shift.i1241 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1240, 32
@@ -5766,7 +5766,7 @@ invoke.cont1979:                                  ; preds = %invoke.cont1961
   %518 = load ptr, ptr %m_value1836, align 8
   %_M_finish.i1245 = getelementptr inbounds i8, ptr %518, i64 8
   %519 = load ptr, ptr %_M_finish.i1245, align 8
-  %cmp.i1246 = icmp ne ptr %spec.select2184, %519
+  %cmp.i1246 = icmp ne ptr %it1824.sroa.24.3, %519
   %520 = load i32, ptr %ref.tmp1966, align 4
   %retval.sroa.21.0.insert.ext.i1248 = zext i32 %520 to i64
   %retval.sroa.21.0.insert.shift.i1249 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1248, 32
@@ -5786,7 +5786,7 @@ invoke.cont1983:                                  ; preds = %invoke.cont1981
   %521 = load i8, ptr %j1782, align 8
   %cond2145 = icmp eq i8 %521, 2
   %spec.select2159.idx = select i1 %cond2145, i64 16, i64 0
-  %spec.select2159 = getelementptr inbounds i8, ptr %spec.select2184, i64 %spec.select2159.idx
+  %spec.select2159 = getelementptr inbounds i8, ptr %it1824.sroa.24.3, i64 %spec.select2159.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1990, i32 noundef 10)
           to label %invoke.cont2003 unwind label %lpad1828
 
@@ -6110,16 +6110,16 @@ invoke.cont2109:                                  ; preds = %invoke.cont2107
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1334) #21
   %556 = load i8, ptr %j2091, align 8, !noalias !102
   %557 = add i8 %556, -3
-  %switch2185 = icmp ult i8 %557, -2
+  %switch2176 = icmp ult i8 %557, -2
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2116, i32 noundef 10)
           to label %invoke.cont2124 unwind label %lpad2097
 
 invoke.cont2124:                                  ; preds = %invoke.cont2109
-  %spec.select2186 = zext i1 %switch2185 to i64
+  %. = zext i1 %switch2176 to i64
   %558 = load i32, ptr %ref.tmp2116, align 4
   %retval.sroa.21.0.insert.ext.i1343 = zext i32 %558 to i64
   %retval.sroa.21.0.insert.shift.i1344 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1343, 32
-  %retval.sroa.0.0.insert.insert.i1346 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1344, %spec.select2186
+  %retval.sroa.0.0.insert.insert.i1346 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1344, %.
   store i64 %retval.sroa.0.0.insert.insert.i1346, ptr %ref.tmp2115, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp2114, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2115)
           to label %invoke.cont2126 unwind label %lpad2097
@@ -6138,7 +6138,7 @@ invoke.cont2128:                                  ; preds = %invoke.cont2126
 invoke.cont2149:                                  ; preds = %invoke.cont2128
   %560 = add i8 %559, -3
   %switch2161 = icmp ult i8 %560, -2
-  %561 = and i1 %switch2185, %switch2161
+  %561 = and i1 %switch2176, %switch2161
   %562 = load i32, ptr %ref.tmp2135, align 4
   %retval.sroa.21.0.insert.ext.i1361 = zext i32 %562 to i64
   %retval.sroa.21.0.insert.shift.i1362 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1361, 32
@@ -6305,11 +6305,11 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 arraydestroy.done2218:                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit1388
   %581 = load i8, ptr %j2169, align 8, !noalias !108
-  %cond2188 = icmp eq i8 %581, 1
+  %cond2192 = icmp eq i8 %581, 1
   %m_value.i.i1396 = getelementptr inbounds i8, ptr %j2169, i64 8
   %582 = load ptr, ptr %m_value.i.i1396, align 8
   %add.ptr.i.i.i.i1397 = getelementptr inbounds i8, ptr %582, i64 8
-  %it2236.sroa.4.0 = select i1 %cond2188, ptr %add.ptr.i.i.i.i1397, ptr null
+  %it2236.sroa.4.0 = select i1 %cond2192, ptr %add.ptr.i.i.i.i1397, ptr null
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2239, i32 noundef 10)
           to label %invoke.cont2253 unwind label %lpad2240
 
@@ -6511,8 +6511,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 arraydestroy.done2331:                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit1447
   %604 = load i8, ptr %j2297, align 8, !noalias !114
-  %cond2189 = icmp eq i8 %604, 2
-  br i1 %cond2189, label %sw.bb4.i.i1450, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit1458
+  %cond2193 = icmp eq i8 %604, 2
+  br i1 %cond2193, label %sw.bb4.i.i1450, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit1458
 
 sw.bb4.i.i1450:                                   ; preds = %arraydestroy.done2331
   %m_value8.i.i1451 = getelementptr inbounds i8, ptr %j2297, i64 8
@@ -6549,16 +6549,16 @@ invoke.cont2360:                                  ; preds = %invoke.cont2358
   %m_decomp.i1466 = getelementptr inbounds i8, ptr %ref.tmp2340, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1466) #21
   %610 = load i8, ptr %j2297, align 8, !noalias !117
-  %cond2190 = icmp eq i8 %610, 2
-  %spec.select2191.idx = select i1 %cond2190, i64 -16, i64 0
-  %spec.select2191 = getelementptr inbounds i8, ptr %it2339.sroa.28.0, i64 %spec.select2191.idx
+  %cond2178 = icmp eq i8 %610, 2
+  %it2339.sroa.28.1.idx = select i1 %cond2178, i64 -16, i64 0
+  %it2339.sroa.28.1 = getelementptr inbounds i8, ptr %it2339.sroa.28.0, i64 %it2339.sroa.28.1.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2367, i32 noundef 10)
           to label %invoke.cont2380 unwind label %lpad2343
 
 invoke.cont2380:                                  ; preds = %invoke.cont2360
   %611 = load ptr, ptr %m_value2351, align 8
   %612 = load ptr, ptr %611, align 8
-  %cmp.i1479 = icmp ne ptr %spec.select2191, %612
+  %cmp.i1479 = icmp ne ptr %it2339.sroa.28.1, %612
   %613 = load i32, ptr %ref.tmp2367, align 4
   %retval.sroa.21.0.insert.ext.i1481 = zext i32 %613 to i64
   %retval.sroa.21.0.insert.shift.i1482 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1481, 32
@@ -6582,7 +6582,7 @@ invoke.cont2402:                                  ; preds = %invoke.cont2384
   %614 = load ptr, ptr %m_value2351, align 8
   %_M_finish.i1486 = getelementptr inbounds i8, ptr %614, i64 8
   %615 = load ptr, ptr %_M_finish.i1486, align 8
-  %cmp.i1487 = icmp ne ptr %spec.select2191, %615
+  %cmp.i1487 = icmp ne ptr %it2339.sroa.28.1, %615
   %616 = load i32, ptr %ref.tmp2389, align 4
   %retval.sroa.21.0.insert.ext.i1489 = zext i32 %616 to i64
   %retval.sroa.21.0.insert.shift.i1490 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1489, 32
@@ -6600,16 +6600,16 @@ invoke.cont2406:                                  ; preds = %invoke.cont2404
   %m_decomp.i1493 = getelementptr inbounds i8, ptr %ref.tmp2387, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1493) #21
   %617 = load i8, ptr %j2297, align 8, !noalias !120
-  %cond2192 = icmp eq i8 %617, 2
-  %spec.select2193.idx = select i1 %cond2192, i64 -16, i64 0
-  %spec.select2193 = getelementptr inbounds i8, ptr %spec.select2191, i64 %spec.select2193.idx
+  %cond2179 = icmp eq i8 %617, 2
+  %it2339.sroa.28.2.idx = select i1 %cond2179, i64 -16, i64 0
+  %it2339.sroa.28.2 = getelementptr inbounds i8, ptr %it2339.sroa.28.1, i64 %it2339.sroa.28.2.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2413, i32 noundef 10)
           to label %invoke.cont2426 unwind label %lpad2343
 
 invoke.cont2426:                                  ; preds = %invoke.cont2406
   %618 = load ptr, ptr %m_value2351, align 8
   %619 = load ptr, ptr %618, align 8
-  %cmp.i1506 = icmp ne ptr %spec.select2193, %619
+  %cmp.i1506 = icmp ne ptr %it2339.sroa.28.2, %619
   %620 = load i32, ptr %ref.tmp2413, align 4
   %retval.sroa.21.0.insert.ext.i1508 = zext i32 %620 to i64
   %retval.sroa.21.0.insert.shift.i1509 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1508, 32
@@ -6633,7 +6633,7 @@ invoke.cont2448:                                  ; preds = %invoke.cont2430
   %621 = load ptr, ptr %m_value2351, align 8
   %_M_finish.i1513 = getelementptr inbounds i8, ptr %621, i64 8
   %622 = load ptr, ptr %_M_finish.i1513, align 8
-  %cmp.i1514 = icmp ne ptr %spec.select2193, %622
+  %cmp.i1514 = icmp ne ptr %it2339.sroa.28.2, %622
   %623 = load i32, ptr %ref.tmp2435, align 4
   %retval.sroa.21.0.insert.ext.i1516 = zext i32 %623 to i64
   %retval.sroa.21.0.insert.shift.i1517 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1516, 32
@@ -6651,16 +6651,16 @@ invoke.cont2452:                                  ; preds = %invoke.cont2450
   %m_decomp.i1520 = getelementptr inbounds i8, ptr %ref.tmp2433, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1520) #21
   %624 = load i8, ptr %j2297, align 8, !noalias !123
-  %cond2194 = icmp eq i8 %624, 2
-  %spec.select2195.idx = select i1 %cond2194, i64 -16, i64 0
-  %spec.select2195 = getelementptr inbounds i8, ptr %spec.select2193, i64 %spec.select2195.idx
+  %cond2180 = icmp eq i8 %624, 2
+  %it2339.sroa.28.3.idx = select i1 %cond2180, i64 -16, i64 0
+  %it2339.sroa.28.3 = getelementptr inbounds i8, ptr %it2339.sroa.28.2, i64 %it2339.sroa.28.3.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2459, i32 noundef 10)
           to label %invoke.cont2472 unwind label %lpad2343
 
 invoke.cont2472:                                  ; preds = %invoke.cont2452
   %625 = load ptr, ptr %m_value2351, align 8
   %626 = load ptr, ptr %625, align 8
-  %cmp.i1533 = icmp ne ptr %spec.select2195, %626
+  %cmp.i1533 = icmp ne ptr %it2339.sroa.28.3, %626
   %627 = load i32, ptr %ref.tmp2459, align 4
   %retval.sroa.21.0.insert.ext.i1535 = zext i32 %627 to i64
   %retval.sroa.21.0.insert.shift.i1536 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1535, 32
@@ -6684,7 +6684,7 @@ invoke.cont2494:                                  ; preds = %invoke.cont2476
   %628 = load ptr, ptr %m_value2351, align 8
   %_M_finish.i1540 = getelementptr inbounds i8, ptr %628, i64 8
   %629 = load ptr, ptr %_M_finish.i1540, align 8
-  %cmp.i1541 = icmp ne ptr %spec.select2195, %629
+  %cmp.i1541 = icmp ne ptr %it2339.sroa.28.3, %629
   %630 = load i32, ptr %ref.tmp2481, align 4
   %retval.sroa.21.0.insert.ext.i1543 = zext i32 %630 to i64
   %retval.sroa.21.0.insert.shift.i1544 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1543, 32
@@ -6704,7 +6704,7 @@ invoke.cont2498:                                  ; preds = %invoke.cont2496
   %631 = load i8, ptr %j2297, align 8, !noalias !126
   %cond2143 = icmp eq i8 %631, 2
   %spec.select2163.idx = select i1 %cond2143, i64 -16, i64 0
-  %spec.select2163 = getelementptr inbounds i8, ptr %spec.select2195, i64 %spec.select2163.idx
+  %spec.select2163 = getelementptr inbounds i8, ptr %it2339.sroa.28.3, i64 %spec.select2163.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2505, i32 noundef 10)
           to label %invoke.cont2518 unwind label %lpad2343
 
@@ -7028,16 +7028,16 @@ invoke.cont2624:                                  ; preds = %invoke.cont2622
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1630) #21
   %666 = load i8, ptr %j2606, align 8
   %667 = add i8 %666, -3
-  %switch2197 = icmp ult i8 %667, -2
+  %switch2182 = icmp ult i8 %667, -2
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2631, i32 noundef 10)
           to label %invoke.cont2639 unwind label %lpad2612
 
 invoke.cont2639:                                  ; preds = %invoke.cont2624
-  %spec.select2198 = zext i1 %switch2197 to i64
+  %.2183 = zext i1 %switch2182 to i64
   %668 = load i32, ptr %ref.tmp2631, align 4
   %retval.sroa.21.0.insert.ext.i1638 = zext i32 %668 to i64
   %retval.sroa.21.0.insert.shift.i1639 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1638, 32
-  %retval.sroa.0.0.insert.insert.i1641 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1639, %spec.select2198
+  %retval.sroa.0.0.insert.insert.i1641 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1639, %.2183
   store i64 %retval.sroa.0.0.insert.insert.i1641, ptr %ref.tmp2630, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp2629, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2630)
           to label %invoke.cont2641 unwind label %lpad2612
@@ -7056,7 +7056,7 @@ invoke.cont2643:                                  ; preds = %invoke.cont2641
 invoke.cont2664:                                  ; preds = %invoke.cont2643
   %670 = add i8 %669, -3
   %switch2165 = icmp ult i8 %670, -2
-  %671 = and i1 %switch2197, %switch2165
+  %671 = and i1 %switch2182, %switch2165
   %672 = load i32, ptr %ref.tmp2650, align 4
   %retval.sroa.21.0.insert.ext.i1655 = zext i32 %672 to i64
   %retval.sroa.21.0.insert.shift.i1656 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1655, 32
@@ -7223,11 +7223,11 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 arraydestroy.done2733:                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit1682
   %691 = load i8, ptr %j2684, align 8, !noalias !129
-  %cond2200 = icmp eq i8 %691, 1
+  %cond2194 = icmp eq i8 %691, 1
   %m_value.i.i1690 = getelementptr inbounds i8, ptr %j2684, i64 8
   %692 = load ptr, ptr %m_value.i.i1690, align 8
   %add.ptr.i.i.i.i1691 = getelementptr inbounds i8, ptr %692, i64 8
-  %it2751.sroa.4.0 = select i1 %cond2200, ptr %add.ptr.i.i.i.i1691, ptr null
+  %it2751.sroa.4.0 = select i1 %cond2194, ptr %add.ptr.i.i.i.i1691, ptr null
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2754, i32 noundef 10)
           to label %invoke.cont2768 unwind label %lpad2755
 
@@ -7429,8 +7429,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 arraydestroy.done2846:                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev.exit1740
   %714 = load i8, ptr %j2812, align 8, !noalias !132
-  %cond2201 = icmp eq i8 %714, 2
-  br i1 %cond2201, label %sw.bb4.i.i1743, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit1751
+  %cond2195 = icmp eq i8 %714, 2
+  br i1 %cond2195, label %sw.bb4.i.i1743, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit1751
 
 sw.bb4.i.i1743:                                   ; preds = %arraydestroy.done2846
   %m_value8.i.i1744 = getelementptr inbounds i8, ptr %j2812, i64 8
@@ -7467,16 +7467,16 @@ invoke.cont2875:                                  ; preds = %invoke.cont2873
   %m_decomp.i1759 = getelementptr inbounds i8, ptr %ref.tmp2855, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1759) #21
   %720 = load i8, ptr %j2812, align 8
-  %cond2202 = icmp eq i8 %720, 2
-  %spec.select2203.idx = select i1 %cond2202, i64 -16, i64 0
-  %spec.select2203 = getelementptr inbounds i8, ptr %it2854.sroa.24.0, i64 %spec.select2203.idx
+  %cond2185 = icmp eq i8 %720, 2
+  %it2854.sroa.24.1.idx = select i1 %cond2185, i64 -16, i64 0
+  %it2854.sroa.24.1 = getelementptr inbounds i8, ptr %it2854.sroa.24.0, i64 %it2854.sroa.24.1.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2882, i32 noundef 10)
           to label %invoke.cont2895 unwind label %lpad2858
 
 invoke.cont2895:                                  ; preds = %invoke.cont2875
   %721 = load ptr, ptr %m_value2866, align 8
   %722 = load ptr, ptr %721, align 8
-  %cmp.i1771 = icmp ne ptr %spec.select2203, %722
+  %cmp.i1771 = icmp ne ptr %it2854.sroa.24.1, %722
   %723 = load i32, ptr %ref.tmp2882, align 4
   %retval.sroa.21.0.insert.ext.i1773 = zext i32 %723 to i64
   %retval.sroa.21.0.insert.shift.i1774 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1773, 32
@@ -7500,7 +7500,7 @@ invoke.cont2917:                                  ; preds = %invoke.cont2899
   %724 = load ptr, ptr %m_value2866, align 8
   %_M_finish.i1778 = getelementptr inbounds i8, ptr %724, i64 8
   %725 = load ptr, ptr %_M_finish.i1778, align 8
-  %cmp.i1779 = icmp ne ptr %spec.select2203, %725
+  %cmp.i1779 = icmp ne ptr %it2854.sroa.24.1, %725
   %726 = load i32, ptr %ref.tmp2904, align 4
   %retval.sroa.21.0.insert.ext.i1781 = zext i32 %726 to i64
   %retval.sroa.21.0.insert.shift.i1782 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1781, 32
@@ -7518,16 +7518,16 @@ invoke.cont2921:                                  ; preds = %invoke.cont2919
   %m_decomp.i1785 = getelementptr inbounds i8, ptr %ref.tmp2902, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1785) #21
   %727 = load i8, ptr %j2812, align 8
-  %cond2204 = icmp eq i8 %727, 2
-  %spec.select2205.idx = select i1 %cond2204, i64 -16, i64 0
-  %spec.select2205 = getelementptr inbounds i8, ptr %spec.select2203, i64 %spec.select2205.idx
+  %cond2186 = icmp eq i8 %727, 2
+  %it2854.sroa.24.2.idx = select i1 %cond2186, i64 -16, i64 0
+  %it2854.sroa.24.2 = getelementptr inbounds i8, ptr %it2854.sroa.24.1, i64 %it2854.sroa.24.2.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2928, i32 noundef 10)
           to label %invoke.cont2941 unwind label %lpad2858
 
 invoke.cont2941:                                  ; preds = %invoke.cont2921
   %728 = load ptr, ptr %m_value2866, align 8
   %729 = load ptr, ptr %728, align 8
-  %cmp.i1797 = icmp ne ptr %spec.select2205, %729
+  %cmp.i1797 = icmp ne ptr %it2854.sroa.24.2, %729
   %730 = load i32, ptr %ref.tmp2928, align 4
   %retval.sroa.21.0.insert.ext.i1799 = zext i32 %730 to i64
   %retval.sroa.21.0.insert.shift.i1800 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1799, 32
@@ -7551,7 +7551,7 @@ invoke.cont2963:                                  ; preds = %invoke.cont2945
   %731 = load ptr, ptr %m_value2866, align 8
   %_M_finish.i1804 = getelementptr inbounds i8, ptr %731, i64 8
   %732 = load ptr, ptr %_M_finish.i1804, align 8
-  %cmp.i1805 = icmp ne ptr %spec.select2205, %732
+  %cmp.i1805 = icmp ne ptr %it2854.sroa.24.2, %732
   %733 = load i32, ptr %ref.tmp2950, align 4
   %retval.sroa.21.0.insert.ext.i1807 = zext i32 %733 to i64
   %retval.sroa.21.0.insert.shift.i1808 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1807, 32
@@ -7569,16 +7569,16 @@ invoke.cont2967:                                  ; preds = %invoke.cont2965
   %m_decomp.i1811 = getelementptr inbounds i8, ptr %ref.tmp2948, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i1811) #21
   %734 = load i8, ptr %j2812, align 8
-  %cond2206 = icmp eq i8 %734, 2
-  %spec.select2207.idx = select i1 %cond2206, i64 -16, i64 0
-  %spec.select2207 = getelementptr inbounds i8, ptr %spec.select2205, i64 %spec.select2207.idx
+  %cond2187 = icmp eq i8 %734, 2
+  %it2854.sroa.24.3.idx = select i1 %cond2187, i64 -16, i64 0
+  %it2854.sroa.24.3 = getelementptr inbounds i8, ptr %it2854.sroa.24.2, i64 %it2854.sroa.24.3.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2974, i32 noundef 10)
           to label %invoke.cont2987 unwind label %lpad2858
 
 invoke.cont2987:                                  ; preds = %invoke.cont2967
   %735 = load ptr, ptr %m_value2866, align 8
   %736 = load ptr, ptr %735, align 8
-  %cmp.i1823 = icmp ne ptr %spec.select2207, %736
+  %cmp.i1823 = icmp ne ptr %it2854.sroa.24.3, %736
   %737 = load i32, ptr %ref.tmp2974, align 4
   %retval.sroa.21.0.insert.ext.i1825 = zext i32 %737 to i64
   %retval.sroa.21.0.insert.shift.i1826 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1825, 32
@@ -7602,7 +7602,7 @@ invoke.cont3009:                                  ; preds = %invoke.cont2991
   %738 = load ptr, ptr %m_value2866, align 8
   %_M_finish.i1830 = getelementptr inbounds i8, ptr %738, i64 8
   %739 = load ptr, ptr %_M_finish.i1830, align 8
-  %cmp.i1831 = icmp ne ptr %spec.select2207, %739
+  %cmp.i1831 = icmp ne ptr %it2854.sroa.24.3, %739
   %740 = load i32, ptr %ref.tmp2996, align 4
   %retval.sroa.21.0.insert.ext.i1833 = zext i32 %740 to i64
   %retval.sroa.21.0.insert.shift.i1834 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1833, 32
@@ -7622,7 +7622,7 @@ invoke.cont3013:                                  ; preds = %invoke.cont3011
   %741 = load i8, ptr %j2812, align 8
   %cond = icmp eq i8 %741, 2
   %spec.select2167.idx = select i1 %cond, i64 -16, i64 0
-  %spec.select2167 = getelementptr inbounds i8, ptr %spec.select2207, i64 %spec.select2167.idx
+  %spec.select2167 = getelementptr inbounds i8, ptr %it2854.sroa.24.3, i64 %spec.select2167.idx
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3020, i32 noundef 10)
           to label %invoke.cont3033 unwind label %lpad2858
 

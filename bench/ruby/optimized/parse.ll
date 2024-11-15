@@ -47551,11 +47551,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr102 = phi i32 [ %1, %2 ], [ %7, %tailrecurse.backedge ]
   %8 = tail call fastcc i32 @nextc0(ptr noundef %0, i32 noundef 1)
   switch i32 %8, label %127 [
-    i32 92, label %.loopexit
+    i32 -1, label %.loopexit103
     i32 110, label %.loopexit161
     i32 116, label %.loopexit219
     i32 114, label %.loopexit277
-    i32 102, label %.loopexit335
+    i32 102, label %.loopexit
     i32 118, label %128
     i32 97, label %9
     i32 101, label %10
@@ -47573,7 +47573,6 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 77, label %40
     i32 67, label %67
     i32 99, label %70
-    i32 -1, label %.loopexit103
   ]
 
 9:                                                ; preds = %tailrecurse
@@ -47843,9 +47842,6 @@ parser_yyerror0.exit:                             ; preds = %.loopexit103, %122
 127:                                              ; preds = %tailrecurse
   br label %128
 
-.loopexit:                                        ; preds = %tailrecurse
-  br label %128
-
 .loopexit161:                                     ; preds = %tailrecurse
   br label %128
 
@@ -47855,11 +47851,11 @@ parser_yyerror0.exit:                             ; preds = %.loopexit103, %122
 .loopexit277:                                     ; preds = %tailrecurse
   br label %128
 
-.loopexit335:                                     ; preds = %tailrecurse
+.loopexit:                                        ; preds = %tailrecurse
   br label %128
 
-128:                                              ; preds = %tailrecurse, %.loopexit335, %.loopexit277, %.loopexit219, %.loopexit161, %.loopexit, %71, %34, %127, %parser_yyerror0.exit, %101, %65, %39, %38, %pushback.exit, %10, %9
-  %.0 = phi i32 [ %8, %127 ], [ 0, %parser_yyerror0.exit ], [ %102, %101 ], [ %66, %65 ], [ 32, %39 ], [ 8, %38 ], [ %30, %pushback.exit ], [ 27, %10 ], [ 7, %9 ], [ %., %34 ], [ 127, %71 ], [ %8, %.loopexit ], [ 10, %.loopexit161 ], [ 9, %.loopexit219 ], [ 13, %.loopexit277 ], [ 12, %.loopexit335 ], [ 11, %tailrecurse ]
+128:                                              ; preds = %tailrecurse, %.loopexit, %.loopexit277, %.loopexit219, %.loopexit161, %71, %34, %127, %parser_yyerror0.exit, %101, %65, %39, %38, %pushback.exit, %10, %9
+  %.0 = phi i32 [ %8, %127 ], [ 0, %parser_yyerror0.exit ], [ %102, %101 ], [ %66, %65 ], [ 32, %39 ], [ 8, %38 ], [ %30, %pushback.exit ], [ 27, %10 ], [ 7, %9 ], [ %., %34 ], [ 127, %71 ], [ 10, %.loopexit161 ], [ 9, %.loopexit219 ], [ 13, %.loopexit277 ], [ 12, %.loopexit ], [ 11, %tailrecurse ]
   %accumulator.ret.tr = or i32 %.0, %accumulator.tr
   ret i32 %accumulator.ret.tr
 }

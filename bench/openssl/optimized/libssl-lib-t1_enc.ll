@@ -661,8 +661,8 @@ entry:
     i32 21, label %return
     i32 22, label %return
     i32 30, label %return
-    i32 40, label %return
-    i32 41, label %sw.bb7
+    i32 40, label %sw.bb6
+    i32 109, label %sw.bb6
     i32 42, label %return
     i32 43, label %return
     i32 44, label %return
@@ -687,24 +687,17 @@ entry:
     i32 115, label %return
     i32 86, label %return
     i32 120, label %return
-    i32 116, label %sw.bb32
-    i32 109, label %sw.bb33
+    i32 116, label %sw.bb6
   ]
 
-sw.bb7:                                           ; preds = %entry
-  br label %return
-
-sw.bb32:                                          ; preds = %entry
-  br label %return
-
-sw.bb33:                                          ; preds = %entry
+sw.bb6:                                           ; preds = %entry, %entry, %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.default, %sw.bb33, %sw.bb32, %sw.bb7
-  %retval.0 = phi i32 [ -1, %sw.default ], [ 40, %sw.bb33 ], [ 40, %sw.bb32 ], [ -1, %sw.bb7 ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ]
+return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.default, %sw.bb6
+  %retval.0 = phi i32 [ -1, %sw.default ], [ 40, %sw.bb6 ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ], [ %code, %entry ]
   ret i32 %retval.0
 }
 

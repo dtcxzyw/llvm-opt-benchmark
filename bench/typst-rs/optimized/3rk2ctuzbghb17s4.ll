@@ -101949,8 +101949,8 @@ define noundef i8 @_ZN5typst6layout5align9Alignment1x17h2d1e9aa6d2f37f4dE(i16 %0
   %.sroa.4.0.extract.trunc = trunc nuw i16 %.sroa.4.0.extract.shift to i8
   %2 = and i16 %0, 255
   %switch = icmp eq i16 %2, 4
-  %spec.select = select i1 %switch, i8 5, i8 %.sroa.4.0.extract.trunc
-  ret i8 %spec.select
+  %.04 = select i1 %switch, i8 5, i8 %.sroa.4.0.extract.trunc
+  ret i8 %.04
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -101987,9 +101987,9 @@ switch.lookup:
   %.sroa.4.0.extract.trunc.i = trunc nuw i16 %.sroa.4.0.extract.shift.i to i8
   %2 = and i16 %0, 255
   %switch.i = icmp eq i16 %2, 4
-  %spec.select.i = select i1 %switch.i, i8 5, i8 %.sroa.4.0.extract.trunc.i
-  %3 = icmp eq i8 %spec.select.i, 5
-  %. = select i1 %3, i8 0, i8 %spec.select.i
+  %.04.i = select i1 %switch.i, i8 5, i8 %.sroa.4.0.extract.trunc.i
+  %3 = icmp eq i8 %.04.i, 5
+  %. = select i1 %3, i8 0, i8 %.04.i
   %switch.idx.cast = trunc i8 %1 to i1
   switch i8 %., label %4 [
     i8 0, label %5
@@ -102035,16 +102035,16 @@ default.unreachable:                              ; preds = %"_ZN87_$LT$typst..l
   br label %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit
 
 _ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit: ; preds = %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit", %11
-  %.04.i = phi i8 [ %.sroa.02.0.extract.trunc.i, %11 ], [ %.sroa.4.0.extract.trunc.i, %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit" ]
-  %.04.i.fr = freeze i8 %.04.i
-  %12 = icmp eq i8 %.04.i.fr, 3
+  %.04.i13 = phi i8 [ %.sroa.02.0.extract.trunc.i, %11 ], [ %.sroa.4.0.extract.trunc.i, %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit" ]
+  %.04.i13.fr = freeze i8 %.04.i13
+  %12 = icmp eq i8 %.04.i13.fr, 3
   br i1 %12, label %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread, label %13
 
 _ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread: ; preds = %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit", %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit
   br label %13
 
 13:                                               ; preds = %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread
-  %14 = phi i8 [ 0, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread ], [ %.04.i.fr, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit ]
+  %14 = phi i8 [ 0, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread ], [ %.04.i13.fr, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit ]
   %15 = insertvalue { i8, i8 } poison, i8 %.0.i, 0
   %16 = insertvalue { i8, i8 } %15, i8 %14, 1
   ret { i8, i8 } %16
@@ -102842,9 +102842,9 @@ _ZN5typst11foundations6styles10StyleChain3get17h88ecd0bba392819bE.exit.i: ; pred
   %.sroa.4.0.extract.trunc.i.i = trunc nuw i16 %.sroa.4.0.extract.shift.i.i to i8
   %14 = and i16 %0, 255
   %switch.i.i = icmp eq i16 %14, 4
-  %spec.select.i.i = select i1 %switch.i.i, i8 5, i8 %.sroa.4.0.extract.trunc.i.i
-  %15 = icmp eq i8 %spec.select.i.i, 5
-  %..i = select i1 %15, i8 0, i8 %spec.select.i.i
+  %.04.i.i = select i1 %switch.i.i, i8 5, i8 %.sroa.4.0.extract.trunc.i.i
+  %15 = icmp eq i8 %.04.i.i, 5
+  %..i = select i1 %15, i8 0, i8 %.04.i.i
   %switch.idx.cast = trunc i8 %.0.i.i to i1
   switch i8 %..i, label %16 [
     i8 0, label %17
@@ -102890,16 +102890,16 @@ default.unreachable:                              ; preds = %"_ZN87_$LT$typst..l
   br label %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i
 
 _ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i: ; preds = %23, %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i"
-  %.04.i.i = phi i8 [ %.sroa.02.0.extract.trunc.i.i, %23 ], [ %.sroa.4.0.extract.trunc.i.i, %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i" ]
-  %.04.i.fr.i = freeze i8 %.04.i.i
-  %24 = icmp eq i8 %.04.i.fr.i, 3
+  %.04.i13.i = phi i8 [ %.sroa.02.0.extract.trunc.i.i, %23 ], [ %.sroa.4.0.extract.trunc.i.i, %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i" ]
+  %.04.i13.fr.i = freeze i8 %.04.i13.i
+  %24 = icmp eq i8 %.04.i13.fr.i, 3
   br i1 %24, label %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread.i, label %_ZN5typst6layout5align9Alignment3fix17h286824a91b28e67aE.exit
 
 _ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread.i: ; preds = %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i, %"_ZN87_$LT$typst..layout..align..HAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h0573f6eb3b097ab6E.exit.i"
   br label %_ZN5typst6layout5align9Alignment3fix17h286824a91b28e67aE.exit
 
 _ZN5typst6layout5align9Alignment3fix17h286824a91b28e67aE.exit: ; preds = %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread.i
-  %25 = phi i8 [ 0, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread.i ], [ %.04.i.fr.i, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i ]
+  %25 = phi i8 [ 0, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.thread.i ], [ %.04.i13.fr.i, %_ZN5typst6layout5align9Alignment1y17h1969e9edbe648b86E.exit.i ]
   %26 = insertvalue { i8, i8 } poison, i8 %.0.i.i1, 0
   %27 = insertvalue { i8, i8 } %26, i8 %25, 1
   ret { i8, i8 } %27
@@ -103872,12 +103872,9 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 3) i8 @"_ZN110_$LT$typst..layout..align..FixedAlignment$u20$as$u20$core..convert..From$LT$typst..layout..sides..Side$GT$$GT$4from17h4ff2d69f4032535aE"(i8 noundef %0) unnamed_addr #9 {
-switch.lookup:
-  %switch.cast = zext i8 %0 to i32
-  %switch.shiftamt = shl nuw nsw i32 %switch.cast, 3
-  %switch.downshift = lshr i32 33685504, %switch.shiftamt
-  %switch.masked = trunc i32 %switch.downshift to i8
-  ret i8 %switch.masked
+  %switch = icmp ult i8 %0, 2
+  %. = select i1 %switch, i8 0, i8 2
+  ret i8 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -125488,23 +125485,20 @@ define noundef nonnull align 8 ptr @"_ZN5typst4math6accent1_104_$LT$impl$u20$typ
 define noundef zeroext i1 @"_ZN5typst4math6accent1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..math..accent..AccentElem$GT$3has17haee5c6e78c2534c4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, i8 noundef %1) unnamed_addr #58 {
   switch i8 %1, label %"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit.thread5" [
     i8 0, label %3
-    i8 1, label %4
+    i8 1, label %3
     i8 2, label %"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit"
   ]
 
-3:                                                ; preds = %2
-  br label %"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit.thread5"
-
-4:                                                ; preds = %2
+3:                                                ; preds = %2, %2
   br label %"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit.thread5"
 
 "_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit": ; preds = %2
-  %5 = load i64, ptr %0, align 8, !range !973, !noundef !12
-  %6 = icmp ne i64 %5, 2
+  %4 = load i64, ptr %0, align 8, !range !973, !noundef !12
+  %5 = icmp ne i64 %4, 2
   br label %"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit.thread5"
 
-"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit.thread5": ; preds = %2, %3, %4, %"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit"
-  %.0 = phi i1 [ %6, %"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit" ], [ true, %4 ], [ true, %3 ], [ false, %2 ]
+"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit.thread5": ; preds = %2, %3, %"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit"
+  %.0 = phi i1 [ %5, %"_ZN83_$LT$typst..math..accent.._..Fields$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17h542c1975ed85bc31E.exit" ], [ true, %3 ], [ false, %2 ]
   ret i1 %.0
 }
 

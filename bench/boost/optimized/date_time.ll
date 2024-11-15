@@ -2285,24 +2285,24 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale8impl_icu13calendar_imp
   %6 = alloca %"class.boost::unique_lock", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #29
   store i32 0, ptr %4, align 4, !tbaa !58
-  switch i32 %1, label %45 [
+  switch i32 %1, label %42 [
     i32 17, label %7
     i32 1, label %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
     i32 2, label %30
     i32 3, label %31
     i32 4, label %32
     i32 5, label %33
-    i32 6, label %34
-    i32 7, label %35
-    i32 8, label %36
-    i32 9, label %37
-    i32 10, label %38
-    i32 11, label %39
-    i32 12, label %40
-    i32 13, label %41
-    i32 14, label %42
-    i32 15, label %43
-    i32 16, label %44
+    i32 6, label %33
+    i32 7, label %33
+    i32 8, label %33
+    i32 9, label %34
+    i32 10, label %35
+    i32 11, label %36
+    i32 12, label %37
+    i32 13, label %38
+    i32 14, label %39
+    i32 15, label %40
+    i32 16, label %41
   ]
 
 7:                                                ; preds = %3
@@ -2333,7 +2333,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale8impl_icu13calendar_imp
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %18, %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
-  br label %89
+  br label %86
 
 21:                                               ; preds = %7
   %22 = landingpad { ptr, i32 }
@@ -2353,7 +2353,7 @@ _ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %18, %13
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit17:    ; preds = %27, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
-  br label %90
+  br label %87
 
 30:                                               ; preds = %3
   br label %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
@@ -2364,7 +2364,7 @@ _ZN5boost11unique_lockINS_5mutexEED2Ev.exit17:    ; preds = %27, %21
 32:                                               ; preds = %3
   br label %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
 
-33:                                               ; preds = %3
+33:                                               ; preds = %3, %3, %3, %3
   br label %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
 
 34:                                               ; preds = %3
@@ -2392,136 +2392,127 @@ _ZN5boost11unique_lockINS_5mutexEED2Ev.exit17:    ; preds = %27, %21
   br label %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
 
 42:                                               ; preds = %3
-  br label %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
+  %43 = tail call ptr @__cxa_allocate_exception(i64 16) #29
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull @.str.20)
+          to label %44 unwind label %45
 
-43:                                               ; preds = %3
-  br label %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
-
-44:                                               ; preds = %3
-  br label %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
-
-45:                                               ; preds = %3
-  %46 = tail call ptr @__cxa_allocate_exception(i64 16) #29
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull @.str.20)
-          to label %47 unwind label %48
-
-47:                                               ; preds = %45
-  tail call void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #30
+44:                                               ; preds = %42
+  tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #30
   unreachable
 
-common.resume:                                    ; preds = %90, %48
-  %common.resume.op = phi { ptr, i32 } [ %49, %48 ], [ %.pn, %90 ]
+common.resume:                                    ; preds = %87, %45
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %87 ]
   resume { ptr, i32 } %common.resume.op
 
-48:                                               ; preds = %45
-  %49 = landingpad { ptr, i32 }
+45:                                               ; preds = %42
+  %46 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %46) #29
+  tail call void @__cxa_free_exception(ptr %43) #29
   br label %common.resume
 
-_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit: ; preds = %3, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44
-  %.0.i = phi i32 [ 4, %44 ], [ 3, %43 ], [ 13, %42 ], [ 12, %41 ], [ 9, %40 ], [ 10, %39 ], [ 11, %38 ], [ 18, %37 ], [ %1, %36 ], [ %1, %35 ], [ %1, %34 ], [ %1, %33 ], [ 2, %32 ], [ 19, %31 ], [ 1, %30 ], [ 0, %3 ]
+_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit: ; preds = %3, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41
+  %.0.i = phi i32 [ 4, %41 ], [ 3, %40 ], [ 13, %39 ], [ 12, %38 ], [ 9, %37 ], [ 10, %36 ], [ 11, %35 ], [ 18, %34 ], [ %1, %33 ], [ 2, %32 ], [ 19, %31 ], [ 1, %30 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %50, ptr %6, align 8, !tbaa !62
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 0, ptr %51, align 8, !tbaa !64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %47, ptr %6, align 8, !tbaa !62
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i8 0, ptr %48, align 8, !tbaa !64
   call void @_ZN5boost11unique_lockINS_5mutexEE4lockEv(ptr noundef nonnull align 8 dereferenceable(9) %6)
-  switch i32 %2, label %81 [
+  switch i32 %2, label %78 [
     i32 0, label %.invoke
     i32 1, label %.invoke20
-    i32 2, label %61
-    i32 3, label %62
-    i32 4, label %66
-    i32 5, label %67
-    i32 6, label %74
+    i32 2, label %58
+    i32 3, label %59
+    i32 4, label %63
+    i32 5, label %64
+    i32 6, label %71
   ]
 
-52:                                               ; preds = %.invoke20, %.invoke, %62
-  %53 = landingpad { ptr, i32 }
+49:                                               ; preds = %.invoke20, %.invoke, %59
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %54 = load i8, ptr %51, align 8, !tbaa !64, !range !54, !noundef !55
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %56, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18
+  %51 = load i8, ptr %48, align 8, !tbaa !64, !range !54, !noundef !55
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %53, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %6, align 8, !tbaa !62
-  br label %58
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %6, align 8, !tbaa !62
+  br label %55
 
-58:                                               ; preds = %58, %56
-  %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %57) #29
-  %60 = icmp eq i32 %59, 4
-  br i1 %60, label %58, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18, !llvm.loop !65
+55:                                               ; preds = %55, %53
+  %56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %54) #29
+  %57 = icmp eq i32 %56, 4
+  br i1 %57, label %55, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18, !llvm.loop !65
 
-_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18:    ; preds = %58, %52
+_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18:    ; preds = %55, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
-  br label %90
+  br label %87
 
-61:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
+58:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
   br label %.invoke
 
-62:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %64 = load ptr, ptr %63, align 8, !tbaa !56
-  %65 = invoke noundef i32 @_ZNK6icu_708Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(610) %64, i32 noundef %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %81 unwind label %52
+59:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %61 = load ptr, ptr %60, align 8, !tbaa !56
+  %62 = invoke noundef i32 @_ZNK6icu_708Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(610) %61, i32 noundef %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %78 unwind label %49
 
-66:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
+63:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
   br label %.invoke
 
-67:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
+64:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
   br label %.invoke20
 
-.invoke20:                                        ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit, %67
-  %.sink22 = phi i64 [ 176, %67 ], [ 168, %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %69 = load ptr, ptr %68, align 8, !tbaa !56
-  %70 = load ptr, ptr %69, align 8, !tbaa !20
-  %71 = getelementptr inbounds i8, ptr %70, i64 %.sink22
-  %72 = load ptr, ptr %71, align 8
-  %73 = invoke noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(610) %69, i32 noundef %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %81 unwind label %52
+.invoke20:                                        ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit, %64
+  %.sink22 = phi i64 [ 176, %64 ], [ 168, %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit ]
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %66 = load ptr, ptr %65, align 8, !tbaa !56
+  %67 = load ptr, ptr %66, align 8, !tbaa !20
+  %68 = getelementptr inbounds i8, ptr %67, i64 %.sink22
+  %69 = load ptr, ptr %68, align 8
+  %70 = invoke noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(610) %66, i32 noundef %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %78 unwind label %49
 
-74:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
+71:                                               ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
   br label %.invoke
 
-.invoke:                                          ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit, %61, %66, %74
-  %.sink25 = phi i64 [ 144, %61 ], [ 160, %66 ], [ 128, %74 ], [ 112, %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %76 = load ptr, ptr %75, align 8, !tbaa !56
-  %77 = load ptr, ptr %76, align 8, !tbaa !20
-  %78 = getelementptr inbounds i8, ptr %77, i64 %.sink25
-  %79 = load ptr, ptr %78, align 8
-  %80 = invoke noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(610) %76, i32 noundef %.0.i)
-          to label %81 unwind label %52
+.invoke:                                          ; preds = %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit, %58, %63, %71
+  %.sink25 = phi i64 [ 144, %58 ], [ 160, %63 ], [ 128, %71 ], [ 112, %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %73 = load ptr, ptr %72, align 8, !tbaa !56
+  %74 = load ptr, ptr %73, align 8, !tbaa !20
+  %75 = getelementptr inbounds i8, ptr %74, i64 %.sink25
+  %76 = load ptr, ptr %75, align 8
+  %77 = invoke noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(610) %73, i32 noundef %.0.i)
+          to label %78 unwind label %49
 
-81:                                               ; preds = %.invoke20, %.invoke, %62, %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
-  %.1 = phi i32 [ 0, %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit ], [ %65, %62 ], [ %80, %.invoke ], [ %73, %.invoke20 ]
-  %82 = load i8, ptr %51, align 8, !tbaa !64, !range !54, !noundef !55
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit19
+78:                                               ; preds = %.invoke20, %.invoke, %59, %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit
+  %.1 = phi i32 [ 0, %_ZN5boost6locale8impl_icuL6to_icuENS0_6period5marks11period_markE.exit ], [ %62, %59 ], [ %77, %.invoke ], [ %70, %.invoke20 ]
+  %79 = load i8, ptr %48, align 8, !tbaa !64, !range !54, !noundef !55
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %81, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit19
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %6, align 8, !tbaa !62
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %6, align 8, !tbaa !62
+  br label %83
+
+83:                                               ; preds = %83, %81
+  %84 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %82) #29
+  %85 = icmp eq i32 %84, 4
+  br i1 %85, label %83, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit19, !llvm.loop !65
+
+_ZN5boost11unique_lockINS_5mutexEED2Ev.exit19:    ; preds = %83, %78
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
   br label %86
 
-86:                                               ; preds = %86, %84
-  %87 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %85) #29
-  %88 = icmp eq i32 %87, 4
-  br i1 %88, label %86, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit19, !llvm.loop !65
-
-_ZN5boost11unique_lockINS_5mutexEED2Ev.exit19:    ; preds = %86, %81
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
-  br label %89
-
-89:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit19, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit
+86:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit19, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit
   %.0 = phi i32 [ %12, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit ], [ %.1, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit19 ]
   call fastcc void @_ZN5boost6locale8impl_icuL18check_and_throw_dtER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #29
   ret i32 %.0
 
-90:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit17
-  %.pn = phi { ptr, i32 } [ %22, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit17 ], [ %53, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18 ]
+87:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit17
+  %.pn = phi { ptr, i32 } [ %22, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit17 ], [ %50, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #29
   br label %common.resume
 }

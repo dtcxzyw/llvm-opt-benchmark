@@ -1770,12 +1770,8 @@ if.end:                                           ; preds = %entry
   store i8 0, ptr %1, align 8
   switch i32 %scan_mode, label %sw.epilog.i [
     i32 0, label %_ZL13makeModeFlags8ScanMode.exit
-    i32 1, label %sw.bb1.i
     i32 2, label %sw.bb2.i
   ]
-
-sw.bb1.i:                                         ; preds = %if.end
-  br label %_ZL13makeModeFlags8ScanMode.exit
 
 sw.bb2.i:                                         ; preds = %if.end
   br label %_ZL13makeModeFlags8ScanMode.exit
@@ -1783,9 +1779,9 @@ sw.bb2.i:                                         ; preds = %if.end
 sw.epilog.i:                                      ; preds = %if.end
   br label %_ZL13makeModeFlags8ScanMode.exit
 
-_ZL13makeModeFlags8ScanMode.exit:                 ; preds = %sw.epilog.i, %sw.bb2.i, %sw.bb1.i, %if.end
-  %cmp = phi i1 [ true, %sw.epilog.i ], [ false, %sw.bb2.i ], [ true, %sw.bb1.i ], [ false, %if.end ]
-  %retval.0.i = phi i32 [ 2, %sw.epilog.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ 1, %if.end ]
+_ZL13makeModeFlags8ScanMode.exit:                 ; preds = %sw.epilog.i, %sw.bb2.i, %if.end
+  %cmp = phi i1 [ true, %sw.epilog.i ], [ false, %sw.bb2.i ], [ false, %if.end ]
+  %retval.0.i = phi i32 [ 2, %sw.epilog.i ], [ 4, %sw.bb2.i ], [ 1, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %db) #29
   %2 = load i8, ptr @loadDatabases, align 1, !range !8, !noundef !9
   %tobool.not = icmp eq i8 %2, 0

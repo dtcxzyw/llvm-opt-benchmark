@@ -67,7 +67,7 @@ define internal fastcc void @_ZN10bigdecimal10ten_to_the17h6fca0c83621867e5E(ptr
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %25 = getelementptr inbounds i8, ptr %4, i64 8
   %26 = getelementptr inbounds i8, ptr %4, i64 16
-  br label %switch.lookup
+  br label %39
 
 27:                                               ; preds = %2
   %28 = trunc nuw nsw i64 %1 to i32
@@ -106,17 +106,15 @@ define internal fastcc void @_ZN10bigdecimal10ten_to_the17h6fca0c83621867e5E(ptr
   %38 = icmp eq i64 %21, 0
   br i1 %38, label %55, label %56
 
-switch.lookup:                                    ; preds = %19, %131
-  %.sroa.0.047 = phi i32 [ 0, %19 ], [ %39, %131 ]
-  %39 = add nuw nsw i32 %.sroa.0.047, 1
+39:                                               ; preds = %19, %131
+  %.sroa.0.047 = phi i32 [ 0, %19 ], [ %40, %131 ]
+  %40 = add nuw nsw i32 %.sroa.0.047, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %40 = load i8, ptr %22, align 8, !range !9, !alias.scope !10, !noalias !11, !noundef !13
-  %41 = shl nuw nsw i8 %40, 3
-  %switch.shiftamt = zext nneg i8 %41 to i24
-  %switch.downshift = lshr i24 131330, %switch.shiftamt
-  %switch.masked = trunc i24 %switch.downshift to i8
+  %41 = load i8, ptr %22, align 8, !range !9, !alias.scope !10, !noalias !11, !noundef !13
+  %switch = icmp eq i8 %41, 1
+  %spec.select = select i1 %switch, i8 1, i8 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !14
   %.val.i = load ptr, ptr %23, align 8, !alias.scope !10, !noalias !11, !nonnull !13, !noundef !13
   %.val6.i = load i64, ptr %24, align 8, !alias.scope !10, !noalias !11, !noundef !13
@@ -126,16 +124,13 @@ switch.lookup:                                    ; preds = %19, %131
     i64 1, label %43
   ]
 
-default.unreachable:                              ; preds = %62
-  unreachable
-
-42:                                               ; preds = %switch.lookup
+42:                                               ; preds = %39
   store i64 0, ptr %13, align 8, !alias.scope !15, !noalias !14
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.48.0..sroa_idx.i.i, align 8, !alias.scope !15, !noalias !14
   store i64 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !15, !noalias !14
   br label %"_ZN10num_bigint7biguint14multiplication124_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$num_bigint..biguint..BigUint$GT$$u20$for$u20$$RF$num_bigint..biguint..BigUint$GT$3mul17h1c9a408d9cc40af8E.exit.i"
 
-43:                                               ; preds = %switch.lookup
+43:                                               ; preds = %39
   %44 = load i64, ptr %.val.i, align 8, !noalias !18, !noundef !13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !18
   %45 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h56647ea023c6de6cE"(i64 noundef 1, i1 noundef zeroext false)
@@ -172,12 +167,12 @@ default.unreachable:                              ; preds = %62
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !18
   br label %"_ZN10num_bigint7biguint14multiplication124_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$num_bigint..biguint..BigUint$GT$$u20$for$u20$$RF$num_bigint..biguint..BigUint$GT$3mul17h1c9a408d9cc40af8E.exit.i"
 
-54:                                               ; preds = %switch.lookup
+54:                                               ; preds = %39
   invoke void @_ZN10num_bigint7biguint14multiplication4mul317h800ce51d89f6c299E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val6.i)
           to label %"_ZN10num_bigint7biguint14multiplication124_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$num_bigint..biguint..BigUint$GT$$u20$for$u20$$RF$num_bigint..biguint..BigUint$GT$3mul17h1c9a408d9cc40af8E.exit.i" unwind label %35
 
 "_ZN10num_bigint7biguint14multiplication124_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$num_bigint..biguint..BigUint$GT$$u20$for$u20$$RF$num_bigint..biguint..BigUint$GT$3mul17h1c9a408d9cc40af8E.exit.i": ; preds = %54, %"_ZN10num_bigint7biguint14multiplication91_$LT$impl$u20$core..ops..arith..Mul$LT$u64$GT$$u20$for$u20$num_bigint..biguint..BigUint$GT$3mul17hd6d5f2b84a728581E.exit.i.i", %42
-  invoke fastcc void @_ZN10num_bigint6bigint6BigInt12from_biguint17hcc6dbcfeb5ddc4b2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %16, i8 noundef %switch.masked, ptr noalias nocapture noundef align 8 dereferenceable(24) %13)
+  invoke fastcc void @_ZN10num_bigint6bigint6BigInt12from_biguint17hcc6dbcfeb5ddc4b2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %16, i8 noundef %spec.select, ptr noalias nocapture noundef align 8 dereferenceable(24) %13)
           to label %124 unwind label %35
 
 55:                                               ; preds = %37
@@ -215,6 +210,9 @@ default.unreachable:                              ; preds = %62
     i8 1, label %68
     i8 2, label %66
   ]
+
+default.unreachable:                              ; preds = %62
+  unreachable
 
 65:                                               ; preds = %62
   %switch.i24 = icmp eq i8 %60, 0
@@ -443,8 +441,8 @@ default.unreachable:                              ; preds = %62
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  %exitcond.not = icmp eq i32 %39, 4
-  br i1 %exitcond.not, label %37, label %switch.lookup
+  %exitcond.not = icmp eq i32 %40, 4
+  br i1 %exitcond.not, label %37, label %39
 
 common.resume:                                    ; preds = %135, %132, %121, %.body.i.i, %.body.thread36.i.i
   %common.resume.op = phi { ptr, i32 } [ %.pn.ph, %132 ], [ %lpad.thr_comm.split-lp, %121 ], [ %.pn40.i.i, %.body.thread36.i.i ], [ %.pn.i.i, %.body.i.i ], [ %136, %135 ]

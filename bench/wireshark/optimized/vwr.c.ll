@@ -843,9 +843,9 @@ define internal fastcc range(i32 0, 2) i32 @vwr_read_rec_header(ptr noundef read
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %24, %26
   switch i8 %15, label %decode_msg.exit.thread.us [
-    i8 33, label %32
-    i8 49, label %31
-    i8 56, label %30
+    i8 33, label %29
+    i8 49, label %29
+    i8 56, label %29
     i8 57, label %29
     i8 -63, label %28
     i8 -117, label %28
@@ -856,129 +856,120 @@ define internal fastcc range(i32 0, 2) i32 @vwr_read_rec_header(ptr noundef read
 28:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
   br label %decode_msg.exit.us
 
-29:                                               ; preds = %.lr.ph.split.us
+29:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
   br label %decode_msg.exit.us
 
-30:                                               ; preds = %.lr.ph.split.us
-  br label %decode_msg.exit.us
-
-31:                                               ; preds = %.lr.ph.split.us
-  br label %decode_msg.exit.us
-
-32:                                               ; preds = %.lr.ph.split.us
-  br label %decode_msg.exit.us
-
-decode_msg.exit.us:                               ; preds = %.lr.ph.split.us, %32, %31, %30, %29, %28
-  %.sink.i.us = phi i1 [ true, %32 ], [ true, %31 ], [ true, %30 ], [ true, %29 ], [ false, %28 ], [ false, %.lr.ph.split.us ]
-  %.0.i.us = phi i32 [ %21, %32 ], [ %21, %31 ], [ %21, %30 ], [ %21, %29 ], [ %21, %28 ], [ %27, %.lr.ph.split.us ]
+decode_msg.exit.us:                               ; preds = %.lr.ph.split.us, %29, %28
+  %.sink.i.us = phi i1 [ true, %29 ], [ false, %28 ], [ false, %.lr.ph.split.us ]
+  %.0.i.us = phi i32 [ %21, %29 ], [ %21, %28 ], [ %27, %.lr.ph.split.us ]
   %.not18.us = icmp eq i32 %.0.i.us, 0
-  br i1 %.not18.us, label %decode_msg.exit.thread.us, label %33
+  br i1 %.not18.us, label %decode_msg.exit.thread.us, label %30
 
-33:                                               ; preds = %decode_msg.exit.us
-  %34 = icmp samesign ugt i32 %.0.i.us, 32768
-  br i1 %34, label %.split.us, label %35
+30:                                               ; preds = %decode_msg.exit.us
+  %31 = icmp samesign ugt i32 %.0.i.us, 32768
+  br i1 %31, label %.split.us, label %32
 
-35:                                               ; preds = %33
-  br i1 %.sink.i.us, label %.split28.us, label %36
+32:                                               ; preds = %30
+  br i1 %.sink.i.us, label %.split28.us, label %33
 
-36:                                               ; preds = %35
-  %37 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef %.0.i.us, ptr noundef %5, ptr noundef %6) #9
-  %.not20.us = icmp eq i32 %37, 0
+33:                                               ; preds = %32
+  %34 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef %.0.i.us, ptr noundef %5, ptr noundef %6) #9
+  %.not20.us = icmp eq i32 %34, 0
   br i1 %.not20.us, label %.loopexit, label %decode_msg.exit.thread.us
 
-decode_msg.exit.thread.us:                        ; preds = %.lr.ph.split.us, %36, %decode_msg.exit.us
-  %38 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 16, ptr noundef %5, ptr noundef %6) #9
-  %.not.us = icmp eq i32 %38, 0
+decode_msg.exit.thread.us:                        ; preds = %.lr.ph.split.us, %33, %decode_msg.exit.us
+  %35 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 16, ptr noundef %5, ptr noundef %6) #9
+  %.not.us = icmp eq i32 %35, 0
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %decode_msg.exit.thread
-  %39 = load i8, ptr %8, align 16
-  %40 = load i8, ptr %10, align 2
+  %36 = load i8, ptr %8, align 16
+  %37 = load i8, ptr %10, align 2
+  %38 = zext i8 %37 to i32
+  %39 = shl nuw nsw i32 %38, 8
+  %40 = load i8, ptr %11, align 1
   %41 = zext i8 %40 to i32
-  %42 = shl nuw nsw i32 %41, 8
-  %43 = load i8, ptr %11, align 1
-  %44 = zext i8 %43 to i32
-  %45 = or disjoint i32 %42, %44
-  %46 = load i8, ptr %12, align 2
-  %47 = load i8, ptr %13, align 1
-  %48 = load i8, ptr %14, align 1
-  %49 = lshr i8 %48, 4
-  %50 = and i8 %49, 3
-  %51 = zext nneg i8 %50 to i32
-  store i32 %51, ptr %4, align 4
-  switch i8 %39, label %.sink.split.i.thread [
+  %42 = or disjoint i32 %39, %41
+  %43 = load i8, ptr %12, align 2
+  %44 = load i8, ptr %13, align 1
+  %45 = load i8, ptr %14, align 1
+  %46 = lshr i8 %45, 4
+  %47 = and i8 %46, 3
+  %48 = zext nneg i8 %47 to i32
+  store i32 %48, ptr %4, align 4
+  switch i8 %36, label %.sink.split.i.thread [
     i8 33, label %.sink.split.i
-    i8 49, label %52
-    i8 56, label %53
-    i8 57, label %54
-    i8 -63, label %55
-    i8 -117, label %55
-    i8 -69, label %55
-    i8 -2, label %56
+    i8 49, label %49
+    i8 56, label %50
+    i8 57, label %51
+    i8 -63, label %52
+    i8 -117, label %52
+    i8 -69, label %52
+    i8 -2, label %53
   ]
 
-52:                                               ; preds = %.lr.ph.split
+49:                                               ; preds = %.lr.ph.split
+  br label %.sink.split.i
+
+50:                                               ; preds = %.lr.ph.split
+  br label %.sink.split.i
+
+51:                                               ; preds = %.lr.ph.split
+  br label %.sink.split.i
+
+52:                                               ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split
   br label %.sink.split.i
 
 53:                                               ; preds = %.lr.ph.split
-  br label %.sink.split.i
-
-54:                                               ; preds = %.lr.ph.split
-  br label %.sink.split.i
-
-55:                                               ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split
-  br label %.sink.split.i
-
-56:                                               ; preds = %.lr.ph.split
-  %57 = zext i8 %46 to i32
-  %58 = shl nuw nsw i32 %57, 8
-  %59 = zext i8 %47 to i32
-  %60 = or disjoint i32 %58, %59
+  %54 = zext i8 %43 to i32
+  %55 = shl nuw nsw i32 %54, 8
+  %56 = zext i8 %44 to i32
+  %57 = or disjoint i32 %55, %56
   br label %.sink.split.i
 
 .sink.split.i.thread:                             ; preds = %.lr.ph.split
   store i32 2, ptr %3, align 4
   br label %decode_msg.exit.thread
 
-.sink.split.i:                                    ; preds = %.lr.ph.split, %52, %53, %54, %55, %56
-  %.sink36.i = phi i32 [ 1, %52 ], [ 3, %53 ], [ 4, %54 ], [ 2, %55 ], [ 2, %56 ], [ 0, %.lr.ph.split ]
-  %61 = phi i1 [ true, %52 ], [ true, %53 ], [ true, %54 ], [ false, %55 ], [ false, %56 ], [ true, %.lr.ph.split ]
-  %.0.ph.i = phi i32 [ %45, %52 ], [ %45, %53 ], [ %45, %54 ], [ %45, %55 ], [ %60, %56 ], [ %45, %.lr.ph.split ]
+.sink.split.i:                                    ; preds = %.lr.ph.split, %49, %50, %51, %52, %53
+  %.sink36.i = phi i32 [ 1, %49 ], [ 3, %50 ], [ 4, %51 ], [ 2, %52 ], [ 2, %53 ], [ 0, %.lr.ph.split ]
+  %58 = phi i1 [ true, %49 ], [ true, %50 ], [ true, %51 ], [ false, %52 ], [ false, %53 ], [ true, %.lr.ph.split ]
+  %.0.ph.i = phi i32 [ %42, %49 ], [ %42, %50 ], [ %42, %51 ], [ %42, %52 ], [ %57, %53 ], [ %42, %.lr.ph.split ]
   store i32 %.sink36.i, ptr %3, align 4
   %.not18 = icmp eq i32 %.0.ph.i, 0
-  br i1 %.not18, label %decode_msg.exit.thread, label %62
+  br i1 %.not18, label %decode_msg.exit.thread, label %59
 
-62:                                               ; preds = %.sink.split.i
-  %63 = icmp samesign ugt i32 %.0.ph.i, 32768
-  br i1 %63, label %.split.us, label %65
+59:                                               ; preds = %.sink.split.i
+  %60 = icmp samesign ugt i32 %.0.ph.i, 32768
+  br i1 %60, label %.split.us, label %62
 
-.split.us:                                        ; preds = %62, %33
-  %.us-phi = phi i32 [ %.0.i.us, %33 ], [ %.0.ph.i, %62 ]
+.split.us:                                        ; preds = %59, %30
+  %.us-phi = phi i32 [ %.0.i.us, %30 ], [ %.0.ph.i, %59 ]
   store i32 -13, ptr %5, align 4
-  %64 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %.us-phi) #9
-  store ptr %64, ptr %6, align 8
+  %61 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %.us-phi) #9
+  store ptr %61, ptr %6, align 8
   br label %.loopexit
 
-65:                                               ; preds = %62
-  br i1 %61, label %.split28.us, label %66
+62:                                               ; preds = %59
+  br i1 %58, label %.split28.us, label %63
 
-66:                                               ; preds = %65
-  %67 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef %.0.ph.i, ptr noundef %5, ptr noundef %6) #9
-  %.not20 = icmp eq i32 %67, 0
+63:                                               ; preds = %62
+  %64 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef %.0.ph.i, ptr noundef %5, ptr noundef %6) #9
+  %.not20 = icmp eq i32 %64, 0
   br i1 %.not20, label %.loopexit, label %decode_msg.exit.thread
 
-.split28.us:                                      ; preds = %65, %35
-  %.us-phi29 = phi i32 [ %.0.i.us, %35 ], [ %.0.ph.i, %65 ]
+.split28.us:                                      ; preds = %62, %32
+  %.us-phi29 = phi i32 [ %.0.i.us, %32 ], [ %.0.ph.i, %62 ]
   store i32 %.us-phi29, ptr %2, align 4
   br label %.loopexit
 
-decode_msg.exit.thread:                           ; preds = %.sink.split.i.thread, %66, %.sink.split.i
-  %68 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 16, ptr noundef %5, ptr noundef %6) #9
-  %.not = icmp eq i32 %68, 0
+decode_msg.exit.thread:                           ; preds = %.sink.split.i.thread, %63, %.sink.split.i
+  %65 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 16, ptr noundef %5, ptr noundef %6) #9
+  %.not = icmp eq i32 %65, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %decode_msg.exit.thread, %66, %decode_msg.exit.thread.us, %36, %7, %.split28.us, %.split.us
-  %.0 = phi i32 [ 0, %.split.us ], [ 1, %.split28.us ], [ 0, %7 ], [ 0, %36 ], [ 0, %decode_msg.exit.thread.us ], [ 0, %66 ], [ 0, %decode_msg.exit.thread ]
+.loopexit:                                        ; preds = %decode_msg.exit.thread, %63, %decode_msg.exit.thread.us, %33, %7, %.split28.us, %.split.us
+  %.0 = phi i32 [ 0, %.split.us ], [ 1, %.split28.us ], [ 0, %7 ], [ 0, %33 ], [ 0, %decode_msg.exit.thread.us ], [ 0, %63 ], [ 0, %decode_msg.exit.thread ]
   ret i32 %.0
 }
 
@@ -1112,10 +1103,10 @@ define internal fastcc range(i32 0, 2) i32 @vwr_process_rec_data(ptr noundef %0,
 
 90:                                               ; preds = %86, %82
   %.val405.i = load i8, ptr %11, align 1
-  switch i8 %.val405.i, label %get_ofdm_rate.exit.i [
-    i8 110, label %93
-    i8 20, label %91
-    i8 55, label %92
+  switch i8 %.val405.i, label %93 [
+    i8 110, label %92
+    i8 20, label %get_ofdm_rate.exit.i
+    i8 55, label %91
   ]
 
 91:                                               ; preds = %90
@@ -1136,7 +1127,7 @@ switch.lookup:                                    ; preds = %79
 
 get_ofdm_rate.exit.i:                             ; preds = %79, %switch.lookup, %93, %92, %91, %90, %86
   %95 = phi i16 [ 6, %86 ], [ 6, %93 ], [ 6, %92 ], [ 6, %91 ], [ 6, %90 ], [ 4, %switch.lookup ], [ 4, %79 ]
-  %.0373.i = phi i8 [ 1, %86 ], [ 3, %93 ], [ 2, %92 ], [ 1, %91 ], [ 0, %90 ], [ %switch.masked, %switch.lookup ], [ 0, %79 ]
+  %.0373.i = phi i8 [ 1, %86 ], [ 0, %93 ], [ 3, %92 ], [ 2, %91 ], [ 1, %90 ], [ %switch.masked, %switch.lookup ], [ 0, %79 ]
   %96 = getelementptr inbounds i8, ptr %4, i64 164
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, %75

@@ -41188,154 +41188,98 @@ declare double @hypot(double noundef, double noundef) local_unnamed_addr #15
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6casadi16operation_getterINS_13SmoothCheckerEbEET0_x(i64 noundef %0) local_unnamed_addr #4 comdat {
   %2 = trunc i64 %0 to i32
-  switch i32 %2, label %17 [
-    i32 0, label %18
-    i32 1, label %18
-    i32 2, label %18
-    i32 3, label %18
-    i32 4, label %18
-    i32 5, label %18
-    i32 6, label %18
-    i32 7, label %18
-    i32 8, label %18
-    i32 9, label %18
-    i32 10, label %18
-    i32 11, label %18
-    i32 12, label %18
-    i32 13, label %18
-    i32 14, label %18
-    i32 15, label %18
-    i32 16, label %18
-    i32 17, label %18
-    i32 18, label %18
-    i32 19, label %3
-    i32 20, label %4
-    i32 21, label %5
-    i32 22, label %6
-    i32 23, label %7
-    i32 24, label %8
-    i32 25, label %9
-    i32 26, label %10
-    i32 27, label %11
-    i32 28, label %12
-    i32 97, label %13
-    i32 29, label %18
-    i32 30, label %14
-    i32 31, label %15
-    i32 32, label %16
-    i32 33, label %18
-    i32 34, label %18
-    i32 35, label %18
-    i32 36, label %18
-    i32 37, label %18
-    i32 38, label %18
-    i32 39, label %18
-    i32 40, label %18
-    i32 41, label %18
-    i32 42, label %18
-    i32 43, label %18
-    i32 44, label %18
-    i32 45, label %18
-    i32 46, label %18
-    i32 47, label %18
-    i32 48, label %18
-    i32 49, label %18
-    i32 50, label %18
-    i32 51, label %18
-    i32 52, label %18
-    i32 53, label %18
-    i32 54, label %18
-    i32 55, label %18
-    i32 56, label %18
-    i32 57, label %18
-    i32 58, label %18
-    i32 59, label %18
-    i32 60, label %18
-    i32 61, label %18
-    i32 62, label %18
-    i32 63, label %18
-    i32 64, label %18
-    i32 65, label %18
-    i32 66, label %18
-    i32 92, label %18
-    i32 67, label %18
-    i32 68, label %18
-    i32 69, label %18
-    i32 70, label %18
-    i32 71, label %18
-    i32 72, label %18
-    i32 73, label %18
-    i32 74, label %18
-    i32 75, label %18
-    i32 76, label %18
-    i32 77, label %18
-    i32 78, label %18
-    i32 79, label %18
-    i32 80, label %18
-    i32 81, label %18
-    i32 82, label %18
-    i32 83, label %18
-    i32 84, label %18
-    i32 85, label %18
-    i32 86, label %18
-    i32 87, label %18
-    i32 88, label %18
-    i32 89, label %18
-    i32 90, label %18
-    i32 91, label %18
-    i32 93, label %18
-    i32 94, label %18
-    i32 95, label %18
-    i32 96, label %18
+  switch i32 %2, label %3 [
+    i32 0, label %4
+    i32 1, label %4
+    i32 2, label %4
+    i32 3, label %4
+    i32 4, label %4
+    i32 5, label %4
+    i32 6, label %4
+    i32 7, label %4
+    i32 8, label %4
+    i32 9, label %4
+    i32 10, label %4
+    i32 11, label %4
+    i32 12, label %4
+    i32 13, label %4
+    i32 14, label %4
+    i32 15, label %4
+    i32 16, label %4
+    i32 17, label %4
+    i32 18, label %4
+    i32 96, label %4
+    i32 95, label %4
+    i32 94, label %4
+    i32 93, label %4
+    i32 91, label %4
+    i32 90, label %4
+    i32 89, label %4
+    i32 88, label %4
+    i32 87, label %4
+    i32 86, label %4
+    i32 85, label %4
+    i32 29, label %4
+    i32 84, label %4
+    i32 83, label %4
+    i32 82, label %4
+    i32 33, label %4
+    i32 34, label %4
+    i32 35, label %4
+    i32 36, label %4
+    i32 37, label %4
+    i32 38, label %4
+    i32 39, label %4
+    i32 40, label %4
+    i32 41, label %4
+    i32 42, label %4
+    i32 43, label %4
+    i32 44, label %4
+    i32 45, label %4
+    i32 46, label %4
+    i32 47, label %4
+    i32 48, label %4
+    i32 49, label %4
+    i32 50, label %4
+    i32 51, label %4
+    i32 52, label %4
+    i32 53, label %4
+    i32 54, label %4
+    i32 55, label %4
+    i32 56, label %4
+    i32 57, label %4
+    i32 58, label %4
+    i32 59, label %4
+    i32 60, label %4
+    i32 61, label %4
+    i32 62, label %4
+    i32 63, label %4
+    i32 64, label %4
+    i32 65, label %4
+    i32 66, label %4
+    i32 92, label %4
+    i32 67, label %4
+    i32 68, label %4
+    i32 69, label %4
+    i32 70, label %4
+    i32 71, label %4
+    i32 72, label %4
+    i32 73, label %4
+    i32 74, label %4
+    i32 75, label %4
+    i32 76, label %4
+    i32 77, label %4
+    i32 78, label %4
+    i32 79, label %4
+    i32 80, label %4
+    i32 81, label %4
   ]
 
 3:                                                ; preds = %1
-  br label %18
+  br label %4
 
-4:                                                ; preds = %1
-  br label %18
-
-5:                                                ; preds = %1
-  br label %18
-
-6:                                                ; preds = %1
-  br label %18
-
-7:                                                ; preds = %1
-  br label %18
-
-8:                                                ; preds = %1
-  br label %18
-
-9:                                                ; preds = %1
-  br label %18
-
-10:                                               ; preds = %1
-  br label %18
-
-11:                                               ; preds = %1
-  br label %18
-
-12:                                               ; preds = %1
-  br label %18
-
-13:                                               ; preds = %1
-  br label %18
-
-14:                                               ; preds = %1
-  br label %18
-
-15:                                               ; preds = %1
-  br label %18
-
-16:                                               ; preds = %1
-  br label %18
-
-17:                                               ; preds = %1
-  br label %18
-
-18:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i1 [ false, %17 ], [ false, %16 ], [ false, %15 ], [ false, %14 ], [ false, %13 ], [ false, %12 ], [ false, %11 ], [ false, %10 ], [ false, %9 ], [ false, %8 ], [ false, %7 ], [ false, %6 ], [ false, %5 ], [ false, %4 ], [ false, %3 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }
 

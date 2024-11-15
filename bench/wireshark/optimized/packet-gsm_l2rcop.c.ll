@@ -142,7 +142,7 @@ define internal i32 @dissect_l2rcop(ptr noundef %0, ptr noundef %1, ptr noundef 
   %49 = icmp ult i32 %48, %5
   br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
-.loopexit:                                        ; preds = %35, %.lr.ph, %.lr.ph, %44, %4, %32, %29, %23
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph, %35, %44, %4, %32, %29, %23
   ret i32 %5
 }
 

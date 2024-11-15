@@ -7754,8 +7754,8 @@ _ZNSt6vectorI14CorrespondenceSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vec
   %161 = getelementptr inbounds i8, ptr %0, i64 512
   %switch.tableidx = add i32 %38, -1
   %162 = icmp ult i32 %switch.tableidx, 5
-  %spec.select = select i1 %162, i32 %38, i32 0
-  store i32 %spec.select, ptr %161, align 8
+  %.sink = select i1 %162, i32 %38, i32 0
+  store i32 %.sink, ptr %161, align 8
   %163 = load ptr, ptr %31, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 264
   %165 = load i32, ptr %164, align 8

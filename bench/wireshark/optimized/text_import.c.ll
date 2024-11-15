@@ -2339,19 +2339,19 @@ switch.lookup:                                    ; preds = %9
   %73 = getelementptr inbounds i8, ptr %0, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 @text_import_scan(ptr noundef %74) #15
-  switch i32 %75, label %86 [
-    i32 2, label %77
-    i32 1, label %76
+  switch i32 %75, label %80 [
+    i32 2, label %76
+    i32 1, label %86
   ]
 
 76:                                               ; preds = %72
+  %77 = tail call ptr @__errno_location() #18
+  %78 = load i32, ptr %77, align 4
+  %79 = tail call ptr @g_strerror(i32 noundef %78) #18
+  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.17, ptr noundef %79) #15
   br label %86
 
-77:                                               ; preds = %72
-  %78 = tail call ptr @__errno_location() #18
-  %79 = load i32, ptr %78, align 4
-  %80 = tail call ptr @g_strerror(i32 noundef %79) #18
-  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.17, ptr noundef %80) #15
+80:                                               ; preds = %72
   br label %86
 
 81:                                               ; preds = %70
@@ -2368,8 +2368,8 @@ switch.lookup:                                    ; preds = %9
   %spec.store.select = select i1 %.not47, i32 0, i32 3
   br label %86
 
-86:                                               ; preds = %70, %72, %85, %84, %76, %77
-  %.034 = phi i32 [ 8, %77 ], [ 3, %76 ], [ 0, %84 ], [ %spec.store.select, %85 ], [ 0, %72 ], [ 1, %70 ]
+86:                                               ; preds = %70, %72, %85, %84, %76, %80
+  %.034 = phi i32 [ 0, %80 ], [ 8, %76 ], [ 0, %84 ], [ %spec.store.select, %85 ], [ 3, %72 ], [ 1, %70 ]
   %87 = load ptr, ptr @packet_buf, align 8
   tail call void @g_free(ptr noundef %87) #15
   br label %88

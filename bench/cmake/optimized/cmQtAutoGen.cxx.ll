@@ -152,8 +152,8 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
-4:                                                ; preds = %switch.lookup, %1
-  %.sroa.6.0 = phi ptr [ @.str, %1 ], [ %switch.load, %switch.lookup ]
+4:                                                ; preds = %1, %switch.lookup
+  %.sroa.6.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str, %1 ]
   %.fca.1.insert = insertvalue { i64, ptr } { i64 7, ptr poison }, ptr %.sroa.6.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
@@ -170,8 +170,8 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
-4:                                                ; preds = %switch.lookup, %1
-  %.sroa.6.0 = phi ptr [ @.str.4, %1 ], [ %switch.load, %switch.lookup ]
+4:                                                ; preds = %1, %switch.lookup
+  %.sroa.6.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.4, %1 ]
   %.fca.1.insert = insertvalue { i64, ptr } { i64 7, ptr poison }, ptr %.sroa.6.0, 1
   ret { i64, ptr } %.fca.1.insert
 }

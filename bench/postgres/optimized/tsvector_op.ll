@@ -3349,28 +3349,28 @@ define internal fastcc i32 @TS_execute_recurse(ptr noundef %0, ptr noundef %1, i
 
 10:                                               ; preds = %7
   %11 = tail call i32 %3(ptr noundef %1, ptr noundef nonnull %0, ptr noundef null) #14
-  br label %55
+  br label %54
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1
-  switch i8 %14, label %48 [
+  switch i8 %14, label %47 [
     i8 1, label %15
     i8 2, label %21
     i8 3, label %32
-    i8 4, label %44
+    i8 4, label %43
   ]
 
 15:                                               ; preds = %12
   %16 = and i32 %2, 1
   %.not41 = icmp eq i32 %16, 0
-  br i1 %.not41, label %17, label %55
+  br i1 %.not41, label %17, label %54
 
 17:                                               ; preds = %15
   %18 = getelementptr i8, ptr %0, i64 12
   %19 = tail call fastcc i32 @TS_execute_recurse(ptr noundef %18, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %20 = icmp ult i32 %19, 3
-  br i1 %20, label %switch.lookup, label %53
+  br i1 %20, label %switch.lookup, label %52
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3379,19 +3379,19 @@ define internal fastcc i32 @TS_execute_recurse(ptr noundef %0, ptr noundef %1, i
   %25 = getelementptr %union.QueryItem, ptr %0, i64 %24
   %26 = tail call fastcc i32 @TS_execute_recurse(ptr noundef %25, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %55, label %28
+  br i1 %27, label %54, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr i8, ptr %0, i64 12
   %30 = tail call fastcc i32 @TS_execute_recurse(ptr noundef %29, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  switch i32 %30, label %53 [
-    i32 0, label %55
+  switch i32 %30, label %52 [
+    i32 0, label %54
     i32 1, label %31
-    i32 2, label %55
+    i32 2, label %54
   ]
 
 31:                                               ; preds = %28
-  br label %55
+  br label %54
 
 32:                                               ; preds = %12
   %33 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3400,55 +3400,52 @@ define internal fastcc i32 @TS_execute_recurse(ptr noundef %0, ptr noundef %1, i
   %36 = getelementptr %union.QueryItem, ptr %0, i64 %35
   %37 = tail call fastcc i32 @TS_execute_recurse(ptr noundef %36, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %38 = icmp eq i32 %37, 1
-  br i1 %38, label %55, label %39
+  br i1 %38, label %54, label %39
 
 39:                                               ; preds = %32
   %40 = getelementptr i8, ptr %0, i64 12
   %41 = tail call fastcc i32 @TS_execute_recurse(ptr noundef %40, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  switch i32 %41, label %53 [
-    i32 0, label %55
+  switch i32 %41, label %52 [
+    i32 0, label %54
     i32 1, label %42
-    i32 2, label %43
+    i32 2, label %42
   ]
 
-42:                                               ; preds = %39
-  br label %55
+42:                                               ; preds = %39, %39
+  br label %54
 
-43:                                               ; preds = %39
-  br label %55
-
-44:                                               ; preds = %12
-  %45 = tail call fastcc i32 @TS_phrase_execute(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
-  switch i32 %45, label %53 [
-    i32 0, label %55
-    i32 1, label %55
-    i32 2, label %46
+43:                                               ; preds = %12
+  %44 = tail call fastcc i32 @TS_phrase_execute(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
+  switch i32 %44, label %52 [
+    i32 0, label %54
+    i32 1, label %54
+    i32 2, label %45
   ]
 
-46:                                               ; preds = %44
-  %47 = and i32 %2, 2
-  br label %55
+45:                                               ; preds = %43
+  %46 = and i32 %2, 2
+  br label %54
 
-48:                                               ; preds = %12
-  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %49)
-  %50 = load i8, ptr %13, align 1
-  %51 = sext i8 %50 to i32
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %51) #14
+47:                                               ; preds = %12
+  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %48)
+  %49 = load i8, ptr %13, align 1
+  %50 = sext i8 %49 to i32
+  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %50) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1970, ptr noundef nonnull @__func__.TS_execute_recurse) #14
   unreachable
 
-53:                                               ; preds = %17, %44, %39, %28
-  br label %55
+52:                                               ; preds = %17, %43, %39, %28
+  br label %54
 
 switch.lookup:                                    ; preds = %17
-  %54 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.TS_execute_recurse, i64 0, i64 %54
+  %53 = zext nneg i32 %19 to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.TS_execute_recurse, i64 0, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %55
+  br label %54
 
-55:                                               ; preds = %44, %28, %switch.lookup, %44, %39, %32, %28, %21, %15, %53, %46, %43, %42, %31, %10
-  %.0 = phi i32 [ %11, %10 ], [ 0, %53 ], [ %47, %46 ], [ %41, %43 ], [ %41, %42 ], [ %26, %31 ], [ 1, %15 ], [ 0, %21 ], [ %30, %28 ], [ 1, %32 ], [ %37, %39 ], [ %45, %44 ], [ %switch.load, %switch.lookup ], [ %30, %28 ], [ %45, %44 ]
+54:                                               ; preds = %43, %28, %switch.lookup, %43, %39, %32, %28, %21, %15, %52, %45, %42, %31, %10
+  %.0 = phi i32 [ %11, %10 ], [ 0, %52 ], [ %46, %45 ], [ %41, %42 ], [ %26, %31 ], [ 1, %15 ], [ 0, %21 ], [ %30, %28 ], [ 1, %32 ], [ %37, %39 ], [ %44, %43 ], [ %switch.load, %switch.lookup ], [ %30, %28 ], [ %44, %43 ]
   ret i32 %.0
 }
 

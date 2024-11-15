@@ -419,57 +419,36 @@ if.then67:                                        ; preds = %if.else64
     i32 257, label %if.end72
     i32 4, label %if.end72
     i32 117, label %sw.bb3.i
-    i32 64, label %sw.bb4.i
+    i32 64, label %sw.bb3.i
     i32 675, label %sw.bb5.i
     i32 672, label %sw.bb6.i
     i32 673, label %sw.bb7.i
     i32 674, label %sw.bb8.i
-    i32 1094, label %sw.bb9.i
-    i32 1095, label %sw.bb10.i
-    i32 1096, label %sw.bb11.i
-    i32 1097, label %sw.bb12.i
-    i32 1098, label %sw.bb13.i
-    i32 1099, label %sw.bb14.i
+    i32 1094, label %sw.bb5.i
+    i32 1095, label %sw.bb6.i
+    i32 1096, label %sw.bb5.i
+    i32 1097, label %sw.bb6.i
+    i32 1098, label %sw.bb7.i
+    i32 1099, label %sw.bb8.i
   ]
 
-sw.bb3.i:                                         ; preds = %if.then67
+sw.bb3.i:                                         ; preds = %if.then67, %if.then67
   br label %if.end72
 
-sw.bb4.i:                                         ; preds = %if.then67
+sw.bb5.i:                                         ; preds = %if.then67, %if.then67, %if.then67
   br label %if.end72
 
-sw.bb5.i:                                         ; preds = %if.then67
+sw.bb6.i:                                         ; preds = %if.then67, %if.then67, %if.then67
   br label %if.end72
 
-sw.bb6.i:                                         ; preds = %if.then67
+sw.bb7.i:                                         ; preds = %if.then67, %if.then67
   br label %if.end72
 
-sw.bb7.i:                                         ; preds = %if.then67
+sw.bb8.i:                                         ; preds = %if.then67, %if.then67
   br label %if.end72
 
-sw.bb8.i:                                         ; preds = %if.then67
-  br label %if.end72
-
-sw.bb9.i:                                         ; preds = %if.then67
-  br label %if.end72
-
-sw.bb10.i:                                        ; preds = %if.then67
-  br label %if.end72
-
-sw.bb11.i:                                        ; preds = %if.then67
-  br label %if.end72
-
-sw.bb12.i:                                        ; preds = %if.then67
-  br label %if.end72
-
-sw.bb13.i:                                        ; preds = %if.then67
-  br label %if.end72
-
-sw.bb14.i:                                        ; preds = %if.then67
-  br label %if.end72
-
-if.end72:                                         ; preds = %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %if.then67, %if.then67, %if.then67
-  %retval.0.i.ph = phi i32 [ 16, %if.then67 ], [ 16, %if.then67 ], [ 16, %if.then67 ], [ 20, %sw.bb3.i ], [ 20, %sw.bb4.i ], [ 28, %sw.bb5.i ], [ 32, %sw.bb6.i ], [ 48, %sw.bb7.i ], [ 64, %sw.bb8.i ], [ 28, %sw.bb9.i ], [ 32, %sw.bb10.i ], [ 28, %sw.bb11.i ], [ 32, %sw.bb12.i ], [ 48, %sw.bb13.i ], [ 64, %sw.bb14.i ]
+if.end72:                                         ; preds = %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb3.i, %if.then67, %if.then67, %if.then67
+  %retval.0.i.ph = phi i32 [ 16, %if.then67 ], [ 16, %if.then67 ], [ 16, %if.then67 ], [ 20, %sw.bb3.i ], [ 28, %sw.bb5.i ], [ 32, %sw.bb6.i ], [ 48, %sw.bb7.i ], [ 64, %sw.bb8.i ]
   %cmp74 = icmp samesign ugt i32 %retval.0.i.ph, %call8
   br i1 %cmp74, label %if.then76, label %if.end77
 

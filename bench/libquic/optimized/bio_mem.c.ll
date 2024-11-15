@@ -400,7 +400,7 @@ define internal i64 @mem_ctrl(ptr nocapture noundef %bio, i32 noundef %cmd, i64 
 entry:
   %ptr1 = getelementptr inbounds i8, ptr %bio, i64 48
   %0 = load ptr, ptr %ptr1, align 8
-  switch i32 %cmd, label %sw.epilog [
+  switch i32 %cmd, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb10
     i32 130, label %sw.bb14
@@ -409,7 +409,7 @@ entry:
     i32 115, label %sw.bb27
     i32 8, label %sw.bb32
     i32 9, label %sw.bb35
-    i32 11, label %sw.bb41
+    i32 11, label %sw.epilog
     i32 10, label %sw.bb39
   ]
 
@@ -524,11 +524,11 @@ sw.bb39:                                          ; preds = %entry
   %12 = load i64, ptr %0, align 8
   br label %sw.epilog
 
-sw.bb41:                                          ; preds = %entry
+sw.default:                                       ; preds = %entry
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %sw.bb27, %if.then30, %sw.bb17, %if.then21, %sw.bb, %if.else, %if.then2, %sw.bb41, %sw.bb39, %sw.bb35, %sw.bb32, %mem_free.exit, %sw.bb14, %sw.bb10
-  %ret.0 = phi i64 [ 1, %sw.bb41 ], [ %12, %sw.bb39 ], [ 1, %sw.bb35 ], [ %conv34, %sw.bb32 ], [ 1, %if.then30 ], [ 1, %sw.bb27 ], [ 1, %mem_free.exit ], [ %6, %if.then21 ], [ %6, %sw.bb17 ], [ 1, %sw.bb14 ], [ %conv13, %sw.bb10 ], [ 1, %if.then2 ], [ 1, %if.else ], [ 1, %sw.bb ], [ 0, %entry ]
+sw.epilog:                                        ; preds = %entry, %sw.bb27, %if.then30, %sw.bb17, %if.then21, %sw.bb, %if.else, %if.then2, %sw.default, %sw.bb39, %sw.bb35, %sw.bb32, %mem_free.exit, %sw.bb14, %sw.bb10
+  %ret.0 = phi i64 [ 0, %sw.default ], [ %12, %sw.bb39 ], [ 1, %sw.bb35 ], [ %conv34, %sw.bb32 ], [ 1, %if.then30 ], [ 1, %sw.bb27 ], [ 1, %mem_free.exit ], [ %6, %if.then21 ], [ %6, %sw.bb17 ], [ 1, %sw.bb14 ], [ %conv13, %sw.bb10 ], [ 1, %if.then2 ], [ 1, %if.else ], [ 1, %sw.bb ], [ 1, %entry ]
   ret i64 %ret.0
 }
 

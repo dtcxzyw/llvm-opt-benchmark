@@ -1023,7 +1023,7 @@ entry:
     i8 98, label %return
     i8 66, label %sw.bb1
     i8 117, label %sw.bb2
-    i8 119, label %sw.bb3
+    i8 119, label %sw.bb2
     i8 102, label %sw.bb4
     i8 100, label %sw.bb11
     i8 104, label %sw.bb30
@@ -1033,16 +1033,13 @@ entry:
     i8 108, label %sw.bb34
     i8 76, label %sw.bb27
     i8 113, label %sw.bb34
-    i8 81, label %sw.bb29
+    i8 81, label %sw.bb27
   ]
 
 sw.bb1:                                           ; preds = %entry
   br label %return
 
-sw.bb2:                                           ; preds = %entry
-  br label %return
-
-sw.bb3:                                           ; preds = %entry
+sw.bb2:                                           ; preds = %entry, %entry
   br label %return
 
 sw.bb4:                                           ; preds = %entry
@@ -1057,10 +1054,7 @@ sw.bb23:                                          ; preds = %entry
 sw.bb25:                                          ; preds = %entry
   br label %return
 
-sw.bb27:                                          ; preds = %entry
-  br label %return
-
-sw.bb29:                                          ; preds = %entry
+sw.bb27:                                          ; preds = %entry, %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -1075,8 +1069,8 @@ sw.bb31:                                          ; preds = %entry
 sw.bb34:                                          ; preds = %entry, %entry
   br label %return
 
-return:                                           ; preds = %sw.bb27, %sw.bb29, %sw.bb25, %sw.bb23, %sw.bb11, %sw.bb4, %entry, %sw.bb34, %sw.bb31, %sw.bb30, %sw.default, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ -1, %sw.default ], [ 20, %sw.bb3 ], [ 20, %sw.bb2 ], [ 0, %sw.bb1 ], [ 1, %entry ], [ 14, %sw.bb4 ], [ 16, %sw.bb11 ], [ 2, %sw.bb23 ], [ 4, %sw.bb30 ], [ 6, %sw.bb25 ], [ 8, %sw.bb31 ], [ 10, %sw.bb27 ], [ 10, %sw.bb29 ], [ 12, %sw.bb34 ]
+return:                                           ; preds = %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb11, %sw.bb4, %entry, %sw.bb34, %sw.bb31, %sw.bb30, %sw.default, %sw.bb2, %sw.bb1
+  %retval.0 = phi i32 [ -1, %sw.default ], [ 20, %sw.bb2 ], [ 0, %sw.bb1 ], [ 1, %entry ], [ 14, %sw.bb4 ], [ 16, %sw.bb11 ], [ 2, %sw.bb23 ], [ 4, %sw.bb30 ], [ 6, %sw.bb25 ], [ 8, %sw.bb31 ], [ 10, %sw.bb27 ], [ 12, %sw.bb34 ]
   ret i32 %retval.0
 }
 

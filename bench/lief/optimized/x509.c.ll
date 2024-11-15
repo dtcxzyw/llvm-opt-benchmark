@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [7 x i8] c"SHA384\00", align 1
 @.str.20 = private unnamed_addr constant [7 x i8] c"SHA512\00", align 1
 @.str.21 = private unnamed_addr constant [10 x i8] c"RIPEMD160\00", align 1
-@switch.table.mbedtls_x509_sig_alg_gets.2 = private unnamed_addr constant [8 x ptr] [ptr @.str.12, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21], align 8
+@switch.table.mbedtls_x509_sig_alg_gets.2 = private unnamed_addr constant [7 x ptr] [ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2147474816) i32 @mbedtls_x509_get_serial(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1205,29 +1205,31 @@ define hidden i32 @mbedtls_x509_sig_alg_gets(ptr nocapture noundef writeonly %0,
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 %17
-  %23 = icmp ult i32 %4, 8
+  %switch.tableidx = add i32 %4, -1
+  %23 = icmp ult i32 %switch.tableidx, 7
   br i1 %23, label %switch.lookup, label %md_type_to_string.exit
 
 switch.lookup:                                    ; preds = %21
-  %24 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.2, i64 0, i64 %24
+  %24 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.2, i64 0, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %md_type_to_string.exit
 
 md_type_to_string.exit:                           ; preds = %21, %switch.lookup
   %.not43 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.12, %21 ]
   %25 = load i32, ptr %5, align 4
-  %26 = icmp ult i32 %25, 8
+  %switch.tableidx49 = add i32 %25, -1
+  %26 = icmp ult i32 %switch.tableidx49, 7
   br i1 %26, label %switch.lookup48, label %md_type_to_string.exit47
 
 switch.lookup48:                                  ; preds = %md_type_to_string.exit
-  %27 = zext nneg i32 %25 to i64
-  %switch.gep49 = getelementptr inbounds [8 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.2, i64 0, i64 %27
-  %switch.load50 = load ptr, ptr %switch.gep49, align 8
+  %27 = zext nneg i32 %switch.tableidx49 to i64
+  %switch.gep50 = getelementptr inbounds [7 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.2, i64 0, i64 %27
+  %switch.load51 = load ptr, ptr %switch.gep50, align 8
   br label %md_type_to_string.exit47
 
 md_type_to_string.exit47:                         ; preds = %md_type_to_string.exit, %switch.lookup48
-  %.not44 = phi ptr [ %switch.load50, %switch.lookup48 ], [ @.str.12, %md_type_to_string.exit ]
+  %.not44 = phi ptr [ %switch.load51, %switch.lookup48 ], [ @.str.12, %md_type_to_string.exit ]
   %28 = getelementptr inbounds i8, ptr %5, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %19, ptr noundef nonnull @.str.13, ptr noundef nonnull %.not43, ptr noundef nonnull %.not44, i32 noundef %29) #12

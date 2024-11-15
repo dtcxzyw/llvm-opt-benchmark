@@ -5435,18 +5435,18 @@ define internal fastcc void @_ZL15parseCondBranchRN4llvm12MachineInstrERPNS_17Ma
   switch i16 %10, label %_ZL20getCondFromBranchOpcj.exit [
     i16 12154, label %11
     i16 12156, label %12
-    i16 12074, label %13
-    i16 12083, label %14
-    i16 12081, label %15
-    i16 12077, label %16
-    i16 12082, label %17
-    i16 12078, label %18
+    i16 12074, label %11
+    i16 12083, label %12
+    i16 12081, label %13
+    i16 12077, label %14
+    i16 12082, label %15
+    i16 12078, label %16
   ]
 
-11:                                               ; preds = %3
+11:                                               ; preds = %3, %3
   br label %_ZL20getCondFromBranchOpcj.exit
 
-12:                                               ; preds = %3
+12:                                               ; preds = %3, %3
   br label %_ZL20getCondFromBranchOpcj.exit
 
 13:                                               ; preds = %3
@@ -5461,25 +5461,19 @@ define internal fastcc void @_ZL15parseCondBranchRN4llvm12MachineInstrERPNS_17Ma
 16:                                               ; preds = %3
   br label %_ZL20getCondFromBranchOpcj.exit
 
-17:                                               ; preds = %3
-  br label %_ZL20getCondFromBranchOpcj.exit
-
-18:                                               ; preds = %3
-  br label %_ZL20getCondFromBranchOpcj.exit
-
-_ZL20getCondFromBranchOpcj.exit:                  ; preds = %3, %11, %12, %13, %14, %15, %16, %17, %18
-  %.0.i = phi i64 [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ 0, %13 ], [ 1, %12 ], [ 0, %11 ], [ 6, %3 ]
+_ZL20getCondFromBranchOpcj.exit:                  ; preds = %3, %11, %12, %13, %14, %15, %16
+  %.0.i = phi i64 [ 5, %16 ], [ 4, %15 ], [ 3, %14 ], [ 2, %13 ], [ 1, %12 ], [ 0, %11 ], [ 6, %3 ]
   store i32 1, ptr %4, align 8, !alias.scope !141
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %19, align 8, !alias.scope !141
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.0.i, ptr %20, align 8, !alias.scope !141
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %17, align 8, !alias.scope !141
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %.0.i, ptr %18, align 8, !alias.scope !141
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %21 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %5, align 8
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 32
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %21)
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %23)
   ret void
 }
 

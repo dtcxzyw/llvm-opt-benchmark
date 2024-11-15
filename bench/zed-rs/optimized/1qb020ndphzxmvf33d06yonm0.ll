@@ -35820,9 +35820,9 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hc78643f635c6fa09E.exit.i.i: ; preds =
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !6568
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !6563
   %switch.i.i = icmp ult i8 %.val, 2
-  %spec.select.i.i = select i1 %switch.i.i, ptr @anon.1ca1a3962f5fa94c3f238bbf50d5b94b.154, ptr @anon.1ca1a3962f5fa94c3f238bbf50d5b94b.155
-  %spec.select7.i.i = select i1 %switch.i.i, i64 8, i64 12
-  invoke void @_ZN6editor6Editor20set_placeholder_text17h0dac9676df6b520fE(ptr noalias noundef nonnull align 8 dereferenceable(5472) %53, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i, i64 noundef %spec.select7.i.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  %anon.1ca1a3962f5fa94c3f238bbf50d5b94b.154.anon.1ca1a3962f5fa94c3f238bbf50d5b94b.155.i.i = select i1 %switch.i.i, ptr @anon.1ca1a3962f5fa94c3f238bbf50d5b94b.154, ptr @anon.1ca1a3962f5fa94c3f238bbf50d5b94b.155
+  %..i.i = select i1 %switch.i.i, i64 8, i64 12
+  invoke void @_ZN6editor6Editor20set_placeholder_text17h0dac9676df6b520fE(ptr noalias noundef nonnull align 8 dereferenceable(5472) %53, ptr noalias noundef nonnull readonly align 1 %anon.1ca1a3962f5fa94c3f238bbf50d5b94b.154.anon.1ca1a3962f5fa94c3f238bbf50d5b94b.155.i.i, i64 noundef %..i.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %.noexc12.i.i unwind label %77
 
 93:                                               ; preds = %.noexc9.i.i

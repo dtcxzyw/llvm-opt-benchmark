@@ -50,8 +50,8 @@ switch.lookup:                                    ; preds = %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
-9:                                                ; preds = %switch.lookup, %4, %1
-  %.0 = phi ptr [ @.str, %1 ], [ @.str.1, %4 ], [ %switch.load, %switch.lookup ]
+9:                                                ; preds = %4, %switch.lookup, %1
+  %.0 = phi ptr [ @.str, %1 ], [ %switch.load, %switch.lookup ], [ @.str.1, %4 ]
   ret ptr %.0
 }
 
@@ -116,31 +116,15 @@ define i64 @_ZN12AudioRouting7convertEb(ptr nocapture noundef nonnull readonly a
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i8, ptr %0, align 4
-  br i1 %1, label %7, label %10
-
-7:                                                ; preds = %2
-  switch i32 %5, label %9 [
-    i32 1, label %11
-    i32 0, label %8
-  ]
-
-8:                                                ; preds = %7
-  br label %11
-
-9:                                                ; preds = %7
-  br label %11
-
-10:                                               ; preds = %2
   %switch.selectcmp = icmp ne i32 %5, 0
   %switch.select = zext i1 %switch.selectcmp to i32
-  br label %11
-
-11:                                               ; preds = %10, %7, %9, %8
-  %.sink = phi i32 [ %5, %9 ], [ %5, %8 ], [ 4, %7 ], [ %switch.select, %10 ]
-  %12 = trunc i8 %6 to i1
-  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext %12, i32 noundef %.sink)
-  %13 = load i64, ptr %3, align 8
-  ret i64 %13
+  %cond = icmp eq i32 %5, 1
+  %spec.select = select i1 %cond, i32 4, i32 %5
+  %.sink = select i1 %1, i32 %spec.select, i32 %switch.select
+  %7 = trunc i8 %6 to i1
+  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext %7, i32 noundef %.sink)
+  %8 = load i64, ptr %3, align 8
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

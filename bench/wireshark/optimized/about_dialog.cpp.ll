@@ -1819,8 +1819,8 @@ switch.lookup:                                    ; preds = %_ZN5QListI7QStringE
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL12scope_to_str14plugin_scope_e.exit
 
-_ZL12scope_to_str14plugin_scope_e.exit:           ; preds = %switch.lookup, %_ZN5QListI7QStringElsEOS0_.exit117
-  %.0.i = phi ptr [ @.str.4, %_ZN5QListI7QStringElsEOS0_.exit117 ], [ %switch.load, %switch.lookup ]
+_ZL12scope_to_str14plugin_scope_e.exit:           ; preds = %_ZN5QListI7QStringElsEOS0_.exit117, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.4, %_ZN5QListI7QStringElsEOS0_.exit117 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   %229 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #19
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %13, i64 %229, ptr nonnull %.0.i)

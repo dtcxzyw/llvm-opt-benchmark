@@ -561,7 +561,7 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule14getTerminateFnE
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 340
   %.sroa.0.0.copyload.i = load i32, ptr %11, align 4
   %switch.i = icmp ult i32 %.sroa.0.0.copyload.i, 10
-  br i1 %switch.i, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25, label %.critedge
+  br i1 %switch.i, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %8
   %cond.i = icmp eq i32 %.sroa.0.0.copyload.i, 10
@@ -573,12 +573,12 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule14getTerminateFnE
   %15 = icmp ugt i64 %14, 816043786239999999
   %. = select i1 %15, i64 15, i64 17
   %.str.1..str.2 = select i1 %15, ptr @.str.1, ptr @.str.2
-  br label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
+  br label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
 
 .critedge2:                                       ; preds = %1, %.critedge
   %16 = and i64 %6, 262144
   %.not7 = icmp eq i64 %16, 0
-  br i1 %.not7, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread, label %17
+  br i1 %.not7, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25, label %17
 
 17:                                               ; preds = %.critedge2
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 352
@@ -587,10 +587,10 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule14getTerminateFnE
     i32 1, label %20
     i32 0, label %26
     i32 2, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit
-    i32 3, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
-    i32 4, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
-    i32 5, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
-    i32 6, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
+    i32 3, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
+    i32 4, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
+    i32 5, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
+    i32 6, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
   ]
 
 20:                                               ; preds = %17
@@ -601,7 +601,7 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule14getTerminateFnE
   %25 = and i64 %22, 9223372006790004735
   %or.cond.not = icmp eq i64 %25, 10
   %or.cond = or i1 %24, %or.cond.not
-  br i1 %or.cond, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
+  br i1 %or.cond, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 356
@@ -611,7 +611,7 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule14getTerminateFnE
   %31 = and i64 %28, 9223372006790004735
   %or.cond29.not = icmp eq i64 %31, 10
   %or.cond30 = or i1 %30, %or.cond29.not
-  br i1 %or.cond30, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
+  br i1 %or.cond30, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
 
 32:                                               ; preds = %17
   unreachable
@@ -621,14 +621,14 @@ _ZNK5clang11ObjCRuntime12hasTerminateEv.exit:     ; preds = %17
   %34 = load i64, ptr %33, align 4
   %35 = trunc i64 %34 to i32
   %36 = icmp ugt i32 %35, 4
-  br i1 %36, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
+  br i1 %36, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
 
-_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread: ; preds = %17, %17, %17, %26, %20, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit, %.critedge2
-  br label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
+_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25: ; preds = %17, %17, %17, %26, %20, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit, %.critedge2
+  br label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
 
-_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25: ; preds = %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit, %17, %20, %26, %12, %8, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
-  %.sroa.7.0 = phi i64 [ 5, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread ], [ 15, %8 ], [ %., %12 ], [ 14, %26 ], [ 14, %20 ], [ 14, %17 ], [ 14, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit ]
-  %.sroa.022.0 = phi ptr [ @.str.4, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread ], [ @.str, %8 ], [ %.str.1..str.2, %12 ], [ @.str.3, %26 ], [ @.str.3, %20 ], [ @.str.3, %17 ], [ @.str.3, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit ]
+_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread: ; preds = %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit, %17, %20, %26, %12, %8, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25
+  %.sroa.7.0 = phi i64 [ 5, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25 ], [ 15, %8 ], [ %., %12 ], [ 14, %26 ], [ 14, %20 ], [ 14, %17 ], [ 14, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit ]
+  %.sroa.022.0 = phi ptr [ @.str.4, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread25 ], [ @.str, %8 ], [ %.str.1..str.2, %12 ], [ @.str.3, %26 ], [ @.str.3, %20 ], [ @.str.3, %17 ], [ @.str.3, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit ]
   %37 = tail call { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule21CreateRuntimeFunctionEPN4llvm12FunctionTypeENS2_9StringRefENS2_13AttributeListEbb(ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr noundef %3, ptr nonnull %.sroa.022.0, i64 %.sroa.7.0, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #18
   ret { ptr, ptr } %37
 }

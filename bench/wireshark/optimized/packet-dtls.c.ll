@@ -1173,10 +1173,10 @@ switch.lookup:                                    ; preds = %48
   %switch.load80 = load i32, ptr %switch.gep79, align 4
   br label %58
 
-58:                                               ; preds = %switch.lookup, %48
-  %.sink76 = phi i32 [ 2, %48 ], [ %switch.load, %switch.lookup ]
-  %.sink75 = phi i32 [ 1, %48 ], [ %switch.load78, %switch.lookup ]
-  %.sink = phi i32 [ 10, %48 ], [ %switch.load80, %switch.lookup ]
+58:                                               ; preds = %48, %switch.lookup
+  %.sink76 = phi i32 [ %switch.load, %switch.lookup ], [ 2, %48 ]
+  %.sink75 = phi i32 [ %switch.load78, %switch.lookup ], [ 1, %48 ]
+  %.sink = phi i32 [ %switch.load80, %switch.lookup ], [ 10, %48 ]
   store i32 %.sink76, ptr %50, align 4
   store i32 %.sink75, ptr %52, align 4
   store i32 %.sink, ptr %53, align 4

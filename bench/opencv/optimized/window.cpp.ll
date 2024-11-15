@@ -567,8 +567,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN2cv15highgui_backend8UIWindowEED2Ev.exit31
 
 _ZNSt10shared_ptrIN2cv15highgui_backend8UIWindowEED2Ev.exit31: ; preds = %.critedge, %89, %102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30
-  %cond2.old = icmp eq i32 %1, 0
-  br i1 %cond2.old, label %107, label %_ZNSt10shared_ptrIN2cv15highgui_backend8UIWindowEED2Ev.exit
+  %cond1.old = icmp eq i32 %1, 0
+  br i1 %cond1.old, label %107, label %_ZNSt10shared_ptrIN2cv15highgui_backend8UIWindowEED2Ev.exit
 
 107:                                              ; preds = %_ZNSt10shared_ptrIN2cv15highgui_backend8UIWindowEED2Ev.exit31
   %108 = fcmp une double %2, 0.000000e+00

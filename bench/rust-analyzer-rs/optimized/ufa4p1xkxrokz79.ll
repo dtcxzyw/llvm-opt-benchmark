@@ -738,24 +738,24 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   br label %.cont
 
 .cont:                                            ; preds = %.noexc, %.else, %27
-  %.sink4.i.i33 = phi i64 [ %.sroa.4.i.sroa.4.0.copyload, %27 ], [ %.sroa.4.i.sroa.5.0.copyload, %.else ], [ 0, %.noexc ]
-  %.sroa.013.031 = phi i64 [ %.sroa.4.i.sroa.3.0.copyload, %27 ], [ %.sroa.4.i.sroa.3.0.copyload, %.else ], [ undef, %.noexc ]
+  %.sink4.i.i34 = phi i64 [ %.sroa.4.i.sroa.4.0.copyload, %27 ], [ %.sroa.4.i.sroa.5.0.copyload, %.else ], [ 0, %.noexc ]
+  %.sroa.014.032 = phi i64 [ %.sroa.4.i.sroa.3.0.copyload, %27 ], [ %.sroa.4.i.sroa.3.0.copyload, %.else ], [ undef, %.noexc ]
   %.sroa.2.1 = phi i64 [ 0, %27 ], [ %.sroa.4.i.sroa.4.0.copyload, %.else ], [ undef, %.noexc ]
-  %.sroa.416.1 = phi i64 [ %.sroa.4.i.sroa.5.0.copyload, %27 ], [ 0, %.else ], [ 0, %.noexc ]
+  %.sroa.417.1 = phi i64 [ %.sroa.4.i.sroa.5.0.copyload, %27 ], [ 0, %.else ], [ 0, %.noexc ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  store i64 %.sroa.013.031, ptr %6, align 8
-  %.sroa.011.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.sroa.2.1, ptr %.sroa.011.sroa.4.0..sroa_idx, align 8
-  %.sroa.011.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 %.sroa.416.1, ptr %.sroa.011.sroa.5.0..sroa_idx, align 8
-  %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 0, ptr %.sroa.412.0..sroa_idx, align 8
+  store i64 %.sroa.014.032, ptr %6, align 8
+  %.sroa.012.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %.sroa.2.1, ptr %.sroa.012.sroa.4.0..sroa_idx, align 8
+  %.sroa.012.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %.sroa.417.1, ptr %.sroa.012.sroa.5.0..sroa_idx, align 8
+  %.sroa.413.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  store i64 0, ptr %.sroa.413.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 %.sink4.i.i33, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sink4.i.i34, ptr %.sroa.5.0..sroa_idx, align 8
   br label %29
 
 29:                                               ; preds = %"_ZN51_$LT$salsa..Cycle$u20$as$u20$core..clone..Clone$GT$5clone17hd5c0630ac31b016cE.exit", %.cont
-  %30 = load i64, ptr %.sroa.412.0..sroa_idx, align 8, !noundef !5
+  %30 = load i64, ptr %.sroa.413.0..sroa_idx, align 8, !noundef !5
   %31 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !5
   %32 = icmp eq i64 %30, %31
   br i1 %32, label %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf8f7c8f16fa9283cE.llvm.12611796297594801985.exit.i", label %34
@@ -781,8 +781,8 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 
 34:                                               ; preds = %29
   %35 = add i64 %30, 1
-  store i64 %35, ptr %.sroa.412.0..sroa_idx, align 8, !alias.scope !157
-  %36 = load i64, ptr %.sroa.011.sroa.5.0..sroa_idx, align 8, !alias.scope !160, !noalias !163, !noundef !5
+  store i64 %35, ptr %.sroa.413.0..sroa_idx, align 8, !alias.scope !157
+  %36 = load i64, ptr %.sroa.012.sroa.5.0..sroa_idx, align 8, !alias.scope !160, !noalias !163, !noundef !5
   %37 = icmp ugt i64 %36, 4
   %38 = load ptr, ptr %6, align 8, !alias.scope !160, !noalias !163, !nonnull !5
   %.sink5.i.i = select i1 %37, ptr %38, ptr %6
@@ -825,9 +825,9 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 
 53:                                               ; preds = %50
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #13
-          to label %.noexc10 unwind label %.loopexit.split-lp
+          to label %.noexc11 unwind label %.loopexit.split-lp
 
-.noexc10:                                         ; preds = %53
+.noexc11:                                         ; preds = %53
   unreachable
 
 "_ZN51_$LT$salsa..Cycle$u20$as$u20$core..clone..Clone$GT$5clone17hd5c0630ac31b016cE.exit": ; preds = %50, %34

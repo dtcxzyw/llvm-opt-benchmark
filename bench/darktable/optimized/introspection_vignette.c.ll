@@ -829,7 +829,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %
 
 154:                                              ; preds = %153
   call void @dt_control_change_cursor(i32 noundef 58) #19
-  br label %336
+  br label %334
 
 155:                                              ; preds = %153
   %156 = getelementptr inbounds i8, ptr %10, i64 32
@@ -1052,48 +1052,42 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %
 
 326:                                              ; preds = %304, %269, %265, %252, %248, %236, %210, %203, %200, %198, %155, %153
   call void (...) @dt_control_queue_redraw_center() #19
-  br label %336
+  br label %334
 
 327:                                              ; preds = %149, %143
-  switch i32 %144, label %335 [
-    i32 0, label %332
-    i32 1, label %333
+  switch i32 %144, label %333 [
+    i32 0, label %330
+    i32 1, label %331
     i32 2, label %328
     i32 4, label %329
-    i32 8, label %330
-    i32 16, label %331
+    i32 8, label %328
+    i32 16, label %329
   ]
 
-328:                                              ; preds = %327
-  br label %333
+328:                                              ; preds = %327, %327
+  br label %331
 
-329:                                              ; preds = %327
-  br label %333
+329:                                              ; preds = %327, %327
+  br label %331
 
 330:                                              ; preds = %327
+  br i1 %101, label %333, label %331
+
+331:                                              ; preds = %330, %329, %328, %327
+  %332 = phi i32 [ 108, %328 ], [ 116, %329 ], [ 52, %327 ], [ 68, %330 ]
+  call void @dt_control_change_cursor(i32 noundef %332) #19
   br label %333
 
-331:                                              ; preds = %327
-  br label %333
-
-332:                                              ; preds = %327
-  br i1 %101, label %335, label %333
-
-333:                                              ; preds = %332, %331, %330, %329, %328, %327
-  %334 = phi i32 [ 108, %328 ], [ 108, %330 ], [ 116, %331 ], [ 116, %329 ], [ 52, %327 ], [ 68, %332 ]
-  call void @dt_control_change_cursor(i32 noundef %334) #19
-  br label %335
-
-335:                                              ; preds = %333, %332, %327
+333:                                              ; preds = %331, %330, %327
   store i32 %144, ptr @mouse_moved.old_grab, align 4, !tbaa !33
   call void (...) @dt_control_queue_redraw_center() #19
-  br label %336
+  br label %334
 
-336:                                              ; preds = %335, %326, %154
-  %337 = phi i32 [ 0, %154 ], [ 1, %326 ], [ 0, %335 ]
+334:                                              ; preds = %333, %326, %154
+  %335 = phi i32 [ 0, %154 ], [ 1, %326 ], [ 0, %333 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
-  ret i32 %337
+  ret i32 %335
 }
 
 declare i32 @dt_dev_get_preview_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3

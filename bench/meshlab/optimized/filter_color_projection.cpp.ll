@@ -494,7 +494,6 @@ $_ZZNK3vcg25MissingComponentException4whatEvE3buf = comdat any
 @.str.111 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_filter_color_projection.cpp, ptr null }]
 @str = private unnamed_addr constant [32 x i8] c"Similar Triangles face sampling\00", align 1
-@switch.table._ZThn16_N27FilterColorProjectionPlugin15getRequirementsEPK7QAction = private unnamed_addr constant [3 x i32] [i32 8, i32 8, i32 0], align 4
 @switch.table._ZThn16_NK27FilterColorProjectionPlugin8getClassEPK7QAction = private unnamed_addr constant [3 x i32] [i32 262160, i32 262160, i32 270336], align 4
 @switch.table._ZThn16_NK27FilterColorProjectionPlugin13postConditionEPK7QAction = private unnamed_addr constant [3 x i32] [i32 8, i32 8, i32 2097152], align 4
 
@@ -7218,18 +7217,9 @@ define noundef range(i32 0, 9) i32 @_ZN27FilterColorProjectionPlugin15getRequire
   %5 = getelementptr inbounds i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
-  %8 = icmp ult i32 %7, 3
-  br i1 %8, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZThn16_N27FilterColorProjectionPlugin15getRequirementsEPK7QAction, i64 0, i64 %9
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %10
-
-10:                                               ; preds = %2, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
-  ret i32 %.0
+  %switch = icmp ult i32 %7, 2
+  %. = select i1 %switch, i32 8, i32 0
+  ret i32 %.
 }
 
 ; Function Attrs: uwtable
@@ -7238,18 +7228,9 @@ define noundef range(i32 0, 9) i32 @_ZThn16_N27FilterColorProjectionPlugin15getR
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 3
-  br i1 %7, label %switch.lookup, label %_ZN27FilterColorProjectionPlugin15getRequirementsEPK7QAction.exit
-
-switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZThn16_N27FilterColorProjectionPlugin15getRequirementsEPK7QAction, i64 0, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN27FilterColorProjectionPlugin15getRequirementsEPK7QAction.exit
-
-_ZN27FilterColorProjectionPlugin15getRequirementsEPK7QAction.exit: ; preds = %2, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
-  ret i32 %.0.i
+  %switch.i = icmp ult i32 %6, 2
+  %..i = select i1 %switch.i, i32 8, i32 0
+  ret i32 %..i
 }
 
 ; Function Attrs: mustprogress uwtable

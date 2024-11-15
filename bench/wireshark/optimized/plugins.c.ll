@@ -149,7 +149,7 @@ switch.lookup:                                    ; preds = %4
 
 .lr.ph:                                           ; preds = %16
   %cond.i.i = icmp eq i32 %2, 3
-  %..i.i = zext i1 %cond.i.i to i32
+  %..i16.i = zext i1 %cond.i.i to i32
   %19 = load ptr, ptr @g_ascii_table, align 8
   %switch.tableidx75 = add nsw i32 %2, -1
   %20 = icmp ult i32 %switch.tableidx75, 3
@@ -245,12 +245,12 @@ type_to_name.exit67:                              ; preds = %type_to_name.exit, 
 
 50:                                               ; preds = %46
   %51 = icmp sgt i32 %48, 0
-  %52 = icmp samesign ugt i32 %48, %..i.i
+  %52 = icmp samesign ugt i32 %48, %..i16.i
   %or.cond = select i1 %51, i1 %52, i1 false
   br i1 %or.cond, label %53, label %55
 
 53:                                               ; preds = %50
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.24, ptr noundef nonnull %23, i32 noundef %48, i32 noundef %..i.i) #11
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.24, ptr noundef nonnull %23, i32 noundef %48, i32 noundef %..i16.i) #11
   br label %pass_plugin_compatibility.exit
 
 pass_plugin_compatibility.exit:                   ; preds = %53, %49
@@ -539,12 +539,12 @@ define i32 @plugins_check_file(ptr noundef %0) local_unnamed_addr #0 {
   %17 = load i32, ptr %4, align 4
   %.off.i.i = add i32 %14, -1
   %switch.i.i = icmp ult i32 %.off.i.i, 3
-  %spec.select.i.i = select i1 %switch.i.i, i32 1, i32 -1
-  %.not.i = icmp eq i32 %16, %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i32 1, i32 -1
+  %.not.i = icmp eq i32 %16, %..i.i
   br i1 %.not.i, label %19, label %18
 
 18:                                               ; preds = %12
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.23, ptr noundef %15, i32 noundef %16, i32 noundef %spec.select.i.i) #11
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.23, ptr noundef %15, i32 noundef %16, i32 noundef %..i.i) #11
   br label %pass_plugin_compatibility.exit
 
 19:                                               ; preds = %12
@@ -553,12 +553,12 @@ define i32 @plugins_check_file(ptr noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %19
   %cond.i.i = icmp eq i32 %14, 3
-  %..i.i = zext i1 %cond.i.i to i32
-  %22 = icmp samesign ugt i32 %17, %..i.i
+  %..i16.i = zext i1 %cond.i.i to i32
+  %22 = icmp samesign ugt i32 %17, %..i16.i
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.24, ptr noundef %15, i32 noundef %17, i32 noundef %..i.i) #11
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.24, ptr noundef %15, i32 noundef %17, i32 noundef %..i16.i) #11
   br label %pass_plugin_compatibility.exit
 
 pass_plugin_compatibility.exit:                   ; preds = %23, %18
@@ -613,8 +613,8 @@ declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #2
 define noalias ptr @plugins_file_suffix(i32 noundef %0) local_unnamed_addr #0 {
   %.off.i = add i32 %0, -1
   %switch.i = icmp ult i32 %.off.i, 3
-  %spec.select.i = select i1 %switch.i, i32 1, i32 -1
-  %2 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef %spec.select.i) #11
+  %..i = select i1 %switch.i, i32 1, i32 -1
+  %2 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef %..i) #11
   ret ptr %2
 }
 
@@ -624,8 +624,8 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 define noundef range(i32 -1, 2) i32 @plugins_abi_version(i32 noundef %0) local_unnamed_addr #7 {
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 3
-  %spec.select = select i1 %switch, i32 1, i32 -1
-  ret i32 %spec.select
+  %. = select i1 %switch, i32 1, i32 -1
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

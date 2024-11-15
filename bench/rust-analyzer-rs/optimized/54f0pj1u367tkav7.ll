@@ -253,7 +253,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN64_$LT$span..hygiene..Transparency$u20$as$u20$core..fmt..Debug$GT$3fmt17h059d205a7fe9384cE.90" = private unnamed_addr constant [3 x ptr] [ptr @anon.14dc1be636f00d3fc1a2b30eeced2adf.135, ptr @anon.14dc1be636f00d3fc1a2b30eeced2adf.136, ptr @anon.14dc1be636f00d3fc1a2b30eeced2adf.137], align 8
 @switch.table._ZN10hir_expand7hygiene20dump_syntax_contexts17h1eb5022101245c87E = private unnamed_addr constant [3 x i64] [i64 10, i64 12, i64 15], align 8
 @switch.table._ZN10hir_expand7hygiene20dump_syntax_contexts17h1eb5022101245c87E.91 = private unnamed_addr constant [3 x ptr] [ptr @anon.c84b1ad4650e75dcc23d0bef38e10828.408.llvm.4743249442795103037, ptr @anon.c84b1ad4650e75dcc23d0bef38e10828.409.llvm.4743249442795103037, ptr @anon.c84b1ad4650e75dcc23d0bef38e10828.410.llvm.4743249442795103037], align 8
-@switch.table._ZN10hir_expand18builtin_attr_macro19BuiltinAttrExpander8expander17ha32e8b643aa75e9aE = private unnamed_addr constant [10 x ptr] [ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro13derive_expand17h5501bce42d4aee33E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro13derive_expand17h5501bce42d4aee33E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h155fc2e7a768ed32E.llvm.8462471242219372772"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
@@ -10112,8 +10111,8 @@ define hidden void @_ZN10hir_expand5attrs4Attr7from_tt17h260b72b422459de9E(ptr n
   %17 = icmp eq i8 %16, 4
   %18 = load i32, ptr %3, align 8, !range !164, !alias.scope !2044, !noalias !2041
   %switch.i.i = icmp eq i32 %18, 1
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 32
-  %.sink1.i = select i1 %17, i64 %spec.select.i.i, i64 16
+  %..i.i = select i1 %switch.i.i, i64 8, i64 32
+  %.sink1.i = select i1 %17, i64 %..i.i, i64 16
   %19 = getelementptr inbounds i8, ptr %3, i64 %.sink1.i
   %.sroa.0.0.copyload = load i32, ptr %19, align 8, !alias.scope !2046
   %20 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3, i64 %4
@@ -12193,12 +12192,11 @@ define void @_ZN10hir_expand5attrs20parse_cfg_attr_input17h31a9b9851116c093E(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10hir_expand18builtin_attr_macro19BuiltinAttrExpander6expand17h3fcea027ad756cbdE(ptr noalias nocapture noundef sret({ { i8, [15 x i8] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }) align 8 dereferenceable(80) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, i32 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(64) %5, ptr noalias nocapture noundef align 4 dereferenceable(20) %6) unnamed_addr #2 {
-switch.lookup:
-  %7 = load i8, ptr %1, align 1, !range !2585, !alias.scope !2586, !noundef !4
-  %8 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN10hir_expand18builtin_attr_macro19BuiltinAttrExpander8expander17ha32e8b643aa75e9aE, i64 0, i64 %8
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  tail call void %switch.load(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }) align 8 dereferenceable(80) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %6), !callees !2589
+  %8 = load i8, ptr %1, align 1, !range !2585, !alias.scope !2586, !noundef !4
+  %.off.i = add nsw i8 %8, -5
+  %switch.i = icmp ult i8 %.off.i, 2
+  %_ZN10hir_expand18builtin_attr_macro13derive_expand17h5501bce42d4aee33E.llvm.8462471242219372772._ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772.i = select i1 %switch.i, ptr @_ZN10hir_expand18builtin_attr_macro13derive_expand17h5501bce42d4aee33E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772
+  tail call void %_ZN10hir_expand18builtin_attr_macro13derive_expand17h5501bce42d4aee33E.llvm.8462471242219372772._ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772.i(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] }, { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] } }) align 8 dereferenceable(80) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %6), !callees !2589
   ret void
 }
 
@@ -16338,9 +16336,9 @@ switch.lookup:                                    ; preds = %76
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   %143 = load i8, ptr %23, align 8, !range !1441, !noundef !4
   %switch.i = icmp samesign ult i8 %143, 2
-  %spec.select.i.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 4, i64 8
-  %spec.select.i.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %23, i64 %spec.select.i.sroa.sel.v.sroa.sel.v
-  %.0.i = load i32, ptr %spec.select.i.sroa.sel.v.sroa.sel, align 4, !alias.scope !3613, !noundef !4
+  %..i.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 4, i64 8
+  %..i.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %23, i64 %..i.sroa.sel.v.sroa.sel.v
+  %.0.i = load i32, ptr %..i.sroa.sel.v.sroa.sel, align 4, !alias.scope !3613, !noundef !4
   store i32 %.0.i, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %144 = zext nneg i8 %143 to i64
@@ -17905,12 +17903,11 @@ define hidden void @_ZN10hir_expand5quote12dollar_crate17h200cae0da777cb7eE(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef nonnull ptr @_ZN10hir_expand18builtin_attr_macro19BuiltinAttrExpander8expander17ha32e8b643aa75e9aE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #15 {
-switch.lookup:
-  %1 = load i8, ptr %0, align 1, !range !2585, !noundef !4
-  %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN10hir_expand18builtin_attr_macro19BuiltinAttrExpander8expander17ha32e8b643aa75e9aE, i64 0, i64 %2
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
+  %2 = load i8, ptr %0, align 1, !range !2585, !noundef !4
+  %.off = add nsw i8 %2, -5
+  %switch = icmp ult i8 %.off, 2
+  %_ZN10hir_expand18builtin_attr_macro13derive_expand17h5501bce42d4aee33E.llvm.8462471242219372772._ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772 = select i1 %switch, ptr @_ZN10hir_expand18builtin_attr_macro13derive_expand17h5501bce42d4aee33E.llvm.8462471242219372772, ptr @_ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772
+  ret ptr %_ZN10hir_expand18builtin_attr_macro13derive_expand17h5501bce42d4aee33E.llvm.8462471242219372772._ZN10hir_expand18builtin_attr_macro17dummy_attr_expand17h4f278b48aa8bf907E.llvm.8462471242219372772
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -2022,7 +2022,7 @@ _xlate_pbs_mail_type.exit:                        ; preds = %._crit_edge.i20, %6
   call void @slurm_process_option_or_exit(ptr noundef nonnull @opt, i32 noundef %.0.ph, ptr noundef %665, i1 noundef zeroext false, i1 noundef zeroext false) #12
   br label %666
 
-666:                                              ; preds = %_parse_pbs_resource_list.exit, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %596, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %642, %659, %656, %.lr.ph, %664
+666:                                              ; preds = %_parse_pbs_resource_list.exit, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %596, %642, %659, %656, %664
   call void @slurm_xfree(ptr noundef nonnull %11) #12
   %667 = call i32 @getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.23, ptr noundef nonnull %10, ptr noundef nonnull %9) #12
   %.not = icmp eq i32 %667, -1

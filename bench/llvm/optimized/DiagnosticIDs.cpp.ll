@@ -1797,245 +1797,242 @@ _ZL19getBuiltinDiagClassj.exit.i:                 ; preds = %9
 
 _ZL19getBuiltinDiagClassj.exit.thread.i:          ; preds = %_ZL19getBuiltinDiagClassj.exit.i, %9
   %15 = tail call noundef i32 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr nonnull readonly align 8 poison, i32 noundef %6, i32 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(1304) %1) #25
-  switch i32 %15, label %18 [
+  switch i32 %15, label %17 [
     i32 1, label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
     i32 2, label %16
-    i32 3, label %17
+    i32 3, label %16
     i32 4, label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52
     i32 5, label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52
   ]
 
-16:                                               ; preds = %_ZL19getBuiltinDiagClassj.exit.thread.i
+16:                                               ; preds = %_ZL19getBuiltinDiagClassj.exit.thread.i, %_ZL19getBuiltinDiagClassj.exit.thread.i
   br label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
 
 17:                                               ; preds = %_ZL19getBuiltinDiagClassj.exit.thread.i
-  br label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
-
-18:                                               ; preds = %_ZL19getBuiltinDiagClassj.exit.thread.i
   unreachable
 
 _ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit: ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = add i32 %6, -8820
-  %22 = zext i32 %21 to i64
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds %"struct.std::pair", ptr %23, i64 %22
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp sgt i32 %25, 3
-  br i1 %26, label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52, label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = add i32 %6, -8820
+  %21 = zext i32 %20 to i64
+  %22 = load ptr, ptr %19, align 8
+  %23 = getelementptr inbounds %"struct.std::pair", ptr %22, i64 %21
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp sgt i32 %24, 3
+  br i1 %25, label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52, label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
 
 _ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52: ; preds = %_ZL19getBuiltinDiagClassj.exit.thread.i, %_ZL19getBuiltinDiagClassj.exit.thread.i, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit
-  %.0.i54 = phi i32 [ %25, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit ], [ %15, %_ZL19getBuiltinDiagClassj.exit.thread.i ], [ %15, %_ZL19getBuiltinDiagClassj.exit.thread.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 196
-  %28 = load i32, ptr %27, align 4
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 4
-  %30 = tail call noundef zeroext i1 @_ZNK5clang13DiagnosticIDs15isUnrecoverableEj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
-  br i1 %30, label %31, label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
+  %.0.i54 = phi i32 [ %24, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit ], [ %15, %_ZL19getBuiltinDiagClassj.exit.thread.i ], [ %15, %_ZL19getBuiltinDiagClassj.exit.thread.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 196
+  %27 = load i32, ptr %26, align 4
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %26, align 4
+  %29 = tail call noundef zeroext i1 @_ZNK5clang13DiagnosticIDs15isUnrecoverableEj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
+  br i1 %29, label %30, label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
 
-31:                                               ; preds = %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %33 = load i32, ptr %32, align 8
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %32, align 8
+30:                                               ; preds = %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %32 = load i32, ptr %31, align 8
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %31, align 8
   br label %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
 
-_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread: ; preds = %_ZL19getBuiltinDiagClassj.exit.thread.i, %16, %17, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52, %31, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit
-  %35 = phi i1 [ true, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52 ], [ true, %31 ], [ false, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit ], [ false, %17 ], [ false, %16 ], [ false, %_ZL19getBuiltinDiagClassj.exit.thread.i ]
-  %.0.i49 = phi i32 [ %.0.i54, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52 ], [ %.0.i54, %31 ], [ %25, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit ], [ %15, %17 ], [ %15, %16 ], [ 0, %_ZL19getBuiltinDiagClassj.exit.thread.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %37 = load i8, ptr %36, align 2
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %.thread66, label %42
+_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread: ; preds = %_ZL19getBuiltinDiagClassj.exit.thread.i, %16, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52, %30, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit
+  %34 = phi i1 [ true, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52 ], [ true, %30 ], [ false, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit ], [ false, %16 ], [ false, %_ZL19getBuiltinDiagClassj.exit.thread.i ]
+  %.0.i49 = phi i32 [ %.0.i54, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread52 ], [ %.0.i54, %30 ], [ %24, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit ], [ %15, %16 ], [ 0, %_ZL19getBuiltinDiagClassj.exit.thread.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %36 = load i8, ptr %35, align 2
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %.thread66, label %41
 
 _ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread.thread: ; preds = %_ZL19getBuiltinDiagClassj.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %40 = load i8, ptr %39, align 2
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %.thread66, label %.thread63
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %39 = load i8, ptr %38, align 2
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %.thread66, label %.thread63
 
-42:                                               ; preds = %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
+41:                                               ; preds = %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread
   %.not = icmp eq i32 %.0.i49, 1
-  br i1 %.not, label %50, label %43
+  br i1 %.not, label %49, label %42
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 204
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, 5
-  br i1 %46, label %47, label %49
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 204
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %44, 5
+  br i1 %45, label %46, label %48
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 194
-  store i8 1, ptr %48, align 2
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 194
+  store i8 1, ptr %47, align 2
+  br label %48
+
+48:                                               ; preds = %46, %42
+  store i32 %.0.i49, ptr %43, align 4
   br label %49
 
-49:                                               ; preds = %47, %43
-  store i32 %.0.i49, ptr %44, align 4
-  br label %50
-
-50:                                               ; preds = %49, %42
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 194
-  %52 = load i8, ptr %51, align 2
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %57, label %69
+49:                                               ; preds = %48, %41
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 194
+  %51 = load i8, ptr %50, align 2
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %56, label %68
 
 .thread63:                                        ; preds = %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread.thread
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 194
-  %55 = load i8, ptr %54, align 2
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %.thread66, label %.thread67
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 194
+  %54 = load i8, ptr %53, align 2
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %.thread66, label %.thread67
 
-57:                                               ; preds = %50
-  br i1 %35, label %58, label %.thread66
+56:                                               ; preds = %49
+  br i1 %34, label %57, label %.thread66
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 48
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %60) #22
-  br i1 %64, label %65, label %.thread66
+  %61 = getelementptr inbounds i8, ptr %60, i64 48
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %59) #22
+  br i1 %63, label %64, label %.thread66
 
-65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  %67 = load i32, ptr %66, align 4
-  %68 = add i32 %67, 1
-  store i32 %68, ptr %66, align 4
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %66 = load i32, ptr %65, align 4
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %65, align 4
   br label %.thread66
 
-69:                                               ; preds = %50
-  switch i32 %.0.i49, label %75 [
+68:                                               ; preds = %49
+  switch i32 %.0.i49, label %74 [
     i32 0, label %.thread66
     i32 1, label %.thread67
   ]
 
-.thread67:                                        ; preds = %.thread63, %69
-  %70 = phi i1 [ %35, %69 ], [ false, %.thread63 ]
-  %71 = phi ptr [ %51, %69 ], [ %54, %.thread63 ]
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 204
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread66, label %75
+.thread67:                                        ; preds = %.thread63, %68
+  %69 = phi i1 [ %34, %68 ], [ false, %.thread63 ]
+  %70 = phi ptr [ %50, %68 ], [ %53, %.thread63 ]
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 204
+  %72 = load i32, ptr %71, align 4
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %.thread66, label %74
 
-75:                                               ; preds = %69, %.thread67
-  %76 = phi i1 [ %35, %69 ], [ %70, %.thread67 ]
-  %.0.i4959626570 = phi i32 [ %.0.i49, %69 ], [ 1, %.thread67 ]
-  %77 = phi ptr [ %51, %69 ], [ %71, %.thread67 ]
-  br i1 %76, label %78, label %110
+74:                                               ; preds = %68, %.thread67
+  %75 = phi i1 [ %34, %68 ], [ %69, %.thread67 ]
+  %.0.i4959626570 = phi i32 [ %.0.i49, %68 ], [ 1, %.thread67 ]
+  %76 = phi ptr [ %50, %68 ], [ %70, %.thread67 ]
+  br i1 %75, label %77, label %109
 
-78:                                               ; preds = %75
-  %79 = tail call noundef zeroext i1 @_ZNK5clang13DiagnosticIDs15isUnrecoverableEj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
-  br i1 %79, label %80, label %82
+77:                                               ; preds = %74
+  %78 = tail call noundef zeroext i1 @_ZNK5clang13DiagnosticIDs15isUnrecoverableEj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
+  br i1 %78, label %79, label %81
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 195
-  store i8 1, ptr %81, align 1
-  br label %82
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 195
+  store i8 1, ptr %80, align 1
+  br label %81
 
-82:                                               ; preds = %80, %78
-  br i1 %8, label %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56, label %83
+81:                                               ; preds = %79, %77
+  br i1 %8, label %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56, label %82
 
-83:                                               ; preds = %82
-  %84 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %6)
-  %.not.i.i42 = icmp eq ptr %84, null
+82:                                               ; preds = %81
+  %83 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %6)
+  %.not.i.i42 = icmp eq ptr %83, null
   br i1 %.not.i.i42, label %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread, label %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit
 
-_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit: ; preds = %83
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
-  %86 = load i32, ptr %85, align 2
-  %87 = and i32 %86, 4
-  %.not71 = icmp eq i32 %87, 0
+_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit: ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 2
+  %85 = load i32, ptr %84, align 2
+  %86 = and i32 %85, 4
+  %.not71 = icmp eq i32 %86, 0
   br i1 %.not71, label %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56, label %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread
 
-_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread: ; preds = %83, %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 193
-  store i8 1, ptr %88, align 1
+_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread: ; preds = %82, %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 193
+  store i8 1, ptr %87, align 1
   br label %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56
 
-_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56: ; preds = %82, %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread, %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store i8 1, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 48
+_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56: ; preds = %81, %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread, %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  store i8 1, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 48
-  %94 = load ptr, ptr %93, align 8
-  %95 = tail call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(16) %91) #22
-  br i1 %95, label %96, label %100
+  %92 = getelementptr inbounds i8, ptr %91, i64 48
+  %93 = load ptr, ptr %92, align 8
+  %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(16) %90) #22
+  br i1 %94, label %95, label %99
 
-96:                                               ; preds = %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  %98 = load i32, ptr %97, align 4
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %97, align 4
-  br label %100
+95:                                               ; preds = %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %97 = load i32, ptr %96, align 4
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %96, align 4
+  br label %99
 
-100:                                              ; preds = %96, %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %102 = load i32, ptr %101, align 4
-  %.not41 = icmp eq i32 %102, 0
-  br i1 %.not41, label %110, label %103
+99:                                               ; preds = %95, %_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %101 = load i32, ptr %100, align 4
+  %.not41 = icmp eq i32 %101, 0
+  br i1 %.not41, label %109, label %102
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp ugt i32 %105, %102
-  %107 = icmp eq i32 %.0.i4959626570, 4
-  %or.cond = and i1 %107, %106
-  br i1 %or.cond, label %108, label %110
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp ugt i32 %104, %101
+  %106 = icmp eq i32 %.0.i4959626570, 4
+  %or.cond = and i1 %106, %105
+  br i1 %or.cond, label %107, label %109
 
-108:                                              ; preds = %103
+107:                                              ; preds = %102
   store ptr @.str.2, ptr %4, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %109, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 0, ptr %108, align 8
   tail call void @_ZN5clang17DiagnosticsEngine20SetDelayedDiagnosticEjN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(1304) %1, i32 noundef 100, ptr nonnull @.str.2, i64 0, ptr nonnull @.str.2, i64 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4) #22
   br label %.thread66
 
-110:                                              ; preds = %100, %103, %75
-  %111 = load i32, ptr %5, align 4
-  %112 = icmp eq i32 %111, 100
-  br i1 %112, label %113, label %114
+109:                                              ; preds = %99, %102, %74
+  %110 = load i32, ptr %5, align 4
+  %111 = icmp eq i32 %110, 100
+  br i1 %111, label %112, label %113
 
-113:                                              ; preds = %110
-  store i8 1, ptr %77, align 2
-  br label %114
+112:                                              ; preds = %109
+  store i8 1, ptr %76, align 2
+  br label %113
 
-114:                                              ; preds = %113, %110
+113:                                              ; preds = %112, %109
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %1, ptr %3, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i8 0, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 56
-  %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(16) %117, i32 noundef %.0.i4959626570, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  %121 = load ptr, ptr %116, align 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 48
-  %124 = load ptr, ptr %123, align 8
-  %125 = call noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(16) %121) #22
-  %126 = icmp eq i32 %.0.i4959626570, 3
-  %or.cond.i = and i1 %126, %125
-  br i1 %or.cond.i, label %127, label %_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE.exit
+  %118 = getelementptr inbounds i8, ptr %117, i64 56
+  %119 = load ptr, ptr %118, align 8
+  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %116, i32 noundef %.0.i4959626570, ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  %120 = load ptr, ptr %115, align 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 48
+  %123 = load ptr, ptr %122, align 8
+  %124 = call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %120) #22
+  %125 = icmp eq i32 %.0.i4959626570, 3
+  %or.cond.i = and i1 %125, %124
+  br i1 %or.cond.i, label %126, label %_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE.exit
 
-127:                                              ; preds = %114
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %129 = load i32, ptr %128, align 8
-  %130 = add i32 %129, 1
-  store i32 %130, ptr %128, align 8
+126:                                              ; preds = %113
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %128 = load i32, ptr %127, align 8
+  %129 = add i32 %128, 1
+  store i32 %129, ptr %127, align 8
   br label %_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE.exit
 
-_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE.exit: ; preds = %114, %127
+_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE.exit: ; preds = %113, %126
   store i32 -1, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %.thread66
 
-.thread66:                                        ; preds = %.thread63, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread.thread, %.thread67, %69, %57, %58, %65, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread, %_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE.exit, %108
-  %.0 = phi i1 [ false, %108 ], [ true, %_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE.exit ], [ false, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread ], [ false, %65 ], [ false, %58 ], [ false, %57 ], [ false, %69 ], [ false, %.thread67 ], [ false, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread.thread ], [ false, %.thread63 ]
+.thread66:                                        ; preds = %.thread63, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread.thread, %.thread67, %68, %56, %57, %64, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread, %_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE.exit, %107
+  %.0 = phi i1 [ false, %107 ], [ true, %_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE.exit ], [ false, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread ], [ false, %64 ], [ false, %57 ], [ false, %56 ], [ false, %68 ], [ false, %.thread67 ], [ false, %_ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE.exit.thread.thread ], [ false, %.thread63 ]
   ret i1 %.0
 }
 

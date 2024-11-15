@@ -341,11 +341,11 @@ define internal range(i32 -1, 2) i32 @CVSpbcgSolve(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds i8, ptr %0, i64 1352
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %69
+  br i1 %25, label %26, label %67
 
 26:                                               ; preds = %22
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %1) #6
-  br label %69
+  br label %67
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds i8, ptr %10, i64 128
@@ -385,7 +385,7 @@ define internal range(i32 -1, 2) i32 @CVSpbcgSolve(ptr noundef %0, ptr noundef %
 .thread:                                          ; preds = %27
   %52 = getelementptr inbounds i8, ptr %10, i64 208
   store i64 0, ptr %52, align 8
-  br label %69
+  br label %66
 
 53:                                               ; preds = %27
   %54 = getelementptr inbounds i8, ptr %10, i64 88
@@ -395,14 +395,14 @@ define internal range(i32 -1, 2) i32 @CVSpbcgSolve(ptr noundef %0, ptr noundef %
   %57 = sext i32 %40 to i64
   %58 = getelementptr inbounds i8, ptr %10, i64 208
   store i64 %57, ptr %58, align 8
-  switch i32 %40, label %69 [
-    i32 -3, label %68
+  switch i32 %40, label %66 [
+    i32 -3, label %65
     i32 1, label %59
-    i32 2, label %63
-    i32 3, label %64
-    i32 4, label %65
-    i32 -1, label %66
-    i32 -2, label %67
+    i32 2, label %67
+    i32 3, label %67
+    i32 4, label %67
+    i32 -1, label %63
+    i32 -2, label %64
   ]
 
 59:                                               ; preds = %53
@@ -410,30 +410,24 @@ define internal range(i32 -1, 2) i32 @CVSpbcgSolve(ptr noundef %0, ptr noundef %
   %61 = load i32, ptr %60, align 8
   %62 = icmp ne i32 %61, 0
   %. = zext i1 %62 to i32
-  br label %69
+  br label %67
 
 63:                                               ; preds = %53
-  br label %69
+  br label %67
 
 64:                                               ; preds = %53
-  br label %69
+  call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #6
+  br label %67
 
 65:                                               ; preds = %53
-  br label %69
-
-66:                                               ; preds = %53
-  br label %69
-
-67:                                               ; preds = %53
-  call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #6
-  br label %69
-
-68:                                               ; preds = %53
   call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15) #6
-  br label %69
+  br label %67
 
-69:                                               ; preds = %.thread, %53, %59, %22, %26, %68, %67, %66, %65, %64, %63
-  %.0 = phi i32 [ -1, %68 ], [ -1, %67 ], [ -1, %66 ], [ 1, %65 ], [ 1, %64 ], [ 1, %63 ], [ 0, %26 ], [ 0, %22 ], [ %., %59 ], [ 0, %53 ], [ 0, %.thread ]
+66:                                               ; preds = %.thread, %53
+  br label %67
+
+67:                                               ; preds = %53, %53, %53, %59, %22, %26, %66, %65, %64, %63
+  %.0 = phi i32 [ 0, %66 ], [ -1, %65 ], [ -1, %64 ], [ -1, %63 ], [ 0, %26 ], [ 0, %22 ], [ %., %59 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ]
   ret i32 %.0
 }
 

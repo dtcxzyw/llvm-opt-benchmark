@@ -18192,8 +18192,8 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 56:                                               ; preds = %47
   %57 = icmp eq i8 %49, 4
   %switch.i.i.i.i.i.i.i = icmp eq i32 %50, 1
-  %spec.select.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 8, i64 32
-  %.sink1.i.i.i.i.i.i = select i1 %57, i64 %spec.select.i.i.i.i.i.i.i, i64 16
+  %..i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 8, i64 32
+  %.sink1.i.i.i.i.i.i = select i1 %57, i64 %..i.i.i.i.i.i.i, i64 16
   %58 = getelementptr inbounds i8, ptr %24, i64 %.sink1.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !7449
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.2.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.4.0..sroa_idx.i.i.i.i.i, i64 39, i1 false), !noalias !7449
@@ -18472,8 +18472,8 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 152:                                              ; preds = %143
   %153 = icmp eq i8 %145, 4
   %switch.i.i.i.i.i.i.i20 = icmp eq i32 %146, 1
-  %spec.select.i.i.i.i.i.i.i21 = select i1 %switch.i.i.i.i.i.i.i20, i64 8, i64 32
-  %.sink1.i.i.i.i.i.i22 = select i1 %153, i64 %spec.select.i.i.i.i.i.i.i21, i64 16
+  %..i.i.i.i.i.i.i21 = select i1 %switch.i.i.i.i.i.i.i20, i64 8, i64 32
+  %.sink1.i.i.i.i.i.i22 = select i1 %153, i64 %..i.i.i.i.i.i.i21, i64 16
   %154 = getelementptr inbounds i8, ptr %120, i64 %.sink1.i.i.i.i.i.i22
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !7552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.2.0..sroa_idx.i.i.i.i9, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.4.0..sroa_idx.i.i.i.i.i8, i64 39, i1 false), !noalias !7552

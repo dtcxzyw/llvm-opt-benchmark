@@ -404,11 +404,11 @@ if.end3:                                          ; preds = %if.end
     i32 0, label %sw.bb2.i
     i32 1, label %sw.bb3.i
     i32 2, label %sw.bb4.i
-    i32 3, label %land.lhs.true.i
-    i32 4, label %if.then26.i
+    i32 3, label %sw.bb2.i
+    i32 4, label %sw.bb2.i
   ]
 
-sw.bb2.i:                                         ; preds = %if.end3
+sw.bb2.i:                                         ; preds = %if.end3, %if.end3, %if.end3
   br label %atom_and_align_for_opc.exit
 
 sw.bb3.i:                                         ; preds = %if.end3
@@ -418,18 +418,12 @@ sw.bb3.i:                                         ; preds = %if.end3
 sw.bb4.i:                                         ; preds = %if.end3
   br label %atom_and_align_for_opc.exit
 
-land.lhs.true.i:                                  ; preds = %if.end3
-  br label %atom_and_align_for_opc.exit
-
-if.then26.i:                                      ; preds = %if.end3
-  br label %atom_and_align_for_opc.exit
-
 do.body.i:                                        ; preds = %if.end3
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 5495, ptr noundef nonnull @__func__.atom_and_align_for_opc, ptr noundef null) #27
   unreachable
 
-atom_and_align_for_opc.exit:                      ; preds = %sw.bb4.i, %if.end3, %sw.bb2.i, %sw.bb3.i, %land.lhs.true.i, %if.then26.i
-  %atmax.0.i = phi i32 [ %and.i, %if.then26.i ], [ %and.i, %land.lhs.true.i ], [ %cond.i, %sw.bb3.i ], [ %and.i, %sw.bb2.i ], [ 0, %if.end3 ], [ %and.i, %sw.bb4.i ]
+atom_and_align_for_opc.exit:                      ; preds = %sw.bb4.i, %if.end3, %sw.bb2.i, %sw.bb3.i
+  %atmax.0.i = phi i32 [ %cond.i, %sw.bb3.i ], [ %and.i, %sw.bb2.i ], [ 0, %if.end3 ], [ %and.i, %sw.bb4.i ]
   %2 = and i32 %atmax.0.i, 2147483644
   %cmp4 = icmp eq i32 %2, 0
   br label %return
@@ -2735,15 +2729,15 @@ if.end6.i.i:                                      ; preds = %if.end.i33.i
     i8 60, label %sw.bb26.i.i.i
     i8 120, label %sw.bb26.i.i.i
     i8 -121, label %sw.bb30.i.i.i
-    i8 -117, label %sw.bb31.i.i.i
+    i8 -117, label %sw.bb30.i.i.i
     i8 -120, label %sw.bb32.i.i.i
-    i8 -116, label %sw.bb33.i.i.i
+    i8 -116, label %sw.bb32.i.i.i
     i8 -113, label %sw.bb34.i.i.i
-    i8 -112, label %sw.bb35.i.i.i
-    i8 -119, label %sw.bb36.i.i.i
-    i8 -115, label %sw.bb37.i.i.i
-    i8 -118, label %sw.bb38.i.i.i
-    i8 -114, label %sw.bb39.i.i.i
+    i8 -112, label %sw.bb34.i.i.i
+    i8 -119, label %sw.bb30.i.i.i
+    i8 -115, label %sw.bb30.i.i.i
+    i8 -118, label %sw.bb32.i.i.i
+    i8 -114, label %sw.bb32.i.i.i
     i8 -111, label %do.end.i.i.i
     i8 -110, label %do.end.i.i.i
     i8 -109, label %do.end43.i.i.i
@@ -2884,34 +2878,13 @@ sw.bb26.i.i.i:                                    ; preds = %if.end6.i.i, %if.en
   %cond29.i.i.i = select i1 %tobool28.not.i.i.i, i64 31, i64 32
   br label %tcg_target_op_def.exit.i.i
 
-sw.bb30.i.i.i:                                    ; preds = %if.end6.i.i
+sw.bb30.i.i.i:                                    ; preds = %if.end6.i.i, %if.end6.i.i, %if.end6.i.i, %if.end6.i.i
   br label %tcg_target_op_def.exit.i.i
 
-sw.bb31.i.i.i:                                    ; preds = %if.end6.i.i
+sw.bb32.i.i.i:                                    ; preds = %if.end6.i.i, %if.end6.i.i, %if.end6.i.i, %if.end6.i.i
   br label %tcg_target_op_def.exit.i.i
 
-sw.bb32.i.i.i:                                    ; preds = %if.end6.i.i
-  br label %tcg_target_op_def.exit.i.i
-
-sw.bb33.i.i.i:                                    ; preds = %if.end6.i.i
-  br label %tcg_target_op_def.exit.i.i
-
-sw.bb34.i.i.i:                                    ; preds = %if.end6.i.i
-  br label %tcg_target_op_def.exit.i.i
-
-sw.bb35.i.i.i:                                    ; preds = %if.end6.i.i
-  br label %tcg_target_op_def.exit.i.i
-
-sw.bb36.i.i.i:                                    ; preds = %if.end6.i.i
-  br label %tcg_target_op_def.exit.i.i
-
-sw.bb37.i.i.i:                                    ; preds = %if.end6.i.i
-  br label %tcg_target_op_def.exit.i.i
-
-sw.bb38.i.i.i:                                    ; preds = %if.end6.i.i
-  br label %tcg_target_op_def.exit.i.i
-
-sw.bb39.i.i.i:                                    ; preds = %if.end6.i.i
+sw.bb34.i.i.i:                                    ; preds = %if.end6.i.i, %if.end6.i.i
   br label %tcg_target_op_def.exit.i.i
 
 do.end.i.i.i:                                     ; preds = %if.end6.i.i, %if.end6.i.i
@@ -2948,8 +2921,8 @@ do.body52.i.i.i:                                  ; preds = %if.end6.i.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3532, ptr noundef nonnull @__func__.tcg_target_op_def, ptr noundef null) #27
   unreachable
 
-tcg_target_op_def.exit.i.i:                       ; preds = %sw.bb51.i.i.i, %sw.bb50.i.i.i, %sw.bb49.i.i.i, %sw.bb48.i.i.i, %sw.bb47.i.i.i, %sw.bb46.i.i.i, %sw.bb45.i.i.i, %sw.bb44.i.i.i, %do.end43.i.i.i, %do.end.i.i.i, %sw.bb39.i.i.i, %sw.bb38.i.i.i, %sw.bb37.i.i.i, %sw.bb36.i.i.i, %sw.bb35.i.i.i, %sw.bb34.i.i.i, %sw.bb33.i.i.i, %sw.bb32.i.i.i, %sw.bb31.i.i.i, %sw.bb30.i.i.i, %sw.bb26.i.i.i, %sw.bb22.i.i.i, %sw.bb21.i.i.i, %sw.bb20.i.i.i, %sw.bb19.i.i.i, %sw.bb18.i.i.i, %sw.bb17.i.i.i, %sw.bb16.i.i.i, %sw.bb15.i.i.i, %sw.bb14.i.i.i, %sw.bb13.i.i.i, %sw.bb12.i.i.i, %sw.bb11.i.i.i, %sw.bb10.i.i.i, %sw.bb9.i.i.i, %sw.bb8.i.i.i, %sw.bb7.i.i.i, %sw.bb6.i.i.i, %sw.bb5.i.i.i, %sw.bb4.i.i.i, %sw.bb3.i.i.i, %sw.bb2.i.i.i, %sw.bb1.i.i.i, %if.end6.i.i
-  %retval.0.i.i.i = phi i64 [ 34, %sw.bb51.i.i.i ], [ 33, %sw.bb50.i.i.i ], [ 17, %sw.bb49.i.i.i ], [ 30, %sw.bb48.i.i.i ], [ 7, %sw.bb47.i.i.i ], [ 16, %sw.bb46.i.i.i ], [ 36, %sw.bb45.i.i.i ], [ 11, %sw.bb44.i.i.i ], [ 8, %do.end43.i.i.i ], [ 37, %do.end.i.i.i ], [ 1, %sw.bb39.i.i.i ], [ 1, %sw.bb38.i.i.i ], [ 13, %sw.bb37.i.i.i ], [ 13, %sw.bb36.i.i.i ], [ 6, %sw.bb35.i.i.i ], [ 6, %sw.bb34.i.i.i ], [ 1, %sw.bb33.i.i.i ], [ 1, %sw.bb32.i.i.i ], [ 13, %sw.bb31.i.i.i ], [ 13, %sw.bb30.i.i.i ], [ %cond29.i.i.i, %sw.bb26.i.i.i ], [ %cond25.i.i.i, %sw.bb22.i.i.i ], [ 41, %sw.bb21.i.i.i ], [ 38, %sw.bb20.i.i.i ], [ 40, %sw.bb19.i.i.i ], [ 35, %sw.bb18.i.i.i ], [ 19, %sw.bb17.i.i.i ], [ 18, %sw.bb16.i.i.i ], [ 21, %sw.bb15.i.i.i ], [ 15, %sw.bb14.i.i.i ], [ 14, %sw.bb13.i.i.i ], [ 12, %sw.bb12.i.i.i ], [ 5, %sw.bb11.i.i.i ], [ 20, %sw.bb10.i.i.i ], [ %cond.i.i.i, %sw.bb9.i.i.i ], [ 29, %sw.bb8.i.i.i ], [ 23, %sw.bb7.i.i.i ], [ 22, %sw.bb6.i.i.i ], [ 27, %sw.bb5.i.i.i ], [ 3, %sw.bb4.i.i.i ], [ 4, %sw.bb3.i.i.i ], [ 2, %sw.bb2.i.i.i ], [ 15, %sw.bb1.i.i.i ], [ 0, %if.end6.i.i ]
+tcg_target_op_def.exit.i.i:                       ; preds = %sw.bb51.i.i.i, %sw.bb50.i.i.i, %sw.bb49.i.i.i, %sw.bb48.i.i.i, %sw.bb47.i.i.i, %sw.bb46.i.i.i, %sw.bb45.i.i.i, %sw.bb44.i.i.i, %do.end43.i.i.i, %do.end.i.i.i, %sw.bb34.i.i.i, %sw.bb32.i.i.i, %sw.bb30.i.i.i, %sw.bb26.i.i.i, %sw.bb22.i.i.i, %sw.bb21.i.i.i, %sw.bb20.i.i.i, %sw.bb19.i.i.i, %sw.bb18.i.i.i, %sw.bb17.i.i.i, %sw.bb16.i.i.i, %sw.bb15.i.i.i, %sw.bb14.i.i.i, %sw.bb13.i.i.i, %sw.bb12.i.i.i, %sw.bb11.i.i.i, %sw.bb10.i.i.i, %sw.bb9.i.i.i, %sw.bb8.i.i.i, %sw.bb7.i.i.i, %sw.bb6.i.i.i, %sw.bb5.i.i.i, %sw.bb4.i.i.i, %sw.bb3.i.i.i, %sw.bb2.i.i.i, %sw.bb1.i.i.i, %if.end6.i.i
+  %retval.0.i.i.i = phi i64 [ 34, %sw.bb51.i.i.i ], [ 33, %sw.bb50.i.i.i ], [ 17, %sw.bb49.i.i.i ], [ 30, %sw.bb48.i.i.i ], [ 7, %sw.bb47.i.i.i ], [ 16, %sw.bb46.i.i.i ], [ 36, %sw.bb45.i.i.i ], [ 11, %sw.bb44.i.i.i ], [ 8, %do.end43.i.i.i ], [ 37, %do.end.i.i.i ], [ 6, %sw.bb34.i.i.i ], [ 1, %sw.bb32.i.i.i ], [ 13, %sw.bb30.i.i.i ], [ %cond29.i.i.i, %sw.bb26.i.i.i ], [ %cond25.i.i.i, %sw.bb22.i.i.i ], [ 41, %sw.bb21.i.i.i ], [ 38, %sw.bb20.i.i.i ], [ 40, %sw.bb19.i.i.i ], [ 35, %sw.bb18.i.i.i ], [ 19, %sw.bb17.i.i.i ], [ 18, %sw.bb16.i.i.i ], [ 21, %sw.bb15.i.i.i ], [ 15, %sw.bb14.i.i.i ], [ 14, %sw.bb13.i.i.i ], [ 12, %sw.bb12.i.i.i ], [ 5, %sw.bb11.i.i.i ], [ 20, %sw.bb10.i.i.i ], [ %cond.i.i.i, %sw.bb9.i.i.i ], [ 29, %sw.bb8.i.i.i ], [ 23, %sw.bb7.i.i.i ], [ 22, %sw.bb6.i.i.i ], [ 27, %sw.bb5.i.i.i ], [ 3, %sw.bb4.i.i.i ], [ 4, %sw.bb3.i.i.i ], [ 2, %sw.bb2.i.i.i ], [ 15, %sw.bb1.i.i.i ], [ 0, %if.end6.i.i ]
   %args_ct231.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %12 = load i8, ptr @tcg_use_softmmu, align 1
   %tobool393.i.i = trunc i8 %12 to i1
@@ -5765,7 +5738,7 @@ entry:
     i32 41, label %return
     i32 42, label %return
     i32 43, label %sw.bb22
-    i32 44, label %sw.bb23
+    i32 44, label %sw.bb22
     i32 47, label %return
     i32 48, label %return
     i32 49, label %return
@@ -5774,10 +5747,10 @@ entry:
     i32 52, label %return
     i32 53, label %return
     i32 55, label %sw.bb31
-    i32 56, label %sw.bb34
-    i32 57, label %sw.bb35
-    i32 58, label %sw.bb36
-    i32 59, label %sw.bb37
+    i32 56, label %sw.bb22
+    i32 57, label %sw.bb22
+    i32 58, label %sw.bb22
+    i32 59, label %sw.bb22
     i32 60, label %return
     i32 61, label %return
     i32 62, label %sw.bb40
@@ -5821,7 +5794,7 @@ entry:
     i32 94, label %return
     i32 95, label %return
     i32 96, label %return
-    i32 97, label %sw.bb52
+    i32 97, label %sw.bb22
     i32 98, label %return
     i32 101, label %return
     i32 102, label %return
@@ -5836,10 +5809,10 @@ entry:
     i32 112, label %return
     i32 113, label %return
     i32 115, label %sw.bb65
-    i32 116, label %sw.bb68
-    i32 117, label %sw.bb69
-    i32 118, label %sw.bb70
-    i32 119, label %sw.bb71
+    i32 116, label %sw.bb22
+    i32 117, label %sw.bb22
+    i32 118, label %sw.bb22
+    i32 119, label %sw.bb22
     i32 120, label %return
     i32 121, label %return
     i32 122, label %sw.bb74
@@ -5847,8 +5820,8 @@ entry:
     i32 124, label %return
     i32 125, label %return
     i32 126, label %return
-    i32 127, label %sw.bb81
-    i32 128, label %sw.bb82
+    i32 127, label %sw.bb22
+    i32 128, label %sw.bb22
     i32 149, label %sw.bb83
     i32 150, label %sw.bb83
     i32 154, label %sw.bb83
@@ -5860,16 +5833,16 @@ entry:
     i32 169, label %sw.bb83
     i32 170, label %sw.bb83
     i32 190, label %sw.bb83
-    i32 151, label %sw.bb85
+    i32 151, label %sw.bb22
     i32 176, label %sw.bb87
-    i32 158, label %sw.bb97
+    i32 158, label %sw.bb22
     i32 159, label %sw.bb101
-    i32 171, label %sw.bb105
+    i32 171, label %sw.bb101
     i32 172, label %sw.bb109
     i32 173, label %sw.bb119
     i32 174, label %sw.bb129
     i32 175, label %sw.bb139
-    i32 157, label %sw.bb149
+    i32 157, label %sw.bb101
     i32 177, label %sw.bb153
     i32 178, label %sw.bb153
     i32 179, label %sw.bb153
@@ -5880,7 +5853,7 @@ entry:
     i32 186, label %sw.bb161
     i32 187, label %sw.bb161
     i32 180, label %sw.bb167
-    i32 184, label %sw.bb177
+    i32 184, label %sw.bb22
     i32 188, label %sw.bb181
     i32 189, label %sw.bb181
     i32 160, label %sw.bb191
@@ -5892,7 +5865,7 @@ entry:
     i32 166, label %sw.bb195
     i32 167, label %sw.bb195
     i32 191, label %sw.bb199
-    i32 192, label %sw.bb209
+    i32 192, label %sw.bb101
   ]
 
 sw.bb4:                                           ; preds = %entry, %entry
@@ -5909,27 +5882,12 @@ sw.bb10:                                          ; preds = %entry, %entry
 sw.bb11:                                          ; preds = %entry, %entry
   br label %return
 
-sw.bb22:                                          ; preds = %entry
-  br label %return
-
-sw.bb23:                                          ; preds = %entry
+sw.bb22:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
   br label %return
 
 sw.bb31:                                          ; preds = %entry
   %and32 = and i32 %0, 32
   %tobool33 = icmp ne i32 %and32, 0
-  br label %return
-
-sw.bb34:                                          ; preds = %entry
-  br label %return
-
-sw.bb35:                                          ; preds = %entry
-  br label %return
-
-sw.bb36:                                          ; preds = %entry
-  br label %return
-
-sw.bb37:                                          ; preds = %entry
   br label %return
 
 sw.bb40:                                          ; preds = %entry
@@ -5946,24 +5904,9 @@ sw.bb46:                                          ; preds = %entry, %entry
 sw.bb47:                                          ; preds = %entry, %entry
   br label %return
 
-sw.bb52:                                          ; preds = %entry
-  br label %return
-
 sw.bb65:                                          ; preds = %entry
   %and66 = and i32 %0, 32
   %tobool67 = icmp ne i32 %and66, 0
-  br label %return
-
-sw.bb68:                                          ; preds = %entry
-  br label %return
-
-sw.bb69:                                          ; preds = %entry
-  br label %return
-
-sw.bb70:                                          ; preds = %entry
-  br label %return
-
-sw.bb71:                                          ; preds = %entry
   br label %return
 
 sw.bb74:                                          ; preds = %entry
@@ -5971,16 +5914,7 @@ sw.bb74:                                          ; preds = %entry
   %tobool76 = icmp ne i32 %and75, 0
   br label %return
 
-sw.bb81:                                          ; preds = %entry
-  br label %return
-
-sw.bb82:                                          ; preds = %entry
-  br label %return
-
 sw.bb83:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  br label %return
-
-sw.bb85:                                          ; preds = %entry
   br label %return
 
 sw.bb87:                                          ; preds = %entry
@@ -5989,13 +5923,7 @@ sw.bb87:                                          ; preds = %entry
   %3 = and i1 %tobool, %2
   br label %return
 
-sw.bb97:                                          ; preds = %entry
-  br label %return
-
-sw.bb101:                                         ; preds = %entry
-  br label %return
-
-sw.bb105:                                         ; preds = %entry
+sw.bb101:                                         ; preds = %entry, %entry, %entry, %entry
   br label %return
 
 sw.bb109:                                         ; preds = %entry
@@ -6022,9 +5950,6 @@ sw.bb139:                                         ; preds = %entry
   %15 = and i1 %tobool, %14
   br label %return
 
-sw.bb149:                                         ; preds = %entry
-  br label %return
-
 sw.bb153:                                         ; preds = %entry, %entry, %entry
   br label %return
 
@@ -6040,9 +5965,6 @@ sw.bb167:                                         ; preds = %entry
   %16 = and i32 %0, 6144
   %17 = icmp eq i32 %16, 6144
   %18 = and i1 %tobool, %17
-  br label %return
-
-sw.bb177:                                         ; preds = %entry
   br label %return
 
 sw.bb181:                                         ; preds = %entry, %entry
@@ -6063,17 +5985,14 @@ sw.bb199:                                         ; preds = %entry
   %24 = and i1 %tobool, %23
   br label %return
 
-sw.bb209:                                         ; preds = %entry
-  br label %return
-
 do.body:                                          ; preds = %entry
   %25 = add i32 %op, -194
   %or.cond = icmp ult i32 %25, 12
   tail call void @llvm.assume(i1 %or.cond)
   br label %return
 
-return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %do.body, %sw.bb209, %sw.bb199, %sw.bb195, %sw.bb191, %sw.bb181, %sw.bb177, %sw.bb167, %sw.bb161, %sw.bb157, %sw.bb153, %sw.bb149, %sw.bb139, %sw.bb129, %sw.bb119, %sw.bb109, %sw.bb105, %sw.bb101, %sw.bb97, %sw.bb87, %sw.bb85, %sw.bb83, %sw.bb82, %sw.bb81, %sw.bb74, %sw.bb71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb65, %sw.bb52, %sw.bb47, %sw.bb46, %sw.bb43, %sw.bb40, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb31, %sw.bb23, %sw.bb22, %sw.bb11, %sw.bb10, %sw.bb5, %sw.bb4
-  %retval.0 = phi i1 [ true, %do.body ], [ %tobool, %sw.bb209 ], [ %24, %sw.bb199 ], [ %tobool, %sw.bb195 ], [ %tobool, %sw.bb191 ], [ %21, %sw.bb181 ], [ false, %sw.bb177 ], [ %18, %sw.bb167 ], [ %tobool165, %sw.bb161 ], [ %tobool, %sw.bb157 ], [ %tobool, %sw.bb153 ], [ %tobool, %sw.bb149 ], [ %15, %sw.bb139 ], [ %12, %sw.bb129 ], [ %9, %sw.bb119 ], [ %6, %sw.bb109 ], [ %tobool, %sw.bb105 ], [ %tobool, %sw.bb101 ], [ false, %sw.bb97 ], [ %3, %sw.bb87 ], [ false, %sw.bb85 ], [ %tobool, %sw.bb83 ], [ false, %sw.bb82 ], [ false, %sw.bb81 ], [ %tobool76, %sw.bb74 ], [ false, %sw.bb71 ], [ false, %sw.bb70 ], [ false, %sw.bb69 ], [ false, %sw.bb68 ], [ %tobool67, %sw.bb65 ], [ false, %sw.bb52 ], [ false, %sw.bb47 ], [ false, %sw.bb46 ], [ false, %sw.bb43 ], [ %tobool42, %sw.bb40 ], [ false, %sw.bb37 ], [ false, %sw.bb36 ], [ false, %sw.bb35 ], [ false, %sw.bb34 ], [ %tobool33, %sw.bb31 ], [ false, %sw.bb23 ], [ false, %sw.bb22 ], [ false, %sw.bb11 ], [ false, %sw.bb10 ], [ %tobool7, %sw.bb5 ], [ false, %sw.bb4 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ]
+return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %do.body, %sw.bb199, %sw.bb195, %sw.bb191, %sw.bb181, %sw.bb167, %sw.bb161, %sw.bb157, %sw.bb153, %sw.bb139, %sw.bb129, %sw.bb119, %sw.bb109, %sw.bb101, %sw.bb87, %sw.bb83, %sw.bb74, %sw.bb65, %sw.bb47, %sw.bb46, %sw.bb43, %sw.bb40, %sw.bb31, %sw.bb22, %sw.bb11, %sw.bb10, %sw.bb5, %sw.bb4
+  %retval.0 = phi i1 [ true, %do.body ], [ %24, %sw.bb199 ], [ %tobool, %sw.bb195 ], [ %tobool, %sw.bb191 ], [ %21, %sw.bb181 ], [ %18, %sw.bb167 ], [ %tobool165, %sw.bb161 ], [ %tobool, %sw.bb157 ], [ %tobool, %sw.bb153 ], [ %15, %sw.bb139 ], [ %12, %sw.bb129 ], [ %9, %sw.bb119 ], [ %6, %sw.bb109 ], [ %tobool, %sw.bb101 ], [ %3, %sw.bb87 ], [ %tobool, %sw.bb83 ], [ %tobool76, %sw.bb74 ], [ %tobool67, %sw.bb65 ], [ false, %sw.bb47 ], [ false, %sw.bb46 ], [ false, %sw.bb43 ], [ %tobool42, %sw.bb40 ], [ %tobool33, %sw.bb31 ], [ false, %sw.bb22 ], [ false, %sw.bb11 ], [ false, %sw.bb10 ], [ %tobool7, %sw.bb5 ], [ false, %sw.bb4 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -15278,7 +15197,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %sw
     i8 41, label %do_mul2
     i8 42, label %do_mul2
     i8 125, label %sw.bb193
-    i8 126, label %sw.bb194
+    i8 126, label %sw.bb193
   ]
 
 sw.bb:                                            ; preds = %land.rhs
@@ -15646,14 +15565,11 @@ if.end179:                                        ; preds = %if.then171
   store i64 %86, ptr %arrayidx183, align 8
   br label %do_not_remove.thread
 
-sw.bb193:                                         ; preds = %land.rhs
+sw.bb193:                                         ; preds = %land.rhs, %land.rhs
   br label %do_mul2
 
-sw.bb194:                                         ; preds = %land.rhs
-  br label %do_mul2
-
-do_mul2:                                          ; preds = %land.rhs, %land.rhs, %sw.bb194, %sw.bb193
-  %opc_new.1 = phi i32 [ 80, %sw.bb194 ], [ 80, %sw.bb193 ], [ 19, %land.rhs ], [ 19, %land.rhs ]
+do_mul2:                                          ; preds = %land.rhs, %land.rhs, %sw.bb193
+  %opc_new.1 = phi i32 [ 80, %sw.bb193 ], [ 19, %land.rhs ], [ 19, %land.rhs ]
   %arrayidx196 = getelementptr i8, ptr %op.0413, i64 40
   %87 = load i64, ptr %arrayidx196, align 8
   %88 = inttoptr i64 %87 to ptr

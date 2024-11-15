@@ -460,17 +460,17 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
   %9 = alloca %struct.nstime_t, align 8
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   %11 = icmp ult i32 %10, 20
-  br i1 %11, label %558, label %12
+  br i1 %11, label %557, label %12
 
 12:                                               ; preds = %4
   %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #7
   %.not = icmp ult i16 %13, 16384
-  br i1 %.not, label %14, label %558
+  br i1 %.not, label %14, label %557
 
 14:                                               ; preds = %12
   %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #7
   %.not157 = icmp eq i32 %15, 2136644551
-  br i1 %.not157, label %16, label %558
+  br i1 %.not157, label %16, label %557
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %1, i64 8
@@ -753,8 +753,8 @@ proto_item_set_generated.exit:                    ; preds = %156, %153, %proto_i
   br label %168
 
 168:                                              ; preds = %162, %decode_xmcp_attr_value.exit
-  %169 = phi i32 [ 20, %162 ], [ %518, %decode_xmcp_attr_value.exit ]
-  %.0145180 = phi i32 [ 20, %162 ], [ %517, %decode_xmcp_attr_value.exit ]
+  %169 = phi i32 [ 20, %162 ], [ %517, %decode_xmcp_attr_value.exit ]
+  %.0145180 = phi i32 [ 20, %162 ], [ %516, %decode_xmcp_attr_value.exit ]
   %170 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %169) #7
   %171 = add nuw nsw i32 %169, 2
   %172 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %171) #7
@@ -1376,7 +1376,7 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
     i16 4110, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
     i16 4111, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
     i16 4113, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
-    i16 4103, label %511
+    i16 4103, label %510
   ]
 
 .thread388.thread396.i:                           ; preds = %.thread388.i, %252
@@ -1400,27 +1400,24 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 .thread388.thread.i:                              ; preds = %.thread388.thread.sink.split.i, %.thread388.i, %355
   br label %get_xmcp_attr_min_len.exit.i
 
-510:                                              ; preds = %.thread388.i
-  br label %get_xmcp_attr_min_len.exit.i
-
-511:                                              ; preds = %.thread388.i
+510:                                              ; preds = %.thread388.i, %.thread388.i
   br label %get_xmcp_attr_min_len.exit.i
 
 get_xmcp_attr_fixed_len.exit.fold.split.i.i:      ; preds = %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i
   br label %get_xmcp_attr_min_len.exit.i
 
-get_xmcp_attr_min_len.exit.i:                     ; preds = %get_xmcp_attr_fixed_len.exit.fold.split.i.i, %511, %510, %.thread388.thread.i, %.thread388.thread396.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i
-  %.0.i.i = phi i16 [ 20, %510 ], [ 8, %.thread388.thread.i ], [ 4, %.thread388.thread396.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 20, %511 ], [ 4, %get_xmcp_attr_fixed_len.exit.fold.split.i.i ]
-  %512 = icmp ult i16 %172, %.0.i.i
-  br i1 %512, label %get_xmcp_attr_max_len.exit.thread.sink.split.i, label %get_xmcp_attr_min_len.exit.thread.i
+get_xmcp_attr_min_len.exit.i:                     ; preds = %get_xmcp_attr_fixed_len.exit.fold.split.i.i, %510, %.thread388.thread.i, %.thread388.thread396.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i
+  %.0.i.i = phi i16 [ 20, %510 ], [ 8, %.thread388.thread.i ], [ 4, %.thread388.thread396.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 4, %get_xmcp_attr_fixed_len.exit.fold.split.i.i ]
+  %511 = icmp ult i16 %172, %.0.i.i
+  br i1 %511, label %get_xmcp_attr_max_len.exit.thread.sink.split.i, label %get_xmcp_attr_min_len.exit.thread.i
 
 get_xmcp_attr_min_len.exit.thread.i:              ; preds = %get_xmcp_attr_min_len.exit.i
   switch i16 %170, label %decode_xmcp_attr_value.exit [
     i16 4104, label %get_xmcp_attr_max_len.exit.i
-    i16 8, label %513
-    i16 21, label %514
-    i16 4097, label %514
-    i16 4101, label %514
+    i16 8, label %512
+    i16 21, label %513
+    i16 4097, label %513
+    i16 4101, label %513
     i16 4098, label %get_xmcp_attr_fixed_len.exit.thread.i.i
     i16 4099, label %get_xmcp_attr_fixed_len.exit.thread.i.i
     i16 4100, label %get_xmcp_attr_fixed_len.exit.thread.i.i
@@ -1433,113 +1430,113 @@ get_xmcp_attr_min_len.exit.thread.i:              ; preds = %get_xmcp_attr_min_l
     i16 4103, label %get_xmcp_attr_max_len.exit.i
   ]
 
-513:                                              ; preds = %get_xmcp_attr_min_len.exit.thread.i
+512:                                              ; preds = %get_xmcp_attr_min_len.exit.thread.i
   br label %get_xmcp_attr_max_len.exit.i
 
-514:                                              ; preds = %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i
+513:                                              ; preds = %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i
   br label %get_xmcp_attr_max_len.exit.i
 
 get_xmcp_attr_fixed_len.exit.thread.i.i:          ; preds = %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i
   br label %get_xmcp_attr_max_len.exit.i
 
-get_xmcp_attr_max_len.exit.i:                     ; preds = %get_xmcp_attr_fixed_len.exit.thread.i.i, %514, %513, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i
-  %.0.i383.i = phi i16 [ 255, %514 ], [ 32, %513 ], [ 20, %get_xmcp_attr_min_len.exit.thread.i ], [ 4, %get_xmcp_attr_fixed_len.exit.thread.i.i ], [ 20, %get_xmcp_attr_min_len.exit.thread.i ]
-  %515 = icmp ugt i16 %172, %.0.i383.i
-  br i1 %515, label %get_xmcp_attr_max_len.exit.thread.sink.split.i, label %decode_xmcp_attr_value.exit
+get_xmcp_attr_max_len.exit.i:                     ; preds = %get_xmcp_attr_fixed_len.exit.thread.i.i, %513, %512, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i
+  %.0.i383.i = phi i16 [ 255, %513 ], [ 32, %512 ], [ 20, %get_xmcp_attr_min_len.exit.thread.i ], [ 4, %get_xmcp_attr_fixed_len.exit.thread.i.i ], [ 20, %get_xmcp_attr_min_len.exit.thread.i ]
+  %514 = icmp ugt i16 %172, %.0.i383.i
+  br i1 %514, label %get_xmcp_attr_max_len.exit.thread.sink.split.i, label %decode_xmcp_attr_value.exit
 
 get_xmcp_attr_max_len.exit.thread.sink.split.i:   ; preds = %get_xmcp_attr_max_len.exit.i, %get_xmcp_attr_min_len.exit.i
   %.str.244.sink.i = phi ptr [ @.str.243, %get_xmcp_attr_min_len.exit.i ], [ @.str.244, %get_xmcp_attr_max_len.exit.i ]
-  %516 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %183, ptr noundef nonnull @ei_xmcp_attr_length_bad, ptr noundef nonnull %.str.244.sink.i) #7
+  %515 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %183, ptr noundef nonnull @ei_xmcp_attr_length_bad, ptr noundef nonnull %.str.244.sink.i) #7
   br label %decode_xmcp_attr_value.exit
 
 decode_xmcp_attr_value.exit:                      ; preds = %455, %.thread388.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_max_len.exit.i, %get_xmcp_attr_max_len.exit.thread.sink.split.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %6)
-  %517 = add nuw nsw i32 %176, %191
-  %518 = and i32 %517, 65535
-  %519 = icmp samesign ult i32 %518, %108
-  br i1 %519, label %168, label %.loopexit, !llvm.loop !6
+  %516 = add nuw nsw i32 %176, %191
+  %517 = and i32 %516, 65535
+  %518 = icmp samesign ult i32 %517, %108
+  br i1 %518, label %168, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %decode_xmcp_attr_value.exit, %194, %proto_item_set_generated.exit
-  %520 = load i32, ptr @xmcp_msg_is_keepalive, align 4
-  %.not167 = icmp eq i32 %520, 0
-  br i1 %.not167, label %538, label %521
+  %519 = load i32, ptr @xmcp_msg_is_keepalive, align 4
+  %.not167 = icmp eq i32 %519, 0
+  br i1 %.not167, label %537, label %520
 
-521:                                              ; preds = %.loopexit
-  %522 = load i32, ptr @hf_xmcp_msg_is_keepalive, align 4
-  %523 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %84, i32 noundef %522, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.208) #7
-  %.not.i176 = icmp eq ptr %523, null
-  br i1 %.not.i176, label %proto_item_set_generated.exit178, label %524
+520:                                              ; preds = %.loopexit
+  %521 = load i32, ptr @hf_xmcp_msg_is_keepalive, align 4
+  %522 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %84, i32 noundef %521, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.208) #7
+  %.not.i176 = icmp eq ptr %522, null
+  br i1 %.not.i176, label %proto_item_set_generated.exit178, label %523
 
-524:                                              ; preds = %521
-  %525 = getelementptr inbounds i8, ptr %523, i64 32
-  %526 = load ptr, ptr %525, align 8
-  %.not5.i177 = icmp eq ptr %526, null
-  br i1 %.not5.i177, label %proto_item_set_generated.exit178, label %527
+523:                                              ; preds = %520
+  %524 = getelementptr inbounds i8, ptr %522, i64 32
+  %525 = load ptr, ptr %524, align 8
+  %.not5.i177 = icmp eq ptr %525, null
+  br i1 %.not5.i177, label %proto_item_set_generated.exit178, label %526
 
-527:                                              ; preds = %524
-  %528 = getelementptr inbounds i8, ptr %526, i64 28
-  %529 = load i32, ptr %528, align 4
-  %530 = or i32 %529, 2
-  store i32 %530, ptr %528, align 4
+526:                                              ; preds = %523
+  %527 = getelementptr inbounds i8, ptr %525, i64 28
+  %528 = load i32, ptr %527, align 4
+  %529 = or i32 %528, 2
+  store i32 %529, ptr %527, align 4
   br label %proto_item_set_generated.exit178
 
-proto_item_set_generated.exit178:                 ; preds = %521, %524, %527
-  %531 = load i16, ptr @xmcp_msg_type_method, align 2
-  %.not168 = icmp eq i16 %531, 11
-  br i1 %.not168, label %534, label %532
+proto_item_set_generated.exit178:                 ; preds = %520, %523, %526
+  %530 = load i16, ptr @xmcp_msg_type_method, align 2
+  %.not168 = icmp eq i16 %530, 11
+  br i1 %.not168, label %533, label %531
 
-532:                                              ; preds = %proto_item_set_generated.exit178
-  %533 = load ptr, ptr %17, align 8
-  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %533, i32 noundef 25, ptr noundef nonnull @.str.209) #7
-  br label %534
+531:                                              ; preds = %proto_item_set_generated.exit178
+  %532 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %532, i32 noundef 25, ptr noundef nonnull @.str.209) #7
+  br label %533
 
-534:                                              ; preds = %532, %proto_item_set_generated.exit178
-  %535 = load i16, ptr @xmcp_msg_type_class, align 2
-  %536 = icmp eq i16 %535, 0
-  br i1 %536, label %537, label %.sink.split187
+533:                                              ; preds = %531, %proto_item_set_generated.exit178
+  %534 = load i16, ptr @xmcp_msg_type_class, align 2
+  %535 = icmp eq i16 %534, 0
+  br i1 %535, label %536, label %.sink.split187
 
-537:                                              ; preds = %534
+536:                                              ; preds = %533
   store i32 1, ptr %98, align 8
   br label %.sink.split187
 
-538:                                              ; preds = %.loopexit
-  %539 = load i16, ptr @xmcp_msg_type_class, align 2
-  %540 = zext nneg i16 %539 to i32
-  %541 = and i16 %539, -17
-  %or.cond5 = icmp eq i16 %541, 0
-  br i1 %or.cond5, label %542, label %.sink.split187
+537:                                              ; preds = %.loopexit
+  %538 = load i16, ptr @xmcp_msg_type_class, align 2
+  %539 = zext nneg i16 %538 to i32
+  %540 = and i16 %538, -17
+  %or.cond5 = icmp eq i16 %540, 0
+  br i1 %or.cond5, label %541, label %.sink.split187
 
-542:                                              ; preds = %538
-  %543 = load i16, ptr @xmcp_msg_type_method, align 2
-  %544 = zext nneg i16 %543 to i32
-  %545 = icmp eq i16 %543, 1
-  br i1 %545, label %546, label %549
+541:                                              ; preds = %537
+  %542 = load i16, ptr @xmcp_msg_type_method, align 2
+  %543 = zext nneg i16 %542 to i32
+  %544 = icmp eq i16 %542, 1
+  br i1 %544, label %545, label %548
 
-546:                                              ; preds = %542
-  %547 = call ptr @val_to_str_const(i32 noundef %540, ptr noundef nonnull @classes, ptr noundef nonnull @.str.211) #7
-  %548 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %84, ptr noundef nonnull @ei_xmcp_new_session, ptr noundef nonnull @.str.210, ptr noundef %547) #7
+545:                                              ; preds = %541
+  %546 = call ptr @val_to_str_const(i32 noundef %539, ptr noundef nonnull @classes, ptr noundef nonnull @.str.211) #7
+  %547 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %84, ptr noundef nonnull @ei_xmcp_new_session, ptr noundef nonnull @.str.210, ptr noundef %546) #7
   br label %.sink.split187
 
-549:                                              ; preds = %542
-  %550 = and i16 %543, -2
-  %or.cond8 = icmp eq i16 %550, 2
-  br i1 %or.cond8, label %551, label %.sink.split187
+548:                                              ; preds = %541
+  %549 = and i16 %542, -2
+  %or.cond8 = icmp eq i16 %549, 2
+  br i1 %or.cond8, label %550, label %.sink.split187
 
-551:                                              ; preds = %549
-  %552 = call ptr @val_to_str_const(i32 noundef %544, ptr noundef nonnull @methods, ptr noundef nonnull @.str.211) #7
-  %553 = load i16, ptr @xmcp_msg_type_class, align 2
-  %554 = zext nneg i16 %553 to i32
-  %555 = call ptr @val_to_str_const(i32 noundef %554, ptr noundef nonnull @classes, ptr noundef nonnull @.str.211) #7
-  %556 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %84, ptr noundef nonnull @ei_xmcp_session_termination, ptr noundef nonnull @.str.212, ptr noundef %552, ptr noundef %555) #7
+550:                                              ; preds = %548
+  %551 = call ptr @val_to_str_const(i32 noundef %543, ptr noundef nonnull @methods, ptr noundef nonnull @.str.211) #7
+  %552 = load i16, ptr @xmcp_msg_type_class, align 2
+  %553 = zext nneg i16 %552 to i32
+  %554 = call ptr @val_to_str_const(i32 noundef %553, ptr noundef nonnull @classes, ptr noundef nonnull @.str.211) #7
+  %555 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %84, ptr noundef nonnull @ei_xmcp_session_termination, ptr noundef nonnull @.str.212, ptr noundef %551, ptr noundef %554) #7
   br label %.sink.split187
 
-.sink.split187:                                   ; preds = %537, %534, %546, %549, %551, %538, %111
-  %557 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  br label %558
+.sink.split187:                                   ; preds = %536, %533, %545, %548, %550, %537, %111
+  %556 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  br label %557
 
-558:                                              ; preds = %.sink.split187, %14, %12, %4
-  %.0144 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %14 ], [ %557, %.sink.split187 ]
+557:                                              ; preds = %.sink.split187, %14, %12, %4
+  %.0144 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %14 ], [ %556, %.sink.split187 ]
   ret i32 %.0144
 }
 

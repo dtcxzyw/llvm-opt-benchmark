@@ -6371,14 +6371,14 @@ define internal { ptr, ptr } @"_ZN58_$LT$object_store..Error$u20$as$u20$core..er
   switch i64 %5, label %6 [
     i64 0, label %7
     i64 1, label %12
-    i64 2, label %41
+    i64 2, label %40
     i64 3, label %17
     i64 4, label %19
     i64 5, label %24
     i64 6, label %29
     i64 7, label %34
     i64 8, label %39
-    i64 9, label %40
+    i64 9, label %39
   ]
 
 6:                                                ; preds = %1
@@ -6389,59 +6389,56 @@ define internal { ptr, ptr } @"_ZN58_$LT$object_store..Error$u20$as$u20$core..er
   %9 = load ptr, ptr %8, align 8, !nonnull !9, !align !1765, !noundef !9
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !nonnull !9, !align !1765, !noundef !9
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %41
+  br label %40
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !9, !align !1765, !noundef !9
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !nonnull !9, !align !1765, !noundef !9
   %27 = getelementptr inbounds i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 29:                                               ; preds = %1
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !nonnull !9, !align !1765, !noundef !9
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 34:                                               ; preds = %1
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8, !nonnull !9, !align !1765, !noundef !9
   %37 = getelementptr inbounds i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
-39:                                               ; preds = %1
-  br label %41
+39:                                               ; preds = %1, %1
+  br label %40
 
-40:                                               ; preds = %1
-  br label %41
-
-41:                                               ; preds = %1, %40, %39, %34, %29, %24, %19, %17, %12, %7
-  %.sroa.11.0 = phi ptr [ undef, %40 ], [ undef, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.56, %17 ], [ %16, %12 ], [ %11, %7 ], [ @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.54, %1 ]
-  %.sroa.0.0 = phi ptr [ null, %40 ], [ null, %39 ], [ %36, %34 ], [ %31, %29 ], [ %26, %24 ], [ %21, %19 ], [ %18, %17 ], [ %14, %12 ], [ %9, %7 ], [ %0, %1 ]
-  %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.11.0, 1
-  ret { ptr, ptr } %43
+40:                                               ; preds = %1, %39, %34, %29, %24, %19, %17, %12, %7
+  %.sroa.11.0 = phi ptr [ undef, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.56, %17 ], [ %16, %12 ], [ %11, %7 ], [ @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.54, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %39 ], [ %36, %34 ], [ %31, %29 ], [ %26, %24 ], [ %21, %19 ], [ %18, %17 ], [ %14, %12 ], [ %9, %7 ], [ %0, %1 ]
+  %41 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %42 = insertvalue { ptr, ptr } %41, ptr %.sroa.11.0, 1
+  ret { ptr, ptr } %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -6453,14 +6450,14 @@ define internal { ptr, ptr } @"_ZN58_$LT$object_store..Error$u20$as$u20$core..er
   switch i64 %5, label %6 [
     i64 0, label %7
     i64 1, label %12
-    i64 2, label %41
+    i64 2, label %40
     i64 3, label %17
     i64 4, label %19
     i64 5, label %24
     i64 6, label %29
     i64 7, label %34
     i64 8, label %39
-    i64 9, label %40
+    i64 9, label %39
   ]
 
 6:                                                ; preds = %1
@@ -6471,59 +6468,56 @@ define internal { ptr, ptr } @"_ZN58_$LT$object_store..Error$u20$as$u20$core..er
   %9 = load ptr, ptr %8, align 8, !nonnull !9, !align !1765, !noundef !9
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !nonnull !9, !align !1765, !noundef !9
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %41
+  br label %40
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !9, !align !1765, !noundef !9
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !nonnull !9, !align !1765, !noundef !9
   %27 = getelementptr inbounds i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 29:                                               ; preds = %1
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !nonnull !9, !align !1765, !noundef !9
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
 34:                                               ; preds = %1
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8, !nonnull !9, !align !1765, !noundef !9
   %37 = getelementptr inbounds i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !nonnull !9, !align !27, !noundef !9
-  br label %41
+  br label %40
 
-39:                                               ; preds = %1
-  br label %41
+39:                                               ; preds = %1, %1
+  br label %40
 
-40:                                               ; preds = %1
-  br label %41
-
-41:                                               ; preds = %1, %40, %39, %34, %29, %24, %19, %17, %12, %7
-  %.sroa.11.0 = phi ptr [ undef, %40 ], [ undef, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.56, %17 ], [ %16, %12 ], [ %11, %7 ], [ @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.54, %1 ]
-  %.sroa.0.0 = phi ptr [ null, %40 ], [ null, %39 ], [ %36, %34 ], [ %31, %29 ], [ %26, %24 ], [ %21, %19 ], [ %18, %17 ], [ %14, %12 ], [ %9, %7 ], [ %0, %1 ]
-  %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.11.0, 1
-  ret { ptr, ptr } %43
+40:                                               ; preds = %1, %39, %34, %29, %24, %19, %17, %12, %7
+  %.sroa.11.0 = phi ptr [ undef, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.56, %17 ], [ %16, %12 ], [ %11, %7 ], [ @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.54, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %39 ], [ %36, %34 ], [ %31, %29 ], [ %26, %24 ], [ %21, %19 ], [ %18, %17 ], [ %14, %12 ], [ %9, %7 ], [ %0, %1 ]
+  %41 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %42 = insertvalue { ptr, ptr } %41, ptr %.sroa.11.0, 1
+  ret { ptr, ptr } %42
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable

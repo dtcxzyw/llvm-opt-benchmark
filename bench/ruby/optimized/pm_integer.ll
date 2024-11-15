@@ -267,28 +267,28 @@ pm_integer_add.exit59:                            ; preds = %.lr.ph.i52, %pm_int
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define internal fastcc range(i32 0, 16) i32 @pm_integer_parse_digit(i8 noundef zeroext %0) unnamed_addr #1 {
-  switch i8 %0, label %17 [
-    i8 70, label %16
-    i8 49, label %2
-    i8 50, label %3
-    i8 51, label %4
-    i8 52, label %5
-    i8 53, label %6
-    i8 54, label %7
-    i8 55, label %8
-    i8 56, label %9
-    i8 57, label %10
-    i8 97, label %11
-    i8 65, label %11
-    i8 98, label %12
-    i8 66, label %12
-    i8 99, label %13
-    i8 67, label %13
-    i8 100, label %14
-    i8 68, label %14
-    i8 101, label %15
-    i8 69, label %15
-    i8 102, label %16
+  switch i8 %0, label %16 [
+    i8 70, label %15
+    i8 49, label %17
+    i8 50, label %2
+    i8 51, label %3
+    i8 52, label %4
+    i8 53, label %5
+    i8 54, label %6
+    i8 55, label %7
+    i8 56, label %8
+    i8 57, label %9
+    i8 97, label %10
+    i8 65, label %10
+    i8 98, label %11
+    i8 66, label %11
+    i8 99, label %12
+    i8 67, label %12
+    i8 100, label %13
+    i8 68, label %13
+    i8 101, label %14
+    i8 69, label %14
+    i8 102, label %15
   ]
 
 2:                                                ; preds = %1
@@ -315,7 +315,7 @@ define internal fastcc range(i32 0, 16) i32 @pm_integer_parse_digit(i8 noundef z
 9:                                                ; preds = %1
   br label %17
 
-10:                                               ; preds = %1
+10:                                               ; preds = %1, %1
   br label %17
 
 11:                                               ; preds = %1, %1
@@ -333,11 +333,11 @@ define internal fastcc range(i32 0, 16) i32 @pm_integer_parse_digit(i8 noundef z
 15:                                               ; preds = %1, %1
   br label %17
 
-16:                                               ; preds = %1, %1
+16:                                               ; preds = %1
   br label %17
 
 17:                                               ; preds = %1, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 15, %16 ], [ 14, %15 ], [ 13, %14 ], [ 12, %13 ], [ 11, %12 ], [ 10, %11 ], [ 9, %10 ], [ 8, %9 ], [ 7, %8 ], [ 6, %7 ], [ 5, %6 ], [ 4, %5 ], [ 3, %4 ], [ 2, %3 ], [ 1, %2 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %16 ], [ 15, %15 ], [ 14, %14 ], [ 13, %13 ], [ 12, %12 ], [ 11, %11 ], [ 10, %10 ], [ 9, %9 ], [ 8, %8 ], [ 7, %7 ], [ 6, %6 ], [ 5, %5 ], [ 4, %4 ], [ 3, %3 ], [ 2, %2 ], [ 1, %1 ]
   ret i32 %.0
 }
 

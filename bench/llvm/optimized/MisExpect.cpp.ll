@@ -957,15 +957,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
     i8 80, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
     i8 112, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
     i8 70, label %_ZN4llvm9StringRef13consume_frontES0_.exit16
-    i8 102, label %_ZN4llvm9StringRef13consume_frontES0_.exit22
+    i8 102, label %_ZN4llvm9StringRef13consume_frontES0_.exit16
     i8 69, label %_ZN4llvm9StringRef13consume_frontES0_.exit28
     i8 101, label %6
   ]
 
-_ZN4llvm9StringRef13consume_frontES0_.exit16:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  br label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
-
-_ZN4llvm9StringRef13consume_frontES0_.exit22:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
+_ZN4llvm9StringRef13consume_frontES0_.exit16:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
 
 _ZN4llvm9StringRef13consume_frontES0_.exit28:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
@@ -974,8 +971,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit28:     ; preds = %_ZNK4llvm9StringRef
 6:                                                ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
 
-_ZN4llvm9StringRef13consume_frontES0_.exit34.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %6, %_ZN4llvm9StringRef13consume_frontES0_.exit28, %_ZN4llvm9StringRef13consume_frontES0_.exit22, %_ZN4llvm9StringRef13consume_frontES0_.exit16
-  %.0 = phi i32 [ 2, %_ZN4llvm9StringRef13consume_frontES0_.exit16 ], [ 2, %_ZN4llvm9StringRef13consume_frontES0_.exit22 ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit28 ], [ 0, %6 ], [ 3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+_ZN4llvm9StringRef13consume_frontES0_.exit34.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %6, %_ZN4llvm9StringRef13consume_frontES0_.exit28, %_ZN4llvm9StringRef13consume_frontES0_.exit16
+  %.0 = phi i32 [ 2, %_ZN4llvm9StringRef13consume_frontES0_.exit16 ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit28 ], [ 0, %6 ], [ 3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   %7 = getelementptr inbounds i8, ptr %2, i64 1
   %8 = add i64 %3, -1
   %9 = icmp eq i64 %8, 0

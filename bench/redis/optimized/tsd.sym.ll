@@ -754,7 +754,7 @@ if.then6.i:                                       ; preds = %if.then4.i
 do.body:                                          ; preds = %entry
   unreachable
 
-sw.epilog:                                        ; preds = %entry, %if.end.i, %if.then4.i, %entry
+sw.epilog:                                        ; preds = %if.end.i, %if.then4.i, %entry, %entry
   ret void
 }
 

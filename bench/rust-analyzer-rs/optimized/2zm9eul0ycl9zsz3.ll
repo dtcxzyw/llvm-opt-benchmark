@@ -28676,17 +28676,17 @@ default.unreachable1:                             ; preds = %7, %4, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i8, ptr %5, align 4, !range !535, !noundef !9
   switch i8 %6, label %default.unreachable1 [
-    i8 0, label %30
+    i8 0, label %29
     i8 1, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
     i8 2, label %19
     i8 3, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
-    i8 4, label %35
+    i8 4, label %34
     i8 5, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
-    i8 6, label %45
+    i8 6, label %44
     i8 7, label %19
     i8 8, label %19
     i8 9, label %19
-    i8 10, label %50
+    i8 10, label %49
   ]
 
 7:                                                ; preds = %1
@@ -28694,8 +28694,8 @@ default.unreachable1:                             ; preds = %7, %4, %1
   %9 = load i32, ptr %8, align 4, !range !536, !noundef !9
   switch i32 %9, label %default.unreachable1 [
     i32 0, label %19
-    i32 1, label %35
-    i32 2, label %58
+    i32 1, label %34
+    i32 2, label %57
   ]
 
 10:                                               ; preds = %1
@@ -28706,13 +28706,13 @@ default.unreachable1:                             ; preds = %7, %4, %1
   %14 = add nsw i64 %13, -4
   %15 = icmp ult i64 %14, 9
   %16 = select i1 %15, i64 %14, i64 2
-  switch i64 %16, label %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4_crit_edge.i [
+  switch i64 %16, label %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge.i [
     i64 2, label %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.i
     i64 7, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
     i64 4, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
   ]
 
-._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4_crit_edge.i: ; preds = %10
+._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge.i: ; preds = %10
   %.pre.i = and i64 %13, 14
   %17 = icmp ne i64 %.pre.i, 10
   br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
@@ -28722,7 +28722,7 @@ _ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.ex
   %spec.select.i.i = icmp eq i64 %18, 2
   br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
 
-19:                                               ; preds = %45, %30, %7, %4, %4, %4, %4, %1, %1
+19:                                               ; preds = %44, %29, %7, %4, %4, %4, %4, %1, %1
   %20 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %20)
   %21 = load ptr, ptr %.0.val, align 8, !nonnull !9, !align !44, !noundef !9
@@ -28732,7 +28732,7 @@ _ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.ex
   %25 = select i1 %24, i64 %23, i64 2
   switch i64 %25, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit [
     i64 2, label %26
-    i64 7, label %29
+    i64 7, label %28
     i64 4, label %28
   ]
 
@@ -28741,73 +28741,70 @@ _ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.ex
   %spec.select.i = icmp eq i64 %27, 2
   br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
 
-28:                                               ; preds = %19
+28:                                               ; preds = %19, %19
   br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
 
-29:                                               ; preds = %19
-  br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
+29:                                               ; preds = %4
+  %30 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %30)
+  %31 = load ptr, ptr %.0.val, align 8, !nonnull !9, !align !44, !noundef !9
+  %32 = load i64, ptr %31, align 8, !range !6172, !noundef !9
+  %33 = icmp eq i64 %32, 11
+  br i1 %33, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit, label %19
 
-30:                                               ; preds = %4
-  %31 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %31)
-  %32 = load ptr, ptr %.0.val, align 8, !nonnull !9, !align !44, !noundef !9
-  %33 = load i64, ptr %32, align 8, !range !6172, !noundef !9
-  %34 = icmp eq i64 %33, 11
-  br i1 %34, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit, label %19
-
-35:                                               ; preds = %7, %4
-  %36 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %36)
-  %37 = load ptr, ptr %.0.val, align 8, !nonnull !9, !align !44, !noundef !9
-  %38 = load i64, ptr %37, align 8, !range !6172, !alias.scope !6396, !noundef !9
-  %39 = add nsw i64 %38, -4
-  %40 = icmp ult i64 %39, 9
-  %41 = select i1 %40, i64 %39, i64 2
-  switch i64 %41, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit [
-    i64 2, label %42
-    i64 4, label %44
+34:                                               ; preds = %7, %4
+  %35 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %35)
+  %36 = load ptr, ptr %.0.val, align 8, !nonnull !9, !align !44, !noundef !9
+  %37 = load i64, ptr %36, align 8, !range !6172, !alias.scope !6396, !noundef !9
+  %38 = add nsw i64 %37, -4
+  %39 = icmp ult i64 %38, 9
+  %40 = select i1 %39, i64 %38, i64 2
+  switch i64 %40, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit [
+    i64 2, label %41
+    i64 4, label %43
   ]
 
-42:                                               ; preds = %35
-  %43 = icmp eq i64 %38, 0
+41:                                               ; preds = %34
+  %42 = icmp eq i64 %37, 0
   br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
 
-44:                                               ; preds = %35
+43:                                               ; preds = %34
   br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
 
-45:                                               ; preds = %4
-  %46 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %46)
-  %47 = load ptr, ptr %.0.val, align 8, !nonnull !9, !align !44, !noundef !9
-  %48 = load i64, ptr %47, align 8, !range !6172, !noundef !9
-  %49 = icmp eq i64 %48, 11
-  br i1 %49, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit, label %19
+44:                                               ; preds = %4
+  %45 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %45)
+  %46 = load ptr, ptr %.0.val, align 8, !nonnull !9, !align !44, !noundef !9
+  %47 = load i64, ptr %46, align 8, !range !6172, !noundef !9
+  %48 = icmp eq i64 %47, 11
+  br i1 %48, label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit, label %19
 
-50:                                               ; preds = %4
+49:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
-  %52 = load i32, ptr %51, align 4, !range !536, !noundef !9
-  %53 = getelementptr inbounds i8, ptr %0, i64 12
-  %54 = load i32, ptr %53, align 4, !noundef !9
-  store i32 %52, ptr %2, align 4
-  %55 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 %54, ptr %55, align 4
-  %56 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %56)
-  %57 = call noundef zeroext i1 @_ZN3hir5Macro10is_fn_like17hfe76039e57a532e7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %2, ptr noundef nonnull align 1 %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1eb937629536308b0fe3bd2cbcc08bd4.17.llvm.18152640266846470746)
+  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = load i32, ptr %50, align 4, !range !536, !noundef !9
+  %52 = getelementptr inbounds i8, ptr %0, i64 12
+  %53 = load i32, ptr %52, align 4, !noundef !9
+  store i32 %51, ptr %2, align 4
+  %54 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %53, ptr %54, align 4
+  %55 = icmp ne ptr %.8.val, null
+  tail call void @llvm.assume(i1 %55)
+  %56 = call noundef zeroext i1 @_ZN3hir5Macro10is_fn_like17hfe76039e57a532e7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %2, ptr noundef nonnull align 1 %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1eb937629536308b0fe3bd2cbcc08bd4.17.llvm.18152640266846470746)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
 
-_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit: ; preds = %44, %42, %35, %29, %28, %26, %19, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.i, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4_crit_edge.i, %10, %10, %30, %45, %1, %1, %4, %4, %4, %58, %50
-  %.0.shrunk = phi i1 [ %62, %58 ], [ %57, %50 ], [ false, %4 ], [ false, %4 ], [ false, %4 ], [ false, %1 ], [ false, %1 ], [ true, %45 ], [ true, %30 ], [ false, %10 ], [ false, %10 ], [ %17, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread4_crit_edge.i ], [ %spec.select.i.i, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.i ], [ false, %29 ], [ false, %28 ], [ true, %19 ], [ %spec.select.i, %26 ], [ true, %44 ], [ false, %35 ], [ %43, %42 ]
+_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit: ; preds = %43, %41, %34, %28, %26, %19, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.i, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge.i, %10, %10, %29, %44, %1, %1, %4, %4, %4, %57, %49
+  %.0.shrunk = phi i1 [ %61, %57 ], [ %56, %49 ], [ false, %4 ], [ false, %4 ], [ false, %4 ], [ false, %1 ], [ false, %1 ], [ true, %44 ], [ true, %29 ], [ false, %10 ], [ false, %10 ], [ %17, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge.i ], [ %spec.select.i.i, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.i ], [ false, %28 ], [ true, %19 ], [ %spec.select.i, %26 ], [ true, %43 ], [ false, %34 ], [ %42, %41 ]
   ret i1 %.0.shrunk
 
-58:                                               ; preds = %7
-  %59 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %59)
-  %60 = load ptr, ptr %.0.val, align 8, !nonnull !9, !align !44, !noundef !9
-  %61 = load i64, ptr %60, align 8, !range !6172, !alias.scope !6399, !noundef !9
-  %62 = icmp eq i64 %61, 1
+57:                                               ; preds = %7
+  %58 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %58)
+  %59 = load ptr, ptr %.0.val, align 8, !nonnull !9, !align !44, !noundef !9
+  %60 = load i64, ptr %59, align 8, !range !6172, !alias.scope !6399, !noundef !9
+  %61 = icmp eq i64 %60, 1
   br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
 }
 

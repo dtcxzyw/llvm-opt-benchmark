@@ -1766,8 +1766,8 @@ define internal fastcc void @dissect_17221_aecp(ptr noundef %0, ptr noundef %1, 
     i16 34, label %232
     i16 35, label %232
     i16 42, label %232
-    i16 74, label %508
-    i16 73, label %508
+    i16 70, label %499
+    i16 69, label %499
     i16 38, label %237
     i16 39, label %242
     i16 40, label %278
@@ -1793,11 +1793,11 @@ define internal fastcc void @dissect_17221_aecp(ptr noundef %0, ptr noundef %1, 
     i16 61, label %462
     i16 62, label %472
     i16 63, label %477
-    i16 70, label %499
+    i16 74, label %508
     i16 65, label %484
     i16 66, label %484
     i16 67, label %496
-    i16 69, label %499
+    i16 73, label %508
   ]
 
 28:                                               ; preds = %20
@@ -3618,7 +3618,7 @@ define internal fastcc void @dissect_17221_stream_format(ptr noundef %0, ptr nou
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %46, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
   br label %48
 
-48:                                               ; preds = %.sink.split, %21, %11, %26, %2
+48:                                               ; preds = %.sink.split, %21, %26, %11, %2
   ret void
 }
 

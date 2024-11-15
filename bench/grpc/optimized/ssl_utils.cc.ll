@@ -226,8 +226,8 @@ define noundef range(i32 0, 5) i32 @_Z44grpc_get_tsi_client_certificate_request_
 entry:
   %switch.tableidx = add i32 %grpc_request_type, -1
   %0 = icmp ult i32 %switch.tableidx, 4
-  %spec.select = select i1 %0, i32 %grpc_request_type, i32 0
-  ret i32 %spec.select
+  %retval.0 = select i1 %0, i32 %grpc_request_type, i32 0
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1830,9 +1830,9 @@ _Z31grpc_fill_alpn_protocol_stringsPm.exit:       ; preds = %for.body.i, %entry
   store ptr %pem_root_certs, ptr %pem_client_root_certs, align 8
   %switch.tableidx = add i32 %client_certificate_request, -1
   %0 = icmp ult i32 %switch.tableidx, 4
-  %spec.select = select i1 %0, i32 %client_certificate_request, i32 0
+  %retval.0.i = select i1 %0, i32 %client_certificate_request, i32 0
   %client_certificate_request4 = getelementptr inbounds i8, ptr %options, i64 24
-  store i32 %spec.select, ptr %client_certificate_request4, align 8
+  store i32 %retval.0.i, ptr %client_certificate_request4, align 8
   invoke void @gpr_once_init(ptr noundef nonnull @_ZL18cipher_suites_once, ptr noundef nonnull @_ZL18init_cipher_suitesv)
           to label %_ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEEaSEOS3_.exit unwind label %lpad
 

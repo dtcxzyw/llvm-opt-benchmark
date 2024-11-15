@@ -3652,8 +3652,8 @@ define hidden noalias noundef align 8 ptr @"_ZN14wasmtime_types1_79_$LT$impl$u20
   %6 = icmp samesign ult i32 %.val25, 3
   %switch2.i.i = icmp eq i32 %.val25, 5
   %switch.i.i = or i1 %switch2.i.i, %6
-  %spec.select.i.i = select i1 %switch.i.i, i64 12, i64 4
-  %7 = add i64 %spec.select.i.i, %5
+  %..i.i = select i1 %switch.i.i, i64 12, i64 4
+  %7 = add i64 %..i.i, %5
   store i64 %7, ptr %3, align 8, !alias.scope !1716
   ret ptr null
 }
@@ -3667,8 +3667,8 @@ define hidden noalias noundef align 8 ptr @"_ZN14wasmtime_types1_79_$LT$impl$u20
   %6 = icmp samesign ult i32 %.val25, 3
   %switch2.i.i = icmp eq i32 %.val25, 5
   %switch.i.i = or i1 %switch2.i.i, %6
-  %spec.select.i.i = select i1 %switch.i.i, i64 12, i64 4
-  %7 = add i64 %spec.select.i.i, %5
+  %..i.i = select i1 %switch.i.i, i64 12, i64 4
+  %7 = add i64 %..i.i, %5
   store i64 %7, ptr %3, align 8, !alias.scope !1726
   ret ptr null
 }
@@ -36005,8 +36005,8 @@ default.unreachable2.i.i.i:                       ; preds = %281
 470:                                              ; preds = %462
   %471 = trunc nuw i8 %380 to i1
   %472 = icmp ugt i64 %358, %368
-  %or.cond55.i = and i1 %472, %471
-  br i1 %or.cond55.i, label %480, label %._crit_edge.i
+  %or.cond56.i = and i1 %472, %471
+  br i1 %or.cond56.i, label %480, label %._crit_edge.i
 
 473:                                              ; preds = %462
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %53), !noalias !8785
@@ -36273,9 +36273,9 @@ default.unreachable2.i.i.i:                       ; preds = %281
   %570 = getelementptr inbounds i8, ptr %77, i64 425
   %571 = load i8, ptr %570, align 1, !range !3178, !alias.scope !8782, !noalias !8787, !noundef !4
   %switch.i = icmp samesign ugt i8 %571, 1
-  %spec.select.i = zext i1 %switch.i to i8
+  %.50.i = zext i1 %switch.i to i8
   %572 = getelementptr inbounds i8, ptr %47, i64 42
-  store i8 %spec.select.i, ptr %572, align 2, !noalias !8785
+  store i8 %.50.i, ptr %572, align 2, !noalias !8785
   %573 = getelementptr inbounds i8, ptr %47, i64 8
   %574 = load i64, ptr %573, align 8, !noalias !8785, !noundef !4
   %575 = getelementptr inbounds i8, ptr %47, i64 16
@@ -36311,7 +36311,7 @@ default.unreachable2.i.i.i:                       ; preds = %281
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %47)
   store ptr %.sroa.0.0.copyload, ptr %76, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %76, i64 42
-  store i8 %spec.select.i, ptr %.sroa.5.0..sroa_idx, align 2
+  store i8 %.50.i, ptr %.sroa.5.0..sroa_idx, align 2
   call void @llvm.lifetime.start.p0(i64 632, ptr nonnull %.sroa.32)
   call void @llvm.lifetime.start.p0(i64 648, ptr nonnull %74)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %74, ptr noundef nonnull align 8 dereferenceable(648) %77, i64 648, i1 false)

@@ -168,8 +168,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
-@switch.table._ZN4llvm3sys2fs12is_directoryERKNS_5TwineERb = private unnamed_addr constant [12 x i8] c"\00\00\00\01\00\00\00\00\00\00\00\00", align 1
-@switch.table._ZN4llvm3sys2fs8is_otherERKNS_5TwineERb = private unnamed_addr constant [12 x i8] c"\01\01\01\00\01\01\01\00\01\01\01\01", align 1
 @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv = private unnamed_addr constant [12 x i32] [i32 7, i32 6, i32 9, i32 3, i32 9, i32 5, i32 9, i32 2, i32 9, i32 4, i32 9, i32 8], align 4
 
 @_ZN4llvm3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_code = unnamed_addr alias void (ptr, i32, i32, i64, i64, ptr), ptr @_ZN4llvm3sys2fs18mapped_file_regionC2EiNS2_7mapmodeEmmRSt10error_code
@@ -5847,7 +5845,7 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs12is_directoryERKNS_5TwineERb(ptr 
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = call noundef i32 @stat(ptr noundef %7, ptr noundef nonnull %4) #30, !callees !55
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %13, label %9
+  br i1 %.not.i, label %_ZN4llvm3sys2fsL11typeForModeEj.exit.i, label %9
 
 9:                                                ; preds = %2
   %10 = tail call ptr @__errno_location() #33
@@ -5855,52 +5853,41 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs12is_directoryERKNS_5TwineERb(ptr 
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #33
   br label %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %15 = load i32, ptr %14, align 8
-  %16 = and i32 %15, 61440
-  %17 = add nsw i32 %16, -4096
-  %18 = icmp ult i32 %17, 49152
-  br i1 %18, label %switch.lookup, label %_ZN4llvm3sys2fsL11typeForModeEj.exit.i
-
-switch.lookup:                                    ; preds = %13
-  %19 = lshr exact i32 %17, 12
-  %20 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds [12 x i8], ptr @switch.table._ZN4llvm3sys2fs12is_directoryERKNS_5TwineERb, i64 0, i64 %20
-  %switch.load = load i8, ptr %switch.gep, align 1
-  br label %_ZN4llvm3sys2fsL11typeForModeEj.exit.i
-
-_ZN4llvm3sys2fsL11typeForModeEj.exit.i:           ; preds = %13, %switch.lookup
-  %21 = phi i8 [ %switch.load, %switch.lookup ], [ 0, %13 ]
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
+_ZN4llvm3sys2fsL11typeForModeEj.exit.i:           ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %14 = load i32, ptr %13, align 8
+  %15 = and i32 %14, 61440
+  %cond = icmp eq i32 %15, 16384
+  %spec.select = zext i1 %cond to i8
+  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
   br label %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 _ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit: ; preds = %9, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i
-  %.sroa.10.0 = phi i8 [ %21, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ 0, %9 ]
+  %.sroa.10.0 = phi i8 [ %spec.select, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ 0, %9 ]
   %.sroa.028.0.i = phi i32 [ 0, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %11, %9 ]
-  %.sroa.430.0.i = phi ptr [ %22, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %12, %9 ]
-  %23 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %3) #30
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp eq ptr %24, %5
-  br i1 %25, label %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, label %26
+  %.sroa.430.0.i = phi ptr [ %16, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %12, %9 ]
+  %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %3) #30
+  %18 = load ptr, ptr %3, align 8
+  %19 = icmp eq ptr %18, %5
+  br i1 %19, label %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, label %20
 
-26:                                               ; preds = %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
-  call void @free(ptr noundef %24) #30
+20:                                               ; preds = %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
+  call void @free(ptr noundef %18) #30
   br label %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit
 
-_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit, %26
+_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit, %20
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   %.not = icmp eq i32 %.sroa.028.0.i, 0
-  br i1 %.not, label %27, label %29
+  br i1 %.not, label %21, label %23
 
-27:                                               ; preds = %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit
+21:                                               ; preds = %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit
   store i8 %.sroa.10.0, ptr %1, align 1
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
-  br label %29
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
+  br label %23
 
-29:                                               ; preds = %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, %27
-  %.sroa.425.0 = phi ptr [ %.sroa.430.0.i, %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit ], [ %28, %27 ]
+23:                                               ; preds = %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, %21
+  %.sroa.425.0 = phi ptr [ %.sroa.430.0.i, %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit ], [ %22, %21 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.028.0.i, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.425.0, 1
   ret { i32, ptr } %.fca.1.insert
@@ -5938,13 +5925,13 @@ _ZN4llvm3sys2fsL11typeForModeEj.exit.i:           ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 61440
-  %cond = icmp eq i32 %15, 32768
-  %spec.select = zext i1 %cond to i8
+  %switch.selectcmp = icmp eq i32 %15, 32768
+  %switch.select = zext i1 %switch.selectcmp to i8
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
   br label %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 _ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit: ; preds = %9, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i
-  %.sroa.10.0 = phi i8 [ %spec.select, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ 0, %9 ]
+  %.sroa.10.0 = phi i8 [ %switch.select, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ 0, %9 ]
   %.sroa.028.0.i = phi i32 [ 0, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %11, %9 ]
   %.sroa.430.0.i = phi ptr [ %16, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %12, %9 ]
   %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %3) #30
@@ -6006,13 +5993,13 @@ _ZN4llvm3sys2fsL11typeForModeEj.exit.i:           ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 61440
-  %cond = icmp eq i32 %15, 40960
-  %spec.select = zext i1 %cond to i8
+  %switch.selectcmp = icmp eq i32 %15, 40960
+  %switch.select = zext i1 %switch.selectcmp to i8
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
   br label %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 _ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit: ; preds = %9, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i
-  %.sroa.10.0 = phi i8 [ %spec.select, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ 0, %9 ]
+  %.sroa.10.0 = phi i8 [ %switch.select, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ 0, %9 ]
   %.sroa.028.0.i = phi i32 [ 0, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %11, %9 ]
   %.sroa.430.0.i = phi ptr [ %16, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %12, %9 ]
   %17 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %3) #30
@@ -6062,7 +6049,7 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs8is_otherERKNS_5TwineERb(ptr nound
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = call noundef i32 @stat(ptr noundef %7, ptr noundef nonnull %4) #30, !callees !55
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %13, label %9
+  br i1 %.not.i, label %_ZN4llvm3sys2fsL11typeForModeEj.exit.i, label %9
 
 9:                                                ; preds = %2
   %10 = tail call ptr @__errno_location() #33
@@ -6070,52 +6057,45 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs8is_otherERKNS_5TwineERb(ptr nound
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #33
   br label %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %15 = load i32, ptr %14, align 8
-  %16 = and i32 %15, 61440
-  %17 = add nsw i32 %16, -4096
-  %18 = icmp ult i32 %17, 49152
-  br i1 %18, label %switch.lookup, label %_ZN4llvm3sys2fsL11typeForModeEj.exit.i
-
-switch.lookup:                                    ; preds = %13
-  %19 = lshr exact i32 %17, 12
-  %20 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds [12 x i8], ptr @switch.table._ZN4llvm3sys2fs8is_otherERKNS_5TwineERb, i64 0, i64 %20
-  %switch.load = load i8, ptr %switch.gep, align 1
-  br label %_ZN4llvm3sys2fsL11typeForModeEj.exit.i
-
-_ZN4llvm3sys2fsL11typeForModeEj.exit.i:           ; preds = %13, %switch.lookup
-  %21 = phi i8 [ %switch.load, %switch.lookup ], [ 1, %13 ]
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
+_ZN4llvm3sys2fsL11typeForModeEj.exit.i:           ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %14 = load i32, ptr %13, align 8
+  %15 = and i32 %14, 61440
+  %16 = add nsw i32 %15, -4096
+  %17 = lshr exact i32 %16, 12
+  %18 = add nsw i32 %17, -3
+  %switch.and = and i32 %18, -5
+  %switch.selectcmp = icmp ne i32 %switch.and, 0
+  %19 = zext i1 %switch.selectcmp to i8
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
   br label %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 _ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit: ; preds = %9, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i
-  %.sroa.10.0 = phi i8 [ %21, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ 0, %9 ]
+  %.sroa.10.0 = phi i8 [ %19, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ 0, %9 ]
   %.sroa.028.0.i = phi i32 [ 0, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %11, %9 ]
-  %.sroa.430.0.i = phi ptr [ %22, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %12, %9 ]
-  %23 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %3) #30
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp eq ptr %24, %5
-  br i1 %25, label %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, label %26
+  %.sroa.430.0.i = phi ptr [ %20, %_ZN4llvm3sys2fsL11typeForModeEj.exit.i ], [ %12, %9 ]
+  %21 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %3) #30
+  %22 = load ptr, ptr %3, align 8
+  %23 = icmp eq ptr %22, %5
+  br i1 %23, label %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, label %24
 
-26:                                               ; preds = %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
-  call void @free(ptr noundef %24) #30
+24:                                               ; preds = %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
+  call void @free(ptr noundef %22) #30
   br label %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit
 
-_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit, %26
+_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit, %24
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   %.not = icmp eq i32 %.sroa.028.0.i, 0
-  br i1 %.not, label %27, label %29
+  br i1 %.not, label %25, label %27
 
-27:                                               ; preds = %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit
+25:                                               ; preds = %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit
   store i8 %.sroa.10.0, ptr %1, align 1
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
-  br label %29
+  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
+  br label %27
 
-29:                                               ; preds = %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, %27
-  %.sroa.425.0 = phi ptr [ %.sroa.430.0.i, %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit ], [ %28, %27 ]
+27:                                               ; preds = %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, %25
+  %.sroa.425.0 = phi ptr [ %.sroa.430.0.i, %_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit ], [ %26, %25 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.028.0.i, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.425.0, 1
   ret { i32, ptr } %.fca.1.insert

@@ -1200,8 +1200,6 @@ entry:
     i32 4, label %sw.bb17
     i32 5, label %sw.bb19
     i32 8, label %sw.bb21
-    i32 0, label %sw.bb23
-    i32 12, label %sw.bb24
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -1261,17 +1259,11 @@ sw.bb19:                                          ; preds = %entry
 sw.bb21:                                          ; preds = %entry
   br label %return
 
-sw.bb23:                                          ; preds = %entry
-  br label %return
-
-sw.bb24:                                          ; preds = %entry
-  br label %return
-
 sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %entry, %sw.epilog, %sw.bb24, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb13, %sw.bb9, %sw.bb7, %sw.bb4, %sw.bb2, %sw.bb
-  %retval.0 = phi i64 [ 0, %sw.epilog ], [ 0, %sw.bb24 ], [ 0, %sw.bb23 ], [ 2, %sw.bb21 ], [ 5, %sw.bb19 ], [ 13, %sw.bb17 ], [ %add16, %sw.bb13 ], [ %add12, %sw.bb9 ], [ 17, %sw.bb7 ], [ %retval.0.i, %sw.bb4 ], [ %call3, %sw.bb2 ], [ %add, %sw.bb ], [ 1, %entry ], [ 1, %entry ]
+return:                                           ; preds = %entry, %entry, %sw.epilog, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb13, %sw.bb9, %sw.bb7, %sw.bb4, %sw.bb2, %sw.bb
+  %retval.0 = phi i64 [ 0, %sw.epilog ], [ 2, %sw.bb21 ], [ 5, %sw.bb19 ], [ 13, %sw.bb17 ], [ %add16, %sw.bb13 ], [ %add12, %sw.bb9 ], [ 17, %sw.bb7 ], [ %retval.0.i, %sw.bb4 ], [ %call3, %sw.bb2 ], [ %add, %sw.bb ], [ 1, %entry ], [ 1, %entry ]
   ret i64 %retval.0
 }
 

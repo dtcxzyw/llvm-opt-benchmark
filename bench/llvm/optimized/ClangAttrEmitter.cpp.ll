@@ -30877,7 +30877,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAt
   call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef %71) #26
   br label %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %66, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit, %9, %28, %_ZL21hasGNUorCXX11SpellingRKN4llvm6RecordE.exit, %2
+_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %66, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit, %28, %_ZL21hasGNUorCXX11SpellingRKN4llvm6RecordE.exit, %9, %2
   %.0 = phi i1 [ %6, %2 ], [ false, %9 ], [ false, %_ZL21hasGNUorCXX11SpellingRKN4llvm6RecordE.exit ], [ false, %28 ], [ %.1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ], [ %.1, %66 ]
   ret i1 %.0
 }
@@ -46707,11 +46707,8 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit54.us102: ; preds = %
   %55 = zext i32 %.039 to i64
   %56 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %8, i64 %55
   %.sroa.08.0.copyload = load ptr, ptr %56, align 8
-  %magicptr139 = ptrtoint ptr %.sroa.08.0.copyload to i64
-  switch i64 %magicptr139, label %57 [
-    i64 -1, label %.split61.us
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit54
-  ]
+  %switch = icmp ugt ptr %.sroa.08.0.copyload, inttoptr (i64 -3 to ptr)
+  br i1 %switch, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49, label %57
 
 57:                                               ; preds = %.split.split.split
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 8
@@ -46724,18 +46721,18 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %57
   %58 = icmp eq i32 %bcmp.i.i, 0
   br i1 %58, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49: ; preds = %57, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49: ; preds = %.split.split.split, %57, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
   %59 = icmp eq ptr %.sroa.08.0.copyload, inttoptr (i64 -1 to ptr)
   br i1 %59, label %.split61.us, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit54
 
-.split61.us:                                      ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49, %.split.split.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us101, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us76, %.split.split.us.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us.us
-  %.us-phi62 = phi ptr [ %.038.us.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us.us ], [ %.038.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us ], [ %.038.us69, %.split.split.us.split ], [ %.038.us69, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us76 ], [ %.038.us92, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us101 ], [ %.038, %.split.split.split ], [ %.038, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49 ]
-  %.us-phi63 = phi ptr [ %20, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us.us ], [ %29, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us ], [ %38, %.split.split.us.split ], [ %38, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us76 ], [ %47, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us101 ], [ %56, %.split.split.split ], [ %56, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49 ]
+.split61.us:                                      ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us101, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us76, %.split.split.us.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us.us
+  %.us-phi62 = phi ptr [ %.038.us.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us.us ], [ %.038.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us ], [ %.038.us69, %.split.split.us.split ], [ %.038.us69, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us76 ], [ %.038.us92, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us101 ], [ %.038, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49 ]
+  %.us-phi63 = phi ptr [ %20, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us.us ], [ %29, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us ], [ %38, %.split.split.us.split ], [ %38, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us76 ], [ %47, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.us101 ], [ %56, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49 ]
   %.not = icmp eq ptr %.us-phi62, null
   %60 = select i1 %.not, ptr %.us-phi63, ptr %.us-phi62
   br label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit54: ; preds = %.split.split.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit54: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49
   %61 = icmp eq ptr %.sroa.08.0.copyload, inttoptr (i64 -2 to ptr)
   %62 = icmp eq ptr %.038, null
   %or.cond.not = select i1 %61, i1 %62, i1 false

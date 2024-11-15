@@ -526,14 +526,11 @@ sw.epilog88:                                      ; preds = %sw.default86, %sw.b
   %call.i76 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %mapping_, i32 noundef 4, ptr noundef nonnull @.str.14, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 4)
   %wrapModeWidth = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 128
   %20 = load i32, ptr %wrapModeWidth, align 8
-  switch i32 %20, label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit [
+  switch i32 %20, label %sw.epilog.i [
     i32 3, label %sw.bb3.i
-    i32 2, label %sw.bb1.i
+    i32 2, label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit
     i32 0, label %sw.bb2.i
   ]
-
-sw.bb1.i:                                         ; preds = %sw.epilog88
-  br label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit
 
 sw.bb2.i:                                         ; preds = %sw.epilog88
   %call.i77 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -543,20 +540,20 @@ sw.bb2.i:                                         ; preds = %sw.epilog88
 sw.bb3.i:                                         ; preds = %sw.bb2.i, %sw.epilog88
   br label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit
 
-_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit:    ; preds = %sw.epilog88, %sw.bb1.i, %sw.bb3.i
-  %retval.0.i = phi i32 [ 1, %sw.bb3.i ], [ 2, %sw.bb1.i ], [ 0, %sw.epilog88 ]
+sw.epilog.i:                                      ; preds = %sw.epilog88
+  br label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit
+
+_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit:    ; preds = %sw.epilog88, %sw.bb3.i, %sw.epilog.i
+  %retval.0.i = phi i32 [ 0, %sw.epilog.i ], [ 1, %sw.bb3.i ], [ %20, %sw.epilog88 ]
   store i32 %retval.0.i, ptr %temp, align 4
   %call.i78 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %temp, i32 noundef 4, ptr noundef nonnull @.str.15, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 4)
   %wrapModeHeight = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 132
   %21 = load i32, ptr %wrapModeHeight, align 4
-  switch i32 %21, label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84 [
+  switch i32 %21, label %sw.epilog.i83 [
     i32 3, label %sw.bb3.i81
-    i32 2, label %sw.bb1.i83
+    i32 2, label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84
     i32 0, label %sw.bb2.i79
   ]
-
-sw.bb1.i83:                                       ; preds = %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit
-  br label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84
 
 sw.bb2.i79:                                       ; preds = %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit
   %call.i80 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -566,8 +563,11 @@ sw.bb2.i79:                                       ; preds = %_Z10GetMapModeN6Ass
 sw.bb3.i81:                                       ; preds = %sw.bb2.i79, %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit
   br label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84
 
-_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84:  ; preds = %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit, %sw.bb1.i83, %sw.bb3.i81
-  %retval.0.i82 = phi i32 [ 1, %sw.bb3.i81 ], [ 2, %sw.bb1.i83 ], [ 0, %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit ]
+sw.epilog.i83:                                    ; preds = %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit
+  br label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84
+
+_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84:  ; preds = %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit, %sw.bb3.i81, %sw.epilog.i83
+  %retval.0.i82 = phi i32 [ 0, %sw.epilog.i83 ], [ 1, %sw.bb3.i81 ], [ %21, %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit ]
   store i32 %retval.0.i82, ptr %temp, align 4
   %call.i85 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %temp, i32 noundef 4, ptr noundef nonnull @.str.16, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 4)
   %inc = add i32 %cur.0112, 1

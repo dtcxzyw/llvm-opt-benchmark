@@ -3030,72 +3030,68 @@ define internal range(i32 0, 16) i32 @pci_moxa_init(ptr nocapture noundef readon
   %8 = zext nneg i16 %7 to i32
   %9 = lshr i16 %3, 8
   %10 = and i16 %9, 15
-  switch i16 %10, label %12 [
-    i16 0, label %13
-    i16 6, label %13
-    i16 1, label %13
-    i16 3, label %11
+  switch i16 %10, label %11 [
+    i16 0, label %12
+    i16 6, label %12
+    i16 1, label %12
   ]
 
 11:                                               ; preds = %1
-  br label %13
+  br label %12
 
-12:                                               ; preds = %1
-  br label %13
+12:                                               ; preds = %11, %1, %1, %1
+  %13 = phi i8 [ 1, %11 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %14 = icmp eq i16 %7, 0
+  br i1 %14, label %.loopexit, label %15
 
-13:                                               ; preds = %12, %11, %1, %1, %1
-  %14 = phi i8 [ 1, %12 ], [ 1, %11 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
-  %15 = icmp eq i16 %7, 0
-  br i1 %15, label %.loopexit, label %16
+15:                                               ; preds = %12
+  %16 = shl nuw nsw i8 %13, 4
+  br label %17
 
-16:                                               ; preds = %13
-  %17 = shl nuw nsw i8 %14, 4
-  br label %18
+17:                                               ; preds = %17, %15
+  %18 = phi i32 [ 0, %15 ], [ %33, %17 ]
+  %19 = load i64, ptr %4, align 8
+  %20 = lshr i32 %18, 1
+  %21 = add nuw nsw i32 %20, 4
+  %22 = zext nneg i32 %21 to i64
+  %23 = add i64 %19, %22
+  %24 = trunc i64 %23 to i16
+  %25 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %24) #15, !srcloc !13
+  %26 = and i32 %18, 1
+  %27 = icmp eq i32 %26, 0
+  %28 = and i8 %25, 15
+  %29 = or disjoint i8 %28, %16
+  %30 = and i8 %25, -16
+  %31 = or disjoint i8 %30, %13
+  %32 = select i1 %27, i8 %31, i8 %29
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %32, i16 %24) #15, !srcloc !22
+  %33 = add nuw nsw i32 %18, 1
+  %34 = icmp eq i32 %33, %8
+  br i1 %34, label %.loopexit, label %17, !llvm.loop !28
 
-18:                                               ; preds = %18, %16
-  %19 = phi i32 [ 0, %16 ], [ %34, %18 ]
-  %20 = load i64, ptr %4, align 8
-  %21 = lshr i32 %19, 1
-  %22 = add nuw nsw i32 %21, 4
-  %23 = zext nneg i32 %22 to i64
-  %24 = add i64 %20, %23
-  %25 = trunc i64 %24 to i16
-  %26 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %25) #15, !srcloc !13
-  %27 = and i32 %19, 1
-  %28 = icmp eq i32 %27, 0
-  %29 = and i8 %26, 15
-  %30 = or disjoint i8 %29, %17
-  %31 = and i8 %26, -16
-  %32 = or disjoint i8 %31, %14
-  %33 = select i1 %28, i8 %32, i8 %30
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %33, i16 %25) #15, !srcloc !22
-  %34 = add nuw nsw i32 %19, 1
-  %35 = icmp eq i32 %34, %8
-  br i1 %35, label %.loopexit, label %18, !llvm.loop !28
-
-.loopexit:                                        ; preds = %18, %13
-  switch i16 %3, label %44 [
-    i16 4931, label %36
-    i16 4899, label %36
-    i16 4421, label %36
-    i16 4385, label %36
-    i16 4166, label %36
-    i16 4135, label %36
+.loopexit:                                        ; preds = %17, %12
+  switch i16 %3, label %43 [
+    i16 4931, label %35
+    i16 4899, label %35
+    i16 4421, label %35
+    i16 4385, label %35
+    i16 4166, label %35
+    i16 4135, label %35
   ]
 
-36:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
-  %37 = trunc i64 %5 to i16
-  %38 = add i16 %37, 9
-  %39 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %38) #15, !srcloc !13
-  %40 = or i8 %39, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %40, i16 %38) #15, !srcloc !22
-  %41 = add i16 %37, 10
-  %42 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %41) #15, !srcloc !13
-  %43 = and i8 %42, -5
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %43, i16 %41) #15, !srcloc !22
-  br label %44
+35:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
+  %36 = trunc i64 %5 to i16
+  %37 = add i16 %36, 9
+  %38 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %37) #15, !srcloc !13
+  %39 = or i8 %38, 4
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %39, i16 %37) #15, !srcloc !22
+  %40 = add i16 %36, 10
+  %41 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %40) #15, !srcloc !13
+  %42 = and i8 %41, -5
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %42, i16 %40) #15, !srcloc !22
+  br label %43
 
-44:                                               ; preds = %36, %.loopexit
+43:                                               ; preds = %35, %.loopexit
   ret i32 %8
 }
 

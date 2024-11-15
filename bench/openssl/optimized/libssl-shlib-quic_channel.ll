@@ -3163,34 +3163,24 @@ entry:
   %is_fin = alloca i32, align 4
   store i32 0, ptr %is_fin, align 4
   %rx_enc_level = getelementptr inbounds i8, ptr %arg, i64 1616
-  %bf.load22 = load i64, ptr %rx_enc_level, align 8
-  %0 = and i64 %bf.load22, 458752
-  %cmp24.not = icmp eq i64 %0, 0
-  %crypto_recv330 = getelementptr inbounds i8, ptr %arg, i64 1160
-  br i1 %cmp24.not, label %ossl_quic_enc_level_to_pn_space.exit14, label %for.body
+  %bf.load24 = load i64, ptr %rx_enc_level, align 8
+  %0 = and i64 %bf.load24, 458752
+  %cmp26.not = icmp eq i64 %0, 0
+  %crypto_recv332 = getelementptr inbounds i8, ptr %arg, i64 1160
+  br i1 %cmp26.not, label %ossl_quic_enc_level_to_pn_space.exit14, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %bf.load27 = phi i64 [ %bf.load, %for.inc ], [ %bf.load22, %entry ]
-  %i.025 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
-  switch i32 %i.025, label %sw.default.i [
-    i32 2, label %for.inc
-    i32 0, label %ossl_quic_enc_level_to_pn_space.exit
-    i32 1, label %sw.bb1.i
-    i32 3, label %sw.bb2.i
-  ]
+  %bf.load29 = phi i64 [ %bf.load, %for.inc ], [ %bf.load24, %entry ]
+  %i.027 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
+  %cmp1.not = icmp eq i32 %i.027, 2
+  br i1 %cmp1.not, label %for.inc, label %land.lhs.true
 
-sw.bb1.i:                                         ; preds = %for.body
-  br label %ossl_quic_enc_level_to_pn_space.exit
-
-sw.bb2.i:                                         ; preds = %for.body
-  br label %ossl_quic_enc_level_to_pn_space.exit
-
-sw.default.i:                                     ; preds = %for.body
-  br label %ossl_quic_enc_level_to_pn_space.exit
-
-ossl_quic_enc_level_to_pn_space.exit:             ; preds = %for.body, %sw.bb1.i, %sw.bb2.i, %sw.default.i
-  %retval.0.i = phi i64 [ 2, %sw.default.i ], [ 2, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 0, %for.body ]
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr %crypto_recv330, i64 0, i64 %retval.0.i
+land.lhs.true:                                    ; preds = %for.body
+  %switch.selectcmp = icmp eq i32 %i.027, 1
+  %switch.select = select i1 %switch.selectcmp, i64 1, i64 2
+  %switch.selectcmp20 = icmp eq i32 %i.027, 0
+  %switch.select21 = select i1 %switch.selectcmp20, i64 0, i64 %switch.select
+  %arrayidx = getelementptr inbounds [3 x ptr], ptr %crypto_recv332, i64 0, i64 %switch.select21
   %1 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %avail.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %is_fin.i)
@@ -3199,12 +3189,12 @@ ossl_quic_enc_level_to_pn_space.exit:             ; preds = %for.body, %sw.bb1.i
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %crypto_ensure_empty.exit.thread17, label %if.end.i
 
-crypto_ensure_empty.exit.thread17:                ; preds = %ossl_quic_enc_level_to_pn_space.exit
+crypto_ensure_empty.exit.thread17:                ; preds = %land.lhs.true
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %avail.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %is_fin.i)
   br label %for.inc
 
-if.end.i:                                         ; preds = %ossl_quic_enc_level_to_pn_space.exit
+if.end.i:                                         ; preds = %land.lhs.true
   %call.i = call i32 @ossl_quic_rstream_available(ptr noundef nonnull %1, ptr noundef nonnull %avail.i, ptr noundef nonnull %is_fin.i) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %crypto_ensure_empty.exit.thread, label %crypto_ensure_empty.exit
@@ -3229,9 +3219,9 @@ if.then:                                          ; preds = %crypto_ensure_empty
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %arg, i64 noundef 10, i64 noundef 6, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1028, ptr noundef nonnull @__func__.ch_on_crypto_recv_record)
   br label %return
 
-for.inc:                                          ; preds = %crypto_ensure_empty.exit.for.inc_crit_edge, %for.body, %crypto_ensure_empty.exit.thread17
-  %bf.load = phi i64 [ %bf.load.pre, %crypto_ensure_empty.exit.for.inc_crit_edge ], [ %bf.load27, %for.body ], [ %bf.load27, %crypto_ensure_empty.exit.thread17 ]
-  %inc = add nuw nsw i32 %i.025, 1
+for.inc:                                          ; preds = %crypto_ensure_empty.exit.for.inc_crit_edge, %crypto_ensure_empty.exit.thread17, %for.body
+  %bf.load = phi i64 [ %bf.load.pre, %crypto_ensure_empty.exit.for.inc_crit_edge ], [ %bf.load29, %crypto_ensure_empty.exit.thread17 ], [ %bf.load29, %for.body ]
+  %inc = add nuw nsw i32 %i.027, 1
   %3 = trunc i64 %bf.load to i32
   %4 = lshr i32 %3, 16
   %bf.cast = and i32 %4, 7

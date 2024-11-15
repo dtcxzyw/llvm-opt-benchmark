@@ -624,7 +624,7 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   %6 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %60 [
+  switch i32 %8, label %55 [
     i32 0, label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread
     i32 32, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
     i32 33, label %11
@@ -671,11 +671,11 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
     i32 96, label %52
     i32 100, label %53
     i32 101, label %54
-    i32 192, label %55
-    i32 193, label %56
-    i32 194, label %57
-    i32 195, label %58
-    i32 196, label %59
+    i32 192, label %24
+    i32 193, label %35
+    i32 194, label %39
+    i32 195, label %49
+    i32 196, label %53
   ]
 
 _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
@@ -736,7 +736,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit17:              ; preds = %_ZN4llvm6AMDGPU15pa
 23:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-24:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
+24:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 25:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
@@ -769,7 +769,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit17:              ; preds = %_ZN4llvm6AMDGPU15pa
 34:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-35:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
+35:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 36:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
@@ -781,7 +781,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit17:              ; preds = %_ZN4llvm6AMDGPU15pa
 38:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-39:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
+39:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 40:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
@@ -811,7 +811,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit17:              ; preds = %_ZN4llvm6AMDGPU15pa
 48:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-49:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
+49:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 50:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
@@ -823,7 +823,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit17:              ; preds = %_ZN4llvm6AMDGPU15pa
 52:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-53:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
+53:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 54:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
@@ -832,25 +832,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit17:              ; preds = %_ZN4llvm6AMDGPU15pa
 55:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-56:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-
-57:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-
-58:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-
-59:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-
-60:                                               ; preds = %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit17, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11
-  %.sroa.011.0 = phi i64 [ 0, %60 ], [ 12, %59 ], [ 11, %58 ], [ 10, %57 ], [ 10, %56 ], [ 9, %55 ], [ 12, %54 ], [ 12, %53 ], [ 11, %52 ], [ 11, %51 ], [ 11, %50 ], [ 11, %49 ], [ 11, %48 ], [ 11, %47 ], [ 11, %46 ], [ 10, %45 ], [ 10, %44 ], [ 10, %43 ], [ 10, %42 ], [ 10, %41 ], [ 10, %40 ], [ 10, %39 ], [ 10, %38 ], [ 10, %37 ], [ 10, %36 ], [ 10, %35 ], [ 9, %34 ], [ 9, %33 ], [ 9, %32 ], [ 9, %31 ], [ 9, %30 ], [ 9, %29 ], [ 9, %28 ], [ 9, %27 ], [ 9, %26 ], [ 9, %25 ], [ 9, %24 ], [ 8, %23 ], [ 8, %22 ], [ 8, %21 ], [ 8, %20 ], [ 8, %19 ], [ 7, %18 ], [ 7, %17 ], [ 7, %16 ], [ 7, %15 ], [ 7, %14 ], [ 7, %13 ], [ 6, %12 ], [ 6, %11 ], [ 6, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit17 ], [ %spec.select33, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.sroa.55.0 = phi i64 [ 0, %60 ], [ 0, %59 ], [ 0, %58 ], [ 12884901888, %57 ], [ 4294967296, %56 ], [ 0, %55 ], [ 0, %54 ], [ 0, %53 ], [ 21474836480, %52 ], [ 21474836480, %51 ], [ 21474836480, %50 ], [ 0, %49 ], [ 0, %48 ], [ 0, %47 ], [ 0, %46 ], [ 12884901888, %45 ], [ 12884901888, %44 ], [ 12884901888, %43 ], [ 12884901888, %42 ], [ 12884901888, %41 ], [ 12884901888, %40 ], [ 12884901888, %39 ], [ 4294967296, %38 ], [ 4294967296, %37 ], [ 4294967296, %36 ], [ 4294967296, %35 ], [ 17179869184, %34 ], [ 17179869184, %33 ], [ 17179869184, %32 ], [ 0, %31 ], [ 0, %30 ], [ 0, %29 ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 4294967296, %23 ], [ 0, %22 ], [ 0, %21 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit17 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.sroa.109.0 = phi i32 [ 0, %60 ], [ 0, %59 ], [ 3, %58 ], [ 0, %57 ], [ 0, %56 ], [ 0, %55 ], [ 1, %54 ], [ 0, %53 ], [ 2, %52 ], [ 1, %51 ], [ 0, %50 ], [ 3, %49 ], [ 2, %48 ], [ 1, %47 ], [ 0, %46 ], [ 6, %45 ], [ 5, %44 ], [ 4, %43 ], [ 3, %42 ], [ 2, %41 ], [ 1, %40 ], [ 0, %39 ], [ 3, %38 ], [ 2, %37 ], [ 1, %36 ], [ 0, %35 ], [ 2, %34 ], [ 1, %33 ], [ 0, %32 ], [ 12, %31 ], [ 10, %30 ], [ 9, %29 ], [ 8, %28 ], [ 6, %27 ], [ 4, %26 ], [ 2, %25 ], [ 0, %24 ], [ 0, %23 ], [ 5, %22 ], [ 3, %21 ], [ 2, %20 ], [ 1, %19 ], [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ 0, %13 ], [ 2, %12 ], [ 1, %11 ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit17 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit17, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11
+  %.sroa.011.0 = phi i64 [ 0, %55 ], [ 12, %54 ], [ 12, %53 ], [ 11, %52 ], [ 11, %51 ], [ 11, %50 ], [ 11, %49 ], [ 11, %48 ], [ 11, %47 ], [ 11, %46 ], [ 10, %45 ], [ 10, %44 ], [ 10, %43 ], [ 10, %42 ], [ 10, %41 ], [ 10, %40 ], [ 10, %39 ], [ 10, %38 ], [ 10, %37 ], [ 10, %36 ], [ 10, %35 ], [ 9, %34 ], [ 9, %33 ], [ 9, %32 ], [ 9, %31 ], [ 9, %30 ], [ 9, %29 ], [ 9, %28 ], [ 9, %27 ], [ 9, %26 ], [ 9, %25 ], [ 9, %24 ], [ 8, %23 ], [ 8, %22 ], [ 8, %21 ], [ 8, %20 ], [ 8, %19 ], [ 7, %18 ], [ 7, %17 ], [ 7, %16 ], [ 7, %15 ], [ 7, %14 ], [ 7, %13 ], [ 6, %12 ], [ 6, %11 ], [ 6, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit17 ], [ %spec.select33, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.55.0 = phi i64 [ 0, %55 ], [ 0, %54 ], [ 0, %53 ], [ 21474836480, %52 ], [ 21474836480, %51 ], [ 21474836480, %50 ], [ 0, %49 ], [ 0, %48 ], [ 0, %47 ], [ 0, %46 ], [ 12884901888, %45 ], [ 12884901888, %44 ], [ 12884901888, %43 ], [ 12884901888, %42 ], [ 12884901888, %41 ], [ 12884901888, %40 ], [ 12884901888, %39 ], [ 4294967296, %38 ], [ 4294967296, %37 ], [ 4294967296, %36 ], [ 4294967296, %35 ], [ 17179869184, %34 ], [ 17179869184, %33 ], [ 17179869184, %32 ], [ 0, %31 ], [ 0, %30 ], [ 0, %29 ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 4294967296, %23 ], [ 0, %22 ], [ 0, %21 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit17 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.109.0 = phi i32 [ 0, %55 ], [ 1, %54 ], [ 0, %53 ], [ 2, %52 ], [ 1, %51 ], [ 0, %50 ], [ 3, %49 ], [ 2, %48 ], [ 1, %47 ], [ 0, %46 ], [ 6, %45 ], [ 5, %44 ], [ 4, %43 ], [ 3, %42 ], [ 2, %41 ], [ 1, %40 ], [ 0, %39 ], [ 3, %38 ], [ 2, %37 ], [ 1, %36 ], [ 0, %35 ], [ 2, %34 ], [ 1, %33 ], [ 0, %32 ], [ 12, %31 ], [ 10, %30 ], [ 9, %29 ], [ 8, %28 ], [ 6, %27 ], [ 4, %26 ], [ 2, %25 ], [ 0, %24 ], [ 0, %23 ], [ 5, %22 ], [ 3, %21 ], [ 2, %20 ], [ 1, %19 ], [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %14 ], [ 0, %13 ], [ 2, %12 ], [ 1, %11 ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ 0, %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit17 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %.sroa.011.0.insert.insert = or disjoint i64 %.sroa.55.0, %.sroa.011.0
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.011.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.109.0, 1

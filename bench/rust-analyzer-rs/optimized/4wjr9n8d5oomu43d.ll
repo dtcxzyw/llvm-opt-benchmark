@@ -29421,7 +29421,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55)
   br label %645
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h6e8e990a03c9b9b1E.exit260": ; preds = %592, %598, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..TupleFieldList$GT$17h642da615401ef817E.exit276", %"_ZN4core3ptr67drop_in_place$LT$syntax..ast..generated..nodes..RecordFieldList$GT$17h143e801722960701E.exit226", %126
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h6e8e990a03c9b9b1E.exit260": ; preds = %592, %598, %126, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..TupleFieldList$GT$17h642da615401ef817E.exit276", %"_ZN4core3ptr67drop_in_place$LT$syntax..ast..generated..nodes..RecordFieldList$GT$17h143e801722960701E.exit226"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
   %164 = trunc nuw i8 %.2105 to i1
   %165 = load ptr, ptr %2, align 8, !noundef !4

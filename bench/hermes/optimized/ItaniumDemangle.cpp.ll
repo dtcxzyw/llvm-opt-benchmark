@@ -1895,19 +1895,16 @@ while.body:                                       ; preds = %while.body.backedge
     i8 8, label %while.body.backedge
     i8 34, label %while.body.backedge
     i8 23, label %sw.bb5
-    i8 24, label %sw.bb7
+    i8 24, label %sw.bb5
     i8 32, label %while.body.backedge
   ]
 
-while.body.backedge:                              ; preds = %while.body, %while.body, %while.body, %sw.bb5, %sw.bb7
-  %.sink = phi i64 [ 24, %sw.bb5 ], [ 24, %sw.bb7 ], [ 16, %while.body ], [ 16, %while.body ], [ 16, %while.body ]
+while.body.backedge:                              ; preds = %while.body, %while.body, %while.body, %sw.bb5
+  %.sink = phi i64 [ 24, %sw.bb5 ], [ 16, %while.body ], [ 16, %while.body ], [ 16, %while.body ]
   %Base = getelementptr inbounds i8, ptr %Name.0, i64 %.sink
   br label %while.body, !llvm.loop !9
 
-sw.bb5:                                           ; preds = %while.body
-  br label %while.body.backedge
-
-sw.bb7:                                           ; preds = %while.body
+sw.bb5:                                           ; preds = %while.body, %while.body
   br label %while.body.backedge
 
 sw.default:                                       ; preds = %while.body
@@ -2738,23 +2735,17 @@ while.body:                                       ; preds = %entry, %sw.epilog
     i8 37, label %return
     i8 8, label %sw.epilog
     i8 18, label %sw.bb3
-    i8 24, label %sw.bb5
+    i8 24, label %sw.bb3
     i8 32, label %sw.epilog
-    i8 23, label %sw.bb7
+    i8 23, label %sw.bb3
     i8 34, label %sw.epilog
   ]
 
-sw.bb3:                                           ; preds = %while.body
+sw.bb3:                                           ; preds = %while.body, %while.body, %while.body
   br label %sw.epilog
 
-sw.bb5:                                           ; preds = %while.body
-  br label %sw.epilog
-
-sw.bb7:                                           ; preds = %while.body
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %while.body, %while.body, %while.body, %sw.bb7, %sw.bb5, %sw.bb3
-  %.sink = phi i64 [ 24, %sw.bb7 ], [ 24, %sw.bb5 ], [ 24, %sw.bb3 ], [ 16, %while.body ], [ 16, %while.body ], [ 16, %while.body ]
+sw.epilog:                                        ; preds = %while.body, %while.body, %while.body, %sw.bb3
+  %.sink = phi i64 [ 24, %sw.bb3 ], [ 16, %while.body ], [ 16, %while.body ], [ 16, %while.body ]
   %Child = getelementptr inbounds i8, ptr %N.010, i64 %.sink
   %N.0 = load ptr, ptr %Child, align 8
   %tobool.not = icmp eq ptr %N.0, null

@@ -3879,14 +3879,10 @@ entry:
   %3 = load i32, ptr %arrayidx.i, align 4
   switch i32 %3, label %sw.default [
     i32 0, label %return
-    i32 4, label %sw.bb3
+    i32 3, label %sw.bb14
     i32 1, label %sw.bb4
     i32 2, label %sw.bb8
-    i32 3, label %sw.bb14
   ]
-
-sw.bb3:                                           ; preds = %entry
-  br label %return
 
 sw.bb4:                                           ; preds = %entry
   %m_coeff.i = getelementptr inbounds i8, ptr %rc, i64 8
@@ -4144,8 +4140,8 @@ if.else.i.i.i.i70:                                ; preds = %land.lhs.true.i.i.i
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %if.else.i.i.i.i70, %if.else.i.i.i.i.i.i85, %if.then.i.i.i.i.i.i93, %if.else.i.i.i.i.i33, %if.else.i.i.i.i.i.i.i48, %if.then.i.i.i.i.i.i.i56, %if.else.i.i.i.i, %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %sw.bb8, %sw.bb4, %entry, %sw.default, %sw.bb3
-  %retval.0 = phi i1 [ false, %sw.default ], [ false, %sw.bb3 ], [ true, %entry ], [ true, %sw.bb4 ], [ true, %sw.bb8 ], [ %call5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %call5.i.i.i.i, %if.else.i.i.i.i ], [ %cmp.i.i.i.i.i.i19, %if.then.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %call5.i.i.i.i.i34, %if.else.i.i.i.i.i33 ], [ %cmp.i.i.i.i.i.i.i57, %if.then.i.i.i.i.i.i.i56 ], [ %cmp5.i.i.i.i.i.i.i50, %if.else.i.i.i.i.i.i.i48 ], [ %call5.i.i.i.i71, %if.else.i.i.i.i70 ], [ %cmp.i.i.i.i.i.i94, %if.then.i.i.i.i.i.i93 ], [ %cmp5.i.i.i.i.i.i87, %if.else.i.i.i.i.i.i85 ]
+return:                                           ; preds = %if.else.i.i.i.i70, %if.else.i.i.i.i.i.i85, %if.then.i.i.i.i.i.i93, %if.else.i.i.i.i.i33, %if.else.i.i.i.i.i.i.i48, %if.then.i.i.i.i.i.i.i56, %if.else.i.i.i.i, %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %sw.bb8, %sw.bb4, %entry, %sw.default
+  %retval.0 = phi i1 [ false, %sw.default ], [ true, %entry ], [ true, %sw.bb4 ], [ true, %sw.bb8 ], [ %call5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %call5.i.i.i.i, %if.else.i.i.i.i ], [ %cmp.i.i.i.i.i.i19, %if.then.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %call5.i.i.i.i.i34, %if.else.i.i.i.i.i33 ], [ %cmp.i.i.i.i.i.i.i57, %if.then.i.i.i.i.i.i.i56 ], [ %cmp5.i.i.i.i.i.i.i50, %if.else.i.i.i.i.i.i.i48 ], [ %call5.i.i.i.i71, %if.else.i.i.i.i70 ], [ %cmp.i.i.i.i.i.i94, %if.then.i.i.i.i.i.i93 ], [ %cmp5.i.i.i.i.i.i87, %if.else.i.i.i.i.i.i85 ]
   ret i1 %retval.0
 }
 
@@ -4161,14 +4157,10 @@ entry:
   %3 = load i32, ptr %arrayidx.i, align 4
   switch i32 %3, label %sw.default [
     i32 0, label %return
-    i32 4, label %sw.bb3
+    i32 3, label %sw.bb14
     i32 1, label %sw.bb4
     i32 2, label %sw.bb8
-    i32 3, label %sw.bb14
   ]
-
-sw.bb3:                                           ; preds = %entry
-  br label %return
 
 sw.bb4:                                           ; preds = %entry
   %m_coeff.i = getelementptr inbounds i8, ptr %rc, i64 8
@@ -4426,8 +4418,8 @@ if.else.i.i.i.i70:                                ; preds = %land.lhs.true.i.i.i
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %if.else.i.i.i.i70, %if.else.i.i.i.i.i.i85, %if.then.i.i.i.i.i.i93, %if.else.i.i.i.i.i33, %if.else.i.i.i.i.i.i.i48, %if.then.i.i.i.i.i.i.i56, %if.else.i.i.i.i, %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %sw.bb8, %sw.bb4, %entry, %sw.default, %sw.bb3
-  %retval.0 = phi i1 [ false, %sw.default ], [ false, %sw.bb3 ], [ true, %entry ], [ true, %sw.bb4 ], [ true, %sw.bb8 ], [ %call5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %call5.i.i.i.i, %if.else.i.i.i.i ], [ %cmp.i.i.i.i.i.i19, %if.then.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %call5.i.i.i.i.i34, %if.else.i.i.i.i.i33 ], [ %cmp.i.i.i.i.i.i.i57, %if.then.i.i.i.i.i.i.i56 ], [ %cmp5.i.i.i.i.i.i.i50, %if.else.i.i.i.i.i.i.i48 ], [ %call5.i.i.i.i71, %if.else.i.i.i.i70 ], [ %cmp.i.i.i.i.i.i94, %if.then.i.i.i.i.i.i93 ], [ %cmp5.i.i.i.i.i.i87, %if.else.i.i.i.i.i.i85 ]
+return:                                           ; preds = %if.else.i.i.i.i70, %if.else.i.i.i.i.i.i85, %if.then.i.i.i.i.i.i93, %if.else.i.i.i.i.i33, %if.else.i.i.i.i.i.i.i48, %if.then.i.i.i.i.i.i.i56, %if.else.i.i.i.i, %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %sw.bb8, %sw.bb4, %entry, %sw.default
+  %retval.0 = phi i1 [ false, %sw.default ], [ true, %entry ], [ true, %sw.bb4 ], [ true, %sw.bb8 ], [ %call5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %call5.i.i.i.i, %if.else.i.i.i.i ], [ %cmp.i.i.i.i.i.i19, %if.then.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %call5.i.i.i.i.i34, %if.else.i.i.i.i.i33 ], [ %cmp.i.i.i.i.i.i.i57, %if.then.i.i.i.i.i.i.i56 ], [ %cmp5.i.i.i.i.i.i.i50, %if.else.i.i.i.i.i.i.i48 ], [ %call5.i.i.i.i71, %if.else.i.i.i.i70 ], [ %cmp.i.i.i.i.i.i94, %if.then.i.i.i.i.i.i93 ], [ %cmp5.i.i.i.i.i.i87, %if.else.i.i.i.i.i.i85 ]
   ret i1 %retval.0
 }
 
@@ -12943,14 +12935,10 @@ entry:
   %3 = load i32, ptr %arrayidx.i, align 4
   switch i32 %3, label %sw.default [
     i32 0, label %return
-    i32 4, label %sw.bb3
+    i32 3, label %sw.bb14
     i32 1, label %sw.bb4
     i32 2, label %sw.bb8
-    i32 3, label %sw.bb14
   ]
-
-sw.bb3:                                           ; preds = %entry
-  br label %return
 
 sw.bb4:                                           ; preds = %entry
   %m_coeff.i = getelementptr inbounds i8, ptr %rc, i64 8
@@ -13017,8 +13005,8 @@ if.end:                                           ; preds = %sw.bb14
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %sw.bb8, %lor.rhs11, %sw.bb4, %lor.rhs, %entry, %sw.default, %if.end, %if.then, %sw.bb3
-  %retval.0 = phi i1 [ false, %sw.default ], [ %call.i.i22, %if.then ], [ %call.i.i28, %if.end ], [ false, %sw.bb3 ], [ true, %entry ], [ true, %sw.bb4 ], [ %call.i.i, %lor.rhs ], [ true, %sw.bb8 ], [ %call.i.i14, %lor.rhs11 ]
+return:                                           ; preds = %sw.bb8, %lor.rhs11, %sw.bb4, %lor.rhs, %entry, %sw.default, %if.end, %if.then
+  %retval.0 = phi i1 [ false, %sw.default ], [ %call.i.i22, %if.then ], [ %call.i.i28, %if.end ], [ true, %entry ], [ true, %sw.bb4 ], [ %call.i.i, %lor.rhs ], [ true, %sw.bb8 ], [ %call.i.i14, %lor.rhs11 ]
   ret i1 %retval.0
 }
 
@@ -13034,14 +13022,10 @@ entry:
   %3 = load i32, ptr %arrayidx.i, align 4
   switch i32 %3, label %sw.default [
     i32 0, label %return
-    i32 4, label %sw.bb3
+    i32 3, label %sw.bb14
     i32 1, label %sw.bb4
     i32 2, label %sw.bb8
-    i32 3, label %sw.bb14
   ]
-
-sw.bb3:                                           ; preds = %entry
-  br label %return
 
 sw.bb4:                                           ; preds = %entry
   %m_coeff.i = getelementptr inbounds i8, ptr %rc, i64 8
@@ -13108,8 +13092,8 @@ if.end19:                                         ; preds = %sw.bb14
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %sw.bb8, %sw.bb4, %entry, %sw.default, %if.end19, %if.then17, %if.end12, %if.then, %sw.bb3
-  %retval.0 = phi i1 [ false, %sw.default ], [ %call.i.i22, %if.then17 ], [ %call.i.i28, %if.end19 ], [ %call.i.i14, %if.end12 ], [ %call.i.i, %if.then ], [ false, %sw.bb3 ], [ true, %entry ], [ true, %sw.bb4 ], [ true, %sw.bb8 ]
+return:                                           ; preds = %sw.bb8, %sw.bb4, %entry, %sw.default, %if.end19, %if.then17, %if.end12, %if.then
+  %retval.0 = phi i1 [ false, %sw.default ], [ %call.i.i22, %if.then17 ], [ %call.i.i28, %if.end19 ], [ %call.i.i14, %if.end12 ], [ %call.i.i, %if.then ], [ true, %entry ], [ true, %sw.bb4 ], [ true, %sw.bb8 ]
   ret i1 %retval.0
 }
 

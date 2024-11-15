@@ -14749,11 +14749,11 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h8007f45b7426346bE.exi
   %109 = getelementptr inbounds i8, ptr %99, i64 -64
   %110 = load ptr, ptr %109, align 8, !alias.scope !1985, !noalias !1986, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i = icmp samesign ult i64 %108, 2
-  %spec.select.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 %spec.select.idx.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 -56
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !1985, !noalias !1986, !noundef !4
-  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i)
+  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i)
           to label %.noexc3 unwind label %81
 
 .thread33.loopexit:                               ; preds = %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.4628595066780388198.exit
@@ -15948,11 +15948,11 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h8007f45b7426346bE.exi
   %109 = getelementptr inbounds i8, ptr %99, i64 -64
   %110 = load ptr, ptr %109, align 8, !alias.scope !2254, !noalias !2255, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i = icmp samesign ult i64 %108, 2
-  %spec.select.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 %spec.select.idx.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 -56
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !2254, !noalias !2255, !noundef !4
-  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i)
+  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i)
           to label %.noexc3 unwind label %81
 
 .thread33.loopexit:                               ; preds = %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.4628595066780388198.exit
@@ -16680,11 +16680,11 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h8007f45b7426346bE.exi
   %109 = getelementptr inbounds i8, ptr %99, i64 -32
   %110 = load ptr, ptr %109, align 8, !alias.scope !2401, !noalias !2402, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i = icmp samesign ult i64 %108, 2
-  %spec.select.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 %spec.select.idx.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 -24
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !2401, !noalias !2402, !noundef !4
-  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i)
+  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i)
           to label %.noexc3 unwind label %81
 
 .thread33.loopexit:                               ; preds = %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.4628595066780388198.exit
@@ -17383,11 +17383,11 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h8007f45b7426346bE.exi
   %109 = getelementptr inbounds i8, ptr %99, i64 -64
   %110 = load ptr, ptr %109, align 8, !alias.scope !2556, !noalias !2557, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i = icmp samesign ult i64 %108, 2
-  %spec.select.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 %spec.select.idx.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 -56
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !2556, !noalias !2557, !noundef !4
-  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i)
+  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i)
           to label %.noexc3 unwind label %81
 
 .thread33.loopexit:                               ; preds = %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.4628595066780388198.exit
@@ -17625,11 +17625,11 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %20 = getelementptr inbounds i8, ptr %10, i64 -64
   %21 = load ptr, ptr %20, align 8, !alias.scope !2620, !noalias !2621, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i = icmp samesign ult i64 %19, 2
-  %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %spec.select.idx.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %.sroa.0.0.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -56
   %.sroa.4.0.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i, align 8, !alias.scope !2620, !noalias !2621, !noundef !4
-  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i), !noalias !2627
+  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i), !noalias !2627
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !2628
   store i8 -1, ptr %5, align 1, !noalias !2628
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !2627
@@ -17712,11 +17712,11 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %20 = getelementptr inbounds i8, ptr %10, i64 -64
   %21 = load ptr, ptr %20, align 8, !alias.scope !2666, !noalias !2667, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i = icmp samesign ult i64 %19, 2
-  %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %spec.select.idx.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %.sroa.0.0.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -56
   %.sroa.4.0.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i, align 8, !alias.scope !2666, !noalias !2667, !noundef !4
-  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i), !noalias !2673
+  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i), !noalias !2673
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !2674
   store i8 -1, ptr %5, align 1, !noalias !2674
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !2673
@@ -17869,11 +17869,11 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %20 = getelementptr inbounds i8, ptr %10, i64 -64
   %21 = load ptr, ptr %20, align 8, !alias.scope !2739, !noalias !2740, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i = icmp samesign ult i64 %19, 2
-  %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %spec.select.idx.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %.sroa.0.0.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -56
   %.sroa.4.0.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i, align 8, !alias.scope !2739, !noalias !2740, !noundef !4
-  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i), !noalias !2746
+  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i), !noalias !2746
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !2747
   store i8 -1, ptr %5, align 1, !noalias !2747
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !2746
@@ -17967,11 +17967,11 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %20 = getelementptr inbounds i8, ptr %10, i64 -32
   %21 = load ptr, ptr %20, align 8, !alias.scope !2795, !noalias !2796, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i = icmp samesign ult i64 %19, 2
-  %spec.select.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %spec.select.idx.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %.sroa.0.0.idx.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -24
   %.sroa.4.0.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i, align 8, !alias.scope !2795, !noalias !2796, !noundef !4
-  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i), !noalias !2802
+  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i), !noalias !2802
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !2803
   store i8 -1, ptr %5, align 1, !noalias !2803
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !2802

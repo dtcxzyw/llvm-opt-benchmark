@@ -17496,7 +17496,7 @@ define dso_local noundef ptr @_ZN4llvm15UpgradeTBAANodeERNS_6MDNodeE(ptr noundef
 _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %8, %12
   %.0.i.i = phi i32 [ %15, %12 ], [ %11, %8 ]
   %16 = icmp eq i32 %.0.i.i, 0
-  br i1 %16, label %94, label %17
+  br i1 %16, label %96, label %17
 
 17:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit
   %18 = load i64, ptr %5, align 8
@@ -17521,128 +17521,129 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %20, %24
   %.sroa.0.0.i.i = phi ptr [ %28, %24 ], [ %22, %20 ]
   %29 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %30 = load i8, ptr %29, align 4
-  %.off = add i8 %30, -5
-  %switch = icmp ult i8 %.off, 31
-  %31 = icmp ugt i32 %.0.i.i, 2
-  %or.cond40 = and i1 %31, %switch
-  br i1 %or.cond40, label %94, label %_ZN4llvm3isaINS_6MDNodeENS_9MDOperandEEEbRKT0_.exit.thread
+  %31 = zext i8 %30 to i32
+  %.off.i.i.i.i.i.i.i.i = add nsw i32 %31, -5
+  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 31
+  %32 = icmp ugt i32 %.0.i.i, 2
+  %or.cond = and i1 %32, %switch.i.i.i.i.i.i.i.i
+  br i1 %or.cond, label %96, label %33
 
-_ZN4llvm3isaINS_6MDNodeENS_9MDOperandEEEbRKT0_.exit.thread: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %32, align 8
-  %33 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
-  %.not.i.i23 = icmp eq i64 %33, 0
-  %34 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
-  %35 = inttoptr i64 %34 to ptr
-  br i1 %.not.i.i23, label %_ZNK4llvm6MDNode10getContextEv.exit, label %36
+33:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %34, align 8
+  %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
+  %.not.i.i23 = icmp eq i64 %35, 0
+  %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
+  %37 = inttoptr i64 %36 to ptr
+  br i1 %.not.i.i23, label %_ZNK4llvm6MDNode10getContextEv.exit, label %38
 
-36:                                               ; preds = %_ZN4llvm3isaINS_6MDNodeENS_9MDOperandEEEbRKT0_.exit.thread
-  %37 = load ptr, ptr %35, align 8
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %37, align 8
   br label %_ZNK4llvm6MDNode10getContextEv.exit
 
-_ZNK4llvm6MDNode10getContextEv.exit:              ; preds = %_ZN4llvm3isaINS_6MDNodeENS_9MDOperandEEEbRKT0_.exit.thread, %36
-  %.0.i.i24 = phi ptr [ %37, %36 ], [ %35, %_ZN4llvm3isaINS_6MDNodeENS_9MDOperandEEEbRKT0_.exit.thread ]
-  %38 = icmp eq i32 %.0.i.i, 3
-  br i1 %38, label %39, label %87
+_ZNK4llvm6MDNode10getContextEv.exit:              ; preds = %33, %38
+  %.0.i.i24 = phi ptr [ %39, %38 ], [ %37, %33 ]
+  %40 = icmp eq i32 %.0.i.i, 3
+  br i1 %40, label %41, label %89
 
-39:                                               ; preds = %_ZNK4llvm6MDNode10getContextEv.exit
-  %40 = load i64, ptr %5, align 8
-  %41 = and i64 %40, 2
-  %.not.i.i25 = icmp eq i64 %41, 0
-  br i1 %.not.i.i25, label %46, label %42
+41:                                               ; preds = %_ZNK4llvm6MDNode10getContextEv.exit
+  %42 = load i64, ptr %5, align 8
+  %43 = and i64 %42, 2
+  %.not.i.i25 = icmp eq i64 %43, 0
+  br i1 %.not.i.i25, label %48, label %44
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 -32
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #20
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %0, i64 -32
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #20
   %.pre = load i64, ptr %5, align 8
   br label %_ZNK4llvm6MDNode10getOperandEj.exit27
 
-46:                                               ; preds = %39
-  %47 = lshr i64 %40, 2
-  %48 = and i64 %47, 15
-  %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %49
+48:                                               ; preds = %41
+  %49 = lshr i64 %42, 2
+  %50 = and i64 %49, 15
+  %51 = sub nsw i64 0, %50
+  %52 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %51
   br label %_ZNK4llvm6MDNode10getOperandEj.exit27
 
-_ZNK4llvm6MDNode10getOperandEj.exit27:            ; preds = %42, %46
-  %51 = phi i64 [ %40, %46 ], [ %.pre, %42 ]
-  %.sroa.0.0.i.i26 = phi ptr [ %50, %46 ], [ %44, %42 ]
-  %52 = load ptr, ptr %.sroa.0.0.i.i26, align 8
-  store ptr %52, ptr %2, align 16
-  %53 = getelementptr inbounds i8, ptr %2, i64 8
-  %54 = and i64 %51, 2
-  %.not.i.i28 = icmp eq i64 %54, 0
-  br i1 %.not.i.i28, label %59, label %55
+_ZNK4llvm6MDNode10getOperandEj.exit27:            ; preds = %44, %48
+  %53 = phi i64 [ %42, %48 ], [ %.pre, %44 ]
+  %.sroa.0.0.i.i26 = phi ptr [ %52, %48 ], [ %46, %44 ]
+  %54 = load ptr, ptr %.sroa.0.0.i.i26, align 8
+  store ptr %54, ptr %2, align 16
+  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  %56 = and i64 %53, 2
+  %.not.i.i28 = icmp eq i64 %56, 0
+  br i1 %.not.i.i28, label %61, label %57
 
-55:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit27
-  %56 = getelementptr inbounds i8, ptr %0, i64 -32
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %56) #20
+57:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit27
+  %58 = getelementptr inbounds i8, ptr %0, i64 -32
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #20
   br label %_ZNK4llvm6MDNode10getOperandEj.exit30
 
-59:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit27
-  %60 = lshr i64 %51, 2
-  %61 = and i64 %60, 15
-  %62 = sub nsw i64 0, %61
-  %63 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %62
+61:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit27
+  %62 = lshr i64 %53, 2
+  %63 = and i64 %62, 15
+  %64 = sub nsw i64 0, %63
+  %65 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %64
   br label %_ZNK4llvm6MDNode10getOperandEj.exit30
 
-_ZNK4llvm6MDNode10getOperandEj.exit30:            ; preds = %55, %59
-  %.sroa.0.0.i.i29 = phi ptr [ %63, %59 ], [ %57, %55 ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i29, i64 8
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr %53, align 8
-  %66 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24, ptr nonnull %2, i64 2, i32 noundef 0, i1 noundef zeroext true) #20
-  store ptr %66, ptr %3, align 16
-  %67 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %3, i64 16
-  %69 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24) #20
-  %70 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %69) #20
-  %71 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %70) #20
-  store ptr %71, ptr %68, align 16
-  %72 = getelementptr inbounds i8, ptr %3, i64 24
-  %73 = load i64, ptr %5, align 8
-  %74 = and i64 %73, 2
-  %.not.i.i31 = icmp eq i64 %74, 0
-  br i1 %.not.i.i31, label %79, label %75
+_ZNK4llvm6MDNode10getOperandEj.exit30:            ; preds = %57, %61
+  %.sroa.0.0.i.i29 = phi ptr [ %65, %61 ], [ %59, %57 ]
+  %66 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i29, i64 8
+  %67 = load ptr, ptr %66, align 8
+  store ptr %67, ptr %55, align 8
+  %68 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24, ptr nonnull %2, i64 2, i32 noundef 0, i1 noundef zeroext true) #20
+  store ptr %68, ptr %3, align 16
+  %69 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %68, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  %71 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24) #20
+  %72 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %71) #20
+  %73 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %72) #20
+  store ptr %73, ptr %70, align 16
+  %74 = getelementptr inbounds i8, ptr %3, i64 24
+  %75 = load i64, ptr %5, align 8
+  %76 = and i64 %75, 2
+  %.not.i.i31 = icmp eq i64 %76, 0
+  br i1 %.not.i.i31, label %81, label %77
 
-75:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit30
-  %76 = getelementptr inbounds i8, ptr %0, i64 -32
-  %77 = load ptr, ptr %76, align 8
-  %78 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #20
+77:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit30
+  %78 = getelementptr inbounds i8, ptr %0, i64 -32
+  %79 = load ptr, ptr %78, align 8
+  %80 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %78) #20
   br label %_ZNK4llvm6MDNode10getOperandEj.exit33
 
-79:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit30
-  %80 = lshr i64 %73, 2
-  %81 = and i64 %80, 15
-  %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %82
+81:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit30
+  %82 = lshr i64 %75, 2
+  %83 = and i64 %82, 15
+  %84 = sub nsw i64 0, %83
+  %85 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %84
   br label %_ZNK4llvm6MDNode10getOperandEj.exit33
 
-_ZNK4llvm6MDNode10getOperandEj.exit33:            ; preds = %75, %79
-  %.sroa.0.0.i.i32 = phi ptr [ %83, %79 ], [ %77, %75 ]
-  %84 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i32, i64 16
-  %85 = load ptr, ptr %84, align 8
-  store ptr %85, ptr %72, align 8
-  %86 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24, ptr nonnull %3, i64 4, i32 noundef 0, i1 noundef zeroext true) #20
-  br label %94
+_ZNK4llvm6MDNode10getOperandEj.exit33:            ; preds = %77, %81
+  %.sroa.0.0.i.i32 = phi ptr [ %85, %81 ], [ %79, %77 ]
+  %86 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i32, i64 16
+  %87 = load ptr, ptr %86, align 8
+  store ptr %87, ptr %74, align 8
+  %88 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24, ptr nonnull %3, i64 4, i32 noundef 0, i1 noundef zeroext true) #20
+  br label %96
 
-87:                                               ; preds = %_ZNK4llvm6MDNode10getContextEv.exit
+89:                                               ; preds = %_ZNK4llvm6MDNode10getContextEv.exit
   store ptr %0, ptr %4, align 16
-  %88 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %0, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %4, i64 16
-  %90 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24) #20
-  %91 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %90) #20
-  %92 = tail call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %91) #20
-  store ptr %92, ptr %89, align 16
-  %93 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24, ptr nonnull %4, i64 3, i32 noundef 0, i1 noundef zeroext true) #20
-  br label %94
+  %90 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %0, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %4, i64 16
+  %92 = tail call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24) #20
+  %93 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %92) #20
+  %94 = tail call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %93) #20
+  store ptr %94, ptr %91, align 16
+  %95 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i24, ptr nonnull %4, i64 3, i32 noundef 0, i1 noundef zeroext true) #20
+  br label %96
 
-94:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %87, %_ZNK4llvm6MDNode10getOperandEj.exit33
-  %.0 = phi ptr [ %86, %_ZNK4llvm6MDNode10getOperandEj.exit33 ], [ %93, %87 ], [ %0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ %0, %_ZNK4llvm6MDNode10getOperandEj.exit ]
+96:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %89, %_ZNK4llvm6MDNode10getOperandEj.exit33
+  %.0 = phi ptr [ %88, %_ZNK4llvm6MDNode10getOperandEj.exit33 ], [ %95, %89 ], [ %0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ %0, %_ZNK4llvm6MDNode10getOperandEj.exit ]
   ret ptr %.0
 }
 

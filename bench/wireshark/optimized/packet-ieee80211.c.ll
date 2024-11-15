@@ -46160,9 +46160,9 @@ define internal fastcc i32 @dissect_auth_frame(ptr noundef %0, ptr noundef %1, p
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %2, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #22
   switch i16 %4, label %add_ff_auth_sae.exit [
     i16 3, label %11
-    i16 6, label %73
-    i16 5, label %73
-    i16 7, label %92
+    i16 6, label %74
+    i16 5, label %74
+    i16 7, label %93
   ]
 
 11:                                               ; preds = %3
@@ -46177,7 +46177,7 @@ define internal fastcc i32 @dissect_auth_frame(ptr noundef %0, ptr noundef %1, p
   %17 = load i32, ptr @hf_ieee80211_ff_sae_message_type, align 4
   %18 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %17, ptr noundef %2, i32 noundef 2, i32 noundef 2, i32 noundef %15) #22
   %19 = icmp eq i16 %14, 1
-  br i1 %19, label %20, label %63
+  br i1 %19, label %20, label %64
 
 20:                                               ; preds = %13
   %21 = icmp eq i16 %16, 0
@@ -46196,34 +46196,34 @@ define internal fastcc i32 @dissect_auth_frame(ptr noundef %0, ptr noundef %1, p
   %27 = tail call fastcc i32 @find_fixed_field_len(ptr noundef %2)
   switch i16 %24, label %32 [
     i16 1, label %get_group_element_len.exit.i
-    i16 2, label %get_scalar_len.exit.thread7.i
+    i16 2, label %get_scalar_len.exit.thread.i
     i16 5, label %get_scalar_len.exit.thread12.i
-    i16 14, label %get_scalar_len.exit.thread.i
+    i16 14, label %get_scalar_len.exit.thread7.i
     i16 15, label %get_scalar_len.exit.thread15.i
     i16 16, label %get_scalar_len.exit.thread18.i
     i16 17, label %get_scalar_len.exit.thread21.i
     i16 18, label %get_scalar_len.exit.thread24.i
     i16 22, label %28
-    i16 23, label %29
-    i16 24, label %30
-    i16 19, label %get_scalar_len.exit.i
-    i16 28, label %get_scalar_len.exit.i
+    i16 23, label %get_scalar_len.exit.i
+    i16 24, label %29
+    i16 19, label %30
+    i16 28, label %30
     i16 20, label %31
     i16 29, label %31
     i16 21, label %get_scalar_len.exit.thread27.i
     i16 25, label %get_scalar_len.exit.thread30.i
-    i16 26, label %get_scalar_len.exit.thread33.i
-    i16 30, label %get_scalar_len.exit.thread36.i
+    i16 26, label %get_scalar_len.exit.i
+    i16 30, label %get_scalar_len.exit.thread33.i
   ]
 
 28:                                               ; preds = %23
-  br label %get_scalar_len.exit.thread7.i
+  br label %get_scalar_len.exit.thread.i
 
 29:                                               ; preds = %23
-  br label %get_scalar_len.exit.thread.i
+  br label %get_scalar_len.exit.thread7.i
 
-30:                                               ; preds = %23
-  br label %get_scalar_len.exit.thread.i
+30:                                               ; preds = %23, %23
+  br label %get_scalar_len.exit.i
 
 31:                                               ; preds = %23, %23
   br label %get_scalar_len.exit.i
@@ -46231,16 +46231,16 @@ define internal fastcc i32 @dissect_auth_frame(ptr noundef %0, ptr noundef %1, p
 32:                                               ; preds = %23
   br label %get_scalar_len.exit.i
 
-get_scalar_len.exit.i:                            ; preds = %32, %31, %23, %23
-  %.0.i.i = phi i32 [ 0, %32 ], [ 48, %31 ], [ 32, %23 ], [ 32, %23 ]
-  switch i16 %24, label %34 [
-    i16 30, label %get_scalar_len.exit.thread36.i
-    i16 26, label %get_scalar_len.exit.thread33.i
-    i16 22, label %get_scalar_len.exit.thread7.i
+get_scalar_len.exit.i:                            ; preds = %32, %31, %30, %23, %23
+  %.0.i.i = phi i32 [ 0, %32 ], [ 48, %31 ], [ 32, %30 ], [ 28, %23 ], [ 28, %23 ]
+  switch i16 %24, label %35 [
+    i16 30, label %get_scalar_len.exit.thread33.i
+    i16 26, label %34
+    i16 22, label %get_scalar_len.exit.thread.i
     i16 5, label %get_scalar_len.exit.thread12.i
-    i16 14, label %get_scalar_len.exit.thread.i
-    i16 23, label %get_scalar_len.exit.thread.i
-    i16 24, label %get_scalar_len.exit.thread.i
+    i16 14, label %get_scalar_len.exit.thread7.i
+    i16 23, label %get_scalar_len.exit.thread7.i
+    i16 24, label %get_scalar_len.exit.thread7.i
     i16 15, label %get_scalar_len.exit.thread15.i
     i16 16, label %get_scalar_len.exit.thread18.i
     i16 17, label %get_scalar_len.exit.thread21.i
@@ -46253,16 +46253,16 @@ get_scalar_len.exit.i:                            ; preds = %32, %31, %23, %23
     i16 25, label %get_scalar_len.exit.thread30.i
   ]
 
-get_scalar_len.exit.thread7.i:                    ; preds = %get_scalar_len.exit.i, %28, %23
-  %.0.i9.i = phi i32 [ %.0.i.i, %get_scalar_len.exit.i ], [ 20, %28 ], [ 128, %23 ]
+get_scalar_len.exit.thread.i:                     ; preds = %get_scalar_len.exit.i, %28, %23
+  %.0.i2.i = phi i32 [ %.0.i.i, %get_scalar_len.exit.i ], [ 20, %28 ], [ 128, %23 ]
   br label %get_group_element_len.exit.i
 
 get_scalar_len.exit.thread12.i:                   ; preds = %get_scalar_len.exit.i, %23
   %.0.i14.i = phi i32 [ %.0.i.i, %get_scalar_len.exit.i ], [ 192, %23 ]
   br label %get_group_element_len.exit.i
 
-get_scalar_len.exit.thread.i:                     ; preds = %get_scalar_len.exit.i, %get_scalar_len.exit.i, %get_scalar_len.exit.i, %30, %29, %23
-  %.0.i2.i = phi i32 [ %.0.i.i, %get_scalar_len.exit.i ], [ %.0.i.i, %get_scalar_len.exit.i ], [ %.0.i.i, %get_scalar_len.exit.i ], [ 28, %29 ], [ 32, %30 ], [ 256, %23 ]
+get_scalar_len.exit.thread7.i:                    ; preds = %get_scalar_len.exit.i, %get_scalar_len.exit.i, %get_scalar_len.exit.i, %29, %23
+  %.0.i9.i = phi i32 [ %.0.i.i, %get_scalar_len.exit.i ], [ %.0.i.i, %get_scalar_len.exit.i ], [ %.0.i.i, %get_scalar_len.exit.i ], [ 32, %29 ], [ 256, %23 ]
   br label %get_group_element_len.exit.i
 
 get_scalar_len.exit.thread15.i:                   ; preds = %get_scalar_len.exit.i, %23
@@ -46292,224 +46292,223 @@ get_scalar_len.exit.thread30.i:                   ; preds = %get_scalar_len.exit
   %.0.i32.i = phi i32 [ %.0.i.i, %get_scalar_len.exit.i ], [ 24, %23 ]
   br label %get_group_element_len.exit.i
 
-get_scalar_len.exit.thread33.i:                   ; preds = %get_scalar_len.exit.i, %23
-  %.0.i35.i = phi i32 [ %.0.i.i, %get_scalar_len.exit.i ], [ 28, %23 ]
-  br label %get_group_element_len.exit.i
-
-get_scalar_len.exit.thread36.i:                   ; preds = %get_scalar_len.exit.i, %23
-  %.0.i38.i = phi i32 [ %.0.i.i, %get_scalar_len.exit.i ], [ 64, %23 ]
-  br label %get_group_element_len.exit.i
-
 34:                                               ; preds = %get_scalar_len.exit.i
   br label %get_group_element_len.exit.i
 
-get_group_element_len.exit.i:                     ; preds = %34, %get_scalar_len.exit.thread36.i, %get_scalar_len.exit.thread33.i, %get_scalar_len.exit.thread30.i, %get_scalar_len.exit.thread27.i, %33, %get_scalar_len.exit.thread24.i, %get_scalar_len.exit.thread21.i, %get_scalar_len.exit.thread18.i, %get_scalar_len.exit.thread15.i, %get_scalar_len.exit.thread.i, %get_scalar_len.exit.thread12.i, %get_scalar_len.exit.thread7.i, %get_scalar_len.exit.i, %get_scalar_len.exit.i, %23
-  %.0.i3.i = phi i32 [ %.0.i.i, %34 ], [ %.0.i38.i, %get_scalar_len.exit.thread36.i ], [ %.0.i35.i, %get_scalar_len.exit.thread33.i ], [ %.0.i32.i, %get_scalar_len.exit.thread30.i ], [ %.0.i29.i, %get_scalar_len.exit.thread27.i ], [ %.0.i.i, %33 ], [ %.0.i26.i, %get_scalar_len.exit.thread24.i ], [ %.0.i23.i, %get_scalar_len.exit.thread21.i ], [ %.0.i20.i, %get_scalar_len.exit.thread18.i ], [ %.0.i17.i, %get_scalar_len.exit.thread15.i ], [ %.0.i2.i, %get_scalar_len.exit.thread.i ], [ %.0.i14.i, %get_scalar_len.exit.thread12.i ], [ %.0.i9.i, %get_scalar_len.exit.thread7.i ], [ %.0.i.i, %get_scalar_len.exit.i ], [ %.0.i.i, %get_scalar_len.exit.i ], [ 96, %23 ]
-  %.0.i111.i = phi i32 [ 0, %34 ], [ 128, %get_scalar_len.exit.thread36.i ], [ 56, %get_scalar_len.exit.thread33.i ], [ 48, %get_scalar_len.exit.thread30.i ], [ 132, %get_scalar_len.exit.thread27.i ], [ 64, %33 ], [ 1024, %get_scalar_len.exit.thread24.i ], [ 768, %get_scalar_len.exit.thread21.i ], [ 512, %get_scalar_len.exit.thread18.i ], [ 384, %get_scalar_len.exit.thread15.i ], [ 256, %get_scalar_len.exit.thread.i ], [ 192, %get_scalar_len.exit.thread12.i ], [ 128, %get_scalar_len.exit.thread7.i ], [ 96, %get_scalar_len.exit.i ], [ 96, %get_scalar_len.exit.i ], [ 96, %23 ]
+get_scalar_len.exit.thread33.i:                   ; preds = %get_scalar_len.exit.i, %23
+  %.0.i35.i = phi i32 [ %.0.i.i, %get_scalar_len.exit.i ], [ 64, %23 ]
+  br label %get_group_element_len.exit.i
+
+35:                                               ; preds = %get_scalar_len.exit.i
+  br label %get_group_element_len.exit.i
+
+get_group_element_len.exit.i:                     ; preds = %35, %get_scalar_len.exit.thread33.i, %34, %get_scalar_len.exit.thread30.i, %get_scalar_len.exit.thread27.i, %33, %get_scalar_len.exit.thread24.i, %get_scalar_len.exit.thread21.i, %get_scalar_len.exit.thread18.i, %get_scalar_len.exit.thread15.i, %get_scalar_len.exit.thread7.i, %get_scalar_len.exit.thread12.i, %get_scalar_len.exit.thread.i, %get_scalar_len.exit.i, %get_scalar_len.exit.i, %23
+  %.0.i3.i = phi i32 [ %.0.i.i, %35 ], [ %.0.i35.i, %get_scalar_len.exit.thread33.i ], [ %.0.i.i, %34 ], [ %.0.i32.i, %get_scalar_len.exit.thread30.i ], [ %.0.i29.i, %get_scalar_len.exit.thread27.i ], [ %.0.i.i, %33 ], [ %.0.i26.i, %get_scalar_len.exit.thread24.i ], [ %.0.i23.i, %get_scalar_len.exit.thread21.i ], [ %.0.i20.i, %get_scalar_len.exit.thread18.i ], [ %.0.i17.i, %get_scalar_len.exit.thread15.i ], [ %.0.i9.i, %get_scalar_len.exit.thread7.i ], [ %.0.i14.i, %get_scalar_len.exit.thread12.i ], [ %.0.i2.i, %get_scalar_len.exit.thread.i ], [ %.0.i.i, %get_scalar_len.exit.i ], [ %.0.i.i, %get_scalar_len.exit.i ], [ 96, %23 ]
+  %.0.i111.i = phi i32 [ 0, %35 ], [ 128, %get_scalar_len.exit.thread33.i ], [ 56, %34 ], [ 48, %get_scalar_len.exit.thread30.i ], [ 132, %get_scalar_len.exit.thread27.i ], [ 64, %33 ], [ 1024, %get_scalar_len.exit.thread24.i ], [ 768, %get_scalar_len.exit.thread21.i ], [ 512, %get_scalar_len.exit.thread18.i ], [ 384, %get_scalar_len.exit.thread15.i ], [ 256, %get_scalar_len.exit.thread7.i ], [ 192, %get_scalar_len.exit.thread12.i ], [ 128, %get_scalar_len.exit.thread.i ], [ 96, %get_scalar_len.exit.i ], [ 96, %get_scalar_len.exit.i ], [ 96, %23 ]
   switch i16 %16, label %get_group_element_len.exit._crit_edge.i [
-    i16 126, label %35
-    i16 76, label %35
+    i16 126, label %36
+    i16 76, label %36
   ]
 
 get_group_element_len.exit._crit_edge.i:          ; preds = %get_group_element_len.exit.i
   %.pre.i = add nuw nsw i32 %.0.i111.i, %.0.i3.i
-  br label %38
+  br label %39
 
-35:                                               ; preds = %get_group_element_len.exit.i, %get_group_element_len.exit.i
-  %36 = add nuw nsw i32 %.0.i111.i, %.0.i3.i
-  %37 = icmp ugt i32 %27, %36
-  br i1 %37, label %42, label %38
+36:                                               ; preds = %get_group_element_len.exit.i, %get_group_element_len.exit.i
+  %37 = add nuw nsw i32 %.0.i111.i, %.0.i3.i
+  %38 = icmp ugt i32 %27, %37
+  br i1 %38, label %43, label %39
 
-38:                                               ; preds = %35, %get_group_element_len.exit._crit_edge.i
-  %.pre-phi40.i = phi i32 [ %.pre.i, %get_group_element_len.exit._crit_edge.i ], [ %36, %35 ]
-  %39 = icmp ne i32 %27, 0
-  %or.cond9.i = select i1 %22, i1 %39, i1 false
-  %40 = icmp ult i32 %27, %.pre-phi40.i
-  %or.cond.i = select i1 %or.cond9.i, i1 %40, i1 false
-  %41 = icmp ugt i32 %27, %.pre-phi40.i
-  %or.cond110.i = select i1 %21, i1 %41, i1 false
-  %or.cond39.i = select i1 %or.cond.i, i1 true, i1 %or.cond110.i
-  br i1 %or.cond39.i, label %42, label %48
+39:                                               ; preds = %36, %get_group_element_len.exit._crit_edge.i
+  %.pre-phi37.i = phi i32 [ %.pre.i, %get_group_element_len.exit._crit_edge.i ], [ %37, %36 ]
+  %40 = icmp ne i32 %27, 0
+  %or.cond9.i = select i1 %22, i1 %40, i1 false
+  %41 = icmp ult i32 %27, %.pre-phi37.i
+  %or.cond.i = select i1 %or.cond9.i, i1 %41, i1 false
+  %42 = icmp ugt i32 %27, %.pre-phi37.i
+  %or.cond110.i = select i1 %21, i1 %42, i1 false
+  %or.cond36.i = select i1 %or.cond.i, i1 true, i1 %or.cond110.i
+  br i1 %or.cond36.i, label %43, label %49
 
-42:                                               ; preds = %38, %35
-  %.pre-phi.i = phi i32 [ %.pre-phi40.i, %38 ], [ %36, %35 ]
-  %43 = icmp ugt i32 %27, %.pre-phi.i
-  %44 = select i1 %43, i32 %.pre-phi.i, i32 0
-  %.0.i = sub nuw i32 %27, %44
-  %45 = load i32, ptr @hf_ieee80211_ff_sae_anti_clogging_token, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %45, ptr noundef %2, i32 noundef 8, i32 noundef %.0.i, i32 noundef 0) #22
-  %47 = add i32 %.0.i, 8
-  br label %48
+43:                                               ; preds = %39, %36
+  %.pre-phi.i = phi i32 [ %.pre-phi37.i, %39 ], [ %37, %36 ]
+  %44 = icmp ugt i32 %27, %.pre-phi.i
+  %45 = select i1 %44, i32 %.pre-phi.i, i32 0
+  %.0.i = sub nuw i32 %27, %45
+  %46 = load i32, ptr @hf_ieee80211_ff_sae_anti_clogging_token, align 4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %46, ptr noundef %2, i32 noundef 8, i32 noundef %.0.i, i32 noundef 0) #22
+  %48 = add i32 %.0.i, 8
+  br label %49
 
-48:                                               ; preds = %42, %38
-  %.0100.i = phi i32 [ %47, %42 ], [ 8, %38 ]
-  %49 = icmp eq i32 %.0.i3.i, 0
-  br i1 %49, label %50, label %55
+49:                                               ; preds = %43, %39
+  %.0100.i = phi i32 [ %48, %43 ], [ 8, %39 ]
+  %50 = icmp eq i32 %.0.i3.i, 0
+  br i1 %50, label %51, label %56
 
-50:                                               ; preds = %48
-  %51 = urem i32 %27, 3
-  %52 = udiv i32 %27, 3
-  %.not107.i = icmp eq i32 %51, 0
-  %53 = lshr i32 %27, 1
-  %.1.i = select i1 %.not107.i, i32 %52, i32 %53
-  %54 = sub i32 %27, %.1.i
-  br label %55
+51:                                               ; preds = %49
+  %52 = urem i32 %27, 3
+  %53 = udiv i32 %27, 3
+  %.not107.i = icmp eq i32 %52, 0
+  %54 = lshr i32 %27, 1
+  %.1.i = select i1 %.not107.i, i32 %53, i32 %54
+  %55 = sub i32 %27, %.1.i
+  br label %56
 
-55:                                               ; preds = %50, %48
-  %.098.i = phi i32 [ %.1.i, %50 ], [ %.0.i3.i, %48 ]
-  %.097.i = phi i32 [ %54, %50 ], [ %.0.i111.i, %48 ]
+56:                                               ; preds = %51, %49
+  %.098.i = phi i32 [ %.1.i, %51 ], [ %.0.i3.i, %49 ]
+  %.097.i = phi i32 [ %55, %51 ], [ %.0.i111.i, %49 ]
   switch i16 %16, label %add_ff_auth_sae.exit [
-    i16 126, label %56
-    i16 0, label %56
+    i16 126, label %57
+    i16 0, label %57
   ]
 
-56:                                               ; preds = %55, %55
-  %57 = load i32, ptr @hf_ieee80211_ff_scalar, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %57, ptr noundef %2, i32 noundef %.0100.i, i32 noundef %.098.i, i32 noundef 0) #22
-  %59 = add i32 %.098.i, %.0100.i
-  %60 = load i32, ptr @hf_ieee80211_ff_finite_field_element, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %60, ptr noundef %2, i32 noundef %59, i32 noundef %.097.i, i32 noundef 0) #22
-  %62 = add i32 %59, %.097.i
+57:                                               ; preds = %56, %56
+  %58 = load i32, ptr @hf_ieee80211_ff_scalar, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %58, ptr noundef %2, i32 noundef %.0100.i, i32 noundef %.098.i, i32 noundef 0) #22
+  %60 = add i32 %.098.i, %.0100.i
+  %61 = load i32, ptr @hf_ieee80211_ff_finite_field_element, align 4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %61, ptr noundef %2, i32 noundef %60, i32 noundef %.097.i, i32 noundef 0) #22
+  %63 = add i32 %60, %.097.i
   br label %add_ff_auth_sae.exit
 
-63:                                               ; preds = %13
-  %64 = icmp eq i16 %14, 2
-  %65 = icmp eq i16 %16, 0
-  %or.cond13.i = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond13.i, label %66, label %add_ff_auth_sae.exit
+64:                                               ; preds = %13
+  %65 = icmp eq i16 %14, 2
+  %66 = icmp eq i16 %16, 0
+  %or.cond13.i = select i1 %65, i1 %66, i1 false
+  br i1 %or.cond13.i, label %67, label %add_ff_auth_sae.exit
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr @hf_ieee80211_ff_send_confirm, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %67, ptr noundef %2, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #22
-  %69 = tail call fastcc i32 @find_fixed_field_len(ptr noundef %2)
-  %70 = load i32, ptr @hf_ieee80211_ff_confirm, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %70, ptr noundef %2, i32 noundef 8, i32 noundef %69, i32 noundef 0) #22
-  %72 = add i32 %69, 8
+67:                                               ; preds = %64
+  %68 = load i32, ptr @hf_ieee80211_ff_send_confirm, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %68, ptr noundef %2, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #22
+  %70 = tail call fastcc i32 @find_fixed_field_len(ptr noundef %2)
+  %71 = load i32, ptr @hf_ieee80211_ff_confirm, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef %2, i32 noundef 8, i32 noundef %70, i32 noundef 0) #22
+  %73 = add i32 %70, 8
   br label %add_ff_auth_sae.exit
 
-73:                                               ; preds = %3, %3
-  %74 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 0) #22
-  %75 = add i16 %74, -7
-  %or.cond.i30 = icmp ult i16 %75, -2
-  br i1 %or.cond.i30, label %add_ff_auth_sae.exit, label %76
+74:                                               ; preds = %3, %3
+  %75 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 0) #22
+  %76 = add i16 %75, -7
+  %or.cond.i30 = icmp ult i16 %76, -2
+  br i1 %or.cond.i30, label %add_ff_auth_sae.exit, label %77
 
-76:                                               ; preds = %73
-  %77 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 2) #22
-  %78 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 4) #22
-  %79 = icmp eq i16 %77, 1
-  br i1 %79, label %83, label %80
+77:                                               ; preds = %74
+  %78 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 2) #22
+  %79 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 4) #22
+  %80 = icmp eq i16 %78, 1
+  br i1 %80, label %84, label %81
 
-80:                                               ; preds = %76
-  %81 = icmp eq i16 %77, 2
-  %82 = icmp eq i16 %78, 0
-  %or.cond3.i = select i1 %81, i1 %82, i1 false
-  br i1 %or.cond3.i, label %83, label %add_ff_auth_sae.exit
+81:                                               ; preds = %77
+  %82 = icmp eq i16 %78, 2
+  %83 = icmp eq i16 %79, 0
+  %or.cond3.i = select i1 %82, i1 %83, i1 false
+  br i1 %or.cond3.i, label %84, label %add_ff_auth_sae.exit
 
-83:                                               ; preds = %80, %76
-  %84 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 6) #22
-  %85 = load i32, ptr @hf_ieee80211_ff_finite_cyclic_group, align 4
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %85, ptr noundef %2, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #22
-  %switch.tableidx = add i16 %84, -1
-  %87 = icmp ult i16 %switch.tableidx, 30
-  br i1 %87, label %switch.lookup, label %get_group_element_len.exit.i32
+84:                                               ; preds = %81, %77
+  %85 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 6) #22
+  %86 = load i32, ptr @hf_ieee80211_ff_finite_cyclic_group, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %86, ptr noundef %2, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #22
+  %switch.tableidx = add i16 %85, -1
+  %88 = icmp ult i16 %switch.tableidx, 30
+  br i1 %88, label %switch.lookup, label %get_group_element_len.exit.i32
 
-switch.lookup:                                    ; preds = %83
-  %88 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [30 x i32], ptr @switch.table.dissect_auth_frame, i64 0, i64 %88
+switch.lookup:                                    ; preds = %84
+  %89 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [30 x i32], ptr @switch.table.dissect_auth_frame, i64 0, i64 %89
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_group_element_len.exit.i32
 
-get_group_element_len.exit.i32:                   ; preds = %83, %switch.lookup
-  %.0.i.i33 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %83 ]
-  %89 = load i32, ptr @hf_ieee80211_ff_finite_field_element, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %89, ptr noundef %2, i32 noundef 8, i32 noundef %.0.i.i33, i32 noundef 0) #22
-  %91 = add nuw nsw i32 %.0.i.i33, 8
+get_group_element_len.exit.i32:                   ; preds = %84, %switch.lookup
+  %.0.i.i33 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %84 ]
+  %90 = load i32, ptr @hf_ieee80211_ff_finite_field_element, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %90, ptr noundef %2, i32 noundef 8, i32 noundef %.0.i.i33, i32 noundef 0) #22
+  %92 = add nuw nsw i32 %.0.i.i33, 8
   br label %add_ff_auth_sae.exit
 
-92:                                               ; preds = %3
-  %93 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 2) #22
-  %94 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 4) #22
-  %95 = getelementptr inbounds i8, ptr %1, i64 408
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call noalias ptr @wmem_alloc(ptr noundef %96, i64 noundef 8) #22
-  %.not.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i, label %98, label %101
+93:                                               ; preds = %3
+  %94 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 2) #22
+  %95 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef 4) #22
+  %96 = getelementptr inbounds i8, ptr %1, i64 408
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call noalias ptr @wmem_alloc(ptr noundef %97, i64 noundef 8) #22
+  %.not.i.i = icmp eq ptr %98, null
+  br i1 %.not.i.i, label %99, label %102
 
-98:                                               ; preds = %92
-  %99 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef 6) #22
-  %100 = add i32 %99, 6
+99:                                               ; preds = %93
+  %100 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef 6) #22
+  %101 = add i32 %100, 6
   br label %add_ff_auth_sae.exit
 
-101:                                              ; preds = %92
-  %102 = zext i16 %94 to i32
-  %103 = zext i16 %93 to i32
-  %104 = load ptr, ptr %95, align 8
-  %105 = load i32, ptr @proto_wlan, align 4
-  tail call void @p_add_proto_data(ptr noundef %104, ptr noundef nonnull %1, i32 noundef %105, i32 noundef 38, ptr noundef nonnull %97) #22
-  store i32 %103, ptr %97, align 4
-  %106 = getelementptr inbounds i8, ptr %97, i64 4
-  store i32 %102, ptr %106, align 4
-  switch i16 %93, label %.loopexit.i [
+102:                                              ; preds = %93
+  %103 = zext i16 %95 to i32
+  %104 = zext i16 %94 to i32
+  %105 = load ptr, ptr %96, align 8
+  %106 = load i32, ptr @proto_wlan, align 4
+  tail call void @p_add_proto_data(ptr noundef %105, ptr noundef nonnull %1, i32 noundef %106, i32 noundef 38, ptr noundef nonnull %98) #22
+  store i32 %104, ptr %98, align 4
+  %107 = getelementptr inbounds i8, ptr %98, i64 4
+  store i32 %103, ptr %107, align 4
+  switch i16 %94, label %.loopexit.i [
     i16 1, label %.preheader.i
-    i16 2, label %112
+    i16 2, label %113
     i16 3, label %.preheader50.i
   ]
 
-.preheader50.i:                                   ; preds = %101
-  %107 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef 6) #22
-  %.not4452.i = icmp eq i32 %107, 0
+.preheader50.i:                                   ; preds = %102
+  %108 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef 6) #22
+  %.not4452.i = icmp eq i32 %108, 0
   br i1 %.not4452.i, label %.loopexit.i, label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %101
-  %108 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef 6) #22
-  %.not4758.i = icmp eq i32 %108, 0
+.preheader.i:                                     ; preds = %102
+  %109 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef 6) #22
+  %.not4758.i = icmp eq i32 %109, 0
   br i1 %.not4758.i, label %.loopexit.i, label %.lr.ph60.i
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
-  %.04259.i = phi i32 [ %110, %.lr.ph60.i ], [ 6, %.preheader.i ]
-  %109 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.04259.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
-  %110 = add i32 %109, %.04259.i
-  %111 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %110) #22
-  %.not47.i = icmp eq i32 %111, 0
+  %.04259.i = phi i32 [ %111, %.lr.ph60.i ], [ 6, %.preheader.i ]
+  %110 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.04259.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %111 = add i32 %110, %.04259.i
+  %112 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %111) #22
+  %.not47.i = icmp eq i32 %112, 0
   br i1 %.not47.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !215
 
-112:                                              ; preds = %101
-  %.not45.i = icmp eq i16 %94, 0
-  %113 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef 6) #22
-  br i1 %.not45.i, label %.preheader48.i, label %114
+113:                                              ; preds = %102
+  %.not45.i = icmp eq i16 %95, 0
+  %114 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef 6) #22
+  br i1 %.not45.i, label %.preheader48.i, label %115
 
-.preheader48.i:                                   ; preds = %112
-  %.not4654.i = icmp eq i32 %113, 0
+.preheader48.i:                                   ; preds = %113
+  %.not4654.i = icmp eq i32 %114, 0
   br i1 %.not4654.i, label %.loopexit.i, label %.lr.ph56.i
 
-114:                                              ; preds = %112
-  %115 = add i32 %113, 6
+115:                                              ; preds = %113
+  %116 = add i32 %114, 6
   br label %add_ff_auth_sae.exit
 
 .lr.ph56.i:                                       ; preds = %.preheader48.i, %.lr.ph56.i
-  %.255.i = phi i32 [ %117, %.lr.ph56.i ], [ 6, %.preheader48.i ]
-  %116 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.255.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
-  %117 = add i32 %116, %.255.i
-  %118 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %117) #22
-  %.not46.i = icmp eq i32 %118, 0
+  %.255.i = phi i32 [ %118, %.lr.ph56.i ], [ 6, %.preheader48.i ]
+  %117 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.255.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %118 = add i32 %117, %.255.i
+  %119 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %118) #22
+  %.not46.i = icmp eq i32 %119, 0
   br i1 %.not46.i, label %.loopexit.i, label %.lr.ph56.i, !llvm.loop !216
 
 .lr.ph.i:                                         ; preds = %.preheader50.i, %.lr.ph.i
-  %.353.i = phi i32 [ %120, %.lr.ph.i ], [ 6, %.preheader50.i ]
-  %119 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.353.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
-  %120 = add i32 %119, %.353.i
-  %121 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %120) #22
-  %.not44.i = icmp eq i32 %121, 0
+  %.353.i = phi i32 [ %121, %.lr.ph.i ], [ 6, %.preheader50.i ]
+  %120 = tail call i32 @add_tagged_field_with_validation(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %.353.i, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %121 = add i32 %120, %.353.i
+  %122 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %121) #22
+  %.not44.i = icmp eq i32 %122, 0
   br i1 %.not44.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !217
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph56.i, %.lr.ph60.i, %.preheader48.i, %.preheader.i, %.preheader50.i, %101
-  %.1.i34 = phi i32 [ 6, %101 ], [ 6, %.preheader.i ], [ 6, %.preheader48.i ], [ 6, %.preheader50.i ], [ %110, %.lr.ph60.i ], [ %117, %.lr.ph56.i ], [ %120, %.lr.ph.i ]
-  %122 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %.1.i34) #22
-  %123 = add i32 %122, %.1.i34
+.loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph56.i, %.lr.ph60.i, %.preheader48.i, %.preheader.i, %.preheader50.i, %102
+  %.1.i34 = phi i32 [ 6, %102 ], [ 6, %.preheader.i ], [ 6, %.preheader48.i ], [ 6, %.preheader50.i ], [ %111, %.lr.ph60.i ], [ %118, %.lr.ph56.i ], [ %121, %.lr.ph.i ]
+  %123 = tail call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %.1.i34) #22
+  %124 = add i32 %123, %.1.i34
   br label %add_ff_auth_sae.exit
 
-add_ff_auth_sae.exit:                             ; preds = %.loopexit.i, %114, %98, %get_group_element_len.exit.i32, %80, %73, %66, %63, %56, %55, %20, %11, %3
-  %.0 = phi i32 [ 6, %3 ], [ 6, %11 ], [ %62, %56 ], [ %.0100.i, %55 ], [ 6, %20 ], [ %72, %66 ], [ 6, %63 ], [ 6, %73 ], [ %91, %get_group_element_len.exit.i32 ], [ 6, %80 ], [ %123, %.loopexit.i ], [ %115, %114 ], [ %100, %98 ]
+add_ff_auth_sae.exit:                             ; preds = %.loopexit.i, %115, %99, %get_group_element_len.exit.i32, %81, %74, %67, %64, %57, %56, %20, %11, %3
+  %.0 = phi i32 [ 6, %3 ], [ 6, %11 ], [ %63, %57 ], [ %.0100.i, %56 ], [ 6, %20 ], [ %73, %67 ], [ 6, %64 ], [ 6, %74 ], [ %92, %get_group_element_len.exit.i32 ], [ 6, %81 ], [ %124, %.loopexit.i ], [ %116, %115 ], [ %101, %99 ]
   ret i32 %.0
 }
 

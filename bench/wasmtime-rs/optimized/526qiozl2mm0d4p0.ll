@@ -11494,8 +11494,8 @@ switch.lookup:                                    ; preds = %1
 define noundef range(i8 1, 3) i8 @_ZN16wasmtime_environ9component4info13FixedEncoding5width17hc795ad6859aa152aE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #9 {
   %2 = load i8, ptr %0, align 1, !range !1571, !noundef !49
   %switch = icmp eq i8 %2, 1
-  %spec.select = select i1 %switch, i8 2, i8 1
-  ret i8 %spec.select
+  %. = select i1 %switch, i8 2, i8 1
+  ret i8 %.
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12793,30 +12793,11 @@ define noundef zeroext i1 @"_ZN182_$LT$wasmtime_environ..tunables.._..$LT$impl$u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN78_$LT$wasmtime_environ..compile..CompileError$u20$as$u20$core..error..Error$GT$6source17h5edbc8538b87d7fcE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #9 {
   %2 = load i64, ptr %0, align 8, !range !1081, !noundef !49
-  %3 = add i64 %2, 9223372036854775805
-  %4 = icmp ult i64 %3, 2
-  %5 = add nsw i64 %2, 9223372036854775806
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %10
-    i64 1, label %8
-    i64 2, label %9
-  ]
-
-7:                                                ; preds = %1
-  unreachable
-
-8:                                                ; preds = %1
-  br label %10
-
-9:                                                ; preds = %1
-  br label %10
-
-10:                                               ; preds = %1, %9, %8
-  %.sroa.0.0 = phi ptr [ null, %9 ], [ null, %8 ], [ %0, %1 ]
-  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr @anon.d85152804b0e6a658af4011f794a6e53.156, 1
-  ret { ptr, ptr } %12
+  %3 = icmp ult i64 %2, -9223372036854775805
+  %. = select i1 %3, ptr %0, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %., 0
+  %5 = insertvalue { ptr, ptr } %4, ptr @anon.d85152804b0e6a658af4011f794a6e53.156, 1
+  ret { ptr, ptr } %5
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -4307,173 +4307,168 @@ gtk3_get_arrow.exit:                              ; preds = %10, %13
   %21 = load ptr, ptr @fp_gtk_arrow_set, align 8
   tail call void %21(ptr noundef %20, i32 noundef %8, i32 noundef %2) #19
   store ptr %20, ptr @gtk3_widget, align 8
-  switch i32 %0, label %58 [
+  switch i32 %0, label %57 [
     i32 42, label %22
-    i32 14, label %26
-    i32 15, label %31
-    i32 65, label %36
-    i32 66, label %41
-    i32 5, label %46
-    i32 49, label %50
-    i32 30, label %54
+    i32 14, label %25
+    i32 15, label %30
+    i32 65, label %35
+    i32 66, label %40
+    i32 5, label %45
+    i32 49, label %49
+    i32 30, label %53
   ]
 
 22:                                               ; preds = %gtk3_get_arrow.exit
   %23 = sitofp i32 %6 to double
   %24 = tail call double @llvm.fmuladd.f64(double %23, double 4.000000e-01, double 5.000000e-01)
-  switch i32 %8, label %.fold.split [
-    i32 0, label %62
-    i32 1, label %25
-  ]
+  %cond = icmp eq i32 %8, 0
+  br i1 %cond, label %61, label %.fold.split
 
-25:                                               ; preds = %22
-  br label %62
+25:                                               ; preds = %gtk3_get_arrow.exit
+  %26 = shl nsw i32 %6, 1
+  %27 = tail call i32 @llvm.smin.i32(i32 %7, i32 %26)
+  %28 = sitofp i32 %27 to double
+  %29 = tail call double @llvm.fmuladd.f64(double %28, double 5.000000e-01, double 5.000000e-01)
+  br label %61
 
-26:                                               ; preds = %gtk3_get_arrow.exit
-  %27 = shl nsw i32 %6, 1
-  %28 = tail call i32 @llvm.smin.i32(i32 %7, i32 %27)
-  %29 = sitofp i32 %28 to double
-  %30 = tail call double @llvm.fmuladd.f64(double %29, double 5.000000e-01, double 5.000000e-01)
-  br label %62
+30:                                               ; preds = %gtk3_get_arrow.exit
+  %31 = shl nsw i32 %6, 1
+  %32 = tail call i32 @llvm.smin.i32(i32 %7, i32 %31)
+  %33 = sitofp i32 %32 to double
+  %34 = tail call double @llvm.fmuladd.f64(double %33, double 5.000000e-01, double 5.000000e-01)
+  br label %61
 
-31:                                               ; preds = %gtk3_get_arrow.exit
-  %32 = shl nsw i32 %6, 1
-  %33 = tail call i32 @llvm.smin.i32(i32 %7, i32 %32)
-  %34 = sitofp i32 %33 to double
-  %35 = tail call double @llvm.fmuladd.f64(double %34, double 5.000000e-01, double 5.000000e-01)
-  br label %62
+35:                                               ; preds = %gtk3_get_arrow.exit
+  %36 = shl nsw i32 %7, 1
+  %37 = tail call i32 @llvm.smin.i32(i32 %36, i32 %6)
+  %38 = sitofp i32 %37 to double
+  %39 = tail call double @llvm.fmuladd.f64(double %38, double 5.000000e-01, double 5.000000e-01)
+  br label %61
 
-36:                                               ; preds = %gtk3_get_arrow.exit
-  %37 = shl nsw i32 %7, 1
-  %38 = tail call i32 @llvm.smin.i32(i32 %37, i32 %6)
-  %39 = sitofp i32 %38 to double
-  %40 = tail call double @llvm.fmuladd.f64(double %39, double 5.000000e-01, double 5.000000e-01)
-  br label %62
+40:                                               ; preds = %gtk3_get_arrow.exit
+  %41 = shl nsw i32 %7, 1
+  %42 = tail call i32 @llvm.smin.i32(i32 %41, i32 %6)
+  %43 = sitofp i32 %42 to double
+  %44 = tail call double @llvm.fmuladd.f64(double %43, double 5.000000e-01, double 5.000000e-01)
+  br label %61
 
-41:                                               ; preds = %gtk3_get_arrow.exit
-  %42 = shl nsw i32 %7, 1
-  %43 = tail call i32 @llvm.smin.i32(i32 %42, i32 %6)
-  %44 = sitofp i32 %43 to double
-  %45 = tail call double @llvm.fmuladd.f64(double %44, double 5.000000e-01, double 5.000000e-01)
-  br label %62
+45:                                               ; preds = %gtk3_get_arrow.exit
+  %46 = tail call i32 @llvm.smin.i32(i32 %7, i32 %6)
+  %47 = sitofp i32 %46 to double
+  %48 = tail call double @llvm.fmuladd.f64(double %47, double 3.000000e-01, double 5.000000e-01)
+  br label %61
 
-46:                                               ; preds = %gtk3_get_arrow.exit
-  %47 = tail call i32 @llvm.smin.i32(i32 %7, i32 %6)
-  %48 = sitofp i32 %47 to double
-  %49 = tail call double @llvm.fmuladd.f64(double %48, double 3.000000e-01, double 5.000000e-01)
-  br label %62
+49:                                               ; preds = %gtk3_get_arrow.exit
+  %50 = sitofp i32 %7 to double
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double 8.000000e-01, double 5.000000e-01)
+  %cond69 = icmp eq i32 %8, 1
+  br i1 %cond69, label %52, label %61
 
-50:                                               ; preds = %gtk3_get_arrow.exit
-  %51 = sitofp i32 %7 to double
-  %52 = tail call double @llvm.fmuladd.f64(double %51, double 8.000000e-01, double 5.000000e-01)
-  %cond = icmp eq i32 %8, 1
-  br i1 %cond, label %53, label %62
+52:                                               ; preds = %49
+  br label %61
 
-53:                                               ; preds = %50
-  br label %62
-
-54:                                               ; preds = %gtk3_get_arrow.exit
+53:                                               ; preds = %gtk3_get_arrow.exit
   switch i32 %8, label %.thread [
-    i32 2, label %57
-    i32 1, label %55
-    i32 3, label %56
+    i32 2, label %56
+    i32 1, label %54
+    i32 3, label %55
   ]
 
-55:                                               ; preds = %54
+54:                                               ; preds = %53
   br label %.thread
 
-56:                                               ; preds = %54
+55:                                               ; preds = %53
   br label %.thread
 
-57:                                               ; preds = %54
+56:                                               ; preds = %53
   br label %.thread
 
-58:                                               ; preds = %gtk3_get_arrow.exit
+57:                                               ; preds = %gtk3_get_arrow.exit
   switch i32 %8, label %.thread [
-    i32 2, label %61
-    i32 1, label %59
-    i32 3, label %60
+    i32 2, label %60
+    i32 1, label %58
+    i32 3, label %59
   ]
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   br label %.thread
 
-60:                                               ; preds = %58
+59:                                               ; preds = %57
   br label %.thread
 
-61:                                               ; preds = %58
+60:                                               ; preds = %57
   br label %.thread
 
 .fold.split:                                      ; preds = %22
-  br label %62
+  br label %61
 
-62:                                               ; preds = %50, %22, %.fold.split, %53, %25, %46, %41, %36, %31, %26
-  %.064 = phi double [ 0.000000e+00, %53 ], [ 0x400921FB54442D18, %46 ], [ 0x400921FB54442D18, %41 ], [ 0.000000e+00, %36 ], [ 0x3FF921FB54442D18, %31 ], [ 0x4012D97C7F3321D2, %26 ], [ 0x400921FB54442D18, %25 ], [ 0.000000e+00, %22 ], [ 0x400921FB54442D18, %.fold.split ], [ 0x400921FB54442D18, %50 ]
-  %.063.in.in = phi double [ %52, %53 ], [ %49, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %26 ], [ %24, %25 ], [ %24, %22 ], [ %24, %.fold.split ], [ %52, %50 ]
+61:                                               ; preds = %49, %22, %.fold.split, %52, %45, %40, %35, %30, %25
+  %.064 = phi double [ 0.000000e+00, %52 ], [ 0x400921FB54442D18, %45 ], [ 0x400921FB54442D18, %40 ], [ 0.000000e+00, %35 ], [ 0x3FF921FB54442D18, %30 ], [ 0x4012D97C7F3321D2, %25 ], [ 0.000000e+00, %22 ], [ 0x400921FB54442D18, %.fold.split ], [ 0x400921FB54442D18, %49 ]
+  %.063.in.in = phi double [ %51, %52 ], [ %48, %45 ], [ %44, %40 ], [ %39, %35 ], [ %34, %30 ], [ %29, %25 ], [ %24, %22 ], [ %24, %.fold.split ], [ %51, %49 ]
   %.063.in = fptosi double %.063.in.in to i32
   %.063 = add nsw i32 %.063.in, 1
-  %63 = icmp slt i32 %.063, %6
-  %64 = icmp slt i32 %.063, %7
-  %or.cond = and i1 %63, %64
-  br i1 %or.cond, label %65, label %.thread
+  %62 = icmp slt i32 %.063, %6
+  %63 = icmp slt i32 %.063, %7
+  %or.cond = and i1 %62, %63
+  br i1 %or.cond, label %64, label %.thread
 
-65:                                               ; preds = %62
-  %66 = sitofp i32 %4 to double
-  %67 = sub nsw i32 %6, %.063
-  %68 = sitofp i32 %67 to double
-  %69 = tail call double @llvm.fmuladd.f64(double %68, double 5.000000e-01, double 5.000000e-01)
-  %70 = fadd double %69, %66
-  %71 = sitofp i32 %5 to double
-  %72 = sub nsw i32 %7, %.063
-  %73 = sitofp i32 %72 to double
-  %74 = tail call double @llvm.fmuladd.f64(double %73, double 5.000000e-01, double 5.000000e-01)
-  %75 = fadd double %74, %71
-  br label %78
+64:                                               ; preds = %61
+  %65 = sitofp i32 %4 to double
+  %66 = sub nsw i32 %6, %.063
+  %67 = sitofp i32 %66 to double
+  %68 = tail call double @llvm.fmuladd.f64(double %67, double 5.000000e-01, double 5.000000e-01)
+  %69 = fadd double %68, %65
+  %70 = sitofp i32 %5 to double
+  %71 = sub nsw i32 %7, %.063
+  %72 = sitofp i32 %71 to double
+  %73 = tail call double @llvm.fmuladd.f64(double %72, double 5.000000e-01, double 5.000000e-01)
+  %74 = fadd double %73, %70
+  br label %77
 
-.thread:                                          ; preds = %58, %54, %57, %56, %55, %61, %60, %59, %62
-  %.06375 = phi i32 [ %.063, %62 ], [ %6, %59 ], [ %6, %60 ], [ %6, %61 ], [ %6, %55 ], [ %6, %56 ], [ %6, %57 ], [ %6, %54 ], [ %6, %58 ]
-  %.06473 = phi double [ %.064, %62 ], [ 0.000000e+00, %59 ], [ 0x3FF921FB54442D18, %60 ], [ 0x4012D97C7F3321D2, %61 ], [ 0.000000e+00, %55 ], [ 0x3FF921FB54442D18, %56 ], [ 0x4012D97C7F3321D2, %57 ], [ 0x400921FB54442D18, %54 ], [ 0x400921FB54442D18, %58 ]
-  %76 = sitofp i32 %4 to double
-  %77 = sitofp i32 %5 to double
-  br label %78
+.thread:                                          ; preds = %57, %53, %56, %55, %54, %60, %59, %58, %61
+  %.06376 = phi i32 [ %.063, %61 ], [ %6, %58 ], [ %6, %59 ], [ %6, %60 ], [ %6, %54 ], [ %6, %55 ], [ %6, %56 ], [ %6, %53 ], [ %6, %57 ]
+  %.06474 = phi double [ %.064, %61 ], [ 0.000000e+00, %58 ], [ 0x3FF921FB54442D18, %59 ], [ 0x4012D97C7F3321D2, %60 ], [ 0.000000e+00, %54 ], [ 0x3FF921FB54442D18, %55 ], [ 0x4012D97C7F3321D2, %56 ], [ 0x400921FB54442D18, %53 ], [ 0x400921FB54442D18, %57 ]
+  %75 = sitofp i32 %4 to double
+  %76 = sitofp i32 %5 to double
+  br label %77
 
-78:                                               ; preds = %.thread, %65
-  %.06374 = phi i32 [ %.063, %65 ], [ %.06375, %.thread ]
-  %.06472 = phi double [ %.064, %65 ], [ %.06473, %.thread ]
-  %.062 = phi double [ %75, %65 ], [ %77, %.thread ]
-  %.0 = phi double [ %70, %65 ], [ %76, %.thread ]
-  %79 = load ptr, ptr @fp_gtk_widget_get_style_context, align 8
-  %80 = tail call ptr %79(ptr noundef %20) #19
-  %81 = load ptr, ptr @fp_gtk_style_context_save, align 8
-  tail call void %81(ptr noundef %80) #19
+77:                                               ; preds = %.thread, %64
+  %.06375 = phi i32 [ %.063, %64 ], [ %.06376, %.thread ]
+  %.06473 = phi double [ %.064, %64 ], [ %.06474, %.thread ]
+  %.062 = phi double [ %74, %64 ], [ %76, %.thread ]
+  %.0 = phi double [ %69, %64 ], [ %75, %.thread ]
+  %78 = load ptr, ptr @fp_gtk_widget_get_style_context, align 8
+  %79 = tail call ptr %78(ptr noundef %20) #19
+  %80 = load ptr, ptr @fp_gtk_style_context_save, align 8
+  tail call void %80(ptr noundef %79) #19
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %83, label %82
+  br i1 %.not, label %82, label %81
 
-82:                                               ; preds = %78
-  tail call fastcc void @transform_detail_string(ptr noundef nonnull %3, ptr noundef %80)
-  br label %83
+81:                                               ; preds = %77
+  tail call fastcc void @transform_detail_string(ptr noundef nonnull %3, ptr noundef %79)
+  br label %82
 
-83:                                               ; preds = %82, %78
+82:                                               ; preds = %81, %77
   %switch.tableidx = add i32 %1, -1
-  %84 = icmp ult i32 %switch.tableidx, 6
-  br i1 %84, label %switch.lookup, label %get_gtk_flags.exit
+  %83 = icmp ult i32 %switch.tableidx, 6
+  br i1 %83, label %switch.lookup, label %get_gtk_flags.exit
 
-switch.lookup:                                    ; preds = %83
-  %85 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.gtk3_paint_background, i64 0, i64 %85
+switch.lookup:                                    ; preds = %82
+  %84 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.gtk3_paint_background, i64 0, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_gtk_flags.exit
 
-get_gtk_flags.exit:                               ; preds = %switch.lookup, %83
-  %.0.i = phi i32 [ 0, %83 ], [ %switch.load, %switch.lookup ]
-  %86 = load ptr, ptr @fp_gtk_style_context_set_state, align 8
-  tail call void %86(ptr noundef %80, i32 noundef %.0.i) #19
-  %87 = load ptr, ptr @fp_gtk_render_arrow, align 8
-  %88 = load ptr, ptr @cr, align 8
-  %89 = sitofp i32 %.06374 to double
-  tail call void %87(ptr noundef %80, ptr noundef %88, double noundef %.06472, double noundef %.0, double noundef %.062, double noundef %89) #19
-  %90 = load ptr, ptr @fp_gtk_style_context_restore, align 8
-  tail call void %90(ptr noundef %80) #19
+get_gtk_flags.exit:                               ; preds = %switch.lookup, %82
+  %.0.i = phi i32 [ 0, %82 ], [ %switch.load, %switch.lookup ]
+  %85 = load ptr, ptr @fp_gtk_style_context_set_state, align 8
+  tail call void %85(ptr noundef %79, i32 noundef %.0.i) #19
+  %86 = load ptr, ptr @fp_gtk_render_arrow, align 8
+  %87 = load ptr, ptr @cr, align 8
+  %88 = sitofp i32 %.06375 to double
+  tail call void %86(ptr noundef %79, ptr noundef %87, double noundef %.06473, double noundef %.0, double noundef %.062, double noundef %88) #19
+  %89 = load ptr, ptr @fp_gtk_style_context_restore, align 8
+  tail call void %89(ptr noundef %79) #19
   ret void
 }
 
@@ -5586,8 +5581,8 @@ switch.lookup:                                    ; preds = %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %gtk3_get_state_flags.exit
 
-gtk3_get_state_flags.exit:                        ; preds = %switch.lookup, %4
-  %.0.i = phi i32 [ 0, %4 ], [ %switch.load, %switch.lookup ]
+gtk3_get_state_flags.exit:                        ; preds = %4, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %4 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %10 = load ptr, ptr @gtk3_window, align 8
   %11 = icmp eq ptr %10, null

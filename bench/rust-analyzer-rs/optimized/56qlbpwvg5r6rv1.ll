@@ -1330,20 +1330,20 @@ _ZN17crossbeam_channel5waker9SyncWaker8register17h650c3f5d7dc7a75fE.exit: ; pred
   %76 = load atomic i64, ptr %75 seq_cst, align 128
   %.unshifted.i = xor i64 %76, %74
   %77 = icmp ult i64 %.unshifted.i, 2
-  br i1 %77, label %81, label %78
+  br i1 %77, label %80, label %_ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit
 
-78:                                               ; preds = %81, %_ZN17crossbeam_channel5waker9SyncWaker8register17h650c3f5d7dc7a75fE.exit
-  %79 = getelementptr inbounds i8, ptr %.val2, i64 32
-  %80 = cmpxchg ptr %79, i64 0, i64 1 acq_rel acquire, align 8
-  br label %_ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit
+_ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit: ; preds = %80, %_ZN17crossbeam_channel5waker9SyncWaker8register17h650c3f5d7dc7a75fE.exit
+  %78 = getelementptr inbounds i8, ptr %.val2, i64 32
+  %79 = cmpxchg ptr %78, i64 0, i64 1 acq_rel acquire, align 8
+  br label %83
 
-81:                                               ; preds = %_ZN17crossbeam_channel5waker9SyncWaker8register17h650c3f5d7dc7a75fE.exit
-  %82 = load atomic i64, ptr %75 seq_cst, align 128
-  %83 = and i64 %82, 1
-  %.not = icmp eq i64 %83, 0
-  br i1 %.not, label %_ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit, label %78
+80:                                               ; preds = %_ZN17crossbeam_channel5waker9SyncWaker8register17h650c3f5d7dc7a75fE.exit
+  %81 = load atomic i64, ptr %75 seq_cst, align 128
+  %82 = and i64 %81, 1
+  %.not = icmp eq i64 %82, 0
+  br i1 %.not, label %83, label %_ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit
 
-_ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit: ; preds = %78, %81
+83:                                               ; preds = %80, %_ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load ptr, ptr %84, align 8, !nonnull !15, !align !58, !noundef !15
   %86 = load i64, ptr %85, align 8
@@ -1352,8 +1352,8 @@ _ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit: ; p
   %89 = getelementptr inbounds i8, ptr %.val2, i64 32
   br label %90
 
-90:                                               ; preds = %.thread.i.i, %_ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit
-  %.0.i5 = phi i32 [ 0, %_ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit ], [ %99, %.thread.i.i ]
+90:                                               ; preds = %.thread.i.i, %83
+  %.0.i5 = phi i32 [ 0, %83 ], [ %99, %.thread.i.i ]
   %91 = load atomic i64, ptr %89 acquire, align 8
   switch i64 %91, label %_ZN17crossbeam_channel7context7Context10wait_until17h06066d71d393eef1E.exit.thread20 [
     i64 0, label %92

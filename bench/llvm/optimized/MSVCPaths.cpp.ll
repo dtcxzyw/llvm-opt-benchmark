@@ -117,24 +117,24 @@ define dso_local noundef nonnull ptr @_ZN4llvm20archToWindowsSDKArchENS_6Triple8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm18archToLegacyVCArchENS_6Triple8ArchTypeE(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %5 [
-    i32 3, label %4
-    i32 38, label %2
-    i32 1, label %3
-    i32 35, label %3
+  switch i32 %0, label %4 [
+    i32 3, label %3
+    i32 38, label %5
+    i32 1, label %2
+    i32 35, label %2
   ]
 
-2:                                                ; preds = %1
+2:                                                ; preds = %1, %1
   br label %5
 
-3:                                                ; preds = %1, %1
+3:                                                ; preds = %1
   br label %5
 
 4:                                                ; preds = %1
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.5, %2 ], [ @.str.4, %1 ]
+  %.0 = phi ptr [ @.str.4, %4 ], [ @.str.3, %3 ], [ @.str.2, %2 ], [ @.str.5, %1 ]
   ret ptr %.0
 }
 
@@ -306,17 +306,17 @@ define dso_local void @_ZN4llvm19getSubDirectoryPathENS_16SubDirectoryTypeENS_13
   ]
 
 32:                                               ; preds = %6
-  switch i32 %4, label %_ZN4llvm18archToLegacyVCArchENS_6Triple8ArchTypeE.exit [
-    i32 3, label %35
-    i32 38, label %33
-    i32 1, label %34
-    i32 35, label %34
+  switch i32 %4, label %35 [
+    i32 3, label %34
+    i32 38, label %_ZN4llvm18archToLegacyVCArchENS_6Triple8ArchTypeE.exit
+    i32 1, label %33
+    i32 35, label %33
   ]
 
-33:                                               ; preds = %32
+33:                                               ; preds = %32, %32
   br label %_ZN4llvm18archToLegacyVCArchENS_6Triple8ArchTypeE.exit
 
-34:                                               ; preds = %32, %32
+34:                                               ; preds = %32
   br label %_ZN4llvm18archToLegacyVCArchENS_6Triple8ArchTypeE.exit
 
 35:                                               ; preds = %32
@@ -366,7 +366,7 @@ define dso_local void @_ZN4llvm19getSubDirectoryPathENS_16SubDirectoryTypeENS_13
 
 _ZN4llvm18archToLegacyVCArchENS_6Triple8ArchTypeE.exit: ; preds = %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %6
   %.012 = phi ptr [ undef, %6 ], [ @.str.7, %32 ], [ @.str.7, %33 ], [ @.str.7, %34 ], [ @.str.7, %35 ], [ @.str.7, %36 ], [ @.str.7, %37 ], [ @.str.7, %38 ], [ @.str.7, %39 ], [ @.str.7, %40 ], [ @.str.8, %41 ], [ @.str.8, %42 ], [ @.str.8, %43 ], [ @.str.8, %44 ], [ @.str.8, %45 ]
-  %.0 = phi ptr [ undef, %6 ], [ @.str.4, %32 ], [ @.str.5, %33 ], [ @.str.2, %34 ], [ @.str.3, %35 ], [ @.str, %36 ], [ @.str.1, %37 ], [ @.str.2, %38 ], [ @.str.3, %39 ], [ @.str.4, %40 ], [ @.str.6, %41 ], [ @.str.5, %42 ], [ @.str.2, %43 ], [ @.str.3, %44 ], [ @.str.4, %45 ]
+  %.0 = phi ptr [ undef, %6 ], [ @.str.5, %32 ], [ @.str.2, %33 ], [ @.str.3, %34 ], [ @.str.4, %35 ], [ @.str, %36 ], [ @.str.1, %37 ], [ @.str.2, %38 ], [ @.str.3, %39 ], [ @.str.4, %40 ], [ @.str.6, %41 ], [ @.str.5, %42 ], [ @.str.2, %43 ], [ @.str.3, %44 ], [ @.str.4, %45 ]
   %46 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
   %47 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
   %48 = getelementptr inbounds i8, ptr %46, i64 %47

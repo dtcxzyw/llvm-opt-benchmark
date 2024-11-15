@@ -1066,7 +1066,7 @@ entry:
   %0 = load i32, ptr %incdec.ptr, align 4
   switch i32 %0, label %do.body.i [
     i32 1, label %thunk_type_size.exit
-    i32 2, label %thunk_type_size.exit
+    i32 2, label %sw.bb1.i
     i32 3, label %sw.bb2.i
     i32 7, label %sw.bb3.i
     i32 8, label %sw.bb3.i
@@ -1074,10 +1074,13 @@ entry:
     i32 5, label %if.else.i
     i32 6, label %if.else.i
     i32 9, label %if.else.i
-    i32 12, label %if.else8.i
+    i32 12, label %sw.bb1.i
     i32 10, label %sw.bb9.i
     i32 11, label %sw.bb10.i
   ]
+
+sw.bb1.i:                                         ; preds = %entry, %entry
+  br label %thunk_type_size.exit
 
 sw.bb2.i:                                         ; preds = %entry
   br label %thunk_type_size.exit
@@ -1086,9 +1089,6 @@ sw.bb3.i:                                         ; preds = %entry, %entry
   br label %thunk_type_size.exit
 
 if.else.i:                                        ; preds = %entry, %entry, %entry, %entry
-  br label %thunk_type_size.exit
-
-if.else8.i:                                       ; preds = %entry
   br label %thunk_type_size.exit
 
 sw.bb9.i:                                         ; preds = %entry
@@ -1112,8 +1112,8 @@ do.body.i:                                        ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.592, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #28
   unreachable
 
-thunk_type_size.exit:                             ; preds = %entry, %entry, %sw.bb2.i, %sw.bb3.i, %if.else.i, %if.else8.i, %sw.bb9.i, %sw.bb10.i
-  %retval.0.i = phi i32 [ %4, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 2, %if.else8.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ %0, %entry ], [ %0, %entry ]
+thunk_type_size.exit:                             ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %if.else.i, %sw.bb9.i, %sw.bb10.i
+  %retval.0.i = phi i32 [ %4, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ %0, %entry ]
   %conv = sext i32 %retval.0.i to i64
   %call2 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg, i64 noundef %conv, i1 noundef zeroext true) #27
   %tobool.not = icmp eq ptr %call2, null
@@ -1124,9 +1124,9 @@ if.end:                                           ; preds = %thunk_type_size.exi
   %5 = load i32, ptr %buf_temp, align 8
   %.off = add i32 %5, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %thunk_type_size.exit33, label %out
+  br i1 %switch, label %thunk_type_size.exit32, label %out
 
-thunk_type_size.exit33:                           ; preds = %if.end
+thunk_type_size.exit32:                           ; preds = %if.end
   %data = getelementptr inbounds i8, ptr %buf_temp, i64 16
   %6 = load ptr, ptr %data, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -1138,7 +1138,7 @@ thunk_type_size.exit33:                           ; preds = %if.end
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %out, label %if.end10
 
-if.end10:                                         ; preds = %thunk_type_size.exit33
+if.end10:                                         ; preds = %thunk_type_size.exit32
   %call12 = call ptr @thunk_convert(ptr noundef nonnull %host_part, ptr noundef nonnull %call7, ptr noundef nonnull %part_arg_type, i32 noundef 1) #27
   store ptr %host_part, ptr %data, align 8
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
@@ -1153,14 +1153,14 @@ if.end10:                                         ; preds = %thunk_type_size.exi
   br i1 %cmp.i, label %if.then.i, label %out
 
 if.then.i:                                        ; preds = %if.end10
-  %call.i35 = tail call ptr @__errno_location() #26
-  %14 = load i32, ptr %call.i35, align 4
+  %call.i34 = tail call ptr @__errno_location() #26
+  %14 = load i32, ptr %call.i34, align 4
   %sub.i = sub i32 0, %14
   %conv.i = sext i32 %sub.i to i64
   br label %out
 
-out:                                              ; preds = %if.then.i, %if.end10, %thunk_type_size.exit33, %if.end, %thunk_type_size.exit
-  %ret.0 = phi i64 [ -14, %thunk_type_size.exit ], [ -22, %if.end ], [ -14, %thunk_type_size.exit33 ], [ %conv.i, %if.then.i ], [ %call14, %if.end10 ]
+out:                                              ; preds = %if.then.i, %if.end10, %thunk_type_size.exit32, %if.end, %thunk_type_size.exit
+  %ret.0 = phi i64 [ -14, %thunk_type_size.exit ], [ -22, %if.end ], [ -14, %thunk_type_size.exit32 ], [ %conv.i, %if.then.i ], [ %call14, %if.end10 ]
   ret i64 %ret.0
 }
 
@@ -1194,9 +1194,9 @@ if.else5:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end
   %incdec.ptr = getelementptr i8, ptr %ie, i64 36
   %4 = load i32, ptr %incdec.ptr, align 4
-  switch i32 %4, label %do.body.i54 [
-    i32 1, label %thunk_type_size.exit55
-    i32 2, label %thunk_type_size.exit55
+  switch i32 %4, label %do.body.i53 [
+    i32 1, label %thunk_type_size.exit54
+    i32 2, label %sw.bb1.i49
     i32 3, label %sw.bb2.i52
     i32 7, label %sw.bb3.i51
     i32 8, label %sw.bb3.i51
@@ -1204,22 +1204,22 @@ if.end6:                                          ; preds = %if.end
     i32 5, label %if.else.i50
     i32 6, label %if.else.i50
     i32 9, label %if.else.i50
-    i32 12, label %if.else8.i49
+    i32 12, label %sw.bb1.i49
     i32 10, label %sw.bb9.i44
     i32 11, label %sw.bb10.i39
   ]
 
+sw.bb1.i49:                                       ; preds = %if.end6, %if.end6
+  br label %thunk_type_size.exit54
+
 sw.bb2.i52:                                       ; preds = %if.end6
-  br label %thunk_type_size.exit55
+  br label %thunk_type_size.exit54
 
 sw.bb3.i51:                                       ; preds = %if.end6, %if.end6
-  br label %thunk_type_size.exit55
+  br label %thunk_type_size.exit54
 
 if.else.i50:                                      ; preds = %if.end6, %if.end6, %if.end6, %if.end6
-  br label %thunk_type_size.exit55
-
-if.else8.i49:                                     ; preds = %if.end6
-  br label %thunk_type_size.exit55
+  br label %thunk_type_size.exit54
 
 sw.bb9.i44:                                       ; preds = %if.end6
   %arrayidx.i45 = getelementptr i8, ptr %ie, i64 40
@@ -1227,7 +1227,7 @@ sw.bb9.i44:                                       ; preds = %if.end6
   %add.ptr.i46 = getelementptr i8, ptr %ie, i64 44
   %call.i47 = tail call i32 @thunk_type_size_array(ptr noundef %add.ptr.i46, i32 noundef 0) #27
   %mul.i48 = mul i32 %call.i47, %5
-  br label %thunk_type_size.exit55
+  br label %thunk_type_size.exit54
 
 sw.bb10.i39:                                      ; preds = %if.end6
   %arrayidx11.i40 = getelementptr i8, ptr %ie, i64 40
@@ -1235,20 +1235,20 @@ sw.bb10.i39:                                      ; preds = %if.end6
   %idx.ext.i41 = zext i32 %6 to i64
   %size13.i42 = getelementptr %struct.StructEntry, ptr %0, i64 %idx.ext.i41, i32 5
   %7 = load i32, ptr %size13.i42, align 4
-  br label %thunk_type_size.exit55
+  br label %thunk_type_size.exit54
 
-do.body.i54:                                      ; preds = %if.end6
+do.body.i53:                                      ; preds = %if.end6
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.592, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #28
   unreachable
 
-thunk_type_size.exit55:                           ; preds = %if.end6, %if.end6, %sw.bb2.i52, %sw.bb3.i51, %if.else.i50, %if.else8.i49, %sw.bb9.i44, %sw.bb10.i39
-  %retval.0.i43 = phi i32 [ %7, %sw.bb10.i39 ], [ %mul.i48, %sw.bb9.i44 ], [ 2, %if.else8.i49 ], [ 8, %if.else.i50 ], [ 8, %sw.bb3.i51 ], [ 4, %sw.bb2.i52 ], [ %4, %if.end6 ], [ %4, %if.end6 ]
+thunk_type_size.exit54:                           ; preds = %if.end6, %sw.bb1.i49, %sw.bb2.i52, %sw.bb3.i51, %if.else.i50, %sw.bb9.i44, %sw.bb10.i39
+  %retval.0.i43 = phi i32 [ %7, %sw.bb10.i39 ], [ %mul.i48, %sw.bb9.i44 ], [ 8, %if.else.i50 ], [ 8, %sw.bb3.i51 ], [ 4, %sw.bb2.i52 ], [ 2, %sw.bb1.i49 ], [ %4, %if.end6 ]
   %conv = sext i32 %retval.0.i43 to i64
   %call8 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg, i64 noundef %conv, i1 noundef zeroext true) #27
   %tobool.not = icmp eq ptr %call8, null
   br i1 %tobool.not, label %return, label %if.end10
 
-if.end10:                                         ; preds = %thunk_type_size.exit55
+if.end10:                                         ; preds = %thunk_type_size.exit54
   %call11 = tail call ptr @thunk_convert(ptr noundef %buf_temp, ptr noundef nonnull %call8, ptr noundef nonnull %incdec.ptr, i32 noundef 1) #27
   %fm_extent_count = getelementptr inbounds i8, ptr %buf_temp, i64 24
   %8 = load i32, ptr %fm_extent_count, align 8
@@ -1285,16 +1285,16 @@ if.end28:                                         ; preds = %if.end27, %if.end16
   br i1 %cmp.i, label %if.then.i, label %get_errno.exit
 
 if.then.i:                                        ; preds = %if.end28
-  %call.i57 = tail call ptr @__errno_location() #26
-  %13 = load i32, ptr %call.i57, align 4
+  %call.i56 = tail call ptr @__errno_location() #26
+  %13 = load i32, ptr %call.i56, align 4
   %sub.i = sub i32 0, %13
   %conv.i = sext i32 %sub.i to i64
   br label %get_errno.exit
 
 get_errno.exit:                                   ; preds = %if.end28, %if.then.i
-  %retval.0.i56 = phi i64 [ %conv.i, %if.then.i ], [ %call29, %if.end28 ]
-  %cmp.i58 = icmp ult i64 %retval.0.i56, -4096
-  br i1 %cmp.i58, label %if.then33, label %if.end62
+  %retval.0.i55 = phi i64 [ %conv.i, %if.then.i ], [ %call29, %if.end28 ]
+  %cmp.i57 = icmp ult i64 %retval.0.i55, -4096
+  br i1 %cmp.i57, label %if.then33, label %if.end62
 
 if.then33:                                        ; preds = %get_errno.exit
   %fm_extent_count34 = getelementptr inbounds i8, ptr %fm.0, i64 24
@@ -1325,8 +1325,8 @@ if.else45:                                        ; preds = %if.end40
 if.then50:                                        ; preds = %if.else45
   %fm_mapped_extents51 = getelementptr inbounds i8, ptr %fm.0, i64 20
   %17 = load i32, ptr %fm_mapped_extents51, align 4
-  %cmp5260.not = icmp eq i32 %17, 0
-  br i1 %cmp5260.not, label %if.end62, label %for.body.lr.ph
+  %cmp5259.not = icmp eq i32 %17, 0
+  br i1 %cmp5259.not, label %if.end62, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then50
   %add.ptr = getelementptr i8, ptr %call42, i64 %conv
@@ -1335,27 +1335,27 @@ for.body.lr.ph:                                   ; preds = %if.then50
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.062 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %p.061 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %add.ptr58, %for.body ]
-  %idxprom = sext i32 %i.062 to i64
+  %i.061 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %p.060 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %add.ptr58, %for.body ]
+  %idxprom = sext i32 %i.061 to i64
   %arrayidx54 = getelementptr [0 x %struct.fiemap_extent], ptr %fm_extents, i64 0, i64 %idxprom
-  %call56 = call ptr @thunk_convert(ptr noundef %p.061, ptr noundef %arrayidx54, ptr noundef nonnull %extent_arg_type, i32 noundef 0) #27
-  %add.ptr58 = getelementptr i8, ptr %p.061, i64 %idx.ext57
-  %inc = add nuw i32 %i.062, 1
+  %call56 = call ptr @thunk_convert(ptr noundef %p.060, ptr noundef %arrayidx54, ptr noundef nonnull %extent_arg_type, i32 noundef 0) #27
+  %add.ptr58 = getelementptr i8, ptr %p.060, i64 %idx.ext57
+  %inc = add nuw i32 %i.061, 1
   %18 = load i32, ptr %fm_mapped_extents51, align 4
   %cmp52 = icmp ult i32 %inc, %18
   br i1 %cmp52, label %for.body, label %if.end62, !llvm.loop !5
 
 if.end62:                                         ; preds = %for.body, %if.then50, %if.else45, %if.end40, %get_errno.exit
-  %ret.0 = phi i64 [ %retval.0.i56, %get_errno.exit ], [ -14, %if.end40 ], [ %retval.0.i56, %if.else45 ], [ %retval.0.i56, %if.then50 ], [ %retval.0.i56, %for.body ]
+  %ret.0 = phi i64 [ %retval.0.i55, %get_errno.exit ], [ -14, %if.end40 ], [ %retval.0.i55, %if.else45 ], [ %retval.0.i55, %if.then50 ], [ %retval.0.i55, %for.body ]
   br i1 %cmp20, label %return, label %if.then64
 
 if.then64:                                        ; preds = %if.end62
   call void @g_free(ptr noundef nonnull %fm.0) #27
   br label %return
 
-return:                                           ; preds = %if.end62, %if.then64, %if.then22, %if.end10, %thunk_type_size.exit55
-  %retval.0 = phi i64 [ -14, %thunk_type_size.exit55 ], [ -22, %if.end10 ], [ -12, %if.then22 ], [ %ret.0, %if.then64 ], [ %ret.0, %if.end62 ]
+return:                                           ; preds = %if.end62, %if.then64, %if.then22, %if.end10, %thunk_type_size.exit54
+  %retval.0 = phi i64 [ -14, %thunk_type_size.exit54 ], [ -22, %if.end10 ], [ -12, %if.then22 ], [ %ret.0, %if.then64 ], [ %ret.0, %if.end62 ]
   ret i64 %retval.0
 }
 
@@ -1366,7 +1366,7 @@ entry:
   %0 = load i32, ptr %incdec.ptr, align 4
   switch i32 %0, label %do.body.i [
     i32 1, label %thunk_type_size.exit
-    i32 2, label %thunk_type_size.exit
+    i32 2, label %sw.bb1.i
     i32 3, label %sw.bb2.i
     i32 7, label %sw.bb3.i
     i32 8, label %sw.bb3.i
@@ -1374,10 +1374,13 @@ entry:
     i32 5, label %if.else.i
     i32 6, label %if.else.i
     i32 9, label %if.else.i
-    i32 12, label %if.else8.i
+    i32 12, label %sw.bb1.i
     i32 10, label %sw.bb9.i
     i32 11, label %sw.bb10.i
   ]
+
+sw.bb1.i:                                         ; preds = %entry, %entry
+  br label %thunk_type_size.exit
 
 sw.bb2.i:                                         ; preds = %entry
   br label %thunk_type_size.exit
@@ -1386,9 +1389,6 @@ sw.bb3.i:                                         ; preds = %entry, %entry
   br label %thunk_type_size.exit
 
 if.else.i:                                        ; preds = %entry, %entry, %entry, %entry
-  br label %thunk_type_size.exit
-
-if.else8.i:                                       ; preds = %entry
   br label %thunk_type_size.exit
 
 sw.bb9.i:                                         ; preds = %entry
@@ -1412,8 +1412,8 @@ do.body.i:                                        ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.592, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #28
   unreachable
 
-thunk_type_size.exit:                             ; preds = %entry, %entry, %sw.bb2.i, %sw.bb3.i, %if.else.i, %if.else8.i, %sw.bb9.i, %sw.bb10.i
-  %retval.0.i = phi i32 [ %4, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 2, %if.else8.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ %0, %entry ], [ %0, %entry ]
+thunk_type_size.exit:                             ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %if.else.i, %sw.bb9.i, %sw.bb10.i
+  %retval.0.i = phi i32 [ %4, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ %0, %entry ]
   %call2 = tail call noalias dereferenceable_or_null(80) ptr @g_try_malloc0_n(i64 noundef 1, i64 noundef 80) #30
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1617,24 +1617,24 @@ urb_hashtable_remove.exit:                        ; preds = %if.end7, %if.then.i
   %14 = load i64, ptr %8, align 8
   %call13 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %14, i64 noundef %2, i1 noundef zeroext false) #27
   %tobool14.not = icmp eq ptr %call13, null
-  br i1 %tobool14.not, label %if.then15, label %thunk_type_size.exit48
+  br i1 %tobool14.not, label %if.then15, label %thunk_type_size.exit47
 
 if.then15:                                        ; preds = %urb_hashtable_remove.exit
   tail call void @g_free(ptr noundef nonnull %8) #27
   br label %return
 
-thunk_type_size.exit48:                           ; preds = %urb_hashtable_remove.exit
+thunk_type_size.exit47:                           ; preds = %urb_hashtable_remove.exit
   %host_urb = getelementptr inbounds i8, ptr %8, i64 24
   %call19 = call ptr @thunk_convert(ptr noundef nonnull %call13, ptr noundef nonnull %host_urb, ptr noundef nonnull %usbfsurb_arg_type, i32 noundef 0) #27
   %call25 = call ptr @lock_user(i32 noundef 3, i64 noundef %arg, i64 noundef 8, i1 noundef zeroext false) #27
   %tobool26.not = icmp eq ptr %call25, null
   br i1 %tobool26.not, label %if.then27, label %if.end28
 
-if.then27:                                        ; preds = %thunk_type_size.exit48
+if.then27:                                        ; preds = %thunk_type_size.exit47
   call void @g_free(ptr noundef nonnull %8) #27
   br label %return
 
-if.end28:                                         ; preds = %thunk_type_size.exit48
+if.end28:                                         ; preds = %thunk_type_size.exit47
   %15 = load i64, ptr %8, align 8
   store i64 %15, ptr %target_urb_adr, align 8
   %call31 = call ptr @thunk_convert(ptr noundef nonnull %call25, ptr noundef nonnull %target_urb_adr, ptr noundef nonnull %ptrvoid_arg_type, i32 noundef 0) #27
@@ -1675,7 +1675,7 @@ if.end5:                                          ; preds = %if.end
   %2 = load i32, ptr %incdec.ptr, align 4
   switch i32 %2, label %do.body.i [
     i32 1, label %thunk_type_size.exit
-    i32 2, label %thunk_type_size.exit
+    i32 2, label %sw.bb1.i
     i32 3, label %sw.bb2.i
     i32 7, label %sw.bb3.i
     i32 8, label %sw.bb3.i
@@ -1683,10 +1683,13 @@ if.end5:                                          ; preds = %if.end
     i32 5, label %if.else.i
     i32 6, label %if.else.i
     i32 9, label %if.else.i
-    i32 12, label %if.else8.i
+    i32 12, label %sw.bb1.i
     i32 10, label %sw.bb9.i
     i32 11, label %sw.bb10.i
   ]
+
+sw.bb1.i:                                         ; preds = %if.end5, %if.end5
+  br label %thunk_type_size.exit
 
 sw.bb2.i:                                         ; preds = %if.end5
   br label %thunk_type_size.exit
@@ -1695,9 +1698,6 @@ sw.bb3.i:                                         ; preds = %if.end5, %if.end5
   br label %thunk_type_size.exit
 
 if.else.i:                                        ; preds = %if.end5, %if.end5, %if.end5, %if.end5
-  br label %thunk_type_size.exit
-
-if.else8.i:                                       ; preds = %if.end5
   br label %thunk_type_size.exit
 
 sw.bb9.i:                                         ; preds = %if.end5
@@ -1721,14 +1721,14 @@ do.body.i:                                        ; preds = %if.end5
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.592, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #28
   unreachable
 
-thunk_type_size.exit:                             ; preds = %if.end5, %if.end5, %sw.bb2.i, %sw.bb3.i, %if.else.i, %if.else8.i, %sw.bb9.i, %sw.bb10.i
-  %retval.0.i = phi i32 [ %6, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 2, %if.else8.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ %2, %if.end5 ], [ %2, %if.end5 ]
+thunk_type_size.exit:                             ; preds = %if.end5, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %if.else.i, %sw.bb9.i, %sw.bb10.i
+  %retval.0.i = phi i32 [ %6, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ %2, %if.end5 ]
   %conv = sext i32 %retval.0.i to i64
   %call6 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg, i64 noundef %conv, i1 noundef zeroext true) #27
   %tobool.not = icmp eq ptr %call6, null
-  br i1 %tobool.not, label %return, label %thunk_type_size.exit67
+  br i1 %tobool.not, label %return, label %thunk_type_size.exit66
 
-thunk_type_size.exit67:                           ; preds = %thunk_type_size.exit
+thunk_type_size.exit66:                           ; preds = %thunk_type_size.exit
   %call9 = tail call ptr @thunk_convert(ptr noundef %buf_temp, ptr noundef nonnull %call6, ptr noundef nonnull %incdec.ptr, i32 noundef 1) #27
   %ifc_ifcu = getelementptr inbounds i8, ptr %buf_temp, i64 8
   %7 = load ptr, ptr %ifc_ifcu, align 8
@@ -1739,7 +1739,7 @@ thunk_type_size.exit67:                           ; preds = %thunk_type_size.exi
   %cmp12.not = icmp eq ptr %7, null
   br i1 %cmp12.not, label %if.end30, label %if.then14
 
-if.then14:                                        ; preds = %thunk_type_size.exit67
+if.then14:                                        ; preds = %thunk_type_size.exit66
   %11 = load i32, ptr %buf_temp, align 8
   %div = sdiv i32 %11, %10
   %mul = mul i32 %div, 40
@@ -1763,10 +1763,10 @@ if.end27:                                         ; preds = %if.end26, %if.then1
   store i32 %mul, ptr %host_ifconf.0, align 8
   br label %if.end30
 
-if.end30:                                         ; preds = %thunk_type_size.exit67, %if.end27
-  %host_ifconf.1 = phi ptr [ %host_ifconf.0, %if.end27 ], [ %buf_temp, %thunk_type_size.exit67 ]
-  %free_buf.1 = phi i1 [ %cmp19, %if.end27 ], [ true, %thunk_type_size.exit67 ]
-  %host_ifc_buf.0 = phi ptr [ %add.ptr, %if.end27 ], [ null, %thunk_type_size.exit67 ]
+if.end30:                                         ; preds = %thunk_type_size.exit66, %if.end27
+  %host_ifconf.1 = phi ptr [ %host_ifconf.0, %if.end27 ], [ %buf_temp, %thunk_type_size.exit66 ]
+  %free_buf.1 = phi i1 [ %cmp19, %if.end27 ], [ true, %thunk_type_size.exit66 ]
+  %host_ifc_buf.0 = phi ptr [ %add.ptr, %if.end27 ], [ null, %thunk_type_size.exit66 ]
   %ifc_ifcu31 = getelementptr inbounds i8, ptr %host_ifconf.1, i64 8
   store ptr %host_ifc_buf.0, ptr %ifc_ifcu31, align 8
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
@@ -1781,18 +1781,18 @@ if.end30:                                         ; preds = %thunk_type_size.exi
   br i1 %cmp.i, label %if.then.i, label %get_errno.exit
 
 if.then.i:                                        ; preds = %if.end30
-  %call.i69 = tail call ptr @__errno_location() #26
-  %16 = load i32, ptr %call.i69, align 4
+  %call.i68 = tail call ptr @__errno_location() #26
+  %16 = load i32, ptr %call.i68, align 4
   %sub.i = sub i32 0, %16
-  %conv.i75 = zext i32 %sub.i to i64
+  %conv.i74 = zext i32 %sub.i to i64
   br label %get_errno.exit
 
 get_errno.exit:                                   ; preds = %if.end30, %if.then.i
-  %retval.0.i68 = phi i64 [ %conv.i75, %if.then.i ], [ %call32, %if.end30 ]
-  %sext = shl i64 %retval.0.i68, 32
+  %retval.0.i67 = phi i64 [ %conv.i74, %if.then.i ], [ %call32, %if.end30 ]
+  %sext = shl i64 %retval.0.i67, 32
   %conv35 = ashr exact i64 %sext, 32
-  %cmp.i70 = icmp ult i64 %conv35, -4096
-  br i1 %cmp.i70, label %if.then38, label %if.end69
+  %cmp.i69 = icmp ult i64 %conv35, -4096
+  br i1 %cmp.i69, label %if.then38, label %if.end69
 
 if.then38:                                        ; preds = %get_errno.exit
   %17 = load i32, ptr %host_ifconf.1, align 8
@@ -1813,8 +1813,8 @@ if.end50:                                         ; preds = %if.then38
 if.then55:                                        ; preds = %if.end50
   %conv56 = sext i32 %mul43 to i64
   %call57 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %8, i64 noundef %conv56, i1 noundef zeroext false) #27
-  %cmp5872 = icmp sgt i32 %conv42, 0
-  br i1 %cmp5872, label %for.body.preheader, label %if.end69
+  %cmp5871 = icmp sgt i32 %conv42, 0
+  br i1 %cmp5871, label %for.body.preheader, label %if.end69
 
 for.body.preheader:                               ; preds = %if.then55
   %wide.trip.count = and i64 %div41, 2147483647
@@ -1944,7 +1944,7 @@ entry:
   %0 = load i32, ptr %incdec.ptr, align 4
   switch i32 %0, label %do.body.i [
     i32 1, label %thunk_type_size.exit
-    i32 2, label %thunk_type_size.exit
+    i32 2, label %sw.bb1.i
     i32 3, label %sw.bb2.i
     i32 7, label %sw.bb3.i
     i32 8, label %sw.bb3.i
@@ -1952,10 +1952,13 @@ entry:
     i32 5, label %if.else.i
     i32 6, label %if.else.i
     i32 9, label %if.else.i
-    i32 12, label %if.else8.i
+    i32 12, label %sw.bb1.i
     i32 10, label %sw.bb9.i
     i32 11, label %sw.bb10.i
   ]
+
+sw.bb1.i:                                         ; preds = %entry, %entry
+  br label %thunk_type_size.exit
 
 sw.bb2.i:                                         ; preds = %entry
   br label %thunk_type_size.exit
@@ -1964,9 +1967,6 @@ sw.bb3.i:                                         ; preds = %entry, %entry
   br label %thunk_type_size.exit
 
 if.else.i:                                        ; preds = %entry, %entry, %entry, %entry
-  br label %thunk_type_size.exit
-
-if.else8.i:                                       ; preds = %entry
   br label %thunk_type_size.exit
 
 sw.bb9.i:                                         ; preds = %entry
@@ -1990,8 +1990,8 @@ do.body.i:                                        ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.592, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #28
   unreachable
 
-thunk_type_size.exit:                             ; preds = %entry, %entry, %sw.bb2.i, %sw.bb3.i, %if.else.i, %if.else8.i, %sw.bb9.i, %sw.bb10.i
-  %retval.0.i = phi i32 [ %4, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 2, %if.else8.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ %0, %entry ], [ %0, %entry ]
+thunk_type_size.exit:                             ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %if.else.i, %sw.bb9.i, %sw.bb10.i
+  %retval.0.i = phi i32 [ %4, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ %0, %entry ]
   %conv = sext i32 %retval.0.i to i64
   %call2 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg, i64 noundef %conv, i1 noundef zeroext true) #27
   %tobool.not = icmp eq ptr %call2, null
@@ -2057,28 +2057,28 @@ sw.bb25:                                          ; preds = %if.end19
   %12 = sext i32 %11 to i64
   %target_count = getelementptr inbounds i8, ptr %call5, i64 20
   %13 = load i32, ptr %target_count, align 4
-  %cmp28161.not = icmp eq i32 %13, 0
-  br i1 %cmp28161.not, label %sw.epilog, label %for.body
+  %cmp28160.not = icmp eq i32 %13, 0
+  br i1 %cmp28160.not, label %sw.epilog, label %for.body
 
 for.body:                                         ; preds = %sw.bb25, %for.body
-  %gspec.0164 = phi ptr [ %add.ptr46, %for.body ], [ %call16, %sw.bb25 ]
-  %cur_data.0163 = phi ptr [ %add.ptr49, %for.body ], [ %add.ptr, %sw.bb25 ]
-  %i.0162 = phi i32 [ %inc, %for.body ], [ 0, %sw.bb25 ]
-  %call31 = call ptr @thunk_convert(ptr noundef %cur_data.0163, ptr noundef %gspec.0164, ptr noundef nonnull %dm_arg_type, i32 noundef 1) #27
-  %add.ptr33 = getelementptr i8, ptr %gspec.0164, i64 %12
+  %gspec.0163 = phi ptr [ %add.ptr46, %for.body ], [ %call16, %sw.bb25 ]
+  %cur_data.0162 = phi ptr [ %add.ptr49, %for.body ], [ %add.ptr, %sw.bb25 ]
+  %i.0161 = phi i32 [ %inc, %for.body ], [ 0, %sw.bb25 ]
+  %call31 = call ptr @thunk_convert(ptr noundef %cur_data.0162, ptr noundef %gspec.0163, ptr noundef nonnull %dm_arg_type, i32 noundef 1) #27
+  %add.ptr33 = getelementptr i8, ptr %gspec.0163, i64 %12
   %call34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr33) #31
-  %next37 = getelementptr inbounds i8, ptr %cur_data.0163, i64 20
+  %next37 = getelementptr inbounds i8, ptr %cur_data.0162, i64 20
   %14 = load i32, ptr %next37, align 4
   %15 = trunc i64 %call34 to i32
   %conv40 = add i32 %15, 41
   store i32 %conv40, ptr %next37, align 4
-  %arrayidx = getelementptr i8, ptr %cur_data.0163, i64 40
+  %arrayidx = getelementptr i8, ptr %cur_data.0162, i64 40
   %call44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %arrayidx, ptr noundef nonnull dereferenceable(1) %add.ptr33) #27
   %idx.ext45 = zext i32 %14 to i64
-  %add.ptr46 = getelementptr i8, ptr %gspec.0164, i64 %idx.ext45
+  %add.ptr46 = getelementptr i8, ptr %gspec.0163, i64 %idx.ext45
   %idx.ext48 = zext i32 %conv40 to i64
-  %add.ptr49 = getelementptr i8, ptr %cur_data.0163, i64 %idx.ext48
-  %inc = add nuw i32 %i.0162, 1
+  %add.ptr49 = getelementptr i8, ptr %cur_data.0162, i64 %idx.ext48
+  %inc = add nuw i32 %i.0161, 1
   %16 = load i32, ptr %target_count, align 4
   %cmp28 = icmp ult i32 %inc, %16
   br i1 %cmp28, label %for.body, label %sw.epilog.loopexit, !llvm.loop !8
@@ -2099,16 +2099,16 @@ sw.epilog:                                        ; preds = %sw.epilog.loopexit,
   br i1 %cmp.i, label %if.then.i, label %get_errno.exit
 
 if.then.i:                                        ; preds = %sw.epilog
-  %call.i155 = tail call ptr @__errno_location() #26
-  %21 = load i32, ptr %call.i155, align 4
+  %call.i154 = tail call ptr @__errno_location() #26
+  %21 = load i32, ptr %call.i154, align 4
   %sub.i = sub i32 0, %21
   %conv.i = sext i32 %sub.i to i64
   br label %get_errno.exit
 
 get_errno.exit:                                   ; preds = %sw.epilog, %if.then.i
-  %retval.0.i154 = phi i64 [ %conv.i, %if.then.i ], [ %call51, %sw.epilog ]
-  %cmp.i156 = icmp ult i64 %retval.0.i154, -4096
-  br i1 %cmp.i156, label %if.then55, label %out
+  %retval.0.i153 = phi i64 [ %conv.i, %if.then.i ], [ %call51, %sw.epilog ]
+  %cmp.i155 = icmp ult i64 %retval.0.i153, -4096
+  br i1 %cmp.i155, label %if.then55, label %out
 
 if.then55:                                        ; preds = %get_errno.exit
   %22 = load i32, ptr %data_start, align 8
@@ -2188,8 +2188,8 @@ sw.bb106:                                         ; preds = %if.then55, %if.then
   %call115 = call fastcc i32 @thunk_type_size(ptr noundef nonnull %dm_arg_type112)
   %target_count118 = getelementptr inbounds i8, ptr %call5, i64 20
   %31 = load i32, ptr %target_count118, align 4
-  %cmp119169.not = icmp eq i32 %31, 0
-  br i1 %cmp119169.not, label %sw.epilog226, label %for.body121.lr.ph
+  %cmp119168.not = icmp eq i32 %31, 0
+  br i1 %cmp119168.not, label %sw.epilog226, label %for.body121.lr.ph
 
 for.body121.lr.ph:                                ; preds = %sw.bb106
   %idx.ext109 = zext i32 %30 to i64
@@ -2201,14 +2201,14 @@ for.body121.lr.ph:                                ; preds = %sw.bb106
   br label %for.body121
 
 for.body121:                                      ; preds = %for.body121.lr.ph, %if.end141
-  %i116.0172 = phi i32 [ 0, %for.body121.lr.ph ], [ %inc157, %if.end141 ]
-  %cur_data111.0171 = phi ptr [ %call63, %for.body121.lr.ph ], [ %add.ptr150, %if.end141 ]
-  %spec107.0170 = phi ptr [ %add.ptr110, %for.body121.lr.ph ], [ %add.ptr155, %if.end141 ]
-  %next123 = getelementptr inbounds i8, ptr %spec107.0170, i64 20
+  %i116.0171 = phi i32 [ 0, %for.body121.lr.ph ], [ %inc157, %if.end141 ]
+  %cur_data111.0170 = phi ptr [ %call63, %for.body121.lr.ph ], [ %add.ptr150, %if.end141 ]
+  %spec107.0169 = phi ptr [ %add.ptr110, %for.body121.lr.ph ], [ %add.ptr155, %if.end141 ]
+  %next123 = getelementptr inbounds i8, ptr %spec107.0169, i64 20
   %32 = load i32, ptr %next123, align 4
-  %arrayidx125 = getelementptr i8, ptr %spec107.0170, i64 40
+  %arrayidx125 = getelementptr i8, ptr %spec107.0169, i64 40
   %call126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx125) #31
-  %sub.ptr.lhs.cast = ptrtoint ptr %cur_data111.0171 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %cur_data111.0170 to i64
   %add130 = add i64 %sub.ptr.sub, %sub.ptr.lhs.cast
   %add132 = add i64 %add130, %call126
   %conv133 = trunc i64 %add132 to i32
@@ -2217,8 +2217,8 @@ for.body121:                                      ; preds = %for.body121.lr.ph, 
   br i1 %cmp136, label %sw.epilog226.sink.split, label %if.end141
 
 if.end141:                                        ; preds = %for.body121
-  %call143 = call ptr @thunk_convert(ptr noundef %cur_data111.0171, ptr noundef nonnull %spec107.0170, ptr noundef nonnull %dm_arg_type112, i32 noundef 0) #27
-  %add.ptr145 = getelementptr i8, ptr %cur_data111.0171, i64 %conv129
+  %call143 = call ptr @thunk_convert(ptr noundef %cur_data111.0170, ptr noundef nonnull %spec107.0169, ptr noundef nonnull %dm_arg_type112, i32 noundef 0) #27
+  %add.ptr145 = getelementptr i8, ptr %cur_data111.0170, i64 %conv129
   %call147 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr145, ptr noundef nonnull dereferenceable(1) %arrayidx125) #27
   %33 = load i32, ptr %next123, align 4
   %idx.ext149 = zext i32 %33 to i64
@@ -2228,7 +2228,7 @@ if.end141:                                        ; preds = %for.body121
   %add.ptr153 = getelementptr i8, ptr %call5, i64 %idx.ext152
   %idx.ext154 = zext i32 %32 to i64
   %add.ptr155 = getelementptr i8, ptr %add.ptr153, i64 %idx.ext154
-  %inc157 = add nuw i32 %i116.0172, 1
+  %inc157 = add nuw i32 %i116.0171, 1
   %35 = load i32, ptr %target_count118, align 4
   %cmp119 = icmp ult i32 %inc157, %35
   br i1 %cmp119, label %for.body121, label %sw.epilog226, !llvm.loop !9
@@ -2239,18 +2239,18 @@ sw.bb159:                                         ; preds = %if.then55
   %add.ptr162 = getelementptr i8, ptr %call5, i64 %idx.ext161
   %37 = load i32, ptr %add.ptr162, align 4
   store i32 %37, ptr %call63, align 4
-  %cmp168165 = icmp sgt i32 %37, 0
-  br i1 %cmp168165, label %for.body170, label %sw.epilog226
+  %cmp168164 = icmp sgt i32 %37, 0
+  br i1 %cmp168164, label %for.body170, label %sw.epilog226
 
 for.body170:                                      ; preds = %sw.bb159, %for.body170
-  %i165.0168 = phi i32 [ %inc175, %for.body170 ], [ 0, %sw.bb159 ]
-  %call63.pn167 = phi ptr [ %gdev.0, %for.body170 ], [ %call63, %sw.bb159 ]
-  %add.ptr162.pn166 = phi ptr [ %hdev.0, %for.body170 ], [ %add.ptr162, %sw.bb159 ]
-  %hdev.0 = getelementptr i8, ptr %add.ptr162.pn166, i64 8
-  %gdev.0 = getelementptr i8, ptr %call63.pn167, i64 8
+  %i165.0167 = phi i32 [ %inc175, %for.body170 ], [ 0, %sw.bb159 ]
+  %call63.pn166 = phi ptr [ %gdev.0, %for.body170 ], [ %call63, %sw.bb159 ]
+  %add.ptr162.pn165 = phi ptr [ %hdev.0, %for.body170 ], [ %add.ptr162, %sw.bb159 ]
+  %hdev.0 = getelementptr i8, ptr %add.ptr162.pn165, i64 8
+  %gdev.0 = getelementptr i8, ptr %call63.pn166, i64 8
   %38 = load i64, ptr %hdev.0, align 8
   store i64 %38, ptr %gdev.0, align 8
-  %inc175 = add nuw nsw i32 %i165.0168, 1
+  %inc175 = add nuw nsw i32 %i165.0167, 1
   %exitcond.not = icmp eq i32 %inc175, %37
   br i1 %exitcond.not, label %sw.epilog226, label %for.body170, !llvm.loop !10
 
@@ -2319,7 +2319,7 @@ if.end232:                                        ; preds = %sw.epilog226
 
 out:                                              ; preds = %if.then55, %if.end19, %sw.epilog226, %if.end, %thunk_type_size.exit, %get_errno.exit, %if.end232
   %big_buf.0 = phi ptr [ %call5, %get_errno.exit ], [ %call5, %if.end232 ], [ null, %thunk_type_size.exit ], [ %call5, %if.end ], [ %call5, %sw.epilog226 ], [ %call5, %if.end19 ], [ %call5, %if.then55 ]
-  %ret.0 = phi i64 [ %retval.0.i154, %get_errno.exit ], [ %retval.0.i154, %if.end232 ], [ -14, %thunk_type_size.exit ], [ -14, %if.end ], [ -14, %sw.epilog226 ], [ -22, %if.end19 ], [ -22, %if.then55 ]
+  %ret.0 = phi i64 [ %retval.0.i153, %get_errno.exit ], [ %retval.0.i153, %if.end232 ], [ -14, %thunk_type_size.exit ], [ -14, %if.end ], [ -14, %sw.epilog226 ], [ -22, %if.end19 ], [ -22, %if.then55 ]
   call void @g_free(ptr noundef %big_buf.0) #27
   ret i64 %ret.0
 }
@@ -2886,7 +2886,7 @@ if.end:                                           ; preds = %if.then
   %5 = load i32, ptr %incdec.ptr, align 4
   switch i32 %5, label %do.body.i [
     i32 1, label %thunk_type_size.exit
-    i32 2, label %thunk_type_size.exit
+    i32 2, label %sw.bb1.i
     i32 3, label %sw.bb2.i
     i32 7, label %sw.bb3.i
     i32 8, label %sw.bb3.i
@@ -2894,10 +2894,13 @@ if.end:                                           ; preds = %if.then
     i32 5, label %if.else.i
     i32 6, label %if.else.i
     i32 9, label %if.else.i
-    i32 12, label %if.else8.i
+    i32 12, label %sw.bb1.i
     i32 10, label %sw.bb9.i
     i32 11, label %sw.bb10.i
   ]
+
+sw.bb1.i:                                         ; preds = %if.end, %if.end
+  br label %thunk_type_size.exit
 
 sw.bb2.i:                                         ; preds = %if.end
   br label %thunk_type_size.exit
@@ -2906,9 +2909,6 @@ sw.bb3.i:                                         ; preds = %if.end, %if.end
   br label %thunk_type_size.exit
 
 if.else.i:                                        ; preds = %if.end, %if.end, %if.end, %if.end
-  br label %thunk_type_size.exit
-
-if.else8.i:                                       ; preds = %if.end
   br label %thunk_type_size.exit
 
 sw.bb9.i:                                         ; preds = %if.end
@@ -2933,9 +2933,9 @@ do.body.i:                                        ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.592, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #28
   unreachable
 
-thunk_type_size.exit:                             ; preds = %if.end, %if.end, %sw.bb2.i, %sw.bb3.i, %if.else.i, %if.else8.i, %sw.bb9.i, %sw.bb10.i
-  %10 = phi i32 [ %1, %sw.bb10.i ], [ %.pre, %sw.bb9.i ], [ %1, %if.else8.i ], [ %1, %if.else.i ], [ %1, %sw.bb3.i ], [ %1, %sw.bb2.i ], [ %1, %if.end ], [ %1, %if.end ]
-  %retval.0.i = phi i32 [ %9, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 2, %if.else8.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ %5, %if.end ], [ %5, %if.end ]
+thunk_type_size.exit:                             ; preds = %if.end, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %if.else.i, %sw.bb9.i, %sw.bb10.i
+  %10 = phi i32 [ %1, %sw.bb10.i ], [ %.pre, %sw.bb9.i ], [ %1, %if.else.i ], [ %1, %sw.bb3.i ], [ %1, %sw.bb2.i ], [ %1, %sw.bb1.i ], [ %1, %if.end ]
+  %retval.0.i = phi i32 [ %9, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ %5, %if.end ]
   %and9 = and i32 %10, -1073676289
   %shl = shl i32 %retval.0.i, 16
   %or = or i32 %and9, %shl
@@ -2970,7 +2970,7 @@ entry:
   %0 = load i32, ptr %type_ptr, align 4
   switch i32 %0, label %do.body [
     i32 1, label %sw.epilog
-    i32 2, label %sw.epilog
+    i32 2, label %sw.bb1
     i32 3, label %sw.bb2
     i32 7, label %sw.bb3
     i32 8, label %sw.bb3
@@ -2978,10 +2978,13 @@ entry:
     i32 5, label %if.else
     i32 6, label %if.else
     i32 9, label %if.else
-    i32 12, label %if.else8
+    i32 12, label %sw.bb1
     i32 10, label %sw.bb9
     i32 11, label %sw.bb10
   ]
+
+sw.bb1:                                           ; preds = %entry, %entry
+  br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
   br label %sw.epilog
@@ -2990,9 +2993,6 @@ sw.bb3:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 if.else:                                          ; preds = %entry, %entry, %entry, %entry
-  br label %sw.epilog
-
-if.else8:                                         ; preds = %entry
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
@@ -3016,8 +3016,8 @@ do.body:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.592, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #28
   unreachable
 
-sw.epilog:                                        ; preds = %entry, %entry, %sw.bb10, %sw.bb9, %if.else8, %if.else, %sw.bb3, %sw.bb2
-  %retval.0 = phi i32 [ %4, %sw.bb10 ], [ %mul, %sw.bb9 ], [ 2, %if.else8 ], [ 8, %if.else ], [ 8, %sw.bb3 ], [ 4, %sw.bb2 ], [ %0, %entry ], [ %0, %entry ]
+sw.epilog:                                        ; preds = %entry, %sw.bb10, %sw.bb9, %if.else, %sw.bb3, %sw.bb2, %sw.bb1
+  %retval.0 = phi i32 [ %4, %sw.bb10 ], [ %mul, %sw.bb9 ], [ 8, %if.else ], [ 8, %sw.bb3 ], [ 4, %sw.bb2 ], [ 2, %sw.bb1 ], [ %0, %entry ]
   ret i32 %retval.0
 }
 

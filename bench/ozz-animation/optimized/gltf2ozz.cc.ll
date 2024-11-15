@@ -61150,39 +61150,33 @@ _ZNSt8_Rb_treeIPKcSt4pairIKS1_St6vectorIPKN8tinygltf16AnimationChannelESaIS8_EEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef range(i32 -1, 17) i32 @_ZN8tinygltfL18GetTypeSizeInBytesEj(i32 noundef %0) unnamed_addr #22 {
-  switch i32 %0, label %8 [
-    i32 65, label %9
+  switch i32 %0, label %6 [
+    i32 65, label %7
     i32 2, label %2
-    i32 3, label %3
-    i32 4, label %4
-    i32 34, label %5
-    i32 35, label %6
-    i32 36, label %7
+    i32 3, label %2
+    i32 4, label %3
+    i32 34, label %3
+    i32 35, label %4
+    i32 36, label %5
   ]
 
-2:                                                ; preds = %1
-  br label %9
+2:                                                ; preds = %1, %1
+  br label %7
 
-3:                                                ; preds = %1
-  br label %9
+3:                                                ; preds = %1, %1
+  br label %7
 
 4:                                                ; preds = %1
-  br label %9
+  br label %7
 
 5:                                                ; preds = %1
-  br label %9
+  br label %7
 
 6:                                                ; preds = %1
-  br label %9
+  br label %7
 
-7:                                                ; preds = %1
-  br label %9
-
-8:                                                ; preds = %1
-  br label %9
-
-9:                                                ; preds = %1, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ %0, %2 ], [ %0, %3 ], [ %0, %4 ], [ 4, %5 ], [ 9, %6 ], [ 16, %7 ], [ -1, %8 ], [ 1, %1 ]
+7:                                                ; preds = %1, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ %0, %2 ], [ 4, %3 ], [ 9, %4 ], [ 16, %5 ], [ -1, %6 ], [ 1, %1 ]
   ret i32 %.0
 }
 

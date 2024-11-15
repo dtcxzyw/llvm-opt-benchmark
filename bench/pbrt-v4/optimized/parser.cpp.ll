@@ -3444,8 +3444,8 @@ do.end:                                           ; preds = %if.else41
     i8 114, label %sw.bb4.i
     i8 116, label %sw.bb5.i
     i8 92, label %sw.bb6.i
-    i8 39, label %sw.bb7.i
-    i8 34, label %sw.bb8.i
+    i8 39, label %sw.bb6.i
+    i8 34, label %sw.bb6.i
   ]
 
 sw.bb.i:                                          ; preds = %do.end
@@ -3464,21 +3464,15 @@ sw.bb4.i:                                         ; preds = %do.end
 sw.bb5.i:                                         ; preds = %do.end
   br label %_ZN4pbrtL13decodeEscapedEiRKNS_7FileLocE.exit
 
-sw.bb6.i:                                         ; preds = %do.end
-  br label %_ZN4pbrtL13decodeEscapedEiRKNS_7FileLocE.exit
-
-sw.bb7.i:                                         ; preds = %do.end
-  br label %_ZN4pbrtL13decodeEscapedEiRKNS_7FileLocE.exit
-
-sw.bb8.i:                                         ; preds = %do.end
+sw.bb6.i:                                         ; preds = %do.end, %do.end, %do.end
   br label %_ZN4pbrtL13decodeEscapedEiRKNS_7FileLocE.exit
 
 sw.default.i:                                     ; preds = %do.end
   call void @_ZN4pbrt9ErrorExitIJRiEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %startLoc, ptr noundef nonnull @.str.287, ptr noundef nonnull align 4 dereferenceable(4) %ch.addr.i) #32
   unreachable
 
-_ZN4pbrtL13decodeEscapedEiRKNS_7FileLocE.exit:    ; preds = %do.end, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i
-  %retval.0.i98 = phi i8 [ %15, %sw.bb8.i ], [ %15, %sw.bb7.i ], [ %15, %sw.bb6.i ], [ 9, %sw.bb5.i ], [ 13, %sw.bb4.i ], [ 10, %sw.bb3.i ], [ 12, %sw.bb2.i ], [ 8, %do.end ]
+_ZN4pbrtL13decodeEscapedEiRKNS_7FileLocE.exit:    ; preds = %do.end, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i
+  %retval.0.i98 = phi i8 [ %15, %sw.bb6.i ], [ 9, %sw.bb5.i ], [ 13, %sw.bb4.i ], [ 10, %sw.bb3.i ], [ 12, %sw.bb2.i ], [ 8, %do.end ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ch.addr.i)
   br label %for.inc
 

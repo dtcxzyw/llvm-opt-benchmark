@@ -616,9 +616,9 @@ define internal fastcc range(i32 -48, 1) i32 @jit_compile(ptr noundef nonnull %0
   %72 = load i16, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %8, i64 212
   %cond = icmp eq i16 %72, 2
-  %spec.select = select i1 %cond, i32 2, i32 1
-  %spec.select2224 = select i1 %cond, i32 13, i32 8233
-  store i32 %spec.select, ptr %73, align 4
+  %. = select i1 %cond, i32 2, i32 1
+  %.2224 = select i1 %cond, i32 13, i32 8233
+  store i32 %., ptr %73, align 4
   %74 = getelementptr inbounds i8, ptr %8, i64 216
   store i32 2147483647, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %8, i64 220
@@ -672,7 +672,7 @@ define internal fastcc range(i32 -48, 1) i32 @jit_compile(ptr noundef nonnull %0
   %.sink2223 = phi i32 [ 13, %94 ], [ %67, %95 ], [ 8233, %93 ]
   store i32 %.sink2223, ptr %69, align 8
   store i32 %67, ptr %70, align 4
-  store i32 %spec.select2224, ptr %74, align 8
+  store i32 %.2224, ptr %74, align 8
   store i32 10, ptr %75, align 4
   br label %.preheader2328
 

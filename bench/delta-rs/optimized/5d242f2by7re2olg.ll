@@ -19569,8 +19569,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hac34b842fd58f942E(ptr n
   %2 = load i64, ptr %0, align 8, !range !37, !alias.scope !2933, !noundef !5
   %switch1.i = icmp eq i64 %2, -9223372036854775808
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select.i = select i1 %switch1.i, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select.i, 0
+  %.sroa.0.0.i = select i1 %switch1.i, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.544, 1
   ret { ptr, ptr } %5
 }
@@ -27533,8 +27533,8 @@ define { ptr, ptr } @"_ZN81_$LT$deltalake_aws..errors..DynamoDbConfigError$u20$a
   %2 = load i64, ptr %0, align 8, !range !37, !noundef !5
   %switch1 = icmp eq i64 %2, -9223372036854775808
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch1, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %.sroa.0.0 = select i1 %switch1, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.ef876e9a40f6761df4fa1e2b544b5407.544, 1
   ret { ptr, ptr } %5
 }

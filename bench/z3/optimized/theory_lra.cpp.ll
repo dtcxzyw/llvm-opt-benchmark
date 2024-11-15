@@ -53729,21 +53729,17 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   switch i32 %call29, label %sw.epilog [
     i32 1, label %cleanup
     i32 -1, label %sw.bb30
-    i32 0, label %sw.bb32
   ]
 
 sw.bb30:                                          ; preds = %invoke.cont28
   invoke void @_ZN3smt10theory_lra3imp10add_lemmasEv(ptr noundef nonnull align 8 dereferenceable(960) %this)
           to label %cleanup unwind label %lpad
 
-sw.bb32:                                          ; preds = %invoke.cont28
-  br label %cleanup
-
 sw.epilog:                                        ; preds = %invoke.cont28
   br label %cleanup
 
-cleanup:                                          ; preds = %sw.bb30, %invoke.cont28, %if.end16, %invoke.cont13, %sw.epilog, %sw.bb32
-  %retval.0 = phi i32 [ 2, %sw.epilog ], [ 2, %sw.bb32 ], [ 0, %invoke.cont13 ], [ 2, %if.end16 ], [ 0, %invoke.cont28 ], [ 1, %sw.bb30 ]
+cleanup:                                          ; preds = %sw.bb30, %invoke.cont28, %if.end16, %invoke.cont13, %sw.epilog
+  %retval.0 = phi i32 [ 2, %sw.epilog ], [ 0, %invoke.cont13 ], [ 2, %if.end16 ], [ 0, %invoke.cont28 ], [ 1, %sw.bb30 ]
   %13 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(32) %r)
           to label %.noexc.i unwind label %terminate.lpad.i

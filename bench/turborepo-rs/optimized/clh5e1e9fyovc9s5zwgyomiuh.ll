@@ -2040,8 +2040,8 @@ define { ptr, ptr } @_RNvXs1_CslOtZNRIhnDi_7pidlockNtB5_12PidlockErrorNtNtCs1Loa
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8, !range !827, !noundef !5
   %switch.not = icmp ult i64 %3, -9223372036854775805
-  %spec.select = select i1 %switch.not, ptr %0, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %. = select i1 %switch.not, ptr %0, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %., 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.f167832e47700d591f0f45f58a9ba1d1.45, 1
   ret { ptr, ptr } %5
 }

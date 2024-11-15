@@ -3206,14 +3206,11 @@ while.body.i:                                     ; preds = %land.rhs.i
     i32 8, label %sw.bb40.i
     i32 3, label %sw.epilog.i
     i32 5, label %sw.bb37.i
-    i32 6, label %sw.bb38.i
+    i32 6, label %sw.bb37.i
     i32 7, label %sw.bb39.i
   ]
 
-sw.bb37.i:                                        ; preds = %while.body.i
-  br label %sw.epilog.i
-
-sw.bb38.i:                                        ; preds = %while.body.i
+sw.bb37.i:                                        ; preds = %while.body.i, %while.body.i
   br label %sw.epilog.i
 
 sw.bb39.i:                                        ; preds = %while.body.i
@@ -3222,8 +3219,8 @@ sw.bb39.i:                                        ; preds = %while.body.i
 sw.bb40.i:                                        ; preds = %while.body.i
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.bb40.i, %sw.bb39.i, %sw.bb38.i, %sw.bb37.i, %while.body.i
-  %state.2.i = phi i32 [ 6, %sw.bb39.i ], [ 4, %sw.bb38.i ], [ 4, %sw.bb37.i ], [ %.59.i, %sw.bb40.i ], [ 2, %while.body.i ]
+sw.epilog.i:                                      ; preds = %sw.bb40.i, %sw.bb39.i, %sw.bb37.i, %while.body.i
+  %state.2.i = phi i32 [ 6, %sw.bb39.i ], [ 4, %sw.bb37.i ], [ %.59.i, %sw.bb40.i ], [ 2, %while.body.i ]
   %cmp.not.i = icmp eq i32 %state.2.i, 0
   br i1 %cmp.not.i, label %_ZNK9GUIButton13getImageStateEbPKNS_11ButtonImageE.exit, label %land.rhs.i, !llvm.loop !104
 
@@ -3415,14 +3412,11 @@ while.body:                                       ; preds = %land.rhs
     i32 8, label %sw.bb40
     i32 3, label %sw.epilog
     i32 5, label %sw.bb37
-    i32 6, label %sw.bb38
+    i32 6, label %sw.bb37
     i32 7, label %sw.bb39
   ]
 
-sw.bb37:                                          ; preds = %while.body
-  br label %sw.epilog
-
-sw.bb38:                                          ; preds = %while.body
+sw.bb37:                                          ; preds = %while.body, %while.body
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %while.body
@@ -3431,8 +3425,8 @@ sw.bb39:                                          ; preds = %while.body
 sw.bb40:                                          ; preds = %while.body
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %while.body
-  %state.2 = phi i32 [ 6, %sw.bb39 ], [ 4, %sw.bb38 ], [ 4, %sw.bb37 ], [ %.59, %sw.bb40 ], [ 2, %while.body ]
+sw.epilog:                                        ; preds = %sw.bb40, %sw.bb39, %sw.bb37, %while.body
+  %state.2 = phi i32 [ 6, %sw.bb39 ], [ 4, %sw.bb37 ], [ %.59, %sw.bb40 ], [ 2, %while.body ]
   %cmp.not = icmp eq i32 %state.2, 0
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !104
 

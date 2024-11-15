@@ -3257,8 +3257,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2410 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
 @.str.2411 = private unnamed_addr constant [9 x i8] c"tap_data\00", align 1
 @switch.table.dissect_spc_inquiry = private unnamed_addr constant [4 x ptr] [ptr @dissect_spc_inquiry.aca_fields_spc, ptr @dissect_spc_inquiry.aca_fields_spc2, ptr @dissect_spc_inquiry.aca_fields_spc3, ptr @dissect_spc_inquiry.aca_fields_spc3], align 8
-@switch.table.dissect_spc_inq_bqueflags = private unnamed_addr constant [4 x ptr] [ptr @dissect_spc_inq_bqueflags.bqe_fields_spc, ptr @dissect_spc_inq_bqueflags.bqe_fields_spc2, ptr @dissect_spc_inq_bqueflags.bqe_fields_spc2, ptr @dissect_spc_inq_bqueflags.bqe_fields_spc4], align 8
-@switch.table.dissect_spc_inq_reladrflags = private unnamed_addr constant [4 x ptr] [ptr @dissect_spc_inq_reladrflags.reladr_fields_spc, ptr @dissect_spc_inq_reladrflags.reladr_fields_spc2, ptr @dissect_spc_inq_reladrflags.reladr_fields_spc3, ptr @dissect_spc_inq_reladrflags.reladr_fields_spc4], align 8
+@switch.table.dissect_spc_inq_bqueflags = private unnamed_addr constant [3 x ptr] [ptr @dissect_spc_inq_bqueflags.bqe_fields_spc, ptr @dissect_spc_inq_bqueflags.bqe_fields_spc2, ptr @dissect_spc_inq_bqueflags.bqe_fields_spc2], align 8
+@switch.table.dissect_spc_inq_reladrflags = private unnamed_addr constant [3 x ptr] [ptr @dissect_spc_inq_reladrflags.reladr_fields_spc, ptr @dissect_spc_inq_reladrflags.reladr_fields_spc2, ptr @dissect_spc_inq_reladrflags.reladr_fields_spc3], align 8
 @switch.table.dissect_scsi_modepage = private unnamed_addr constant [9 x ptr] [ptr @scsi_sbc_modepage_val, ptr @scsi_ssc2_modepage_val, ptr @scsi_spc_modepage_val, ptr @scsi_spc_modepage_val, ptr @scsi_spc_modepage_val, ptr @scsi_mmc5_modepage_val, ptr @scsi_spc_modepage_val, ptr @scsi_spc_modepage_val, ptr @scsi_smc_modepage_val], align 8
 @switch.table.dissect_scsi_modepage.5 = private unnamed_addr constant [9 x ptr] [ptr @dissect_scsi_sbc_modepage, ptr @dissect_scsi_ssc2_modepage, ptr @dissect_scsi_spc_modepage, ptr @dissect_scsi_spc_modepage, ptr @dissect_scsi_spc_modepage, ptr @dissect_scsi_mmc5_modepage, ptr @dissect_scsi_spc_modepage, ptr @dissect_scsi_spc_modepage, ptr @dissect_scsi_smc_modepage], align 8
 @switch.table.dissect_spc_modesense10 = private unnamed_addr constant [9 x ptr] [ptr @hf_scsi_sbcpagecode, ptr @hf_scsi_sscpagecode, ptr @hf_scsi_spc_pagecode, ptr @hf_scsi_spc_pagecode, ptr @hf_scsi_spc_pagecode, ptr @hf_scsi_mmcpagecode, ptr @hf_scsi_spc_pagecode, ptr @hf_scsi_spc_pagecode, ptr @hf_scsi_smcpagecode], align 8
@@ -4063,12 +4063,12 @@ define internal fastcc noundef i32 @dissect_spc_inq_sccsflags(ptr noundef %0, i3
 define internal fastcc noundef i32 @dissect_spc_inq_bqueflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %trunc = trunc nuw i32 %3 to i8
   %switch.tableidx = add i8 %trunc, -3
-  %5 = icmp ult i8 %switch.tableidx, 4
+  %5 = icmp ult i8 %switch.tableidx, 3
   br i1 %5, label %switch.lookup, label %7
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_spc_inq_bqueflags, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_spc_inq_bqueflags, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -4087,12 +4087,12 @@ define internal fastcc noundef i32 @dissect_spc_inq_reladrflags(ptr noundef %0, 
   %5 = load i32, ptr @hf_scsi_inq_reladrflags, align 4
   %6 = load i32, ptr @ett_scsi_inq_reladrflags, align 4
   %switch.tableidx = add i8 %trunc, -3
-  %7 = icmp ult i8 %switch.tableidx, 4
+  %7 = icmp ult i8 %switch.tableidx, 3
   br i1 %7, label %switch.lookup, label %9
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_spc_inq_reladrflags, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_spc_inq_reladrflags, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 

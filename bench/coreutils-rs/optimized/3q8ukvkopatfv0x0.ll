@@ -16994,8 +16994,8 @@ define { ptr, ptr } @"_ZN53_$LT$uu_pr..PrError$u20$as$u20$core..error..Error$GT$
   %2 = load i64, ptr %0, align 8, !range !3870, !noundef !5
   %3 = icmp sgt i64 %2, -9223372036854775804
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %spec.select = select i1 %3, ptr %4, ptr null
-  %5 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %.sroa.0.0 = select i1 %3, ptr %4, ptr null
+  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %6 = insertvalue { ptr, ptr } %5, ptr @anon.148a832d388ba4488b38de3279afe8e7.227, 1
   ret { ptr, ptr } %6
 }

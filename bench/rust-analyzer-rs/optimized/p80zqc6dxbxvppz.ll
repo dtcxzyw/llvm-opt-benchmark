@@ -87117,9 +87117,9 @@ default.unreachable10:                            ; preds = %5
   %18 = load i8, ptr %17, align 1, !range !98, !noundef !26
   br label %19
 
-19:                                               ; preds = %13, %10, %5, %1, %16, %9, %8
-  %.sroa.8.0 = phi i8 [ undef, %8 ], [ %18, %16 ], [ undef, %9 ], [ undef, %1 ], [ undef, %5 ], [ %12, %10 ], [ %15, %13 ]
-  %.sroa.0.0 = phi i8 [ 2, %8 ], [ 5, %16 ], [ 0, %9 ], [ 6, %1 ], [ 1, %5 ], [ 3, %10 ], [ 4, %13 ]
+19:                                               ; preds = %5, %1, %16, %13, %10, %9, %8
+  %.sroa.8.0 = phi i8 [ undef, %8 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ undef, %9 ], [ undef, %1 ], [ undef, %5 ]
+  %.sroa.0.0 = phi i8 [ 2, %8 ], [ 5, %16 ], [ 4, %13 ], [ 3, %10 ], [ 0, %9 ], [ 6, %1 ], [ 1, %5 ]
   %20 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
   %21 = insertvalue { i8, i8 } %20, i8 %.sroa.8.0, 1
   ret { i8, i8 } %21

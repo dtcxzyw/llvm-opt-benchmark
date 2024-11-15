@@ -3827,7 +3827,7 @@ define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707
   %.sroa.442.sroa.0.0.copyload.fr = freeze i64 %.sroa.0383.0.copyload
   %.sroa.4384.0.copyload = load i64, ptr %.sroa.442.sroa.4.0..sroa.442.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br i1 %16, label %59, label %19
+  br i1 %16, label %56, label %19
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.763cd7980f23d581cddea5ef6acfd891.100) #25
@@ -3849,7 +3849,7 @@ define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707
   store <16 x i8> %.sroa.039.1, ptr %.sroa.732.0..sroa_idx, align 8
   br label %18
 
-18:                                               ; preds = %59, %17
+18:                                               ; preds = %56, %17
   ret void
 
 19:                                               ; preds = %11
@@ -3857,9 +3857,9 @@ define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707
   switch i16 %20, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398" [
     i16 1, label %21
     i16 2, label %22
-    i16 3, label %32
-    i16 4, label %42
-    i16 5, label %52
+    i16 3, label %31
+    i16 4, label %40
+    i16 5, label %49
   ]
 
 21:                                               ; preds = %19
@@ -3872,7 +3872,7 @@ define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707
     i64 4, label %27
     i64 5, label %29
     i64 6, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit"
-    i64 7, label %30
+    i64 7, label %29
   ]
 
 23:                                               ; preds = %22
@@ -3887,118 +3887,109 @@ define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h21b44664ae1707
   %28 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 4294967295
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-29:                                               ; preds = %22
-  br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
-
-30:                                               ; preds = %22
+29:                                               ; preds = %22, %22
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
 "_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit": ; preds = %22
-  %31 = icmp slt i64 %.sroa.442.sroa.0.0.copyload.fr, 0
-  %spec.select = select i1 %31, i64 %.056434, i64 %.sroa.442.sroa.0.0.copyload.fr
+  %30 = icmp slt i64 %.sroa.442.sroa.0.0.copyload.fr, 0
+  %spec.select = select i1 %30, i64 %.056434, i64 %.sroa.442.sroa.0.0.copyload.fr
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-32:                                               ; preds = %19
+31:                                               ; preds = %19
   switch i64 %15, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398" [
-    i64 2, label %33
-    i64 3, label %35
-    i64 4, label %37
-    i64 5, label %39
+    i64 2, label %32
+    i64 3, label %34
+    i64 4, label %36
+    i64 5, label %38
     i64 6, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69"
-    i64 7, label %40
+    i64 7, label %38
   ]
 
-33:                                               ; preds = %32
-  %34 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 255
+32:                                               ; preds = %31
+  %33 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 255
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-35:                                               ; preds = %32
-  %36 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 65535
+34:                                               ; preds = %31
+  %35 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 65535
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-37:                                               ; preds = %32
-  %38 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 4294967295
+36:                                               ; preds = %31
+  %37 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 4294967295
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-39:                                               ; preds = %32
+38:                                               ; preds = %31, %31
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-40:                                               ; preds = %32
+"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69": ; preds = %31
+  %39 = icmp slt i64 %.sroa.442.sroa.0.0.copyload.fr, 0
+  %spec.select420 = select i1 %39, i64 %.053435, i64 %.sroa.442.sroa.0.0.copyload.fr
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69": ; preds = %32
-  %41 = icmp slt i64 %.sroa.442.sroa.0.0.copyload.fr, 0
-  %spec.select420 = select i1 %41, i64 %.053435, i64 %.sroa.442.sroa.0.0.copyload.fr
-  br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
-
-42:                                               ; preds = %19
+40:                                               ; preds = %19
   switch i64 %15, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398" [
-    i64 2, label %43
-    i64 3, label %45
-    i64 4, label %47
-    i64 5, label %49
+    i64 2, label %41
+    i64 3, label %43
+    i64 4, label %45
+    i64 5, label %47
     i64 6, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73"
-    i64 7, label %50
+    i64 7, label %47
   ]
 
-43:                                               ; preds = %42
-  %44 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 255
+41:                                               ; preds = %40
+  %42 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 255
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-45:                                               ; preds = %42
-  %46 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 65535
+43:                                               ; preds = %40
+  %44 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 65535
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-47:                                               ; preds = %42
-  %48 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 4294967295
+45:                                               ; preds = %40
+  %46 = and i64 %.sroa.442.sroa.0.0.copyload.fr, 4294967295
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-49:                                               ; preds = %42
+47:                                               ; preds = %40, %40
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-50:                                               ; preds = %42
+"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73": ; preds = %40
+  %48 = icmp slt i64 %.sroa.442.sroa.0.0.copyload.fr, 0
+  %spec.select421 = select i1 %48, i64 %.0436, i64 %.sroa.442.sroa.0.0.copyload.fr
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73": ; preds = %42
-  %51 = icmp slt i64 %.sroa.442.sroa.0.0.copyload.fr, 0
-  %spec.select421 = select i1 %51, i64 %.0436, i64 %.sroa.442.sroa.0.0.copyload.fr
-  br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
+49:                                               ; preds = %19
+  %50 = icmp eq i64 %15, 1
+  %51 = icmp eq i64 %.sroa.4384.0.copyload, 16
+  %or.cond = select i1 %50, i1 %51, i1 false
+  br i1 %or.cond, label %52, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-52:                                               ; preds = %19
-  %53 = icmp eq i64 %15, 1
-  %54 = icmp eq i64 %.sroa.4384.0.copyload, 16
-  %or.cond = select i1 %53, i1 %54, i1 false
-  br i1 %or.cond, label %55, label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
-
-55:                                               ; preds = %52
-  %56 = inttoptr i64 %.sroa.442.sroa.0.0.copyload.fr to ptr
+52:                                               ; preds = %49
+  %53 = inttoptr i64 %.sroa.442.sroa.0.0.copyload.fr to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !633
   call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h116c4849d03f8b69E"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 1 dereferenceable(16) %6), !noalias !633
-  %57 = icmp ne i64 %.sroa.442.sroa.0.0.copyload.fr, 0
-  tail call void @llvm.assume(i1 %57)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull readonly align 1 dereferenceable(16) %56, i64 16, i1 false), !alias.scope !637, !noalias !641
-  %58 = load <16 x i8>, ptr %6, align 16, !noalias !633
+  %54 = icmp ne i64 %.sroa.442.sroa.0.0.copyload.fr, 0
+  tail call void @llvm.assume(i1 %54)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull readonly align 1 dereferenceable(16) %53, i64 16, i1 false), !alias.scope !637, !noalias !641
+  %55 = load <16 x i8>, ptr %6, align 16, !noalias !633
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !633
   br label %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398"
 
-59:                                               ; preds = %11
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.442.sroa.0.0.copyload.fr, ptr %60, align 8
+56:                                               ; preds = %11
+  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.442.sroa.0.0.copyload.fr, ptr %57, align 8
   %.sroa.2386.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4384.0.copyload, ptr %.sroa.2386.0..sroa_idx, align 8
   store i64 46, ptr %0, align 8
   br label %18
 
-"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398": ; preds = %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73", %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69", %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit", %43, %45, %47, %49, %50, %42, %33, %35, %37, %39, %40, %32, %23, %25, %27, %29, %30, %22, %55, %19, %52, %21
-  %.sroa.6.sroa.0.1 = phi i64 [ %.sroa.6.sroa.0.0431, %19 ], [ %.sroa.6.sroa.0.0431, %52 ], [ %.sroa.442.sroa.0.0.copyload.fr, %21 ], [ %.sroa.6.sroa.0.0431, %55 ], [ %.sroa.6.sroa.0.0431, %22 ], [ %.sroa.6.sroa.0.0431, %30 ], [ %.sroa.6.sroa.0.0431, %29 ], [ %.sroa.6.sroa.0.0431, %27 ], [ %.sroa.6.sroa.0.0431, %25 ], [ %.sroa.6.sroa.0.0431, %23 ], [ %.sroa.6.sroa.0.0431, %32 ], [ %.sroa.6.sroa.0.0431, %40 ], [ %.sroa.6.sroa.0.0431, %39 ], [ %.sroa.6.sroa.0.0431, %37 ], [ %.sroa.6.sroa.0.0431, %35 ], [ %.sroa.6.sroa.0.0431, %33 ], [ %.sroa.6.sroa.0.0431, %42 ], [ %.sroa.6.sroa.0.0431, %50 ], [ %.sroa.6.sroa.0.0431, %49 ], [ %.sroa.6.sroa.0.0431, %47 ], [ %.sroa.6.sroa.0.0431, %45 ], [ %.sroa.6.sroa.0.0431, %43 ], [ %.sroa.6.sroa.0.0431, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.sroa.6.sroa.0.0431, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.sroa.6.sroa.0.0431, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
-  %.sroa.6.sroa.5.1 = phi i64 [ %.sroa.6.sroa.5.0432, %19 ], [ %.sroa.6.sroa.5.0432, %52 ], [ %.sroa.4384.0.copyload, %21 ], [ %.sroa.6.sroa.5.0432, %55 ], [ %.sroa.6.sroa.5.0432, %22 ], [ %.sroa.6.sroa.5.0432, %30 ], [ %.sroa.6.sroa.5.0432, %29 ], [ %.sroa.6.sroa.5.0432, %27 ], [ %.sroa.6.sroa.5.0432, %25 ], [ %.sroa.6.sroa.5.0432, %23 ], [ %.sroa.6.sroa.5.0432, %32 ], [ %.sroa.6.sroa.5.0432, %40 ], [ %.sroa.6.sroa.5.0432, %39 ], [ %.sroa.6.sroa.5.0432, %37 ], [ %.sroa.6.sroa.5.0432, %35 ], [ %.sroa.6.sroa.5.0432, %33 ], [ %.sroa.6.sroa.5.0432, %42 ], [ %.sroa.6.sroa.5.0432, %50 ], [ %.sroa.6.sroa.5.0432, %49 ], [ %.sroa.6.sroa.5.0432, %47 ], [ %.sroa.6.sroa.5.0432, %45 ], [ %.sroa.6.sroa.5.0432, %43 ], [ %.sroa.6.sroa.5.0432, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.sroa.6.sroa.5.0432, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.sroa.6.sroa.5.0432, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
-  %.157 = phi i64 [ %.056434, %19 ], [ %.056434, %52 ], [ %.056434, %21 ], [ %.056434, %55 ], [ %.056434, %22 ], [ %.sroa.442.sroa.0.0.copyload.fr, %30 ], [ %.sroa.442.sroa.0.0.copyload.fr, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %.056434, %32 ], [ %.056434, %40 ], [ %.056434, %39 ], [ %.056434, %37 ], [ %.056434, %35 ], [ %.056434, %33 ], [ %.056434, %42 ], [ %.056434, %50 ], [ %.056434, %49 ], [ %.056434, %47 ], [ %.056434, %45 ], [ %.056434, %43 ], [ %spec.select, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.056434, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.056434, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
-  %.154 = phi i64 [ %.053435, %19 ], [ %.053435, %52 ], [ %.053435, %21 ], [ %.053435, %55 ], [ %.053435, %22 ], [ %.053435, %30 ], [ %.053435, %29 ], [ %.053435, %27 ], [ %.053435, %25 ], [ %.053435, %23 ], [ %.053435, %32 ], [ %.sroa.442.sroa.0.0.copyload.fr, %40 ], [ %.sroa.442.sroa.0.0.copyload.fr, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %.053435, %42 ], [ %.053435, %50 ], [ %.053435, %49 ], [ %.053435, %47 ], [ %.053435, %45 ], [ %.053435, %43 ], [ %.053435, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %spec.select420, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.053435, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
-  %.1 = phi i64 [ %.0436, %19 ], [ %.0436, %52 ], [ %.0436, %21 ], [ %.0436, %55 ], [ %.0436, %22 ], [ %.0436, %30 ], [ %.0436, %29 ], [ %.0436, %27 ], [ %.0436, %25 ], [ %.0436, %23 ], [ %.0436, %32 ], [ %.0436, %40 ], [ %.0436, %39 ], [ %.0436, %37 ], [ %.0436, %35 ], [ %.0436, %33 ], [ %.0436, %42 ], [ %.sroa.442.sroa.0.0.copyload.fr, %50 ], [ %.sroa.442.sroa.0.0.copyload.fr, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %.0436, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.0436, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %spec.select421, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
-  %.sroa.039.1 = phi <16 x i8> [ %.sroa.039.0437, %19 ], [ %.sroa.039.0437, %52 ], [ %.sroa.039.0437, %21 ], [ %58, %55 ], [ %.sroa.039.0437, %22 ], [ %.sroa.039.0437, %30 ], [ %.sroa.039.0437, %29 ], [ %.sroa.039.0437, %27 ], [ %.sroa.039.0437, %25 ], [ %.sroa.039.0437, %23 ], [ %.sroa.039.0437, %32 ], [ %.sroa.039.0437, %40 ], [ %.sroa.039.0437, %39 ], [ %.sroa.039.0437, %37 ], [ %.sroa.039.0437, %35 ], [ %.sroa.039.0437, %33 ], [ %.sroa.039.0437, %42 ], [ %.sroa.039.0437, %50 ], [ %.sroa.039.0437, %49 ], [ %.sroa.039.0437, %47 ], [ %.sroa.039.0437, %45 ], [ %.sroa.039.0437, %43 ], [ %.sroa.039.0437, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.sroa.039.0437, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.sroa.039.0437, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
-  %.sroa.04.1 = phi i64 [ %.sroa.04.0438, %19 ], [ %.sroa.04.0438, %52 ], [ %15, %21 ], [ %.sroa.04.0438, %55 ], [ %.sroa.04.0438, %22 ], [ %.sroa.04.0438, %30 ], [ %.sroa.04.0438, %29 ], [ %.sroa.04.0438, %27 ], [ %.sroa.04.0438, %25 ], [ %.sroa.04.0438, %23 ], [ %.sroa.04.0438, %32 ], [ %.sroa.04.0438, %40 ], [ %.sroa.04.0438, %39 ], [ %.sroa.04.0438, %37 ], [ %.sroa.04.0438, %35 ], [ %.sroa.04.0438, %33 ], [ %.sroa.04.0438, %42 ], [ %.sroa.04.0438, %50 ], [ %.sroa.04.0438, %49 ], [ %.sroa.04.0438, %47 ], [ %.sroa.04.0438, %45 ], [ %.sroa.04.0438, %43 ], [ %.sroa.04.0438, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.sroa.04.0438, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.sroa.04.0438, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
-  %61 = icmp eq ptr %12, %8
-  br i1 %61, label %._crit_edge, label %11
+"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit.thread398": ; preds = %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73", %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69", %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit", %41, %43, %45, %47, %40, %32, %34, %36, %38, %31, %23, %25, %27, %29, %22, %52, %19, %49, %21
+  %.sroa.6.sroa.0.1 = phi i64 [ %.sroa.6.sroa.0.0431, %19 ], [ %.sroa.6.sroa.0.0431, %49 ], [ %.sroa.442.sroa.0.0.copyload.fr, %21 ], [ %.sroa.6.sroa.0.0431, %52 ], [ %.sroa.6.sroa.0.0431, %22 ], [ %.sroa.6.sroa.0.0431, %29 ], [ %.sroa.6.sroa.0.0431, %27 ], [ %.sroa.6.sroa.0.0431, %25 ], [ %.sroa.6.sroa.0.0431, %23 ], [ %.sroa.6.sroa.0.0431, %31 ], [ %.sroa.6.sroa.0.0431, %38 ], [ %.sroa.6.sroa.0.0431, %36 ], [ %.sroa.6.sroa.0.0431, %34 ], [ %.sroa.6.sroa.0.0431, %32 ], [ %.sroa.6.sroa.0.0431, %40 ], [ %.sroa.6.sroa.0.0431, %47 ], [ %.sroa.6.sroa.0.0431, %45 ], [ %.sroa.6.sroa.0.0431, %43 ], [ %.sroa.6.sroa.0.0431, %41 ], [ %.sroa.6.sroa.0.0431, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.sroa.6.sroa.0.0431, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.sroa.6.sroa.0.0431, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
+  %.sroa.6.sroa.5.1 = phi i64 [ %.sroa.6.sroa.5.0432, %19 ], [ %.sroa.6.sroa.5.0432, %49 ], [ %.sroa.4384.0.copyload, %21 ], [ %.sroa.6.sroa.5.0432, %52 ], [ %.sroa.6.sroa.5.0432, %22 ], [ %.sroa.6.sroa.5.0432, %29 ], [ %.sroa.6.sroa.5.0432, %27 ], [ %.sroa.6.sroa.5.0432, %25 ], [ %.sroa.6.sroa.5.0432, %23 ], [ %.sroa.6.sroa.5.0432, %31 ], [ %.sroa.6.sroa.5.0432, %38 ], [ %.sroa.6.sroa.5.0432, %36 ], [ %.sroa.6.sroa.5.0432, %34 ], [ %.sroa.6.sroa.5.0432, %32 ], [ %.sroa.6.sroa.5.0432, %40 ], [ %.sroa.6.sroa.5.0432, %47 ], [ %.sroa.6.sroa.5.0432, %45 ], [ %.sroa.6.sroa.5.0432, %43 ], [ %.sroa.6.sroa.5.0432, %41 ], [ %.sroa.6.sroa.5.0432, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.sroa.6.sroa.5.0432, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.sroa.6.sroa.5.0432, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
+  %.157 = phi i64 [ %.056434, %19 ], [ %.056434, %49 ], [ %.056434, %21 ], [ %.056434, %52 ], [ %.056434, %22 ], [ %.sroa.442.sroa.0.0.copyload.fr, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %.056434, %31 ], [ %.056434, %38 ], [ %.056434, %36 ], [ %.056434, %34 ], [ %.056434, %32 ], [ %.056434, %40 ], [ %.056434, %47 ], [ %.056434, %45 ], [ %.056434, %43 ], [ %.056434, %41 ], [ %spec.select, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.056434, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.056434, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
+  %.154 = phi i64 [ %.053435, %19 ], [ %.053435, %49 ], [ %.053435, %21 ], [ %.053435, %52 ], [ %.053435, %22 ], [ %.053435, %29 ], [ %.053435, %27 ], [ %.053435, %25 ], [ %.053435, %23 ], [ %.053435, %31 ], [ %.sroa.442.sroa.0.0.copyload.fr, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %.053435, %40 ], [ %.053435, %47 ], [ %.053435, %45 ], [ %.053435, %43 ], [ %.053435, %41 ], [ %.053435, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %spec.select420, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.053435, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
+  %.1 = phi i64 [ %.0436, %19 ], [ %.0436, %49 ], [ %.0436, %21 ], [ %.0436, %52 ], [ %.0436, %22 ], [ %.0436, %29 ], [ %.0436, %27 ], [ %.0436, %25 ], [ %.0436, %23 ], [ %.0436, %31 ], [ %.0436, %38 ], [ %.0436, %36 ], [ %.0436, %34 ], [ %.0436, %32 ], [ %.0436, %40 ], [ %.sroa.442.sroa.0.0.copyload.fr, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %.0436, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.0436, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %spec.select421, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
+  %.sroa.039.1 = phi <16 x i8> [ %.sroa.039.0437, %19 ], [ %.sroa.039.0437, %49 ], [ %.sroa.039.0437, %21 ], [ %55, %52 ], [ %.sroa.039.0437, %22 ], [ %.sroa.039.0437, %29 ], [ %.sroa.039.0437, %27 ], [ %.sroa.039.0437, %25 ], [ %.sroa.039.0437, %23 ], [ %.sroa.039.0437, %31 ], [ %.sroa.039.0437, %38 ], [ %.sroa.039.0437, %36 ], [ %.sroa.039.0437, %34 ], [ %.sroa.039.0437, %32 ], [ %.sroa.039.0437, %40 ], [ %.sroa.039.0437, %47 ], [ %.sroa.039.0437, %45 ], [ %.sroa.039.0437, %43 ], [ %.sroa.039.0437, %41 ], [ %.sroa.039.0437, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.sroa.039.0437, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.sroa.039.0437, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
+  %.sroa.04.1 = phi i64 [ %.sroa.04.0438, %19 ], [ %.sroa.04.0438, %49 ], [ %15, %21 ], [ %.sroa.04.0438, %52 ], [ %.sroa.04.0438, %22 ], [ %.sroa.04.0438, %29 ], [ %.sroa.04.0438, %27 ], [ %.sroa.04.0438, %25 ], [ %.sroa.04.0438, %23 ], [ %.sroa.04.0438, %31 ], [ %.sroa.04.0438, %38 ], [ %.sroa.04.0438, %36 ], [ %.sroa.04.0438, %34 ], [ %.sroa.04.0438, %32 ], [ %.sroa.04.0438, %40 ], [ %.sroa.04.0438, %47 ], [ %.sroa.04.0438, %45 ], [ %.sroa.04.0438, %43 ], [ %.sroa.04.0438, %41 ], [ %.sroa.04.0438, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit" ], [ %.sroa.04.0438, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit69" ], [ %.sroa.04.0438, %"_ZN5gimli4read4unit32AttributeValue$LT$R$C$Offset$GT$11udata_value17hac8f64da10da73e9E.exit73" ]
+  %58 = icmp eq ptr %12, %8
+  br i1 %58, label %._crit_edge, label %11
 }
 
 ; Function Attrs: nonlazybind uwtable

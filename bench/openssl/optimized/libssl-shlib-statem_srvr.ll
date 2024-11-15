@@ -3993,7 +3993,7 @@ entry:
   %0 = load i32, ptr %hand_state, align 4
   switch i32 %0, label %return [
     i32 22, label %sw.bb
-    i32 48, label %sw.bb8
+    i32 48, label %sw.bb6
     i32 31, label %sw.bb2
     i32 30, label %sw.bb2
     i32 32, label %sw.bb3
@@ -4020,17 +4020,14 @@ sw.bb4:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   br label %return
 
-sw.bb6:                                           ; preds = %entry
+sw.bb6:                                           ; preds = %entry, %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   br label %return
 
-sw.bb8:                                           ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %entry, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb
-  %retval.0 = phi i64 [ 1, %sw.bb8 ], [ 64, %sw.bb7 ], [ 1, %sw.bb6 ], [ 514, %sw.bb5 ], [ 65539, %sw.bb4 ], [ 2048, %sw.bb3 ], [ %1, %sw.bb2 ], [ 131396, %sw.bb ], [ 0, %entry ]
+return:                                           ; preds = %entry, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb
+  %retval.0 = phi i64 [ 64, %sw.bb7 ], [ 1, %sw.bb6 ], [ 514, %sw.bb5 ], [ 65539, %sw.bb4 ], [ 2048, %sw.bb3 ], [ %1, %sw.bb2 ], [ 131396, %sw.bb ], [ 0, %entry ]
   ret i64 %retval.0
 }
 

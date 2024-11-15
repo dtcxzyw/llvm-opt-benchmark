@@ -88784,7 +88784,7 @@ entry:
     i8 0, label %sw.bb
     i8 1, label %sw.bb1
     i8 2, label %sw.bb4
-    i8 3, label %sw.bb6
+    i8 3, label %sw.bb4
     i8 4, label %sw.bb8
     i8 5, label %sw.bb9
     i8 6, label %cleanup
@@ -88825,10 +88825,7 @@ if.end:                                           ; preds = %sw.bb1
   store ptr %1, ptr %other, align 8, !tbaa !36
   br label %cleanup
 
-sw.bb4:                                           ; preds = %entry
-  br label %cleanup
-
-sw.bb6:                                           ; preds = %entry
+sw.bb4:                                           ; preds = %entry, %entry
   br label %cleanup
 
 sw.bb8:                                           ; preds = %entry
@@ -88845,8 +88842,8 @@ sw.bb9:                                           ; preds = %entry
 sw.epilog:                                        ; preds = %sw.bb8, %_ZN4entt9basic_anyILm16ELm8EE10initializeI10abstract_tJRKS3_EEEvDpOT0_.exit, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %sw.epilog, %sw.bb9, %sw.bb6, %sw.bb4, %if.end, %if.then, %entry
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond14, %sw.bb9 ], [ %other, %sw.bb6 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
+cleanup:                                          ; preds = %sw.epilog, %sw.bb9, %sw.bb4, %if.end, %if.then, %entry
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond14, %sw.bb9 ], [ %other, %sw.bb4 ], [ %other, %if.then ], [ %1, %if.end ], [ %cond, %entry ]
   ret ptr %retval.0
 }
 

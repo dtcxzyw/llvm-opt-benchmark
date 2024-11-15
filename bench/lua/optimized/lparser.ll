@@ -2561,17 +2561,13 @@ checkrepeated.exit:                               ; preds = %for.cond.i.i615, %l
     i32 260, label %block_follow.exit
     i32 261, label %block_follow.exit
     i32 288, label %block_follow.exit
-    i32 276, label %sw.bb1.i
   ]
-
-sw.bb1.i:                                         ; preds = %checkrepeated.exit
-  br label %block_follow.exit
 
 sw.default.i602:                                  ; preds = %checkrepeated.exit
   br label %block_follow.exit
 
-block_follow.exit:                                ; preds = %checkrepeated.exit, %checkrepeated.exit, %checkrepeated.exit, %checkrepeated.exit, %sw.bb1.i, %sw.default.i602
-  %retval.0.i601 = phi i32 [ 0, %sw.default.i602 ], [ 0, %sw.bb1.i ], [ 1, %checkrepeated.exit ], [ 1, %checkrepeated.exit ], [ 1, %checkrepeated.exit ], [ 1, %checkrepeated.exit ]
+block_follow.exit:                                ; preds = %checkrepeated.exit, %checkrepeated.exit, %checkrepeated.exit, %checkrepeated.exit, %sw.default.i602
+  %retval.0.i601 = phi i32 [ 0, %sw.default.i602 ], [ 1, %checkrepeated.exit ], [ 1, %checkrepeated.exit ], [ 1, %checkrepeated.exit ], [ 1, %checkrepeated.exit ]
   %call4.i80 = tail call fastcc i32 @createlabel(ptr noundef nonnull %ls, ptr noundef %310, i32 noundef %0, i32 noundef %retval.0.i601)
   br label %sw.epilog
 

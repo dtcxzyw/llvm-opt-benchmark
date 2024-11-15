@@ -687,8 +687,8 @@ switch.lookup:                                    ; preds = %17
   %switch.load = load float, ptr %switch.gep, align 4
   br label %20
 
-20:                                               ; preds = %switch.lookup, %17
-  %.051 = phi float [ 0.000000e+00, %17 ], [ %switch.load, %switch.lookup ]
+20:                                               ; preds = %17, %switch.lookup
+  %.051 = phi float [ %switch.load, %switch.lookup ], [ 0.000000e+00, %17 ]
   %21 = getelementptr inbounds i8, ptr %13, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = call i32 @pthread_getschedparam(i64 noundef %22, ptr noundef nonnull %7, ptr noundef nonnull %6) #3
@@ -4126,8 +4126,8 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
     i8 102, label %.loopexit116
     i8 71, label %280
     i8 103, label %.loopexit117
-    i8 0, label %.loopexit118
     i8 115, label %303
+    i8 0, label %.loopexit118
   ]
 
 .critedge:                                        ; preds = %229, %229, %229, %229, %229, %229

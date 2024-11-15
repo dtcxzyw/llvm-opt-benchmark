@@ -30256,15 +30256,15 @@ define internal fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$1
   %14 = getelementptr inbounds i8, ptr %2, i64 24
   %15 = load i64, ptr %14, align 8, !range !5098, !alias.scope !5099, !noalias !5102, !noundef !13
   %switch.not.i.i = icmp ult i64 %15, -9223372036854775801
-  %spec.select.i.i = select i1 %switch.not.i.i, i64 52, i64 36
-  %16 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.not.i.i, i64 52, i64 36
+  %16 = getelementptr inbounds i8, ptr %2, i64 %..i.i
   %.0.i.i = load i32, ptr %16, align 4, !alias.scope !5104, !noalias !5102, !noundef !13
   %.not.i = icmp eq i32 %.0.i.i, %4
   br i1 %.not.i, label %17, label %23
 
 17:                                               ; preds = %8
-  %spec.select.i9.i = select i1 %switch.not.i.i, i64 48, i64 32
-  %18 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i9.i
+  %..i9.i = select i1 %switch.not.i.i, i64 48, i64 32
+  %18 = getelementptr inbounds i8, ptr %2, i64 %..i9.i
   %.0.i10.i = load i32, ptr %18, align 8, !alias.scope !5107, !noalias !5102, !noundef !13
   %.not7.i = icmp eq i32 %.0.i10.i, %5
   br i1 %.not7.i, label %19, label %23

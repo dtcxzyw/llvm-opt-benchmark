@@ -1747,7 +1747,7 @@ entry:
     i32 -99, label %sw.bb3
     i32 -97, label %sw.bb4
     i32 -11, label %sw.bb5
-    i32 -3000, label %sw.bb6
+    i32 -3000, label %sw.bb4
     i32 -3001, label %sw.bb7
     i32 -3002, label %sw.bb8
     i32 -3013, label %sw.bb9
@@ -1822,7 +1822,7 @@ entry:
     i32 -25, label %sw.bb78
     i32 -4028, label %sw.bb79
     i32 -84, label %sw.bb80
-    i32 -94, label %sw.bb81
+    i32 -94, label %sw.bb19
     i32 -61, label %sw.bb82
     i32 -49, label %sw.bb83
   ]
@@ -1836,13 +1836,10 @@ sw.bb2:                                           ; preds = %entry
 sw.bb3:                                           ; preds = %entry
   br label %return
 
-sw.bb4:                                           ; preds = %entry
+sw.bb4:                                           ; preds = %entry, %entry
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  br label %return
-
-sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -1881,7 +1878,7 @@ sw.bb17:                                          ; preds = %entry
 sw.bb18:                                          ; preds = %entry
   br label %return
 
-sw.bb19:                                          ; preds = %entry
+sw.bb19:                                          ; preds = %entry, %entry
   br label %return
 
 sw.bb20:                                          ; preds = %entry
@@ -2067,9 +2064,6 @@ sw.bb79:                                          ; preds = %entry
 sw.bb80:                                          ; preds = %entry
   br label %return
 
-sw.bb81:                                          ; preds = %entry
-  br label %return
-
 sw.bb82:                                          ; preds = %entry
   br label %return
 
@@ -2080,8 +2074,8 @@ sw.epilog:                                        ; preds = %entry
   %call = tail call fastcc ptr @uv__unknown_err_code(i32 noundef %err)
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb83, %sw.bb82, %sw.bb81, %sw.bb80, %sw.bb79, %sw.bb78, %sw.bb77, %sw.bb76, %sw.bb75, %sw.bb74, %sw.bb73, %sw.bb72, %sw.bb71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb67, %sw.bb66, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %sw.bb54, %sw.bb53, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb44, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi ptr [ %call, %sw.epilog ], [ @.str.167, %sw.bb83 ], [ @.str.166, %sw.bb82 ], [ @.str.104, %sw.bb81 ], [ @.str.165, %sw.bb80 ], [ @.str.164, %sw.bb79 ], [ @.str.163, %sw.bb78 ], [ @.str.162, %sw.bb77 ], [ @.str.161, %sw.bb76 ], [ @.str.160, %sw.bb75 ], [ @.str.159, %sw.bb74 ], [ @.str.158, %sw.bb73 ], [ @.str.157, %sw.bb72 ], [ @.str.156, %sw.bb71 ], [ @.str.155, %sw.bb70 ], [ @.str.154, %sw.bb69 ], [ @.str.153, %sw.bb68 ], [ @.str.152, %sw.bb67 ], [ @.str.151, %sw.bb66 ], [ @.str.150, %sw.bb65 ], [ @.str.149, %sw.bb64 ], [ @.str.148, %sw.bb63 ], [ @.str.147, %sw.bb62 ], [ @.str.146, %sw.bb61 ], [ @.str.145, %sw.bb60 ], [ @.str.144, %sw.bb59 ], [ @.str.143, %sw.bb58 ], [ @.str.142, %sw.bb57 ], [ @.str.141, %sw.bb56 ], [ @.str.140, %sw.bb55 ], [ @.str.139, %sw.bb54 ], [ @.str.138, %sw.bb53 ], [ @.str.137, %sw.bb52 ], [ @.str.136, %sw.bb51 ], [ @.str.135, %sw.bb50 ], [ @.str.134, %sw.bb49 ], [ @.str.133, %sw.bb48 ], [ @.str.132, %sw.bb47 ], [ @.str.131, %sw.bb46 ], [ @.str.130, %sw.bb45 ], [ @.str.129, %sw.bb44 ], [ @.str.128, %sw.bb43 ], [ @.str.127, %sw.bb42 ], [ @.str.126, %sw.bb41 ], [ @.str.125, %sw.bb40 ], [ @.str.124, %sw.bb39 ], [ @.str.123, %sw.bb38 ], [ @.str.122, %sw.bb37 ], [ @.str.121, %sw.bb36 ], [ @.str.120, %sw.bb35 ], [ @.str.119, %sw.bb34 ], [ @.str.118, %sw.bb33 ], [ @.str.117, %sw.bb32 ], [ @.str.116, %sw.bb31 ], [ @.str.115, %sw.bb30 ], [ @.str.114, %sw.bb29 ], [ @.str.113, %sw.bb28 ], [ @.str.112, %sw.bb27 ], [ @.str.111, %sw.bb26 ], [ @.str.110, %sw.bb25 ], [ @.str.109, %sw.bb24 ], [ @.str.108, %sw.bb23 ], [ @.str.107, %sw.bb22 ], [ @.str.106, %sw.bb21 ], [ @.str.105, %sw.bb20 ], [ @.str.104, %sw.bb19 ], [ @.str.103, %sw.bb18 ], [ @.str.102, %sw.bb17 ], [ @.str.101, %sw.bb16 ], [ @.str.100, %sw.bb15 ], [ @.str.99, %sw.bb14 ], [ @.str.98, %sw.bb13 ], [ @.str.97, %sw.bb12 ], [ @.str.96, %sw.bb11 ], [ @.str.95, %sw.bb10 ], [ @.str.94, %sw.bb9 ], [ @.str.93, %sw.bb8 ], [ @.str.92, %sw.bb7 ], [ @.str.90, %sw.bb6 ], [ @.str.91, %sw.bb5 ], [ @.str.90, %sw.bb4 ], [ @.str.89, %sw.bb3 ], [ @.str.88, %sw.bb2 ], [ @.str.87, %sw.bb1 ], [ @.str.86, %entry ]
+return:                                           ; preds = %entry, %sw.epilog, %sw.bb83, %sw.bb82, %sw.bb80, %sw.bb79, %sw.bb78, %sw.bb77, %sw.bb76, %sw.bb75, %sw.bb74, %sw.bb73, %sw.bb72, %sw.bb71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb67, %sw.bb66, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %sw.bb54, %sw.bb53, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb44, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
+  %retval.0 = phi ptr [ %call, %sw.epilog ], [ @.str.167, %sw.bb83 ], [ @.str.166, %sw.bb82 ], [ @.str.165, %sw.bb80 ], [ @.str.164, %sw.bb79 ], [ @.str.163, %sw.bb78 ], [ @.str.162, %sw.bb77 ], [ @.str.161, %sw.bb76 ], [ @.str.160, %sw.bb75 ], [ @.str.159, %sw.bb74 ], [ @.str.158, %sw.bb73 ], [ @.str.157, %sw.bb72 ], [ @.str.156, %sw.bb71 ], [ @.str.155, %sw.bb70 ], [ @.str.154, %sw.bb69 ], [ @.str.153, %sw.bb68 ], [ @.str.152, %sw.bb67 ], [ @.str.151, %sw.bb66 ], [ @.str.150, %sw.bb65 ], [ @.str.149, %sw.bb64 ], [ @.str.148, %sw.bb63 ], [ @.str.147, %sw.bb62 ], [ @.str.146, %sw.bb61 ], [ @.str.145, %sw.bb60 ], [ @.str.144, %sw.bb59 ], [ @.str.143, %sw.bb58 ], [ @.str.142, %sw.bb57 ], [ @.str.141, %sw.bb56 ], [ @.str.140, %sw.bb55 ], [ @.str.139, %sw.bb54 ], [ @.str.138, %sw.bb53 ], [ @.str.137, %sw.bb52 ], [ @.str.136, %sw.bb51 ], [ @.str.135, %sw.bb50 ], [ @.str.134, %sw.bb49 ], [ @.str.133, %sw.bb48 ], [ @.str.132, %sw.bb47 ], [ @.str.131, %sw.bb46 ], [ @.str.130, %sw.bb45 ], [ @.str.129, %sw.bb44 ], [ @.str.128, %sw.bb43 ], [ @.str.127, %sw.bb42 ], [ @.str.126, %sw.bb41 ], [ @.str.125, %sw.bb40 ], [ @.str.124, %sw.bb39 ], [ @.str.123, %sw.bb38 ], [ @.str.122, %sw.bb37 ], [ @.str.121, %sw.bb36 ], [ @.str.120, %sw.bb35 ], [ @.str.119, %sw.bb34 ], [ @.str.118, %sw.bb33 ], [ @.str.117, %sw.bb32 ], [ @.str.116, %sw.bb31 ], [ @.str.115, %sw.bb30 ], [ @.str.114, %sw.bb29 ], [ @.str.113, %sw.bb28 ], [ @.str.112, %sw.bb27 ], [ @.str.111, %sw.bb26 ], [ @.str.110, %sw.bb25 ], [ @.str.109, %sw.bb24 ], [ @.str.108, %sw.bb23 ], [ @.str.107, %sw.bb22 ], [ @.str.106, %sw.bb21 ], [ @.str.105, %sw.bb20 ], [ @.str.104, %sw.bb19 ], [ @.str.103, %sw.bb18 ], [ @.str.102, %sw.bb17 ], [ @.str.101, %sw.bb16 ], [ @.str.100, %sw.bb15 ], [ @.str.99, %sw.bb14 ], [ @.str.98, %sw.bb13 ], [ @.str.97, %sw.bb12 ], [ @.str.96, %sw.bb11 ], [ @.str.95, %sw.bb10 ], [ @.str.94, %sw.bb9 ], [ @.str.93, %sw.bb8 ], [ @.str.92, %sw.bb7 ], [ @.str.91, %sw.bb5 ], [ @.str.90, %sw.bb4 ], [ @.str.89, %sw.bb3 ], [ @.str.88, %sw.bb2 ], [ @.str.87, %sw.bb1 ], [ @.str.86, %entry ]
   ret ptr %retval.0
 }
 

@@ -278,7 +278,6 @@ $_ZTVSt18bad_variant_access = comdat any
 @.str.23 = private unnamed_addr constant [23 x i8] c"models for BAPA is TBD\00", align 1
 @.str.24 = private unnamed_addr constant [11 x i8] c"inc value \00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_theory_array_bapa.cpp, ptr null }]
-@switch.table._ZN3smt17theory_array_bapa3imp11final_checkEv = private unnamed_addr constant [3 x i32] [i32 1, i32 2, i32 0], align 4
 
 @_ZN3smt17theory_array_bapaC1ERNS_17theory_array_fullE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3smt17theory_array_bapaC2ERNS_17theory_array_fullE
 @_ZN3smt17theory_array_bapaD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3smt17theory_array_bapaD2Ev
@@ -695,18 +694,14 @@ if.then23:                                        ; preds = %if.end21
 
 if.end26:                                         ; preds = %if.end, %if.end11, %if.end16, %if.then23, %if.end21
   %r.3 = phi i32 [ %call25, %if.then23 ], [ %call20, %if.end21 ], [ %call15, %if.end16 ], [ %call10, %if.end11 ], [ %call3, %if.end ]
-  %switch.tableidx = add i32 %r.3, 1
-  %11 = icmp ult i32 %switch.tableidx, 3
-  br i1 %11, label %switch.lookup, label %return
-
-switch.lookup:                                    ; preds = %if.end26
-  %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN3smt17theory_array_bapa3imp11final_checkEv, i64 0, i64 %12
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %switch.selectcmp = icmp eq i32 %r.3, -1
+  %switch.select = select i1 %switch.selectcmp, i32 1, i32 2
+  %switch.selectcmp7 = icmp eq i32 %r.3, 1
+  %switch.select8 = select i1 %switch.selectcmp7, i32 0, i32 %switch.select
   br label %return
 
-return:                                           ; preds = %if.end26, %switch.lookup, %entry
-  %retval.0 = phi i32 [ %call, %entry ], [ %switch.load, %switch.lookup ], [ 2, %if.end26 ]
+return:                                           ; preds = %if.end26, %entry
+  %retval.0 = phi i32 [ %call, %entry ], [ %switch.select8, %if.end26 ]
   ret i32 %retval.0
 }
 

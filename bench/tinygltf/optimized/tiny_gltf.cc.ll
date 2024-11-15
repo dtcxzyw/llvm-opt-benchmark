@@ -87537,7 +87537,7 @@ _ZL10stbi__get8P13stbi__context.exit86:           ; preds = %44, %_ZL19stbi__ref
   %83 = getelementptr inbounds i8, ptr %0, i64 216
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %7, align 8
-  br label %337
+  br label %336
 
 _ZL10stbi__get8P13stbi__context.exit86.thread:    ; preds = %47, %_ZL10stbi__get8P13stbi__context.exit86
   %85 = phi ptr [ %77, %_ZL10stbi__get8P13stbi__context.exit86 ], [ %41, %47 ]
@@ -87620,7 +87620,7 @@ _ZL10stbi__get8P13stbi__context.exit92:           ; preds = %88, %91, %_ZL19stbi
   %127 = getelementptr inbounds i8, ptr %0, i64 216
   %128 = load ptr, ptr %127, align 8
   store ptr %128, ptr %7, align 8
-  br label %337
+  br label %336
 
 129:                                              ; preds = %122
   %130 = getelementptr inbounds i8, ptr %0, i64 16
@@ -87732,7 +87732,7 @@ _ZL10stbi__get8P13stbi__context.exit100.thread:   ; preds = %151, %_ZL10stbi__ge
   %183 = getelementptr inbounds i8, ptr %0, i64 216
   %184 = load ptr, ptr %183, align 8
   store ptr %184, ptr %7, align 8
-  br label %337
+  br label %336
 
 185:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit100, %_ZL10stbi__get8P13stbi__context.exit100, %_ZL10stbi__get8P13stbi__context.exit100, %_ZL10stbi__get8P13stbi__context.exit100, %_ZL10stbi__get8P13stbi__context.exit100
   %186 = load ptr, ptr %130, align 8
@@ -87774,7 +87774,7 @@ _ZL10stbi__get8P13stbi__context.exit100.thread:   ; preds = %151, %_ZL10stbi__ge
   %205 = getelementptr inbounds i8, ptr %0, i64 216
   %206 = load ptr, ptr %205, align 8
   store ptr %206, ptr %7, align 8
-  br label %337
+  br label %336
 
 207:                                              ; preds = %200
   %208 = getelementptr inbounds i8, ptr %0, i64 16
@@ -87818,7 +87818,7 @@ _ZL10stbi__skipP13stbi__contexti.exit105:         ; preds = %._crit_edge.i107, %
   %228 = getelementptr inbounds i8, ptr %0, i64 216
   %229 = load ptr, ptr %228, align 8
   store ptr %229, ptr %7, align 8
-  br label %337
+  br label %336
 
 230:                                              ; preds = %_ZL10stbi__skipP13stbi__contexti.exit105
   %231 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %0)
@@ -87832,7 +87832,7 @@ _ZL10stbi__skipP13stbi__contexti.exit105:         ; preds = %._crit_edge.i107, %
   %236 = getelementptr inbounds i8, ptr %0, i64 216
   %237 = load ptr, ptr %236, align 8
   store ptr %237, ptr %7, align 8
-  br label %337
+  br label %336
 
 238:                                              ; preds = %230
   %239 = load ptr, ptr %5, align 8
@@ -87959,7 +87959,7 @@ _ZL10stbi__get8P13stbi__context.exit122.sink.split: ; preds = %_ZL19stbi__refill
 
 _ZL10stbi__get8P13stbi__context.exit122:          ; preds = %_ZL10stbi__get8P13stbi__context.exit122.sink.split, %280
   %.not = icmp eq i8 %.070.shrunk, 0
-  br i1 %.not, label %318, label %309
+  br i1 %.not, label %317, label %309
 
 309:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit122
   switch i8 %.0.i115, label %310 [
@@ -87974,87 +87974,84 @@ _ZL10stbi__get8P13stbi__context.exit122:          ; preds = %_ZL10stbi__get8P13s
   %313 = getelementptr inbounds i8, ptr %0, i64 216
   %314 = load ptr, ptr %313, align 8
   store ptr %314, ptr %7, align 8
-  br label %337
+  br label %336
 
 315:                                              ; preds = %309, %309
   switch i8 %.070.shrunk, label %_ZL18stbi__tga_get_compiiPi.exit.thread134 [
     i8 8, label %_ZL18stbi__tga_get_compiiPi.exit.thread
     i8 16, label %316
-    i8 15, label %317
+    i8 15, label %316
     i8 24, label %_ZL18stbi__tga_get_compiiPi.exit
     i8 32, label %_ZL18stbi__tga_get_compiiPi.exit
   ]
 
-316:                                              ; preds = %315
+316:                                              ; preds = %315, %315
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
-317:                                              ; preds = %315
-  br label %_ZL18stbi__tga_get_compiiPi.exit.thread
-
-318:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit122
+317:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit122
   switch i8 %.0.i115, label %_ZL18stbi__tga_get_compiiPi.exit.thread134 [
     i8 8, label %_ZL18stbi__tga_get_compiiPi.exit.thread
-    i8 16, label %319
-    i8 15, label %322
-    i8 24, label %323
-    i8 32, label %323
+    i8 16, label %318
+    i8 15, label %321
+    i8 24, label %322
+    i8 32, label %322
   ]
 
-319:                                              ; preds = %318
-  %320 = and i8 %.0.i91, -9
-  %321 = icmp eq i8 %320, 3
-  %.mux.i = select i1 %321, i32 2, i32 3
+318:                                              ; preds = %317
+  %319 = and i8 %.0.i91, -9
+  %320 = icmp eq i8 %319, 3
+  %.mux.i = select i1 %320, i32 2, i32 3
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
-322:                                              ; preds = %318
+321:                                              ; preds = %317
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
-323:                                              ; preds = %318, %318
-  %324 = lshr i8 %.0.i115, 3
-  %325 = zext nneg i8 %324 to i32
+322:                                              ; preds = %317, %317
+  %323 = lshr i8 %.0.i115, 3
+  %324 = zext nneg i8 %323 to i32
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
 _ZL18stbi__tga_get_compiiPi.exit:                 ; preds = %315, %315
-  %326 = lshr i8 %.070.shrunk, 3
-  %327 = zext nneg i8 %326 to i32
+  %325 = lshr i8 %.070.shrunk, 3
+  %326 = zext nneg i8 %325 to i32
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
-_ZL18stbi__tga_get_compiiPi.exit.thread134:       ; preds = %318, %315
-  %328 = getelementptr inbounds i8, ptr %0, i64 208
-  %329 = load ptr, ptr %328, align 8
-  store ptr %329, ptr %5, align 8
-  %330 = getelementptr inbounds i8, ptr %0, i64 216
-  %331 = load ptr, ptr %330, align 8
-  store ptr %331, ptr %7, align 8
-  br label %337
+_ZL18stbi__tga_get_compiiPi.exit.thread134:       ; preds = %317, %315
+  %327 = getelementptr inbounds i8, ptr %0, i64 208
+  %328 = load ptr, ptr %327, align 8
+  store ptr %328, ptr %5, align 8
+  %329 = getelementptr inbounds i8, ptr %0, i64 216
+  %330 = load ptr, ptr %329, align 8
+  store ptr %330, ptr %7, align 8
+  br label %336
 
-_ZL18stbi__tga_get_compiiPi.exit.thread:          ; preds = %_ZL18stbi__tga_get_compiiPi.exit, %322, %319, %318, %323, %317, %316, %315
-  %.069132 = phi i32 [ %327, %_ZL18stbi__tga_get_compiiPi.exit ], [ 3, %322 ], [ %.mux.i, %319 ], [ 1, %318 ], [ %325, %323 ], [ 3, %317 ], [ 3, %316 ], [ 1, %315 ]
+_ZL18stbi__tga_get_compiiPi.exit.thread:          ; preds = %_ZL18stbi__tga_get_compiiPi.exit, %321, %318, %317, %322, %316, %315
+  %.069132 = phi i32 [ %326, %_ZL18stbi__tga_get_compiiPi.exit ], [ 3, %321 ], [ %.mux.i, %318 ], [ 1, %317 ], [ %324, %322 ], [ 3, %316 ], [ 1, %315 ]
   %.not78 = icmp eq ptr %1, null
-  br i1 %.not78, label %333, label %332
+  br i1 %.not78, label %332, label %331
 
-332:                                              ; preds = %_ZL18stbi__tga_get_compiiPi.exit.thread
+331:                                              ; preds = %_ZL18stbi__tga_get_compiiPi.exit.thread
   store i32 %223, ptr %1, align 4
-  br label %333
+  br label %332
 
-333:                                              ; preds = %332, %_ZL18stbi__tga_get_compiiPi.exit.thread
+332:                                              ; preds = %331, %_ZL18stbi__tga_get_compiiPi.exit.thread
   %.not79 = icmp eq ptr %2, null
-  br i1 %.not79, label %335, label %334
+  br i1 %.not79, label %334, label %333
 
-334:                                              ; preds = %333
+333:                                              ; preds = %332
   store i32 %231, ptr %2, align 4
-  br label %335
+  br label %334
 
-335:                                              ; preds = %334, %333
+334:                                              ; preds = %333, %332
   %.not80 = icmp eq ptr %3, null
-  br i1 %.not80, label %337, label %336
+  br i1 %.not80, label %336, label %335
 
-336:                                              ; preds = %335
+335:                                              ; preds = %334
   store i32 %.069132, ptr %3, align 4
-  br label %337
+  br label %336
 
-337:                                              ; preds = %335, %336, %_ZL18stbi__tga_get_compiiPi.exit.thread134, %310, %233, %225, %202, %_ZL10stbi__get8P13stbi__context.exit100.thread, %124, %80
-  %.0 = phi i32 [ 0, %80 ], [ 0, %124 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit100.thread ], [ 0, %225 ], [ 0, %233 ], [ 0, %310 ], [ 0, %_ZL18stbi__tga_get_compiiPi.exit.thread134 ], [ 0, %202 ], [ 1, %336 ], [ 1, %335 ]
+336:                                              ; preds = %334, %335, %_ZL18stbi__tga_get_compiiPi.exit.thread134, %310, %233, %225, %202, %_ZL10stbi__get8P13stbi__context.exit100.thread, %124, %80
+  %.0 = phi i32 [ 0, %80 ], [ 0, %124 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit100.thread ], [ 0, %225 ], [ 0, %233 ], [ 0, %310 ], [ 0, %_ZL18stbi__tga_get_compiiPi.exit.thread134 ], [ 0, %202 ], [ 1, %335 ], [ 1, %334 ]
   ret i32 %.0
 }
 

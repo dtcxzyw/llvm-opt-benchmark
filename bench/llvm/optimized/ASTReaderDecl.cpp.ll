@@ -49918,124 +49918,70 @@ define dso_local void @_ZN5clang9ASTReader23markIncompleteDeclChainEPNS_4DeclE(p
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 127
-  switch i32 %5, label %34 [
+  switch i32 %5, label %16 [
     i32 0, label %.sink.split
-    i32 32, label %10
-    i32 33, label %11
-    i32 34, label %12
-    i32 35, label %13
-    i32 36, label %14
+    i32 32, label %8
+    i32 33, label %8
+    i32 34, label %8
+    i32 35, label %8
+    i32 36, label %8
     i32 37, label %.sink.split
     i32 38, label %.sink.split
     i32 39, label %.sink.split
     i32 40, label %.sink.split
     i32 41, label %.sink.split
     i32 42, label %.sink.split
-    i32 74, label %29
+    i32 74, label %11
     i32 43, label %.sink.split
-    i32 58, label %20
-    i32 57, label %19
+    i32 58, label %9
+    i32 57, label %9
     i32 16, label %6
-    i32 17, label %7
-    i32 56, label %18
-    i32 69, label %28
-    i32 68, label %27
-    i32 21, label %8
-    i32 67, label %26
-    i32 66, label %25
-    i32 55, label %17
-    i32 50, label %15
-    i32 63, label %24
-    i32 62, label %23
-    i32 61, label %22
-    i32 51, label %16
-    i32 59, label %21
-    i32 31, label %9
+    i32 17, label %6
+    i32 56, label %9
+    i32 69, label %10
+    i32 68, label %10
+    i32 21, label %7
+    i32 67, label %10
+    i32 66, label %10
+    i32 55, label %9
+    i32 50, label %11
+    i32 63, label %10
+    i32 62, label %10
+    i32 61, label %10
+    i32 51, label %11
+    i32 59, label %9
+    i32 31, label %8
   ]
 
-6:                                                ; preds = %2
+6:                                                ; preds = %2, %2
   br label %.sink.split
 
 7:                                                ; preds = %2
   br label %.sink.split
 
-8:                                                ; preds = %2
+8:                                                ; preds = %2, %2, %2, %2, %2, %2
   br label %.sink.split
 
-9:                                                ; preds = %2
+9:                                                ; preds = %2, %2, %2, %2, %2
   br label %.sink.split
 
-10:                                               ; preds = %2
+10:                                               ; preds = %2, %2, %2, %2, %2, %2, %2
   br label %.sink.split
 
-11:                                               ; preds = %2
+11:                                               ; preds = %2, %2, %2
   br label %.sink.split
 
-12:                                               ; preds = %2
-  br label %.sink.split
+.sink.split:                                      ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %6, %7, %8, %9, %10, %11
+  %.sink203 = phi i64 [ 48, %11 ], [ 64, %10 ], [ 96, %9 ], [ 104, %8 ], [ 80, %7 ], [ 88, %6 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ]
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.sink203
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i190 = load i64, ptr %12, align 8
+  %13 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i190, -8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 0, ptr %15, align 8
+  br label %16
 
-13:                                               ; preds = %2
-  br label %.sink.split
-
-14:                                               ; preds = %2
-  br label %.sink.split
-
-15:                                               ; preds = %2
-  br label %.sink.split
-
-16:                                               ; preds = %2
-  br label %.sink.split
-
-17:                                               ; preds = %2
-  br label %.sink.split
-
-18:                                               ; preds = %2
-  br label %.sink.split
-
-19:                                               ; preds = %2
-  br label %.sink.split
-
-20:                                               ; preds = %2
-  br label %.sink.split
-
-21:                                               ; preds = %2
-  br label %.sink.split
-
-22:                                               ; preds = %2
-  br label %.sink.split
-
-23:                                               ; preds = %2
-  br label %.sink.split
-
-24:                                               ; preds = %2
-  br label %.sink.split
-
-25:                                               ; preds = %2
-  br label %.sink.split
-
-26:                                               ; preds = %2
-  br label %.sink.split
-
-27:                                               ; preds = %2
-  br label %.sink.split
-
-28:                                               ; preds = %2
-  br label %.sink.split
-
-29:                                               ; preds = %2
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29
-  %.sink203 = phi i64 [ 48, %29 ], [ 64, %28 ], [ 64, %27 ], [ 64, %26 ], [ 64, %25 ], [ 64, %24 ], [ 64, %23 ], [ 64, %22 ], [ 96, %21 ], [ 96, %20 ], [ 96, %19 ], [ 96, %18 ], [ 96, %17 ], [ 48, %16 ], [ 48, %15 ], [ 104, %14 ], [ 104, %13 ], [ 104, %12 ], [ 104, %11 ], [ 104, %10 ], [ 104, %9 ], [ 80, %8 ], [ 88, %7 ], [ 88, %6 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ], [ 72, %2 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 %.sink203
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i190 = load i64, ptr %30, align 8
-  %31 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i190, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 0, ptr %33, align 8
-  br label %34
-
-34:                                               ; preds = %.sink.split, %2
+16:                                               ; preds = %.sink.split, %2
   ret void
 }
 

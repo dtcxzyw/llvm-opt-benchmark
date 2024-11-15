@@ -579,8 +579,8 @@ _ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85: ; preds = %62
 _ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread: ; preds = %62, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85
   br label %70
 
-70:                                               ; preds = %52, %61, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit.thread, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread
-  %.0.ph = phi i8 [ 16, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85 ], [ 0, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread ], [ 21, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit ], [ 5, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit.thread ], [ 0, %61 ], [ 1, %52 ]
+70:                                               ; preds = %61, %52, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit.thread, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread
+  %.0.ph = phi i8 [ 16, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85 ], [ 0, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit85.thread ], [ 21, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit ], [ 5, %_ZNK14ShenandoahHeap21is_stw_gc_in_progressEv.exit.thread ], [ 1, %52 ], [ 0, %61 ]
   %71 = load ptr, ptr %0, align 8
   %72 = call noundef signext i8 @_ZNK14ShenandoahHeap8gc_stateEv(ptr noundef nonnull align 8 dereferenceable(2657) %71) #13
   %.not = icmp eq i8 %72, %.0.ph

@@ -382,7 +382,7 @@ define internal i32 @dissect_idrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %.not = icmp eq i8 %6, -123
-  br i1 %.not, label %7, label %375
+  br i1 %.not, label %7, label %374
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -415,8 +415,8 @@ define internal i32 @dissect_idrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
     i8 2, label %100
     i8 3, label %314
     i8 4, label %329
-    i8 5, label %330
-    i8 6, label %331
+    i8 5, label %329
+    i8 6, label %330
   ]
 
 31:                                               ; preds = %7
@@ -915,112 +915,109 @@ switch.lookup:                                    ; preds = %314
   %328 = add nuw i32 %323, 32
   br label %dissect_BISPDU_UPDATE.exit
 
-329:                                              ; preds = %7
+329:                                              ; preds = %7, %7
   br label %dissect_BISPDU_UPDATE.exit
 
 330:                                              ; preds = %7
-  br label %dissect_BISPDU_UPDATE.exit
-
-331:                                              ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %332 = load i32, ptr @hf_idrp_rib_refresh_opcode, align 4
-  %333 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %332, ptr noundef %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #3
-  %334 = load i32, ptr @ett_idrp_sub, align 4
-  %335 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef 31, i32 noundef 0, i32 noundef %334, ptr noundef nonnull %5, ptr noundef nonnull @.str.247) #3
-  %336 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 31) #3
-  %.not.i63 = icmp eq i8 %336, 0
+  %331 = load i32, ptr @hf_idrp_rib_refresh_opcode, align 4
+  %332 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %331, ptr noundef %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #3
+  %333 = load i32, ptr @ett_idrp_sub, align 4
+  %334 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef 31, i32 noundef 0, i32 noundef %333, ptr noundef nonnull %5, ptr noundef nonnull @.str.247) #3
+  %335 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 31) #3
+  %.not.i63 = icmp eq i8 %335, 0
   br i1 %.not.i63, label %.thread.i, label %.lr.ph78.preheader.i
 
-.thread.i:                                        ; preds = %331
-  %337 = load ptr, ptr %5, align 8
-  %338 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %337, ptr noundef nonnull @ei_idrp_no_path_attributes) #3
+.thread.i:                                        ; preds = %330
+  %336 = load ptr, ptr %5, align 8
+  %337 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %336, ptr noundef nonnull @ei_idrp_no_path_attributes) #3
   br label %dissect_BISPDU_RIB_REFRESH.exit
 
-.lr.ph78.preheader.i:                             ; preds = %331
-  %339 = zext i8 %336 to i32
+.lr.ph78.preheader.i:                             ; preds = %330
+  %338 = zext i8 %335 to i32
   br label %.lr.ph78.i
 
 .lr.ph78.i:                                       ; preds = %._crit_edge.i68, %.lr.ph78.preheader.i
-  %.07176.i = phi i32 [ %371, %._crit_edge.i68 ], [ %339, %.lr.ph78.preheader.i ]
+  %.07176.i = phi i32 [ %370, %._crit_edge.i68 ], [ %338, %.lr.ph78.preheader.i ]
   %.07275.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i68 ], [ 32, %.lr.ph78.preheader.i ]
-  %340 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.07275.i) #3
-  %341 = add i32 %.07275.i, 1
-  %.not82.i = icmp eq i8 %340, 0
+  %339 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.07275.i) #3
+  %340 = add i32 %.07275.i, 1
+  %.not82.i = icmp eq i8 %339, 0
   br i1 %.not82.i, label %._crit_edge.i68, label %.lr.ph.preheader.i64
 
 .lr.ph.preheader.i64:                             ; preds = %.lr.ph78.i
-  %342 = zext i8 %340 to i32
+  %341 = zext i8 %339 to i32
   br label %.lr.ph.i65
 
-.lr.ph.i65:                                       ; preds = %368, %.lr.ph.preheader.i64
-  %.074.i = phi i32 [ %369, %368 ], [ %342, %.lr.ph.preheader.i64 ]
-  %.173.i = phi i32 [ %.2.i67, %368 ], [ %341, %.lr.ph.preheader.i64 ]
-  %343 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.173.i) #3
-  %344 = add i32 %.173.i, 1
-  switch i8 %343, label %368 [
-    i8 14, label %354
-    i8 11, label %345
+.lr.ph.i65:                                       ; preds = %367, %.lr.ph.preheader.i64
+  %.074.i = phi i32 [ %368, %367 ], [ %341, %.lr.ph.preheader.i64 ]
+  %.173.i = phi i32 [ %.2.i67, %367 ], [ %340, %.lr.ph.preheader.i64 ]
+  %342 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.173.i) #3
+  %343 = add i32 %.173.i, 1
+  switch i8 %342, label %367 [
+    i8 14, label %353
+    i8 11, label %344
   ]
 
-345:                                              ; preds = %.lr.ph.i65
-  %346 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %344) #3
-  %347 = add i32 %.173.i, 2
-  %348 = load i32, ptr @hf_idrp_rib_refresh_rib_attr_locally_defined_qos_nsap, align 4
-  %349 = zext i8 %346 to i32
-  %350 = call ptr @proto_tree_add_item(ptr noundef %335, i32 noundef %348, ptr noundef %0, i32 noundef %347, i32 noundef %349, i32 noundef 0) #3
-  %351 = add i32 %347, %349
-  %352 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %351) #3
-  %353 = add i32 %351, 1
+344:                                              ; preds = %.lr.ph.i65
+  %345 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %343) #3
+  %346 = add i32 %.173.i, 2
+  %347 = load i32, ptr @hf_idrp_rib_refresh_rib_attr_locally_defined_qos_nsap, align 4
+  %348 = zext i8 %345 to i32
+  %349 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %347, ptr noundef %0, i32 noundef %346, i32 noundef %348, i32 noundef 0) #3
+  %350 = add i32 %346, %348
+  %351 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %350) #3
+  %352 = add i32 %350, 1
   br label %.sink.split.i66
 
-354:                                              ; preds = %.lr.ph.i65
-  %355 = add i32 %.173.i, 3
-  %356 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %355) #3
-  %357 = add i32 %.173.i, 4
+353:                                              ; preds = %.lr.ph.i65
+  %354 = add i32 %.173.i, 3
+  %355 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %354) #3
+  %356 = add i32 %.173.i, 4
   br label %.sink.split.i66
 
-.sink.split.i66:                                  ; preds = %354, %345
-  %hf_idrp_rib_refresh_rib_attr_locally_defined_qos_value.sink.i = phi ptr [ @hf_idrp_rib_refresh_rib_attr_locally_defined_qos_value, %345 ], [ @hf_idrp_rib_refresh_rib_attr_security_reg_id, %354 ]
-  %.sink93.i = phi i8 [ %352, %345 ], [ %356, %354 ]
-  %.sink91.i = phi i32 [ %353, %345 ], [ %357, %354 ]
-  %hf_idrp_rib_refresh_rib_attr_locally_defined_qos_metric.sink.i = phi ptr [ @hf_idrp_rib_refresh_rib_attr_locally_defined_qos_metric, %345 ], [ @hf_idrp_rib_refresh_rib_attr_security_info, %354 ]
-  %358 = load i32, ptr %hf_idrp_rib_refresh_rib_attr_locally_defined_qos_value.sink.i, align 4
-  %359 = zext i8 %.sink93.i to i32
-  %360 = call ptr @proto_tree_add_item(ptr noundef %335, i32 noundef %358, ptr noundef %0, i32 noundef %.sink91.i, i32 noundef %359, i32 noundef 0) #3
-  %361 = add i32 %.sink91.i, %359
-  %362 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %361) #3
-  %363 = add i32 %361, 1
-  %364 = load i32, ptr %hf_idrp_rib_refresh_rib_attr_locally_defined_qos_metric.sink.i, align 4
-  %365 = zext i8 %362 to i32
-  %366 = call ptr @proto_tree_add_item(ptr noundef %335, i32 noundef %364, ptr noundef %0, i32 noundef %363, i32 noundef %365, i32 noundef 0) #3
-  %367 = add i32 %363, %365
-  br label %368
+.sink.split.i66:                                  ; preds = %353, %344
+  %hf_idrp_rib_refresh_rib_attr_locally_defined_qos_value.sink.i = phi ptr [ @hf_idrp_rib_refresh_rib_attr_locally_defined_qos_value, %344 ], [ @hf_idrp_rib_refresh_rib_attr_security_reg_id, %353 ]
+  %.sink93.i = phi i8 [ %351, %344 ], [ %355, %353 ]
+  %.sink91.i = phi i32 [ %352, %344 ], [ %356, %353 ]
+  %hf_idrp_rib_refresh_rib_attr_locally_defined_qos_metric.sink.i = phi ptr [ @hf_idrp_rib_refresh_rib_attr_locally_defined_qos_metric, %344 ], [ @hf_idrp_rib_refresh_rib_attr_security_info, %353 ]
+  %357 = load i32, ptr %hf_idrp_rib_refresh_rib_attr_locally_defined_qos_value.sink.i, align 4
+  %358 = zext i8 %.sink93.i to i32
+  %359 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %357, ptr noundef %0, i32 noundef %.sink91.i, i32 noundef %358, i32 noundef 0) #3
+  %360 = add i32 %.sink91.i, %358
+  %361 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %360) #3
+  %362 = add i32 %360, 1
+  %363 = load i32, ptr %hf_idrp_rib_refresh_rib_attr_locally_defined_qos_metric.sink.i, align 4
+  %364 = zext i8 %361 to i32
+  %365 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %363, ptr noundef %0, i32 noundef %362, i32 noundef %364, i32 noundef 0) #3
+  %366 = add i32 %362, %364
+  br label %367
 
-368:                                              ; preds = %.sink.split.i66, %.lr.ph.i65
-  %.2.i67 = phi i32 [ %344, %.lr.ph.i65 ], [ %367, %.sink.split.i66 ]
-  %369 = add nsw i32 %.074.i, -1
-  %370 = icmp sgt i32 %.074.i, 1
-  br i1 %370, label %.lr.ph.i65, label %._crit_edge.i68, !llvm.loop !17
+367:                                              ; preds = %.sink.split.i66, %.lr.ph.i65
+  %.2.i67 = phi i32 [ %343, %.lr.ph.i65 ], [ %366, %.sink.split.i66 ]
+  %368 = add nsw i32 %.074.i, -1
+  %369 = icmp sgt i32 %.074.i, 1
+  br i1 %369, label %.lr.ph.i65, label %._crit_edge.i68, !llvm.loop !17
 
-._crit_edge.i68:                                  ; preds = %368, %.lr.ph78.i
-  %.1.lcssa.i = phi i32 [ %341, %.lr.ph78.i ], [ %.2.i67, %368 ]
-  %371 = add nsw i32 %.07176.i, -1
-  %372 = icmp sgt i32 %.07176.i, 1
-  br i1 %372, label %.lr.ph78.i, label %dissect_BISPDU_RIB_REFRESH.exit, !llvm.loop !18
+._crit_edge.i68:                                  ; preds = %367, %.lr.ph78.i
+  %.1.lcssa.i = phi i32 [ %340, %.lr.ph78.i ], [ %.2.i67, %367 ]
+  %370 = add nsw i32 %.07176.i, -1
+  %371 = icmp sgt i32 %.07176.i, 1
+  br i1 %371, label %.lr.ph78.i, label %dissect_BISPDU_RIB_REFRESH.exit, !llvm.loop !18
 
 dissect_BISPDU_RIB_REFRESH.exit:                  ; preds = %._crit_edge.i68, %.thread.i
   %.072.lcssa.i = phi i32 [ 32, %.thread.i ], [ %.1.lcssa.i, %._crit_edge.i68 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %dissect_BISPDU_UPDATE.exit
 
-dissect_BISPDU_UPDATE.exit:                       ; preds = %.lr.ph315.i, %325, %322, %._crit_edge311.i, %7, %dissect_BISPDU_RIB_REFRESH.exit, %330, %329, %dissect_BISPDU_OPEN.exit
-  %.0 = phi i32 [ 30, %7 ], [ %.072.lcssa.i, %dissect_BISPDU_RIB_REFRESH.exit ], [ 60, %330 ], [ 60, %329 ], [ %99, %dissect_BISPDU_OPEN.exit ], [ %300, %._crit_edge311.i ], [ %328, %325 ], [ 32, %322 ], [ %312, %.lr.ph315.i ]
-  %373 = load ptr, ptr %8, align 8
-  %374 = call ptr @val_to_str(i32 noundef %30, ptr noundef nonnull @idrp_pdu_types, ptr noundef nonnull @.str.246) #3
-  call void @col_append_str(ptr noundef %373, i32 noundef 25, ptr noundef %374) #3
-  br label %375
+dissect_BISPDU_UPDATE.exit:                       ; preds = %.lr.ph315.i, %325, %322, %._crit_edge311.i, %7, %dissect_BISPDU_RIB_REFRESH.exit, %329, %dissect_BISPDU_OPEN.exit
+  %.0 = phi i32 [ 30, %7 ], [ %.072.lcssa.i, %dissect_BISPDU_RIB_REFRESH.exit ], [ 60, %329 ], [ %99, %dissect_BISPDU_OPEN.exit ], [ %300, %._crit_edge311.i ], [ %328, %325 ], [ 32, %322 ], [ %312, %.lr.ph315.i ]
+  %372 = load ptr, ptr %8, align 8
+  %373 = call ptr @val_to_str(i32 noundef %30, ptr noundef nonnull @idrp_pdu_types, ptr noundef nonnull @.str.246) #3
+  call void @col_append_str(ptr noundef %372, i32 noundef 25, ptr noundef %373) #3
+  br label %374
 
-375:                                              ; preds = %4, %dissect_BISPDU_UPDATE.exit
+374:                                              ; preds = %4, %dissect_BISPDU_UPDATE.exit
   %.057 = phi i32 [ %.0, %dissect_BISPDU_UPDATE.exit ], [ 0, %4 ]
   ret i32 %.057
 }

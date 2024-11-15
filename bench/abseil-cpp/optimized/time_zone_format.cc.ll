@@ -181,9 +181,9 @@ if.end28.i:                                       ; preds = %if.else22.i, %if.el
   %10 = load i32, ptr %arrayidx14.i.i, align 4, !noalias !5
   %.not = icmp eq i64 %rem12.i.i, 0
   %switch.offset = add nsw i32 %10, 1
-  %spec.select = select i1 %.not, i32 0, i32 %switch.offset
+  %retval.0.i.i = select i1 %.not, i32 0, i32 %switch.offset
   %tm_wday.i = getelementptr inbounds i8, ptr %tm, i64 24
-  store i32 %spec.select, ptr %tm_wday.i, align 8, !alias.scope !5
+  store i32 %retval.0.i.i, ptr %tm_wday.i, align 8, !alias.scope !5
   %cmp.i16.i = icmp sgt i8 %6, 2
   %11 = and i64 %7, 3
   %cmp.i.i.i = icmp eq i64 %11, 0
@@ -3491,7 +3491,7 @@ _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagE
   %65 = extractvalue { i64, i64 } %call.i.i.i, 0
   %66 = load i32, ptr %tm_wday, align 8
   %switch.tableidx = add i32 %66, -1
-  %spec.select467 = call i32 @llvm.umin.i32(i32 %switch.tableidx, i32 6)
+  %switch.tableidx. = call i32 @llvm.umin.i32(i32 %switch.tableidx, i32 6)
   %ref.tmp.sroa.2.8.extract.trunc.i10.i = trunc i64 %retval.sroa.3.0.in.i.i to i8
   %67 = trunc i64 %retval.sroa.3.0.in.i.i to i32
   %rem.i.i11.i = srem i64 %65, 400
@@ -3536,7 +3536,7 @@ for.cond1.i41.i:                                  ; preds = %for.cond.i35.i, %fo
   %indvars.iv.next11.i43.i = add nuw nsw i64 %indvars.iv10.i42.i, 1
   %arrayidx3.i44.i = getelementptr inbounds [14 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_forw, i64 0, i64 %indvars.iv.next11.i43.i
   %72 = load i32, ptr %arrayidx3.i44.i, align 4
-  %cmp4.i45.i = icmp eq i32 %spec.select467, %72
+  %cmp4.i45.i = icmp eq i32 %switch.tableidx., %72
   br i1 %cmp4.i45.i, label %_ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i, label %for.cond1.i41.i, !llvm.loop !26
 
 _ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i: ; preds = %for.cond1.i41.i

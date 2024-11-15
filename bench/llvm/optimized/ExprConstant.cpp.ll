@@ -10634,8 +10634,8 @@ define internal fastcc noundef zeroext i1 @_ZL14IsGlobalLValueN5clang7APValue10L
     i8 89, label %54
     i8 127, label %56
     i8 117, label %57
-    i8 12, label %66
-    i8 54, label %67
+    i8 12, label %56
+    i8 54, label %56
   ]
 
 29:                                               ; preds = %27
@@ -10683,7 +10683,7 @@ define internal fastcc noundef zeroext i1 @_ZL14IsGlobalLValueN5clang7APValue10L
   %55 = call fastcc noundef zeroext i1 @_ZL10IsNoOpCallPKN5clang8CallExprE(ptr noundef %10)
   br label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit
 
-56:                                               ; preds = %27
+56:                                               ; preds = %27, %27, %27
   br label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit
 
 57:                                               ; preds = %27
@@ -10699,20 +10699,14 @@ define internal fastcc noundef zeroext i1 @_ZL14IsGlobalLValueN5clang7APValue10L
   %.not24 = select i1 %.not.i18, i1 %65, i1 false
   br label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit
 
-66:                                               ; preds = %27
-  br label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit
-
-67:                                               ; preds = %27
-  br label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit
-
 switch.hole_check:                                ; preds = %20
   %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1009, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit, label %22
 
-_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit: ; preds = %switch.hole_check, %41, %37, %25, %22, %29, %32, %27, %2, %67, %66, %57, %56, %54, %47, %46, %17
-  %.0 = phi i1 [ %19, %17 ], [ true, %67 ], [ true, %66 ], [ %.not24, %57 ], [ true, %56 ], [ %55, %54 ], [ %53, %47 ], [ true, %46 ], [ true, %2 ], [ false, %27 ], [ false, %29 ], [ %36, %32 ], [ %spec.select.i.i14, %22 ], [ true, %25 ], [ %45, %41 ], [ false, %37 ], [ true, %switch.hole_check ]
+_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit: ; preds = %switch.hole_check, %41, %37, %25, %22, %29, %32, %27, %2, %57, %56, %54, %47, %46, %17
+  %.0 = phi i1 [ %19, %17 ], [ %.not24, %57 ], [ true, %56 ], [ %55, %54 ], [ %53, %47 ], [ true, %46 ], [ true, %2 ], [ false, %27 ], [ false, %29 ], [ %36, %32 ], [ %spec.select.i.i14, %22 ], [ true, %25 ], [ %45, %41 ], [ false, %37 ], [ true, %switch.hole_check ]
   ret i1 %.0
 }
 

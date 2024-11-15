@@ -561,20 +561,17 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread: ; preds = %182, 
     i32 2, label %.thread
     i32 1, label %.fold.split
     i32 4, label %.fold.split247
-    i32 3, label %.fold.split248
+    i32 3, label %.fold.split
     i32 5, label %.fold.split249
     i32 23, label %.fold.split250
     i32 11, label %.thread.fold.split
     i32 12, label %.thread.fold.split337
   ]
 
-.fold.split:                                      ; preds = %199
+.fold.split:                                      ; preds = %199, %199
   br label %.thread
 
 .fold.split247:                                   ; preds = %199
-  br label %.thread
-
-.fold.split248:                                   ; preds = %199
   br label %.thread
 
 .fold.split249:                                   ; preds = %199
@@ -611,10 +608,10 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread: ; preds = %182, 
 .thread.fold.split337:                            ; preds = %199
   br label %.thread
 
-.thread:                                          ; preds = %199, %.thread.fold.split337, %.thread.fold.split, %.fold.split250, %.fold.split249, %.fold.split248, %.fold.split247, %.fold.split, %202
-  %.0213 = phi i32 [ 5, %202 ], [ %.val261.val, %199 ], [ %.val261.val, %.fold.split ], [ %.val261.val, %.fold.split247 ], [ %.val261.val, %.fold.split248 ], [ %.val261.val, %.fold.split249 ], [ %.val261.val, %.fold.split250 ], [ %.val261.val, %.thread.fold.split ], [ %.val261.val, %.thread.fold.split337 ]
-  %.0211 = phi i32 [ 4, %202 ], [ 0, %199 ], [ %.val261.val, %.fold.split ], [ 2, %.fold.split247 ], [ %.val261.val, %.fold.split248 ], [ 4, %.fold.split249 ], [ 7, %.fold.split250 ], [ 5, %.thread.fold.split ], [ 6, %.thread.fold.split337 ]
-  %.0205 = phi i8 [ 1, %202 ], [ 0, %199 ], [ 0, %.fold.split ], [ 0, %.fold.split247 ], [ 0, %.fold.split248 ], [ 0, %.fold.split249 ], [ 0, %.fold.split250 ], [ 0, %.thread.fold.split ], [ 0, %.thread.fold.split337 ]
+.thread:                                          ; preds = %199, %.thread.fold.split337, %.thread.fold.split, %.fold.split250, %.fold.split249, %.fold.split247, %.fold.split, %202
+  %.0213 = phi i32 [ 5, %202 ], [ %.val261.val, %199 ], [ %.val261.val, %.fold.split ], [ %.val261.val, %.fold.split247 ], [ %.val261.val, %.fold.split249 ], [ %.val261.val, %.fold.split250 ], [ %.val261.val, %.thread.fold.split ], [ %.val261.val, %.thread.fold.split337 ]
+  %.0211 = phi i32 [ 4, %202 ], [ 0, %199 ], [ %.val261.val, %.fold.split ], [ 2, %.fold.split247 ], [ 4, %.fold.split249 ], [ 7, %.fold.split250 ], [ 5, %.thread.fold.split ], [ 6, %.thread.fold.split337 ]
+  %.0205 = phi i8 [ 1, %202 ], [ 0, %199 ], [ 0, %.fold.split ], [ 0, %.fold.split247 ], [ 0, %.fold.split249 ], [ 0, %.fold.split250 ], [ 0, %.thread.fold.split ], [ 0, %.thread.fold.split337 ]
   %211 = getelementptr i8, ptr %0, i64 24
   %.val262 = load i32, ptr %211, align 8
   %212 = icmp sgt i32 %.val262, 31

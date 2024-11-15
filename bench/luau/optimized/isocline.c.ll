@@ -7705,22 +7705,22 @@ ic_contains.exit93.i:                             ; preds = %ic_contains.exit91.
 ic_contains.exit95.i:                             ; preds = %ic_contains.exit93.i
   %181 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.460) #33
   %.not195.i = icmp eq ptr %181, null
-  br i1 %.not195.i, label %ic_contains.exit97.i, label %.thread185.sink.split.i
+  br i1 %.not195.i, label %ic_contains.exit97.i, label %.thread179.sink.split.i
 
 ic_contains.exit97.i:                             ; preds = %ic_contains.exit95.i
   %182 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.461) #33
   %.not196.i = icmp eq ptr %182, null
-  br i1 %.not196.i, label %ic_contains.exit99.i, label %.thread185.sink.split.i
+  br i1 %.not196.i, label %ic_contains.exit99.i, label %.thread179.sink.split.i
 
 ic_contains.exit99.i:                             ; preds = %ic_contains.exit97.i
   %183 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.462) #33
   %.not197.i = icmp eq ptr %183, null
-  br i1 %.not197.i, label %ic_contains.exit101.i, label %.thread182.sink.split.i
+  br i1 %.not197.i, label %ic_contains.exit101.i, label %.thread185.sink.split.i
 
 ic_contains.exit101.i:                            ; preds = %ic_contains.exit99.i
   %184 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.463) #33
   %.not198.i = icmp eq ptr %184, null
-  br i1 %.not198.i, label %ic_contains.exit103.i, label %.thread182.sink.split.i
+  br i1 %.not198.i, label %ic_contains.exit103.i, label %.thread185.sink.split.i
 
 ic_contains.exit103.i:                            ; preds = %ic_contains.exit101.i
   %185 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) @.str.464) #33
@@ -7804,12 +7804,12 @@ ic_contains.exit121.i:                            ; preds = %ic_contains.exit119
 ic_contains.exit123.i:                            ; preds = %ic_contains.exit121.i
   %203 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.461) #33
   %.not209.i = icmp eq ptr %203, null
-  br i1 %.not209.i, label %ic_contains.exit125.i, label %.thread185.sink.split.i
+  br i1 %.not209.i, label %ic_contains.exit125.i, label %.thread179.sink.split.i
 
 ic_contains.exit125.i:                            ; preds = %ic_contains.exit123.i
   %204 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.463) #33
   %.not210.i = icmp eq ptr %204, null
-  br i1 %.not210.i, label %ic_contains.exit127.i, label %.thread182.sink.split.i
+  br i1 %.not210.i, label %ic_contains.exit127.i, label %.thread185.sink.split.i
 
 ic_contains.exit127.i:                            ; preds = %ic_contains.exit125.i
   %205 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) @.str.466) #33
@@ -7835,12 +7835,8 @@ ic_contains.exit131.thread.i:                     ; preds = %ic_contains.exit131
   %209 = icmp ult i32 %.val84.pr.i, 5
   br i1 %209, label %switch.lookup, label %term_get_color_bits.exit.i
 
-.thread182.sink.split.i:                          ; preds = %ic_contains.exit125.i, %ic_contains.exit101.i, %ic_contains.exit99.i
+.thread185.sink.split.i:                          ; preds = %ic_contains.exit125.i, %ic_contains.exit101.i, %ic_contains.exit99.i
   store i32 1, ptr %162, align 8
-  br label %term_get_color_bits.exit.i
-
-.thread185.sink.split.i:                          ; preds = %ic_contains.exit123.i, %ic_contains.exit97.i, %ic_contains.exit95.i
-  store i32 2, ptr %162, align 8
   br label %term_get_color_bits.exit.i
 
 .thread188.sink.split.i:                          ; preds = %ic_contains.exit121.i, %ic_contains.exit119.i, %ic_contains.exit93.i, %ic_contains.exit91.i
@@ -7851,14 +7847,18 @@ ic_contains.exit131.thread.i:                     ; preds = %ic_contains.exit131
   store i32 4, ptr %162, align 8
   br label %term_get_color_bits.exit.i
 
+.thread179.sink.split.i:                          ; preds = %ic_contains.exit123.i, %ic_contains.exit97.i, %ic_contains.exit95.i
+  store i32 2, ptr %162, align 8
+  br label %term_get_color_bits.exit.i
+
 switch.lookup:                                    ; preds = %ic_contains.exit131.thread.i
   %210 = zext nneg i32 %.val84.pr.i to i64
   %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.ic_env_create, i64 0, i64 %210
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %term_get_color_bits.exit.i
 
-term_get_color_bits.exit.i:                       ; preds = %ic_contains.exit131.thread.i, %switch.lookup, %.thread176.sink.split.i, %.thread188.sink.split.i, %.thread185.sink.split.i, %.thread182.sink.split.i, %208, %188
-  %.0.i132.i = phi i32 [ 24, %.thread176.sink.split.i ], [ 8, %.thread188.sink.split.i ], [ 4, %.thread185.sink.split.i ], [ 3, %.thread182.sink.split.i ], [ 1, %208 ], [ 1, %188 ], [ %switch.load, %switch.lookup ], [ 4, %ic_contains.exit131.thread.i ]
+term_get_color_bits.exit.i:                       ; preds = %.thread179.sink.split.i, %ic_contains.exit131.thread.i, %switch.lookup, %.thread176.sink.split.i, %.thread188.sink.split.i, %.thread185.sink.split.i, %208, %188
+  %.0.i132.i = phi i32 [ 24, %.thread176.sink.split.i ], [ 8, %.thread188.sink.split.i ], [ 3, %.thread185.sink.split.i ], [ 1, %208 ], [ 1, %188 ], [ %switch.load, %switch.lookup ], [ 4, %ic_contains.exit131.thread.i ], [ 4, %.thread179.sink.split.i ]
   call void (ptr, ...) @debug_msg(ptr noundef nonnull @.str.474, i32 noundef %.0.i132.i, ptr noundef %173, ptr noundef %174)
   br label %211
 

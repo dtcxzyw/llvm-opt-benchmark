@@ -3663,7 +3663,7 @@ classify_packet.exit:                             ; preds = %12, %13, %14, %.thr
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %90, ptr noundef %0, i32 noundef 24, i32 noundef %62, i32 noundef 0) #11
   br label %92
 
-92:                                               ; preds = %84, %85, %61, %65, %66, %61, %89, %78, %72, %67
+92:                                               ; preds = %84, %85, %65, %66, %61, %61, %89, %78, %72, %67
   %93 = load ptr, ptr %6, align 8
   call void @col_set_fence(ptr noundef %93, i32 noundef 25) #11
   %94 = call i32 @tvb_captured_length(ptr noundef %0) #11

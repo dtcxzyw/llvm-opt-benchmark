@@ -1569,7 +1569,7 @@ define internal i32 @dissect_zbee_zcl_elec_mes(ptr noundef %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %dissect_zcl_elec_mes_get_profile_info_response.exit
 
-dissect_zcl_elec_mes_get_profile_info_response.exit: ; preds = %.lr.ph.i, %51, %26, %40, %48, %65, %18, %29
+dissect_zcl_elec_mes_get_profile_info_response.exit: ; preds = %.lr.ph.i, %51, %40, %48, %65, %18, %26, %29
   %83 = call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %84
 

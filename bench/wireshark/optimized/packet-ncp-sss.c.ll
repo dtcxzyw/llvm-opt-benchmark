@@ -226,7 +226,7 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr nocapture noundef re
   %5 = alloca [1024 x i8], align 16
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3
   %7 = icmp slt i32 %6, 4
-  br i1 %7, label %187, label %8
+  br i1 %7, label %174, label %8
 
 8:                                                ; preds = %4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #3
@@ -237,7 +237,7 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr nocapture noundef re
   %13 = zext i8 %9 to i32
   %14 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @sss_func_enum, ptr noundef nonnull @.str.2) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.1, ptr noundef %14) #3
-  switch i8 %9, label %187 [
+  switch i8 %9, label %174 [
     i8 1, label %15
     i8 2, label %23
   ]
@@ -250,14 +250,14 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr nocapture noundef re
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #3
   %21 = load i32, ptr @hf_sss_flags, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %21, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #3
-  br label %187
+  br label %174
 
 23:                                               ; preds = %8
   %24 = load i32, ptr @hf_sss_frag_handle, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #3
   %26 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #3
   %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %177
+  br i1 %27, label %28, label %164
 
 28:                                               ; preds = %23
   %29 = load i32, ptr @hf_sss_buffer_size, align 4
@@ -286,17 +286,17 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr nocapture noundef re
   %43 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 36) #3
   br label %44
 
-44:                                               ; preds = %79, %42
-  %.0122.i = phi i32 [ 1, %42 ], [ %80, %79 ]
-  %.0115121.i = phi i32 [ 0, %42 ], [ %81, %79 ]
-  %.0117120.i = phi ptr [ @.str.102, %42 ], [ %.1118.i, %79 ]
+44:                                               ; preds = %66, %42
+  %.0122.i = phi i32 [ 1, %42 ], [ %67, %66 ]
+  %.0115121.i = phi i32 [ 0, %42 ], [ %68, %66 ]
+  %.0117120.i = phi ptr [ @.str.102, %42 ], [ %.1118.i, %66 ]
   %45 = and i32 %.0122.i, %43
   %.not119.i = icmp eq i32 %45, 0
-  br i1 %.not119.i, label %79, label %46
+  br i1 %.not119.i, label %66, label %46
 
 46:                                               ; preds = %44
   %47 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef %.0117120.i, i64 noundef 1024) #3
-  switch i32 %.0122.i, label %79 [
+  switch i32 %.0122.i, label %66 [
     i32 1, label %.sink.split.i
     i32 2, label %48
     i32 4, label %49
@@ -308,27 +308,27 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr nocapture noundef re
     i32 256, label %55
     i32 512, label %56
     i32 1024, label %57
-    i32 2048, label %58
-    i32 4096, label %59
-    i32 8192, label %60
+    i32 2048, label %57
+    i32 4096, label %58
+    i32 8192, label %59
     i32 16384, label %.sink.split.i
-    i32 32768, label %61
-    i32 65536, label %62
-    i32 131072, label %63
-    i32 262144, label %64
-    i32 524288, label %65
-    i32 1048576, label %66
-    i32 2097152, label %67
-    i32 4194304, label %68
-    i32 8388608, label %69
-    i32 16777216, label %70
-    i32 33554432, label %71
-    i32 67108864, label %72
-    i32 134217728, label %73
-    i32 268435456, label %74
-    i32 536870912, label %75
-    i32 1073741824, label %76
-    i32 -2147483648, label %77
+    i32 32768, label %60
+    i32 65536, label %61
+    i32 131072, label %62
+    i32 262144, label %63
+    i32 524288, label %64
+    i32 1048576, label %57
+    i32 2097152, label %57
+    i32 4194304, label %57
+    i32 8388608, label %57
+    i32 16777216, label %57
+    i32 33554432, label %57
+    i32 67108864, label %57
+    i32 134217728, label %57
+    i32 268435456, label %57
+    i32 536870912, label %57
+    i32 1073741824, label %57
+    i32 -2147483648, label %57
   ]
 
 48:                                               ; preds = %46
@@ -358,7 +358,7 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr nocapture noundef re
 56:                                               ; preds = %46
   br label %.sink.split.i
 
-57:                                               ; preds = %46
+57:                                               ; preds = %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46
   br label %.sink.split.i
 
 58:                                               ; preds = %46
@@ -382,321 +382,282 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr nocapture noundef re
 64:                                               ; preds = %46
   br label %.sink.split.i
 
-65:                                               ; preds = %46
-  br label %.sink.split.i
+.sink.split.i:                                    ; preds = %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %46, %46
+  %.str.37.sink.i = phi ptr [ @.str.39, %48 ], [ @.str.41, %49 ], [ @.str.43, %50 ], [ @.str.45, %51 ], [ @.str.47, %52 ], [ @.str.49, %53 ], [ @.str.51, %54 ], [ @.str.53, %55 ], [ @.str.55, %56 ], [ @.str.57, %57 ], [ @.str.64, %58 ], [ @.str.66, %59 ], [ @.str.69, %60 ], [ @.str.71, %61 ], [ @.str.73, %62 ], [ @.str.75, %63 ], [ @.str.77, %64 ], [ @.str.37, %46 ], [ @.str.37, %46 ]
+  %65 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %.str.37.sink.i, i64 noundef 1024) #3
+  br label %66
 
-66:                                               ; preds = %46
-  br label %.sink.split.i
-
-67:                                               ; preds = %46
-  br label %.sink.split.i
-
-68:                                               ; preds = %46
-  br label %.sink.split.i
-
-69:                                               ; preds = %46
-  br label %.sink.split.i
-
-70:                                               ; preds = %46
-  br label %.sink.split.i
-
-71:                                               ; preds = %46
-  br label %.sink.split.i
-
-72:                                               ; preds = %46
-  br label %.sink.split.i
-
-73:                                               ; preds = %46
-  br label %.sink.split.i
-
-74:                                               ; preds = %46
-  br label %.sink.split.i
-
-75:                                               ; preds = %46
-  br label %.sink.split.i
-
-76:                                               ; preds = %46
-  br label %.sink.split.i
-
-77:                                               ; preds = %46
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %46, %46
-  %.str.37.sink.i = phi ptr [ @.str.39, %48 ], [ @.str.41, %49 ], [ @.str.43, %50 ], [ @.str.45, %51 ], [ @.str.47, %52 ], [ @.str.49, %53 ], [ @.str.51, %54 ], [ @.str.53, %55 ], [ @.str.55, %56 ], [ @.str.57, %57 ], [ @.str.57, %58 ], [ @.str.64, %59 ], [ @.str.66, %60 ], [ @.str.69, %61 ], [ @.str.71, %62 ], [ @.str.73, %63 ], [ @.str.75, %64 ], [ @.str.77, %65 ], [ @.str.57, %66 ], [ @.str.57, %67 ], [ @.str.57, %68 ], [ @.str.57, %69 ], [ @.str.57, %70 ], [ @.str.57, %71 ], [ @.str.57, %72 ], [ @.str.57, %73 ], [ @.str.57, %74 ], [ @.str.57, %75 ], [ @.str.57, %76 ], [ @.str.57, %77 ], [ @.str.37, %46 ], [ @.str.37, %46 ]
-  %78 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %.str.37.sink.i, i64 noundef 1024) #3
-  br label %79
-
-79:                                               ; preds = %.sink.split.i, %46, %44
+66:                                               ; preds = %.sink.split.i, %46, %44
   %.1118.i = phi ptr [ %.0117120.i, %44 ], [ @.str.103, %46 ], [ @.str.103, %.sink.split.i ]
-  %80 = shl i32 %.0122.i, 1
-  %81 = add nuw nsw i32 %.0115121.i, 1
-  %exitcond.not.i = icmp eq i32 %81, 256
-  br i1 %exitcond.not.i, label %82, label %44, !llvm.loop !4
+  %67 = shl i32 %.0122.i, 1
+  %68 = add nuw nsw i32 %.0115121.i, 1
+  %exitcond.not.i = icmp eq i32 %68, 256
+  br i1 %exitcond.not.i, label %69, label %44, !llvm.loop !4
 
-82:                                               ; preds = %79
-  %83 = load i32, ptr @hf_sss_flags, align 4
-  %84 = call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %83, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef %43) #3
-  %85 = load i32, ptr @ett_nds, align 4
-  %86 = call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85) #3
-  br label %87
+69:                                               ; preds = %66
+  %70 = load i32, ptr @hf_sss_flags, align 4
+  %71 = call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %70, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef %43) #3
+  %72 = load i32, ptr @ett_nds, align 4
+  %73 = call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72) #3
+  br label %74
 
-87:                                               ; preds = %123, %82
-  %.1124.i = phi i32 [ 1, %82 ], [ %124, %123 ]
-  %.1116123.i = phi i32 [ 0, %82 ], [ %125, %123 ]
-  %88 = and i32 %.1124.i, %43
-  %.not.i = icmp eq i32 %88, 0
-  br i1 %.not.i, label %123, label %89
+74:                                               ; preds = %110, %69
+  %.1124.i = phi i32 [ 1, %69 ], [ %111, %110 ]
+  %.1116123.i = phi i32 [ 0, %69 ], [ %112, %110 ]
+  %75 = and i32 %.1124.i, %43
+  %.not.i = icmp eq i32 %75, 0
+  br i1 %.not.i, label %110, label %76
 
-89:                                               ; preds = %87
-  switch i32 %.1124.i, label %123 [
+76:                                               ; preds = %74
+  switch i32 %.1124.i, label %110 [
     i32 1, label %.sink.split126.i
-    i32 2, label %90
-    i32 4, label %91
-    i32 8, label %92
-    i32 16, label %93
-    i32 32, label %94
-    i32 64, label %95
-    i32 128, label %96
-    i32 256, label %97
-    i32 512, label %98
-    i32 1024, label %99
-    i32 2048, label %100
-    i32 4096, label %101
-    i32 8192, label %102
-    i32 16384, label %103
-    i32 32768, label %104
-    i32 65536, label %105
-    i32 131072, label %106
-    i32 262144, label %107
-    i32 524288, label %108
-    i32 1048576, label %109
-    i32 2097152, label %110
-    i32 4194304, label %111
-    i32 8388608, label %112
-    i32 16777216, label %113
-    i32 33554432, label %114
-    i32 67108864, label %115
-    i32 134217728, label %116
-    i32 268435456, label %117
-    i32 536870912, label %118
-    i32 1073741824, label %119
-    i32 -2147483648, label %120
+    i32 2, label %77
+    i32 4, label %78
+    i32 8, label %79
+    i32 16, label %80
+    i32 32, label %81
+    i32 64, label %82
+    i32 128, label %83
+    i32 256, label %84
+    i32 512, label %85
+    i32 1024, label %86
+    i32 2048, label %87
+    i32 4096, label %88
+    i32 8192, label %89
+    i32 16384, label %90
+    i32 32768, label %91
+    i32 65536, label %92
+    i32 131072, label %93
+    i32 262144, label %94
+    i32 524288, label %95
+    i32 1048576, label %96
+    i32 2097152, label %97
+    i32 4194304, label %98
+    i32 8388608, label %99
+    i32 16777216, label %100
+    i32 33554432, label %101
+    i32 67108864, label %102
+    i32 134217728, label %103
+    i32 268435456, label %104
+    i32 536870912, label %105
+    i32 1073741824, label %106
+    i32 -2147483648, label %107
   ]
 
-90:                                               ; preds = %89
+77:                                               ; preds = %76
   br label %.sink.split126.i
 
-91:                                               ; preds = %89
+78:                                               ; preds = %76
   br label %.sink.split126.i
 
-92:                                               ; preds = %89
+79:                                               ; preds = %76
   br label %.sink.split126.i
 
-93:                                               ; preds = %89
+80:                                               ; preds = %76
   br label %.sink.split126.i
 
-94:                                               ; preds = %89
+81:                                               ; preds = %76
   br label %.sink.split126.i
 
-95:                                               ; preds = %89
+82:                                               ; preds = %76
   br label %.sink.split126.i
 
-96:                                               ; preds = %89
+83:                                               ; preds = %76
   br label %.sink.split126.i
 
-97:                                               ; preds = %89
+84:                                               ; preds = %76
   br label %.sink.split126.i
 
-98:                                               ; preds = %89
+85:                                               ; preds = %76
   br label %.sink.split126.i
 
-99:                                               ; preds = %89
+86:                                               ; preds = %76
   br label %.sink.split126.i
 
-100:                                              ; preds = %89
+87:                                               ; preds = %76
   br label %.sink.split126.i
 
-101:                                              ; preds = %89
+88:                                               ; preds = %76
   br label %.sink.split126.i
 
-102:                                              ; preds = %89
+89:                                               ; preds = %76
   br label %.sink.split126.i
 
-103:                                              ; preds = %89
+90:                                               ; preds = %76
   br label %.sink.split126.i
 
-104:                                              ; preds = %89
+91:                                               ; preds = %76
   br label %.sink.split126.i
 
-105:                                              ; preds = %89
+92:                                               ; preds = %76
   br label %.sink.split126.i
 
-106:                                              ; preds = %89
+93:                                               ; preds = %76
   br label %.sink.split126.i
 
-107:                                              ; preds = %89
+94:                                               ; preds = %76
   br label %.sink.split126.i
 
-108:                                              ; preds = %89
+95:                                               ; preds = %76
   br label %.sink.split126.i
 
-109:                                              ; preds = %89
+96:                                               ; preds = %76
   br label %.sink.split126.i
 
-110:                                              ; preds = %89
+97:                                               ; preds = %76
   br label %.sink.split126.i
 
-111:                                              ; preds = %89
+98:                                               ; preds = %76
   br label %.sink.split126.i
 
-112:                                              ; preds = %89
+99:                                               ; preds = %76
   br label %.sink.split126.i
 
-113:                                              ; preds = %89
+100:                                              ; preds = %76
   br label %.sink.split126.i
 
-114:                                              ; preds = %89
+101:                                              ; preds = %76
   br label %.sink.split126.i
 
-115:                                              ; preds = %89
+102:                                              ; preds = %76
   br label %.sink.split126.i
 
-116:                                              ; preds = %89
+103:                                              ; preds = %76
   br label %.sink.split126.i
 
-117:                                              ; preds = %89
+104:                                              ; preds = %76
   br label %.sink.split126.i
 
-118:                                              ; preds = %89
+105:                                              ; preds = %76
   br label %.sink.split126.i
 
-119:                                              ; preds = %89
+106:                                              ; preds = %76
   br label %.sink.split126.i
 
-120:                                              ; preds = %89
+107:                                              ; preds = %76
   br label %.sink.split126.i
 
-.sink.split126.i:                                 ; preds = %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89
-  %hf_sss_bit1.sink.i = phi ptr [ @hf_sss_bit2, %90 ], [ @hf_sss_bit3, %91 ], [ @hf_sss_bit4, %92 ], [ @hf_sss_bit5, %93 ], [ @hf_sss_bit6, %94 ], [ @hf_sss_bit7, %95 ], [ @hf_sss_bit8, %96 ], [ @hf_sss_bit9, %97 ], [ @hf_sss_bit10, %98 ], [ @hf_sss_bit11, %99 ], [ @hf_sss_bit12, %100 ], [ @hf_sss_bit13, %101 ], [ @hf_sss_bit14, %102 ], [ @hf_sss_bit15, %103 ], [ @hf_sss_bit16, %104 ], [ @hf_sss_bit17, %105 ], [ @hf_sss_bit18, %106 ], [ @hf_sss_bit19, %107 ], [ @hf_sss_bit20, %108 ], [ @hf_sss_bit21, %109 ], [ @hf_sss_bit22, %110 ], [ @hf_sss_bit23, %111 ], [ @hf_sss_bit24, %112 ], [ @hf_sss_bit25, %113 ], [ @hf_sss_bit26, %114 ], [ @hf_sss_bit27, %115 ], [ @hf_sss_bit28, %116 ], [ @hf_sss_bit29, %117 ], [ @hf_sss_bit30, %118 ], [ @hf_sss_bit31, %119 ], [ @hf_sss_bit32, %120 ], [ @hf_sss_bit1, %89 ]
-  %121 = load i32, ptr %hf_sss_bit1.sink.i, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %121, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef 0) #3
-  br label %123
+.sink.split126.i:                                 ; preds = %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76
+  %hf_sss_bit1.sink.i = phi ptr [ @hf_sss_bit2, %77 ], [ @hf_sss_bit3, %78 ], [ @hf_sss_bit4, %79 ], [ @hf_sss_bit5, %80 ], [ @hf_sss_bit6, %81 ], [ @hf_sss_bit7, %82 ], [ @hf_sss_bit8, %83 ], [ @hf_sss_bit9, %84 ], [ @hf_sss_bit10, %85 ], [ @hf_sss_bit11, %86 ], [ @hf_sss_bit12, %87 ], [ @hf_sss_bit13, %88 ], [ @hf_sss_bit14, %89 ], [ @hf_sss_bit15, %90 ], [ @hf_sss_bit16, %91 ], [ @hf_sss_bit17, %92 ], [ @hf_sss_bit18, %93 ], [ @hf_sss_bit19, %94 ], [ @hf_sss_bit20, %95 ], [ @hf_sss_bit21, %96 ], [ @hf_sss_bit22, %97 ], [ @hf_sss_bit23, %98 ], [ @hf_sss_bit24, %99 ], [ @hf_sss_bit25, %100 ], [ @hf_sss_bit26, %101 ], [ @hf_sss_bit27, %102 ], [ @hf_sss_bit28, %103 ], [ @hf_sss_bit29, %104 ], [ @hf_sss_bit30, %105 ], [ @hf_sss_bit31, %106 ], [ @hf_sss_bit32, %107 ], [ @hf_sss_bit1, %76 ]
+  %108 = load i32, ptr %hf_sss_bit1.sink.i, align 4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %108, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef 0) #3
+  br label %110
 
-123:                                              ; preds = %.sink.split126.i, %89, %87
-  %124 = shl i32 %.1124.i, 1
-  %125 = add nuw nsw i32 %.1116123.i, 1
-  %exitcond125.not.i = icmp eq i32 %125, 256
-  br i1 %exitcond125.not.i, label %process_flags.exit, label %87, !llvm.loop !6
+110:                                              ; preds = %.sink.split126.i, %76, %74
+  %111 = shl i32 %.1124.i, 1
+  %112 = add nuw nsw i32 %.1116123.i, 1
+  %exitcond125.not.i = icmp eq i32 %112, 256
+  br i1 %exitcond125.not.i, label %process_flags.exit, label %74, !llvm.loop !6
 
-process_flags.exit:                               ; preds = %123
+process_flags.exit:                               ; preds = %110
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
-  %126 = load i32, ptr @hf_sss_context, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %126, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef 0) #3
-  switch i32 %33, label %187 [
-    i32 0, label %128
-    i32 1, label %131
-    i32 2, label %142
-    i32 3, label %157
-    i32 4, label %157
-    i32 7, label %173
-    i32 6, label %165
+  %113 = load i32, ptr @hf_sss_context, align 4
+  %114 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %113, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef 0) #3
+  switch i32 %33, label %174 [
+    i32 0, label %115
+    i32 1, label %118
+    i32 2, label %129
+    i32 3, label %144
+    i32 4, label %144
+    i32 7, label %160
+    i32 6, label %152
   ]
 
-128:                                              ; preds = %process_flags.exit
-  %129 = load i32, ptr @hf_sss_user, align 4
-  %130 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %129, ptr noundef %39, i32 noundef 48, i32 noundef 0)
-  br label %187
+115:                                              ; preds = %process_flags.exit
+  %116 = load i32, ptr @hf_sss_user, align 4
+  %117 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %116, ptr noundef %39, i32 noundef 48, i32 noundef 0)
+  br label %174
 
-131:                                              ; preds = %process_flags.exit
-  %132 = load i32, ptr @hf_sss_secret, align 4
-  %133 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %132, ptr noundef %39, i32 noundef 44, i32 noundef 0)
-  %134 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %133) #3
-  %135 = add i32 %133, 4
-  %136 = add i32 %135, %134
-  %137 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %136) #3
-  %138 = icmp sgt i32 %137, 4
-  br i1 %138, label %139, label %187
+118:                                              ; preds = %process_flags.exit
+  %119 = load i32, ptr @hf_sss_secret, align 4
+  %120 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %119, ptr noundef %39, i32 noundef 44, i32 noundef 0)
+  %121 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %120) #3
+  %122 = add i32 %120, 4
+  %123 = add i32 %122, %121
+  %124 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %123) #3
+  %125 = icmp sgt i32 %124, 4
+  br i1 %125, label %126, label %174
 
-139:                                              ; preds = %131
-  %140 = load i32, ptr @hf_sss_user, align 4
-  %141 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %140, ptr noundef %39, i32 noundef %136, i32 noundef 0)
-  br label %187
+126:                                              ; preds = %118
+  %127 = load i32, ptr @hf_sss_user, align 4
+  %128 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %127, ptr noundef %39, i32 noundef %123, i32 noundef 0)
+  br label %174
 
-142:                                              ; preds = %process_flags.exit
-  %143 = load i32, ptr @hf_sss_secret, align 4
-  %144 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %143, ptr noundef %39, i32 noundef 48, i32 noundef 0)
-  %145 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %144) #3
-  %146 = icmp sgt i32 %145, 4
-  br i1 %146, label %147, label %187
+129:                                              ; preds = %process_flags.exit
+  %130 = load i32, ptr @hf_sss_secret, align 4
+  %131 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %130, ptr noundef %39, i32 noundef 48, i32 noundef 0)
+  %132 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %131) #3
+  %133 = icmp sgt i32 %132, 4
+  br i1 %133, label %134, label %174
 
-147:                                              ; preds = %142
-  %148 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %144) #3
-  %149 = add i32 %144, 4
-  %150 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %149) #3
-  %151 = icmp slt i32 %150, %148
-  %152 = load i32, ptr @hf_sss_enc_data, align 4
-  br i1 %151, label %153, label %155
+134:                                              ; preds = %129
+  %135 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %131) #3
+  %136 = add i32 %131, 4
+  %137 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %136) #3
+  %138 = icmp slt i32 %137, %135
+  %139 = load i32, ptr @hf_sss_enc_data, align 4
+  br i1 %138, label %140, label %142
 
-153:                                              ; preds = %147
-  %154 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %152, ptr noundef %0, i32 noundef %149, i32 noundef -1, i32 noundef 0) #3
-  br label %187
+140:                                              ; preds = %134
+  %141 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %139, ptr noundef %0, i32 noundef %136, i32 noundef -1, i32 noundef 0) #3
+  br label %174
 
-155:                                              ; preds = %147
-  %156 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %152, ptr noundef %0, i32 noundef %149, i32 noundef %148, i32 noundef 0) #3
-  br label %187
+142:                                              ; preds = %134
+  %143 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %139, ptr noundef %0, i32 noundef %136, i32 noundef %135, i32 noundef 0) #3
+  br label %174
 
-157:                                              ; preds = %process_flags.exit, %process_flags.exit
-  %158 = load i32, ptr @hf_sss_secret, align 4
-  %159 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %158, ptr noundef %39, i32 noundef 44, i32 noundef 0)
-  %160 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %159) #3
-  %161 = icmp sgt i32 %160, 4
-  br i1 %161, label %162, label %187
+144:                                              ; preds = %process_flags.exit, %process_flags.exit
+  %145 = load i32, ptr @hf_sss_secret, align 4
+  %146 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %145, ptr noundef %39, i32 noundef 44, i32 noundef 0)
+  %147 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %146) #3
+  %148 = icmp sgt i32 %147, 4
+  br i1 %148, label %149, label %174
 
-162:                                              ; preds = %157
-  %163 = load i32, ptr @hf_sss_user, align 4
-  %164 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %163, ptr noundef %39, i32 noundef %159, i32 noundef 0)
-  br label %187
+149:                                              ; preds = %144
+  %150 = load i32, ptr @hf_sss_user, align 4
+  %151 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %150, ptr noundef %39, i32 noundef %146, i32 noundef 0)
+  br label %174
 
-165:                                              ; preds = %process_flags.exit
-  %166 = load i32, ptr @hf_sss_secret, align 4
-  %167 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %166, ptr noundef %39, i32 noundef 44, i32 noundef 0)
-  %168 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %167) #3
-  %169 = icmp sgt i32 %168, 4
-  br i1 %169, label %170, label %187
+152:                                              ; preds = %process_flags.exit
+  %153 = load i32, ptr @hf_sss_secret, align 4
+  %154 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %153, ptr noundef %39, i32 noundef 44, i32 noundef 0)
+  %155 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %154) #3
+  %156 = icmp sgt i32 %155, 4
+  br i1 %156, label %157, label %174
 
-170:                                              ; preds = %165
-  %171 = load i32, ptr @hf_sss_user, align 4
-  %172 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %171, ptr noundef %39, i32 noundef %167, i32 noundef 0)
-  br label %187
+157:                                              ; preds = %152
+  %158 = load i32, ptr @hf_sss_user, align 4
+  %159 = call fastcc i32 @sss_string(ptr noundef %0, i32 noundef %158, ptr noundef %39, i32 noundef %154, i32 noundef 0)
+  br label %174
 
-173:                                              ; preds = %process_flags.exit
-  %174 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 44) #3
-  %175 = load i32, ptr @hf_sss_enc_cred, align 4
-  %176 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %175, ptr noundef %0, i32 noundef 48, i32 noundef %174, i32 noundef 0) #3
-  br label %187
+160:                                              ; preds = %process_flags.exit
+  %161 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 44) #3
+  %162 = load i32, ptr @hf_sss_enc_cred, align 4
+  %163 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %162, ptr noundef %0, i32 noundef 48, i32 noundef %161, i32 noundef 0) #3
+  br label %174
 
-177:                                              ; preds = %23
-  %178 = load ptr, ptr %10, align 8
-  tail call void @col_set_str(ptr noundef %178, i32 noundef 25, ptr noundef nonnull @.str.5) #3
+164:                                              ; preds = %23
+  %165 = load ptr, ptr %10, align 8
+  tail call void @col_set_str(ptr noundef %165, i32 noundef 25, ptr noundef nonnull @.str.5) #3
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %181, label %179
+  br i1 %.not, label %168, label %166
 
-179:                                              ; preds = %177
-  %180 = getelementptr inbounds i8, ptr %3, i64 44
-  store i32 255, ptr %180, align 4
-  br label %181
+166:                                              ; preds = %164
+  %167 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 255, ptr %167, align 4
+  br label %168
 
-181:                                              ; preds = %179, %177
-  %182 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #3
-  %183 = icmp sgt i32 %182, 8
-  br i1 %183, label %184, label %187
+168:                                              ; preds = %166, %164
+  %169 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #3
+  %170 = icmp sgt i32 %169, 8
+  br i1 %170, label %171, label %174
 
-184:                                              ; preds = %181
-  %185 = load i32, ptr @hf_sss_enc_data, align 4
-  %186 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %185, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0) #3
-  br label %187
+171:                                              ; preds = %168
+  %172 = load i32, ptr @hf_sss_enc_data, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %172, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0) #3
+  br label %174
 
-187:                                              ; preds = %8, %process_flags.exit, %165, %170, %157, %162, %142, %155, %153, %131, %139, %173, %128, %184, %181, %4, %15
+174:                                              ; preds = %8, %process_flags.exit, %152, %157, %144, %149, %129, %142, %140, %118, %126, %160, %115, %171, %168, %4, %15
   ret void
 }
 

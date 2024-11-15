@@ -57,10 +57,10 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   store i32 -2, ptr @replication_yychar, align 4
   br label %5
 
-3:                                                ; preds = %335, %65
-  %.1239 = phi ptr [ %315, %335 ], [ %68, %65 ]
-  %.1233 = phi ptr [ %314, %335 ], [ %.2234, %65 ]
-  %.1.in = phi i8 [ %.in, %335 ], [ %67, %65 ]
+3:                                                ; preds = %332, %65
+  %.1239 = phi ptr [ %312, %332 ], [ %68, %65 ]
+  %.1233 = phi ptr [ %311, %332 ], [ %.2234, %65 ]
+  %.1.in = phi i8 [ %.in, %332 ], [ %67, %65 ]
   %.1 = sext i8 %.1.in to i32
   %4 = getelementptr i8, ptr %.1233, i64 1
   br label %5
@@ -85,7 +85,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %12 = sub i64 %10, %11
   %13 = add i64 %12, 1
   %14 = icmp sgt i64 %.0227, 9999
-  br i1 %14, label %339, label %15
+  br i1 %14, label %336, label %15
 
 15:                                               ; preds = %9
   %16 = shl i64 %.0227, 1
@@ -94,7 +94,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %18 = add i64 %17, 7
   %19 = call ptr @palloc(i64 noundef %18) #7
   %.not267 = icmp eq ptr %19, null
-  br i1 %.not267, label %339, label %20
+  br i1 %.not267, label %336, label %20
 
 20:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0229, i64 %13, i1 false)
@@ -197,7 +197,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %71 = getelementptr [109 x i8], ptr @yydefact, i64 0, i64 %35
   %72 = load i8, ptr %71, align 1
   %73 = icmp eq i8 %72, 0
-  br i1 %73, label %336, label %74
+  br i1 %73, label %333, label %74
 
 74:                                               ; preds = %70
   %75 = sext i8 %72 to i64
@@ -207,7 +207,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %79 = sub nsw i64 1, %78
   %80 = getelementptr %union.YYSTYPE, ptr %.2240, i64 %79
   %.sroa.077.0.copyload = load ptr, ptr %80, align 8
-  switch i8 %72, label %311 [
+  switch i8 %72, label %308 [
     i8 2, label %81
     i8 16, label %84
     i8 17, label %86
@@ -237,55 +237,55 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
     i8 43, label %216
     i8 44, label %219
     i8 45, label %222
-    i8 46, label %224
-    i8 47, label %225
-    i8 48, label %236
-    i8 49, label %239
-    i8 50, label %242
-    i8 51, label %243
-    i8 52, label %246
-    i8 53, label %251
-    i8 54, label %256
-    i8 55, label %259
-    i8 56, label %260
-    i8 57, label %265
-    i8 58, label %268
-    i8 59, label %271
-    i8 60, label %277
-    i8 61, label %283
-    i8 62, label %289
-    i8 63, label %291
-    i8 64, label %292
-    i8 65, label %293
-    i8 66, label %294
-    i8 67, label %295
-    i8 68, label %296
-    i8 69, label %297
-    i8 70, label %298
-    i8 71, label %299
-    i8 72, label %300
-    i8 73, label %301
-    i8 74, label %302
-    i8 75, label %303
-    i8 76, label %304
-    i8 77, label %305
-    i8 78, label %306
-    i8 79, label %307
-    i8 80, label %308
-    i8 81, label %309
-    i8 82, label %310
+    i8 46, label %145
+    i8 47, label %224
+    i8 48, label %235
+    i8 49, label %238
+    i8 50, label %145
+    i8 51, label %241
+    i8 52, label %244
+    i8 53, label %249
+    i8 54, label %254
+    i8 55, label %145
+    i8 56, label %257
+    i8 57, label %262
+    i8 58, label %265
+    i8 59, label %268
+    i8 60, label %274
+    i8 61, label %280
+    i8 62, label %286
+    i8 63, label %288
+    i8 64, label %289
+    i8 65, label %290
+    i8 66, label %291
+    i8 67, label %292
+    i8 68, label %293
+    i8 69, label %294
+    i8 70, label %295
+    i8 71, label %296
+    i8 72, label %297
+    i8 73, label %298
+    i8 74, label %299
+    i8 75, label %300
+    i8 76, label %301
+    i8 77, label %302
+    i8 78, label %303
+    i8 79, label %304
+    i8 80, label %305
+    i8 81, label %306
+    i8 82, label %307
   ]
 
 81:                                               ; preds = %74
   %82 = getelementptr i8, ptr %.2240, i64 -8
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr @replication_parse_result, align 8
-  br label %311
+  br label %308
 
 84:                                               ; preds = %74
   %85 = call noundef ptr @palloc0(i64 noundef 4) #7
   store i32 432, ptr %85, align 4
-  br label %311
+  br label %308
 
 86:                                               ; preds = %74
   %87 = call noundef ptr @palloc0(i64 noundef 16) #7
@@ -293,7 +293,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %88 = load ptr, ptr %.2240, align 8
   %89 = getelementptr inbounds i8, ptr %87, i64 8
   store ptr %88, ptr %89, align 8
-  br label %311
+  br label %308
 
 90:                                               ; preds = %74
   %91 = call noundef ptr @palloc0(i64 noundef 16) #7
@@ -301,18 +301,18 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %92 = load ptr, ptr %.2240, align 8
   %93 = getelementptr inbounds i8, ptr %91, i64 8
   store ptr %92, ptr %93, align 8
-  br label %311
+  br label %308
 
 94:                                               ; preds = %74
   %95 = load ptr, ptr %.2240, align 8
-  br label %311
+  br label %308
 
 96:                                               ; preds = %74
   %97 = getelementptr i8, ptr %.2240, i64 -16
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %.2240, align 8
   %100 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str, ptr noundef %98, ptr noundef %99) #7
-  br label %311
+  br label %308
 
 101:                                              ; preds = %74
   %102 = call noundef ptr @palloc0(i64 noundef 16) #7
@@ -321,12 +321,12 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %102, i64 8
   store ptr %104, ptr %105, align 8
-  br label %311
+  br label %308
 
 106:                                              ; preds = %74
   %107 = call noundef ptr @palloc0(i64 noundef 16) #7
   store i32 433, ptr %107, align 4
-  br label %311
+  br label %308
 
 108:                                              ; preds = %74
   %109 = call noundef ptr @palloc0(i64 noundef 48) #7
@@ -345,7 +345,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %118 = load ptr, ptr %.2240, align 8
   %119 = getelementptr inbounds i8, ptr %109, i64 40
   store ptr %118, ptr %119, align 8
-  br label %311
+  br label %308
 
 120:                                              ; preds = %74
   %121 = call noundef ptr @palloc0(i64 noundef 48) #7
@@ -368,51 +368,51 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %133 = load ptr, ptr %.2240, align 8
   %134 = getelementptr inbounds i8, ptr %121, i64 40
   store ptr %133, ptr %134, align 8
-  br label %311
+  br label %308
 
 135:                                              ; preds = %74
   %136 = getelementptr i8, ptr %.2240, i64 -8
   %137 = load ptr, ptr %136, align 8
-  br label %311
+  br label %308
 
 138:                                              ; preds = %74
   %139 = load ptr, ptr %.2240, align 8
-  br label %311
+  br label %308
 
 140:                                              ; preds = %74
   %141 = getelementptr i8, ptr %.2240, i64 -8
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %.2240, align 8
   %144 = call ptr @lappend(ptr noundef %142, ptr noundef %143) #7
-  br label %311
+  br label %308
 
-145:                                              ; preds = %74
-  br label %311
+145:                                              ; preds = %74, %74, %74, %74
+  br label %308
 
 146:                                              ; preds = %74
   %147 = call ptr @makeString(ptr noundef nonnull @.str.2) #7
   %148 = call ptr @makeDefElem(ptr noundef nonnull @.str.1, ptr noundef %147, i32 noundef -1) #7
-  br label %311
+  br label %308
 
 149:                                              ; preds = %74
   %150 = call ptr @makeString(ptr noundef nonnull @.str.3) #7
   %151 = call ptr @makeDefElem(ptr noundef nonnull @.str.1, ptr noundef %150, i32 noundef -1) #7
-  br label %311
+  br label %308
 
 152:                                              ; preds = %74
   %153 = call ptr @makeString(ptr noundef nonnull @.str.4) #7
   %154 = call ptr @makeDefElem(ptr noundef nonnull @.str.1, ptr noundef %153, i32 noundef -1) #7
-  br label %311
+  br label %308
 
 155:                                              ; preds = %74
   %156 = call ptr @makeBoolean(i1 noundef zeroext true) #7
   %157 = call ptr @makeDefElem(ptr noundef nonnull @.str.5, ptr noundef %156, i32 noundef -1) #7
-  br label %311
+  br label %308
 
 158:                                              ; preds = %74
   %159 = call ptr @makeBoolean(i1 noundef zeroext true) #7
   %160 = call ptr @makeDefElem(ptr noundef nonnull @.str.6, ptr noundef %159, i32 noundef -1) #7
-  br label %311
+  br label %308
 
 161:                                              ; preds = %74
   %162 = call noundef ptr @palloc0(i64 noundef 24) #7
@@ -422,7 +422,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   store ptr %163, ptr %164, align 8
   %165 = getelementptr inbounds i8, ptr %162, i64 16
   store i8 0, ptr %165, align 8
-  br label %311
+  br label %308
 
 166:                                              ; preds = %74
   %167 = call noundef ptr @palloc0(i64 noundef 24) #7
@@ -433,7 +433,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   store ptr %169, ptr %170, align 8
   %171 = getelementptr inbounds i8, ptr %167, i64 16
   store i8 1, ptr %171, align 8
-  br label %311
+  br label %308
 
 172:                                              ; preds = %74
   %173 = call noundef ptr @palloc0(i64 noundef 24) #7
@@ -446,7 +446,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds i8, ptr %173, i64 16
   store ptr %178, ptr %179, align 8
-  br label %311
+  br label %308
 
 180:                                              ; preds = %74
   %181 = call noundef ptr @palloc0(i64 noundef 40) #7
@@ -464,7 +464,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %189 = load i32, ptr %.2240, align 8
   %190 = getelementptr inbounds i8, ptr %181, i64 16
   store i32 %189, ptr %190, align 8
-  br label %311
+  br label %308
 
 191:                                              ; preds = %74
   %192 = call noundef ptr @palloc0(i64 noundef 40) #7
@@ -482,7 +482,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %200 = load ptr, ptr %.2240, align 8
   %201 = getelementptr inbounds i8, ptr %192, i64 32
   store ptr %200, ptr %201, align 8
-  br label %311
+  br label %308
 
 202:                                              ; preds = %74
   %203 = load i32, ptr %.2240, align 8
@@ -504,245 +504,236 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %212 = load i32, ptr %.2240, align 8
   %213 = getelementptr inbounds i8, ptr %211, i64 4
   store i32 %212, ptr %213, align 4
-  br label %311
+  br label %308
 
 214:                                              ; preds = %74
   %215 = call noundef ptr @palloc0(i64 noundef 4) #7
   store i32 440, ptr %215, align 4
-  br label %311
+  br label %308
 
 216:                                              ; preds = %74
   %217 = ptrtoint ptr %.sroa.077.0.copyload to i64
   %.sroa.077.0.insert.mask82 = and i64 %217, -256
   %.sroa.077.0.insert.insert83 = or disjoint i64 %.sroa.077.0.insert.mask82, 1
   %218 = inttoptr i64 %.sroa.077.0.insert.insert83 to ptr
-  br label %311
+  br label %308
 
 219:                                              ; preds = %74
   %220 = ptrtoint ptr %.sroa.077.0.copyload to i64
   %.sroa.077.0.insert.mask85 = and i64 %220, -256
   %221 = inttoptr i64 %.sroa.077.0.insert.mask85 to ptr
-  br label %311
+  br label %308
 
 222:                                              ; preds = %74
   %223 = load ptr, ptr %.2240, align 8
-  br label %311
+  br label %308
 
 224:                                              ; preds = %74
-  br label %311
+  %225 = load i32, ptr %.2240, align 8
+  %226 = icmp eq i32 %225, 0
+  br i1 %226, label %227, label %232
 
-225:                                              ; preds = %74
-  %226 = load i32, ptr %.2240, align 8
-  %227 = icmp eq i32 %226, 0
-  br i1 %227, label %228, label %233
-
-228:                                              ; preds = %225
-  %229 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %229)
-  %230 = call i32 @errcode(i32 noundef 16801924) #7
-  %231 = load i32, ptr %.2240, align 8
-  %232 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %231) #7
+227:                                              ; preds = %224
+  %228 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %228)
+  %229 = call i32 @errcode(i32 noundef 16801924) #7
+  %230 = load i32, ptr %.2240, align 8
+  %231 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %230) #7
   call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 359, ptr noundef nonnull @__func__.replication_yyparse) #7
   unreachable
 
-233:                                              ; preds = %225
-  %234 = ptrtoint ptr %.sroa.077.0.copyload to i64
-  %.sroa.077.0.insert.ext = zext i32 %226 to i64
-  %.sroa.077.0.insert.mask = and i64 %234, -4294967296
+232:                                              ; preds = %224
+  %233 = ptrtoint ptr %.sroa.077.0.copyload to i64
+  %.sroa.077.0.insert.ext = zext i32 %225 to i64
+  %.sroa.077.0.insert.mask = and i64 %233, -4294967296
   %.sroa.077.0.insert.insert = or disjoint i64 %.sroa.077.0.insert.mask, %.sroa.077.0.insert.ext
-  %235 = inttoptr i64 %.sroa.077.0.insert.insert to ptr
-  br label %311
+  %234 = inttoptr i64 %.sroa.077.0.insert.insert to ptr
+  br label %308
 
-236:                                              ; preds = %74
-  %237 = ptrtoint ptr %.sroa.077.0.copyload to i64
-  %.sroa.077.0.insert.mask79 = and i64 %237, -4294967296
-  %238 = inttoptr i64 %.sroa.077.0.insert.mask79 to ptr
-  br label %311
+235:                                              ; preds = %74
+  %236 = ptrtoint ptr %.sroa.077.0.copyload to i64
+  %.sroa.077.0.insert.mask79 = and i64 %236, -4294967296
+  %237 = inttoptr i64 %.sroa.077.0.insert.mask79 to ptr
+  br label %308
 
-239:                                              ; preds = %74
-  %240 = getelementptr i8, ptr %.2240, i64 -8
-  %241 = load ptr, ptr %240, align 8
-  br label %311
+238:                                              ; preds = %74
+  %239 = getelementptr i8, ptr %.2240, i64 -8
+  %240 = load ptr, ptr %239, align 8
+  br label %308
 
-242:                                              ; preds = %74
-  br label %311
+241:                                              ; preds = %74
+  %242 = load ptr, ptr %.2240, align 8
+  %243 = call ptr @list_make1_impl(i32 noundef 1, ptr %242) #7
+  br label %308
 
-243:                                              ; preds = %74
-  %244 = load ptr, ptr %.2240, align 8
-  %245 = call ptr @list_make1_impl(i32 noundef 1, ptr %244) #7
-  br label %311
+244:                                              ; preds = %74
+  %245 = getelementptr i8, ptr %.2240, i64 -16
+  %246 = load ptr, ptr %245, align 8
+  %247 = load ptr, ptr %.2240, align 8
+  %248 = call ptr @lappend(ptr noundef %246, ptr noundef %247) #7
+  br label %308
 
-246:                                              ; preds = %74
-  %247 = getelementptr i8, ptr %.2240, i64 -16
-  %248 = load ptr, ptr %247, align 8
-  %249 = load ptr, ptr %.2240, align 8
-  %250 = call ptr @lappend(ptr noundef %248, ptr noundef %249) #7
-  br label %311
+249:                                              ; preds = %74
+  %250 = getelementptr i8, ptr %.2240, i64 -8
+  %251 = load ptr, ptr %250, align 8
+  %252 = load ptr, ptr %.2240, align 8
+  %253 = call ptr @makeDefElem(ptr noundef %251, ptr noundef %252, i32 noundef -1) #7
+  br label %308
 
-251:                                              ; preds = %74
-  %252 = getelementptr i8, ptr %.2240, i64 -8
-  %253 = load ptr, ptr %252, align 8
-  %254 = load ptr, ptr %.2240, align 8
-  %255 = call ptr @makeDefElem(ptr noundef %253, ptr noundef %254, i32 noundef -1) #7
-  br label %311
+254:                                              ; preds = %74
+  %255 = load ptr, ptr %.2240, align 8
+  %256 = call ptr @makeString(ptr noundef %255) #7
+  br label %308
 
-256:                                              ; preds = %74
-  %257 = load ptr, ptr %.2240, align 8
-  %258 = call ptr @makeString(ptr noundef %257) #7
-  br label %311
+257:                                              ; preds = %74
+  %258 = getelementptr i8, ptr %.2240, i64 -16
+  %259 = load ptr, ptr %258, align 8
+  %260 = load ptr, ptr %.2240, align 8
+  %261 = call ptr @lappend(ptr noundef %259, ptr noundef %260) #7
+  br label %308
 
-259:                                              ; preds = %74
-  br label %311
-
-260:                                              ; preds = %74
-  %261 = getelementptr i8, ptr %.2240, i64 -16
-  %262 = load ptr, ptr %261, align 8
+262:                                              ; preds = %74
   %263 = load ptr, ptr %.2240, align 8
-  %264 = call ptr @lappend(ptr noundef %262, ptr noundef %263) #7
-  br label %311
+  %264 = call ptr @list_make1_impl(i32 noundef 1, ptr %263) #7
+  br label %308
 
 265:                                              ; preds = %74
   %266 = load ptr, ptr %.2240, align 8
-  %267 = call ptr @list_make1_impl(i32 noundef 1, ptr %266) #7
-  br label %311
+  %267 = call ptr @makeDefElem(ptr noundef %266, ptr noundef null, i32 noundef -1) #7
+  br label %308
 
 268:                                              ; preds = %74
-  %269 = load ptr, ptr %.2240, align 8
-  %270 = call ptr @makeDefElem(ptr noundef %269, ptr noundef null, i32 noundef -1) #7
-  br label %311
+  %269 = getelementptr i8, ptr %.2240, i64 -8
+  %270 = load ptr, ptr %269, align 8
+  %271 = load ptr, ptr %.2240, align 8
+  %272 = call ptr @makeString(ptr noundef %271) #7
+  %273 = call ptr @makeDefElem(ptr noundef %270, ptr noundef %272, i32 noundef -1) #7
+  br label %308
 
-271:                                              ; preds = %74
-  %272 = getelementptr i8, ptr %.2240, i64 -8
-  %273 = load ptr, ptr %272, align 8
-  %274 = load ptr, ptr %.2240, align 8
-  %275 = call ptr @makeString(ptr noundef %274) #7
-  %276 = call ptr @makeDefElem(ptr noundef %273, ptr noundef %275, i32 noundef -1) #7
-  br label %311
+274:                                              ; preds = %74
+  %275 = getelementptr i8, ptr %.2240, i64 -8
+  %276 = load ptr, ptr %275, align 8
+  %277 = load ptr, ptr %.2240, align 8
+  %278 = call ptr @makeString(ptr noundef %277) #7
+  %279 = call ptr @makeDefElem(ptr noundef %276, ptr noundef %278, i32 noundef -1) #7
+  br label %308
 
-277:                                              ; preds = %74
-  %278 = getelementptr i8, ptr %.2240, i64 -8
-  %279 = load ptr, ptr %278, align 8
-  %280 = load ptr, ptr %.2240, align 8
-  %281 = call ptr @makeString(ptr noundef %280) #7
-  %282 = call ptr @makeDefElem(ptr noundef %279, ptr noundef %281, i32 noundef -1) #7
-  br label %311
+280:                                              ; preds = %74
+  %281 = getelementptr i8, ptr %.2240, i64 -8
+  %282 = load ptr, ptr %281, align 8
+  %283 = load i32, ptr %.2240, align 8
+  %284 = call ptr @makeInteger(i32 noundef %283) #7
+  %285 = call ptr @makeDefElem(ptr noundef %282, ptr noundef %284, i32 noundef -1) #7
+  br label %308
 
-283:                                              ; preds = %74
-  %284 = getelementptr i8, ptr %.2240, i64 -8
-  %285 = load ptr, ptr %284, align 8
-  %286 = load i32, ptr %.2240, align 8
-  %287 = call ptr @makeInteger(i32 noundef %286) #7
-  %288 = call ptr @makeDefElem(ptr noundef %285, ptr noundef %287, i32 noundef -1) #7
-  br label %311
+286:                                              ; preds = %74
+  %287 = load ptr, ptr %.2240, align 8
+  br label %308
+
+288:                                              ; preds = %74
+  br label %308
 
 289:                                              ; preds = %74
-  %290 = load ptr, ptr %.2240, align 8
-  br label %311
+  br label %308
+
+290:                                              ; preds = %74
+  br label %308
 
 291:                                              ; preds = %74
-  br label %311
+  br label %308
 
 292:                                              ; preds = %74
-  br label %311
+  br label %308
 
 293:                                              ; preds = %74
-  br label %311
+  br label %308
 
 294:                                              ; preds = %74
-  br label %311
+  br label %308
 
 295:                                              ; preds = %74
-  br label %311
+  br label %308
 
 296:                                              ; preds = %74
-  br label %311
+  br label %308
 
 297:                                              ; preds = %74
-  br label %311
+  br label %308
 
 298:                                              ; preds = %74
-  br label %311
+  br label %308
 
 299:                                              ; preds = %74
-  br label %311
+  br label %308
 
 300:                                              ; preds = %74
-  br label %311
+  br label %308
 
 301:                                              ; preds = %74
-  br label %311
+  br label %308
 
 302:                                              ; preds = %74
-  br label %311
+  br label %308
 
 303:                                              ; preds = %74
-  br label %311
+  br label %308
 
 304:                                              ; preds = %74
-  br label %311
+  br label %308
 
 305:                                              ; preds = %74
-  br label %311
+  br label %308
 
 306:                                              ; preds = %74
-  br label %311
+  br label %308
 
 307:                                              ; preds = %74
-  br label %311
+  br label %308
 
-308:                                              ; preds = %74
-  br label %311
+308:                                              ; preds = %74, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %286, %280, %274, %268, %265, %262, %257, %254, %249, %244, %241, %238, %235, %232, %222, %219, %216, %214, %210, %191, %180, %172, %166, %161, %158, %155, %152, %149, %146, %145, %140, %138, %135, %120, %108, %106, %101, %96, %94, %90, %86, %84, %81
+  %.sroa.077.0 = phi ptr [ %.sroa.077.0.copyload, %74 ], [ @.str.26, %307 ], [ @.str.25, %306 ], [ @.str.24, %305 ], [ @.str.23, %304 ], [ @.str.6, %303 ], [ @.str.22, %302 ], [ @.str.5, %301 ], [ @.str.21, %300 ], [ @.str.20, %299 ], [ @.str.19, %298 ], [ @.str.18, %297 ], [ @.str.17, %296 ], [ @.str.16, %295 ], [ @.str.15, %294 ], [ @.str.14, %293 ], [ @.str.13, %292 ], [ @.str.12, %291 ], [ @.str.11, %290 ], [ @.str.10, %289 ], [ @.str.9, %288 ], [ %287, %286 ], [ %285, %280 ], [ %279, %274 ], [ %273, %268 ], [ %267, %265 ], [ %264, %262 ], [ %261, %257 ], [ %256, %254 ], [ %253, %249 ], [ %248, %244 ], [ %243, %241 ], [ %240, %238 ], [ %237, %235 ], [ %234, %232 ], [ %223, %222 ], [ %221, %219 ], [ %218, %216 ], [ %215, %214 ], [ %211, %210 ], [ %192, %191 ], [ %181, %180 ], [ %173, %172 ], [ %167, %166 ], [ %162, %161 ], [ %160, %158 ], [ %157, %155 ], [ %154, %152 ], [ %151, %149 ], [ %148, %146 ], [ null, %145 ], [ %144, %140 ], [ %139, %138 ], [ %137, %135 ], [ %121, %120 ], [ %109, %108 ], [ %107, %106 ], [ %102, %101 ], [ %100, %96 ], [ %95, %94 ], [ %91, %90 ], [ %87, %86 ], [ %85, %84 ], [ %.sroa.077.0.copyload, %81 ]
+  %309 = sub nsw i64 0, %78
+  %310 = getelementptr %union.YYSTYPE, ptr %.2240, i64 %309
+  %311 = getelementptr i8, ptr %.2234, i64 %309
+  %312 = getelementptr i8, ptr %310, i64 8
+  store ptr %.sroa.077.0, ptr %312, align 8
+  %313 = getelementptr [83 x i8], ptr @yyr1, i64 0, i64 %75
+  %314 = load i8, ptr %313, align 1
+  %315 = sext i8 %314 to i64
+  %316 = add nsw i64 %315, -33
+  %317 = getelementptr [30 x i8], ptr @yypgoto, i64 0, i64 %316
+  %318 = load i8, ptr %317, align 1
+  %319 = sext i8 %318 to i32
+  %320 = load i8, ptr %311, align 1
+  %321 = sext i8 %320 to i32
+  %322 = add nsw i32 %321, %319
+  %or.cond5 = icmp ult i32 %322, 81
+  br i1 %or.cond5, label %323, label %330
 
-309:                                              ; preds = %74
-  br label %311
+323:                                              ; preds = %308
+  %324 = zext nneg i32 %322 to i64
+  %325 = getelementptr [81 x i8], ptr @yycheck, i64 0, i64 %324
+  %326 = load i8, ptr %325, align 1
+  %327 = icmp eq i8 %326, %320
+  br i1 %327, label %328, label %330
 
-310:                                              ; preds = %74
-  br label %311
+328:                                              ; preds = %323
+  %329 = getelementptr [81 x i8], ptr @yytable, i64 0, i64 %324
+  br label %332
 
-311:                                              ; preds = %74, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %289, %283, %277, %271, %268, %265, %260, %259, %256, %251, %246, %243, %242, %239, %236, %233, %224, %222, %219, %216, %214, %210, %191, %180, %172, %166, %161, %158, %155, %152, %149, %146, %145, %140, %138, %135, %120, %108, %106, %101, %96, %94, %90, %86, %84, %81
-  %.sroa.077.0 = phi ptr [ %.sroa.077.0.copyload, %74 ], [ @.str.26, %310 ], [ @.str.25, %309 ], [ @.str.24, %308 ], [ @.str.23, %307 ], [ @.str.6, %306 ], [ @.str.22, %305 ], [ @.str.5, %304 ], [ @.str.21, %303 ], [ @.str.20, %302 ], [ @.str.19, %301 ], [ @.str.18, %300 ], [ @.str.17, %299 ], [ @.str.16, %298 ], [ @.str.15, %297 ], [ @.str.14, %296 ], [ @.str.13, %295 ], [ @.str.12, %294 ], [ @.str.11, %293 ], [ @.str.10, %292 ], [ @.str.9, %291 ], [ %290, %289 ], [ %288, %283 ], [ %282, %277 ], [ %276, %271 ], [ %270, %268 ], [ %267, %265 ], [ %264, %260 ], [ null, %259 ], [ %258, %256 ], [ %255, %251 ], [ %250, %246 ], [ %245, %243 ], [ null, %242 ], [ %241, %239 ], [ %238, %236 ], [ %235, %233 ], [ null, %224 ], [ %223, %222 ], [ %221, %219 ], [ %218, %216 ], [ %215, %214 ], [ %211, %210 ], [ %192, %191 ], [ %181, %180 ], [ %173, %172 ], [ %167, %166 ], [ %162, %161 ], [ %160, %158 ], [ %157, %155 ], [ %154, %152 ], [ %151, %149 ], [ %148, %146 ], [ null, %145 ], [ %144, %140 ], [ %139, %138 ], [ %137, %135 ], [ %121, %120 ], [ %109, %108 ], [ %107, %106 ], [ %102, %101 ], [ %100, %96 ], [ %95, %94 ], [ %91, %90 ], [ %87, %86 ], [ %85, %84 ], [ %.sroa.077.0.copyload, %81 ]
-  %312 = sub nsw i64 0, %78
-  %313 = getelementptr %union.YYSTYPE, ptr %.2240, i64 %312
-  %314 = getelementptr i8, ptr %.2234, i64 %312
-  %315 = getelementptr i8, ptr %313, i64 8
-  store ptr %.sroa.077.0, ptr %315, align 8
-  %316 = getelementptr [83 x i8], ptr @yyr1, i64 0, i64 %75
-  %317 = load i8, ptr %316, align 1
-  %318 = sext i8 %317 to i64
-  %319 = add nsw i64 %318, -33
-  %320 = getelementptr [30 x i8], ptr @yypgoto, i64 0, i64 %319
-  %321 = load i8, ptr %320, align 1
-  %322 = sext i8 %321 to i32
-  %323 = load i8, ptr %314, align 1
-  %324 = sext i8 %323 to i32
-  %325 = add nsw i32 %324, %322
-  %or.cond5 = icmp ult i32 %325, 81
-  br i1 %or.cond5, label %326, label %333
+330:                                              ; preds = %323, %308
+  %331 = getelementptr [30 x i8], ptr @yydefgoto, i64 0, i64 %316
+  br label %332
 
-326:                                              ; preds = %311
-  %327 = zext nneg i32 %325 to i64
-  %328 = getelementptr [81 x i8], ptr @yycheck, i64 0, i64 %327
-  %329 = load i8, ptr %328, align 1
-  %330 = icmp eq i8 %329, %323
-  br i1 %330, label %331, label %333
-
-331:                                              ; preds = %326
-  %332 = getelementptr [81 x i8], ptr @yytable, i64 0, i64 %327
-  br label %335
-
-333:                                              ; preds = %326, %311
-  %334 = getelementptr [30 x i8], ptr @yydefgoto, i64 0, i64 %319
-  br label %335
-
-335:                                              ; preds = %333, %331
-  %.in.in = phi ptr [ %332, %331 ], [ %334, %333 ]
+332:                                              ; preds = %330, %328
+  %.in.in = phi ptr [ %329, %328 ], [ %331, %330 ]
   %.in = load i8, ptr %.in.in, align 1
   br label %3
 
-336:                                              ; preds = %70
-  %337 = load i32, ptr @replication_yynerrs, align 4
-  %338 = add i32 %337, 1
-  store i32 %338, ptr @replication_yynerrs, align 4
+333:                                              ; preds = %70
+  %334 = load i32, ptr @replication_yynerrs, align 4
+  %335 = add i32 %334, 1
+  store i32 %335, ptr @replication_yynerrs, align 4
   call void @replication_yyerror(ptr noundef nonnull @.str.27) #9
   unreachable
 
@@ -750,7 +741,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   store i32 257, ptr @replication_yychar, align 4
   br label %.loopexit
 
-339:                                              ; preds = %15, %9
+336:                                              ; preds = %15, %9
   call void @replication_yyerror(ptr noundef nonnull @.str.30) #9
   unreachable
 
@@ -758,13 +749,13 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %.0246 = phi i32 [ 1, %.loopexit.loopexit ], [ 1, %26 ], [ 0, %32 ]
   %.3 = phi ptr [ %.1230, %.loopexit.loopexit ], [ %19, %26 ], [ %.1230, %32 ]
   %.not275 = icmp eq ptr %.3, %1
-  br i1 %.not275, label %341, label %340
+  br i1 %.not275, label %338, label %337
 
-340:                                              ; preds = %.loopexit
+337:                                              ; preds = %.loopexit
   call void @pfree(ptr noundef %.3) #7
-  br label %341
+  br label %338
 
-341:                                              ; preds = %340, %.loopexit
+338:                                              ; preds = %337, %.loopexit
   ret i32 %.0246
 }
 

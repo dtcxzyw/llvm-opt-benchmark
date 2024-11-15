@@ -1133,8 +1133,8 @@ if.end13:                                         ; preds = %land.rhs, %land.rhs
   %cmp.i = icmp slt i32 %tag.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i, label %return, label %if.else.i, !llvm.loop !12
 
-return:                                           ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end13, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %while.body, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ false, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i ], [ false, %if.end13 ], [ false, %if.then3.i ], [ false, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ false, %while.body ]
+return:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end13, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %while.body, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i ], [ false, %if.end13 ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ false, %if.then3.i ], [ false, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ false, %while.body ]
   ret i1 %retval.0
 }
 

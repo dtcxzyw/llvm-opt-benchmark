@@ -10173,8 +10173,8 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17hd7accd40f6e9197fE(ptr
   %2 = load i8, ptr %0, align 8, !range !1850, !noundef !11
   %switch.i = icmp eq i8 %2, 12
   %3 = getelementptr inbounds i8, ptr %0, i64 1
-  %spec.select.i = select i1 %switch.i, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select.i, 0
+  %.sroa.0.0.i = select i1 %switch.i, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.398, 1
   ret { ptr, ptr } %5
 }
@@ -29711,8 +29711,8 @@ define internal { ptr, ptr } @"_ZN72_$LT$tungstenite..error..ProtocolError$u20$a
   %2 = load i8, ptr %0, align 8, !range !1850, !noundef !11
   %switch = icmp eq i8 %2, 12
   %3 = getelementptr inbounds i8, ptr %0, i64 1
-  %spec.select = select i1 %switch, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %.sroa.0.0 = select i1 %switch, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.398, 1
   ret { ptr, ptr } %5
 }

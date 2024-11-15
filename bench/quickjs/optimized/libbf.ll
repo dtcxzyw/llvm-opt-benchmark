@@ -20082,60 +20082,60 @@ define dso_local i32 @bfdec_normalize_and_round(ptr nocapture noundef %0, i64 no
     i32 61, label %clz_dec.exit.thread
     i32 60, label %32
     i32 59, label %34
-    i32 58, label %35
-    i32 57, label %36
-    i32 56, label %38
-    i32 55, label %39
-    i32 54, label %40
-    i32 53, label %42
-    i32 52, label %43
-    i32 51, label %44
-    i32 50, label %45
-    i32 49, label %47
-    i32 48, label %48
-    i32 47, label %49
-    i32 46, label %51
-    i32 45, label %52
-    i32 44, label %53
-    i32 43, label %55
-    i32 42, label %56
-    i32 41, label %57
-    i32 40, label %58
-    i32 39, label %60
-    i32 38, label %61
-    i32 37, label %62
-    i32 36, label %64
-    i32 35, label %65
-    i32 34, label %66
-    i32 33, label %68
-    i32 32, label %69
-    i32 31, label %70
-    i32 30, label %71
-    i32 29, label %73
-    i32 28, label %74
-    i32 27, label %75
-    i32 26, label %77
-    i32 25, label %78
-    i32 24, label %79
-    i32 23, label %81
-    i32 22, label %82
-    i32 21, label %83
-    i32 20, label %84
-    i32 19, label %86
-    i32 18, label %87
-    i32 17, label %88
-    i32 16, label %90
-    i32 15, label %91
-    i32 14, label %92
-    i32 13, label %94
-    i32 12, label %95
-    i32 11, label %96
-    i32 10, label %97
-    i32 9, label %99
-    i32 8, label %100
-    i32 7, label %101
-    i32 6, label %103
-    i32 5, label %104
+    i32 58, label %34
+    i32 57, label %35
+    i32 56, label %37
+    i32 55, label %37
+    i32 54, label %38
+    i32 53, label %40
+    i32 52, label %40
+    i32 51, label %40
+    i32 50, label %41
+    i32 49, label %43
+    i32 48, label %43
+    i32 47, label %44
+    i32 46, label %46
+    i32 45, label %46
+    i32 44, label %47
+    i32 43, label %49
+    i32 42, label %49
+    i32 41, label %49
+    i32 40, label %50
+    i32 39, label %52
+    i32 38, label %52
+    i32 37, label %53
+    i32 36, label %55
+    i32 35, label %55
+    i32 34, label %56
+    i32 33, label %58
+    i32 32, label %58
+    i32 31, label %58
+    i32 30, label %59
+    i32 29, label %61
+    i32 28, label %61
+    i32 27, label %62
+    i32 26, label %64
+    i32 25, label %64
+    i32 24, label %65
+    i32 23, label %67
+    i32 22, label %67
+    i32 21, label %67
+    i32 20, label %68
+    i32 19, label %70
+    i32 18, label %70
+    i32 17, label %71
+    i32 16, label %73
+    i32 15, label %73
+    i32 14, label %74
+    i32 13, label %76
+    i32 12, label %76
+    i32 11, label %76
+    i32 10, label %77
+    i32 9, label %79
+    i32 8, label %79
+    i32 7, label %80
+    i32 6, label %82
+    i32 5, label %82
     i32 4, label %clz_dec.exit
   ]
 
@@ -20144,269 +20144,203 @@ define dso_local i32 @bfdec_normalize_and_round(ptr nocapture noundef %0, i64 no
   %..i = select i1 %33, i64 18, i64 17
   br label %clz_dec.exit.thread
 
-34:                                               ; preds = %29
+34:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 35:                                               ; preds = %29
+  %36 = icmp ult i64 %27, 100
+  %.22.i = select i1 %36, i64 17, i64 16
   br label %clz_dec.exit.thread
 
-36:                                               ; preds = %29
-  %37 = icmp ult i64 %27, 100
-  %.22.i = select i1 %37, i64 17, i64 16
+37:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 38:                                               ; preds = %29
+  %39 = icmp ult i64 %27, 1000
+  %.23.i = select i1 %39, i64 16, i64 15
   br label %clz_dec.exit.thread
 
-39:                                               ; preds = %29
+40:                                               ; preds = %29, %29, %29
   br label %clz_dec.exit.thread
 
-40:                                               ; preds = %29
-  %41 = icmp ult i64 %27, 1000
-  %.23.i = select i1 %41, i64 16, i64 15
+41:                                               ; preds = %29
+  %42 = icmp ult i64 %27, 10000
+  %.24.i = select i1 %42, i64 15, i64 14
   br label %clz_dec.exit.thread
 
-42:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-43:                                               ; preds = %29
+43:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 44:                                               ; preds = %29
+  %45 = icmp ult i64 %27, 100000
+  %.25.i = select i1 %45, i64 14, i64 13
   br label %clz_dec.exit.thread
 
-45:                                               ; preds = %29
-  %46 = icmp ult i64 %27, 10000
-  %.24.i = select i1 %46, i64 15, i64 14
+46:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 47:                                               ; preds = %29
+  %48 = icmp ult i64 %27, 1000000
+  %.26.i = select i1 %48, i64 13, i64 12
   br label %clz_dec.exit.thread
 
-48:                                               ; preds = %29
+49:                                               ; preds = %29, %29, %29
   br label %clz_dec.exit.thread
 
-49:                                               ; preds = %29
-  %50 = icmp ult i64 %27, 100000
-  %.25.i = select i1 %50, i64 14, i64 13
+50:                                               ; preds = %29
+  %51 = icmp ult i64 %27, 10000000
+  %.27.i = select i1 %51, i64 12, i64 11
   br label %clz_dec.exit.thread
 
-51:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-52:                                               ; preds = %29
+52:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 53:                                               ; preds = %29
-  %54 = icmp ult i64 %27, 1000000
-  %.26.i = select i1 %54, i64 13, i64 12
+  %54 = icmp ult i64 %27, 100000000
+  %.28.i = select i1 %54, i64 11, i64 10
   br label %clz_dec.exit.thread
 
-55:                                               ; preds = %29
+55:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 56:                                               ; preds = %29
+  %57 = icmp ult i64 %27, 1000000000
+  %.29.i = select i1 %57, i64 10, i64 9
   br label %clz_dec.exit.thread
 
-57:                                               ; preds = %29
+58:                                               ; preds = %29, %29, %29
   br label %clz_dec.exit.thread
 
-58:                                               ; preds = %29
-  %59 = icmp ult i64 %27, 10000000
-  %.27.i = select i1 %59, i64 12, i64 11
+59:                                               ; preds = %29
+  %60 = icmp ult i64 %27, 10000000000
+  %.30.i = select i1 %60, i64 9, i64 8
   br label %clz_dec.exit.thread
 
-60:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-61:                                               ; preds = %29
+61:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 62:                                               ; preds = %29
-  %63 = icmp ult i64 %27, 100000000
-  %.28.i = select i1 %63, i64 11, i64 10
+  %63 = icmp ult i64 %27, 100000000000
+  %.31.i = select i1 %63, i64 8, i64 7
   br label %clz_dec.exit.thread
 
-64:                                               ; preds = %29
+64:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 65:                                               ; preds = %29
+  %66 = icmp ult i64 %27, 1000000000000
+  %.32.i = select i1 %66, i64 7, i64 6
   br label %clz_dec.exit.thread
 
-66:                                               ; preds = %29
-  %67 = icmp ult i64 %27, 1000000000
-  %.29.i = select i1 %67, i64 10, i64 9
+67:                                               ; preds = %29, %29, %29
   br label %clz_dec.exit.thread
 
 68:                                               ; preds = %29
+  %69 = icmp ult i64 %27, 10000000000000
+  %.33.i = select i1 %69, i64 6, i64 5
   br label %clz_dec.exit.thread
 
-69:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-70:                                               ; preds = %29
+70:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 71:                                               ; preds = %29
-  %72 = icmp ult i64 %27, 10000000000
-  %.30.i = select i1 %72, i64 9, i64 8
+  %72 = icmp ult i64 %27, 100000000000000
+  %.34.i = select i1 %72, i64 5, i64 4
   br label %clz_dec.exit.thread
 
-73:                                               ; preds = %29
+73:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 74:                                               ; preds = %29
+  %75 = icmp ult i64 %27, 1000000000000000
+  %.35.i = select i1 %75, i64 4, i64 3
   br label %clz_dec.exit.thread
 
-75:                                               ; preds = %29
-  %76 = icmp ult i64 %27, 100000000000
-  %.31.i = select i1 %76, i64 8, i64 7
+76:                                               ; preds = %29, %29, %29
   br label %clz_dec.exit.thread
 
 77:                                               ; preds = %29
+  %78 = icmp ult i64 %27, 10000000000000000
+  %.36.i = select i1 %78, i64 3, i64 2
   br label %clz_dec.exit.thread
 
-78:                                               ; preds = %29
+79:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
-79:                                               ; preds = %29
-  %80 = icmp ult i64 %27, 1000000000000
-  %.32.i = select i1 %80, i64 7, i64 6
+80:                                               ; preds = %29
+  %81 = icmp ult i64 %27, 100000000000000000
+  %.37.i = select i1 %81, i64 2, i64 1
   br label %clz_dec.exit.thread
 
-81:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-82:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-83:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-84:                                               ; preds = %29
-  %85 = icmp ult i64 %27, 10000000000000
-  %.33.i = select i1 %85, i64 6, i64 5
-  br label %clz_dec.exit.thread
-
-86:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-87:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-88:                                               ; preds = %29
-  %89 = icmp ult i64 %27, 100000000000000
-  %.34.i = select i1 %89, i64 5, i64 4
-  br label %clz_dec.exit.thread
-
-90:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-91:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-92:                                               ; preds = %29
-  %93 = icmp ult i64 %27, 1000000000000000
-  %.35.i = select i1 %93, i64 4, i64 3
-  br label %clz_dec.exit.thread
-
-94:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-95:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-96:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-97:                                               ; preds = %29
-  %98 = icmp ult i64 %27, 10000000000000000
-  %.36.i = select i1 %98, i64 3, i64 2
-  br label %clz_dec.exit.thread
-
-99:                                               ; preds = %29
-  br label %clz_dec.exit.thread
-
-100:                                              ; preds = %29
-  br label %clz_dec.exit.thread
-
-101:                                              ; preds = %29
-  %102 = icmp ult i64 %27, 100000000000000000
-  %.37.i = select i1 %102, i64 2, i64 1
-  br label %clz_dec.exit.thread
-
-103:                                              ; preds = %29
-  br label %clz_dec.exit.thread
-
-104:                                              ; preds = %29
+82:                                               ; preds = %29, %29
   br label %clz_dec.exit.thread
 
 clz_dec.exit:                                     ; preds = %29
-  %105 = icmp ugt i64 %27, 999999999999999999
-  br i1 %105, label %clz_dec.exit.thread31, label %clz_dec.exit.thread
+  %83 = icmp ugt i64 %27, 999999999999999999
+  br i1 %83, label %clz_dec.exit.thread31, label %clz_dec.exit.thread
 
-clz_dec.exit.thread:                              ; preds = %101, %97, %92, %88, %84, %79, %75, %71, %66, %62, %58, %53, %49, %45, %40, %36, %32, %29, %29, %29, %.critedge, %34, %35, %38, %39, %42, %43, %44, %47, %48, %51, %52, %55, %56, %57, %60, %61, %64, %65, %68, %69, %70, %73, %74, %77, %78, %81, %82, %83, %86, %87, %90, %91, %94, %95, %96, %99, %100, %103, %104, %clz_dec.exit
-  %.0.i30 = phi i64 [ 1, %clz_dec.exit ], [ %.37.i, %101 ], [ %.36.i, %97 ], [ %.35.i, %92 ], [ %.34.i, %88 ], [ %.33.i, %84 ], [ %.32.i, %79 ], [ %.31.i, %75 ], [ %.30.i, %71 ], [ %.29.i, %66 ], [ %.28.i, %62 ], [ %.27.i, %58 ], [ %.26.i, %53 ], [ %.25.i, %49 ], [ %.24.i, %45 ], [ %.23.i, %40 ], [ %.22.i, %36 ], [ %..i, %32 ], [ 18, %29 ], [ 18, %29 ], [ 18, %29 ], [ 19, %.critedge ], [ 17, %34 ], [ 17, %35 ], [ 16, %38 ], [ 16, %39 ], [ 15, %42 ], [ 15, %43 ], [ 15, %44 ], [ 14, %47 ], [ 14, %48 ], [ 13, %51 ], [ 13, %52 ], [ 12, %55 ], [ 12, %56 ], [ 12, %57 ], [ 11, %60 ], [ 11, %61 ], [ 10, %64 ], [ 10, %65 ], [ 9, %68 ], [ 9, %69 ], [ 9, %70 ], [ 8, %73 ], [ 8, %74 ], [ 7, %77 ], [ 7, %78 ], [ 6, %81 ], [ 6, %82 ], [ 6, %83 ], [ 5, %86 ], [ 5, %87 ], [ 4, %90 ], [ 4, %91 ], [ 3, %94 ], [ 3, %95 ], [ 3, %96 ], [ 2, %99 ], [ 2, %100 ], [ 1, %103 ], [ 1, %104 ]
-  %106 = icmp sgt i64 %.02539, 0
-  br i1 %106, label %.lr.ph.i, label %mp_shl_dec.exit
+clz_dec.exit.thread:                              ; preds = %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %29, %29, %.critedge, %34, %37, %40, %43, %46, %49, %52, %55, %58, %61, %64, %67, %70, %73, %76, %79, %82, %clz_dec.exit
+  %.0.i30 = phi i64 [ 1, %clz_dec.exit ], [ %.37.i, %80 ], [ %.36.i, %77 ], [ %.35.i, %74 ], [ %.34.i, %71 ], [ %.33.i, %68 ], [ %.32.i, %65 ], [ %.31.i, %62 ], [ %.30.i, %59 ], [ %.29.i, %56 ], [ %.28.i, %53 ], [ %.27.i, %50 ], [ %.26.i, %47 ], [ %.25.i, %44 ], [ %.24.i, %41 ], [ %.23.i, %38 ], [ %.22.i, %35 ], [ %..i, %32 ], [ 18, %29 ], [ 18, %29 ], [ 18, %29 ], [ 19, %.critedge ], [ 17, %34 ], [ 16, %37 ], [ 15, %40 ], [ 14, %43 ], [ 13, %46 ], [ 12, %49 ], [ 11, %52 ], [ 10, %55 ], [ 9, %58 ], [ 8, %61 ], [ 7, %64 ], [ 6, %67 ], [ 5, %70 ], [ 4, %73 ], [ 3, %76 ], [ 2, %79 ], [ 1, %82 ]
+  %84 = icmp sgt i64 %.02539, 0
+  br i1 %84, label %.lr.ph.i, label %mp_shl_dec.exit
 
 .lr.ph.i:                                         ; preds = %clz_dec.exit.thread
-  %107 = sub nuw nsw i64 19, %.0.i30
-  %108 = getelementptr [20 x %struct.FastDivData], ptr @mp_pow_div, i64 0, i64 %107
-  %109 = load i64, ptr %108, align 16
-  %110 = zext i64 %109 to i128
-  %111 = getelementptr inbounds i8, ptr %108, i64 8
-  %112 = load i8, ptr %111, align 8
-  %113 = sext i8 %112 to i64
-  %114 = and i64 %113, 4294967295
-  %115 = getelementptr inbounds i8, ptr %108, i64 9
-  %116 = load i8, ptr %115, align 1
-  %117 = sext i8 %116 to i64
-  %118 = and i64 %117, 4294967295
-  %119 = getelementptr [20 x i64], ptr @mp_pow_dec, i64 0, i64 %107
-  %120 = load i64, ptr %119, align 8
-  %121 = getelementptr [20 x i64], ptr @mp_pow_dec, i64 0, i64 %.0.i30
-  %122 = load i64, ptr %121, align 8
-  br label %123
+  %85 = sub nuw nsw i64 19, %.0.i30
+  %86 = getelementptr [20 x %struct.FastDivData], ptr @mp_pow_div, i64 0, i64 %85
+  %87 = load i64, ptr %86, align 16
+  %88 = zext i64 %87 to i128
+  %89 = getelementptr inbounds i8, ptr %86, i64 8
+  %90 = load i8, ptr %89, align 8
+  %91 = sext i8 %90 to i64
+  %92 = and i64 %91, 4294967295
+  %93 = getelementptr inbounds i8, ptr %86, i64 9
+  %94 = load i8, ptr %93, align 1
+  %95 = sext i8 %94 to i64
+  %96 = and i64 %95, 4294967295
+  %97 = getelementptr [20 x i64], ptr @mp_pow_dec, i64 0, i64 %85
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr [20 x i64], ptr @mp_pow_dec, i64 0, i64 %.0.i30
+  %100 = load i64, ptr %99, align 8
+  br label %101
 
-123:                                              ; preds = %123, %.lr.ph.i
-  %.019.i = phi i64 [ 0, %.lr.ph.i ], [ %138, %123 ]
-  %.01718.i = phi i64 [ 0, %.lr.ph.i ], [ %133, %123 ]
-  %124 = getelementptr i64, ptr %8, i64 %.019.i
-  %125 = load i64, ptr %124, align 8
-  %126 = zext i64 %125 to i128
-  %127 = mul nuw i128 %126, %110
-  %128 = lshr i128 %127, 64
-  %129 = trunc nuw i128 %128 to i64
-  %130 = sub i64 %125, %129
-  %131 = lshr i64 %130, %114
-  %132 = add i64 %131, %129
-  %133 = lshr i64 %132, %118
-  %134 = mul i64 %133, %120
-  %135 = sub i64 %125, %134
-  %136 = mul i64 %135, %122
-  %137 = add i64 %136, %.01718.i
-  store i64 %137, ptr %124, align 8
-  %138 = add nuw nsw i64 %.019.i, 1
-  %exitcond.not.i = icmp eq i64 %138, %.02539
-  br i1 %exitcond.not.i, label %mp_shl_dec.exit.loopexit, label %123, !llvm.loop !101
+101:                                              ; preds = %101, %.lr.ph.i
+  %.019.i = phi i64 [ 0, %.lr.ph.i ], [ %116, %101 ]
+  %.01718.i = phi i64 [ 0, %.lr.ph.i ], [ %111, %101 ]
+  %102 = getelementptr i64, ptr %8, i64 %.019.i
+  %103 = load i64, ptr %102, align 8
+  %104 = zext i64 %103 to i128
+  %105 = mul nuw i128 %104, %88
+  %106 = lshr i128 %105, 64
+  %107 = trunc nuw i128 %106 to i64
+  %108 = sub i64 %103, %107
+  %109 = lshr i64 %108, %92
+  %110 = add i64 %109, %107
+  %111 = lshr i64 %110, %96
+  %112 = mul i64 %111, %98
+  %113 = sub i64 %103, %112
+  %114 = mul i64 %113, %100
+  %115 = add i64 %114, %.01718.i
+  store i64 %115, ptr %102, align 8
+  %116 = add nuw nsw i64 %.019.i, 1
+  %exitcond.not.i = icmp eq i64 %116, %.02539
+  br i1 %exitcond.not.i, label %mp_shl_dec.exit.loopexit, label %101, !llvm.loop !101
 
-mp_shl_dec.exit.loopexit:                         ; preds = %123
+mp_shl_dec.exit.loopexit:                         ; preds = %101
   %.pre = load i64, ptr %24, align 8
   br label %mp_shl_dec.exit
 
 mp_shl_dec.exit:                                  ; preds = %mp_shl_dec.exit.loopexit, %clz_dec.exit.thread
-  %139 = phi i64 [ %.pre, %mp_shl_dec.exit.loopexit ], [ %26, %clz_dec.exit.thread ]
-  %140 = sub i64 %139, %.0.i30
-  store i64 %140, ptr %24, align 8
+  %117 = phi i64 [ %.pre, %mp_shl_dec.exit.loopexit ], [ %26, %clz_dec.exit.thread ]
+  %118 = sub i64 %117, %.0.i30
+  store i64 %118, ptr %24, align 8
   br label %clz_dec.exit.thread31
 
 clz_dec.exit.thread31:                            ; preds = %29, %mp_shl_dec.exit, %clz_dec.exit
-  %141 = tail call fastcc i32 @__bfdec_round(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i64 noundef %.02539)
+  %119 = tail call fastcc i32 @__bfdec_round(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i64 noundef %.02539)
   br label %bfdec_resize.exit
 
 bfdec_resize.exit:                                ; preds = %._crit_edge.thread, %._crit_edge, %clz_dec.exit.thread31
-  %.0 = phi i32 [ %141, %clz_dec.exit.thread31 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
+  %.0 = phi i32 [ %119, %clz_dec.exit.thread31 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
   ret i32 %.0
 }
 

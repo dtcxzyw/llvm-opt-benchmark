@@ -4199,19 +4199,11 @@ entry:
     i8 0, label %return
     i8 1, label %return
     i8 2, label %return
-    i8 3, label %sw.bb4
+    i8 7, label %sw.bb14
     i8 4, label %return
     i8 5, label %return
-    i8 6, label %sw.bb10
     i8 64, label %return
-    i8 7, label %sw.bb14
   ]
-
-sw.bb4:                                           ; preds = %entry
-  br label %return
-
-sw.bb10:                                          ; preds = %entry
-  br label %return
 
 sw.bb14:                                          ; preds = %entry
   %call.i = tail call i32 @ZSTD_versionNumber()
@@ -4221,8 +4213,8 @@ sw.bb14:                                          ; preds = %entry
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %sw.default, %sw.bb14, %sw.bb10, %sw.bb4
-  %retval.0 = phi i1 [ false, %sw.default ], [ %cmp.i, %sw.bb14 ], [ false, %sw.bb10 ], [ false, %sw.bb4 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ]
+return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %sw.default, %sw.bb14
+  %retval.0 = phi i1 [ false, %sw.default ], [ %cmp.i, %sw.bb14 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ]
   ret i1 %retval.0
 }
 

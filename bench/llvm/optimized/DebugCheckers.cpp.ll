@@ -31914,40 +31914,40 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallG
     i8 12, label %tailrecurse.backedge
     i8 56, label %tailrecurse.backedge
     i8 14, label %tailrecurse.backedge
-    i8 53, label %46
+    i8 53, label %42
     i8 16, label %9
     i8 17, label %11
     i8 18, label %13
     i8 19, label %14
     i8 20, label %16
-    i8 21, label %20
-    i8 22, label %21
+    i8 21, label %13
+    i8 22, label %20
     i8 23, label %tailrecurse.backedge
-    i8 24, label %23
-    i8 25, label %25
-    i8 26, label %26
+    i8 24, label %22
+    i8 25, label %24
+    i8 26, label %25
     i8 27, label %tailrecurse.backedge
-    i8 51, label %45
-    i8 29, label %28
+    i8 51, label %24
+    i8 29, label %24
     i8 30, label %tailrecurse.backedge
     i8 31, label %tailrecurse.backedge
-    i8 32, label %29
+    i8 32, label %27
     i8 33, label %tailrecurse.backedge
-    i8 34, label %31
-    i8 48, label %43
-    i8 45, label %40
+    i8 34, label %29
+    i8 48, label %40
+    i8 45, label %37
     i8 37, label %tailrecurse.backedge
-    i8 38, label %33
+    i8 38, label %13
     i8 39, label %tailrecurse.backedge
     i8 40, label %tailrecurse.backedge
     i8 41, label %tailrecurse.backedge
-    i8 42, label %34
-    i8 43, label %36
-    i8 44, label %38
+    i8 42, label %31
+    i8 43, label %33
+    i8 44, label %35
   ]
 
-tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %13, %20, %25, %28, %33, %40, %45
-  %.sink = phi i64 [ 40, %13 ], [ 40, %20 ], [ 24, %25 ], [ 24, %28 ], [ 40, %33 ], [ %.sroa.0.0.in.v.i.i, %40 ], [ 24, %45 ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ]
+tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %13, %24, %37
+  %.sink = phi i64 [ 40, %13 ], [ 24, %24 ], [ %.sroa.0.0.in.v.i.i, %37 ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ]
   %8 = getelementptr inbounds i8, ptr %5, i64 %.sink
   %.tr149.be = load i64, ptr %8, align 8
   %.not.i.i = icmp ult i64 %.tr149.be, 16
@@ -31961,7 +31961,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   %12 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE41TraverseDeducedTemplateSpecializationTypeEPNS_33DeducedTemplateSpecializationTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-13:                                               ; preds = %.lr.ph
+13:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   br label %tailrecurse.backedge
 
 14:                                               ; preds = %.lr.ph
@@ -31975,69 +31975,57 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 20:                                               ; preds = %.lr.ph
+  %21 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE43TraverseDependentTemplateSpecializationTypeEPNS_35DependentTemplateSpecializationTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  br label %.loopexit
+
+22:                                               ; preds = %.lr.ph
+  %23 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE22TraverseElaboratedTypeEPNS_14ElaboratedTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  br label %.loopexit
+
+24:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   br label %tailrecurse.backedge
-
-21:                                               ; preds = %.lr.ph
-  %22 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE43TraverseDependentTemplateSpecializationTypeEPNS_35DependentTemplateSpecializationTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
-  br label %.loopexit
-
-23:                                               ; preds = %.lr.ph
-  %24 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE22TraverseElaboratedTypeEPNS_14ElaboratedTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
-  br label %.loopexit
 
 25:                                               ; preds = %.lr.ph
-  br label %tailrecurse.backedge
-
-26:                                               ; preds = %.lr.ph
-  %27 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE25TraverseFunctionProtoTypeEPNS_17FunctionProtoTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  %26 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE25TraverseFunctionProtoTypeEPNS_17FunctionProtoTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-28:                                               ; preds = %.lr.ph
-  br label %tailrecurse.backedge
+27:                                               ; preds = %.lr.ph
+  %28 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE25TraverseMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  br label %.loopexit
 
 29:                                               ; preds = %.lr.ph
-  %30 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE25TraverseMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  %30 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE22TraverseObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
 31:                                               ; preds = %.lr.ph
-  %32 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE22TraverseObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  %32 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE27TraverseLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
 33:                                               ; preds = %.lr.ph
-  br label %tailrecurse.backedge
-
-34:                                               ; preds = %.lr.ph
-  %35 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE27TraverseLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  %34 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE27TraverseRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-36:                                               ; preds = %.lr.ph
-  %37 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE27TraverseRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+35:                                               ; preds = %.lr.ph
+  %36 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE37TraverseSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-38:                                               ; preds = %.lr.ph
-  %39 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE37TraverseSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
-  br label %.loopexit
-
-40:                                               ; preds = %.lr.ph
-  %41 = load i64, ptr %6, align 16
-  %42 = and i64 %41, 524288
-  %.not.i.i145 = icmp eq i64 %42, 0
+37:                                               ; preds = %.lr.ph
+  %38 = load i64, ptr %6, align 16
+  %39 = and i64 %38, 524288
+  %.not.i.i145 = icmp eq i64 %39, 0
   %.sroa.0.0.in.v.i.i = select i1 %.not.i.i145, i64 8, i64 48
   br label %tailrecurse.backedge
 
-43:                                               ; preds = %.lr.ph
-  %44 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE34TraverseTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+40:                                               ; preds = %.lr.ph
+  %41 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE34TraverseTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-45:                                               ; preds = %.lr.ph
-  br label %tailrecurse.backedge
-
-46:                                               ; preds = %.lr.ph
-  %47 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE26TraverseUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+42:                                               ; preds = %.lr.ph
+  %43 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_9CallGraphEE26TraverseUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %46, %43, %38, %36, %34, %31, %29, %26, %23, %21, %16, %14, %11, %9
-  %.0 = phi i1 [ %47, %46 ], [ %44, %43 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %32, %31 ], [ %30, %29 ], [ %27, %26 ], [ %24, %23 ], [ %22, %21 ], [ %19, %16 ], [ true, %14 ], [ %12, %11 ], [ %10, %9 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %42, %40, %35, %33, %31, %29, %27, %25, %22, %20, %16, %14, %11, %9
+  %.0 = phi i1 [ %43, %42 ], [ %41, %40 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %23, %22 ], [ %21, %20 ], [ %19, %16 ], [ true, %14 ], [ %12, %11 ], [ %10, %9 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 

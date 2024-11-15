@@ -81958,8 +81958,8 @@ _ZN6hir_ty5lower22ImplTraitLoweringState4take17h98a7be79824390b2E.exit: ; preds 
 
 111:                                              ; preds = %108
   %112 = load i64, ptr %94, align 8, !range !15848, !noalias !28953, !noundef !4
-  %switch44.i = icmp eq i64 %112, 2
-  br i1 %switch44.i, label %113, label %.critedge.i
+  %switch44.not.i = icmp eq i64 %112, 2
+  br i1 %switch44.not.i, label %113, label %.critedge.i
 
 113:                                              ; preds = %111
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hfa6e78e041f0b50cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
@@ -84325,7 +84325,7 @@ _ZN6hir_ty5utils8Generics8len_self17hebe79316bb9af7a0E.exit: ; preds = %110
   %.pre = load ptr, ptr %1, align 8
   %159 = getelementptr inbounds i8, ptr %.pre, i64 8
   %160 = load i16, ptr %159, align 8, !range !15587
-  %.off108 = add nsw i16 %160, -1
+  %.off = add nsw i16 %160, -1
   br i1 %158, label %164, label %165
 
 .loopexit225:                                     ; preds = %189, %167, %359, %156
@@ -84341,15 +84341,15 @@ _ZN6hir_ty5utils8Generics8len_self17hebe79316bb9af7a0E.exit: ; preds = %110
   br label %380
 
 164:                                              ; preds = %157
-  %switch109 = icmp ult i16 %.off108, 3
-  br i1 %switch109, label %167, label %.thread269
+  %switch = icmp ult i16 %.off, 3
+  br i1 %switch, label %167, label %.thread269
 
 .thread269:                                       ; preds = %164
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   br label %191
 
 165:                                              ; preds = %157
-  %166 = icmp ult i16 %.off108, 2
+  %166 = icmp ult i16 %.off, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   br i1 %166, label %193, label %191
 
@@ -84766,9 +84766,9 @@ _ZN6hir_ty5utils8Generics8len_self17hebe79316bb9af7a0E.exit: ; preds = %110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.16.136..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) @anon.4126a6de56952dc86980097524692137.192.llvm.4351852226057355877, i64 32, i1 false), !alias.scope !29535
   %314 = getelementptr inbounds i8, ptr %297, i64 8
   %315 = load i16, ptr %314, align 8, !range !15587, !noundef !4
-  %.off = add nsw i16 %315, -1
-  %switch = icmp ult i16 %.off, 2
-  br i1 %switch, label %317, label %316
+  %.off284 = add nsw i16 %315, -1
+  %switch285 = icmp ult i16 %.off284, 2
+  br i1 %switch285, label %317, label %316
 
 316:                                              ; preds = %.thread214
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.587d3abf880d71f6962e708781e6ae09.427, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.587d3abf880d71f6962e708781e6ae09.428) #63

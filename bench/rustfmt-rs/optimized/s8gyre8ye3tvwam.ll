@@ -12900,8 +12900,8 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5items30rewrite_bounds_
   tail call void @llvm.assume(i1 %4)
   %5 = load i64, ptr %.0.val, align 8, !range !216, !noundef !9
   %switch = icmp samesign ult i64 %5, 2
-  %spec.select = select i1 %switch, i64 48, i64 24
-  %6 = getelementptr inbounds i8, ptr %.0.val, i64 %spec.select
+  %. = select i1 %switch, i64 48, i64 24
+  %6 = getelementptr inbounds i8, ptr %.0.val, i64 %.
   %.sroa.0.0 = load i64, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2238)
@@ -12987,8 +12987,8 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5items20rewrite_where_c
   tail call void @llvm.assume(i1 %4)
   %5 = load i64, ptr %.0.val, align 8, !range !216, !noundef !9
   %switch = icmp samesign ult i64 %5, 2
-  %spec.select = select i1 %switch, i64 48, i64 24
-  %6 = getelementptr inbounds i8, ptr %.0.val, i64 %spec.select
+  %. = select i1 %switch, i64 48, i64 24
+  %6 = getelementptr inbounds i8, ptr %.0.val, i64 %.
   %.sroa.0.0 = load i64, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2248)
@@ -21759,8 +21759,8 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
   %18 = load i32, ptr %17, align 4, !noundef !9
   %19 = load i64, ptr %2, align 8, !range !216, !noundef !9
   %switch.i = icmp samesign ult i64 %19, 2
-  %spec.select.i = select i1 %switch.i, i64 48, i64 24
-  %20 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i
+  %..i = select i1 %switch.i, i64 48, i64 24
+  %20 = getelementptr inbounds i8, ptr %2, i64 %..i
   %.sroa.0.0.i = load i64, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3746)
@@ -21895,8 +21895,8 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 65:                                               ; preds = %58
   %66 = load i64, ptr %..val, align 8, !range !216, !noundef !9
   %switch.i46 = icmp samesign ult i64 %66, 2
-  %spec.select.i47 = select i1 %switch.i46, i64 48, i64 24
-  %67 = getelementptr inbounds i8, ptr %..val, i64 %spec.select.i47
+  %..i47 = select i1 %switch.i46, i64 48, i64 24
+  %67 = getelementptr inbounds i8, ptr %..val, i64 %..i47
   %.sroa.0.0.i48 = load i64, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !3766)
@@ -26973,8 +26973,8 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
   %18 = load i32, ptr %17, align 4, !noundef !9
   %19 = load i64, ptr %2, align 8, !range !216, !noundef !9
   %switch.i = icmp samesign ult i64 %19, 2
-  %spec.select.i = select i1 %switch.i, i64 48, i64 24
-  %20 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i
+  %..i = select i1 %switch.i, i64 48, i64 24
+  %20 = getelementptr inbounds i8, ptr %2, i64 %..i
   %.sroa.0.0.i = load i64, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4515)
@@ -27109,8 +27109,8 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 65:                                               ; preds = %58
   %66 = load i64, ptr %..val, align 8, !range !216, !noundef !9
   %switch.i44 = icmp samesign ult i64 %66, 2
-  %spec.select.i45 = select i1 %switch.i44, i64 48, i64 24
-  %67 = getelementptr inbounds i8, ptr %..val, i64 %spec.select.i45
+  %..i45 = select i1 %switch.i44, i64 48, i64 24
+  %67 = getelementptr inbounds i8, ptr %..val, i64 %..i45
   %.sroa.0.0.i46 = load i64, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !4535)

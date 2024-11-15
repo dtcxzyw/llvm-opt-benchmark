@@ -37421,8 +37421,8 @@ define internal fastcc void @_ZN5image6codecs4webp8extended16read_alpha_chunk17h
   br label %129
 
 42:                                               ; preds = %31
-  %switch113 = icmp samesign ult i8 %36, 2
-  br i1 %switch113, label %63, label %53
+  %switch111 = icmp samesign ult i8 %36, 2
+  br i1 %switch111, label %63, label %53
 
 43:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !4898
@@ -37529,8 +37529,8 @@ common.resume:                                    ; preds = %135, %92, %69, %58,
   br label %129
 
 63:                                               ; preds = %42
-  %switch114 = icmp samesign ult i8 %39, 2
-  br i1 %switch114, label %74, label %64
+  %switch112 = icmp samesign ult i8 %39, 2
+  br i1 %switch112, label %74, label %64
 
 64:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !4932

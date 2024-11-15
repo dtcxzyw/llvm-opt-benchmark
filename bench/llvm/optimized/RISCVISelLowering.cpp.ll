@@ -65441,7 +65441,7 @@ define internal fastcc noundef range(i32 581, 899) i32 @_ZL12getRISCVVLOpN4llvm7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %5 [
-    i32 56, label %123
+    i32 56, label %94
     i32 57, label %6
     i32 58, label %7
     i32 172, label %8
@@ -65484,377 +65484,290 @@ define internal fastcc noundef range(i32 581, 899) i32 @_ZL12getRISCVVLOpN4llvm7
     i32 103, label %45
     i32 104, label %46
     i32 107, label %47
-    i32 387, label %123
-    i32 396, label %48
-    i32 391, label %49
-    i32 393, label %50
-    i32 395, label %51
-    i32 397, label %52
-    i32 398, label %53
-    i32 394, label %54
-    i32 420, label %55
-    i32 421, label %56
-    i32 422, label %57
-    i32 423, label %58
-    i32 425, label %59
-    i32 426, label %60
-    i32 400, label %61
-    i32 401, label %62
-    i32 402, label %63
-    i32 403, label %64
-    i32 430, label %65
-    i32 455, label %66
-    i32 447, label %67
-    i32 446, label %68
-    i32 406, label %69
-    i32 416, label %70
-    i32 417, label %71
-    i32 418, label %72
-    i32 419, label %73
-    i32 405, label %74
-    i32 408, label %75
-    i32 410, label %76
-    i32 407, label %77
-    i32 203, label %78
-    i32 409, label %78
-    i32 202, label %79
-    i32 411, label %79
-    i32 149, label %80
-    i32 428, label %80
-    i32 106, label %81
-    i32 185, label %82
-    i32 388, label %82
-    i32 186, label %92
-    i32 392, label %92
-    i32 187, label %102
-    i32 399, label %102
-    i32 480, label %112
-    i32 481, label %112
-    i32 389, label %113
-    i32 390, label %114
-    i32 427, label %115
-    i32 452, label %116
-    i32 451, label %117
-    i32 445, label %118
-    i32 444, label %119
-    i32 277, label %120
-    i32 431, label %120
-    i32 278, label %121
-    i32 432, label %121
-    i32 275, label %122
-    i32 442, label %122
-    i32 276, label %122
-    i32 443, label %122
+    i32 387, label %94
+    i32 396, label %6
+    i32 391, label %7
+    i32 393, label %10
+    i32 395, label %11
+    i32 397, label %12
+    i32 398, label %13
+    i32 394, label %14
+    i32 420, label %32
+    i32 421, label %33
+    i32 422, label %34
+    i32 423, label %35
+    i32 425, label %36
+    i32 426, label %37
+    i32 400, label %39
+    i32 401, label %40
+    i32 402, label %41
+    i32 403, label %42
+    i32 430, label %48
+    i32 455, label %49
+    i32 447, label %50
+    i32 446, label %51
+    i32 406, label %23
+    i32 416, label %24
+    i32 417, label %25
+    i32 418, label %26
+    i32 419, label %27
+    i32 405, label %19
+    i32 408, label %21
+    i32 410, label %20
+    i32 407, label %22
+    i32 203, label %52
+    i32 409, label %52
+    i32 202, label %53
+    i32 411, label %53
+    i32 149, label %54
+    i32 428, label %54
+    i32 106, label %55
+    i32 185, label %56
+    i32 388, label %56
+    i32 186, label %66
+    i32 392, label %66
+    i32 187, label %76
+    i32 399, label %76
+    i32 480, label %86
+    i32 481, label %86
+    i32 389, label %15
+    i32 390, label %16
+    i32 427, label %38
+    i32 452, label %87
+    i32 451, label %88
+    i32 445, label %89
+    i32 444, label %90
+    i32 277, label %91
+    i32 431, label %91
+    i32 278, label %92
+    i32 432, label %92
+    i32 275, label %93
+    i32 442, label %93
+    i32 276, label %93
+    i32 443, label %93
   ]
 
 5:                                                ; preds = %2
   unreachable
 
-6:                                                ; preds = %2
-  br label %123
+6:                                                ; preds = %2, %2
+  br label %94
 
-7:                                                ; preds = %2
-  br label %123
+7:                                                ; preds = %2, %2
+  br label %94
 
 8:                                                ; preds = %2
-  br label %123
+  br label %94
 
 9:                                                ; preds = %2
-  br label %123
+  br label %94
 
-10:                                               ; preds = %2
-  br label %123
+10:                                               ; preds = %2, %2
+  br label %94
 
-11:                                               ; preds = %2
-  br label %123
+11:                                               ; preds = %2, %2
+  br label %94
 
-12:                                               ; preds = %2
-  br label %123
+12:                                               ; preds = %2, %2
+  br label %94
 
-13:                                               ; preds = %2
-  br label %123
+13:                                               ; preds = %2, %2
+  br label %94
 
-14:                                               ; preds = %2
-  br label %123
+14:                                               ; preds = %2, %2
+  br label %94
 
-15:                                               ; preds = %2
-  br label %123
+15:                                               ; preds = %2, %2
+  br label %94
 
-16:                                               ; preds = %2
-  br label %123
+16:                                               ; preds = %2, %2
+  br label %94
 
 17:                                               ; preds = %2
-  br label %123
+  br label %94
 
 18:                                               ; preds = %2
-  br label %123
+  br label %94
 
-19:                                               ; preds = %2
-  br label %123
+19:                                               ; preds = %2, %2
+  br label %94
 
-20:                                               ; preds = %2
-  br label %123
+20:                                               ; preds = %2, %2
+  br label %94
 
-21:                                               ; preds = %2
-  br label %123
+21:                                               ; preds = %2, %2
+  br label %94
 
-22:                                               ; preds = %2
-  br label %123
+22:                                               ; preds = %2, %2
+  br label %94
 
-23:                                               ; preds = %2
-  br label %123
+23:                                               ; preds = %2, %2
+  br label %94
 
-24:                                               ; preds = %2
-  br label %123
+24:                                               ; preds = %2, %2
+  br label %94
 
-25:                                               ; preds = %2
-  br label %123
+25:                                               ; preds = %2, %2
+  br label %94
 
-26:                                               ; preds = %2
-  br label %123
+26:                                               ; preds = %2, %2
+  br label %94
 
-27:                                               ; preds = %2
-  br label %123
+27:                                               ; preds = %2, %2
+  br label %94
 
 28:                                               ; preds = %2
-  br label %123
+  br label %94
 
 29:                                               ; preds = %2
-  br label %123
+  br label %94
 
 30:                                               ; preds = %2
-  br label %123
+  br label %94
 
 31:                                               ; preds = %2
-  br label %123
+  br label %94
 
-32:                                               ; preds = %2
-  br label %123
+32:                                               ; preds = %2, %2
+  br label %94
 
-33:                                               ; preds = %2
-  br label %123
+33:                                               ; preds = %2, %2
+  br label %94
 
-34:                                               ; preds = %2
-  br label %123
+34:                                               ; preds = %2, %2
+  br label %94
 
-35:                                               ; preds = %2
-  br label %123
+35:                                               ; preds = %2, %2
+  br label %94
 
-36:                                               ; preds = %2
-  br label %123
+36:                                               ; preds = %2, %2
+  br label %94
 
-37:                                               ; preds = %2
-  br label %123
+37:                                               ; preds = %2, %2
+  br label %94
 
-38:                                               ; preds = %2
-  br label %123
+38:                                               ; preds = %2, %2
+  br label %94
 
-39:                                               ; preds = %2
-  br label %123
+39:                                               ; preds = %2, %2
+  br label %94
 
-40:                                               ; preds = %2
-  br label %123
+40:                                               ; preds = %2, %2
+  br label %94
 
-41:                                               ; preds = %2
-  br label %123
+41:                                               ; preds = %2, %2
+  br label %94
 
-42:                                               ; preds = %2
-  br label %123
+42:                                               ; preds = %2, %2
+  br label %94
 
 43:                                               ; preds = %2
-  br label %123
+  br label %94
 
 44:                                               ; preds = %2
-  br label %123
+  br label %94
 
 45:                                               ; preds = %2
-  br label %123
+  br label %94
 
 46:                                               ; preds = %2
-  br label %123
+  br label %94
 
 47:                                               ; preds = %2
-  br label %123
+  br label %94
 
 48:                                               ; preds = %2
-  br label %123
+  br label %94
 
 49:                                               ; preds = %2
-  br label %123
+  br label %94
 
 50:                                               ; preds = %2
-  br label %123
+  br label %94
 
 51:                                               ; preds = %2
-  br label %123
+  br label %94
 
-52:                                               ; preds = %2
-  br label %123
+52:                                               ; preds = %2, %2
+  br label %94
 
-53:                                               ; preds = %2
-  br label %123
+53:                                               ; preds = %2, %2
+  br label %94
 
-54:                                               ; preds = %2
-  br label %123
+54:                                               ; preds = %2, %2
+  br label %94
 
 55:                                               ; preds = %2
-  br label %123
+  br label %94
 
-56:                                               ; preds = %2
-  br label %123
+56:                                               ; preds = %2, %2
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %58 = load ptr, ptr %57, align 8
+  %59 = zext i32 %1 to i64
+  %60 = getelementptr inbounds %"struct.llvm::EVT", ptr %58, i64 %59
+  %.sroa.0.0.copyload.i.i.i = load i16, ptr %60, align 8
+  %61 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
+  %62 = add nsw i64 %61, -1
+  %63 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %62
+  %64 = load i16, ptr %63, align 2
+  %65 = icmp eq i16 %64, 2
+  %. = select i1 %65, i32 670, i32 582
+  br label %94
 
-57:                                               ; preds = %2
-  br label %123
+66:                                               ; preds = %2, %2
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %68 = load ptr, ptr %67, align 8
+  %69 = zext i32 %1 to i64
+  %70 = getelementptr inbounds %"struct.llvm::EVT", ptr %68, i64 %69
+  %.sroa.0.0.copyload.i.i.i3 = load i16, ptr %70, align 8
+  %71 = zext i16 %.sroa.0.0.copyload.i.i.i3 to i64
+  %72 = add nsw i64 %71, -1
+  %73 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %72
+  %74 = load i16, ptr %73, align 2
+  %75 = icmp eq i16 %74, 2
+  %.1 = select i1 %75, i32 671, i32 584
+  br label %94
 
-58:                                               ; preds = %2
-  br label %123
+76:                                               ; preds = %2, %2
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %78 = load ptr, ptr %77, align 8
+  %79 = zext i32 %1 to i64
+  %80 = getelementptr inbounds %"struct.llvm::EVT", ptr %78, i64 %79
+  %.sroa.0.0.copyload.i.i.i4 = load i16, ptr %80, align 8
+  %81 = zext i16 %.sroa.0.0.copyload.i.i.i4 to i64
+  %82 = add nsw i64 %81, -1
+  %83 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %82
+  %84 = load i16, ptr %83, align 2
+  %85 = icmp eq i16 %84, 2
+  %.2 = select i1 %85, i32 672, i32 595
+  br label %94
 
-59:                                               ; preds = %2
-  br label %123
+86:                                               ; preds = %2, %2
+  br label %94
 
-60:                                               ; preds = %2
-  br label %123
+87:                                               ; preds = %2
+  br label %94
 
-61:                                               ; preds = %2
-  br label %123
+88:                                               ; preds = %2
+  br label %94
 
-62:                                               ; preds = %2
-  br label %123
+89:                                               ; preds = %2
+  br label %94
 
-63:                                               ; preds = %2
-  br label %123
+90:                                               ; preds = %2
+  br label %94
 
-64:                                               ; preds = %2
-  br label %123
-
-65:                                               ; preds = %2
-  br label %123
-
-66:                                               ; preds = %2
-  br label %123
-
-67:                                               ; preds = %2
-  br label %123
-
-68:                                               ; preds = %2
-  br label %123
-
-69:                                               ; preds = %2
-  br label %123
-
-70:                                               ; preds = %2
-  br label %123
-
-71:                                               ; preds = %2
-  br label %123
-
-72:                                               ; preds = %2
-  br label %123
-
-73:                                               ; preds = %2
-  br label %123
-
-74:                                               ; preds = %2
-  br label %123
-
-75:                                               ; preds = %2
-  br label %123
-
-76:                                               ; preds = %2
-  br label %123
-
-77:                                               ; preds = %2
-  br label %123
-
-78:                                               ; preds = %2, %2
-  br label %123
-
-79:                                               ; preds = %2, %2
-  br label %123
-
-80:                                               ; preds = %2, %2
-  br label %123
-
-81:                                               ; preds = %2
-  br label %123
-
-82:                                               ; preds = %2, %2
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %84 = load ptr, ptr %83, align 8
-  %85 = zext i32 %1 to i64
-  %86 = getelementptr inbounds %"struct.llvm::EVT", ptr %84, i64 %85
-  %.sroa.0.0.copyload.i.i.i = load i16, ptr %86, align 8
-  %87 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
-  %88 = add nsw i64 %87, -1
-  %89 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %88
-  %90 = load i16, ptr %89, align 2
-  %91 = icmp eq i16 %90, 2
-  %. = select i1 %91, i32 670, i32 582
-  br label %123
+91:                                               ; preds = %2, %2
+  br label %94
 
 92:                                               ; preds = %2, %2
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %94 = load ptr, ptr %93, align 8
-  %95 = zext i32 %1 to i64
-  %96 = getelementptr inbounds %"struct.llvm::EVT", ptr %94, i64 %95
-  %.sroa.0.0.copyload.i.i.i3 = load i16, ptr %96, align 8
-  %97 = zext i16 %.sroa.0.0.copyload.i.i.i3 to i64
-  %98 = add nsw i64 %97, -1
-  %99 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %98
-  %100 = load i16, ptr %99, align 2
-  %101 = icmp eq i16 %100, 2
-  %.1 = select i1 %101, i32 671, i32 584
-  br label %123
+  br label %94
 
-102:                                              ; preds = %2, %2
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %104 = load ptr, ptr %103, align 8
-  %105 = zext i32 %1 to i64
-  %106 = getelementptr inbounds %"struct.llvm::EVT", ptr %104, i64 %105
-  %.sroa.0.0.copyload.i.i.i4 = load i16, ptr %106, align 8
-  %107 = zext i16 %.sroa.0.0.copyload.i.i.i4 to i64
-  %108 = add nsw i64 %107, -1
-  %109 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %108
-  %110 = load i16, ptr %109, align 2
-  %111 = icmp eq i16 %110, 2
-  %.2 = select i1 %111, i32 672, i32 595
-  br label %123
+93:                                               ; preds = %2, %2, %2, %2
+  br label %94
 
-112:                                              ; preds = %2, %2
-  br label %123
-
-113:                                              ; preds = %2
-  br label %123
-
-114:                                              ; preds = %2
-  br label %123
-
-115:                                              ; preds = %2
-  br label %123
-
-116:                                              ; preds = %2
-  br label %123
-
-117:                                              ; preds = %2
-  br label %123
-
-118:                                              ; preds = %2
-  br label %123
-
-119:                                              ; preds = %2
-  br label %123
-
-120:                                              ; preds = %2, %2
-  br label %123
-
-121:                                              ; preds = %2, %2
-  br label %123
-
-122:                                              ; preds = %2, %2, %2, %2
-  br label %123
-
-123:                                              ; preds = %102, %92, %82, %2, %2, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ 628, %122 ], [ 620, %121 ], [ 619, %120 ], [ 627, %119 ], [ 626, %118 ], [ 679, %117 ], [ 678, %116 ], [ 623, %115 ], [ 589, %114 ], [ 588, %113 ], [ 669, %112 ], [ 898, %81 ], [ 639, %80 ], [ 603, %79 ], [ 602, %78 ], [ 604, %77 ], [ 603, %76 ], [ 602, %75 ], [ 601, %74 ], [ 608, %73 ], [ 607, %72 ], [ 606, %71 ], [ 605, %70 ], [ 600, %69 ], [ 634, %68 ], [ 633, %67 ], [ 668, %66 ], [ 625, %65 ], [ 599, %64 ], [ 598, %63 ], [ 597, %62 ], [ 596, %61 ], [ 622, %60 ], [ 621, %59 ], [ 618, %58 ], [ 617, %57 ], [ 616, %56 ], [ 615, %55 ], [ 586, %54 ], [ 594, %53 ], [ 593, %52 ], [ 587, %51 ], [ 585, %50 ], [ 583, %49 ], [ 592, %48 ], [ 897, %47 ], [ 896, %46 ], [ 895, %45 ], [ 894, %44 ], [ 893, %43 ], [ 599, %42 ], [ 598, %41 ], [ 597, %40 ], [ 596, %39 ], [ 623, %38 ], [ 622, %37 ], [ 621, %36 ], [ 618, %35 ], [ 617, %34 ], [ 616, %33 ], [ 615, %32 ], [ 612, %31 ], [ 611, %30 ], [ 610, %29 ], [ 609, %28 ], [ 608, %27 ], [ 607, %26 ], [ 606, %25 ], [ 605, %24 ], [ 600, %23 ], [ 604, %22 ], [ 602, %21 ], [ 603, %20 ], [ 601, %19 ], [ 591, %18 ], [ 590, %17 ], [ 589, %16 ], [ 588, %15 ], [ 586, %14 ], [ 594, %13 ], [ 593, %12 ], [ 587, %11 ], [ 585, %10 ], [ 614, %9 ], [ 613, %8 ], [ 583, %7 ], [ 592, %6 ], [ 581, %2 ], [ 581, %2 ], [ %., %82 ], [ %.1, %92 ], [ %.2, %102 ]
+94:                                               ; preds = %76, %66, %56, %2, %2, %93, %92, %91, %90, %89, %88, %87, %86, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
+  %.0 = phi i32 [ 628, %93 ], [ 620, %92 ], [ 619, %91 ], [ 627, %90 ], [ 626, %89 ], [ 679, %88 ], [ 678, %87 ], [ 669, %86 ], [ 898, %55 ], [ 639, %54 ], [ 603, %53 ], [ 602, %52 ], [ 634, %51 ], [ 633, %50 ], [ 668, %49 ], [ 625, %48 ], [ 897, %47 ], [ 896, %46 ], [ 895, %45 ], [ 894, %44 ], [ 893, %43 ], [ 599, %42 ], [ 598, %41 ], [ 597, %40 ], [ 596, %39 ], [ 623, %38 ], [ 622, %37 ], [ 621, %36 ], [ 618, %35 ], [ 617, %34 ], [ 616, %33 ], [ 615, %32 ], [ 612, %31 ], [ 611, %30 ], [ 610, %29 ], [ 609, %28 ], [ 608, %27 ], [ 607, %26 ], [ 606, %25 ], [ 605, %24 ], [ 600, %23 ], [ 604, %22 ], [ 602, %21 ], [ 603, %20 ], [ 601, %19 ], [ 591, %18 ], [ 590, %17 ], [ 589, %16 ], [ 588, %15 ], [ 586, %14 ], [ 594, %13 ], [ 593, %12 ], [ 587, %11 ], [ 585, %10 ], [ 614, %9 ], [ 613, %8 ], [ 583, %7 ], [ 592, %6 ], [ 581, %2 ], [ 581, %2 ], [ %., %56 ], [ %.1, %66 ], [ %.2, %76 ]
   ret i32 %.0
 }
 

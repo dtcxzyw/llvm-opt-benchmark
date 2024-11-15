@@ -1722,7 +1722,7 @@ define internal fastcc i32 @nfs4_open_recover_helper(ptr noundef %0, i32 noundef
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 888
   %12 = load ptr, ptr %11, align 8
-  switch i32 %1, label %default.unreachable8 [
+  switch i32 %1, label %default.unreachable6 [
     i32 3, label %15
     i32 2, label %13
     i32 1, label %14
@@ -1734,7 +1734,7 @@ define internal fastcc i32 @nfs4_open_recover_helper(ptr noundef %0, i32 noundef
 14:                                               ; preds = %2
   br label %15
 
-default.unreachable8:                             ; preds = %2
+default.unreachable6:                             ; preds = %2
   unreachable
 
 15:                                               ; preds = %2, %14, %13
@@ -1742,7 +1742,7 @@ default.unreachable8:                             ; preds = %2
   %17 = getelementptr inbounds i8, ptr %12, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.thread7, label %20
+  br i1 %19, label %.thread5, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %0, i64 44
@@ -1791,7 +1791,7 @@ default.unreachable8:                             ; preds = %2
   %53 = load ptr, ptr %52, align 8
   %54 = tail call fastcc i32 @nfs4_run_open_task(ptr noundef %0, ptr noundef null)
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.thread7
+  br i1 %55, label %56, label %.thread5
 
 56:                                               ; preds = %20
   %57 = getelementptr inbounds i8, ptr %0, i64 992
@@ -1814,7 +1814,7 @@ default.unreachable8:                             ; preds = %2
 69:                                               ; preds = %60
   %70 = tail call fastcc i32 @_nfs4_proc_open_confirm(ptr noundef %0)
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.thread, label %.thread7
+  br i1 %71, label %.thread, label %.thread5
 
 .thread:                                          ; preds = %60, %56, %69
   %72 = tail call fastcc ptr @nfs4_opendata_to_nfs4_state(ptr noundef %0)
@@ -1824,16 +1824,16 @@ default.unreachable8:                             ; preds = %2
 74:                                               ; preds = %.thread
   %75 = ptrtoint ptr %72 to i64
   %76 = trunc i64 %75 to i32
-  br label %.thread7
+  br label %.thread5
 
 77:                                               ; preds = %.thread
   %78 = load ptr, ptr %11, align 8
   %79 = icmp eq ptr %72, %78
   %80 = select i1 %79, i32 0, i32 -116
   tail call void @nfs4_close_state(ptr noundef %72, i32 noundef %1) #22
-  br label %.thread7
+  br label %.thread5
 
-.thread7:                                         ; preds = %20, %77, %74, %69, %15
+.thread5:                                         ; preds = %20, %77, %74, %69, %15
   %81 = phi i32 [ %76, %74 ], [ %80, %77 ], [ 0, %15 ], [ %70, %69 ], [ %54, %20 ]
   ret i32 %81
 }
@@ -9044,11 +9044,14 @@ define internal fastcc noundef ptr @nfs4_opendata_alloc(ptr noundef %0, ptr noun
   %62 = phi i32 [ 2, %60 ], [ 0, %59 ], [ %5, %47 ], [ %5, %58 ]
   %63 = getelementptr inbounds i8, ptr %26, i64 136
   store i32 %62, ptr %63, align 8
+  %.off = add nsw i32 %2, -1
+  %switch = icmp ult i32 %.off, 3
+  %spec.select = select i1 %switch, i32 %2, i32 0
   %64 = and i32 %3, 16384
   %65 = icmp eq i32 %64, 0
   %66 = or i1 %65, %57
-  %67 = or disjoint i32 %2, 1024
-  %68 = select i1 %66, i32 %2, i32 %67
+  %67 = or disjoint i32 %spec.select, 1024
+  %68 = select i1 %66, i32 %spec.select, i32 %67
   %69 = getelementptr inbounds i8, ptr %26, i64 48
   store i32 %68, ptr %69, align 8
   %70 = and i32 %3, 64
@@ -10678,7 +10681,7 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
   %69 = load volatile i64, ptr %20, align 8
   %70 = and i64 %69, 512
   %71 = icmp eq i64 %70, 0
-  br i1 %71, label %.lr.ph, label %.loopexit4
+  br i1 %71, label %.lr.ph, label %.loopexit3
 
 .lr.ph:                                           ; preds = %60, %93
   %72 = load volatile i32, ptr %63, align 4
@@ -10713,7 +10716,7 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !161
   %87 = load volatile i32, ptr %63, align 4
   %88 = icmp eq i32 %87, %78
-  br i1 %88, label %.loopexit4, label %93
+  br i1 %88, label %.loopexit3, label %93
 
 89:                                               ; preds = %82
   %90 = load i32, ptr %66, align 8
@@ -10726,7 +10729,7 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
   %94 = load volatile i64, ptr %20, align 8
   %95 = and i64 %94, 512
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %.lr.ph, label %.loopexit4, !llvm.loop !162
+  br i1 %96, label %.lr.ph, label %.loopexit3, !llvm.loop !162
 
 97:                                               ; preds = %89
   %98 = load i32, ptr %62, align 4
@@ -10734,13 +10737,13 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
   %100 = tail call i32 @llvm.bswap.i32(i32 %90)
   %101 = sub i32 %99, %100
   %102 = icmp slt i32 %101, 0
-  br i1 %102, label %103, label %.loopexit4
+  br i1 %102, label %103, label %.loopexit3
 
 103:                                              ; preds = %97
   store i32 %90, ptr %62, align 4
-  br label %.loopexit4
+  br label %.loopexit3
 
-.loopexit4:                                       ; preds = %93, %85, %60, %103, %97
+.loopexit3:                                       ; preds = %93, %85, %60, %103, %97
   %104 = load volatile i64, ptr %20, align 8
   %105 = and i64 %104, 512
   %106 = icmp ne i64 %105, 0
@@ -10751,7 +10754,7 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
   %110 = select i1 %106, i1 true, i1 %109
   br i1 %110, label %162, label %111
 
-111:                                              ; preds = %.loopexit4
+111:                                              ; preds = %.loopexit3
   %112 = getelementptr inbounds i8, ptr %1, i64 104
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
@@ -10776,11 +10779,11 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
 
 124:                                              ; preds = %121
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 384), ptr %16, align 8
-  %.pr3 = load i32, ptr %29, align 8
+  %.pr2 = load i32, ptr %29, align 8
   br label %125
 
 125:                                              ; preds = %124, %121
-  %126 = phi i32 [ %.pr3, %124 ], [ %122, %121 ]
+  %126 = phi i32 [ %.pr2, %124 ], [ %122, %121 ]
   %127 = icmp ult i32 %126, 2
   br i1 %127, label %128, label %137
 
@@ -10805,8 +10808,11 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
 137:                                              ; preds = %134, %125
   %138 = phi i32 [ %.pre, %134 ], [ %126, %125 ]
   %139 = and i32 %138, 3
+  %.off = add nsw i32 %139, -1
+  %switch = icmp ult i32 %.off, 3
+  %spec.select = select i1 %switch, i32 %139, i32 0
   %140 = getelementptr inbounds i8, ptr %1, i64 76
-  store i32 %139, ptr %140, align 4
+  store i32 %spec.select, ptr %140, align 4
   %141 = getelementptr inbounds i8, ptr %1, i64 112
   %142 = getelementptr inbounds i8, ptr %1, i64 168
   %143 = load ptr, ptr %142, align 8
@@ -10841,7 +10847,7 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
   tail call void @nfs_release_seqid(ptr noundef %161) #22
   br label %174
 
-162:                                              ; preds = %.loopexit4
+162:                                              ; preds = %.loopexit3
   %163 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %163, align 8
   br label %164

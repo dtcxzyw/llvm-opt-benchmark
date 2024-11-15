@@ -16991,8 +16991,8 @@ define { ptr, ptr } @"_ZN70_$LT$just..config_error..ConfigError$u20$as$u20$core.
   %2 = load i64, ptr %0, align 8, !range !2619, !noundef !21
   %switch = icmp eq i64 %2, -9223372036854775808
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %.sroa.0.0 = select i1 %switch, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.7c6f7af04c557118a051d24cf1a7517f.239, 1
   ret { ptr, ptr } %5
 }
@@ -17002,8 +17002,8 @@ define { ptr, ptr } @"_ZN70_$LT$just..config_error..ConfigError$u20$as$u20$core.
   %2 = load i64, ptr %0, align 8, !range !2619, !noundef !21
   %switch = icmp eq i64 %2, -9223372036854775808
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %.sroa.0.0 = select i1 %switch, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.7c6f7af04c557118a051d24cf1a7517f.239, 1
   ret { ptr, ptr } %5
 }

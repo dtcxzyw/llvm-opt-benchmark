@@ -1435,24 +1435,24 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond.i, label %53, label %15
 
 15:                                               ; preds = %4
-  switch i32 %11, label %53 [
-    i32 155, label %26
-    i32 34, label %16
-    i32 40, label %17
-    i32 54, label %18
+  switch i32 %11, label %26 [
+    i32 155, label %25
+    i32 34, label %53
+    i32 40, label %16
+    i32 54, label %17
     i32 27, label %27
-    i32 33, label %19
-    i32 42, label %20
-    i32 49, label %21
-    i32 60, label %22
-    i32 61, label %22
-    i32 78, label %23
-    i32 79, label %23
-    i32 118, label %24
-    i32 119, label %24
-    i32 142, label %25
-    i32 143, label %25
-    i32 154, label %26
+    i32 33, label %18
+    i32 42, label %19
+    i32 49, label %20
+    i32 60, label %21
+    i32 61, label %21
+    i32 78, label %22
+    i32 79, label %22
+    i32 118, label %23
+    i32 119, label %23
+    i32 142, label %24
+    i32 143, label %24
+    i32 154, label %25
   ]
 
 16:                                               ; preds = %15
@@ -1462,7 +1462,7 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   br label %53
 
 18:                                               ; preds = %15
-  br label %53
+  br label %27
 
 19:                                               ; preds = %15
   br label %27
@@ -1470,7 +1470,7 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
 20:                                               ; preds = %15
   br label %27
 
-21:                                               ; preds = %15
+21:                                               ; preds = %15, %15
   br label %27
 
 22:                                               ; preds = %15, %15
@@ -1485,12 +1485,12 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
 25:                                               ; preds = %15, %15
   br label %27
 
-26:                                               ; preds = %15, %15
-  br label %27
+26:                                               ; preds = %15
+  br label %53
 
-27:                                               ; preds = %15, %26, %25, %24, %23, %22, %21, %20, %19
-  %.sink33.i.ph = phi i32 [ 51, %19 ], [ 51, %20 ], [ 51, %21 ], [ 50, %22 ], [ 50, %23 ], [ 49, %24 ], [ 49, %25 ], [ 49, %26 ], [ 51, %15 ]
-  %.sink.i.ph = phi i8 [ 2, %19 ], [ 3, %20 ], [ 4, %21 ], [ 5, %22 ], [ 6, %23 ], [ 7, %24 ], [ 8, %25 ], [ 9, %26 ], [ 1, %15 ]
+27:                                               ; preds = %15, %25, %24, %23, %22, %21, %20, %19, %18
+  %.sink33.i.ph = phi i32 [ 51, %18 ], [ 51, %19 ], [ 51, %20 ], [ 50, %21 ], [ 50, %22 ], [ 49, %23 ], [ 49, %24 ], [ 49, %25 ], [ 51, %15 ]
+  %.sink.i.ph = phi i8 [ 2, %18 ], [ 3, %19 ], [ 4, %20 ], [ 5, %21 ], [ 6, %22 ], [ 7, %23 ], [ 8, %24 ], [ 9, %25 ], [ 1, %15 ]
   store i32 %.sink33.i.ph, ptr %12, align 4
   store i8 %.sink.i.ph, ptr %13, align 4
   %28 = getelementptr [31 x ptr], ptr @sub_handles, i64 0, i64 %.
@@ -1538,8 +1538,8 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %52 = call i32 @call_dissector_with_data(ptr noundef %51, ptr noundef %50, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5) #6
   br label %.thread
 
-53:                                               ; preds = %18, %17, %16, %15, %4
-  %.sink33.i = phi i32 [ 36, %18 ], [ 35, %17 ], [ 34, %16 ], [ 32, %4 ], [ 33, %15 ]
+53:                                               ; preds = %26, %17, %16, %15, %4
+  %.sink33.i = phi i32 [ 33, %26 ], [ 36, %17 ], [ 35, %16 ], [ 32, %4 ], [ %11, %15 ]
   store i32 %.sink33.i, ptr %12, align 4
   store i8 0, ptr %13, align 4
   %54 = getelementptr [31 x ptr], ptr @sub_handles, i64 0, i64 %.

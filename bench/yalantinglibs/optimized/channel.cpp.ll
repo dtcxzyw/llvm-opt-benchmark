@@ -91017,7 +91017,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
   tail call void @__clang_call_terminate(ptr %23) #44
   unreachable
 
-cleanup401:                                       ; preds = %invoke.cont.i.i12, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry.destroy
+cleanup401:                                       ; preds = %invoke.cont.i.i12, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry.destroy, %entry.destroy
   %_exception.i = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load ptr, ptr %_exception.i, align 8
   %tobool.not.i.i = icmp eq ptr %24, null
@@ -95446,7 +95446,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
   tail call void @__clang_call_terminate(ptr %23) #44
   unreachable
 
-cleanup225:                                       ; preds = %invoke.cont.i.i12, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry.destroy
+cleanup225:                                       ; preds = %invoke.cont.i.i12, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry.destroy, %entry.destroy
   %_value.i = getelementptr inbounds i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %24 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
@@ -106360,7 +106360,7 @@ terminate.lpad.i.i55:                             ; preds = %if.then.i.i54
   tail call void @__clang_call_terminate(ptr %60) #44
   unreachable
 
-cleanup416:                                       ; preds = %invoke.cont.i.i56, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit52, %invoke.cont.i.i46, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit42, %invoke.cont.i.i36, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit32, %invoke.cont.i.i27, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit, %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %_ZN12async_simple4coro4LazyISt10error_codeED2Ev.exit, %entry.destroy
+cleanup416:                                       ; preds = %invoke.cont.i.i56, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit52, %invoke.cont.i.i46, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit42, %invoke.cont.i.i36, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit32, %invoke.cont.i.i27, %_ZN12async_simple4coro6detail8LazyBaseIvLb0EE12ValueAwaiterD2Ev.exit, %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit, %_ZN12async_simple4coro4LazyISt10error_codeED2Ev.exit, %entry.destroy, %entry.destroy
   %_value.i = getelementptr inbounds i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 88
   %61 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
@@ -112072,7 +112072,7 @@ _ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit:
   store ptr null, ptr %client.reload.addr, align 8
   br label %cleanup181
 
-cleanup181:                                       ; preds = %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EELb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %_ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit, %entry.destroy
+cleanup181:                                       ; preds = %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EELb0EE12ValueAwaiterD2Ev.exit, %_ZNSt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS1_EED2Ev.exit, %entry.destroy, %entry.destroy
   %_value.i = getelementptr inbounds i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
   %22 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8

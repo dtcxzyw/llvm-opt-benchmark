@@ -834,7 +834,7 @@ entry:
     i8 108, label %sw.bb2
     i8 84, label %sw.bb3
     i8 102, label %sw.bb4
-    i8 100, label %sw.bb5
+    i8 100, label %sw.bb3
     i8 120, label %return
     i8 99, label %sw.bb7
     i8 105, label %sw.bb9
@@ -847,13 +847,10 @@ sw.bb1:                                           ; preds = %entry, %entry
 sw.bb2:                                           ; preds = %entry, %entry
   br label %return
 
-sw.bb3:                                           ; preds = %entry
+sw.bb3:                                           ; preds = %entry, %entry
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  br label %return
-
-sw.bb5:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -972,8 +969,8 @@ if.end:                                           ; preds = %if.then, %getnum.ex
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %sw.default, %if.end, %getnum.exit.loopexit, %sw.bb7, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %entry, %entry, %entry
-  %retval.0 = phi i64 [ 0, %sw.default ], [ %conv13, %if.end ], [ 8, %sw.bb5 ], [ 4, %sw.bb4 ], [ 8, %sw.bb3 ], [ 8, %sw.bb2 ], [ 2, %sw.bb1 ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %sw.bb7 ], [ %13, %getnum.exit.loopexit ]
+return:                                           ; preds = %sw.default, %if.end, %getnum.exit.loopexit, %sw.bb7, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %entry, %entry, %entry
+  %retval.0 = phi i64 [ 0, %sw.default ], [ %conv13, %if.end ], [ 4, %sw.bb4 ], [ 8, %sw.bb3 ], [ 8, %sw.bb2 ], [ 2, %sw.bb1 ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %sw.bb7 ], [ %13, %getnum.exit.loopexit ]
   ret i64 %retval.0
 }
 

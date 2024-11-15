@@ -17137,489 +17137,445 @@ define dso_local noundef zeroext i1 @_ZNK5clang14IdentifierInfo9isKeywordERKNS_1
   %5 = and i16 %4, 511
   switch i16 %5, label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit [
     i16 77, label %6
-    i16 78, label %7
-    i16 79, label %8
-    i16 80, label %9
-    i16 81, label %10
-    i16 82, label %11
-    i16 83, label %12
-    i16 84, label %13
-    i16 85, label %14
-    i16 86, label %15
-    i16 87, label %16
-    i16 88, label %17
-    i16 89, label %18
-    i16 90, label %19
-    i16 91, label %20
-    i16 92, label %21
-    i16 93, label %22
-    i16 94, label %23
-    i16 95, label %24
-    i16 96, label %25
-    i16 97, label %26
-    i16 98, label %27
-    i16 99, label %28
-    i16 100, label %29
-    i16 101, label %30
-    i16 102, label %31
-    i16 103, label %33
-    i16 104, label %34
-    i16 105, label %35
-    i16 106, label %36
-    i16 107, label %37
-    i16 108, label %38
-    i16 109, label %39
-    i16 110, label %40
-    i16 111, label %41
-    i16 112, label %42
-    i16 113, label %43
-    i16 114, label %44
-    i16 115, label %46
-    i16 116, label %48
-    i16 117, label %49
-    i16 118, label %50
-    i16 119, label %51
-    i16 120, label %52
-    i16 121, label %53
-    i16 122, label %54
-    i16 123, label %55
-    i16 124, label %56
-    i16 125, label %57
-    i16 126, label %59
-    i16 127, label %61
-    i16 128, label %63
-    i16 129, label %65
-    i16 130, label %67
-    i16 131, label %69
-    i16 132, label %71
-    i16 133, label %73
-    i16 134, label %75
-    i16 135, label %77
-    i16 136, label %79
-    i16 137, label %81
-    i16 138, label %83
-    i16 139, label %85
-    i16 140, label %87
-    i16 141, label %89
-    i16 142, label %91
-    i16 143, label %93
-    i16 144, label %95
-    i16 145, label %97
-    i16 146, label %99
-    i16 147, label %101
-    i16 148, label %103
-    i16 149, label %105
-    i16 150, label %107
-    i16 151, label %109
-    i16 152, label %111
-    i16 153, label %113
-    i16 154, label %115
-    i16 155, label %117
-    i16 156, label %119
-    i16 157, label %121
-    i16 158, label %123
-    i16 159, label %125
-    i16 160, label %127
-    i16 161, label %129
-    i16 162, label %131
-    i16 163, label %133
-    i16 164, label %135
-    i16 165, label %137
-    i16 166, label %139
-    i16 167, label %141
-    i16 168, label %143
-    i16 169, label %145
-    i16 170, label %147
-    i16 171, label %149
-    i16 172, label %151
-    i16 173, label %153
-    i16 174, label %155
-    i16 175, label %157
-    i16 176, label %159
-    i16 177, label %161
-    i16 178, label %162
-    i16 179, label %164
-    i16 180, label %166
-    i16 181, label %168
-    i16 182, label %170
-    i16 183, label %172
-    i16 184, label %173
-    i16 185, label %174
-    i16 186, label %175
-    i16 187, label %177
-    i16 188, label %178
-    i16 189, label %179
-    i16 190, label %180
-    i16 191, label %181
-    i16 192, label %182
-    i16 193, label %183
-    i16 194, label %184
-    i16 195, label %186
-    i16 196, label %187
-    i16 197, label %188
-    i16 198, label %190
-    i16 199, label %192
-    i16 200, label %193
-    i16 201, label %194
-    i16 202, label %195
-    i16 203, label %196
-    i16 204, label %197
-    i16 205, label %198
-    i16 206, label %199
-    i16 207, label %200
-    i16 208, label %201
-    i16 209, label %202
-    i16 210, label %203
-    i16 211, label %204
-    i16 212, label %206
-    i16 213, label %208
-    i16 214, label %210
-    i16 215, label %212
-    i16 216, label %214
-    i16 217, label %216
-    i16 218, label %217
-    i16 219, label %219
-    i16 220, label %220
-    i16 221, label %222
-    i16 222, label %224
-    i16 223, label %226
-    i16 224, label %228
-    i16 225, label %230
-    i16 226, label %232
-    i16 227, label %234
-    i16 228, label %236
-    i16 229, label %238
-    i16 230, label %240
-    i16 231, label %242
-    i16 232, label %244
-    i16 233, label %246
-    i16 234, label %248
-    i16 235, label %250
-    i16 236, label %252
-    i16 237, label %254
-    i16 238, label %256
-    i16 239, label %258
-    i16 240, label %260
-    i16 241, label %262
-    i16 242, label %264
-    i16 243, label %266
-    i16 244, label %268
-    i16 245, label %270
-    i16 246, label %272
-    i16 247, label %274
-    i16 248, label %276
-    i16 249, label %278
-    i16 250, label %280
-    i16 251, label %282
-    i16 252, label %284
-    i16 253, label %286
-    i16 254, label %288
-    i16 255, label %290
-    i16 256, label %292
-    i16 257, label %294
-    i16 258, label %296
-    i16 259, label %298
-    i16 260, label %300
-    i16 261, label %302
-    i16 262, label %304
-    i16 263, label %306
-    i16 264, label %308
-    i16 265, label %310
-    i16 266, label %312
-    i16 267, label %314
-    i16 268, label %316
-    i16 269, label %318
-    i16 270, label %320
-    i16 271, label %322
-    i16 272, label %324
-    i16 273, label %326
-    i16 274, label %328
-    i16 275, label %330
-    i16 276, label %332
-    i16 277, label %334
-    i16 278, label %336
-    i16 279, label %338
-    i16 280, label %340
-    i16 281, label %342
-    i16 282, label %344
-    i16 283, label %346
-    i16 284, label %348
-    i16 285, label %350
-    i16 286, label %351
-    i16 287, label %353
-    i16 288, label %355
-    i16 289, label %357
-    i16 290, label %359
-    i16 291, label %361
-    i16 292, label %363
-    i16 293, label %365
-    i16 294, label %367
-    i16 295, label %369
-    i16 296, label %371
-    i16 297, label %373
-    i16 298, label %375
-    i16 299, label %377
-    i16 300, label %379
-    i16 301, label %381
-    i16 302, label %383
-    i16 303, label %385
-    i16 304, label %387
-    i16 305, label %389
-    i16 306, label %391
-    i16 307, label %393
-    i16 308, label %395
-    i16 309, label %397
-    i16 310, label %399
-    i16 311, label %401
-    i16 312, label %403
-    i16 313, label %405
-    i16 314, label %407
-    i16 315, label %409
-    i16 316, label %410
-    i16 317, label %411
-    i16 410, label %568
-    i16 319, label %412
-    i16 320, label %413
-    i16 321, label %414
-    i16 322, label %415
-    i16 323, label %416
-    i16 324, label %417
-    i16 325, label %418
-    i16 326, label %420
-    i16 327, label %422
-    i16 328, label %424
-    i16 329, label %426
-    i16 330, label %428
-    i16 331, label %430
-    i16 332, label %432
-    i16 333, label %434
-    i16 334, label %436
-    i16 335, label %438
-    i16 336, label %440
-    i16 337, label %442
-    i16 338, label %444
-    i16 339, label %446
-    i16 340, label %448
-    i16 341, label %450
-    i16 342, label %452
-    i16 343, label %454
-    i16 344, label %456
-    i16 345, label %458
-    i16 346, label %460
-    i16 347, label %462
-    i16 348, label %464
-    i16 349, label %466
-    i16 350, label %468
-    i16 351, label %470
-    i16 352, label %472
-    i16 353, label %474
-    i16 354, label %476
-    i16 355, label %478
-    i16 356, label %480
-    i16 357, label %482
-    i16 358, label %484
-    i16 359, label %486
-    i16 360, label %488
-    i16 361, label %490
-    i16 362, label %492
-    i16 363, label %493
-    i16 364, label %494
-    i16 365, label %496
-    i16 366, label %498
-    i16 367, label %500
-    i16 368, label %501
-    i16 369, label %503
-    i16 370, label %505
-    i16 371, label %507
-    i16 372, label %509
-    i16 373, label %511
-    i16 374, label %513
-    i16 375, label %515
-    i16 376, label %517
-    i16 377, label %518
-    i16 378, label %519
-    i16 379, label %520
-    i16 380, label %521
-    i16 381, label %522
-    i16 382, label %524
-    i16 383, label %526
-    i16 384, label %528
-    i16 385, label %530
-    i16 386, label %532
-    i16 387, label %534
-    i16 388, label %536
-    i16 389, label %538
-    i16 390, label %540
-    i16 391, label %542
-    i16 392, label %544
-    i16 393, label %546
-    i16 394, label %548
-    i16 395, label %550
-    i16 396, label %552
-    i16 397, label %554
-    i16 398, label %555
-    i16 399, label %556
-    i16 400, label %557
-    i16 401, label %558
-    i16 402, label %560
-    i16 403, label %561
-    i16 404, label %562
-    i16 405, label %563
-    i16 406, label %564
-    i16 407, label %565
-    i16 408, label %566
-    i16 409, label %567
+    i16 78, label %6
+    i16 79, label %6
+    i16 80, label %6
+    i16 81, label %6
+    i16 82, label %6
+    i16 83, label %6
+    i16 84, label %6
+    i16 85, label %6
+    i16 86, label %6
+    i16 87, label %6
+    i16 88, label %6
+    i16 89, label %6
+    i16 90, label %6
+    i16 91, label %6
+    i16 92, label %6
+    i16 93, label %6
+    i16 94, label %6
+    i16 95, label %6
+    i16 96, label %6
+    i16 97, label %6
+    i16 98, label %6
+    i16 99, label %6
+    i16 100, label %6
+    i16 101, label %6
+    i16 102, label %7
+    i16 103, label %6
+    i16 104, label %6
+    i16 105, label %6
+    i16 106, label %6
+    i16 107, label %6
+    i16 108, label %6
+    i16 109, label %6
+    i16 110, label %6
+    i16 111, label %6
+    i16 112, label %6
+    i16 113, label %6
+    i16 114, label %9
+    i16 115, label %11
+    i16 116, label %6
+    i16 117, label %6
+    i16 118, label %6
+    i16 119, label %6
+    i16 120, label %6
+    i16 121, label %6
+    i16 122, label %6
+    i16 123, label %6
+    i16 124, label %6
+    i16 125, label %13
+    i16 126, label %15
+    i16 127, label %17
+    i16 128, label %19
+    i16 129, label %21
+    i16 130, label %23
+    i16 131, label %25
+    i16 132, label %27
+    i16 133, label %29
+    i16 134, label %31
+    i16 135, label %33
+    i16 136, label %35
+    i16 137, label %37
+    i16 138, label %39
+    i16 139, label %41
+    i16 140, label %43
+    i16 141, label %45
+    i16 142, label %47
+    i16 143, label %49
+    i16 144, label %51
+    i16 145, label %53
+    i16 146, label %55
+    i16 147, label %57
+    i16 148, label %59
+    i16 149, label %61
+    i16 150, label %63
+    i16 151, label %65
+    i16 152, label %67
+    i16 153, label %69
+    i16 154, label %71
+    i16 155, label %73
+    i16 156, label %75
+    i16 157, label %77
+    i16 158, label %79
+    i16 159, label %81
+    i16 160, label %83
+    i16 161, label %85
+    i16 162, label %87
+    i16 163, label %89
+    i16 164, label %91
+    i16 165, label %93
+    i16 166, label %95
+    i16 167, label %97
+    i16 168, label %99
+    i16 169, label %101
+    i16 170, label %103
+    i16 171, label %105
+    i16 172, label %107
+    i16 173, label %109
+    i16 174, label %111
+    i16 175, label %113
+    i16 176, label %115
+    i16 177, label %6
+    i16 178, label %117
+    i16 179, label %119
+    i16 180, label %121
+    i16 181, label %123
+    i16 182, label %125
+    i16 183, label %6
+    i16 184, label %6
+    i16 185, label %6
+    i16 186, label %127
+    i16 187, label %6
+    i16 188, label %6
+    i16 189, label %6
+    i16 190, label %6
+    i16 191, label %6
+    i16 192, label %6
+    i16 193, label %6
+    i16 194, label %129
+    i16 195, label %6
+    i16 196, label %6
+    i16 197, label %131
+    i16 198, label %133
+    i16 199, label %6
+    i16 200, label %6
+    i16 201, label %6
+    i16 202, label %6
+    i16 203, label %6
+    i16 204, label %6
+    i16 205, label %6
+    i16 206, label %6
+    i16 207, label %6
+    i16 208, label %6
+    i16 209, label %6
+    i16 210, label %6
+    i16 211, label %135
+    i16 212, label %137
+    i16 213, label %139
+    i16 214, label %141
+    i16 215, label %143
+    i16 216, label %145
+    i16 217, label %6
+    i16 218, label %147
+    i16 219, label %6
+    i16 220, label %149
+    i16 221, label %151
+    i16 222, label %153
+    i16 223, label %155
+    i16 224, label %157
+    i16 225, label %159
+    i16 226, label %161
+    i16 227, label %163
+    i16 228, label %165
+    i16 229, label %167
+    i16 230, label %169
+    i16 231, label %171
+    i16 232, label %173
+    i16 233, label %175
+    i16 234, label %177
+    i16 235, label %179
+    i16 236, label %181
+    i16 237, label %183
+    i16 238, label %185
+    i16 239, label %187
+    i16 240, label %189
+    i16 241, label %191
+    i16 242, label %193
+    i16 243, label %195
+    i16 244, label %197
+    i16 245, label %199
+    i16 246, label %201
+    i16 247, label %203
+    i16 248, label %205
+    i16 249, label %207
+    i16 250, label %209
+    i16 251, label %211
+    i16 252, label %213
+    i16 253, label %215
+    i16 254, label %217
+    i16 255, label %219
+    i16 256, label %221
+    i16 257, label %223
+    i16 258, label %225
+    i16 259, label %227
+    i16 260, label %229
+    i16 261, label %231
+    i16 262, label %233
+    i16 263, label %235
+    i16 264, label %237
+    i16 265, label %239
+    i16 266, label %241
+    i16 267, label %243
+    i16 268, label %245
+    i16 269, label %247
+    i16 270, label %249
+    i16 271, label %251
+    i16 272, label %253
+    i16 273, label %255
+    i16 274, label %257
+    i16 275, label %259
+    i16 276, label %261
+    i16 277, label %263
+    i16 278, label %265
+    i16 279, label %267
+    i16 280, label %269
+    i16 281, label %271
+    i16 282, label %273
+    i16 283, label %275
+    i16 284, label %277
+    i16 285, label %6
+    i16 286, label %279
+    i16 287, label %281
+    i16 288, label %283
+    i16 289, label %285
+    i16 290, label %287
+    i16 291, label %289
+    i16 292, label %291
+    i16 293, label %293
+    i16 294, label %295
+    i16 295, label %297
+    i16 296, label %299
+    i16 297, label %301
+    i16 298, label %303
+    i16 299, label %305
+    i16 300, label %307
+    i16 301, label %309
+    i16 302, label %311
+    i16 303, label %313
+    i16 304, label %315
+    i16 305, label %317
+    i16 306, label %319
+    i16 307, label %321
+    i16 308, label %323
+    i16 309, label %325
+    i16 310, label %327
+    i16 311, label %329
+    i16 312, label %331
+    i16 313, label %333
+    i16 314, label %335
+    i16 315, label %6
+    i16 316, label %6
+    i16 317, label %6
+    i16 410, label %6
+    i16 319, label %6
+    i16 320, label %6
+    i16 321, label %6
+    i16 322, label %6
+    i16 323, label %6
+    i16 324, label %6
+    i16 325, label %337
+    i16 326, label %339
+    i16 327, label %341
+    i16 328, label %343
+    i16 329, label %345
+    i16 330, label %347
+    i16 331, label %349
+    i16 332, label %351
+    i16 333, label %353
+    i16 334, label %355
+    i16 335, label %357
+    i16 336, label %359
+    i16 337, label %361
+    i16 338, label %363
+    i16 339, label %365
+    i16 340, label %367
+    i16 341, label %369
+    i16 342, label %371
+    i16 343, label %373
+    i16 344, label %375
+    i16 345, label %377
+    i16 346, label %379
+    i16 347, label %381
+    i16 348, label %383
+    i16 349, label %385
+    i16 350, label %387
+    i16 351, label %389
+    i16 352, label %391
+    i16 353, label %393
+    i16 354, label %395
+    i16 355, label %397
+    i16 356, label %399
+    i16 357, label %401
+    i16 358, label %403
+    i16 359, label %405
+    i16 360, label %407
+    i16 361, label %409
+    i16 362, label %6
+    i16 363, label %6
+    i16 364, label %411
+    i16 365, label %413
+    i16 366, label %415
+    i16 367, label %6
+    i16 368, label %417
+    i16 369, label %419
+    i16 370, label %421
+    i16 371, label %423
+    i16 372, label %425
+    i16 373, label %427
+    i16 374, label %429
+    i16 375, label %431
+    i16 376, label %6
+    i16 377, label %6
+    i16 378, label %6
+    i16 379, label %6
+    i16 380, label %6
+    i16 381, label %433
+    i16 382, label %435
+    i16 383, label %437
+    i16 384, label %439
+    i16 385, label %441
+    i16 386, label %443
+    i16 387, label %445
+    i16 388, label %447
+    i16 389, label %449
+    i16 390, label %451
+    i16 391, label %453
+    i16 392, label %455
+    i16 393, label %457
+    i16 394, label %459
+    i16 395, label %461
+    i16 396, label %463
+    i16 397, label %6
+    i16 398, label %6
+    i16 399, label %6
+    i16 400, label %6
+    i16 401, label %465
+    i16 402, label %6
+    i16 403, label %6
+    i16 404, label %6
+    i16 405, label %6
+    i16 406, label %6
+    i16 407, label %6
+    i16 408, label %6
+    i16 409, label %6
   ]
 
-6:                                                ; preds = %2
+6:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 7:                                                ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-8:                                                ; preds = %2
+  %8 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 9:                                                ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-10:                                               ; preds = %2
+  %10 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 469759999)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 11:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-12:                                               ; preds = %2
+  %12 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 128)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 13:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-14:                                               ; preds = %2
+  %14 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 10)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 15:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-16:                                               ; preds = %2
+  %16 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1056)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 17:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-18:                                               ; preds = %2
+  %18 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 19:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-20:                                               ; preds = %2
+  %20 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 21:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-22:                                               ; preds = %2
+  %22 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 23:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-24:                                               ; preds = %2
+  %24 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 25:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-26:                                               ; preds = %2
+  %26 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 27:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-28:                                               ; preds = %2
+  %28 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 29:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-30:                                               ; preds = %2
+  %30 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 31:                                               ; preds = %2
-  %32 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %32 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1056)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 33:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-34:                                               ; preds = %2
+  %34 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 35:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-36:                                               ; preds = %2
+  %36 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 37:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-38:                                               ; preds = %2
+  %38 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 39:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-40:                                               ; preds = %2
+  %40 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 41:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-42:                                               ; preds = %2
+  %42 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 43:                                               ; preds = %2
+  %44 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-44:                                               ; preds = %2
-  %45 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 469759999)
+45:                                               ; preds = %2
+  %46 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-46:                                               ; preds = %2
-  %47 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 128)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-48:                                               ; preds = %2
+47:                                               ; preds = %2
+  %48 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 49:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-50:                                               ; preds = %2
+  %50 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 51:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-52:                                               ; preds = %2
+  %52 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 53:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-54:                                               ; preds = %2
+  %54 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 55:                                               ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-56:                                               ; preds = %2
+  %56 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 57:                                               ; preds = %2
-  %58 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 10)
+  %58 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 59:                                               ; preds = %2
@@ -17647,215 +17603,211 @@ define dso_local noundef zeroext i1 @_ZNK5clang14IdentifierInfo9isKeywordERKNS_1
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 71:                                               ; preds = %2
-  %72 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %72 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 8192)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 73:                                               ; preds = %2
-  %74 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %74 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 75:                                               ; preds = %2
-  %76 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1056)
+  %76 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 11)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 77:                                               ; preds = %2
-  %78 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %78 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 79:                                               ; preds = %2
-  %80 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %80 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 81:                                               ; preds = %2
-  %82 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %82 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2052)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 83:                                               ; preds = %2
-  %84 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %84 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2052)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 85:                                               ; preds = %2
-  %86 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %86 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 87:                                               ; preds = %2
-  %88 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %88 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 4)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 89:                                               ; preds = %2
-  %90 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %90 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 4)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 91:                                               ; preds = %2
-  %92 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %92 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 93:                                               ; preds = %2
-  %94 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %94 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 4195332)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 95:                                               ; preds = %2
-  %96 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %96 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 97:                                               ; preds = %2
-  %98 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %98 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1310720)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 99:                                               ; preds = %2
-  %100 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %100 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1310720)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 101:                                              ; preds = %2
-  %102 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %102 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1310720)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 103:                                              ; preds = %2
-  %104 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1056)
+  %104 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 524288)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 105:                                              ; preds = %2
-  %106 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %106 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 524288)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 107:                                              ; preds = %2
-  %108 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %108 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1048576)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 109:                                              ; preds = %2
-  %110 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %110 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1048576)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 111:                                              ; preds = %2
-  %112 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %112 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1048576)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 113:                                              ; preds = %2
-  %114 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %114 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1048576)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 115:                                              ; preds = %2
-  %116 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 8192)
+  %116 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 32768)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 117:                                              ; preds = %2
-  %118 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1)
+  %118 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1032)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 119:                                              ; preds = %2
-  %120 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 11)
+  %120 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1024)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 121:                                              ; preds = %2
-  %122 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
+  %122 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 268435456)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 123:                                              ; preds = %2
-  %124 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
+  %124 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 268435456)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 125:                                              ; preds = %2
-  %126 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2052)
+  %126 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 268435456)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 127:                                              ; preds = %2
-  %128 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2052)
+  %128 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 129:                                              ; preds = %2
-  %130 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
+  %130 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 131:                                              ; preds = %2
-  %132 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 4)
+  %132 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 133:                                              ; preds = %2
-  %134 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 4)
+  %134 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 128)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 135:                                              ; preds = %2
-  %136 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
+  %136 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 137:                                              ; preds = %2
-  %138 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 4195332)
+  %138 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 139:                                              ; preds = %2
-  %140 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1028)
+  %140 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 141:                                              ; preds = %2
-  %142 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1310720)
+  %142 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 143:                                              ; preds = %2
-  %144 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1310720)
+  %144 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 145:                                              ; preds = %2
-  %146 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1310720)
+  %146 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 147:                                              ; preds = %2
-  %148 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 524288)
+  %148 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 149:                                              ; preds = %2
-  %150 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 524288)
+  %150 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 151:                                              ; preds = %2
-  %152 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1048576)
+  %152 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 153:                                              ; preds = %2
-  %154 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1048576)
+  %154 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 155:                                              ; preds = %2
-  %156 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1048576)
+  %156 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 157:                                              ; preds = %2
-  %158 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1048576)
+  %158 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 159:                                              ; preds = %2
-  %160 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 32768)
+  %160 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 161:                                              ; preds = %2
+  %162 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-162:                                              ; preds = %2
-  %163 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1032)
+163:                                              ; preds = %2
+  %164 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-164:                                              ; preds = %2
-  %165 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 1024)
+165:                                              ; preds = %2
+  %166 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-166:                                              ; preds = %2
-  %167 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 268435456)
+167:                                              ; preds = %2
+  %168 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-168:                                              ; preds = %2
-  %169 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 268435456)
+169:                                              ; preds = %2
+  %170 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-170:                                              ; preds = %2
-  %171 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 268435456)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-172:                                              ; preds = %2
+171:                                              ; preds = %2
+  %172 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 173:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-174:                                              ; preds = %2
+  %174 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 175:                                              ; preds = %2
@@ -17863,105 +17815,83 @@ define dso_local noundef zeroext i1 @_ZNK5clang14IdentifierInfo9isKeywordERKNS_1
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 177:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-178:                                              ; preds = %2
+  %178 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 179:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-180:                                              ; preds = %2
+  %180 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 181:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-182:                                              ; preds = %2
+  %182 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 183:                                              ; preds = %2
+  %184 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-184:                                              ; preds = %2
-  %185 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-186:                                              ; preds = %2
+185:                                              ; preds = %2
+  %186 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 187:                                              ; preds = %2
+  %188 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-188:                                              ; preds = %2
-  %189 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+189:                                              ; preds = %2
+  %190 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-190:                                              ; preds = %2
-  %191 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 128)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-192:                                              ; preds = %2
+191:                                              ; preds = %2
+  %192 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 193:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-194:                                              ; preds = %2
+  %194 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 195:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-196:                                              ; preds = %2
+  %196 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 197:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-198:                                              ; preds = %2
+  %198 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 199:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-200:                                              ; preds = %2
+  %200 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 201:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-202:                                              ; preds = %2
+  %202 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 203:                                              ; preds = %2
+  %204 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-204:                                              ; preds = %2
-  %205 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
+205:                                              ; preds = %2
+  %206 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-206:                                              ; preds = %2
-  %207 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
+207:                                              ; preds = %2
+  %208 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-208:                                              ; preds = %2
-  %209 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
+209:                                              ; preds = %2
+  %210 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-210:                                              ; preds = %2
-  %211 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
+211:                                              ; preds = %2
+  %212 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-212:                                              ; preds = %2
-  %213 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
+213:                                              ; preds = %2
+  %214 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-214:                                              ; preds = %2
-  %215 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-216:                                              ; preds = %2
+215:                                              ; preds = %2
+  %216 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 217:                                              ; preds = %2
@@ -17969,739 +17899,503 @@ define dso_local noundef zeroext i1 @_ZNK5clang14IdentifierInfo9isKeywordERKNS_1
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 219:                                              ; preds = %2
+  %220 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-220:                                              ; preds = %2
-  %221 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+221:                                              ; preds = %2
+  %222 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-222:                                              ; preds = %2
-  %223 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+223:                                              ; preds = %2
+  %224 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-224:                                              ; preds = %2
-  %225 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+225:                                              ; preds = %2
+  %226 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-226:                                              ; preds = %2
-  %227 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+227:                                              ; preds = %2
+  %228 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-228:                                              ; preds = %2
-  %229 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+229:                                              ; preds = %2
+  %230 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-230:                                              ; preds = %2
-  %231 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+231:                                              ; preds = %2
+  %232 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-232:                                              ; preds = %2
-  %233 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+233:                                              ; preds = %2
+  %234 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-234:                                              ; preds = %2
-  %235 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+235:                                              ; preds = %2
+  %236 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-236:                                              ; preds = %2
-  %237 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+237:                                              ; preds = %2
+  %238 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-238:                                              ; preds = %2
-  %239 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+239:                                              ; preds = %2
+  %240 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-240:                                              ; preds = %2
-  %241 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+241:                                              ; preds = %2
+  %242 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-242:                                              ; preds = %2
-  %243 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+243:                                              ; preds = %2
+  %244 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-244:                                              ; preds = %2
-  %245 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+245:                                              ; preds = %2
+  %246 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-246:                                              ; preds = %2
-  %247 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+247:                                              ; preds = %2
+  %248 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-248:                                              ; preds = %2
-  %249 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+249:                                              ; preds = %2
+  %250 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-250:                                              ; preds = %2
-  %251 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+251:                                              ; preds = %2
+  %252 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-252:                                              ; preds = %2
-  %253 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+253:                                              ; preds = %2
+  %254 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-254:                                              ; preds = %2
-  %255 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+255:                                              ; preds = %2
+  %256 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-256:                                              ; preds = %2
-  %257 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+257:                                              ; preds = %2
+  %258 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-258:                                              ; preds = %2
-  %259 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+259:                                              ; preds = %2
+  %260 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-260:                                              ; preds = %2
-  %261 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+261:                                              ; preds = %2
+  %262 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-262:                                              ; preds = %2
-  %263 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+263:                                              ; preds = %2
+  %264 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-264:                                              ; preds = %2
-  %265 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+265:                                              ; preds = %2
+  %266 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-266:                                              ; preds = %2
-  %267 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+267:                                              ; preds = %2
+  %268 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-268:                                              ; preds = %2
-  %269 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+269:                                              ; preds = %2
+  %270 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-270:                                              ; preds = %2
-  %271 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+271:                                              ; preds = %2
+  %272 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-272:                                              ; preds = %2
-  %273 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+273:                                              ; preds = %2
+  %274 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-274:                                              ; preds = %2
-  %275 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+275:                                              ; preds = %2
+  %276 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-276:                                              ; preds = %2
-  %277 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+277:                                              ; preds = %2
+  %278 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-278:                                              ; preds = %2
-  %279 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+279:                                              ; preds = %2
+  %280 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-280:                                              ; preds = %2
-  %281 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+281:                                              ; preds = %2
+  %282 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-282:                                              ; preds = %2
-  %283 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+283:                                              ; preds = %2
+  %284 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-284:                                              ; preds = %2
-  %285 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+285:                                              ; preds = %2
+  %286 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-286:                                              ; preds = %2
-  %287 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+287:                                              ; preds = %2
+  %288 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-288:                                              ; preds = %2
-  %289 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+289:                                              ; preds = %2
+  %290 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-290:                                              ; preds = %2
-  %291 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+291:                                              ; preds = %2
+  %292 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-292:                                              ; preds = %2
-  %293 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+293:                                              ; preds = %2
+  %294 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-294:                                              ; preds = %2
-  %295 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+295:                                              ; preds = %2
+  %296 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-296:                                              ; preds = %2
-  %297 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+297:                                              ; preds = %2
+  %298 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-298:                                              ; preds = %2
-  %299 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+299:                                              ; preds = %2
+  %300 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-300:                                              ; preds = %2
-  %301 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+301:                                              ; preds = %2
+  %302 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-302:                                              ; preds = %2
-  %303 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+303:                                              ; preds = %2
+  %304 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-304:                                              ; preds = %2
-  %305 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+305:                                              ; preds = %2
+  %306 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-306:                                              ; preds = %2
-  %307 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+307:                                              ; preds = %2
+  %308 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-308:                                              ; preds = %2
-  %309 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+309:                                              ; preds = %2
+  %310 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-310:                                              ; preds = %2
-  %311 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+311:                                              ; preds = %2
+  %312 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-312:                                              ; preds = %2
-  %313 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+313:                                              ; preds = %2
+  %314 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-314:                                              ; preds = %2
-  %315 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+315:                                              ; preds = %2
+  %316 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-316:                                              ; preds = %2
-  %317 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+317:                                              ; preds = %2
+  %318 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-318:                                              ; preds = %2
-  %319 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+319:                                              ; preds = %2
+  %320 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-320:                                              ; preds = %2
-  %321 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+321:                                              ; preds = %2
+  %322 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-322:                                              ; preds = %2
-  %323 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+323:                                              ; preds = %2
+  %324 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-324:                                              ; preds = %2
-  %325 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+325:                                              ; preds = %2
+  %326 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-326:                                              ; preds = %2
-  %327 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+327:                                              ; preds = %2
+  %328 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-328:                                              ; preds = %2
-  %329 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+329:                                              ; preds = %2
+  %330 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-330:                                              ; preds = %2
-  %331 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+331:                                              ; preds = %2
+  %332 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-332:                                              ; preds = %2
-  %333 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+333:                                              ; preds = %2
+  %334 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-334:                                              ; preds = %2
-  %335 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+335:                                              ; preds = %2
+  %336 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-336:                                              ; preds = %2
-  %337 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+337:                                              ; preds = %2
+  %338 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-338:                                              ; preds = %2
-  %339 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+339:                                              ; preds = %2
+  %340 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-340:                                              ; preds = %2
-  %341 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+341:                                              ; preds = %2
+  %342 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-342:                                              ; preds = %2
-  %343 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+343:                                              ; preds = %2
+  %344 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-344:                                              ; preds = %2
-  %345 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+345:                                              ; preds = %2
+  %346 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-346:                                              ; preds = %2
-  %347 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+347:                                              ; preds = %2
+  %348 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-348:                                              ; preds = %2
-  %349 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-350:                                              ; preds = %2
+349:                                              ; preds = %2
+  %350 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 351:                                              ; preds = %2
-  %352 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %352 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 353:                                              ; preds = %2
-  %354 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %354 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 355:                                              ; preds = %2
-  %356 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %356 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 357:                                              ; preds = %2
-  %358 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %358 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 359:                                              ; preds = %2
-  %360 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %360 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 361:                                              ; preds = %2
-  %362 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %362 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 363:                                              ; preds = %2
-  %364 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %364 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2228800)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 365:                                              ; preds = %2
-  %366 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %366 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 367:                                              ; preds = %2
-  %368 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %368 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 369:                                              ; preds = %2
-  %370 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %370 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 371:                                              ; preds = %2
-  %372 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %372 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 373:                                              ; preds = %2
-  %374 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %374 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 375:                                              ; preds = %2
-  %376 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %376 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 377:                                              ; preds = %2
-  %378 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %378 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 379:                                              ; preds = %2
-  %380 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %380 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 381:                                              ; preds = %2
-  %382 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %382 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 383:                                              ; preds = %2
-  %384 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %384 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 385:                                              ; preds = %2
-  %386 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %386 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 387:                                              ; preds = %2
-  %388 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %388 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 389:                                              ; preds = %2
-  %390 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %390 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 391:                                              ; preds = %2
-  %392 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %392 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097152)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 393:                                              ; preds = %2
-  %394 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %394 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16777216)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 395:                                              ; preds = %2
-  %396 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %396 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 397:                                              ; preds = %2
-  %398 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %398 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 399:                                              ; preds = %2
-  %400 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %400 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 401:                                              ; preds = %2
-  %402 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %402 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 403:                                              ; preds = %2
-  %404 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %404 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 405:                                              ; preds = %2
-  %406 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %406 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 407:                                              ; preds = %2
-  %408 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2)
+  %408 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 409:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-410:                                              ; preds = %2
+  %410 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 411:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-412:                                              ; preds = %2
+  %412 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 131136)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 413:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-414:                                              ; preds = %2
+  %414 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 64)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 415:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-416:                                              ; preds = %2
+  %416 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 131136)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
 417:                                              ; preds = %2
+  %418 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16384)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-418:                                              ; preds = %2
-  %419 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
+419:                                              ; preds = %2
+  %420 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-420:                                              ; preds = %2
-  %421 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
+421:                                              ; preds = %2
+  %422 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-422:                                              ; preds = %2
-  %423 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
+423:                                              ; preds = %2
+  %424 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-424:                                              ; preds = %2
-  %425 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+425:                                              ; preds = %2
+  %426 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-426:                                              ; preds = %2
-  %427 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+427:                                              ; preds = %2
+  %428 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-428:                                              ; preds = %2
-  %429 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+429:                                              ; preds = %2
+  %430 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-430:                                              ; preds = %2
-  %431 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+431:                                              ; preds = %2
+  %432 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-432:                                              ; preds = %2
-  %433 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+433:                                              ; preds = %2
+  %434 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-434:                                              ; preds = %2
-  %435 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+435:                                              ; preds = %2
+  %436 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 33554448)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-436:                                              ; preds = %2
-  %437 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+437:                                              ; preds = %2
+  %438 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-438:                                              ; preds = %2
-  %439 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+439:                                              ; preds = %2
+  %440 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-440:                                              ; preds = %2
-  %441 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+441:                                              ; preds = %2
+  %442 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-442:                                              ; preds = %2
-  %443 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+443:                                              ; preds = %2
+  %444 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 272)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-444:                                              ; preds = %2
-  %445 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2228800)
+445:                                              ; preds = %2
+  %446 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 272)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-446:                                              ; preds = %2
-  %447 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+447:                                              ; preds = %2
+  %448 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 272)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-448:                                              ; preds = %2
-  %449 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+449:                                              ; preds = %2
+  %450 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 272)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-450:                                              ; preds = %2
-  %451 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+451:                                              ; preds = %2
+  %452 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-452:                                              ; preds = %2
-  %453 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+453:                                              ; preds = %2
+  %454 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-454:                                              ; preds = %2
-  %455 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+455:                                              ; preds = %2
+  %456 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-456:                                              ; preds = %2
-  %457 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+457:                                              ; preds = %2
+  %458 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-458:                                              ; preds = %2
-  %459 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+459:                                              ; preds = %2
+  %460 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-460:                                              ; preds = %2
-  %461 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+461:                                              ; preds = %2
+  %462 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-462:                                              ; preds = %2
-  %463 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+463:                                              ; preds = %2
+  %464 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-464:                                              ; preds = %2
-  %465 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
+465:                                              ; preds = %2
+  %466 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 8388608)
   br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
 
-466:                                              ; preds = %2
-  %467 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-468:                                              ; preds = %2
-  %469 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-470:                                              ; preds = %2
-  %471 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097664)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-472:                                              ; preds = %2
-  %473 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 2097152)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-474:                                              ; preds = %2
-  %475 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16777216)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-476:                                              ; preds = %2
-  %477 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-478:                                              ; preds = %2
-  %479 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-480:                                              ; preds = %2
-  %481 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-482:                                              ; preds = %2
-  %483 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-484:                                              ; preds = %2
-  %485 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-486:                                              ; preds = %2
-  %487 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-488:                                              ; preds = %2
-  %489 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-490:                                              ; preds = %2
-  %491 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 134217728)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-492:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-493:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-494:                                              ; preds = %2
-  %495 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 131136)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-496:                                              ; preds = %2
-  %497 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 64)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-498:                                              ; preds = %2
-  %499 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 131136)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-500:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-501:                                              ; preds = %2
-  %502 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16384)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-503:                                              ; preds = %2
-  %504 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-505:                                              ; preds = %2
-  %506 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-507:                                              ; preds = %2
-  %508 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-509:                                              ; preds = %2
-  %510 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-511:                                              ; preds = %2
-  %512 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-513:                                              ; preds = %2
-  %514 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-515:                                              ; preds = %2
-  %516 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 65536)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-517:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-518:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-519:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-520:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-521:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-522:                                              ; preds = %2
-  %523 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-524:                                              ; preds = %2
-  %525 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 33554448)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-526:                                              ; preds = %2
-  %527 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-528:                                              ; preds = %2
-  %529 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-530:                                              ; preds = %2
-  %531 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-532:                                              ; preds = %2
-  %533 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 272)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-534:                                              ; preds = %2
-  %535 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 272)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-536:                                              ; preds = %2
-  %537 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 272)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-538:                                              ; preds = %2
-  %539 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 272)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-540:                                              ; preds = %2
-  %541 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-542:                                              ; preds = %2
-  %543 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-544:                                              ; preds = %2
-  %545 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-546:                                              ; preds = %2
-  %547 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-548:                                              ; preds = %2
-  %549 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-550:                                              ; preds = %2
-  %551 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-552:                                              ; preds = %2
-  %553 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 16)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-554:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-555:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-556:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-557:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-558:                                              ; preds = %2
-  %559 = tail call fastcc noundef i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i32 noundef 8388608)
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-560:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-561:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-562:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-563:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-564:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-565:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-566:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-567:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-568:                                              ; preds = %2
-  br label %_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit
-
-_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit: ; preds = %2, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %46, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %119, %121, %123, %125, %127, %129, %131, %133, %135, %137, %139, %141, %143, %145, %147, %149, %151, %153, %155, %157, %159, %161, %162, %164, %166, %168, %170, %172, %173, %174, %175, %177, %178, %179, %180, %181, %182, %183, %184, %186, %187, %188, %190, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %206, %208, %210, %212, %214, %216, %217, %219, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %286, %288, %290, %292, %294, %296, %298, %300, %302, %304, %306, %308, %310, %312, %314, %316, %318, %320, %322, %324, %326, %328, %330, %332, %334, %336, %338, %340, %342, %344, %346, %348, %350, %351, %353, %355, %357, %359, %361, %363, %365, %367, %369, %371, %373, %375, %377, %379, %381, %383, %385, %387, %389, %391, %393, %395, %397, %399, %401, %403, %405, %407, %409, %410, %411, %412, %413, %414, %415, %416, %417, %418, %420, %422, %424, %426, %428, %430, %432, %434, %436, %438, %440, %442, %444, %446, %448, %450, %452, %454, %456, %458, %460, %462, %464, %466, %468, %470, %472, %474, %476, %478, %480, %482, %484, %486, %488, %490, %492, %493, %494, %496, %498, %500, %501, %503, %505, %507, %509, %511, %513, %515, %517, %518, %519, %520, %521, %522, %524, %526, %528, %530, %532, %534, %536, %538, %540, %542, %544, %546, %548, %550, %552, %554, %555, %556, %557, %558, %560, %561, %562, %563, %564, %565, %566, %567, %568
-  %.0.i = phi i32 [ 4, %568 ], [ 4, %567 ], [ 4, %566 ], [ 4, %565 ], [ 4, %564 ], [ 4, %563 ], [ 4, %562 ], [ 4, %561 ], [ 4, %560 ], [ %559, %558 ], [ 4, %557 ], [ 4, %556 ], [ 4, %555 ], [ 4, %554 ], [ %553, %552 ], [ %551, %550 ], [ %549, %548 ], [ %547, %546 ], [ %545, %544 ], [ %543, %542 ], [ %541, %540 ], [ %539, %538 ], [ %537, %536 ], [ %535, %534 ], [ %533, %532 ], [ %531, %530 ], [ %529, %528 ], [ %527, %526 ], [ %525, %524 ], [ %523, %522 ], [ 4, %521 ], [ 4, %520 ], [ 4, %519 ], [ 4, %518 ], [ 4, %517 ], [ %516, %515 ], [ %514, %513 ], [ %512, %511 ], [ %510, %509 ], [ %508, %507 ], [ %506, %505 ], [ %504, %503 ], [ %502, %501 ], [ 4, %500 ], [ %499, %498 ], [ %497, %496 ], [ %495, %494 ], [ 4, %493 ], [ 4, %492 ], [ %491, %490 ], [ %489, %488 ], [ %487, %486 ], [ %485, %484 ], [ %483, %482 ], [ %481, %480 ], [ %479, %478 ], [ %477, %476 ], [ %475, %474 ], [ %473, %472 ], [ %471, %470 ], [ %469, %468 ], [ %467, %466 ], [ %465, %464 ], [ %463, %462 ], [ %461, %460 ], [ %459, %458 ], [ %457, %456 ], [ %455, %454 ], [ %453, %452 ], [ %451, %450 ], [ %449, %448 ], [ %447, %446 ], [ %445, %444 ], [ %443, %442 ], [ %441, %440 ], [ %439, %438 ], [ %437, %436 ], [ %435, %434 ], [ %433, %432 ], [ %431, %430 ], [ %429, %428 ], [ %427, %426 ], [ %425, %424 ], [ %423, %422 ], [ %421, %420 ], [ %419, %418 ], [ 4, %417 ], [ 4, %416 ], [ 4, %415 ], [ 4, %414 ], [ 4, %413 ], [ 4, %412 ], [ 4, %411 ], [ 4, %410 ], [ 4, %409 ], [ %408, %407 ], [ %406, %405 ], [ %404, %403 ], [ %402, %401 ], [ %400, %399 ], [ %398, %397 ], [ %396, %395 ], [ %394, %393 ], [ %392, %391 ], [ %390, %389 ], [ %388, %387 ], [ %386, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %370, %369 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ %356, %355 ], [ %354, %353 ], [ %352, %351 ], [ 4, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %331, %330 ], [ %329, %328 ], [ %327, %326 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ %257, %256 ], [ %255, %254 ], [ %253, %252 ], [ %251, %250 ], [ %249, %248 ], [ %247, %246 ], [ %245, %244 ], [ %243, %242 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ 4, %219 ], [ %218, %217 ], [ 4, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %205, %204 ], [ 4, %203 ], [ 4, %202 ], [ 4, %201 ], [ 4, %200 ], [ 4, %199 ], [ 4, %198 ], [ 4, %197 ], [ 4, %196 ], [ 4, %195 ], [ 4, %194 ], [ 4, %193 ], [ 4, %192 ], [ %191, %190 ], [ %189, %188 ], [ 4, %187 ], [ 4, %186 ], [ %185, %184 ], [ 4, %183 ], [ 4, %182 ], [ 4, %181 ], [ 4, %180 ], [ 4, %179 ], [ 4, %178 ], [ 4, %177 ], [ %176, %175 ], [ 4, %174 ], [ 4, %173 ], [ 4, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ 4, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ 4, %56 ], [ 4, %55 ], [ 4, %54 ], [ 4, %53 ], [ 4, %52 ], [ 4, %51 ], [ 4, %50 ], [ 4, %49 ], [ 4, %48 ], [ %47, %46 ], [ %45, %44 ], [ 4, %43 ], [ 4, %42 ], [ 4, %41 ], [ 4, %40 ], [ 4, %39 ], [ 4, %38 ], [ 4, %37 ], [ 4, %36 ], [ 4, %35 ], [ 4, %34 ], [ 4, %33 ], [ %32, %31 ], [ 4, %30 ], [ 4, %29 ], [ 4, %28 ], [ 4, %27 ], [ 4, %26 ], [ 4, %25 ], [ 4, %24 ], [ 4, %23 ], [ 4, %22 ], [ 4, %21 ], [ 4, %20 ], [ 4, %19 ], [ 4, %18 ], [ 4, %17 ], [ 4, %16 ], [ 4, %15 ], [ 4, %14 ], [ 4, %13 ], [ 4, %12 ], [ 4, %11 ], [ 4, %10 ], [ 4, %9 ], [ 4, %8 ], [ 4, %7 ], [ 4, %6 ], [ 1, %2 ]
+_ZL16getTokenKwStatusRKN5clang11LangOptionsENS_3tok9TokenKindE.exit: ; preds = %2, %6, %7, %9, %11, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %119, %121, %123, %125, %127, %129, %131, %133, %135, %137, %139, %141, %143, %145, %147, %149, %151, %153, %155, %157, %159, %161, %163, %165, %167, %169, %171, %173, %175, %177, %179, %181, %183, %185, %187, %189, %191, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227, %229, %231, %233, %235, %237, %239, %241, %243, %245, %247, %249, %251, %253, %255, %257, %259, %261, %263, %265, %267, %269, %271, %273, %275, %277, %279, %281, %283, %285, %287, %289, %291, %293, %295, %297, %299, %301, %303, %305, %307, %309, %311, %313, %315, %317, %319, %321, %323, %325, %327, %329, %331, %333, %335, %337, %339, %341, %343, %345, %347, %349, %351, %353, %355, %357, %359, %361, %363, %365, %367, %369, %371, %373, %375, %377, %379, %381, %383, %385, %387, %389, %391, %393, %395, %397, %399, %401, %403, %405, %407, %409, %411, %413, %415, %417, %419, %421, %423, %425, %427, %429, %431, %433, %435, %437, %439, %441, %443, %445, %447, %449, %451, %453, %455, %457, %459, %461, %463, %465
+  %.0.i = phi i32 [ %466, %465 ], [ %464, %463 ], [ %462, %461 ], [ %460, %459 ], [ %458, %457 ], [ %456, %455 ], [ %454, %453 ], [ %452, %451 ], [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %444, %443 ], [ %442, %441 ], [ %440, %439 ], [ %438, %437 ], [ %436, %435 ], [ %434, %433 ], [ %432, %431 ], [ %430, %429 ], [ %428, %427 ], [ %426, %425 ], [ %424, %423 ], [ %422, %421 ], [ %420, %419 ], [ %418, %417 ], [ %416, %415 ], [ %414, %413 ], [ %412, %411 ], [ %410, %409 ], [ %408, %407 ], [ %406, %405 ], [ %404, %403 ], [ %402, %401 ], [ %400, %399 ], [ %398, %397 ], [ %396, %395 ], [ %394, %393 ], [ %392, %391 ], [ %390, %389 ], [ %388, %387 ], [ %386, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %370, %369 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ %356, %355 ], [ %354, %353 ], [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ 4, %6 ], [ 1, %2 ]
   %.off = add nsw i32 %.0.i, -3
   %switch = icmp ult i32 %.off, 2
   ret i1 %switch
@@ -23551,7 +23245,7 @@ define internal { ptr, i64 } @_ZN12_GLOBAL__N_119EmptyLookupIterator4NextEv(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef range(i32 1, 8) i32 @_ZL16getKeywordStatusRKN5clang11LangOptionsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, i32 noundef range(i32 0, 469760000) %1) unnamed_addr #6 {
   %3 = icmp eq i32 %1, 469755903
-  br i1 %3, label %195, label %4
+  br i1 %3, label %192, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -23561,7 +23255,7 @@ define internal fastcc noundef range(i32 1, 8) i32 @_ZL16getKeywordStatusRKN5cla
   %8 = and i32 %1, 4096
   %.not18 = icmp eq i32 %8, 0
   %or.cond = or i1 %.not18, %.not
-  br i1 %or.cond, label %9, label %195
+  br i1 %or.cond, label %9, label %192
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %0, align 8
@@ -23575,7 +23269,7 @@ define internal fastcc noundef range(i32 1, 8) i32 @_ZL16getKeywordStatusRKN5cla
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, 816043786239999999
   %or.cond33 = select i1 %or.cond24, i1 true, i1 %15
-  br i1 %or.cond33, label %16, label %195
+  br i1 %or.cond33, label %16, label %192
 
 16:                                               ; preds = %9
   %17 = and i64 %.fr69, 256
@@ -23583,7 +23277,7 @@ define internal fastcc noundef range(i32 1, 8) i32 @_ZL16getKeywordStatusRKN5cla
   %18 = and i32 %1, 67108864
   %.not22 = icmp eq i32 %18, 0
   %or.cond25 = or i1 %.not22, %.not21
-  br i1 %or.cond25, label %.preheader, label %195
+  br i1 %or.cond25, label %.preheader, label %192
 
 .preheader:                                       ; preds = %16
   %.not2335 = icmp eq i32 %1, 0
@@ -23938,20 +23632,20 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
   %140 = and i32 %.01537.us46, %139
   %141 = xor i32 %140, %.01537.us46
   switch i32 %140, label %.split.us [
-    i32 1, label %166
-    i32 1024, label %165
-    i32 2, label %164
-    i32 4, label %163
-    i32 1048576, label %162
-    i32 8, label %161
-    i32 16, label %160
-    i32 32, label %159
-    i32 64, label %158
-    i32 256, label %157
-    i32 512, label %156
-    i32 8192, label %155
-    i32 16384, label %154
-    i32 32768, label %153
+    i32 1, label %165
+    i32 1024, label %164
+    i32 2, label %163
+    i32 4, label %162
+    i32 1048576, label %161
+    i32 8, label %160
+    i32 16, label %159
+    i32 32, label %158
+    i32 64, label %157
+    i32 256, label %156
+    i32 512, label %155
+    i32 8192, label %154
+    i32 16384, label %153
+    i32 32768, label %158
     i32 65536, label %152
     i32 131072, label %151
     i32 262144, label %150
@@ -24017,7 +23711,7 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 157:                                              ; preds = %.lr.ph.split.split.split.us
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48
 
-158:                                              ; preds = %.lr.ph.split.split.split.us
+158:                                              ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48
 
 159:                                              ; preds = %.lr.ph.split.split.split.us
@@ -24041,52 +23735,52 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 165:                                              ; preds = %.lr.ph.split.split.split.us
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48
 
-166:                                              ; preds = %.lr.ph.split.split.split.us
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48
-
-_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48: ; preds = %166, %165, %163, %164, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
-  %.0.i.us49 = phi i32 [ %22, %142 ], [ %26, %143 ], [ %31, %144 ], [ %33, %145 ], [ %38, %146 ], [ %42, %147 ], [ %44, %148 ], [ %49, %149 ], [ %54, %150 ], [ %57, %151 ], [ %59, %152 ], [ %64, %154 ], [ %66, %155 ], [ %68, %156 ], [ %70, %157 ], [ %73, %158 ], [ %77, %160 ], [ %79, %161 ], [ %..i, %162 ], [ %25, %164 ], [ 4, %159 ], [ 4, %153 ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ %spec.select63, %163 ], [ %spec.select64, %165 ], [ %spec.select65, %166 ]
+_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48: ; preds = %165, %164, %162, %163, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split.us
+  %.0.i.us49 = phi i32 [ %22, %142 ], [ %26, %143 ], [ %31, %144 ], [ %33, %145 ], [ %38, %146 ], [ %42, %147 ], [ %44, %148 ], [ %49, %149 ], [ %54, %150 ], [ %57, %151 ], [ %59, %152 ], [ %64, %153 ], [ %66, %154 ], [ %68, %155 ], [ %70, %156 ], [ %73, %157 ], [ %77, %159 ], [ %79, %160 ], [ %..i, %161 ], [ %25, %163 ], [ 4, %158 ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us ], [ %spec.select63, %162 ], [ %spec.select64, %164 ], [ %spec.select65, %165 ]
   %.sroa.speculated.us50 = tail call i32 @llvm.smax.i32(i32 %storemerge36.us47, i32 %.0.i.us49)
   %.not23.us51 = icmp eq i32 %140, %.01537.us46
   br i1 %.not23.us51, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !32
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-  %.01537 = phi i32 [ %169, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ], [ %1, %.lr.ph.split.split ]
+  %.01537 = phi i32 [ %168, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ], [ %1, %.lr.ph.split.split ]
   %storemerge36 = phi i32 [ %.sroa.speculated, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ], [ 0, %.lr.ph.split.split ]
-  %167 = sub nsw i32 0, %.01537
-  %168 = and i32 %.01537, %167
-  %169 = xor i32 %168, %.01537
-  switch i32 %168, label %.split.us [
-    i32 1, label %170
-    i32 1024, label %171
-    i32 2, label %172
-    i32 4, label %173
-    i32 1048576, label %174
-    i32 8, label %175
-    i32 16, label %176
-    i32 32, label %177
-    i32 64, label %178
-    i32 256, label %179
-    i32 512, label %180
-    i32 8192, label %181
-    i32 16384, label %182
-    i32 32768, label %183
-    i32 65536, label %184
-    i32 131072, label %185
-    i32 262144, label %186
+  %166 = sub nsw i32 0, %.01537
+  %167 = and i32 %.01537, %166
+  %168 = xor i32 %167, %.01537
+  switch i32 %167, label %.split.us [
+    i32 1, label %169
+    i32 1024, label %170
+    i32 2, label %171
+    i32 4, label %172
+    i32 1048576, label %173
+    i32 8, label %174
+    i32 16, label %175
+    i32 32, label %173
+    i32 64, label %176
+    i32 256, label %177
+    i32 512, label %178
+    i32 8192, label %179
+    i32 16384, label %180
+    i32 32768, label %173
+    i32 65536, label %181
+    i32 131072, label %182
+    i32 262144, label %183
     i32 524288, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-    i32 2097152, label %187
-    i32 4194304, label %188
-    i32 8388608, label %189
-    i32 16777216, label %190
-    i32 33554432, label %191
-    i32 134217728, label %192
-    i32 128, label %193
+    i32 2097152, label %184
+    i32 4194304, label %185
+    i32 8388608, label %186
+    i32 16777216, label %187
+    i32 33554432, label %188
+    i32 134217728, label %189
+    i32 128, label %190
     i32 4096, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
     i32 2048, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
     i32 67108864, label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-    i32 268435456, label %194
+    i32 268435456, label %191
   ]
+
+169:                                              ; preds = %.lr.ph.split.split.split
+  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 
 170:                                              ; preds = %.lr.ph.split.split.split
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
@@ -24097,7 +23791,7 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 172:                                              ; preds = %.lr.ph.split.split.split
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 
-173:                                              ; preds = %.lr.ph.split.split.split
+173:                                              ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 
 174:                                              ; preds = %.lr.ph.split.split.split
@@ -24154,30 +23848,21 @@ _ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 191:                                              ; preds = %.lr.ph.split.split.split
   br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
 
-192:                                              ; preds = %.lr.ph.split.split.split
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-
-193:                                              ; preds = %.lr.ph.split.split.split
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-
-194:                                              ; preds = %.lr.ph.split.split.split
-  br label %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit
-
 .split.us:                                        ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.us
   unreachable
 
-_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit: ; preds = %173, %171, %170, %174, %177, %183, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %172, %175, %176, %178, %179, %180, %181, %182, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194
-  %.0.i = phi i32 [ %22, %194 ], [ %26, %193 ], [ %31, %192 ], [ %33, %191 ], [ %38, %190 ], [ %42, %189 ], [ %44, %188 ], [ %49, %187 ], [ %54, %186 ], [ %57, %185 ], [ %59, %184 ], [ %64, %182 ], [ %66, %181 ], [ %68, %180 ], [ %70, %179 ], [ %73, %178 ], [ %77, %176 ], [ %79, %175 ], [ %25, %172 ], [ 4, %174 ], [ 4, %177 ], [ 4, %183 ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ %spec.select65, %170 ], [ %spec.select64, %171 ], [ %spec.select63, %173 ]
+_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit: ; preds = %172, %170, %169, %173, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %.lr.ph.split.split.split, %171, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191
+  %.0.i = phi i32 [ %22, %191 ], [ %26, %190 ], [ %31, %189 ], [ %33, %188 ], [ %38, %187 ], [ %42, %186 ], [ %44, %185 ], [ %49, %184 ], [ %54, %183 ], [ %57, %182 ], [ %59, %181 ], [ %64, %180 ], [ %66, %179 ], [ %68, %178 ], [ %70, %177 ], [ %73, %176 ], [ %77, %175 ], [ %79, %174 ], [ %25, %171 ], [ 4, %173 ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split.split ], [ %spec.select65, %169 ], [ %spec.select64, %170 ], [ %spec.select63, %172 ]
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %storemerge36, i32 %.0.i)
-  %.not23 = icmp eq i32 %168, %.01537
+  %.not23 = icmp eq i32 %167, %.01537
   br i1 %.not23, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us40, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us, %.preheader
   %storemerge.lcssa = phi i32 [ 0, %.preheader ], [ %.sroa.speculated.us, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us ], [ %.sroa.speculated.us42, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us40 ], [ %.sroa.speculated.us50, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit.us48 ], [ %.sroa.speculated, %_ZL22getKeywordStatusHelperRKN5clang11LangOptionsEN12_GLOBAL__N_18TokenKeyE.exit ]
   %. = tail call i32 @llvm.umax.i32(i32 %storemerge.lcssa, i32 1)
-  br label %195
+  br label %192
 
-195:                                              ; preds = %9, %._crit_edge, %16, %4, %2
+192:                                              ; preds = %9, %._crit_edge, %16, %4, %2
   %.0 = phi i32 [ 4, %2 ], [ 1, %4 ], [ 1, %16 ], [ %., %._crit_edge ], [ 1, %9 ]
   ret i32 %.0
 }

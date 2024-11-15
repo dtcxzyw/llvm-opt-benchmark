@@ -3928,7 +3928,7 @@ if.end:                                           ; preds = %entry
     i16 21, label %sw.bb17
     i16 18, label %sw.bb18
     i16 22, label %sw.bb19
-    i16 20, label %sw.bb20
+    i16 20, label %sw.bb17
     i16 23, label %sw.bb21
     i16 107, label %sw.bb22
     i16 111, label %sw.bb23
@@ -3946,16 +3946,13 @@ sw.bb:                                            ; preds = %if.end
 sw.bb16:                                          ; preds = %if.end
   br label %sw.epilog
 
-sw.bb17:                                          ; preds = %if.end
+sw.bb17:                                          ; preds = %if.end, %if.end
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %if.end
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end
-  br label %sw.epilog
-
-sw.bb20:                                          ; preds = %if.end
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end
@@ -3986,8 +3983,8 @@ lpad26:                                           ; preds = %invoke.cont27, %sw.
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #18
   unreachable
 
-sw.epilog:                                        ; preds = %if.end, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb
-  %new_kind.0 = phi i32 [ %bf.cast.i, %if.end ], [ 115, %sw.bb23 ], [ 114, %sw.bb22 ], [ 126, %sw.bb21 ], [ 88, %sw.bb20 ], [ 89, %sw.bb19 ], [ 90, %sw.bb18 ], [ 88, %sw.bb17 ], [ 86, %sw.bb16 ], [ 87, %sw.bb ]
+sw.epilog:                                        ; preds = %if.end, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb
+  %new_kind.0 = phi i32 [ %bf.cast.i, %if.end ], [ 115, %sw.bb23 ], [ 114, %sw.bb22 ], [ 126, %sw.bb21 ], [ 89, %sw.bb19 ], [ 90, %sw.bb18 ], [ 88, %sw.bb17 ], [ 86, %sw.bb16 ], [ 87, %sw.bb ]
   %cmp32 = icmp ne i32 %new_kind.0, %bf.cast.i
   %15 = load ptr, ptr %n, align 8
   %d_kind.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8

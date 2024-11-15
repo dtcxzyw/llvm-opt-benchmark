@@ -28357,8 +28357,8 @@ define linkonce_odr noundef i32 @_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILN
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %rev.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i)
-  switch i16 %rev.i.i.i.i.i.i.i, label %42 [
-    i16 4, label %43
+  switch i16 %rev.i.i.i.i.i.i.i, label %41 [
+    i16 4, label %42
     i16 3, label %5
     i16 6, label %5
     i16 62, label %6
@@ -28376,126 +28376,122 @@ define linkonce_odr noundef i32 @_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILN
     i16 2, label %26
     i16 18, label %26
     i16 43, label %27
-    i16 224, label %28
-    i16 190, label %29
-    i16 247, label %33
-    i16 251, label %34
-    i16 252, label %35
-    i16 258, label %36
-    i16 94, label %41
+    i16 94, label %40
+    i16 190, label %28
+    i16 247, label %32
+    i16 251, label %33
+    i16 252, label %34
+    i16 258, label %35
   ]
 
 5:                                                ; preds = %1, %1
-  br label %43
+  br label %42
 
 6:                                                ; preds = %1
-  br label %43
+  br label %42
 
 7:                                                ; preds = %1
-  br label %43
+  br label %42
 
 8:                                                ; preds = %1
-  br label %43
+  br label %42
 
 9:                                                ; preds = %1
-  br label %43
+  br label %42
 
 10:                                               ; preds = %1
-  br label %43
+  br label %42
 
 11:                                               ; preds = %1
-  br label %43
+  br label %42
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %3, i64 4
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %16 [
-    i8 1, label %43
+    i8 1, label %42
     i8 2, label %15
   ]
 
 15:                                               ; preds = %12
-  br label %43
+  br label %42
 
 16:                                               ; preds = %12
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.290, i1 noundef zeroext true) #21
   unreachable
 
 17:                                               ; preds = %1
-  br label %43
+  br label %42
 
 18:                                               ; preds = %1
-  br label %43
+  br label %42
 
 19:                                               ; preds = %1
-  br label %43
+  br label %42
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds i8, ptr %3, i64 4
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %24 [
-    i8 1, label %43
+    i8 1, label %42
     i8 2, label %23
   ]
 
 23:                                               ; preds = %20
-  br label %43
+  br label %42
 
 24:                                               ; preds = %20
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.290, i1 noundef zeroext true) #21
   unreachable
 
 25:                                               ; preds = %1
-  br label %43
+  br label %42
 
 26:                                               ; preds = %1, %1
-  br label %43
+  br label %42
 
 27:                                               ; preds = %1
-  br label %43
+  br label %42
 
 28:                                               ; preds = %1
-  br label %43
+  %29 = getelementptr inbounds i8, ptr %3, i64 4
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 1
+  %. = select i1 %31, i32 41, i32 42
+  br label %42
 
-29:                                               ; preds = %1
-  %30 = getelementptr inbounds i8, ptr %3, i64 4
-  %31 = load i8, ptr %30, align 1
-  %32 = icmp eq i8 %31, 1
-  %. = select i1 %32, i32 41, i32 42
-  br label %43
+32:                                               ; preds = %1
+  br label %42
 
 33:                                               ; preds = %1
-  br label %43
+  br label %42
 
 34:                                               ; preds = %1
-  br label %43
+  br label %42
 
 35:                                               ; preds = %1
-  br label %43
-
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds i8, ptr %3, i64 4
-  %38 = load i8, ptr %37, align 1
-  switch i8 %38, label %40 [
-    i8 1, label %43
-    i8 2, label %39
+  %36 = getelementptr inbounds i8, ptr %3, i64 4
+  %37 = load i8, ptr %36, align 1
+  switch i8 %37, label %39 [
+    i8 1, label %42
+    i8 2, label %38
   ]
 
-39:                                               ; preds = %36
-  br label %43
+38:                                               ; preds = %35
+  br label %42
 
-40:                                               ; preds = %36
+39:                                               ; preds = %35
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.290, i1 noundef zeroext true) #21
   unreachable
 
+40:                                               ; preds = %1
+  br label %42
+
 41:                                               ; preds = %1
-  br label %43
+  br label %42
 
-42:                                               ; preds = %1
-  br label %43
-
-43:                                               ; preds = %36, %29, %20, %12, %1, %42, %41, %39, %35, %34, %33, %28, %27, %26, %25, %23, %19, %18, %17, %15, %11, %10, %9, %8, %7, %6, %5
-  %.0 = phi i32 [ 0, %42 ], [ 40, %41 ], [ 14, %39 ], [ 10, %35 ], [ 59, %34 ], [ 9, %33 ], [ 0, %28 ], [ 30, %27 ], [ 29, %26 ], [ 32, %25 ], [ 28, %23 ], [ 23, %19 ], [ 21, %18 ], [ 20, %17 ], [ 18, %15 ], [ 54, %11 ], [ 12, %10 ], [ 7, %9 ], [ 1, %8 ], [ 4, %7 ], [ 38, %6 ], [ 37, %5 ], [ 15, %1 ], [ 16, %12 ], [ 27, %20 ], [ %., %29 ], [ 13, %36 ]
+42:                                               ; preds = %35, %28, %20, %12, %1, %41, %40, %38, %34, %33, %32, %27, %26, %25, %23, %19, %18, %17, %15, %11, %10, %9, %8, %7, %6, %5
+  %.0 = phi i32 [ 0, %41 ], [ 40, %40 ], [ 14, %38 ], [ 10, %34 ], [ 59, %33 ], [ 9, %32 ], [ 30, %27 ], [ 29, %26 ], [ 32, %25 ], [ 28, %23 ], [ 23, %19 ], [ 21, %18 ], [ 20, %17 ], [ 18, %15 ], [ 54, %11 ], [ 12, %10 ], [ 7, %9 ], [ 1, %8 ], [ 4, %7 ], [ 38, %6 ], [ 37, %5 ], [ 15, %1 ], [ 16, %12 ], [ 27, %20 ], [ %., %28 ], [ 13, %35 ]
   ret i32 %.0
 }
 
@@ -47688,8 +47684,8 @@ define linkonce_odr noundef i32 @_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILN
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %rev.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i)
-  switch i16 %rev.i.i.i.i.i.i.i, label %42 [
-    i16 4, label %43
+  switch i16 %rev.i.i.i.i.i.i.i, label %41 [
+    i16 4, label %42
     i16 3, label %5
     i16 6, label %5
     i16 62, label %6
@@ -47707,126 +47703,122 @@ define linkonce_odr noundef i32 @_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILN
     i16 2, label %26
     i16 18, label %26
     i16 43, label %27
-    i16 224, label %28
-    i16 190, label %29
-    i16 247, label %33
-    i16 251, label %34
-    i16 252, label %35
-    i16 258, label %36
-    i16 94, label %41
+    i16 94, label %40
+    i16 190, label %28
+    i16 247, label %32
+    i16 251, label %33
+    i16 252, label %34
+    i16 258, label %35
   ]
 
 5:                                                ; preds = %1, %1
-  br label %43
+  br label %42
 
 6:                                                ; preds = %1
-  br label %43
+  br label %42
 
 7:                                                ; preds = %1
-  br label %43
+  br label %42
 
 8:                                                ; preds = %1
-  br label %43
+  br label %42
 
 9:                                                ; preds = %1
-  br label %43
+  br label %42
 
 10:                                               ; preds = %1
-  br label %43
+  br label %42
 
 11:                                               ; preds = %1
-  br label %43
+  br label %42
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %3, i64 4
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %16 [
-    i8 1, label %43
+    i8 1, label %42
     i8 2, label %15
   ]
 
 15:                                               ; preds = %12
-  br label %43
+  br label %42
 
 16:                                               ; preds = %12
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.290, i1 noundef zeroext true) #21
   unreachable
 
 17:                                               ; preds = %1
-  br label %43
+  br label %42
 
 18:                                               ; preds = %1
-  br label %43
+  br label %42
 
 19:                                               ; preds = %1
-  br label %43
+  br label %42
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds i8, ptr %3, i64 4
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %24 [
-    i8 1, label %43
+    i8 1, label %42
     i8 2, label %23
   ]
 
 23:                                               ; preds = %20
-  br label %43
+  br label %42
 
 24:                                               ; preds = %20
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.290, i1 noundef zeroext true) #21
   unreachable
 
 25:                                               ; preds = %1
-  br label %43
+  br label %42
 
 26:                                               ; preds = %1, %1
-  br label %43
+  br label %42
 
 27:                                               ; preds = %1
-  br label %43
+  br label %42
 
 28:                                               ; preds = %1
-  br label %43
+  %29 = getelementptr inbounds i8, ptr %3, i64 4
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 1
+  %. = select i1 %31, i32 41, i32 42
+  br label %42
 
-29:                                               ; preds = %1
-  %30 = getelementptr inbounds i8, ptr %3, i64 4
-  %31 = load i8, ptr %30, align 1
-  %32 = icmp eq i8 %31, 1
-  %. = select i1 %32, i32 41, i32 42
-  br label %43
+32:                                               ; preds = %1
+  br label %42
 
 33:                                               ; preds = %1
-  br label %43
+  br label %42
 
 34:                                               ; preds = %1
-  br label %43
+  br label %42
 
 35:                                               ; preds = %1
-  br label %43
-
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds i8, ptr %3, i64 4
-  %38 = load i8, ptr %37, align 1
-  switch i8 %38, label %40 [
-    i8 1, label %43
-    i8 2, label %39
+  %36 = getelementptr inbounds i8, ptr %3, i64 4
+  %37 = load i8, ptr %36, align 1
+  switch i8 %37, label %39 [
+    i8 1, label %42
+    i8 2, label %38
   ]
 
-39:                                               ; preds = %36
-  br label %43
+38:                                               ; preds = %35
+  br label %42
 
-40:                                               ; preds = %36
+39:                                               ; preds = %35
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.290, i1 noundef zeroext true) #21
   unreachable
 
+40:                                               ; preds = %1
+  br label %42
+
 41:                                               ; preds = %1
-  br label %43
+  br label %42
 
-42:                                               ; preds = %1
-  br label %43
-
-43:                                               ; preds = %36, %29, %20, %12, %1, %42, %41, %39, %35, %34, %33, %28, %27, %26, %25, %23, %19, %18, %17, %15, %11, %10, %9, %8, %7, %6, %5
-  %.0 = phi i32 [ 0, %42 ], [ 40, %41 ], [ 14, %39 ], [ 10, %35 ], [ 59, %34 ], [ 9, %33 ], [ 0, %28 ], [ 30, %27 ], [ 29, %26 ], [ 32, %25 ], [ 28, %23 ], [ 23, %19 ], [ 21, %18 ], [ 20, %17 ], [ 18, %15 ], [ 54, %11 ], [ 12, %10 ], [ 7, %9 ], [ 1, %8 ], [ 4, %7 ], [ 38, %6 ], [ 37, %5 ], [ 15, %1 ], [ 16, %12 ], [ 27, %20 ], [ %., %29 ], [ 13, %36 ]
+42:                                               ; preds = %35, %28, %20, %12, %1, %41, %40, %38, %34, %33, %32, %27, %26, %25, %23, %19, %18, %17, %15, %11, %10, %9, %8, %7, %6, %5
+  %.0 = phi i32 [ 0, %41 ], [ 40, %40 ], [ 14, %38 ], [ 10, %34 ], [ 59, %33 ], [ 9, %32 ], [ 30, %27 ], [ 29, %26 ], [ 32, %25 ], [ 28, %23 ], [ 23, %19 ], [ 21, %18 ], [ 20, %17 ], [ 18, %15 ], [ 54, %11 ], [ 12, %10 ], [ 7, %9 ], [ 1, %8 ], [ 4, %7 ], [ 38, %6 ], [ 37, %5 ], [ 15, %1 ], [ 16, %12 ], [ 27, %20 ], [ %., %28 ], [ 13, %35 ]
   ret i32 %.0
 }
 

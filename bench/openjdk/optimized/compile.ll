@@ -16481,8 +16481,8 @@ define hidden void @_ZN7Compile33final_graph_reshaping_main_switchEP4NodeR20Fina
     i32 50, label %32
     i32 49, label %32
     i32 326, label %64
-    i32 88, label %623
     i32 178, label %598
+    i32 88, label %623
     i32 213, label %583
     i32 217, label %576
     i32 222, label %576

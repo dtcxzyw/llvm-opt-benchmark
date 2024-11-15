@@ -17041,17 +17041,17 @@ entry:
     i32 3, label %cond.end6
     i32 4, label %cond.end6
     i32 5, label %sw.bb5.i
-    i32 6, label %sw.bb6.i
+    i32 6, label %sw.bb5.i
     i32 7, label %sw.bb7.i
-    i32 8, label %sw.bb8.i
+    i32 8, label %sw.bb7.i
     i32 9, label %sw.bb9.i
-    i32 10, label %sw.bb10.i
-    i32 11, label %sw.bb11.i
-    i32 12, label %sw.bb12.i
-    i32 13, label %sw.bb13.i
-    i32 14, label %sw.bb14.i
-    i32 18, label %sw.bb15.i
-    i32 16, label %sw.bb17.i
+    i32 10, label %sw.bb9.i
+    i32 11, label %sw.bb7.i
+    i32 12, label %sw.bb9.i
+    i32 13, label %sw.bb7.i
+    i32 14, label %sw.bb7.i
+    i32 18, label %sw.bb9.i
+    i32 16, label %sw.bb7.i
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit:       ; preds = %entry
@@ -17060,7 +17060,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit:       ; preds = %entry
   %fixed.i = getelementptr inbounds i8, ptr %1, i64 272
   %2 = load i8, ptr %fixed.i, align 8
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %cond.true, label %cond.end6
+  br i1 %tobool.i, label %cond.true, label %sw.bb7.i
 
 cond.true:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit
   %bytesize = getelementptr inbounds i8, ptr %1, i64 288
@@ -17092,47 +17092,20 @@ cond.true2:                                       ; preds = %entry
   %mul = mul i64 %call3, %conv
   br label %cond.end6
 
-sw.bb5.i:                                         ; preds = %entry
+sw.bb5.i:                                         ; preds = %entry, %entry
   br label %cond.end6
 
-sw.bb6.i:                                         ; preds = %entry
+sw.bb7.i:                                         ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit
   br label %cond.end6
 
-sw.bb7.i:                                         ; preds = %entry
-  br label %cond.end6
-
-sw.bb8.i:                                         ; preds = %entry
-  br label %cond.end6
-
-sw.bb9.i:                                         ; preds = %entry
-  br label %cond.end6
-
-sw.bb10.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb11.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb12.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb13.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb14.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb15.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb17.i:                                        ; preds = %entry
+sw.bb9.i:                                         ; preds = %entry, %entry, %entry, %entry
   br label %cond.end6
 
 sw.epilog.i:                                      ; preds = %entry
   br label %cond.end6
 
-cond.end6:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit, %entry, %entry, %entry, %entry, %entry, %sw.epilog.i, %sw.bb17.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %cond.true2, %cond.true
-  %cond7 = phi i64 [ %3, %cond.true ], [ %mul, %cond.true2 ], [ 0, %sw.epilog.i ], [ 4, %sw.bb17.i ], [ 8, %sw.bb15.i ], [ 4, %sw.bb14.i ], [ 4, %sw.bb13.i ], [ 8, %sw.bb12.i ], [ 4, %sw.bb11.i ], [ 8, %sw.bb10.i ], [ 8, %sw.bb9.i ], [ 4, %sw.bb8.i ], [ 4, %sw.bb7.i ], [ 2, %sw.bb6.i ], [ 2, %sw.bb5.i ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit ]
+cond.end6:                                        ; preds = %entry, %entry, %entry, %entry, %entry, %sw.epilog.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %cond.true2, %cond.true
+  %cond7 = phi i64 [ %3, %cond.true ], [ %mul, %cond.true2 ], [ 0, %sw.epilog.i ], [ 8, %sw.bb9.i ], [ 4, %sw.bb7.i ], [ 2, %sw.bb5.i ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ]
   ret i64 %cond7
 }
 
@@ -19668,7 +19641,7 @@ invoke.cont28:                                    ; preds = %invoke.cont24
   store ptr %17, ptr %enum_def.i.i, align 8, !alias.scope !427
   %fixed_length.i.i = getelementptr inbounds i8, ptr %vector_type, i64 24
   store i16 %18, ptr %fixed_length.i.i, align 8, !alias.scope !427
-  switch i32 %15, label %sw.epilog.i30.i [
+  switch i32 %15, label %sw.epilog.i19.i [
     i32 15, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
     i32 17, label %invoke.cont29
     i32 0, label %invoke.cont29
@@ -19676,72 +19649,45 @@ invoke.cont28:                                    ; preds = %invoke.cont24
     i32 2, label %invoke.cont29
     i32 3, label %invoke.cont29
     i32 4, label %invoke.cont29
-    i32 5, label %sw.bb5.i29.i
-    i32 6, label %sw.bb6.i28.i
-    i32 7, label %sw.bb7.i27.i
-    i32 8, label %sw.bb8.i26.i
-    i32 9, label %sw.bb9.i25.i
-    i32 10, label %sw.bb10.i24.i
-    i32 11, label %sw.bb11.i23.i
-    i32 12, label %sw.bb12.i22.i
-    i32 13, label %sw.bb13.i21.i
-    i32 14, label %sw.bb14.i20.i
-    i32 18, label %sw.bb15.i19.i
-    i32 16, label %sw.bb17.i17.i
+    i32 5, label %sw.bb5.i18.i
+    i32 6, label %sw.bb5.i18.i
+    i32 7, label %sw.bb7.i15.i
+    i32 8, label %sw.bb7.i15.i
+    i32 9, label %sw.bb9.i17.i
+    i32 10, label %sw.bb9.i17.i
+    i32 11, label %sw.bb7.i15.i
+    i32 12, label %sw.bb9.i17.i
+    i32 13, label %sw.bb7.i15.i
+    i32 14, label %sw.bb7.i15.i
+    i32 18, label %sw.bb9.i17.i
+    i32 16, label %sw.bb7.i15.i
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %invoke.cont28
   %fixed.i.i = getelementptr inbounds i8, ptr %16, i64 272
   %19 = load i8, ptr %fixed.i.i, align 8
   %tobool.i.i = trunc i8 %19 to i1
-  br i1 %tobool.i.i, label %if.then.i, label %invoke.cont29
+  br i1 %tobool.i.i, label %if.then.i, label %sw.bb7.i15.i
 
 if.then.i:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
   %minalign.i = getelementptr inbounds i8, ptr %16, i64 280
   %20 = load i64, ptr %minalign.i, align 8
   br label %invoke.cont29
 
-sw.bb5.i29.i:                                     ; preds = %invoke.cont28
+sw.bb5.i18.i:                                     ; preds = %invoke.cont28, %invoke.cont28
   br label %invoke.cont29
 
-sw.bb6.i28.i:                                     ; preds = %invoke.cont28
+sw.bb7.i15.i:                                     ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i, %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28
   br label %invoke.cont29
 
-sw.bb7.i27.i:                                     ; preds = %invoke.cont28
+sw.bb9.i17.i:                                     ; preds = %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28
   br label %invoke.cont29
 
-sw.bb8.i26.i:                                     ; preds = %invoke.cont28
+sw.epilog.i19.i:                                  ; preds = %invoke.cont28
   br label %invoke.cont29
 
-sw.bb9.i25.i:                                     ; preds = %invoke.cont28
-  br label %invoke.cont29
-
-sw.bb10.i24.i:                                    ; preds = %invoke.cont28
-  br label %invoke.cont29
-
-sw.bb11.i23.i:                                    ; preds = %invoke.cont28
-  br label %invoke.cont29
-
-sw.bb12.i22.i:                                    ; preds = %invoke.cont28
-  br label %invoke.cont29
-
-sw.bb13.i21.i:                                    ; preds = %invoke.cont28
-  br label %invoke.cont29
-
-sw.bb14.i20.i:                                    ; preds = %invoke.cont28
-  br label %invoke.cont29
-
-sw.bb15.i19.i:                                    ; preds = %invoke.cont28
-  br label %invoke.cont29
-
-sw.bb17.i17.i:                                    ; preds = %invoke.cont28
-  br label %invoke.cont29
-
-sw.epilog.i30.i:                                  ; preds = %invoke.cont28
-  br label %invoke.cont29
-
-invoke.cont29:                                    ; preds = %sw.epilog.i30.i, %sw.bb17.i17.i, %sw.bb15.i19.i, %sw.bb14.i20.i, %sw.bb13.i21.i, %sw.bb12.i22.i, %sw.bb11.i23.i, %sw.bb10.i24.i, %sw.bb9.i25.i, %sw.bb8.i26.i, %sw.bb7.i27.i, %sw.bb6.i28.i, %sw.bb5.i29.i, %if.then.i, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i, %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28
-  %retval.0.i = phi i64 [ %20, %if.then.i ], [ 0, %sw.epilog.i30.i ], [ 4, %sw.bb17.i17.i ], [ 8, %sw.bb15.i19.i ], [ 4, %sw.bb14.i20.i ], [ 4, %sw.bb13.i21.i ], [ 8, %sw.bb12.i22.i ], [ 4, %sw.bb11.i23.i ], [ 8, %sw.bb10.i24.i ], [ 8, %sw.bb9.i25.i ], [ 4, %sw.bb8.i26.i ], [ 4, %sw.bb7.i27.i ], [ 2, %sw.bb6.i28.i ], [ 2, %sw.bb5.i29.i ], [ 1, %invoke.cont28 ], [ 1, %invoke.cont28 ], [ 1, %invoke.cont28 ], [ 1, %invoke.cont28 ], [ 1, %invoke.cont28 ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i ], [ 1, %invoke.cont28 ]
+invoke.cont29:                                    ; preds = %sw.epilog.i19.i, %sw.bb9.i17.i, %sw.bb7.i15.i, %sw.bb5.i18.i, %if.then.i, %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28, %invoke.cont28
+  %retval.0.i = phi i64 [ %20, %if.then.i ], [ 0, %sw.epilog.i19.i ], [ 8, %sw.bb9.i17.i ], [ 4, %sw.bb7.i15.i ], [ 2, %sw.bb5.i18.i ], [ 1, %invoke.cont28 ], [ 1, %invoke.cont28 ], [ 1, %invoke.cont28 ], [ 1, %invoke.cont28 ], [ 1, %invoke.cont28 ], [ 1, %invoke.cont28 ]
   %call32 = invoke noundef i64 @_ZN11flatbuffers10InlineSizeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %vector_type)
           to label %invoke.cont31 unwind label %lpad12
 
@@ -20213,7 +20159,7 @@ invoke.cont31:                                    ; preds = %invoke.cont26
   store ptr %14, ptr %enum_def.i.i, align 8, !alias.scope !442
   %fixed_length.i.i = getelementptr inbounds i8, ptr %vector_type, i64 24
   store i16 %15, ptr %fixed_length.i.i, align 8, !alias.scope !442
-  switch i32 %12, label %sw.epilog.i30.i [
+  switch i32 %12, label %sw.epilog.i19.i [
     i32 15, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
     i32 17, label %invoke.cont32
     i32 0, label %invoke.cont32
@@ -20221,72 +20167,45 @@ invoke.cont31:                                    ; preds = %invoke.cont26
     i32 2, label %invoke.cont32
     i32 3, label %invoke.cont32
     i32 4, label %invoke.cont32
-    i32 5, label %sw.bb5.i29.i
-    i32 6, label %sw.bb6.i28.i
-    i32 7, label %sw.bb7.i27.i
-    i32 8, label %sw.bb8.i26.i
-    i32 9, label %sw.bb9.i25.i
-    i32 10, label %sw.bb10.i24.i
-    i32 11, label %sw.bb11.i23.i
-    i32 12, label %sw.bb12.i22.i
-    i32 13, label %sw.bb13.i21.i
-    i32 14, label %sw.bb14.i20.i
-    i32 18, label %sw.bb15.i19.i
-    i32 16, label %sw.bb17.i17.i
+    i32 5, label %sw.bb5.i18.i
+    i32 6, label %sw.bb5.i18.i
+    i32 7, label %sw.bb7.i15.i
+    i32 8, label %sw.bb7.i15.i
+    i32 9, label %sw.bb9.i17.i
+    i32 10, label %sw.bb9.i17.i
+    i32 11, label %sw.bb7.i15.i
+    i32 12, label %sw.bb9.i17.i
+    i32 13, label %sw.bb7.i15.i
+    i32 14, label %sw.bb7.i15.i
+    i32 18, label %sw.bb9.i17.i
+    i32 16, label %sw.bb7.i15.i
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %invoke.cont31
   %fixed.i.i = getelementptr inbounds i8, ptr %13, i64 272
   %16 = load i8, ptr %fixed.i.i, align 8
   %tobool.i.i = trunc i8 %16 to i1
-  br i1 %tobool.i.i, label %if.then.i, label %invoke.cont32
+  br i1 %tobool.i.i, label %if.then.i, label %sw.bb7.i15.i
 
 if.then.i:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
   %minalign.i = getelementptr inbounds i8, ptr %13, i64 280
   %17 = load i64, ptr %minalign.i, align 8
   br label %invoke.cont32
 
-sw.bb5.i29.i:                                     ; preds = %invoke.cont31
+sw.bb5.i18.i:                                     ; preds = %invoke.cont31, %invoke.cont31
   br label %invoke.cont32
 
-sw.bb6.i28.i:                                     ; preds = %invoke.cont31
+sw.bb7.i15.i:                                     ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i, %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31
   br label %invoke.cont32
 
-sw.bb7.i27.i:                                     ; preds = %invoke.cont31
+sw.bb9.i17.i:                                     ; preds = %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31
   br label %invoke.cont32
 
-sw.bb8.i26.i:                                     ; preds = %invoke.cont31
+sw.epilog.i19.i:                                  ; preds = %invoke.cont31
   br label %invoke.cont32
 
-sw.bb9.i25.i:                                     ; preds = %invoke.cont31
-  br label %invoke.cont32
-
-sw.bb10.i24.i:                                    ; preds = %invoke.cont31
-  br label %invoke.cont32
-
-sw.bb11.i23.i:                                    ; preds = %invoke.cont31
-  br label %invoke.cont32
-
-sw.bb12.i22.i:                                    ; preds = %invoke.cont31
-  br label %invoke.cont32
-
-sw.bb13.i21.i:                                    ; preds = %invoke.cont31
-  br label %invoke.cont32
-
-sw.bb14.i20.i:                                    ; preds = %invoke.cont31
-  br label %invoke.cont32
-
-sw.bb15.i19.i:                                    ; preds = %invoke.cont31
-  br label %invoke.cont32
-
-sw.bb17.i17.i:                                    ; preds = %invoke.cont31
-  br label %invoke.cont32
-
-sw.epilog.i30.i:                                  ; preds = %invoke.cont31
-  br label %invoke.cont32
-
-invoke.cont32:                                    ; preds = %sw.epilog.i30.i, %sw.bb17.i17.i, %sw.bb15.i19.i, %sw.bb14.i20.i, %sw.bb13.i21.i, %sw.bb12.i22.i, %sw.bb11.i23.i, %sw.bb10.i24.i, %sw.bb9.i25.i, %sw.bb8.i26.i, %sw.bb7.i27.i, %sw.bb6.i28.i, %sw.bb5.i29.i, %if.then.i, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i, %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31
-  %retval.0.i = phi i64 [ %17, %if.then.i ], [ 0, %sw.epilog.i30.i ], [ 4, %sw.bb17.i17.i ], [ 8, %sw.bb15.i19.i ], [ 4, %sw.bb14.i20.i ], [ 4, %sw.bb13.i21.i ], [ 8, %sw.bb12.i22.i ], [ 4, %sw.bb11.i23.i ], [ 8, %sw.bb10.i24.i ], [ 8, %sw.bb9.i25.i ], [ 4, %sw.bb8.i26.i ], [ 4, %sw.bb7.i27.i ], [ 2, %sw.bb6.i28.i ], [ 2, %sw.bb5.i29.i ], [ 1, %invoke.cont31 ], [ 1, %invoke.cont31 ], [ 1, %invoke.cont31 ], [ 1, %invoke.cont31 ], [ 1, %invoke.cont31 ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i ], [ 1, %invoke.cont31 ]
+invoke.cont32:                                    ; preds = %sw.epilog.i19.i, %sw.bb9.i17.i, %sw.bb7.i15.i, %sw.bb5.i18.i, %if.then.i, %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31, %invoke.cont31
+  %retval.0.i = phi i64 [ %17, %if.then.i ], [ 0, %sw.epilog.i19.i ], [ 8, %sw.bb9.i17.i ], [ 4, %sw.bb7.i15.i ], [ 2, %sw.bb5.i18.i ], [ 1, %invoke.cont31 ], [ 1, %invoke.cont31 ], [ 1, %invoke.cont31 ], [ 1, %invoke.cont31 ], [ 1, %invoke.cont31 ], [ 1, %invoke.cont31 ]
   %call35 = invoke noundef i64 @_ZN11flatbuffers10InlineSizeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %vector_type)
           to label %invoke.cont34 unwind label %lpad11
 

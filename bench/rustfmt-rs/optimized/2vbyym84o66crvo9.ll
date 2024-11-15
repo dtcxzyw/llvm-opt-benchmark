@@ -12609,9 +12609,9 @@ define void @_ZN15rustfmt_nightly10formatting13newline_style19apply_newline_styl
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   switch i8 %0, label %7 [
     i8 0, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit
-    i8 1, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread7
-    i8 2, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread
-    i8 3, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread
+    i8 1, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread
+    i8 2, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread7
+    i8 3, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread7
   ]
 
 7:                                                ; preds = %4
@@ -12619,13 +12619,13 @@ define void @_ZN15rustfmt_nightly10formatting13newline_style19apply_newline_styl
 
 _ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit: ; preds = %4
   %8 = tail call noundef zeroext i1 @_ZN15rustfmt_nightly10formatting13newline_style25auto_detect_newline_style17h74c9cfedaab8cf46E.llvm.7442130522521287225(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  br i1 %8, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread7
+  br i1 %8, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread7, label %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread
 
-_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread7: ; preds = %4, %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit
+_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread: ; preds = %4, %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit
   call void @_ZN15rustfmt_nightly10formatting13newline_style27convert_to_windows_newlines17h31118352e8fc6c04E.llvm.7442130522521287225(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   br label %13
 
-_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread: ; preds = %4, %4, %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit
+_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread7: ; preds = %4, %4, %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !10, !noundef !10
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -12633,7 +12633,7 @@ _ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e26
   call void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h928866d5a7fc9a3eE.llvm.7442130522521287225"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12, ptr noalias noundef nonnull readonly align 1 @anon.baa956cfa16a1a4d76c0816b6b0648a8.350.llvm.7442130522521287225, i64 noundef 2, ptr noalias noundef nonnull readonly align 1 @anon.baa956cfa16a1a4d76c0816b6b0648a8.363.llvm.7442130522521287225, i64 noundef 1)
   br label %13
 
-13:                                               ; preds = %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread, %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread7
+13:                                               ; preds = %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread7, %_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1827
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8f466af1321eaceaE.llvm.17249484671449717553"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %.noexc unwind label %22
@@ -12672,9 +12672,9 @@ _ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e26
 define hidden noundef zeroext i1 @_ZN15rustfmt_nightly10formatting13newline_style23effective_newline_style17h98e266382f068c28E.llvm.7442130522521287225(i8 noundef %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   switch i8 %0, label %4 [
     i8 0, label %5
-    i8 1, label %9
+    i8 1, label %8
     i8 2, label %7
-    i8 3, label %8
+    i8 3, label %7
   ]
 
 4:                                                ; preds = %3
@@ -12682,16 +12682,13 @@ define hidden noundef zeroext i1 @_ZN15rustfmt_nightly10formatting13newline_styl
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @_ZN15rustfmt_nightly10formatting13newline_style25auto_detect_newline_style17h74c9cfedaab8cf46E.llvm.7442130522521287225(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  br label %9
+  br label %8
 
-7:                                                ; preds = %3
-  br label %9
+7:                                                ; preds = %3, %3
+  br label %8
 
-8:                                                ; preds = %3
-  br label %9
-
-9:                                                ; preds = %3, %8, %7, %5
-  %.0 = phi i1 [ true, %8 ], [ true, %7 ], [ %6, %5 ], [ false, %3 ]
+8:                                                ; preds = %3, %7, %5
+  %.0 = phi i1 [ true, %7 ], [ %6, %5 ], [ false, %3 ]
   ret i1 %.0
 }
 

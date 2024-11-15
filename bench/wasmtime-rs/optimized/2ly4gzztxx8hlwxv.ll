@@ -3709,260 +3709,236 @@ define noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..memflags..MemFlags$
   %17 = and i16 %16, 15
   switch i16 %17, label %18 [
     i16 0, label %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
-    i16 1, label %37
+    i16 1, label %29
     i16 2, label %19
-    i16 3, label %20
-    i16 4, label %21
-    i16 5, label %22
-    i16 6, label %23
-    i16 7, label %24
-    i16 8, label %25
-    i16 9, label %26
-    i16 10, label %27
-    i16 11, label %28
-    i16 12, label %29
-    i16 15, label %30
+    i16 3, label %19
+    i16 4, label %19
+    i16 5, label %19
+    i16 6, label %19
+    i16 7, label %19
+    i16 8, label %19
+    i16 9, label %19
+    i16 10, label %19
+    i16 11, label %20
+    i16 12, label %21
+    i16 15, label %22
   ]
 
 18:                                               ; preds = %2
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.99.llvm.1715581770924364745) #32
   unreachable
 
-19:                                               ; preds = %2
-  br label %37
+19:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
+  br label %29
 
 20:                                               ; preds = %2
-  br label %37
+  br label %29
 
 21:                                               ; preds = %2
-  br label %37
+  br label %29
 
 22:                                               ; preds = %2
-  br label %37
-
-23:                                               ; preds = %2
-  br label %37
-
-24:                                               ; preds = %2
-  br label %37
-
-25:                                               ; preds = %2
-  br label %37
-
-26:                                               ; preds = %2
-  br label %37
-
-27:                                               ; preds = %2
-  br label %37
-
-28:                                               ; preds = %2
-  br label %37
-
-29:                                               ; preds = %2
-  br label %37
-
-30:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.104, ptr %14, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %14, i64 32
-  store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %14, i64 24
-  store i64 0, ptr %34, align 8
-  %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
+  %23 = getelementptr inbounds i8, ptr %14, i64 8
+  store i64 1, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %14, i64 32
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %14, i64 24
+  store i64 0, ptr %26, align 8
+  %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
-  br i1 %35, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
+  br i1 %27, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
 
-_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: ; preds = %37, %2, %30
-  %36 = and i16 %15, 1
-  %.not = icmp eq i16 %36, 0
-  br i1 %.not, label %44, label %46
+_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: ; preds = %29, %2, %22
+  %28 = and i16 %15, 1
+  %.not = icmp eq i16 %28, 0
+  br i1 %.not, label %36, label %38
 
-37:                                               ; preds = %2, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19
-  %.sroa.0.0.i.ph = phi i16 [ %17, %19 ], [ %17, %20 ], [ %17, %21 ], [ %17, %22 ], [ %17, %23 ], [ %17, %24 ], [ %17, %25 ], [ %17, %26 ], [ %17, %27 ], [ 12, %28 ], [ 13, %29 ], [ 0, %2 ]
+29:                                               ; preds = %2, %21, %20, %19
+  %.sroa.0.0.i.ph = phi i16 [ %17, %19 ], [ 12, %20 ], [ 13, %21 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i16 %.sroa.0.0.i.ph, ptr %13, align 2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store ptr %13, ptr %11, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr @"_ZN80_$LT$cranelift_codegen..ir..trapcode..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h6d6cb87ac9f67888E", ptr %38, align 8
+  %30 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr @"_ZN80_$LT$cranelift_codegen..ir..trapcode..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h6d6cb87ac9f67888E", ptr %30, align 8
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.49, ptr %12, align 8, !alias.scope !722, !noalias !725
-  %39 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 1, ptr %39, align 8, !alias.scope !722, !noalias !725
-  %40 = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr null, ptr %40, align 8, !alias.scope !722, !noalias !725
-  %41 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %11, ptr %41, align 8, !alias.scope !722, !noalias !725
-  %42 = getelementptr inbounds i8, ptr %12, i64 24
-  store i64 1, ptr %42, align 8, !alias.scope !722, !noalias !725
-  %43 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12)
+  %31 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 1, ptr %31, align 8, !alias.scope !722, !noalias !725
+  %32 = getelementptr inbounds i8, ptr %12, i64 32
+  store ptr null, ptr %32, align 8, !alias.scope !722, !noalias !725
+  %33 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %11, ptr %33, align 8, !alias.scope !722, !noalias !725
+  %34 = getelementptr inbounds i8, ptr %12, i64 24
+  store i64 1, ptr %34, align 8, !alias.scope !722, !noalias !725
+  %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br i1 %43, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
+  br i1 %35, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
 
-44:                                               ; preds = %46, %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
-  %45 = and i16 %15, 2
-  %.not73 = icmp eq i16 %45, 0
-  br i1 %.not73, label %52, label %54
+36:                                               ; preds = %38, %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
+  %37 = and i16 %15, 2
+  %.not73 = icmp eq i16 %37, 0
+  br i1 %.not73, label %44, label %46
 
-46:                                               ; preds = %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
+38:                                               ; preds = %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.106, ptr %10, align 8
-  %47 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %10, i64 24
-  store i64 0, ptr %50, align 8
-  %51 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
+  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 1, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %10, i64 24
+  store i64 0, ptr %42, align 8
+  %43 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  br i1 %43, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %36
+
+44:                                               ; preds = %46, %36
+  %45 = and i16 %15, 8
+  %.not74 = icmp eq i16 %45, 0
+  br i1 %.not74, label %52, label %54
+
+46:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.108, ptr %9, align 8
+  %47 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 1, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr null, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %9, i64 24
+  store i64 0, ptr %50, align 8
+  %51 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   br i1 %51, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %44
 
 52:                                               ; preds = %54, %44
-  %53 = and i16 %15, 8
-  %.not74 = icmp eq i16 %53, 0
-  br i1 %.not74, label %60, label %62
+  %53 = and i16 %15, 4
+  %.not75 = icmp eq i16 %53, 0
+  br i1 %.not75, label %60, label %62
 
 54:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.108, ptr %9, align 8
-  %55 = getelementptr inbounds i8, ptr %9, i64 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.110, ptr %8, align 8
+  %55 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 1, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %9, i64 32
+  %56 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr null, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %9, i64 16
+  %57 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %9, i64 24
+  %58 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 0, ptr %58, align 8
-  %59 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  %59 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   br i1 %59, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %52
 
 60:                                               ; preds = %62, %52
-  %61 = and i16 %15, 4
-  %.not75 = icmp eq i16 %61, 0
-  br i1 %.not75, label %68, label %70
+  %61 = and i16 %15, 16
+  %.not76 = icmp eq i16 %61, 0
+  br i1 %.not76, label %68, label %71
 
 62:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.110, ptr %8, align 8
-  %63 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 0, ptr %66, align 8
-  %67 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
-  br i1 %67, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %60
-
-68:                                               ; preds = %70, %60
-  %69 = and i16 %15, 16
-  %.not76 = icmp eq i16 %69, 0
-  br i1 %.not76, label %76, label %79
-
-70:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.112, ptr %7, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 0, ptr %74, align 8
-  %75 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %63 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 1, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr null, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 0, ptr %66, align 8
+  %67 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  br i1 %75, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %68
+  br i1 %67, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %60
 
-76:                                               ; preds = %79, %68
-  %77 = lshr i16 %15, 5
-  %78 = and i16 %77, 3
-  switch i16 %78, label %default.unreachable [
+68:                                               ; preds = %71, %60
+  %69 = lshr i16 %15, 5
+  %70 = and i16 %69, 3
+  switch i16 %70, label %default.unreachable [
     i16 0, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
-    i16 1, label %85
-    i16 2, label %91
+    i16 1, label %77
+    i16 2, label %83
     i16 3, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit
   ]
 
-default.unreachable:                              ; preds = %76
+default.unreachable:                              ; preds = %68
   unreachable
 
-79:                                               ; preds = %68
+71:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.114, ptr %6, align 8
-  %80 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 1, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr null, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 0, ptr %83, align 8
-  %84 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %72 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 1, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %6, i64 24
+  store i64 0, ptr %75, align 8
+  %76 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  br i1 %84, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %76
+  br i1 %76, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %68
 
-85:                                               ; preds = %76
+77:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.116, ptr %5, align 8
-  %86 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 1, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr null, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 0, ptr %89, align 8
-  %90 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %78 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 1, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr null, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 0, ptr %81, align 8
+  %82 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  br i1 %90, label %102, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
+  br i1 %82, label %94, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
 
-91:                                               ; preds = %76
+83:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.118, ptr %4, align 8
-  %92 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 0, ptr %95, align 8
-  %96 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %84 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 0, ptr %87, align 8
+  %88 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  br i1 %96, label %102, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
+  br i1 %88, label %94, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
 
-_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit: ; preds = %76
+_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit: ; preds = %68
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.120, ptr %3, align 8
-  %97 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %100, align 8
-  %101 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
+  %89 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %92, align 8
+  %93 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br i1 %101, label %102, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
+  br i1 %93, label %94, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
 
-102:                                              ; preds = %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit, %91, %85
+94:                                               ; preds = %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit, %83, %77
   br label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
 
-_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread: ; preds = %37, %76, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit, %91, %85, %79, %70, %62, %54, %46, %30, %102
-  %.1 = phi i1 [ true, %102 ], [ true, %30 ], [ true, %46 ], [ true, %54 ], [ true, %62 ], [ true, %70 ], [ true, %79 ], [ false, %85 ], [ false, %91 ], [ false, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit ], [ false, %76 ], [ true, %37 ]
+_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread: ; preds = %29, %68, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit, %83, %77, %71, %62, %54, %46, %38, %22, %94
+  %.1 = phi i1 [ true, %94 ], [ true, %22 ], [ true, %38 ], [ true, %46 ], [ true, %54 ], [ true, %62 ], [ true, %71 ], [ false, %77 ], [ false, %83 ], [ false, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit ], [ false, %68 ], [ true, %29 ]
   ret i1 %.1
 }
 
@@ -4233,38 +4209,29 @@ define noundef i8 @_ZN17cranelift_codegen3isa9call_conv8CallConv11for_libcall17h
 
 _ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit: ; preds = %2
   switch i8 %5, label %default.unreachable [
-    i8 0, label %17
+    i8 0, label %14
     i8 1, label %11
     i8 2, label %12
     i8 3, label %13
-    i8 4, label %14
-    i8 5, label %15
-    i8 6, label %16
+    i8 4, label %13
+    i8 5, label %13
+    i8 6, label %13
   ]
 
 default.unreachable:                              ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit
   unreachable
 
 11:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit
-  br label %17
+  br label %14
 
 12:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit
-  br label %17
+  br label %14
 
-13:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit
-  br label %17
+13:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit, %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit, %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit, %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit
+  br label %14
 
-14:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit
-  br label %17
-
-15:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit
-  br label %17
-
-16:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit
-  br label %17
-
-17:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit, %16, %15, %14, %13, %12, %11
-  %.0 = phi i8 [ %5, %16 ], [ %5, %15 ], [ %5, %14 ], [ %5, %13 ], [ 1, %12 ], [ 0, %11 ], [ %1, %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit ]
+14:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit, %13, %12, %11
+  %.0 = phi i8 [ %5, %13 ], [ 1, %12 ], [ 0, %11 ], [ %1, %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit ]
   ret i8 %.0
 }
 

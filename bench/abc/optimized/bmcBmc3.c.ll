@@ -3607,18 +3607,18 @@ Aig_ManObj.exit:                                  ; preds = %74, %77
   %91 = icmp eq i32 %89, %90
   %92 = lshr i32 %.123.i, 4
   %93 = xor i32 %92, %.123.i
-  %.fr157 = freeze i32 %93
-  %94 = and i32 %.fr157, 3855
+  %.fr158 = freeze i32 %93
+  %94 = and i32 %.fr158, 3855
   %95 = icmp eq i32 %94, 0
   %96 = lshr i32 %.123.i, 2
   %97 = xor i32 %96, %.123.i
-  %.fr159 = freeze i32 %97
-  %98 = and i32 %.fr159, 13107
+  %.fr160 = freeze i32 %97
+  %98 = and i32 %.fr160, 13107
   %99 = icmp eq i32 %98, 0
   %100 = lshr i32 %.123.i, 1
   %101 = xor i32 %100, %.123.i
-  %.fr161 = freeze i32 %101
-  %102 = and i32 %.fr161, 21845
+  %.fr162 = freeze i32 %101
+  %102 = and i32 %.fr162, 21845
   %103 = icmp eq i32 %102, 0
   %.fr = freeze i1 %91
   br i1 %.fr, label %.preheader.i.split.us, label %.preheader.i.split
@@ -3730,8 +3730,8 @@ Saig_ManBmcCofEqual.exit.thread.i.us145:          ; preds = %122, %Saig_ManBmcCo
   %125 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv31.i.us149
   %126 = load i32, ptr %125, align 4
   %127 = icmp ne i32 %126, -1
-  %switch = icmp eq i64 %indvars.iv31.i.us149, 0
-  %or.cond = and i1 %127, %switch
+  %switch156 = icmp eq i64 %indvars.iv31.i.us149, 0
+  %or.cond = and i1 %127, %switch156
   br i1 %or.cond, label %Saig_ManBmcCofEqual.exit.i.us150, label %128
 
 Saig_ManBmcCofEqual.exit.i.us150:                 ; preds = %.preheader.i.split.split.split.split.us
@@ -3835,9 +3835,9 @@ Saig_ManBmcReduceTruth.exit:                      ; preds = %128, %124, %118, %1
   br label %172
 
 172:                                              ; preds = %163, %Vec_IntPush.exit
-  %indvars.iv169 = phi i64 [ 0, %163 ], [ %indvars.iv.next170, %Vec_IntPush.exit ]
+  %indvars.iv170 = phi i64 [ 0, %163 ], [ %indvars.iv.next171, %Vec_IntPush.exit ]
   %173 = load ptr, ptr %169, align 8
-  %174 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %indvars.iv169
+  %174 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %indvars.iv170
   %175 = load i32, ptr %174, align 4
   %176 = getelementptr inbounds i8, ptr %173, i64 4
   %177 = load i32, ptr %176, align 4
@@ -3905,9 +3905,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %205 = sext i32 %203 to i64
   %206 = getelementptr inbounds i32, ptr %202, i64 %205
   store i32 %175, ptr %206, align 4
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %exitcond172.not = icmp eq i64 %indvars.iv.next170, 5
-  br i1 %exitcond172.not, label %207, label %172, !llvm.loop !48
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond173.not = icmp eq i64 %indvars.iv.next171, 5
+  br i1 %exitcond173.not, label %207, label %172, !llvm.loop !48
 
 207:                                              ; preds = %Vec_IntPush.exit
   %208 = sdiv i32 %.val123, 5

@@ -5742,38 +5742,26 @@ define noundef zeroext i1 @_ZN6rustls4msgs5enums10NamedGroup22key_exchange_algor
     i16 3, label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
     i16 4, label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
     i16 5, label %4
-    i16 6, label %5
-    i16 7, label %6
-    i16 8, label %7
-    i16 9, label %8
-    i16 10, label %9
+    i16 6, label %4
+    i16 7, label %4
+    i16 8, label %4
+    i16 9, label %4
+    i16 10, label %5
   ]
 
 3:                                                ; preds = %2
   unreachable
 
-4:                                                ; preds = %2
+4:                                                ; preds = %2, %2, %2, %2, %2
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
 
 5:                                                ; preds = %2
+  %6 = and i16 %1, -256
+  %7 = icmp ne i16 %6, 256
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
 
-6:                                                ; preds = %2
-  br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
-
-7:                                                ; preds = %2
-  br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
-
-8:                                                ; preds = %2
-  br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
-
-9:                                                ; preds = %2
-  %10 = and i16 %1, -256
-  %11 = icmp ne i16 %10, 256
-  br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit"
-
-"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit": ; preds = %2, %2, %2, %2, %2, %4, %5, %6, %7, %8, %9
-  %.0.i = phi i1 [ %11, %9 ], [ false, %8 ], [ false, %7 ], [ false, %6 ], [ false, %5 ], [ false, %4 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
+"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit": ; preds = %2, %2, %2, %2, %2, %4, %5
+  %.0.i = phi i1 [ %7, %5 ], [ false, %4 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
   ret i1 %.0.i
 }
 
@@ -6315,27 +6303,24 @@ define void @"_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs
   %18 = load i8, ptr %17, align 1, !noalias !658, !noundef !9
   switch i8 %18, label %"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit" [
     i8 0, label %19
-    i8 1, label %20
-    i8 64, label %21
+    i8 1, label %19
+    i8 64, label %20
   ]
 
-19:                                               ; preds = %16
+19:                                               ; preds = %16, %16
   br label %"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit"
 
 20:                                               ; preds = %16
   br label %"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit"
 
-21:                                               ; preds = %16
-  br label %"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit"
-
-"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit": ; preds = %16, %19, %20, %21
-  %.sroa.0.0.i = phi i8 [ 2, %21 ], [ %18, %20 ], [ %18, %19 ], [ 3, %16 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %.sroa.0.0.i, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %18, ptr %23, align 2
+"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit": ; preds = %16, %19, %20
+  %.sroa.0.0.i = phi i8 [ 2, %20 ], [ %18, %19 ], [ 3, %16 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %.sroa.0.0.i, ptr %21, align 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 %18, ptr %22, align 2
   store i8 20, ptr %0, align 8
-  br label %24
+  br label %23
 
 "_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit": ; preds = %2
   store i8 11, ptr %0, align 8
@@ -6343,34 +6328,31 @@ define void @"_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs
   store ptr @anon.a568c7da4921ec2ed34cb4ede4839d57.54.llvm.17726792709170085280, ptr %.sroa.41.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 11, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %24
+  br label %23
 
-24:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit", %"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit"
+23:                                               ; preds = %"_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h7d59f43109fb1086E.exit", %"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E.exit"
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i8, i8 } @"_ZN82_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h5b6fa3f2637d0385E"(i8 noundef %0) unnamed_addr #6 {
-  switch i8 %0, label %5 [
+  switch i8 %0, label %4 [
     i8 0, label %2
-    i8 1, label %3
-    i8 64, label %4
+    i8 1, label %2
+    i8 64, label %3
   ]
 
-2:                                                ; preds = %1
-  br label %5
+2:                                                ; preds = %1, %1
+  br label %4
 
 3:                                                ; preds = %1
-  br label %5
+  br label %4
 
-4:                                                ; preds = %1
-  br label %5
-
-5:                                                ; preds = %1, %4, %3, %2
-  %.sroa.0.0 = phi i8 [ 2, %4 ], [ %0, %3 ], [ %0, %2 ], [ 3, %1 ]
-  %6 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %7 = insertvalue { i8, i8 } %6, i8 %0, 1
-  ret { i8, i8 } %7
+4:                                                ; preds = %1, %3, %2
+  %.sroa.0.0 = phi i8 [ 2, %3 ], [ %0, %2 ], [ 3, %1 ]
+  %5 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
+  %6 = insertvalue { i8, i8 } %5, i8 %0, 1
+  ret { i8, i8 } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -6902,162 +6884,114 @@ define void @"_ZN81_$LT$rustls..msgs..enums..ExtensionType$u20$as$u20$rustls..ms
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i16, i16 } @"_ZN85_$LT$rustls..msgs..enums..ExtensionType$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h82ece83ee9423e0cE"(i16 noundef %0) unnamed_addr #6 {
-  switch i16 %0, label %39 [
+  switch i16 %0, label %23 [
     i16 0, label %2
-    i16 1, label %3
-    i16 2, label %4
-    i16 3, label %5
-    i16 4, label %6
-    i16 5, label %7
-    i16 6, label %8
-    i16 7, label %9
-    i16 8, label %10
-    i16 9, label %11
-    i16 10, label %12
-    i16 11, label %13
-    i16 12, label %14
-    i16 13, label %15
-    i16 14, label %16
-    i16 15, label %17
-    i16 16, label %18
-    i16 18, label %19
-    i16 21, label %20
-    i16 23, label %21
-    i16 35, label %22
-    i16 41, label %23
-    i16 42, label %24
-    i16 43, label %25
-    i16 44, label %26
-    i16 45, label %27
-    i16 46, label %28
-    i16 47, label %29
-    i16 48, label %30
-    i16 49, label %31
-    i16 50, label %32
-    i16 51, label %33
-    i16 57, label %34
-    i16 13172, label %35
-    i16 30031, label %36
-    i16 -255, label %37
-    i16 -91, label %38
+    i16 1, label %2
+    i16 2, label %2
+    i16 3, label %2
+    i16 4, label %2
+    i16 5, label %2
+    i16 6, label %2
+    i16 7, label %2
+    i16 8, label %2
+    i16 9, label %2
+    i16 10, label %2
+    i16 11, label %2
+    i16 12, label %2
+    i16 13, label %2
+    i16 14, label %2
+    i16 15, label %2
+    i16 16, label %2
+    i16 18, label %3
+    i16 21, label %4
+    i16 23, label %5
+    i16 35, label %6
+    i16 41, label %7
+    i16 42, label %8
+    i16 43, label %9
+    i16 44, label %10
+    i16 45, label %11
+    i16 46, label %12
+    i16 47, label %13
+    i16 48, label %14
+    i16 49, label %15
+    i16 50, label %16
+    i16 51, label %17
+    i16 57, label %18
+    i16 13172, label %19
+    i16 30031, label %20
+    i16 -255, label %21
+    i16 -91, label %22
   ]
 
-2:                                                ; preds = %1
-  br label %39
+2:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %23
 
 3:                                                ; preds = %1
-  br label %39
+  br label %23
 
 4:                                                ; preds = %1
-  br label %39
+  br label %23
 
 5:                                                ; preds = %1
-  br label %39
+  br label %23
 
 6:                                                ; preds = %1
-  br label %39
+  br label %23
 
 7:                                                ; preds = %1
-  br label %39
+  br label %23
 
 8:                                                ; preds = %1
-  br label %39
+  br label %23
 
 9:                                                ; preds = %1
-  br label %39
+  br label %23
 
 10:                                               ; preds = %1
-  br label %39
+  br label %23
 
 11:                                               ; preds = %1
-  br label %39
+  br label %23
 
 12:                                               ; preds = %1
-  br label %39
+  br label %23
 
 13:                                               ; preds = %1
-  br label %39
+  br label %23
 
 14:                                               ; preds = %1
-  br label %39
+  br label %23
 
 15:                                               ; preds = %1
-  br label %39
+  br label %23
 
 16:                                               ; preds = %1
-  br label %39
+  br label %23
 
 17:                                               ; preds = %1
-  br label %39
+  br label %23
 
 18:                                               ; preds = %1
-  br label %39
+  br label %23
 
 19:                                               ; preds = %1
-  br label %39
+  br label %23
 
 20:                                               ; preds = %1
-  br label %39
+  br label %23
 
 21:                                               ; preds = %1
-  br label %39
+  br label %23
 
 22:                                               ; preds = %1
-  br label %39
+  br label %23
 
-23:                                               ; preds = %1
-  br label %39
-
-24:                                               ; preds = %1
-  br label %39
-
-25:                                               ; preds = %1
-  br label %39
-
-26:                                               ; preds = %1
-  br label %39
-
-27:                                               ; preds = %1
-  br label %39
-
-28:                                               ; preds = %1
-  br label %39
-
-29:                                               ; preds = %1
-  br label %39
-
-30:                                               ; preds = %1
-  br label %39
-
-31:                                               ; preds = %1
-  br label %39
-
-32:                                               ; preds = %1
-  br label %39
-
-33:                                               ; preds = %1
-  br label %39
-
-34:                                               ; preds = %1
-  br label %39
-
-35:                                               ; preds = %1
-  br label %39
-
-36:                                               ; preds = %1
-  br label %39
-
-37:                                               ; preds = %1
-  br label %39
-
-38:                                               ; preds = %1
-  br label %39
-
-39:                                               ; preds = %1, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 36, %38 ], [ 35, %37 ], [ 34, %36 ], [ 33, %35 ], [ 32, %34 ], [ 31, %33 ], [ 30, %32 ], [ 29, %31 ], [ 28, %30 ], [ 27, %29 ], [ 26, %28 ], [ 25, %27 ], [ 24, %26 ], [ 23, %25 ], [ 22, %24 ], [ 21, %23 ], [ 20, %22 ], [ 19, %21 ], [ 18, %20 ], [ 17, %19 ], [ %0, %18 ], [ %0, %17 ], [ %0, %16 ], [ %0, %15 ], [ %0, %14 ], [ %0, %13 ], [ %0, %12 ], [ %0, %11 ], [ %0, %10 ], [ %0, %9 ], [ %0, %8 ], [ %0, %7 ], [ %0, %6 ], [ %0, %5 ], [ %0, %4 ], [ %0, %3 ], [ %0, %2 ], [ 37, %1 ]
-  %40 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %41 = insertvalue { i16, i16 } %40, i16 %0, 1
-  ret { i16, i16 } %41
+23:                                               ; preds = %1, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.sroa.0.0 = phi i16 [ 36, %22 ], [ 35, %21 ], [ 34, %20 ], [ 33, %19 ], [ 32, %18 ], [ 31, %17 ], [ 30, %16 ], [ 29, %15 ], [ 28, %14 ], [ 27, %13 ], [ 26, %12 ], [ 25, %11 ], [ 24, %10 ], [ 23, %9 ], [ 22, %8 ], [ 21, %7 ], [ 20, %6 ], [ 19, %5 ], [ 18, %4 ], [ 17, %3 ], [ %0, %2 ], [ 37, %1 ]
+  %24 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
+  %25 = insertvalue { i16, i16 } %24, i16 %0, 1
+  ret { i16, i16 } %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

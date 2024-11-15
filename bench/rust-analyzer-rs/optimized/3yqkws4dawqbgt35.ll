@@ -7406,8 +7406,8 @@ select.unfold.i:                                  ; preds = %.noexc391, %"_ZN3mb
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %37, i64 56, i1 false), !noalias !1206
   store i8 %.sroa.4.0.copyload.i42.i, ptr %.sroa.4.0..sroa_idx5.i44.i, align 8, !noalias !1472
   %switch.i.i.i.i = icmp eq i32 %655, 1
-  %spec.select.i.i.i.i = select i1 %switch.i.i.i.i, i64 8, i64 32
-  %725 = getelementptr inbounds i8, ptr %637, i64 %spec.select.i.i.i.i
+  %..i.i.i.i = select i1 %switch.i.i.i.i, i64 8, i64 32
+  %725 = getelementptr inbounds i8, ptr %637, i64 %..i.i.i.i
   %.sroa.01.i.sroa.6.20.copyload.i.i = load i32, ptr %725, align 8, !alias.scope !1398, !noalias !1412
   %.sroa.01.i.sroa.8.20..sroa_idx.i.i = getelementptr inbounds i8, ptr %725, i64 4
   %.sroa.01.i.sroa.8.20.copyload.i.i = load i32, ptr %.sroa.01.i.sroa.8.20..sroa_idx.i.i, align 4, !alias.scope !1398, !noalias !1412

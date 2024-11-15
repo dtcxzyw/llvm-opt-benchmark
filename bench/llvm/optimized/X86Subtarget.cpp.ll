@@ -2352,13 +2352,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1802
-    i16 1319, label %.fold.split1803
+    i16 1319, label %.fold.split1802
     i16 1312, label %.fold.split1804
-    i16 1314, label %.fold.split1805
-    i16 1316, label %.fold.split1806
-    i16 2063, label %.fold.split1807
-    i16 2065, label %.fold.split1808
-    i16 2066, label %.fold.split1809
+    i16 1314, label %.fold.split1804
+    i16 1316, label %.fold.split1804
+    i16 2063, label %.fold.split1804
+    i16 2065, label %.fold.split1804
+    i16 2066, label %.fold.split1804
   ]
 
 16:                                               ; preds = %15, %._crit_edge1939
@@ -2406,13 +2406,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1812
-    i16 1319, label %.fold.split1813
+    i16 1319, label %.fold.split1812
     i16 1312, label %.fold.split1814
-    i16 1314, label %.fold.split1815
-    i16 1316, label %.fold.split1816
-    i16 2063, label %.fold.split1817
-    i16 2065, label %.fold.split1818
-    i16 2066, label %.fold.split1819
+    i16 1314, label %.fold.split1814
+    i16 1316, label %.fold.split1814
+    i16 2063, label %.fold.split1814
+    i16 2065, label %.fold.split1814
+    i16 2066, label %.fold.split1814
   ]
 
 29:                                               ; preds = %28, %._crit_edge1936
@@ -2460,13 +2460,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1822
-    i16 1319, label %.fold.split1823
+    i16 1319, label %.fold.split1822
     i16 1312, label %.fold.split1824
-    i16 1314, label %.fold.split1825
-    i16 1316, label %.fold.split1826
-    i16 2063, label %.fold.split1827
-    i16 2065, label %.fold.split1828
-    i16 2066, label %.fold.split1829
+    i16 1314, label %.fold.split1824
+    i16 1316, label %.fold.split1824
+    i16 2063, label %.fold.split1824
+    i16 2065, label %.fold.split1824
+    i16 2066, label %.fold.split1824
   ]
 
 42:                                               ; preds = %41, %._crit_edge1933
@@ -2514,13 +2514,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1832
-    i16 1319, label %.fold.split1833
+    i16 1319, label %.fold.split1832
     i16 1312, label %.fold.split1834
-    i16 1314, label %.fold.split1835
-    i16 1316, label %.fold.split1836
-    i16 2063, label %.fold.split1837
-    i16 2065, label %.fold.split1838
-    i16 2066, label %.fold.split1839
+    i16 1314, label %.fold.split1834
+    i16 1316, label %.fold.split1834
+    i16 2063, label %.fold.split1834
+    i16 2065, label %.fold.split1834
+    i16 2066, label %.fold.split1834
   ]
 
 55:                                               ; preds = %54, %._crit_edge1930
@@ -2568,13 +2568,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1842
-    i16 1319, label %.fold.split1843
+    i16 1319, label %.fold.split1842
     i16 1312, label %.fold.split1844
-    i16 1314, label %.fold.split1845
-    i16 1316, label %.fold.split1846
-    i16 2063, label %.fold.split1847
-    i16 2065, label %.fold.split1848
-    i16 2066, label %.fold.split1849
+    i16 1314, label %.fold.split1844
+    i16 1316, label %.fold.split1844
+    i16 2063, label %.fold.split1844
+    i16 2065, label %.fold.split1844
+    i16 2066, label %.fold.split1844
   ]
 
 68:                                               ; preds = %67, %._crit_edge1927
@@ -4299,13 +4299,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1852
-    i16 1319, label %.fold.split1853
+    i16 1319, label %.fold.split1852
     i16 1312, label %.fold.split1854
-    i16 1314, label %.fold.split1855
-    i16 1316, label %.fold.split1856
-    i16 2063, label %.fold.split1857
-    i16 2065, label %.fold.split1858
-    i16 2066, label %.fold.split1859
+    i16 1314, label %.fold.split1854
+    i16 1316, label %.fold.split1854
+    i16 2063, label %.fold.split1854
+    i16 2065, label %.fold.split1854
+    i16 2066, label %.fold.split1854
   ]
 
 1131:                                             ; preds = %1130, %._crit_edge1924
@@ -4353,13 +4353,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1862
-    i16 1319, label %.fold.split1863
+    i16 1319, label %.fold.split1862
     i16 1312, label %.fold.split1864
-    i16 1314, label %.fold.split1865
-    i16 1316, label %.fold.split1866
-    i16 2063, label %.fold.split1867
-    i16 2065, label %.fold.split1868
-    i16 2066, label %.fold.split1869
+    i16 1314, label %.fold.split1864
+    i16 1316, label %.fold.split1864
+    i16 2063, label %.fold.split1864
+    i16 2065, label %.fold.split1864
+    i16 2066, label %.fold.split1864
   ]
 
 1144:                                             ; preds = %1143, %._crit_edge1921
@@ -5191,13 +5191,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1872
-    i16 1319, label %.fold.split1873
+    i16 1319, label %.fold.split1872
     i16 1312, label %.fold.split1874
-    i16 1314, label %.fold.split1875
-    i16 1316, label %.fold.split1876
-    i16 2063, label %.fold.split1877
-    i16 2065, label %.fold.split1878
-    i16 2066, label %.fold.split1879
+    i16 1314, label %.fold.split1874
+    i16 1316, label %.fold.split1874
+    i16 2063, label %.fold.split1874
+    i16 2065, label %.fold.split1874
+    i16 2066, label %.fold.split1874
   ]
 
 1665:                                             ; preds = %1664, %._crit_edge1918
@@ -5245,13 +5245,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1882
-    i16 1319, label %.fold.split1883
+    i16 1319, label %.fold.split1882
     i16 1312, label %.fold.split1884
-    i16 1314, label %.fold.split1885
-    i16 1316, label %.fold.split1886
-    i16 2063, label %.fold.split1887
-    i16 2065, label %.fold.split1888
-    i16 2066, label %.fold.split1889
+    i16 1314, label %.fold.split1884
+    i16 1316, label %.fold.split1884
+    i16 2063, label %.fold.split1884
+    i16 2065, label %.fold.split1884
+    i16 2066, label %.fold.split1884
   ]
 
 1678:                                             ; preds = %1677, %._crit_edge1915
@@ -5299,13 +5299,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
     i16 1311, label %.fold.split
     i16 2064, label %.fold.split
     i16 2067, label %.fold.split1892
-    i16 1319, label %.fold.split1893
+    i16 1319, label %.fold.split1892
     i16 1312, label %.fold.split1894
-    i16 1314, label %.fold.split1895
-    i16 1316, label %.fold.split1896
-    i16 2063, label %.fold.split1897
-    i16 2065, label %.fold.split1898
-    i16 2066, label %.fold.split1899
+    i16 1314, label %.fold.split1894
+    i16 1316, label %.fold.split1894
+    i16 2063, label %.fold.split1894
+    i16 2065, label %.fold.split1894
+    i16 2066, label %.fold.split1894
   ]
 
 1691:                                             ; preds = %1690, %._crit_edge
@@ -6173,244 +6173,64 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #22
   unreachable
 
-.fold.split1802:                                  ; preds = %._crit_edge1939
+.fold.split1802:                                  ; preds = %._crit_edge1939, %._crit_edge1939
   br label %.fold.split
 
-.fold.split1803:                                  ; preds = %._crit_edge1939
+.fold.split1804:                                  ; preds = %._crit_edge1939, %._crit_edge1939, %._crit_edge1939, %._crit_edge1939, %._crit_edge1939, %._crit_edge1939
   br label %.fold.split
 
-.fold.split1804:                                  ; preds = %._crit_edge1939
+.fold.split1812:                                  ; preds = %._crit_edge1936, %._crit_edge1936
   br label %.fold.split
 
-.fold.split1805:                                  ; preds = %._crit_edge1939
+.fold.split1814:                                  ; preds = %._crit_edge1936, %._crit_edge1936, %._crit_edge1936, %._crit_edge1936, %._crit_edge1936, %._crit_edge1936
   br label %.fold.split
 
-.fold.split1806:                                  ; preds = %._crit_edge1939
+.fold.split1822:                                  ; preds = %._crit_edge1933, %._crit_edge1933
   br label %.fold.split
 
-.fold.split1807:                                  ; preds = %._crit_edge1939
+.fold.split1824:                                  ; preds = %._crit_edge1933, %._crit_edge1933, %._crit_edge1933, %._crit_edge1933, %._crit_edge1933, %._crit_edge1933
   br label %.fold.split
 
-.fold.split1808:                                  ; preds = %._crit_edge1939
+.fold.split1832:                                  ; preds = %._crit_edge1930, %._crit_edge1930
   br label %.fold.split
 
-.fold.split1809:                                  ; preds = %._crit_edge1939
+.fold.split1834:                                  ; preds = %._crit_edge1930, %._crit_edge1930, %._crit_edge1930, %._crit_edge1930, %._crit_edge1930, %._crit_edge1930
   br label %.fold.split
 
-.fold.split1812:                                  ; preds = %._crit_edge1936
+.fold.split1842:                                  ; preds = %._crit_edge1927, %._crit_edge1927
   br label %.fold.split
 
-.fold.split1813:                                  ; preds = %._crit_edge1936
+.fold.split1844:                                  ; preds = %._crit_edge1927, %._crit_edge1927, %._crit_edge1927, %._crit_edge1927, %._crit_edge1927, %._crit_edge1927
   br label %.fold.split
 
-.fold.split1814:                                  ; preds = %._crit_edge1936
+.fold.split1852:                                  ; preds = %._crit_edge1924, %._crit_edge1924
   br label %.fold.split
 
-.fold.split1815:                                  ; preds = %._crit_edge1936
+.fold.split1854:                                  ; preds = %._crit_edge1924, %._crit_edge1924, %._crit_edge1924, %._crit_edge1924, %._crit_edge1924, %._crit_edge1924
   br label %.fold.split
 
-.fold.split1816:                                  ; preds = %._crit_edge1936
+.fold.split1862:                                  ; preds = %._crit_edge1921, %._crit_edge1921
   br label %.fold.split
 
-.fold.split1817:                                  ; preds = %._crit_edge1936
+.fold.split1864:                                  ; preds = %._crit_edge1921, %._crit_edge1921, %._crit_edge1921, %._crit_edge1921, %._crit_edge1921, %._crit_edge1921
   br label %.fold.split
 
-.fold.split1818:                                  ; preds = %._crit_edge1936
+.fold.split1872:                                  ; preds = %._crit_edge1918, %._crit_edge1918
   br label %.fold.split
 
-.fold.split1819:                                  ; preds = %._crit_edge1936
+.fold.split1874:                                  ; preds = %._crit_edge1918, %._crit_edge1918, %._crit_edge1918, %._crit_edge1918, %._crit_edge1918, %._crit_edge1918
   br label %.fold.split
 
-.fold.split1822:                                  ; preds = %._crit_edge1933
+.fold.split1882:                                  ; preds = %._crit_edge1915, %._crit_edge1915
   br label %.fold.split
 
-.fold.split1823:                                  ; preds = %._crit_edge1933
+.fold.split1884:                                  ; preds = %._crit_edge1915, %._crit_edge1915, %._crit_edge1915, %._crit_edge1915, %._crit_edge1915, %._crit_edge1915
   br label %.fold.split
 
-.fold.split1824:                                  ; preds = %._crit_edge1933
+.fold.split1892:                                  ; preds = %._crit_edge, %._crit_edge
   br label %.fold.split
 
-.fold.split1825:                                  ; preds = %._crit_edge1933
-  br label %.fold.split
-
-.fold.split1826:                                  ; preds = %._crit_edge1933
-  br label %.fold.split
-
-.fold.split1827:                                  ; preds = %._crit_edge1933
-  br label %.fold.split
-
-.fold.split1828:                                  ; preds = %._crit_edge1933
-  br label %.fold.split
-
-.fold.split1829:                                  ; preds = %._crit_edge1933
-  br label %.fold.split
-
-.fold.split1832:                                  ; preds = %._crit_edge1930
-  br label %.fold.split
-
-.fold.split1833:                                  ; preds = %._crit_edge1930
-  br label %.fold.split
-
-.fold.split1834:                                  ; preds = %._crit_edge1930
-  br label %.fold.split
-
-.fold.split1835:                                  ; preds = %._crit_edge1930
-  br label %.fold.split
-
-.fold.split1836:                                  ; preds = %._crit_edge1930
-  br label %.fold.split
-
-.fold.split1837:                                  ; preds = %._crit_edge1930
-  br label %.fold.split
-
-.fold.split1838:                                  ; preds = %._crit_edge1930
-  br label %.fold.split
-
-.fold.split1839:                                  ; preds = %._crit_edge1930
-  br label %.fold.split
-
-.fold.split1842:                                  ; preds = %._crit_edge1927
-  br label %.fold.split
-
-.fold.split1843:                                  ; preds = %._crit_edge1927
-  br label %.fold.split
-
-.fold.split1844:                                  ; preds = %._crit_edge1927
-  br label %.fold.split
-
-.fold.split1845:                                  ; preds = %._crit_edge1927
-  br label %.fold.split
-
-.fold.split1846:                                  ; preds = %._crit_edge1927
-  br label %.fold.split
-
-.fold.split1847:                                  ; preds = %._crit_edge1927
-  br label %.fold.split
-
-.fold.split1848:                                  ; preds = %._crit_edge1927
-  br label %.fold.split
-
-.fold.split1849:                                  ; preds = %._crit_edge1927
-  br label %.fold.split
-
-.fold.split1852:                                  ; preds = %._crit_edge1924
-  br label %.fold.split
-
-.fold.split1853:                                  ; preds = %._crit_edge1924
-  br label %.fold.split
-
-.fold.split1854:                                  ; preds = %._crit_edge1924
-  br label %.fold.split
-
-.fold.split1855:                                  ; preds = %._crit_edge1924
-  br label %.fold.split
-
-.fold.split1856:                                  ; preds = %._crit_edge1924
-  br label %.fold.split
-
-.fold.split1857:                                  ; preds = %._crit_edge1924
-  br label %.fold.split
-
-.fold.split1858:                                  ; preds = %._crit_edge1924
-  br label %.fold.split
-
-.fold.split1859:                                  ; preds = %._crit_edge1924
-  br label %.fold.split
-
-.fold.split1862:                                  ; preds = %._crit_edge1921
-  br label %.fold.split
-
-.fold.split1863:                                  ; preds = %._crit_edge1921
-  br label %.fold.split
-
-.fold.split1864:                                  ; preds = %._crit_edge1921
-  br label %.fold.split
-
-.fold.split1865:                                  ; preds = %._crit_edge1921
-  br label %.fold.split
-
-.fold.split1866:                                  ; preds = %._crit_edge1921
-  br label %.fold.split
-
-.fold.split1867:                                  ; preds = %._crit_edge1921
-  br label %.fold.split
-
-.fold.split1868:                                  ; preds = %._crit_edge1921
-  br label %.fold.split
-
-.fold.split1869:                                  ; preds = %._crit_edge1921
-  br label %.fold.split
-
-.fold.split1872:                                  ; preds = %._crit_edge1918
-  br label %.fold.split
-
-.fold.split1873:                                  ; preds = %._crit_edge1918
-  br label %.fold.split
-
-.fold.split1874:                                  ; preds = %._crit_edge1918
-  br label %.fold.split
-
-.fold.split1875:                                  ; preds = %._crit_edge1918
-  br label %.fold.split
-
-.fold.split1876:                                  ; preds = %._crit_edge1918
-  br label %.fold.split
-
-.fold.split1877:                                  ; preds = %._crit_edge1918
-  br label %.fold.split
-
-.fold.split1878:                                  ; preds = %._crit_edge1918
-  br label %.fold.split
-
-.fold.split1879:                                  ; preds = %._crit_edge1918
-  br label %.fold.split
-
-.fold.split1882:                                  ; preds = %._crit_edge1915
-  br label %.fold.split
-
-.fold.split1883:                                  ; preds = %._crit_edge1915
-  br label %.fold.split
-
-.fold.split1884:                                  ; preds = %._crit_edge1915
-  br label %.fold.split
-
-.fold.split1885:                                  ; preds = %._crit_edge1915
-  br label %.fold.split
-
-.fold.split1886:                                  ; preds = %._crit_edge1915
-  br label %.fold.split
-
-.fold.split1887:                                  ; preds = %._crit_edge1915
-  br label %.fold.split
-
-.fold.split1888:                                  ; preds = %._crit_edge1915
-  br label %.fold.split
-
-.fold.split1889:                                  ; preds = %._crit_edge1915
-  br label %.fold.split
-
-.fold.split1892:                                  ; preds = %._crit_edge
-  br label %.fold.split
-
-.fold.split1893:                                  ; preds = %._crit_edge
-  br label %.fold.split
-
-.fold.split1894:                                  ; preds = %._crit_edge
-  br label %.fold.split
-
-.fold.split1895:                                  ; preds = %._crit_edge
-  br label %.fold.split
-
-.fold.split1896:                                  ; preds = %._crit_edge
-  br label %.fold.split
-
-.fold.split1897:                                  ; preds = %._crit_edge
-  br label %.fold.split
-
-.fold.split1898:                                  ; preds = %._crit_edge
-  br label %.fold.split
-
-.fold.split1899:                                  ; preds = %._crit_edge
+.fold.split1894:                                  ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
   br label %.fold.split
 
 .fold.split1942:                                  ; preds = %15, %15
@@ -6539,8 +6359,8 @@ switch.hole_check:                                ; preds = %635
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %.fold.split, label %641
 
-.fold.split:                                      ; preds = %switch.hole_check, %._crit_edge, %._crit_edge, %._crit_edge1915, %._crit_edge1915, %._crit_edge1918, %._crit_edge1918, %._crit_edge1921, %._crit_edge1921, %._crit_edge1924, %._crit_edge1924, %._crit_edge1927, %._crit_edge1927, %._crit_edge1930, %._crit_edge1930, %._crit_edge1933, %._crit_edge1933, %._crit_edge1936, %._crit_edge1936, %._crit_edge1939, %._crit_edge1939, %1690, %1690, %.fold.split1981, %.fold.split1980, %.fold.split1979, %.fold.split1978, %1677, %1677, %.fold.split1977, %.fold.split1976, %.fold.split1975, %.fold.split1974, %1664, %1664, %.fold.split1973, %.fold.split1972, %.fold.split1971, %.fold.split1970, %1143, %1143, %.fold.split1969, %.fold.split1968, %.fold.split1967, %.fold.split1966, %1130, %1130, %.fold.split1965, %.fold.split1964, %.fold.split1963, %.fold.split1962, %67, %67, %.fold.split1961, %.fold.split1960, %.fold.split1959, %.fold.split1958, %54, %54, %.fold.split1957, %.fold.split1956, %.fold.split1955, %.fold.split1954, %41, %41, %.fold.split1953, %.fold.split1952, %.fold.split1951, %.fold.split1950, %28, %28, %.fold.split1949, %.fold.split1948, %.fold.split1947, %.fold.split1946, %15, %15, %.fold.split1945, %.fold.split1944, %.fold.split1943, %.fold.split1942, %745, %.fold.split1899, %.fold.split1898, %.fold.split1897, %.fold.split1896, %.fold.split1895, %.fold.split1894, %.fold.split1893, %.fold.split1892, %.fold.split1889, %.fold.split1888, %.fold.split1887, %.fold.split1886, %.fold.split1885, %.fold.split1884, %.fold.split1883, %.fold.split1882, %.fold.split1879, %.fold.split1878, %.fold.split1877, %.fold.split1876, %.fold.split1875, %.fold.split1874, %.fold.split1873, %.fold.split1872, %.fold.split1869, %.fold.split1868, %.fold.split1867, %.fold.split1866, %.fold.split1865, %.fold.split1864, %.fold.split1863, %.fold.split1862, %.fold.split1859, %.fold.split1858, %.fold.split1857, %.fold.split1856, %.fold.split1855, %.fold.split1854, %.fold.split1853, %.fold.split1852, %987, %.fold.split1849, %.fold.split1848, %.fold.split1847, %.fold.split1846, %.fold.split1845, %.fold.split1844, %.fold.split1843, %.fold.split1842, %.fold.split1839, %.fold.split1838, %.fold.split1837, %.fold.split1836, %.fold.split1835, %.fold.split1834, %.fold.split1833, %.fold.split1832, %.fold.split1829, %.fold.split1828, %.fold.split1827, %.fold.split1826, %.fold.split1825, %.fold.split1824, %.fold.split1823, %.fold.split1822, %.fold.split1819, %.fold.split1818, %.fold.split1817, %.fold.split1816, %.fold.split1815, %.fold.split1814, %.fold.split1813, %.fold.split1812, %.fold.split1809, %.fold.split1808, %.fold.split1807, %.fold.split1806, %.fold.split1805, %.fold.split1804, %.fold.split1803, %.fold.split1802, %798, %790, %782, %774, %766, %758, %740, %732, %724, %716, %708, %700, %689, %681, %673, %665, %657, %649, %630, %622, %614, %606, %598, %590, %2242, %2230, %2222, %2211, %2203, %2195, %2187, %2179, %2171, %2163, %2155, %2147, %2139, %2130, %2118, %2110, %2099, %2091, %2080, %2072, %2061, %2053, %2042, %2034, %2023, %2015, %2004, %1996, %1985, %1977, %1966, %1958, %1947, %1939, %1931, %1923, %1915, %1907, %1899, %1888, %1880, %1872, %1864, %1856, %1848, %1840, %1832, %1824, %1816, %1805, %1797, %1789, %1781, %1773, %1765, %1757, %1749, %1738, %1730, %1719, %1707, %1697, %1691, %1678, %1665, %1646, %1638, %1627, %1619, %1608, %1600, %1589, %1581, %1570, %1562, %1553, %1541, %1533, %1525, %1517, %1509, %1501, %1493, %1485, %1477, %1469, %1458, %1450, %1439, %1431, %1423, %1415, %1404, %1396, %1388, %1380, %1372, %1364, %1356, %1348, %1340, %1332, %1321, %1313, %1305, %1294, %1286, %1278, %1270, %1259, %1251, %1243, %1235, %1227, %1219, %1211, %1203, %1195, %1187, %1176, %1168, %1157, %1149, %1144, %1131, %1107, %1116, %1094, %1103, %1081, %1090, %1068, %1077, %1061, %1041, %1033, %1025, %1017, %1009, %1001, %993, %969, %961, %953, %945, %937, %929, %921, %910, %902, %894, %886, %878, %870, %862, %851, %843, %835, %827, %819, %811, %803, %792, %784, %776, %768, %760, %752, %750, %734, %726, %718, %710, %702, %694, %683, %675, %667, %659, %651, %643, %641, %624, %616, %608, %600, %592, %584, %573, %565, %557, %549, %541, %533, %525, %517, %509, %498, %490, %482, %474, %466, %458, %450, %442, %431, %423, %415, %407, %399, %391, %383, %375, %364, %356, %348, %340, %332, %324, %316, %308, %297, %289, %281, %273, %265, %257, %249, %241, %233, %222, %214, %206, %198, %190, %182, %174, %166, %155, %147, %139, %131, %123, %115, %107, %99, %91, %83, %74, %68, %55, %42, %29, %16, %1119, %1106, %1093, %1080, %.critedge2, %.critedge
-  %.0 = phi i32 [ 2504, %1080 ], [ 2504, %1093 ], [ 2504, %1106 ], [ 2504, %1119 ], [ 2502, %.critedge2 ], [ 2501, %.critedge ], [ 2411, %15 ], [ %., %16 ], [ 2421, %28 ], [ %.1117, %29 ], [ 2411, %41 ], [ %.1118, %42 ], [ 2431, %54 ], [ %.1119, %55 ], [ 2431, %67 ], [ %.1120, %68 ], [ %.1121, %74 ], [ %.1122, %83 ], [ %.1123, %91 ], [ %.1124, %99 ], [ %.1125, %107 ], [ %.1126, %115 ], [ %.1127, %123 ], [ %.1128, %131 ], [ %.1129, %139 ], [ %.1130, %147 ], [ %.1131, %155 ], [ %.1132, %166 ], [ %.1133, %174 ], [ %.1134, %182 ], [ %.1135, %190 ], [ %.1136, %198 ], [ %.1137, %206 ], [ %.1138, %214 ], [ %.1139, %222 ], [ %.1140, %233 ], [ %.1141, %241 ], [ %.1142, %249 ], [ %.1143, %257 ], [ %.1144, %265 ], [ %.1145, %273 ], [ %.1146, %281 ], [ %.1147, %289 ], [ %.1148, %297 ], [ %.1149, %308 ], [ %.1150, %316 ], [ %.1151, %324 ], [ %.1152, %332 ], [ %.1153, %340 ], [ %.1154, %348 ], [ %.1155, %356 ], [ %.1156, %364 ], [ %.1157, %375 ], [ %.1158, %383 ], [ %.1159, %391 ], [ %.1160, %399 ], [ %.1161, %407 ], [ %.1162, %415 ], [ %.1163, %423 ], [ %.1164, %431 ], [ %.1165, %442 ], [ %.1166, %450 ], [ %.1167, %458 ], [ %.1168, %466 ], [ %.1169, %474 ], [ %.1170, %482 ], [ %.1171, %490 ], [ %.1172, %498 ], [ %.1173, %509 ], [ %.1174, %517 ], [ %.1175, %525 ], [ %.1176, %533 ], [ %.1177, %541 ], [ %.1178, %549 ], [ %.1179, %557 ], [ %.1180, %565 ], [ %.1181, %573 ], [ 2471, %584 ], [ 2473, %592 ], [ 2468, %600 ], [ 2470, %608 ], [ 2474, %616 ], [ 2472, %624 ], [ %.1182, %641 ], [ 2478, %643 ], [ 2481, %651 ], [ 2475, %659 ], [ 2477, %667 ], [ 2482, %675 ], [ 2480, %683 ], [ 2486, %694 ], [ 2488, %702 ], [ 2483, %710 ], [ 2485, %718 ], [ 2489, %726 ], [ 2487, %734 ], [ %.1183, %750 ], [ 2493, %752 ], [ 2496, %760 ], [ 2490, %768 ], [ 2492, %776 ], [ 2497, %784 ], [ 2495, %792 ], [ %.1184, %803 ], [ %.1185, %811 ], [ %.1186, %819 ], [ %.1187, %827 ], [ %.1188, %835 ], [ %.1189, %843 ], [ %.1190, %851 ], [ %.1191, %862 ], [ %.1192, %870 ], [ %.1193, %878 ], [ %.1194, %886 ], [ %.1195, %894 ], [ %.1196, %902 ], [ %.1197, %910 ], [ %.1198, %921 ], [ %.1199, %929 ], [ %.1200, %937 ], [ %.1201, %945 ], [ %.1202, %953 ], [ %.1203, %961 ], [ %.1204, %969 ], [ %.1205, %993 ], [ %.1206, %1001 ], [ %.1207, %1009 ], [ %.1208, %1017 ], [ %.1209, %1025 ], [ %.1210, %1033 ], [ %.1211, %1041 ], [ 2456, %1061 ], [ 2506, %1077 ], [ 2506, %1068 ], [ 2507, %1090 ], [ 2507, %1081 ], [ 2503, %1103 ], [ 2503, %1094 ], [ 2505, %1116 ], [ 2505, %1107 ], [ 2411, %1130 ], [ %.1212, %1131 ], [ 2431, %1143 ], [ %.1213, %1144 ], [ %.1214, %1149 ], [ %.1215, %1157 ], [ %.1216, %1168 ], [ %.1217, %1176 ], [ %.1218, %1187 ], [ %.1219, %1195 ], [ %.1220, %1203 ], [ %.1221, %1211 ], [ %.1222, %1219 ], [ %.1223, %1227 ], [ %.1224, %1235 ], [ %.1225, %1243 ], [ %.1226, %1251 ], [ %.1227, %1259 ], [ %.1228, %1270 ], [ %.1229, %1278 ], [ %.1230, %1286 ], [ %.1231, %1294 ], [ %.1232, %1305 ], [ %.1233, %1313 ], [ %.1234, %1321 ], [ %.1235, %1332 ], [ %.1236, %1340 ], [ %.1237, %1348 ], [ %.1238, %1356 ], [ %.1239, %1364 ], [ %.1240, %1372 ], [ %.1241, %1380 ], [ %.1242, %1388 ], [ %.1243, %1396 ], [ %.1244, %1404 ], [ %.1245, %1415 ], [ %.1246, %1423 ], [ %.1247, %1431 ], [ %.1248, %1439 ], [ %.1249, %1450 ], [ %.1250, %1458 ], [ %.1251, %1469 ], [ %.1252, %1477 ], [ %.1253, %1485 ], [ %.1254, %1493 ], [ %.1255, %1501 ], [ %.1256, %1509 ], [ %.1257, %1517 ], [ %.1258, %1525 ], [ %.1259, %1533 ], [ %.1260, %1541 ], [ %.1261, %1553 ], [ %.1262, %1562 ], [ %.1263, %1570 ], [ %.1264, %1581 ], [ %.1265, %1589 ], [ %.1266, %1600 ], [ %.1267, %1608 ], [ %.1268, %1619 ], [ %.1269, %1627 ], [ %.1270, %1638 ], [ %.1271, %1646 ], [ 2411, %1664 ], [ %.1272, %1665 ], [ 2421, %1677 ], [ %.1273, %1678 ], [ 2431, %1690 ], [ %.1274, %1691 ], [ %.1275, %1697 ], [ %.1276, %1707 ], [ %.1277, %1719 ], [ %.1278, %1730 ], [ %.1279, %1738 ], [ %.1280, %1749 ], [ %.1281, %1757 ], [ %.1282, %1765 ], [ %.1283, %1773 ], [ %.1284, %1781 ], [ %.1285, %1789 ], [ %.1286, %1797 ], [ %.1287, %1805 ], [ %.1288, %1816 ], [ %.1289, %1824 ], [ %.1290, %1832 ], [ %.1291, %1840 ], [ %.1292, %1848 ], [ %.1293, %1856 ], [ %.1294, %1864 ], [ %.1295, %1872 ], [ %.1296, %1880 ], [ %.1297, %1888 ], [ %.1298, %1899 ], [ %.1299, %1907 ], [ %.1300, %1915 ], [ %.1301, %1923 ], [ %.1302, %1931 ], [ %.1303, %1939 ], [ %.1304, %1947 ], [ %.1305, %1958 ], [ %.1306, %1966 ], [ %.1307, %1977 ], [ %.1308, %1985 ], [ %.1309, %1996 ], [ %.1310, %2004 ], [ %.1311, %2015 ], [ %.1312, %2023 ], [ %.1313, %2034 ], [ %.1314, %2042 ], [ %.1315, %2053 ], [ %.1316, %2061 ], [ %.1317, %2072 ], [ %.1318, %2080 ], [ %.1319, %2091 ], [ %.1320, %2099 ], [ %.1321, %2110 ], [ %.1322, %2118 ], [ %.1323, %2130 ], [ %.1324, %2139 ], [ %.1325, %2147 ], [ %.1326, %2155 ], [ %.1327, %2163 ], [ %.1328, %2171 ], [ %.1329, %2179 ], [ %.1330, %2187 ], [ %.1331, %2195 ], [ %.1332, %2203 ], [ %.1333, %2211 ], [ %.1334, %2222 ], [ %.1335, %2230 ], [ %.1336, %2242 ], [ %spec.select, %590 ], [ %spec.select1337, %598 ], [ %spec.select1338, %606 ], [ %spec.select1339, %614 ], [ %spec.select1340, %622 ], [ %spec.select1341, %630 ], [ %spec.select1342, %649 ], [ %spec.select1343, %657 ], [ %spec.select1344, %665 ], [ %spec.select1345, %673 ], [ %spec.select1346, %681 ], [ %spec.select1347, %689 ], [ %spec.select1348, %700 ], [ %spec.select1349, %708 ], [ %spec.select1350, %716 ], [ %spec.select1351, %724 ], [ %spec.select1352, %732 ], [ %spec.select1353, %740 ], [ %spec.select1354, %758 ], [ %spec.select1355, %766 ], [ %spec.select1356, %774 ], [ %spec.select1357, %782 ], [ %spec.select1358, %790 ], [ %spec.select1359, %798 ], [ 2411, %15 ], [ 2417, %.fold.split1802 ], [ 2417, %.fold.split1803 ], [ 2418, %.fold.split1804 ], [ 2418, %.fold.split1805 ], [ 2418, %.fold.split1806 ], [ 2418, %.fold.split1807 ], [ 2418, %.fold.split1808 ], [ 2418, %.fold.split1809 ], [ 2421, %28 ], [ 2427, %.fold.split1812 ], [ 2427, %.fold.split1813 ], [ 2428, %.fold.split1814 ], [ 2428, %.fold.split1815 ], [ 2428, %.fold.split1816 ], [ 2428, %.fold.split1817 ], [ 2428, %.fold.split1818 ], [ 2428, %.fold.split1819 ], [ 2411, %41 ], [ 2417, %.fold.split1822 ], [ 2417, %.fold.split1823 ], [ 2418, %.fold.split1824 ], [ 2418, %.fold.split1825 ], [ 2418, %.fold.split1826 ], [ 2418, %.fold.split1827 ], [ 2418, %.fold.split1828 ], [ 2418, %.fold.split1829 ], [ 2431, %54 ], [ 2437, %.fold.split1832 ], [ 2437, %.fold.split1833 ], [ 2438, %.fold.split1834 ], [ 2438, %.fold.split1835 ], [ 2438, %.fold.split1836 ], [ 2438, %.fold.split1837 ], [ 2438, %.fold.split1838 ], [ 2438, %.fold.split1839 ], [ 2431, %67 ], [ 2437, %.fold.split1842 ], [ 2437, %.fold.split1843 ], [ 2438, %.fold.split1844 ], [ 2438, %.fold.split1845 ], [ 2438, %.fold.split1846 ], [ 2438, %.fold.split1847 ], [ 2438, %.fold.split1848 ], [ 2438, %.fold.split1849 ], [ 2494, %745 ], [ 2500, %987 ], [ 2411, %1130 ], [ 2417, %.fold.split1852 ], [ 2417, %.fold.split1853 ], [ 2418, %.fold.split1854 ], [ 2418, %.fold.split1855 ], [ 2418, %.fold.split1856 ], [ 2418, %.fold.split1857 ], [ 2418, %.fold.split1858 ], [ 2418, %.fold.split1859 ], [ 2431, %1143 ], [ 2437, %.fold.split1862 ], [ 2437, %.fold.split1863 ], [ 2438, %.fold.split1864 ], [ 2438, %.fold.split1865 ], [ 2438, %.fold.split1866 ], [ 2438, %.fold.split1867 ], [ 2438, %.fold.split1868 ], [ 2438, %.fold.split1869 ], [ 2411, %1664 ], [ 2417, %.fold.split1872 ], [ 2417, %.fold.split1873 ], [ 2418, %.fold.split1874 ], [ 2418, %.fold.split1875 ], [ 2418, %.fold.split1876 ], [ 2418, %.fold.split1877 ], [ 2418, %.fold.split1878 ], [ 2418, %.fold.split1879 ], [ 2421, %1677 ], [ 2427, %.fold.split1882 ], [ 2427, %.fold.split1883 ], [ 2428, %.fold.split1884 ], [ 2428, %.fold.split1885 ], [ 2428, %.fold.split1886 ], [ 2428, %.fold.split1887 ], [ 2428, %.fold.split1888 ], [ 2428, %.fold.split1889 ], [ 2431, %1690 ], [ 2437, %.fold.split1892 ], [ 2437, %.fold.split1893 ], [ 2438, %.fold.split1894 ], [ 2438, %.fold.split1895 ], [ 2438, %.fold.split1896 ], [ 2438, %.fold.split1897 ], [ 2438, %.fold.split1898 ], [ 2438, %.fold.split1899 ], [ 2412, %.fold.split1942 ], [ 2413, %.fold.split1943 ], [ 2414, %.fold.split1944 ], [ 2415, %.fold.split1945 ], [ 2422, %.fold.split1946 ], [ 2423, %.fold.split1947 ], [ 2424, %.fold.split1948 ], [ 2425, %.fold.split1949 ], [ 2412, %.fold.split1950 ], [ 2413, %.fold.split1951 ], [ 2414, %.fold.split1952 ], [ 2415, %.fold.split1953 ], [ 2432, %.fold.split1954 ], [ 2433, %.fold.split1955 ], [ 2434, %.fold.split1956 ], [ 2435, %.fold.split1957 ], [ 2432, %.fold.split1958 ], [ 2433, %.fold.split1959 ], [ 2434, %.fold.split1960 ], [ 2435, %.fold.split1961 ], [ 2412, %.fold.split1962 ], [ 2413, %.fold.split1963 ], [ 2414, %.fold.split1964 ], [ 2415, %.fold.split1965 ], [ 2432, %.fold.split1966 ], [ 2433, %.fold.split1967 ], [ 2434, %.fold.split1968 ], [ 2435, %.fold.split1969 ], [ 2412, %.fold.split1970 ], [ 2413, %.fold.split1971 ], [ 2414, %.fold.split1972 ], [ 2415, %.fold.split1973 ], [ 2422, %.fold.split1974 ], [ 2423, %.fold.split1975 ], [ 2424, %.fold.split1976 ], [ 2425, %.fold.split1977 ], [ 2432, %.fold.split1978 ], [ 2433, %.fold.split1979 ], [ 2434, %.fold.split1980 ], [ 2435, %.fold.split1981 ], [ 2416, %._crit_edge1939 ], [ 2416, %._crit_edge1939 ], [ 2426, %._crit_edge1936 ], [ 2426, %._crit_edge1936 ], [ 2416, %._crit_edge1933 ], [ 2416, %._crit_edge1933 ], [ 2436, %._crit_edge1930 ], [ 2436, %._crit_edge1930 ], [ 2436, %._crit_edge1927 ], [ 2436, %._crit_edge1927 ], [ 2416, %._crit_edge1924 ], [ 2416, %._crit_edge1924 ], [ 2436, %._crit_edge1921 ], [ 2436, %._crit_edge1921 ], [ 2416, %._crit_edge1918 ], [ 2416, %._crit_edge1918 ], [ 2426, %._crit_edge1915 ], [ 2426, %._crit_edge1915 ], [ 2436, %._crit_edge ], [ 2436, %._crit_edge ], [ 2479, %switch.hole_check ]
+.fold.split:                                      ; preds = %switch.hole_check, %._crit_edge, %._crit_edge, %._crit_edge1915, %._crit_edge1915, %._crit_edge1918, %._crit_edge1918, %._crit_edge1921, %._crit_edge1921, %._crit_edge1924, %._crit_edge1924, %._crit_edge1927, %._crit_edge1927, %._crit_edge1930, %._crit_edge1930, %._crit_edge1933, %._crit_edge1933, %._crit_edge1936, %._crit_edge1936, %._crit_edge1939, %._crit_edge1939, %1690, %1690, %.fold.split1981, %.fold.split1980, %.fold.split1979, %.fold.split1978, %1677, %1677, %.fold.split1977, %.fold.split1976, %.fold.split1975, %.fold.split1974, %1664, %1664, %.fold.split1973, %.fold.split1972, %.fold.split1971, %.fold.split1970, %1143, %1143, %.fold.split1969, %.fold.split1968, %.fold.split1967, %.fold.split1966, %1130, %1130, %.fold.split1965, %.fold.split1964, %.fold.split1963, %.fold.split1962, %67, %67, %.fold.split1961, %.fold.split1960, %.fold.split1959, %.fold.split1958, %54, %54, %.fold.split1957, %.fold.split1956, %.fold.split1955, %.fold.split1954, %41, %41, %.fold.split1953, %.fold.split1952, %.fold.split1951, %.fold.split1950, %28, %28, %.fold.split1949, %.fold.split1948, %.fold.split1947, %.fold.split1946, %15, %15, %.fold.split1945, %.fold.split1944, %.fold.split1943, %.fold.split1942, %745, %.fold.split1894, %.fold.split1892, %.fold.split1884, %.fold.split1882, %.fold.split1874, %.fold.split1872, %.fold.split1864, %.fold.split1862, %.fold.split1854, %.fold.split1852, %987, %.fold.split1844, %.fold.split1842, %.fold.split1834, %.fold.split1832, %.fold.split1824, %.fold.split1822, %.fold.split1814, %.fold.split1812, %.fold.split1804, %.fold.split1802, %798, %790, %782, %774, %766, %758, %740, %732, %724, %716, %708, %700, %689, %681, %673, %665, %657, %649, %630, %622, %614, %606, %598, %590, %2242, %2230, %2222, %2211, %2203, %2195, %2187, %2179, %2171, %2163, %2155, %2147, %2139, %2130, %2118, %2110, %2099, %2091, %2080, %2072, %2061, %2053, %2042, %2034, %2023, %2015, %2004, %1996, %1985, %1977, %1966, %1958, %1947, %1939, %1931, %1923, %1915, %1907, %1899, %1888, %1880, %1872, %1864, %1856, %1848, %1840, %1832, %1824, %1816, %1805, %1797, %1789, %1781, %1773, %1765, %1757, %1749, %1738, %1730, %1719, %1707, %1697, %1691, %1678, %1665, %1646, %1638, %1627, %1619, %1608, %1600, %1589, %1581, %1570, %1562, %1553, %1541, %1533, %1525, %1517, %1509, %1501, %1493, %1485, %1477, %1469, %1458, %1450, %1439, %1431, %1423, %1415, %1404, %1396, %1388, %1380, %1372, %1364, %1356, %1348, %1340, %1332, %1321, %1313, %1305, %1294, %1286, %1278, %1270, %1259, %1251, %1243, %1235, %1227, %1219, %1211, %1203, %1195, %1187, %1176, %1168, %1157, %1149, %1144, %1131, %1107, %1116, %1094, %1103, %1081, %1090, %1068, %1077, %1061, %1041, %1033, %1025, %1017, %1009, %1001, %993, %969, %961, %953, %945, %937, %929, %921, %910, %902, %894, %886, %878, %870, %862, %851, %843, %835, %827, %819, %811, %803, %792, %784, %776, %768, %760, %752, %750, %734, %726, %718, %710, %702, %694, %683, %675, %667, %659, %651, %643, %641, %624, %616, %608, %600, %592, %584, %573, %565, %557, %549, %541, %533, %525, %517, %509, %498, %490, %482, %474, %466, %458, %450, %442, %431, %423, %415, %407, %399, %391, %383, %375, %364, %356, %348, %340, %332, %324, %316, %308, %297, %289, %281, %273, %265, %257, %249, %241, %233, %222, %214, %206, %198, %190, %182, %174, %166, %155, %147, %139, %131, %123, %115, %107, %99, %91, %83, %74, %68, %55, %42, %29, %16, %1119, %1106, %1093, %1080, %.critedge2, %.critedge
+  %.0 = phi i32 [ 2504, %1080 ], [ 2504, %1093 ], [ 2504, %1106 ], [ 2504, %1119 ], [ 2502, %.critedge2 ], [ 2501, %.critedge ], [ 2411, %15 ], [ %., %16 ], [ 2421, %28 ], [ %.1117, %29 ], [ 2411, %41 ], [ %.1118, %42 ], [ 2431, %54 ], [ %.1119, %55 ], [ 2431, %67 ], [ %.1120, %68 ], [ %.1121, %74 ], [ %.1122, %83 ], [ %.1123, %91 ], [ %.1124, %99 ], [ %.1125, %107 ], [ %.1126, %115 ], [ %.1127, %123 ], [ %.1128, %131 ], [ %.1129, %139 ], [ %.1130, %147 ], [ %.1131, %155 ], [ %.1132, %166 ], [ %.1133, %174 ], [ %.1134, %182 ], [ %.1135, %190 ], [ %.1136, %198 ], [ %.1137, %206 ], [ %.1138, %214 ], [ %.1139, %222 ], [ %.1140, %233 ], [ %.1141, %241 ], [ %.1142, %249 ], [ %.1143, %257 ], [ %.1144, %265 ], [ %.1145, %273 ], [ %.1146, %281 ], [ %.1147, %289 ], [ %.1148, %297 ], [ %.1149, %308 ], [ %.1150, %316 ], [ %.1151, %324 ], [ %.1152, %332 ], [ %.1153, %340 ], [ %.1154, %348 ], [ %.1155, %356 ], [ %.1156, %364 ], [ %.1157, %375 ], [ %.1158, %383 ], [ %.1159, %391 ], [ %.1160, %399 ], [ %.1161, %407 ], [ %.1162, %415 ], [ %.1163, %423 ], [ %.1164, %431 ], [ %.1165, %442 ], [ %.1166, %450 ], [ %.1167, %458 ], [ %.1168, %466 ], [ %.1169, %474 ], [ %.1170, %482 ], [ %.1171, %490 ], [ %.1172, %498 ], [ %.1173, %509 ], [ %.1174, %517 ], [ %.1175, %525 ], [ %.1176, %533 ], [ %.1177, %541 ], [ %.1178, %549 ], [ %.1179, %557 ], [ %.1180, %565 ], [ %.1181, %573 ], [ 2471, %584 ], [ 2473, %592 ], [ 2468, %600 ], [ 2470, %608 ], [ 2474, %616 ], [ 2472, %624 ], [ %.1182, %641 ], [ 2478, %643 ], [ 2481, %651 ], [ 2475, %659 ], [ 2477, %667 ], [ 2482, %675 ], [ 2480, %683 ], [ 2486, %694 ], [ 2488, %702 ], [ 2483, %710 ], [ 2485, %718 ], [ 2489, %726 ], [ 2487, %734 ], [ %.1183, %750 ], [ 2493, %752 ], [ 2496, %760 ], [ 2490, %768 ], [ 2492, %776 ], [ 2497, %784 ], [ 2495, %792 ], [ %.1184, %803 ], [ %.1185, %811 ], [ %.1186, %819 ], [ %.1187, %827 ], [ %.1188, %835 ], [ %.1189, %843 ], [ %.1190, %851 ], [ %.1191, %862 ], [ %.1192, %870 ], [ %.1193, %878 ], [ %.1194, %886 ], [ %.1195, %894 ], [ %.1196, %902 ], [ %.1197, %910 ], [ %.1198, %921 ], [ %.1199, %929 ], [ %.1200, %937 ], [ %.1201, %945 ], [ %.1202, %953 ], [ %.1203, %961 ], [ %.1204, %969 ], [ %.1205, %993 ], [ %.1206, %1001 ], [ %.1207, %1009 ], [ %.1208, %1017 ], [ %.1209, %1025 ], [ %.1210, %1033 ], [ %.1211, %1041 ], [ 2456, %1061 ], [ 2506, %1077 ], [ 2506, %1068 ], [ 2507, %1090 ], [ 2507, %1081 ], [ 2503, %1103 ], [ 2503, %1094 ], [ 2505, %1116 ], [ 2505, %1107 ], [ 2411, %1130 ], [ %.1212, %1131 ], [ 2431, %1143 ], [ %.1213, %1144 ], [ %.1214, %1149 ], [ %.1215, %1157 ], [ %.1216, %1168 ], [ %.1217, %1176 ], [ %.1218, %1187 ], [ %.1219, %1195 ], [ %.1220, %1203 ], [ %.1221, %1211 ], [ %.1222, %1219 ], [ %.1223, %1227 ], [ %.1224, %1235 ], [ %.1225, %1243 ], [ %.1226, %1251 ], [ %.1227, %1259 ], [ %.1228, %1270 ], [ %.1229, %1278 ], [ %.1230, %1286 ], [ %.1231, %1294 ], [ %.1232, %1305 ], [ %.1233, %1313 ], [ %.1234, %1321 ], [ %.1235, %1332 ], [ %.1236, %1340 ], [ %.1237, %1348 ], [ %.1238, %1356 ], [ %.1239, %1364 ], [ %.1240, %1372 ], [ %.1241, %1380 ], [ %.1242, %1388 ], [ %.1243, %1396 ], [ %.1244, %1404 ], [ %.1245, %1415 ], [ %.1246, %1423 ], [ %.1247, %1431 ], [ %.1248, %1439 ], [ %.1249, %1450 ], [ %.1250, %1458 ], [ %.1251, %1469 ], [ %.1252, %1477 ], [ %.1253, %1485 ], [ %.1254, %1493 ], [ %.1255, %1501 ], [ %.1256, %1509 ], [ %.1257, %1517 ], [ %.1258, %1525 ], [ %.1259, %1533 ], [ %.1260, %1541 ], [ %.1261, %1553 ], [ %.1262, %1562 ], [ %.1263, %1570 ], [ %.1264, %1581 ], [ %.1265, %1589 ], [ %.1266, %1600 ], [ %.1267, %1608 ], [ %.1268, %1619 ], [ %.1269, %1627 ], [ %.1270, %1638 ], [ %.1271, %1646 ], [ 2411, %1664 ], [ %.1272, %1665 ], [ 2421, %1677 ], [ %.1273, %1678 ], [ 2431, %1690 ], [ %.1274, %1691 ], [ %.1275, %1697 ], [ %.1276, %1707 ], [ %.1277, %1719 ], [ %.1278, %1730 ], [ %.1279, %1738 ], [ %.1280, %1749 ], [ %.1281, %1757 ], [ %.1282, %1765 ], [ %.1283, %1773 ], [ %.1284, %1781 ], [ %.1285, %1789 ], [ %.1286, %1797 ], [ %.1287, %1805 ], [ %.1288, %1816 ], [ %.1289, %1824 ], [ %.1290, %1832 ], [ %.1291, %1840 ], [ %.1292, %1848 ], [ %.1293, %1856 ], [ %.1294, %1864 ], [ %.1295, %1872 ], [ %.1296, %1880 ], [ %.1297, %1888 ], [ %.1298, %1899 ], [ %.1299, %1907 ], [ %.1300, %1915 ], [ %.1301, %1923 ], [ %.1302, %1931 ], [ %.1303, %1939 ], [ %.1304, %1947 ], [ %.1305, %1958 ], [ %.1306, %1966 ], [ %.1307, %1977 ], [ %.1308, %1985 ], [ %.1309, %1996 ], [ %.1310, %2004 ], [ %.1311, %2015 ], [ %.1312, %2023 ], [ %.1313, %2034 ], [ %.1314, %2042 ], [ %.1315, %2053 ], [ %.1316, %2061 ], [ %.1317, %2072 ], [ %.1318, %2080 ], [ %.1319, %2091 ], [ %.1320, %2099 ], [ %.1321, %2110 ], [ %.1322, %2118 ], [ %.1323, %2130 ], [ %.1324, %2139 ], [ %.1325, %2147 ], [ %.1326, %2155 ], [ %.1327, %2163 ], [ %.1328, %2171 ], [ %.1329, %2179 ], [ %.1330, %2187 ], [ %.1331, %2195 ], [ %.1332, %2203 ], [ %.1333, %2211 ], [ %.1334, %2222 ], [ %.1335, %2230 ], [ %.1336, %2242 ], [ %spec.select, %590 ], [ %spec.select1337, %598 ], [ %spec.select1338, %606 ], [ %spec.select1339, %614 ], [ %spec.select1340, %622 ], [ %spec.select1341, %630 ], [ %spec.select1342, %649 ], [ %spec.select1343, %657 ], [ %spec.select1344, %665 ], [ %spec.select1345, %673 ], [ %spec.select1346, %681 ], [ %spec.select1347, %689 ], [ %spec.select1348, %700 ], [ %spec.select1349, %708 ], [ %spec.select1350, %716 ], [ %spec.select1351, %724 ], [ %spec.select1352, %732 ], [ %spec.select1353, %740 ], [ %spec.select1354, %758 ], [ %spec.select1355, %766 ], [ %spec.select1356, %774 ], [ %spec.select1357, %782 ], [ %spec.select1358, %790 ], [ %spec.select1359, %798 ], [ 2411, %15 ], [ 2417, %.fold.split1802 ], [ 2418, %.fold.split1804 ], [ 2421, %28 ], [ 2427, %.fold.split1812 ], [ 2428, %.fold.split1814 ], [ 2411, %41 ], [ 2417, %.fold.split1822 ], [ 2418, %.fold.split1824 ], [ 2431, %54 ], [ 2437, %.fold.split1832 ], [ 2438, %.fold.split1834 ], [ 2431, %67 ], [ 2437, %.fold.split1842 ], [ 2438, %.fold.split1844 ], [ 2494, %745 ], [ 2500, %987 ], [ 2411, %1130 ], [ 2417, %.fold.split1852 ], [ 2418, %.fold.split1854 ], [ 2431, %1143 ], [ 2437, %.fold.split1862 ], [ 2438, %.fold.split1864 ], [ 2411, %1664 ], [ 2417, %.fold.split1872 ], [ 2418, %.fold.split1874 ], [ 2421, %1677 ], [ 2427, %.fold.split1882 ], [ 2428, %.fold.split1884 ], [ 2431, %1690 ], [ 2437, %.fold.split1892 ], [ 2438, %.fold.split1894 ], [ 2412, %.fold.split1942 ], [ 2413, %.fold.split1943 ], [ 2414, %.fold.split1944 ], [ 2415, %.fold.split1945 ], [ 2422, %.fold.split1946 ], [ 2423, %.fold.split1947 ], [ 2424, %.fold.split1948 ], [ 2425, %.fold.split1949 ], [ 2412, %.fold.split1950 ], [ 2413, %.fold.split1951 ], [ 2414, %.fold.split1952 ], [ 2415, %.fold.split1953 ], [ 2432, %.fold.split1954 ], [ 2433, %.fold.split1955 ], [ 2434, %.fold.split1956 ], [ 2435, %.fold.split1957 ], [ 2432, %.fold.split1958 ], [ 2433, %.fold.split1959 ], [ 2434, %.fold.split1960 ], [ 2435, %.fold.split1961 ], [ 2412, %.fold.split1962 ], [ 2413, %.fold.split1963 ], [ 2414, %.fold.split1964 ], [ 2415, %.fold.split1965 ], [ 2432, %.fold.split1966 ], [ 2433, %.fold.split1967 ], [ 2434, %.fold.split1968 ], [ 2435, %.fold.split1969 ], [ 2412, %.fold.split1970 ], [ 2413, %.fold.split1971 ], [ 2414, %.fold.split1972 ], [ 2415, %.fold.split1973 ], [ 2422, %.fold.split1974 ], [ 2423, %.fold.split1975 ], [ 2424, %.fold.split1976 ], [ 2425, %.fold.split1977 ], [ 2432, %.fold.split1978 ], [ 2433, %.fold.split1979 ], [ 2434, %.fold.split1980 ], [ 2435, %.fold.split1981 ], [ 2416, %._crit_edge1939 ], [ 2416, %._crit_edge1939 ], [ 2426, %._crit_edge1936 ], [ 2426, %._crit_edge1936 ], [ 2416, %._crit_edge1933 ], [ 2416, %._crit_edge1933 ], [ 2436, %._crit_edge1930 ], [ 2436, %._crit_edge1930 ], [ 2436, %._crit_edge1927 ], [ 2436, %._crit_edge1927 ], [ 2416, %._crit_edge1924 ], [ 2416, %._crit_edge1924 ], [ 2436, %._crit_edge1921 ], [ 2436, %._crit_edge1921 ], [ 2416, %._crit_edge1918 ], [ 2416, %._crit_edge1918 ], [ 2426, %._crit_edge1915 ], [ 2426, %._crit_edge1915 ], [ 2436, %._crit_edge ], [ 2436, %._crit_edge ], [ 2479, %switch.hole_check ]
   ret i32 %.0
 }
 

@@ -715,7 +715,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i: ; preds = %_ZN4llvm1
   br label %_ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit.i
 
 _ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit.i: ; preds = %158, %154, %150, %147, %147, %146, %142, %138, %136, %136
-  %.0.i.neg.i = phi i64 [ -12802, %146 ], [ -12800, %136 ], [ %..i.i.neg.i, %138 ], [ -12800, %136 ], [ %.3.i.i.neg.i, %142 ], [ -12798, %158 ], [ -12796, %147 ], [ %..i9.i.neg.i, %150 ], [ -12796, %147 ], [ %.3.i8.i.neg.i, %154 ]
+  %.0.i.neg.i = phi i64 [ -12802, %146 ], [ -12800, %136 ], [ -12800, %136 ], [ %..i.i.neg.i, %138 ], [ %.3.i.i.neg.i, %142 ], [ -12798, %158 ], [ -12796, %147 ], [ -12796, %147 ], [ %..i9.i.neg.i, %150 ], [ %.3.i8.i.neg.i, %154 ]
   %159 = load ptr, ptr %134, align 8
   %160 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %159, i64 %.0.i.neg.i
   %161 = getelementptr inbounds i8, ptr %73, i64 48
@@ -1204,7 +1204,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66: ; preds = %_ZN4llv
   br label %_ZN12_GLOBAL__N_113getLRForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit.i
 
 _ZN12_GLOBAL__N_113getLRForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit.i: ; preds = %312, %308, %304, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66
-  %.0.i.neg.i67 = phi i64 [ -12802, %312 ], [ -12800, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66 ], [ %..i.neg.i, %304 ], [ -12800, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66 ], [ %.3.i.neg.i, %308 ]
+  %.0.i.neg.i67 = phi i64 [ -12802, %312 ], [ -12800, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66 ], [ -12800, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66 ], [ %..i.neg.i, %304 ], [ %.3.i.neg.i, %308 ]
   %313 = load ptr, ptr %302, align 8
   %314 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %313, i64 %.0.i.neg.i67
   %315 = getelementptr inbounds i8, ptr %73, i64 48
@@ -2061,7 +2061,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   br label %_ZN12_GLOBAL__N_113getLRForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit
 
 _ZN12_GLOBAL__N_113getLRForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit, %137, %141, %145
-  %.0.i.neg = phi i64 [ -12802, %145 ], [ -12800, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit ], [ %..i.neg, %137 ], [ -12800, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit ], [ %.3.i.neg, %141 ]
+  %.0.i.neg = phi i64 [ -12802, %145 ], [ -12800, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit ], [ -12800, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit ], [ %..i.neg, %137 ], [ %.3.i.neg, %141 ]
   %146 = load ptr, ptr %133, align 8
   %147 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %146, i64 %.0.i.neg
   %148 = getelementptr inbounds i8, ptr %59, i64 48
@@ -3492,7 +3492,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   br label %_ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit
 
 _ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit: ; preds = %290, %290, %292, %296, %300, %301, %301, %304, %308, %312
-  %.0.i148.neg = phi i64 [ -12802, %300 ], [ -12800, %290 ], [ %..i.i.neg, %292 ], [ -12800, %290 ], [ %.3.i.i.neg, %296 ], [ -12798, %312 ], [ -12796, %301 ], [ %..i9.i.neg, %304 ], [ -12796, %301 ], [ %.3.i8.i.neg, %308 ]
+  %.0.i148.neg = phi i64 [ -12802, %300 ], [ -12800, %290 ], [ -12800, %290 ], [ %..i.i.neg, %292 ], [ %.3.i.i.neg, %296 ], [ -12798, %312 ], [ -12796, %301 ], [ -12796, %301 ], [ %..i9.i.neg, %304 ], [ %.3.i8.i.neg, %308 ]
   %313 = load ptr, ptr %286, align 8
   %314 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %313, i64 %.0.i148.neg
   %315 = getelementptr inbounds i8, ptr %57, i64 48
@@ -3911,7 +3911,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit183: ; preds = %_ZN4llvm
   br label %_ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit189
 
 _ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit189: ; preds = %435, %435, %437, %441, %445, %446, %446, %449, %453, %457
-  %.0.i184.neg = phi i64 [ -12802, %445 ], [ -12800, %435 ], [ %..i.i188.neg, %437 ], [ -12800, %435 ], [ %.3.i.i187.neg, %441 ], [ -12798, %457 ], [ -12796, %446 ], [ %..i9.i186.neg, %449 ], [ -12796, %446 ], [ %.3.i8.i185.neg, %453 ]
+  %.0.i184.neg = phi i64 [ -12802, %445 ], [ -12800, %435 ], [ -12800, %435 ], [ %..i.i188.neg, %437 ], [ %.3.i.i187.neg, %441 ], [ -12798, %457 ], [ -12796, %446 ], [ -12796, %446 ], [ %..i9.i186.neg, %449 ], [ %.3.i8.i185.neg, %453 ]
   %458 = load ptr, ptr %431, align 8
   %459 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %458, i64 %.0.i184.neg
   %460 = getelementptr inbounds i8, ptr %57, i64 48

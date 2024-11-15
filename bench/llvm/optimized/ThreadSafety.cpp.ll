@@ -14329,9 +14329,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr148 = phi ptr [ %2, %3 ], [ %.tr148.be, %tailrecurse.backedge ]
   switch i8 %4, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit [
     i8 0, label %5
-    i8 1, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit407
-    i8 2, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit407
-    i8 3, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit407
+    i8 1, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403
+    i8 2, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403
+    i8 3, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403
     i8 4, label %20
     i8 5, label %30
     i8 6, label %32
@@ -14534,23 +14534,23 @@ _ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100: 
   %107 = load ptr, ptr %106, align 8
   %108 = load i8, ptr %105, align 8
   %109 = load i8, ptr %107, align 8
-  %.not.i.i251 = icmp eq i8 %108, %109
-  br i1 %.not.i.i251, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %.not.i.i247 = icmp eq i8 %108, %109
+  br i1 %.not.i.i247, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253: ; preds = %103
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249: ; preds = %103
   %110 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %105, ptr noundef nonnull %107)
   br i1 %110, label %111, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-111:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253
+111:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249
   %112 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %113 = load ptr, ptr %112, align 8
   %.not.i10.i = icmp eq ptr %113, null
   %114 = load ptr, ptr %104, align 8
   %115 = select i1 %.not.i10.i, ptr %114, ptr %113
-  %.not.i254 = icmp eq ptr %115, null
+  %.not.i250 = icmp eq ptr %115, null
   %116 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
   %117 = load ptr, ptr %116, align 8
-  br i1 %.not.i254, label %118, label %._crit_edge.i
+  br i1 %.not.i250, label %118, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %111
   %.pre19.i = load ptr, ptr %106, align 8
@@ -14560,8 +14560,8 @@ _ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253
   %.not.i11.i = icmp eq ptr %117, null
   %119 = load ptr, ptr %106, align 8
   %.not918.i = icmp eq ptr %119, null
-  %.not9.i255 = select i1 %.not.i11.i, i1 %.not918.i, i1 false
-  br i1 %.not9.i255, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %120
+  %.not9.i251 = select i1 %.not.i11.i, i1 %.not918.i, i1 false
+  br i1 %.not9.i251, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %120
 
 120:                                              ; preds = %118, %._crit_edge.i
   %121 = phi ptr [ %.pre19.i, %._crit_edge.i ], [ %119, %118 ]
@@ -14741,22 +14741,22 @@ _ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130: 
   %238 = load ptr, ptr %237, align 8
   %239 = load i8, ptr %236, align 8
   %240 = load i8, ptr %238, align 8
-  %.not.i.i257 = icmp eq i8 %239, %240
-  br i1 %.not.i.i257, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %.not.i.i253 = icmp eq i8 %239, %240
+  br i1 %.not.i.i253, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258: ; preds = %234
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254: ; preds = %234
   %241 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %236, ptr noundef nonnull %238)
   br i1 %241, label %242, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-242:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258
+242:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254
   %243 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
   %246 = load ptr, ptr %245, align 8
   %247 = load i8, ptr %244, align 8
   %248 = load i8, ptr %246, align 8
-  %.not.i13.i259 = icmp eq i8 %247, %248
-  br i1 %.not.i13.i259, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %.not.i13.i255 = icmp eq i8 %247, %248
+  br i1 %.not.i13.i255, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 249:                                              ; preds = %tailrecurse
   %250 = getelementptr inbounds nuw i8, ptr %.tr147, i64 2
@@ -14836,22 +14836,22 @@ _ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258
   %292 = load ptr, ptr %291, align 8
   %293 = load i8, ptr %290, align 8
   %294 = load i8, ptr %292, align 8
-  %.not.i.i260 = icmp eq i8 %293, %294
-  br i1 %.not.i.i260, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %.not.i.i256 = icmp eq i8 %293, %294
+  br i1 %.not.i.i256, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262: ; preds = %288
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258: ; preds = %288
   %295 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %290, ptr noundef nonnull %292)
   br i1 %295, label %296, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-296:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262
+296:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258
   %297 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %298 = load ptr, ptr %297, align 8
   %299 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
   %300 = load ptr, ptr %299, align 8
   %301 = load i8, ptr %298, align 8
   %302 = load i8, ptr %300, align 8
-  %.not.i13.i263 = icmp eq i8 %301, %302
-  br i1 %.not.i13.i263, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %.not.i13.i259 = icmp eq i8 %301, %302
+  br i1 %.not.i13.i259, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 _ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i: ; preds = %296
   %303 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %298, ptr noundef nonnull %300)
@@ -14878,28 +14878,28 @@ _ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i:
   %319 = load ptr, ptr %318, align 8
   %320 = load i8, ptr %315, align 8
   %321 = load i8, ptr %319, align 8
-  %.not.i.i264 = icmp eq i8 %320, %321
-  br i1 %.not.i.i264, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i266, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %.not.i.i260 = icmp eq i8 %320, %321
+  br i1 %.not.i.i260, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i266: ; preds = %311
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262: ; preds = %311
   %322 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %315, ptr noundef nonnull %319)
   br i1 %322, label %323, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-323:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i266
+323:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262
   %324 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %325 = load ptr, ptr %324, align 8
   %326 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
   %327 = load ptr, ptr %326, align 8
   %328 = load i8, ptr %325, align 8
   %329 = load i8, ptr %327, align 8
-  %.not.i12.i267 = icmp eq i8 %328, %329
-  br i1 %.not.i12.i267, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %.not.i12.i263 = icmp eq i8 %328, %329
+  br i1 %.not.i12.i263, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit407: ; preds = %tailrecurse, %tailrecurse, %tailrecurse
+_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403: ; preds = %tailrecurse, %tailrecurse, %tailrecurse
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %323, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i266, %311, %304, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, %296, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262, %288, %242, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258, %234, %226, %120, %118, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253, %103, %44, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i, %32, %196, %181, %166, %88, %73, %58, %274, %249, %257, %211, %219, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130, %204, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124, %189, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118, %174, %159, %146, %152, %139, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100, %96, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94, %81, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88, %66, %51, %17, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit407, %125, %286, %284, %281, %133, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103, %28, %26, %14, %272, %270, %268, %266, %264, %30
-  %.0 = phi i1 [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %31, %30 ], [ %16, %14 ], [ %29, %28 ], [ %27, %26 ], [ %138, %133 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %287, %286 ], [ false, %281 ], [ true, %284 ], [ false, %125 ], [ false, %tailrecurse ], [ false, %17 ], [ false, %51 ], [ false, %66 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88 ], [ false, %81 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94 ], [ false, %96 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100 ], [ false, %139 ], [ false, %152 ], [ false, %146 ], [ false, %159 ], [ false, %174 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118 ], [ false, %189 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124 ], [ false, %204 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130 ], [ false, %219 ], [ false, %211 ], [ false, %257 ], [ false, %249 ], [ false, %274 ], [ false, %58 ], [ false, %73 ], [ false, %88 ], [ false, %166 ], [ false, %181 ], [ false, %196 ], [ false, %311 ], [ false, %323 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i266 ], [ false, %296 ], [ false, %288 ], [ false, %304 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262 ], [ false, %234 ], [ false, %242 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258 ], [ false, %226 ], [ false, %103 ], [ false, %120 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253 ], [ true, %118 ], [ false, %32 ], [ false, %44 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i ], [ true, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit407 ]
+_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %323, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262, %311, %304, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, %296, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258, %288, %242, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254, %234, %226, %120, %118, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249, %103, %44, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i, %32, %196, %181, %166, %88, %73, %58, %274, %249, %257, %211, %219, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130, %204, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124, %189, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118, %174, %159, %146, %152, %139, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100, %96, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94, %81, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88, %66, %51, %17, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403, %125, %286, %284, %281, %133, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103, %28, %26, %14, %272, %270, %268, %266, %264, %30
+  %.0 = phi i1 [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %31, %30 ], [ %16, %14 ], [ %29, %28 ], [ %27, %26 ], [ %138, %133 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %287, %286 ], [ false, %281 ], [ true, %284 ], [ false, %125 ], [ false, %tailrecurse ], [ false, %17 ], [ false, %51 ], [ false, %66 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88 ], [ false, %81 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94 ], [ false, %96 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100 ], [ false, %139 ], [ false, %152 ], [ false, %146 ], [ false, %159 ], [ false, %174 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118 ], [ false, %189 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124 ], [ false, %204 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130 ], [ false, %219 ], [ false, %211 ], [ false, %257 ], [ false, %249 ], [ false, %274 ], [ false, %58 ], [ false, %73 ], [ false, %88 ], [ false, %166 ], [ false, %181 ], [ false, %196 ], [ false, %311 ], [ false, %323 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262 ], [ false, %296 ], [ false, %288 ], [ false, %304 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258 ], [ false, %234 ], [ false, %242 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254 ], [ false, %226 ], [ false, %103 ], [ false, %120 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249 ], [ true, %118 ], [ false, %32 ], [ false, %44 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i ], [ true, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403 ]
   ret i1 %.0
 }
 
@@ -15134,7 +15134,7 @@ define linkonce_odr hidden void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_
 
 19:                                               ; preds = %9, %8
   %.pr = load i8, ptr %1, align 8
-  switch i8 %.pr, label %34 [
+  switch i8 %.pr, label %24 [
     i8 0, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
     i8 1, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
     i8 2, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
@@ -15146,32 +15146,31 @@ define linkonce_odr hidden void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_
     i8 8, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
     i8 9, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
     i8 10, label %20
-    i8 11, label %21
-    i8 12, label %22
-    i8 13, label %23
-    i8 14, label %24
-    i8 15, label %25
-    i8 16, label %26
-    i8 17, label %27
-    i8 18, label %28
-    i8 19, label %29
-    i8 20, label %30
+    i8 11, label %20
+    i8 12, label %20
+    i8 13, label %20
+    i8 14, label %21
+    i8 15, label %20
+    i8 16, label %21
+    i8 17, label %20
+    i8 18, label %20
+    i8 19, label %22
+    i8 20, label %23
     i8 21, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
     i8 22, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-    i8 23, label %31
+    i8 30, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
     i8 24, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
     i8 25, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
     i8 26, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
-    i8 27, label %32
+    i8 27, label %21
     i8 28, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
-    i8 29, label %33
-    i8 30, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
+    i8 29, label %21
   ]
 
-20:                                               ; preds = %19
+20:                                               ; preds = %19, %19, %19, %19, %19, %19, %19
   br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
 
-21:                                               ; preds = %19
+21:                                               ; preds = %19, %19, %19, %19
   br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
 
 22:                                               ; preds = %19
@@ -15183,103 +15182,73 @@ define linkonce_odr hidden void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_
 24:                                               ; preds = %19
   br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
 
-25:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
+_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit: ; preds = %19, %19, %19, %19, %19, %19, %20, %21, %22, %23, %24
+  %.0.i = phi i32 [ 6, %24 ], [ 3, %23 ], [ 2, %22 ], [ 4, %21 ], [ 1, %20 ], [ 5, %19 ], [ 5, %19 ], [ 5, %19 ], [ 5, %19 ], [ 5, %19 ], [ 5, %19 ]
+  %25 = icmp ugt i32 %.0.i, %3
+  br i1 %25, label %26, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
 
-26:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-
-27:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-
-28:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-
-29:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-
-30:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-
-31:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-
-32:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-
-33:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-
-34:                                               ; preds = %19
-  br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-
-_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit: ; preds = %19, %19, %19, %19, %19, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34
-  %.0.i = phi i32 [ 6, %34 ], [ 4, %33 ], [ 4, %32 ], [ 6, %31 ], [ 3, %30 ], [ 2, %29 ], [ 1, %28 ], [ 1, %27 ], [ 4, %26 ], [ 1, %25 ], [ 4, %24 ], [ 1, %23 ], [ 1, %22 ], [ 1, %21 ], [ 1, %20 ], [ 5, %19 ], [ 5, %19 ], [ 5, %19 ], [ 5, %19 ], [ 5, %19 ], [ 5, %19 ]
-  %35 = icmp ugt i32 %.0.i, %3
-  br i1 %35, label %36, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
-
-common.ret79:                                     ; preds = %73, %72, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread.thread, %46, %45, %43, %41, %39, %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread, %14, %6, %36
+common.ret79:                                     ; preds = %63, %62, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread.thread, %36, %35, %33, %31, %29, %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread, %14, %6, %26
   ret void
 
-36:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
-  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.5) #18
+26:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
+  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.5) #18
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10printSExprEPKNS1_5SExprERSojb(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 6, i1 noundef zeroext true)
-  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.6) #18
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.6) #18
   br label %common.ret79
 
 _ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread: ; preds = %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
   switch i8 %.pr, label %common.ret79 [
-    i8 0, label %39
-    i8 1, label %41
-    i8 2, label %43
-    i8 3, label %45
-    i8 4, label %46
+    i8 0, label %29
+    i8 1, label %31
+    i8 2, label %33
+    i8 3, label %35
+    i8 4, label %36
     i8 5, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread.thread
-    i8 6, label %47
-    i8 7, label %48
-    i8 8, label %49
-    i8 9, label %50
-    i8 10, label %51
-    i8 11, label %52
-    i8 12, label %53
-    i8 13, label %54
-    i8 14, label %55
-    i8 15, label %56
-    i8 16, label %57
-    i8 17, label %58
-    i8 18, label %59
-    i8 19, label %60
-    i8 20, label %61
-    i8 21, label %62
-    i8 22, label %63
-    i8 23, label %64
-    i8 24, label %65
-    i8 25, label %66
-    i8 26, label %67
-    i8 27, label %68
-    i8 28, label %69
-    i8 29, label %72
-    i8 30, label %73
+    i8 6, label %37
+    i8 7, label %38
+    i8 8, label %39
+    i8 9, label %40
+    i8 10, label %41
+    i8 11, label %42
+    i8 12, label %43
+    i8 13, label %44
+    i8 14, label %45
+    i8 15, label %46
+    i8 16, label %47
+    i8 17, label %48
+    i8 18, label %49
+    i8 19, label %50
+    i8 20, label %51
+    i8 21, label %52
+    i8 22, label %53
+    i8 23, label %54
+    i8 24, label %55
+    i8 25, label %56
+    i8 26, label %57
+    i8 27, label %58
+    i8 28, label %59
+    i8 29, label %62
+    i8 30, label %63
   ]
 
-39:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
-  %40 = getelementptr inbounds i8, ptr %1, i64 -8
-  tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE11printFutureEPKNS1_6FutureERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(8) %2)
+29:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+  %30 = getelementptr inbounds i8, ptr %1, i64 -8
+  tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE11printFutureEPKNS1_6FutureERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-41:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.8) #18
+31:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.8) #18
   br label %common.ret79
 
-43:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
-  %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.9) #18
+33:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.9) #18
   br label %common.ret79
 
-45:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+35:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE12printLiteralEPKNS1_7LiteralERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-46:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+36:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE15printLiteralPtrEPKNS1_10LiteralPtrERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
@@ -15287,107 +15256,107 @@ _ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printVariableEPKNS1_8VariableERSob(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
   br label %common.ret79
 
-47:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+37:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printFunctionEPKNS1_8FunctionERSoj(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 0)
   br label %common.ret79
 
-48:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+38:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE14printSFunctionEPKNS1_9SFunctionERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-49:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+39:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE9printCodeEPKNS1_4CodeERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-50:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+40:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10printFieldEPKNS1_5FieldERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-51:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+41:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10printApplyEPKNS1_5ApplyERSob(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
   br label %common.ret79
 
-52:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+42:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE11printSApplyEPKNS1_6SApplyERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-53:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+43:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE12printProjectEPKNS1_7ProjectERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-54:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+44:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE9printCallEPKNS1_4CallERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-55:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+45:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10printAllocEPKNS1_5AllocERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-56:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+46:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE9printLoadEPKNS1_4LoadERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-57:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+47:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10printStoreEPKNS1_5StoreERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-58:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+48:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE15printArrayIndexEPKNS1_10ArrayIndexERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-59:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+49:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printArrayAddEPKNS1_8ArrayAddERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-60:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+50:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE12printUnaryOpEPKNS1_7UnaryOpERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-61:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+51:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE13printBinaryOpEPKNS1_8BinaryOpERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-62:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+52:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE9printCastEPKNS1_4CastERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-63:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+53:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE9printSCFGEPKNS1_4SCFGERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-64:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+54:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE15printBasicBlockEPKNS1_10BasicBlockERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-65:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+55:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE8printPhiEPKNS1_3PhiERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-66:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+56:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE9printGotoEPKNS1_4GotoERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-67:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+57:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE11printBranchEPKNS1_6BranchERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-68:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+58:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE11printReturnEPKNS1_6ReturnERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-69:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %70, align 8
+59:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %60, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.2.0.copyload.i.i) #18
+  %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.2.0.copyload.i.i) #18
   br label %common.ret79
 
-72:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+62:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE15printIfThenElseEPKNS1_10IfThenElseERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 
-73:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
+63:                                               ; preds = %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
   tail call void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE8printLetEPKNS1_3LetERSo(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %common.ret79
 }

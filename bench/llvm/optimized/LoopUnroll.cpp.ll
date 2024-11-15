@@ -8536,7 +8536,7 @@ declare noundef zeroext i1 @_ZN4llvm12simplifyLoopEPNS_4LoopEPNS_13DominatorTree
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm17GetUnrollMetadataEPNS_6MDNodeENS_9StringRefE(ptr noundef %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 {
-  %.fr45 = freeze i64 %2
+  %.fr44 = freeze i64 %2
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
@@ -8563,114 +8563,116 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %7, %11
   %.sroa.0.0.i.i = phi ptr [ %15, %11 ], [ %9, %7 ]
   %.idx = shl nsw i64 %.sroa.3.0.i.i, 3
   %18 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.idx
-  %.not38 = icmp eq i64 %.sroa.3.0.i.i, 1
-  br i1 %.not38, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
+  %.not37 = icmp eq i64 %.sroa.3.0.i.i, 1
+  br i1 %.not37, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm6MDNode8operandsEv.exit
-  %.01837 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
-  %19 = icmp eq i64 %.fr45, 0
+  %.01836 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
+  %19 = icmp eq i64 %.fr44, 0
   br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us
-  %.01839.us = phi ptr [ %.018.us, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us ], [ %.01837, %.lr.ph ]
-  %20 = load ptr, ptr %.01839.us, align 8
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread31.us
+  %.01838.us = phi ptr [ %.018.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread31.us ], [ %.01836, %.lr.ph ]
+  %20 = load ptr, ptr %.01838.us, align 8
   %21 = load i8, ptr %20, align 4
-  %.off.us = add i8 %21, -5
-  %switch.us = icmp ult i8 %.off.us, 31
-  br i1 %switch.us, label %22, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us
+  %22 = zext i8 %21 to i32
+  %23 = add nsw i32 %22, -36
+  %switch.i.i.i.i.i.i.i.i.i.us = icmp ult i32 %23, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread31.us, label %24
 
-22:                                               ; preds = %.lr.ph.split.us
-  %23 = getelementptr inbounds i8, ptr %20, i64 -16
-  %24 = load i64, ptr %23, align 8
-  %25 = and i64 %24, 2
-  %.not.i.i25.us = icmp eq i64 %25, 0
-  br i1 %.not.i.i25.us, label %30, label %26
+24:                                               ; preds = %.lr.ph.split.us
+  %25 = getelementptr inbounds i8, ptr %20, i64 -16
+  %26 = load i64, ptr %25, align 8
+  %27 = and i64 %26, 2
+  %.not.i.i25.us = icmp eq i64 %27, 0
+  br i1 %.not.i.i25.us, label %32, label %28
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %20, i64 -32
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #18
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %20, i64 -32
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #18
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.us
 
-30:                                               ; preds = %22
-  %31 = lshr i64 %24, 2
-  %32 = and i64 %31, 15
-  %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds %"class.llvm::MDOperand", ptr %23, i64 %33
+32:                                               ; preds = %24
+  %33 = lshr i64 %26, 2
+  %34 = and i64 %33, 15
+  %35 = sub nsw i64 0, %34
+  %36 = getelementptr inbounds %"class.llvm::MDOperand", ptr %25, i64 %35
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.us
 
-_ZNK4llvm6MDNode10getOperandEj.exit.us:           ; preds = %30, %26
-  %.sroa.0.0.i.i26.us = phi ptr [ %34, %30 ], [ %28, %26 ]
-  %35 = load ptr, ptr %.sroa.0.0.i.i26.us, align 8
-  %36 = load i8, ptr %35, align 4
-  %.not36.us = icmp eq i8 %36, 0
-  br i1 %.not36.us, label %37, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us
+_ZNK4llvm6MDNode10getOperandEj.exit.us:           ; preds = %32, %28
+  %.sroa.0.0.i.i26.us = phi ptr [ %36, %32 ], [ %30, %28 ]
+  %37 = load ptr, ptr %.sroa.0.0.i.i26.us, align 8
+  %38 = load i8, ptr %37, align 4
+  %.not35.us = icmp eq i8 %38, 0
+  br i1 %.not35.us, label %39, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread31.us
 
-37:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.us
-  %38 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #18
-  %39 = extractvalue { ptr, i64 } %38, 1
-  %.not.i.us = icmp eq i64 %39, 0
-  br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us
+39:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.us
+  %40 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #18
+  %41 = extractvalue { ptr, i64 } %40, 1
+  %.not.i.us = icmp eq i64 %41, 0
+  br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread31.us
 
-_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us: ; preds = %37, %_ZNK4llvm6MDNode10getOperandEj.exit.us, %.lr.ph.split.us
-  %.018.us = getelementptr inbounds i8, ptr %.01839.us, i64 8
+_ZN4llvmeqENS_9StringRefES0_.exit.thread31.us:    ; preds = %39, %_ZNK4llvm6MDNode10getOperandEj.exit.us, %.lr.ph.split.us
+  %.018.us = getelementptr inbounds i8, ptr %.01838.us, i64 8
   %.not.us = icmp eq ptr %.018.us, %18
   br i1 %.not.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
-  %.01839 = phi ptr [ %.018, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit ], [ %.01837, %.lr.ph ]
-  %40 = load ptr, ptr %.01839, align 8
-  %41 = load i8, ptr %40, align 4
-  %.off = add i8 %41, -5
-  %switch = icmp ult i8 %.off, 31
-  br i1 %switch, label %42, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread31
+  %.01838 = phi ptr [ %.018, %_ZN4llvmeqENS_9StringRefES0_.exit.thread31 ], [ %.01836, %.lr.ph ]
+  %42 = load ptr, ptr %.01838, align 8
+  %43 = load i8, ptr %42, align 4
+  %44 = zext i8 %43 to i32
+  %45 = add nsw i32 %44, -36
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %45, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread31, label %46
 
-42:                                               ; preds = %.lr.ph.split
-  %43 = getelementptr inbounds i8, ptr %40, i64 -16
-  %44 = load i64, ptr %43, align 8
-  %45 = and i64 %44, 2
-  %.not.i.i25 = icmp eq i64 %45, 0
-  br i1 %.not.i.i25, label %50, label %46
+46:                                               ; preds = %.lr.ph.split
+  %47 = getelementptr inbounds i8, ptr %42, i64 -16
+  %48 = load i64, ptr %47, align 8
+  %49 = and i64 %48, 2
+  %.not.i.i25 = icmp eq i64 %49, 0
+  br i1 %.not.i.i25, label %54, label %50
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %40, i64 -32
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #18
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %42, i64 -32
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #18
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
-50:                                               ; preds = %42
-  %51 = lshr i64 %44, 2
-  %52 = and i64 %51, 15
-  %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds %"class.llvm::MDOperand", ptr %43, i64 %53
+54:                                               ; preds = %46
+  %55 = lshr i64 %48, 2
+  %56 = and i64 %55, 15
+  %57 = sub nsw i64 0, %56
+  %58 = getelementptr inbounds %"class.llvm::MDOperand", ptr %47, i64 %57
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
-_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %46, %50
-  %.sroa.0.0.i.i26 = phi ptr [ %54, %50 ], [ %48, %46 ]
-  %55 = load ptr, ptr %.sroa.0.0.i.i26, align 8
-  %56 = load i8, ptr %55, align 4
-  %.not36 = icmp eq i8 %56, 0
-  br i1 %.not36, label %57, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
+_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %50, %54
+  %.sroa.0.0.i.i26 = phi ptr [ %58, %54 ], [ %52, %50 ]
+  %59 = load ptr, ptr %.sroa.0.0.i.i26, align 8
+  %60 = load i8, ptr %59, align 4
+  %.not35 = icmp eq i8 %60, 0
+  br i1 %.not35, label %61, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread31
 
-57:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
-  %58 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #18
-  %59 = extractvalue { ptr, i64 } %58, 1
-  %.not.i = icmp eq i64 %.fr45, %59
-  br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
+61:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
+  %62 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #18
+  %63 = extractvalue { ptr, i64 } %62, 1
+  %.not.i = icmp eq i64 %.fr44, %63
+  br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread31
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %57
-  %60 = extractvalue { ptr, i64 } %58, 0
-  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %60, i64 %.fr45)
-  %61 = icmp eq i32 %bcmp.i, 0
-  br i1 %61, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %61
+  %64 = extractvalue { ptr, i64 } %62, 0
+  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %64, i64 %.fr44)
+  %65 = icmp eq i32 %bcmp.i, 0
+  br i1 %65, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread31
 
-_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit: ; preds = %.lr.ph.split, %57, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm6MDNode10getOperandEj.exit
-  %.018 = getelementptr inbounds i8, ptr %.01839, i64 8
+_ZN4llvmeqENS_9StringRefES0_.exit.thread31:       ; preds = %61, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm6MDNode10getOperandEj.exit, %.lr.ph.split
+  %.018 = getelementptr inbounds i8, ptr %.01838, i64 8
   %.not = icmp eq ptr %.018, %18
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph.split
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us, %37, %_ZNK4llvm6MDNode8operandsEv.exit
-  %.0 = phi ptr [ null, %_ZNK4llvm6MDNode8operandsEv.exit ], [ %20, %37 ], [ null, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us ], [ null, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit ], [ %40, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread31, %_ZN4llvmeqENS_9StringRefES0_.exit.thread31.us, %39, %_ZNK4llvm6MDNode8operandsEv.exit
+  %.0 = phi ptr [ null, %_ZNK4llvm6MDNode8operandsEv.exit ], [ %20, %39 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread31.us ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread31 ], [ %42, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   ret ptr %.0
 }
 

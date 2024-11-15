@@ -119044,7 +119044,7 @@ _ZN7project9lsp_store8LspStore48simulate_disk_based_diagnostics_events_if_needed
   br i1 %trunc.i, label %381, label %379
 
 378:                                              ; preds = %381, %379, %373, %371, %.noexc88
-  %.sroa.0.1.i86 = phi i8 [ 2, %373 ], [ 2, %.noexc88 ], [ %382, %381 ], [ %..i87, %379 ], [ %switch.select11.i, %371 ]
+  %.sroa.0.1.i86 = phi i8 [ 2, %373 ], [ 2, %.noexc88 ], [ %switch.select11.i, %371 ], [ %382, %381 ], [ %..i87, %379 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilities$GT$17h5e51cafe463cc54bE"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %4)
           to label %383 unwind label %.loopexit.split-lp.loopexit
 

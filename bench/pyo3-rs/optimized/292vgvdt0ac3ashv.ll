@@ -1881,8 +1881,8 @@ define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h20d
   %6 = load i64, ptr %1, align 8
   %7 = add i64 %6, -39
   %switch = icmp ult i64 %7, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %8 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.
   %9 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %8, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
   br i1 %9, label %11, label %10
 
@@ -1921,8 +1921,8 @@ define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h51b
   %6 = load i64, ptr %1, align 8
   %7 = add i64 %6, -39
   %switch = icmp ult i64 %7, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %8 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.
   %9 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %8, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
   br i1 %9, label %11, label %10
 
@@ -1961,8 +1961,8 @@ define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h971
   %6 = load i64, ptr %1, align 8
   %7 = add i64 %6, -39
   %switch = icmp ult i64 %7, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %8 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.
   %9 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %8, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
   br i1 %9, label %11, label %10
 
@@ -2001,8 +2001,8 @@ define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17hd8a
   %6 = load i64, ptr %1, align 8
   %7 = add i64 %6, -39
   %switch = icmp ult i64 %7, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %8 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.
   %9 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %8, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
   br i1 %9, label %11, label %10
 
@@ -2235,8 +2235,8 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
   %13 = load i64, ptr %2, align 8, !noalias !6
   %14 = add i64 %13, -39
   %switch.i.i = icmp ult i64 %14, 2
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 176
-  %15 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %15 = getelementptr inbounds i8, ptr %2, i64 %..i.i
   %16 = invoke zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
           to label %.noexc unwind label %34
 
@@ -2431,8 +2431,8 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
   %13 = load i64, ptr %2, align 8, !noalias !12
   %14 = add i64 %13, -39
   %switch.i.i = icmp ult i64 %14, 2
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 176
-  %15 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %15 = getelementptr inbounds i8, ptr %2, i64 %..i.i
   %16 = invoke zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
           to label %.noexc unwind label %34
 
@@ -2575,8 +2575,8 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
   %13 = load i64, ptr %2, align 8, !noalias !18
   %14 = add i64 %13, -39
   %switch.i.i = icmp ult i64 %14, 2
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 176
-  %15 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %15 = getelementptr inbounds i8, ptr %2, i64 %..i.i
   %16 = invoke zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
           to label %.noexc unwind label %34
 
@@ -2771,8 +2771,8 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
   %13 = load i64, ptr %2, align 8, !noalias !24
   %14 = add i64 %13, -39
   %switch.i.i = icmp ult i64 %14, 2
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 176
-  %15 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %15 = getelementptr inbounds i8, ptr %2, i64 %..i.i
   %16 = invoke zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
           to label %.noexc unwind label %34
 
@@ -2915,8 +2915,8 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
   %13 = load i64, ptr %2, align 8, !noalias !30
   %14 = add i64 %13, -39
   %switch.i.i = icmp ult i64 %14, 2
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 176
-  %15 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %15 = getelementptr inbounds i8, ptr %2, i64 %..i.i
   %16 = invoke zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
           to label %.noexc unwind label %34
 
@@ -3059,8 +3059,8 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
   %13 = load i64, ptr %2, align 8, !noalias !36
   %14 = add i64 %13, -39
   %switch.i.i = icmp ult i64 %14, 2
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 176
-  %15 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %15 = getelementptr inbounds i8, ptr %2, i64 %..i.i
   %16 = invoke zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.d21dee0b66e5855aa9120844eca4cf2f.0, i64 4)
           to label %.noexc unwind label %34
 

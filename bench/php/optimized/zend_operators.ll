@@ -7829,10 +7829,10 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = phi i1 [ true, %2 ], [ false, %133 ]
   %5 = getelementptr inbounds i8, ptr %.080.ph.ph, i64 8
   %6 = load i8, ptr %5, align 8
-  %.fr330 = freeze i8 %6
-  %7 = zext i8 %.fr330 to i32
+  %.fr310 = freeze i8 %6
+  %7 = zext i8 %.fr310 to i32
   %8 = shl nuw nsw i32 %7, 4
-  %9 = icmp eq i8 %.fr330, 10
+  %9 = icmp eq i8 %.fr310, 10
   br i1 %9, label %.outer.split.us.lr.ph, label %.outer.split
 
 .outer.split.us.lr.ph:                            ; preds = %.outer.outer
@@ -7841,49 +7841,49 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %12 = zext i8 %11 to i32
   br label %.outer.split.us
 
-.outer.split.us:                                  ; preds = %.outer.split.us.lr.ph, %.split253.us
-  %13 = phi i32 [ %8, %.outer.split.us.lr.ph ], [ %20, %.split253.us ]
-  %.080.ph326 = phi ptr [ %.080.ph.ph, %.outer.split.us.lr.ph ], [ %16, %.split253.us ]
+.outer.split.us:                                  ; preds = %.outer.split.us.lr.ph, %.split241.us
+  %13 = phi i32 [ %8, %.outer.split.us.lr.ph ], [ %20, %.split241.us ]
+  %.080.ph306 = phi ptr [ %.080.ph.ph, %.outer.split.us.lr.ph ], [ %16, %.split241.us ]
   %14 = or i32 %13, %12
-  switch i32 %14, label %.split253.us [
+  switch i32 %14, label %.split241.us [
     i32 68, label %.split.us
-    i32 84, label %.split203.us
-    i32 69, label %.split207.us
-    i32 85, label %.split211.us
-    i32 119, label %.split215.us
-    i32 17, label %zend_compare_arrays.exit.loopexit662
-    i32 18, label %zend_compare_arrays.exit.loopexit662
-    i32 33, label %zend_compare_arrays.exit.loopexit662
-    i32 34, label %zend_compare_arrays.exit.loopexit662
-    i32 51, label %zend_compare_arrays.exit.loopexit662
-    i32 19, label %zend_compare_arrays.exit.loopexit819
+    i32 84, label %.split195.us
+    i32 69, label %.split199.us
+    i32 85, label %.split203.us
+    i32 119, label %.split207.us
+    i32 17, label %zend_compare_arrays.exit.loopexit634
+    i32 18, label %zend_compare_arrays.exit.loopexit634
+    i32 33, label %zend_compare_arrays.exit.loopexit634
+    i32 34, label %zend_compare_arrays.exit.loopexit634
+    i32 51, label %zend_compare_arrays.exit.loopexit634
+    i32 19, label %zend_compare_arrays.exit.loopexit791
     i32 49, label %zend_compare_arrays.exit
-    i32 102, label %.split223.us
-    i32 22, label %.split227.us
-    i32 97, label %.split230.us
-    i32 70, label %.split233.us
-    i32 100, label %.split237.us
-    i32 86, label %.split241.us
-    i32 101, label %.split245.us
+    i32 102, label %.split215.us
+    i32 22, label %.split219.us
+    i32 97, label %.split222.us
+    i32 70, label %.split225.us
+    i32 100, label %.split229.us
+    i32 86, label %.split233.us
+    i32 101, label %.split237.us
     i32 129, label %zend_compare_arrays.exit
-    i32 24, label %zend_compare_arrays.exit.loopexit819
+    i32 24, label %zend_compare_arrays.exit.loopexit791
   ]
 
-.split253.us:                                     ; preds = %.outer.split.us
-  %15 = load ptr, ptr %.080.ph326, align 8
+.split241.us:                                     ; preds = %.outer.split.us
+  %15 = load ptr, ptr %.080.ph306, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = getelementptr inbounds i8, ptr %15, i64 16
   %18 = load i8, ptr %17, align 8
-  %.fr331 = freeze i8 %18
-  %19 = zext i8 %.fr331 to i32
+  %.fr311 = freeze i8 %18
+  %19 = zext i8 %.fr311 to i32
   %20 = shl nuw nsw i32 %19, 4
-  %21 = icmp eq i8 %.fr331, 10
+  %21 = icmp eq i8 %.fr311, 10
   br i1 %21, label %.outer.split.us, label %.outer.split
 
-.outer.split:                                     ; preds = %.split253.us, %.outer.outer
-  %.080.ph.lcssa307 = phi ptr [ %.080.ph.ph, %.outer.outer ], [ %16, %.split253.us ]
-  %.lcssa272 = phi i8 [ %.fr330, %.outer.outer ], [ %.fr331, %.split253.us ]
-  %.lcssa = phi i32 [ %8, %.outer.outer ], [ %20, %.split253.us ]
+.outer.split:                                     ; preds = %.split241.us, %.outer.outer
+  %.080.ph.lcssa289 = phi ptr [ %.080.ph.ph, %.outer.outer ], [ %16, %.split241.us ]
+  %.lcssa258 = phi i8 [ %.fr310, %.outer.outer ], [ %.fr311, %.split241.us ]
+  %.lcssa = phi i32 [ %8, %.outer.outer ], [ %20, %.split241.us ]
   br label %22
 
 22:                                               ; preds = %.outer.split, %90
@@ -7894,41 +7894,41 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %26 = or i32 %.lcssa, %25
   switch i32 %26, label %88 [
     i32 68, label %.split.us
-    i32 84, label %.split203.us
-    i32 69, label %.split207.us
-    i32 85, label %.split211.us
-    i32 119, label %.split215.us
+    i32 84, label %.split195.us
+    i32 69, label %.split199.us
+    i32 85, label %.split203.us
+    i32 119, label %.split207.us
     i32 17, label %zend_compare_arrays.exit.loopexit
     i32 18, label %zend_compare_arrays.exit.loopexit
     i32 33, label %zend_compare_arrays.exit.loopexit
     i32 34, label %zend_compare_arrays.exit.loopexit
     i32 51, label %zend_compare_arrays.exit.loopexit
-    i32 19, label %zend_compare_arrays.exit.loopexit813
+    i32 19, label %zend_compare_arrays.exit.loopexit785
     i32 49, label %zend_compare_arrays.exit
-    i32 102, label %.split223.us
-    i32 22, label %.split227.us
-    i32 97, label %.split230.us
-    i32 70, label %.split233.us
-    i32 100, label %.split237.us
-    i32 86, label %.split241.us
-    i32 101, label %.split245.us
+    i32 102, label %.split215.us
+    i32 22, label %.split219.us
+    i32 97, label %.split222.us
+    i32 70, label %.split225.us
+    i32 100, label %.split229.us
+    i32 86, label %.split233.us
+    i32 101, label %.split237.us
     i32 129, label %zend_compare_arrays.exit
-    i32 24, label %zend_compare_arrays.exit.loopexit813
+    i32 24, label %zend_compare_arrays.exit.loopexit785
   ]
 
 .split.us:                                        ; preds = %.outer.split.us, %22
-  %.us-phi = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi201 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %.us-phi = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi193 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
   %27 = load i64, ptr %.us-phi, align 8
-  %28 = load i64, ptr %.us-phi201, align 8
+  %28 = load i64, ptr %.us-phi193, align 8
   %29 = call i32 @llvm.scmp.i32.i64(i64 %27, i64 %28)
   br label %zend_compare_arrays.exit
 
-.split203.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi204 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi205 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %30 = load double, ptr %.us-phi204, align 8
-  %31 = load i64, ptr %.us-phi205, align 8
+.split195.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi196 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi197 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %30 = load double, ptr %.us-phi196, align 8
+  %31 = load i64, ptr %.us-phi197, align 8
   %32 = sitofp i64 %31 to double
   %33 = fcmp oeq double %30, %32
   %34 = fcmp olt double %30, %32
@@ -7936,109 +7936,109 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %36 = select i1 %33, i32 0, i32 %35
   br label %zend_compare_arrays.exit
 
-.split207.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi208 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi209 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %37 = load i64, ptr %.us-phi208, align 8
+.split199.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi200 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi201 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %37 = load i64, ptr %.us-phi200, align 8
   %38 = sitofp i64 %37 to double
-  %39 = load double, ptr %.us-phi209, align 8
+  %39 = load double, ptr %.us-phi201, align 8
   %40 = fcmp oeq double %39, %38
   %41 = fcmp ogt double %39, %38
   %42 = select i1 %41, i32 -1, i32 1
   %43 = select i1 %40, i32 0, i32 %42
   br label %zend_compare_arrays.exit
 
-.split211.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi212 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi213 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %44 = load double, ptr %.us-phi212, align 8
-  %45 = load double, ptr %.us-phi213, align 8
+.split203.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi204 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi205 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %44 = load double, ptr %.us-phi204, align 8
+  %45 = load double, ptr %.us-phi205, align 8
   %46 = fcmp oeq double %44, %45
   %47 = fcmp olt double %44, %45
   %48 = select i1 %47, i32 -1, i32 1
   %49 = select i1 %46, i32 0, i32 %48
   br label %zend_compare_arrays.exit
 
-.split215.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi216 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi217 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %50 = load ptr, ptr %.us-phi216, align 8
-  %51 = load ptr, ptr %.us-phi217, align 8
+.split207.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi208 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi209 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %50 = load ptr, ptr %.us-phi208, align 8
+  %51 = load ptr, ptr %.us-phi209, align 8
   %52 = icmp eq ptr %50, %51
   br i1 %52, label %zend_compare_arrays.exit, label %53
 
-53:                                               ; preds = %.split215.us
+53:                                               ; preds = %.split207.us
   %54 = call i32 @zend_hash_compare(ptr noundef %50, ptr noundef %51, ptr noundef nonnull @hash_zval_compare_function, i1 noundef zeroext false) #27
   br label %zend_compare_arrays.exit
 
-.split223.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi224 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi225 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %55 = load ptr, ptr %.us-phi224, align 8
-  %56 = load ptr, ptr %.us-phi225, align 8
+.split215.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi216 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi217 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %55 = load ptr, ptr %.us-phi216, align 8
+  %56 = load ptr, ptr %.us-phi217, align 8
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %zend_compare_arrays.exit, label %58
 
-58:                                               ; preds = %.split223.us
+58:                                               ; preds = %.split215.us
   %59 = call i32 @zendi_smart_strcmp(ptr noundef %55, ptr noundef %56)
   br label %zend_compare_arrays.exit
 
-.split227.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi228 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %60 = load ptr, ptr %.us-phi228, align 8
+.split219.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi220 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %60 = load ptr, ptr %.us-phi220, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load i64, ptr %61, align 8
   %63 = icmp ne i64 %62, 0
   %64 = sext i1 %63 to i32
   br label %zend_compare_arrays.exit
 
-.split230.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi231 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %65 = load ptr, ptr %.us-phi231, align 8
+.split222.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi223 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %65 = load ptr, ptr %.us-phi223, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = icmp ne i64 %67, 0
   %69 = zext i1 %68 to i32
   br label %zend_compare_arrays.exit
 
-.split233.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi234 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi235 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %70 = load i64, ptr %.us-phi234, align 8
-  %71 = load ptr, ptr %.us-phi235, align 8
+.split225.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi226 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi227 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %70 = load i64, ptr %.us-phi226, align 8
+  %71 = load ptr, ptr %.us-phi227, align 8
   %72 = call fastcc i32 @compare_long_to_string(i64 noundef %70, ptr noundef %71)
   br label %zend_compare_arrays.exit
 
-.split237.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi238 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi239 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %73 = load i64, ptr %.us-phi239, align 8
-  %74 = load ptr, ptr %.us-phi238, align 8
+.split229.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi230 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi231 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %73 = load i64, ptr %.us-phi231, align 8
+  %74 = load ptr, ptr %.us-phi230, align 8
   %75 = call fastcc i32 @compare_long_to_string(i64 noundef %73, ptr noundef %74)
   %76 = sub nsw i32 0, %75
   br label %zend_compare_arrays.exit
 
-.split241.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi242 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi243 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %77 = load double, ptr %.us-phi242, align 8
+.split233.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi234 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi235 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %77 = load double, ptr %.us-phi234, align 8
   %78 = fcmp uno double %77, 0.000000e+00
   br i1 %78, label %zend_compare_arrays.exit, label %79
 
-79:                                               ; preds = %.split241.us
-  %80 = load ptr, ptr %.us-phi243, align 8
+79:                                               ; preds = %.split233.us
+  %80 = load ptr, ptr %.us-phi235, align 8
   %81 = call fastcc i32 @compare_double_to_string(double noundef %77, ptr noundef %80)
   br label %zend_compare_arrays.exit
 
-.split245.us:                                     ; preds = %.outer.split.us, %22
-  %.us-phi246 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %.us-phi247 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %82 = load double, ptr %.us-phi247, align 8
+.split237.us:                                     ; preds = %.outer.split.us, %22
+  %.us-phi238 = phi ptr [ %.080.ph.lcssa289, %22 ], [ %.080.ph306, %.outer.split.us ]
+  %.us-phi239 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
+  %82 = load double, ptr %.us-phi239, align 8
   %83 = fcmp uno double %82, 0.000000e+00
   br i1 %83, label %zend_compare_arrays.exit, label %84
 
-84:                                               ; preds = %.split245.us
-  %85 = load ptr, ptr %.us-phi246, align 8
+84:                                               ; preds = %.split237.us
+  %85 = load ptr, ptr %.us-phi238, align 8
   %86 = call fastcc i32 @compare_double_to_string(double noundef %82, ptr noundef %85)
   %87 = sub nsw i32 0, %86
   br label %zend_compare_arrays.exit
@@ -8053,13 +8053,13 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br label %22
 
 93:                                               ; preds = %88
-  %94 = icmp eq i8 %.lcssa272, 8
+  %94 = icmp eq i8 %.lcssa258, 8
   %95 = icmp eq i8 %24, 8
   %or.cond = and i1 %94, %95
   br i1 %or.cond, label %96, label %100
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr %.080.ph.lcssa307, align 8
+  %97 = load ptr, ptr %.080.ph.lcssa289, align 8
   %98 = load ptr, ptr %.079, align 8
   %99 = icmp eq ptr %97, %98
   br i1 %99, label %zend_compare_arrays.exit, label %.thread
@@ -8068,7 +8068,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %94, label %.thread.loopexit, label %107
 
 .thread.loopexit:                                 ; preds = %100
-  %.pre = load ptr, ptr %.080.ph.lcssa307, align 8
+  %.pre = load ptr, ptr %.080.ph.lcssa289, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %96
@@ -8077,7 +8077,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 184
   %105 = load ptr, ptr %104, align 8
-  %106 = call i32 %105(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef nonnull %.079) #27
+  %106 = call i32 %105(ptr noundef nonnull %.080.ph.lcssa289, ptr noundef nonnull %.079) #27
   br label %zend_compare_arrays.exit
 
 107:                                              ; preds = %100
@@ -8089,14 +8089,14 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 184
   %113 = load ptr, ptr %112, align 8
-  %114 = call i32 %113(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef nonnull %.079) #27
+  %114 = call i32 %113(ptr noundef nonnull %.080.ph.lcssa289, ptr noundef nonnull %.079) #27
   br label %zend_compare_arrays.exit
 
 115:                                              ; preds = %107
   br i1 %.not, label %116, label %137
 
 116:                                              ; preds = %115
-  %117 = icmp ult i8 %.lcssa272, 3
+  %117 = icmp ult i8 %.lcssa258, 3
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
@@ -8105,7 +8105,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br label %zend_compare_arrays.exit
 
 120:                                              ; preds = %116
-  %121 = icmp eq i8 %.lcssa272, 3
+  %121 = icmp eq i8 %.lcssa258, 3
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %120
@@ -8118,7 +8118,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %125
-  %128 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307)
+  %128 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa289)
   br label %zend_compare_arrays.exit
 
 129:                                              ; preds = %125
@@ -8126,36 +8126,36 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %129
-  %132 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307)
+  %132 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa289)
   %sext = add nsw i32 %132, -1
   br label %zend_compare_arrays.exit
 
 133:                                              ; preds = %129
-  %134 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef %3)
+  %134 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.080.ph.lcssa289, ptr noundef %3)
   %135 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.079, ptr noundef %4)
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not96 = icmp eq ptr %136, null
   br i1 %.not96, label %.outer.outer, label %zend_compare_arrays.exit
 
 137:                                              ; preds = %115
-  %138 = icmp eq i8 %.lcssa272, 7
+  %138 = icmp eq i8 %.lcssa258, 7
   %spec.select = select i1 %138, i32 1, i32 -1
   br label %zend_compare_arrays.exit
 
 zend_compare_arrays.exit.loopexit:                ; preds = %22, %22, %22, %22, %22
   br label %zend_compare_arrays.exit
 
-zend_compare_arrays.exit.loopexit662:             ; preds = %.outer.split.us, %.outer.split.us, %.outer.split.us, %.outer.split.us, %.outer.split.us
+zend_compare_arrays.exit.loopexit634:             ; preds = %.outer.split.us, %.outer.split.us, %.outer.split.us, %.outer.split.us, %.outer.split.us
   br label %zend_compare_arrays.exit
 
-zend_compare_arrays.exit.loopexit813:             ; preds = %22, %22
+zend_compare_arrays.exit.loopexit785:             ; preds = %22, %22
   br label %zend_compare_arrays.exit
 
-zend_compare_arrays.exit.loopexit819:             ; preds = %.outer.split.us, %.outer.split.us
+zend_compare_arrays.exit.loopexit791:             ; preds = %.outer.split.us, %.outer.split.us
   br label %zend_compare_arrays.exit
 
-zend_compare_arrays.exit:                         ; preds = %133, %.outer.split.us, %.outer.split.us, %22, %22, %zend_compare_arrays.exit.loopexit819, %zend_compare_arrays.exit.loopexit813, %zend_compare_arrays.exit.loopexit662, %zend_compare_arrays.exit.loopexit, %53, %.split215.us, %137, %96, %.split245.us, %.split241.us, %.split223.us, %131, %127, %122, %118, %108, %.thread, %84, %79, %.split237.us, %.split233.us, %.split230.us, %.split227.us, %58, %.split211.us, %.split207.us, %.split203.us, %.split.us
-  %.081 = phi i32 [ %106, %.thread ], [ %114, %108 ], [ %sext101, %118 ], [ %124, %122 ], [ %128, %127 ], [ %sext, %131 ], [ %87, %84 ], [ %81, %79 ], [ %76, %.split237.us ], [ %72, %.split233.us ], [ %69, %.split230.us ], [ %64, %.split227.us ], [ %59, %58 ], [ %49, %.split211.us ], [ %43, %.split207.us ], [ %36, %.split203.us ], [ %29, %.split.us ], [ 0, %.split223.us ], [ 1, %.split241.us ], [ 1, %.split245.us ], [ 0, %96 ], [ %spec.select, %137 ], [ %54, %53 ], [ 0, %.split215.us ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit662 ], [ -1, %zend_compare_arrays.exit.loopexit813 ], [ -1, %zend_compare_arrays.exit.loopexit819 ], [ 1, %22 ], [ 1, %22 ], [ 1, %.outer.split.us ], [ 1, %.outer.split.us ], [ 1, %133 ]
+zend_compare_arrays.exit:                         ; preds = %133, %.outer.split.us, %.outer.split.us, %22, %22, %zend_compare_arrays.exit.loopexit791, %zend_compare_arrays.exit.loopexit785, %zend_compare_arrays.exit.loopexit634, %zend_compare_arrays.exit.loopexit, %53, %.split207.us, %137, %96, %.split237.us, %.split233.us, %.split215.us, %131, %127, %122, %118, %108, %.thread, %84, %79, %.split229.us, %.split225.us, %.split222.us, %.split219.us, %58, %.split203.us, %.split199.us, %.split195.us, %.split.us
+  %.081 = phi i32 [ %106, %.thread ], [ %114, %108 ], [ %sext101, %118 ], [ %124, %122 ], [ %128, %127 ], [ %sext, %131 ], [ %87, %84 ], [ %81, %79 ], [ %76, %.split229.us ], [ %72, %.split225.us ], [ %69, %.split222.us ], [ %64, %.split219.us ], [ %59, %58 ], [ %49, %.split203.us ], [ %43, %.split199.us ], [ %36, %.split195.us ], [ %29, %.split.us ], [ 0, %.split215.us ], [ 1, %.split233.us ], [ 1, %.split237.us ], [ 0, %96 ], [ %spec.select, %137 ], [ %54, %53 ], [ 0, %.split207.us ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit634 ], [ -1, %zend_compare_arrays.exit.loopexit785 ], [ -1, %zend_compare_arrays.exit.loopexit791 ], [ 1, %22 ], [ 1, %22 ], [ 1, %.outer.split.us ], [ 1, %.outer.split.us ], [ 1, %133 ]
   ret i32 %.081
 }
 

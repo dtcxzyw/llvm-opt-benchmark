@@ -19786,9 +19786,9 @@ if.end.i:                                         ; preds = %invoke.cont222
   store ptr @"_ZNSt17_Function_handlerIFbN7rocksdb11PinningTierES1_EZNS0_15BlockBasedTable28PrefetchIndexAndFilterBlocksERKNS0_11ReadOptionsEPNS0_18FilePrefetchBufferEPNS0_20InternalIteratorBaseINS0_5SliceEEEPS3_bRKNS0_22BlockBasedTableOptionsEimmPNS0_23BlockCacheLookupContextEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %metadata_cache_options = getelementptr inbounds i8, ptr %table_options, i64 20
   %68 = load i32, ptr %metadata_cache_options, align 4
-  switch i32 %68, label %if.end.i134 [
+  switch i32 %68, label %sw.epilog.i.i.i.i [
     i32 0, label %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i
-    i32 3, label %sw.bb4.i.i.i.i
+    i32 3, label %if.end.i134
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
@@ -19801,41 +19801,41 @@ _ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i: ; preds = 
 sw.bb3.i.i.i.i:                                   ; preds = %if.end.i
   br label %if.end.i134
 
-sw.bb4.i.i.i.i:                                   ; preds = %if.end.i
+sw.epilog.i.i.i.i:                                ; preds = %if.end.i
   br label %if.end.i134
 
-if.end.i134:                                      ; preds = %if.end.i, %sw.bb3.i.i.i.i, %sw.bb4.i.i.i.i, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i
-  %retval.0.i.i.i.i450 = phi i1 [ %tobool238, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i ], [ false, %if.end.i ], [ %67, %sw.bb3.i.i.i.i ], [ true, %sw.bb4.i.i.i.i ]
+if.end.i134:                                      ; preds = %if.end.i, %sw.bb3.i.i.i.i, %sw.epilog.i.i.i.i, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i
+  %retval.0.i.i.i.i450 = phi i1 [ %tobool238, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i ], [ true, %if.end.i ], [ %67, %sw.bb3.i.i.i.i ], [ false, %sw.epilog.i.i.i.i ]
   %partition_pinning = getelementptr inbounds i8, ptr %table_options, i64 24
   %70 = load i32, ptr %partition_pinning, align 8
   %pin_l0_filter_and_index_blocks_in_cache = getelementptr inbounds i8, ptr %table_options, i64 18
-  switch i32 %70, label %invoke.cont246.thread [
-    i32 0, label %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538
-    i32 3, label %sw.bb4.i.i.i.i537
+  switch i32 %70, label %sw.epilog.i.i.i.i538 [
+    i32 0, label %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i537
+    i32 3, label %invoke.cont246.thread
     i32 2, label %sw.bb3.i.i.i.i536
   ]
 
-_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538: ; preds = %if.end.i134
+_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i537: ; preds = %if.end.i134
   %71 = load i8, ptr %pin_l0_filter_and_index_blocks_in_cache, align 2
   %tobool244 = trunc i8 %71 to i1
-  %spec.select = and i1 %67, %tobool244
+  %. = and i1 %67, %tobool244
   br label %if.end.i144
 
 sw.bb3.i.i.i.i536:                                ; preds = %if.end.i134
   br label %invoke.cont246.thread
 
-sw.bb4.i.i.i.i537:                                ; preds = %if.end.i134
+sw.epilog.i.i.i.i538:                             ; preds = %if.end.i134
   br label %invoke.cont246.thread
 
-invoke.cont246.thread:                            ; preds = %sw.bb4.i.i.i.i537, %sw.bb3.i.i.i.i536, %if.end.i134
-  %retval.0.i.i.i.i.ph = phi i1 [ false, %if.end.i134 ], [ %67, %sw.bb3.i.i.i.i536 ], [ true, %sw.bb4.i.i.i.i537 ]
+invoke.cont246.thread:                            ; preds = %sw.epilog.i.i.i.i538, %sw.bb3.i.i.i.i536, %if.end.i134
+  %retval.0.i.i.i.i.ph = phi i1 [ true, %if.end.i134 ], [ %67, %sw.bb3.i.i.i.i536 ], [ false, %sw.epilog.i.i.i.i538 ]
   %72 = load i8, ptr %pin_l0_filter_and_index_blocks_in_cache, align 2
   %tobool251583 = trunc i8 %72 to i1
   br label %if.end.i144
 
-if.end.i144:                                      ; preds = %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538, %invoke.cont246.thread
-  %tobool244.sink = phi i1 [ %tobool244, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538 ], [ %tobool251583, %invoke.cont246.thread ]
-  %retval.0.i.i.i.i585 = phi i1 [ %spec.select, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538 ], [ %retval.0.i.i.i.i.ph, %invoke.cont246.thread ]
+if.end.i144:                                      ; preds = %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i537, %invoke.cont246.thread
+  %tobool244.sink = phi i1 [ %tobool244, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i537 ], [ %tobool251583, %invoke.cont246.thread ]
+  %retval.0.i.i.i.i585 = phi i1 [ %., %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i537 ], [ %retval.0.i.i.i.i.ph, %invoke.cont246.thread ]
   %storemerge650.in = getelementptr inbounds i8, ptr %table_options, i64 28
   %storemerge650 = load i32, ptr %storemerge650.in, align 4
   %cond252 = select i1 %tobool244.sink, i32 2, i32 1
@@ -59478,9 +59478,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %__functor, i64 8
   %call.val1 = load ptr, ptr %0, align 8
   %__args.val = load i32, ptr %__args, align 4
-  switch i32 %__args.val, label %"_ZSt10__invoke_rIbRZN7rocksdb15BlockBasedTable28PrefetchIndexAndFilterBlocksERKNS0_11ReadOptionsEPNS0_18FilePrefetchBufferEPNS0_20InternalIteratorBaseINS0_5SliceEEEPS1_bRKNS0_22BlockBasedTableOptionsEimmPNS0_23BlockCacheLookupContextEE3$_0JNS0_11PinningTierESJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit" [
+  switch i32 %__args.val, label %sw.epilog.i.i.i [
     i32 0, label %sw.bb.i.i.i
-    i32 3, label %sw.bb4.i.i.i
+    i32 3, label %"_ZSt10__invoke_rIbRZN7rocksdb15BlockBasedTable28PrefetchIndexAndFilterBlocksERKNS0_11ReadOptionsEPNS0_18FilePrefetchBufferEPNS0_20InternalIteratorBaseINS0_5SliceEEEPS1_bRKNS0_22BlockBasedTableOptionsEimmPNS0_23BlockCacheLookupContextEE3$_0JNS0_11PinningTierESJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit"
     i32 2, label %sw.bb3.i.i.i
   ]
 
@@ -59512,11 +59512,11 @@ sw.bb3.i.i.i:                                     ; preds = %entry
   %tobool.i.i.i = trunc i8 %call.val to i1
   br label %"_ZSt10__invoke_rIbRZN7rocksdb15BlockBasedTable28PrefetchIndexAndFilterBlocksERKNS0_11ReadOptionsEPNS0_18FilePrefetchBufferEPNS0_20InternalIteratorBaseINS0_5SliceEEEPS1_bRKNS0_22BlockBasedTableOptionsEimmPNS0_23BlockCacheLookupContextEE3$_0JNS0_11PinningTierESJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit"
 
-sw.bb4.i.i.i:                                     ; preds = %entry
+sw.epilog.i.i.i:                                  ; preds = %entry
   br label %"_ZSt10__invoke_rIbRZN7rocksdb15BlockBasedTable28PrefetchIndexAndFilterBlocksERKNS0_11ReadOptionsEPNS0_18FilePrefetchBufferEPNS0_20InternalIteratorBaseINS0_5SliceEEEPS1_bRKNS0_22BlockBasedTableOptionsEimmPNS0_23BlockCacheLookupContextEE3$_0JNS0_11PinningTierESJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit"
 
-"_ZSt10__invoke_rIbRZN7rocksdb15BlockBasedTable28PrefetchIndexAndFilterBlocksERKNS0_11ReadOptionsEPNS0_18FilePrefetchBufferEPNS0_20InternalIteratorBaseINS0_5SliceEEEPS1_bRKNS0_22BlockBasedTableOptionsEimmPNS0_23BlockCacheLookupContextEE3$_0JNS0_11PinningTierESJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit": ; preds = %entry, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i, %sw.bb3.i.i.i, %sw.bb4.i.i.i
-  %retval.0.i.i.i = phi i1 [ true, %sw.bb4.i.i.i ], [ %tobool.i.i.i, %sw.bb3.i.i.i ], [ %call4.i.i.i.i, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i ], [ false, %entry ]
+"_ZSt10__invoke_rIbRZN7rocksdb15BlockBasedTable28PrefetchIndexAndFilterBlocksERKNS0_11ReadOptionsEPNS0_18FilePrefetchBufferEPNS0_20InternalIteratorBaseINS0_5SliceEEEPS1_bRKNS0_22BlockBasedTableOptionsEimmPNS0_23BlockCacheLookupContextEE3$_0JNS0_11PinningTierESJ_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit": ; preds = %entry, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i, %sw.bb3.i.i.i, %sw.epilog.i.i.i
+  %retval.0.i.i.i = phi i1 [ false, %sw.epilog.i.i.i ], [ %tobool.i.i.i, %sw.bb3.i.i.i ], [ %call4.i.i.i.i, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i ], [ true, %entry ]
   ret i1 %retval.0.i.i.i
 }
 

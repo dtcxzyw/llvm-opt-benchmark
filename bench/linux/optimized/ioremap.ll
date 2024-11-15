@@ -150,7 +150,7 @@ define internal fastcc ptr @__ioremap_caller(i64 noundef %0, i64 noundef %1, i32
   %11 = icmp eq i64 %1, 0
   %12 = icmp ult i64 %10, %0
   %13 = or i1 %11, %12
-  br i1 %13, label %97, label %14
+  br i1 %13, label %95, label %14
 
 14:                                               ; preds = %4
   %15 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 29), align 1
@@ -164,7 +164,7 @@ define internal fastcc ptr @__ioremap_caller(i64 noundef %0, i64 noundef %1, i32
   tail call void asm sideeffect "521: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 521) #12, !srcloc !6
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 206, i32 2307, i64 12) #12, !srcloc !7
   tail call void asm sideeffect "522: nop\0A\09.pushsection .discard.instr_end\0A\09.long 522b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 522) #12, !srcloc !8
-  br label %97
+  br label %95
 
 21:                                               ; preds = %14
   store i32 0, ptr %8, align 4, !annotation !9
@@ -177,7 +177,7 @@ define internal fastcc ptr @__ioremap_caller(i64 noundef %0, i64 noundef %1, i32
 
 26:                                               ; preds = %21
   %27 = load i1, ptr @__ioremap_caller.__already_done, align 1
-  br i1 %27, label %97, label %28, !prof !10
+  br i1 %27, label %95, label %28, !prof !10
 
 28:                                               ; preds = %26
   store i1 true, ptr @__ioremap_caller.__already_done, align 1
@@ -187,7 +187,7 @@ define internal fastcc ptr @__ioremap_caller(i64 noundef %0, i64 noundef %1, i32
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 217, i32 2313, i64 12) #12, !srcloc !13
   call void asm sideeffect "525: nop\0A\09.pushsection .discard.instr_end\0A\09.long 525b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 525) #12, !srcloc !14
   call void asm sideeffect "526: nop\0A\09.pushsection .discard.instr_end\0A\09.long 526b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 526) #12, !srcloc !15
-  br label %97
+  br label %95
 
 29:                                               ; preds = %21
   %30 = and i64 %0, 4095
@@ -203,7 +203,7 @@ define internal fastcc ptr @__ioremap_caller(i64 noundef %0, i64 noundef %1, i32
 
 39:                                               ; preds = %29
   %40 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef %37) #13
-  br label %97
+  br label %95
 
 41:                                               ; preds = %29
   %42 = load i32, ptr %8, align 4
@@ -231,7 +231,7 @@ define internal fastcc ptr @__ioremap_caller(i64 noundef %0, i64 noundef %1, i32
 56:                                               ; preds = %52, %47
   %57 = load i32, ptr %8, align 4
   %58 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, i64 noundef %35, i64 noundef %36, i32 noundef %2, i32 noundef %57) #13
-  br label %95
+  br label %93
 
 59:                                               ; preds = %52, %44
   %60 = load i32, ptr %8, align 4
@@ -241,75 +241,69 @@ define internal fastcc ptr @__ioremap_caller(i64 noundef %0, i64 noundef %1, i32
   %62 = phi i32 [ %60, %59 ], [ %2, %41 ]
   %63 = load i64, ptr @__default_kernel_pte_mask, align 8
   %64 = and i64 %63, -9223372036854775453
-  switch i32 %62, label %68 [
-    i32 0, label %72
+  switch i32 %62, label %66 [
+    i32 0, label %70
     i32 2, label %65
-    i32 1, label %66
-    i32 4, label %67
+    i32 1, label %65
+    i32 4, label %65
   ]
 
-65:                                               ; preds = %61
-  br label %68
+65:                                               ; preds = %61, %61, %61
+  br label %66
 
-66:                                               ; preds = %61
-  br label %68
+66:                                               ; preds = %65, %61
+  %67 = phi i32 [ %62, %65 ], [ 3, %61 ]
+  %68 = call i64 @cachemode2protval(i32 noundef %67) #12
+  %69 = or i64 %68, %64
+  br label %70
 
-67:                                               ; preds = %61
-  br label %68
+70:                                               ; preds = %66, %61
+  %71 = phi i64 [ %64, %61 ], [ %69, %66 ]
+  %72 = call ptr @get_vm_area_caller(i64 noundef %34, i64 noundef 1, ptr noundef %3) #12
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %93, label %74
 
-68:                                               ; preds = %67, %66, %65, %61
-  %69 = phi i32 [ %62, %67 ], [ %62, %66 ], [ %62, %65 ], [ 3, %61 ]
-  %70 = call i64 @cachemode2protval(i32 noundef %69) #12
-  %71 = or i64 %70, %64
-  br label %72
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds i8, ptr %72, i64 48
+  store i64 %35, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %72, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = call i32 @memtype_kernel_map_sync(i64 noundef %35, i64 noundef %34, i32 noundef %62) #12
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %92
 
-72:                                               ; preds = %68, %61
-  %73 = phi i64 [ %64, %61 ], [ %71, %68 ]
-  %74 = call ptr @get_vm_area_caller(i64 noundef %34, i64 noundef 1, ptr noundef %3) #12
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %95, label %76
+81:                                               ; preds = %74
+  %82 = add i64 %34, %78
+  %83 = call i32 @ioremap_page_range(i64 noundef %78, i64 noundef %82, i64 noundef %35, i64 %71) #12
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %92
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %74, i64 48
-  store i64 %35, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %74, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = ptrtoint ptr %79 to i64
-  %81 = call i32 @memtype_kernel_map_sync(i64 noundef %35, i64 noundef %34, i32 noundef %62) #12
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %94
+85:                                               ; preds = %81
+  %86 = add i64 %30, %78
+  %87 = inttoptr i64 %86 to ptr
+  %88 = call i32 @iomem_map_sanity_check(i64 noundef %0, i64 noundef %1) #12
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %95, label %90
 
-83:                                               ; preds = %76
-  %84 = add i64 %34, %80
-  %85 = call i32 @ioremap_page_range(i64 noundef %80, i64 noundef %84, i64 noundef %35, i64 %73) #12
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %94
-
-87:                                               ; preds = %83
-  %88 = add i64 %30, %80
-  %89 = inttoptr i64 %88 to ptr
-  %90 = call i32 @iomem_map_sanity_check(i64 noundef %0, i64 noundef %1) #12
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %97, label %92
-
-92:                                               ; preds = %87
-  %93 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %3) #13
-  br label %97
-
-94:                                               ; preds = %83, %76
-  call void @free_vm_area(ptr noundef nonnull %74) #12
+90:                                               ; preds = %85
+  %91 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %3) #13
   br label %95
 
-95:                                               ; preds = %94, %72, %56
-  %96 = call i32 @memtype_free(i64 noundef %35, i64 noundef %36) #12
-  br label %97
+92:                                               ; preds = %81, %74
+  call void @free_vm_area(ptr noundef nonnull %72) #12
+  br label %93
 
-97:                                               ; preds = %95, %92, %87, %39, %28, %26, %19, %4
-  %98 = phi ptr [ null, %39 ], [ null, %95 ], [ null, %19 ], [ null, %4 ], [ null, %26 ], [ null, %28 ], [ %89, %92 ], [ %89, %87 ]
+93:                                               ; preds = %92, %70, %56
+  %94 = call i32 @memtype_free(i64 noundef %35, i64 noundef %36) #12
+  br label %95
+
+95:                                               ; preds = %93, %90, %85, %39, %28, %26, %19, %4
+  %96 = phi ptr [ null, %39 ], [ null, %93 ], [ null, %19 ], [ null, %4 ], [ null, %26 ], [ null, %28 ], [ %87, %90 ], [ %87, %85 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  ret ptr %98
+  ret ptr %96
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)

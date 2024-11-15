@@ -1216,19 +1216,18 @@ define hidden void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr nocaptur
 26:                                               ; preds = %20, %17, %24
   %.0 = phi i8 [ %25, %24 ], [ %., %17 ], [ %.27, %20 ]
   %.not25 = icmp eq ptr %3, null
-  br i1 %.not25, label %40, label %27
+  br i1 %.not25, label %39, label %27
 
 27:                                               ; preds = %26
-  switch i8 %.0, label %39 [
+  switch i8 %.0, label %38 [
     i8 0, label %28
     i8 1, label %.sink.split
-    i8 2, label %30
-    i8 3, label %31
-    i8 6, label %32
-    i8 7, label %33
-    i8 8, label %34
-    i8 14, label %35
-    i8 -15, label %36
+    i8 -15, label %35
+    i8 3, label %30
+    i8 6, label %31
+    i8 7, label %32
+    i8 8, label %33
+    i8 14, label %34
   ]
 
 28:                                               ; preds = %27
@@ -1251,26 +1250,23 @@ define hidden void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr nocaptur
   br label %.sink.split
 
 35:                                               ; preds = %27
+  %36 = load i32, ptr @smpp_gsm7_unpacked, align 4
+  %.not26 = icmp eq i32 %36, 0
+  %37 = select i1 %.not26, i32 44, i32 76
   br label %.sink.split
 
-36:                                               ; preds = %27
-  %37 = load i32, ptr @smpp_gsm7_unpacked, align 4
-  %.not26 = icmp eq i32 %37, 0
-  %38 = select i1 %.not26, i32 44, i32 76
+38:                                               ; preds = %27
   br label %.sink.split
 
-39:                                               ; preds = %27
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %27, %39, %36, %35, %34, %33, %32, %31, %30, %28
-  %.sink = phi i32 [ %29, %28 ], [ -1, %30 ], [ 10, %31 ], [ 18, %32 ], [ 24, %33 ], [ 6, %34 ], [ 82, %35 ], [ %38, %36 ], [ -1, %39 ], [ 0, %27 ]
+.sink.split:                                      ; preds = %27, %38, %35, %34, %33, %32, %31, %30, %28
+  %.sink = phi i32 [ %29, %28 ], [ 10, %30 ], [ 18, %31 ], [ 24, %32 ], [ 6, %33 ], [ 82, %34 ], [ %37, %35 ], [ -1, %38 ], [ 0, %27 ]
   store i32 %.sink, ptr %3, align 4
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.sink.split, %26
-  %41 = load i32, ptr %2, align 4
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %2, align 4
+39:                                               ; preds = %.sink.split, %26
+  %40 = load i32, ptr %2, align 4
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %2, align 4
   ret void
 }
 

@@ -11917,7 +11917,7 @@ entry:
     i8 1, label %sw.epilog.thread17.i
     i8 3, label %sw.bb6.i
     i8 4, label %sw.bb9.i
-    i8 5, label %sw.bb12.i
+    i8 5, label %sw.bb9.i
   ]
 
 sw.epilog.thread17.i:                             ; preds = %entry
@@ -11929,14 +11929,11 @@ sw.epilog.thread17.i:                             ; preds = %entry
 sw.bb6.i:                                         ; preds = %sw.epilog.thread17.i, %entry
   br label %sw.epilog16.sink.split.i
 
-sw.bb9.i:                                         ; preds = %entry
+sw.bb9.i:                                         ; preds = %entry, %entry
   br label %sw.epilog16.sink.split.i
 
-sw.bb12.i:                                        ; preds = %entry
-  br label %sw.epilog16.sink.split.i
-
-sw.epilog16.sink.split.i:                         ; preds = %sw.bb12.i, %sw.bb9.i, %sw.bb6.i, %entry
-  %.sink.i = phi i8 [ 7, %sw.bb12.i ], [ 7, %sw.bb9.i ], [ 6, %sw.bb6.i ], [ 1, %entry ]
+sw.epilog16.sink.split.i:                         ; preds = %sw.bb9.i, %sw.bb6.i, %entry
+  %.sink.i = phi i8 [ 7, %sw.bb9.i ], [ 6, %sw.bb6.i ], [ 1, %entry ]
   store i8 %.sink.i, ptr %current.i, align 8, !tbaa !247
   br label %_ZN4entt7processI17succeeded_processjE4tickEjPv.exit
 

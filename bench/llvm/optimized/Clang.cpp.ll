@@ -41756,11 +41756,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit4835: ; preds = %11
   switch i32 %11574, label %11575 [
     i32 1, label %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit.i
     i32 4, label %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit.i
-    i32 0, label %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit.i.i
     i32 5, label %11576
-    i32 6, label %_ZN5clang11ObjCRuntime30isLegacyDispatchDefaultForArchEN4llvm6Triple8ArchTypeE.exit.i
+    i32 0, label %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit.i.i
     i32 2, label %_ZN5clang11ObjCRuntime30isLegacyDispatchDefaultForArchEN4llvm6Triple8ArchTypeE.exit.i
     i32 3, label %_ZN5clang11ObjCRuntime30isLegacyDispatchDefaultForArchEN4llvm6Triple8ArchTypeE.exit.i
+    i32 6, label %_ZN5clang11ObjCRuntime30isLegacyDispatchDefaultForArchEN4llvm6Triple8ArchTypeE.exit.i
   ]
 
 11575:                                            ; preds = %11572
@@ -41963,7 +41963,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit53.i4847: ; preds =
   %11670 = add i64 %11669, 1
   %11671 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %248) #20
   %.not.i.i.i54.i4848 = icmp ugt i64 %11670, %11671
-  %.100.i = select i1 %11668, i64 ptrtoint (ptr @.str.902 to i64), i64 ptrtoint (ptr @.str.903 to i64)
+  %.99.i = select i1 %11668, i64 ptrtoint (ptr @.str.902 to i64), i64 ptrtoint (ptr @.str.903 to i64)
   br i1 %.not.i.i.i54.i4848, label %.sink.split.sink.split.i4850, label %.sink.split.i4849
 
 .sink.split.sink.split.i4850:                     ; preds = %11663
@@ -41974,7 +41974,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit53.i4847: ; preds =
   %11672 = load ptr, ptr %248, align 8
   %11673 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %248) #20
   %11674 = getelementptr inbounds ptr, ptr %11672, i64 %11673
-  store i64 %.100.i, ptr %11674, align 1
+  store i64 %.99.i, ptr %11674, align 1
   %11675 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %248) #20
   %11676 = add i64 %11675, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(144) %248, i64 noundef %11676) #20
@@ -42009,8 +42009,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit59.i: ; preds = %11
 
 11691:                                            ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit59.i, %11677, %11643
   %11692 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 noundef 1206)
-  %.not86.i = icmp eq ptr %11692, null
-  br i1 %.not86.i, label %11694, label %11693
+  %.not85.i = icmp eq ptr %11692, null
+  br i1 %.not85.i, label %11694, label %11693
 
 11693:                                            ; preds = %11691
   call void @_ZNK4llvm3opt7ArgList12ClaimAllArgsENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 1456) #20
@@ -42093,7 +42093,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit63.i: ; preds = %11
     i32 0, label %11737
     i32 2, label %11745
     i32 3, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i
-    i32 4, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
+    i32 4, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i
     i32 5, label %11750
     i32 6, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i
   ]
@@ -42103,42 +42103,42 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit63.i: ; preds = %11
   %11731 = load i64, ptr %11730, align 4
   %11732 = trunc i64 %11731 to i32
   %11733 = icmp ult i32 %11732, 10
-  br i1 %11733, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i, label %11734
+  br i1 %11733, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i, label %11734
 
 11734:                                            ; preds = %11729
   %.not17.i.i.i.i = icmp ne i32 %11732, 10
   %11735 = and i64 %11731, 9223372032559808512
   %11736 = icmp samesign ugt i64 %11735, 30064771071
-  %or.cond83.i = select i1 %.not17.i.i.i.i, i1 true, i1 %11736
-  br i1 %or.cond83.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
+  %or.cond82.i = select i1 %.not17.i.i.i.i, i1 true, i1 %11736
+  br i1 %or.cond82.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i
 
 11737:                                            ; preds = %11727
   %11738 = getelementptr inbounds nuw i8, ptr %425, i64 4
   %11739 = load i64, ptr %11738, align 4
   %11740 = trunc i64 %11739 to i32
   %11741 = icmp ult i32 %11740, 10
-  br i1 %11741, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i, label %11742
+  br i1 %11741, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i, label %11742
 
 11742:                                            ; preds = %11737
   %.not15.i.i.i.i = icmp ne i32 %11740, 10
   %11743 = and i64 %11739, 9223372032559808512
   %11744 = icmp samesign ugt i64 %11743, 30064771071
-  %or.cond85.i = select i1 %.not15.i.i.i.i, i1 true, i1 %11744
-  br i1 %or.cond85.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
+  %or.cond84.i = select i1 %.not15.i.i.i.i, i1 true, i1 %11744
+  br i1 %or.cond84.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i
 
 11745:                                            ; preds = %11727
   %11746 = getelementptr inbounds nuw i8, ptr %425, i64 4
   %11747 = load i64, ptr %11746, align 4
   %11748 = trunc i64 %11747 to i32
   %11749 = icmp ugt i32 %11748, 4
-  br i1 %11749, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
+  br i1 %11749, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i
 
 11750:                                            ; preds = %11727
   %11751 = getelementptr inbounds nuw i8, ptr %425, i64 4
   %11752 = load i64, ptr %11751, align 4
   %11753 = trunc i64 %11752 to i32
   switch i32 %11753, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i [
-    i32 0, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
+    i32 0, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i
     i32 1, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.i
   ]
 
@@ -42148,13 +42148,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit63.i: ; preds = %11
 _ZNK5clang11ObjCRuntime10allowsWeakEv.exit.i:     ; preds = %11750
   %11755 = and i64 %11752, 9223372028264841216
   %11756 = icmp samesign ugt i64 %11755, 25769803775
-  br i1 %11756, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
+  br i1 %11756, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i
 
-_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i: ; preds = %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.i, %11750, %11745, %11742, %11737, %11734, %11729, %11727
+_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i: ; preds = %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.i, %11750, %11745, %11742, %11737, %11734, %11729, %11727
   %11757 = call noundef zeroext i1 @_ZNK4llvm3opt6Option7matchesENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(16) %11726, i32 1478) #20
   br i1 %11757, label %11758, label %11775
 
-11758:                                            ; preds = %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i
+11758:                                            ; preds = %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i
   %11759 = load ptr, ptr %502, align 8, !noalias !1482
   %11760 = getelementptr inbounds nuw i8, ptr %11759, i64 368
   store i32 0, ptr %11760, align 8, !noalias !1485
@@ -42196,10 +42196,10 @@ _ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i: ; preds = %_ZNK5clang11ObjC
   call void @_ZNK4llvm3opt3Arg6renderERKNS0_7ArgListERNS_11SmallVectorIPKcLj16EEE(ptr noundef nonnull align 8 dereferenceable(88) %11726, ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(144) %248) #20
   br label %11775
 
-11775:                                            ; preds = %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i4844, %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread79.i, %11725, %11722
+11775:                                            ; preds = %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i4844, %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread78.i, %11725, %11722
   %11776 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 noundef 1462)
-  %.not87.i = icmp eq ptr %11776, null
-  br i1 %.not87.i, label %_ZL17RenderObjCOptionsRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm6TripleERKNS7_3opt7ArgListERNS_11ObjCRuntimeEbRKNS0_9InputInfoERNS7_11SmallVectorIPKcLj16EEE.exit, label %11777
+  %.not86.i = icmp eq ptr %11776, null
+  br i1 %.not86.i, label %_ZL17RenderObjCOptionsRKN5clang6driver9ToolChainERKNS0_6DriverERKN4llvm6TripleERKNS7_3opt7ArgListERNS_11ObjCRuntimeEbRKNS0_9InputInfoERNS7_11SmallVectorIPKcLj16EEE.exit, label %11777
 
 11777:                                            ; preds = %11775
   %11778 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %248) #20

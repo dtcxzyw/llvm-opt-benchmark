@@ -35107,7 +35107,7 @@ _ZL10stbi__get8P13stbi__context.exit86:           ; preds = %34, %_ZL19stbi__ref
   %63 = getelementptr inbounds i8, ptr %0, i64 208
   %64 = load ptr, ptr %63, align 8
   store ptr %64, ptr %7, align 8
-  br label %387
+  br label %386
 
 _ZL10stbi__get8P13stbi__context.exit86.thread:    ; preds = %37, %_ZL10stbi__get8P13stbi__context.exit86
   %65 = phi ptr [ %57, %_ZL10stbi__get8P13stbi__context.exit86 ], [ %31, %37 ]
@@ -35179,7 +35179,7 @@ _ZL10stbi__get8P13stbi__context.exit92:           ; preds = %68, %71, %_ZL19stbi
   %97 = getelementptr inbounds i8, ptr %0, i64 208
   %98 = load ptr, ptr %97, align 8
   store ptr %98, ptr %7, align 8
-  br label %387
+  br label %386
 
 99:                                               ; preds = %92
   %100 = getelementptr inbounds i8, ptr %0, i64 16
@@ -35280,7 +35280,7 @@ _ZL10stbi__get8P13stbi__context.exit100.thread:   ; preds = %121, %_ZL10stbi__ge
   %143 = getelementptr inbounds i8, ptr %0, i64 208
   %144 = load ptr, ptr %143, align 8
   store ptr %144, ptr %7, align 8
-  br label %387
+  br label %386
 
 145:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit100, %_ZL10stbi__get8P13stbi__context.exit100, %_ZL10stbi__get8P13stbi__context.exit100, %_ZL10stbi__get8P13stbi__context.exit100, %_ZL10stbi__get8P13stbi__context.exit100
   %146 = load ptr, ptr %100, align 8
@@ -35322,7 +35322,7 @@ _ZL10stbi__get8P13stbi__context.exit100.thread:   ; preds = %121, %_ZL10stbi__ge
   %165 = getelementptr inbounds i8, ptr %0, i64 208
   %166 = load ptr, ptr %165, align 8
   store ptr %166, ptr %7, align 8
-  br label %387
+  br label %386
 
 167:                                              ; preds = %160
   %168 = getelementptr inbounds i8, ptr %0, i64 16
@@ -35473,7 +35473,7 @@ _ZL13stbi__get16leP13stbi__context.exit:          ; preds = %212, %215, %_ZL19st
   %245 = getelementptr inbounds i8, ptr %0, i64 208
   %246 = load ptr, ptr %245, align 8
   store ptr %246, ptr %7, align 8
-  br label %387
+  br label %386
 
 247:                                              ; preds = %_ZL13stbi__get16leP13stbi__context.exit
   %248 = icmp ult ptr %236, %235
@@ -35592,7 +35592,7 @@ _ZL13stbi__get16leP13stbi__context.exit122:       ; preds = %275, %278, %_ZL19st
   %308 = getelementptr inbounds i8, ptr %0, i64 208
   %309 = load ptr, ptr %308, align 8
   store ptr %309, ptr %7, align 8
-  br label %387
+  br label %386
 
 310:                                              ; preds = %_ZL13stbi__get16leP13stbi__context.exit122
   %311 = icmp ult ptr %299, %298
@@ -35695,7 +35695,7 @@ _ZL10stbi__get8P13stbi__context.exit134.sink.split: ; preds = %_ZL19stbi__refill
 
 _ZL10stbi__get8P13stbi__context.exit134:          ; preds = %_ZL10stbi__get8P13stbi__context.exit134.sink.split, %340
   %.not = icmp eq i8 %.070.shrunk, 0
-  br i1 %.not, label %368, label %359
+  br i1 %.not, label %367, label %359
 
 359:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit134
   switch i8 %.0.i127, label %360 [
@@ -35710,87 +35710,84 @@ _ZL10stbi__get8P13stbi__context.exit134:          ; preds = %_ZL10stbi__get8P13s
   %363 = getelementptr inbounds i8, ptr %0, i64 208
   %364 = load ptr, ptr %363, align 8
   store ptr %364, ptr %7, align 8
-  br label %387
+  br label %386
 
 365:                                              ; preds = %359, %359
   switch i8 %.070.shrunk, label %_ZL18stbi__tga_get_compiiPi.exit.thread146 [
     i8 8, label %_ZL18stbi__tga_get_compiiPi.exit.thread
     i8 16, label %366
-    i8 15, label %367
+    i8 15, label %366
     i8 24, label %_ZL18stbi__tga_get_compiiPi.exit
     i8 32, label %_ZL18stbi__tga_get_compiiPi.exit
   ]
 
-366:                                              ; preds = %365
+366:                                              ; preds = %365, %365
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
-367:                                              ; preds = %365
-  br label %_ZL18stbi__tga_get_compiiPi.exit.thread
-
-368:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit134
+367:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit134
   switch i8 %.0.i127, label %_ZL18stbi__tga_get_compiiPi.exit.thread146 [
     i8 8, label %_ZL18stbi__tga_get_compiiPi.exit.thread
-    i8 16, label %369
-    i8 15, label %372
-    i8 24, label %373
-    i8 32, label %373
+    i8 16, label %368
+    i8 15, label %371
+    i8 24, label %372
+    i8 32, label %372
   ]
 
-369:                                              ; preds = %368
-  %370 = and i8 %.0.i91, -9
-  %371 = icmp eq i8 %370, 3
-  %.mux.i = select i1 %371, i32 2, i32 3
+368:                                              ; preds = %367
+  %369 = and i8 %.0.i91, -9
+  %370 = icmp eq i8 %369, 3
+  %.mux.i = select i1 %370, i32 2, i32 3
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
-372:                                              ; preds = %368
+371:                                              ; preds = %367
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
-373:                                              ; preds = %368, %368
-  %374 = lshr i8 %.0.i127, 3
-  %375 = zext nneg i8 %374 to i32
+372:                                              ; preds = %367, %367
+  %373 = lshr i8 %.0.i127, 3
+  %374 = zext nneg i8 %373 to i32
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
 _ZL18stbi__tga_get_compiiPi.exit:                 ; preds = %365, %365
-  %376 = lshr i8 %.070.shrunk, 3
-  %377 = zext nneg i8 %376 to i32
+  %375 = lshr i8 %.070.shrunk, 3
+  %376 = zext nneg i8 %375 to i32
   br label %_ZL18stbi__tga_get_compiiPi.exit.thread
 
-_ZL18stbi__tga_get_compiiPi.exit.thread146:       ; preds = %368, %365
-  %378 = getelementptr inbounds i8, ptr %0, i64 200
-  %379 = load ptr, ptr %378, align 8
-  store ptr %379, ptr %5, align 8
-  %380 = getelementptr inbounds i8, ptr %0, i64 208
-  %381 = load ptr, ptr %380, align 8
-  store ptr %381, ptr %7, align 8
-  br label %387
+_ZL18stbi__tga_get_compiiPi.exit.thread146:       ; preds = %367, %365
+  %377 = getelementptr inbounds i8, ptr %0, i64 200
+  %378 = load ptr, ptr %377, align 8
+  store ptr %378, ptr %5, align 8
+  %379 = getelementptr inbounds i8, ptr %0, i64 208
+  %380 = load ptr, ptr %379, align 8
+  store ptr %380, ptr %7, align 8
+  br label %386
 
-_ZL18stbi__tga_get_compiiPi.exit.thread:          ; preds = %_ZL18stbi__tga_get_compiiPi.exit, %372, %369, %368, %373, %367, %366, %365
-  %.069144 = phi i32 [ %377, %_ZL18stbi__tga_get_compiiPi.exit ], [ 3, %372 ], [ %.mux.i, %369 ], [ 1, %368 ], [ %375, %373 ], [ 3, %367 ], [ 3, %366 ], [ 1, %365 ]
+_ZL18stbi__tga_get_compiiPi.exit.thread:          ; preds = %_ZL18stbi__tga_get_compiiPi.exit, %371, %368, %367, %372, %366, %365
+  %.069144 = phi i32 [ %376, %_ZL18stbi__tga_get_compiiPi.exit ], [ 3, %371 ], [ %.mux.i, %368 ], [ 1, %367 ], [ %374, %372 ], [ 3, %366 ], [ 1, %365 ]
   %.not78 = icmp eq ptr %1, null
-  br i1 %.not78, label %383, label %382
+  br i1 %.not78, label %382, label %381
 
-382:                                              ; preds = %_ZL18stbi__tga_get_compiiPi.exit.thread
+381:                                              ; preds = %_ZL18stbi__tga_get_compiiPi.exit.thread
   store i32 %240, ptr %1, align 4
-  br label %383
+  br label %382
 
-383:                                              ; preds = %382, %_ZL18stbi__tga_get_compiiPi.exit.thread
+382:                                              ; preds = %381, %_ZL18stbi__tga_get_compiiPi.exit.thread
   %.not79 = icmp eq ptr %2, null
-  br i1 %.not79, label %385, label %384
+  br i1 %.not79, label %384, label %383
 
-384:                                              ; preds = %383
+383:                                              ; preds = %382
   store i32 %303, ptr %2, align 4
-  br label %385
+  br label %384
 
-385:                                              ; preds = %384, %383
+384:                                              ; preds = %383, %382
   %.not80 = icmp eq ptr %3, null
-  br i1 %.not80, label %387, label %386
+  br i1 %.not80, label %386, label %385
 
-386:                                              ; preds = %385
+385:                                              ; preds = %384
   store i32 %.069144, ptr %3, align 4
-  br label %387
+  br label %386
 
-387:                                              ; preds = %385, %386, %_ZL18stbi__tga_get_compiiPi.exit.thread146, %360, %305, %242, %162, %_ZL10stbi__get8P13stbi__context.exit100.thread, %94, %60
-  %.0 = phi i32 [ 0, %60 ], [ 0, %94 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit100.thread ], [ 0, %242 ], [ 0, %305 ], [ 0, %360 ], [ 0, %_ZL18stbi__tga_get_compiiPi.exit.thread146 ], [ 0, %162 ], [ 1, %386 ], [ 1, %385 ]
+386:                                              ; preds = %384, %385, %_ZL18stbi__tga_get_compiiPi.exit.thread146, %360, %305, %242, %162, %_ZL10stbi__get8P13stbi__context.exit100.thread, %94, %60
+  %.0 = phi i32 [ 0, %60 ], [ 0, %94 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit100.thread ], [ 0, %242 ], [ 0, %305 ], [ 0, %360 ], [ 0, %_ZL18stbi__tga_get_compiiPi.exit.thread146 ], [ 0, %162 ], [ 1, %385 ], [ 1, %384 ]
   ret i32 %.0
 }
 
@@ -120288,7 +120285,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 
 40:                                               ; preds = %38
   invoke void @__cxa_throw(ptr nonnull %36, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #58
-          to label %168 unwind label %42
+          to label %153 unwind label %42
 
 .thread:                                          ; preds = %35
   %41 = landingpad { ptr, i32 }
@@ -120299,12 +120296,12 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #54
-  br label %167
+  br label %152
 
 44:                                               ; preds = %.thread110, %.thread
   %.pn109 = phi { ptr, i32 } [ %41, %.thread ], [ %39, %.thread110 ]
   call void @__cxa_free_exception(ptr %36) #54
-  br label %167
+  br label %152
 
 45:                                               ; preds = %6
   %46 = getelementptr inbounds i8, ptr %3, i64 56
@@ -120377,7 +120374,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
     i32 65, label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split
     i32 2, label %87
     i32 3, label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
-    i32 4, label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
+    i32 4, label %88
     i32 34, label %88
     i32 35, label %89
     i32 36, label %90
@@ -120386,7 +120383,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 87:                                               ; preds = %86, %.fold.split
   br label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
 
-88:                                               ; preds = %86, %.fold.split
+88:                                               ; preds = %86, %.fold.split, %.fold.split
   br label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
 
 89:                                               ; preds = %86, %.fold.split
@@ -120401,142 +120398,130 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 _ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split: ; preds = %86, %.fold.split
   br label %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
 
-_ZN8tinygltfL22GetNumComponentsInTypeEj.exit:     ; preds = %.fold.split, %.fold.split, %86, %86, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split, %87, %88, %89, %90, %91
-  %.0129 = phi i32 [ %5, %87 ], [ %5, %88 ], [ %5, %89 ], [ %5, %90 ], [ %5, %91 ], [ %85, %86 ], [ %85, %86 ], [ %5, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split ], [ %5, %.fold.split ], [ %5, %.fold.split ]
-  %.0.i = phi i32 [ 2, %87 ], [ 4, %88 ], [ 9, %89 ], [ 16, %90 ], [ -1, %91 ], [ %85, %86 ], [ %85, %86 ], [ 1, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split ], [ %85, %.fold.split ], [ %85, %.fold.split ]
+_ZN8tinygltfL22GetNumComponentsInTypeEj.exit:     ; preds = %.fold.split, %86, %86, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split, %87, %88, %89, %90, %91
+  %.0121 = phi i32 [ %5, %87 ], [ %5, %89 ], [ %5, %90 ], [ %5, %91 ], [ %5, %88 ], [ %85, %86 ], [ %85, %86 ], [ %5, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split ], [ %5, %.fold.split ]
+  %.0.i = phi i32 [ 2, %87 ], [ 9, %89 ], [ 16, %90 ], [ -1, %91 ], [ 4, %88 ], [ %85, %86 ], [ %85, %86 ], [ 1, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit.fold.split ], [ %85, %.fold.split ]
   %92 = getelementptr inbounds i8, ptr %.087, i64 52
   %93 = load i32, ptr %92, align 4
-  switch i32 %93, label %140 [
+  switch i32 %93, label %103 [
     i32 5120, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
     i32 5121, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
-    i32 5122, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread
-    i32 5123, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread120
-    i32 5124, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread
-    i32 5125, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread122
-    i32 5126, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread116
-    i32 5130, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread118
+    i32 5122, label %94
+    i32 5123, label %94
+    i32 5124, label %95
+    i32 5125, label %95
+    i32 5126, label %95
+    i32 5130, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread
   ]
 
-_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread120: ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
-  %94 = shl nsw i32 %.0.i, 1
-  %95 = getelementptr inbounds i8, ptr %71, i64 56
-  %96 = load i64, ptr %95, align 8
-  %97 = zext i32 %94 to i64
-  %98 = icmp ugt i64 %96, %97
-  %99 = trunc i64 %96 to i32
-  %100 = select i1 %98, i32 %99, i32 %94
-  %101 = load ptr, ptr %77, align 8
-  %102 = and i64 %82, 4294967295
-  %103 = getelementptr inbounds i8, ptr %101, i64 %102
-  %104 = getelementptr inbounds i8, ptr %.087, i64 56
-  %105 = load i64, ptr %104, align 8
-  %106 = trunc i64 %105 to i32
-  tail call void @_ZN4gltf8internal12populateAttrItEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %103, i32 noundef %100, i32 noundef %106, i32 noundef %.0129)
-  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread
+94:                                               ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
+  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
 
-_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread122: ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
-  %107 = shl nsw i32 %.0.i, 2
-  %108 = getelementptr inbounds i8, ptr %71, i64 56
-  %109 = load i64, ptr %108, align 8
-  %110 = zext i32 %107 to i64
-  %111 = icmp ugt i64 %109, %110
-  %112 = trunc i64 %109 to i32
-  %113 = select i1 %111, i32 %112, i32 %107
-  %114 = load ptr, ptr %77, align 8
-  %115 = and i64 %82, 4294967295
-  %116 = getelementptr inbounds i8, ptr %114, i64 %115
-  %117 = getelementptr inbounds i8, ptr %.087, i64 56
-  %118 = load i64, ptr %117, align 8
-  %119 = trunc i64 %118 to i32
-  tail call void @_ZN4gltf8internal12populateAttrIjEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %116, i32 noundef %113, i32 noundef %119, i32 noundef %.0129)
-  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread
+95:                                               ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
+  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
 
-_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread116: ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
-  %120 = shl nsw i32 %.0.i, 2
-  %121 = getelementptr inbounds i8, ptr %71, i64 56
-  %122 = load i64, ptr %121, align 8
-  %123 = zext i32 %120 to i64
-  %124 = icmp ugt i64 %122, %123
-  %125 = trunc i64 %122 to i32
-  %126 = select i1 %124, i32 %125, i32 %120
+_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread: ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
+  %96 = shl nsw i32 %.0.i, 3
+  %97 = getelementptr inbounds i8, ptr %71, i64 56
+  %98 = load i64, ptr %97, align 8
+  %99 = zext i32 %96 to i64
+  %100 = icmp ugt i64 %98, %99
+  %101 = trunc i64 %98 to i32
+  %102 = select i1 %100, i32 %101, i32 %96
+  br label %118
+
+103:                                              ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
+  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
+
+_ZN8tinygltfL23GetComponentSizeInBytesEj.exit:    ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit, %94, %95, %103
+  %.0.i102 = phi i32 [ 2, %94 ], [ 4, %95 ], [ -1, %103 ], [ 1, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit ], [ 1, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit ]
+  %104 = mul nsw i32 %.0.i102, %.0.i
+  %105 = getelementptr inbounds i8, ptr %71, i64 56
+  %106 = load i64, ptr %105, align 8
+  %107 = zext i32 %104 to i64
+  %108 = icmp ugt i64 %106, %107
+  %109 = trunc i64 %106 to i32
+  %110 = select i1 %108, i32 %109, i32 %104
+  switch i32 %93, label %151 [
+    i32 5126, label %111
+    i32 5130, label %118
+    i32 5121, label %126
+    i32 5123, label %133
+    i32 5125, label %140
+  ]
+
+111:                                              ; preds = %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
+  %112 = load ptr, ptr %77, align 8
+  %113 = and i64 %82, 4294967295
+  %114 = getelementptr inbounds i8, ptr %112, i64 %113
+  %115 = getelementptr inbounds i8, ptr %.087, i64 56
+  %116 = load i64, ptr %115, align 8
+  %117 = trunc i64 %116 to i32
+  tail call void @_ZN4gltf8internal12populateAttrIfEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %114, i32 noundef %110, i32 noundef %117, i32 noundef %.0121)
+  br label %151
+
+118:                                              ; preds = %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
+  %119 = phi i32 [ %102, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread ], [ %110, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit ]
+  %120 = load ptr, ptr %77, align 8
+  %121 = and i64 %82, 4294967295
+  %122 = getelementptr inbounds i8, ptr %120, i64 %121
+  %123 = getelementptr inbounds i8, ptr %.087, i64 56
+  %124 = load i64, ptr %123, align 8
+  %125 = trunc i64 %124 to i32
+  tail call void @_ZN4gltf8internal12populateAttrIdEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %122, i32 noundef %119, i32 noundef %125, i32 noundef %.0121)
+  br label %151
+
+126:                                              ; preds = %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
   %127 = load ptr, ptr %77, align 8
   %128 = and i64 %82, 4294967295
   %129 = getelementptr inbounds i8, ptr %127, i64 %128
   %130 = getelementptr inbounds i8, ptr %.087, i64 56
   %131 = load i64, ptr %130, align 8
   %132 = trunc i64 %131 to i32
-  tail call void @_ZN4gltf8internal12populateAttrIfEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %129, i32 noundef %126, i32 noundef %132, i32 noundef %.0129)
-  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread
+  tail call void @_ZN4gltf8internal12populateAttrIhEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %129, i32 noundef %110, i32 noundef %132, i32 noundef %.0121)
+  br label %151
 
-_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread118: ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
-  %133 = shl nsw i32 %.0.i, 3
-  %134 = getelementptr inbounds i8, ptr %71, i64 56
-  %135 = load i64, ptr %134, align 8
-  %136 = zext i32 %133 to i64
-  %137 = icmp ugt i64 %135, %136
-  %138 = trunc i64 %135 to i32
-  %139 = select i1 %137, i32 %138, i32 %133
-  br label %148
+133:                                              ; preds = %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
+  %134 = load ptr, ptr %77, align 8
+  %135 = and i64 %82, 4294967295
+  %136 = getelementptr inbounds i8, ptr %134, i64 %135
+  %137 = getelementptr inbounds i8, ptr %.087, i64 56
+  %138 = load i64, ptr %137, align 8
+  %139 = trunc i64 %138 to i32
+  tail call void @_ZN4gltf8internal12populateAttrItEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %136, i32 noundef %110, i32 noundef %139, i32 noundef %.0121)
+  br label %151
 
-140:                                              ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit
-  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
-
-_ZN8tinygltfL23GetComponentSizeInBytesEj.exit:    ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit, %140
-  %.0.i102 = phi i32 [ -1, %140 ], [ 1, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit ], [ 1, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit ]
-  %141 = mul nsw i32 %.0.i102, %.0.i
-  %142 = getelementptr inbounds i8, ptr %71, i64 56
-  %143 = load i64, ptr %142, align 8
-  %144 = zext i32 %141 to i64
-  %145 = icmp ugt i64 %143, %144
-  %146 = trunc i64 %143 to i32
-  %147 = select i1 %145, i32 %146, i32 %141
-  switch i32 %93, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread [
-    i32 5121, label %156
-    i32 5130, label %148
-  ]
-
-148:                                              ; preds = %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread118, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
-  %149 = phi i32 [ %139, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread118 ], [ %147, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit ]
-  %150 = load ptr, ptr %77, align 8
-  %151 = and i64 %82, 4294967295
-  %152 = getelementptr inbounds i8, ptr %150, i64 %151
-  %153 = getelementptr inbounds i8, ptr %.087, i64 56
-  %154 = load i64, ptr %153, align 8
-  %155 = trunc i64 %154 to i32
-  tail call void @_ZN4gltf8internal12populateAttrIdEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %152, i32 noundef %149, i32 noundef %155, i32 noundef %.0129)
-  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread
-
-156:                                              ; preds = %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
-  %157 = load ptr, ptr %77, align 8
-  %158 = and i64 %82, 4294967295
-  %159 = getelementptr inbounds i8, ptr %157, i64 %158
-  %160 = getelementptr inbounds i8, ptr %.087, i64 56
-  %161 = load i64, ptr %160, align 8
-  %162 = trunc i64 %161 to i32
-  tail call void @_ZN4gltf8internal12populateAttrIhEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %159, i32 noundef %147, i32 noundef %162, i32 noundef %.0129)
-  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread
+140:                                              ; preds = %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit
+  %141 = load ptr, ptr %77, align 8
+  %142 = and i64 %82, 4294967295
+  %143 = getelementptr inbounds i8, ptr %141, i64 %142
+  %144 = getelementptr inbounds i8, ptr %.087, i64 56
+  %145 = load i64, ptr %144, align 8
+  %146 = trunc i64 %145 to i32
+  tail call void @_ZN4gltf8internal12populateAttrIjEEvNS0_14GLTF_ATTR_TYPEER9MeshModelRSt6vectorIP8CVertexOSaIS7_EEPKT_jji(i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %143, i32 noundef %110, i32 noundef %146, i32 noundef %.0121)
+  br label %151
 
 .thread112:                                       ; preds = %45, %49, %53, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.thread, %65
-  %163 = icmp ne i32 %4, 4
-  %164 = getelementptr inbounds i8, ptr %3, i64 56
-  %165 = load i32, ptr %164, align 8
-  %.not100 = icmp eq i32 %165, 0
-  %or.cond = select i1 %163, i1 true, i1 %.not100
-  br i1 %or.cond, label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread, label %166
+  %147 = icmp ne i32 %4, 4
+  %148 = getelementptr inbounds i8, ptr %3, i64 56
+  %149 = load i32, ptr %148, align 8
+  %.not100 = icmp eq i32 %149, 0
+  %or.cond = select i1 %147, i1 true, i1 %.not100
+  br i1 %or.cond, label %151, label %150
 
-166:                                              ; preds = %.thread112
+150:                                              ; preds = %.thread112
   tail call void @_ZN4gltf8internal17populateTrianglesIhEEvR9MeshModelRKSt6vectorIP8CVertexOSaIS6_EEPKT_j(ptr noundef nonnull align 8 dereferenceable(1288) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef null, i32 noundef 0)
-  br label %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread
+  br label %151
 
-_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread: ; preds = %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit, %.thread112, %166, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread116, %156, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread122, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread120, %148
-  %.086 = phi i1 [ true, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread116 ], [ true, %148 ], [ true, %156 ], [ true, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread120 ], [ true, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit.thread122 ], [ true, %166 ], [ false, %.thread112 ], [ false, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit ], [ false, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit ], [ false, %_ZN8tinygltfL22GetNumComponentsInTypeEj.exit ]
+151:                                              ; preds = %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit, %.thread112, %150, %111, %126, %140, %133, %118
+  %.086 = phi i1 [ true, %111 ], [ true, %118 ], [ true, %126 ], [ true, %133 ], [ true, %140 ], [ true, %150 ], [ false, %.thread112 ], [ false, %_ZN8tinygltfL23GetComponentSizeInBytesEj.exit ]
   ret i1 %.086
 
-167:                                              ; preds = %42, %44
+152:                                              ; preds = %42, %44
   %.pn108 = phi { ptr, i32 } [ %43, %42 ], [ %.pn109, %44 ]
   resume { ptr, i32 } %.pn108
 
-168:                                              ; preds = %40
+153:                                              ; preds = %40
   unreachable
 }
 

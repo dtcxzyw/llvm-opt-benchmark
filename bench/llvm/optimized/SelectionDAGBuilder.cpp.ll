@@ -8527,7 +8527,7 @@ _ZNK4llvm15FunctionVarLocs8locs_endEPKNS_11InstructionE.exit: ; preds = %.lr.ph.
   br label %93
 
 93:                                               ; preds = %.lr.ph, %_ZN4llvm8DebugLocD2Ev.exit
-  %.0131 = phi ptr [ %61, %.lr.ph ], [ %179, %_ZN4llvm8DebugLocD2Ev.exit ]
+  %.0131 = phi ptr [ %61, %.lr.ph ], [ %182, %_ZN4llvm8DebugLocD2Ev.exit ]
   %94 = load i32, ptr %.0131, align 8
   %95 = zext i32 %94 to i64
   %96 = load ptr, ptr %28, align 8
@@ -8541,700 +8541,674 @@ _ZNK4llvm15FunctionVarLocs8locs_endEPKNS_11InstructionE.exit: ; preds = %.lr.ph.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %103 = load ptr, ptr %101, align 8
   %104 = load i8, ptr %103, align 4
-  switch i8 %104, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i [
-    i8 4, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i
-    i8 5, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 6, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 7, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 8, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 9, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 10, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 11, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 12, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 13, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 14, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 15, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 16, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 17, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 18, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 19, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 20, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 21, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 22, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 23, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 24, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 25, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 26, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 27, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 28, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 29, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 30, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 31, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 32, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 33, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 34, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-    i8 35, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
-  ]
+  %105 = icmp eq i8 %104, 4
+  br i1 %105, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i, label %106
+
+106:                                              ; preds = %93
+  %107 = zext i8 %104 to i32
+  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %107, -5
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
 
 _ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i: ; preds = %93
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 128
-  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %105) #32
-  %107 = and i64 %106, 4294967295
-  %108 = icmp eq i64 %107, 0
-  br i1 %108, label %109, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 128
+  %109 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %108) #32
+  %110 = and i64 %109, 4294967295
+  %111 = icmp eq i64 %110, 0
+  br i1 %111, label %112, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
 
-109:                                              ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i
-  %110 = call noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40) %102) #32
-  br i1 %110, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
+112:                                              ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i
+  %113 = call noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40) %102) #32
+  br i1 %113, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread
 
-_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i: ; preds = %109, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i, %93
+_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i: ; preds = %112, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i, %106
   call void @_ZNK4llvm18RawLocationWrapper12location_opsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %101) #32
-  %111 = load i64, ptr %9, align 8, !noalias !69
-  %112 = load i64, ptr %87, align 8, !noalias !78
-  %.not3.i.i.i.i.i.i.i = icmp eq i64 %111, %112
+  %114 = load i64, ptr %9, align 8, !noalias !69
+  %115 = load i64, ptr %87, align 8, !noalias !78
+  %.not3.i.i.i.i.i.i.i = icmp eq i64 %114, %115
   br i1 %.not3.i.i.i.i.i.i.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, %124
-  %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i, %124 ], [ %111, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ]
-  %113 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, 4
-  %114 = icmp eq i64 %113, 0
-  %115 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -8
-  %116 = inttoptr i64 %115 to ptr
-  br i1 %114, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, label %117
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, %127
+  %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i, %127 ], [ %114, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ]
+  %116 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, 4
+  %117 = icmp eq i64 %116, 0
+  %118 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -8
+  %119 = inttoptr i64 %118 to ptr
+  br i1 %117, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, label %120
 
-117:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %118 = load ptr, ptr %116, align 8, !noalias !87
+120:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %121 = load ptr, ptr %119, align 8, !noalias !87
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i: ; preds = %117, %.lr.ph.i.i.i.i.i.i.i
-  %119 = phi ptr [ %118, %117 ], [ %116, %.lr.ph.i.i.i.i.i.i.i ]
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 128
-  %121 = load ptr, ptr %120, align 8, !noalias !87
-  %122 = load i8, ptr %121, align 8, !noalias !87
-  %123 = and i8 %122, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %123, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit, label %124
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i: ; preds = %120, %.lr.ph.i.i.i.i.i.i.i
+  %122 = phi ptr [ %121, %120 ], [ %119, %.lr.ph.i.i.i.i.i.i.i ]
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 128
+  %124 = load ptr, ptr %123, align 8, !noalias !87
+  %125 = load i8, ptr %124, align 8, !noalias !87
+  %126 = and i8 %125, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %126, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit, label %127
 
-124:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i
-  %125 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -4
-  %126 = add nuw i64 %125, 8
-  %127 = add nuw i64 %115, 136
-  %storemerge.i.i.i.i.i.i.i.i = select i1 %114, i64 %127, i64 %126
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i, %112
+127:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i
+  %128 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -4
+  %129 = add nuw i64 %128, 8
+  %130 = add nuw i64 %118, 136
+  %storemerge.i.i.i.i.i.i.i.i = select i1 %117, i64 %130, i64 %129
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i, %115
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread119, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !94
 
-_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread119: ; preds = %124
+_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread119: ; preds = %127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %137
+  br label %140
 
-_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread: ; preds = %109, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93
+_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread: ; preds = %106, %112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %128
+  br label %131
 
 _ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
-  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i = phi i64 [ %111, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ], [ %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i ]
-  %.not122 = icmp eq i64 %112, %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i
+  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i = phi i64 [ %114, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ], [ %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i ]
+  %.not122 = icmp eq i64 %115, %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br i1 %.not122, label %137, label %128
+  br i1 %.not122, label %140, label %131
 
-128:                                              ; preds = %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread, %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-  %129 = load ptr, ptr %99, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %.0131, i64 16
-  %131 = load ptr, ptr %130, align 8
-  store ptr %131, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %131, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit, label %132
+131:                                              ; preds = %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread, %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
+  %132 = load ptr, ptr %99, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %.0131, i64 16
+  %134 = load ptr, ptr %133, align 8
+  store ptr %134, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %134, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit, label %135
 
-132:                                              ; preds = %128
-  %133 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %131, i64 1) #32
+135:                                              ; preds = %131
+  %136 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %134, i64 1) #32
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
-_ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %128, %132
-  %134 = load i32, ptr %88, align 8
-  call void @_ZN4llvm19SelectionDAGBuilder20handleKillDebugValueEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %98, ptr noundef %129, ptr noundef nonnull %10, i32 noundef %134)
-  %135 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i76 = icmp eq ptr %135, null
-  br i1 %.not.i.i.i.i76, label %_ZN4llvm8DebugLocD2Ev.exit, label %136
+_ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %131, %135
+  %137 = load i32, ptr %88, align 8
+  call void @_ZN4llvm19SelectionDAGBuilder20handleKillDebugValueEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %98, ptr noundef %132, ptr noundef nonnull %10, i32 noundef %137)
+  %138 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i76 = icmp eq ptr %138, null
+  br i1 %.not.i.i.i.i76, label %_ZN4llvm8DebugLocD2Ev.exit, label %139
 
-136:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %135) #32
+139:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %138) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-137:                                              ; preds = %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread119, %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
+140:                                              ; preds = %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread119, %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
   call void @_ZNK4llvm18RawLocationWrapper12location_opsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %101) #32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %89, i64 noundef 6) #32
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %138 = load i64, ptr %12, align 8, !noalias !95
-  store i64 %138, ptr %7, align 8, !alias.scope !95
+  %141 = load i64, ptr %12, align 8, !noalias !95
+  store i64 %141, ptr %7, align 8, !alias.scope !95
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  %139 = load i64, ptr %90, align 8, !noalias !98
-  store i64 %139, ptr %8, align 8, !alias.scope !98
+  %142 = load i64, ptr %90, align 8, !noalias !98
+  store i64 %142, ptr %8, align 8, !alias.scope !98
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendINS_20location_op_iteratorEvEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %7, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %140 = load ptr, ptr %11, align 8
-  %141 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #32
-  %142 = load ptr, ptr %99, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %.0131, i64 16
-  %144 = load ptr, ptr %143, align 8
-  store ptr %144, ptr %13, align 8
-  %.not.i.i.i.i77 = icmp eq ptr %144, null
-  br i1 %.not.i.i.i.i77, label %_ZN4llvm8DebugLocC2ERKS0_.exit78, label %145
+  %143 = load ptr, ptr %11, align 8
+  %144 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #32
+  %145 = load ptr, ptr %99, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %.0131, i64 16
+  %147 = load ptr, ptr %146, align 8
+  store ptr %147, ptr %13, align 8
+  %.not.i.i.i.i77 = icmp eq ptr %147, null
+  br i1 %.not.i.i.i.i77, label %_ZN4llvm8DebugLocC2ERKS0_.exit78, label %148
 
-145:                                              ; preds = %137
-  %146 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %144, i64 1) #32
+148:                                              ; preds = %140
+  %149 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %147, i64 1) #32
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit78
 
-_ZN4llvm8DebugLocC2ERKS0_.exit78:                 ; preds = %137, %145
-  %147 = load i32, ptr %88, align 8
-  %148 = load ptr, ptr %101, align 8
-  %149 = load i8, ptr %148, align 4
-  %150 = icmp eq i8 %149, 4
-  %151 = call noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder16handleDebugValueENS_8ArrayRefIPKNS_5ValueEEEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEjb(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr %140, i64 %141, ptr noundef %98, ptr noundef %142, ptr noundef nonnull %13, i32 noundef %147, i1 noundef zeroext %150)
-  %152 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i79 = icmp eq ptr %152, null
-  br i1 %.not.i.i.i.i79, label %_ZN4llvm8DebugLocD2Ev.exit80, label %153
+_ZN4llvm8DebugLocC2ERKS0_.exit78:                 ; preds = %140, %148
+  %150 = load i32, ptr %88, align 8
+  %151 = load ptr, ptr %101, align 8
+  %152 = load i8, ptr %151, align 4
+  %153 = icmp eq i8 %152, 4
+  %154 = call noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder16handleDebugValueENS_8ArrayRefIPKNS_5ValueEEEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEjb(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr %143, i64 %144, ptr noundef %98, ptr noundef %145, ptr noundef nonnull %13, i32 noundef %150, i1 noundef zeroext %153)
+  %155 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i79 = icmp eq ptr %155, null
+  br i1 %.not.i.i.i.i79, label %_ZN4llvm8DebugLocD2Ev.exit80, label %156
 
-153:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit78
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %152) #32
+156:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit78
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %155) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit80
 
-_ZN4llvm8DebugLocD2Ev.exit80:                     ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit78, %153
-  br i1 %151, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %154
+_ZN4llvm8DebugLocD2Ev.exit80:                     ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit78, %156
+  br i1 %154, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %157
 
-154:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit80
+157:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit80
   call void @_ZNK4llvm18RawLocationWrapper12location_opsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %101) #32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %91, i64 noundef 4) #32
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  %155 = load i64, ptr %15, align 8, !noalias !101
-  store i64 %155, ptr %5, align 8, !alias.scope !101
+  %158 = load i64, ptr %15, align 8, !noalias !101
+  store i64 %158, ptr %5, align 8, !alias.scope !101
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  %156 = load i64, ptr %92, align 8, !noalias !104
-  store i64 %156, ptr %6, align 8, !alias.scope !104
+  %159 = load i64, ptr %92, align 8, !noalias !104
+  store i64 %159, ptr %6, align 8, !alias.scope !104
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendINS_20location_op_iteratorEvEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %157 = load i32, ptr %.0131, align 8
-  %158 = zext i32 %157 to i64
-  %159 = load ptr, ptr %28, align 8
-  %160 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %159, i64 %158
-  %161 = load ptr, ptr %160, align 8
-  %162 = load ptr, ptr %99, align 8
-  %163 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #32
-  %164 = icmp ugt i64 %163, 1
-  %165 = load ptr, ptr %143, align 8
-  store ptr %165, ptr %16, align 8
-  %.not.i.i.i.i81 = icmp eq ptr %165, null
-  br i1 %.not.i.i.i.i81, label %_ZN4llvm8DebugLocC2ERKS0_.exit82, label %166
+  %160 = load i32, ptr %.0131, align 8
+  %161 = zext i32 %160 to i64
+  %162 = load ptr, ptr %28, align 8
+  %163 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %162, i64 %161
+  %164 = load ptr, ptr %163, align 8
+  %165 = load ptr, ptr %99, align 8
+  %166 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #32
+  %167 = icmp ugt i64 %166, 1
+  %168 = load ptr, ptr %146, align 8
+  store ptr %168, ptr %16, align 8
+  %.not.i.i.i.i81 = icmp eq ptr %168, null
+  br i1 %.not.i.i.i.i81, label %_ZN4llvm8DebugLocC2ERKS0_.exit82, label %169
 
-166:                                              ; preds = %154
-  %167 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %165, i64 1) #32
+169:                                              ; preds = %157
+  %170 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %168, i64 1) #32
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit82
 
-_ZN4llvm8DebugLocC2ERKS0_.exit82:                 ; preds = %154, %166
-  %168 = load i32, ptr %88, align 8
-  call void @_ZN4llvm19SelectionDAGBuilder20addDanglingDebugInfoERNS_15SmallVectorImplIPNS_5ValueEEEPNS_15DILocalVariableEPNS_12DIExpressionEbNS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %161, ptr noundef %162, i1 noundef zeroext %164, ptr noundef nonnull %16, i32 noundef %168)
-  %169 = load ptr, ptr %16, align 8
-  %.not.i.i.i.i83 = icmp eq ptr %169, null
-  br i1 %.not.i.i.i.i83, label %_ZN4llvm8DebugLocD2Ev.exit84, label %170
+_ZN4llvm8DebugLocC2ERKS0_.exit82:                 ; preds = %157, %169
+  %171 = load i32, ptr %88, align 8
+  call void @_ZN4llvm19SelectionDAGBuilder20addDanglingDebugInfoERNS_15SmallVectorImplIPNS_5ValueEEEPNS_15DILocalVariableEPNS_12DIExpressionEbNS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %164, ptr noundef %165, i1 noundef zeroext %167, ptr noundef nonnull %16, i32 noundef %171)
+  %172 = load ptr, ptr %16, align 8
+  %.not.i.i.i.i83 = icmp eq ptr %172, null
+  br i1 %.not.i.i.i.i83, label %_ZN4llvm8DebugLocD2Ev.exit84, label %173
 
-170:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit82
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %169) #32
+173:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit82
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %172) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit84
 
-_ZN4llvm8DebugLocD2Ev.exit84:                     ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit82, %170
-  %171 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #32
-  %172 = load ptr, ptr %14, align 8
-  %173 = icmp eq ptr %172, %91
-  br i1 %173, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %174
+_ZN4llvm8DebugLocD2Ev.exit84:                     ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit82, %173
+  %174 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #32
+  %175 = load ptr, ptr %14, align 8
+  %176 = icmp eq ptr %175, %91
+  br i1 %176, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %177
 
-174:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit84
-  call void @free(ptr noundef %172) #32
+177:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit84
+  call void @free(ptr noundef %175) #32
   br label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit:  ; preds = %174, %_ZN4llvm8DebugLocD2Ev.exit84, %_ZN4llvm8DebugLocD2Ev.exit80
-  %175 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %11) #32
-  %176 = load ptr, ptr %11, align 8
-  %177 = icmp eq ptr %176, %89
-  br i1 %177, label %_ZN4llvm8DebugLocD2Ev.exit, label %178
+_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit:  ; preds = %177, %_ZN4llvm8DebugLocD2Ev.exit84, %_ZN4llvm8DebugLocD2Ev.exit80
+  %178 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %11) #32
+  %179 = load ptr, ptr %11, align 8
+  %180 = icmp eq ptr %179, %89
+  br i1 %180, label %_ZN4llvm8DebugLocD2Ev.exit, label %181
 
-178:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
-  call void @free(ptr noundef %176) #32
+181:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
+  call void @free(ptr noundef %179) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %178, %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, %136, %_ZN4llvm8DebugLocC2ERKS0_.exit
-  %179 = getelementptr inbounds i8, ptr %.0131, i64 32
-  %.not65 = icmp eq ptr %179, %86
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %181, %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, %139, %_ZN4llvm8DebugLocC2ERKS0_.exit
+  %182 = getelementptr inbounds i8, ptr %.0131, i64 32
+  %.not65 = icmp eq ptr %182, %86
   br i1 %.not65, label %.loopexit.loopexit, label %93, !llvm.loop !107
 
 .loopexit.loopexit:                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit
   %.pre = load ptr, ptr %25, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre164 = load ptr, ptr %.phi.trans.insert, align 8
-  %180 = icmp eq ptr %.pre164, null
+  %183 = icmp eq ptr %.pre164, null
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNK4llvm15FunctionVarLocs8locs_endEPKNS_11InstructionE.exit, %2
-  %.not66 = phi i1 [ %180, %.loopexit.loopexit ], [ false, %_ZNK4llvm15FunctionVarLocs8locs_endEPKNS_11InstructionE.exit ], [ true, %2 ]
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %182 = load ptr, ptr %181, align 8
-  %.not.i.i = icmp eq ptr %182, null
-  br i1 %.not.i.i, label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, label %183
+  %.not66 = phi i1 [ %183, %.loopexit.loopexit ], [ false, %_ZNK4llvm15FunctionVarLocs8locs_endEPKNS_11InstructionE.exit ], [ true, %2 ]
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %185 = load ptr, ptr %184, align 8
+  %.not.i.i = icmp eq ptr %185, null
+  br i1 %.not.i.i, label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, label %186
 
-183:                                              ; preds = %.loopexit
-  %184 = call { ptr, ptr } @_ZN4llvm9DbgMarker17getDbgRecordRangeEv(ptr noundef nonnull align 8 dereferenceable(24) %182) #32
+186:                                              ; preds = %.loopexit
+  %187 = call { ptr, ptr } @_ZN4llvm9DbgMarker17getDbgRecordRangeEv(ptr noundef nonnull align 8 dereferenceable(24) %185) #32
   br label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
 
-_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit: ; preds = %.loopexit, %183
-  %.pn.i.i = phi { ptr, ptr } [ %184, %183 ], [ { ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8) }, %.loopexit ]
-  %185 = extractvalue { ptr, ptr } %.pn.i.i, 0
-  %186 = extractvalue { ptr, ptr } %.pn.i.i, 1
-  %.not123151 = icmp eq ptr %185, %186
+_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit: ; preds = %.loopexit, %186
+  %.pn.i.i = phi { ptr, ptr } [ %187, %186 ], [ { ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8) }, %.loopexit ]
+  %188 = extractvalue { ptr, ptr } %.pn.i.i, 0
+  %189 = extractvalue { ptr, ptr } %.pn.i.i, 1
+  %.not123151 = icmp eq ptr %188, %189
   br i1 %.not123151, label %._crit_edge, label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %188 = getelementptr inbounds i8, ptr %19, i64 16
-  %189 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  br label %191
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %191 = getelementptr inbounds i8, ptr %19, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  br label %194
 
-191:                                              ; preds = %.lr.ph153, %_ZN4llvm8DebugLocD2Ev.exit92
-  %.sroa.0111.0152 = phi ptr [ %185, %.lr.ph153 ], [ %349, %_ZN4llvm8DebugLocD2Ev.exit92 ]
-  %192 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 32
-  %193 = load i8, ptr %192, align 8
-  %194 = icmp ne i8 %193, 1
+194:                                              ; preds = %.lr.ph153, %_ZN4llvm8DebugLocD2Ev.exit92
+  %.sroa.0111.0152 = phi ptr [ %188, %.lr.ph153 ], [ %352, %_ZN4llvm8DebugLocD2Ev.exit92 ]
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 32
+  %196 = load i8, ptr %195, align 8
+  %197 = icmp ne i8 %196, 1
   %.not67124 = icmp eq ptr %.sroa.0111.0152, null
-  %.not67 = or i1 %.not67124, %194
-  br i1 %.not67, label %208, label %195
+  %.not67 = or i1 %.not67124, %197
+  br i1 %.not67, label %211, label %198
 
-195:                                              ; preds = %191
-  %196 = load ptr, ptr %25, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 40
-  %198 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_7DILabelEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %197) #32
+198:                                              ; preds = %194
+  %199 = load ptr, ptr %25, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 40
+  %201 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_7DILabelEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %200) #32
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
-  %200 = load ptr, ptr %199, align 8, !noalias !108
-  store ptr %200, ptr %17, align 8, !alias.scope !108
-  %.not.i.i.i.i.i = icmp eq ptr %200, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit, label %201
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
+  %203 = load ptr, ptr %202, align 8, !noalias !108
+  store ptr %203, ptr %17, align 8, !alias.scope !108
+  %.not.i.i.i.i.i = icmp eq ptr %203, null
+  br i1 %.not.i.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit, label %204
 
-201:                                              ; preds = %195
-  %202 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(8) %200, i64 1) #32
+204:                                              ; preds = %198
+  %205 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(8) %203, i64 1) #32
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit:          ; preds = %195, %201
-  %203 = load i32, ptr %187, align 8
-  %204 = call noundef ptr @_ZN4llvm12SelectionDAG11getDbgLabelEPNS_7DILabelERKNS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(904) %196, ptr noundef %198, ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %203) #32
-  %205 = load ptr, ptr %17, align 8
-  %.not.i.i.i.i86 = icmp eq ptr %205, null
-  br i1 %.not.i.i.i.i86, label %_ZN4llvm8DebugLocD2Ev.exit87, label %206
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit:          ; preds = %198, %204
+  %206 = load i32, ptr %190, align 8
+  %207 = call noundef ptr @_ZN4llvm12SelectionDAG11getDbgLabelEPNS_7DILabelERKNS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(904) %199, ptr noundef %201, ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %206) #32
+  %208 = load ptr, ptr %17, align 8
+  %.not.i.i.i.i86 = icmp eq ptr %208, null
+  br i1 %.not.i.i.i.i86, label %_ZN4llvm8DebugLocD2Ev.exit87, label %209
 
-206:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(8) %205) #32
+209:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(8) %208) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit87
 
-_ZN4llvm8DebugLocD2Ev.exit87:                     ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit, %206
-  %207 = load ptr, ptr %25, align 8
-  call void @_ZN4llvm12SelectionDAG11AddDbgLabelEPNS_10SDDbgLabelE(ptr noundef nonnull align 8 dereferenceable(904) %207, ptr noundef %204) #32
+_ZN4llvm8DebugLocD2Ev.exit87:                     ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit, %209
+  %210 = load ptr, ptr %25, align 8
+  call void @_ZN4llvm12SelectionDAG11AddDbgLabelEPNS_10SDDbgLabelE(ptr noundef nonnull align 8 dereferenceable(904) %210, ptr noundef %207) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit92
 
-208:                                              ; preds = %191
-  br i1 %.not66, label %209, label %_ZN4llvm8DebugLocD2Ev.exit92
+211:                                              ; preds = %194
+  br i1 %.not66, label %212, label %_ZN4llvm8DebugLocD2Ev.exit92
 
-209:                                              ; preds = %208
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 72
-  %211 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_15DILocalVariableEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %210) #32
-  %212 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 80
-  %213 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_12DIExpressionEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %212) #32
-  call void @_ZN4llvm19SelectionDAGBuilder21dropDanglingDebugInfoEPKNS_15DILocalVariableEPKNS_12DIExpressionE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %211, ptr noundef %213)
-  %214 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 64
-  %215 = load i8, ptr %214, align 8
-  %216 = icmp eq i8 %215, 0
-  br i1 %216, label %217, label %258
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 72
+  %214 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_15DILocalVariableEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %213) #32
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 80
+  %216 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_12DIExpressionEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %215) #32
+  call void @_ZN4llvm19SelectionDAGBuilder21dropDanglingDebugInfoEPKNS_15DILocalVariableEPKNS_12DIExpressionE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %214, ptr noundef %216)
+  %217 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 64
+  %218 = load i8, ptr %217, align 8
+  %219 = icmp eq i8 %218, 0
+  br i1 %219, label %220, label %261
 
-217:                                              ; preds = %209
-  %218 = load ptr, ptr %190, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 920
-  %220 = getelementptr inbounds nuw i8, ptr %218, i64 928
-  %221 = load ptr, ptr %220, align 8
-  %222 = load ptr, ptr %219, align 8
-  %223 = icmp eq ptr %221, %222
-  br i1 %223, label %224, label %234
+220:                                              ; preds = %212
+  %221 = load ptr, ptr %193, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 920
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 928
+  %224 = load ptr, ptr %223, align 8
+  %225 = load ptr, ptr %222, align 8
+  %226 = icmp eq ptr %224, %225
+  br i1 %226, label %227, label %237
 
-224:                                              ; preds = %217
-  %225 = getelementptr inbounds nuw i8, ptr %218, i64 940
-  %226 = load i32, ptr %225, align 4
-  %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds ptr, ptr %222, i64 %227
-  %.not1317.i.i = icmp eq i32 %226, 0
+227:                                              ; preds = %220
+  %228 = getelementptr inbounds nuw i8, ptr %221, i64 940
+  %229 = load i32, ptr %228, align 4
+  %230 = zext i32 %229 to i64
+  %231 = getelementptr inbounds ptr, ptr %225, i64 %230
+  %.not1317.i.i = icmp eq i32 %229, 0
   br i1 %.not1317.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %224, %231
-  %.01118.i.i = phi ptr [ %232, %231 ], [ %222, %224 ]
-  %229 = load ptr, ptr %.01118.i.i, align 8
-  %230 = icmp eq ptr %229, %.sroa.0111.0152
-  br i1 %230, label %_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit, label %231
+.lr.ph.i.i:                                       ; preds = %227, %234
+  %.01118.i.i = phi ptr [ %235, %234 ], [ %225, %227 ]
+  %232 = load ptr, ptr %.01118.i.i, align 8
+  %233 = icmp eq ptr %232, %.sroa.0111.0152
+  br i1 %233, label %_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit, label %234
 
-231:                                              ; preds = %.lr.ph.i.i
-  %232 = getelementptr inbounds i8, ptr %.01118.i.i, i64 8
-  %.not13.i.i = icmp eq ptr %232, %228
+234:                                              ; preds = %.lr.ph.i.i
+  %235 = getelementptr inbounds i8, ptr %.01118.i.i, i64 8
+  %.not13.i.i = icmp eq ptr %235, %231
   br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !111
 
-._crit_edge.i.i:                                  ; preds = %231, %224
-  %233 = getelementptr inbounds ptr, ptr %221, i64 %227
+._crit_edge.i.i:                                  ; preds = %234, %227
+  %236 = getelementptr inbounds ptr, ptr %224, i64 %230
   br label %_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit
 
-234:                                              ; preds = %217
-  %235 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %219, ptr noundef nonnull %.sroa.0111.0152) #32
-  %.not.i.i88 = icmp eq ptr %235, null
-  %.pre.i = load ptr, ptr %220, align 8
-  %.pre4.i = load ptr, ptr %219, align 8
-  br i1 %.not.i.i88, label %236, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i
+237:                                              ; preds = %220
+  %238 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %222, ptr noundef nonnull %.sroa.0111.0152) #32
+  %.not.i.i88 = icmp eq ptr %238, null
+  %.pre.i = load ptr, ptr %223, align 8
+  %.pre4.i = load ptr, ptr %222, align 8
+  br i1 %.not.i.i88, label %239, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i
 
-._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i: ; preds = %234
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %218, i64 940
+._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i: ; preds = %237
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %221, i64 940
   %.pre5.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit
 
-236:                                              ; preds = %234
-  %237 = icmp eq ptr %.pre.i, %.pre4.i
-  %238 = getelementptr inbounds nuw i8, ptr %218, i64 940
-  %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds nuw i8, ptr %218, i64 936
-  %241 = load i32, ptr %240, align 8
-  %.v.v.i14.i.i = select i1 %237, i32 %239, i32 %241
+239:                                              ; preds = %237
+  %240 = icmp eq ptr %.pre.i, %.pre4.i
+  %241 = getelementptr inbounds nuw i8, ptr %221, i64 940
+  %242 = load i32, ptr %241, align 4
+  %243 = getelementptr inbounds nuw i8, ptr %221, i64 936
+  %244 = load i32, ptr %243, align 8
+  %.v.v.i14.i.i = select i1 %240, i32 %242, i32 %244
   %.v.i15.i.i = zext i32 %.v.v.i14.i.i to i64
-  %242 = getelementptr inbounds ptr, ptr %.pre.i, i64 %.v.i15.i.i
+  %245 = getelementptr inbounds ptr, ptr %.pre.i, i64 %.v.i15.i.i
   br label %_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit
 
-_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i, %236
-  %243 = phi i32 [ %226, %._crit_edge.i.i ], [ %239, %236 ], [ %.pre5.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %226, %.lr.ph.i.i ]
-  %244 = phi ptr [ %221, %._crit_edge.i.i ], [ %.pre4.i, %236 ], [ %.pre4.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %221, %.lr.ph.i.i ]
-  %245 = phi ptr [ %221, %._crit_edge.i.i ], [ %.pre.i, %236 ], [ %.pre.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %221, %.lr.ph.i.i ]
-  %.0.i.i = phi ptr [ %233, %._crit_edge.i.i ], [ %242, %236 ], [ %235, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %.01118.i.i, %.lr.ph.i.i ]
-  %246 = icmp eq ptr %245, %244
-  %247 = getelementptr inbounds nuw i8, ptr %218, i64 936
-  %248 = load i32, ptr %247, align 8
-  %.v.v.i.i = select i1 %246, i32 %243, i32 %248
+_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i, %239
+  %246 = phi i32 [ %229, %._crit_edge.i.i ], [ %242, %239 ], [ %.pre5.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %229, %.lr.ph.i.i ]
+  %247 = phi ptr [ %224, %._crit_edge.i.i ], [ %.pre4.i, %239 ], [ %.pre4.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %224, %.lr.ph.i.i ]
+  %248 = phi ptr [ %224, %._crit_edge.i.i ], [ %.pre.i, %239 ], [ %.pre.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %224, %.lr.ph.i.i ]
+  %.0.i.i = phi ptr [ %236, %._crit_edge.i.i ], [ %245, %239 ], [ %238, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %.01118.i.i, %.lr.ph.i.i ]
+  %249 = icmp eq ptr %248, %247
+  %250 = getelementptr inbounds nuw i8, ptr %221, i64 936
+  %251 = load i32, ptr %250, align 8
+  %.v.v.i.i = select i1 %249, i32 %246, i32 %251
   %.v.i.i = zext i32 %.v.v.i.i to i64
-  %249 = getelementptr inbounds ptr, ptr %245, i64 %.v.i.i
-  %.not126 = icmp eq ptr %.0.i.i, %249
-  br i1 %.not126, label %250, label %_ZN4llvm8DebugLocD2Ev.exit92
+  %252 = getelementptr inbounds ptr, ptr %248, i64 %.v.i.i
+  %.not126 = icmp eq ptr %.0.i.i, %252
+  br i1 %.not126, label %253, label %_ZN4llvm8DebugLocD2Ev.exit92
 
-250:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit
-  %251 = call noundef ptr @_ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0111.0152, i32 noundef 0) #32
+253:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit
+  %254 = call noundef ptr @_ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0111.0152, i32 noundef 0) #32
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
-  %253 = load ptr, ptr %252, align 8, !noalias !112
-  store ptr %253, ptr %18, align 8, !alias.scope !112
-  %.not.i.i.i.i.i89 = icmp eq ptr %253, null
-  br i1 %.not.i.i.i.i.i89, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit90, label %254
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
+  %256 = load ptr, ptr %255, align 8, !noalias !112
+  store ptr %256, ptr %18, align 8, !alias.scope !112
+  %.not.i.i.i.i.i89 = icmp eq ptr %256, null
+  br i1 %.not.i.i.i.i.i89, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit90, label %257
 
-254:                                              ; preds = %250
-  %255 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %253, i64 1) #32
+257:                                              ; preds = %253
+  %258 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %256, i64 1) #32
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit90
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit90:        ; preds = %250, %254
-  call void @_ZN4llvm19SelectionDAGBuilder18handleDebugDeclareEPNS_5ValueEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %251, ptr noundef %211, ptr noundef %213, ptr noundef nonnull %18)
-  %256 = load ptr, ptr %18, align 8
-  %.not.i.i.i.i91 = icmp eq ptr %256, null
-  br i1 %.not.i.i.i.i91, label %_ZN4llvm8DebugLocD2Ev.exit92, label %257
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit90:        ; preds = %253, %257
+  call void @_ZN4llvm19SelectionDAGBuilder18handleDebugDeclareEPNS_5ValueEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %254, ptr noundef %214, ptr noundef %216, ptr noundef nonnull %18)
+  %259 = load ptr, ptr %18, align 8
+  %.not.i.i.i.i91 = icmp eq ptr %259, null
+  br i1 %.not.i.i.i.i91, label %_ZN4llvm8DebugLocD2Ev.exit92, label %260
 
-257:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit90
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %256) #32
+260:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit90
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %259) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit92
 
-258:                                              ; preds = %209
+261:                                              ; preds = %212
   call void @_ZNK4llvm17DbgVariableRecord12location_opsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.592") align 8 %20, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0111.0152) #32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull %188, i64 noundef 4) #32
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull %191, i64 noundef 4) #32
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  %259 = load i64, ptr %20, align 8, !noalias !115
-  store i64 %259, ptr %3, align 8, !alias.scope !115
+  %262 = load i64, ptr %20, align 8, !noalias !115
+  store i64 %262, ptr %3, align 8, !alias.scope !115
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  %260 = load i64, ptr %189, align 8, !noalias !118
-  store i64 %260, ptr %4, align 8, !alias.scope !118
+  %263 = load i64, ptr %192, align 8, !noalias !118
+  store i64 %263, ptr %4, align 8, !alias.scope !118
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendINS_17DbgVariableRecord20location_op_iteratorEvEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull %3, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %261 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #32
-  br i1 %261, label %262, label %270
+  %264 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #32
+  br i1 %264, label %265, label %273
 
-262:                                              ; preds = %258
+265:                                              ; preds = %261
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  %263 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
-  %264 = load ptr, ptr %263, align 8, !noalias !121
-  store ptr %264, ptr %21, align 8, !alias.scope !121
-  %.not.i.i.i.i.i93 = icmp eq ptr %264, null
-  br i1 %.not.i.i.i.i.i93, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit94, label %265
+  %266 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
+  %267 = load ptr, ptr %266, align 8, !noalias !121
+  store ptr %267, ptr %21, align 8, !alias.scope !121
+  %.not.i.i.i.i.i93 = icmp eq ptr %267, null
+  br i1 %.not.i.i.i.i.i93, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit94, label %268
 
-265:                                              ; preds = %262
-  %266 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %264, i64 1) #32
+268:                                              ; preds = %265
+  %269 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %267, i64 1) #32
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit94
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit94:        ; preds = %262, %265
-  %267 = load i32, ptr %187, align 8
-  call void @_ZN4llvm19SelectionDAGBuilder20handleKillDebugValueEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %211, ptr noundef %213, ptr noundef nonnull %21, i32 noundef %267)
-  %268 = load ptr, ptr %21, align 8
-  %.not.i.i.i.i95 = icmp eq ptr %268, null
-  br i1 %.not.i.i.i.i95, label %_ZN4llvm8DebugLocD2Ev.exit96, label %269
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit94:        ; preds = %265, %268
+  %270 = load i32, ptr %190, align 8
+  call void @_ZN4llvm19SelectionDAGBuilder20handleKillDebugValueEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %214, ptr noundef %216, ptr noundef nonnull %21, i32 noundef %270)
+  %271 = load ptr, ptr %21, align 8
+  %.not.i.i.i.i95 = icmp eq ptr %271, null
+  br i1 %.not.i.i.i.i95, label %_ZN4llvm8DebugLocD2Ev.exit96, label %272
 
-269:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit94
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %268) #32
+272:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit94
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %271) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit96
 
-270:                                              ; preds = %258
-  %271 = load ptr, ptr %19, align 8
-  %272 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %19) #32
-  %.idx2.i = shl nsw i64 %272, 3
-  %273 = getelementptr inbounds i8, ptr %271, i64 %.idx2.i
-  %274 = ashr i64 %272, 2
-  %275 = icmp sgt i64 %274, 0
-  br i1 %275, label %.lr.ph.preheader.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
+273:                                              ; preds = %261
+  %274 = load ptr, ptr %19, align 8
+  %275 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %19) #32
+  %.idx2.i = shl nsw i64 %275, 3
+  %276 = getelementptr inbounds i8, ptr %274, i64 %.idx2.i
+  %277 = ashr i64 %275, 2
+  %278 = icmp sgt i64 %277, 0
+  br i1 %278, label %.lr.ph.preheader.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %270
-  %276 = and i64 %.idx2.i, -32
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %271, i64 %276
+.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %273
+  %279 = and i64 %.idx2.i, -32
+  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %274, i64 %279
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %291, %.lr.ph.preheader.i.i.i.i.i.i
-  %.073.i.i.i.i.i.i = phi i64 [ %293, %291 ], [ %274, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.02972.i.i.i.i.i.i = phi ptr [ %292, %291 ], [ %271, %.lr.ph.preheader.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %294, %.lr.ph.preheader.i.i.i.i.i.i
+  %.073.i.i.i.i.i.i = phi i64 [ %296, %294 ], [ %277, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.02972.i.i.i.i.i.i = phi ptr [ %295, %294 ], [ %274, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02972.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
-  %277 = load i8, ptr %.029.val.i.i.i.i.i.i, align 8
-  %278 = and i8 %277, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %278, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %279
+  %280 = load i8, ptr %.029.val.i.i.i.i.i.i, align 8
+  %281 = and i8 %280, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %281, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %282
 
-279:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit.i.i.i.i.i.i"
-  %280 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 8
-  %.val.i.i.i.i.i.i = load ptr, ptr %280, align 8
+282:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit.i.i.i.i.i.i"
+  %283 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 8
+  %.val.i.i.i.i.i.i = load ptr, ptr %283, align 8
   %.not.i.i33.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, null
   br i1 %.not.i.i33.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit172", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit35.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit35.i.i.i.i.i.i": ; preds = %279
-  %281 = load i8, ptr %.val.i.i.i.i.i.i, align 8
-  %282 = and i8 %281, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i34.i.i.i.i.i.i = icmp eq i8 %282, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i34.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %283
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit35.i.i.i.i.i.i": ; preds = %282
+  %284 = load i8, ptr %.val.i.i.i.i.i.i, align 8
+  %285 = and i8 %284, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i34.i.i.i.i.i.i = icmp eq i8 %285, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i34.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %286
 
-283:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit35.i.i.i.i.i.i"
-  %284 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 16
-  %.val30.i.i.i.i.i.i = load ptr, ptr %284, align 8
+286:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit35.i.i.i.i.i.i"
+  %287 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 16
+  %.val30.i.i.i.i.i.i = load ptr, ptr %287, align 8
   %.not.i.i36.i.i.i.i.i.i = icmp eq ptr %.val30.i.i.i.i.i.i, null
   br i1 %.not.i.i36.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit174", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit38.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit38.i.i.i.i.i.i": ; preds = %283
-  %285 = load i8, ptr %.val30.i.i.i.i.i.i, align 8
-  %286 = and i8 %285, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i37.i.i.i.i.i.i = icmp eq i8 %286, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i37.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit168", label %287
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit38.i.i.i.i.i.i": ; preds = %286
+  %288 = load i8, ptr %.val30.i.i.i.i.i.i, align 8
+  %289 = and i8 %288, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i37.i.i.i.i.i.i = icmp eq i8 %289, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i37.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit168", label %290
 
-287:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit38.i.i.i.i.i.i"
-  %288 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 24
-  %.val31.i.i.i.i.i.i = load ptr, ptr %288, align 8
+290:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit38.i.i.i.i.i.i"
+  %291 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 24
+  %.val31.i.i.i.i.i.i = load ptr, ptr %291, align 8
   %.not.i.i39.i.i.i.i.i.i = icmp eq ptr %.val31.i.i.i.i.i.i, null
   br i1 %.not.i.i39.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit176", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit41.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit41.i.i.i.i.i.i": ; preds = %287
-  %289 = load i8, ptr %.val31.i.i.i.i.i.i, align 8
-  %290 = and i8 %289, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i40.i.i.i.i.i.i = icmp eq i8 %290, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i40.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit170", label %291
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit41.i.i.i.i.i.i": ; preds = %290
+  %292 = load i8, ptr %.val31.i.i.i.i.i.i, align 8
+  %293 = and i8 %292, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i40.i.i.i.i.i.i = icmp eq i8 %293, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i40.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit170", label %294
 
-291:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit41.i.i.i.i.i.i"
-  %292 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 32
-  %293 = add nsw i64 %.073.i.i.i.i.i.i, -1
-  %294 = icmp sgt i64 %.073.i.i.i.i.i.i, 1
-  br i1 %294, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !124
+294:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit41.i.i.i.i.i.i"
+  %295 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 32
+  %296 = add nsw i64 %.073.i.i.i.i.i.i, -1
+  %297 = icmp sgt i64 %.073.i.i.i.i.i.i, 1
+  br i1 %297, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !124
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %291
-  %295 = and i64 %272, 3
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %294
+  %298 = and i64 %275, 3
   br label %._crit_edge.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %270
-  %.pre-phi82.i.i.i.i.i.i = phi i64 [ %295, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %272, %270 ]
-  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %271, %270 ]
+._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %273
+  %.pre-phi82.i.i.i.i.i.i = phi i64 [ %298, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %275, %273 ]
+  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %274, %273 ]
   switch i64 %.pre-phi82.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.thread" [
-    i64 3, label %296
-    i64 2, label %301
-    i64 1, label %306
+    i64 3, label %299
+    i64 2, label %304
+    i64 1, label %309
   ]
 
-296:                                              ; preds = %._crit_edge.i.i.i.i.i.i
+299:                                              ; preds = %._crit_edge.i.i.i.i.i.i
   %.029.val32.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8
   %.not.i.i42.i.i.i.i.i.i = icmp eq ptr %.029.val32.i.i.i.i.i.i, null
   br i1 %.not.i.i42.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit44.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit44.i.i.i.i.i.i": ; preds = %296
-  %297 = load i8, ptr %.029.val32.i.i.i.i.i.i, align 8
-  %298 = and i8 %297, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i = icmp eq i8 %298, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %299
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit44.i.i.i.i.i.i": ; preds = %299
+  %300 = load i8, ptr %.029.val32.i.i.i.i.i.i, align 8
+  %301 = and i8 %300, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i = icmp eq i8 %301, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %302
 
-299:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit44.i.i.i.i.i.i"
-  %300 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
-  br label %301
+302:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit44.i.i.i.i.i.i"
+  %303 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
+  br label %304
 
-301:                                              ; preds = %299, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %300, %299 ]
+304:                                              ; preds = %302, %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %303, %302 ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %.not.i.i45.i.i.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i.i.i, null
   br i1 %.not.i.i45.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit47.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit47.i.i.i.i.i.i": ; preds = %301
-  %302 = load i8, ptr %.1.val.i.i.i.i.i.i, align 8
-  %303 = and i8 %302, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i46.i.i.i.i.i.i = icmp eq i8 %303, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i46.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %304
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit47.i.i.i.i.i.i": ; preds = %304
+  %305 = load i8, ptr %.1.val.i.i.i.i.i.i, align 8
+  %306 = and i8 %305, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i46.i.i.i.i.i.i = icmp eq i8 %306, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i46.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %307
 
-304:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit47.i.i.i.i.i.i"
-  %305 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
-  br label %306
+307:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit47.i.i.i.i.i.i"
+  %308 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
+  br label %309
 
-306:                                              ; preds = %304, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %305, %304 ]
+309:                                              ; preds = %307, %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %308, %307 ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %.not.i.i48.i.i.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i.i.i, null
   br i1 %.not.i.i48.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit50.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit50.i.i.i.i.i.i": ; preds = %306
-  %307 = load i8, ptr %.2.val.i.i.i.i.i.i, align 8
-  %308 = and i8 %307, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i49.i.i.i.i.i.i = icmp eq i8 %308, 12
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit50.i.i.i.i.i.i": ; preds = %309
+  %310 = load i8, ptr %.2.val.i.i.i.i.i.i, align 8
+  %311 = and i8 %310, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i49.i.i.i.i.i.i = icmp eq i8 %311, 12
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i49.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.thread"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit35.i.i.i.i.i.i"
-  %309 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
-
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit168": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit38.i.i.i.i.i.i"
-  %310 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
-
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit170": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit41.i.i.i.i.i.i"
-  %311 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
-
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit172": ; preds = %279
   %312 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit174": ; preds = %283
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit168": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit38.i.i.i.i.i.i"
   %313 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit176": ; preds = %287
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit170": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit41.i.i.i.i.i.i"
   %314 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit168", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit170", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit172", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit174", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit176", %296, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit44.i.i.i.i.i.i", %301, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit47.i.i.i.i.i.i", %306, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit50.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit44.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit47.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit50.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %296 ], [ %.1.i.i.i.i.i.i, %301 ], [ %.2.i.i.i.i.i.i, %306 ], [ %309, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %310, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit168" ], [ %311, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit170" ], [ %312, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit172" ], [ %313, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit174" ], [ %314, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit176" ], [ %.02972.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit.i.i.i.i.i.i" ], [ %.02972.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.not125 = icmp eq ptr %273, %.028.i.i.i.i.i.i
-  br i1 %.not125, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.thread", label %315
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit172": ; preds = %282
+  %315 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 8
+  br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
 
-315:                                              ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit174": ; preds = %286
+  %316 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 16
+  br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
+
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit176": ; preds = %290
+  %317 = getelementptr inbounds i8, ptr %.02972.i.i.i.i.i.i, i64 24
+  br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
+
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit168", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit170", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit172", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit174", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit176", %299, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit44.i.i.i.i.i.i", %304, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit47.i.i.i.i.i.i", %309, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit50.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit44.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit47.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit50.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %299 ], [ %.1.i.i.i.i.i.i, %304 ], [ %.2.i.i.i.i.i.i, %309 ], [ %312, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %313, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit168" ], [ %314, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit170" ], [ %315, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit172" ], [ %316, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit174" ], [ %317, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit176" ], [ %.02972.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit.i.i.i.i.i.i" ], [ %.02972.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.not125 = icmp eq ptr %276, %.028.i.i.i.i.i.i
+  br i1 %.not125, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.thread", label %318
+
+318:                                              ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  %316 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
-  %317 = load ptr, ptr %316, align 8, !noalias !125
-  store ptr %317, ptr %22, align 8, !alias.scope !125
-  %.not.i.i.i.i.i97 = icmp eq ptr %317, null
-  br i1 %.not.i.i.i.i.i97, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit98, label %318
+  %319 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
+  %320 = load ptr, ptr %319, align 8, !noalias !125
+  store ptr %320, ptr %22, align 8, !alias.scope !125
+  %.not.i.i.i.i.i97 = icmp eq ptr %320, null
+  br i1 %.not.i.i.i.i.i97, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit98, label %321
 
-318:                                              ; preds = %315
-  %319 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(8) %317, i64 1) #32
+321:                                              ; preds = %318
+  %322 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(8) %320, i64 1) #32
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit98
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit98:        ; preds = %315, %318
-  %320 = load i32, ptr %187, align 8
-  call void @_ZN4llvm19SelectionDAGBuilder20handleKillDebugValueEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %211, ptr noundef %213, ptr noundef nonnull %22, i32 noundef %320)
-  %321 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i99 = icmp eq ptr %321, null
-  br i1 %.not.i.i.i.i99, label %_ZN4llvm8DebugLocD2Ev.exit96, label %322
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit98:        ; preds = %318, %321
+  %323 = load i32, ptr %190, align 8
+  call void @_ZN4llvm19SelectionDAGBuilder20handleKillDebugValueEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef %214, ptr noundef %216, ptr noundef nonnull %22, i32 noundef %323)
+  %324 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i99 = icmp eq ptr %324, null
+  br i1 %.not.i.i.i.i99, label %_ZN4llvm8DebugLocD2Ev.exit96, label %325
 
-322:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit98
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(8) %321) #32
+325:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit98
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(8) %324) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit96
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19SelectionDAGBuilder12visitDbgInfoERKNS2_11InstructionEE3$_0EclIPPNS2_5ValueEEEbT_.exit50.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit"
-  %323 = getelementptr inbounds i8, ptr %.sroa.0111.0152, i64 40
-  %324 = load ptr, ptr %323, align 8
-  %325 = load i8, ptr %324, align 4
-  %326 = icmp eq i8 %325, 4
-  %327 = load ptr, ptr %19, align 8
-  %328 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #32
+  %326 = getelementptr inbounds i8, ptr %.sroa.0111.0152, i64 40
+  %327 = load ptr, ptr %326, align 8
+  %328 = load i8, ptr %327, align 4
+  %329 = icmp eq i8 %328, 4
+  %330 = load ptr, ptr %19, align 8
+  %331 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #32
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %329 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
-  %330 = load ptr, ptr %329, align 8, !noalias !128
-  store ptr %330, ptr %23, align 8, !alias.scope !128
-  %.not.i.i.i.i.i101 = icmp eq ptr %330, null
-  br i1 %.not.i.i.i.i.i101, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit102, label %331
+  %332 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 24
+  %333 = load ptr, ptr %332, align 8, !noalias !128
+  store ptr %333, ptr %23, align 8, !alias.scope !128
+  %.not.i.i.i.i.i101 = icmp eq ptr %333, null
+  br i1 %.not.i.i.i.i.i101, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit102, label %334
 
-331:                                              ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.thread"
-  %332 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(8) %330, i64 1) #32
+334:                                              ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.thread"
+  %335 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(8) %333, i64 1) #32
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit102
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit102:       ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.thread", %331
-  %333 = load i32, ptr %187, align 8
-  %334 = call noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder16handleDebugValueENS_8ArrayRefIPKNS_5ValueEEEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEjb(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr %327, i64 %328, ptr noundef %211, ptr noundef %213, ptr noundef nonnull %23, i32 noundef %333, i1 noundef zeroext %326)
-  %335 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i103 = icmp eq ptr %335, null
-  br i1 %.not.i.i.i.i103, label %_ZN4llvm8DebugLocD2Ev.exit104, label %336
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit102:       ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_19SelectionDAGBuilder12visitDbgInfoERKNS_11InstructionEE3$_0EEbOT_T0_.exit.thread", %334
+  %336 = load i32, ptr %190, align 8
+  %337 = call noundef zeroext i1 @_ZN4llvm19SelectionDAGBuilder16handleDebugValueENS_8ArrayRefIPKNS_5ValueEEEPNS_15DILocalVariableEPNS_12DIExpressionENS_8DebugLocEjb(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr %330, i64 %331, ptr noundef %214, ptr noundef %216, ptr noundef nonnull %23, i32 noundef %336, i1 noundef zeroext %329)
+  %338 = load ptr, ptr %23, align 8
+  %.not.i.i.i.i103 = icmp eq ptr %338, null
+  br i1 %.not.i.i.i.i103, label %_ZN4llvm8DebugLocD2Ev.exit104, label %339
 
-336:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit102
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(8) %335) #32
+339:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit102
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(8) %338) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit104
 
-_ZN4llvm8DebugLocD2Ev.exit104:                    ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit102, %336
-  br i1 %334, label %_ZN4llvm8DebugLocD2Ev.exit96, label %337
+_ZN4llvm8DebugLocD2Ev.exit104:                    ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit102, %339
+  br i1 %337, label %_ZN4llvm8DebugLocD2Ev.exit96, label %340
 
-337:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit104
+340:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit104
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  %338 = load ptr, ptr %329, align 8, !noalias !131
-  store ptr %338, ptr %24, align 8, !alias.scope !131
-  %.not.i.i.i.i.i105 = icmp eq ptr %338, null
-  br i1 %.not.i.i.i.i.i105, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit106, label %339
+  %341 = load ptr, ptr %332, align 8, !noalias !131
+  store ptr %341, ptr %24, align 8, !alias.scope !131
+  %.not.i.i.i.i.i105 = icmp eq ptr %341, null
+  br i1 %.not.i.i.i.i.i105, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit106, label %342
 
-339:                                              ; preds = %337
-  %340 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(8) %338, i64 1) #32
+342:                                              ; preds = %340
+  %343 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(8) %341, i64 1) #32
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit106
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit106:       ; preds = %337, %339
-  %341 = load i32, ptr %187, align 8
-  call void @_ZN4llvm19SelectionDAGBuilder20addDanglingDebugInfoERNS_15SmallVectorImplIPNS_5ValueEEEPNS_15DILocalVariableEPNS_12DIExpressionEbNS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %211, ptr noundef %213, i1 noundef zeroext %326, ptr noundef nonnull %24, i32 noundef %341)
-  %342 = load ptr, ptr %24, align 8
-  %.not.i.i.i.i107 = icmp eq ptr %342, null
-  br i1 %.not.i.i.i.i107, label %_ZN4llvm8DebugLocD2Ev.exit96, label %343
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit106:       ; preds = %340, %342
+  %344 = load i32, ptr %190, align 8
+  call void @_ZN4llvm19SelectionDAGBuilder20addDanglingDebugInfoERNS_15SmallVectorImplIPNS_5ValueEEEPNS_15DILocalVariableEPNS_12DIExpressionEbNS_8DebugLocEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %214, ptr noundef %216, i1 noundef zeroext %329, ptr noundef nonnull %24, i32 noundef %344)
+  %345 = load ptr, ptr %24, align 8
+  %.not.i.i.i.i107 = icmp eq ptr %345, null
+  br i1 %.not.i.i.i.i107, label %_ZN4llvm8DebugLocD2Ev.exit96, label %346
 
-343:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit106
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(8) %342) #32
+346:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit106
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(8) %345) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit96
 
-_ZN4llvm8DebugLocD2Ev.exit96:                     ; preds = %343, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit106, %322, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit98, %269, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit94, %_ZN4llvm8DebugLocD2Ev.exit104
-  %344 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %19) #32
-  %345 = load ptr, ptr %19, align 8
-  %346 = icmp eq ptr %345, %188
-  br i1 %346, label %_ZN4llvm8DebugLocD2Ev.exit92, label %347
+_ZN4llvm8DebugLocD2Ev.exit96:                     ; preds = %346, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit106, %325, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit98, %272, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit94, %_ZN4llvm8DebugLocD2Ev.exit104
+  %347 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %19) #32
+  %348 = load ptr, ptr %19, align 8
+  %349 = icmp eq ptr %348, %191
+  br i1 %349, label %_ZN4llvm8DebugLocD2Ev.exit92, label %350
 
-347:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit96
-  call void @free(ptr noundef %345) #32
+350:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit96
+  call void @free(ptr noundef %348) #32
   br label %_ZN4llvm8DebugLocD2Ev.exit92
 
-_ZN4llvm8DebugLocD2Ev.exit92:                     ; preds = %347, %_ZN4llvm8DebugLocD2Ev.exit96, %257, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit90, %_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit, %208, %_ZN4llvm8DebugLocD2Ev.exit87
-  %348 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 8
-  %349 = load ptr, ptr %348, align 8
-  %.not123 = icmp eq ptr %349, %186
-  br i1 %.not123, label %._crit_edge, label %191
+_ZN4llvm8DebugLocD2Ev.exit92:                     ; preds = %350, %_ZN4llvm8DebugLocD2Ev.exit96, %260, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit90, %_ZNK4llvm15SmallPtrSetImplIPKNS_17DbgVariableRecordEE8containsES3_.exit, %211, %_ZN4llvm8DebugLocD2Ev.exit87
+  %351 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0152, i64 8
+  %352 = load ptr, ptr %351, align 8
+  %.not123 = icmp eq ptr %352, %189
+  br i1 %.not123, label %._crit_edge, label %194
 
 ._crit_edge:                                      ; preds = %_ZN4llvm8DebugLocD2Ev.exit92, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
   ret void
@@ -61666,7 +61640,7 @@ _ZNK4llvm3EVTneES0_.exit4405.thread4878:          ; preds = %4818, %_ZNK4llvm3EV
   call void @_ZN4llvm19SelectionDAGBuilder20visitVectorHistogramERKNS_8CallInstEj(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef 156)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm8DebugLocD2Ev.exit4303, %3779, %4044, %4004, %4719, %4717, %4606, %_ZN4llvm5SDLocC2ERKS0_.exit, %4387, %_ZN4llvm5SDLocD2Ev.exit, %3452, %3426, %1284, %_ZN4llvm8DebugLocC2ERKS0_.exit4028, %1239, %_ZN4llvm8DebugLocC2ERKS0_.exit, %375, %372, %353, %2959, %2987, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %4049, %4009, %3957, %3950, %3953, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %3595, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %2648, %2651, %2050, %2088, %1258, %1254, %1209, %1213, %4876, %4875, %4837, %4836, %4835, %4834, %4833, %4832, %_ZNK4llvm3EVTneES0_.exit4405.thread4878, %_ZNK4llvm3EVTneES0_.exit4397.thread4875, %4575, %4563, %4548, %4483, %4482, %4446, %_ZNK4llvm3EVTneES0_.exit.thread4871, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4352, %._crit_edge4920, %4089, %4088, %4087, %_ZNK4llvm6Triple9isAArch64Ei.exit4325, %_ZNK4llvm6Triple9isAArch64Ei.exit, %3998, %3962, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit4312, %3778, %3777, %3776, %3775, %3774, %3745, %3734, %3701, %._crit_edge4927, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4273, %3502, %3458, %3398, %3358, %3351, %3330, %3312, %3267, %3231, %3222, %3184, %3158, %3085, %3033, %3015, %2944, %2921, %2898, %2875, %2852, %2824, %2792, %2769, %2746, %2723, %2700, %2677, %2654, %2599, %_ZNK4llvm11ConstantInt6isZeroEv.exit4164, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %2511, %2489, %2480, %2471, %2458, %2452, %2438, %2420, %2415, %2412, %2360, %2307, %2226, %2200, %2174, %2153, %2139, %1982, %1981, %1980, %1942, %1920, %1896, %1866, %1836, %1806, %1776, %1746, %1716, %1686, %1656, %1636, %_ZN4llvm19SelectionDAGBuilder8setValueEPKNS_5ValueENS_7SDValueE.exit, %1535, %1524, %1513, %1502, %1491, %1480, %1461, %1460, %1459, %1458, %1457, %1456, %1455, %1450, %1437, %1418, %1396, %1379, %1361, %1356, %1331, %1315, %_ZN4llvm8DebugLocD2Ev.exit4038, %1240, %1181, %1156, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4023, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4015, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4001, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3989, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3970, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3962, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3954, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3935, %469, %440, %420, %409, %398, %379, %378, %377, %376, %352
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm8DebugLocD2Ev.exit4303, %3779, %4044, %4004, %4719, %4717, %4606, %_ZN4llvm5SDLocC2ERKS0_.exit, %4387, %_ZN4llvm5SDLocD2Ev.exit, %3452, %3426, %1284, %_ZN4llvm8DebugLocC2ERKS0_.exit4028, %1239, %_ZN4llvm8DebugLocC2ERKS0_.exit, %375, %372, %353, %2959, %2987, %4049, %4009, %3957, %3950, %3953, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %3595, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_8CallInstEEEDcPT0_.exit.thread, %2648, %2651, %2050, %2088, %1258, %1254, %1209, %1213, %4876, %4875, %4837, %4836, %4835, %4834, %4833, %4832, %_ZNK4llvm3EVTneES0_.exit4405.thread4878, %_ZNK4llvm3EVTneES0_.exit4397.thread4875, %4575, %4563, %4548, %4483, %4482, %4446, %_ZNK4llvm3EVTneES0_.exit.thread4871, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4352, %._crit_edge4920, %4089, %4088, %4087, %_ZNK4llvm6Triple9isAArch64Ei.exit4325, %_ZNK4llvm6Triple9isAArch64Ei.exit, %3998, %3962, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit4312, %3778, %3777, %3776, %3775, %3774, %3745, %3734, %3701, %._crit_edge4927, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4273, %3502, %3458, %3398, %3358, %3351, %3330, %3312, %3267, %3231, %3222, %3184, %3158, %3085, %3033, %3015, %2944, %2921, %2898, %2875, %2852, %2824, %2792, %2769, %2746, %2723, %2700, %2677, %2654, %2599, %_ZNK4llvm11ConstantInt6isZeroEv.exit4164, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %2511, %2489, %2480, %2471, %2458, %2452, %2438, %2420, %2415, %2412, %2360, %2307, %2226, %2200, %2174, %2153, %2139, %1982, %1981, %1980, %1942, %1920, %1896, %1866, %1836, %1806, %1776, %1746, %1716, %1686, %1656, %1636, %_ZN4llvm19SelectionDAGBuilder8setValueEPKNS_5ValueENS_7SDValueE.exit, %1535, %1524, %1513, %1502, %1491, %1480, %1461, %1460, %1459, %1458, %1457, %1456, %1455, %1450, %1437, %1418, %1396, %1379, %1361, %1356, %1331, %1315, %_ZN4llvm8DebugLocD2Ev.exit4038, %1240, %1181, %1156, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4023, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4015, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4001, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3989, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3970, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3962, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3954, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit3935, %469, %440, %420, %409, %398, %379, %378, %377, %376, %352
   %4877 = load ptr, ptr %18, align 8
   %.not.i.i.i.i4413 = icmp eq ptr %4877, null
   br i1 %.not.i.i.i.i4413, label %_ZN4llvm8DebugLocD2Ev.exit4414, label %4878
@@ -62235,96 +62209,70 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm20DbgVariableIntrinsic14
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %17 = load i8, ptr %12, align 4
-  switch i8 %17, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i [
-    i8 4, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i
-    i8 5, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 6, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 7, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 8, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 9, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 10, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 11, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 12, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 13, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 14, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 15, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 16, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 17, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 18, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 19, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 20, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 21, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 22, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 23, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 24, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 25, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 26, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 27, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 28, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 29, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 30, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 31, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 32, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 33, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 34, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-    i8 35, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
-  ]
+  %18 = icmp eq i8 %17, 4
+  br i1 %18, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i, label %19
+
+19:                                               ; preds = %1
+  %20 = zext i8 %17 to i32
+  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %20, -5
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
 
 _ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i: ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #32
-  %20 = and i64 %19, 4294967295
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #32
+  %23 = and i64 %22, 4294967295
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %25, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
 
-22:                                               ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i
-  %23 = tail call noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40) %16) #32
-  br i1 %23, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
+25:                                               ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i
+  %26 = tail call noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40) %16) #32
+  br i1 %26, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
 
-_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i: ; preds = %22, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i, %1
+_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i: ; preds = %25, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i, %19
   call void @_ZNK4llvm18RawLocationWrapper12location_opsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #32
-  %24 = load i64, ptr %2, align 8, !noalias !1027
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i64, ptr %25, align 8, !noalias !1036
-  %.not3.i.i.i.i.i.i.i = icmp eq i64 %24, %26
+  %27 = load i64, ptr %2, align 8, !noalias !1027
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load i64, ptr %28, align 8, !noalias !1036
+  %.not3.i.i.i.i.i.i.i = icmp eq i64 %27, %29
   br i1 %.not3.i.i.i.i.i.i.i, label %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, %38
-  %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i, %38 ], [ %24, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ]
-  %27 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, 4
-  %28 = icmp eq i64 %27, 0
-  %29 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -8
-  %30 = inttoptr i64 %29 to ptr
-  br i1 %28, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, label %31
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i, %41
+  %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i, %41 ], [ %27, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ]
+  %30 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, 4
+  %31 = icmp eq i64 %30, 0
+  %32 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -8
+  %33 = inttoptr i64 %32 to ptr
+  br i1 %31, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, label %34
 
-31:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %32 = load ptr, ptr %30, align 8, !noalias !1045
+34:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %35 = load ptr, ptr %33, align 8, !noalias !1045
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i: ; preds = %31, %.lr.ph.i.i.i.i.i.i.i
-  %33 = phi ptr [ %32, %31 ], [ %30, %.lr.ph.i.i.i.i.i.i.i ]
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 128
-  %35 = load ptr, ptr %34, align 8, !noalias !1045
-  %36 = load i8, ptr %35, align 8, !noalias !1045
-  %37 = and i8 %36, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %37, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i, label %38
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i: ; preds = %34, %.lr.ph.i.i.i.i.i.i.i
+  %36 = phi ptr [ %35, %34 ], [ %33, %.lr.ph.i.i.i.i.i.i.i ]
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %38 = load ptr, ptr %37, align 8, !noalias !1045
+  %39 = load i8, ptr %38, align 8, !noalias !1045
+  %40 = and i8 %39, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %40, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i, label %41
 
-38:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i
-  %39 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -4
-  %40 = add nuw i64 %39, 8
-  %41 = add nuw i64 %29, 136
-  %storemerge.i.i.i.i.i.i.i.i = select i1 %28, i64 %41, i64 %40
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i, %26
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i
+  %42 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, -4
+  %43 = add nuw i64 %42, 8
+  %44 = add nuw i64 %32, 136
+  %storemerge.i.i.i.i.i.i.i.i = select i1 %31, i64 %44, i64 %43
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i, %29
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !94
 
-_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i: ; preds = %38, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
-  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i = phi i64 [ %24, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ], [ %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i ], [ %26, %38 ]
-  %42 = icmp ne i64 %26, %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i
+_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i: ; preds = %41, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i
+  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i = phi i64 [ %27, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i ], [ %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i ], [ %29, %41 ]
+  %45 = icmp ne i64 %29, %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i.i
   br label %_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit
 
-_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit: ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %22, %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i
-  %.0.i = phi i1 [ %42, %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i ], [ true, %22 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+_ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit: ; preds = %19, %25, %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i
+  %.0.i = phi i1 [ %45, %_ZN4llvm6any_ofINS_14iterator_rangeINS_20location_op_iteratorEEEZNKS_18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionEEUlPNS_5ValueEE_EEbOT_T0_.exit.i ], [ true, %19 ], [ true, %25 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret i1 %.0.i
 }
@@ -64813,7 +64761,7 @@ _ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit: ; preds = %2, %35, %_ZN4llvm
     i32 434, label %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit74.i
     i32 420, label %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit75.i
     i32 403, label %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit76.i
-    i32 419, label %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit77.i
+    i32 419, label %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit76.i
     i32 421, label %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit78.i
     i32 466, label %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit79.i
     i32 162, label %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit80.i
@@ -65122,10 +65070,7 @@ _ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7i
 _ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit75.i: ; preds = %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit
   br label %_ZL20getISDForVPIntrinsicRKN4llvm11VPIntrinsicE.exit
 
-_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit76.i: ; preds = %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit
-  br label %_ZL20getISDForVPIntrinsicRKN4llvm11VPIntrinsicE.exit
-
-_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit77.i: ; preds = %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit
+_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit76.i: ; preds = %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit
   br label %_ZL20getISDForVPIntrinsicRKN4llvm11VPIntrinsicE.exit
 
 _ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit78.i: ; preds = %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit
@@ -65215,8 +65160,8 @@ _ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7i
   %spec.select.i = select i1 %.not.i, i32 %.sroa.0198.0299.i, i32 %116
   br label %_ZL20getISDForVPIntrinsicRKN4llvm11VPIntrinsicE.exit
 
-_ZL20getISDForVPIntrinsicRKN4llvm11VPIntrinsicE.exit: ; preds = %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit10.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit13.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit15.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit16.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit17.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit18.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit19.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit20.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit21.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit22.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit23.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit24.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit25.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit26.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit27.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit28.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit29.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit30.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit31.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit32.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit33.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit34.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit35.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit36.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit37.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit38.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit39.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit40.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit41.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit42.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit43.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit44.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit45.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit46.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit47.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit48.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit49.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit50.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit51.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit52.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit53.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit54.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit55.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit56.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit57.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit58.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit59.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit60.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit61.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit62.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit63.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit64.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit65.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit66.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit67.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit68.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit69.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit70.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit71.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit72.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit73.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit74.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit75.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit76.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit77.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit78.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit79.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit80.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit81.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit82.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit83.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit84.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit85.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit86.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit87.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit88.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit89.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit90.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit91.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit92.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit93.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit94.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit95.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit96.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit97.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit100.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit101.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit102.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit103.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit104.i, %115
-  %.0.i = phi i32 [ 484, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit104.i ], [ 483, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit103.i ], [ 482, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit102.i ], [ 481, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit101.i ], [ 480, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit100.i ], [ 475, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit97.i ], [ 474, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit96.i ], [ 473, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit95.i ], [ 472, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit94.i ], [ 471, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit93.i ], [ 470, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit92.i ], [ 469, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit91.i ], [ 468, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit90.i ], [ 467, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit89.i ], [ 466, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit88.i ], [ 465, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit87.i ], [ 464, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit86.i ], [ 463, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit85.i ], [ 462, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit84.i ], [ 461, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit83.i ], [ 460, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit82.i ], [ 459, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit81.i ], [ 458, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit80.i ], [ 457, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit79.i ], [ 456, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit78.i ], [ 455, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit77.i ], [ 455, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit76.i ], [ 454, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit75.i ], [ 453, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit74.i ], [ 452, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit73.i ], [ 451, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit72.i ], [ 450, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit71.i ], [ 449, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit70.i ], [ 448, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit69.i ], [ 447, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit68.i ], [ 446, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit67.i ], [ 445, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit66.i ], [ 444, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit65.i ], [ 443, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit64.i ], [ 442, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit63.i ], [ 441, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit62.i ], [ 440, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit61.i ], [ 439, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit60.i ], [ 438, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit59.i ], [ 437, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit58.i ], [ 436, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit57.i ], [ 435, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit56.i ], [ 434, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit55.i ], [ 433, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit54.i ], [ 432, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit53.i ], [ 431, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit52.i ], [ 430, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit51.i ], [ 429, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit50.i ], [ 428, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit49.i ], [ 427, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit48.i ], [ 426, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit47.i ], [ 425, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit46.i ], [ 424, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit45.i ], [ 423, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit44.i ], [ 422, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit43.i ], [ 421, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit42.i ], [ 420, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit41.i ], [ 419, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit40.i ], [ 418, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit39.i ], [ 417, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit38.i ], [ 416, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit37.i ], [ 415, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit36.i ], [ 414, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit35.i ], [ 407, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit34.i ], [ 406, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit33.i ], [ 405, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit32.i ], [ 404, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit31.i ], [ 403, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit30.i ], [ 402, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit29.i ], [ 401, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit28.i ], [ 400, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit27.i ], [ 399, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit26.i ], [ 398, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit25.i ], [ 397, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit24.i ], [ 396, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit23.i ], [ 395, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit22.i ], [ 394, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit21.i ], [ 393, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit20.i ], [ 392, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit19.i ], [ 391, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit18.i ], [ 390, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit17.i ], [ 389, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit16.i ], [ 388, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit15.i ], [ %114, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit13.i ], [ %93, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit10.i ], [ %72, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit.i ], [ 387, %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit ], [ %spec.select.i, %115 ]
+_ZL20getISDForVPIntrinsicRKN4llvm11VPIntrinsicE.exit: ; preds = %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit10.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit13.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit15.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit16.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit17.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit18.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit19.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit20.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit21.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit22.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit23.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit24.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit25.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit26.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit27.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit28.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit29.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit30.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit31.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit32.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit33.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit34.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit35.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit36.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit37.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit38.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit39.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit40.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit41.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit42.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit43.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit44.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit45.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit46.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit47.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit48.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit49.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit50.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit51.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit52.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit53.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit54.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit55.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit56.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit57.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit58.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit59.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit60.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit61.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit62.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit63.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit64.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit65.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit66.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit67.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit68.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit69.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit70.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit71.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit72.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit73.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit74.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit75.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit76.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit78.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit79.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit80.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit81.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit82.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit83.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit84.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit85.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit86.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit87.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit88.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit89.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit90.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit91.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit92.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit93.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit94.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit95.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit96.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit97.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit100.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit101.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit102.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit103.i, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit104.i, %115
+  %.0.i = phi i32 [ 484, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit104.i ], [ 483, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit103.i ], [ 482, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit102.i ], [ 481, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit101.i ], [ 480, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit100.i ], [ 475, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit97.i ], [ 474, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit96.i ], [ 473, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit95.i ], [ 472, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit94.i ], [ 471, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit93.i ], [ 470, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit92.i ], [ 469, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit91.i ], [ 468, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit90.i ], [ 467, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit89.i ], [ 466, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit88.i ], [ 465, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit87.i ], [ 464, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit86.i ], [ 463, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit85.i ], [ 462, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit84.i ], [ 461, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit83.i ], [ 460, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit82.i ], [ 459, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit81.i ], [ 458, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit80.i ], [ 457, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit79.i ], [ 456, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit78.i ], [ 455, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit76.i ], [ 454, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit75.i ], [ 453, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit74.i ], [ 452, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit73.i ], [ 451, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit72.i ], [ 450, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit71.i ], [ 449, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit70.i ], [ 448, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit69.i ], [ 447, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit68.i ], [ 446, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit67.i ], [ 445, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit66.i ], [ 444, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit65.i ], [ 443, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit64.i ], [ 442, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit63.i ], [ 441, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit62.i ], [ 440, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit61.i ], [ 439, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit60.i ], [ 438, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit59.i ], [ 437, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit58.i ], [ 436, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit57.i ], [ 435, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit56.i ], [ 434, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit55.i ], [ 433, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit54.i ], [ 432, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit53.i ], [ 431, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit52.i ], [ 430, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit51.i ], [ 429, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit50.i ], [ 428, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit49.i ], [ 427, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit48.i ], [ 426, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit47.i ], [ 425, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit46.i ], [ 424, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit45.i ], [ 423, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit44.i ], [ 422, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit43.i ], [ 421, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit42.i ], [ 420, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit41.i ], [ 419, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit40.i ], [ 418, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit39.i ], [ 417, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit38.i ], [ 416, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit37.i ], [ 415, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit36.i ], [ 414, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit35.i ], [ 407, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit34.i ], [ 406, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit33.i ], [ 405, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit32.i ], [ 404, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit31.i ], [ 403, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit30.i ], [ 402, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit29.i ], [ 401, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit28.i ], [ 400, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit27.i ], [ 399, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit26.i ], [ 398, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit25.i ], [ 397, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit24.i ], [ 396, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit23.i ], [ 395, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit22.i ], [ 394, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit21.i ], [ 393, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit20.i ], [ 392, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit19.i ], [ 391, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit18.i ], [ 390, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit17.i ], [ 389, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit16.i ], [ 388, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit15.i ], [ %114, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit13.i ], [ %93, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit10.i ], [ %72, %_ZNSt8optionalIjEaSIN4llvm3ISD8NodeTypeEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIjES7_IjNSt5decayISA_E4typeEEEEESt16is_constructibleIjJSA_EESt13is_assignableIRjSA_EEERS0_E4typeEOSA_.exit.i ], [ 387, %_ZNK4llvm19SelectionDAGBuilder11getCurSDLocEv.exit ], [ %spec.select.i, %115 ]
   %119 = call noundef zeroext i1 @_ZN4llvm14VPCmpIntrinsic7isVPCmpEj(i32 noundef %51) #32
   br i1 %119, label %120, label %121
 

@@ -1397,7 +1397,7 @@ _ZN5clang18TraversalKindScopeC2ERNS_10ASTContextESt8optionalINS_13TraversalKindE
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  br i1 %33, label %73, label %34
+  br i1 %33, label %70, label %34
 
 34:                                               ; preds = %29, %_ZN5clang18TraversalKindScopeC2ERNS_10ASTContextESt8optionalINS_13TraversalKindEE.exit
   %35 = load ptr, ptr %2, align 8
@@ -1415,7 +1415,7 @@ _ZN5clang18TraversalKindScopeC2ERNS_10ASTContextESt8optionalINS_13TraversalKindE
   %45 = getelementptr inbounds i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  br i1 %47, label %73, label %48
+  br i1 %47, label %70, label %48
 
 48:                                               ; preds = %43, %34
   %49 = load ptr, ptr %2, align 8
@@ -1435,34 +1435,22 @@ _ZN5clang18TraversalKindScopeC2ERNS_10ASTContextESt8optionalINS_13TraversalKindE
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %2, ptr noundef %3) #19
-  br i1 %61, label %73, label %62
+  br i1 %61, label %70, label %62
 
 62:                                               ; preds = %56, %48
   %63 = load ptr, ptr %3, align 8
   %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
-  %65 = icmp sgt i64 %64, 3
-  br i1 %65, label %"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher7matchesERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i", label %66
+  %.028.i.i.i.i.idx.i.i.i = call i64 @llvm.smin.i64(i64 %64, i64 0)
+  %.028.i.i.i.i.i.i.i = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %63, i64 %.028.i.i.i.i.idx.i.i.i
+  %65 = load ptr, ptr %3, align 8
+  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
+  %67 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %65, i64 %66
+  %68 = call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang12ast_matchers8internal13BoundNodesMapEE5eraseEPKS4_S7_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %.028.i.i.i.i.i.i.i, ptr noundef %67)
+  %69 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
+  br label %70
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %63, i64 %64
-  %.off.i.i.i.i.i = add nsw i64 %64, -1
-  %switch.i.i.i.i.i = icmp ult i64 %.off.i.i.i.i.i, 3
-  br i1 %switch.i.i.i.i.i, label %"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher7matchesERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i", label %"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit"
-
-"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher7matchesERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i": ; preds = %66, %62
-  br label %"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit"
-
-"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit": ; preds = %66, %"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher7matchesERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i"
-  %.028.i.i22.i.i.i.i.i = phi ptr [ %67, %66 ], [ %63, %"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher7matchesERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i" ]
-  %68 = load ptr, ptr %3, align 8
-  %69 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
-  %70 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %68, i64 %69
-  %71 = call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang12ast_matchers8internal13BoundNodesMapEE5eraseEPKS4_S7_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %.028.i.i22.i.i.i.i.i, ptr noundef %70)
-  %72 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
-  br label %73
-
-73:                                               ; preds = %56, %43, %29, %"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit"
-  %.0 = phi i1 [ false, %"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit" ], [ false, %29 ], [ false, %43 ], [ true, %56 ]
+70:                                               ; preds = %56, %43, %29, %62
+  %.0 = phi i1 [ false, %62 ], [ false, %29 ], [ false, %43 ], [ true, %56 ]
   store i32 %18, ptr %17, align 8
   ret i1 %.0
 }
@@ -1510,7 +1498,7 @@ _ZN5clang18TraversalKindScopeC2ERNS_10ASTContextESt8optionalINS_13TraversalKindE
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  br i1 %33, label %70, label %34
+  br i1 %33, label %67, label %34
 
 34:                                               ; preds = %29, %_ZN5clang18TraversalKindScopeC2ERNS_10ASTContextESt8optionalINS_13TraversalKindEE.exit
   %35 = load ptr, ptr %2, align 8
@@ -1528,7 +1516,7 @@ _ZN5clang18TraversalKindScopeC2ERNS_10ASTContextESt8optionalINS_13TraversalKindE
   %45 = getelementptr inbounds i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  br i1 %47, label %70, label %48
+  br i1 %47, label %67, label %48
 
 48:                                               ; preds = %43, %34
   %49 = load ptr, ptr %2, align 8
@@ -1542,34 +1530,22 @@ _ZN5clang18TraversalKindScopeC2ERNS_10ASTContextESt8optionalINS_13TraversalKindE
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(12) %54, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %2, ptr noundef %3) #19
-  br i1 %58, label %70, label %59
+  br i1 %58, label %67, label %59
 
 59:                                               ; preds = %48
   %60 = load ptr, ptr %3, align 8
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
-  %62 = icmp sgt i64 %61, 3
-  br i1 %62, label %"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher18matchesNoKindCheckERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i", label %63
+  %.028.i.i.i.i.idx.i.i.i = call i64 @llvm.smin.i64(i64 %61, i64 0)
+  %.028.i.i.i.i.i.i.i = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %60, i64 %.028.i.i.i.i.idx.i.i.i
+  %62 = load ptr, ptr %3, align 8
+  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
+  %64 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %62, i64 %63
+  %65 = call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang12ast_matchers8internal13BoundNodesMapEE5eraseEPKS4_S7_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %.028.i.i.i.i.i.i.i, ptr noundef %64)
+  %66 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
+  br label %67
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %60, i64 %61
-  %.off.i.i.i.i.i = add nsw i64 %61, -1
-  %switch.i.i.i.i.i = icmp ult i64 %.off.i.i.i.i.i, 3
-  br i1 %switch.i.i.i.i.i, label %"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher18matchesNoKindCheckERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i", label %"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher18matchesNoKindCheckERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit"
-
-"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher18matchesNoKindCheckERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i": ; preds = %63, %59
-  br label %"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher18matchesNoKindCheckERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit"
-
-"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher18matchesNoKindCheckERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit": ; preds = %63, %"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher18matchesNoKindCheckERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i"
-  %.028.i.i22.i.i.i.i.i = phi ptr [ %64, %63 ], [ %60, %"_ZSt9__find_ifIPN5clang12ast_matchers8internal13BoundNodesMapEN9__gnu_cxx5__ops10_Iter_predIZNKS2_15DynTypedMatcher18matchesNoKindCheckERKNS0_12DynTypedNodeEPNS2_14ASTMatchFinderEPNS2_21BoundNodesTreeBuilderEE3$_0EEET_SI_SI_T0_.exit.i.i.i.i.i" ]
-  %65 = load ptr, ptr %3, align 8
-  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
-  %67 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %65, i64 %66
-  %68 = call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang12ast_matchers8internal13BoundNodesMapEE5eraseEPKS4_S7_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %.028.i.i22.i.i.i.i.i, ptr noundef %67)
-  %69 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
-  br label %70
-
-70:                                               ; preds = %48, %43, %29, %"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher18matchesNoKindCheckERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit"
-  %.0 = phi i1 [ false, %"_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilder14removeBindingsIZNKS1_15DynTypedMatcher18matchesNoKindCheckERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPS2_E3$_0EEbRKT_.exit" ], [ false, %29 ], [ false, %43 ], [ true, %48 ]
+67:                                               ; preds = %48, %43, %29, %59
+  %.0 = phi i1 [ false, %59 ], [ false, %29 ], [ false, %43 ], [ true, %48 ]
   store i32 %18, ptr %17, align 8
   ret i1 %.0
 }
@@ -8434,20 +8410,23 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 attributes #0 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8466,8 +8445,8 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nounwind }
 attributes #20 = { builtin nounwind }
 attributes #21 = { builtin nounwind allocsize(0) }

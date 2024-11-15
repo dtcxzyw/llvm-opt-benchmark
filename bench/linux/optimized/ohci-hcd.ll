@@ -3014,8 +3014,8 @@ define internal fastcc range(i32 -75, 1) i32 @ohci_rh_resume(ptr noundef %0) unn
   switch i8 %17, label %default.unreachable [
     i8 1, label %18
     i8 3, label %34
-    i8 0, label %.thread
-    i8 2, label %.thread
+    i8 0, label %.thread4
+    i8 2, label %.thread4
   ]
 
 18:                                               ; preds = %14
@@ -3037,13 +3037,13 @@ default.unreachable:                              ; preds = %14
   %27 = getelementptr inbounds i8, ptr %0, i64 896
   %28 = load i32, ptr %27, align 8
   %.not = icmp eq i32 %28, 2
-  br i1 %.not, label %176, label %.thread
+  br i1 %.not, label %176, label %.thread4
 
-.thread:                                          ; preds = %14, %14, %26
+.thread4:                                         ; preds = %14, %14, %26
   %29 = icmp eq i8 %5, 0
   br i1 %29, label %30, label %176
 
-30:                                               ; preds = %.thread
+30:                                               ; preds = %.thread4
   tail call void @_raw_spin_unlock_irq(ptr noundef %0) #14
   %31 = tail call i32 @ohci_restart(ptr noundef %0), !range !24
   %32 = getelementptr i8, ptr %0, i64 -512
@@ -3180,16 +3180,16 @@ default.unreachable:                              ; preds = %14
   %116 = getelementptr inbounds i8, ptr %0, i64 48
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
-  br i1 %118, label %129, label %.preheader8
+  br i1 %118, label %129, label %.preheader7
 
-.preheader8:                                      ; preds = %115, %.preheader8
-  %119 = phi ptr [ %121, %.preheader8 ], [ %117, %115 ]
+.preheader7:                                      ; preds = %115, %.preheader7
+  %119 = phi ptr [ %121, %.preheader7 ], [ %117, %115 ]
   %120 = getelementptr inbounds i8, ptr %119, i64 40
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %123, label %.preheader8, !llvm.loop !39
+  br i1 %122, label %123, label %.preheader7, !llvm.loop !39
 
-123:                                              ; preds = %.preheader8
+123:                                              ; preds = %.preheader7
   %124 = getelementptr inbounds i8, ptr %119, i64 16
   %125 = load i64, ptr %124, align 16
   %126 = trunc i64 %125 to i32
@@ -3230,15 +3230,15 @@ default.unreachable:                              ; preds = %14
   %150 = getelementptr i8, ptr %0, i64 -488
   %151 = load i32, ptr %150, align 8
   %152 = icmp eq i32 %151, 0
-  br i1 %152, label %153, label %.thread7
+  br i1 %152, label %153, label %.thread6
 
 153:                                              ; preds = %147
   %154 = getelementptr i8, ptr %0, i64 -492
   %155 = load i32, ptr %154, align 4
   %156 = icmp eq i32 %155, 0
-  br i1 %156, label %158, label %.thread7
+  br i1 %156, label %158, label %.thread6
 
-.thread7:                                         ; preds = %147, %153
+.thread6:                                         ; preds = %147, %153
   %157 = or i32 %149, 12
   br label %160
 
@@ -3246,8 +3246,8 @@ default.unreachable:                              ; preds = %14
   %159 = icmp eq i32 %149, 0
   br i1 %159, label %174, label %160
 
-160:                                              ; preds = %.thread7, %158
-  %161 = phi i32 [ %157, %.thread7 ], [ %149, %158 ]
+160:                                              ; preds = %.thread6, %158
+  %161 = phi i32 [ %157, %.thread6 ], [ %149, %158 ]
   %162 = load i32, ptr %11, align 8
   %163 = or i32 %162, %161
   store i32 %163, ptr %11, align 8
@@ -3274,8 +3274,8 @@ default.unreachable:                              ; preds = %14
   store i32 2, ptr %175, align 8
   br label %176
 
-176:                                              ; preds = %26, %174, %42, %30, %.thread
-  %177 = phi i32 [ 0, %174 ], [ -16, %42 ], [ -16, %.thread ], [ %31, %30 ], [ 0, %26 ]
+176:                                              ; preds = %26, %174, %42, %30, %.thread4
+  %177 = phi i32 [ 0, %174 ], [ -16, %42 ], [ -16, %.thread4 ], [ %31, %30 ], [ 0, %26 ]
   ret i32 %177
 }
 

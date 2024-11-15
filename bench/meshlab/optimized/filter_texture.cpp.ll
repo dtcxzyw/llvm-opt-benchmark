@@ -2302,7 +2302,7 @@ $_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO13VertexSamplerE23SamplingRandomGenerato
 @str.1 = private unnamed_addr constant [23 x i8] c"Non Manifold Vertices \00", align 1
 @str.2 = private unnamed_addr constant [20 x i8] c"Non Manifold Edges \00", align 1
 @str.6 = private unnamed_addr constant [32 x i8] c"Similar Triangles face sampling\00", align 1
-@switch.table._ZThn16_NK19FilterTexturePlugin16getPreConditionsEPK7QAction = private unnamed_addr constant [9 x i32] [i32 524288, i32 2097152, i32 1024, i32 524288, i32 524288, i32 2097152, i32 2097160, i32 0, i32 0], align 4
+@switch.table._ZThn16_NK19FilterTexturePlugin16getPreConditionsEPK7QAction = private unnamed_addr constant [7 x i32] [i32 524288, i32 2097152, i32 1024, i32 524288, i32 524288, i32 2097152, i32 2097160], align 4
 @switch.table._ZThn16_NK19FilterTexturePlugin13postConditionEPK7QAction = private unnamed_addr constant [9 x i32] [i32 2097152, i32 1024, i32 2097152, i32 2097152, i32 2097152, i32 0, i32 0, i32 0, i32 8], align 4
 @switch.table._ZThn16_NK19FilterTexturePlugin8getClassEPK7QAction = private unnamed_addr constant [9 x i32] [i32 8192, i32 8192, i32 8192, i32 8192, i32 8192, i32 8192, i32 8192, i32 8192, i32 8208], align 4
 @switch.table._ZThn16_NK19FilterTexturePlugin11filterArityEPK7QAction = private unnamed_addr constant [9 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2], align 4
@@ -4543,12 +4543,12 @@ define noundef range(i32 0, 2097161) i32 @_ZNK19FilterTexturePlugin16getPreCondi
   %5 = getelementptr inbounds i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
-  %8 = icmp ult i32 %7, 9
+  %8 = icmp ult i32 %7, 7
   br i1 %8, label %switch.lookup, label %10
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZThn16_NK19FilterTexturePlugin16getPreConditionsEPK7QAction, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZThn16_NK19FilterTexturePlugin16getPreConditionsEPK7QAction, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -4563,12 +4563,12 @@ define noundef range(i32 0, 2097161) i32 @_ZThn16_NK19FilterTexturePlugin16getPr
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 9
+  %7 = icmp ult i32 %6, 7
   br i1 %7, label %switch.lookup, label %_ZNK19FilterTexturePlugin16getPreConditionsEPK7QAction.exit
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZThn16_NK19FilterTexturePlugin16getPreConditionsEPK7QAction, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZThn16_NK19FilterTexturePlugin16getPreConditionsEPK7QAction, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK19FilterTexturePlugin16getPreConditionsEPK7QAction.exit
 

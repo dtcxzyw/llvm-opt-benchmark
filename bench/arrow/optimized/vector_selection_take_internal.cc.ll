@@ -36136,16 +36136,13 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 24
   %_M_index.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i8, ptr %_M_index.i.i, align 8
-  switch i8 %1, label %_ZNK5arrow5Datum4kindEv.exit [
+  switch i8 %1, label %sw.default.i [
     i8 5, label %sw.bb6.i
-    i8 1, label %sw.bb2.i
+    i8 1, label %_ZNK5arrow5Datum4kindEv.exit
     i8 2, label %sw.bb3.i
     i8 3, label %sw.bb4.i
     i8 4, label %sw.bb5.i
   ]
-
-sw.bb2.i:                                         ; preds = %entry
-  br label %_ZNK5arrow5Datum4kindEv.exit
 
 sw.bb3.i:                                         ; preds = %entry
   br label %_ZNK5arrow5Datum4kindEv.exit
@@ -36159,9 +36156,12 @@ sw.bb5.i:                                         ; preds = %entry
 sw.bb6.i:                                         ; preds = %entry
   br label %_ZNK5arrow5Datum4kindEv.exit
 
-_ZNK5arrow5Datum4kindEv.exit:                     ; preds = %entry, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i
-  %cmp45 = phi i1 [ false, %sw.bb6.i ], [ false, %sw.bb5.i ], [ false, %sw.bb4.i ], [ true, %sw.bb3.i ], [ false, %sw.bb2.i ], [ false, %entry ]
-  %retval.0.i = phi i32 [ 5, %sw.bb6.i ], [ 4, %sw.bb5.i ], [ 3, %sw.bb4.i ], [ 2, %sw.bb3.i ], [ 1, %sw.bb2.i ], [ 0, %entry ]
+sw.default.i:                                     ; preds = %entry
+  br label %_ZNK5arrow5Datum4kindEv.exit
+
+_ZNK5arrow5Datum4kindEv.exit:                     ; preds = %entry, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.default.i
+  %cmp45 = phi i1 [ false, %sw.default.i ], [ false, %sw.bb6.i ], [ false, %sw.bb5.i ], [ false, %sw.bb4.i ], [ true, %sw.bb3.i ], [ false, %entry ]
+  %retval.0.i = phi i32 [ 0, %sw.default.i ], [ 5, %sw.bb6.i ], [ 4, %sw.bb5.i ], [ 3, %sw.bb4.i ], [ 2, %sw.bb3.i ], [ 1, %entry ]
   %_M_index.i.i39 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i8, ptr %_M_index.i.i39, align 8
   switch i8 %2, label %sw.epilog [

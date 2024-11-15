@@ -396,8 +396,8 @@ switch.lookup:                                    ; preds = %20
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16c_shader_profile17glslang_profile_t.exit
 
-_ZL16c_shader_profile17glslang_profile_t.exit:    ; preds = %switch.lookup, %20
-  %.0.i = phi i32 [ 0, %20 ], [ %switch.load, %switch.lookup ]
+_ZL16c_shader_profile17glslang_profile_t.exit:    ; preds = %20, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %20 ]
   %31 = getelementptr inbounds i8, ptr %1, i64 40
   %32 = load i32, ptr %31, align 8
   %33 = icmp ne i32 %32, 0

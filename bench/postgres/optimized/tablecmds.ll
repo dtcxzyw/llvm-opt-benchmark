@@ -681,7 +681,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.494 = private unnamed_addr constant [26 x i8] c"invalid storage type \22%s\22\00", align 1
 @__func__.GetAttributeStorage = private unnamed_addr constant [20 x i8] c"GetAttributeStorage\00", align 1
 @.str.495 = private unnamed_addr constant [48 x i8] c"column data type %s can only have storage PLAIN\00", align 1
-@switch.table.alter_table_type_to_string = private unnamed_addr constant [67 x ptr] [ptr @.str.154, ptr @.str.154, ptr @.str.155, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr null, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr null, ptr null, ptr @.str.166, ptr @.str.166, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.166, ptr @.str.169, ptr null, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.173, ptr @.str.174, ptr @.str.176, ptr @.str.177, ptr @.str.178, ptr @.str.175, ptr @.str.179, ptr @.str.180, ptr @.str.181, ptr null, ptr @.str.182, ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.189, ptr @.str.190, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.195, ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.161, ptr @.str.208, ptr null], align 8
+@switch.table.alter_table_type_to_string = private unnamed_addr constant [66 x ptr] [ptr @.str.154, ptr @.str.154, ptr @.str.155, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr null, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr null, ptr null, ptr @.str.166, ptr @.str.166, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.166, ptr @.str.169, ptr null, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.173, ptr @.str.174, ptr @.str.176, ptr @.str.177, ptr @.str.178, ptr @.str.175, ptr @.str.179, ptr @.str.180, ptr @.str.181, ptr null, ptr @.str.182, ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.189, ptr @.str.190, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.195, ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.161, ptr @.str.208], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i32 } @DefineRelation(ptr nocapture noundef %0, i8 noundef signext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -8520,33 +8520,33 @@ define dso_local range(i32 4, -2147483648) i32 @AlterTableGetLockLevel(ptr nound
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph33, label %._crit_edge
 
-.lr.ph33:                                         ; preds = %.lr.ph, %39
-  %6 = phi i32 [ %40, %39 ], [ %4, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.lr.ph ]
-  %.0172631 = phi i32 [ %spec.select, %39 ], [ 4, %.lr.ph ]
+.lr.ph33:                                         ; preds = %.lr.ph, %37
+  %6 = phi i32 [ %38, %37 ], [ %4, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph ]
+  %.0172631 = phi i32 [ %spec.select, %37 ], [ 4, %.lr.ph ]
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %.split [
-    i32 0, label %39
-    i32 33, label %39
-    i32 34, label %39
-    i32 25, label %39
-    i32 12, label %39
-    i32 23, label %39
-    i32 4, label %39
-    i32 14, label %39
-    i32 1, label %39
-    i32 32, label %39
-    i32 47, label %39
-    i32 48, label %39
-    i32 46, label %39
-    i32 49, label %39
-    i32 27, label %39
-    i32 59, label %39
-    i32 26, label %39
+    i32 0, label %37
+    i32 33, label %37
+    i32 34, label %37
+    i32 25, label %37
+    i32 12, label %37
+    i32 23, label %37
+    i32 4, label %37
+    i32 14, label %37
+    i32 1, label %37
+    i32 32, label %37
+    i32 47, label %37
+    i32 48, label %37
+    i32 46, label %37
+    i32 49, label %37
+    i32 27, label %37
+    i32 59, label %37
+    i32 26, label %37
     i32 38, label %12
     i32 39, label %12
     i32 40, label %12
@@ -8555,112 +8555,106 @@ define dso_local range(i32 4, -2147483648) i32 @AlterTableGetLockLevel(ptr nound
     i32 41, label %12
     i32 43, label %12
     i32 45, label %12
-    i32 2, label %39
-    i32 3, label %39
-    i32 20, label %39
-    i32 15, label %39
-    i32 22, label %39
-    i32 54, label %39
-    i32 5, label %39
-    i32 6, label %39
-    i32 55, label %39
-    i32 56, label %39
-    i32 57, label %39
-    i32 58, label %39
-    i32 63, label %39
-    i32 65, label %39
-    i32 64, label %39
-    i32 7, label %39
-    i32 8, label %39
-    i32 13, label %39
+    i32 2, label %37
+    i32 3, label %37
+    i32 20, label %37
+    i32 15, label %37
+    i32 22, label %37
+    i32 54, label %37
+    i32 5, label %37
+    i32 6, label %37
+    i32 55, label %37
+    i32 56, label %37
+    i32 57, label %37
+    i32 58, label %37
+    i32 63, label %37
+    i32 65, label %37
+    i32 64, label %37
+    i32 7, label %37
+    i32 8, label %37
+    i32 13, label %37
     i32 17, label %13
     i32 18, label %13
     i32 19, label %13
-    i32 50, label %39
-    i32 51, label %39
-    i32 52, label %39
-    i32 53, label %39
-    i32 37, label %39
+    i32 50, label %37
+    i32 51, label %37
+    i32 52, label %37
+    i32 53, label %37
+    i32 37, label %37
     i32 9, label %21
     i32 28, label %21
     i32 29, label %21
     i32 10, label %21
     i32 11, label %21
-    i32 30, label %39
-    i32 31, label %39
+    i32 30, label %37
+    i32 31, label %37
     i32 21, label %22
     i32 35, label %23
     i32 36, label %23
-    i32 60, label %27
-    i32 61, label %28
-    i32 62, label %34
+    i32 60, label %22
+    i32 61, label %27
+    i32 62, label %22
   ]
 
 12:                                               ; preds = %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33
-  br label %39
+  br label %37
 
 13:                                               ; preds = %.lr.ph33, %.lr.ph33, %.lr.ph33
   %14 = getelementptr inbounds i8, ptr %9, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 145
-  br i1 %17, label %18, label %39
+  br i1 %17, label %18, label %37
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %cond = icmp eq i32 %20, 9
   %spec.select20 = select i1 %cond, i32 6, i32 8
-  br label %39
+  br label %37
 
 21:                                               ; preds = %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33
-  br label %39
+  br label %37
 
-22:                                               ; preds = %.lr.ph33
-  br label %39
+22:                                               ; preds = %.lr.ph33, %.lr.ph33, %.lr.ph33
+  br label %37
 
 23:                                               ; preds = %.lr.ph33, %.lr.ph33
   %24 = getelementptr inbounds i8, ptr %9, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @AlterTableGetRelOptionsLockLevel(ptr noundef %25) #13
   %.pre = load i32, ptr %2, align 4
-  br label %39
+  br label %37
 
 27:                                               ; preds = %.lr.ph33
-  br label %39
-
-28:                                               ; preds = %.lr.ph33
-  %29 = getelementptr inbounds i8, ptr %9, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  %. = select i1 %33, i32 4, i32 8
-  br label %39
-
-34:                                               ; preds = %.lr.ph33
-  br label %39
+  %28 = getelementptr inbounds i8, ptr %9, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %31 = load i8, ptr %30, align 8
+  %32 = trunc i8 %31 to i1
+  %. = select i1 %32, i32 4, i32 8
+  br label %37
 
 .split:                                           ; preds = %.lr.ph33
-  %35 = getelementptr inbounds i8, ptr %9, i64 4
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %36)
-  %37 = load i32, ptr %35, align 4
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, i32 noundef %37) #13
+  %33 = getelementptr inbounds i8, ptr %9, i64 4
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %34)
+  %35 = load i32, ptr %33, align 4
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, i32 noundef %35) #13
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4738, ptr noundef nonnull @__func__.AlterTableGetLockLevel) #13
   unreachable
 
-39:                                               ; preds = %18, %28, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %13, %34, %27, %23, %22, %21, %12
-  %40 = phi i32 [ %6, %34 ], [ %6, %27 ], [ %.pre, %23 ], [ %6, %22 ], [ %6, %21 ], [ %6, %13 ], [ %6, %12 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %28 ], [ %6, %18 ]
-  %.016 = phi i32 [ 4, %34 ], [ 4, %27 ], [ %26, %23 ], [ 4, %22 ], [ 4, %21 ], [ 8, %13 ], [ 6, %12 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ %., %28 ], [ %spec.select20, %18 ]
+37:                                               ; preds = %18, %27, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %13, %23, %22, %21, %12
+  %38 = phi i32 [ %.pre, %23 ], [ %6, %22 ], [ %6, %21 ], [ %6, %13 ], [ %6, %12 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %27 ], [ %6, %18 ]
+  %.016 = phi i32 [ %26, %23 ], [ 4, %22 ], [ 4, %21 ], [ 8, %13 ], [ 6, %12 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ %., %27 ], [ %spec.select20, %18 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.016, i32 %.0172631)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph33, label %._crit_edge
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %.lr.ph33, label %._crit_edge
 
-._crit_edge:                                      ; preds = %39, %.lr.ph, %1
-  %.017.lcssa = phi i32 [ 4, %1 ], [ 4, %.lr.ph ], [ %spec.select, %39 ]
+._crit_edge:                                      ; preds = %37, %.lr.ph, %1
+  %.017.lcssa = phi i32 [ 4, %1 ], [ 4, %.lr.ph ], [ %spec.select, %37 ]
   ret i32 %.017.lcssa
 }
 
@@ -19337,12 +19331,12 @@ declare ptr @CreateTupleDescCopyConstr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef ptr @alter_table_type_to_string(i32 noundef %0) unnamed_addr #9 {
-  %2 = icmp ult i32 %0, 67
+  %2 = icmp ult i32 %0, 66
   br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [67 x ptr], ptr @switch.table.alter_table_type_to_string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [66 x ptr], ptr @switch.table.alter_table_type_to_string, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

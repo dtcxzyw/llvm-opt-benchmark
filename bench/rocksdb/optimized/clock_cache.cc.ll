@@ -986,12 +986,12 @@ if.else17:                                        ; preds = %if.then13
   br label %if.end41
 
 if.then23.critedge:                               ; preds = %_ZN7rocksdb11clock_cache14BaseClockTable30ChargeUsageMaybeEvictNonStrictINS0_20FixedHyperClockTableEEEbmmbjRNT_11InsertStateE.exit.thread, %nrvo.skipdtor.thread
-  %17 = icmp ult i32 %priority, 3
-  %switch.idx.cast = zext i32 %priority to i64
-  %switch.offset = sub nsw i64 3, %switch.idx.cast
-  %retval.0.i25 = select i1 %17, i64 %switch.offset, i64 2
+  %switch.selectcmp.i = icmp eq i32 %priority, 2
+  %switch.select.i = select i1 %switch.selectcmp.i, i64 1, i64 2
+  %switch.selectcmp1.i = icmp eq i32 %priority, 0
+  %switch.select2.i = select i1 %switch.selectcmp1.i, i64 3, i64 %switch.select.i
   %cmp25 = icmp ne ptr %handle, null
-  %call26 = call noundef ptr @_ZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr noundef nonnull align 64 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 noundef %retval.0.i25, i1 noundef zeroext %cmp25, ptr nonnull align 1 poison)
+  %call26 = call noundef ptr @_ZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr noundef nonnull align 64 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 noundef %switch.select2.i, i1 noundef zeroext %cmp25, ptr nonnull align 1 poison)
   %tobool27.not = icmp eq ptr %call26, null
   br i1 %tobool27.not, label %if.end32, label %if.then28
 
@@ -1003,60 +1003,60 @@ if.then30:                                        ; preds = %if.then28
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %if.then28
-  %state_.i.i26 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i26, align 8, !alias.scope !10
+  %state_.i.i25 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %state_.i.i25, align 8, !alias.scope !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
   br label %return
 
 if.end32:                                         ; preds = %if.then23.critedge
-  %18 = atomicrmw sub ptr %occupancy_, i64 1 monotonic, align 8
+  %17 = atomicrmw sub ptr %occupancy_, i64 1 monotonic, align 8
   %cmp35 = icmp eq ptr %handle, null
   br i1 %cmp35, label %if.then36, label %if.end41
 
 if.then36:                                        ; preds = %if.end32
   %usage_37 = getelementptr inbounds i8, ptr %this, i64 72
-  %19 = atomicrmw sub ptr %usage_37, i64 %2 monotonic, align 8
-  %helper.i27 = getelementptr inbounds i8, ptr %proto, i64 8
-  %20 = load ptr, ptr %helper.i27, align 8
-  %21 = load ptr, ptr %20, align 8
-  %tobool.not.i28 = icmp eq ptr %21, null
-  br i1 %tobool.not.i28, label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit30, label %if.then.i29
+  %18 = atomicrmw sub ptr %usage_37, i64 %2 monotonic, align 8
+  %helper.i26 = getelementptr inbounds i8, ptr %proto, i64 8
+  %19 = load ptr, ptr %helper.i26, align 8
+  %20 = load ptr, ptr %19, align 8
+  %tobool.not.i27 = icmp eq ptr %20, null
+  br i1 %tobool.not.i27, label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29, label %if.then.i28
 
-if.then.i29:                                      ; preds = %if.then36
+if.then.i28:                                      ; preds = %if.then36
   %allocator_39 = getelementptr inbounds i8, ptr %this, i64 136
-  %22 = load ptr, ptr %allocator_39, align 8
-  %23 = load ptr, ptr %proto, align 8
-  call void %21(ptr noundef %23, ptr noundef %22)
-  br label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit30
+  %21 = load ptr, ptr %allocator_39, align 8
+  %22 = load ptr, ptr %proto, align 8
+  call void %20(ptr noundef %22, ptr noundef %21)
+  br label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29
 
-_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit30: ; preds = %if.then36, %if.then.i29
-  %state_.i.i31 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i31, align 8, !alias.scope !13
+_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29: ; preds = %if.then36, %if.then.i28
+  %state_.i.i30 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %state_.i.i30, align 8, !alias.scope !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
   br label %return
 
 if.end41:                                         ; preds = %if.end32, %if.else17
   %call.i = call noalias noundef nonnull align 64 dereferenceable(64) ptr @_ZnwmSt11align_val_t(i64 noundef 64, i64 noundef 64) #27
-  %24 = getelementptr inbounds i8, ptr %call.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  %23 = getelementptr inbounds i8, ptr %call.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(40) %call.i, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %standalone.i.i = getelementptr inbounds i8, ptr %call.i, i64 52
   store i8 1, ptr %standalone.i.i, align 4
-  store atomic i64 -4611686018427387903, ptr %24 release, align 8
+  store atomic i64 -4611686018427387903, ptr %23 release, align 8
   %standalone_usage_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %25 = load i64, ptr %total_charge.i, align 8
-  %26 = atomicrmw add ptr %standalone_usage_.i, i64 %25 monotonic, align 8
+  %24 = load i64, ptr %total_charge.i, align 8
+  %25 = atomicrmw add ptr %standalone_usage_.i, i64 %24 monotonic, align 8
   store ptr %call.i, ptr %handle, align 8
   store i8 0, ptr %agg.result, align 8, !alias.scope !16
   %subcode_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 12, ptr %subcode_.i.i, align 1, !alias.scope !16
   %sev_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
-  %state_.i.i32 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i32, align 8, !alias.scope !16
+  %state_.i.i31 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %state_.i.i31, align 8, !alias.scope !16
   store i32 0, ptr %sev_.i.i, align 2, !alias.scope !16
   br label %return
 
-return:                                           ; preds = %nrvo.skipdtor, %if.end41, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit30, %if.end31, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit
+return:                                           ; preds = %nrvo.skipdtor, %if.end41, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29, %if.end31, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit
   ret void
 }
 
@@ -2626,12 +2626,12 @@ if.else17:                                        ; preds = %if.then13
   br label %if.end41
 
 if.then23.critedge:                               ; preds = %_ZN7rocksdb11clock_cache14BaseClockTable30ChargeUsageMaybeEvictNonStrictINS0_19AutoHyperClockTableEEEbmmbjRNT_11InsertStateE.exit.thread, %nrvo.skipdtor.thread
-  %18 = icmp ult i32 %priority, 3
-  %switch.idx.cast = zext i32 %priority to i64
-  %switch.offset = sub nsw i64 3, %switch.idx.cast
-  %retval.0.i24 = select i1 %18, i64 %switch.offset, i64 2
+  %switch.selectcmp.i = icmp eq i32 %priority, 2
+  %switch.select.i = select i1 %switch.selectcmp.i, i64 1, i64 2
+  %switch.selectcmp1.i = icmp eq i32 %priority, 0
+  %switch.select2.i = select i1 %switch.selectcmp1.i, i64 3, i64 %switch.select.i
   %cmp25 = icmp ne ptr %handle, null
-  %call26 = call noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr noundef nonnull align 64 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 noundef %retval.0.i24, i1 noundef zeroext %cmp25, ptr noundef nonnull align 8 dereferenceable(16) %state)
+  %call26 = call noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr noundef nonnull align 64 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 noundef %switch.select2.i, i1 noundef zeroext %cmp25, ptr noundef nonnull align 8 dereferenceable(16) %state)
   %tobool27.not = icmp eq ptr %call26, null
   br i1 %tobool27.not, label %if.end32, label %if.then28
 
@@ -2643,60 +2643,60 @@ if.then30:                                        ; preds = %if.then28
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %if.then28
-  %state_.i.i25 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i25, align 8, !alias.scope !29
+  %state_.i.i24 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %state_.i.i24, align 8, !alias.scope !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !29
   br label %return
 
 if.end32:                                         ; preds = %if.then23.critedge
-  %19 = atomicrmw sub ptr %occupancy_, i64 1 monotonic, align 8
+  %18 = atomicrmw sub ptr %occupancy_, i64 1 monotonic, align 8
   %cmp35 = icmp eq ptr %handle, null
   br i1 %cmp35, label %if.then36, label %if.end41
 
 if.then36:                                        ; preds = %if.end32
   %usage_37 = getelementptr inbounds i8, ptr %this, i64 72
-  %20 = atomicrmw sub ptr %usage_37, i64 %3 monotonic, align 8
-  %helper.i26 = getelementptr inbounds i8, ptr %proto, i64 8
-  %21 = load ptr, ptr %helper.i26, align 8
-  %22 = load ptr, ptr %21, align 8
-  %tobool.not.i27 = icmp eq ptr %22, null
-  br i1 %tobool.not.i27, label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29, label %if.then.i28
+  %19 = atomicrmw sub ptr %usage_37, i64 %3 monotonic, align 8
+  %helper.i25 = getelementptr inbounds i8, ptr %proto, i64 8
+  %20 = load ptr, ptr %helper.i25, align 8
+  %21 = load ptr, ptr %20, align 8
+  %tobool.not.i26 = icmp eq ptr %21, null
+  br i1 %tobool.not.i26, label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit28, label %if.then.i27
 
-if.then.i28:                                      ; preds = %if.then36
+if.then.i27:                                      ; preds = %if.then36
   %allocator_39 = getelementptr inbounds i8, ptr %this, i64 136
-  %23 = load ptr, ptr %allocator_39, align 8
-  %24 = load ptr, ptr %proto, align 8
-  call void %22(ptr noundef %24, ptr noundef %23)
-  br label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29
+  %22 = load ptr, ptr %allocator_39, align 8
+  %23 = load ptr, ptr %proto, align 8
+  call void %21(ptr noundef %23, ptr noundef %22)
+  br label %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit28
 
-_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29: ; preds = %if.then36, %if.then.i28
-  %state_.i.i30 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i30, align 8, !alias.scope !32
+_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit28: ; preds = %if.then36, %if.then.i27
+  %state_.i.i29 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %state_.i.i29, align 8, !alias.scope !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !32
   br label %return
 
 if.end41:                                         ; preds = %if.end32, %if.else17
   %call.i = call noalias noundef nonnull align 64 dereferenceable(64) ptr @_ZnwmSt11align_val_t(i64 noundef 64, i64 noundef 64) #27
-  %25 = getelementptr inbounds i8, ptr %call.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  %24 = getelementptr inbounds i8, ptr %call.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(40) %call.i, ptr noundef nonnull align 8 dereferenceable(40) %proto, i64 40, i1 false)
   %head_next_with_shift.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store atomic i64 -1, ptr %head_next_with_shift.i.i release, align 16
-  store atomic i64 -4611686018427387903, ptr %25 release, align 8
+  store atomic i64 -4611686018427387903, ptr %24 release, align 8
   %standalone_usage_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %26 = load i64, ptr %total_charge.i, align 8
-  %27 = atomicrmw add ptr %standalone_usage_.i, i64 %26 monotonic, align 8
+  %25 = load i64, ptr %total_charge.i, align 8
+  %26 = atomicrmw add ptr %standalone_usage_.i, i64 %25 monotonic, align 8
   store ptr %call.i, ptr %handle, align 8
   store i8 0, ptr %agg.result, align 8, !alias.scope !35
   %subcode_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 12, ptr %subcode_.i.i, align 1, !alias.scope !35
   %sev_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
-  %state_.i.i31 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr null, ptr %state_.i.i31, align 8, !alias.scope !35
+  %state_.i.i30 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr null, ptr %state_.i.i30, align 8, !alias.scope !35
   store i32 0, ptr %sev_.i.i, align 2, !alias.scope !35
   br label %return
 
-return:                                           ; preds = %nrvo.skipdtor, %if.end41, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit29, %if.end31, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit
+return:                                           ; preds = %nrvo.skipdtor, %if.end41, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit28, %if.end31, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit
   ret void
 }
 

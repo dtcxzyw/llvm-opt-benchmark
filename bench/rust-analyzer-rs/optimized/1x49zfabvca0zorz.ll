@@ -45931,9 +45931,9 @@ define { i32, i32 } @_ZN3hir8ItemInNs5krate17hda3ec9846ae34022E(ptr noalias noca
   %6 = alloca { { i32, [1 x i32] } }, align 4
   %7 = alloca { i32, [3 x i32] }, align 4
   %8 = load i32, ptr %0, align 4, !range !1786, !noundef !11
-  %switch1 = icmp samesign ult i32 %8, 2
+  %switch = icmp samesign ult i32 %8, 2
   %.0 = getelementptr inbounds i8, ptr %0, i64 4
-  br i1 %switch1, label %20, label %9
+  br i1 %switch, label %20, label %9
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %.0, align 4, !range !1786, !noundef !11

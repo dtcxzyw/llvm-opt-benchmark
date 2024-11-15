@@ -72942,7 +72942,7 @@ cleanup234:                                       ; preds = %invoke.cont.i.i27, 
   tail call void @_ZN8coro_rpc15coro_rpc_clientD2Ev(ptr noundef nonnull align 8 dereferenceable(226) %client.reload.addr) #33
   br label %cleanup259
 
-cleanup259:                                       ; preds = %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseIN4asio10io_context19basic_executor_typeISaIvELm0EEELb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %cleanup234, %entry.destroy
+cleanup259:                                       ; preds = %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseIN4asio10io_context19basic_executor_typeISaIvELm0EEELb0EE12ValueAwaiterD2Ev.exit, %cleanup234, %entry.destroy, %entry.destroy
   %_value.i = getelementptr inbounds i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %37 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8

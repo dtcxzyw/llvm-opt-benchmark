@@ -710,15 +710,15 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
   br i1 %2, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse.backedge
-  %.tr33 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.tr33, i64 36
+  %.tr34 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
+  %3 = getelementptr inbounds i8, ptr %.tr34, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %.thread.loopexit67, label %6
+  br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = load i32, ptr %.tr33, align 4
-  switch i32 %7, label %.thread.loopexit67 [
+  %7 = load i32, ptr %.tr34, align 4
+  switch i32 %7, label %.thread [
     i32 315, label %8
     i32 318, label %11
     i32 357, label %tailrecurse.backedge.sink.split
@@ -727,50 +727,50 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
     i32 326, label %34
     i32 331, label %38
     i32 339, label %42
-    i32 323, label %.thread
-    i32 329, label %.thread
-    i32 330, label %.thread
-    i32 332, label %.thread
-    i32 333, label %.thread
-    i32 335, label %.thread
-    i32 344, label %.thread
-    i32 346, label %.thread
+    i32 323, label %.thread.loopexit86
+    i32 329, label %.thread.loopexit86
+    i32 330, label %.thread.loopexit86
+    i32 332, label %.thread.loopexit86
+    i32 333, label %.thread.loopexit86
+    i32 335, label %.thread.loopexit86
+    i32 344, label %.thread.loopexit86
+    i32 346, label %.thread.loopexit86
   ]
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.tr33, i64 64
+  %9 = getelementptr inbounds i8, ptr %.tr34, i64 64
   %10 = load ptr, ptr %9, align 8
   %.not24 = icmp eq ptr %10, null
-  br i1 %.not24, label %.thread.loopexit67, label %tailrecurse.backedge
+  br i1 %.not24, label %.thread, label %tailrecurse.backedge
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %.tr33, i64 120
+  %12 = getelementptr inbounds i8, ptr %.tr34, i64 120
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.tr33, i64 112
+  %16 = getelementptr inbounds i8, ptr %.tr34, i64 112
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 4
   %.not22 = icmp eq ptr %17, null
-  br i1 %.not22, label %.thread, label %.lr.ph37
+  br i1 %.not22, label %.thread, label %.lr.ph55
 
-.lr.ph37:                                         ; preds = %15
+.lr.ph55:                                         ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   %20 = load i32, ptr %18, align 4
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph45, label %.thread
+  br i1 %21, label %.lr.ph64, label %.thread
 
-22:                                               ; preds = %.lr.ph45
+22:                                               ; preds = %.lr.ph64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %18, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph45, label %.thread
+  br i1 %25, label %.lr.ph64, label %.thread
 
-.lr.ph45:                                         ; preds = %.lr.ph37, %22
-  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph37 ]
+.lr.ph64:                                         ; preds = %.lr.ph55, %22
+  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph55 ]
   %26 = load ptr, ptr %19, align 8
   %27 = getelementptr %union.ListCell, ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
@@ -778,13 +778,13 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
   br i1 %29, label %22, label %.thread
 
 30:                                               ; preds = %6
-  %31 = getelementptr inbounds i8, ptr %.tr33, i64 112
+  %31 = getelementptr inbounds i8, ptr %.tr34, i64 112
   %32 = load i32, ptr %31, align 8
   %33 = tail call fastcc zeroext i1 @IndexSupportsBackwardScan(i32 noundef %32)
   br label %.thread
 
 34:                                               ; preds = %6
-  %35 = getelementptr inbounds i8, ptr %.tr33, i64 112
+  %35 = getelementptr inbounds i8, ptr %.tr34, i64 112
   %36 = load i32, ptr %35, align 8
   %37 = tail call fastcc zeroext i1 @IndexSupportsBackwardScan(i32 noundef %36)
   br label %.thread
@@ -793,28 +793,28 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
   br label %tailrecurse.backedge.sink.split
 
 tailrecurse.backedge.sink.split:                  ; preds = %6, %6, %38
-  %.sink60 = phi i64 [ 112, %38 ], [ 64, %6 ], [ 64, %6 ]
-  %39 = getelementptr inbounds i8, ptr %.tr33, i64 %.sink60
+  %.sink79 = phi i64 [ 112, %38 ], [ 64, %6 ], [ 64, %6 ]
+  %39 = getelementptr inbounds i8, ptr %.tr34, i64 %.sink79
   %40 = load ptr, ptr %39, align 8
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %8
   %.tr.be = phi ptr [ %10, %8 ], [ %40, %tailrecurse.backedge.sink.split ]
   %41 = icmp eq ptr %.tr.be, null
-  br i1 %41, label %.thread.loopexit67, label %.lr.ph
+  br i1 %41, label %.thread, label %.lr.ph
 
 42:                                               ; preds = %6
-  %43 = getelementptr inbounds i8, ptr %.tr33, i64 112
+  %43 = getelementptr inbounds i8, ptr %.tr34, i64 112
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1
   %.not = icmp ne i32 %45, 0
   br label %.thread
 
-.thread.loopexit67:                               ; preds = %6, %8, %.lr.ph, %tailrecurse.backedge
+.thread.loopexit86:                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph45, %22, %6, %6, %6, %6, %6, %6, %6, %6, %.thread.loopexit67, %1, %15, %.lr.ph37, %42, %11, %34, %30
-  %.0 = phi i1 [ %37, %34 ], [ %33, %30 ], [ false, %11 ], [ %.not, %42 ], [ true, %15 ], [ true, %.lr.ph37 ], [ false, %1 ], [ false, %.thread.loopexit67 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ %29, %22 ], [ %29, %.lr.ph45 ]
+.thread:                                          ; preds = %.lr.ph64, %22, %tailrecurse.backedge, %.lr.ph, %8, %6, %.thread.loopexit86, %1, %15, %.lr.ph55, %42, %11, %34, %30
+  %.0 = phi i1 [ %37, %34 ], [ %33, %30 ], [ false, %11 ], [ %.not, %42 ], [ true, %15 ], [ true, %.lr.ph55 ], [ false, %1 ], [ true, %.thread.loopexit86 ], [ false, %6 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ], [ %29, %22 ], [ %29, %.lr.ph64 ]
   ret i1 %.0
 }
 

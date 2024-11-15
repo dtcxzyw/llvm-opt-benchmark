@@ -6200,7 +6200,7 @@ define ptr @prefs_get_string_list(ptr nocapture noundef readonly %0) local_unnam
 
 22:                                               ; preds = %18
   %switch = icmp eq i32 %.04455, 1
-  %spec.select = select i1 %switch, i32 2, i32 1
+  %. = select i1 %switch, i32 2, i32 1
   br label %g_string_append_c_inline.exit
 
 23:                                               ; preds = %18
@@ -6266,11 +6266,11 @@ define ptr @prefs_get_string_list(ptr nocapture noundef readonly %0) local_unnam
   %58 = tail call ptr @g_string_insert_c(ptr noundef nonnull %.04056, i64 noundef -1, i8 noundef signext %19) #24
   br label %g_string_append_c_inline.exit
 
-g_string_append_c_inline.exit:                    ; preds = %57, %51, %22, %30, %33, %25, %37
-  %.147 = phi i32 [ %.04654, %37 ], [ 1, %25 ], [ 0, %33 ], [ 0, %30 ], [ 0, %22 ], [ 0, %51 ], [ 0, %57 ]
-  %.145 = phi i32 [ 0, %37 ], [ %spec.store.select, %25 ], [ 0, %33 ], [ 0, %30 ], [ %spec.select, %22 ], [ %.04455, %51 ], [ %.04455, %57 ]
-  %.141 = phi ptr [ %.04056, %37 ], [ %.04056, %25 ], [ %36, %33 ], [ %.04056, %30 ], [ %.04056, %22 ], [ %.04056, %51 ], [ %.04056, %57 ]
-  %.2 = phi ptr [ %.057, %37 ], [ %.057, %25 ], [ %35, %33 ], [ %.057, %30 ], [ %.057, %22 ], [ %.057, %51 ], [ %.057, %57 ]
+g_string_append_c_inline.exit:                    ; preds = %57, %51, %30, %33, %22, %25, %37
+  %.147 = phi i32 [ %.04654, %37 ], [ 1, %25 ], [ 0, %22 ], [ 0, %33 ], [ 0, %30 ], [ 0, %51 ], [ 0, %57 ]
+  %.145 = phi i32 [ 0, %37 ], [ %spec.store.select, %25 ], [ %., %22 ], [ 0, %33 ], [ 0, %30 ], [ %.04455, %51 ], [ %.04455, %57 ]
+  %.141 = phi ptr [ %.04056, %37 ], [ %.04056, %25 ], [ %.04056, %22 ], [ %36, %33 ], [ %.04056, %30 ], [ %.04056, %51 ], [ %.04056, %57 ]
+  %.2 = phi ptr [ %.057, %37 ], [ %.057, %25 ], [ %.057, %22 ], [ %35, %33 ], [ %.057, %30 ], [ %.057, %51 ], [ %.057, %57 ]
   %59 = add i32 %.04853, 1
   %60 = sext i32 %59 to i64
   %61 = getelementptr i8, ptr %0, i64 %60

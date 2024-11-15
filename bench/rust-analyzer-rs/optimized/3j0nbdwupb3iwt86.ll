@@ -4387,8 +4387,8 @@ define internal fastcc noundef zeroext i1 @"_ZN116_$LT$core..iter..adapters..fla
 define hidden noundef nonnull align 4 dereferenceable(20) ptr @"_ZN2tt13Leaf$LT$S$GT$4span17h02f463e9805de0d2E"(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8, !range !1608, !noundef !30
   %switch = icmp eq i32 %2, 1
-  %spec.select = select i1 %switch, i64 8, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 32
+  %3 = getelementptr inbounds i8, ptr %0, i64 %.
   ret ptr %3
 }
 
@@ -4563,8 +4563,8 @@ define hidden void @"_ZN2tt18TokenTree$LT$S$GT$10first_span17h8b3e70e04c7b5099E"
   %5 = icmp eq i8 %4, 4
   %6 = load i32, ptr %1, align 8, !range !1608
   %switch.i = icmp eq i32 %6, 1
-  %spec.select.i = select i1 %switch.i, i64 8, i64 32
-  %.sink1 = select i1 %5, i64 %spec.select.i, i64 16
+  %..i = select i1 %switch.i, i64 8, i64 32
+  %.sink1 = select i1 %5, i64 %..i, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 %.sink1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %7, i64 20, i1 false)
   ret void
@@ -6473,8 +6473,8 @@ default.unreachable:                              ; preds = %100
   %186 = icmp eq i8 %185, 4
   %187 = load i32, ptr %155, align 8, !range !1608, !alias.scope !1925, !noalias !1922
   %switch.i.i = icmp eq i32 %187, 1
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 32
-  %.sink1.i = select i1 %186, i64 %spec.select.i.i, i64 16
+  %..i.i = select i1 %switch.i.i, i64 8, i64 32
+  %.sink1.i = select i1 %186, i64 %..i.i, i64 16
   %188 = getelementptr inbounds i8, ptr %155, i64 %.sink1.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, ptr noundef nonnull readonly align 8 dereferenceable(20) %188, i64 20, i1 false), !alias.scope !1927
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.026, ptr noundef nonnull align 8 dereferenceable(20) %188, i64 20, i1 false)
@@ -20669,11 +20669,11 @@ define noundef i64 @_ZN10hir_expand8mod_path7ModPath3len17h6629c842d1c4591bE(ptr
   %5 = load i64, ptr %4, align 8, !alias.scope !4877, !noalias !4880
   %6 = load i8, ptr %0, align 8, !range !39, !noundef !30
   switch i8 %6, label %default.unreachable1 [
-    i8 0, label %13
+    i8 0, label %12
     i8 1, label %7
     i8 2, label %11
-    i8 3, label %13
-    i8 4, label %12
+    i8 3, label %12
+    i8 4, label %11
   ]
 
 default.unreachable1:                             ; preds = %1
@@ -20683,20 +20683,17 @@ default.unreachable1:                             ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1, !noundef !30
   %10 = zext i8 %9 to i64
-  br label %13
+  br label %12
 
-11:                                               ; preds = %1
-  br label %13
+11:                                               ; preds = %1, %1
+  br label %12
 
-12:                                               ; preds = %1
-  br label %13
-
-13:                                               ; preds = %1, %1, %12, %11, %7
-  %.0 = phi i64 [ 1, %12 ], [ 1, %11 ], [ %10, %7 ], [ 0, %1 ], [ 0, %1 ]
-  %14 = icmp ugt i64 %3, 1
-  %.sink4.i = select i1 %14, i64 %5, i64 %3
-  %15 = add i64 %.0, %.sink4.i
-  ret i64 %15
+12:                                               ; preds = %1, %1, %11, %7
+  %.0 = phi i64 [ 1, %11 ], [ %10, %7 ], [ 0, %1 ], [ 0, %1 ]
+  %13 = icmp ugt i64 %3, 1
+  %.sink4.i = select i1 %13, i64 %5, i64 %3
+  %14 = add i64 %.0, %.sink4.i
+  ret i64 %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable

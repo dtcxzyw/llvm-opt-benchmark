@@ -18124,8 +18124,8 @@ default.unreachable144:                           ; preds = %1974, %1945, %1920,
   %849 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i.i, i64 88
   %850 = load ptr, ptr %849, align 8, !alias.scope !6561, !noalias !6560, !nonnull !6, !noundef !6
   %switch.i.i.i.i.i.i.i.i.i = icmp samesign ult i64 %848, 2
-  %spec.select.idx.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %850, i64 %spec.select.idx.i.i.i.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %850, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i.i, i64 96
   %.sroa.4.0.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !6561, !noalias !6560, !noundef !6
   %851 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i.i, i64 104
@@ -18133,7 +18133,7 @@ default.unreachable144:                           ; preds = %1974, %1945, %1920,
   %852 = getelementptr inbounds i8, ptr %1, i64 800
   store ptr %846, ptr %852, align 8, !noalias !6556
   %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 808
-  store ptr %spec.select.i.i.i.i.i.i.i.i.i, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !6556
+  store ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !6556
   %.sroa.819.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 816
   store i64 %.sroa.4.0.i.i.i.i.i.i.i.i.i, ptr %.sroa.819.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !6556
   %.sroa.920.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 824
@@ -18229,7 +18229,7 @@ default.unreachable144:                           ; preds = %1974, %1945, %1920,
   %876 = phi ptr [ %840, %.thread59.i.i.i.i.i.i.i.i ], [ %.pre66.i.i.i.i.i.i.i, %..thread54.i.i_crit_edge.i.i.i.i.i.i.i ]
   %877 = phi ptr [ %851, %.thread59.i.i.i.i.i.i.i.i ], [ %.pre64.i.i.i.i.i.i.i, %..thread54.i.i_crit_edge.i.i.i.i.i.i.i ]
   %878 = phi i64 [ %.sroa.4.0.i.i.i.i.i.i.i.i.i, %.thread59.i.i.i.i.i.i.i.i ], [ %.pre62.i.i.i.i.i.i.i, %..thread54.i.i_crit_edge.i.i.i.i.i.i.i ]
-  %879 = phi ptr [ %spec.select.i.i.i.i.i.i.i.i.i, %.thread59.i.i.i.i.i.i.i.i ], [ %.pre60.i.i.i.i.i.i.i, %..thread54.i.i_crit_edge.i.i.i.i.i.i.i ]
+  %879 = phi ptr [ %.sroa.0.0.i.i.i.i.i.i.i.i.i, %.thread59.i.i.i.i.i.i.i.i ], [ %.pre60.i.i.i.i.i.i.i, %..thread54.i.i_crit_edge.i.i.i.i.i.i.i ]
   %880 = phi ptr [ %845, %.thread59.i.i.i.i.i.i.i.i ], [ %.pre58.i.i.i.i.i.i.i, %..thread54.i.i_crit_edge.i.i.i.i.i.i.i ]
   %881 = phi ptr [ %846, %.thread59.i.i.i.i.i.i.i.i ], [ %.pre56.i.i.i.i.i.i.i, %..thread54.i.i_crit_edge.i.i.i.i.i.i.i ]
   %882 = phi ptr [ %.sroa.1425.0..sroa_idx.i.i.i.i.i.i.i.i, %.thread59.i.i.i.i.i.i.i.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i, %..thread54.i.i_crit_edge.i.i.i.i.i.i.i ]
@@ -21012,8 +21012,8 @@ common.ret:                                       ; preds = %2558, %"_ZN4core3pt
   %1937 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 88
   %1938 = load ptr, ptr %1937, align 8, !alias.scope !7065, !noalias !7064, !nonnull !6, !noundef !6
   %switch.i.i.i.i = icmp samesign ult i64 %1936, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %1938, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %1938, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i, i64 96
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !7065, !noalias !7064, !noundef !6
   %1939 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 104
@@ -21021,7 +21021,7 @@ common.ret:                                       ; preds = %2558, %"_ZN4core3pt
   %1940 = getelementptr inbounds i8, ptr %1, i64 120
   store ptr %1934, ptr %1940, align 8, !noalias !7060
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
-  store ptr %spec.select.i.i.i.i, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !noalias !7060
+  store ptr %.sroa.0.0.i.i.i.i, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !noalias !7060
   %.sroa.819.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 136
   store i64 %.sroa.4.0.i.i.i.i, ptr %.sroa.819.0..sroa_idx.i.i.i, align 8, !noalias !7060
   %.sroa.920.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 144
@@ -21108,7 +21108,7 @@ common.ret:                                       ; preds = %2558, %"_ZN4core3pt
   %1955 = phi ptr [ %1928, %.thread59.i.i.i ], [ %.pre105.i.i, %..thread54.i.i_crit_edge.i.i ]
   %1956 = phi ptr [ %1939, %.thread59.i.i.i ], [ %.pre103.i.i, %..thread54.i.i_crit_edge.i.i ]
   %1957 = phi i64 [ %.sroa.4.0.i.i.i.i, %.thread59.i.i.i ], [ %.pre101.i.i, %..thread54.i.i_crit_edge.i.i ]
-  %1958 = phi ptr [ %spec.select.i.i.i.i, %.thread59.i.i.i ], [ %.pre99.i.i, %..thread54.i.i_crit_edge.i.i ]
+  %1958 = phi ptr [ %.sroa.0.0.i.i.i.i, %.thread59.i.i.i ], [ %.pre99.i.i, %..thread54.i.i_crit_edge.i.i ]
   %1959 = phi ptr [ %1933, %.thread59.i.i.i ], [ %.pre97.i.i, %..thread54.i.i_crit_edge.i.i ]
   %1960 = phi ptr [ %1934, %.thread59.i.i.i ], [ %.pre95.i.i, %..thread54.i.i_crit_edge.i.i ]
   %1961 = phi ptr [ %.sroa.1425.0..sroa_idx.i.i.i, %.thread59.i.i.i ], [ %.phi.trans.insert.i.i.i25, %..thread54.i.i_crit_edge.i.i ]

@@ -1033,7 +1033,6 @@ $_ZTIN5boost3any6holderIdEE = comdat any
 @__PRETTY_FUNCTION__._ZNK8QuantLib6HandleINS_5QuoteEE11currentLinkEv = private unnamed_addr constant [103 x i8] c"const ext::shared_ptr<T> &QuantLib::Handle<QuantLib::Quote>::currentLink() const [T = QuantLib::Quote]\00", align 1
 @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib11SimpleQuoteEEptEv = private unnamed_addr constant [139 x i8] c"typename boost::detail::sp_member_access<T>::type boost::shared_ptr<QuantLib::SimpleQuote>::operator->() const [T = QuantLib::SimpleQuote]\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZNK8QuantLib23VannaVolgaBarrierEngine9calculateEv = private unnamed_addr constant [3 x i32] [i32 3, i32 2, i32 3], align 4
 
 @_ZN8QuantLib23VannaVolgaBarrierEngineC1ENS_6HandleINS_13DeltaVolQuoteEEES3_S3_NS1_INS_5QuoteEEENS1_INS_18YieldTermStructureEEES7_bd = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, i1, double), ptr @_ZN8QuantLib23VannaVolgaBarrierEngineC2ENS_6HandleINS_13DeltaVolQuoteEEES3_S3_NS1_INS_5QuoteEEENS1_INS_18YieldTermStructureEEES7_bd
 
@@ -7409,18 +7408,10 @@ ehcleanup722:                                     ; preds = %if.then.i.i1146, %_
   br label %ehcleanup1868
 
 if.else726:                                       ; preds = %invoke.cont646
-  %switch.tableidx = add i32 %349, -1
-  %382 = icmp ult i32 %switch.tableidx, 3
-  br i1 %382, label %switch.lookup, label %if.end749
-
-switch.lookup:                                    ; preds = %if.else726
-  %383 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK8QuantLib23VannaVolgaBarrierEngine9calculateEv, i64 0, i64 %383
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %if.end749
-
-if.end749:                                        ; preds = %if.else726, %switch.lookup
-  %barrierType727.0 = phi i32 [ %switch.load, %switch.lookup ], [ 2, %if.else726 ]
+  %382 = add i32 %349, -1
+  %switch.and = and i32 %382, -3
+  %switch.selectcmp = icmp eq i32 %switch.and, 0
+  %383 = select i1 %switch.selectcmp, i32 3, i32 2
   call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %barrierOption) #28
   %rebate = getelementptr inbounds nuw i8, ptr %this, i64 168
   %384 = load double, ptr %rebate, align 8, !tbaa !161
@@ -7430,7 +7421,7 @@ if.end749:                                        ; preds = %if.else726, %switch
   %386 = icmp eq ptr %385, null
   br i1 %386, label %cond.false.i1161, label %dynamic_cast.end3.i1153
 
-dynamic_cast.end3.i1153:                          ; preds = %if.end749
+dynamic_cast.end3.i1153:                          ; preds = %if.else726
   %387 = call ptr @__dynamic_cast(ptr nonnull %385, ptr nonnull @_ZTIN8QuantLib6PayoffE, ptr nonnull @_ZTIN8QuantLib17StrikedTypePayoffE, i64 0) #28, !noalias !162
   %tobool.not.i1154 = icmp eq ptr %387, null
   br i1 %tobool.not.i1154, label %cond.false.i1161, label %cond.true.i1155
@@ -7449,13 +7440,13 @@ if.then.i.i.i1159:                                ; preds = %cond.true.i1155
   %389 = atomicrmw add ptr %use_count_.i.i.i.i1160, i32 1 monotonic, align 4, !noalias !162
   br label %_ZN5boost20dynamic_pointer_castIN8QuantLib17StrikedTypePayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit1162
 
-cond.false.i1161:                                 ; preds = %dynamic_cast.end3.i1153, %if.end749
+cond.false.i1161:                                 ; preds = %dynamic_cast.end3.i1153, %if.else726
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp753, i8 0, i64 16, i1 false), !alias.scope !162
   br label %_ZN5boost20dynamic_pointer_castIN8QuantLib17StrikedTypePayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit1162
 
 _ZN5boost20dynamic_pointer_castIN8QuantLib17StrikedTypePayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit1162: ; preds = %cond.true.i1155, %if.then.i.i.i1159, %cond.false.i1161
   %exercise = getelementptr inbounds nuw i8, ptr %this, i64 136
-  invoke void @_ZN8QuantLib13BarrierOptionC1ENS_7Barrier4TypeEddRKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS4_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(248) %barrierOption, i32 noundef %barrierType727.0, double noundef %348, double noundef %384, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp753, ptr noundef nonnull align 8 dereferenceable(16) %exercise)
+  invoke void @_ZN8QuantLib13BarrierOptionC1ENS_7Barrier4TypeEddRKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS4_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(248) %barrierOption, i32 noundef %383, double noundef %348, double noundef %384, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp753, ptr noundef nonnull align 8 dereferenceable(16) %exercise)
           to label %invoke.cont758 unwind label %lpad757
 
 invoke.cont758:                                   ; preds = %_ZN5boost20dynamic_pointer_castIN8QuantLib17StrikedTypePayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit1162

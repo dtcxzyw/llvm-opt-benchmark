@@ -1600,11 +1600,11 @@ if.else.i:                                        ; preds = %if.end19.i
   %19 = load i8, ptr %arrayidx.i34, align 1
   %20 = lshr i8 %19, 3
   %21 = and i8 %20, 15
-  switch i8 %21, label %write_signed_varint.exit.i [
+  switch i8 %21, label %sw.default.i.i [
     i8 12, label %sw.bb4.i.i
     i8 13, label %sw.bb1.i.i
     i8 14, label %sw.bb1.i.i
-    i8 11, label %sw.bb3.i.i
+    i8 11, label %write_signed_varint.exit.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.else.i, %if.else.i
@@ -1639,10 +1639,10 @@ scan_signed_varint.exit.i.i:                      ; preds = %while.body.i.i.i.i,
   %shr.i.i.i = and i32 %val.0.lcssa.i.i.i.fr.i, -2
   br i1 %tobool.not.i.i.i, label %get_line_delta.exit.thread.i, label %get_line_delta.exit.i
 
-sw.bb3.i.i:                                       ; preds = %if.else.i
+sw.bb4.i.i:                                       ; preds = %if.else.i
   br label %write_signed_varint.exit.i
 
-sw.bb4.i.i:                                       ; preds = %if.else.i
+sw.default.i.i:                                   ; preds = %if.else.i
   br label %write_signed_varint.exit.i
 
 get_line_delta.exit.i:                            ; preds = %scan_signed_varint.exit.i.i
@@ -1672,10 +1672,10 @@ write_signed_varint.exit.loopexit.i:              ; preds = %while.body.i.i.i
   %27 = zext nneg i32 %inc.i.i.i to i64
   br label %write_signed_varint.exit.i
 
-write_signed_varint.exit.i:                       ; preds = %write_signed_varint.exit.loopexit.i, %get_line_delta.exit.thread.i, %get_line_delta.exit.i, %sw.bb4.i.i, %sw.bb3.i.i, %if.else.i
-  %ptr.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr32.i, %get_line_delta.exit.thread.i ], [ %incdec.ptr.i.i.i, %write_signed_varint.exit.loopexit.i ], [ %add.ptr32.i, %get_line_delta.exit.i ], [ %add.ptr32.i, %if.else.i ], [ %add.ptr32.i, %sw.bb3.i.i ], [ %add.ptr32.i, %sw.bb4.i.i ]
-  %val.addr.0.lcssa.i.i.i = phi i32 [ %24, %get_line_delta.exit.thread.i ], [ %shr.i.i27.i, %write_signed_varint.exit.loopexit.i ], [ 0, %get_line_delta.exit.i ], [ 0, %if.else.i ], [ 2, %sw.bb3.i.i ], [ 4, %sw.bb4.i.i ]
-  %written.0.lcssa.i.i.i = phi i64 [ 1, %get_line_delta.exit.thread.i ], [ %27, %write_signed_varint.exit.loopexit.i ], [ 1, %get_line_delta.exit.i ], [ 1, %if.else.i ], [ 1, %sw.bb3.i.i ], [ 1, %sw.bb4.i.i ]
+write_signed_varint.exit.i:                       ; preds = %write_signed_varint.exit.loopexit.i, %get_line_delta.exit.thread.i, %get_line_delta.exit.i, %sw.default.i.i, %sw.bb4.i.i, %if.else.i
+  %ptr.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr32.i, %get_line_delta.exit.thread.i ], [ %incdec.ptr.i.i.i, %write_signed_varint.exit.loopexit.i ], [ %add.ptr32.i, %get_line_delta.exit.i ], [ %add.ptr32.i, %if.else.i ], [ %add.ptr32.i, %sw.bb4.i.i ], [ %add.ptr32.i, %sw.default.i.i ]
+  %val.addr.0.lcssa.i.i.i = phi i32 [ %24, %get_line_delta.exit.thread.i ], [ %shr.i.i27.i, %write_signed_varint.exit.loopexit.i ], [ 0, %get_line_delta.exit.i ], [ 2, %if.else.i ], [ 4, %sw.bb4.i.i ], [ 0, %sw.default.i.i ]
+  %written.0.lcssa.i.i.i = phi i64 [ 1, %get_line_delta.exit.thread.i ], [ %27, %write_signed_varint.exit.loopexit.i ], [ 1, %get_line_delta.exit.i ], [ 1, %if.else.i ], [ 1, %sw.bb4.i.i ], [ 1, %sw.default.i.i ]
   %conv1.i.i.i = trunc nuw nsw i32 %val.addr.0.lcssa.i.i.i to i8
   store i8 %conv1.i.i.i, ptr %ptr.addr.0.lcssa.i.i.i, align 1
   %add.ptr38.i = getelementptr i8, ptr %add.ptr32.i, i64 %written.0.lcssa.i.i.i
@@ -3079,11 +3079,11 @@ if.end.i:                                         ; preds = %while.body
   %5 = load i8, ptr %incdec.ptr.i.i49, align 1
   %6 = lshr i8 %5, 3
   %7 = and i8 %6, 15
-  switch i8 %7, label %get_line_delta.exit.i.i [
+  switch i8 %7, label %sw.default.i.i.i [
     i8 12, label %sw.bb4.i.i.i
     i8 13, label %sw.bb1.i.i.i
     i8 14, label %sw.bb1.i.i.i
-    i8 11, label %sw.bb3.i.i.i
+    i8 11, label %get_line_delta.exit.i.i
   ]
 
 sw.bb1.i.i.i:                                     ; preds = %if.end.i, %if.end.i
@@ -3119,14 +3119,14 @@ scan_signed_varint.exit.i.i.i:                    ; preds = %while.body.i.i.i.i.
   %retval.0.i.i.i.i = select i1 %tobool.not.i.i.i.i, i32 %shr.i.i.i.i, i32 %sub.i.i.i.i
   br label %get_line_delta.exit.i.i
 
-sw.bb3.i.i.i:                                     ; preds = %if.end.i
-  br label %get_line_delta.exit.i.i
-
 sw.bb4.i.i.i:                                     ; preds = %if.end.i
   br label %get_line_delta.exit.i.i
 
-get_line_delta.exit.i.i:                          ; preds = %sw.bb4.i.i.i, %sw.bb3.i.i.i, %scan_signed_varint.exit.i.i.i, %if.end.i
-  %retval.0.i.i.i = phi i32 [ 2, %sw.bb4.i.i.i ], [ 1, %sw.bb3.i.i.i ], [ %retval.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 0, %if.end.i ]
+sw.default.i.i.i:                                 ; preds = %if.end.i
+  br label %get_line_delta.exit.i.i
+
+get_line_delta.exit.i.i:                          ; preds = %sw.default.i.i.i, %sw.bb4.i.i.i, %scan_signed_varint.exit.i.i.i, %if.end.i
+  %retval.0.i.i.i = phi i32 [ 0, %sw.default.i.i.i ], [ 2, %sw.bb4.i.i.i ], [ %retval.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 1, %if.end.i ]
   %10 = load i32, ptr %opaque.i.i, align 8
   %add.i.i = add i32 %10, %retval.0.i.i.i
   store i32 %add.i.i, ptr %opaque.i.i, align 8
@@ -3180,61 +3180,61 @@ do.body.i.i7:                                     ; preds = %do.body.i.i7, %if.e
 do.end.i.i:                                       ; preds = %do.body.i.i7
   %18 = lshr i8 %17, 3
   %19 = and i8 %18, 15
-  switch i8 %19, label %get_line_delta.exit.i.i10 [
-    i8 12, label %sw.bb4.i.i.i38
-    i8 13, label %sw.bb1.i.i.i15
-    i8 14, label %sw.bb1.i.i.i15
-    i8 11, label %sw.bb3.i.i.i9
+  switch i8 %19, label %sw.default.i.i.i38 [
+    i8 12, label %sw.bb4.i.i.i37
+    i8 13, label %sw.bb1.i.i.i14
+    i8 14, label %sw.bb1.i.i.i14
+    i8 11, label %get_line_delta.exit.i.i9
   ]
 
-sw.bb1.i.i.i15:                                   ; preds = %do.end.i.i, %do.end.i.i
+sw.bb1.i.i.i14:                                   ; preds = %do.end.i.i, %do.end.i.i
   %20 = load i8, ptr %incdec.ptr17.i.i, align 1
-  %conv.i.i.i.i.i16 = zext i8 %20 to i32
-  %and.i.i.i.i.i17 = and i32 %conv.i.i.i.i.i16, 63
-  %and16.i.i.i.i.i18 = and i32 %conv.i.i.i.i.i16, 64
-  %tobool.not7.i.i.i.i.i19 = icmp eq i32 %and16.i.i.i.i.i18, 0
-  br i1 %tobool.not7.i.i.i.i.i19, label %scan_signed_varint.exit.i.i.i32, label %while.body.i.i.i.i.i20
+  %conv.i.i.i.i.i15 = zext i8 %20 to i32
+  %and.i.i.i.i.i16 = and i32 %conv.i.i.i.i.i15, 63
+  %and16.i.i.i.i.i17 = and i32 %conv.i.i.i.i.i15, 64
+  %tobool.not7.i.i.i.i.i18 = icmp eq i32 %and16.i.i.i.i.i17, 0
+  br i1 %tobool.not7.i.i.i.i.i18, label %scan_signed_varint.exit.i.i.i31, label %while.body.i.i.i.i.i19
 
-while.body.i.i.i.i.i20:                           ; preds = %sw.bb1.i.i.i15, %while.body.i.i.i.i.i20
-  %shift.010.i.i.i.i.i21 = phi i32 [ %add.i.i.i.i.i26, %while.body.i.i.i.i.i20 ], [ 0, %sw.bb1.i.i.i15 ]
-  %val.09.i.i.i.i.i22 = phi i32 [ %or.i.i.i.i.i29, %while.body.i.i.i.i.i20 ], [ %and.i.i.i.i.i17, %sw.bb1.i.i.i15 ]
-  %ptr.pn8.i.i.i.i.i23 = phi ptr [ %ptr.addr.0.i.i.i.i.i24, %while.body.i.i.i.i.i20 ], [ %incdec.ptr17.i.i, %sw.bb1.i.i.i15 ]
-  %ptr.addr.0.i.i.i.i.i24 = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i23, i64 1
-  %21 = load i8, ptr %ptr.addr.0.i.i.i.i.i24, align 1
-  %conv3.i.i.i.i.i25 = zext i8 %21 to i32
-  %add.i.i.i.i.i26 = add i32 %shift.010.i.i.i.i.i21, 6
-  %and4.i.i.i.i.i27 = and i32 %conv3.i.i.i.i.i25, 63
-  %shl.i.i.i.i.i28 = shl i32 %and4.i.i.i.i.i27, %add.i.i.i.i.i26
-  %or.i.i.i.i.i29 = or i32 %shl.i.i.i.i.i28, %val.09.i.i.i.i.i22
-  %and1.i.i.i.i.i30 = and i32 %conv3.i.i.i.i.i25, 64
-  %tobool.not.i.i.i.i.i31 = icmp eq i32 %and1.i.i.i.i.i30, 0
-  br i1 %tobool.not.i.i.i.i.i31, label %scan_signed_varint.exit.i.i.i32, label %while.body.i.i.i.i.i20, !llvm.loop !10
+while.body.i.i.i.i.i19:                           ; preds = %sw.bb1.i.i.i14, %while.body.i.i.i.i.i19
+  %shift.010.i.i.i.i.i20 = phi i32 [ %add.i.i.i.i.i25, %while.body.i.i.i.i.i19 ], [ 0, %sw.bb1.i.i.i14 ]
+  %val.09.i.i.i.i.i21 = phi i32 [ %or.i.i.i.i.i28, %while.body.i.i.i.i.i19 ], [ %and.i.i.i.i.i16, %sw.bb1.i.i.i14 ]
+  %ptr.pn8.i.i.i.i.i22 = phi ptr [ %ptr.addr.0.i.i.i.i.i23, %while.body.i.i.i.i.i19 ], [ %incdec.ptr17.i.i, %sw.bb1.i.i.i14 ]
+  %ptr.addr.0.i.i.i.i.i23 = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i22, i64 1
+  %21 = load i8, ptr %ptr.addr.0.i.i.i.i.i23, align 1
+  %conv3.i.i.i.i.i24 = zext i8 %21 to i32
+  %add.i.i.i.i.i25 = add i32 %shift.010.i.i.i.i.i20, 6
+  %and4.i.i.i.i.i26 = and i32 %conv3.i.i.i.i.i24, 63
+  %shl.i.i.i.i.i27 = shl i32 %and4.i.i.i.i.i26, %add.i.i.i.i.i25
+  %or.i.i.i.i.i28 = or i32 %shl.i.i.i.i.i27, %val.09.i.i.i.i.i21
+  %and1.i.i.i.i.i29 = and i32 %conv3.i.i.i.i.i24, 64
+  %tobool.not.i.i.i.i.i30 = icmp eq i32 %and1.i.i.i.i.i29, 0
+  br i1 %tobool.not.i.i.i.i.i30, label %scan_signed_varint.exit.i.i.i31, label %while.body.i.i.i.i.i19, !llvm.loop !10
 
-scan_signed_varint.exit.i.i.i32:                  ; preds = %while.body.i.i.i.i.i20, %sw.bb1.i.i.i15
-  %val.0.lcssa.i.i.i.i.i33 = phi i32 [ %and.i.i.i.i.i17, %sw.bb1.i.i.i15 ], [ %or.i.i.i.i.i29, %while.body.i.i.i.i.i20 ]
-  %and.i.i.i.i34 = and i32 %val.0.lcssa.i.i.i.i.i33, 1
-  %tobool.not.i.i.i.i35 = icmp eq i32 %and.i.i.i.i34, 0
-  %shr.i.i.i.i36 = lshr i32 %val.0.lcssa.i.i.i.i.i33, 1
-  %sub.i.i.i.i37 = sub nsw i32 0, %shr.i.i.i.i36
-  %22 = select i1 %tobool.not.i.i.i.i35, i32 %sub.i.i.i.i37, i32 %shr.i.i.i.i36
-  br label %get_line_delta.exit.i.i10
+scan_signed_varint.exit.i.i.i31:                  ; preds = %while.body.i.i.i.i.i19, %sw.bb1.i.i.i14
+  %val.0.lcssa.i.i.i.i.i32 = phi i32 [ %and.i.i.i.i.i16, %sw.bb1.i.i.i14 ], [ %or.i.i.i.i.i28, %while.body.i.i.i.i.i19 ]
+  %and.i.i.i.i33 = and i32 %val.0.lcssa.i.i.i.i.i32, 1
+  %tobool.not.i.i.i.i34 = icmp eq i32 %and.i.i.i.i33, 0
+  %shr.i.i.i.i35 = lshr i32 %val.0.lcssa.i.i.i.i.i32, 1
+  %sub.i.i.i.i36 = sub nsw i32 0, %shr.i.i.i.i35
+  %22 = select i1 %tobool.not.i.i.i.i34, i32 %sub.i.i.i.i36, i32 %shr.i.i.i.i35
+  br label %get_line_delta.exit.i.i9
 
-sw.bb3.i.i.i9:                                    ; preds = %do.end.i.i
-  br label %get_line_delta.exit.i.i10
+sw.bb4.i.i.i37:                                   ; preds = %do.end.i.i
+  br label %get_line_delta.exit.i.i9
 
-sw.bb4.i.i.i38:                                   ; preds = %do.end.i.i
-  br label %get_line_delta.exit.i.i10
+sw.default.i.i.i38:                               ; preds = %do.end.i.i
+  br label %get_line_delta.exit.i.i9
 
-get_line_delta.exit.i.i10:                        ; preds = %sw.bb4.i.i.i38, %sw.bb3.i.i.i9, %scan_signed_varint.exit.i.i.i32, %do.end.i.i
-  %retval.0.i.neg.i.i = phi i32 [ -2, %sw.bb4.i.i.i38 ], [ -1, %sw.bb3.i.i.i9 ], [ %22, %scan_signed_varint.exit.i.i.i32 ], [ 0, %do.end.i.i ]
+get_line_delta.exit.i.i9:                         ; preds = %sw.default.i.i.i38, %sw.bb4.i.i.i37, %scan_signed_varint.exit.i.i.i31, %do.end.i.i
+  %retval.0.i.neg.i.i = phi i32 [ 0, %sw.default.i.i.i38 ], [ -2, %sw.bb4.i.i.i37 ], [ %22, %scan_signed_varint.exit.i.i.i31 ], [ -1, %do.end.i.i ]
   %23 = load i32, ptr %opaque.le.i.i, align 8
   %sub.i.i = add i32 %23, %retval.0.i.neg.i.i
   store i32 %sub.i.i, ptr %opaque.le.i.i, align 8
   store i32 %16, ptr %ar_end, align 4
   br label %while.cond.i.i.i
 
-while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %get_line_delta.exit.i.i10
-  %.pn.i.i.i = phi ptr [ %ptr.0.i.i.i, %while.cond.i.i.i ], [ %incdec.ptr.i.i8, %get_line_delta.exit.i.i10 ]
+while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %get_line_delta.exit.i.i9
+  %.pn.i.i.i = phi ptr [ %ptr.0.i.i.i, %while.cond.i.i.i ], [ %incdec.ptr.i.i8, %get_line_delta.exit.i.i9 ]
   %ptr.0.i.i.i = getelementptr i8, ptr %.pn.i.i.i, i64 -1
   %24 = load i8, ptr %ptr.0.i.i.i, align 1
   %cmp1.i.i.i = icmp sgt i8 %24, -1
@@ -3242,21 +3242,21 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %
 
 _PyLineTable_PreviousAddressRange.exit:           ; preds = %while.cond.i.i.i
   %25 = shl i8 %24, 1
-  %narrow.i.i.i12 = and i8 %25, 14
-  %26 = add nuw nsw i8 %narrow.i.i.i12, 2
+  %narrow.i.i.i11 = and i8 %25, 14
+  %26 = add nuw nsw i8 %narrow.i.i.i11, 2
   %conv6.i.i.i = zext nneg i8 %26 to i32
   %sub9.i.i = sub nsw i32 %16, %conv6.i.i.i
   store i32 %sub9.i.i, ptr %bounds, align 8
   %arrayidx.i.i = getelementptr i8, ptr %incdec.ptr17.i.i, i64 -2
   %27 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i13.i.i = icmp ult i8 %27, -8
-  %spec.select.i.i13 = select i1 %cmp.i13.i.i, i32 %sub.i.i, i32 -1
-  store i32 %spec.select.i.i13, ptr %4, align 8
+  %spec.select.i.i12 = select i1 %cmp.i13.i.i, i32 %sub.i.i, i32 -1
+  store i32 %spec.select.i.i12, ptr %4, align 8
   %cmp2 = icmp sgt i32 %sub9.i.i, %lasti
   br i1 %cmp2, label %while.body3, label %return, !llvm.loop !25
 
 return:                                           ; preds = %while.body, %while.body3, %_PyLineTable_PreviousAddressRange.exit, %while.cond1.preheader.while.end8_crit_edge
-  %retval.0 = phi i32 [ %.pre53, %while.cond1.preheader.while.end8_crit_edge ], [ -1, %while.body3 ], [ %spec.select.i.i13, %_PyLineTable_PreviousAddressRange.exit ], [ -1, %while.body ]
+  %retval.0 = phi i32 [ %.pre53, %while.cond1.preheader.while.end8_crit_edge ], [ -1, %while.body3 ], [ %spec.select.i.i12, %_PyLineTable_PreviousAddressRange.exit ], [ -1, %while.body ]
   ret i32 %retval.0
 }
 
@@ -3293,11 +3293,11 @@ if.end:                                           ; preds = %entry
   %2 = load i8, ptr %range.val, align 1
   %3 = lshr i8 %2, 3
   %4 = and i8 %3, 15
-  switch i8 %4, label %get_line_delta.exit.i [
+  switch i8 %4, label %sw.default.i.i [
     i8 12, label %sw.bb4.i.i
     i8 13, label %sw.bb1.i.i
     i8 14, label %sw.bb1.i.i
-    i8 11, label %sw.bb3.i.i
+    i8 11, label %get_line_delta.exit.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end, %if.end
@@ -3333,14 +3333,14 @@ scan_signed_varint.exit.i.i:                      ; preds = %while.body.i.i.i.i,
   %retval.0.i.i.i = select i1 %tobool.not.i.i.i, i32 %shr.i.i.i, i32 %sub.i.i.i
   br label %get_line_delta.exit.i
 
-sw.bb3.i.i:                                       ; preds = %if.end
-  br label %get_line_delta.exit.i
-
 sw.bb4.i.i:                                       ; preds = %if.end
   br label %get_line_delta.exit.i
 
-get_line_delta.exit.i:                            ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %scan_signed_varint.exit.i.i, %if.end
-  %retval.0.i.i = phi i32 [ 2, %sw.bb4.i.i ], [ 1, %sw.bb3.i.i ], [ %retval.0.i.i.i, %scan_signed_varint.exit.i.i ], [ 0, %if.end ]
+sw.default.i.i:                                   ; preds = %if.end
+  br label %get_line_delta.exit.i
+
+get_line_delta.exit.i:                            ; preds = %sw.default.i.i, %sw.bb4.i.i, %scan_signed_varint.exit.i.i, %if.end
+  %retval.0.i.i = phi i32 [ 0, %sw.default.i.i ], [ 2, %sw.bb4.i.i ], [ %retval.0.i.i.i, %scan_signed_varint.exit.i.i ], [ 1, %if.end ]
   %7 = load i32, ptr %opaque.i, align 8
   %add.i = add i32 %7, %retval.0.i.i
   store i32 %add.i, ptr %opaque.i, align 8
@@ -3402,11 +3402,11 @@ do.end.i:                                         ; preds = %do.body.i
   %opaque.le.i = getelementptr inbounds i8, ptr %range, i64 16
   %2 = lshr i8 %1, 3
   %3 = and i8 %2, 15
-  switch i8 %3, label %get_line_delta.exit.i [
+  switch i8 %3, label %sw.default.i.i [
     i8 12, label %sw.bb4.i.i
     i8 13, label %sw.bb1.i.i
     i8 14, label %sw.bb1.i.i
-    i8 11, label %sw.bb3.i.i
+    i8 11, label %get_line_delta.exit.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %do.end.i, %do.end.i
@@ -3441,14 +3441,14 @@ scan_signed_varint.exit.i.i:                      ; preds = %while.body.i.i.i.i,
   %6 = select i1 %tobool.not.i.i.i, i32 %sub.i.i.i, i32 %shr.i.i.i
   br label %get_line_delta.exit.i
 
-sw.bb3.i.i:                                       ; preds = %do.end.i
-  br label %get_line_delta.exit.i
-
 sw.bb4.i.i:                                       ; preds = %do.end.i
   br label %get_line_delta.exit.i
 
-get_line_delta.exit.i:                            ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %scan_signed_varint.exit.i.i, %do.end.i
-  %retval.0.i.neg.i = phi i32 [ -2, %sw.bb4.i.i ], [ -1, %sw.bb3.i.i ], [ %6, %scan_signed_varint.exit.i.i ], [ 0, %do.end.i ]
+sw.default.i.i:                                   ; preds = %do.end.i
+  br label %get_line_delta.exit.i
+
+get_line_delta.exit.i:                            ; preds = %sw.default.i.i, %sw.bb4.i.i, %scan_signed_varint.exit.i.i, %do.end.i
+  %retval.0.i.neg.i = phi i32 [ 0, %sw.default.i.i ], [ -2, %sw.bb4.i.i ], [ %6, %scan_signed_varint.exit.i.i ], [ -1, %do.end.i ]
   %7 = load i32, ptr %opaque.le.i, align 8
   %sub.i = add i32 %7, %retval.0.i.neg.i
   store i32 %sub.i, ptr %opaque.le.i, align 8
@@ -3534,11 +3534,11 @@ do.end.i:                                         ; preds = %do.body.i
   store ptr %incdec.ptr.i, ptr %lo_next.i.i, align 8
   %5 = lshr i8 %4, 3
   %6 = and i8 %5, 15
-  switch i8 %6, label %get_line_delta.exit.i [
+  switch i8 %6, label %sw.default.i.i [
     i8 12, label %sw.bb4.i.i
     i8 13, label %sw.bb1.i.i
     i8 14, label %sw.bb1.i.i
-    i8 11, label %sw.bb3.i.i
+    i8 11, label %get_line_delta.exit.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %do.end.i, %do.end.i
@@ -3573,14 +3573,14 @@ scan_signed_varint.exit.i.i:                      ; preds = %while.body.i.i.i.i,
   %9 = select i1 %tobool.not.i.i.i, i32 %sub.i.i.i, i32 %shr.i.i.i
   br label %get_line_delta.exit.i
 
-sw.bb3.i.i:                                       ; preds = %do.end.i
-  br label %get_line_delta.exit.i
-
 sw.bb4.i.i:                                       ; preds = %do.end.i
   br label %get_line_delta.exit.i
 
-get_line_delta.exit.i:                            ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %scan_signed_varint.exit.i.i, %do.end.i
-  %retval.0.i.neg.i = phi i32 [ -2, %sw.bb4.i.i ], [ -1, %sw.bb3.i.i ], [ %9, %scan_signed_varint.exit.i.i ], [ 0, %do.end.i ]
+sw.default.i.i:                                   ; preds = %do.end.i
+  br label %get_line_delta.exit.i
+
+get_line_delta.exit.i:                            ; preds = %sw.default.i.i, %sw.bb4.i.i, %scan_signed_varint.exit.i.i, %do.end.i
+  %retval.0.i.neg.i = phi i32 [ 0, %sw.default.i.i ], [ -2, %sw.bb4.i.i ], [ %9, %scan_signed_varint.exit.i.i ], [ -1, %do.end.i ]
   %10 = load i32, ptr %opaque.i.i, align 8
   %sub.i = add i32 %10, %retval.0.i.neg.i
   store i32 %sub.i, ptr %opaque.i.i, align 8
@@ -3926,11 +3926,11 @@ if.end.i:                                         ; preds = %entry
   %2 = load i8, ptr %range.val.i, align 1
   %3 = lshr i8 %2, 3
   %4 = and i8 %3, 15
-  switch i8 %4, label %get_line_delta.exit.i.i [
+  switch i8 %4, label %sw.default.i.i.i [
     i8 12, label %sw.bb4.i.i.i
     i8 13, label %sw.bb1.i.i.i
     i8 14, label %sw.bb1.i.i.i
-    i8 11, label %sw.bb3.i.i.i
+    i8 11, label %get_line_delta.exit.i.i
   ]
 
 sw.bb1.i.i.i:                                     ; preds = %if.end.i, %if.end.i
@@ -3966,14 +3966,14 @@ scan_signed_varint.exit.i.i.i:                    ; preds = %while.body.i.i.i.i.
   %retval.0.i.i.i.i = select i1 %tobool.not.i.i.i.i, i32 %shr.i.i.i.i, i32 %sub.i.i.i.i
   br label %get_line_delta.exit.i.i
 
-sw.bb3.i.i.i:                                     ; preds = %if.end.i
-  br label %get_line_delta.exit.i.i
-
 sw.bb4.i.i.i:                                     ; preds = %if.end.i
   br label %get_line_delta.exit.i.i
 
-get_line_delta.exit.i.i:                          ; preds = %sw.bb4.i.i.i, %sw.bb3.i.i.i, %scan_signed_varint.exit.i.i.i, %if.end.i
-  %retval.0.i.i.i = phi i32 [ 2, %sw.bb4.i.i.i ], [ 1, %sw.bb3.i.i.i ], [ %retval.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 0, %if.end.i ]
+sw.default.i.i.i:                                 ; preds = %if.end.i
+  br label %get_line_delta.exit.i.i
+
+get_line_delta.exit.i.i:                          ; preds = %sw.default.i.i.i, %sw.bb4.i.i.i, %scan_signed_varint.exit.i.i.i, %if.end.i
+  %retval.0.i.i.i = phi i32 [ 0, %sw.default.i.i.i ], [ 2, %sw.bb4.i.i.i ], [ %retval.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 1, %if.end.i ]
   %7 = load i32, ptr %opaque.i.i, align 8
   %add.i.i = add i32 %7, %retval.0.i.i.i
   store i32 %add.i.i, ptr %opaque.i.i, align 8
@@ -4011,94 +4011,94 @@ if.end:                                           ; preds = %do.body.i.i, %land.
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end
-  %15 = phi i32 [ %add10.i.i23, %while.body ], [ %add10.i.i, %if.end ]
-  %16 = phi i32 [ %add.i.i16, %while.body ], [ %add.i.i, %if.end ]
-  %incdec.ptr.i.i2594 = phi ptr [ %incdec.ptr.i.i25, %while.body ], [ %incdec.ptr.i.i, %if.end ]
-  %cmp.i.not.i9 = icmp ult ptr %incdec.ptr.i.i2594, %range.val2.i
+  %15 = phi i32 [ %add10.i.i22, %while.body ], [ %add10.i.i, %if.end ]
+  %16 = phi i32 [ %add.i.i15, %while.body ], [ %add.i.i, %if.end ]
+  %incdec.ptr.i.i2494 = phi ptr [ %incdec.ptr.i.i24, %while.body ], [ %incdec.ptr.i.i, %if.end ]
+  %cmp.i.not.i9 = icmp ult ptr %incdec.ptr.i.i2494, %range.val2.i
   br i1 %cmp.i.not.i9, label %if.end.i11, label %while.end
 
 if.end.i11:                                       ; preds = %while.cond
-  %17 = load i8, ptr %incdec.ptr.i.i2594, align 1
+  %17 = load i8, ptr %incdec.ptr.i.i2494, align 1
   %18 = lshr i8 %17, 3
   %19 = and i8 %18, 15
-  switch i8 %19, label %get_line_delta.exit.i.i14 [
-    i8 12, label %sw.bb4.i.i.i54
-    i8 13, label %sw.bb1.i.i.i29
-    i8 14, label %sw.bb1.i.i.i29
-    i8 11, label %sw.bb3.i.i.i13
+  switch i8 %19, label %sw.default.i.i.i54 [
+    i8 12, label %sw.bb4.i.i.i53
+    i8 13, label %sw.bb1.i.i.i28
+    i8 14, label %sw.bb1.i.i.i28
+    i8 11, label %get_line_delta.exit.i.i13
   ]
 
-sw.bb1.i.i.i29:                                   ; preds = %if.end.i11, %if.end.i11
-  %add.ptr.i.i.i30 = getelementptr i8, ptr %incdec.ptr.i.i2594, i64 1
-  %20 = load i8, ptr %add.ptr.i.i.i30, align 1
-  %conv.i.i.i.i.i31 = zext i8 %20 to i32
-  %and.i.i.i.i.i32 = and i32 %conv.i.i.i.i.i31, 63
-  %and16.i.i.i.i.i33 = and i32 %conv.i.i.i.i.i31, 64
-  %tobool.not7.i.i.i.i.i34 = icmp eq i32 %and16.i.i.i.i.i33, 0
-  br i1 %tobool.not7.i.i.i.i.i34, label %scan_signed_varint.exit.i.i.i47, label %while.body.i.i.i.i.i35
+sw.bb1.i.i.i28:                                   ; preds = %if.end.i11, %if.end.i11
+  %add.ptr.i.i.i29 = getelementptr i8, ptr %incdec.ptr.i.i2494, i64 1
+  %20 = load i8, ptr %add.ptr.i.i.i29, align 1
+  %conv.i.i.i.i.i30 = zext i8 %20 to i32
+  %and.i.i.i.i.i31 = and i32 %conv.i.i.i.i.i30, 63
+  %and16.i.i.i.i.i32 = and i32 %conv.i.i.i.i.i30, 64
+  %tobool.not7.i.i.i.i.i33 = icmp eq i32 %and16.i.i.i.i.i32, 0
+  br i1 %tobool.not7.i.i.i.i.i33, label %scan_signed_varint.exit.i.i.i46, label %while.body.i.i.i.i.i34
 
-while.body.i.i.i.i.i35:                           ; preds = %sw.bb1.i.i.i29, %while.body.i.i.i.i.i35
-  %shift.010.i.i.i.i.i36 = phi i32 [ %add.i.i.i.i.i41, %while.body.i.i.i.i.i35 ], [ 0, %sw.bb1.i.i.i29 ]
-  %val.09.i.i.i.i.i37 = phi i32 [ %or.i.i.i.i.i44, %while.body.i.i.i.i.i35 ], [ %and.i.i.i.i.i32, %sw.bb1.i.i.i29 ]
-  %ptr.pn8.i.i.i.i.i38 = phi ptr [ %ptr.addr.0.i.i.i.i.i39, %while.body.i.i.i.i.i35 ], [ %add.ptr.i.i.i30, %sw.bb1.i.i.i29 ]
-  %ptr.addr.0.i.i.i.i.i39 = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i38, i64 1
-  %21 = load i8, ptr %ptr.addr.0.i.i.i.i.i39, align 1
-  %conv3.i.i.i.i.i40 = zext i8 %21 to i32
-  %add.i.i.i.i.i41 = add i32 %shift.010.i.i.i.i.i36, 6
-  %and4.i.i.i.i.i42 = and i32 %conv3.i.i.i.i.i40, 63
-  %shl.i.i.i.i.i43 = shl i32 %and4.i.i.i.i.i42, %add.i.i.i.i.i41
-  %or.i.i.i.i.i44 = or i32 %shl.i.i.i.i.i43, %val.09.i.i.i.i.i37
-  %and1.i.i.i.i.i45 = and i32 %conv3.i.i.i.i.i40, 64
-  %tobool.not.i.i.i.i.i46 = icmp eq i32 %and1.i.i.i.i.i45, 0
-  br i1 %tobool.not.i.i.i.i.i46, label %scan_signed_varint.exit.i.i.i47, label %while.body.i.i.i.i.i35, !llvm.loop !10
+while.body.i.i.i.i.i34:                           ; preds = %sw.bb1.i.i.i28, %while.body.i.i.i.i.i34
+  %shift.010.i.i.i.i.i35 = phi i32 [ %add.i.i.i.i.i40, %while.body.i.i.i.i.i34 ], [ 0, %sw.bb1.i.i.i28 ]
+  %val.09.i.i.i.i.i36 = phi i32 [ %or.i.i.i.i.i43, %while.body.i.i.i.i.i34 ], [ %and.i.i.i.i.i31, %sw.bb1.i.i.i28 ]
+  %ptr.pn8.i.i.i.i.i37 = phi ptr [ %ptr.addr.0.i.i.i.i.i38, %while.body.i.i.i.i.i34 ], [ %add.ptr.i.i.i29, %sw.bb1.i.i.i28 ]
+  %ptr.addr.0.i.i.i.i.i38 = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i37, i64 1
+  %21 = load i8, ptr %ptr.addr.0.i.i.i.i.i38, align 1
+  %conv3.i.i.i.i.i39 = zext i8 %21 to i32
+  %add.i.i.i.i.i40 = add i32 %shift.010.i.i.i.i.i35, 6
+  %and4.i.i.i.i.i41 = and i32 %conv3.i.i.i.i.i39, 63
+  %shl.i.i.i.i.i42 = shl i32 %and4.i.i.i.i.i41, %add.i.i.i.i.i40
+  %or.i.i.i.i.i43 = or i32 %shl.i.i.i.i.i42, %val.09.i.i.i.i.i36
+  %and1.i.i.i.i.i44 = and i32 %conv3.i.i.i.i.i39, 64
+  %tobool.not.i.i.i.i.i45 = icmp eq i32 %and1.i.i.i.i.i44, 0
+  br i1 %tobool.not.i.i.i.i.i45, label %scan_signed_varint.exit.i.i.i46, label %while.body.i.i.i.i.i34, !llvm.loop !10
 
-scan_signed_varint.exit.i.i.i47:                  ; preds = %while.body.i.i.i.i.i35, %sw.bb1.i.i.i29
-  %val.0.lcssa.i.i.i.i.i48 = phi i32 [ %and.i.i.i.i.i32, %sw.bb1.i.i.i29 ], [ %or.i.i.i.i.i44, %while.body.i.i.i.i.i35 ]
-  %and.i.i.i.i49 = and i32 %val.0.lcssa.i.i.i.i.i48, 1
-  %tobool.not.i.i.i.i50 = icmp eq i32 %and.i.i.i.i49, 0
-  %shr.i.i.i.i51 = lshr i32 %val.0.lcssa.i.i.i.i.i48, 1
-  %sub.i.i.i.i52 = sub nsw i32 0, %shr.i.i.i.i51
-  %retval.0.i.i.i.i53 = select i1 %tobool.not.i.i.i.i50, i32 %shr.i.i.i.i51, i32 %sub.i.i.i.i52
-  br label %get_line_delta.exit.i.i14
+scan_signed_varint.exit.i.i.i46:                  ; preds = %while.body.i.i.i.i.i34, %sw.bb1.i.i.i28
+  %val.0.lcssa.i.i.i.i.i47 = phi i32 [ %and.i.i.i.i.i31, %sw.bb1.i.i.i28 ], [ %or.i.i.i.i.i43, %while.body.i.i.i.i.i34 ]
+  %and.i.i.i.i48 = and i32 %val.0.lcssa.i.i.i.i.i47, 1
+  %tobool.not.i.i.i.i49 = icmp eq i32 %and.i.i.i.i48, 0
+  %shr.i.i.i.i50 = lshr i32 %val.0.lcssa.i.i.i.i.i47, 1
+  %sub.i.i.i.i51 = sub nsw i32 0, %shr.i.i.i.i50
+  %retval.0.i.i.i.i52 = select i1 %tobool.not.i.i.i.i49, i32 %shr.i.i.i.i50, i32 %sub.i.i.i.i51
+  br label %get_line_delta.exit.i.i13
 
-sw.bb3.i.i.i13:                                   ; preds = %if.end.i11
-  br label %get_line_delta.exit.i.i14
+sw.bb4.i.i.i53:                                   ; preds = %if.end.i11
+  br label %get_line_delta.exit.i.i13
 
-sw.bb4.i.i.i54:                                   ; preds = %if.end.i11
-  br label %get_line_delta.exit.i.i14
+sw.default.i.i.i54:                               ; preds = %if.end.i11
+  br label %get_line_delta.exit.i.i13
 
-get_line_delta.exit.i.i14:                        ; preds = %sw.bb4.i.i.i54, %sw.bb3.i.i.i13, %scan_signed_varint.exit.i.i.i47, %if.end.i11
-  %retval.0.i.i.i15 = phi i32 [ 2, %sw.bb4.i.i.i54 ], [ 1, %sw.bb3.i.i.i13 ], [ %retval.0.i.i.i.i53, %scan_signed_varint.exit.i.i.i47 ], [ 0, %if.end.i11 ]
-  %add.i.i16 = add i32 %16, %retval.0.i.i.i15
-  store i32 %add.i.i16, ptr %opaque.i.i, align 8
-  %22 = load i8, ptr %incdec.ptr.i.i2594, align 1
-  %cmp.i.i.i17 = icmp ult i8 %22, -8
-  %spec.select.i.i18 = select i1 %cmp.i.i.i17, i32 %add.i.i16, i32 -1
-  store i32 %spec.select.i.i18, ptr %9, align 8
+get_line_delta.exit.i.i13:                        ; preds = %sw.default.i.i.i54, %sw.bb4.i.i.i53, %scan_signed_varint.exit.i.i.i46, %if.end.i11
+  %retval.0.i.i.i14 = phi i32 [ 0, %sw.default.i.i.i54 ], [ 2, %sw.bb4.i.i.i53 ], [ %retval.0.i.i.i.i52, %scan_signed_varint.exit.i.i.i46 ], [ 1, %if.end.i11 ]
+  %add.i.i15 = add i32 %16, %retval.0.i.i.i14
+  store i32 %add.i.i15, ptr %opaque.i.i, align 8
+  %22 = load i8, ptr %incdec.ptr.i.i2494, align 1
+  %cmp.i.i.i16 = icmp ult i8 %22, -8
+  %spec.select.i.i17 = select i1 %cmp.i.i.i16, i32 %add.i.i15, i32 -1
+  store i32 %spec.select.i.i17, ptr %9, align 8
   store i32 %15, ptr %li_line, align 8
-  %bounds.val.val.i.i20 = load i8, ptr %incdec.ptr.i.i2594, align 1
-  %23 = shl i8 %bounds.val.val.i.i20, 1
-  %narrow.i.i.i21 = and i8 %23, 14
-  %24 = add nuw nsw i8 %narrow.i.i.i21, 2
-  %conv2.i.i.i22 = zext nneg i8 %24 to i32
-  %add10.i.i23 = add i32 %15, %conv2.i.i.i22
-  store i32 %add10.i.i23, ptr %ar_end.i.i, align 4
-  br label %do.body.i.i24
+  %bounds.val.val.i.i19 = load i8, ptr %incdec.ptr.i.i2494, align 1
+  %23 = shl i8 %bounds.val.val.i.i19, 1
+  %narrow.i.i.i20 = and i8 %23, 14
+  %24 = add nuw nsw i8 %narrow.i.i.i20, 2
+  %conv2.i.i.i21 = zext nneg i8 %24 to i32
+  %add10.i.i22 = add i32 %15, %conv2.i.i.i21
+  store i32 %add10.i.i22, ptr %ar_end.i.i, align 4
+  br label %do.body.i.i23
 
-do.body.i.i24:                                    ; preds = %land.rhs.i.i27, %get_line_delta.exit.i.i14
-  %25 = phi ptr [ %incdec.ptr.i.i25, %land.rhs.i.i27 ], [ %incdec.ptr.i.i2594, %get_line_delta.exit.i.i14 ]
-  %incdec.ptr.i.i25 = getelementptr i8, ptr %25, i64 1
-  store ptr %incdec.ptr.i.i25, ptr %0, align 8
-  %cmp.i3.i26 = icmp ult ptr %incdec.ptr.i.i25, %range.val2.i
-  br i1 %cmp.i3.i26, label %land.rhs.i.i27, label %while.body
+do.body.i.i23:                                    ; preds = %land.rhs.i.i26, %get_line_delta.exit.i.i13
+  %25 = phi ptr [ %incdec.ptr.i.i24, %land.rhs.i.i26 ], [ %incdec.ptr.i.i2494, %get_line_delta.exit.i.i13 ]
+  %incdec.ptr.i.i24 = getelementptr i8, ptr %25, i64 1
+  store ptr %incdec.ptr.i.i24, ptr %0, align 8
+  %cmp.i3.i25 = icmp ult ptr %incdec.ptr.i.i24, %range.val2.i
+  br i1 %cmp.i3.i25, label %land.rhs.i.i26, label %while.body
 
-land.rhs.i.i27:                                   ; preds = %do.body.i.i24
-  %26 = load i8, ptr %incdec.ptr.i.i25, align 1
-  %cmp18.i.i28 = icmp sgt i8 %26, -1
-  br i1 %cmp18.i.i28, label %do.body.i.i24, label %while.body, !llvm.loop !21
+land.rhs.i.i26:                                   ; preds = %do.body.i.i23
+  %26 = load i8, ptr %incdec.ptr.i.i24, align 1
+  %cmp18.i.i27 = icmp sgt i8 %26, -1
+  br i1 %cmp18.i.i27, label %do.body.i.i23, label %while.body, !llvm.loop !21
 
-while.body:                                       ; preds = %do.body.i.i24, %land.rhs.i.i27
-  %cmp.not = icmp eq i32 %spec.select.i.i18, %spec.select.i.i
+while.body:                                       ; preds = %do.body.i.i23, %land.rhs.i.i26
+  %cmp.not = icmp eq i32 %spec.select.i.i17, %spec.select.i.i
   br i1 %cmp.not, label %while.cond, label %if.then4, !llvm.loop !27
 
 if.then4:                                         ; preds = %while.body
@@ -4106,7 +4106,7 @@ if.then4:                                         ; preds = %while.body
   br i1 %cmp.i, label %while.end, label %do.body.i.i57
 
 do.body.i.i57:                                    ; preds = %if.then4, %do.body.i.i57
-  %incdec.ptr17.i.i = phi ptr [ %incdec.ptr.i.i58, %do.body.i.i57 ], [ %incdec.ptr.i.i25, %if.then4 ]
+  %incdec.ptr17.i.i = phi ptr [ %incdec.ptr.i.i58, %do.body.i.i57 ], [ %incdec.ptr.i.i24, %if.then4 ]
   %incdec.ptr.i.i58 = getelementptr i8, ptr %incdec.ptr17.i.i, i64 -1
   store ptr %incdec.ptr.i.i58, ptr %0, align 8
   %27 = load i8, ptr %incdec.ptr.i.i58, align 1
@@ -4116,60 +4116,60 @@ do.body.i.i57:                                    ; preds = %if.then4, %do.body.
 do.end.i.i:                                       ; preds = %do.body.i.i57
   %28 = lshr i8 %27, 3
   %29 = and i8 %28, 15
-  switch i8 %29, label %get_line_delta.exit.i.i60 [
-    i8 12, label %sw.bb4.i.i.i88
-    i8 13, label %sw.bb1.i.i.i65
-    i8 14, label %sw.bb1.i.i.i65
-    i8 11, label %sw.bb3.i.i.i59
+  switch i8 %29, label %sw.default.i.i.i88 [
+    i8 12, label %sw.bb4.i.i.i87
+    i8 13, label %sw.bb1.i.i.i64
+    i8 14, label %sw.bb1.i.i.i64
+    i8 11, label %get_line_delta.exit.i.i59
   ]
 
-sw.bb1.i.i.i65:                                   ; preds = %do.end.i.i, %do.end.i.i
+sw.bb1.i.i.i64:                                   ; preds = %do.end.i.i, %do.end.i.i
   %30 = load i8, ptr %incdec.ptr17.i.i, align 1
-  %conv.i.i.i.i.i66 = zext i8 %30 to i32
-  %and.i.i.i.i.i67 = and i32 %conv.i.i.i.i.i66, 63
-  %and16.i.i.i.i.i68 = and i32 %conv.i.i.i.i.i66, 64
-  %tobool.not7.i.i.i.i.i69 = icmp eq i32 %and16.i.i.i.i.i68, 0
-  br i1 %tobool.not7.i.i.i.i.i69, label %scan_signed_varint.exit.i.i.i82, label %while.body.i.i.i.i.i70
+  %conv.i.i.i.i.i65 = zext i8 %30 to i32
+  %and.i.i.i.i.i66 = and i32 %conv.i.i.i.i.i65, 63
+  %and16.i.i.i.i.i67 = and i32 %conv.i.i.i.i.i65, 64
+  %tobool.not7.i.i.i.i.i68 = icmp eq i32 %and16.i.i.i.i.i67, 0
+  br i1 %tobool.not7.i.i.i.i.i68, label %scan_signed_varint.exit.i.i.i81, label %while.body.i.i.i.i.i69
 
-while.body.i.i.i.i.i70:                           ; preds = %sw.bb1.i.i.i65, %while.body.i.i.i.i.i70
-  %shift.010.i.i.i.i.i71 = phi i32 [ %add.i.i.i.i.i76, %while.body.i.i.i.i.i70 ], [ 0, %sw.bb1.i.i.i65 ]
-  %val.09.i.i.i.i.i72 = phi i32 [ %or.i.i.i.i.i79, %while.body.i.i.i.i.i70 ], [ %and.i.i.i.i.i67, %sw.bb1.i.i.i65 ]
-  %ptr.pn8.i.i.i.i.i73 = phi ptr [ %ptr.addr.0.i.i.i.i.i74, %while.body.i.i.i.i.i70 ], [ %incdec.ptr17.i.i, %sw.bb1.i.i.i65 ]
-  %ptr.addr.0.i.i.i.i.i74 = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i73, i64 1
-  %31 = load i8, ptr %ptr.addr.0.i.i.i.i.i74, align 1
-  %conv3.i.i.i.i.i75 = zext i8 %31 to i32
-  %add.i.i.i.i.i76 = add i32 %shift.010.i.i.i.i.i71, 6
-  %and4.i.i.i.i.i77 = and i32 %conv3.i.i.i.i.i75, 63
-  %shl.i.i.i.i.i78 = shl i32 %and4.i.i.i.i.i77, %add.i.i.i.i.i76
-  %or.i.i.i.i.i79 = or i32 %shl.i.i.i.i.i78, %val.09.i.i.i.i.i72
-  %and1.i.i.i.i.i80 = and i32 %conv3.i.i.i.i.i75, 64
-  %tobool.not.i.i.i.i.i81 = icmp eq i32 %and1.i.i.i.i.i80, 0
-  br i1 %tobool.not.i.i.i.i.i81, label %scan_signed_varint.exit.i.i.i82, label %while.body.i.i.i.i.i70, !llvm.loop !10
+while.body.i.i.i.i.i69:                           ; preds = %sw.bb1.i.i.i64, %while.body.i.i.i.i.i69
+  %shift.010.i.i.i.i.i70 = phi i32 [ %add.i.i.i.i.i75, %while.body.i.i.i.i.i69 ], [ 0, %sw.bb1.i.i.i64 ]
+  %val.09.i.i.i.i.i71 = phi i32 [ %or.i.i.i.i.i78, %while.body.i.i.i.i.i69 ], [ %and.i.i.i.i.i66, %sw.bb1.i.i.i64 ]
+  %ptr.pn8.i.i.i.i.i72 = phi ptr [ %ptr.addr.0.i.i.i.i.i73, %while.body.i.i.i.i.i69 ], [ %incdec.ptr17.i.i, %sw.bb1.i.i.i64 ]
+  %ptr.addr.0.i.i.i.i.i73 = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i72, i64 1
+  %31 = load i8, ptr %ptr.addr.0.i.i.i.i.i73, align 1
+  %conv3.i.i.i.i.i74 = zext i8 %31 to i32
+  %add.i.i.i.i.i75 = add i32 %shift.010.i.i.i.i.i70, 6
+  %and4.i.i.i.i.i76 = and i32 %conv3.i.i.i.i.i74, 63
+  %shl.i.i.i.i.i77 = shl i32 %and4.i.i.i.i.i76, %add.i.i.i.i.i75
+  %or.i.i.i.i.i78 = or i32 %shl.i.i.i.i.i77, %val.09.i.i.i.i.i71
+  %and1.i.i.i.i.i79 = and i32 %conv3.i.i.i.i.i74, 64
+  %tobool.not.i.i.i.i.i80 = icmp eq i32 %and1.i.i.i.i.i79, 0
+  br i1 %tobool.not.i.i.i.i.i80, label %scan_signed_varint.exit.i.i.i81, label %while.body.i.i.i.i.i69, !llvm.loop !10
 
-scan_signed_varint.exit.i.i.i82:                  ; preds = %while.body.i.i.i.i.i70, %sw.bb1.i.i.i65
-  %val.0.lcssa.i.i.i.i.i83 = phi i32 [ %and.i.i.i.i.i67, %sw.bb1.i.i.i65 ], [ %or.i.i.i.i.i79, %while.body.i.i.i.i.i70 ]
-  %and.i.i.i.i84 = and i32 %val.0.lcssa.i.i.i.i.i83, 1
-  %tobool.not.i.i.i.i85 = icmp eq i32 %and.i.i.i.i84, 0
-  %shr.i.i.i.i86 = lshr i32 %val.0.lcssa.i.i.i.i.i83, 1
-  %sub.i.i.i.i87 = sub nsw i32 0, %shr.i.i.i.i86
-  %32 = select i1 %tobool.not.i.i.i.i85, i32 %sub.i.i.i.i87, i32 %shr.i.i.i.i86
-  br label %get_line_delta.exit.i.i60
+scan_signed_varint.exit.i.i.i81:                  ; preds = %while.body.i.i.i.i.i69, %sw.bb1.i.i.i64
+  %val.0.lcssa.i.i.i.i.i82 = phi i32 [ %and.i.i.i.i.i66, %sw.bb1.i.i.i64 ], [ %or.i.i.i.i.i78, %while.body.i.i.i.i.i69 ]
+  %and.i.i.i.i83 = and i32 %val.0.lcssa.i.i.i.i.i82, 1
+  %tobool.not.i.i.i.i84 = icmp eq i32 %and.i.i.i.i83, 0
+  %shr.i.i.i.i85 = lshr i32 %val.0.lcssa.i.i.i.i.i82, 1
+  %sub.i.i.i.i86 = sub nsw i32 0, %shr.i.i.i.i85
+  %32 = select i1 %tobool.not.i.i.i.i84, i32 %sub.i.i.i.i86, i32 %shr.i.i.i.i85
+  br label %get_line_delta.exit.i.i59
 
-sw.bb3.i.i.i59:                                   ; preds = %do.end.i.i
-  br label %get_line_delta.exit.i.i60
+sw.bb4.i.i.i87:                                   ; preds = %do.end.i.i
+  br label %get_line_delta.exit.i.i59
 
-sw.bb4.i.i.i88:                                   ; preds = %do.end.i.i
-  br label %get_line_delta.exit.i.i60
+sw.default.i.i.i88:                               ; preds = %do.end.i.i
+  br label %get_line_delta.exit.i.i59
 
-get_line_delta.exit.i.i60:                        ; preds = %sw.bb4.i.i.i88, %sw.bb3.i.i.i59, %scan_signed_varint.exit.i.i.i82, %do.end.i.i
-  %retval.0.i.neg.i.i = phi i32 [ -2, %sw.bb4.i.i.i88 ], [ -1, %sw.bb3.i.i.i59 ], [ %32, %scan_signed_varint.exit.i.i.i82 ], [ 0, %do.end.i.i ]
-  %sub.i.i = add i32 %add.i.i16, %retval.0.i.neg.i.i
+get_line_delta.exit.i.i59:                        ; preds = %sw.default.i.i.i88, %sw.bb4.i.i.i87, %scan_signed_varint.exit.i.i.i81, %do.end.i.i
+  %retval.0.i.neg.i.i = phi i32 [ 0, %sw.default.i.i.i88 ], [ -2, %sw.bb4.i.i.i87 ], [ %32, %scan_signed_varint.exit.i.i.i81 ], [ -1, %do.end.i.i ]
+  %sub.i.i = add i32 %add.i.i15, %retval.0.i.neg.i.i
   store i32 %sub.i.i, ptr %opaque.i.i, align 8
   store i32 %15, ptr %ar_end.i.i, align 4
   br label %while.cond.i.i.i
 
-while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %get_line_delta.exit.i.i60
-  %.pn.i.i.i = phi ptr [ %ptr.0.i.i.i, %while.cond.i.i.i ], [ %incdec.ptr.i.i58, %get_line_delta.exit.i.i60 ]
+while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %get_line_delta.exit.i.i59
+  %.pn.i.i.i = phi ptr [ %ptr.0.i.i.i, %while.cond.i.i.i ], [ %incdec.ptr.i.i58, %get_line_delta.exit.i.i59 ]
   %ptr.0.i.i.i = getelementptr i8, ptr %.pn.i.i.i, i64 -1
   %33 = load i8, ptr %ptr.0.i.i.i, align 1
   %cmp1.i.i.i = icmp sgt i8 %33, -1
@@ -4177,20 +4177,20 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %
 
 retreat.exit.i:                                   ; preds = %while.cond.i.i.i
   %34 = shl i8 %33, 1
-  %narrow.i.i.i62 = and i8 %34, 14
-  %35 = add nuw nsw i8 %narrow.i.i.i62, 2
+  %narrow.i.i.i61 = and i8 %34, 14
+  %35 = add nuw nsw i8 %narrow.i.i.i61, 2
   %conv6.i.i.i = zext nneg i8 %35 to i32
   %sub9.i.i = sub nsw i32 %15, %conv6.i.i.i
   store i32 %sub9.i.i, ptr %li_line, align 8
   %arrayidx.i.i = getelementptr i8, ptr %incdec.ptr17.i.i, i64 -2
   %36 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i13.i.i = icmp ult i8 %36, -8
-  %spec.select.i.i63 = select i1 %cmp.i13.i.i, i32 %sub.i.i, i32 -1
-  store i32 %spec.select.i.i63, ptr %9, align 8
+  %spec.select.i.i62 = select i1 %cmp.i13.i.i, i32 %sub.i.i, i32 -1
+  store i32 %spec.select.i.i62, ptr %9, align 8
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %retreat.exit.i, %if.then4
-  %37 = phi i32 [ %15, %retreat.exit.i ], [ %add10.i.i23, %if.then4 ], [ %15, %while.cond ]
+  %37 = phi i32 [ %15, %retreat.exit.i ], [ %add10.i.i22, %if.then4 ], [ %15, %while.cond ]
   %call7 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.16, i32 noundef %10, i32 noundef %37, ptr noundef nonnull @_source_offset_converter, ptr noundef nonnull %line) #13
   br label %return
 
@@ -8147,11 +8147,11 @@ if.end.i5.i:                                      ; preds = %if.end15.i, %if.end
   %5 = load i8, ptr %bounds.sroa.14.048.i, align 1
   %6 = lshr i8 %5, 3
   %7 = and i8 %6, 15
-  switch i8 %7, label %get_line_delta.exit.i.i.i [
+  switch i8 %7, label %sw.default.i.i.i.i [
     i8 12, label %sw.bb4.i.i.i.i
     i8 13, label %sw.bb1.i.i.i.i
     i8 14, label %sw.bb1.i.i.i.i
-    i8 11, label %sw.bb3.i.i.i.i
+    i8 11, label %get_line_delta.exit.i.i.i
   ]
 
 sw.bb1.i.i.i.i:                                   ; preds = %if.end.i5.i, %if.end.i5.i
@@ -8187,14 +8187,14 @@ scan_signed_varint.exit.i.i.i.i:                  ; preds = %while.body.i.i.i.i.
   %retval.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 %shr.i.i.i.i.i, i32 %sub.i.i.i.i.i
   br label %get_line_delta.exit.i.i.i
 
-sw.bb3.i.i.i.i:                                   ; preds = %if.end.i5.i
-  br label %get_line_delta.exit.i.i.i
-
 sw.bb4.i.i.i.i:                                   ; preds = %if.end.i5.i
   br label %get_line_delta.exit.i.i.i
 
-get_line_delta.exit.i.i.i:                        ; preds = %sw.bb4.i.i.i.i, %sw.bb3.i.i.i.i, %scan_signed_varint.exit.i.i.i.i, %if.end.i5.i
-  %retval.0.i.i.i.i = phi i32 [ 2, %sw.bb4.i.i.i.i ], [ 1, %sw.bb3.i.i.i.i ], [ %retval.0.i.i.i.i.i, %scan_signed_varint.exit.i.i.i.i ], [ 0, %if.end.i5.i ]
+sw.default.i.i.i.i:                               ; preds = %if.end.i5.i
+  br label %get_line_delta.exit.i.i.i
+
+get_line_delta.exit.i.i.i:                        ; preds = %sw.default.i.i.i.i, %sw.bb4.i.i.i.i, %scan_signed_varint.exit.i.i.i.i, %if.end.i5.i
+  %retval.0.i.i.i.i = phi i32 [ 0, %sw.default.i.i.i.i ], [ 2, %sw.bb4.i.i.i.i ], [ %retval.0.i.i.i.i.i, %scan_signed_varint.exit.i.i.i.i ], [ 1, %if.end.i5.i ]
   %add.i.i.i = add i32 %retval.0.i.i.i.i, %bounds.sroa.9.049.i
   %10 = shl i8 %5, 1
   %narrow.i.i.i.i = and i8 %10, 14

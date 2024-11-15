@@ -7280,8 +7280,8 @@ switch.lookup:                                    ; preds = %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
-6:                                                ; preds = %switch.lookup, %3
-  %.sink = phi i32 [ 1650720768, %3 ], [ %switch.load, %switch.lookup ]
+6:                                                ; preds = %3, %switch.lookup
+  %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 1650720768, %3 ]
   %7 = srem i32 %1, 10
   %8 = shl nsw i32 %7, 8
   %9 = add nsw i32 %8, 12288
@@ -7335,8 +7335,8 @@ switch.lookup:                                    ; preds = %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN2cv17AVIWriteContainer11getAVIIndexEiNS_10StreamTypeE.exit
 
-_ZN2cv17AVIWriteContainer11getAVIIndexEiNS_10StreamTypeE.exit: ; preds = %switch.lookup, %24
-  %.sink.i = phi i32 [ 1650720768, %24 ], [ %switch.load, %switch.lookup ]
+_ZN2cv17AVIWriteContainer11getAVIIndexEiNS_10StreamTypeE.exit: ; preds = %24, %switch.lookup
+  %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ 1650720768, %24 ]
   %26 = getelementptr inbounds i8, ptr %25, i64 552
   %27 = load ptr, ptr %26, align 8
   store i8 %18, ptr %27, align 1

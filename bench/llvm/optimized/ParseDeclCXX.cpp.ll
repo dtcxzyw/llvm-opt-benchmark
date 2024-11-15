@@ -11940,25 +11940,15 @@ _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %633, %.sink.split.i
     i16 406, label %.critedge
   ]
 
-_ZN5clang28doesKeywordAttributeTakeArgsENS_3tok9TokenKindE.exit: ; preds = %643
+.critedge:                                        ; preds = %643, %643, %643, %643, %643
   %644 = load i32, ptr %61, align 8
   store i32 %644, ptr %102, align 8
   %645 = load ptr, ptr %103, align 8
   call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %645, ptr noundef nonnull align 8 dereferenceable(20) %61) #19
-  br label %_ZNK5clang6Parser24isClassCompatibleKeywordEv.exit376.backedge
-
-_ZNK5clang6Parser24isClassCompatibleKeywordEv.exit376.backedge: ; preds = %_ZN5clang28doesKeywordAttributeTakeArgsENS_3tok9TokenKindE.exit, %_ZN5clang6Parser12ConsumeParenEv.exit, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread, %_ZN5clang6Parser14ConsumeBracketEv.exit
-  br label %_ZNK5clang6Parser24isClassCompatibleKeywordEv.exit376, !llvm.loop !137
-
-.critedge:                                        ; preds = %643, %643, %643, %643, %643
-  %646 = load i32, ptr %61, align 8
-  store i32 %646, ptr %102, align 8
-  %647 = load ptr, ptr %103, align 8
-  call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %647, ptr noundef nonnull align 8 dereferenceable(20) %61) #19
   store ptr %563, ptr %34, align 8
-  %648 = load i8, ptr %563, align 8
-  %649 = and i8 %648, 1
-  store i8 %649, ptr %564, align 8
+  %646 = load i8, ptr %563, align 8
+  %647 = and i8 %646, 1
+  store i8 %647, ptr %564, align 8
   store i8 1, ptr %563, align 8
   store ptr %0, ptr %565, align 8
   store i16 22, ptr %566, align 8
@@ -11968,9 +11958,19 @@ _ZNK5clang6Parser24isClassCompatibleKeywordEv.exit376.backedge: ; preds = %_ZN5c
   store i16 23, ptr %571, align 2
   store i64 ptrtoint (ptr @_ZN5clang6Parser12ConsumeParenEv to i64), ptr %570, align 8
   store i64 0, ptr %.repack6.i, align 8
-  %650 = load i16, ptr %62, align 8
-  %651 = icmp eq i16 %650, 22
-  br i1 %651, label %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread
+  %648 = load i16, ptr %62, align 8
+  %649 = icmp eq i16 %648, 22
+  br i1 %649, label %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread
+
+_ZN5clang28doesKeywordAttributeTakeArgsENS_3tok9TokenKindE.exit: ; preds = %643
+  %650 = load i32, ptr %61, align 8
+  store i32 %650, ptr %102, align 8
+  %651 = load ptr, ptr %103, align 8
+  call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %651, ptr noundef nonnull align 8 dereferenceable(20) %61) #19
+  br label %_ZNK5clang6Parser24isClassCompatibleKeywordEv.exit376.backedge
+
+_ZNK5clang6Parser24isClassCompatibleKeywordEv.exit376.backedge: ; preds = %_ZN5clang28doesKeywordAttributeTakeArgsENS_3tok9TokenKindE.exit, %_ZN5clang6Parser12ConsumeParenEv.exit, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread, %_ZN5clang6Parser14ConsumeBracketEv.exit
+  br label %_ZNK5clang6Parser24isClassCompatibleKeywordEv.exit376, !llvm.loop !137
 
 _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %.critedge
   %652 = load i16, ptr %552, align 8

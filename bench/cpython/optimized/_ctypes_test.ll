@@ -1417,19 +1417,19 @@ if.then29:                                        ; preds = %if.end26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then29, %if.end26
-  switch i32 %i, label %return [
+  switch i32 %i, label %sw.epilog [
     i32 2, label %sw.bb33
-    i32 1, label %sw.bb32
+    i32 1, label %return
   ]
-
-sw.bb32:                                          ; preds = %if.end31
-  br label %return
 
 sw.bb33:                                          ; preds = %if.end31
   br label %return
 
-return:                                           ; preds = %if.end31, %sw.bb33, %sw.bb32, %if.then19, %if.then
-  %ar.sink = phi ptr [ %gr, %sw.bb33 ], [ %dr, %sw.bb32 ], [ %ar, %if.then19 ], [ %ar, %if.then ], [ %ar, %if.end31 ]
+sw.epilog:                                        ; preds = %if.end31
+  br label %return
+
+return:                                           ; preds = %if.end31, %sw.epilog, %sw.bb33, %if.then19, %if.then
+  %ar.sink = phi ptr [ %ar, %sw.epilog ], [ %gr, %sw.bb33 ], [ %ar, %if.then19 ], [ %ar, %if.then ], [ %dr, %if.end31 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ar.sink, i64 32, i1 false)
   ret void
 }

@@ -181,8 +181,8 @@ define hidden void @_ZN13logos_codegen6parser6Parser15try_parse_logos17hefce7405
   %23 = load i64, ptr %1, align 8
   %24 = add i64 %23, -39
   %switch = icmp ult i64 %24, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %25 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %25 = getelementptr inbounds i8, ptr %1, i64 %.
   %26 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %25, ptr nonnull align 1 @anon.0d4f455794be986747178006f459c304.1, i64 5)
   br i1 %26, label %28, label %27
 

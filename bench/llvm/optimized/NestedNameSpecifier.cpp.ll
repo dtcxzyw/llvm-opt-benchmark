@@ -101,7 +101,6 @@ $_ZZN4llvm10FoldingSetIN5clang19NestedNameSpecifierEE17getFoldingSetInfoEvE4Info
 @.str.2 = private unnamed_addr constant [3 x i8] c"::\00", align 1
 @.str.4 = private unnamed_addr constant [18 x i8] c"Allocation failed\00", align 1
 @_ZZN4llvm10FoldingSetIN5clang19NestedNameSpecifierEE17getFoldingSetInfoEvE4Info = linkonce_odr constant %"struct.llvm::FoldingSetBase::FoldingSetInfo" { ptr @_ZN4llvm10FoldingSetIN5clang19NestedNameSpecifierEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE, ptr @_ZN4llvm10FoldingSetIN5clang19NestedNameSpecifierEE10NodeEqualsEPKNS_14FoldingSetBaseEPNS4_4NodeERKNS_16FoldingSetNodeIDEjRS9_, ptr @_ZN4llvm10FoldingSetIN5clang19NestedNameSpecifierEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE }, comdat, align 8
-@switch.table._ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22NestedNameSpecifierLocE = private unnamed_addr constant [4 x i32] [i32 8, i32 8, i32 12, i32 12], align 4
 
 @_ZN5clang29NestedNameSpecifierLocBuilderC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang29NestedNameSpecifierLocBuilderC2ERKS0_
 
@@ -1642,54 +1641,46 @@ define dso_local noundef range(i32 4, 13) i32 @_ZN5clang22NestedNameSpecifierLoc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit, label %switch.lookup
+  br i1 %.not.i, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit, label %4
 
-switch.lookup:                                    ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0.copyload.i.i.i.i = load i64, ptr %4, align 8
-  %5 = lshr i64 %.0.copyload.i.i.i.i, 1
-  %6 = and i64 %5, 3
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22NestedNameSpecifierLocE, i64 0, i64 %6
-  %switch.load = load i32, ptr %switch.gep, align 4
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.0.copyload.i.i.i.i = load i64, ptr %5, align 8
+  %6 = and i64 %.0.copyload.i.i.i.i, 4
+  %switch.not.not = icmp eq i64 %6, 0
+  %spec.select = select i1 %switch.not.not, i32 8, i32 12
   br label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit
 
-_ZNK5clang19NestedNameSpecifier7getKindEv.exit:   ; preds = %switch.lookup, %1
-  %.0 = phi i32 [ 4, %1 ], [ %switch.load, %switch.lookup ]
+_ZNK5clang19NestedNameSpecifier7getKindEv.exit:   ; preds = %4, %1
+  %.0 = phi i32 [ 4, %1 ], [ %spec.select, %4 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE(ptr noundef readonly %0) local_unnamed_addr #2 align 2 {
-  %.not6 = icmp eq ptr %0, null
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
+  %.not5 = icmp eq ptr %0, null
+  br i1 %.not5, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit
-  %.08 = phi i32 [ %6, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit ], [ 0, %1 ]
-  %.047 = phi ptr [ %8, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit ], [ %0, %1 ]
-  %2 = getelementptr inbounds nuw i8, ptr %.047, i64 16
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.07 = phi i32 [ %5, %.lr.ph ], [ 0, %1 ]
+  %.046 = phi ptr [ %7, %.lr.ph ], [ %0, %1 ]
+  %2 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.047, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.046, i64 8
   %.0.copyload.i.i.i.i.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %.not.i.i, label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit, label %switch.lookup
-
-switch.lookup:                                    ; preds = %.lr.ph
-  %4 = lshr i64 %.0.copyload.i.i.i.i.pre, 1
-  %5 = and i64 %4, 3
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22NestedNameSpecifierLocE, i64 0, i64 %5
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit
-
-_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit: ; preds = %switch.lookup, %.lr.ph
-  %.0.i = phi i32 [ 4, %.lr.ph ], [ %switch.load, %switch.lookup ]
-  %6 = add i32 %.0.i, %.08
-  %7 = and i64 %.0.copyload.i.i.i.i.pre, -8
-  %8 = inttoptr i64 %7 to ptr
-  %.not = icmp eq i64 %7, 0
+  %4 = and i64 %.0.copyload.i.i.i.i.pre, 4
+  %switch.not.not.i = icmp eq i64 %4, 0
+  %spec.select.i = select i1 %switch.not.not.i, i32 8, i32 12
+  %.0.i = select i1 %.not.i.i, i32 4, i32 %spec.select.i
+  %5 = add i32 %.0.i, %.07
+  %6 = and i64 %.0.copyload.i.i.i.i.pre, -8
+  %7 = inttoptr i64 %6 to ptr
+  %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %6, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit ]
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %5, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -1699,7 +1690,7 @@ define dso_local i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr n
   %3 = alloca %"class.clang::TypeLoc", align 8
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %45, label %5
+  br i1 %.not, label %44, label %5
 
 5:                                                ; preds = %1
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -1731,21 +1722,21 @@ _ZNK5clang19NestedNameSpecifier7getKindEv.exit.i: ; preds = %_ZN5clang22NestedNa
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit
 
 select.unfold.i:                                  ; preds = %11
-  %.0.copyload.i13.i = load i32, ptr %.sroa.4.0.copyload, align 1
+  %.0.copyload.i12.i = load i32, ptr %.sroa.4.0.copyload, align 1
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit
 
 12:                                               ; preds = %11
-  %.0.copyload.i15.i = load ptr, ptr %.sroa.4.0.copyload, align 1
+  %.0.copyload.i14.i = load ptr, ptr %.sroa.4.0.copyload, align 1
   store ptr %10, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.0.copyload.i15.i, ptr %13, align 8
+  store ptr %.0.copyload.i14.i, ptr %13, align 8
   %14 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %.pre = load ptr, ptr %0, align 8
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit
 
 _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit: ; preds = %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i, %select.unfold.i, %12
   %15 = phi ptr [ %.pre, %12 ], [ %4, %select.unfold.i ], [ %4, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i ]
-  %.sroa.0.0.i4 = phi i32 [ %14, %12 ], [ %.0.copyload.i13.i, %select.unfold.i ], [ %.0.copyload.i.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i ]
+  %.sroa.0.0.i4 = phi i32 [ %14, %12 ], [ %.0.copyload.i12.i, %select.unfold.i ], [ %.0.copyload.i.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %.not.i5 = icmp eq ptr %15, null
@@ -1755,86 +1746,79 @@ _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit: ; preds = %_ZNK5
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.0.copyload.i.i.i.i.i6 = load i64, ptr %17, align 8
   %18 = and i64 %.0.copyload.i.i.i.i.i6, -8
-  %.not6.i.i7 = icmp eq i64 %18, 0
-  br i1 %.not6.i.i7, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i18, label %.lr.ph.i.i8
+  %.not5.i.i7 = icmp eq i64 %18, 0
+  br i1 %.not5.i.i7, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i19, label %.lr.ph.i.i8
 
-.lr.ph.i.i8:                                      ; preds = %16, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i15
-  %.08.i.i9 = phi i32 [ %23, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i15 ], [ 0, %16 ]
-  %.047.i.in.i10 = phi i64 [ %24, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i15 ], [ %18, %16 ]
-  %.047.i.i11 = inttoptr i64 %.047.i.in.i10 to ptr
-  %19 = getelementptr inbounds nuw i8, ptr %.047.i.i11, i64 16
+.lr.ph.i.i8:                                      ; preds = %16, %.lr.ph.i.i8
+  %.07.i.i9 = phi i32 [ %22, %.lr.ph.i.i8 ], [ 0, %16 ]
+  %.046.i.in.i10 = phi i64 [ %23, %.lr.ph.i.i8 ], [ %18, %16 ]
+  %.046.i.i11 = inttoptr i64 %.046.i.in.i10 to ptr
+  %19 = getelementptr inbounds nuw i8, ptr %.046.i.i11, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i12 = icmp eq ptr %20, null
-  %.phi.trans.insert.i.i13 = getelementptr inbounds nuw i8, ptr %.047.i.i11, i64 8
+  %.phi.trans.insert.i.i13 = getelementptr inbounds nuw i8, ptr %.046.i.i11, i64 8
   %.0.copyload.i.i.i.i.pre.i.i14 = load i64, ptr %.phi.trans.insert.i.i13, align 8
-  br i1 %.not.i.i.i.i12, label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i15, label %switch.lookup
+  %21 = and i64 %.0.copyload.i.i.i.i.pre.i.i14, 4
+  %switch.not.not.i.i.i15 = icmp eq i64 %21, 0
+  %spec.select.i.i.i16 = select i1 %switch.not.not.i.i.i15, i32 8, i32 12
+  %.0.i.i.i17 = select i1 %.not.i.i.i.i12, i32 4, i32 %spec.select.i.i.i16
+  %22 = add i32 %.0.i.i.i17, %.07.i.i9
+  %23 = and i64 %.0.copyload.i.i.i.i.pre.i.i14, -8
+  %.not.i.i18 = icmp eq i64 %23, 0
+  br i1 %.not.i.i18, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i19, label %.lr.ph.i.i8, !llvm.loop !7
 
-switch.lookup:                                    ; preds = %.lr.ph.i.i8
-  %21 = lshr i64 %.0.copyload.i.i.i.i.pre.i.i14, 1
-  %22 = and i64 %21, 3
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22NestedNameSpecifierLocE, i64 0, i64 %22
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i15
+_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i19: ; preds = %.lr.ph.i.i8, %16
+  %.0.lcssa.i.i20 = phi i32 [ 0, %16 ], [ %22, %.lr.ph.i.i8 ]
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %.not.i10.i21 = icmp eq ptr %25, null
+  br i1 %.not.i10.i21, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34, label %26
 
-_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i15: ; preds = %switch.lookup, %.lr.ph.i.i8
-  %.0.i.i.i16 = phi i32 [ 4, %.lr.ph.i.i8 ], [ %switch.load, %switch.lookup ]
-  %23 = add i32 %.0.i.i.i16, %.08.i.i9
-  %24 = and i64 %.0.copyload.i.i.i.i.pre.i.i14, -8
-  %.not.i.i17 = icmp eq i64 %24, 0
-  br i1 %.not.i.i17, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i18, label %.lr.ph.i.i8, !llvm.loop !7
+26:                                               ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i19
+  %27 = and i64 %.0.copyload.i.i.i.i.i6, 4
+  %switch.not.not.i22 = icmp eq i64 %27, 0
+  %28 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  br i1 %switch.not.not.i22, label %select.unfold.i31, label %31
 
-_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i18: ; preds = %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i15, %16
-  %.0.lcssa.i.i19 = phi i32 [ 0, %16 ], [ %23, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i15 ]
-  %25 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %.not.i10.i20 = icmp eq ptr %26, null
-  br i1 %.not.i10.i20, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i33, label %27
-
-27:                                               ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i18
-  %28 = and i64 %.0.copyload.i.i.i.i.i6, 4
-  %switch.not.not.i21 = icmp eq i64 %28, 0
+_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34: ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i19
   %29 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  br i1 %switch.not.not.i21, label %select.unfold.i30, label %32
-
-_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i33: ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i18
-  %30 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36.sink.split
 
-select.unfold.i30:                                ; preds = %27
-  %31 = add i32 %.0.lcssa.i.i19, 4
+select.unfold.i31:                                ; preds = %26
+  %30 = add i32 %.0.lcssa.i.i20, 4
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36.sink.split
 
-32:                                               ; preds = %27
-  %33 = zext i32 %.0.lcssa.i.i19 to i64
-  %34 = getelementptr inbounds i8, ptr %29, i64 %33
-  %.0.copyload.i15.i22 = load ptr, ptr %34, align 1
-  store ptr %26, ptr %2, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.0.copyload.i15.i22, ptr %35, align 8
-  %36 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
-  %37 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %38 = add i32 %.0.lcssa.i.i19, 8
+31:                                               ; preds = %26
+  %32 = zext i32 %.0.lcssa.i.i20 to i64
+  %33 = getelementptr inbounds i8, ptr %28, i64 %32
+  %.0.copyload.i14.i23 = load ptr, ptr %33, align 1
+  store ptr %25, ptr %2, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %.0.copyload.i14.i23, ptr %34, align 8
+  %35 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
+  %36 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  %37 = add i32 %.0.lcssa.i.i20, 8
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36.sink.split
 
-_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36.sink.split: ; preds = %32, %select.unfold.i30, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i33
-  %.0.lcssa.i.i19.sink = phi i32 [ %.0.lcssa.i.i19, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i33 ], [ %31, %select.unfold.i30 ], [ %38, %32 ]
-  %.sink49 = phi ptr [ %30, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i33 ], [ %29, %select.unfold.i30 ], [ %37, %32 ]
-  %39 = zext i32 %.0.lcssa.i.i19.sink to i64
-  %40 = getelementptr inbounds i8, ptr %.sink49, i64 %39
-  %.0.copyload.i.i34 = load i32, ptr %40, align 1
-  %41 = zext i32 %.0.copyload.i.i34 to i64
-  %42 = shl nuw i64 %41, 32
+_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36.sink.split: ; preds = %31, %select.unfold.i31, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34
+  %.0.lcssa.i.i20.sink = phi i32 [ %.0.lcssa.i.i20, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %30, %select.unfold.i31 ], [ %37, %31 ]
+  %.sink49 = phi ptr [ %29, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %28, %select.unfold.i31 ], [ %36, %31 ]
+  %38 = zext i32 %.0.lcssa.i.i20.sink to i64
+  %39 = getelementptr inbounds i8, ptr %.sink49, i64 %38
+  %.0.copyload.i.i35 = load i32, ptr %39, align 1
+  %40 = zext i32 %.0.copyload.i.i35 to i64
+  %41 = shl nuw i64 %40, 32
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36
 
 _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36: ; preds = %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36.sink.split, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit
-  %.sroa.6.0.i24 = phi i64 [ 0, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ], [ %42, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36.sink.split ]
+  %.sroa.6.0.i25 = phi i64 [ 0, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ], [ %41, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %43 = zext i32 %.sroa.0.0.i4 to i64
-  %44 = or disjoint i64 %.sroa.6.0.i24, %43
-  br label %45
+  %42 = zext i32 %.sroa.0.0.i4 to i64
+  %43 = or disjoint i64 %.sroa.6.0.i25, %42
+  br label %44
 
-45:                                               ; preds = %1, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36
-  %.sroa.044.0.insert.insert = phi i64 [ %44, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36 ], [ 0, %1 ]
+44:                                               ; preds = %1, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36
+  %.sroa.044.0.insert.insert = phi i64 [ %43, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36 ], [ 0, %1 ]
   ret i64 %.sroa.044.0.insert.insert
 }
 
@@ -1846,88 +1830,81 @@ define dso_local i64 @_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv(
   %2 = alloca %"class.clang::TypeLoc", align 8
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %35, label %4
+  br i1 %.not, label %34, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.0.copyload.i.i.i.i = load i64, ptr %5, align 8
   %6 = and i64 %.0.copyload.i.i.i.i, -8
-  %.not6.i = icmp eq i64 %6, 0
-  br i1 %.not6.i, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit, label %.lr.ph.i
+  %.not5.i = icmp eq i64 %6, 0
+  br i1 %.not5.i, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %4, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i
-  %.08.i = phi i32 [ %11, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i ], [ 0, %4 ]
-  %.047.i.in = phi i64 [ %12, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i ], [ %6, %4 ]
-  %.047.i = inttoptr i64 %.047.i.in to ptr
-  %7 = getelementptr inbounds nuw i8, ptr %.047.i, i64 16
+.lr.ph.i:                                         ; preds = %4, %.lr.ph.i
+  %.07.i = phi i32 [ %10, %.lr.ph.i ], [ 0, %4 ]
+  %.046.i.in = phi i64 [ %11, %.lr.ph.i ], [ %6, %4 ]
+  %.046.i = inttoptr i64 %.046.i.in to ptr
+  %7 = getelementptr inbounds nuw i8, ptr %.046.i, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %8, null
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.047.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.046.i, i64 8
   %.0.copyload.i.i.i.i.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
-  br i1 %.not.i.i.i, label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i, label %switch.lookup
-
-switch.lookup:                                    ; preds = %.lr.ph.i
-  %9 = lshr i64 %.0.copyload.i.i.i.i.pre.i, 1
-  %10 = and i64 %9, 3
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22NestedNameSpecifierLocE, i64 0, i64 %10
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i
-
-_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i: ; preds = %switch.lookup, %.lr.ph.i
-  %.0.i.i = phi i32 [ 4, %.lr.ph.i ], [ %switch.load, %switch.lookup ]
-  %11 = add i32 %.0.i.i, %.08.i
-  %12 = and i64 %.0.copyload.i.i.i.i.pre.i, -8
-  %.not.i = icmp eq i64 %12, 0
+  %9 = and i64 %.0.copyload.i.i.i.i.pre.i, 4
+  %switch.not.not.i.i = icmp eq i64 %9, 0
+  %spec.select.i.i = select i1 %switch.not.not.i.i, i32 8, i32 12
+  %.0.i.i = select i1 %.not.i.i.i, i32 4, i32 %spec.select.i.i
+  %10 = add i32 %.0.i.i, %.07.i
+  %11 = and i64 %.0.copyload.i.i.i.i.pre.i, -8
+  %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit, label %.lr.ph.i, !llvm.loop !7
 
-_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit: ; preds = %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i, %4
-  %.0.lcssa.i = phi i32 [ 0, %4 ], [ %11, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i ]
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %.not.i10 = icmp eq ptr %14, null
-  br i1 %.not.i10, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit, label %15
+_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit: ; preds = %.lr.ph.i, %4
+  %.0.lcssa.i = phi i32 [ 0, %4 ], [ %10, %.lr.ph.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %.not.i10 = icmp eq ptr %13, null
+  br i1 %.not.i10, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit, label %14
 
-15:                                               ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit
-  %16 = and i64 %.0.copyload.i.i.i.i, 4
-  %switch.not.not = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = zext i32 %.0.lcssa.i to i64
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  br i1 %switch.not.not, label %select.unfold, label %28
+14:                                               ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit
+  %15 = and i64 %.0.copyload.i.i.i.i, 4
+  %switch.not.not = icmp eq i64 %15, 0
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = zext i32 %.0.lcssa.i to i64
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  br i1 %switch.not.not, label %select.unfold, label %27
 
 _ZNK5clang19NestedNameSpecifier7getKindEv.exit:   ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = zext i32 %.0.lcssa.i to i64
-  %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  %.0.copyload.i = load i32, ptr %24, align 1
-  br label %35
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = zext i32 %.0.lcssa.i to i64
+  %23 = getelementptr inbounds i8, ptr %21, i64 %22
+  %.0.copyload.i = load i32, ptr %23, align 1
+  br label %34
 
-select.unfold:                                    ; preds = %15
-  %.0.copyload.i13 = load i32, ptr %20, align 1
-  %25 = add i32 %.0.lcssa.i, 4
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %18, i64 %26
-  %.0.copyload.i14 = load i32, ptr %27, align 1
-  br label %35
+select.unfold:                                    ; preds = %14
+  %.0.copyload.i12 = load i32, ptr %19, align 1
+  %24 = add i32 %.0.lcssa.i, 4
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %17, i64 %25
+  %.0.copyload.i13 = load i32, ptr %26, align 1
+  br label %34
 
-28:                                               ; preds = %15
-  %.0.copyload.i15 = load ptr, ptr %20, align 1
-  store ptr %14, ptr %2, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.0.copyload.i15, ptr %29, align 8
-  %30 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
-  %31 = load ptr, ptr %17, align 8
-  %32 = add i32 %.0.lcssa.i, 8
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %31, i64 %33
-  %.0.copyload.i18 = load i32, ptr %34, align 1
-  br label %35
+27:                                               ; preds = %14
+  %.0.copyload.i14 = load ptr, ptr %19, align 1
+  store ptr %13, ptr %2, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %.0.copyload.i14, ptr %28, align 8
+  %29 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
+  %30 = load ptr, ptr %16, align 8
+  %31 = add i32 %.0.lcssa.i, 8
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %.0.copyload.i17 = load i32, ptr %33, align 1
+  br label %34
 
-35:                                               ; preds = %1, %28, %select.unfold, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit
-  %.sroa.6.0 = phi i32 [ %.0.copyload.i18, %28 ], [ %.0.copyload.i14, %select.unfold ], [ %.0.copyload.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ 0, %1 ]
-  %.sroa.0.0 = phi i32 [ %30, %28 ], [ %.0.copyload.i13, %select.unfold ], [ %.0.copyload.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ 0, %1 ]
+34:                                               ; preds = %1, %27, %select.unfold, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit
+  %.sroa.6.0 = phi i32 [ %.0.copyload.i17, %27 ], [ %.0.copyload.i13, %select.unfold ], [ %.0.copyload.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ 0, %1 ]
+  %.sroa.0.0 = phi i32 [ %29, %27 ], [ %.0.copyload.i12, %select.unfold ], [ %.0.copyload.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ 0, %1 ]
   %.sroa.6.0.insert.ext = zext i32 %.sroa.6.0 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
@@ -1943,64 +1920,57 @@ define dso_local { ptr, ptr } @_ZNK5clang22NestedNameSpecifierLoc10getTypeLocEv(
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %20, label %5
+  br i1 %.not.i, label %19, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.0.copyload.i.i.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.0.copyload.i.i.i.i, 6
-  switch i64 %7, label %20 [
+  switch i64 %7, label %19 [
     i64 4, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit
     i64 6, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit
   ]
 
 _ZNK5clang19NestedNameSpecifier7getKindEv.exit:   ; preds = %5, %5
   %8 = and i64 %.0.copyload.i.i.i.i, -8
-  %.not6.i = icmp eq i64 %8, 0
-  br i1 %.not6.i, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit, label %.lr.ph.i
+  %.not5.i = icmp eq i64 %8, 0
+  br i1 %.not5.i, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNK5clang19NestedNameSpecifier7getKindEv.exit, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i
-  %.08.i = phi i32 [ %13, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i ], [ 0, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ]
-  %.047.i.in = phi i64 [ %14, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i ], [ %8, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ]
-  %.047.i = inttoptr i64 %.047.i.in to ptr
-  %9 = getelementptr inbounds nuw i8, ptr %.047.i, i64 16
+.lr.ph.i:                                         ; preds = %_ZNK5clang19NestedNameSpecifier7getKindEv.exit, %.lr.ph.i
+  %.07.i = phi i32 [ %12, %.lr.ph.i ], [ 0, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ]
+  %.046.i.in = phi i64 [ %13, %.lr.ph.i ], [ %8, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ]
+  %.046.i = inttoptr i64 %.046.i.in to ptr
+  %9 = getelementptr inbounds nuw i8, ptr %.046.i, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %10, null
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.047.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.046.i, i64 8
   %.0.copyload.i.i.i.i.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
-  br i1 %.not.i.i.i, label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i, label %switch.lookup
-
-switch.lookup:                                    ; preds = %.lr.ph.i
-  %11 = lshr i64 %.0.copyload.i.i.i.i.pre.i, 1
-  %12 = and i64 %11, 3
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22NestedNameSpecifierLocE, i64 0, i64 %12
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i
-
-_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i: ; preds = %switch.lookup, %.lr.ph.i
-  %.0.i.i = phi i32 [ 4, %.lr.ph.i ], [ %switch.load, %switch.lookup ]
-  %13 = add i32 %.0.i.i, %.08.i
-  %14 = and i64 %.0.copyload.i.i.i.i.pre.i, -8
-  %.not.i9 = icmp eq i64 %14, 0
+  %11 = and i64 %.0.copyload.i.i.i.i.pre.i, 4
+  %switch.not.not.i.i = icmp eq i64 %11, 0
+  %spec.select.i.i = select i1 %switch.not.not.i.i, i32 8, i32 12
+  %.0.i.i = select i1 %.not.i.i.i, i32 4, i32 %spec.select.i.i
+  %12 = add i32 %.0.i.i, %.07.i
+  %13 = and i64 %.0.copyload.i.i.i.i.pre.i, -8
+  %.not.i9 = icmp eq i64 %13, 0
   br i1 %.not.i9, label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
 
-_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.loopexit: ; preds = %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i
-  %15 = zext i32 %13 to i64
+_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.loopexit: ; preds = %.lr.ph.i
+  %14 = zext i32 %12 to i64
   br label %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit
 
 _ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit: ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.loopexit, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit
-  %.0.lcssa.i = phi i64 [ 0, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ %15, %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.loopexit ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 %.0.lcssa.i
-  %.0.copyload.i = load ptr, ptr %18, align 1
-  %19 = and i64 %.0.copyload.i.i.i.i, 4
-  %switch.not.i = icmp eq i64 %19, 0
-  %.0.i12 = select i1 %switch.not.i, ptr null, ptr %4
-  br label %20
+  %.0.lcssa.i = phi i64 [ 0, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ %14, %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.loopexit ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.0.lcssa.i
+  %.0.copyload.i = load ptr, ptr %17, align 1
+  %18 = and i64 %.0.copyload.i.i.i.i, 4
+  %switch.not.i = icmp eq i64 %18, 0
+  %.0.i11 = select i1 %switch.not.i, ptr null, ptr %4
+  br label %19
 
-20:                                               ; preds = %5, %1, %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit
-  %.sroa.0.0 = phi ptr [ %.0.i12, %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit ], [ null, %1 ], [ null, %5 ]
+19:                                               ; preds = %5, %1, %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit
+  %.sroa.0.0 = phi ptr [ %.0.i11, %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit ], [ null, %1 ], [ null, %5 ]
   %.sroa.4.0 = phi ptr [ %.0.copyload.i, %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit ], [ null, %1 ], [ null, %5 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
@@ -2641,7 +2611,7 @@ define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22Neste
   store ptr null, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %11, align 8
-  br label %22
+  br label %21
 
 12:                                               ; preds = %9
   store ptr %1, ptr %0, align 8
@@ -2649,38 +2619,31 @@ define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22Neste
   store ptr %2, ptr %13, align 8
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %12, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i
-  %.08.i.i = phi i32 [ %18, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i ], [ 0, %12 ]
-  %.047.i.i = phi ptr [ %20, %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i ], [ %1, %12 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 16
+.lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
+  %.07.i.i = phi i32 [ %17, %.lr.ph.i.i ], [ 0, %12 ]
+  %.046.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %1, %12 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.046.i.i, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i.i = icmp eq ptr %15, null
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 8
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.046.i.i, i64 8
   %.0.copyload.i.i.i.i.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
-  br i1 %.not.i.i.i.i, label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i, label %switch.lookup
-
-switch.lookup:                                    ; preds = %.lr.ph.i.i
-  %16 = lshr i64 %.0.copyload.i.i.i.i.pre.i.i, 1
-  %17 = and i64 %16, 3
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22NestedNameSpecifierLocE, i64 0, i64 %17
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i
-
-_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i: ; preds = %switch.lookup, %.lr.ph.i.i
-  %.0.i.i.i = phi i32 [ 4, %.lr.ph.i.i ], [ %switch.load, %switch.lookup ]
-  %18 = add i32 %.0.i.i.i, %.08.i.i
-  %19 = and i64 %.0.copyload.i.i.i.i.pre.i.i, -8
-  %20 = inttoptr i64 %19 to ptr
-  %.not.i.i = icmp eq i64 %19, 0
+  %16 = and i64 %.0.copyload.i.i.i.i.pre.i.i, 4
+  %switch.not.not.i.i.i = icmp eq i64 %16, 0
+  %spec.select.i.i.i = select i1 %switch.not.not.i.i.i, i32 8, i32 12
+  %.0.i.i.i = select i1 %.not.i.i.i.i, i32 4, i32 %spec.select.i.i.i
+  %17 = add i32 %.0.i.i.i, %.07.i.i
+  %18 = and i64 %.0.copyload.i.i.i.i.pre.i.i, -8
+  %19 = inttoptr i64 %18 to ptr
+  %.not.i.i = icmp eq i64 %18, 0
   br i1 %.not.i.i, label %_ZNK5clang22NestedNameSpecifierLoc13getDataLengthEv.exit, label %.lr.ph.i.i, !llvm.loop !7
 
-_ZNK5clang22NestedNameSpecifierLoc13getDataLengthEv.exit: ; preds = %_ZN5clang22NestedNameSpecifierLoc18getLocalDataLengthEPNS_19NestedNameSpecifierE.exit.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %18, ptr %21, align 8
+_ZNK5clang22NestedNameSpecifierLoc13getDataLengthEv.exit: ; preds = %.lr.ph.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %17, ptr %20, align 8
   store i32 0, ptr %4, align 4
-  br label %22
+  br label %21
 
-22:                                               ; preds = %_ZNK5clang22NestedNameSpecifierLoc13getDataLengthEv.exit, %10
+21:                                               ; preds = %_ZNK5clang22NestedNameSpecifierLoc13getDataLengthEv.exit, %10
   ret void
 }
 

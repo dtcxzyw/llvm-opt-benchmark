@@ -90696,9 +90696,9 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp2.i)
   %_M_index.i.i.i = getelementptr inbounds i8, ptr %memptr.offset.i, i64 16
   %4 = load i8, ptr %_M_index.i.i.i, align 8, !noalias !1119
-  switch i8 %4, label %_ZNK5arrow5Datum4kindEv.exit13.i [
-    i8 5, label %sw.bb6.i12.i
-    i8 1, label %sw.bb2.i11.i
+  switch i8 %4, label %sw.default.i12.i [
+    i8 5, label %sw.bb6.i11.i
+    i8 1, label %_ZNK5arrow5Datum4kindEv.exit13.i
     i8 2, label %sw.bb.i
     i8 3, label %sw.bb4.i9.i
     i8 4, label %sw.bb5.i7.i
@@ -90886,20 +90886,20 @@ lpad.body.i:                                      ; preds = %lpad.i, %_ZNSt15__a
   call void @_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21, !noalias !1119
   br label %common.resume
 
-sw.bb2.i11.i:                                     ; preds = %if.end
-  br label %_ZNK5arrow5Datum4kindEv.exit13.i
-
 sw.bb4.i9.i:                                      ; preds = %if.end
   br label %_ZNK5arrow5Datum4kindEv.exit13.i
 
 sw.bb5.i7.i:                                      ; preds = %if.end
   br label %_ZNK5arrow5Datum4kindEv.exit13.i
 
-sw.bb6.i12.i:                                     ; preds = %if.end
+sw.bb6.i11.i:                                     ; preds = %if.end
   br label %_ZNK5arrow5Datum4kindEv.exit13.i
 
-_ZNK5arrow5Datum4kindEv.exit13.i:                 ; preds = %sw.bb6.i12.i, %sw.bb5.i7.i, %sw.bb4.i9.i, %sw.bb2.i11.i, %if.end
-  %retval.0.i8.i = phi i32 [ 5, %sw.bb6.i12.i ], [ 4, %sw.bb5.i7.i ], [ 3, %sw.bb4.i9.i ], [ 1, %sw.bb2.i11.i ], [ 0, %if.end ]
+sw.default.i12.i:                                 ; preds = %if.end
+  br label %_ZNK5arrow5Datum4kindEv.exit13.i
+
+_ZNK5arrow5Datum4kindEv.exit13.i:                 ; preds = %sw.default.i12.i, %sw.bb6.i11.i, %sw.bb5.i7.i, %sw.bb4.i9.i, %if.end
+  %retval.0.i8.i = phi i32 [ 0, %sw.default.i12.i ], [ 5, %sw.bb6.i11.i ], [ 4, %sw.bb5.i7.i ], [ 3, %sw.bb4.i9.i ], [ 1, %if.end ]
   store i32 %retval.0.i8.i, ptr %ref.tmp2.i, align 4, !noalias !1119
   call void @_ZN5arrow6Status8FromArgsIJRA29_KcNS_5Datum4KindEEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp1.i, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(29) @.str.261, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2.i), !noalias !1119
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1.i) #21

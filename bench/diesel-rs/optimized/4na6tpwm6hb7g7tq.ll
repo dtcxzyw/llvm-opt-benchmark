@@ -471,8 +471,8 @@ define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$c
   %4 = load i64, ptr %1, align 8, !range !4, !noundef !3
   %5 = add nsw i64 %4, -39
   %switch = icmp ult i64 %5, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %6 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.
   %7 = tail call align 8 ptr @_ZN3syn4path4Path9get_ident17h8ea14c0e29950935E(ptr nonnull align 8 %6)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -499,8 +499,8 @@ define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$c
   %4 = load i64, ptr %1, align 8, !range !4, !noundef !3
   %5 = add nsw i64 %4, -39
   %switch = icmp ult i64 %5, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %6 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.
   %7 = tail call align 8 ptr @_ZN3syn4path4Path9get_ident17h8ea14c0e29950935E(ptr nonnull align 8 %6)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9

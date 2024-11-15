@@ -39,10 +39,10 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: uwtable
 define noundef range(i32 1, 15) i32 @_Z31grpc_http2_error_to_grpc_status21grpc_http2_error_codeN9grpc_core9TimestampE(i32 noundef %error, i64 %deadline.coerce) local_unnamed_addr #4 {
 entry:
-  switch i32 %error, label %return [
+  switch i32 %error, label %sw.default [
     i32 7, label %sw.bb7
     i32 8, label %sw.bb1
-    i32 11, label %sw.bb5
+    i32 11, label %return
     i32 12, label %sw.bb6
   ]
 
@@ -64,17 +64,17 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %sw.bb1, %0
   %cond = select i1 %cmp.i, i32 4, i32 1
   br label %return
 
-sw.bb5:                                           ; preds = %entry
-  br label %return
-
 sw.bb6:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb7, %sw.bb6, %sw.bb5, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %retval.0 = phi i32 [ 14, %sw.bb7 ], [ 7, %sw.bb6 ], [ 8, %sw.bb5 ], [ %cond, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ 13, %entry ]
+sw.default:                                       ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %entry, %sw.default, %sw.bb7, %sw.bb6, %_ZN9grpc_core9Timestamp3NowEv.exit
+  %retval.0 = phi i32 [ 13, %sw.default ], [ 14, %sw.bb7 ], [ 7, %sw.bb6 ], [ %cond, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ 8, %entry ]
   ret i32 %retval.0
 }
 
@@ -88,9 +88,9 @@ entry:
     i32 403, label %sw.bb3
     i32 404, label %sw.bb4
     i32 429, label %sw.bb5
-    i32 502, label %sw.bb6
-    i32 503, label %sw.bb7
-    i32 504, label %sw.bb8
+    i32 502, label %sw.bb5
+    i32 503, label %sw.bb5
+    i32 504, label %sw.bb5
   ]
 
 sw.bb1:                                           ; preds = %entry
@@ -105,23 +105,14 @@ sw.bb3:                                           ; preds = %entry
 sw.bb4:                                           ; preds = %entry
   br label %return
 
-sw.bb5:                                           ; preds = %entry
-  br label %return
-
-sw.bb6:                                           ; preds = %entry
-  br label %return
-
-sw.bb7:                                           ; preds = %entry
-  br label %return
-
-sw.bb8:                                           ; preds = %entry
+sw.bb5:                                           ; preds = %entry, %entry, %entry, %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.default, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 2, %sw.default ], [ 14, %sw.bb8 ], [ 14, %sw.bb7 ], [ 14, %sw.bb6 ], [ 14, %sw.bb5 ], [ 12, %sw.bb4 ], [ 7, %sw.bb3 ], [ 16, %sw.bb2 ], [ 13, %sw.bb1 ], [ 0, %entry ]
+return:                                           ; preds = %entry, %sw.default, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
+  %retval.0 = phi i32 [ 2, %sw.default ], [ 14, %sw.bb5 ], [ 12, %sw.bb4 ], [ 7, %sw.bb3 ], [ 16, %sw.bb2 ], [ 13, %sw.bb1 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

@@ -1625,7 +1625,6 @@ if.end:                                           ; preds = %entry
     i8 12, label %sw.bb3
     i8 16, label %sw.bb3
     i8 32, label %sw.bb4
-    i8 64, label %sw.bb5
   ]
 
 sw.bb3:                                           ; preds = %if.end, %if.end, %if.end
@@ -1634,14 +1633,11 @@ sw.bb3:                                           ; preds = %if.end, %if.end, %i
 sw.bb4:                                           ; preds = %if.end
   br label %return
 
-sw.bb5:                                           ; preds = %if.end
-  br label %return
-
 sw.default:                                       ; preds = %if.end
   br label %return
 
-return:                                           ; preds = %sw.bb3, %sw.bb4, %sw.bb5, %sw.default, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 3, %sw.default ], [ 3, %sw.bb5 ], [ 2, %sw.bb4 ], [ 1, %sw.bb3 ], [ 0, %if.end ]
+return:                                           ; preds = %sw.bb3, %sw.bb4, %sw.default, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 3, %sw.default ], [ 2, %sw.bb4 ], [ 1, %sw.bb3 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1664,7 +1660,6 @@ if.end:                                           ; preds = %entry
     i8 12, label %sw.bb3
     i8 16, label %sw.bb3
     i8 32, label %sw.bb4
-    i8 64, label %sw.bb5
   ]
 
 sw.bb3:                                           ; preds = %if.end, %if.end, %if.end
@@ -1673,14 +1668,11 @@ sw.bb3:                                           ; preds = %if.end, %if.end, %i
 sw.bb4:                                           ; preds = %if.end
   br label %return
 
-sw.bb5:                                           ; preds = %if.end
-  br label %return
-
 sw.default:                                       ; preds = %if.end
   br label %return
 
-return:                                           ; preds = %sw.bb3, %sw.bb4, %sw.bb5, %sw.default, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 8, %sw.default ], [ 8, %sw.bb5 ], [ 4, %sw.bb4 ], [ 2, %sw.bb3 ], [ 1, %if.end ]
+return:                                           ; preds = %sw.bb3, %sw.bb4, %sw.default, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 8, %sw.default ], [ 4, %sw.bb4 ], [ 2, %sw.bb3 ], [ 1, %if.end ]
   ret i32 %retval.0
 }
 

@@ -603,10 +603,10 @@ $_ZN2c46detail10digits0099E = comdat any
 @__const._ZN2c43yml6Parser10_filter_nlILb1ELb1EEEbNS_15basic_substringIcEEPmS5_m.msg.475 = private unnamed_addr constant [29 x i8] c"check failed: (curr == '\\n')\00", align 16
 @__const._ZN2c43yml7NodeRef8to_arenaINS_3fmt15base64_wrapper_IKcEEEENS_15basic_substringIS5_EERKT_.msg = private unnamed_addr constant [43 x i8] c"check failed: (m_id != NONE && !is_seed())\00", align 16
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
-@switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE = private unnamed_addr constant [16 x i64] [i64 0, i64 5, i64 6, i64 7, i64 5, i64 5, i64 8, i64 6, i64 7, i64 5, i64 7, i64 6, i64 5, i64 11, i64 7, i64 6], align 8
-@switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE.5 = private unnamed_addr constant [16 x ptr] [ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69], align 8
-@switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE = private unnamed_addr constant [16 x i64] [i64 0, i64 23, i64 24, i64 25, i64 23, i64 23, i64 26, i64 24, i64 25, i64 23, i64 25, i64 24, i64 23, i64 29, i64 25, i64 24], align 8
-@switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE.6 = private unnamed_addr constant [16 x ptr] [ptr @.str.54, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53], align 8
+@switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE = private unnamed_addr constant [15 x i64] [i64 5, i64 6, i64 7, i64 5, i64 5, i64 8, i64 6, i64 7, i64 5, i64 7, i64 6, i64 5, i64 11, i64 7, i64 6], align 8
+@switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE.5 = private unnamed_addr constant [15 x ptr] [ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69], align 8
+@switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE = private unnamed_addr constant [15 x i64] [i64 23, i64 24, i64 25, i64 23, i64 23, i64 26, i64 24, i64 25, i64 23, i64 25, i64 24, i64 23, i64 29, i64 25, i64 24], align 8
+@switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE.6 = private unnamed_addr constant [15 x ptr] [ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53], align 8
 
 @_ZN2c43yml9CallbacksC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2c43yml9CallbacksC2Ev
 @_ZN2c43yml9CallbacksC1EPvPFS2_mS2_S2_EPFvS2_mS2_EPFvPKcmNS0_8LocationES2_E = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN2c43yml9CallbacksC2EPvPFS2_mS2_S2_EPFvS2_mS2_EPFvPKcmNS0_8LocationES2_E
@@ -2521,15 +2521,16 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread202: ; preds = %._crit_edg
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN2c43yml8from_tagENS0_9YamlTag_eE(i16 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = icmp ult i16 %0, 16
+  %switch.tableidx = add i16 %0, -1
+  %2 = icmp ult i16 %switch.tableidx, 15
   br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE, i64 0, i64 %3
+  %3 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i16 %0 to i64
-  %switch.gep1 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE.5, i64 0, i64 %4
+  %4 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep1 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN2c43yml8from_tagENS0_9YamlTag_eE.5, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -2637,15 +2638,16 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit19: ; preds = %.lr.ph.i, %_ZNK
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN2c43yml13from_tag_longENS0_9YamlTag_eE(i16 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = icmp ult i16 %0, 16
+  %switch.tableidx = add i16 %0, -1
+  %2 = icmp ult i16 %switch.tableidx, 15
   br i1 %2, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE, i64 0, i64 %3
+  %3 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i16 %0 to i64
-  %switch.gep1 = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE.6, i64 0, i64 %4
+  %4 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep1 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN2c43yml13from_tag_longENS0_9YamlTag_eE.6, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 

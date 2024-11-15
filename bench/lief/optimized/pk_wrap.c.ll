@@ -26,62 +26,58 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [6 x i8] c"rsa.N\00", align 1
 @.str.6 = private unnamed_addr constant [6 x i8] c"rsa.E\00", align 1
 @.str.7 = private unnamed_addr constant [8 x i8] c"eckey.Q\00", align 1
-@switch.table.mbedtls_pk_psa_rsa_sign_ext = private unnamed_addr constant [21 x i32] [i32 -15872, i32 -15872, i32 -110, i32 -1, i32 -1, i32 -1, i32 -112, i32 -15872, i32 -112, i32 -1, i32 -1, i32 -1, i32 -16256, i32 -1, i32 -1, i32 -14464, i32 -16000, i32 -15616, i32 -14976, i32 -14720, i32 -1], align 4
+@switch.table.mbedtls_pk_psa_rsa_sign_ext = private unnamed_addr constant [20 x i32] [i32 -15872, i32 -15872, i32 -110, i32 -1, i32 -1, i32 -1, i32 -112, i32 -15872, i32 -112, i32 -1, i32 -1, i32 -1, i32 -16256, i32 -1, i32 -1, i32 -14464, i32 -16000, i32 -15616, i32 -14976, i32 -14720], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 -16256, 1) i32 @mbedtls_pk_error_from_psa(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %12 [
-    i32 0, label %13
+  switch i32 %0, label %11 [
+    i32 0, label %12
     i32 -136, label %2
-    i32 -133, label %3
-    i32 -138, label %4
-    i32 -134, label %5
-    i32 -135, label %6
-    i32 -141, label %7
-    i32 -137, label %8
-    i32 -145, label %9
-    i32 -147, label %9
-    i32 -152, label %10
-    i32 -153, label %10
-    i32 -146, label %10
-    i32 -151, label %11
+    i32 -151, label %10
+    i32 -138, label %3
+    i32 -134, label %4
+    i32 -135, label %5
+    i32 -141, label %6
+    i32 -137, label %7
+    i32 -145, label %8
+    i32 -147, label %8
+    i32 -152, label %9
+    i32 -153, label %9
+    i32 -146, label %9
   ]
 
 2:                                                ; preds = %1
-  br label %13
+  br label %12
 
 3:                                                ; preds = %1
-  br label %13
+  br label %12
 
 4:                                                ; preds = %1
-  br label %13
+  br label %12
 
 5:                                                ; preds = %1
-  br label %13
+  br label %12
 
 6:                                                ; preds = %1
-  br label %13
+  br label %12
 
 7:                                                ; preds = %1
-  br label %13
+  br label %12
 
-8:                                                ; preds = %1
-  br label %13
+8:                                                ; preds = %1, %1
+  br label %12
 
-9:                                                ; preds = %1, %1
-  br label %13
+9:                                                ; preds = %1, %1, %1
+  br label %12
 
-10:                                               ; preds = %1, %1, %1
-  br label %13
+10:                                               ; preds = %1
+  br label %12
 
 11:                                               ; preds = %1
-  br label %13
+  br label %12
 
-12:                                               ; preds = %1
-  br label %13
-
-13:                                               ; preds = %1, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %12 ], [ -110, %11 ], [ -15872, %10 ], [ -112, %9 ], [ -16000, %8 ], [ -16256, %7 ], [ -14976, %6 ], [ -14720, %5 ], [ -14464, %4 ], [ -1, %3 ], [ -15616, %2 ], [ %0, %1 ]
+12:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ -1, %11 ], [ -110, %10 ], [ -15872, %9 ], [ -112, %8 ], [ -16000, %7 ], [ -16256, %6 ], [ -14976, %5 ], [ -14720, %4 ], [ -14464, %3 ], [ -15616, %2 ], [ %0, %1 ]
   ret i32 %.0
 }
 
@@ -96,11 +92,11 @@ define hidden range(i32 -17536, 1) i32 @mbedtls_pk_error_from_psa_rsa(i32 nounde
     i32 -149, label %4
     i32 -150, label %5
     i32 0, label %mbedtls_pk_error_from_psa.exit.fold.split
+    i32 -146, label %10
     i32 -151, label %11
     i32 -152, label %10
-    i32 -153, label %10
     i32 -134, label %6
-    i32 -146, label %10
+    i32 -153, label %10
     i32 -141, label %7
     i32 -137, label %8
     i32 -145, label %9
@@ -182,21 +178,20 @@ psa_set_key_type.exit:                            ; preds = %15
   %23 = sub nsw i64 0, %22
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
   %25 = call i32 @psa_import_key(ptr noundef nonnull %8, ptr noundef nonnull %24, i64 noundef %22, ptr noundef nonnull %9) #10
-  switch i32 %25, label %35 [
-    i32 0, label %36
-    i32 -151, label %34
+  switch i32 %25, label %34 [
+    i32 0, label %35
+    i32 -146, label %32
     i32 -136, label %mbedtls_pk_error_from_psa.exit
-    i32 -133, label %26
-    i32 -138, label %27
-    i32 -134, label %28
-    i32 -135, label %29
-    i32 -141, label %30
-    i32 -137, label %31
-    i32 -145, label %32
-    i32 -147, label %32
-    i32 -152, label %33
-    i32 -153, label %33
-    i32 -146, label %33
+    i32 -151, label %33
+    i32 -138, label %26
+    i32 -134, label %27
+    i32 -135, label %28
+    i32 -141, label %29
+    i32 -137, label %30
+    i32 -145, label %31
+    i32 -147, label %31
+    i32 -152, label %32
+    i32 -153, label %32
   ]
 
 26:                                               ; preds = %psa_set_key_type.exit
@@ -214,53 +209,50 @@ psa_set_key_type.exit:                            ; preds = %15
 30:                                               ; preds = %psa_set_key_type.exit
   br label %mbedtls_pk_error_from_psa.exit
 
-31:                                               ; preds = %psa_set_key_type.exit
+31:                                               ; preds = %psa_set_key_type.exit, %psa_set_key_type.exit
   br label %mbedtls_pk_error_from_psa.exit
 
-32:                                               ; preds = %psa_set_key_type.exit, %psa_set_key_type.exit
+32:                                               ; preds = %psa_set_key_type.exit, %psa_set_key_type.exit, %psa_set_key_type.exit
   br label %mbedtls_pk_error_from_psa.exit
 
-33:                                               ; preds = %psa_set_key_type.exit, %psa_set_key_type.exit, %psa_set_key_type.exit
+33:                                               ; preds = %psa_set_key_type.exit
   br label %mbedtls_pk_error_from_psa.exit
 
 34:                                               ; preds = %psa_set_key_type.exit
   br label %mbedtls_pk_error_from_psa.exit
 
 35:                                               ; preds = %psa_set_key_type.exit
+  %36 = load i32, ptr %9, align 4
+  %37 = call i32 @psa_sign_hash(i32 noundef %36, i32 noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %6) #10
+  %.not30 = icmp eq i32 %37, 0
+  br i1 %.not30, label %mbedtls_pk_error_from_psa.exit, label %38
+
+38:                                               ; preds = %35
+  %39 = call i32 @mbedtls_pk_error_from_psa_rsa(i32 noundef %37)
   br label %mbedtls_pk_error_from_psa.exit
 
-36:                                               ; preds = %psa_set_key_type.exit
-  %37 = load i32, ptr %9, align 4
-  %38 = call i32 @psa_sign_hash(i32 noundef %37, i32 noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %6) #10
-  %.not30 = icmp eq i32 %38, 0
-  br i1 %.not30, label %mbedtls_pk_error_from_psa.exit, label %39
+mbedtls_pk_error_from_psa.exit:                   ; preds = %psa_set_key_type.exit, %34, %33, %32, %31, %30, %29, %28, %27, %26, %35, %38
+  %.024 = phi i32 [ %39, %38 ], [ 0, %35 ], [ -1, %34 ], [ -110, %33 ], [ -15872, %32 ], [ -112, %31 ], [ -16000, %30 ], [ -16256, %29 ], [ -14976, %28 ], [ -14720, %27 ], [ -14464, %26 ], [ -15616, %psa_set_key_type.exit ]
+  %40 = load i32, ptr %9, align 4
+  %41 = call i32 @psa_destroy_key(i32 noundef %40) #10
+  %42 = icmp eq i32 %.024, 0
+  %43 = icmp ne i32 %41, 0
+  %or.cond = select i1 %42, i1 %43, i1 false
+  br i1 %or.cond, label %44, label %mbedtls_pk_error_from_psa.exit32
 
-39:                                               ; preds = %36
-  %40 = call i32 @mbedtls_pk_error_from_psa_rsa(i32 noundef %38)
-  br label %mbedtls_pk_error_from_psa.exit
+44:                                               ; preds = %mbedtls_pk_error_from_psa.exit
+  %switch.tableidx = add i32 %41, 153
+  %45 = icmp ult i32 %switch.tableidx, 20
+  br i1 %45, label %switch.lookup, label %mbedtls_pk_error_from_psa.exit32
 
-mbedtls_pk_error_from_psa.exit:                   ; preds = %psa_set_key_type.exit, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %36, %39
-  %.024 = phi i32 [ %40, %39 ], [ 0, %36 ], [ -1, %35 ], [ -110, %34 ], [ -15872, %33 ], [ -112, %32 ], [ -16000, %31 ], [ -16256, %30 ], [ -14976, %29 ], [ -14720, %28 ], [ -14464, %27 ], [ -1, %26 ], [ -15616, %psa_set_key_type.exit ]
-  %41 = load i32, ptr %9, align 4
-  %42 = call i32 @psa_destroy_key(i32 noundef %41) #10
-  %43 = icmp eq i32 %.024, 0
-  %44 = icmp ne i32 %42, 0
-  %or.cond = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond, label %45, label %mbedtls_pk_error_from_psa.exit32
-
-45:                                               ; preds = %mbedtls_pk_error_from_psa.exit
-  %switch.tableidx = add i32 %42, 153
-  %46 = icmp ult i32 %switch.tableidx, 21
-  br i1 %46, label %switch.lookup, label %mbedtls_pk_error_from_psa.exit32
-
-switch.lookup:                                    ; preds = %45
-  %47 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [21 x i32], ptr @switch.table.mbedtls_pk_psa_rsa_sign_ext, i64 0, i64 %47
+switch.lookup:                                    ; preds = %44
+  %46 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [20 x i32], ptr @switch.table.mbedtls_pk_psa_rsa_sign_ext, i64 0, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %mbedtls_pk_error_from_psa.exit32
 
-mbedtls_pk_error_from_psa.exit32:                 ; preds = %45, %switch.lookup, %mbedtls_pk_error_from_psa.exit, %15, %7
-  %.0 = phi i32 [ -14464, %7 ], [ -16000, %15 ], [ %.024, %mbedtls_pk_error_from_psa.exit ], [ %switch.load, %switch.lookup ], [ -1, %45 ]
+mbedtls_pk_error_from_psa.exit32:                 ; preds = %44, %switch.lookup, %mbedtls_pk_error_from_psa.exit, %15, %7
+  %.0 = phi i32 [ -14464, %7 ], [ -16000, %15 ], [ %.024, %mbedtls_pk_error_from_psa.exit ], [ %switch.load, %switch.lookup ], [ -1, %44 ]
   ret i32 %.0
 }
 

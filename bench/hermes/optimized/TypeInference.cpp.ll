@@ -607,7 +607,7 @@ if.end10.i.i18.i.i.i.i:                           ; preds = %sw.bb16.i.i.i.i
   br label %return.sink.split.i36.i.i.i
 
 return.sink.split.i36.i.i.i:                      ; preds = %if.end10.i.i18.i.i.i.i, %if.then6.i.i15.i.i.i.i, %sw.bb16.i.i.i.i, %sw.bb12.i.i.i.i, %if.end10.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i, %sw.bb10.i38.i.i.i, %sw.bb6.i39.i.i.i, %sw.bb2.i40.i.i.i, %sw.bb10.i.i.i, %sw.bb10.i.i.i
-  %.sink.i.i.i.i = phi i32 [ 458784, %sw.bb12.i.i.i.i ], [ 458768, %sw.bb6.i39.i.i.i ], [ 458754, %sw.bb2.i40.i.i.i ], [ 458760, %sw.bb10.i.i.i ], [ %conv1.i.i.i.i.i.i.i, %if.end10.i.i.i.i.i.i ], [ 458816, %if.then6.i.i.i.i.i.i ], [ 458784, %sw.bb10.i38.i.i.i ], [ %conv1.i.i.i20.i.i.i.i, %if.end10.i.i18.i.i.i.i ], [ 458816, %if.then6.i.i15.i.i.i.i ], [ 131104, %sw.bb16.i.i.i.i ], [ 458760, %sw.bb10.i.i.i ]
+  %.sink.i.i.i.i = phi i32 [ 458784, %sw.bb12.i.i.i.i ], [ 458768, %sw.bb6.i39.i.i.i ], [ 458754, %sw.bb2.i40.i.i.i ], [ 458760, %sw.bb10.i.i.i ], [ 458760, %sw.bb10.i.i.i ], [ %conv1.i.i.i.i.i.i.i, %if.end10.i.i.i.i.i.i ], [ 458816, %if.then6.i.i.i.i.i.i ], [ 458784, %sw.bb10.i38.i.i.i ], [ %conv1.i.i.i20.i.i.i.i, %if.end10.i.i18.i.i.i.i ], [ 458816, %if.then6.i.i15.i.i.i.i ], [ 131104, %sw.bb16.i.i.i.i ]
   store i32 %.sink.i.i.i.i, ptr %valueType.i.i.i.i, align 2
   br label %_ZL14inferUnaryInstPN6hermes17UnaryOperatorInstE.exit.i.i.i
 

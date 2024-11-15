@@ -368,12 +368,12 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %cmp8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %land.lhs.true4, %if.end
-  %.pr18 = load i64, ptr %cols, align 8
-  %cmp11 = icmp slt i64 %.pr18, 1
+  %.pr17 = load i64, ptr %cols, align 8
+  %cmp11 = icmp slt i64 %.pr17, 1
   br i1 %cmp11, label %if.end16.sink.split, label %if.end13
 
 if.end13:                                         ; preds = %if.end10
-  %cmp14 = icmp samesign ugt i64 %.pr18, 1000
+  %cmp14 = icmp samesign ugt i64 %.pr17, 1000
   br i1 %cmp14, label %if.end16.sink.split, label %if.end16
 
 if.end16.sink.split:                              ; preds = %if.end13, %if.end10
@@ -382,22 +382,22 @@ if.end16.sink.split:                              ; preds = %if.end13, %if.end10
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end16.sink.split, %if.end13
-  %5 = phi i64 [ %.pr18, %if.end13 ], [ %.sink, %if.end16.sink.split ]
-  %.pr22 = load i64, ptr %rows, align 8
-  %cmp17 = icmp slt i64 %.pr22, 1
+  %5 = phi i64 [ %.pr17, %if.end13 ], [ %.sink, %if.end16.sink.split ]
+  %.pr21 = load i64, ptr %rows, align 8
+  %cmp17 = icmp slt i64 %.pr21, 1
   br i1 %cmp17, label %if.end22.sink.split, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %cmp20 = icmp samesign ugt i64 %.pr22, 1000
+  %cmp20 = icmp samesign ugt i64 %.pr21, 1000
   br i1 %cmp20, label %if.end22.sink.split, label %if.end22
 
 if.end22.sink.split:                              ; preds = %if.end19, %if.end16
-  %.sink27 = phi i64 [ 1, %if.end16 ], [ 1000, %if.end19 ]
-  store i64 %.sink27, ptr %rows, align 8
+  %.sink26 = phi i64 [ 1, %if.end16 ], [ 1000, %if.end19 ]
+  store i64 %.sink26, ptr %rows, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end22.sink.split, %entry, %if.end19
-  %6 = phi i64 [ 20, %entry ], [ %.pr22, %if.end19 ], [ %.sink27, %if.end22.sink.split ]
+  %6 = phi i64 [ 20, %entry ], [ %.pr21, %if.end19 ], [ %.sink26, %if.end22.sink.split ]
   %7 = phi i64 [ 80, %entry ], [ %5, %if.end19 ], [ %5, %if.end22.sink.split ]
   %conv = trunc i64 %7 to i32
   %conv23 = trunc nuw i64 %6 to i32
@@ -431,8 +431,8 @@ switch.lookup:                                    ; preds = %for.body3.i
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %switch.lookup, %for.body3.i
-  %ce.0.i = phi ptr [ @.str.4, %for.body3.i ], [ %switch.load, %switch.lookup ]
+sw.epilog.i:                                      ; preds = %for.body3.i, %switch.lookup
+  %ce.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.4, %for.body3.i ]
   %call8.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %text.113.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %ce.0.i) #3
   %inc.i = add nuw nsw i32 %x.012.i, 1
   %13 = load i32, ptr %call24, align 8
@@ -474,7 +474,7 @@ renderCanvas.exit:                                ; preds = %for.inc12.i, %if.en
   switch i32 %and.i, label %sdslen.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb3.i
-    i32 2, label %sw.bb5.i14
+    i32 2, label %sw.bb5.i
     i32 3, label %sw.bb9.i
     i32 4, label %sw.bb13.i
   ]
@@ -490,7 +490,7 @@ sw.bb3.i:                                         ; preds = %renderCanvas.exit
   %conv4.i = zext i8 %17 to i64
   br label %sdslen.exit
 
-sw.bb5.i14:                                       ; preds = %renderCanvas.exit
+sw.bb5.i:                                         ; preds = %renderCanvas.exit
   %add.ptr6.i = getelementptr inbounds i8, ptr %call28, i64 -5
   %18 = load i16, ptr %add.ptr6.i, align 1
   %conv8.i = zext i16 %18 to i64
@@ -507,8 +507,8 @@ sw.bb13.i:                                        ; preds = %renderCanvas.exit
   %20 = load i64, ptr %add.ptr14.i, align 1
   br label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %renderCanvas.exit, %sw.bb.i, %sw.bb3.i, %sw.bb5.i14, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i = phi i64 [ %20, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i14 ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %renderCanvas.exit ]
+sdslen.exit:                                      ; preds = %renderCanvas.exit, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
+  %retval.0.i = phi i64 [ %20, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %renderCanvas.exit ]
   call void @addReplyVerbatim(ptr noundef %c, ptr noundef nonnull %call28, i64 noundef %retval.0.i, ptr noundef nonnull @.str.3) #3
   call void @sdsfree(ptr noundef nonnull %call28) #3
   call void @lwFreeCanvas(ptr noundef nonnull %call24) #3

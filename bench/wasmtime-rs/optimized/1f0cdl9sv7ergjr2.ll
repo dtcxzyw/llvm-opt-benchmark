@@ -1179,8 +1179,8 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
   %31 = getelementptr inbounds i8, ptr %.06.i, i64 8
   %.val.i = load ptr, ptr %31, align 8, !alias.scope !235, !noalias !232
   %32 = getelementptr inbounds i8, ptr %.06.i, i64 16
-  %.val10.i = load i64, ptr %32, align 8, !alias.scope !235, !noalias !232, !noundef !14
-  %33 = icmp ule i64 %.val10.i, %30
+  %.val11.i = load i64, ptr %32, align 8, !alias.scope !235, !noalias !232, !noundef !14
+  %33 = icmp ule i64 %.val11.i, %30
   %34 = getelementptr inbounds { i32, [3 x i32] }, ptr %.val.i, i64 %30
   %35 = icmp eq ptr %.val.i, null
   %or.cond.i = select i1 %33, i1 true, i1 %35
@@ -2001,8 +2001,8 @@ define hidden void @_ZN16wasmtime_runtime9component9resources13ResourceTable3rep
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 16
-  %.val10 = load i64, ptr %11, align 8, !noundef !14
-  %12 = icmp ule i64 %.val10, %9
+  %.val11 = load i64, ptr %11, align 8, !noundef !14
+  %12 = icmp ule i64 %.val11, %9
   %13 = getelementptr inbounds { i32, [3 x i32] }, ptr %.val, i64 %9
   %14 = icmp eq ptr %.val, null
   %or.cond = select i1 %12, i1 true, i1 %14

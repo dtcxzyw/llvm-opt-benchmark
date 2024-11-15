@@ -11974,145 +11974,145 @@ define hidden noundef i64 @"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message.
     i8 85, label %397
     i8 86, label %400
     i8 87, label %403
-    i8 88, label %407
-    i8 89, label %408
-    i8 90, label %412
-    i8 91, label %416
-    i8 92, label %420
-    i8 93, label %431
-    i8 94, label %435
-    i8 95, label %446
-    i8 96, label %449
-    i8 97, label %452
-    i8 98, label %454
-    i8 99, label %457
-    i8 100, label %458
-    i8 101, label %461
-    i8 102, label %473
-    i8 103, label %476
-    i8 104, label %477
-    i8 105, label %488
-    i8 106, label %491
-    i8 107, label %494
-    i8 108, label %497
-    i8 109, label %500
-    i8 110, label %503
-    i8 111, label %506
-    i8 112, label %509
-    i8 113, label %520
-    i8 114, label %523
-    i8 115, label %526
-    i8 116, label %529
-    i8 117, label %533
-    i8 118, label %548
-    i8 119, label %551
-    i8 120, label %562
-    i8 121, label %573
-    i8 122, label %576
-    i8 123, label %579
-    i8 124, label %582
-    i8 125, label %586
-    i8 126, label %589
-    i8 127, label %590
-    i8 -128, label %601
-    i8 -127, label %604
-    i8 -126, label %607
-    i8 -125, label %618
-    i8 -124, label %621
-    i8 -123, label %625
-    i8 -122, label %629
-    i8 -121, label %632
-    i8 -120, label %643
-    i8 -119, label %646
-    i8 -118, label %657
-    i8 -117, label %660
-    i8 -116, label %663
-    i8 -115, label %666
-    i8 -114, label %670
-    i8 -113, label %673
-    i8 -112, label %677
-    i8 -111, label %681
-    i8 -110, label %685
-    i8 -109, label %689
-    i8 -108, label %693
-    i8 -107, label %696
-    i8 -106, label %707
-    i8 -105, label %710
-    i8 -104, label %721
-    i8 -103, label %732
-    i8 -102, label %735
-    i8 -101, label %739
-    i8 -100, label %742
-    i8 -99, label %745
-    i8 -98, label %748
-    i8 -97, label %752
-    i8 -96, label %763
-    i8 -95, label %767
-    i8 -94, label %778
-    i8 -93, label %781
-    i8 -92, label %785
-    i8 -91, label %788
-    i8 -90, label %792
-    i8 -89, label %795
-    i8 -88, label %798
-    i8 -87, label %801
-    i8 -86, label %804
-    i8 -85, label %807
-    i8 -84, label %810
-    i8 -83, label %814
-    i8 -82, label %817
-    i8 -81, label %821
-    i8 -80, label %824
-    i8 -79, label %827
-    i8 -78, label %830
-    i8 -77, label %834
-    i8 -76, label %838
-    i8 -75, label %842
-    i8 -74, label %846
-    i8 -73, label %849
-    i8 -72, label %860
-    i8 -71, label %864
-    i8 -70, label %868
-    i8 -69, label %871
-    i8 -68, label %875
-    i8 -67, label %886
-    i8 -66, label %897
-    i8 -65, label %908
-    i8 -64, label %909
-    i8 -63, label %913
-    i8 -62, label %924
-    i8 -61, label %928
-    i8 -60, label %931
-    i8 -59, label %934
-    i8 -58, label %937
-    i8 -57, label %941
-    i8 -56, label %944
-    i8 -55, label %947
-    i8 -54, label %950
-    i8 -53, label %953
-    i8 -52, label %957
-    i8 -51, label %960
-    i8 -50, label %971
-    i8 -49, label %974
-    i8 -48, label %977
-    i8 -47, label %980
-    i8 -46, label %984
-    i8 -45, label %987
-    i8 -44, label %990
-    i8 -43, label %994
-    i8 -42, label %998
-    i8 -41, label %1001
-    i8 -40, label %1005
-    i8 -39, label %1016
-    i8 -38, label %1017
-    i8 -37, label %1021
-    i8 -36, label %1025
-    i8 -35, label %1029
-    i8 -34, label %1032
-    i8 -33, label %1036
-    i8 -32, label %1040
-    i8 -31, label %1043
-    i8 -30, label %1047
+    i8 88, label %74
+    i8 89, label %407
+    i8 90, label %411
+    i8 91, label %415
+    i8 92, label %419
+    i8 93, label %430
+    i8 94, label %434
+    i8 95, label %445
+    i8 96, label %448
+    i8 97, label %451
+    i8 98, label %453
+    i8 99, label %74
+    i8 100, label %456
+    i8 101, label %459
+    i8 102, label %471
+    i8 103, label %74
+    i8 104, label %474
+    i8 105, label %485
+    i8 106, label %488
+    i8 107, label %491
+    i8 108, label %494
+    i8 109, label %497
+    i8 110, label %500
+    i8 111, label %503
+    i8 112, label %506
+    i8 113, label %517
+    i8 114, label %520
+    i8 115, label %523
+    i8 116, label %526
+    i8 117, label %530
+    i8 118, label %545
+    i8 119, label %548
+    i8 120, label %559
+    i8 121, label %570
+    i8 122, label %573
+    i8 123, label %576
+    i8 124, label %579
+    i8 125, label %583
+    i8 126, label %74
+    i8 127, label %586
+    i8 -128, label %597
+    i8 -127, label %600
+    i8 -126, label %603
+    i8 -125, label %614
+    i8 -124, label %617
+    i8 -123, label %621
+    i8 -122, label %625
+    i8 -121, label %628
+    i8 -120, label %639
+    i8 -119, label %642
+    i8 -118, label %653
+    i8 -117, label %656
+    i8 -116, label %659
+    i8 -115, label %662
+    i8 -114, label %666
+    i8 -113, label %669
+    i8 -112, label %673
+    i8 -111, label %677
+    i8 -110, label %681
+    i8 -109, label %685
+    i8 -108, label %689
+    i8 -107, label %692
+    i8 -106, label %703
+    i8 -105, label %706
+    i8 -104, label %717
+    i8 -103, label %728
+    i8 -102, label %731
+    i8 -101, label %735
+    i8 -100, label %738
+    i8 -99, label %741
+    i8 -98, label %744
+    i8 -97, label %748
+    i8 -96, label %759
+    i8 -95, label %763
+    i8 -94, label %774
+    i8 -93, label %777
+    i8 -92, label %781
+    i8 -91, label %784
+    i8 -90, label %788
+    i8 -89, label %791
+    i8 -88, label %794
+    i8 -87, label %797
+    i8 -86, label %800
+    i8 -85, label %803
+    i8 -84, label %806
+    i8 -83, label %810
+    i8 -82, label %813
+    i8 -81, label %817
+    i8 -80, label %820
+    i8 -79, label %823
+    i8 -78, label %826
+    i8 -77, label %830
+    i8 -76, label %834
+    i8 -75, label %838
+    i8 -74, label %842
+    i8 -73, label %845
+    i8 -72, label %856
+    i8 -71, label %860
+    i8 -70, label %864
+    i8 -69, label %867
+    i8 -68, label %871
+    i8 -67, label %882
+    i8 -66, label %893
+    i8 -65, label %74
+    i8 -64, label %904
+    i8 -63, label %908
+    i8 -62, label %919
+    i8 -61, label %923
+    i8 -60, label %926
+    i8 -59, label %929
+    i8 -58, label %932
+    i8 -57, label %936
+    i8 -56, label %939
+    i8 -55, label %942
+    i8 -54, label %945
+    i8 -53, label %948
+    i8 -52, label %952
+    i8 -51, label %955
+    i8 -50, label %966
+    i8 -49, label %969
+    i8 -48, label %972
+    i8 -47, label %975
+    i8 -46, label %979
+    i8 -45, label %982
+    i8 -44, label %985
+    i8 -43, label %989
+    i8 -42, label %993
+    i8 -41, label %996
+    i8 -40, label %1000
+    i8 -39, label %74
+    i8 -38, label %1011
+    i8 -37, label %1015
+    i8 -36, label %1019
+    i8 -35, label %1023
+    i8 -34, label %1026
+    i8 -33, label %1030
+    i8 -32, label %1034
+    i8 -31, label %1037
+    i8 -30, label %1041
   ]
 
 56:                                               ; preds = %52
@@ -12144,7 +12144,7 @@ define hidden noundef i64 @"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message.
   %73 = add nuw nsw i64 %72, 3
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-74:                                               ; preds = %52
+74:                                               ; preds = %52, %52, %52, %52, %52, %52, %52
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 75:                                               ; preds = %52
@@ -12694,1100 +12694,1082 @@ define hidden noundef i64 @"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message.
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 407:                                              ; preds = %52
+  %408 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val35.i.i.i = load ptr, ptr %408, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %409 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val36.i.i.i = load i64, ptr %409, align 8, !alias.scope !1416, !noundef !4
+  %410 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb5c4b09953be253cE(ptr nonnull %.val35.i.i.i, i64 %.val36.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-408:                                              ; preds = %52
-  %409 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val35.i.i.i = load ptr, ptr %409, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %410 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val36.i.i.i = load i64, ptr %410, align 8, !alias.scope !1416, !noundef !4
-  %411 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb5c4b09953be253cE(ptr nonnull %.val35.i.i.i, i64 %.val36.i.i.i)
+411:                                              ; preds = %52
+  %412 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val37.i.i.i = load ptr, ptr %412, align 8, !alias.scope !1416
+  %413 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val38.i.i.i = load i64, ptr %413, align 8, !alias.scope !1429, !noalias !1432, !noundef !4
+  %414 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6d4d2099b7bb95b3E(ptr %.val37.i.i.i, i64 %.val38.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-412:                                              ; preds = %52
-  %413 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val37.i.i.i = load ptr, ptr %413, align 8, !alias.scope !1416
-  %414 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val38.i.i.i = load i64, ptr %414, align 8, !alias.scope !1429, !noalias !1432, !noundef !4
-  %415 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6d4d2099b7bb95b3E(ptr %.val37.i.i.i, i64 %.val38.i.i.i)
+415:                                              ; preds = %52
+  %416 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val39.i.i.i = load ptr, ptr %416, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %417 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val40.i.i.i = load i64, ptr %417, align 8, !alias.scope !1416, !noundef !4
+  %418 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4a5a8326fb98b942E(ptr %.val39.i.i.i, i64 %.val40.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-416:                                              ; preds = %52
-  %417 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val39.i.i.i = load ptr, ptr %417, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %418 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val40.i.i.i = load i64, ptr %418, align 8, !alias.scope !1416, !noundef !4
-  %419 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4a5a8326fb98b942E(ptr %.val39.i.i.i, i64 %.val40.i.i.i)
+419:                                              ; preds = %52
+  %420 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val41.i.i.i = load i64, ptr %420, align 8, !alias.scope !1416, !noundef !4
+  %421 = icmp eq i64 %.val41.i.i.i, 0
+  br i1 %421, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %422
+
+422:                                              ; preds = %419
+  %423 = or i64 %.val41.i.i.i, 1
+  %424 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %423, i1 true)
+  %425 = xor i64 %424, 63
+  %426 = mul nuw nsw i64 %425, 9
+  %427 = add nuw nsw i64 %426, 73
+  %428 = lshr i64 %427, 6
+  %429 = add nuw nsw i64 %428, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-420:                                              ; preds = %52
-  %421 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val41.i.i.i = load i64, ptr %421, align 8, !alias.scope !1416, !noundef !4
-  %422 = icmp eq i64 %.val41.i.i.i, 0
-  br i1 %422, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %423
-
-423:                                              ; preds = %420
-  %424 = or i64 %.val41.i.i.i, 1
-  %425 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %424, i1 true)
-  %426 = xor i64 %425, 63
-  %427 = mul nuw nsw i64 %426, 9
-  %428 = add nuw nsw i64 %427, 73
-  %429 = lshr i64 %428, 6
-  %430 = add nuw nsw i64 %429, 4
+430:                                              ; preds = %52
+  %431 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val42.i.i.i = load i64, ptr %431, align 8, !alias.scope !1416, !noundef !4
+  %432 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val43.i.i.i = load i32, ptr %432, align 8, !alias.scope !1416
+  %433 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he468dc5465d95e81E(i64 %.val42.i.i.i, i32 %.val43.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-431:                                              ; preds = %52
-  %432 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val42.i.i.i = load i64, ptr %432, align 8, !alias.scope !1416, !noundef !4
-  %433 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val43.i.i.i = load i32, ptr %433, align 8, !alias.scope !1416
-  %434 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he468dc5465d95e81E(i64 %.val42.i.i.i, i32 %.val43.i.i.i)
+434:                                              ; preds = %52
+  %435 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val44.i.i.i = load i64, ptr %435, align 8, !alias.scope !1416, !noundef !4
+  %436 = icmp eq i64 %.val44.i.i.i, 0
+  br i1 %436, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %437
+
+437:                                              ; preds = %434
+  %438 = or i64 %.val44.i.i.i, 1
+  %439 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %438, i1 true)
+  %440 = xor i64 %439, 63
+  %441 = mul nuw nsw i64 %440, 9
+  %442 = add nuw nsw i64 %441, 73
+  %443 = lshr i64 %442, 6
+  %444 = add nuw nsw i64 %443, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-435:                                              ; preds = %52
-  %436 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val44.i.i.i = load i64, ptr %436, align 8, !alias.scope !1416, !noundef !4
-  %437 = icmp eq i64 %.val44.i.i.i, 0
-  br i1 %437, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %438
-
-438:                                              ; preds = %435
-  %439 = or i64 %.val44.i.i.i, 1
-  %440 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %439, i1 true)
-  %441 = xor i64 %440, 63
-  %442 = mul nuw nsw i64 %441, 9
-  %443 = add nuw nsw i64 %442, 73
-  %444 = lshr i64 %443, 6
-  %445 = add nuw nsw i64 %444, 4
+445:                                              ; preds = %52
+  %446 = getelementptr inbounds i8, ptr %0, i64 8
+  %447 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7be39e20d54ccd9eE(ptr noalias noundef readonly align 8 dereferenceable(40) %446)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-446:                                              ; preds = %52
-  %447 = getelementptr inbounds i8, ptr %0, i64 8
-  %448 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7be39e20d54ccd9eE(ptr noalias noundef readonly align 8 dereferenceable(40) %447)
+448:                                              ; preds = %52
+  %449 = getelementptr inbounds i8, ptr %0, i64 8
+  %450 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h30cd5a88dfdd1716E(ptr noalias noundef readonly align 8 dereferenceable(368) %449)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-449:                                              ; preds = %52
-  %450 = getelementptr inbounds i8, ptr %0, i64 8
-  %451 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h30cd5a88dfdd1716E(ptr noalias noundef readonly align 8 dereferenceable(368) %450)
+451:                                              ; preds = %52
+  %452 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfd0d029c0e60bbe0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(384) dereferenceable_or_null(384) %0)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-452:                                              ; preds = %52
-  %453 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfd0d029c0e60bbe0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(384) dereferenceable_or_null(384) %0)
+453:                                              ; preds = %52
+  %454 = getelementptr inbounds i8, ptr %0, i64 8
+  %455 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0811a09ad6b764afE(ptr noalias noundef readonly align 8 dereferenceable(40) %454)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-454:                                              ; preds = %52
-  %455 = getelementptr inbounds i8, ptr %0, i64 8
-  %456 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0811a09ad6b764afE(ptr noalias noundef readonly align 8 dereferenceable(40) %455)
+456:                                              ; preds = %52
+  %457 = getelementptr inbounds i8, ptr %0, i64 8
+  %458 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h98dff877ecd3f894E(ptr noalias noundef readonly align 8 dereferenceable(72) %457)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-457:                                              ; preds = %52
+459:                                              ; preds = %52
+  %460 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val45.i.i.i = load i32, ptr %460, align 8, !alias.scope !1416, !noundef !4
+  %461 = tail call noundef i32 @"_ZN54_$LT$proto..Plan$u20$as$u20$core..default..Default$GT$7default17h26fa7e05272a20d9E"(), !range !219
+  %.not.i.i.i.i.i = icmp eq i32 %.val45.i.i.i, %461
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %462
+
+462:                                              ; preds = %459
+  %463 = or i32 %.val45.i.i.i, 1
+  %464 = sext i32 %463 to i64
+  %465 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %464, i1 true)
+  %466 = xor i64 %465, 63
+  %467 = mul nuw nsw i64 %466, 9
+  %468 = add nuw nsw i64 %467, 73
+  %469 = lshr i64 %468, 6
+  %470 = add nuw nsw i64 %469, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-458:                                              ; preds = %52
-  %459 = getelementptr inbounds i8, ptr %0, i64 8
-  %460 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h98dff877ecd3f894E(ptr noalias noundef readonly align 8 dereferenceable(72) %459)
+471:                                              ; preds = %52
+  %472 = getelementptr inbounds i8, ptr %0, i64 8
+  %473 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8b3e66c77976adbdE(ptr noalias noundef readonly align 8 dereferenceable(40) %472)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-461:                                              ; preds = %52
-  %462 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val45.i.i.i = load i32, ptr %462, align 8, !alias.scope !1416, !noundef !4
-  %463 = tail call noundef i32 @"_ZN54_$LT$proto..Plan$u20$as$u20$core..default..Default$GT$7default17h26fa7e05272a20d9E"(), !range !219
-  %.not.i.i.i.i.i = icmp eq i32 %.val45.i.i.i, %463
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %464
+474:                                              ; preds = %52
+  %475 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val46.i.i.i = load i64, ptr %475, align 8, !alias.scope !1416, !noundef !4
+  %476 = icmp eq i64 %.val46.i.i.i, 0
+  br i1 %476, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %477
 
-464:                                              ; preds = %461
-  %465 = or i32 %.val45.i.i.i, 1
-  %466 = sext i32 %465 to i64
-  %467 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %466, i1 true)
-  %468 = xor i64 %467, 63
-  %469 = mul nuw nsw i64 %468, 9
-  %470 = add nuw nsw i64 %469, 73
-  %471 = lshr i64 %470, 6
-  %472 = add nuw nsw i64 %471, 4
+477:                                              ; preds = %474
+  %478 = or i64 %.val46.i.i.i, 1
+  %479 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %478, i1 true)
+  %480 = xor i64 %479, 63
+  %481 = mul nuw nsw i64 %480, 9
+  %482 = add nuw nsw i64 %481, 73
+  %483 = lshr i64 %482, 6
+  %484 = add nuw nsw i64 %483, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-473:                                              ; preds = %52
-  %474 = getelementptr inbounds i8, ptr %0, i64 8
-  %475 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8b3e66c77976adbdE(ptr noalias noundef readonly align 8 dereferenceable(40) %474)
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
-
-476:                                              ; preds = %52
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
-
-477:                                              ; preds = %52
-  %478 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val46.i.i.i = load i64, ptr %478, align 8, !alias.scope !1416, !noundef !4
-  %479 = icmp eq i64 %.val46.i.i.i, 0
-  br i1 %479, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %480
-
-480:                                              ; preds = %477
-  %481 = or i64 %.val46.i.i.i, 1
-  %482 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %481, i1 true)
-  %483 = xor i64 %482, 63
-  %484 = mul nuw nsw i64 %483, 9
-  %485 = add nuw nsw i64 %484, 73
-  %486 = lshr i64 %485, 6
-  %487 = add nuw nsw i64 %486, 4
+485:                                              ; preds = %52
+  %486 = getelementptr inbounds i8, ptr %0, i64 8
+  %487 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4cd7779ac2dd88a6E(ptr noalias noundef readonly align 8 dereferenceable(104) %486)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 488:                                              ; preds = %52
   %489 = getelementptr inbounds i8, ptr %0, i64 8
-  %490 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4cd7779ac2dd88a6E(ptr noalias noundef readonly align 8 dereferenceable(104) %489)
+  %490 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3a992d6c5b4614f8E(ptr noalias noundef readonly align 8 dereferenceable(64) %489)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 491:                                              ; preds = %52
   %492 = getelementptr inbounds i8, ptr %0, i64 8
-  %493 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3a992d6c5b4614f8E(ptr noalias noundef readonly align 8 dereferenceable(64) %492)
+  %493 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h040fa935c6b1b5bfE(ptr noalias noundef readonly align 8 dereferenceable(72) %492)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 494:                                              ; preds = %52
   %495 = getelementptr inbounds i8, ptr %0, i64 8
-  %496 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h040fa935c6b1b5bfE(ptr noalias noundef readonly align 8 dereferenceable(72) %495)
+  %496 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc2f5573047010a61E(ptr noalias noundef readonly align 8 dereferenceable(120) %495)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 497:                                              ; preds = %52
   %498 = getelementptr inbounds i8, ptr %0, i64 8
-  %499 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc2f5573047010a61E(ptr noalias noundef readonly align 8 dereferenceable(120) %498)
+  %499 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h28062787759bdaf5E(ptr noalias noundef readonly align 8 dereferenceable(48) %498)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 500:                                              ; preds = %52
   %501 = getelementptr inbounds i8, ptr %0, i64 8
-  %502 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h28062787759bdaf5E(ptr noalias noundef readonly align 8 dereferenceable(48) %501)
+  %502 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8f562349ce0b6e77E(ptr noalias noundef readonly align 8 dereferenceable(200) %501)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 503:                                              ; preds = %52
   %504 = getelementptr inbounds i8, ptr %0, i64 8
-  %505 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8f562349ce0b6e77E(ptr noalias noundef readonly align 8 dereferenceable(200) %504)
+  %505 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h48c17f4ed0cb9d24E(ptr noalias noundef readonly align 8 dereferenceable(176) %504)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 506:                                              ; preds = %52
   %507 = getelementptr inbounds i8, ptr %0, i64 8
-  %508 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h48c17f4ed0cb9d24E(ptr noalias noundef readonly align 8 dereferenceable(176) %507)
+  %.val47.i.i.i = load i64, ptr %507, align 8, !alias.scope !1416, !noundef !4
+  %508 = icmp eq i64 %.val47.i.i.i, 0
+  br i1 %508, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %509
+
+509:                                              ; preds = %506
+  %510 = or i64 %.val47.i.i.i, 1
+  %511 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %510, i1 true)
+  %512 = xor i64 %511, 63
+  %513 = mul nuw nsw i64 %512, 9
+  %514 = add nuw nsw i64 %513, 73
+  %515 = lshr i64 %514, 6
+  %516 = add nuw nsw i64 %515, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-509:                                              ; preds = %52
-  %510 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val47.i.i.i = load i64, ptr %510, align 8, !alias.scope !1416, !noundef !4
-  %511 = icmp eq i64 %.val47.i.i.i, 0
-  br i1 %511, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %512
-
-512:                                              ; preds = %509
-  %513 = or i64 %.val47.i.i.i, 1
-  %514 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %513, i1 true)
-  %515 = xor i64 %514, 63
-  %516 = mul nuw nsw i64 %515, 9
-  %517 = add nuw nsw i64 %516, 73
-  %518 = lshr i64 %517, 6
-  %519 = add nuw nsw i64 %518, 4
+517:                                              ; preds = %52
+  %518 = getelementptr inbounds i8, ptr %0, i64 8
+  %519 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd84d3afdcaeb1446E(ptr noalias noundef readonly align 8 dereferenceable(40) %518)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 520:                                              ; preds = %52
   %521 = getelementptr inbounds i8, ptr %0, i64 8
-  %522 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd84d3afdcaeb1446E(ptr noalias noundef readonly align 8 dereferenceable(40) %521)
+  %522 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h912c99354c0a2f92E(ptr noalias noundef readonly align 8 dereferenceable(80) %521)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 523:                                              ; preds = %52
   %524 = getelementptr inbounds i8, ptr %0, i64 8
-  %525 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h912c99354c0a2f92E(ptr noalias noundef readonly align 8 dereferenceable(80) %524)
+  %525 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4c3fc4169601cb99E(ptr noalias noundef readonly align 8 dereferenceable(24) %524)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 526:                                              ; preds = %52
   %527 = getelementptr inbounds i8, ptr %0, i64 8
-  %528 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4c3fc4169601cb99E(ptr noalias noundef readonly align 8 dereferenceable(24) %527)
+  %.val48.i.i.i = load i64, ptr %527, align 8, !alias.scope !1416, !noundef !4
+  %528 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val49.i.i.i = load i64, ptr %528, align 8, !alias.scope !1416
+  %529 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc11bf5ee519602f7E(i64 %.val48.i.i.i, i64 %.val49.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-529:                                              ; preds = %52
-  %530 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val48.i.i.i = load i64, ptr %530, align 8, !alias.scope !1416, !noundef !4
-  %531 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val49.i.i.i = load i64, ptr %531, align 8, !alias.scope !1416
-  %532 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc11bf5ee519602f7E(i64 %.val48.i.i.i, i64 %.val49.i.i.i)
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
+530:                                              ; preds = %52
+  %531 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val50.i.i.i = load i64, ptr %531, align 8, !alias.scope !1416, !noundef !4
+  %532 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val51.i.i.i = load i8, ptr %532, align 8, !alias.scope !1416
+  %533 = icmp eq i64 %.val50.i.i.i, 0
+  br i1 %533, label %_ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i, label %534
 
-533:                                              ; preds = %52
-  %534 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val50.i.i.i = load i64, ptr %534, align 8, !alias.scope !1416, !noundef !4
-  %535 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val51.i.i.i = load i8, ptr %535, align 8, !alias.scope !1416
-  %536 = icmp eq i64 %.val50.i.i.i, 0
-  br i1 %536, label %_ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i, label %537
-
-537:                                              ; preds = %533
-  %538 = or i64 %.val50.i.i.i, 1
-  %539 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %538, i1 true)
-  %540 = xor i64 %539, 63
-  %541 = mul nuw nsw i64 %540, 9
-  %542 = add nuw nsw i64 %541, 73
-  %543 = lshr i64 %542, 6
-  %544 = add nuw nsw i64 %543, 1
+534:                                              ; preds = %530
+  %535 = or i64 %.val50.i.i.i, 1
+  %536 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %535, i1 true)
+  %537 = xor i64 %536, 63
+  %538 = mul nuw nsw i64 %537, 9
+  %539 = add nuw nsw i64 %538, 73
+  %540 = lshr i64 %539, 6
+  %541 = add nuw nsw i64 %540, 1
   br label %_ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i
 
-_ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i: ; preds = %537, %533
-  %.sroa.0.0.i.i162.i.i.i = phi i64 [ %544, %537 ], [ 0, %533 ]
-  %545 = trunc nuw i8 %.val51.i.i.i to i1
-  %546 = select i1 %545, i64 5, i64 3
-  %547 = add nuw nsw i64 %.sroa.0.0.i.i162.i.i.i, %546
+_ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i: ; preds = %534, %530
+  %.sroa.0.0.i.i162.i.i.i = phi i64 [ %541, %534 ], [ 0, %530 ]
+  %542 = trunc nuw i8 %.val51.i.i.i to i1
+  %543 = select i1 %542, i64 5, i64 3
+  %544 = add nuw nsw i64 %.sroa.0.0.i.i162.i.i.i, %543
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
+
+545:                                              ; preds = %52
+  %546 = getelementptr inbounds i8, ptr %0, i64 8
+  %547 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd8801e42c5de93f1E(ptr noalias noundef readonly align 8 dereferenceable(216) %546)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 548:                                              ; preds = %52
   %549 = getelementptr inbounds i8, ptr %0, i64 8
-  %550 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd8801e42c5de93f1E(ptr noalias noundef readonly align 8 dereferenceable(216) %549)
+  %.val52.i.i.i = load i64, ptr %549, align 8, !alias.scope !1416, !noundef !4
+  %550 = icmp eq i64 %.val52.i.i.i, 0
+  br i1 %550, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %551
+
+551:                                              ; preds = %548
+  %552 = or i64 %.val52.i.i.i, 1
+  %553 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %552, i1 true)
+  %554 = xor i64 %553, 63
+  %555 = mul nuw nsw i64 %554, 9
+  %556 = add nuw nsw i64 %555, 73
+  %557 = lshr i64 %556, 6
+  %558 = add nuw nsw i64 %557, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-551:                                              ; preds = %52
-  %552 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val52.i.i.i = load i64, ptr %552, align 8, !alias.scope !1416, !noundef !4
-  %553 = icmp eq i64 %.val52.i.i.i, 0
-  br i1 %553, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %554
+559:                                              ; preds = %52
+  %560 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val53.i.i.i = load i64, ptr %560, align 8, !alias.scope !1416, !noundef !4
+  %561 = icmp eq i64 %.val53.i.i.i, 0
+  br i1 %561, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %562
 
-554:                                              ; preds = %551
-  %555 = or i64 %.val52.i.i.i, 1
-  %556 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %555, i1 true)
-  %557 = xor i64 %556, 63
-  %558 = mul nuw nsw i64 %557, 9
-  %559 = add nuw nsw i64 %558, 73
-  %560 = lshr i64 %559, 6
-  %561 = add nuw nsw i64 %560, 4
+562:                                              ; preds = %559
+  %563 = or i64 %.val53.i.i.i, 1
+  %564 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %563, i1 true)
+  %565 = xor i64 %564, 63
+  %566 = mul nuw nsw i64 %565, 9
+  %567 = add nuw nsw i64 %566, 73
+  %568 = lshr i64 %567, 6
+  %569 = add nuw nsw i64 %568, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-562:                                              ; preds = %52
-  %563 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val53.i.i.i = load i64, ptr %563, align 8, !alias.scope !1416, !noundef !4
-  %564 = icmp eq i64 %.val53.i.i.i, 0
-  br i1 %564, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %565
-
-565:                                              ; preds = %562
-  %566 = or i64 %.val53.i.i.i, 1
-  %567 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %566, i1 true)
-  %568 = xor i64 %567, 63
-  %569 = mul nuw nsw i64 %568, 9
-  %570 = add nuw nsw i64 %569, 73
-  %571 = lshr i64 %570, 6
-  %572 = add nuw nsw i64 %571, 4
+570:                                              ; preds = %52
+  %571 = getelementptr inbounds i8, ptr %0, i64 8
+  %572 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8dcc0417edbe7029E(ptr noalias noundef readonly align 8 dereferenceable(40) %571)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 573:                                              ; preds = %52
   %574 = getelementptr inbounds i8, ptr %0, i64 8
-  %575 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8dcc0417edbe7029E(ptr noalias noundef readonly align 8 dereferenceable(40) %574)
+  %575 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he6bf25afbb1356a3E(ptr noalias noundef readonly align 8 dereferenceable(48) %574)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 576:                                              ; preds = %52
   %577 = getelementptr inbounds i8, ptr %0, i64 8
-  %578 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he6bf25afbb1356a3E(ptr noalias noundef readonly align 8 dereferenceable(48) %577)
+  %578 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h10c842310a2b6a96E(ptr noalias noundef readonly align 8 dereferenceable(24) %577)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 579:                                              ; preds = %52
-  %580 = getelementptr inbounds i8, ptr %0, i64 8
-  %581 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h10c842310a2b6a96E(ptr noalias noundef readonly align 8 dereferenceable(24) %580)
+  %580 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val54.i.i.i = load i64, ptr %580, align 8, !alias.scope !1416
+  %581 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val55.i.i.i = load i64, ptr %581, align 8, !alias.scope !1434, !noundef !4
+  %582 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha514c7f3507d5f9eE(i64 %.val54.i.i.i, i64 %.val55.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-582:                                              ; preds = %52
-  %583 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val54.i.i.i = load i64, ptr %583, align 8, !alias.scope !1416
-  %584 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val55.i.i.i = load i64, ptr %584, align 8, !alias.scope !1434, !noundef !4
-  %585 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha514c7f3507d5f9eE(i64 %.val54.i.i.i, i64 %.val55.i.i.i)
+583:                                              ; preds = %52
+  %584 = getelementptr inbounds i8, ptr %0, i64 8
+  %585 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2a2ec9aa0ad4d07dE(ptr noalias noundef readonly align 8 dereferenceable(64) %584)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 586:                                              ; preds = %52
   %587 = getelementptr inbounds i8, ptr %0, i64 8
-  %588 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2a2ec9aa0ad4d07dE(ptr noalias noundef readonly align 8 dereferenceable(64) %587)
+  %.val56.i.i.i = load i64, ptr %587, align 8, !alias.scope !1416, !noundef !4
+  %588 = icmp eq i64 %.val56.i.i.i, 0
+  br i1 %588, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %589
+
+589:                                              ; preds = %586
+  %590 = or i64 %.val56.i.i.i, 1
+  %591 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %590, i1 true)
+  %592 = xor i64 %591, 63
+  %593 = mul nuw nsw i64 %592, 9
+  %594 = add nuw nsw i64 %593, 73
+  %595 = lshr i64 %594, 6
+  %596 = add nuw nsw i64 %595, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-589:                                              ; preds = %52
+597:                                              ; preds = %52
+  %598 = getelementptr inbounds i8, ptr %0, i64 8
+  %599 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9ad2ae910575ab17E(ptr noalias noundef readonly align 8 dereferenceable(96) %598)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-590:                                              ; preds = %52
-  %591 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val56.i.i.i = load i64, ptr %591, align 8, !alias.scope !1416, !noundef !4
-  %592 = icmp eq i64 %.val56.i.i.i, 0
-  br i1 %592, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %593
-
-593:                                              ; preds = %590
-  %594 = or i64 %.val56.i.i.i, 1
-  %595 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %594, i1 true)
-  %596 = xor i64 %595, 63
-  %597 = mul nuw nsw i64 %596, 9
-  %598 = add nuw nsw i64 %597, 73
-  %599 = lshr i64 %598, 6
-  %600 = add nuw nsw i64 %599, 4
+600:                                              ; preds = %52
+  %601 = getelementptr inbounds i8, ptr %0, i64 8
+  %602 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfd3b5cc10d105b48E(ptr noalias noundef readonly align 8 dereferenceable(32) %601)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-601:                                              ; preds = %52
-  %602 = getelementptr inbounds i8, ptr %0, i64 8
-  %603 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9ad2ae910575ab17E(ptr noalias noundef readonly align 8 dereferenceable(96) %602)
+603:                                              ; preds = %52
+  %604 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val57.i.i.i = load i64, ptr %604, align 8, !alias.scope !1416, !noundef !4
+  %605 = icmp eq i64 %.val57.i.i.i, 0
+  br i1 %605, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %606
+
+606:                                              ; preds = %603
+  %607 = or i64 %.val57.i.i.i, 1
+  %608 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %607, i1 true)
+  %609 = xor i64 %608, 63
+  %610 = mul nuw nsw i64 %609, 9
+  %611 = add nuw nsw i64 %610, 73
+  %612 = lshr i64 %611, 6
+  %613 = add nuw nsw i64 %612, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-604:                                              ; preds = %52
-  %605 = getelementptr inbounds i8, ptr %0, i64 8
-  %606 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfd3b5cc10d105b48E(ptr noalias noundef readonly align 8 dereferenceable(32) %605)
+614:                                              ; preds = %52
+  %615 = getelementptr inbounds i8, ptr %0, i64 8
+  %616 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hae386e0597e9dca4E(ptr noalias noundef readonly align 8 dereferenceable(32) %615)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-607:                                              ; preds = %52
-  %608 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val57.i.i.i = load i64, ptr %608, align 8, !alias.scope !1416, !noundef !4
-  %609 = icmp eq i64 %.val57.i.i.i, 0
-  br i1 %609, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %610
-
-610:                                              ; preds = %607
-  %611 = or i64 %.val57.i.i.i, 1
-  %612 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %611, i1 true)
-  %613 = xor i64 %612, 63
-  %614 = mul nuw nsw i64 %613, 9
-  %615 = add nuw nsw i64 %614, 73
-  %616 = lshr i64 %615, 6
-  %617 = add nuw nsw i64 %616, 4
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
-
-618:                                              ; preds = %52
-  %619 = getelementptr inbounds i8, ptr %0, i64 8
-  %620 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hae386e0597e9dca4E(ptr noalias noundef readonly align 8 dereferenceable(32) %619)
+617:                                              ; preds = %52
+  %618 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val58.i.i.i = load ptr, ptr %618, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %619 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val59.i.i.i = load i64, ptr %619, align 8, !alias.scope !1416, !noundef !4
+  %620 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf06e67cd0b2b6b04E(ptr %.val58.i.i.i, i64 %.val59.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 621:                                              ; preds = %52
   %622 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val58.i.i.i = load ptr, ptr %622, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %.val60.i.i.i = load ptr, ptr %622, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
   %623 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val59.i.i.i = load i64, ptr %623, align 8, !alias.scope !1416, !noundef !4
-  %624 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf06e67cd0b2b6b04E(ptr %.val58.i.i.i, i64 %.val59.i.i.i)
+  %.val61.i.i.i = load i64, ptr %623, align 8, !alias.scope !1416, !noundef !4
+  %624 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h1b13ccb220c90dedE(ptr %.val60.i.i.i, i64 %.val61.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 625:                                              ; preds = %52
-  %626 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val60.i.i.i = load ptr, ptr %626, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %627 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val61.i.i.i = load i64, ptr %627, align 8, !alias.scope !1416, !noundef !4
-  %628 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h1b13ccb220c90dedE(ptr %.val60.i.i.i, i64 %.val61.i.i.i)
+  %626 = getelementptr inbounds i8, ptr %0, i64 8
+  %627 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9e291bcf23ac1257E(ptr noalias noundef readonly align 8 dereferenceable(40) %626)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-629:                                              ; preds = %52
-  %630 = getelementptr inbounds i8, ptr %0, i64 8
-  %631 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9e291bcf23ac1257E(ptr noalias noundef readonly align 8 dereferenceable(40) %630)
+628:                                              ; preds = %52
+  %629 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val62.i.i.i = load i64, ptr %629, align 8, !alias.scope !1416, !noundef !4
+  %630 = icmp eq i64 %.val62.i.i.i, 0
+  br i1 %630, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %631
+
+631:                                              ; preds = %628
+  %632 = or i64 %.val62.i.i.i, 1
+  %633 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %632, i1 true)
+  %634 = xor i64 %633, 63
+  %635 = mul nuw nsw i64 %634, 9
+  %636 = add nuw nsw i64 %635, 73
+  %637 = lshr i64 %636, 6
+  %638 = add nuw nsw i64 %637, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-632:                                              ; preds = %52
-  %633 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val62.i.i.i = load i64, ptr %633, align 8, !alias.scope !1416, !noundef !4
-  %634 = icmp eq i64 %.val62.i.i.i, 0
-  br i1 %634, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %635
-
-635:                                              ; preds = %632
-  %636 = or i64 %.val62.i.i.i, 1
-  %637 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %636, i1 true)
-  %638 = xor i64 %637, 63
-  %639 = mul nuw nsw i64 %638, 9
-  %640 = add nuw nsw i64 %639, 73
-  %641 = lshr i64 %640, 6
-  %642 = add nuw nsw i64 %641, 4
+639:                                              ; preds = %52
+  %640 = getelementptr inbounds i8, ptr %0, i64 8
+  %641 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hdaab64575fbeef54E(ptr noalias noundef readonly align 8 dereferenceable(32) %640)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-643:                                              ; preds = %52
-  %644 = getelementptr inbounds i8, ptr %0, i64 8
-  %645 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hdaab64575fbeef54E(ptr noalias noundef readonly align 8 dereferenceable(32) %644)
+642:                                              ; preds = %52
+  %643 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val63.i.i.i = load i64, ptr %643, align 8, !alias.scope !1416, !noundef !4
+  %644 = icmp eq i64 %.val63.i.i.i, 0
+  br i1 %644, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %645
+
+645:                                              ; preds = %642
+  %646 = or i64 %.val63.i.i.i, 1
+  %647 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %646, i1 true)
+  %648 = xor i64 %647, 63
+  %649 = mul nuw nsw i64 %648, 9
+  %650 = add nuw nsw i64 %649, 73
+  %651 = lshr i64 %650, 6
+  %652 = add nuw nsw i64 %651, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-646:                                              ; preds = %52
-  %647 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val63.i.i.i = load i64, ptr %647, align 8, !alias.scope !1416, !noundef !4
-  %648 = icmp eq i64 %.val63.i.i.i, 0
-  br i1 %648, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %649
-
-649:                                              ; preds = %646
-  %650 = or i64 %.val63.i.i.i, 1
-  %651 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %650, i1 true)
-  %652 = xor i64 %651, 63
-  %653 = mul nuw nsw i64 %652, 9
-  %654 = add nuw nsw i64 %653, 73
-  %655 = lshr i64 %654, 6
-  %656 = add nuw nsw i64 %655, 4
+653:                                              ; preds = %52
+  %654 = getelementptr inbounds i8, ptr %0, i64 8
+  %655 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73e16d5784393487E(ptr noalias noundef readonly align 8 dereferenceable(96) %654)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-657:                                              ; preds = %52
-  %658 = getelementptr inbounds i8, ptr %0, i64 8
-  %659 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73e16d5784393487E(ptr noalias noundef readonly align 8 dereferenceable(96) %658)
+656:                                              ; preds = %52
+  %657 = getelementptr inbounds i8, ptr %0, i64 8
+  %658 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9200128205938189E(ptr noalias noundef readonly align 8 dereferenceable(128) %657)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-660:                                              ; preds = %52
-  %661 = getelementptr inbounds i8, ptr %0, i64 8
-  %662 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9200128205938189E(ptr noalias noundef readonly align 8 dereferenceable(128) %661)
+659:                                              ; preds = %52
+  %660 = getelementptr inbounds i8, ptr %0, i64 8
+  %661 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5342f64d8abbb000E(ptr noalias noundef readonly align 8 dereferenceable(136) %660)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-663:                                              ; preds = %52
-  %664 = getelementptr inbounds i8, ptr %0, i64 8
-  %665 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5342f64d8abbb000E(ptr noalias noundef readonly align 8 dereferenceable(136) %664)
+662:                                              ; preds = %52
+  %663 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val64.i.i.i = load i64, ptr %663, align 8, !alias.scope !1416, !noundef !4
+  %664 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val65.i.i.i = load i64, ptr %664, align 8, !alias.scope !1416
+  %665 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3019311b01cb1f6bE(i64 %.val64.i.i.i, i64 %.val65.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 666:                                              ; preds = %52
   %667 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val64.i.i.i = load i64, ptr %667, align 8, !alias.scope !1416, !noundef !4
-  %668 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val65.i.i.i = load i64, ptr %668, align 8, !alias.scope !1416
-  %669 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3019311b01cb1f6bE(i64 %.val64.i.i.i, i64 %.val65.i.i.i)
+  %668 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7619353e289cc2a5E(ptr noalias noundef readonly align 8 dereferenceable(32) %667)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-670:                                              ; preds = %52
-  %671 = getelementptr inbounds i8, ptr %0, i64 8
-  %672 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7619353e289cc2a5E(ptr noalias noundef readonly align 8 dereferenceable(32) %671)
+669:                                              ; preds = %52
+  %670 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val66.i.i.i = load i64, ptr %670, align 8, !alias.scope !1416, !noundef !4
+  %671 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val67.i.i.i = load i64, ptr %671, align 8, !alias.scope !1416
+  %672 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h896ffbc7f355e1b5E(i64 %.val66.i.i.i, i64 %.val67.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 673:                                              ; preds = %52
   %674 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val66.i.i.i = load i64, ptr %674, align 8, !alias.scope !1416, !noundef !4
+  %.val68.i.i.i = load i64, ptr %674, align 8, !alias.scope !1416, !noundef !4
   %675 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val67.i.i.i = load i64, ptr %675, align 8, !alias.scope !1416
-  %676 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h896ffbc7f355e1b5E(i64 %.val66.i.i.i, i64 %.val67.i.i.i)
+  %.val69.i.i.i = load i64, ptr %675, align 8, !alias.scope !1416
+  %676 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h1c4ed94bad0eedbaE(i64 %.val68.i.i.i, i64 %.val69.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 677:                                              ; preds = %52
-  %678 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val68.i.i.i = load i64, ptr %678, align 8, !alias.scope !1416, !noundef !4
-  %679 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val69.i.i.i = load i64, ptr %679, align 8, !alias.scope !1416
-  %680 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h1c4ed94bad0eedbaE(i64 %.val68.i.i.i, i64 %.val69.i.i.i)
+  %678 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val70.i.i.i = load ptr, ptr %678, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %679 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val71.i.i.i = load i64, ptr %679, align 8, !alias.scope !1416, !noundef !4
+  %680 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h263e2f382dfc3f8aE(ptr nonnull %.val70.i.i.i, i64 %.val71.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 681:                                              ; preds = %52
-  %682 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val70.i.i.i = load ptr, ptr %682, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %683 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val71.i.i.i = load i64, ptr %683, align 8, !alias.scope !1416, !noundef !4
-  %684 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h263e2f382dfc3f8aE(ptr nonnull %.val70.i.i.i, i64 %.val71.i.i.i)
+  %682 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val72.i.i.i = load i64, ptr %682, align 8, !alias.scope !1416, !noundef !4
+  %683 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val73.i.i.i = load i64, ptr %683, align 8, !alias.scope !1416
+  %684 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha8d8d6d124678b0fE(i64 %.val72.i.i.i, i64 %.val73.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 685:                                              ; preds = %52
   %686 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val72.i.i.i = load i64, ptr %686, align 8, !alias.scope !1416, !noundef !4
+  %.val74.i.i.i = load i64, ptr %686, align 8, !alias.scope !1416, !noundef !4
   %687 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val73.i.i.i = load i64, ptr %687, align 8, !alias.scope !1416
-  %688 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha8d8d6d124678b0fE(i64 %.val72.i.i.i, i64 %.val73.i.i.i)
+  %.val75.i.i.i = load i32, ptr %687, align 8, !alias.scope !1416
+  %688 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9d81937510a2e74cE(i64 %.val74.i.i.i, i32 %.val75.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 689:                                              ; preds = %52
   %690 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val74.i.i.i = load i64, ptr %690, align 8, !alias.scope !1416, !noundef !4
-  %691 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val75.i.i.i = load i32, ptr %691, align 8, !alias.scope !1416
-  %692 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9d81937510a2e74cE(i64 %.val74.i.i.i, i32 %.val75.i.i.i)
+  %691 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h289e94b1381ff0c2E(ptr noalias noundef readonly align 8 dereferenceable(88) %690)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-693:                                              ; preds = %52
-  %694 = getelementptr inbounds i8, ptr %0, i64 8
-  %695 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h289e94b1381ff0c2E(ptr noalias noundef readonly align 8 dereferenceable(88) %694)
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
-
-696:                                              ; preds = %52
-  %697 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val76.i.i.i = load i64, ptr %697, align 8, !range !218, !alias.scope !1437, !noundef !4
+692:                                              ; preds = %52
+  %693 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val76.i.i.i = load i64, ptr %693, align 8, !range !218, !alias.scope !1437, !noundef !4
   %trunc.i.i.i.i.i = trunc nuw i64 %.val76.i.i.i to i1
-  br i1 %trunc.i.i.i.i.i, label %698, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
+  br i1 %trunc.i.i.i.i.i, label %694, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-698:                                              ; preds = %696
-  %699 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val77.i.i.i = load i64, ptr %699, align 8, !alias.scope !1416
-  %700 = or i64 %.val77.i.i.i, 1
-  %701 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %700, i1 true)
-  %702 = xor i64 %701, 63
-  %703 = mul nuw nsw i64 %702, 9
-  %704 = add nuw nsw i64 %703, 73
-  %705 = lshr i64 %704, 6
-  %706 = add nuw nsw i64 %705, 4
+694:                                              ; preds = %692
+  %695 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val77.i.i.i = load i64, ptr %695, align 8, !alias.scope !1416
+  %696 = or i64 %.val77.i.i.i, 1
+  %697 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %696, i1 true)
+  %698 = xor i64 %697, 63
+  %699 = mul nuw nsw i64 %698, 9
+  %700 = add nuw nsw i64 %699, 73
+  %701 = lshr i64 %700, 6
+  %702 = add nuw nsw i64 %701, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-707:                                              ; preds = %52
-  %708 = getelementptr inbounds i8, ptr %0, i64 8
-  %709 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbb63e548f989c19cE(ptr noalias noundef readonly align 8 dereferenceable(32) %708)
+703:                                              ; preds = %52
+  %704 = getelementptr inbounds i8, ptr %0, i64 8
+  %705 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbb63e548f989c19cE(ptr noalias noundef readonly align 8 dereferenceable(32) %704)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-710:                                              ; preds = %52
-  %711 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val78.i.i.i = load i64, ptr %711, align 8, !alias.scope !1416, !noundef !4
-  %712 = icmp eq i64 %.val78.i.i.i, 0
-  br i1 %712, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %713
+706:                                              ; preds = %52
+  %707 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val78.i.i.i = load i64, ptr %707, align 8, !alias.scope !1416, !noundef !4
+  %708 = icmp eq i64 %.val78.i.i.i, 0
+  br i1 %708, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %709
 
-713:                                              ; preds = %710
-  %714 = or i64 %.val78.i.i.i, 1
-  %715 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %714, i1 true)
-  %716 = xor i64 %715, 63
-  %717 = mul nuw nsw i64 %716, 9
-  %718 = add nuw nsw i64 %717, 73
-  %719 = lshr i64 %718, 6
-  %720 = add nuw nsw i64 %719, 4
+709:                                              ; preds = %706
+  %710 = or i64 %.val78.i.i.i, 1
+  %711 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %710, i1 true)
+  %712 = xor i64 %711, 63
+  %713 = mul nuw nsw i64 %712, 9
+  %714 = add nuw nsw i64 %713, 73
+  %715 = lshr i64 %714, 6
+  %716 = add nuw nsw i64 %715, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-721:                                              ; preds = %52
-  %722 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val79.i.i.i = load i64, ptr %722, align 8, !alias.scope !1416, !noundef !4
-  %723 = icmp eq i64 %.val79.i.i.i, 0
-  br i1 %723, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %724
+717:                                              ; preds = %52
+  %718 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val79.i.i.i = load i64, ptr %718, align 8, !alias.scope !1416, !noundef !4
+  %719 = icmp eq i64 %.val79.i.i.i, 0
+  br i1 %719, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %720
 
-724:                                              ; preds = %721
-  %725 = or i64 %.val79.i.i.i, 1
-  %726 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %725, i1 true)
-  %727 = xor i64 %726, 63
-  %728 = mul nuw nsw i64 %727, 9
-  %729 = add nuw nsw i64 %728, 73
-  %730 = lshr i64 %729, 6
-  %731 = add nuw nsw i64 %730, 4
+720:                                              ; preds = %717
+  %721 = or i64 %.val79.i.i.i, 1
+  %722 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %721, i1 true)
+  %723 = xor i64 %722, 63
+  %724 = mul nuw nsw i64 %723, 9
+  %725 = add nuw nsw i64 %724, 73
+  %726 = lshr i64 %725, 6
+  %727 = add nuw nsw i64 %726, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-732:                                              ; preds = %52
-  %733 = getelementptr inbounds i8, ptr %0, i64 8
-  %734 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2927316c57602155E(ptr noalias noundef readonly align 8 dereferenceable(56) %733)
+728:                                              ; preds = %52
+  %729 = getelementptr inbounds i8, ptr %0, i64 8
+  %730 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2927316c57602155E(ptr noalias noundef readonly align 8 dereferenceable(56) %729)
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
+
+731:                                              ; preds = %52
+  %732 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val80.i.i.i = load i64, ptr %732, align 8, !alias.scope !1440, !noundef !4
+  %733 = getelementptr inbounds i8, ptr %0, i64 48
+  %.val81.i.i.i = load i64, ptr %733, align 8, !alias.scope !1416
+  %734 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h07a3c5df18026fa8E(i64 %.val80.i.i.i, i64 %.val81.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 735:                                              ; preds = %52
-  %736 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val80.i.i.i = load i64, ptr %736, align 8, !alias.scope !1440, !noundef !4
-  %737 = getelementptr inbounds i8, ptr %0, i64 48
-  %.val81.i.i.i = load i64, ptr %737, align 8, !alias.scope !1416
-  %738 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h07a3c5df18026fa8E(i64 %.val80.i.i.i, i64 %.val81.i.i.i)
+  %736 = getelementptr inbounds i8, ptr %0, i64 8
+  %737 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hea16f19781653c72E(ptr noalias noundef readonly align 8 dereferenceable(24) %736)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-739:                                              ; preds = %52
-  %740 = getelementptr inbounds i8, ptr %0, i64 8
-  %741 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hea16f19781653c72E(ptr noalias noundef readonly align 8 dereferenceable(24) %740)
+738:                                              ; preds = %52
+  %739 = getelementptr inbounds i8, ptr %0, i64 8
+  %740 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h33d1cd8a2b845b3cE(ptr noalias noundef readonly align 8 dereferenceable(72) %739)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-742:                                              ; preds = %52
-  %743 = getelementptr inbounds i8, ptr %0, i64 8
-  %744 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h33d1cd8a2b845b3cE(ptr noalias noundef readonly align 8 dereferenceable(72) %743)
+741:                                              ; preds = %52
+  %742 = getelementptr inbounds i8, ptr %0, i64 8
+  %743 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8eb4117a21e26e1eE(ptr noalias noundef readonly align 8 dereferenceable(80) %742)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-745:                                              ; preds = %52
-  %746 = getelementptr inbounds i8, ptr %0, i64 8
-  %747 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8eb4117a21e26e1eE(ptr noalias noundef readonly align 8 dereferenceable(80) %746)
+744:                                              ; preds = %52
+  %745 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val82.i.i.i = load ptr, ptr %745, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %746 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val83.i.i.i = load i64, ptr %746, align 8, !alias.scope !1416, !noundef !4
+  %747 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73dfa8e612f6ecccE(ptr %.val82.i.i.i, i64 %.val83.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 748:                                              ; preds = %52
-  %749 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val82.i.i.i = load ptr, ptr %749, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %750 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val83.i.i.i = load i64, ptr %750, align 8, !alias.scope !1416, !noundef !4
-  %751 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73dfa8e612f6ecccE(ptr %.val82.i.i.i, i64 %.val83.i.i.i)
+  %749 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val84.i.i.i = load i64, ptr %749, align 8, !alias.scope !1416, !noundef !4
+  %750 = icmp eq i64 %.val84.i.i.i, 0
+  br i1 %750, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %751
+
+751:                                              ; preds = %748
+  %752 = or i64 %.val84.i.i.i, 1
+  %753 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %752, i1 true)
+  %754 = xor i64 %753, 63
+  %755 = mul nuw nsw i64 %754, 9
+  %756 = add nuw nsw i64 %755, 73
+  %757 = lshr i64 %756, 6
+  %758 = add nuw nsw i64 %757, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-752:                                              ; preds = %52
-  %753 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val84.i.i.i = load i64, ptr %753, align 8, !alias.scope !1416, !noundef !4
-  %754 = icmp eq i64 %.val84.i.i.i, 0
-  br i1 %754, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %755
-
-755:                                              ; preds = %752
-  %756 = or i64 %.val84.i.i.i, 1
-  %757 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %756, i1 true)
-  %758 = xor i64 %757, 63
-  %759 = mul nuw nsw i64 %758, 9
-  %760 = add nuw nsw i64 %759, 73
-  %761 = lshr i64 %760, 6
-  %762 = add nuw nsw i64 %761, 4
+759:                                              ; preds = %52
+  %760 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val85.i.i.i = load i64, ptr %760, align 8, !alias.scope !1416
+  %761 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val86.i.i.i = load i32, ptr %761, align 8, !alias.scope !1443, !noundef !4
+  %762 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha62cdafbf2472792E(i64 %.val85.i.i.i, i32 %.val86.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 763:                                              ; preds = %52
-  %764 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val85.i.i.i = load i64, ptr %764, align 8, !alias.scope !1416
-  %765 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val86.i.i.i = load i32, ptr %765, align 8, !alias.scope !1443, !noundef !4
-  %766 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha62cdafbf2472792E(i64 %.val85.i.i.i, i32 %.val86.i.i.i)
+  %764 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val87.i.i.i = load i32, ptr %764, align 8, !alias.scope !1416, !noundef !4
+  %765 = icmp eq i32 %.val87.i.i.i, 0
+  br i1 %765, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %766
+
+766:                                              ; preds = %763
+  %767 = or i32 %.val87.i.i.i, 1
+  %768 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %767, i1 true)
+  %769 = xor i32 %768, 31
+  %770 = mul nuw nsw i32 %769, 9
+  %771 = add nuw nsw i32 %770, 73
+  %772 = lshr i32 %771, 6
+  %narrow.i.i.i.i = add nuw nsw i32 %772, 4
+  %773 = zext nneg i32 %narrow.i.i.i.i to i64
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-767:                                              ; preds = %52
-  %768 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val87.i.i.i = load i32, ptr %768, align 8, !alias.scope !1416, !noundef !4
-  %769 = icmp eq i32 %.val87.i.i.i, 0
-  br i1 %769, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %770
-
-770:                                              ; preds = %767
-  %771 = or i32 %.val87.i.i.i, 1
-  %772 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %771, i1 true)
-  %773 = xor i32 %772, 31
-  %774 = mul nuw nsw i32 %773, 9
-  %775 = add nuw nsw i32 %774, 73
-  %776 = lshr i32 %775, 6
-  %narrow.i.i.i.i = add nuw nsw i32 %776, 4
-  %777 = zext nneg i32 %narrow.i.i.i.i to i64
+774:                                              ; preds = %52
+  %775 = getelementptr inbounds i8, ptr %0, i64 8
+  %776 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc1e7d562606afe12E(ptr noalias noundef readonly align 8 dereferenceable(48) %775)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-778:                                              ; preds = %52
-  %779 = getelementptr inbounds i8, ptr %0, i64 8
-  %780 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc1e7d562606afe12E(ptr noalias noundef readonly align 8 dereferenceable(48) %779)
+777:                                              ; preds = %52
+  %778 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val88.i.i.i = load ptr, ptr %778, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %779 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val89.i.i.i = load i64, ptr %779, align 8, !alias.scope !1416, !noundef !4
+  %780 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h39782f2416fff7ebE(ptr %.val88.i.i.i, i64 %.val89.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 781:                                              ; preds = %52
-  %782 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val88.i.i.i = load ptr, ptr %782, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %783 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val89.i.i.i = load i64, ptr %783, align 8, !alias.scope !1416, !noundef !4
-  %784 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h39782f2416fff7ebE(ptr %.val88.i.i.i, i64 %.val89.i.i.i)
+  %782 = getelementptr inbounds i8, ptr %0, i64 8
+  %783 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf28322a93f18faf3E(ptr noalias noundef readonly align 8 dereferenceable(48) %782)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-785:                                              ; preds = %52
-  %786 = getelementptr inbounds i8, ptr %0, i64 8
-  %787 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf28322a93f18faf3E(ptr noalias noundef readonly align 8 dereferenceable(48) %786)
+784:                                              ; preds = %52
+  %785 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val90.i.i.i = load ptr, ptr %785, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %786 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val91.i.i.i = load i64, ptr %786, align 8, !alias.scope !1416, !noundef !4
+  %787 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9172c3cd4f3106dbE(ptr %.val90.i.i.i, i64 %.val91.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 788:                                              ; preds = %52
-  %789 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val90.i.i.i = load ptr, ptr %789, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %790 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val91.i.i.i = load i64, ptr %790, align 8, !alias.scope !1416, !noundef !4
-  %791 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9172c3cd4f3106dbE(ptr %.val90.i.i.i, i64 %.val91.i.i.i)
+  %789 = getelementptr inbounds i8, ptr %0, i64 8
+  %790 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h723aeab59544c66cE(ptr noalias noundef readonly align 8 dereferenceable(88) %789)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-792:                                              ; preds = %52
-  %793 = getelementptr inbounds i8, ptr %0, i64 8
-  %794 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h723aeab59544c66cE(ptr noalias noundef readonly align 8 dereferenceable(88) %793)
+791:                                              ; preds = %52
+  %792 = getelementptr inbounds i8, ptr %0, i64 8
+  %793 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h60de0a1c02aecd7aE(ptr noalias noundef readonly align 8 dereferenceable(136) %792)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-795:                                              ; preds = %52
-  %796 = getelementptr inbounds i8, ptr %0, i64 8
-  %797 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h60de0a1c02aecd7aE(ptr noalias noundef readonly align 8 dereferenceable(136) %796)
+794:                                              ; preds = %52
+  %795 = getelementptr inbounds i8, ptr %0, i64 8
+  %796 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h78ca89e61aef8b83E(ptr noalias noundef readonly align 8 dereferenceable(40) %795)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-798:                                              ; preds = %52
-  %799 = getelementptr inbounds i8, ptr %0, i64 8
-  %800 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h78ca89e61aef8b83E(ptr noalias noundef readonly align 8 dereferenceable(40) %799)
+797:                                              ; preds = %52
+  %798 = getelementptr inbounds i8, ptr %0, i64 8
+  %799 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf423995bdd1f3ef0E(ptr noalias noundef readonly align 8 dereferenceable(96) %798)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-801:                                              ; preds = %52
-  %802 = getelementptr inbounds i8, ptr %0, i64 8
-  %803 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf423995bdd1f3ef0E(ptr noalias noundef readonly align 8 dereferenceable(96) %802)
+800:                                              ; preds = %52
+  %801 = getelementptr inbounds i8, ptr %0, i64 8
+  %802 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb59377ba491b9b1dE(ptr noalias noundef readonly align 8 dereferenceable(88) %801)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-804:                                              ; preds = %52
-  %805 = getelementptr inbounds i8, ptr %0, i64 8
-  %806 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb59377ba491b9b1dE(ptr noalias noundef readonly align 8 dereferenceable(88) %805)
+803:                                              ; preds = %52
+  %804 = getelementptr inbounds i8, ptr %0, i64 8
+  %805 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h38ea5e52c1c4451eE(ptr noalias noundef readonly align 8 dereferenceable(168) %804)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-807:                                              ; preds = %52
-  %808 = getelementptr inbounds i8, ptr %0, i64 8
-  %809 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h38ea5e52c1c4451eE(ptr noalias noundef readonly align 8 dereferenceable(168) %808)
+806:                                              ; preds = %52
+  %807 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val92.i.i.i = load ptr, ptr %807, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %808 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val93.i.i.i = load i64, ptr %808, align 8, !alias.scope !1416, !noundef !4
+  %809 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he5ac2b77e35e2949E(ptr %.val92.i.i.i, i64 %.val93.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 810:                                              ; preds = %52
-  %811 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val92.i.i.i = load ptr, ptr %811, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %812 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val93.i.i.i = load i64, ptr %812, align 8, !alias.scope !1416, !noundef !4
-  %813 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he5ac2b77e35e2949E(ptr %.val92.i.i.i, i64 %.val93.i.i.i)
+  %811 = getelementptr inbounds i8, ptr %0, i64 8
+  %812 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb709afb716f8bbc3E(ptr noalias noundef readonly align 8 dereferenceable(32) %811)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-814:                                              ; preds = %52
-  %815 = getelementptr inbounds i8, ptr %0, i64 8
-  %816 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb709afb716f8bbc3E(ptr noalias noundef readonly align 8 dereferenceable(32) %815)
+813:                                              ; preds = %52
+  %814 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val94.i.i.i = load i64, ptr %814, align 8, !alias.scope !1416
+  %815 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val95.i.i.i = load i64, ptr %815, align 8, !alias.scope !1446, !noundef !4
+  %816 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hdf7d7cb3a6158422E(i64 %.val94.i.i.i, i64 %.val95.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 817:                                              ; preds = %52
-  %818 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val94.i.i.i = load i64, ptr %818, align 8, !alias.scope !1416
-  %819 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val95.i.i.i = load i64, ptr %819, align 8, !alias.scope !1446, !noundef !4
-  %820 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hdf7d7cb3a6158422E(i64 %.val94.i.i.i, i64 %.val95.i.i.i)
+  %818 = getelementptr inbounds i8, ptr %0, i64 8
+  %819 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h530154b2773af4cdE(ptr noalias noundef readonly align 8 dereferenceable(80) %818)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-821:                                              ; preds = %52
-  %822 = getelementptr inbounds i8, ptr %0, i64 8
-  %823 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h530154b2773af4cdE(ptr noalias noundef readonly align 8 dereferenceable(80) %822)
+820:                                              ; preds = %52
+  %821 = getelementptr inbounds i8, ptr %0, i64 8
+  %822 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8d7ed0ddf909d1cfE(ptr noalias noundef readonly align 8 dereferenceable(48) %821)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-824:                                              ; preds = %52
-  %825 = getelementptr inbounds i8, ptr %0, i64 8
-  %826 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8d7ed0ddf909d1cfE(ptr noalias noundef readonly align 8 dereferenceable(48) %825)
+823:                                              ; preds = %52
+  %824 = getelementptr inbounds i8, ptr %0, i64 8
+  %825 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hae7ace5fcbf503ebE(ptr noalias noundef readonly align 8 dereferenceable(56) %824)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-827:                                              ; preds = %52
-  %828 = getelementptr inbounds i8, ptr %0, i64 8
-  %829 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hae7ace5fcbf503ebE(ptr noalias noundef readonly align 8 dereferenceable(56) %828)
+826:                                              ; preds = %52
+  %827 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val96.i.i.i = load i64, ptr %827, align 8, !range !33, !alias.scope !1449, !noundef !4
+  %828 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val97.i.i.i = load i64, ptr %828, align 8, !alias.scope !1416
+  %829 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7821c6319d326658E(i64 %.val96.i.i.i, i64 %.val97.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 830:                                              ; preds = %52
-  %831 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val96.i.i.i = load i64, ptr %831, align 8, !range !33, !alias.scope !1449, !noundef !4
+  %831 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val98.i.i.i = load ptr, ptr %831, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
   %832 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val97.i.i.i = load i64, ptr %832, align 8, !alias.scope !1416
-  %833 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7821c6319d326658E(i64 %.val96.i.i.i, i64 %.val97.i.i.i)
+  %.val99.i.i.i = load i64, ptr %832, align 8, !alias.scope !1416, !noundef !4
+  %833 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h768ace3321360454E(ptr %.val98.i.i.i, i64 %.val99.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 834:                                              ; preds = %52
   %835 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val98.i.i.i = load ptr, ptr %835, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %.val100.i.i.i = load ptr, ptr %835, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
   %836 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val99.i.i.i = load i64, ptr %836, align 8, !alias.scope !1416, !noundef !4
-  %837 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h768ace3321360454E(ptr %.val98.i.i.i, i64 %.val99.i.i.i)
+  %.val101.i.i.i = load i64, ptr %836, align 8, !alias.scope !1416, !noundef !4
+  %837 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0248d0cbf9dd9086E(ptr %.val100.i.i.i, i64 %.val101.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 838:                                              ; preds = %52
   %839 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val100.i.i.i = load ptr, ptr %839, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %.val102.i.i.i = load ptr, ptr %839, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
   %840 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val101.i.i.i = load i64, ptr %840, align 8, !alias.scope !1416, !noundef !4
-  %841 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0248d0cbf9dd9086E(ptr %.val100.i.i.i, i64 %.val101.i.i.i)
+  %.val103.i.i.i = load i64, ptr %840, align 8, !alias.scope !1416, !noundef !4
+  %841 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9932526ff433f6dbE(ptr %.val102.i.i.i, i64 %.val103.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 842:                                              ; preds = %52
-  %843 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val102.i.i.i = load ptr, ptr %843, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %844 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val103.i.i.i = load i64, ptr %844, align 8, !alias.scope !1416, !noundef !4
-  %845 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9932526ff433f6dbE(ptr %.val102.i.i.i, i64 %.val103.i.i.i)
+  %843 = getelementptr inbounds i8, ptr %0, i64 8
+  %844 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9a3e6358e53817c1E(ptr noalias noundef readonly align 8 dereferenceable(32) %843)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-846:                                              ; preds = %52
-  %847 = getelementptr inbounds i8, ptr %0, i64 8
-  %848 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9a3e6358e53817c1E(ptr noalias noundef readonly align 8 dereferenceable(32) %847)
+845:                                              ; preds = %52
+  %846 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val104.i.i.i = load i64, ptr %846, align 8, !alias.scope !1416, !noundef !4
+  %847 = icmp eq i64 %.val104.i.i.i, 0
+  br i1 %847, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %848
+
+848:                                              ; preds = %845
+  %849 = or i64 %.val104.i.i.i, 1
+  %850 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %849, i1 true)
+  %851 = xor i64 %850, 63
+  %852 = mul nuw nsw i64 %851, 9
+  %853 = add nuw nsw i64 %852, 73
+  %854 = lshr i64 %853, 6
+  %855 = add nuw nsw i64 %854, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-849:                                              ; preds = %52
-  %850 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val104.i.i.i = load i64, ptr %850, align 8, !alias.scope !1416, !noundef !4
-  %851 = icmp eq i64 %.val104.i.i.i, 0
-  br i1 %851, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %852
-
-852:                                              ; preds = %849
-  %853 = or i64 %.val104.i.i.i, 1
-  %854 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %853, i1 true)
-  %855 = xor i64 %854, 63
-  %856 = mul nuw nsw i64 %855, 9
-  %857 = add nuw nsw i64 %856, 73
-  %858 = lshr i64 %857, 6
-  %859 = add nuw nsw i64 %858, 4
+856:                                              ; preds = %52
+  %857 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val105.i.i.i = load ptr, ptr %857, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %858 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val106.i.i.i = load i64, ptr %858, align 8, !alias.scope !1416, !noundef !4
+  %859 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7d879994c3bda7dfE(ptr %.val105.i.i.i, i64 %.val106.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 860:                                              ; preds = %52
   %861 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val105.i.i.i = load ptr, ptr %861, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %.val107.i.i.i = load ptr, ptr %861, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
   %862 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val106.i.i.i = load i64, ptr %862, align 8, !alias.scope !1416, !noundef !4
-  %863 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7d879994c3bda7dfE(ptr %.val105.i.i.i, i64 %.val106.i.i.i)
+  %.val108.i.i.i = load i64, ptr %862, align 8, !alias.scope !1416, !noundef !4
+  %863 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h692d3396f878edeaE(ptr %.val107.i.i.i, i64 %.val108.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 864:                                              ; preds = %52
-  %865 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val107.i.i.i = load ptr, ptr %865, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %866 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val108.i.i.i = load i64, ptr %866, align 8, !alias.scope !1416, !noundef !4
-  %867 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h692d3396f878edeaE(ptr %.val107.i.i.i, i64 %.val108.i.i.i)
+  %865 = getelementptr inbounds i8, ptr %0, i64 8
+  %866 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2bdeb687b092227aE(ptr noalias noundef readonly align 8 dereferenceable(48) %865)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-868:                                              ; preds = %52
-  %869 = getelementptr inbounds i8, ptr %0, i64 8
-  %870 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2bdeb687b092227aE(ptr noalias noundef readonly align 8 dereferenceable(48) %869)
+867:                                              ; preds = %52
+  %868 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val109.i.i.i = load ptr, ptr %868, align 8, !alias.scope !1416
+  %869 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val110.i.i.i = load i64, ptr %869, align 8, !alias.scope !1452, !noalias !1455, !noundef !4
+  %870 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h50538a8dd39e83bcE(ptr %.val109.i.i.i, i64 %.val110.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 871:                                              ; preds = %52
-  %872 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val109.i.i.i = load ptr, ptr %872, align 8, !alias.scope !1416
-  %873 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val110.i.i.i = load i64, ptr %873, align 8, !alias.scope !1452, !noalias !1455, !noundef !4
-  %874 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h50538a8dd39e83bcE(ptr %.val109.i.i.i, i64 %.val110.i.i.i)
+  %872 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val111.i.i.i = load i64, ptr %872, align 8, !alias.scope !1416, !noundef !4
+  %873 = icmp eq i64 %.val111.i.i.i, 0
+  br i1 %873, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %874
+
+874:                                              ; preds = %871
+  %875 = or i64 %.val111.i.i.i, 1
+  %876 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %875, i1 true)
+  %877 = xor i64 %876, 63
+  %878 = mul nuw nsw i64 %877, 9
+  %879 = add nuw nsw i64 %878, 73
+  %880 = lshr i64 %879, 6
+  %881 = add nuw nsw i64 %880, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-875:                                              ; preds = %52
-  %876 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val111.i.i.i = load i64, ptr %876, align 8, !alias.scope !1416, !noundef !4
-  %877 = icmp eq i64 %.val111.i.i.i, 0
-  br i1 %877, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %878
+882:                                              ; preds = %52
+  %883 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val112.i.i.i = load i64, ptr %883, align 8, !alias.scope !1416, !noundef !4
+  %884 = icmp eq i64 %.val112.i.i.i, 0
+  br i1 %884, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %885
 
-878:                                              ; preds = %875
-  %879 = or i64 %.val111.i.i.i, 1
-  %880 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %879, i1 true)
-  %881 = xor i64 %880, 63
-  %882 = mul nuw nsw i64 %881, 9
-  %883 = add nuw nsw i64 %882, 73
-  %884 = lshr i64 %883, 6
-  %885 = add nuw nsw i64 %884, 4
+885:                                              ; preds = %882
+  %886 = or i64 %.val112.i.i.i, 1
+  %887 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %886, i1 true)
+  %888 = xor i64 %887, 63
+  %889 = mul nuw nsw i64 %888, 9
+  %890 = add nuw nsw i64 %889, 73
+  %891 = lshr i64 %890, 6
+  %892 = add nuw nsw i64 %891, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-886:                                              ; preds = %52
-  %887 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val112.i.i.i = load i64, ptr %887, align 8, !alias.scope !1416, !noundef !4
-  %888 = icmp eq i64 %.val112.i.i.i, 0
-  br i1 %888, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %889
+893:                                              ; preds = %52
+  %894 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val113.i.i.i = load i64, ptr %894, align 8, !alias.scope !1416, !noundef !4
+  %895 = icmp eq i64 %.val113.i.i.i, 0
+  br i1 %895, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %896
 
-889:                                              ; preds = %886
-  %890 = or i64 %.val112.i.i.i, 1
-  %891 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %890, i1 true)
-  %892 = xor i64 %891, 63
-  %893 = mul nuw nsw i64 %892, 9
-  %894 = add nuw nsw i64 %893, 73
-  %895 = lshr i64 %894, 6
-  %896 = add nuw nsw i64 %895, 4
+896:                                              ; preds = %893
+  %897 = or i64 %.val113.i.i.i, 1
+  %898 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %897, i1 true)
+  %899 = xor i64 %898, 63
+  %900 = mul nuw nsw i64 %899, 9
+  %901 = add nuw nsw i64 %900, 73
+  %902 = lshr i64 %901, 6
+  %903 = add nuw nsw i64 %902, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-897:                                              ; preds = %52
-  %898 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val113.i.i.i = load i64, ptr %898, align 8, !alias.scope !1416, !noundef !4
-  %899 = icmp eq i64 %.val113.i.i.i, 0
-  br i1 %899, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %900
-
-900:                                              ; preds = %897
-  %901 = or i64 %.val113.i.i.i, 1
-  %902 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %901, i1 true)
-  %903 = xor i64 %902, 63
-  %904 = mul nuw nsw i64 %903, 9
-  %905 = add nuw nsw i64 %904, 73
-  %906 = lshr i64 %905, 6
-  %907 = add nuw nsw i64 %906, 4
+904:                                              ; preds = %52
+  %905 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val114.i.i.i = load ptr, ptr %905, align 8, !alias.scope !1416
+  %906 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val115.i.i.i = load i64, ptr %906, align 8, !alias.scope !1457, !noalias !1460, !noundef !4
+  %907 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfb7e721e5f8bf8ceE(ptr %.val114.i.i.i, i64 %.val115.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
 908:                                              ; preds = %52
+  %909 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val116.i.i.i = load i64, ptr %909, align 8, !alias.scope !1416, !noundef !4
+  %910 = icmp eq i64 %.val116.i.i.i, 0
+  br i1 %910, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %911
+
+911:                                              ; preds = %908
+  %912 = or i64 %.val116.i.i.i, 1
+  %913 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %912, i1 true)
+  %914 = xor i64 %913, 63
+  %915 = mul nuw nsw i64 %914, 9
+  %916 = add nuw nsw i64 %915, 73
+  %917 = lshr i64 %916, 6
+  %918 = add nuw nsw i64 %917, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-909:                                              ; preds = %52
-  %910 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val114.i.i.i = load ptr, ptr %910, align 8, !alias.scope !1416
-  %911 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val115.i.i.i = load i64, ptr %911, align 8, !alias.scope !1457, !noalias !1460, !noundef !4
-  %912 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfb7e721e5f8bf8ceE(ptr %.val114.i.i.i, i64 %.val115.i.i.i)
+919:                                              ; preds = %52
+  %920 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val117.i.i.i = load i64, ptr %920, align 8, !alias.scope !1416
+  %921 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val118.i.i.i = load i64, ptr %921, align 8, !alias.scope !1462, !noundef !4
+  %922 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h1a2f47fe10783d9eE(i64 %.val117.i.i.i, i64 %.val118.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-913:                                              ; preds = %52
-  %914 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val116.i.i.i = load i64, ptr %914, align 8, !alias.scope !1416, !noundef !4
-  %915 = icmp eq i64 %.val116.i.i.i, 0
-  br i1 %915, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %916
-
-916:                                              ; preds = %913
-  %917 = or i64 %.val116.i.i.i, 1
-  %918 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %917, i1 true)
-  %919 = xor i64 %918, 63
-  %920 = mul nuw nsw i64 %919, 9
-  %921 = add nuw nsw i64 %920, 73
-  %922 = lshr i64 %921, 6
-  %923 = add nuw nsw i64 %922, 4
+923:                                              ; preds = %52
+  %924 = getelementptr inbounds i8, ptr %0, i64 8
+  %925 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6f6d0093eb9aedd9E(ptr noalias noundef readonly align 8 dereferenceable(56) %924)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-924:                                              ; preds = %52
-  %925 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val117.i.i.i = load i64, ptr %925, align 8, !alias.scope !1416
-  %926 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val118.i.i.i = load i64, ptr %926, align 8, !alias.scope !1462, !noundef !4
-  %927 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h1a2f47fe10783d9eE(i64 %.val117.i.i.i, i64 %.val118.i.i.i)
+926:                                              ; preds = %52
+  %927 = getelementptr inbounds i8, ptr %0, i64 8
+  %928 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4886cc714b2b80dcE(ptr noalias noundef readonly align 8 dereferenceable(96) %927)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-928:                                              ; preds = %52
-  %929 = getelementptr inbounds i8, ptr %0, i64 8
-  %930 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6f6d0093eb9aedd9E(ptr noalias noundef readonly align 8 dereferenceable(56) %929)
+929:                                              ; preds = %52
+  %930 = getelementptr inbounds i8, ptr %0, i64 8
+  %931 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he8918d63278b3311E(ptr noalias noundef readonly align 8 dereferenceable(120) %930)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-931:                                              ; preds = %52
-  %932 = getelementptr inbounds i8, ptr %0, i64 8
-  %933 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4886cc714b2b80dcE(ptr noalias noundef readonly align 8 dereferenceable(96) %932)
+932:                                              ; preds = %52
+  %933 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val119.i.i.i = load ptr, ptr %933, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %934 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val120.i.i.i = load i64, ptr %934, align 8, !alias.scope !1416, !noundef !4
+  %935 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h802f9b31ef6ace65E(ptr %.val119.i.i.i, i64 %.val120.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-934:                                              ; preds = %52
-  %935 = getelementptr inbounds i8, ptr %0, i64 8
-  %936 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he8918d63278b3311E(ptr noalias noundef readonly align 8 dereferenceable(120) %935)
+936:                                              ; preds = %52
+  %937 = getelementptr inbounds i8, ptr %0, i64 8
+  %938 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4b60007993075d00E(ptr noalias noundef readonly align 8 dereferenceable(112) %937)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-937:                                              ; preds = %52
-  %938 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val119.i.i.i = load ptr, ptr %938, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %939 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val120.i.i.i = load i64, ptr %939, align 8, !alias.scope !1416, !noundef !4
-  %940 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h802f9b31ef6ace65E(ptr %.val119.i.i.i, i64 %.val120.i.i.i)
+939:                                              ; preds = %52
+  %940 = getelementptr inbounds i8, ptr %0, i64 8
+  %941 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73244c501f66dc3bE(ptr noalias noundef readonly align 8 dereferenceable(80) %940)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-941:                                              ; preds = %52
-  %942 = getelementptr inbounds i8, ptr %0, i64 8
-  %943 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4b60007993075d00E(ptr noalias noundef readonly align 8 dereferenceable(112) %942)
+942:                                              ; preds = %52
+  %943 = getelementptr inbounds i8, ptr %0, i64 8
+  %944 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h30529fcebdab2987E(ptr noalias noundef readonly align 8 dereferenceable(48) %943)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-944:                                              ; preds = %52
-  %945 = getelementptr inbounds i8, ptr %0, i64 8
-  %946 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73244c501f66dc3bE(ptr noalias noundef readonly align 8 dereferenceable(80) %945)
+945:                                              ; preds = %52
+  %946 = getelementptr inbounds i8, ptr %0, i64 8
+  %947 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha55d66fe339d5ad6E(ptr noalias noundef readonly align 8 dereferenceable(32) %946)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-947:                                              ; preds = %52
-  %948 = getelementptr inbounds i8, ptr %0, i64 8
-  %949 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h30529fcebdab2987E(ptr noalias noundef readonly align 8 dereferenceable(48) %948)
+948:                                              ; preds = %52
+  %949 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val121.i.i.i = load i64, ptr %949, align 8, !alias.scope !1416
+  %950 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val122.i.i.i = load i64, ptr %950, align 8, !alias.scope !1465, !noundef !4
+  %951 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6a8d4333e0d43585E(i64 %.val121.i.i.i, i64 %.val122.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-950:                                              ; preds = %52
-  %951 = getelementptr inbounds i8, ptr %0, i64 8
-  %952 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha55d66fe339d5ad6E(ptr noalias noundef readonly align 8 dereferenceable(32) %951)
+952:                                              ; preds = %52
+  %953 = getelementptr inbounds i8, ptr %0, i64 8
+  %954 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd525e2e83f736d44E(ptr noalias noundef readonly align 8 dereferenceable(24) %953)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-953:                                              ; preds = %52
-  %954 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val121.i.i.i = load i64, ptr %954, align 8, !alias.scope !1416
-  %955 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val122.i.i.i = load i64, ptr %955, align 8, !alias.scope !1465, !noundef !4
-  %956 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6a8d4333e0d43585E(i64 %.val121.i.i.i, i64 %.val122.i.i.i)
+955:                                              ; preds = %52
+  %956 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val123.i.i.i = load i64, ptr %956, align 8, !alias.scope !1416, !noundef !4
+  %957 = icmp eq i64 %.val123.i.i.i, 0
+  br i1 %957, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %958
+
+958:                                              ; preds = %955
+  %959 = or i64 %.val123.i.i.i, 1
+  %960 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %959, i1 true)
+  %961 = xor i64 %960, 63
+  %962 = mul nuw nsw i64 %961, 9
+  %963 = add nuw nsw i64 %962, 73
+  %964 = lshr i64 %963, 6
+  %965 = add nuw nsw i64 %964, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-957:                                              ; preds = %52
-  %958 = getelementptr inbounds i8, ptr %0, i64 8
-  %959 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd525e2e83f736d44E(ptr noalias noundef readonly align 8 dereferenceable(24) %958)
+966:                                              ; preds = %52
+  %967 = getelementptr inbounds i8, ptr %0, i64 8
+  %968 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2c101c7b703ee526E(ptr noalias noundef readonly align 8 dereferenceable(48) %967)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-960:                                              ; preds = %52
-  %961 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val123.i.i.i = load i64, ptr %961, align 8, !alias.scope !1416, !noundef !4
-  %962 = icmp eq i64 %.val123.i.i.i, 0
-  br i1 %962, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %963
-
-963:                                              ; preds = %960
-  %964 = or i64 %.val123.i.i.i, 1
-  %965 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %964, i1 true)
-  %966 = xor i64 %965, 63
-  %967 = mul nuw nsw i64 %966, 9
-  %968 = add nuw nsw i64 %967, 73
-  %969 = lshr i64 %968, 6
-  %970 = add nuw nsw i64 %969, 4
+969:                                              ; preds = %52
+  %970 = getelementptr inbounds i8, ptr %0, i64 8
+  %971 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h64da613f003ae17fE(ptr noalias noundef readonly align 8 dereferenceable(176) %970)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-971:                                              ; preds = %52
-  %972 = getelementptr inbounds i8, ptr %0, i64 8
-  %973 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2c101c7b703ee526E(ptr noalias noundef readonly align 8 dereferenceable(48) %972)
+972:                                              ; preds = %52
+  %973 = getelementptr inbounds i8, ptr %0, i64 8
+  %974 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3c2cad7437097521E(ptr noalias noundef readonly align 8 dereferenceable(32) %973)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-974:                                              ; preds = %52
-  %975 = getelementptr inbounds i8, ptr %0, i64 8
-  %976 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h64da613f003ae17fE(ptr noalias noundef readonly align 8 dereferenceable(176) %975)
+975:                                              ; preds = %52
+  %976 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val124.i.i.i = load ptr, ptr %976, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %977 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val125.i.i.i = load i64, ptr %977, align 8, !alias.scope !1416, !noundef !4
+  %978 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hcf75373f0fdaa31cE(ptr %.val124.i.i.i, i64 %.val125.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-977:                                              ; preds = %52
-  %978 = getelementptr inbounds i8, ptr %0, i64 8
-  %979 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3c2cad7437097521E(ptr noalias noundef readonly align 8 dereferenceable(32) %978)
+979:                                              ; preds = %52
+  %980 = getelementptr inbounds i8, ptr %0, i64 8
+  %981 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0c08b7e3aab4dbebE(i32 noundef 217, ptr noalias noundef readonly align 8 dereferenceable(80) %980)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-980:                                              ; preds = %52
-  %981 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val124.i.i.i = load ptr, ptr %981, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %982 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val125.i.i.i = load i64, ptr %982, align 8, !alias.scope !1416, !noundef !4
-  %983 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hcf75373f0fdaa31cE(ptr %.val124.i.i.i, i64 %.val125.i.i.i)
+982:                                              ; preds = %52
+  %983 = getelementptr inbounds i8, ptr %0, i64 8
+  %984 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h19dc019f0ac8a338E(ptr noalias noundef readonly align 8 dereferenceable(40) %983)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-984:                                              ; preds = %52
-  %985 = getelementptr inbounds i8, ptr %0, i64 8
-  %986 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0c08b7e3aab4dbebE(i32 noundef 217, ptr noalias noundef readonly align 8 dereferenceable(80) %985)
+985:                                              ; preds = %52
+  %986 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val126.i.i.i = load i64, ptr %986, align 8, !alias.scope !1416
+  %987 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val127.i.i.i = load i64, ptr %987, align 8, !alias.scope !1468, !noundef !4
+  %988 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbcef364cc4ca7fa8E(i64 %.val126.i.i.i, i64 %.val127.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-987:                                              ; preds = %52
-  %988 = getelementptr inbounds i8, ptr %0, i64 8
-  %989 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h19dc019f0ac8a338E(ptr noalias noundef readonly align 8 dereferenceable(40) %988)
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
-
-990:                                              ; preds = %52
+989:                                              ; preds = %52
+  %990 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val128.i.i.i = load ptr, ptr %990, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
   %991 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val126.i.i.i = load i64, ptr %991, align 8, !alias.scope !1416
-  %992 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val127.i.i.i = load i64, ptr %992, align 8, !alias.scope !1468, !noundef !4
-  %993 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbcef364cc4ca7fa8E(i64 %.val126.i.i.i, i64 %.val127.i.i.i)
+  %.val129.i.i.i = load i64, ptr %991, align 8, !alias.scope !1416, !noundef !4
+  %992 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hdcd6859c32f8227dE(ptr nonnull %.val128.i.i.i, i64 %.val129.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-994:                                              ; preds = %52
-  %995 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val128.i.i.i = load ptr, ptr %995, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %996 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val129.i.i.i = load i64, ptr %996, align 8, !alias.scope !1416, !noundef !4
-  %997 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hdcd6859c32f8227dE(ptr nonnull %.val128.i.i.i, i64 %.val129.i.i.i)
+993:                                              ; preds = %52
+  %994 = getelementptr inbounds i8, ptr %0, i64 8
+  %995 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2bc7f8e6d48f1953E(ptr noalias noundef readonly align 8 dereferenceable(32) %994)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-998:                                              ; preds = %52
-  %999 = getelementptr inbounds i8, ptr %0, i64 8
-  %1000 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2bc7f8e6d48f1953E(ptr noalias noundef readonly align 8 dereferenceable(32) %999)
+996:                                              ; preds = %52
+  %997 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val130.i.i.i = load i64, ptr %997, align 8, !alias.scope !1471, !noundef !4
+  %998 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val131.i.i.i = load i64, ptr %998, align 8, !alias.scope !1416
+  %999 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfe74024e6d319a55E(i64 %.val130.i.i.i, i64 %.val131.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1001:                                             ; preds = %52
-  %1002 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val130.i.i.i = load i64, ptr %1002, align 8, !alias.scope !1471, !noundef !4
-  %1003 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val131.i.i.i = load i64, ptr %1003, align 8, !alias.scope !1416
-  %1004 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfe74024e6d319a55E(i64 %.val130.i.i.i, i64 %.val131.i.i.i)
+1000:                                             ; preds = %52
+  %1001 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val132.i.i.i = load i64, ptr %1001, align 8, !alias.scope !1416, !noundef !4
+  %1002 = icmp eq i64 %.val132.i.i.i, 0
+  br i1 %1002, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %1003
+
+1003:                                             ; preds = %1000
+  %1004 = or i64 %.val132.i.i.i, 1
+  %1005 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %1004, i1 true)
+  %1006 = xor i64 %1005, 63
+  %1007 = mul nuw nsw i64 %1006, 9
+  %1008 = add nuw nsw i64 %1007, 73
+  %1009 = lshr i64 %1008, 6
+  %1010 = add nuw nsw i64 %1009, 4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1005:                                             ; preds = %52
-  %1006 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val132.i.i.i = load i64, ptr %1006, align 8, !alias.scope !1416, !noundef !4
-  %1007 = icmp eq i64 %.val132.i.i.i, 0
-  br i1 %1007, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit", label %1008
-
-1008:                                             ; preds = %1005
-  %1009 = or i64 %.val132.i.i.i, 1
-  %1010 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %1009, i1 true)
-  %1011 = xor i64 %1010, 63
-  %1012 = mul nuw nsw i64 %1011, 9
-  %1013 = add nuw nsw i64 %1012, 73
-  %1014 = lshr i64 %1013, 6
-  %1015 = add nuw nsw i64 %1014, 4
+1011:                                             ; preds = %52
+  %1012 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val133.i.i.i = load ptr, ptr %1012, align 8, !alias.scope !1416
+  %1013 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val134.i.i.i = load i64, ptr %1013, align 8, !alias.scope !1474, !noalias !1477, !noundef !4
+  %1014 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd10bbb421972c808E(ptr %.val133.i.i.i, i64 %.val134.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1016:                                             ; preds = %52
+1015:                                             ; preds = %52
+  %1016 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val135.i.i.i = load i64, ptr %1016, align 8, !alias.scope !1416, !noundef !4
+  %1017 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val136.i.i.i = load i64, ptr %1017, align 8, !alias.scope !1416
+  %1018 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2d19b887e2b485b2E(i64 %.val135.i.i.i, i64 %.val136.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1017:                                             ; preds = %52
-  %1018 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val133.i.i.i = load ptr, ptr %1018, align 8, !alias.scope !1416
-  %1019 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val134.i.i.i = load i64, ptr %1019, align 8, !alias.scope !1474, !noalias !1477, !noundef !4
-  %1020 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd10bbb421972c808E(ptr %.val133.i.i.i, i64 %.val134.i.i.i)
+1019:                                             ; preds = %52
+  %1020 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val137.i.i.i = load ptr, ptr %1020, align 8, !alias.scope !1416
+  %1021 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val138.i.i.i = load i64, ptr %1021, align 8, !alias.scope !1479, !noalias !1482, !noundef !4
+  %1022 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h217277396529c092E(ptr %.val137.i.i.i, i64 %.val138.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1021:                                             ; preds = %52
-  %1022 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val135.i.i.i = load i64, ptr %1022, align 8, !alias.scope !1416, !noundef !4
-  %1023 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val136.i.i.i = load i64, ptr %1023, align 8, !alias.scope !1416
-  %1024 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2d19b887e2b485b2E(i64 %.val135.i.i.i, i64 %.val136.i.i.i)
+1023:                                             ; preds = %52
+  %1024 = getelementptr inbounds i8, ptr %0, i64 8
+  %1025 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h097431fc928aa718E(ptr noalias noundef readonly align 8 dereferenceable(96) %1024)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1025:                                             ; preds = %52
-  %1026 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val137.i.i.i = load ptr, ptr %1026, align 8, !alias.scope !1416
-  %1027 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val138.i.i.i = load i64, ptr %1027, align 8, !alias.scope !1479, !noalias !1482, !noundef !4
-  %1028 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h217277396529c092E(ptr %.val137.i.i.i, i64 %.val138.i.i.i)
+1026:                                             ; preds = %52
+  %1027 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val139.i.i.i = load ptr, ptr %1027, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
+  %1028 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val140.i.i.i = load i64, ptr %1028, align 8, !alias.scope !1416, !noundef !4
+  %1029 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5bf725d57d3eb508E(ptr nonnull %.val139.i.i.i, i64 %.val140.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1029:                                             ; preds = %52
-  %1030 = getelementptr inbounds i8, ptr %0, i64 8
-  %1031 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h097431fc928aa718E(ptr noalias noundef readonly align 8 dereferenceable(96) %1030)
+1030:                                             ; preds = %52
+  %1031 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val141.i.i.i = load i64, ptr %1031, align 8, !alias.scope !1416, !noundef !4
+  %1032 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val142.i.i.i = load i64, ptr %1032, align 8, !alias.scope !1416
+  %1033 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd8fadb78a3ec3213E(i64 %.val141.i.i.i, i64 %.val142.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1032:                                             ; preds = %52
-  %1033 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val139.i.i.i = load ptr, ptr %1033, align 8, !alias.scope !1416, !nonnull !4, !noundef !4
-  %1034 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val140.i.i.i = load i64, ptr %1034, align 8, !alias.scope !1416, !noundef !4
-  %1035 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5bf725d57d3eb508E(ptr nonnull %.val139.i.i.i, i64 %.val140.i.i.i)
+1034:                                             ; preds = %52
+  %1035 = getelementptr inbounds i8, ptr %0, i64 8
+  %1036 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9e15385f4bc37e57E(ptr noalias noundef readonly align 8 dereferenceable(40) %1035)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1036:                                             ; preds = %52
-  %1037 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val141.i.i.i = load i64, ptr %1037, align 8, !alias.scope !1416, !noundef !4
-  %1038 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val142.i.i.i = load i64, ptr %1038, align 8, !alias.scope !1416
-  %1039 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd8fadb78a3ec3213E(i64 %.val141.i.i.i, i64 %.val142.i.i.i)
+1037:                                             ; preds = %52
+  %1038 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val143.i.i.i = load i64, ptr %1038, align 8, !alias.scope !1416
+  %1039 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val144.i.i.i = load i64, ptr %1039, align 8, !alias.scope !1484, !noundef !4
+  %1040 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h06146bb7000eae76E(i64 %.val143.i.i.i, i64 %.val144.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1040:                                             ; preds = %52
-  %1041 = getelementptr inbounds i8, ptr %0, i64 8
-  %1042 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9e15385f4bc37e57E(ptr noalias noundef readonly align 8 dereferenceable(40) %1041)
+1041:                                             ; preds = %52
+  %1042 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val145.i.i.i = load i64, ptr %1042, align 8, !alias.scope !1487, !noundef !4
+  %1043 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val146.i.i.i = load i8, ptr %1043, align 8, !range !256, !alias.scope !1487, !noundef !4
+  %1044 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfc397eb97377c922E(i64 %.val145.i.i.i, i8 %.val146.i.i.i)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
 
-1043:                                             ; preds = %52
-  %1044 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val143.i.i.i = load i64, ptr %1044, align 8, !alias.scope !1416
-  %1045 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val144.i.i.i = load i64, ptr %1045, align 8, !alias.scope !1484, !noundef !4
-  %1046 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h06146bb7000eae76E(i64 %.val143.i.i.i, i64 %.val144.i.i.i)
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
-
-1047:                                             ; preds = %52
-  %1048 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val145.i.i.i = load i64, ptr %1048, align 8, !alias.scope !1487, !noundef !4
-  %1049 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val146.i.i.i = load i8, ptr %1049, align 8, !range !256, !alias.scope !1487, !noundef !4
-  %1050 = tail call fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfc397eb97377c922E(i64 %.val145.i.i.i, i8 %.val146.i.i.i)
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit"
-
-"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h25c9f8938c2346f8E.exit", %52, %52, %52, %52, %57, %60, %63, %66, %74, %75, %78, %81, %89, %92, %95, %98, %101, %104, %107, %115, %119, %122, %130, %133, %136, %139, %142, %150, %153, %161, %164, %172, %175, %178, %186, %189, %192, %195, %198, %202, %205, %209, %212, %216, %219, %223, %226, %230, %234, %238, %241, %244, %252, %255, %258, %261, %264, %267, %270, %273, %277, %280, %288, %291, %294, %297, %301, %304, %307, %315, %318, %321, %324, %327, %330, %333, %336, %339, %342, %346, %349, %352, %355, %358, %361, %364, %367, %370, %373, %376, %379, %382, %385, %388, %391, %394, %397, %400, %403, %407, %408, %412, %416, %420, %423, %431, %435, %438, %446, %449, %452, %454, %457, %458, %461, %464, %473, %476, %477, %480, %488, %491, %494, %497, %500, %503, %506, %509, %512, %520, %523, %526, %529, %_ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i, %548, %551, %554, %562, %565, %573, %576, %579, %582, %586, %589, %590, %593, %601, %604, %607, %610, %618, %621, %625, %629, %632, %635, %643, %646, %649, %657, %660, %663, %666, %670, %673, %677, %681, %685, %689, %693, %696, %698, %707, %710, %713, %721, %724, %732, %735, %739, %742, %745, %748, %752, %755, %763, %767, %770, %778, %781, %785, %788, %792, %795, %798, %801, %804, %807, %810, %814, %817, %821, %824, %827, %830, %834, %838, %842, %846, %849, %852, %860, %864, %868, %871, %875, %878, %886, %889, %897, %900, %908, %909, %913, %916, %924, %928, %931, %934, %937, %941, %944, %947, %950, %953, %957, %960, %963, %971, %974, %977, %980, %984, %987, %990, %994, %998, %1001, %1005, %1008, %1016, %1017, %1021, %1025, %1029, %1032, %1036, %1040, %1043, %1047
-  %.sroa.02.0.i10 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h25c9f8938c2346f8E.exit" ], [ %1050, %1047 ], [ %1046, %1043 ], [ %1042, %1040 ], [ %1039, %1036 ], [ %1035, %1032 ], [ %1031, %1029 ], [ %1028, %1025 ], [ %1024, %1021 ], [ %1020, %1017 ], [ 3, %1016 ], [ %1004, %1001 ], [ %1000, %998 ], [ %997, %994 ], [ %993, %990 ], [ %989, %987 ], [ %986, %984 ], [ %983, %980 ], [ %979, %977 ], [ %976, %974 ], [ %973, %971 ], [ %959, %957 ], [ %956, %953 ], [ %952, %950 ], [ %949, %947 ], [ %946, %944 ], [ %943, %941 ], [ %940, %937 ], [ %936, %934 ], [ %933, %931 ], [ %930, %928 ], [ %927, %924 ], [ %912, %909 ], [ 3, %908 ], [ %874, %871 ], [ %870, %868 ], [ %867, %864 ], [ %863, %860 ], [ %848, %846 ], [ %845, %842 ], [ %841, %838 ], [ %837, %834 ], [ %833, %830 ], [ %829, %827 ], [ %826, %824 ], [ %823, %821 ], [ %820, %817 ], [ %816, %814 ], [ %813, %810 ], [ %809, %807 ], [ %806, %804 ], [ %803, %801 ], [ %800, %798 ], [ %797, %795 ], [ %794, %792 ], [ %791, %788 ], [ %787, %785 ], [ %784, %781 ], [ %780, %778 ], [ %766, %763 ], [ %751, %748 ], [ %747, %745 ], [ %744, %742 ], [ %741, %739 ], [ %738, %735 ], [ %734, %732 ], [ %709, %707 ], [ %695, %693 ], [ %692, %689 ], [ %688, %685 ], [ %684, %681 ], [ %680, %677 ], [ %676, %673 ], [ %672, %670 ], [ %669, %666 ], [ %665, %663 ], [ %662, %660 ], [ %659, %657 ], [ %645, %643 ], [ %631, %629 ], [ %628, %625 ], [ %624, %621 ], [ %620, %618 ], [ %606, %604 ], [ %603, %601 ], [ 3, %589 ], [ %588, %586 ], [ %585, %582 ], [ %581, %579 ], [ %578, %576 ], [ %575, %573 ], [ %550, %548 ], [ %547, %_ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i ], [ %532, %529 ], [ %528, %526 ], [ %525, %523 ], [ %522, %520 ], [ %508, %506 ], [ %505, %503 ], [ %502, %500 ], [ %499, %497 ], [ %496, %494 ], [ %493, %491 ], [ %490, %488 ], [ 3, %476 ], [ %475, %473 ], [ %460, %458 ], [ 3, %457 ], [ %456, %454 ], [ %453, %452 ], [ %451, %449 ], [ %448, %446 ], [ %434, %431 ], [ %419, %416 ], [ %415, %412 ], [ %411, %408 ], [ 3, %407 ], [ %406, %403 ], [ %402, %400 ], [ %399, %397 ], [ %396, %394 ], [ %393, %391 ], [ %390, %388 ], [ %387, %385 ], [ %384, %382 ], [ %381, %379 ], [ %378, %376 ], [ %375, %373 ], [ %372, %370 ], [ %369, %367 ], [ %366, %364 ], [ %363, %361 ], [ %360, %358 ], [ %357, %355 ], [ %354, %352 ], [ %351, %349 ], [ %348, %346 ], [ %345, %342 ], [ %341, %339 ], [ %338, %336 ], [ %335, %333 ], [ %332, %330 ], [ %329, %327 ], [ %326, %324 ], [ %323, %321 ], [ %320, %318 ], [ %317, %315 ], [ %303, %301 ], [ %300, %297 ], [ %296, %294 ], [ %293, %291 ], [ %290, %288 ], [ %276, %273 ], [ %272, %270 ], [ %269, %267 ], [ %266, %264 ], [ %263, %261 ], [ %260, %258 ], [ %257, %255 ], [ %254, %252 ], [ %240, %238 ], [ %237, %234 ], [ %233, %230 ], [ %229, %226 ], [ %225, %223 ], [ %222, %219 ], [ %218, %216 ], [ %215, %212 ], [ %211, %209 ], [ %208, %205 ], [ %204, %202 ], [ %201, %198 ], [ %197, %195 ], [ %194, %192 ], [ %191, %189 ], [ %188, %186 ], [ %174, %172 ], [ %138, %136 ], [ %135, %133 ], [ %132, %130 ], [ %118, %115 ], [ %103, %101 ], [ %100, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %77, %75 ], [ 3, %74 ], [ %62, %60 ], [ %59, %57 ], [ 2, %52 ], [ 2, %52 ], [ %73, %66 ], [ 2, %63 ], [ 2, %52 ], [ %88, %81 ], [ 2, %78 ], [ 2, %52 ], [ %114, %107 ], [ 3, %104 ], [ %129, %122 ], [ 3, %119 ], [ %149, %142 ], [ 3, %139 ], [ %160, %153 ], [ 3, %150 ], [ %171, %164 ], [ 3, %161 ], [ %185, %178 ], [ 3, %175 ], [ %251, %244 ], [ 3, %241 ], [ %287, %280 ], [ 3, %277 ], [ %314, %307 ], [ 3, %304 ], [ %430, %423 ], [ 3, %420 ], [ %445, %438 ], [ 3, %435 ], [ %472, %464 ], [ 3, %461 ], [ %487, %480 ], [ 3, %477 ], [ %519, %512 ], [ 3, %509 ], [ %561, %554 ], [ 3, %551 ], [ %572, %565 ], [ 3, %562 ], [ %600, %593 ], [ 3, %590 ], [ %617, %610 ], [ 3, %607 ], [ %642, %635 ], [ 3, %632 ], [ %656, %649 ], [ 3, %646 ], [ %706, %698 ], [ 3, %696 ], [ %720, %713 ], [ 3, %710 ], [ %731, %724 ], [ 3, %721 ], [ %762, %755 ], [ 3, %752 ], [ %777, %770 ], [ 3, %767 ], [ %859, %852 ], [ 3, %849 ], [ %885, %878 ], [ 3, %875 ], [ %896, %889 ], [ 3, %886 ], [ %907, %900 ], [ 3, %897 ], [ %923, %916 ], [ 3, %913 ], [ %970, %963 ], [ 3, %960 ], [ %1015, %1008 ], [ 3, %1005 ]
-  %1051 = add nuw nsw i64 %.sroa.02.0.i, %.sroa.0.0
-  %1052 = add nuw nsw i64 %1051, %.sroa.02.0.i9
-  %1053 = add i64 %1052, %.sroa.02.0.i10
-  ret i64 %1053
+"_ZN4core6option15Option$LT$T$GT$6map_or17h36052d83f1bb7de8E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h25c9f8938c2346f8E.exit", %52, %52, %52, %52, %57, %60, %63, %66, %74, %75, %78, %81, %89, %92, %95, %98, %101, %104, %107, %115, %119, %122, %130, %133, %136, %139, %142, %150, %153, %161, %164, %172, %175, %178, %186, %189, %192, %195, %198, %202, %205, %209, %212, %216, %219, %223, %226, %230, %234, %238, %241, %244, %252, %255, %258, %261, %264, %267, %270, %273, %277, %280, %288, %291, %294, %297, %301, %304, %307, %315, %318, %321, %324, %327, %330, %333, %336, %339, %342, %346, %349, %352, %355, %358, %361, %364, %367, %370, %373, %376, %379, %382, %385, %388, %391, %394, %397, %400, %403, %407, %411, %415, %419, %422, %430, %434, %437, %445, %448, %451, %453, %456, %459, %462, %471, %474, %477, %485, %488, %491, %494, %497, %500, %503, %506, %509, %517, %520, %523, %526, %_ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i, %545, %548, %551, %559, %562, %570, %573, %576, %579, %583, %586, %589, %597, %600, %603, %606, %614, %617, %621, %625, %628, %631, %639, %642, %645, %653, %656, %659, %662, %666, %669, %673, %677, %681, %685, %689, %692, %694, %703, %706, %709, %717, %720, %728, %731, %735, %738, %741, %744, %748, %751, %759, %763, %766, %774, %777, %781, %784, %788, %791, %794, %797, %800, %803, %806, %810, %813, %817, %820, %823, %826, %830, %834, %838, %842, %845, %848, %856, %860, %864, %867, %871, %874, %882, %885, %893, %896, %904, %908, %911, %919, %923, %926, %929, %932, %936, %939, %942, %945, %948, %952, %955, %958, %966, %969, %972, %975, %979, %982, %985, %989, %993, %996, %1000, %1003, %1011, %1015, %1019, %1023, %1026, %1030, %1034, %1037, %1041
+  %.sroa.02.0.i10 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h25c9f8938c2346f8E.exit" ], [ %1044, %1041 ], [ %1040, %1037 ], [ %1036, %1034 ], [ %1033, %1030 ], [ %1029, %1026 ], [ %1025, %1023 ], [ %1022, %1019 ], [ %1018, %1015 ], [ %1014, %1011 ], [ %999, %996 ], [ %995, %993 ], [ %992, %989 ], [ %988, %985 ], [ %984, %982 ], [ %981, %979 ], [ %978, %975 ], [ %974, %972 ], [ %971, %969 ], [ %968, %966 ], [ %954, %952 ], [ %951, %948 ], [ %947, %945 ], [ %944, %942 ], [ %941, %939 ], [ %938, %936 ], [ %935, %932 ], [ %931, %929 ], [ %928, %926 ], [ %925, %923 ], [ %922, %919 ], [ %907, %904 ], [ %870, %867 ], [ %866, %864 ], [ %863, %860 ], [ %859, %856 ], [ %844, %842 ], [ %841, %838 ], [ %837, %834 ], [ %833, %830 ], [ %829, %826 ], [ %825, %823 ], [ %822, %820 ], [ %819, %817 ], [ %816, %813 ], [ %812, %810 ], [ %809, %806 ], [ %805, %803 ], [ %802, %800 ], [ %799, %797 ], [ %796, %794 ], [ %793, %791 ], [ %790, %788 ], [ %787, %784 ], [ %783, %781 ], [ %780, %777 ], [ %776, %774 ], [ %762, %759 ], [ %747, %744 ], [ %743, %741 ], [ %740, %738 ], [ %737, %735 ], [ %734, %731 ], [ %730, %728 ], [ %705, %703 ], [ %691, %689 ], [ %688, %685 ], [ %684, %681 ], [ %680, %677 ], [ %676, %673 ], [ %672, %669 ], [ %668, %666 ], [ %665, %662 ], [ %661, %659 ], [ %658, %656 ], [ %655, %653 ], [ %641, %639 ], [ %627, %625 ], [ %624, %621 ], [ %620, %617 ], [ %616, %614 ], [ %602, %600 ], [ %599, %597 ], [ %585, %583 ], [ %582, %579 ], [ %578, %576 ], [ %575, %573 ], [ %572, %570 ], [ %547, %545 ], [ %544, %_ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i ], [ %529, %526 ], [ %525, %523 ], [ %522, %520 ], [ %519, %517 ], [ %505, %503 ], [ %502, %500 ], [ %499, %497 ], [ %496, %494 ], [ %493, %491 ], [ %490, %488 ], [ %487, %485 ], [ %473, %471 ], [ %458, %456 ], [ %455, %453 ], [ %452, %451 ], [ %450, %448 ], [ %447, %445 ], [ %433, %430 ], [ %418, %415 ], [ %414, %411 ], [ %410, %407 ], [ %406, %403 ], [ %402, %400 ], [ %399, %397 ], [ %396, %394 ], [ %393, %391 ], [ %390, %388 ], [ %387, %385 ], [ %384, %382 ], [ %381, %379 ], [ %378, %376 ], [ %375, %373 ], [ %372, %370 ], [ %369, %367 ], [ %366, %364 ], [ %363, %361 ], [ %360, %358 ], [ %357, %355 ], [ %354, %352 ], [ %351, %349 ], [ %348, %346 ], [ %345, %342 ], [ %341, %339 ], [ %338, %336 ], [ %335, %333 ], [ %332, %330 ], [ %329, %327 ], [ %326, %324 ], [ %323, %321 ], [ %320, %318 ], [ %317, %315 ], [ %303, %301 ], [ %300, %297 ], [ %296, %294 ], [ %293, %291 ], [ %290, %288 ], [ %276, %273 ], [ %272, %270 ], [ %269, %267 ], [ %266, %264 ], [ %263, %261 ], [ %260, %258 ], [ %257, %255 ], [ %254, %252 ], [ %240, %238 ], [ %237, %234 ], [ %233, %230 ], [ %229, %226 ], [ %225, %223 ], [ %222, %219 ], [ %218, %216 ], [ %215, %212 ], [ %211, %209 ], [ %208, %205 ], [ %204, %202 ], [ %201, %198 ], [ %197, %195 ], [ %194, %192 ], [ %191, %189 ], [ %188, %186 ], [ %174, %172 ], [ %138, %136 ], [ %135, %133 ], [ %132, %130 ], [ %118, %115 ], [ %103, %101 ], [ %100, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %77, %75 ], [ 3, %74 ], [ %62, %60 ], [ %59, %57 ], [ 2, %52 ], [ 2, %52 ], [ %73, %66 ], [ 2, %63 ], [ 2, %52 ], [ %88, %81 ], [ 2, %78 ], [ 2, %52 ], [ %114, %107 ], [ 3, %104 ], [ %129, %122 ], [ 3, %119 ], [ %149, %142 ], [ 3, %139 ], [ %160, %153 ], [ 3, %150 ], [ %171, %164 ], [ 3, %161 ], [ %185, %178 ], [ 3, %175 ], [ %251, %244 ], [ 3, %241 ], [ %287, %280 ], [ 3, %277 ], [ %314, %307 ], [ 3, %304 ], [ %429, %422 ], [ 3, %419 ], [ %444, %437 ], [ 3, %434 ], [ %470, %462 ], [ 3, %459 ], [ %484, %477 ], [ 3, %474 ], [ %516, %509 ], [ 3, %506 ], [ %558, %551 ], [ 3, %548 ], [ %569, %562 ], [ 3, %559 ], [ %596, %589 ], [ 3, %586 ], [ %613, %606 ], [ 3, %603 ], [ %638, %631 ], [ 3, %628 ], [ %652, %645 ], [ 3, %642 ], [ %702, %694 ], [ 3, %692 ], [ %716, %709 ], [ 3, %706 ], [ %727, %720 ], [ 3, %717 ], [ %758, %751 ], [ 3, %748 ], [ %773, %766 ], [ 3, %763 ], [ %855, %848 ], [ 3, %845 ], [ %881, %874 ], [ 3, %871 ], [ %892, %885 ], [ 3, %882 ], [ %903, %896 ], [ 3, %893 ], [ %918, %911 ], [ 3, %908 ], [ %965, %958 ], [ 3, %955 ], [ %1010, %1003 ], [ 3, %1000 ]
+  %1045 = add nuw nsw i64 %.sroa.02.0.i, %.sroa.0.0
+  %1046 = add nuw nsw i64 %1045, %.sroa.02.0.i9
+  %1047 = add i64 %1046, %.sroa.02.0.i10
+  ret i64 %1047
 }
 
 ; Function Attrs: nonlazybind uwtable

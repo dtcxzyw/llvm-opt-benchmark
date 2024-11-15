@@ -247,7 +247,7 @@ if.end17:                                         ; preds = %if.end
     i32 0, label %sw.bb49
     i32 1, label %sw.bb49
     i32 2, label %sw.bb50
-    i32 3, label %sw.bb61
+    i32 3, label %sw.bb37
     i32 4, label %sw.bb62
   ]
 
@@ -258,7 +258,7 @@ sw.bb:                                            ; preds = %if.end17
   %call36 = tail call i64 @bn_sub_part_words(ptr noundef %arrayidx32, ptr noundef %b, ptr noundef %arrayidx22, i32 noundef %add1, i32 noundef %sub35)
   br label %sw.epilog
 
-sw.bb37:                                          ; preds = %if.end17
+sw.bb37:                                          ; preds = %if.end17, %if.end17
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end17
@@ -277,18 +277,15 @@ sw.bb50:                                          ; preds = %if.end17
   %call60 = tail call i64 @bn_sub_part_words(ptr noundef %arrayidx56, ptr noundef %b, ptr noundef %arrayidx22, i32 noundef %add1, i32 noundef %sub59)
   br label %sw.epilog
 
-sw.bb61:                                          ; preds = %if.end17
-  br label %sw.epilog
-
 sw.bb62:                                          ; preds = %if.end17
   %call66 = tail call i64 @bn_sub_part_words(ptr noundef %t, ptr noundef %a, ptr noundef %arrayidx19, i32 noundef %add, i32 noundef %sub20)
   %arrayidx68 = getelementptr inbounds i64, ptr %t, i64 %idxprom18
   %call72 = tail call i64 @bn_sub_part_words(ptr noundef %arrayidx68, ptr noundef %arrayidx22, ptr noundef %b, i32 noundef %add1, i32 noundef %dnb)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb62, %sw.bb61, %sw.bb50, %sw.bb49, %sw.bb38, %sw.bb37, %sw.bb, %if.end17
-  %tobool150.not = phi i1 [ true, %if.end17 ], [ true, %sw.bb62 ], [ true, %sw.bb61 ], [ false, %sw.bb50 ], [ true, %sw.bb49 ], [ false, %sw.bb38 ], [ true, %sw.bb37 ], [ true, %sw.bb ]
-  %tobool126.not = phi i1 [ true, %if.end17 ], [ true, %sw.bb62 ], [ false, %sw.bb61 ], [ true, %sw.bb50 ], [ false, %sw.bb49 ], [ true, %sw.bb38 ], [ false, %sw.bb37 ], [ true, %sw.bb ]
+sw.epilog:                                        ; preds = %sw.bb62, %sw.bb50, %sw.bb49, %sw.bb38, %sw.bb37, %sw.bb, %if.end17
+  %tobool150.not = phi i1 [ true, %if.end17 ], [ true, %sw.bb62 ], [ false, %sw.bb50 ], [ true, %sw.bb49 ], [ false, %sw.bb38 ], [ true, %sw.bb37 ], [ true, %sw.bb ]
+  %tobool126.not = phi i1 [ true, %if.end17 ], [ true, %sw.bb62 ], [ true, %sw.bb50 ], [ false, %sw.bb49 ], [ true, %sw.bb38 ], [ false, %sw.bb37 ], [ true, %sw.bb ]
   %2 = and i32 %n2, 2147483646
   %cmp73 = icmp eq i32 %2, 8
   %or.cond3 = and i1 %cmp73, %1

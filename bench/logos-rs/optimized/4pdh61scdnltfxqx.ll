@@ -249,8 +249,8 @@ define hidden zeroext i1 @_ZN13logos_codegen5graph4rope4Miss7is_none17h5010679aa
 define hidden i32 @_ZN13logos_codegen5graph4rope4Miss5first17h8bbbf9f71445b7e3E(i32 %0, i32 %1) unnamed_addr #2 {
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 2
-  %spec.select = select i1 %switch, i32 %1, i32 0
-  ret i32 %spec.select
+  %.sroa.02.0 = select i1 %switch, i32 %1, i32 0
+  ret i32 %.sroa.02.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

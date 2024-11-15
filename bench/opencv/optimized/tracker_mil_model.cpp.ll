@@ -731,9 +731,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit:         ; preds = %.lr.ph
   %64 = getelementptr inbounds %"class.cv::Mat", ptr %58, i64 %indvars.iv285
   call void @_ZNK2cv3Mat9locateROIERNS_5Size_IiEERNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %64, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
   %65 = load i32, ptr %25, align 4
-  %66 = icmp ult i32 %65, 4
-  %switch.idx.cast = trunc i32 %65 to i1
-  %.0 = and i1 %66, %switch.idx.cast
+  %66 = add i32 %65, -1
+  %switch.and = and i32 %66, -3
+  %switch.selectcmp = icmp eq i32 %switch.and, 0
   %67 = load ptr, ptr %20, align 8
   %68 = load ptr, ptr %1, align 8
   %69 = ptrtoint ptr %67 to i64
@@ -773,7 +773,7 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit30:      ; preds = %_ZNSt6vectorIN2cv3M
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %12, align 8
   %83 = load i32, ptr %27, align 8
   %84 = load i32, ptr %28, align 4
-  invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTargetStateC1ERKNS_6Point_IfEEiibRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(128) %77, ptr noundef nonnull align 4 dereferenceable(8) %12, i32 noundef %83, i32 noundef %84, i1 noundef zeroext %.0, ptr noundef nonnull align 8 dereferenceable(96) %10)
+  invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTargetStateC1ERKNS_6Point_IfEEiibRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(128) %77, ptr noundef nonnull align 4 dereferenceable(8) %12, i32 noundef %83, i32 noundef %84, i1 noundef zeroext %switch.selectcmp, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %85 unwind label %191
 
 85:                                               ; preds = %78

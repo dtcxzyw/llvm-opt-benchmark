@@ -337,10 +337,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %and6 = and i32 %conv, 14
-  switch i32 %and6, label %if.end [
+  switch i32 %and6, label %sw.default [
     i32 8, label %sw.bb11
     i32 2, label %sw.bb7
-    i32 4, label %sw.bb8
+    i32 4, label %if.end
     i32 6, label %sw.bb9
   ]
 
@@ -365,9 +365,6 @@ do.body.i:                                        ; preds = %sw.bb7
 if.then.i:                                        ; preds = %do.body.i
   %and6.i = zext nneg i8 %2 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %and6.i) #13
-  br label %if.end
-
-sw.bb8:                                           ; preds = %if.then
   br label %if.end
 
 sw.bb9:                                           ; preds = %if.then
@@ -396,8 +393,11 @@ if.then.i10:                                      ; preds = %do.body.i7
 sw.bb11:                                          ; preds = %if.then
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i10, %do.body.i7, %sw.bb1.i5, %sw.bb9, %if.then.i, %do.body.i, %sw.bb1.i, %sw.bb7, %entry, %if.then, %sw.bb8, %sw.bb11
-  %ret.0 = phi i32 [ 32, %sw.bb11 ], [ 24, %sw.bb8 ], [ 8, %if.then ], [ 0, %entry ], [ 16, %sw.bb1.i ], [ 15, %sw.bb7 ], [ 15, %do.body.i ], [ 15, %if.then.i ], [ 16, %sw.bb1.i5 ], [ 15, %sw.bb9 ], [ 15, %do.body.i7 ], [ 15, %if.then.i10 ]
+sw.default:                                       ; preds = %if.then
+  br label %if.end
+
+if.end:                                           ; preds = %if.then.i10, %do.body.i7, %sw.bb1.i5, %sw.bb9, %if.then.i, %do.body.i, %sw.bb1.i, %sw.bb7, %entry, %if.then, %sw.bb11, %sw.default
+  %ret.0 = phi i32 [ 8, %sw.default ], [ 32, %sw.bb11 ], [ 24, %if.then ], [ 0, %entry ], [ 16, %sw.bb1.i ], [ 15, %sw.bb7 ], [ 15, %do.body.i ], [ 15, %if.then.i ], [ 16, %sw.bb1.i5 ], [ 15, %sw.bb9 ], [ 15, %do.body.i7 ], [ 15, %if.then.i10 ]
   ret i32 %ret.0
 }
 

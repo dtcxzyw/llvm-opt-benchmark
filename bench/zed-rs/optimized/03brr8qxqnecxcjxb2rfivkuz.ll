@@ -101384,8 +101384,8 @@ define hidden { ptr, ptr } @"_ZN65_$LT$async_zip..error..ZipError$u20$as$u20$cor
   %2 = load i8, ptr %0, align 8, !range !24684, !noundef !5
   %switch = icmp eq i8 %2, 13
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %.sroa.0.0 = select i1 %switch, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.d98315bd4753087979e90bb867d71d35.486.llvm.21470575066294111, 1
   ret { ptr, ptr } %5
 }

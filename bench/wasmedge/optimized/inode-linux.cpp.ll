@@ -2488,17 +2488,17 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode8sockBindE23__wasi_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %7 = getelementptr inbounds i8, ptr %6, i64 128
   %8 = icmp eq i64 %3, 0
-  br i1 %8, label %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread, label %9
+  br i1 %8, label %.thread, label %9
+
+.thread:                                          ; preds = %5
+  store i8 0, ptr %7, align 8, !alias.scope !15
+  br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
 9:                                                ; preds = %5
-  switch i8 %1, label %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit [
+  switch i8 %1, label %24 [
     i8 1, label %10
     i8 2, label %17
   ]
-
-_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread: ; preds = %5
-  store i8 0, ptr %7, align 8, !alias.scope !15
-  br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2531,36 +2531,36 @@ _ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 1 dereferenceable(16) %2, i64 16, i1 false)
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
-_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %9
-  %24 = icmp eq i8 %1, 3
-  tail call void @llvm.assume(i1 %24)
+24:                                               ; preds = %9
+  %25 = icmp eq i8 %1, 3
+  tail call void @llvm.assume(i1 %25)
   store i8 5, ptr %7, align 8, !alias.scope !15
   store i16 1, ptr %6, align 8, !alias.scope !15
-  %25 = icmp ugt i64 %3, 107
-  tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %26, ptr noundef nonnull readonly align 1 dereferenceable(108) %2, i64 108, i1 false)
+  %26 = icmp ugt i64 %3, 107
+  tail call void @llvm.assume(i1 %26)
+  %27 = getelementptr inbounds i8, ptr %6, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %27, ptr noundef nonnull readonly align 1 dereferenceable(108) %2, i64 108, i1 false)
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
-_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit, %17, %10, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread
-  %.0.i.i11 = phi ptr [ %6, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ], [ %6, %17 ], [ %6, %10 ], [ null, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread ]
-  %.0.i.i6 = phi i32 [ 110, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ], [ 28, %17 ], [ 16, %10 ], [ 0, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread ]
-  %27 = load i32, ptr %0, align 8
-  %28 = call i32 @bind(i32 noundef %27, ptr noundef %.0.i.i11, i32 noundef %.0.i.i6) #24
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %30, label %36
+_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %.thread, %24, %17, %10
+  %28 = phi ptr [ %6, %24 ], [ %6, %17 ], [ %6, %10 ], [ null, %.thread ]
+  %.0.i.i = phi i32 [ 110, %24 ], [ 28, %17 ], [ 16, %10 ], [ 0, %.thread ]
+  %29 = load i32, ptr %0, align 8
+  %30 = call i32 @bind(i32 noundef %29, ptr noundef %28, i32 noundef %.0.i.i) #24
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %32, label %38
 
-30:                                               ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
-  %31 = tail call ptr @__errno_location() #25
-  %32 = load i32, ptr %31, align 4
-  %33 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %32) #24
-  %34 = zext i16 %33 to i32
-  %35 = shl nuw i32 %34, 16
-  br label %36
+32:                                               ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
+  %33 = tail call ptr @__errno_location() #25
+  %34 = load i32, ptr %33, align 4
+  %35 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %34) #24
+  %36 = zext i16 %35 to i32
+  %37 = shl nuw i32 %36, 16
+  br label %38
 
-36:                                               ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit, %30
-  %.sroa.08.0.insert.insert = phi i32 [ %35, %30 ], [ 1, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
-  ret i32 %.sroa.08.0.insert.insert
+38:                                               ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit, %32
+  %.sroa.07.0.insert.insert = phi i32 [ %37, %32 ], [ 1, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
+  ret i32 %.sroa.07.0.insert.insert
 }
 
 ; Function Attrs: nounwind
@@ -2682,17 +2682,17 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode11sockConnectE23__w
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %7 = getelementptr inbounds i8, ptr %6, i64 128
   %8 = icmp eq i64 %3, 0
-  br i1 %8, label %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread, label %9
+  br i1 %8, label %.thread, label %9
+
+.thread:                                          ; preds = %5
+  store i8 0, ptr %7, align 8, !alias.scope !18
+  br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
 9:                                                ; preds = %5
-  switch i8 %1, label %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit [
+  switch i8 %1, label %24 [
     i8 1, label %10
     i8 2, label %17
   ]
-
-_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread: ; preds = %5
-  store i8 0, ptr %7, align 8, !alias.scope !18
-  br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2725,45 +2725,45 @@ _ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 1 dereferenceable(16) %2, i64 16, i1 false)
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
-_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %9
-  %24 = icmp eq i8 %1, 3
-  tail call void @llvm.assume(i1 %24)
+24:                                               ; preds = %9
+  %25 = icmp eq i8 %1, 3
+  tail call void @llvm.assume(i1 %25)
   store i8 5, ptr %7, align 8, !alias.scope !18
   store i16 1, ptr %6, align 8, !alias.scope !18
-  %25 = icmp ugt i64 %3, 107
-  tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %26, ptr noundef nonnull readonly align 1 dereferenceable(108) %2, i64 108, i1 false)
+  %26 = icmp ugt i64 %3, 107
+  tail call void @llvm.assume(i1 %26)
+  %27 = getelementptr inbounds i8, ptr %6, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %27, ptr noundef nonnull readonly align 1 dereferenceable(108) %2, i64 108, i1 false)
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
-_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit, %17, %10, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread
-  %.0.i.i11 = phi ptr [ %6, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ], [ %6, %17 ], [ %6, %10 ], [ null, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread ]
-  %.0.i.i6 = phi i32 [ 110, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ], [ 28, %17 ], [ 16, %10 ], [ 0, %_ZSt5visitIN8WasmEdge4Host4WASI10VarAddrBufEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.thread ]
-  %27 = load i32, ptr %0, align 8
-  %28 = invoke i32 @connect(i32 noundef %27, ptr noundef %.0.i.i11, i32 noundef %.0.i.i6)
-          to label %29 unwind label %38
+_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %.thread, %24, %17, %10
+  %28 = phi ptr [ %6, %24 ], [ %6, %17 ], [ %6, %10 ], [ null, %.thread ]
+  %.0.i.i = phi i32 [ 110, %24 ], [ 28, %17 ], [ 16, %10 ], [ 0, %.thread ]
+  %29 = load i32, ptr %0, align 8
+  %30 = invoke i32 @connect(i32 noundef %29, ptr noundef %28, i32 noundef %.0.i.i)
+          to label %31 unwind label %40
 
-29:                                               ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
-  %30 = icmp slt i32 %28, 0
-  br i1 %30, label %31, label %37
+31:                                               ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
+  %32 = icmp slt i32 %30, 0
+  br i1 %32, label %33, label %39
 
-31:                                               ; preds = %29
-  %32 = tail call ptr @__errno_location() #25
-  %33 = load i32, ptr %32, align 4
-  %34 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %33) #24
-  %35 = zext i16 %34 to i32
-  %36 = shl nuw i32 %35, 16
-  br label %37
+33:                                               ; preds = %31
+  %34 = tail call ptr @__errno_location() #25
+  %35 = load i32, ptr %34, align 4
+  %36 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %35) #24
+  %37 = zext i16 %36 to i32
+  %38 = shl nuw i32 %37, 16
+  br label %39
 
-37:                                               ; preds = %29, %31
-  %.sroa.08.0.insert.insert = phi i32 [ %36, %31 ], [ 1, %29 ]
-  ret i32 %.sroa.08.0.insert.insert
+39:                                               ; preds = %31, %33
+  %.sroa.07.0.insert.insert = phi i32 [ %38, %33 ], [ 1, %31 ]
+  ret i32 %.sroa.07.0.insert.insert
 
-38:                                               ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #23
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #23
   unreachable
 }
 
@@ -3019,12 +3019,12 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx
   tail call void @llvm.assume(i1 %18)
   %19 = load i32, ptr %.val, align 1, !noalias !21
   store i16 2, ptr %9, align 8
-  %.sroa.4.0..sroa_idx42 = getelementptr inbounds i8, ptr %9, i64 2
-  store i16 %17, ptr %.sroa.4.0..sroa_idx42, align 2
-  %.sroa.7.0..sroa_idx43 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %19, ptr %.sroa.7.0..sroa_idx43, align 4
-  %.sroa.9.0..sroa_idx44 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %.sroa.9.0..sroa_idx44, align 8
+  %.sroa.4.0..sroa_idx41 = getelementptr inbounds i8, ptr %9, i64 2
+  store i16 %17, ptr %.sroa.4.0..sroa_idx41, align 2
+  %.sroa.7.0..sroa_idx42 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %19, ptr %.sroa.7.0..sroa_idx42, align 4
+  %.sroa.9.0..sroa_idx43 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %.sroa.9.0..sroa_idx43, align 8
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split
 
 20:                                               ; preds = %15
@@ -3035,16 +3035,16 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx
   %.sroa.11.8..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 8
   %.sroa.11.8.copyload = load i64, ptr %.sroa.11.8..val.sroa_idx, align 1
   store i16 10, ptr %9, align 8
-  %.sroa.4.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 2
-  store i16 %21, ptr %.sroa.4.0..sroa_idx58, align 2
-  %.sroa.7.0..sroa_idx59 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 0, ptr %.sroa.7.0..sroa_idx59, align 4
-  %.sroa.9.0..sroa_idx60 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %.sroa.9.8.copyload, ptr %.sroa.9.0..sroa_idx60, align 8
-  %.sroa.11.0..sroa_idx61 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %.sroa.11.8.copyload, ptr %.sroa.11.0..sroa_idx61, align 8
-  %.sroa.1128.0..sroa_idx62 = getelementptr inbounds i8, ptr %9, i64 24
-  store i32 0, ptr %.sroa.1128.0..sroa_idx62, align 8
+  %.sroa.4.0..sroa_idx55 = getelementptr inbounds i8, ptr %9, i64 2
+  store i16 %21, ptr %.sroa.4.0..sroa_idx55, align 2
+  %.sroa.7.0..sroa_idx56 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 0, ptr %.sroa.7.0..sroa_idx56, align 4
+  %.sroa.9.0..sroa_idx57 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %.sroa.9.8.copyload, ptr %.sroa.9.0..sroa_idx57, align 8
+  %.sroa.11.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %.sroa.11.8.copyload, ptr %.sroa.11.0..sroa_idx58, align 8
+  %.sroa.1127.0..sroa_idx59 = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 0, ptr %.sroa.1127.0..sroa_idx59, align 8
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split
 
 23:                                               ; preds = %15
@@ -3059,8 +3059,8 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx
   %.sroa.9.2.copyload = load i64, ptr %.sroa.9.2..val.sroa_idx, align 1
   %.sroa.11.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 14
   %.sroa.11.2.copyload = load i64, ptr %.sroa.11.2..val.sroa_idx, align 1
-  %.sroa.1128.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 22
-  %.sroa.1128.2.copyload = load i32, ptr %.sroa.1128.2..val.sroa_idx, align 1
+  %.sroa.1127.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 22
+  %.sroa.1127.2.copyload = load i32, ptr %.sroa.1127.2..val.sroa_idx, align 1
   %.sroa.12.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 26
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(82) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(82) %.sroa.12.2..val.sroa_idx, i64 82, i1 false)
@@ -3073,8 +3073,8 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx
   store i64 %.sroa.9.2.copyload, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %.sroa.11.2.copyload, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.1128.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
-  store i32 %.sroa.1128.2.copyload, ptr %.sroa.1128.0..sroa_idx, align 8
+  %.sroa.1127.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 %.sroa.1127.2.copyload, ptr %.sroa.1127.0..sroa_idx, align 8
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split
 
 _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split: ; preds = %16, %20, %23
@@ -3087,21 +3087,21 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
   %26 = phi ptr [ null, %8 ], [ %9, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split ]
   %.021 = phi i32 [ 0, %8 ], [ %.021.ph, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split ]
   %27 = getelementptr inbounds %"struct.cxx20::span.29", ptr %1, i64 %2
-  %.not2468 = icmp eq i64 %2, 0
-  br i1 %.not2468, label %._crit_edge, label %.lr.ph
+  %.not2461 = icmp eq i64 %2, 0
+  br i1 %.not2461, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit, %.lr.ph
-  %.02270 = phi i64 [ %33, %.lr.ph ], [ 0, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
-  %.02369 = phi ptr [ %34, %.lr.ph ], [ %1, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
-  %28 = load ptr, ptr %.02369, align 8
-  %29 = getelementptr inbounds [1024 x %struct.iovec], ptr %10, i64 0, i64 %.02270
+  %.02263 = phi i64 [ %33, %.lr.ph ], [ 0, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
+  %.02362 = phi ptr [ %34, %.lr.ph ], [ %1, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
+  %28 = load ptr, ptr %.02362, align 8
+  %29 = getelementptr inbounds [1024 x %struct.iovec], ptr %10, i64 0, i64 %.02263
   store ptr %28, ptr %29, align 16
-  %30 = getelementptr inbounds i8, ptr %.02369, i64 8
+  %30 = getelementptr inbounds i8, ptr %.02362, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %29, i64 8
   store i64 %31, ptr %32, align 8
-  %33 = add nuw nsw i64 %.02270, 1
-  %34 = getelementptr inbounds i8, ptr %.02369, i64 16
+  %33 = add nuw nsw i64 %.02263, 1
+  %34 = getelementptr inbounds i8, ptr %.02362, i64 16
   %.not24 = icmp eq ptr %34, %27
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
@@ -3138,8 +3138,8 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
   br label %51
 
 51:                                               ; preds = %49, %43
-  %.sroa.032.0.insert.insert = phi i32 [ %48, %43 ], [ 1, %49 ]
-  ret i32 %.sroa.032.0.insert.insert
+  %.sroa.031.0.insert.insert = phi i32 [ %48, %43 ], [ 1, %49 ]
+  ret i32 %.sroa.031.0.insert.insert
 
 52:                                               ; preds = %._crit_edge
   %53 = landingpad { ptr, i32 }

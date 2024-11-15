@@ -5728,11 +5728,8 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us.us99: ; preds =
   %30 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %3, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.0.0.copyload.i23.us = load ptr, ptr %31, align 8
-  %magicptr119 = ptrtoint ptr %.sroa.0.0.copyload.i23.us to i64
-  switch i64 %magicptr119, label %32 [
-    i64 -1, label %_ZN4llvm4json9ObjectKeyD2Ev.exit
-    i64 -2, label %34
-  ]
+  %switch = icmp ugt ptr %.sroa.0.0.copyload.i23.us, inttoptr (i64 -3 to ptr)
+  br i1 %switch, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us, label %32
 
 32:                                               ; preds = %.split.us.split.split
   %.sroa.2.0..sroa_idx.i24.us = getelementptr inbounds i8, ptr %30, i64 16
@@ -5740,11 +5737,11 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us.us99: ; preds =
   %.not.i.i.us = icmp eq i64 %.sroa.2.0.copyload.i25.us, 0
   br i1 %.not.i.i.us, label %_ZN4llvm4json9ObjectKeyD2Ev.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us: ; preds = %32
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us: ; preds = %.split.us.split.split, %32
   %33 = icmp eq ptr %.sroa.0.0.copyload.i23.us, inttoptr (i64 -1 to ptr)
   br i1 %33, label %_ZN4llvm4json9ObjectKeyD2Ev.exit, label %34
 
-34:                                               ; preds = %.split.us.split.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us
+34:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us
   %35 = add i32 %.021.us, 1
   %36 = add i32 %.020.us, %.021.us
   br label %.split.us.split.split, !llvm.loop !113
@@ -5760,10 +5757,10 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us: ; preds = %32
   %38 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %3, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.sroa.0.0.copyload.i23.us49 = load ptr, ptr %39, align 8
-  %magicptr120 = ptrtoint ptr %.sroa.0.0.copyload.i23.us49 to i64
-  switch i64 %magicptr120, label %40 [
+  %magicptr119 = ptrtoint ptr %.sroa.0.0.copyload.i23.us49 to i64
+  switch i64 %magicptr119, label %40 [
     i64 -2, label %_ZN4llvm4json9ObjectKeyD2Ev.exit
-    i64 -1, label %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit169
+    i64 -1, label %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit168
   ]
 
 40:                                               ; preds = %.split.split.us.split
@@ -5797,8 +5794,8 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us54: ; preds = %_
   %47 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %3, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.sroa.0.0.copyload.i23.us62 = load ptr, ptr %48, align 8
-  %magicptr121 = ptrtoint ptr %.sroa.0.0.copyload.i23.us62 to i64
-  switch i64 %magicptr121, label %49 [
+  %magicptr120 = ptrtoint ptr %.sroa.0.0.copyload.i23.us62 to i64
+  switch i64 %magicptr120, label %49 [
     i64 -1, label %_ZN4llvm4json9ObjectKeyD2Ev.exit
     i64 -2, label %52
   ]
@@ -5831,11 +5828,8 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us69: ; preds = %_
   %56 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %3, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.0.0.copyload.i23 = load ptr, ptr %57, align 8
-  %magicptr122 = ptrtoint ptr %.sroa.0.0.copyload.i23 to i64
-  switch i64 %magicptr122, label %58 [
-    i64 -1, label %_ZN4llvm4json9ObjectKeyD2Ev.exit
-    i64 -2, label %61
-  ]
+  %switch121 = icmp ugt ptr %.sroa.0.0.copyload.i23, inttoptr (i64 -3 to ptr)
+  br i1 %switch121, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40, label %58
 
 58:                                               ; preds = %.split.split.split
   %.sroa.2.0..sroa_idx.i24 = getelementptr inbounds i8, ptr %56, i64 16
@@ -5848,11 +5842,11 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %58
   %59 = icmp eq i32 %bcmp.i.i, 0
   br i1 %59, label %_ZN4llvm4json9ObjectKeyD2Ev.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40: ; preds = %58, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40: ; preds = %.split.split.split, %58, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
   %60 = icmp eq ptr %.sroa.0.0.copyload.i23, inttoptr (i64 -1 to ptr)
   br i1 %60, label %_ZN4llvm4json9ObjectKeyD2Ev.exit, label %61
 
-61:                                               ; preds = %.split.split.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40
+61:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40
   %62 = add i32 %.021, 1
   %63 = add i32 %.020, %.021
   br label %.split.split.split, !llvm.loop !113
@@ -5860,11 +5854,11 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40: ; preds = %58, %_
 _ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit:        ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us.us, %.split.us.split.us.split
   br label %_ZN4llvm4json9ObjectKeyD2Ev.exit
 
-_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit169:     ; preds = %.split.split.us.split
+_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit168:     ; preds = %.split.split.us.split
   br label %_ZN4llvm4json9ObjectKeyD2Ev.exit
 
-_ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %.split.split.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us69, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.us67, %.split.split.split.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us54, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us, %.split.us.split.split, %32, %.split.us.split.split.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us.us99, %24, %.split.split.us.split, %.split.us.split.us.split, %16, %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit169, %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit ], [ %14, %16 ], [ %14, %.split.us.split.us.split ], [ %38, %.split.split.us.split ], [ %22, %24 ], [ %22, %.split.us.split.split.us ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us.us99 ], [ %30, %32 ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us ], [ null, %.split.us.split.split ], [ %38, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.us ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us54 ], [ null, %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit169 ], [ %47, %.split.split.split.us ], [ %47, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.us67 ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us69 ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40 ], [ %56, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit ], [ null, %.split.split.split ]
+_ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us69, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.us67, %.split.split.split.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us54, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us, %32, %.split.us.split.split.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us.us99, %24, %.split.split.us.split, %.split.us.split.us.split, %16, %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit168, %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit ], [ %14, %16 ], [ %14, %.split.us.split.us.split ], [ %38, %.split.split.us.split ], [ %22, %24 ], [ %22, %.split.us.split.split.us ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us.us99 ], [ %30, %32 ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us ], [ %38, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.us ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us54 ], [ null, %_ZN4llvm4json9ObjectKeyD2Ev.exit.loopexit168 ], [ %47, %.split.split.split.us ], [ %47, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.us67 ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40.us69 ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit40 ], [ %56, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit ]
   ret ptr %.0
 }
 
@@ -8285,11 +8279,8 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit74.us133: ; preds = %
   %56 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.0.0.copyload.i40 = load ptr, ptr %57, align 8
-  %magicptr170 = ptrtoint ptr %.sroa.0.0.copyload.i40 to i64
-  switch i64 %magicptr170, label %58 [
-    i64 -1, label %.split92.us
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit74
-  ]
+  %switch = icmp ugt ptr %.sroa.0.0.copyload.i40, inttoptr (i64 -3 to ptr)
+  br i1 %switch, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59, label %58
 
 58:                                               ; preds = %.split.split.split
   %.sroa.2.0..sroa_idx.i41 = getelementptr inbounds i8, ptr %56, i64 16
@@ -8302,18 +8293,18 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %58
   %59 = icmp eq i32 %bcmp.i.i, 0
   br i1 %59, label %_ZN4llvm4json9ObjectKeyD2Ev.exit78, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59: ; preds = %58, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59: ; preds = %.split.split.split, %58, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
   %60 = icmp eq ptr %.sroa.0.0.copyload.i40, inttoptr (i64 -1 to ptr)
   br i1 %60, label %.split92.us, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit74
 
-.split92.us:                                      ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59, %.split.split.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us132, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us107, %.split.split.us.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us.us
-  %.us-phi93 = phi ptr [ %.034.us.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us.us ], [ %.034.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us ], [ %.034.us100, %.split.split.us.split ], [ %.034.us100, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us107 ], [ %.034.us123, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us132 ], [ %.034, %.split.split.split ], [ %.034, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59 ]
-  %.us-phi94 = phi ptr [ %16, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us.us ], [ %26, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us ], [ %36, %.split.split.us.split ], [ %36, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us107 ], [ %46, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us132 ], [ %56, %.split.split.split ], [ %56, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59 ]
+.split92.us:                                      ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us132, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us107, %.split.split.us.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us.us
+  %.us-phi93 = phi ptr [ %.034.us.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us.us ], [ %.034.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us ], [ %.034.us100, %.split.split.us.split ], [ %.034.us100, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us107 ], [ %.034.us123, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us132 ], [ %.034, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59 ]
+  %.us-phi94 = phi ptr [ %16, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us.us ], [ %26, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us ], [ %36, %.split.split.us.split ], [ %36, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us107 ], [ %46, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59.us132 ], [ %56, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59 ]
   %.not = icmp eq ptr %.us-phi93, null
   %61 = select i1 %.not, ptr %.us-phi94, ptr %.us-phi93
   br label %_ZN4llvm4json9ObjectKeyD2Ev.exit78
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit74: ; preds = %.split.split.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit74: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit59
   %62 = icmp eq ptr %.sroa.0.0.copyload.i40, inttoptr (i64 -2 to ptr)
   %63 = icmp eq ptr %.034, null
   %or.cond.not = select i1 %62, i1 %63, i1 false

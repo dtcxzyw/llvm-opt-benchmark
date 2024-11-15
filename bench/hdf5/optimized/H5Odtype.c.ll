@@ -4954,10 +4954,10 @@ tailrecurse:                                      ; preds = %123, %1
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
-  switch i32 %5, label %.loopexit.loopexit112 [
+  switch i32 %5, label %.loopexit.loopexit110 [
     i32 0, label %.loopexit
-    i32 1, label %.loopexit.loopexit71
-    i32 2, label %.loopexit.loopexit91
+    i32 1, label %.loopexit.loopexit69
+    i32 2, label %.loopexit.loopexit89
     i32 4, label %.loopexit
     i32 5, label %6
     i32 6, label %13
@@ -5071,10 +5071,10 @@ H5VM_limit_enc_size.exit:                         ; preds = %20, %26, %32, %38, 
   %.0.i.i = phi i32 [ %25, %20 ], [ %30, %26 ], [ %37, %32 ], [ %42, %38 ], [ %51, %46 ], [ %56, %52 ], [ %63, %58 ], [ %67, %64 ]
   %68 = getelementptr inbounds i8, ptr %3, i64 52
   %69 = load i32, ptr %68, align 4
-  %.not32 = icmp eq i32 %69, 0
-  br i1 %.not32, label %.loopexit, label %.lr.ph27
+  %.not30 = icmp eq i32 %69, 0
+  br i1 %.not30, label %.loopexit, label %.lr.ph25
 
-.lr.ph27:                                         ; preds = %H5VM_limit_enc_size.exit
+.lr.ph25:                                         ; preds = %H5VM_limit_enc_size.exit
   %70 = lshr i32 %.0.i.i, 3
   %71 = add nuw nsw i32 %70, 1
   %72 = getelementptr inbounds i8, ptr %3, i64 64
@@ -5087,43 +5087,43 @@ H5VM_limit_enc_size.exit:                         ; preds = %20, %26, %32, %38, 
   %78 = icmp eq i32 %.fr, 2
   %. = select i1 %78, i64 4, i64 32
   %.pn64 = select i1 %76, i64 %77, i64 %.
-  %wide.trip.count67 = zext i32 %69 to i64
-  br i1 %76, label %.lr.ph27.split.us, label %.lr.ph27.split
+  %wide.trip.count65 = zext i32 %69 to i64
+  br i1 %76, label %.lr.ph25.split.us, label %.lr.ph25.split
 
-.lr.ph27.split.us:                                ; preds = %.lr.ph27, %.lr.ph27.split.us
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.lr.ph27.split.us ], [ 0, %.lr.ph27 ]
-  %.16025.us = phi i64 [ %86, %.lr.ph27.split.us ], [ 8, %.lr.ph27 ]
-  %79 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv64
+.lr.ph25.split.us:                                ; preds = %.lr.ph25, %.lr.ph25.split.us
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph25.split.us ], [ 0, %.lr.ph25 ]
+  %.16023.us = phi i64 [ %86, %.lr.ph25.split.us ], [ 8, %.lr.ph25 ]
+  %79 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv62
   %80 = load ptr, ptr %79, align 8
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #18
   %82 = add i64 %81, 1
-  %.2.us = add i64 %82, %.16025.us
-  %83 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv64, i32 3
+  %.2.us = add i64 %82, %.16023.us
+  %83 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv62, i32 3
   %84 = load ptr, ptr %83, align 8
   %85 = tail call fastcc i64 @H5O__dtype_size(ptr noundef %84)
   %.3.us = add i64 %.2.us, %85
   %86 = add i64 %.3.us, %.pn64
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph27.split.us
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
+  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph25.split.us
 
-.lr.ph27.split:                                   ; preds = %.lr.ph27, %.lr.ph27.split
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.lr.ph27.split ], [ 0, %.lr.ph27 ]
-  %.16025 = phi i64 [ %95, %.lr.ph27.split ], [ 8, %.lr.ph27 ]
-  %87 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv59
+.lr.ph25.split:                                   ; preds = %.lr.ph25, %.lr.ph25.split
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph25.split ], [ 0, %.lr.ph25 ]
+  %.16023 = phi i64 [ %95, %.lr.ph25.split ], [ 8, %.lr.ph25 ]
+  %87 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv57
   %88 = load ptr, ptr %87, align 8
   %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #18
   %90 = and i64 %89, -8
   %91 = add i64 %90, 8
-  %.2 = add i64 %91, %.16025
-  %92 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv59, i32 3
+  %.2 = add i64 %91, %.16023
+  %92 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %73, i64 %indvars.iv57, i32 3
   %93 = load ptr, ptr %92, align 8
   %94 = tail call fastcc i64 @H5O__dtype_size(ptr noundef %93)
   %.3 = add i64 %.2, %94
   %95 = add i64 %.3, %.pn64
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count67
-  br i1 %exitcond63.not, label %.loopexit, label %.lr.ph27.split
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count65
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph25.split
 
 96:                                               ; preds = %tailrecurse
   %97 = getelementptr inbounds i8, ptr %3, i64 32
@@ -5140,38 +5140,38 @@ H5VM_limit_enc_size.exit:                         ; preds = %20, %26, %32, %38, 
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %3, i64 24
   %106 = load i32, ptr %105, align 8
-  %.fr31 = freeze i32 %106
-  %107 = icmp ugt i32 %.fr31, 2
-  %wide.trip.count57 = zext i32 %102 to i64
+  %.fr29 = freeze i32 %106
+  %107 = icmp ugt i32 %.fr29, 2
+  %wide.trip.count55 = zext i32 %102 to i64
   br i1 %107, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.421.us = phi i64 [ %.5.us, %.lr.ph.split.us ], [ %100, %.lr.ph ]
-  %108 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv54
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.419.us = phi i64 [ %.5.us, %.lr.ph.split.us ], [ %100, %.lr.ph ]
+  %108 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv52
   %109 = load ptr, ptr %108, align 8
   %110 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #18
   %111 = add i64 %110, 1
-  %.5.us = add i64 %111, %.421.us
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph.split.us
+  %.5.us = add i64 %111, %.419.us
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
+  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.421 = phi i64 [ %.5, %.lr.ph.split ], [ %100, %.lr.ph ]
+  %.419 = phi i64 [ %.5, %.lr.ph.split ], [ %100, %.lr.ph ]
   %112 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv
   %113 = load ptr, ptr %112, align 8
   %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %113) #18
   %115 = and i64 %114, -8
   %116 = add i64 %115, 8
-  %.5 = add i64 %116, %.421
+  %.5 = add i64 %116, %.419
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count57
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count55
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %96
-  %.pre-phi = phi i64 [ 0, %96 ], [ %wide.trip.count57, %.lr.ph.split.us ], [ %wide.trip.count57, %.lr.ph.split ]
+  %.pre-phi = phi i64 [ 0, %96 ], [ %wide.trip.count55, %.lr.ph.split.us ], [ %wide.trip.count55, %.lr.ph.split ]
   %.4.lcssa = phi i64 [ %100, %96 ], [ %.5.us, %.lr.ph.split.us ], [ %.5, %.lr.ph.split ]
   %117 = getelementptr inbounds i8, ptr %98, i64 40
   %118 = load ptr, ptr %117, align 8
@@ -5187,9 +5187,9 @@ H5VM_limit_enc_size.exit:                         ; preds = %20, %26, %32, %38, 
   %126 = add i64 %accumulator.tr, 8
   br label %tailrecurse
 
-common.ret146:                                    ; preds = %127, %.loopexit
-  %common.ret146.op = phi i64 [ %accumulator.ret.tr1, %.loopexit ], [ %accumulator.ret.tr, %127 ]
-  ret i64 %common.ret146.op
+common.ret144:                                    ; preds = %127, %.loopexit
+  %common.ret144.op = phi i64 [ %accumulator.ret.tr1, %.loopexit ], [ %accumulator.ret.tr, %127 ]
+  ret i64 %common.ret144.op
 
 127:                                              ; preds = %tailrecurse
   %128 = getelementptr inbounds i8, ptr %3, i64 24
@@ -5208,21 +5208,21 @@ common.ret146:                                    ; preds = %127, %.loopexit
   %.7 = add i64 %139, %134
   %140 = add i64 %.7, %138
   %accumulator.ret.tr = add i64 %140, %135
-  br label %common.ret146
+  br label %common.ret144
 
-.loopexit.loopexit71:                             ; preds = %tailrecurse
+.loopexit.loopexit69:                             ; preds = %tailrecurse
   br label %.loopexit
 
-.loopexit.loopexit91:                             ; preds = %tailrecurse
+.loopexit.loopexit89:                             ; preds = %tailrecurse
   br label %.loopexit
 
-.loopexit.loopexit112:                            ; preds = %tailrecurse
+.loopexit.loopexit110:                            ; preds = %tailrecurse
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph27.split, %.lr.ph27.split.us, %tailrecurse, %tailrecurse, %.loopexit.loopexit112, %.loopexit.loopexit91, %.loopexit.loopexit71, %H5VM_limit_enc_size.exit, %._crit_edge, %6
-  %.059 = phi i64 [ %122, %._crit_edge ], [ %12, %6 ], [ 8, %H5VM_limit_enc_size.exit ], [ 20, %.loopexit.loopexit71 ], [ 10, %.loopexit.loopexit91 ], [ 8, %.loopexit.loopexit112 ], [ 12, %tailrecurse ], [ 12, %tailrecurse ], [ %86, %.lr.ph27.split.us ], [ %95, %.lr.ph27.split ]
+.loopexit:                                        ; preds = %.lr.ph25.split, %.lr.ph25.split.us, %tailrecurse, %tailrecurse, %.loopexit.loopexit110, %.loopexit.loopexit89, %.loopexit.loopexit69, %H5VM_limit_enc_size.exit, %._crit_edge, %6
+  %.059 = phi i64 [ %122, %._crit_edge ], [ %12, %6 ], [ 8, %H5VM_limit_enc_size.exit ], [ 20, %.loopexit.loopexit69 ], [ 10, %.loopexit.loopexit89 ], [ 8, %.loopexit.loopexit110 ], [ 12, %tailrecurse ], [ 12, %tailrecurse ], [ %86, %.lr.ph25.split.us ], [ %95, %.lr.ph25.split ]
   %accumulator.ret.tr1 = add i64 %.059, %accumulator.tr
-  br label %common.ret146
+  br label %common.ret144
 }
 
 declare i32 @H5O__shared_delete(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

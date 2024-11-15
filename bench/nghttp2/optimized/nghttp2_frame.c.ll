@@ -1377,20 +1377,9 @@ if.end:                                           ; preds = %entry
   %opaque_data_len = getelementptr inbounds i8, ptr %frame, i64 32
   %13 = load i64, ptr %opaque_data_len, align 8
   %call = tail call i32 @nghttp2_bufs_add(ptr noundef nonnull %bufs, ptr noundef %12, i64 noundef %13) #18
-  switch i32 %call, label %if.then13 [
-    i32 -502, label %return
-    i32 0, label %if.end14
-  ]
-
-if.then13:                                        ; preds = %if.end
-  br label %return
-
-if.end14:                                         ; preds = %if.end
-  br label %return
-
-return:                                           ; preds = %if.end, %if.end14, %if.then13
-  %retval.0 = phi i32 [ %call, %if.then13 ], [ %call, %if.end14 ], [ -522, %if.end ]
-  ret i32 %retval.0
+  %cond = icmp eq i32 %call, -502
+  %spec.select = select i1 %cond, i32 -522, i32 %call
+  ret i32 %spec.select
 }
 
 declare i32 @nghttp2_bufs_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

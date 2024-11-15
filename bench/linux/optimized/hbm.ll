@@ -2209,9 +2209,9 @@ define internal fastcc void @mei_hbm_cl_res(ptr noundef %0, ptr nocapture nounde
 50:                                               ; preds = %.loopexit
   switch i32 %2, label %.thread6 [
     i32 2, label %51
-    i32 3, label %78
-    i32 5, label %84
-    i32 6, label %89
+    i32 3, label %75
+    i32 5, label %81
+    i32 6, label %86
   ]
 
 51:                                               ; preds = %50
@@ -2252,81 +2252,71 @@ thread-pre-split:                                 ; preds = %56, %60, %66
 
 70:                                               ; preds = %thread-pre-split, %57
   %71 = phi i8 [ %.pr, %thread-pre-split ], [ %58, %57 ]
-  switch i8 %71, label %77 [
-    i8 0, label %94
+  switch i8 %71, label %74 [
+    i8 0, label %91
     i8 1, label %72
     i8 2, label %73
-    i8 3, label %74
-    i8 4, label %75
-    i8 5, label %76
+    i8 3, label %73
+    i8 5, label %73
   ]
 
 72:                                               ; preds = %70
-  br label %94
+  br label %91
 
-73:                                               ; preds = %70
-  br label %94
+73:                                               ; preds = %70, %70, %70
+  br label %91
 
 74:                                               ; preds = %70
-  br label %94
+  br label %91
 
-75:                                               ; preds = %70
-  br label %94
+75:                                               ; preds = %50
+  %76 = getelementptr inbounds i8, ptr %1, i64 3
+  %77 = load i8, ptr %76, align 1
+  %78 = icmp eq i8 %77, 0
+  br i1 %78, label %79, label %91
 
-76:                                               ; preds = %70
-  br label %94
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds i8, ptr %14, i64 24
+  store i32 5, ptr %80, align 8
+  br label %91
 
-77:                                               ; preds = %70
-  br label %94
-
-78:                                               ; preds = %50
-  %79 = getelementptr inbounds i8, ptr %1, i64 3
-  %80 = load i8, ptr %79, align 1
-  %81 = icmp eq i8 %80, 0
-  br i1 %81, label %82, label %94
-
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %14, i64 24
-  store i32 5, ptr %83, align 8
-  br label %94
-
-84:                                               ; preds = %50
-  %85 = getelementptr inbounds i8, ptr %1, i64 3
-  %86 = load i8, ptr %85, align 1
-  switch i8 %86, label %94 [
-    i8 0, label %87
-    i8 6, label %87
+81:                                               ; preds = %50
+  %82 = getelementptr inbounds i8, ptr %1, i64 3
+  %83 = load i8, ptr %82, align 1
+  switch i8 %83, label %91 [
+    i8 0, label %84
+    i8 6, label %84
   ]
 
-87:                                               ; preds = %84, %84
-  %88 = getelementptr inbounds i8, ptr %14, i64 187
-  store i8 1, ptr %88, align 1
-  br label %94
+84:                                               ; preds = %81, %81
+  %85 = getelementptr inbounds i8, ptr %14, i64 187
+  store i8 1, ptr %85, align 1
+  br label %91
 
-89:                                               ; preds = %50
-  %90 = getelementptr inbounds i8, ptr %1, i64 3
-  %91 = load i8, ptr %90, align 1
-  switch i8 %91, label %94 [
-    i8 0, label %92
-    i8 7, label %92
+86:                                               ; preds = %50
+  %87 = getelementptr inbounds i8, ptr %1, i64 3
+  %88 = load i8, ptr %87, align 1
+  switch i8 %88, label %91 [
+    i8 0, label %89
+    i8 7, label %89
   ]
 
-92:                                               ; preds = %89, %89
-  %93 = getelementptr inbounds i8, ptr %14, i64 187
-  store i8 0, ptr %93, align 1
-  br label %94
+89:                                               ; preds = %86, %86
+  %90 = getelementptr inbounds i8, ptr %14, i64 187
+  store i8 0, ptr %90, align 1
+  br label %91
 
-94:                                               ; preds = %92, %89, %87, %84, %82, %78, %77, %76, %75, %74, %73, %72, %70
-  %95 = phi i32 [ 0, %92 ], [ 0, %87 ], [ -22, %77 ], [ -16, %76 ], [ -22, %75 ], [ -16, %74 ], [ -16, %73 ], [ -25, %72 ], [ 0, %70 ], [ 0, %78 ], [ 0, %82 ], [ -22, %84 ], [ -22, %89 ]
-  %96 = getelementptr inbounds i8, ptr %14, i64 136
-  store i32 %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %14, i64 186
-  store i8 0, ptr %97, align 2
-  %98 = getelementptr inbounds i8, ptr %14, i64 80
-  %99 = tail call i32 @__wake_up(ptr noundef %98, i32 noundef 3, i32 noundef 1, ptr noundef null) #10
+91:                                               ; preds = %89, %86, %84, %81, %79, %75, %74, %73, %72, %70
+  %92 = phi i32 [ 0, %89 ], [ 0, %84 ], [ -22, %74 ], [ -16, %73 ], [ -25, %72 ], [ 0, %70 ], [ 0, %75 ], [ 0, %79 ], [ -22, %81 ], [ -22, %86 ]
+  %93 = getelementptr inbounds i8, ptr %14, i64 136
+  store i32 %92, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %14, i64 186
+  store i8 0, ptr %94, align 2
+  %95 = getelementptr inbounds i8, ptr %14, i64 80
+  %96 = tail call i32 @__wake_up(ptr noundef %95, i32 noundef 3, i32 noundef 1, ptr noundef null) #10
   br label %.thread6
 
-.thread6:                                         ; preds = %3, %94, %50, %.loopexit
+.thread6:                                         ; preds = %3, %91, %50, %.loopexit
   ret void
 }
 

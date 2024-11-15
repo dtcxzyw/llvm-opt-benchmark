@@ -1179,7 +1179,7 @@ get_CDR_ulong.exit:                               ; preds = %13, %15
   %78 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %31, ptr noundef nonnull @ei_giop_unknown_tckind, ptr noundef nonnull @.str.246, i32 noundef %17) #14
   br label %79
 
-79:                                               ; preds = %.thread, %61, %51, %53, %25, %25, %25, %25, %40, %42, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %77, %76, %75, %74, %73, %50, %49, %48, %47, %38, %37, %36, %35
+79:                                               ; preds = %.thread, %61, %51, %53, %40, %42, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %77, %76, %75, %74, %73, %50, %49, %48, %47, %38, %37, %36, %35
   %80 = load i32, ptr @proto_giop, align 4
   tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %80, i32 noundef %21) #14
   br label %81
@@ -1740,7 +1740,7 @@ define internal fastcc void @dissect_data_for_typecode_with_params(ptr noundef %
   %282 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_giop_unknown_typecode_datatype, ptr noundef nonnull @.str.244, i32 noundef %8) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %213, %188, %121, %207, %181, %106, %18, %18, %18, %18, %18, %267, %271, %243, %257, %251, %18, %235, %241, %242, %227, %233, %234, %18, %216, %191, %150, %156, %146, %._crit_edge, %18, %131, %18, %18, %93, %101, %102, %83, %91, %92, %72, %81, %82, %64, %70, %71, %55, %61, %62, %47, %53, %54, %38, %45, %46, %30, %36, %37, %21, %28, %29, %18, %18, %281, %218, %104, %103
+.loopexit:                                        ; preds = %213, %188, %121, %207, %181, %106, %267, %271, %243, %257, %251, %235, %241, %242, %227, %233, %234, %216, %191, %150, %156, %146, %._crit_edge, %131, %93, %101, %102, %83, %91, %92, %72, %81, %82, %64, %70, %71, %55, %61, %62, %47, %53, %54, %38, %45, %46, %30, %36, %37, %21, %28, %29, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %281, %218, %104, %103
   %283 = load i32, ptr @proto_giop, align 4
   tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %283, i32 noundef %14) #14
   br label %284

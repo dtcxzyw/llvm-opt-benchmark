@@ -33282,8 +33282,8 @@ define noundef i64 @_ZN14language_model5model11cloud_model10CloudModel15max_toke
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 2) i32 @_ZN14language_model5model11cloud_model10CloudModel12availability17he4e40f9e8560b043E(ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %0) unnamed_addr #30 {
   %2 = load i64, ptr %0, align 8, !range !256, !noundef !12
-  %switch = icmp ne i64 %2, -9223372036854775808
-  %.sroa.0.0 = zext i1 %switch to i32
+  %switch1 = icmp ne i64 %2, -9223372036854775808
+  %.sroa.0.0 = zext i1 %switch1 to i32
   ret i32 %.sroa.0.0
 }
 

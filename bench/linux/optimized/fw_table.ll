@@ -24,162 +24,156 @@ define dso_local i32 @acpi_parse_entries_array(ptr noundef %0, i64 noundef %1, p
   %14 = add i64 %13, %8
   %15 = add i64 %1, %8
   switch i32 %7, label %default.unreachable20 [
-    i32 0, label %20
+    i32 0, label %18
     i32 1, label %16
     i32 2, label %17
-    i32 3, label %18
-    i32 4, label %19
+    i32 3, label %17
+    i32 4, label %17
   ]
 
 16:                                               ; preds = %6
-  br label %20
+  br label %18
 
-17:                                               ; preds = %6
-  br label %20
-
-18:                                               ; preds = %6
-  br label %20
-
-19:                                               ; preds = %6
-  br label %20
+17:                                               ; preds = %6, %6, %6
+  br label %18
 
 default.unreachable20:                            ; preds = %6
   unreachable
 
-20:                                               ; preds = %19, %18, %17, %16, %6
-  %21 = phi i64 [ 4, %19 ], [ 4, %18 ], [ 4, %17 ], [ 8, %16 ], [ 2, %6 ]
-  %22 = add i64 %21, %15
-  %23 = icmp ult i64 %22, %14
-  br i1 %23, label %24, label %.thread12
+18:                                               ; preds = %17, %16, %6
+  %19 = phi i64 [ 4, %17 ], [ 8, %16 ], [ 2, %6 ]
+  %20 = add i64 %19, %15
+  %21 = icmp ult i64 %20, %14
+  br i1 %21, label %22, label %.thread12
 
-24:                                               ; preds = %20
-  %25 = icmp sgt i32 %4, 0
-  %26 = add i32 %5, -1
-  %27 = zext i32 %4 to i64
-  br label %28
+22:                                               ; preds = %18
+  %23 = icmp sgt i32 %4, 0
+  %24 = add i32 %5, -1
+  %25 = zext i32 %4 to i64
+  br label %26
 
-28:                                               ; preds = %82, %24
-  %29 = phi i64 [ %15, %24 ], [ %83, %82 ]
-  %30 = phi i32 [ 0, %24 ], [ %76, %82 ]
-  %.sroa.0.0 = inttoptr i64 %29 to ptr
-  br i1 %25, label %31, label %.loopexit
+26:                                               ; preds = %80, %22
+  %27 = phi i64 [ %15, %22 ], [ %81, %80 ]
+  %28 = phi i32 [ 0, %22 ], [ %74, %80 ]
+  %.sroa.0.0 = inttoptr i64 %27 to ptr
+  br i1 %23, label %29, label %.loopexit
 
-31:                                               ; preds = %28
+29:                                               ; preds = %26
   switch i32 %7, label %acpi_get_entry_type.exit [
-    i32 0, label %32
-    i32 1, label %35
-    i32 4, label %41
-    i32 3, label %38
+    i32 0, label %30
+    i32 1, label %33
+    i32 4, label %39
+    i32 3, label %36
   ]
 
-32:                                               ; preds = %31
-  %33 = load i8, ptr %.sroa.0.0, align 1
-  %34 = zext i8 %33 to i64
+30:                                               ; preds = %29
+  %31 = load i8, ptr %.sroa.0.0, align 1
+  %32 = zext i8 %31 to i64
   br label %acpi_get_entry_type.exit
 
-35:                                               ; preds = %31
-  %36 = load i16, ptr %.sroa.0.0, align 1
-  %37 = zext i16 %36 to i64
+33:                                               ; preds = %29
+  %34 = load i16, ptr %.sroa.0.0, align 1
+  %35 = zext i16 %34 to i64
   br label %acpi_get_entry_type.exit
 
-38:                                               ; preds = %31
-  %39 = load i8, ptr %.sroa.0.0, align 1
-  %40 = zext i8 %39 to i64
+36:                                               ; preds = %29
+  %37 = load i8, ptr %.sroa.0.0, align 1
+  %38 = zext i8 %37 to i64
   br label %acpi_get_entry_type.exit
 
-41:                                               ; preds = %31
-  %42 = load i8, ptr %.sroa.0.0, align 1
-  %43 = zext i8 %42 to i64
+39:                                               ; preds = %29
+  %40 = load i8, ptr %.sroa.0.0, align 1
+  %41 = zext i8 %40 to i64
   br label %acpi_get_entry_type.exit
 
-acpi_get_entry_type.exit:                         ; preds = %31, %32, %35, %38, %41
-  %44 = phi i64 [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ 0, %31 ]
-  br label %47
+acpi_get_entry_type.exit:                         ; preds = %29, %30, %33, %36, %39
+  %42 = phi i64 [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ 0, %29 ]
+  br label %45
 
-45:                                               ; preds = %47
+43:                                               ; preds = %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = icmp eq i64 %indvars.iv.next, %27
-  br i1 %46, label %.loopexit, label %47, !llvm.loop !6
+  %44 = icmp eq i64 %indvars.iv.next, %25
+  br i1 %44, label %.loopexit, label %45, !llvm.loop !6
 
-47:                                               ; preds = %45, %acpi_get_entry_type.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %acpi_get_entry_type.exit ]
-  %48 = getelementptr %struct.acpi_subtable_proc, ptr %3, i64 %indvars.iv
-  %49 = load i32, ptr %48, align 8
-  %50 = sext i32 %49 to i64
-  %51 = icmp eq i64 %44, %50
-  br i1 %51, label %52, label %45
+45:                                               ; preds = %43, %acpi_get_entry_type.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %acpi_get_entry_type.exit ]
+  %46 = getelementptr %struct.acpi_subtable_proc, ptr %3, i64 %indvars.iv
+  %47 = load i32, ptr %46, align 8
+  %48 = sext i32 %47 to i64
+  %49 = icmp eq i64 %42, %48
+  br i1 %49, label %50, label %43
 
-52:                                               ; preds = %47
-  %53 = icmp ult i32 %26, %30
-  br i1 %53, label %71, label %54
+50:                                               ; preds = %45
+  %51 = icmp ult i32 %24, %28
+  br i1 %51, label %69, label %52
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %48, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %60, label %58
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds i8, ptr %46, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %58, label %56
 
-58:                                               ; preds = %54
-  %59 = tail call i32 %56(ptr noundef %.sroa.0.0, i64 noundef %14) #8
-  br label %68
+56:                                               ; preds = %52
+  %57 = tail call i32 %54(ptr noundef %.sroa.0.0, i64 noundef %14) #8
+  br label %66
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %48, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.thread12, label %64
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds i8, ptr %46, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %.thread12, label %62
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %48, i64 24
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call i32 %62(ptr noundef %.sroa.0.0, ptr noundef %66, i64 noundef %14) #8
-  br label %68
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %46, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call i32 %60(ptr noundef %.sroa.0.0, ptr noundef %64, i64 noundef %14) #8
+  br label %66
 
-68:                                               ; preds = %64, %58
-  %69 = phi i32 [ %59, %58 ], [ %67, %64 ]
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %.thread12
+66:                                               ; preds = %62, %56
+  %67 = phi i32 [ %57, %56 ], [ %65, %62 ]
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %.thread12
 
-71:                                               ; preds = %68, %52
-  %72 = getelementptr inbounds i8, ptr %48, i64 32
-  %73 = load i32, ptr %72, align 8
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %72, align 8
-  %75 = add i32 %30, 1
+69:                                               ; preds = %66, %50
+  %70 = getelementptr inbounds i8, ptr %46, i64 32
+  %71 = load i32, ptr %70, align 8
+  %72 = add i32 %71, 1
+  store i32 %72, ptr %70, align 8
+  %73 = add i32 %28, 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %71, %28
-  %76 = phi i32 [ %75, %71 ], [ %30, %28 ], [ %30, %45 ]
-  %77 = tail call fastcc i64 @acpi_get_entry_length(ptr %.sroa.0.0, i32 %7) #7
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %79, label %82
+.loopexit:                                        ; preds = %43, %69, %26
+  %74 = phi i32 [ %73, %69 ], [ %28, %26 ], [ %28, %43 ]
+  %75 = tail call fastcc i64 @acpi_get_entry_length(ptr %.sroa.0.0, i32 %7) #7
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %77, label %80
 
-79:                                               ; preds = %.loopexit
-  %80 = load i32, ptr %3, align 8
-  %81 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %0, i32 noundef %80) #9
+77:                                               ; preds = %.loopexit
+  %78 = load i32, ptr %3, align 8
+  %79 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %0, i32 noundef %78) #9
   br label %.thread12
 
-82:                                               ; preds = %.loopexit
-  %83 = add i64 %77, %29
-  %84 = add i64 %83, %21
-  %85 = icmp ult i64 %84, %14
-  br i1 %85, label %28, label %86, !llvm.loop !9
+80:                                               ; preds = %.loopexit
+  %81 = add i64 %75, %27
+  %82 = add i64 %81, %19
+  %83 = icmp ult i64 %82, %14
+  br i1 %83, label %26, label %84, !llvm.loop !9
 
-86:                                               ; preds = %82
-  %87 = icmp ne i32 %5, 0
-  %88 = icmp ugt i32 %76, %5
-  %89 = select i1 %87, i1 %88, i1 false
-  br i1 %89, label %90, label %.thread12
+84:                                               ; preds = %80
+  %85 = icmp ne i32 %5, 0
+  %86 = icmp ugt i32 %74, %5
+  %87 = select i1 %85, i1 %86, i1 false
+  br i1 %87, label %88, label %.thread12
 
-90:                                               ; preds = %86
-  %91 = load i32, ptr %3, align 8
-  %92 = sub nuw i32 %76, %5
-  %93 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %0, i32 noundef %91, i32 noundef %92, i32 noundef %76) #9
+88:                                               ; preds = %84
+  %89 = load i32, ptr %3, align 8
+  %90 = sub nuw i32 %74, %5
+  %91 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %0, i32 noundef %89, i32 noundef %90, i32 noundef %74) #9
   br label %.thread12
 
-.thread12:                                        ; preds = %60, %68, %20, %90, %86, %79
-  %94 = phi i32 [ -22, %79 ], [ %76, %90 ], [ %76, %86 ], [ 0, %20 ], [ -22, %68 ], [ -22, %60 ]
-  ret i32 %94
+.thread12:                                        ; preds = %58, %66, %18, %88, %84, %77
+  %92 = phi i32 [ -22, %77 ], [ %74, %88 ], [ %74, %84 ], [ 0, %18 ], [ -22, %66 ], [ -22, %58 ]
+  ret i32 %92
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -5698,8 +5698,8 @@ declare void @select_best_grantor(i32 noundef, i64 noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i64 0, 4294967296) i64 @restrict_and_check_grant(i1 noundef zeroext %0, i64 noundef %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i16 noundef signext %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca i8, align 1
-  switch i32 %6, label %27 [
-    i32 6, label %30
+  switch i32 %6, label %24 [
+    i32 6, label %27
     i32 41, label %12
     i32 37, label %13
     i32 9, label %14
@@ -5708,354 +5708,345 @@ define internal fastcc range(i64 0, 4294967296) i64 @restrict_and_check_grant(i1
     i32 22, label %17
     i32 36, label %18
     i32 42, label %19
-    i32 16, label %20
-    i32 17, label %21
-    i32 14, label %22
-    i32 49, label %25
-    i32 27, label %26
+    i32 16, label %16
+    i32 17, label %16
+    i32 14, label %20
+    i32 49, label %16
+    i32 27, label %23
   ]
 
 12:                                               ; preds = %10
-  br label %30
+  br label %27
 
 13:                                               ; preds = %10
-  br label %30
+  br label %27
 
 14:                                               ; preds = %10
-  br label %30
+  br label %27
 
 15:                                               ; preds = %10
-  br label %30
+  br label %27
 
-16:                                               ; preds = %10
-  br label %30
+16:                                               ; preds = %10, %10, %10, %10
+  br label %27
 
 17:                                               ; preds = %10
-  br label %30
+  br label %27
 
 18:                                               ; preds = %10
-  br label %30
+  br label %27
 
 19:                                               ; preds = %10
-  br label %30
+  br label %27
 
 20:                                               ; preds = %10
-  br label %30
-
-21:                                               ; preds = %10
-  br label %30
-
-22:                                               ; preds = %10
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.114) #8
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.114) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__func__.restrict_and_check_grant) #8
   unreachable
 
-25:                                               ; preds = %10
-  br label %30
+23:                                               ; preds = %10
+  br label %27
 
-26:                                               ; preds = %10
-  br label %30
-
-27:                                               ; preds = %10
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.115, i32 noundef %6) #8
+24:                                               ; preds = %10
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %25)
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.115, i32 noundef %6) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__func__.restrict_and_check_grant) #8
   unreachable
 
-30:                                               ; preds = %10, %26, %25, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
-  %.0 = phi i64 [ 52776558145536, %26 ], [ 1099511628032, %25 ], [ 1099511628032, %21 ], [ 1099511628032, %20 ], [ 2199023256064, %19 ], [ 3298534884096, %18 ], [ 25769803782, %17 ], [ 1099511628032, %16 ], [ 549755814016, %15 ], [ 15393162792448, %14 ], [ 1125281431814, %13 ], [ 545460846719, %12 ], [ 167503724583, %10 ]
-  %31 = icmp eq i64 %1, 0
-  br i1 %31, label %32, label %97
+27:                                               ; preds = %10, %23, %19, %18, %17, %16, %15, %14, %13, %12
+  %.0 = phi i64 [ 52776558145536, %23 ], [ 2199023256064, %19 ], [ 3298534884096, %18 ], [ 25769803782, %17 ], [ 1099511628032, %16 ], [ 549755814016, %15 ], [ 15393162792448, %14 ], [ 1125281431814, %13 ], [ 545460846719, %12 ], [ 167503724583, %10 ]
+  %28 = icmp eq i64 %1, 0
+  br i1 %28, label %29, label %94
 
-32:                                               ; preds = %30
-  switch i32 %6, label %85 [
-    i32 6, label %33
-    i32 41, label %37
-    i32 37, label %37
-    i32 9, label %39
-    i32 19, label %41
-    i32 21, label %43
-    i32 22, label %45
-    i32 27, label %47
-    i32 36, label %69
-    i32 39, label %71
-    i32 42, label %74
-    i32 16, label %76
-    i32 17, label %78
-    i32 14, label %80
-    i32 49, label %83
+29:                                               ; preds = %27
+  switch i32 %6, label %82 [
+    i32 6, label %30
+    i32 41, label %34
+    i32 37, label %34
+    i32 9, label %36
+    i32 19, label %38
+    i32 21, label %40
+    i32 22, label %42
+    i32 27, label %44
+    i32 36, label %66
+    i32 39, label %68
+    i32 42, label %71
+    i32 16, label %73
+    i32 17, label %75
+    i32 14, label %77
+    i32 49, label %80
   ]
 
-33:                                               ; preds = %32
-  %34 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, i32 noundef 1, ptr noundef null)
-  %35 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %4, i16 noundef signext %8, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
-  %36 = or i64 %35, %34
+30:                                               ; preds = %29
+  %31 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, i32 noundef 1, ptr noundef null)
+  %32 = tail call fastcc i64 @pg_attribute_aclmask_ext(i32 noundef %4, i16 noundef signext %8, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+  %33 = or i64 %32, %31
   br label %pg_aclmask.exit
 
-37:                                               ; preds = %32, %32
-  %38 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, i32 noundef 1, ptr noundef null)
+34:                                               ; preds = %29, %29
+  %35 = tail call fastcc i64 @pg_class_aclmask_ext(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, i32 noundef 1, ptr noundef null)
   br label %pg_aclmask.exit
 
-39:                                               ; preds = %32
-  %40 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1262, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+36:                                               ; preds = %29
+  %37 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1262, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
-41:                                               ; preds = %32
-  %42 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1255, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+38:                                               ; preds = %29
+  %39 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1255, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
-43:                                               ; preds = %32
-  %44 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2612, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+40:                                               ; preds = %29
+  %41 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2612, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
-45:                                               ; preds = %32
-  %46 = tail call fastcc i64 @pg_largeobject_aclmask_snapshot(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+42:                                               ; preds = %29
+  %43 = tail call fastcc i64 @pg_largeobject_aclmask_snapshot(i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
-47:                                               ; preds = %32
+44:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  %48 = tail call zeroext i1 @superuser_arg(i32 noundef %5) #8
-  br i1 %48, label %pg_parameter_acl_aclmask.exit.i, label %49
+  %45 = tail call zeroext i1 @superuser_arg(i32 noundef %5) #8
+  br i1 %45, label %pg_parameter_acl_aclmask.exit.i, label %46
 
-49:                                               ; preds = %47
-  %50 = zext i32 %4 to i64
-  %51 = tail call ptr @SearchSysCache1(i32 noundef 42, i64 noundef %50) #8
-  %.not.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i, label %52, label %56
+46:                                               ; preds = %44
+  %47 = zext i32 %4 to i64
+  %48 = tail call ptr @SearchSysCache1(i32 noundef 42, i64 noundef %47) #8
+  %.not.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i, label %49, label %53
 
-52:                                               ; preds = %49
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.125, i32 noundef %4) #8
+49:                                               ; preds = %46
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %50)
+  %51 = tail call i32 @errcode(i32 noundef 67137668) #8
+  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.125, i32 noundef %4) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3536, ptr noundef nonnull @__func__.pg_parameter_acl_aclmask) #8
   unreachable
 
-56:                                               ; preds = %49
-  %57 = call i64 @SysCacheGetAttr(i32 noundef 42, ptr noundef nonnull %51, i16 noundef signext 3, ptr noundef nonnull %11) #8
-  %58 = load i8, ptr %11, align 1
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %60, label %62
+53:                                               ; preds = %46
+  %54 = call i64 @SysCacheGetAttr(i32 noundef 42, ptr noundef nonnull %48, i16 noundef signext 3, ptr noundef nonnull %11) #8
+  %55 = load i8, ptr %11, align 1
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %59
 
-60:                                               ; preds = %56
-  %61 = call ptr @acldefault(i32 noundef 27, i32 noundef 10) #8
-  br label %65
+57:                                               ; preds = %53
+  %58 = call ptr @acldefault(i32 noundef 27, i32 noundef 10) #8
+  br label %62
 
-62:                                               ; preds = %56
-  %63 = inttoptr i64 %57 to ptr
-  %64 = call ptr @pg_detoast_datum(ptr noundef %63) #8
-  br label %65
+59:                                               ; preds = %53
+  %60 = inttoptr i64 %54 to ptr
+  %61 = call ptr @pg_detoast_datum(ptr noundef %60) #8
+  br label %62
 
-65:                                               ; preds = %62, %60
-  %.017.i.i = phi ptr [ null, %60 ], [ %63, %62 ]
-  %.0.i.i = phi ptr [ %61, %60 ], [ %64, %62 ]
-  %66 = call i64 @aclmask(ptr noundef %.0.i.i, i32 noundef %5, i32 noundef 10, i64 noundef range(i64 6, 70368744177664) %.0, i32 noundef 1) #8
+62:                                               ; preds = %59, %57
+  %.017.i.i = phi ptr [ null, %57 ], [ %60, %59 ]
+  %.0.i.i = phi ptr [ %58, %57 ], [ %61, %59 ]
+  %63 = call i64 @aclmask(ptr noundef %.0.i.i, i32 noundef %5, i32 noundef 10, i64 noundef range(i64 6, 70368744177664) %.0, i32 noundef 1) #8
   %.not20.i.i = icmp eq ptr %.0.i.i, null
   %.not21.i.i = icmp eq ptr %.0.i.i, %.017.i.i
   %or.cond.i.i = or i1 %.not20.i.i, %.not21.i.i
-  br i1 %or.cond.i.i, label %68, label %67
+  br i1 %or.cond.i.i, label %65, label %64
 
-67:                                               ; preds = %65
+64:                                               ; preds = %62
   call void @pfree(ptr noundef nonnull %.0.i.i) #8
-  br label %68
+  br label %65
 
-68:                                               ; preds = %67, %65
-  call void @ReleaseSysCache(ptr noundef nonnull %51) #8
+65:                                               ; preds = %64, %62
+  call void @ReleaseSysCache(ptr noundef nonnull %48) #8
   br label %pg_parameter_acl_aclmask.exit.i
 
-pg_parameter_acl_aclmask.exit.i:                  ; preds = %68, %47
-  %.018.i.i = phi i64 [ %66, %68 ], [ %.0, %47 ]
+pg_parameter_acl_aclmask.exit.i:                  ; preds = %65, %44
+  %.018.i.i = phi i64 [ %63, %65 ], [ %.0, %44 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   br label %pg_aclmask.exit
 
-69:                                               ; preds = %32
-  %70 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2615, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+66:                                               ; preds = %29
+  %67 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2615, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
-71:                                               ; preds = %32
-  %72 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %72)
-  %73 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.124) #8
+68:                                               ; preds = %29
+  %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %69)
+  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.124) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3058, ptr noundef nonnull @__func__.pg_aclmask) #8
   unreachable
 
-74:                                               ; preds = %32
-  %75 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1213, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+71:                                               ; preds = %29
+  %72 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1213, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
-76:                                               ; preds = %32
-  %77 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2328, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+73:                                               ; preds = %29
+  %74 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 2328, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
-78:                                               ; preds = %32
-  %79 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1417, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+75:                                               ; preds = %29
+  %76 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1417, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
-80:                                               ; preds = %32
-  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %81)
-  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.114) #8
+77:                                               ; preds = %29
+  %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %78)
+  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.114) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3068, ptr noundef nonnull @__func__.pg_aclmask) #8
   unreachable
 
-83:                                               ; preds = %32
-  %84 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1247, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
+80:                                               ; preds = %29
+  %81 = tail call fastcc i64 @object_aclmask_ext(i32 noundef 1247, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 6, 70368744177664) %.0, ptr noundef null)
   br label %pg_aclmask.exit
 
-85:                                               ; preds = %32
-  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %86)
-  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.115, i32 noundef %6) #8
+82:                                               ; preds = %29
+  %83 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %83)
+  %84 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.115, i32 noundef %6) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3075, ptr noundef nonnull @__func__.pg_aclmask) #8
   unreachable
 
-pg_aclmask.exit:                                  ; preds = %33, %37, %39, %41, %43, %45, %pg_parameter_acl_aclmask.exit.i, %69, %74, %76, %78, %83
-  %.0.i = phi i64 [ %84, %83 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %70, %69 ], [ %.018.i.i, %pg_parameter_acl_aclmask.exit.i ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %33 ]
-  %88 = icmp eq i64 %.0.i, 0
-  br i1 %88, label %89, label %97
+pg_aclmask.exit:                                  ; preds = %30, %34, %36, %38, %40, %42, %pg_parameter_acl_aclmask.exit.i, %66, %71, %73, %75, %80
+  %.0.i = phi i64 [ %81, %80 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %67, %66 ], [ %.018.i.i, %pg_parameter_acl_aclmask.exit.i ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %30 ]
+  %85 = icmp eq i64 %.0.i, 0
+  br i1 %85, label %86, label %94
 
-89:                                               ; preds = %pg_aclmask.exit
-  %90 = icmp eq i32 %6, 6
-  %91 = icmp ne ptr %9, null
-  %or.cond = and i1 %90, %91
-  br i1 %or.cond, label %92, label %96
+86:                                               ; preds = %pg_aclmask.exit
+  %87 = icmp eq i32 %6, 6
+  %88 = icmp ne ptr %9, null
+  %or.cond = and i1 %87, %88
+  br i1 %or.cond, label %89, label %93
 
-92:                                               ; preds = %89
-  %93 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %93)
-  %94 = call i32 @errcode(i32 noundef 16797828) #8
-  %95 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.99, ptr noundef nonnull %9, ptr noundef %7) #8
+89:                                               ; preds = %86
+  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %90)
+  %91 = call i32 @errcode(i32 noundef 16797828) #8
+  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.99, ptr noundef nonnull %9, ptr noundef %7) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3002, ptr noundef nonnull @__func__.aclcheck_error_col) #8
   unreachable
 
-96:                                               ; preds = %89
+93:                                               ; preds = %86
   call void @aclcheck_error(i32 noundef 1, i32 noundef %6, ptr noundef %7)
-  br label %97
+  br label %94
 
-97:                                               ; preds = %pg_aclmask.exit, %96, %30
-  %98 = lshr i64 %1, 32
-  %99 = and i64 %3, %98
-  %100 = icmp eq i64 %99, 0
-  br i1 %0, label %101, label %127
+94:                                               ; preds = %pg_aclmask.exit, %93, %27
+  %95 = lshr i64 %1, 32
+  %96 = and i64 %3, %95
+  %97 = icmp eq i64 %96, 0
+  br i1 %0, label %98, label %124
 
-101:                                              ; preds = %97
-  br i1 %100, label %102, label %114
+98:                                               ; preds = %94
+  br i1 %97, label %99, label %111
 
-102:                                              ; preds = %101
-  %103 = icmp eq i32 %6, 6
-  %104 = icmp ne ptr %9, null
-  %or.cond3 = and i1 %103, %104
-  %105 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
-  br i1 %or.cond3, label %106, label %110
+99:                                               ; preds = %98
+  %100 = icmp eq i32 %6, 6
+  %101 = icmp ne ptr %9, null
+  %or.cond3 = and i1 %100, %101
+  %102 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  br i1 %or.cond3, label %103, label %107
 
-106:                                              ; preds = %102
-  br i1 %105, label %107, label %153
+103:                                              ; preds = %99
+  br i1 %102, label %104, label %150
 
-107:                                              ; preds = %106
-  %108 = call i32 @errcode(i32 noundef 117440576) #8
-  %109 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.116, ptr noundef nonnull %9, ptr noundef %7) #8
+104:                                              ; preds = %103
+  %105 = call i32 @errcode(i32 noundef 117440576) #8
+  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.116, ptr noundef nonnull %9, ptr noundef %7) #8
   br label %.sink.split
 
-110:                                              ; preds = %102
-  br i1 %105, label %111, label %153
+107:                                              ; preds = %99
+  br i1 %102, label %108, label %150
 
-111:                                              ; preds = %110
-  %112 = call i32 @errcode(i32 noundef 117440576) #8
-  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.117, ptr noundef %7) #8
+108:                                              ; preds = %107
+  %109 = call i32 @errcode(i32 noundef 117440576) #8
+  %110 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.117, ptr noundef %7) #8
   br label %.sink.split
 
-114:                                              ; preds = %101
-  %.not61 = icmp eq i64 %99, %3
+111:                                              ; preds = %98
+  %.not61 = icmp eq i64 %96, %3
   %or.cond62 = or i1 %2, %.not61
-  br i1 %or.cond62, label %153, label %115
+  br i1 %or.cond62, label %150, label %112
 
-115:                                              ; preds = %114
-  %116 = icmp eq i32 %6, 6
-  %117 = icmp ne ptr %9, null
-  %or.cond5 = and i1 %116, %117
-  %118 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
-  br i1 %or.cond5, label %119, label %123
+112:                                              ; preds = %111
+  %113 = icmp eq i32 %6, 6
+  %114 = icmp ne ptr %9, null
+  %or.cond5 = and i1 %113, %114
+  %115 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  br i1 %or.cond5, label %116, label %120
 
-119:                                              ; preds = %115
-  br i1 %118, label %120, label %153
+116:                                              ; preds = %112
+  br i1 %115, label %117, label %150
 
-120:                                              ; preds = %119
-  %121 = call i32 @errcode(i32 noundef 117440576) #8
-  %122 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef nonnull %9, ptr noundef %7) #8
+117:                                              ; preds = %116
+  %118 = call i32 @errcode(i32 noundef 117440576) #8
+  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef nonnull %9, ptr noundef %7) #8
   br label %.sink.split
 
-123:                                              ; preds = %115
-  br i1 %118, label %124, label %153
+120:                                              ; preds = %112
+  br i1 %115, label %121, label %150
 
-124:                                              ; preds = %123
-  %125 = call i32 @errcode(i32 noundef 117440576) #8
-  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.119, ptr noundef %7) #8
+121:                                              ; preds = %120
+  %122 = call i32 @errcode(i32 noundef 117440576) #8
+  %123 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.119, ptr noundef %7) #8
   br label %.sink.split
 
-127:                                              ; preds = %97
-  br i1 %100, label %128, label %140
+124:                                              ; preds = %94
+  br i1 %97, label %125, label %137
 
-128:                                              ; preds = %127
-  %129 = icmp eq i32 %6, 6
-  %130 = icmp ne ptr %9, null
-  %or.cond7 = and i1 %129, %130
-  %131 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
-  br i1 %or.cond7, label %132, label %136
+125:                                              ; preds = %124
+  %126 = icmp eq i32 %6, 6
+  %127 = icmp ne ptr %9, null
+  %or.cond7 = and i1 %126, %127
+  %128 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  br i1 %or.cond7, label %129, label %133
 
-132:                                              ; preds = %128
-  br i1 %131, label %133, label %153
+129:                                              ; preds = %125
+  br i1 %128, label %130, label %150
 
-133:                                              ; preds = %132
-  %134 = call i32 @errcode(i32 noundef 100663360) #8
-  %135 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120, ptr noundef nonnull %9, ptr noundef %7) #8
+130:                                              ; preds = %129
+  %131 = call i32 @errcode(i32 noundef 100663360) #8
+  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120, ptr noundef nonnull %9, ptr noundef %7) #8
   br label %.sink.split
 
-136:                                              ; preds = %128
-  br i1 %131, label %137, label %153
+133:                                              ; preds = %125
+  br i1 %128, label %134, label %150
 
-137:                                              ; preds = %136
-  %138 = call i32 @errcode(i32 noundef 100663360) #8
-  %139 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.121, ptr noundef %7) #8
+134:                                              ; preds = %133
+  %135 = call i32 @errcode(i32 noundef 100663360) #8
+  %136 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.121, ptr noundef %7) #8
   br label %.sink.split
 
-140:                                              ; preds = %127
-  %.not = icmp eq i64 %99, %3
+137:                                              ; preds = %124
+  %.not = icmp eq i64 %96, %3
   %or.cond63 = or i1 %2, %.not
-  br i1 %or.cond63, label %153, label %141
+  br i1 %or.cond63, label %150, label %138
 
-141:                                              ; preds = %140
-  %142 = icmp eq i32 %6, 6
-  %143 = icmp ne ptr %9, null
-  %or.cond9 = and i1 %142, %143
-  %144 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
-  br i1 %or.cond9, label %145, label %149
+138:                                              ; preds = %137
+  %139 = icmp eq i32 %6, 6
+  %140 = icmp ne ptr %9, null
+  %or.cond9 = and i1 %139, %140
+  %141 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  br i1 %or.cond9, label %142, label %146
 
-145:                                              ; preds = %141
-  br i1 %144, label %146, label %153
+142:                                              ; preds = %138
+  br i1 %141, label %143, label %150
 
-146:                                              ; preds = %145
-  %147 = call i32 @errcode(i32 noundef 100663360) #8
-  %148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.122, ptr noundef nonnull %9, ptr noundef %7) #8
+143:                                              ; preds = %142
+  %144 = call i32 @errcode(i32 noundef 100663360) #8
+  %145 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.122, ptr noundef nonnull %9, ptr noundef %7) #8
   br label %.sink.split
 
-149:                                              ; preds = %141
-  br i1 %144, label %150, label %153
+146:                                              ; preds = %138
+  br i1 %141, label %147, label %150
 
-150:                                              ; preds = %149
-  %151 = call i32 @errcode(i32 noundef 100663360) #8
-  %152 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.123, ptr noundef %7) #8
+147:                                              ; preds = %146
+  %148 = call i32 @errcode(i32 noundef 100663360) #8
+  %149 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.123, ptr noundef %7) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %124, %120, %107, %111, %150, %146, %133, %137
-  %.sink = phi i32 [ 384, %137 ], [ 379, %133 ], [ 392, %146 ], [ 397, %150 ], [ 355, %111 ], [ 350, %107 ], [ 363, %120 ], [ 368, %124 ]
+.sink.split:                                      ; preds = %121, %117, %104, %108, %147, %143, %130, %134
+  %.sink = phi i32 [ 384, %134 ], [ 379, %130 ], [ 392, %143 ], [ 397, %147 ], [ 355, %108 ], [ 350, %104 ], [ 363, %117 ], [ 368, %121 ]
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.restrict_and_check_grant) #8
-  br label %153
+  br label %150
 
-153:                                              ; preds = %.sink.split, %136, %132, %145, %149, %140, %110, %106, %119, %123, %114
-  ret i64 %99
+150:                                              ; preds = %.sink.split, %133, %129, %142, %146, %137, %107, %103, %116, %120, %111
+  ret i64 %96
 }
 
 ; Function Attrs: nounwind uwtable

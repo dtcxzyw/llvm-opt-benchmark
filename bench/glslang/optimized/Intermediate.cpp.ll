@@ -9389,12 +9389,14 @@ define internal fastcc noundef zeroext i1 @_ZN7glslangL42canSignedIntTypeReprese
   br i1 %4, label %switch.lookup, label %9
 
 5:                                                ; preds = %2
-  %6 = icmp ult i32 %1, 10
-  br i1 %6, label %switch.lookup5, label %9
+  %6 = add i32 %1, -5
+  %switch.and5 = and i32 %6, -3
+  %switch.selectcmp6 = icmp eq i32 %switch.and5, 0
+  br label %9
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %1, 12
-  br i1 %8, label %switch.lookup10, label %9
+  %8 = icmp ult i32 %1, 10
+  br i1 %8, label %switch.lookup7, label %9
 
 switch.lookup:                                    ; preds = %3
   %switch.cast = trunc nuw i32 %1 to i12
@@ -9402,20 +9404,14 @@ switch.lookup:                                    ; preds = %3
   %switch.masked = trunc i12 %switch.downshift to i1
   br label %9
 
-switch.lookup5:                                   ; preds = %5
-  %switch.cast6 = trunc nuw i32 %1 to i10
-  %switch.downshift8 = lshr i10 160, %switch.cast6
-  %switch.masked9 = trunc i10 %switch.downshift8 to i1
+switch.lookup7:                                   ; preds = %7
+  %switch.cast8 = trunc nuw i32 %1 to i10
+  %switch.downshift10 = lshr i10 -352, %switch.cast8
+  %switch.masked11 = trunc i10 %switch.downshift10 to i1
   br label %9
 
-switch.lookup10:                                  ; preds = %7
-  %switch.cast11 = trunc nuw i32 %1 to i12
-  %switch.downshift13 = lshr i12 672, %switch.cast11
-  %switch.masked14 = trunc i12 %switch.downshift13 to i1
-  br label %9
-
-9:                                                ; preds = %7, %switch.lookup10, %5, %switch.lookup5, %3, %switch.lookup, %2
-  %.0 = phi i1 [ false, %2 ], [ %switch.masked, %switch.lookup ], [ false, %3 ], [ %switch.masked9, %switch.lookup5 ], [ false, %5 ], [ %switch.masked14, %switch.lookup10 ], [ false, %7 ]
+9:                                                ; preds = %7, %switch.lookup7, %3, %switch.lookup, %2, %5
+  %.0 = phi i1 [ %switch.selectcmp6, %5 ], [ false, %2 ], [ %switch.masked, %switch.lookup ], [ false, %3 ], [ %switch.masked11, %switch.lookup7 ], [ false, %7 ]
   ret i1 %.0
 }
 

@@ -94,14 +94,14 @@ entry:
   switch i8 %0, label %if.end62 [
     i8 77, label %return
     i8 78, label %return.fold.split
-    i8 79, label %return.fold.split50
+    i8 79, label %return.fold.split
     i8 80, label %if.then18
     i8 81, label %return.fold.split51
-    i8 82, label %return.fold.split52
-    i8 83, label %return.fold.split53
-    i8 84, label %return.fold.split54
-    i8 85, label %return.fold.split55
-    i8 86, label %return.fold.split56
+    i8 82, label %return.fold.split51
+    i8 83, label %return.fold.split51
+    i8 84, label %return.fold.split51
+    i8 85, label %return.fold.split51
+    i8 86, label %return.fold.split51
     i8 87, label %if.then60
   ]
 
@@ -124,32 +124,14 @@ if.end62:                                         ; preds = %entry
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i48)
   br label %return
 
-return.fold.split:                                ; preds = %entry
+return.fold.split:                                ; preds = %entry, %entry
   br label %return
 
-return.fold.split50:                              ; preds = %entry
+return.fold.split51:                              ; preds = %entry, %entry, %entry, %entry, %entry, %entry
   br label %return
 
-return.fold.split51:                              ; preds = %entry
-  br label %return
-
-return.fold.split52:                              ; preds = %entry
-  br label %return
-
-return.fold.split53:                              ; preds = %entry
-  br label %return
-
-return.fold.split54:                              ; preds = %entry
-  br label %return
-
-return.fold.split55:                              ; preds = %entry
-  br label %return
-
-return.fold.split56:                              ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %entry, %return.fold.split56, %return.fold.split55, %return.fold.split54, %return.fold.split53, %return.fold.split52, %return.fold.split51, %return.fold.split50, %return.fold.split, %if.end62, %if.then60, %if.then18
-  %retval.0 = phi i32 [ %add.i, %if.then18 ], [ %add.i46, %if.then60 ], [ 1, %if.end62 ], [ 1, %entry ], [ 0, %return.fold.split ], [ 0, %return.fold.split50 ], [ 2, %return.fold.split51 ], [ 2, %return.fold.split52 ], [ 2, %return.fold.split53 ], [ 2, %return.fold.split54 ], [ 2, %return.fold.split55 ], [ 2, %return.fold.split56 ]
+return:                                           ; preds = %entry, %return.fold.split51, %return.fold.split, %if.end62, %if.then60, %if.then18
+  %retval.0 = phi i32 [ %add.i, %if.then18 ], [ %add.i46, %if.then60 ], [ 1, %if.end62 ], [ 1, %entry ], [ 0, %return.fold.split ], [ 2, %return.fold.split51 ]
   ret i32 %retval.0
 }
 

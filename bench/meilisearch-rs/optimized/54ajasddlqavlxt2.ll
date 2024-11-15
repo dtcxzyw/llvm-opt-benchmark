@@ -917,11 +917,11 @@ define hidden void @"_ZN3fst3raw24StreamWithState$LT$A$GT$3new17hbf9bd9af3ff6551
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
   %29 = load i64, ptr %16, align 8, !range !22, !alias.scope !113, !noalias !110, !noundef !4
-  %switch29.i = icmp samesign ugt i64 %29, 1
+  %switch.i = icmp samesign ugt i64 %29, 1
   %.sroa.0.0.in.in.in.i = getelementptr inbounds i8, ptr %16, i64 24
   %.sroa.0.0.in.in.i = load i64, ptr %.sroa.0.0.in.in.in.i, align 8, !alias.scope !113, !noalias !110
   %.sroa.0.0.in.i = icmp eq i64 %.sroa.0.0.in.in.i, 0
-  %or.cond.i = select i1 %switch29.i, i1 true, i1 %.sroa.0.0.in.i
+  %or.cond.i = select i1 %switch.i, i1 true, i1 %.sroa.0.0.in.i
   br i1 %or.cond.i, label %40, label %30
 
 30:                                               ; preds = %23

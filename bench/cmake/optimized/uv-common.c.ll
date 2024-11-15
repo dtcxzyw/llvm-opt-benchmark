@@ -1647,340 +1647,334 @@ define dso_local noundef ptr @uv_strerror_r(i32 noundef %0, ptr noundef returned
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @uv_strerror(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %83 [
-    i32 -7, label %85
+  switch i32 %0, label %81 [
+    i32 -7, label %83
     i32 -13, label %2
     i32 -98, label %3
     i32 -99, label %4
     i32 -97, label %5
     i32 -11, label %6
-    i32 -3000, label %7
-    i32 -3001, label %8
-    i32 -3002, label %9
-    i32 -3013, label %10
-    i32 -3003, label %11
-    i32 -3004, label %12
-    i32 -3005, label %13
-    i32 -3006, label %14
-    i32 -3007, label %15
-    i32 -3008, label %16
-    i32 -3009, label %17
-    i32 -3014, label %18
-    i32 -3010, label %19
-    i32 -3011, label %20
-    i32 -114, label %21
-    i32 -9, label %22
-    i32 -16, label %23
-    i32 -125, label %24
-    i32 -4080, label %25
-    i32 -103, label %26
-    i32 -111, label %27
-    i32 -104, label %28
-    i32 -89, label %29
-    i32 -17, label %30
-    i32 -14, label %31
-    i32 -27, label %32
-    i32 -113, label %33
-    i32 -4, label %34
-    i32 -22, label %35
-    i32 -5, label %36
-    i32 -106, label %37
-    i32 -21, label %38
-    i32 -40, label %39
-    i32 -24, label %40
-    i32 -90, label %41
-    i32 -36, label %42
-    i32 -100, label %43
-    i32 -101, label %44
-    i32 -23, label %45
-    i32 -105, label %46
-    i32 -19, label %47
-    i32 -2, label %48
-    i32 -12, label %49
-    i32 -64, label %50
-    i32 -92, label %51
-    i32 -28, label %52
-    i32 -38, label %53
-    i32 -107, label %54
-    i32 -20, label %55
-    i32 -39, label %56
-    i32 -88, label %57
-    i32 -95, label %58
-    i32 -75, label %59
-    i32 -1, label %60
-    i32 -32, label %61
-    i32 -71, label %62
-    i32 -93, label %63
-    i32 -91, label %64
-    i32 -34, label %65
-    i32 -30, label %66
-    i32 -108, label %67
-    i32 -29, label %68
-    i32 -3, label %69
-    i32 -110, label %70
-    i32 -26, label %71
-    i32 -18, label %72
-    i32 -4094, label %73
-    i32 -4095, label %74
-    i32 -6, label %75
-    i32 -31, label %76
-    i32 -112, label %77
-    i32 -121, label %78
-    i32 -25, label %79
-    i32 -4028, label %80
-    i32 -84, label %81
-    i32 -94, label %82
+    i32 -3000, label %5
+    i32 -3001, label %7
+    i32 -3002, label %8
+    i32 -3013, label %9
+    i32 -3003, label %10
+    i32 -3004, label %11
+    i32 -3005, label %12
+    i32 -3006, label %13
+    i32 -3007, label %14
+    i32 -3008, label %15
+    i32 -3009, label %16
+    i32 -3014, label %17
+    i32 -3010, label %18
+    i32 -3011, label %19
+    i32 -114, label %20
+    i32 -9, label %21
+    i32 -16, label %22
+    i32 -125, label %23
+    i32 -4080, label %24
+    i32 -103, label %25
+    i32 -111, label %26
+    i32 -104, label %27
+    i32 -89, label %28
+    i32 -17, label %29
+    i32 -14, label %30
+    i32 -27, label %31
+    i32 -113, label %32
+    i32 -4, label %33
+    i32 -22, label %34
+    i32 -5, label %35
+    i32 -106, label %36
+    i32 -21, label %37
+    i32 -40, label %38
+    i32 -24, label %39
+    i32 -90, label %40
+    i32 -36, label %41
+    i32 -100, label %42
+    i32 -101, label %43
+    i32 -23, label %44
+    i32 -105, label %45
+    i32 -19, label %46
+    i32 -2, label %47
+    i32 -12, label %48
+    i32 -64, label %49
+    i32 -92, label %50
+    i32 -28, label %51
+    i32 -38, label %52
+    i32 -107, label %53
+    i32 -20, label %54
+    i32 -39, label %55
+    i32 -88, label %56
+    i32 -95, label %57
+    i32 -75, label %58
+    i32 -1, label %59
+    i32 -32, label %60
+    i32 -71, label %61
+    i32 -93, label %62
+    i32 -91, label %63
+    i32 -34, label %64
+    i32 -30, label %65
+    i32 -108, label %66
+    i32 -29, label %67
+    i32 -3, label %68
+    i32 -110, label %69
+    i32 -26, label %70
+    i32 -18, label %71
+    i32 -4094, label %72
+    i32 -4095, label %73
+    i32 -6, label %74
+    i32 -31, label %75
+    i32 -112, label %76
+    i32 -121, label %77
+    i32 -25, label %78
+    i32 -4028, label %79
+    i32 -84, label %80
+    i32 -94, label %19
   ]
 
 2:                                                ; preds = %1
-  br label %85
+  br label %83
 
 3:                                                ; preds = %1
-  br label %85
+  br label %83
 
 4:                                                ; preds = %1
-  br label %85
+  br label %83
 
-5:                                                ; preds = %1
-  br label %85
+5:                                                ; preds = %1, %1
+  br label %83
 
 6:                                                ; preds = %1
-  br label %85
+  br label %83
 
 7:                                                ; preds = %1
-  br label %85
+  br label %83
 
 8:                                                ; preds = %1
-  br label %85
+  br label %83
 
 9:                                                ; preds = %1
-  br label %85
+  br label %83
 
 10:                                               ; preds = %1
-  br label %85
+  br label %83
 
 11:                                               ; preds = %1
-  br label %85
+  br label %83
 
 12:                                               ; preds = %1
-  br label %85
+  br label %83
 
 13:                                               ; preds = %1
-  br label %85
+  br label %83
 
 14:                                               ; preds = %1
-  br label %85
+  br label %83
 
 15:                                               ; preds = %1
-  br label %85
+  br label %83
 
 16:                                               ; preds = %1
-  br label %85
+  br label %83
 
 17:                                               ; preds = %1
-  br label %85
+  br label %83
 
 18:                                               ; preds = %1
-  br label %85
+  br label %83
 
-19:                                               ; preds = %1
-  br label %85
+19:                                               ; preds = %1, %1
+  br label %83
 
 20:                                               ; preds = %1
-  br label %85
+  br label %83
 
 21:                                               ; preds = %1
-  br label %85
+  br label %83
 
 22:                                               ; preds = %1
-  br label %85
+  br label %83
 
 23:                                               ; preds = %1
-  br label %85
+  br label %83
 
 24:                                               ; preds = %1
-  br label %85
+  br label %83
 
 25:                                               ; preds = %1
-  br label %85
+  br label %83
 
 26:                                               ; preds = %1
-  br label %85
+  br label %83
 
 27:                                               ; preds = %1
-  br label %85
+  br label %83
 
 28:                                               ; preds = %1
-  br label %85
+  br label %83
 
 29:                                               ; preds = %1
-  br label %85
+  br label %83
 
 30:                                               ; preds = %1
-  br label %85
+  br label %83
 
 31:                                               ; preds = %1
-  br label %85
+  br label %83
 
 32:                                               ; preds = %1
-  br label %85
+  br label %83
 
 33:                                               ; preds = %1
-  br label %85
+  br label %83
 
 34:                                               ; preds = %1
-  br label %85
+  br label %83
 
 35:                                               ; preds = %1
-  br label %85
+  br label %83
 
 36:                                               ; preds = %1
-  br label %85
+  br label %83
 
 37:                                               ; preds = %1
-  br label %85
+  br label %83
 
 38:                                               ; preds = %1
-  br label %85
+  br label %83
 
 39:                                               ; preds = %1
-  br label %85
+  br label %83
 
 40:                                               ; preds = %1
-  br label %85
+  br label %83
 
 41:                                               ; preds = %1
-  br label %85
+  br label %83
 
 42:                                               ; preds = %1
-  br label %85
+  br label %83
 
 43:                                               ; preds = %1
-  br label %85
+  br label %83
 
 44:                                               ; preds = %1
-  br label %85
+  br label %83
 
 45:                                               ; preds = %1
-  br label %85
+  br label %83
 
 46:                                               ; preds = %1
-  br label %85
+  br label %83
 
 47:                                               ; preds = %1
-  br label %85
+  br label %83
 
 48:                                               ; preds = %1
-  br label %85
+  br label %83
 
 49:                                               ; preds = %1
-  br label %85
+  br label %83
 
 50:                                               ; preds = %1
-  br label %85
+  br label %83
 
 51:                                               ; preds = %1
-  br label %85
+  br label %83
 
 52:                                               ; preds = %1
-  br label %85
+  br label %83
 
 53:                                               ; preds = %1
-  br label %85
+  br label %83
 
 54:                                               ; preds = %1
-  br label %85
+  br label %83
 
 55:                                               ; preds = %1
-  br label %85
+  br label %83
 
 56:                                               ; preds = %1
-  br label %85
+  br label %83
 
 57:                                               ; preds = %1
-  br label %85
+  br label %83
 
 58:                                               ; preds = %1
-  br label %85
+  br label %83
 
 59:                                               ; preds = %1
-  br label %85
+  br label %83
 
 60:                                               ; preds = %1
-  br label %85
+  br label %83
 
 61:                                               ; preds = %1
-  br label %85
+  br label %83
 
 62:                                               ; preds = %1
-  br label %85
+  br label %83
 
 63:                                               ; preds = %1
-  br label %85
+  br label %83
 
 64:                                               ; preds = %1
-  br label %85
+  br label %83
 
 65:                                               ; preds = %1
-  br label %85
+  br label %83
 
 66:                                               ; preds = %1
-  br label %85
+  br label %83
 
 67:                                               ; preds = %1
-  br label %85
+  br label %83
 
 68:                                               ; preds = %1
-  br label %85
+  br label %83
 
 69:                                               ; preds = %1
-  br label %85
+  br label %83
 
 70:                                               ; preds = %1
-  br label %85
+  br label %83
 
 71:                                               ; preds = %1
-  br label %85
+  br label %83
 
 72:                                               ; preds = %1
-  br label %85
+  br label %83
 
 73:                                               ; preds = %1
-  br label %85
+  br label %83
 
 74:                                               ; preds = %1
-  br label %85
+  br label %83
 
 75:                                               ; preds = %1
-  br label %85
+  br label %83
 
 76:                                               ; preds = %1
-  br label %85
+  br label %83
 
 77:                                               ; preds = %1
-  br label %85
+  br label %83
 
 78:                                               ; preds = %1
-  br label %85
+  br label %83
 
 79:                                               ; preds = %1
-  br label %85
+  br label %83
 
 80:                                               ; preds = %1
-  br label %85
+  br label %83
 
 81:                                               ; preds = %1
-  br label %85
+  %82 = tail call fastcc ptr @uv__unknown_err_code(i32 noundef %0)
+  br label %83
 
-82:                                               ; preds = %1
-  br label %85
-
-83:                                               ; preds = %1
-  %84 = tail call fastcc ptr @uv__unknown_err_code(i32 noundef %0)
-  br label %85
-
-85:                                               ; preds = %1, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ %84, %83 ], [ @.str.102, %82 ], [ @.str.163, %81 ], [ @.str.162, %80 ], [ @.str.161, %79 ], [ @.str.160, %78 ], [ @.str.159, %77 ], [ @.str.158, %76 ], [ @.str.157, %75 ], [ @.str.156, %74 ], [ @.str.155, %73 ], [ @.str.154, %72 ], [ @.str.153, %71 ], [ @.str.152, %70 ], [ @.str.151, %69 ], [ @.str.150, %68 ], [ @.str.149, %67 ], [ @.str.148, %66 ], [ @.str.147, %65 ], [ @.str.146, %64 ], [ @.str.145, %63 ], [ @.str.144, %62 ], [ @.str.143, %61 ], [ @.str.142, %60 ], [ @.str.141, %59 ], [ @.str.140, %58 ], [ @.str.139, %57 ], [ @.str.138, %56 ], [ @.str.137, %55 ], [ @.str.136, %54 ], [ @.str.135, %53 ], [ @.str.134, %52 ], [ @.str.133, %51 ], [ @.str.132, %50 ], [ @.str.131, %49 ], [ @.str.130, %48 ], [ @.str.129, %47 ], [ @.str.128, %46 ], [ @.str.127, %45 ], [ @.str.126, %44 ], [ @.str.125, %43 ], [ @.str.124, %42 ], [ @.str.123, %41 ], [ @.str.122, %40 ], [ @.str.121, %39 ], [ @.str.120, %38 ], [ @.str.119, %37 ], [ @.str.118, %36 ], [ @.str.117, %35 ], [ @.str.116, %34 ], [ @.str.115, %33 ], [ @.str.114, %32 ], [ @.str.113, %31 ], [ @.str.112, %30 ], [ @.str.111, %29 ], [ @.str.110, %28 ], [ @.str.109, %27 ], [ @.str.108, %26 ], [ @.str.107, %25 ], [ @.str.106, %24 ], [ @.str.105, %23 ], [ @.str.104, %22 ], [ @.str.103, %21 ], [ @.str.102, %20 ], [ @.str.101, %19 ], [ @.str.100, %18 ], [ @.str.99, %17 ], [ @.str.98, %16 ], [ @.str.97, %15 ], [ @.str.96, %14 ], [ @.str.95, %13 ], [ @.str.94, %12 ], [ @.str.93, %11 ], [ @.str.92, %10 ], [ @.str.91, %9 ], [ @.str.90, %8 ], [ @.str.88, %7 ], [ @.str.89, %6 ], [ @.str.88, %5 ], [ @.str.87, %4 ], [ @.str.86, %3 ], [ @.str.85, %2 ], [ @.str.84, %1 ]
+83:                                               ; preds = %1, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi ptr [ %82, %81 ], [ @.str.163, %80 ], [ @.str.162, %79 ], [ @.str.161, %78 ], [ @.str.160, %77 ], [ @.str.159, %76 ], [ @.str.158, %75 ], [ @.str.157, %74 ], [ @.str.156, %73 ], [ @.str.155, %72 ], [ @.str.154, %71 ], [ @.str.153, %70 ], [ @.str.152, %69 ], [ @.str.151, %68 ], [ @.str.150, %67 ], [ @.str.149, %66 ], [ @.str.148, %65 ], [ @.str.147, %64 ], [ @.str.146, %63 ], [ @.str.145, %62 ], [ @.str.144, %61 ], [ @.str.143, %60 ], [ @.str.142, %59 ], [ @.str.141, %58 ], [ @.str.140, %57 ], [ @.str.139, %56 ], [ @.str.138, %55 ], [ @.str.137, %54 ], [ @.str.136, %53 ], [ @.str.135, %52 ], [ @.str.134, %51 ], [ @.str.133, %50 ], [ @.str.132, %49 ], [ @.str.131, %48 ], [ @.str.130, %47 ], [ @.str.129, %46 ], [ @.str.128, %45 ], [ @.str.127, %44 ], [ @.str.126, %43 ], [ @.str.125, %42 ], [ @.str.124, %41 ], [ @.str.123, %40 ], [ @.str.122, %39 ], [ @.str.121, %38 ], [ @.str.120, %37 ], [ @.str.119, %36 ], [ @.str.118, %35 ], [ @.str.117, %34 ], [ @.str.116, %33 ], [ @.str.115, %32 ], [ @.str.114, %31 ], [ @.str.113, %30 ], [ @.str.112, %29 ], [ @.str.111, %28 ], [ @.str.110, %27 ], [ @.str.109, %26 ], [ @.str.108, %25 ], [ @.str.107, %24 ], [ @.str.106, %23 ], [ @.str.105, %22 ], [ @.str.104, %21 ], [ @.str.103, %20 ], [ @.str.102, %19 ], [ @.str.101, %18 ], [ @.str.100, %17 ], [ @.str.99, %16 ], [ @.str.98, %15 ], [ @.str.97, %14 ], [ @.str.96, %13 ], [ @.str.95, %12 ], [ @.str.94, %11 ], [ @.str.93, %10 ], [ @.str.92, %9 ], [ @.str.91, %8 ], [ @.str.90, %7 ], [ @.str.89, %6 ], [ @.str.88, %5 ], [ @.str.87, %4 ], [ @.str.86, %3 ], [ @.str.85, %2 ], [ @.str.84, %1 ]
   ret ptr %.0
 }
 

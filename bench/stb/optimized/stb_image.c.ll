@@ -25564,15 +25564,12 @@ if.end68:                                         ; preds = %if.then61, %if.then
   switch i8 %tga_colormap_bpp.0.shrunk, label %if.then77 [
     i8 8, label %if.end78
     i8 16, label %sw.bb1.i
-    i8 15, label %sw.bb5.i
+    i8 15, label %sw.bb1.i
     i8 24, label %sw.bb9.i
     i8 32, label %sw.bb9.i
   ]
 
-sw.bb1.i:                                         ; preds = %if.end68
-  br label %if.end78
-
-sw.bb5.i:                                         ; preds = %if.end68
+sw.bb1.i:                                         ; preds = %if.end68, %if.end68
   br label %if.end78
 
 sw.bb9.i:                                         ; preds = %if.end68, %if.end68
@@ -25612,8 +25609,8 @@ if.then77:                                        ; preds = %if.else70, %if.end6
   store ptr %96, ptr %img_buffer_end.i, align 8
   br label %return
 
-if.end78:                                         ; preds = %sw.bb9.i, %if.end68, %sw.bb1.i, %sw.bb5.i, %sw.bb9.i290, %if.else70, %sw.bb1.i294, %sw.bb5.i293
-  %tga_comp.0.ph = phi i32 [ 3, %sw.bb5.i293 ], [ %.mux.i, %sw.bb1.i294 ], [ 1, %if.else70 ], [ %div567.i291, %sw.bb9.i290 ], [ 3, %sw.bb5.i ], [ 3, %sw.bb1.i ], [ 1, %if.end68 ], [ %div567.i, %sw.bb9.i ]
+if.end78:                                         ; preds = %sw.bb9.i, %if.end68, %sw.bb1.i, %sw.bb9.i290, %if.else70, %sw.bb1.i294, %sw.bb5.i293
+  %tga_comp.0.ph = phi i32 [ 3, %sw.bb5.i293 ], [ %.mux.i, %sw.bb1.i294 ], [ 1, %if.else70 ], [ %div567.i291, %sw.bb9.i290 ], [ 3, %sw.bb1.i ], [ 1, %if.end68 ], [ %div567.i, %sw.bb9.i ]
   %tobool79.not = icmp eq ptr %x, null
   br i1 %tobool79.not, label %if.end81, label %if.then80
 

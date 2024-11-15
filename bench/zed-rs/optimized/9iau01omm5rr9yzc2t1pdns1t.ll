@@ -128890,11 +128890,11 @@ define hidden void @"_ZN74_$LT$oo7..dbus..api..session..Session$u20$as$u20$serde
   %7 = getelementptr inbounds i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %switch = icmp samesign ult i64 %6, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %8, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %8, i64 %.sroa.0.0.idx
   %.sroa.6.0.in = getelementptr inbounds i8, ptr %4, i64 96
   %.sroa.6.0 = load i64, ptr %.sroa.6.0.in, align 8, !noundef !5
-  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.6.0)
+  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.6.0)
   ret void
 }
 
@@ -128906,11 +128906,11 @@ define hidden void @"_ZN74_$LT$oo7..dbus..api..session..Session$u20$as$u20$serde
   %7 = getelementptr inbounds i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %switch = icmp samesign ult i64 %6, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %8, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %8, i64 %.sroa.0.0.idx
   %.sroa.6.0.in = getelementptr inbounds i8, ptr %4, i64 96
   %.sroa.6.0 = load i64, ptr %.sroa.6.0.in, align 8, !noundef !5
-  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.6.0)
+  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.6.0)
   ret void
 }
 
@@ -128922,11 +128922,11 @@ define hidden void @"_ZN74_$LT$oo7..dbus..api..session..Session$u20$as$u20$serde
   %7 = getelementptr inbounds i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %switch = icmp samesign ult i64 %6, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %8, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %8, i64 %.sroa.0.0.idx
   %.sroa.6.0.in = getelementptr inbounds i8, ptr %4, i64 96
   %.sroa.6.0 = load i64, ptr %.sroa.6.0.in, align 8, !noundef !5
-  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.6.0)
+  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.6.0)
   ret void
 }
 
@@ -128938,11 +128938,11 @@ define hidden void @"_ZN74_$LT$oo7..dbus..api..session..Session$u20$as$u20$serde
   %7 = getelementptr inbounds i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %switch = icmp samesign ult i64 %6, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %8, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %8, i64 %.sroa.0.0.idx
   %.sroa.6.0.in = getelementptr inbounds i8, ptr %4, i64 96
   %.sroa.6.0 = load i64, ptr %.sroa.6.0.in, align 8, !noundef !5
-  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.6.0)
+  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.6.0)
   ret void
 }
 

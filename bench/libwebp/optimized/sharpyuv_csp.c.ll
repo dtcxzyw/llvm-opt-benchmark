@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kRec601FullMatrix = internal constant %struct.SharpYuvConversionMatrix { [4 x i32] [i32 19595, i32 38470, i32 7471, i32 0], [4 x i32] [i32 -11058, i32 -21710, i32 32768, i32 8388608], [4 x i32] [i32 32768, i32 -27439, i32 -5329, i32 8388608] }, align 4
 @kRec709LimitedMatrix = internal constant %struct.SharpYuvConversionMatrix { [4 x i32] [i32 11966, i32 40254, i32 4064, i32 1048576], [4 x i32] [i32 -6596, i32 -22189, i32 28784, i32 8388608], [4 x i32] [i32 28784, i32 -26145, i32 -2639, i32 8388608] }, align 4
 @kRec709FullMatrix = internal constant %struct.SharpYuvConversionMatrix { [4 x i32] [i32 13933, i32 46871, i32 4732, i32 0], [4 x i32] [i32 -7509, i32 -25259, i32 32768, i32 8388608], [4 x i32] [i32 32768, i32 -29763, i32 -3005, i32 8388608] }, align 4
-@switch.table.SharpYuvGetConversionMatrix = private unnamed_addr constant [6 x ptr] [ptr @kWebpMatrix, ptr @kRec601LimitedMatrix, ptr @kRec601FullMatrix, ptr @kRec709LimitedMatrix, ptr @kRec709FullMatrix, ptr null], align 8
+@switch.table.SharpYuvGetConversionMatrix = private unnamed_addr constant [5 x ptr] [ptr @kWebpMatrix, ptr @kRec601LimitedMatrix, ptr @kRec601FullMatrix, ptr @kRec709LimitedMatrix, ptr @kRec709FullMatrix], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @SharpYuvComputeConversionMatrix(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
@@ -126,12 +126,12 @@ define void @SharpYuvComputeConversionMatrix(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @SharpYuvGetConversionMatrix(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = icmp ult i32 %0, 6
+  %2 = icmp ult i32 %0, 5
   br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.SharpYuvGetConversionMatrix, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.SharpYuvGetConversionMatrix, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

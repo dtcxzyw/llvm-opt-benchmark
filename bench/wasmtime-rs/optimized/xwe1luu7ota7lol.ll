@@ -53,7 +53,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.08b2c2ba86c6ef4134de2747b1432f05.428.llvm.5246528701130514578 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @__rust_no_alloc_shim_is_unstable = external global i8
 @switch.table._ZN5serde3ser10Serializer11collect_seq17h8def920237cb2217E = private unnamed_addr constant [9 x i64] [i64 8, i64 12, i64 8, i64 12, i64 20, i64 8, i64 8, i64 4, i64 8], align 8
-@"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE" = private unnamed_addr constant [23 x i64] [i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h7594b584c15f0e56E.llvm.12642593798105491766"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
@@ -1022,71 +1021,31 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %11 = icmp eq i64 %6, 0
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
-  %.sink.i.i.i.i.i.i15.i.i = phi i64 [ %.sink.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i" ], [ %10, %2 ]
-  %12 = phi ptr [ %13, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i" ], [ %4, %2 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
-  %15 = getelementptr i8, ptr %12, i64 16
-  %.val7.i.i = load i64, ptr %15, align 8, !alias.scope !416, !noalias !421, !noundef !11
-  %.val8.i.i = load i32, ptr %14, align 4, !range !431, !alias.scope !432, !noalias !435, !noundef !11
-  %16 = add i64 %.sink.i.i.i.i.i.i15.i.i, 8
-  %17 = add i64 %16, %.val7.i.i
-  %18 = add nsw i32 %.val8.i.i, -23
-  %19 = icmp ult i32 %18, 7
-  %narrow.i.i.i.i.i.i.i.i = select i1 %19, i32 %18, i32 3
-  switch i32 %narrow.i.i.i.i.i.i.i.i, label %.unreachabledefault.i.i [
-    i32 0, label %20
-    i32 1, label %22
-    i32 2, label %24
-    i32 3, label %switch.lookup
-    i32 4, label %29
-    i32 5, label %31
-    i32 6, label %33
-  ]
+.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
+  %12 = phi i64 [ %21, %.lr.ph.i.i ], [ %10, %2 ]
+  %13 = phi ptr [ %14, %.lr.ph.i.i ], [ %4, %2 ]
+  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr i8, ptr %13, i64 16
+  %.val7.i.i = load i64, ptr %16, align 8, !alias.scope !416, !noalias !421, !noundef !11
+  %.val8.i.i = load i32, ptr %15, align 4, !range !431, !alias.scope !432, !noalias !435, !noundef !11
+  %17 = icmp samesign ult i32 %.val8.i.i, 23
+  %switch3.i.i.i = icmp eq i32 %.val8.i.i, 26
+  %switch.i.i.i = or i1 %17, %switch3.i.i.i
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val8.i.i, 13
+  %18 = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 8, i64 12
+  %.sink.i.i.i = select i1 %switch.i.i.i, i64 %18, i64 8
+  %19 = add i64 %12, 8
+  %20 = add i64 %19, %.val7.i.i
+  %21 = add i64 %20, %.sink.i.i.i
+  %22 = icmp eq ptr %14, %7
+  br i1 %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit.loopexit, label %.lr.ph.i.i
 
-.unreachabledefault.i.i:                          ; preds = %.lr.ph.i.i
-  unreachable
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit.loopexit: ; preds = %.lr.ph.i.i
+  store i64 %21, ptr %8, align 8, !alias.scope !439, !noalias !444
+  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit
 
-20:                                               ; preds = %.lr.ph.i.i
-  %21 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
-
-22:                                               ; preds = %.lr.ph.i.i
-  %23 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
-
-24:                                               ; preds = %.lr.ph.i.i
-  %25 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
-
-switch.lookup:                                    ; preds = %.lr.ph.i.i
-  %26 = zext nneg i32 %.val8.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %26
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %27 = add i64 %17, 4
-  %28 = add i64 %27, %switch.load
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
-
-29:                                               ; preds = %.lr.ph.i.i
-  %30 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
-
-31:                                               ; preds = %.lr.ph.i.i
-  %32 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
-
-33:                                               ; preds = %.lr.ph.i.i
-  %34 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i": ; preds = %33, %31, %29, %switch.lookup, %24, %22, %20
-  %.sink.i.i.i.i.i.i.i.i = phi i64 [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %switch.lookup ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
-  store i64 %.sink.i.i.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !439, !noalias !444
-  %35 = icmp eq ptr %13, %7
-  br i1 %35, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit, label %.lr.ph.i.i
-
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfcc97a5d94c03d84E.exit.i.i", %2
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h20b1ed9c5f0d1b4aE.exit.loopexit, %2
   ret ptr null
 }
 
@@ -1401,93 +1360,29 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %11 = icmp eq i64 %6, 0
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2c5e97767d0b13c1E.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba67fa39b9d0f273E.exit.i.i"
-  %.sink.i.i.i.i.i.i14.i.i = phi i64 [ %.sink.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba67fa39b9d0f273E.exit.i.i" ], [ %10, %2 ]
-  %12 = phi ptr [ %13, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba67fa39b9d0f273E.exit.i.i" ], [ %4, %2 ]
+.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
+  %.sink.i.i.i.i.i.i13.i.i = phi i64 [ %.sink.i.i.i.i.i.i.i.i, %.lr.ph.i.i ], [ %10, %2 ]
+  %12 = phi ptr [ %13, %.lr.ph.i.i ], [ %4, %2 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = getelementptr inbounds i8, ptr %12, i64 24
   %15 = getelementptr i8, ptr %12, i64 16
   %.val7.i.i = load i64, ptr %15, align 8, !alias.scope !734, !noalias !739, !noundef !11
   %.val8.i.i = load i32, ptr %14, align 4, !range !749, !alias.scope !750, !noalias !751, !noundef !11
-  %16 = add i64 %.sink.i.i.i.i.i.i14.i.i, 8
-  %17 = add i64 %16, %.val7.i.i
-  switch i32 %.val8.i.i, label %default.unreachable [
-    i32 23, label %18
-    i32 0, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 1, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 2, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 3, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 4, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 5, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 6, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 7, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 8, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 9, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 10, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 11, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 12, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-    i32 13, label %20
-    i32 14, label %21
-    i32 15, label %22
-    i32 16, label %23
-    i32 17, label %24
-    i32 18, label %25
-    i32 19, label %26
-    i32 20, label %27
-    i32 21, label %28
-    i32 22, label %29
-  ]
+  %16 = icmp eq i32 %.val8.i.i, 23
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val8.i.i, 13
+  %17 = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 5, i64 9
+  %.sink.v.i.i.i.i.i.i.i.i = select i1 %16, i64 1, i64 %17
+  %18 = add i64 %.sink.i.i.i.i.i.i13.i.i, 8
+  %19 = add i64 %18, %.val7.i.i
+  %.sink.i.i.i.i.i.i.i.i = add i64 %19, %.sink.v.i.i.i.i.i.i.i.i
+  %20 = icmp eq ptr %13, %7
+  br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2c5e97767d0b13c1E.exit.loopexit, label %.lr.ph.i.i
 
-18:                                               ; preds = %.lr.ph.i.i
-  %19 = add i64 %17, 1
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba67fa39b9d0f273E.exit.i.i"
-
-default.unreachable:                              ; preds = %.lr.ph.i.i
-  unreachable
-
-20:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-21:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-22:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-23:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-24:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-25:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-26:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-27:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-28:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-29:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i"
-
-"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i": ; preds = %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
-  %.sink2.i.i.i.i.i.i.i.i.i.i = phi i64 [ 8, %29 ], [ 8, %28 ], [ 8, %27 ], [ 8, %26 ], [ 8, %25 ], [ 8, %24 ], [ 8, %23 ], [ 8, %22 ], [ 8, %21 ], [ 8, %20 ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ]
-  %30 = add i64 %17, 1
-  %31 = add i64 %30, %.sink2.i.i.i.i.i.i.i.i.i.i
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba67fa39b9d0f273E.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba67fa39b9d0f273E.exit.i.i": ; preds = %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i", %18
-  %.sink.i.i.i.i.i.i.i.i = phi i64 [ %31, %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E.exit.i.i.i.i.i.i.i.i" ], [ %19, %18 ]
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2c5e97767d0b13c1E.exit.loopexit: ; preds = %.lr.ph.i.i
   store i64 %.sink.i.i.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !754, !noalias !759
-  %32 = icmp eq ptr %13, %7
-  br i1 %32, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2c5e97767d0b13c1E.exit, label %.lr.ph.i.i
+  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2c5e97767d0b13c1E.exit
 
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2c5e97767d0b13c1E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hba67fa39b9d0f273E.exit.i.i", %2
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2c5e97767d0b13c1E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h2c5e97767d0b13c1E.exit.loopexit, %2
   ret ptr null
 }
 
@@ -1902,93 +1797,29 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %11 = icmp eq i64 %6, 0
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h13a6e1553527327cE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdcb9d419cb028cfdE.exit.i.i"
-  %.sink.i.i.i.i.i.i14.i.i = phi i64 [ %.sink.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdcb9d419cb028cfdE.exit.i.i" ], [ %10, %2 ]
-  %12 = phi ptr [ %13, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdcb9d419cb028cfdE.exit.i.i" ], [ %4, %2 ]
+.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
+  %.sink.i.i.i.i.i.i13.i.i = phi i64 [ %.sink.i.i.i.i.i.i.i.i, %.lr.ph.i.i ], [ %10, %2 ]
+  %12 = phi ptr [ %13, %.lr.ph.i.i ], [ %4, %2 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = getelementptr inbounds i8, ptr %12, i64 24
   %15 = getelementptr i8, ptr %12, i64 16
   %.val7.i.i = load i64, ptr %15, align 8, !alias.scope !1171, !noalias !1176, !noundef !11
   %.val8.i.i = load i32, ptr %14, align 4, !range !749, !alias.scope !1186, !noalias !1187, !noundef !11
-  %16 = add i64 %.sink.i.i.i.i.i.i14.i.i, 8
-  %17 = add i64 %16, %.val7.i.i
-  switch i32 %.val8.i.i, label %default.unreachable [
-    i32 23, label %18
-    i32 0, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 1, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 2, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 3, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 4, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 5, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 6, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 7, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 8, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 9, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 10, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 11, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 12, label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-    i32 13, label %20
-    i32 14, label %21
-    i32 15, label %22
-    i32 16, label %23
-    i32 17, label %24
-    i32 18, label %25
-    i32 19, label %26
-    i32 20, label %27
-    i32 21, label %28
-    i32 22, label %29
-  ]
+  %16 = icmp eq i32 %.val8.i.i, 23
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val8.i.i, 13
+  %17 = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 5, i64 9
+  %.sink.v.i.i.i.i.i.i.i.i = select i1 %16, i64 1, i64 %17
+  %18 = add i64 %.sink.i.i.i.i.i.i13.i.i, 8
+  %19 = add i64 %18, %.val7.i.i
+  %.sink.i.i.i.i.i.i.i.i = add i64 %19, %.sink.v.i.i.i.i.i.i.i.i
+  %20 = icmp eq ptr %13, %7
+  br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h13a6e1553527327cE.exit.loopexit, label %.lr.ph.i.i
 
-18:                                               ; preds = %.lr.ph.i.i
-  %19 = add i64 %17, 1
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdcb9d419cb028cfdE.exit.i.i"
-
-default.unreachable:                              ; preds = %.lr.ph.i.i
-  unreachable
-
-20:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-21:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-22:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-23:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-24:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-25:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-26:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-27:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-28:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-29:                                               ; preds = %.lr.ph.i.i
-  br label %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i"
-
-"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i": ; preds = %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
-  %.sink2.i.i.i.i.i.i.i.i.i.i = phi i64 [ 8, %29 ], [ 8, %28 ], [ 8, %27 ], [ 8, %26 ], [ 8, %25 ], [ 8, %24 ], [ 8, %23 ], [ 8, %22 ], [ 8, %21 ], [ 8, %20 ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ], [ 4, %.lr.ph.i.i ]
-  %30 = add i64 %17, 1
-  %31 = add i64 %30, %.sink2.i.i.i.i.i.i.i.i.i.i
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdcb9d419cb028cfdE.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdcb9d419cb028cfdE.exit.i.i": ; preds = %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i", %18
-  %.sink.i.i.i.i.i.i.i.i = phi i64 [ %31, %"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E.exit.i.i.i.i.i.i.i.i" ], [ %19, %18 ]
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17h13a6e1553527327cE.exit.loopexit: ; preds = %.lr.ph.i.i
   store i64 %.sink.i.i.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !1190, !noalias !1195
-  %32 = icmp eq ptr %13, %7
-  br i1 %32, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h13a6e1553527327cE.exit, label %.lr.ph.i.i
+  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h13a6e1553527327cE.exit
 
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17h13a6e1553527327cE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdcb9d419cb028cfdE.exit.i.i", %2
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17h13a6e1553527327cE.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h13a6e1553527327cE.exit.loopexit, %2
   ret ptr null
 }
 
@@ -2308,71 +2139,31 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %11 = icmp eq i64 %6, 0
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
-  %.sink.i.i.i.i.i.i15.i.i = phi i64 [ %.sink.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i" ], [ %10, %2 ]
-  %12 = phi ptr [ %13, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i" ], [ %4, %2 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
-  %15 = getelementptr i8, ptr %12, i64 16
-  %.val7.i.i = load i64, ptr %15, align 8, !alias.scope !1510, !noalias !1515, !noundef !11
-  %.val8.i.i = load i32, ptr %14, align 4, !range !431, !alias.scope !1525, !noalias !1528, !noundef !11
-  %16 = add i64 %.sink.i.i.i.i.i.i15.i.i, 8
-  %17 = add i64 %16, %.val7.i.i
-  %18 = add nsw i32 %.val8.i.i, -23
-  %19 = icmp ult i32 %18, 7
-  %narrow.i.i.i.i.i.i.i.i = select i1 %19, i32 %18, i32 3
-  switch i32 %narrow.i.i.i.i.i.i.i.i, label %.unreachabledefault.i.i [
-    i32 0, label %20
-    i32 1, label %22
-    i32 2, label %24
-    i32 3, label %switch.lookup
-    i32 4, label %29
-    i32 5, label %31
-    i32 6, label %33
-  ]
+.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
+  %12 = phi i64 [ %21, %.lr.ph.i.i ], [ %10, %2 ]
+  %13 = phi ptr [ %14, %.lr.ph.i.i ], [ %4, %2 ]
+  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr i8, ptr %13, i64 16
+  %.val7.i.i = load i64, ptr %16, align 8, !alias.scope !1510, !noalias !1515, !noundef !11
+  %.val8.i.i = load i32, ptr %15, align 4, !range !431, !alias.scope !1525, !noalias !1528, !noundef !11
+  %17 = icmp samesign ult i32 %.val8.i.i, 23
+  %switch3.i.i.i = icmp eq i32 %.val8.i.i, 26
+  %switch.i.i.i = or i1 %17, %switch3.i.i.i
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val8.i.i, 13
+  %18 = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 8, i64 12
+  %.sink.i.i.i = select i1 %switch.i.i.i, i64 %18, i64 8
+  %19 = add i64 %12, 8
+  %20 = add i64 %19, %.val7.i.i
+  %21 = add i64 %20, %.sink.i.i.i
+  %22 = icmp eq ptr %14, %7
+  br i1 %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit.loopexit, label %.lr.ph.i.i
 
-.unreachabledefault.i.i:                          ; preds = %.lr.ph.i.i
-  unreachable
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit.loopexit: ; preds = %.lr.ph.i.i
+  store i64 %21, ptr %8, align 8, !alias.scope !1532, !noalias !1537
+  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit
 
-20:                                               ; preds = %.lr.ph.i.i
-  %21 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
-
-22:                                               ; preds = %.lr.ph.i.i
-  %23 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
-
-24:                                               ; preds = %.lr.ph.i.i
-  %25 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
-
-switch.lookup:                                    ; preds = %.lr.ph.i.i
-  %26 = zext nneg i32 %.val8.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %26
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %27 = add i64 %17, 4
-  %28 = add i64 %27, %switch.load
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
-
-29:                                               ; preds = %.lr.ph.i.i
-  %30 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
-
-31:                                               ; preds = %.lr.ph.i.i
-  %32 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
-
-33:                                               ; preds = %.lr.ph.i.i
-  %34 = add i64 %17, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i": ; preds = %33, %31, %29, %switch.lookup, %24, %22, %20
-  %.sink.i.i.i.i.i.i.i.i = phi i64 [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %switch.lookup ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
-  store i64 %.sink.i.i.i.i.i.i.i.i, ptr %8, align 8, !alias.scope !1532, !noalias !1537
-  %35 = icmp eq ptr %13, %7
-  br i1 %35, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit, label %.lr.ph.i.i
-
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb09c4ca933b137eeE.exit.i.i", %2
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hed3290347776926bE.exit.loopexit, %2
   ret ptr null
 }
 
@@ -3069,71 +2860,31 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %9 = icmp eq i64 %.val7, 0
   br i1 %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
-  %.sink.i.i.i.i.i.i.i13.i.i = phi i64 [ %.sink.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i" ], [ %8, %2 ]
-  %10 = phi ptr [ %11, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i" ], [ %.val, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
-  %12 = getelementptr i8, ptr %10, i64 16
-  %.val6.i.i = load i64, ptr %12, align 8, !alias.scope !2223, !noalias !2228, !noundef !11
-  %13 = getelementptr i8, ptr %10, i64 24
-  %.val7.i.i = load i32, ptr %13, align 4, !range !431, !alias.scope !2237, !noalias !2240, !noundef !11
-  %14 = add i64 %.sink.i.i.i.i.i.i.i13.i.i, 8
-  %15 = add i64 %14, %.val6.i.i
-  %16 = add nsw i32 %.val7.i.i, -23
-  %17 = icmp ult i32 %16, 7
-  %narrow.i.i.i.i.i.i.i.i.i = select i1 %17, i32 %16, i32 3
-  switch i32 %narrow.i.i.i.i.i.i.i.i.i, label %.unreachabledefault.i.i [
-    i32 0, label %18
-    i32 1, label %20
-    i32 2, label %22
-    i32 3, label %switch.lookup
-    i32 4, label %27
-    i32 5, label %29
-    i32 6, label %31
-  ]
+.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
+  %10 = phi i64 [ %19, %.lr.ph.i.i ], [ %8, %2 ]
+  %11 = phi ptr [ %12, %.lr.ph.i.i ], [ %.val, %2 ]
+  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr i8, ptr %11, i64 16
+  %.val6.i.i = load i64, ptr %13, align 8, !alias.scope !2223, !noalias !2228, !noundef !11
+  %14 = getelementptr i8, ptr %11, i64 24
+  %.val7.i.i = load i32, ptr %14, align 4, !range !431, !alias.scope !2237, !noalias !2240, !noundef !11
+  %15 = icmp samesign ult i32 %.val7.i.i, 23
+  %switch3.i.i.i.i.i.i.i.i = icmp eq i32 %.val7.i.i, 26
+  %switch.i.i.i.i.i.i.i.i = or i1 %switch3.i.i.i.i.i.i.i.i, %15
+  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val7.i.i, 13
+  %16 = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i, i64 8, i64 12
+  %.sink.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 %16, i64 8
+  %17 = add i64 %10, 8
+  %18 = add i64 %17, %.val6.i.i
+  %19 = add i64 %18, %.sink.i.i.i.i.i.i.i.i
+  %20 = icmp eq ptr %12, %5
+  br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit.loopexit, label %.lr.ph.i.i
 
-.unreachabledefault.i.i:                          ; preds = %.lr.ph.i.i
-  unreachable
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit.loopexit: ; preds = %.lr.ph.i.i
+  store i64 %19, ptr %6, align 8, !alias.scope !2242, !noalias !2249
+  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit
 
-18:                                               ; preds = %.lr.ph.i.i
-  %19 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
-
-20:                                               ; preds = %.lr.ph.i.i
-  %21 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
-
-22:                                               ; preds = %.lr.ph.i.i
-  %23 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
-
-switch.lookup:                                    ; preds = %.lr.ph.i.i
-  %24 = zext nneg i32 %.val7.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %24
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %25 = add i64 %15, 4
-  %26 = add i64 %25, %switch.load
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
-
-27:                                               ; preds = %.lr.ph.i.i
-  %28 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
-
-29:                                               ; preds = %.lr.ph.i.i
-  %30 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
-
-31:                                               ; preds = %.lr.ph.i.i
-  %32 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i": ; preds = %31, %29, %27, %switch.lookup, %22, %20, %18
-  %.sink.i.i.i.i.i.i.i.i.i = phi i64 [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %switch.lookup ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ]
-  store i64 %.sink.i.i.i.i.i.i.i.i.i, ptr %6, align 8, !alias.scope !2242, !noalias !2249
-  %33 = icmp eq ptr %11, %5
-  br i1 %33, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit, label %.lr.ph.i.i
-
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c993197eac0fec3E.exit.i.i", %2
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17haf3ee3362f9ed9c7E.exit.loopexit, %2
   ret ptr null
 }
 
@@ -4691,8 +4442,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i = load i32, ptr %10, align 4, !range !3026, !alias.scope !3027, !noalias !3032, !noundef !11
   %switch.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i, 2
-  %spec.select.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 8, i64 4
-  %12 = add i64 %spec.select.i.i.i.i.i.i.i, %9
+  %..i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 8, i64 4
+  %12 = add i64 %..i.i.i.i.i.i.i, %9
   %13 = icmp eq ptr %11, %4
   br i1 %13, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb56d6f8a7f1d55acE.exit.loopexit, label %.lr.ph.i.i
 
@@ -5629,8 +5380,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i = load i32, ptr %10, align 4, !range !3026, !alias.scope !3554, !noalias !3559, !noundef !11
   %switch.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i, 2
-  %spec.select.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 8, i64 4
-  %12 = add i64 %spec.select.i.i.i.i.i.i.i, %9
+  %..i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 8, i64 4
+  %12 = add i64 %..i.i.i.i.i.i.i, %9
   %13 = icmp eq ptr %11, %4
   br i1 %13, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h96793fa73887428cE.exit.loopexit, label %.lr.ph.i.i
 
@@ -7036,8 +6787,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %28, align 4, !range !3026, !alias.scope !4412, !noalias !4417, !noundef !11
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
-  %30 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %27
+  %..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
+  %30 = add i64 %..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %27
   %31 = icmp eq ptr %29, %24
   br i1 %31, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17habd8995a38fb4381E.exit.sink.split.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -7294,19 +7045,18 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   br i1 %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15792a2f53ed5af8E.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
-  %9 = phi i64 [ %13, %.lr.ph.i.i ], [ %7, %3 ]
+  %9 = phi i64 [ %12, %.lr.ph.i.i ], [ %7, %3 ]
   %10 = phi ptr [ %11, %.lr.ph.i.i ], [ %1, %3 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i = load i32, ptr %10, align 4, !range !4561, !alias.scope !4562, !noalias !4567, !noundef !11
-  %12 = zext nneg i32 %.val6.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %12
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %13 = add i64 %switch.load, %9
-  %14 = icmp eq ptr %11, %4
-  br i1 %14, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15792a2f53ed5af8E.exit.loopexit, label %.lr.ph.i.i
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i, 13
+  %..i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 4, i64 8
+  %12 = add i64 %..i.i.i.i.i.i.i, %9
+  %13 = icmp eq ptr %11, %4
+  br i1 %13, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15792a2f53ed5af8E.exit.loopexit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h15792a2f53ed5af8E.exit.loopexit: ; preds = %.lr.ph.i.i
-  store i64 %13, ptr %5, align 8, !alias.scope !4576, !noalias !4581
+  store i64 %12, ptr %5, align 8, !alias.scope !4576, !noalias !4581
   br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15792a2f53ed5af8E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h15792a2f53ed5af8E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h15792a2f53ed5af8E.exit.loopexit, %3
@@ -7494,19 +7244,18 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   br i1 %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he20a8e74ceafb7d8E.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
-  %9 = phi i64 [ %13, %.lr.ph.i.i ], [ %7, %3 ]
+  %9 = phi i64 [ %12, %.lr.ph.i.i ], [ %7, %3 ]
   %10 = phi ptr [ %11, %.lr.ph.i.i ], [ %1, %3 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i = load i32, ptr %10, align 4, !range !4561, !alias.scope !4687, !noalias !4692, !noundef !11
-  %12 = zext nneg i32 %.val6.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %12
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %13 = add i64 %switch.load, %9
-  %14 = icmp eq ptr %11, %4
-  br i1 %14, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he20a8e74ceafb7d8E.exit.loopexit, label %.lr.ph.i.i
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i, 13
+  %..i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i, i64 4, i64 8
+  %12 = add i64 %..i.i.i.i.i.i.i, %9
+  %13 = icmp eq ptr %11, %4
+  br i1 %13, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he20a8e74ceafb7d8E.exit.loopexit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17he20a8e74ceafb7d8E.exit.loopexit: ; preds = %.lr.ph.i.i
-  store i64 %13, ptr %5, align 8, !alias.scope !4701, !noalias !4706
+  store i64 %12, ptr %5, align 8, !alias.scope !4701, !noalias !4706
   br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he20a8e74ceafb7d8E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17he20a8e74ceafb7d8E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he20a8e74ceafb7d8E.exit.loopexit, %3
@@ -7985,8 +7734,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %28, align 4, !range !3026, !alias.scope !5033, !noalias !5038, !noundef !11
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
-  %30 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %27
+  %..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
+  %30 = add i64 %..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %27
   %31 = icmp eq ptr %29, %24
   br i1 %31, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h4f156b3f0b0d0bbcE.exit.sink.split.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -8154,71 +7903,31 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %9 = icmp eq i64 %.val7, 0
   br i1 %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
-  %.sink.i.i.i.i.i.i.i13.i.i = phi i64 [ %.sink.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i" ], [ %8, %2 ]
-  %10 = phi ptr [ %11, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i" ], [ %.val, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
-  %12 = getelementptr i8, ptr %10, i64 16
-  %.val6.i.i = load i64, ptr %12, align 8, !alias.scope !5171, !noalias !5176, !noundef !11
-  %13 = getelementptr i8, ptr %10, i64 24
-  %.val7.i.i = load i32, ptr %13, align 4, !range !431, !alias.scope !5185, !noalias !5188, !noundef !11
-  %14 = add i64 %.sink.i.i.i.i.i.i.i13.i.i, 8
-  %15 = add i64 %14, %.val6.i.i
-  %16 = add nsw i32 %.val7.i.i, -23
-  %17 = icmp ult i32 %16, 7
-  %narrow.i.i.i.i.i.i.i.i.i = select i1 %17, i32 %16, i32 3
-  switch i32 %narrow.i.i.i.i.i.i.i.i.i, label %.unreachabledefault.i.i [
-    i32 0, label %18
-    i32 1, label %20
-    i32 2, label %22
-    i32 3, label %switch.lookup
-    i32 4, label %27
-    i32 5, label %29
-    i32 6, label %31
-  ]
+.lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
+  %10 = phi i64 [ %19, %.lr.ph.i.i ], [ %8, %2 ]
+  %11 = phi ptr [ %12, %.lr.ph.i.i ], [ %.val, %2 ]
+  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr i8, ptr %11, i64 16
+  %.val6.i.i = load i64, ptr %13, align 8, !alias.scope !5171, !noalias !5176, !noundef !11
+  %14 = getelementptr i8, ptr %11, i64 24
+  %.val7.i.i = load i32, ptr %14, align 4, !range !431, !alias.scope !5185, !noalias !5188, !noundef !11
+  %15 = icmp samesign ult i32 %.val7.i.i, 23
+  %switch3.i.i.i.i.i.i.i.i = icmp eq i32 %.val7.i.i, 26
+  %switch.i.i.i.i.i.i.i.i = or i1 %switch3.i.i.i.i.i.i.i.i, %15
+  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val7.i.i, 13
+  %16 = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i, i64 8, i64 12
+  %.sink.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 %16, i64 8
+  %17 = add i64 %10, 8
+  %18 = add i64 %17, %.val6.i.i
+  %19 = add i64 %18, %.sink.i.i.i.i.i.i.i.i
+  %20 = icmp eq ptr %12, %5
+  br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit.loopexit, label %.lr.ph.i.i
 
-.unreachabledefault.i.i:                          ; preds = %.lr.ph.i.i
-  unreachable
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit.loopexit: ; preds = %.lr.ph.i.i
+  store i64 %19, ptr %6, align 8, !alias.scope !5190, !noalias !5197
+  br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit
 
-18:                                               ; preds = %.lr.ph.i.i
-  %19 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
-
-20:                                               ; preds = %.lr.ph.i.i
-  %21 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
-
-22:                                               ; preds = %.lr.ph.i.i
-  %23 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
-
-switch.lookup:                                    ; preds = %.lr.ph.i.i
-  %24 = zext nneg i32 %.val7.i.i to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %24
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %25 = add i64 %15, 4
-  %26 = add i64 %25, %switch.load
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
-
-27:                                               ; preds = %.lr.ph.i.i
-  %28 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
-
-29:                                               ; preds = %.lr.ph.i.i
-  %30 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
-
-31:                                               ; preds = %.lr.ph.i.i
-  %32 = add i64 %15, 8
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i": ; preds = %31, %29, %27, %switch.lookup, %22, %20, %18
-  %.sink.i.i.i.i.i.i.i.i.i = phi i64 [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %switch.lookup ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ]
-  store i64 %.sink.i.i.i.i.i.i.i.i.i, ptr %6, align 8, !alias.scope !5190, !noalias !5197
-  %33 = icmp eq ptr %11, %5
-  br i1 %33, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit, label %.lr.ph.i.i
-
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2fe1fad6e7b47509E.exit.i.i", %2
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb5d601a1b8e42a6cE.exit.loopexit, %2
   ret ptr null
 }
 
@@ -8765,8 +8474,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$s
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i.i = load i32, ptr %10, align 4, !range !3026, !alias.scope !5586, !noalias !5591, !noundef !11
   %switch.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i, 2
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 8, i64 4
-  %12 = add i64 %spec.select.i.i.i.i.i.i.i.i, %9
+  %..i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 8, i64 4
+  %12 = add i64 %..i.i.i.i.i.i.i.i, %9
   %13 = icmp eq ptr %11, %4
   br i1 %13, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h96793fa73887428cE.exit.loopexit.i, label %.lr.ph.i.i.i
 
@@ -8932,8 +8641,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$s
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %.val6.i.i.i = load i32, ptr %10, align 4, !range !3026, !alias.scope !5745, !noalias !5750, !noundef !11
   %switch.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i, 2
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 8, i64 4
-  %12 = add i64 %spec.select.i.i.i.i.i.i.i.i, %9
+  %..i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 8, i64 4
+  %12 = add i64 %..i.i.i.i.i.i.i.i, %9
   %13 = icmp eq ptr %11, %4
   br i1 %13, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb56d6f8a7f1d55acE.exit.loopexit.i, label %.lr.ph.i.i.i
 
@@ -9260,8 +8969,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls78_$LT$impl$u20$s
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %.val6.i.i.i.i = load i32, ptr %12, align 4, !range !3026, !alias.scope !6010, !noalias !6015, !noundef !11
   %switch.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i, 2
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i, i64 8, i64 4
-  %14 = add i64 %spec.select.i.i.i.i.i.i.i.i.i, %11
+  %..i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i, i64 8, i64 4
+  %14 = add i64 %..i.i.i.i.i.i.i.i.i, %11
   %15 = icmp eq ptr %13, %6
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb56d6f8a7f1d55acE.exit.loopexit.i.i, label %.lr.ph.i.i.i.i
 
@@ -9349,8 +9058,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls78_$LT$impl$u20$s
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %.val6.i.i.i.i = load i32, ptr %12, align 4, !range !3026, !alias.scope !6088, !noalias !6093, !noundef !11
   %switch.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i, 2
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i, i64 8, i64 4
-  %14 = add i64 %spec.select.i.i.i.i.i.i.i.i.i, %11
+  %..i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i, i64 8, i64 4
+  %14 = add i64 %..i.i.i.i.i.i.i.i.i, %11
   %15 = icmp eq ptr %13, %6
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h96793fa73887428cE.exit.loopexit.i.i, label %.lr.ph.i.i.i.i
 
@@ -10683,18 +10392,16 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h1ead72d36498dc47E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #20 {
-switch.lookup:
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !alias.scope !6568, !noundef !11
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !alias.scope !6568, !noundef !11
+  %5 = add i64 %4, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6571)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6574)
-  %4 = load i32, ptr %1, align 4, !range !4561, !alias.scope !6571, !noalias !6574, !noundef !11
-  %5 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %5
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = add i64 %3, 1
-  %7 = add i64 %switch.load, %6
-  store i64 %7, ptr %2, align 8, !alias.scope !6574, !noalias !6571
+  %6 = load i32, ptr %1, align 4, !range !4561, !alias.scope !6571, !noalias !6574, !noundef !11
+  %switch.i = icmp samesign ult i32 %6, 13
+  %..i = select i1 %switch.i, i64 4, i64 8
+  %7 = add i64 %..i, %5
+  store i64 %7, ptr %3, align 8, !alias.scope !6574, !noalias !6571
   ret ptr null
 }
 
@@ -10938,18 +10645,16 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17ha2eafd4f52da14c7E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #20 {
-switch.lookup:
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !alias.scope !6846, !noundef !11
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !alias.scope !6846, !noundef !11
+  %5 = add i64 %4, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6849)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6852)
-  %4 = load i32, ptr %1, align 4, !range !4561, !alias.scope !6849, !noalias !6852, !noundef !11
-  %5 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %5
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = add i64 %3, 1
-  %7 = add i64 %switch.load, %6
-  store i64 %7, ptr %2, align 8, !alias.scope !6852, !noalias !6849
+  %6 = load i32, ptr %1, align 4, !range !4561, !alias.scope !6849, !noalias !6852, !noundef !11
+  %switch.i = icmp samesign ult i32 %6, 13
+  %..i = select i1 %switch.i, i64 4, i64 8
+  %7 = add i64 %..i, %5
+  store i64 %7, ptr %3, align 8, !alias.scope !6852, !noalias !6849
   ret ptr null
 }
 
@@ -11628,8 +11333,8 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %.val6.i.i.i.i.i = load i32, ptr %17, align 4, !range !3026, !alias.scope !7482, !noalias !7487, !noundef !11
   %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i.i, 2
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
-  %19 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i, %16
+  %..i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
+  %19 = add i64 %..i.i.i.i.i.i.i.i.i.i, %16
   %20 = icmp eq ptr %18, %13
   br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h96793fa73887428cE.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -11731,8 +11436,8 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %.val6.i.i.i.i.i = load i32, ptr %17, align 4, !range !3026, !alias.scope !7601, !noalias !7606, !noundef !11
   %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.val6.i.i.i.i.i, 2
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
-  %19 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i, %16
+  %..i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 8, i64 4
+  %19 = add i64 %..i.i.i.i.i.i.i.i.i.i, %16
   %20 = icmp eq ptr %18, %13
   br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb56d6f8a7f1d55acE.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -11892,10 +11597,10 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
     i32 0, label %14
     i32 1, label %16
     i32 2, label %18
-    i32 3, label %switch.lookup
-    i32 4, label %23
-    i32 5, label %25
-    i32 6, label %27
+    i32 3, label %20
+    i32 4, label %24
+    i32 5, label %26
+    i32 6, label %28
   ]
 
 13:                                               ; preds = %7
@@ -11913,28 +11618,27 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
   %19 = add i64 %9, 12
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17hd71bbe48408e9d92E.exit"
 
-switch.lookup:                                    ; preds = %7
-  %20 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %20
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %21 = add i64 %9, 8
-  %22 = add i64 %21, %switch.load
+20:                                               ; preds = %7
+  %21 = add i64 %9, 4
+  %switch.i.i.i = icmp samesign ult i32 %10, 13
+  %22 = select i1 %switch.i.i.i, i64 8, i64 12
+  %23 = add i64 %22, %21
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17hd71bbe48408e9d92E.exit"
 
-23:                                               ; preds = %7
-  %24 = add i64 %9, 12
+24:                                               ; preds = %7
+  %25 = add i64 %9, 12
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17hd71bbe48408e9d92E.exit"
 
-25:                                               ; preds = %7
-  %26 = add i64 %9, 12
+26:                                               ; preds = %7
+  %27 = add i64 %9, 12
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17hd71bbe48408e9d92E.exit"
 
-27:                                               ; preds = %7
-  %28 = add i64 %9, 12
+28:                                               ; preds = %7
+  %29 = add i64 %9, 12
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17hd71bbe48408e9d92E.exit"
 
-"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17hd71bbe48408e9d92E.exit": ; preds = %14, %16, %18, %switch.lookup, %23, %25, %27
-  %.sink.i = phi i64 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %switch.lookup ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17hd71bbe48408e9d92E.exit": ; preds = %14, %16, %18, %20, %24, %26, %28
+  %.sink.i = phi i64 [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
   store i64 %.sink.i, ptr %8, align 8, !alias.scope !7788, !noalias !7785
   ret ptr null
 }
@@ -11971,10 +11675,10 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
     i32 0, label %14
     i32 1, label %16
     i32 2, label %18
-    i32 3, label %switch.lookup
-    i32 4, label %23
-    i32 5, label %25
-    i32 6, label %27
+    i32 3, label %20
+    i32 4, label %24
+    i32 5, label %26
+    i32 6, label %28
   ]
 
 13:                                               ; preds = %7
@@ -11992,46 +11696,43 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
   %19 = add i64 %9, 12
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17h00bba15c1f3564acE.exit"
 
-switch.lookup:                                    ; preds = %7
-  %20 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %20
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %21 = add i64 %9, 8
-  %22 = add i64 %21, %switch.load
+20:                                               ; preds = %7
+  %21 = add i64 %9, 4
+  %switch.i.i.i = icmp samesign ult i32 %10, 13
+  %22 = select i1 %switch.i.i.i, i64 8, i64 12
+  %23 = add i64 %22, %21
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17h00bba15c1f3564acE.exit"
 
-23:                                               ; preds = %7
-  %24 = add i64 %9, 12
+24:                                               ; preds = %7
+  %25 = add i64 %9, 12
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17h00bba15c1f3564acE.exit"
 
-25:                                               ; preds = %7
-  %26 = add i64 %9, 12
+26:                                               ; preds = %7
+  %27 = add i64 %9, 12
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17h00bba15c1f3564acE.exit"
 
-27:                                               ; preds = %7
-  %28 = add i64 %9, 12
+28:                                               ; preds = %7
+  %29 = add i64 %9, 12
   br label %"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17h00bba15c1f3564acE.exit"
 
-"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17h00bba15c1f3564acE.exit": ; preds = %14, %16, %18, %switch.lookup, %23, %25, %27
-  %.sink.i = phi i64 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %switch.lookup ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+"_ZN16wasmtime_environ9component5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$9serialize17h00bba15c1f3564acE.exit": ; preds = %14, %16, %18, %20, %24, %26, %28
+  %.sink.i = phi i64 [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
   store i64 %.sink.i, ptr %8, align 8, !alias.scope !7824, !noalias !7821
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hbeccd56ef79027f9E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %6) unnamed_addr #20 {
-switch.lookup:
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !7826, !noundef !11
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !alias.scope !7826, !noundef !11
+  %10 = add i64 %9, 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7829)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7832)
-  %9 = load i32, ptr %6, align 4, !range !4561, !alias.scope !7829, !noalias !7832, !noundef !11
-  %10 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %11 = add i64 %8, 4
-  %12 = add i64 %switch.load, %11
-  store i64 %12, ptr %7, align 8, !alias.scope !7832, !noalias !7829
+  %11 = load i32, ptr %6, align 4, !range !4561, !alias.scope !7829, !noalias !7832, !noundef !11
+  %switch.i = icmp samesign ult i32 %11, 13
+  %..i = select i1 %switch.i, i64 4, i64 8
+  %12 = add i64 %..i, %10
+  store i64 %12, ptr %8, align 8, !alias.scope !7832, !noalias !7829
   ret ptr null
 }
 
@@ -12105,18 +11806,16 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %6) unnamed_addr #20 {
-switch.lookup:
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !7923, !noundef !11
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !alias.scope !7923, !noundef !11
+  %10 = add i64 %9, 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7926)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7929)
-  %9 = load i32, ptr %6, align 4, !range !4561, !alias.scope !7926, !noalias !7929, !noundef !11
-  %10 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChecker$LT$O$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17hdab23ef4d167f34cE", i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %11 = add i64 %8, 4
-  %12 = add i64 %switch.load, %11
-  store i64 %12, ptr %7, align 8, !alias.scope !7929, !noalias !7926
+  %11 = load i32, ptr %6, align 4, !range !4561, !alias.scope !7926, !noalias !7929, !noundef !11
+  %switch.i = icmp samesign ult i32 %11, 13
+  %..i = select i1 %switch.i, i64 4, i64 8
+  %12 = add i64 %..i, %10
+  store i64 %12, ptr %8, align 8, !alias.scope !7929, !noalias !7926
   ret ptr null
 }
 

@@ -24463,19 +24463,21 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang15ASTNodeImporter34hasSameVisib
   %4 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
   %5 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   %.not = icmp eq i8 %4, %5
-  br i1 %.not, label %6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not, label %6, label %52
 
 6:                                                ; preds = %3
   %7 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   switch i8 %7, label %10 [
-    i8 3, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-    i8 6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
+    i8 6, label %8
+    i8 3, label %8
   ]
 
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
-  %8 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %9 = icmp ult i8 %8, 7
-  br i1 %9, label %switch.lookup, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+8:                                                ; preds = %6, %6
+  %9 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
+  %switch.selectcmp.case1.i.i13 = icmp eq i8 %9, 3
+  %switch.selectcmp.case2.i.i14 = icmp eq i8 %9, 6
+  %switch.selectcmp.i.i15 = or i1 %switch.selectcmp.case1.i.i13, %switch.selectcmp.case2.i.i14
+  br label %52
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -24539,34 +24541,24 @@ _ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit: ; preds = %_ZN4llvm12DenseMapB
   %.0.i = phi ptr [ %45, %42 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit.i ]
   %46 = tail call noundef ptr @_ZN5clang4Decl22getTranslationUnitDeclEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %.not12 = icmp eq ptr %.0.i, %46
-  br i1 %.not12, label %47, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not12, label %47, label %52
 
 47:                                               ; preds = %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit
   %48 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %49 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #23
   %brmerge = or i1 %48, %49
   %.mux = and i1 %48, %49
-  br i1 %brmerge, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14, label %50
+  br i1 %brmerge, label %52, label %50
 
 50:                                               ; preds = %47
   %51 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %52 = icmp ult i8 %51, 7
-  br i1 %52, label %switch.lookup18, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  %switch.selectcmp.case1.i.i16 = icmp ne i8 %51, 3
+  %switch.selectcmp.case2.i.i17 = icmp ne i8 %51, 6
+  %switch.selectcmp.i.i18.not = and i1 %switch.selectcmp.case1.i.i16, %switch.selectcmp.case2.i.i17
+  br label %52
 
-switch.lookup:                                    ; preds = %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-  %switch.cast = trunc nuw i8 %8 to i7
-  %switch.downshift = lshr i7 -56, %switch.cast
-  %switch.masked = trunc i7 %switch.downshift to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-switch.lookup18:                                  ; preds = %50
-  %switch.cast19 = trunc nuw i8 %51 to i7
-  %switch.downshift21 = lshr i7 55, %switch.cast19
-  %switch.masked22 = trunc i7 %switch.downshift21 to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14: ; preds = %50, %switch.lookup18, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit, %switch.lookup, %47, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %.mux, %47 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit ], [ %switch.masked22, %switch.lookup18 ], [ true, %50 ]
+52:                                               ; preds = %47, %50, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3, %8
+  %.0 = phi i1 [ %switch.selectcmp.i.i15, %8 ], [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %switch.selectcmp.i.i18.not, %50 ], [ %.mux, %47 ]
   ret i1 %.0
 }
 
@@ -25935,19 +25927,21 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang15ASTNodeImporter34hasSameVisib
   %4 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
   %5 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   %.not = icmp eq i8 %4, %5
-  br i1 %.not, label %6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not, label %6, label %52
 
 6:                                                ; preds = %3
   %7 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   switch i8 %7, label %10 [
-    i8 3, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-    i8 6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
+    i8 6, label %8
+    i8 3, label %8
   ]
 
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
-  %8 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %9 = icmp ult i8 %8, 7
-  br i1 %9, label %switch.lookup, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+8:                                                ; preds = %6, %6
+  %9 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
+  %switch.selectcmp.case1.i.i13 = icmp eq i8 %9, 3
+  %switch.selectcmp.case2.i.i14 = icmp eq i8 %9, 6
+  %switch.selectcmp.i.i15 = or i1 %switch.selectcmp.case1.i.i13, %switch.selectcmp.case2.i.i14
+  br label %52
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -26011,34 +26005,24 @@ _ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit: ; preds = %_ZN4llvm12DenseMapB
   %.0.i = phi ptr [ %45, %42 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit.i ]
   %46 = tail call noundef ptr @_ZN5clang4Decl22getTranslationUnitDeclEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %.not12 = icmp eq ptr %.0.i, %46
-  br i1 %.not12, label %47, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not12, label %47, label %52
 
 47:                                               ; preds = %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit
   %48 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %49 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #23
   %brmerge = or i1 %48, %49
   %.mux = and i1 %48, %49
-  br i1 %brmerge, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14, label %50
+  br i1 %brmerge, label %52, label %50
 
 50:                                               ; preds = %47
   %51 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %52 = icmp ult i8 %51, 7
-  br i1 %52, label %switch.lookup18, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  %switch.selectcmp.case1.i.i16 = icmp ne i8 %51, 3
+  %switch.selectcmp.case2.i.i17 = icmp ne i8 %51, 6
+  %switch.selectcmp.i.i18.not = and i1 %switch.selectcmp.case1.i.i16, %switch.selectcmp.case2.i.i17
+  br label %52
 
-switch.lookup:                                    ; preds = %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-  %switch.cast = trunc nuw i8 %8 to i7
-  %switch.downshift = lshr i7 -56, %switch.cast
-  %switch.masked = trunc i7 %switch.downshift to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-switch.lookup18:                                  ; preds = %50
-  %switch.cast19 = trunc nuw i8 %51 to i7
-  %switch.downshift21 = lshr i7 55, %switch.cast19
-  %switch.masked22 = trunc i7 %switch.downshift21 to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14: ; preds = %50, %switch.lookup18, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit, %switch.lookup, %47, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %.mux, %47 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit ], [ %switch.masked22, %switch.lookup18 ], [ true, %50 ]
+52:                                               ; preds = %47, %50, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3, %8
+  %.0 = phi i1 [ %switch.selectcmp.i.i15, %8 ], [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %switch.selectcmp.i.i18.not, %50 ], [ %.mux, %47 ]
   ret i1 %.0
 }
 
@@ -30952,19 +30936,21 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang15ASTNodeImporter34hasSameVisib
   %4 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
   %5 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   %.not = icmp eq i8 %4, %5
-  br i1 %.not, label %6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not, label %6, label %52
 
 6:                                                ; preds = %3
   %7 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   switch i8 %7, label %10 [
-    i8 3, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-    i8 6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
+    i8 6, label %8
+    i8 3, label %8
   ]
 
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
-  %8 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %9 = icmp ult i8 %8, 7
-  br i1 %9, label %switch.lookup, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+8:                                                ; preds = %6, %6
+  %9 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
+  %switch.selectcmp.case1.i.i13 = icmp eq i8 %9, 3
+  %switch.selectcmp.case2.i.i14 = icmp eq i8 %9, 6
+  %switch.selectcmp.i.i15 = or i1 %switch.selectcmp.case1.i.i13, %switch.selectcmp.case2.i.i14
+  br label %52
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -31028,34 +31014,24 @@ _ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit: ; preds = %_ZN4llvm12DenseMapB
   %.0.i = phi ptr [ %45, %42 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit.i ]
   %46 = tail call noundef ptr @_ZN5clang4Decl22getTranslationUnitDeclEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %.not12 = icmp eq ptr %.0.i, %46
-  br i1 %.not12, label %47, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not12, label %47, label %52
 
 47:                                               ; preds = %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit
   %48 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %49 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #23
   %brmerge = or i1 %48, %49
   %.mux = and i1 %48, %49
-  br i1 %brmerge, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14, label %50
+  br i1 %brmerge, label %52, label %50
 
 50:                                               ; preds = %47
   %51 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %52 = icmp ult i8 %51, 7
-  br i1 %52, label %switch.lookup18, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  %switch.selectcmp.case1.i.i16 = icmp ne i8 %51, 3
+  %switch.selectcmp.case2.i.i17 = icmp ne i8 %51, 6
+  %switch.selectcmp.i.i18.not = and i1 %switch.selectcmp.case1.i.i16, %switch.selectcmp.case2.i.i17
+  br label %52
 
-switch.lookup:                                    ; preds = %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-  %switch.cast = trunc nuw i8 %8 to i7
-  %switch.downshift = lshr i7 -56, %switch.cast
-  %switch.masked = trunc i7 %switch.downshift to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-switch.lookup18:                                  ; preds = %50
-  %switch.cast19 = trunc nuw i8 %51 to i7
-  %switch.downshift21 = lshr i7 55, %switch.cast19
-  %switch.masked22 = trunc i7 %switch.downshift21 to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14: ; preds = %50, %switch.lookup18, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit, %switch.lookup, %47, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %.mux, %47 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit ], [ %switch.masked22, %switch.lookup18 ], [ true, %50 ]
+52:                                               ; preds = %47, %50, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3, %8
+  %.0 = phi i1 [ %switch.selectcmp.i.i15, %8 ], [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %switch.selectcmp.i.i18.not, %50 ], [ %.mux, %47 ]
   ret i1 %.0
 }
 
@@ -35730,19 +35706,21 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang15ASTNodeImporter34hasSameVisib
   %4 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
   %5 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   %.not = icmp eq i8 %4, %5
-  br i1 %.not, label %6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not, label %6, label %52
 
 6:                                                ; preds = %3
   %7 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   switch i8 %7, label %10 [
-    i8 3, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-    i8 6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
+    i8 6, label %8
+    i8 3, label %8
   ]
 
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
-  %8 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %9 = icmp ult i8 %8, 7
-  br i1 %9, label %switch.lookup, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+8:                                                ; preds = %6, %6
+  %9 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
+  %switch.selectcmp.case1.i.i13 = icmp eq i8 %9, 3
+  %switch.selectcmp.case2.i.i14 = icmp eq i8 %9, 6
+  %switch.selectcmp.i.i15 = or i1 %switch.selectcmp.case1.i.i13, %switch.selectcmp.case2.i.i14
+  br label %52
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -35806,34 +35784,24 @@ _ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit: ; preds = %_ZN4llvm12DenseMapB
   %.0.i = phi ptr [ %45, %42 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit.i ]
   %46 = tail call noundef ptr @_ZN5clang4Decl22getTranslationUnitDeclEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %.not12 = icmp eq ptr %.0.i, %46
-  br i1 %.not12, label %47, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not12, label %47, label %52
 
 47:                                               ; preds = %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit
   %48 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %49 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #23
   %brmerge = or i1 %48, %49
   %.mux = and i1 %48, %49
-  br i1 %brmerge, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14, label %50
+  br i1 %brmerge, label %52, label %50
 
 50:                                               ; preds = %47
   %51 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %52 = icmp ult i8 %51, 7
-  br i1 %52, label %switch.lookup18, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  %switch.selectcmp.case1.i.i16 = icmp ne i8 %51, 3
+  %switch.selectcmp.case2.i.i17 = icmp ne i8 %51, 6
+  %switch.selectcmp.i.i18.not = and i1 %switch.selectcmp.case1.i.i16, %switch.selectcmp.case2.i.i17
+  br label %52
 
-switch.lookup:                                    ; preds = %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-  %switch.cast = trunc nuw i8 %8 to i7
-  %switch.downshift = lshr i7 -56, %switch.cast
-  %switch.masked = trunc i7 %switch.downshift to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-switch.lookup18:                                  ; preds = %50
-  %switch.cast19 = trunc nuw i8 %51 to i7
-  %switch.downshift21 = lshr i7 55, %switch.cast19
-  %switch.masked22 = trunc i7 %switch.downshift21 to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14: ; preds = %50, %switch.lookup18, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit, %switch.lookup, %47, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %.mux, %47 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit ], [ %switch.masked22, %switch.lookup18 ], [ true, %50 ]
+52:                                               ; preds = %47, %50, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3, %8
+  %.0 = phi i1 [ %switch.selectcmp.i.i15, %8 ], [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %switch.selectcmp.i.i18.not, %50 ], [ %.mux, %47 ]
   ret i1 %.0
 }
 
@@ -48127,19 +48095,21 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang15ASTNodeImporter34hasSameVisib
   %4 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
   %5 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   %.not = icmp eq i8 %4, %5
-  br i1 %.not, label %6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not, label %6, label %52
 
 6:                                                ; preds = %3
   %7 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   switch i8 %7, label %10 [
-    i8 3, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-    i8 6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
+    i8 6, label %8
+    i8 3, label %8
   ]
 
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
-  %8 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %9 = icmp ult i8 %8, 7
-  br i1 %9, label %switch.lookup, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+8:                                                ; preds = %6, %6
+  %9 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
+  %switch.selectcmp.case1.i.i13 = icmp eq i8 %9, 3
+  %switch.selectcmp.case2.i.i14 = icmp eq i8 %9, 6
+  %switch.selectcmp.i.i15 = or i1 %switch.selectcmp.case1.i.i13, %switch.selectcmp.case2.i.i14
+  br label %52
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -48203,34 +48173,24 @@ _ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit: ; preds = %_ZN4llvm12DenseMapB
   %.0.i = phi ptr [ %45, %42 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit.i ]
   %46 = tail call noundef ptr @_ZN5clang4Decl22getTranslationUnitDeclEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %.not12 = icmp eq ptr %.0.i, %46
-  br i1 %.not12, label %47, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not12, label %47, label %52
 
 47:                                               ; preds = %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit
   %48 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %49 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #23
   %brmerge = or i1 %48, %49
   %.mux = and i1 %48, %49
-  br i1 %brmerge, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14, label %50
+  br i1 %brmerge, label %52, label %50
 
 50:                                               ; preds = %47
   %51 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %52 = icmp ult i8 %51, 7
-  br i1 %52, label %switch.lookup18, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  %switch.selectcmp.case1.i.i16 = icmp ne i8 %51, 3
+  %switch.selectcmp.case2.i.i17 = icmp ne i8 %51, 6
+  %switch.selectcmp.i.i18.not = and i1 %switch.selectcmp.case1.i.i16, %switch.selectcmp.case2.i.i17
+  br label %52
 
-switch.lookup:                                    ; preds = %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-  %switch.cast = trunc nuw i8 %8 to i7
-  %switch.downshift = lshr i7 -56, %switch.cast
-  %switch.masked = trunc i7 %switch.downshift to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-switch.lookup18:                                  ; preds = %50
-  %switch.cast19 = trunc nuw i8 %51 to i7
-  %switch.downshift21 = lshr i7 55, %switch.cast19
-  %switch.masked22 = trunc i7 %switch.downshift21 to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14: ; preds = %50, %switch.lookup18, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit, %switch.lookup, %47, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %.mux, %47 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit ], [ %switch.masked22, %switch.lookup18 ], [ true, %50 ]
+52:                                               ; preds = %47, %50, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3, %8
+  %.0 = phi i1 [ %switch.selectcmp.i.i15, %8 ], [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %switch.selectcmp.i.i18.not, %50 ], [ %.mux, %47 ]
   ret i1 %.0
 }
 
@@ -51986,19 +51946,21 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang15ASTNodeImporter34hasSameVisib
   %4 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
   %5 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   %.not = icmp eq i8 %4, %5
-  br i1 %.not, label %6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not, label %6, label %52
 
 6:                                                ; preds = %3
   %7 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   switch i8 %7, label %10 [
-    i8 3, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-    i8 6, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
+    i8 6, label %8
+    i8 3, label %8
   ]
 
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
-  %8 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %9 = icmp ult i8 %8, 7
-  br i1 %9, label %switch.lookup, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+8:                                                ; preds = %6, %6
+  %9 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
+  %switch.selectcmp.case1.i.i13 = icmp eq i8 %9, 3
+  %switch.selectcmp.case2.i.i14 = icmp eq i8 %9, 6
+  %switch.selectcmp.i.i15 = or i1 %switch.selectcmp.case1.i.i13, %switch.selectcmp.case2.i.i14
+  br label %52
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
@@ -52062,34 +52024,24 @@ _ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit: ; preds = %_ZN4llvm12DenseMapB
   %.0.i = phi ptr [ %45, %42 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit.i ]
   %46 = tail call noundef ptr @_ZN5clang4Decl22getTranslationUnitDeclEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %.not12 = icmp eq ptr %.0.i, %46
-  br i1 %.not12, label %47, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  br i1 %.not12, label %47, label %52
 
 47:                                               ; preds = %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit
   %48 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #23
   %49 = tail call noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #23
   %brmerge = or i1 %48, %49
   %.mux = and i1 %48, %49
-  br i1 %brmerge, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14, label %50
+  br i1 %brmerge, label %52, label %50
 
 50:                                               ; preds = %47
   %51 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
-  %52 = icmp ult i8 %51, 7
-  br i1 %52, label %switch.lookup18, label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
+  %switch.selectcmp.case1.i.i16 = icmp ne i8 %51, 3
+  %switch.selectcmp.case2.i.i17 = icmp ne i8 %51, 6
+  %switch.selectcmp.i.i18.not = and i1 %switch.selectcmp.case1.i.i16, %switch.selectcmp.case2.i.i17
+  br label %52
 
-switch.lookup:                                    ; preds = %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit
-  %switch.cast = trunc nuw i8 %8 to i7
-  %switch.downshift = lshr i7 -56, %switch.cast
-  %switch.masked = trunc i7 %switch.downshift to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-switch.lookup18:                                  ; preds = %50
-  %switch.cast19 = trunc nuw i8 %51 to i7
-  %switch.downshift21 = lshr i7 55, %switch.cast19
-  %switch.masked22 = trunc i7 %switch.downshift21 to i1
-  br label %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14
-
-_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit14: ; preds = %50, %switch.lookup18, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit, %switch.lookup, %47, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %.mux, %47 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit ], [ %switch.masked22, %switch.lookup18 ], [ true, %50 ]
+52:                                               ; preds = %47, %50, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit, %3, %8
+  %.0 = phi i1 [ %switch.selectcmp.i.i15, %8 ], [ false, %3 ], [ false, %_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE.exit ], [ %switch.selectcmp.i.i18.not, %50 ], [ %.mux, %47 ]
   ret i1 %.0
 }
 

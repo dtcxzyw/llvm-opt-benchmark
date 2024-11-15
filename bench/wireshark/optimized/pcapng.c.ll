@@ -6435,80 +6435,77 @@ declare i32 @pcap_get_phdr_size(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @compute_epb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #11 {
-  switch i32 %1, label %29 [
-    i32 2, label %30
+  switch i32 %1, label %28 [
+    i32 2, label %29
     i32 4, label %5
-    i32 5, label %6
-    i32 6, label %30
-    i32 7, label %7
-    i32 3, label %18
+    i32 5, label %5
+    i32 6, label %29
+    i32 7, label %6
+    i32 3, label %17
   ]
 
-5:                                                ; preds = %4
-  br label %30
+5:                                                ; preds = %4, %4
+  br label %29
 
 6:                                                ; preds = %4
-  br label %30
-
-7:                                                ; preds = %4
-  %8 = load i32, ptr %3, align 8
-  switch i32 %8, label %14 [
-    i32 0, label %9
+  %7 = load i32, ptr %3, align 8
+  switch i32 %7, label %13 [
+    i32 0, label %8
     i32 1, label %pcapng_compute_packet_verdict_option_size.exit
     i32 2, label %pcapng_compute_packet_verdict_option_size.exit
   ]
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load i32, ptr %12, align 8
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load i32, ptr %11, align 8
   br label %pcapng_compute_packet_verdict_option_size.exit
 
-14:                                               ; preds = %7
+13:                                               ; preds = %6
   br label %pcapng_compute_packet_verdict_option_size.exit
 
-pcapng_compute_packet_verdict_option_size.exit:   ; preds = %7, %7, %9, %14
-  %.07.i = phi i32 [ 0, %14 ], [ %13, %9 ], [ 9, %7 ], [ 9, %7 ]
-  %15 = and i32 %.07.i, 3
-  %.not.i = icmp eq i32 %15, 0
-  %16 = sub nuw nsw i32 4, %15
-  %.0.i = select i1 %.not.i, i32 0, i32 %16
-  %17 = add i32 %.0.i, %.07.i
-  br label %30
+pcapng_compute_packet_verdict_option_size.exit:   ; preds = %6, %6, %8, %13
+  %.07.i = phi i32 [ 0, %13 ], [ %12, %8 ], [ 9, %6 ], [ 9, %6 ]
+  %14 = and i32 %.07.i, 3
+  %.not.i = icmp eq i32 %14, 0
+  %15 = sub nuw nsw i32 4, %14
+  %.0.i = select i1 %.not.i, i32 0, i32 %15
+  %16 = add i32 %.0.i, %.07.i
+  br label %29
 
-18:                                               ; preds = %4
-  %19 = load i8, ptr %3, align 8
-  %switch.tableidx = add i8 %19, -2
-  %20 = icmp ult i8 %switch.tableidx, 4
-  br i1 %20, label %switch.lookup, label %21
+17:                                               ; preds = %4
+  %18 = load i8, ptr %3, align 8
+  %switch.tableidx = add i8 %18, -2
+  %19 = icmp ult i8 %switch.tableidx, 4
+  br i1 %19, label %switch.lookup, label %20
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
   br label %pcapng_compute_packet_hash_option_size.exit
 
-switch.lookup:                                    ; preds = %18
-  %25 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.compute_epb_option_size, i64 0, i64 %25
+switch.lookup:                                    ; preds = %17
+  %24 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.compute_epb_option_size, i64 0, i64 %24
   br label %pcapng_compute_packet_hash_option_size.exit
 
-pcapng_compute_packet_hash_option_size.exit:      ; preds = %switch.lookup, %21
-  %.07.i3.in = phi ptr [ %24, %21 ], [ %switch.gep, %switch.lookup ]
+pcapng_compute_packet_hash_option_size.exit:      ; preds = %switch.lookup, %20
+  %.07.i3.in = phi ptr [ %23, %20 ], [ %switch.gep, %switch.lookup ]
   %.07.i3 = load i32, ptr %.07.i3.in, align 4
-  %26 = and i32 %.07.i3, 3
-  %.not.i4 = icmp eq i32 %26, 0
-  %27 = sub nuw nsw i32 4, %26
-  %.0.i5 = select i1 %.not.i4, i32 0, i32 %27
-  %28 = add i32 %.0.i5, %.07.i3
-  br label %30
+  %25 = and i32 %.07.i3, 3
+  %.not.i4 = icmp eq i32 %25, 0
+  %26 = sub nuw nsw i32 4, %25
+  %.0.i5 = select i1 %.not.i4, i32 0, i32 %26
+  %27 = add i32 %.0.i5, %.07.i3
+  br label %29
 
-29:                                               ; preds = %4
-  br label %30
+28:                                               ; preds = %4
+  br label %29
 
-30:                                               ; preds = %4, %4, %29, %pcapng_compute_packet_hash_option_size.exit, %pcapng_compute_packet_verdict_option_size.exit, %6, %5
-  %.0 = phi i32 [ 0, %29 ], [ %28, %pcapng_compute_packet_hash_option_size.exit ], [ %17, %pcapng_compute_packet_verdict_option_size.exit ], [ 8, %6 ], [ 8, %5 ], [ 4, %4 ], [ 4, %4 ]
+29:                                               ; preds = %4, %4, %28, %pcapng_compute_packet_hash_option_size.exit, %pcapng_compute_packet_verdict_option_size.exit, %5
+  %.0 = phi i32 [ 0, %28 ], [ %27, %pcapng_compute_packet_hash_option_size.exit ], [ %16, %pcapng_compute_packet_verdict_option_size.exit ], [ 8, %5 ], [ 4, %4 ], [ 4, %4 ]
   ret i32 %.0
 }
 
@@ -7095,16 +7092,15 @@ pcapng_write_string_option.exit:                  ; preds = %21, %23, %9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 65539) i32 @compute_idb_option_size(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #9 {
-  switch i32 %1, label %33 [
+  switch i32 %1, label %31 [
     i32 2, label %5
     i32 3, label %5
     i32 12, label %5
     i32 15, label %5
-    i32 8, label %34
+    i32 8, label %32
     i32 9, label %12
     i32 11, label %13
-    i32 13, label %31
-    i32 14, label %32
+    i32 13, label %12
   ]
 
 5:                                                ; preds = %4, %4, %4, %4
@@ -7117,10 +7113,10 @@ define internal range(i32 0, 65539) i32 @compute_idb_option_size(ptr nocapture r
   %.0.i = select i1 %.not.i, i32 0, i32 %9
   %10 = and i32 %7, 65535
   %11 = add nuw nsw i32 %.0.i, %10
-  br label %34
+  br label %32
 
-12:                                               ; preds = %4
-  br label %34
+12:                                               ; preds = %4, %4
+  br label %32
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %3, align 8
@@ -7153,19 +7149,13 @@ pcapng_compute_if_filter_option_size.exit:        ; preds = %13, %15, %22
   %29 = sub nuw nsw i32 4, %28
   %.0.i4 = select i1 %.not.i3, i32 0, i32 %29
   %30 = add nuw nsw i32 %.0.i4, %.09.i
-  br label %34
+  br label %32
 
 31:                                               ; preds = %4
-  br label %34
+  br label %32
 
-32:                                               ; preds = %4
-  br label %34
-
-33:                                               ; preds = %4
-  br label %34
-
-34:                                               ; preds = %4, %33, %32, %31, %pcapng_compute_if_filter_option_size.exit, %12, %5
-  %.0 = phi i32 [ 0, %33 ], [ 0, %32 ], [ 1, %31 ], [ %30, %pcapng_compute_if_filter_option_size.exit ], [ 1, %12 ], [ %11, %5 ], [ %1, %4 ]
+32:                                               ; preds = %4, %31, %pcapng_compute_if_filter_option_size.exit, %12, %5
+  %.0 = phi i32 [ 0, %31 ], [ %30, %pcapng_compute_if_filter_option_size.exit ], [ 1, %12 ], [ %11, %5 ], [ %1, %4 ]
   ret i32 %.0
 }
 

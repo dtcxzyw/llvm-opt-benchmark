@@ -7330,29 +7330,29 @@ entry:
   %0 = load i8, ptr %add.ptr, align 8
   switch i8 %0, label %sw.default [
     i8 4, label %return
-    i8 107, label %sw.bb256
+    i8 107, label %sw.bb7
     i8 7, label %sw.bb7
-    i8 8, label %sw.bb10
-    i8 9, label %sw.bb13
-    i8 106, label %sw.bb253
-    i8 12, label %sw.bb19
-    i8 13, label %sw.bb22
-    i8 105, label %sw.bb250
+    i8 8, label %sw.bb7
+    i8 9, label %sw.bb7
+    i8 106, label %sw.bb7
+    i8 12, label %sw.bb7
+    i8 13, label %sw.bb7
+    i8 105, label %sw.bb40
     i8 18, label %return
     i8 19, label %return
     i8 20, label %return
     i8 21, label %return
     i8 22, label %sw.bb40
-    i8 23, label %sw.bb43
-    i8 24, label %sw.bb46
-    i8 25, label %sw.bb49
+    i8 23, label %sw.bb7
+    i8 24, label %sw.bb7
+    i8 25, label %sw.bb7
     i8 26, label %sw.bb52
-    i8 27, label %sw.bb55
-    i8 28, label %sw.bb58
+    i8 27, label %sw.bb7
+    i8 28, label %sw.bb7
     i8 29, label %return
     i8 30, label %sw.bb64
-    i8 31, label %sw.bb67
-    i8 33, label %sw.bb70
+    i8 31, label %sw.bb7
+    i8 33, label %sw.bb7
     i8 34, label %sw.bb73
     i8 36, label %return
     i8 37, label %return
@@ -7362,42 +7362,42 @@ entry:
     i8 44, label %return
     i8 46, label %return
     i8 47, label %return
-    i8 49, label %sw.bb100
-    i8 50, label %sw.bb103
-    i8 51, label %sw.bb106
-    i8 52, label %sw.bb109
-    i8 53, label %sw.bb112
-    i8 54, label %sw.bb115
-    i8 55, label %sw.bb118
+    i8 49, label %sw.bb40
+    i8 50, label %sw.bb64
+    i8 51, label %sw.bb64
+    i8 52, label %sw.bb7
+    i8 53, label %sw.bb7
+    i8 54, label %sw.bb7
+    i8 55, label %sw.bb7
     i8 56, label %return
-    i8 57, label %sw.bb124
+    i8 57, label %sw.bb7
     i8 58, label %return
-    i8 59, label %sw.bb130
+    i8 59, label %sw.bb7
     i8 60, label %return
-    i8 61, label %sw.bb136
+    i8 61, label %sw.bb7
     i8 62, label %return
     i8 63, label %return
     i8 64, label %return
     i8 65, label %return
-    i8 66, label %sw.bb151
-    i8 67, label %sw.bb154
+    i8 66, label %sw.bb64
+    i8 67, label %sw.bb40
     i8 68, label %return
-    i8 70, label %sw.bb160
-    i8 71, label %sw.bb163
-    i8 72, label %sw.bb166
-    i8 73, label %sw.bb169
+    i8 70, label %sw.bb7
+    i8 71, label %sw.bb7
+    i8 72, label %sw.bb7
+    i8 73, label %sw.bb7
     i8 104, label %return
-    i8 77, label %sw.bb175
-    i8 78, label %sw.bb178
+    i8 77, label %sw.bb7
+    i8 78, label %sw.bb7
     i8 79, label %return
-    i8 80, label %sw.bb184
-    i8 81, label %sw.bb187
-    i8 82, label %sw.bb190
-    i8 83, label %sw.bb193
-    i8 84, label %sw.bb196
-    i8 85, label %sw.bb199
+    i8 80, label %sw.bb7
+    i8 81, label %sw.bb7
+    i8 82, label %sw.bb64
+    i8 83, label %sw.bb64
+    i8 84, label %sw.bb7
+    i8 85, label %sw.bb7
     i8 86, label %sw.bb202
-    i8 87, label %sw.bb205
+    i8 87, label %sw.bb7
     i8 88, label %return
     i8 91, label %return
     i8 92, label %return
@@ -7405,61 +7405,28 @@ entry:
     i8 94, label %return
     i8 95, label %return
     i8 96, label %return
-    i8 98, label %sw.bb229
+    i8 98, label %sw.bb7
     i8 99, label %return
     i8 100, label %return
-    i8 101, label %sw.bb238
-    i8 102, label %sw.bb241
+    i8 101, label %sw.bb7
+    i8 102, label %sw.bb7
     i8 103, label %return
   ]
 
 sw.default:                                       ; preds = %entry
   unreachable
 
-sw.bb7:                                           ; preds = %entry
+sw.bb7:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
   br label %return
 
-sw.bb10:                                          ; preds = %entry
-  br label %return
-
-sw.bb13:                                          ; preds = %entry
-  br label %return
-
-sw.bb19:                                          ; preds = %entry
-  br label %return
-
-sw.bb22:                                          ; preds = %entry
-  br label %return
-
-sw.bb40:                                          ; preds = %entry
-  br label %return
-
-sw.bb43:                                          ; preds = %entry
-  br label %return
-
-sw.bb46:                                          ; preds = %entry
-  br label %return
-
-sw.bb49:                                          ; preds = %entry
+sw.bb40:                                          ; preds = %entry, %entry, %entry, %entry
   br label %return
 
 sw.bb52:                                          ; preds = %entry
   %call54 = tail call noundef i32 @_ZN6hermes17UnaryOperatorInst13getSideEffectEv(ptr noundef nonnull align 8 dereferenceable(136) %this) #26
   br label %return
 
-sw.bb55:                                          ; preds = %entry
-  br label %return
-
-sw.bb58:                                          ; preds = %entry
-  br label %return
-
-sw.bb64:                                          ; preds = %entry
-  br label %return
-
-sw.bb67:                                          ; preds = %entry
-  br label %return
-
-sw.bb70:                                          ; preds = %entry
+sw.bb64:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry
   br label %return
 
 sw.bb73:                                          ; preds = %entry
@@ -7477,78 +7444,6 @@ sw.bb73:                                          ; preds = %entry
   %call7.i = tail call noundef i32 @_ZN6hermes18BinaryOperatorInst19getBinarySideEffectENS_4TypeES1_NS0_6OpKindE(i32 %retval.sroa.0.0.copyload.i.i, i32 %retval.sroa.0.0.copyload.i3.i, i32 noundef %4) #26
   br label %return
 
-sw.bb100:                                         ; preds = %entry
-  br label %return
-
-sw.bb103:                                         ; preds = %entry
-  br label %return
-
-sw.bb106:                                         ; preds = %entry
-  br label %return
-
-sw.bb109:                                         ; preds = %entry
-  br label %return
-
-sw.bb112:                                         ; preds = %entry
-  br label %return
-
-sw.bb115:                                         ; preds = %entry
-  br label %return
-
-sw.bb118:                                         ; preds = %entry
-  br label %return
-
-sw.bb124:                                         ; preds = %entry
-  br label %return
-
-sw.bb130:                                         ; preds = %entry
-  br label %return
-
-sw.bb136:                                         ; preds = %entry
-  br label %return
-
-sw.bb151:                                         ; preds = %entry
-  br label %return
-
-sw.bb154:                                         ; preds = %entry
-  br label %return
-
-sw.bb160:                                         ; preds = %entry
-  br label %return
-
-sw.bb163:                                         ; preds = %entry
-  br label %return
-
-sw.bb166:                                         ; preds = %entry
-  br label %return
-
-sw.bb169:                                         ; preds = %entry
-  br label %return
-
-sw.bb175:                                         ; preds = %entry
-  br label %return
-
-sw.bb178:                                         ; preds = %entry
-  br label %return
-
-sw.bb184:                                         ; preds = %entry
-  br label %return
-
-sw.bb187:                                         ; preds = %entry
-  br label %return
-
-sw.bb190:                                         ; preds = %entry
-  br label %return
-
-sw.bb193:                                         ; preds = %entry
-  br label %return
-
-sw.bb196:                                         ; preds = %entry
-  br label %return
-
-sw.bb199:                                         ; preds = %entry
-  br label %return
-
 sw.bb202:                                         ; preds = %entry
   %Operands.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %Operands.i.i.i1, align 8
@@ -7564,29 +7459,8 @@ sw.bb202:                                         ; preds = %entry
   %call7.i8 = tail call noundef i32 @_ZN6hermes18BinaryOperatorInst19getBinarySideEffectENS_4TypeES1_NS0_6OpKindE(i32 %retval.sroa.0.0.copyload.i.i3, i32 %retval.sroa.0.0.copyload.i3.i6, i32 noundef %8) #26
   br label %return
 
-sw.bb205:                                         ; preds = %entry
-  br label %return
-
-sw.bb229:                                         ; preds = %entry
-  br label %return
-
-sw.bb238:                                         ; preds = %entry
-  br label %return
-
-sw.bb241:                                         ; preds = %entry
-  br label %return
-
-sw.bb250:                                         ; preds = %entry
-  br label %return
-
-sw.bb253:                                         ; preds = %entry
-  br label %return
-
-sw.bb256:                                         ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.bb256, %sw.bb253, %sw.bb250, %sw.bb241, %sw.bb238, %sw.bb229, %sw.bb205, %sw.bb202, %sw.bb199, %sw.bb196, %sw.bb193, %sw.bb190, %sw.bb187, %sw.bb184, %sw.bb178, %sw.bb175, %sw.bb169, %sw.bb166, %sw.bb163, %sw.bb160, %sw.bb154, %sw.bb151, %sw.bb136, %sw.bb130, %sw.bb124, %sw.bb118, %sw.bb115, %sw.bb112, %sw.bb109, %sw.bb106, %sw.bb103, %sw.bb100, %sw.bb73, %sw.bb70, %sw.bb67, %sw.bb64, %sw.bb58, %sw.bb55, %sw.bb52, %sw.bb49, %sw.bb46, %sw.bb43, %sw.bb40, %sw.bb22, %sw.bb19, %sw.bb13, %sw.bb10, %sw.bb7
-  %retval.0 = phi i32 [ 0, %sw.bb256 ], [ 0, %sw.bb253 ], [ 1, %sw.bb250 ], [ 0, %sw.bb241 ], [ 0, %sw.bb238 ], [ 0, %sw.bb229 ], [ 0, %sw.bb205 ], [ %call7.i8, %sw.bb202 ], [ 0, %sw.bb199 ], [ 0, %sw.bb196 ], [ 2, %sw.bb193 ], [ 2, %sw.bb190 ], [ 0, %sw.bb187 ], [ 0, %sw.bb184 ], [ 0, %sw.bb178 ], [ 0, %sw.bb175 ], [ 0, %sw.bb169 ], [ 0, %sw.bb166 ], [ 0, %sw.bb163 ], [ 0, %sw.bb160 ], [ 1, %sw.bb154 ], [ 2, %sw.bb151 ], [ 0, %sw.bb136 ], [ 0, %sw.bb130 ], [ 0, %sw.bb124 ], [ 0, %sw.bb118 ], [ 0, %sw.bb115 ], [ 0, %sw.bb112 ], [ 0, %sw.bb109 ], [ 2, %sw.bb106 ], [ 2, %sw.bb103 ], [ 1, %sw.bb100 ], [ %call7.i, %sw.bb73 ], [ 0, %sw.bb70 ], [ 0, %sw.bb67 ], [ 2, %sw.bb64 ], [ 0, %sw.bb58 ], [ 0, %sw.bb55 ], [ %call54, %sw.bb52 ], [ 0, %sw.bb49 ], [ 0, %sw.bb46 ], [ 0, %sw.bb43 ], [ 1, %sw.bb40 ], [ 0, %sw.bb22 ], [ 0, %sw.bb19 ], [ 0, %sw.bb13 ], [ 0, %sw.bb10 ], [ 0, %sw.bb7 ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ]
+return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.bb202, %sw.bb73, %sw.bb64, %sw.bb52, %sw.bb40, %sw.bb7
+  %retval.0 = phi i32 [ %call7.i8, %sw.bb202 ], [ %call7.i, %sw.bb73 ], [ 2, %sw.bb64 ], [ %call54, %sw.bb52 ], [ 1, %sw.bb40 ], [ 0, %sw.bb7 ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ], [ 3, %entry ]
   ret i32 %retval.0
 }
 
@@ -10911,11 +10785,8 @@ while.body:                                       ; preds = %if.end.split.split,
   %idx.ext = zext i32 %BucketNo.0 to i64
   %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.265", ptr %0, i64 %idx.ext
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %add.ptr, align 8
-  %magicptr135 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload to i64
-  switch i64 %magicptr135, label %if.end19.i [
-    i64 -1, label %if.then15
-    i64 -2, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40
-  ]
+  %switch = icmp ugt ptr %agg.tmp6.sroa.0.0.copyload, inttoptr (i64 -3 to ptr)
+  br i1 %switch, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, label %if.end19.i
 
 if.end19.i:                                       ; preds = %while.body
   %agg.tmp6.sroa.2.0.call7.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 8
@@ -10928,18 +10799,18 @@ land.rhs.i.i:                                     ; preds = %if.end19.i
   %4 = icmp eq i32 %bcmp.i, 0
   br i1 %4, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27: ; preds = %if.end19.i, %land.rhs.i.i
+_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27: ; preds = %while.body, %if.end19.i, %land.rhs.i.i
   %cmp7.i20 = icmp eq ptr %agg.tmp6.sroa.0.0.copyload, inttoptr (i64 -1 to ptr)
   br i1 %cmp7.i20, label %if.then15, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40
 
-if.then15:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, %while.body, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66, %while.body.us50, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
-  %.us-phi46 = phi ptr [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0, %while.body ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
-  %.us-phi47 = phi ptr [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr, %while.body ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+if.then15:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66, %while.body.us50, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
+  %.us-phi46 = phi ptr [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi47 = phi ptr [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
   %tobool.not = icmp eq ptr %.us-phi46, null
   %cond = select i1 %tobool.not, ptr %.us-phi47, ptr %.us-phi46
   br label %return
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %while.body, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27
+_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27
   %cmp18.i30 = icmp eq ptr %agg.tmp6.sroa.0.0.copyload, inttoptr (i64 -2 to ptr)
   %tobool21 = icmp eq ptr %FoundTombstone.0, null
   %or.cond.not = select i1 %cmp18.i30, i1 %tobool21, i1 false

@@ -143,8 +143,8 @@ _ZnwmRN4llvm9MCContextEm.exit:                    ; preds = %16, %.critedge.i.i.
 define dso_local { ptr, i64 } @_ZNK4llvm13AArch64MCExpr18getVariantKindNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
-  switch i32 %3, label %52 [
-    i32 1, label %53
+  switch i32 %3, label %50 [
+    i32 1, label %51
     i32 289, label %4
     i32 113, label %5
     i32 97, label %6
@@ -180,173 +180,167 @@ define dso_local { ptr, i64 } @_ZNK4llvm13AArch64MCExpr18getVariantKindNameEv(pt
     i32 39, label %36
     i32 295, label %37
     i32 40, label %38
-    i32 17, label %53
+    i32 17, label %51
     i32 273, label %39
     i32 4, label %40
-    i32 20, label %41
-    i32 388, label %42
-    i32 292, label %43
-    i32 6, label %44
-    i32 22, label %45
-    i32 294, label %46
-    i32 86, label %47
-    i32 326, label %48
-    i32 8, label %53
-    i32 24, label %49
-    i32 41, label %50
-    i32 57, label %51
+    i32 20, label %40
+    i32 388, label %41
+    i32 292, label %42
+    i32 6, label %43
+    i32 22, label %43
+    i32 294, label %44
+    i32 86, label %45
+    i32 326, label %46
+    i32 8, label %51
+    i32 24, label %47
+    i32 41, label %48
+    i32 57, label %49
   ]
 
 4:                                                ; preds = %1
-  br label %53
+  br label %51
 
 5:                                                ; preds = %1
-  br label %53
+  br label %51
 
 6:                                                ; preds = %1
-  br label %53
+  br label %51
 
 7:                                                ; preds = %1
-  br label %53
+  br label %51
 
 8:                                                ; preds = %1
-  br label %53
+  br label %51
 
 9:                                                ; preds = %1
-  br label %53
+  br label %51
 
 10:                                               ; preds = %1
-  br label %53
+  br label %51
 
 11:                                               ; preds = %1
-  br label %53
+  br label %51
 
 12:                                               ; preds = %1
-  br label %53
+  br label %51
 
 13:                                               ; preds = %1
-  br label %53
+  br label %51
 
 14:                                               ; preds = %1
-  br label %53
+  br label %51
 
 15:                                               ; preds = %1
-  br label %53
+  br label %51
 
 16:                                               ; preds = %1
-  br label %53
+  br label %51
 
 17:                                               ; preds = %1
-  br label %53
+  br label %51
 
 18:                                               ; preds = %1
-  br label %53
+  br label %51
 
 19:                                               ; preds = %1
-  br label %53
+  br label %51
 
 20:                                               ; preds = %1
-  br label %53
+  br label %51
 
 21:                                               ; preds = %1
-  br label %53
+  br label %51
 
 22:                                               ; preds = %1
-  br label %53
+  br label %51
 
 23:                                               ; preds = %1
-  br label %53
+  br label %51
 
 24:                                               ; preds = %1
-  br label %53
+  br label %51
 
 25:                                               ; preds = %1
-  br label %53
+  br label %51
 
 26:                                               ; preds = %1
-  br label %53
+  br label %51
 
 27:                                               ; preds = %1
-  br label %53
+  br label %51
 
 28:                                               ; preds = %1
-  br label %53
+  br label %51
 
 29:                                               ; preds = %1
-  br label %53
+  br label %51
 
 30:                                               ; preds = %1
-  br label %53
+  br label %51
 
 31:                                               ; preds = %1
-  br label %53
+  br label %51
 
 32:                                               ; preds = %1
-  br label %53
+  br label %51
 
 33:                                               ; preds = %1
-  br label %53
+  br label %51
 
 34:                                               ; preds = %1
-  br label %53
+  br label %51
 
 35:                                               ; preds = %1
-  br label %53
+  br label %51
 
 36:                                               ; preds = %1
-  br label %53
+  br label %51
 
 37:                                               ; preds = %1
-  br label %53
+  br label %51
 
 38:                                               ; preds = %1
-  br label %53
+  br label %51
 
 39:                                               ; preds = %1
-  br label %53
+  br label %51
 
-40:                                               ; preds = %1
-  br label %53
+40:                                               ; preds = %1, %1
+  br label %51
 
 41:                                               ; preds = %1
-  br label %53
+  br label %51
 
 42:                                               ; preds = %1
-  br label %53
+  br label %51
 
-43:                                               ; preds = %1
-  br label %53
+43:                                               ; preds = %1, %1
+  br label %51
 
 44:                                               ; preds = %1
-  br label %53
+  br label %51
 
 45:                                               ; preds = %1
-  br label %53
+  br label %51
 
 46:                                               ; preds = %1
-  br label %53
+  br label %51
 
 47:                                               ; preds = %1
-  br label %53
+  br label %51
 
 48:                                               ; preds = %1
-  br label %53
+  br label %51
 
 49:                                               ; preds = %1
-  br label %53
+  br label %51
 
 50:                                               ; preds = %1
-  br label %53
-
-51:                                               ; preds = %1
-  br label %53
-
-52:                                               ; preds = %1
   unreachable
 
-53:                                               ; preds = %1, %1, %1, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.sroa.52.0 = phi i64 [ 13, %51 ], [ 13, %50 ], [ 9, %49 ], [ 16, %48 ], [ 13, %47 ], [ 15, %46 ], [ 10, %45 ], [ 10, %44 ], [ 10, %43 ], [ 14, %42 ], [ 5, %41 ], [ 5, %40 ], [ 12, %39 ], [ 14, %38 ], [ 15, %37 ], [ 12, %36 ], [ 12, %35 ], [ 13, %34 ], [ 10, %33 ], [ 13, %32 ], [ 10, %31 ], [ 10, %30 ], [ 16, %29 ], [ 13, %28 ], [ 13, %27 ], [ 14, %26 ], [ 11, %25 ], [ 14, %24 ], [ 11, %23 ], [ 11, %22 ], [ 12, %21 ], [ 9, %20 ], [ 12, %19 ], [ 9, %18 ], [ 12, %17 ], [ 9, %16 ], [ 9, %15 ], [ 11, %14 ], [ 10, %13 ], [ 8, %12 ], [ 11, %11 ], [ 10, %10 ], [ 8, %9 ], [ 11, %8 ], [ 10, %7 ], [ 8, %6 ], [ 8, %5 ], [ 6, %4 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.46, %51 ], [ @.str.45, %50 ], [ @.str.44, %49 ], [ @.str.43, %48 ], [ @.str.42, %47 ], [ @.str.41, %46 ], [ @.str.40, %45 ], [ @.str.40, %44 ], [ @.str.39, %43 ], [ @.str.38, %42 ], [ @.str.37, %41 ], [ @.str.37, %40 ], [ @.str.36, %39 ], [ @.str.35, %38 ], [ @.str.34, %37 ], [ @.str.33, %36 ], [ @.str.32, %35 ], [ @.str.31, %34 ], [ @.str.30, %33 ], [ @.str.29, %32 ], [ @.str.28, %31 ], [ @.str.27, %30 ], [ @.str.26, %29 ], [ @.str.25, %28 ], [ @.str.24, %27 ], [ @.str.23, %26 ], [ @.str.22, %25 ], [ @.str.21, %24 ], [ @.str.20, %23 ], [ @.str.19, %22 ], [ @.str.18, %21 ], [ @.str.17, %20 ], [ @.str.16, %19 ], [ @.str.15, %18 ], [ @.str.14, %17 ], [ @.str.13, %16 ], [ @.str.12, %15 ], [ @.str.11, %14 ], [ @.str.10, %13 ], [ @.str.9, %12 ], [ @.str.8, %11 ], [ @.str.7, %10 ], [ @.str.6, %9 ], [ @.str.5, %8 ], [ @.str.4, %7 ], [ @.str.3, %6 ], [ @.str.2, %5 ], [ @.str.1, %4 ], [ @.str, %1 ], [ @.str, %1 ], [ @.str, %1 ]
+51:                                               ; preds = %1, %1, %1, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
+  %.sroa.52.0 = phi i64 [ 13, %49 ], [ 13, %48 ], [ 9, %47 ], [ 16, %46 ], [ 13, %45 ], [ 15, %44 ], [ 10, %43 ], [ 10, %42 ], [ 14, %41 ], [ 5, %40 ], [ 12, %39 ], [ 14, %38 ], [ 15, %37 ], [ 12, %36 ], [ 12, %35 ], [ 13, %34 ], [ 10, %33 ], [ 13, %32 ], [ 10, %31 ], [ 10, %30 ], [ 16, %29 ], [ 13, %28 ], [ 13, %27 ], [ 14, %26 ], [ 11, %25 ], [ 14, %24 ], [ 11, %23 ], [ 11, %22 ], [ 12, %21 ], [ 9, %20 ], [ 12, %19 ], [ 9, %18 ], [ 12, %17 ], [ 9, %16 ], [ 9, %15 ], [ 11, %14 ], [ 10, %13 ], [ 8, %12 ], [ 11, %11 ], [ 10, %10 ], [ 8, %9 ], [ 11, %8 ], [ 10, %7 ], [ 8, %6 ], [ 8, %5 ], [ 6, %4 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.46, %49 ], [ @.str.45, %48 ], [ @.str.44, %47 ], [ @.str.43, %46 ], [ @.str.42, %45 ], [ @.str.41, %44 ], [ @.str.40, %43 ], [ @.str.39, %42 ], [ @.str.38, %41 ], [ @.str.37, %40 ], [ @.str.36, %39 ], [ @.str.35, %38 ], [ @.str.34, %37 ], [ @.str.33, %36 ], [ @.str.32, %35 ], [ @.str.31, %34 ], [ @.str.30, %33 ], [ @.str.29, %32 ], [ @.str.28, %31 ], [ @.str.27, %30 ], [ @.str.26, %29 ], [ @.str.25, %28 ], [ @.str.24, %27 ], [ @.str.23, %26 ], [ @.str.22, %25 ], [ @.str.21, %24 ], [ @.str.20, %23 ], [ @.str.19, %22 ], [ @.str.18, %21 ], [ @.str.17, %20 ], [ @.str.16, %19 ], [ @.str.15, %18 ], [ @.str.14, %17 ], [ @.str.13, %16 ], [ @.str.12, %15 ], [ @.str.11, %14 ], [ @.str.10, %13 ], [ @.str.9, %12 ], [ @.str.8, %11 ], [ @.str.7, %10 ], [ @.str.6, %9 ], [ @.str.5, %8 ], [ @.str.4, %7 ], [ @.str.3, %6 ], [ @.str.2, %5 ], [ @.str.1, %4 ], [ @.str, %1 ], [ @.str, %1 ], [ @.str, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.52.0, 1
   ret { ptr, i64 } %.fca.1.insert

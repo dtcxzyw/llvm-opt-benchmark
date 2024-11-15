@@ -18967,11 +18967,11 @@ define hidden void @"_ZN10zbus_names14interface_name1_93_$LT$impl$u20$serde..ser
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !5747, !noalias !5748, !nonnull !14, !noundef !14
   %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !5747, !noalias !5748, !noundef !14
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !5751
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !5751
   %8 = load i64, ptr %4, align 8, !range !2914, !noalias !5752, !noundef !14
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h58c311b762ba9b26E.exit", label %10
@@ -19001,11 +19001,11 @@ define hidden void @"_ZN10zbus_names14interface_name1_93_$LT$impl$u20$serde..ser
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !5774, !noalias !5775, !nonnull !14, !noundef !14
   %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !5774, !noalias !5775, !noundef !14
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !5778
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !5778
   %8 = load i64, ptr %4, align 8, !range !2914, !noalias !5779, !noundef !14
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17he6e7b9dae5e66f2bE.exit", label %10
@@ -19035,11 +19035,11 @@ define hidden void @"_ZN10zbus_names14interface_name1_93_$LT$impl$u20$serde..ser
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !5801, !noalias !5802, !nonnull !14, !noundef !14
   %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !5801, !noalias !5802, !noundef !14
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !5805
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !5805
   %8 = load i64, ptr %4, align 8, !range !2914, !noalias !5806, !noundef !14
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hef787234060ec8b1E.exit", label %10
@@ -19069,11 +19069,11 @@ define hidden void @"_ZN10zbus_names14interface_name1_93_$LT$impl$u20$serde..ser
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !5828, !noalias !5829, !nonnull !14, !noundef !14
   %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !5828, !noalias !5829, !noundef !14
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !5832
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !5832
   %8 = load i64, ptr %4, align 8, !range !2914, !noalias !5833, !noundef !14
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8d09e8b0c4ddf33fE.exit", label %10
@@ -19398,8 +19398,8 @@ define hidden void @"_ZN110_$LT$exr..image..read..layers..ReadFirstValidLayer$LT
   %90 = getelementptr inbounds i8, ptr %88, i64 48
   %91 = load i8, ptr %90, align 8, !range !2433, !alias.scope !5921, !noalias !5922, !noundef !14
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %91, 1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 2, i64 4
-  %92 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i, %87
+  %..i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 2, i64 4
+  %92 = add i64 %..i.i.i.i.i.i.i.i.i.i.i.i.i, %87
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !5923
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2365dda06c54db5eE.llvm.15194214959381595889"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %88)
           to label %.noexc26 unwind label %.loopexit
@@ -19530,8 +19530,8 @@ define hidden void @"_ZN110_$LT$exr..image..read..layers..ReadFirstValidLayer$LT
   %129 = getelementptr inbounds i8, ptr %127, i64 48
   %130 = load i8, ptr %129, align 8, !range !2433, !alias.scope !5987, !noalias !5988, !noundef !14
   %switch.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %130, 1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i, i64 2, i64 4
-  %131 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, %126
+  %..i.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i, i64 2, i64 4
+  %131 = add i64 %..i.i.i.i.i.i.i.i.i.i.i.i, %126
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !5989
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2365dda06c54db5eE.llvm.15194214959381595889"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %127)
           to label %.noexc.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i, !noalias !5959
@@ -19722,8 +19722,8 @@ define hidden void @"_ZN110_$LT$exr..image..read..layers..ReadFirstValidLayer$LT
   %178 = getelementptr inbounds i8, ptr %176, i64 48
   %179 = load i8, ptr %178, align 8, !range !2433, !alias.scope !6082, !noalias !6083, !noundef !14
   %switch.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %179, 1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i, i64 2, i64 4
-  %180 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i, %175
+  %..i.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i, i64 2, i64 4
+  %180 = add i64 %..i.i.i.i.i.i.i.i.i.i.i, %175
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !6084
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2365dda06c54db5eE.llvm.15194214959381595889"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %176)
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i, !noalias !6063
@@ -19909,8 +19909,8 @@ define hidden void @"_ZN110_$LT$exr..image..read..layers..ReadFirstValidLayer$LT
   %222 = getelementptr inbounds i8, ptr %220, i64 48
   %223 = load i8, ptr %222, align 8, !range !2433, !alias.scope !6148, !noalias !6149, !noundef !14
   %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %223, 1
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 2, i64 4
-  %224 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i, %219
+  %..i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i64 2, i64 4
+  %224 = add i64 %..i.i.i.i.i.i.i.i.i.i, %219
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !6150
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2365dda06c54db5eE.llvm.15194214959381595889"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %220)
           to label %.noexc.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i, !noalias !6129
@@ -54629,11 +54629,11 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h03ca32be848056a6E(ptr noali
   %12 = getelementptr inbounds i8, ptr %.sroa.0.05, i64 16
   %13 = load ptr, ptr %12, align 8, !alias.scope !16153, !noalias !16154, !nonnull !14, !noundef !14
   %switch.i.i.i = icmp samesign ult i64 %11, 2
-  %spec.select.idx.i.i.i = select i1 %switch.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i = getelementptr inbounds i8, ptr %13, i64 %spec.select.idx.i.i.i
+  %.sroa.0.0.idx.i.i.i = select i1 %switch.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %13, i64 %.sroa.0.0.idx.i.i.i
   %.sroa.4.0.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05, i64 24
   %.sroa.4.0.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i, align 8, !alias.scope !16153, !noalias !16154, !noundef !14
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i, i64 noundef %.sroa.4.0.i.i.i), !noalias !16153
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.4.0.i.i.i), !noalias !16153
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !16157
   store i8 -1, ptr %4, align 1, !noalias !16157
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 1), !noalias !16164
@@ -54670,11 +54670,11 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h61d6d2da5b8cefaaE(ptr noali
   %12 = getelementptr inbounds i8, ptr %.sroa.0.05, i64 16
   %13 = load ptr, ptr %12, align 8, !alias.scope !16184, !noalias !16185, !nonnull !14, !noundef !14
   %switch.i.i.i = icmp samesign ult i64 %11, 2
-  %spec.select.idx.i.i.i = select i1 %switch.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i = getelementptr inbounds i8, ptr %13, i64 %spec.select.idx.i.i.i
+  %.sroa.0.0.idx.i.i.i = select i1 %switch.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %13, i64 %.sroa.0.0.idx.i.i.i
   %.sroa.4.0.in.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05, i64 24
   %.sroa.4.0.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i, align 8, !alias.scope !16184, !noalias !16185, !noundef !14
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i, i64 noundef %.sroa.4.0.i.i.i), !noalias !16184
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.4.0.i.i.i), !noalias !16184
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !16188
   store i8 -1, ptr %4, align 1, !noalias !16188
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 1), !noalias !16195
@@ -54711,11 +54711,11 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !alias.scope !16213, !noalias !16214, !nonnull !14, !noundef !14
   %switch.i.i = icmp samesign ult i64 %7, 2
-  %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
-  %spec.select.i.i = getelementptr inbounds i8, ptr %9, i64 %spec.select.idx.i.i
+  %.sroa.0.0.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %9, i64 %.sroa.0.0.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.4.0.i.i = load i64, ptr %.sroa.4.0.in.i.i, align 8, !alias.scope !16213, !noalias !16214, !noundef !14
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !16213
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !16213
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !16217
   store i8 -1, ptr %3, align 1, !noalias !16217
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !16224
@@ -54740,11 +54740,11 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !alias.scope !16239, !noalias !16240, !nonnull !14, !noundef !14
   %switch.i.i = icmp samesign ult i64 %7, 2
-  %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
-  %spec.select.i.i = getelementptr inbounds i8, ptr %9, i64 %spec.select.idx.i.i
+  %.sroa.0.0.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %9, i64 %.sroa.0.0.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.4.0.i.i = load i64, ptr %.sroa.4.0.in.i.i, align 8, !alias.scope !16239, !noalias !16240, !noundef !14
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !16239
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !16239
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !16243
   store i8 -1, ptr %3, align 1, !noalias !16243
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !16250
@@ -56746,14 +56746,14 @@ common.resume.i:                                  ; preds = %54, %40, %34
   %switch.i.i = icmp samesign ult i64 %42, 2
   %43 = getelementptr inbounds i8, ptr %15, i64 -64
   %44 = load ptr, ptr %43, align 8, !alias.scope !16863, !noalias !16864, !nonnull !14, !noundef !14
-  %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
-  %spec.select.i.i = getelementptr inbounds i8, ptr %44, i64 %spec.select.idx.i.i
+  %.sroa.05.0.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
+  %.sroa.05.0.i.i = getelementptr inbounds i8, ptr %44, i64 %.sroa.05.0.idx.i.i
   call void @llvm.assume(i1 %12)
   %.val.i.i = load ptr, ptr %.val, align 8, !noalias !16865, !nonnull !14, !align !199, !noundef !14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !16868
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !16868
   store i64 1, ptr %5, align 8, !noalias !16873
-  store ptr %spec.select.i.i, ptr %.sroa.4.sroa.6.0..sroa_idx.i, align 8, !noalias !16873
+  store ptr %.sroa.05.0.i.i, ptr %.sroa.4.sroa.6.0..sroa_idx.i, align 8, !noalias !16873
   store i64 %.sroa.66.0.i.i, ptr %.sroa.4.sroa.7.0..sroa_idx.i, align 8, !noalias !16873
   store ptr %.sroa.31.i.sroa.0.0.copyload13.i, ptr %4, align 8, !noalias !16873
   store i64 %.sroa.31.i.sroa.6.0.copyload15.i, ptr %.sroa.4.sroa.8.sroa.6.0..sroa_idx.i, align 8, !noalias !16873
@@ -62483,11 +62483,11 @@ define hidden void @"_ZN55_$LT$zvariant..str..Str$u20$as$u20$core..hash..Hash$GT
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !18334, !noalias !18337, !nonnull !14, !noundef !14
   %switch.i = icmp samesign ult i64 %4, 2
-  %spec.select.idx.i = select i1 %switch.i, i64 0, i64 16
-  %spec.select.i = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx.i
+  %.sroa.0.0.idx.i = select i1 %switch.i, i64 0, i64 16
+  %.sroa.0.0.i = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx.i
   %.sroa.4.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.4.0.i = load i64, ptr %.sroa.4.0.in.i, align 8, !alias.scope !18334, !noalias !18337, !noundef !14
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %spec.select.i, i64 noundef %.sroa.4.0.i), !noalias !18334
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i), !noalias !18334
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !18339
   store i8 -1, ptr %3, align 1, !noalias !18339
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !18346
@@ -66016,11 +66016,11 @@ define hidden void @"_ZN57_$LT$zvariant..str..Inner$u20$as$u20$core..hash..Hash$
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %switch = icmp samesign ult i64 %4, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !14
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.4.0)
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !19677
   store i8 -1, ptr %3, align 1, !noalias !19677
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !19684
@@ -74434,9 +74434,9 @@ define hidden void @"_ZN5taffy7compute4grid13implicit_grid25get_known_child_posi
 19:                                               ; preds = %2
   %.sroa.532.0.extract.shift.i = lshr i64 %8, 32
   %20 = and i64 %8, 281470681743360
-  %switch40.not.i = icmp eq i64 %20, 4294967296
+  %switch.not.i = icmp eq i64 %20, 4294967296
   %.sroa.0.0.sroa.speculated.i.i = call i16 @llvm.smin.i16(i16 %.sroa.431.0.extract.trunc.i, i16 %.sroa.633.0.extract.trunc.i)
-  %.sroa.027.1.i = select i1 %switch40.not.i, i16 %.sroa.0.0.sroa.speculated.i.i, i16 %.sroa.431.0.extract.trunc.i
+  %.sroa.027.1.i = select i1 %switch.not.i, i16 %.sroa.0.0.sroa.speculated.i.i, i16 %.sroa.431.0.extract.trunc.i
   %trunc36.i = trunc i64 %.sroa.532.0.extract.shift.i to i16
   switch i16 %trunc36.i, label %16 [
     i16 0, label %26
@@ -74452,10 +74452,10 @@ define hidden void @"_ZN5taffy7compute4grid13implicit_grid25get_known_child_posi
 
 25:                                               ; preds = %35, %33, %32, %30, %26, %21, %.thread.i
   %.sroa.027.4.i = phi i16 [ 0, %35 ], [ %.sroa.027.1.i, %30 ], [ %.sroa.027.1.i, %33 ], [ %.sroa.027.1.i, %32 ], [ %.sroa.027.1.i, %26 ], [ %.sroa.633.0.extract.trunc.i, %.thread.i ], [ %24, %21 ]
-  %.sroa.028.0.i = phi i16 [ 0, %35 ], [ %31, %30 ], [ %34, %33 ], [ %.sroa.0.0.sroa.speculated.i41.i, %32 ], [ %27, %26 ], [ %.sroa.633.0.extract.trunc.i, %.thread.i ], [ %.sroa.633.0.extract.trunc.i, %21 ]
-  %switch.i = icmp eq i16 %9, 1
-  %switch38.i = icmp eq i16 %11, 1
-  %or.cond.i = select i1 %switch.i, i1 true, i1 %switch38.i
+  %.sroa.028.0.i = phi i16 [ 0, %35 ], [ %31, %30 ], [ %34, %33 ], [ %.sroa.0.0.sroa.speculated.i42.i, %32 ], [ %27, %26 ], [ %.sroa.633.0.extract.trunc.i, %.thread.i ], [ %.sroa.633.0.extract.trunc.i, %21 ]
+  %switch37.i = icmp eq i16 %9, 1
+  %switch40.i = icmp eq i16 %11, 1
+  %or.cond.i = select i1 %switch37.i, i1 true, i1 %switch40.i
   br i1 %or.cond.i, label %_ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit, label %36
 
 26:                                               ; preds = %19
@@ -74471,7 +74471,7 @@ define hidden void @"_ZN5taffy7compute4grid13implicit_grid25get_known_child_posi
   br label %25
 
 32:                                               ; preds = %28
-  %.sroa.0.0.sroa.speculated.i41.i = call noundef i16 @llvm.smax.i16(i16 %.sroa.431.0.extract.trunc.i, i16 %.sroa.633.0.extract.trunc.i)
+  %.sroa.0.0.sroa.speculated.i42.i = call noundef i16 @llvm.smax.i16(i16 %.sroa.431.0.extract.trunc.i, i16 %.sroa.633.0.extract.trunc.i)
   br label %25
 
 33:                                               ; preds = %28
@@ -74482,16 +74482,16 @@ define hidden void @"_ZN5taffy7compute4grid13implicit_grid25get_known_child_posi
   br label %25
 
 36:                                               ; preds = %25
-  %switch46.i = icmp eq i16 %9, 0
-  br i1 %switch46.i, label %37, label %_ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit
+  %switch.i = icmp eq i16 %9, 0
+  br i1 %switch.i, label %37, label %_ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit
 
 37:                                               ; preds = %36
   %switch.inv.i.not.i = icmp eq i16 %11, 0
-  %spec.select.i.i = select i1 %switch.inv.i.not.i, i16 1, i16 %15
+  %..i.i = select i1 %switch.inv.i.not.i, i16 1, i16 %15
   br label %_ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit
 
 _ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit: ; preds = %25, %36, %37
-  %.sroa.029.0.i = phi i16 [ 1, %25 ], [ %13, %36 ], [ %spec.select.i.i, %37 ]
+  %.sroa.029.0.i = phi i16 [ 1, %25 ], [ %..i.i, %37 ], [ %13, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %38 = getelementptr inbounds i8, ptr %1, i64 304
   %.sroa.06.0.copyload = load i64, ptr %38, align 8
@@ -74530,9 +74530,9 @@ _ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b4
 53:                                               ; preds = %_ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit
   %.sroa.532.0.extract.shift.i34 = lshr i64 %42, 32
   %54 = and i64 %42, 281470681743360
-  %switch40.not.i35 = icmp eq i64 %54, 4294967296
+  %switch.not.i35 = icmp eq i64 %54, 4294967296
   %.sroa.0.0.sroa.speculated.i.i36 = call i16 @llvm.smin.i16(i16 %.sroa.431.0.extract.trunc.i14, i16 %.sroa.633.0.extract.trunc.i16)
-  %.sroa.027.1.i37 = select i1 %switch40.not.i35, i16 %.sroa.0.0.sroa.speculated.i.i36, i16 %.sroa.431.0.extract.trunc.i14
+  %.sroa.027.1.i37 = select i1 %switch.not.i35, i16 %.sroa.0.0.sroa.speculated.i.i36, i16 %.sroa.431.0.extract.trunc.i14
   %trunc36.i38 = trunc i64 %.sroa.532.0.extract.shift.i34 to i16
   switch i16 %trunc36.i38, label %50 [
     i16 0, label %60
@@ -74548,10 +74548,10 @@ _ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b4
 
 59:                                               ; preds = %69, %67, %66, %64, %60, %55, %.thread.i40
   %.sroa.027.4.i18 = phi i16 [ 0, %69 ], [ %.sroa.027.1.i37, %64 ], [ %.sroa.027.1.i37, %67 ], [ %.sroa.027.1.i37, %66 ], [ %.sroa.027.1.i37, %60 ], [ %.sroa.633.0.extract.trunc.i16, %.thread.i40 ], [ %58, %55 ]
-  %.sroa.028.0.i19 = phi i16 [ 0, %69 ], [ %65, %64 ], [ %68, %67 ], [ %.sroa.0.0.sroa.speculated.i41.i39, %66 ], [ %61, %60 ], [ %.sroa.633.0.extract.trunc.i16, %.thread.i40 ], [ %.sroa.633.0.extract.trunc.i16, %55 ]
-  %switch.i20 = icmp eq i16 %43, 1
-  %switch38.i21 = icmp eq i16 %45, 1
-  %or.cond.i22 = select i1 %switch.i20, i1 true, i1 %switch38.i21
+  %.sroa.028.0.i19 = phi i16 [ 0, %69 ], [ %65, %64 ], [ %68, %67 ], [ %.sroa.0.0.sroa.speculated.i42.i39, %66 ], [ %61, %60 ], [ %.sroa.633.0.extract.trunc.i16, %.thread.i40 ], [ %.sroa.633.0.extract.trunc.i16, %55 ]
+  %switch37.i20 = icmp eq i16 %43, 1
+  %switch40.i21 = icmp eq i16 %45, 1
+  %or.cond.i22 = select i1 %switch37.i20, i1 true, i1 %switch40.i21
   br i1 %or.cond.i22, label %_ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit41, label %70
 
 60:                                               ; preds = %53
@@ -74567,7 +74567,7 @@ _ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b4
   br label %59
 
 66:                                               ; preds = %62
-  %.sroa.0.0.sroa.speculated.i41.i39 = call noundef i16 @llvm.smax.i16(i16 %.sroa.431.0.extract.trunc.i14, i16 %.sroa.633.0.extract.trunc.i16)
+  %.sroa.0.0.sroa.speculated.i42.i39 = call noundef i16 @llvm.smax.i16(i16 %.sroa.431.0.extract.trunc.i14, i16 %.sroa.633.0.extract.trunc.i16)
   br label %59
 
 67:                                               ; preds = %62
@@ -74578,16 +74578,16 @@ _ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b4
   br label %59
 
 70:                                               ; preds = %59
-  %switch46.i23 = icmp eq i16 %43, 0
-  br i1 %switch46.i23, label %71, label %_ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit41
+  %switch.i23 = icmp eq i16 %43, 0
+  br i1 %switch.i23, label %71, label %_ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit41
 
 71:                                               ; preds = %70
   %switch.inv.i.not.i32 = icmp eq i16 %45, 0
-  %spec.select.i.i33 = select i1 %switch.inv.i.not.i32, i16 1, i16 %49
+  %..i.i33 = select i1 %switch.inv.i.not.i32, i16 1, i16 %49
   br label %_ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit41
 
 _ZN5taffy7compute4grid13implicit_grid28child_min_line_max_line_span17h0ef5b6c1b46e365dE.exit41: ; preds = %59, %70, %71
-  %.sroa.029.0.i24 = phi i16 [ 1, %59 ], [ %47, %70 ], [ %spec.select.i.i33, %71 ]
+  %.sroa.029.0.i24 = phi i16 [ 1, %59 ], [ %..i.i33, %71 ], [ %47, %70 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8, !nonnull !14, !align !16596, !noundef !14
@@ -77698,11 +77698,11 @@ define hidden void @"_ZN62_$LT$zvariant..str..Inner$u20$as$u20$serde..ser..Seria
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %switch = icmp samesign ult i64 %4, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !14
-  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.4.0)
+  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
   ret void
 }
 
@@ -77712,11 +77712,11 @@ define hidden void @"_ZN62_$LT$zvariant..str..Inner$u20$as$u20$serde..ser..Seria
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %switch = icmp samesign ult i64 %4, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !14
-  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.4.0)
+  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
   ret void
 }
 
@@ -77726,11 +77726,11 @@ define hidden void @"_ZN62_$LT$zvariant..str..Inner$u20$as$u20$serde..ser..Seria
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %switch = icmp samesign ult i64 %4, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !14
-  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.4.0)
+  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
   ret void
 }
 
@@ -77740,11 +77740,11 @@ define hidden void @"_ZN62_$LT$zvariant..str..Inner$u20$as$u20$serde..ser..Seria
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %switch = icmp samesign ult i64 %4, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !14
-  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.4.0)
+  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
   ret void
 }
 
@@ -79638,11 +79638,11 @@ define hidden void @"_ZN70_$LT$zvariant..object_path..ObjectPath$u20$as$u20$core
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !22094, !noalias !22097, !nonnull !14, !noundef !14
   %switch.i = icmp samesign ult i64 %4, 2
-  %spec.select.idx.i = select i1 %switch.i, i64 0, i64 16
-  %spec.select.i = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx.i
+  %.sroa.0.0.idx.i = select i1 %switch.i, i64 0, i64 16
+  %.sroa.0.0.i = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx.i
   %.sroa.4.0.in.i = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.4.0.i = load i64, ptr %.sroa.4.0.in.i, align 8, !alias.scope !22094, !noalias !22097, !noundef !14
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %spec.select.i, i64 noundef %.sroa.4.0.i), !noalias !22094
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i), !noalias !22094
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !22099
   store i8 -1, ptr %3, align 1, !noalias !22099
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h0094f610caaef7f2E.llvm.16501872790380092992"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !22106
@@ -81189,11 +81189,11 @@ define hidden void @"_ZN75_$LT$zvariant..object_path..ObjectPath$u20$as$u20$serd
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %switch = icmp samesign ult i64 %4, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !14
-  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.4.0)
+  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
   ret void
 }
 
@@ -81203,11 +81203,11 @@ define hidden void @"_ZN75_$LT$zvariant..object_path..ObjectPath$u20$as$u20$serd
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %switch = icmp samesign ult i64 %4, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !14
-  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.4.0)
+  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
   ret void
 }
 
@@ -81217,11 +81217,11 @@ define hidden void @"_ZN75_$LT$zvariant..object_path..ObjectPath$u20$as$u20$serd
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %switch = icmp samesign ult i64 %4, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !14
-  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.4.0)
+  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
   ret void
 }
 
@@ -81231,11 +81231,11 @@ define hidden void @"_ZN75_$LT$zvariant..object_path..ObjectPath$u20$as$u20$serd
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %switch = icmp samesign ult i64 %4, 2
-  %spec.select.idx = select i1 %switch, i64 0, i64 16
-  %spec.select = getelementptr inbounds i8, ptr %6, i64 %spec.select.idx
+  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %.sroa.0.0 = getelementptr inbounds i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.4.0.in = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !14
-  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %.sroa.4.0)
+  tail call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.4.0)
   ret void
 }
 
@@ -83375,11 +83375,11 @@ define hidden void @"_ZN8zvariant3str1_70_$LT$impl$u20$serde..ser..Serialize$u20
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !22746, !noalias !22747, !nonnull !14, !noundef !14
   %switch.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
-  %spec.select.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i
+  %.sroa.0.0.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i = load i64, ptr %.sroa.4.0.in.i.i, align 8, !alias.scope !22746, !noalias !22747, !noundef !14
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !22750
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !22750
   %8 = load i64, ptr %4, align 8, !range !2914, !noalias !22741, !noundef !14
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %10, label %11
@@ -83409,11 +83409,11 @@ define hidden void @"_ZN8zvariant3str1_70_$LT$impl$u20$serde..ser..Serialize$u20
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !22762, !noalias !22763, !nonnull !14, !noundef !14
   %switch.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
-  %spec.select.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i
+  %.sroa.0.0.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i = load i64, ptr %.sroa.4.0.in.i.i, align 8, !alias.scope !22762, !noalias !22763, !noundef !14
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !22766
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !22766
   %8 = load i64, ptr %4, align 8, !range !2914, !noalias !22757, !noundef !14
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %10, label %11
@@ -83443,11 +83443,11 @@ define hidden void @"_ZN8zvariant3str1_70_$LT$impl$u20$serde..ser..Serialize$u20
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !22778, !noalias !22779, !nonnull !14, !noundef !14
   %switch.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
-  %spec.select.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i
+  %.sroa.0.0.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i = load i64, ptr %.sroa.4.0.in.i.i, align 8, !alias.scope !22778, !noalias !22779, !noundef !14
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !22782
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !22782
   %8 = load i64, ptr %4, align 8, !range !2914, !noalias !22773, !noundef !14
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %10, label %11
@@ -83477,11 +83477,11 @@ define hidden void @"_ZN8zvariant3str1_70_$LT$impl$u20$serde..ser..Serialize$u20
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !22794, !noalias !22795, !nonnull !14, !noundef !14
   %switch.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
-  %spec.select.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i
+  %.sroa.0.0.idx.i.i = select i1 %switch.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i
   %.sroa.4.0.in.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i = load i64, ptr %.sroa.4.0.in.i.i, align 8, !alias.scope !22794, !noalias !22795, !noundef !14
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !22798
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i), !noalias !22798
   %8 = load i64, ptr %4, align 8, !range !2914, !noalias !22789, !noundef !14
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %10, label %11

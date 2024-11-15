@@ -1754,8 +1754,8 @@ default.unreachable:                              ; preds = %101
   %187 = icmp eq i8 %186, 4
   %188 = load i32, ptr %156, align 8, !range !9, !alias.scope !311, !noalias !308
   %switch.i.i = icmp eq i32 %188, 1
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 32
-  %.sink1.i = select i1 %187, i64 %spec.select.i.i, i64 16
+  %..i.i = select i1 %switch.i.i, i64 8, i64 32
+  %.sink1.i = select i1 %187, i64 %..i.i, i64 16
   %189 = getelementptr inbounds i8, ptr %156, i64 %.sink1.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, ptr noundef nonnull readonly align 8 dereferenceable(20) %189, i64 20, i1 false), !alias.scope !313
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.026, ptr noundef nonnull align 8 dereferenceable(20) %189, i64 20, i1 false)

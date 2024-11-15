@@ -16,8 +16,7 @@ $_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv = comdat any
 @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13 = private unnamed_addr constant [4 x i64] [i64 1, i64 3, i64 0, i64 2], align 8
 @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf = private unnamed_addr constant [4 x i64] [i64 552, i64 544, i64 548, i64 540], align 8
 @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.14 = private unnamed_addr constant [4 x i64] [i64 3, i64 1, i64 2, i64 0], align 8
-@switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.15 = private unnamed_addr constant [4 x i64] [i64 504, i64 504, i64 500, i64 500], align 8
-@switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.16 = private unnamed_addr constant [4 x i64] [i64 1, i64 1, i64 0, i64 0], align 8
+@switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf = private unnamed_addr constant [4 x i64] [i64 1, i64 1, i64 0, i64 0], align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8facebook4yoga19layoutAbsoluteChildEPKNS0_4NodeES3_PS1_ffNS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjj(ptr noundef %containingNode, ptr nocapture noundef readonly %node, ptr noundef %child, float noundef %containingBlockWidth, float noundef %containingBlockHeight, i32 noundef %widthMode, i8 noundef zeroext %direction, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %depth, i32 noundef %generationCount) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -595,7 +594,7 @@ _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit90.i: ; preds = %if
   br label %cond.end20.i
 
 cond.end20.i:                                     ; preds = %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit90.i, %cond.true8.i
-  %cond172.i = phi i1 [ %cmp.i, %cond.true8.i ], [ %retval.0.i.i, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit90.i ]
+  %cond165.i = phi i1 [ %cmp.i, %cond.true8.i ], [ %retval.0.i.i, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit90.i ]
   %cond21.in.i = phi i1 [ %cmp11.i, %cond.true8.i ], [ %xor67.i, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit90.i ]
   %call24.i = tail call noundef zeroext i1 @_ZNK8facebook4yoga4Node24isFlexEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
   br i1 %call24.i, label %land.lhs.true.i, label %if.else.i
@@ -614,17 +613,17 @@ sw.epilog.i.i:                                    ; preds = %if.then.i
 
 switch.lookup:                                    ; preds = %if.then.i
   %15 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.15, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
-  %16 = zext nneg i8 %axis to i64
-  %switch.gep27 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.16, i64 0, i64 %16
-  %switch.load28 = load i64, ptr %switch.gep27, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %containingNode, i64 %switch.load
-  %17 = load float, ptr %arrayidx.i.i.i.i, align 4
-  %measuredDimensions_.i101.i = getelementptr inbounds i8, ptr %child, i64 500
-  %arrayidx.i.i.i103.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i101.i, i64 0, i64 %switch.load28
-  %18 = load float, ptr %arrayidx.i.i.i103.i, align 4
-  %sub.i = fsub float %17, %18
+  %measuredDimensions_.i.i = getelementptr inbounds i8, ptr %containingNode, i64 500
+  %arrayidx.i.i.i.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i.i, i64 0, i64 %switch.load
+  %16 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %switch.i = icmp samesign ult i8 %axis, 2
+  %measuredDimensions_.i100.i = getelementptr inbounds i8, ptr %child, i64 500
+  %conv.i101.i = zext i1 %switch.i to i64
+  %arrayidx.i.i.i102.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i100.i, i64 0, i64 %conv.i101.i
+  %17 = load float, ptr %arrayidx.i.i.i102.i, align 4
+  %sub.i = fsub float %16, %17
   %call32.i = tail call noundef float @_ZNK8facebook4yoga4Node16getFlexEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %containingNode, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
   %sub33.i = fsub float %sub.i, %call32.i
   %cond38.i = select i1 %2, float %containingBlockWidth, float %containingBlockHeight
@@ -632,62 +631,46 @@ switch.lookup:                                    ; preds = %if.then.i
   %sub40.i = fsub float %sub33.i, %call39.i
   %call46.i = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %cond38.i)
   %sub47.i = fsub float %sub40.i, %call46.i
-  %19 = shl nuw nsw i8 %axis, 3
-  %switch.shiftamt53 = zext nneg i8 %19 to i32
-  %switch.downshift54 = lshr i32 33555201, %switch.shiftamt53
-  %switch.masked55 = trunc i32 %switch.downshift54 to i8
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %sub47.i, i8 noundef zeroext %switch.masked55)
+  %18 = shl nuw nsw i8 %axis, 3
+  %switch.shiftamt68 = zext nneg i8 %18 to i32
+  %switch.downshift69 = lshr i32 33555201, %switch.shiftamt68
+  %switch.masked70 = trunc i32 %switch.downshift69 to i8
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %sub47.i, i8 noundef zeroext %switch.masked70)
   br label %cond.end
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %cond.end20.i
   %call49.i = tail call noundef zeroext i1 @_ZNK8facebook4yoga4Node26isFlexStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
-  %cond.not.i = xor i1 %cond172.i, true
+  %cond.not.i = xor i1 %cond165.i, true
   %brmerge.i = or i1 %call49.i, %cond.not.i
   br i1 %brmerge.i, label %if.else61.i, label %if.then52.i
 
 if.then52.i:                                      ; preds = %if.else.i
-  switch i8 %axis, label %sw.epilog.i112.i [
-    i8 0, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i
-    i8 1, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i
-    i8 2, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i
-    i8 3, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i
-  ]
+  %19 = icmp ult i8 %axis, 4
+  br i1 %19, label %switch.lookup30, label %sw.epilog.i109.i
 
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i: ; preds = %if.then52.i
-  %measuredDimensions_.i114189.i = getelementptr inbounds i8, ptr %parent, i64 500
-  %20 = load float, ptr %measuredDimensions_.i114189.i, align 4
-  %measuredDimensions_.i123204.i = getelementptr inbounds i8, ptr %child, i64 500
-  %21 = load float, ptr %measuredDimensions_.i123204.i, align 4
-  %sub59207.i = fsub float %20, %21
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i
-
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i: ; preds = %if.then52.i
-  %measuredDimensions_.i114197.i = getelementptr inbounds i8, ptr %parent, i64 500
-  %22 = load float, ptr %measuredDimensions_.i114197.i, align 4
-  %measuredDimensions_.i123214.i = getelementptr inbounds i8, ptr %child, i64 500
-  %23 = load float, ptr %measuredDimensions_.i123214.i, align 4
-  %sub59217.i = fsub float %22, %23
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i
-
-sw.epilog.i112.i:                                 ; preds = %if.then52.i
+sw.epilog.i109.i:                                 ; preds = %if.then52.i
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
   unreachable
 
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i: ; preds = %if.then52.i, %if.then52.i
-  %arrayidx.i.i.i116.i = getelementptr inbounds i8, ptr %parent, i64 504
-  %24 = load float, ptr %arrayidx.i.i.i116.i, align 4
-  %arrayidx.i.i.i125.i = getelementptr inbounds i8, ptr %child, i64 504
-  %25 = load float, ptr %arrayidx.i.i.i125.i, align 4
-  %sub59.i = fsub float %24, %25
-  %switch.i = icmp eq i8 %axis, 0
-  %spec.select.i = select i1 %switch.i, i8 1, i8 3
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i
-
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i
-  %div210.in.i = phi float [ %sub59207.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i ], [ %sub59217.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i ], [ %sub59.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i ]
-  %retval.0.i127.i = phi i8 [ 0, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread.i ], [ 2, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.thread195.i ], [ %spec.select.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit113.i ]
-  %div210.i = fmul float %div210.in.i, 5.000000e-01
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %div210.i, i8 noundef zeroext %retval.0.i127.i)
+switch.lookup30:                                  ; preds = %if.then52.i
+  %20 = zext nneg i8 %axis to i64
+  %switch.gep31 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 0, i64 %20
+  %switch.load32 = load i64, ptr %switch.gep31, align 8
+  %measuredDimensions_.i111.i = getelementptr inbounds i8, ptr %parent, i64 500
+  %arrayidx.i.i.i113.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i111.i, i64 0, i64 %switch.load32
+  %21 = load float, ptr %arrayidx.i.i.i113.i, align 4
+  %switch173.i = icmp samesign ult i8 %axis, 2
+  %measuredDimensions_.i119.i = getelementptr inbounds i8, ptr %child, i64 500
+  %conv.i120.i = zext i1 %switch173.i to i64
+  %arrayidx.i.i.i121.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i119.i, i64 0, i64 %conv.i120.i
+  %22 = load float, ptr %arrayidx.i.i.i121.i, align 4
+  %sub59.i = fsub float %21, %22
+  %div.i = fmul float %sub59.i, 5.000000e-01
+  %23 = shl nuw nsw i8 %axis, 3
+  %switch.shiftamt73 = zext nneg i8 %23 to i32
+  %switch.downshift74 = lshr i32 33555201, %switch.shiftamt73
+  %switch.masked75 = trunc i32 %switch.downshift74 to i8
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %div.i, i8 noundef zeroext %switch.masked75)
   br label %cond.end
 
 if.else61.i:                                      ; preds = %if.else.i
@@ -697,53 +680,37 @@ if.else61.i:                                      ; preds = %if.else.i
   br i1 %brmerge68.i, label %if.else74.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %if.else61.i
-  switch i8 %axis, label %sw.epilog.i136.i [
-    i8 0, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i
-    i8 1, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i
-    i8 2, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i
-    i8 3, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i
-  ]
+  %24 = icmp ult i8 %axis, 4
+  br i1 %24, label %switch.lookup33, label %sw.epilog.i131.i
 
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i: ; preds = %if.then65.i
-  %measuredDimensions_.i138221.i = getelementptr inbounds i8, ptr %parent, i64 500
-  %26 = load float, ptr %measuredDimensions_.i138221.i, align 4
-  %measuredDimensions_.i147236.i = getelementptr inbounds i8, ptr %child, i64 500
-  %27 = load float, ptr %measuredDimensions_.i147236.i, align 4
-  %sub72239.i = fsub float %26, %27
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i
-
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i: ; preds = %if.then65.i
-  %measuredDimensions_.i138229.i = getelementptr inbounds i8, ptr %parent, i64 500
-  %28 = load float, ptr %measuredDimensions_.i138229.i, align 4
-  %measuredDimensions_.i147245.i = getelementptr inbounds i8, ptr %child, i64 500
-  %29 = load float, ptr %measuredDimensions_.i147245.i, align 4
-  %sub72248.i = fsub float %28, %29
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i
-
-sw.epilog.i136.i:                                 ; preds = %if.then65.i
+sw.epilog.i131.i:                                 ; preds = %if.then65.i
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
   unreachable
 
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i: ; preds = %if.then65.i, %if.then65.i
-  %arrayidx.i.i.i140.i = getelementptr inbounds i8, ptr %parent, i64 504
-  %30 = load float, ptr %arrayidx.i.i.i140.i, align 4
-  %arrayidx.i.i.i149.i = getelementptr inbounds i8, ptr %child, i64 504
-  %31 = load float, ptr %arrayidx.i.i.i149.i, align 4
-  %sub72.i = fsub float %30, %31
-  %switch256.i = icmp eq i8 %axis, 0
-  %spec.select257.i = select i1 %switch256.i, i8 1, i8 3
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i
-
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i
-  %sub72241.i = phi float [ %sub72239.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i ], [ %sub72248.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i ], [ %sub72.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i ]
-  %retval.0.i151.i = phi i8 [ 0, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread.i ], [ 2, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.thread227.i ], [ %spec.select257.i, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit137.i ]
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %sub72241.i, i8 noundef zeroext %retval.0.i151.i)
+switch.lookup33:                                  ; preds = %if.then65.i
+  %25 = zext nneg i8 %axis to i64
+  %switch.gep34 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 0, i64 %25
+  %switch.load35 = load i64, ptr %switch.gep34, align 8
+  %measuredDimensions_.i133.i = getelementptr inbounds i8, ptr %parent, i64 500
+  %arrayidx.i.i.i135.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i133.i, i64 0, i64 %switch.load35
+  %26 = load float, ptr %arrayidx.i.i.i135.i, align 4
+  %switch175.i = icmp samesign ult i8 %axis, 2
+  %measuredDimensions_.i141.i = getelementptr inbounds i8, ptr %child, i64 500
+  %conv.i142.i = zext i1 %switch175.i to i64
+  %arrayidx.i.i.i143.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i141.i, i64 0, i64 %conv.i142.i
+  %27 = load float, ptr %arrayidx.i.i.i143.i, align 4
+  %sub72.i = fsub float %26, %27
+  %28 = shl nuw nsw i8 %axis, 3
+  %switch.shiftamt78 = zext nneg i8 %28 to i32
+  %switch.downshift79 = lshr i32 33555201, %switch.shiftamt78
+  %switch.masked80 = trunc i32 %switch.downshift79 to i8
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %sub72.i, i8 noundef zeroext %switch.masked80)
   br label %cond.end
 
 if.else74.i:                                      ; preds = %if.else61.i
   %config_.i.i = getelementptr inbounds i8, ptr %parent, i64 616
-  %32 = load ptr, ptr %config_.i.i, align 8
-  %call76.i = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config28isExperimentalFeatureEnabledENS0_19ExperimentalFeatureE(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 noundef zeroext 1)
+  %29 = load ptr, ptr %config_.i.i, align 8
+  %call76.i = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config28isExperimentalFeatureEnabledENS0_19ExperimentalFeatureE(ptr noundef nonnull align 8 dereferenceable(48) %29, i8 noundef zeroext 1)
   br i1 %call76.i, label %land.lhs.true77.i, label %cond.end
 
 land.lhs.true77.i:                                ; preds = %if.else74.i
@@ -751,31 +718,31 @@ land.lhs.true77.i:                                ; preds = %if.else74.i
   br i1 %call78.i, label %if.then79.i, label %cond.end
 
 if.then79.i:                                      ; preds = %land.lhs.true77.i
-  %33 = icmp ult i8 %axis, 4
-  br i1 %33, label %switch.lookup29, label %sw.epilog.i160.i
+  %30 = icmp ult i8 %axis, 4
+  br i1 %30, label %switch.lookup36, label %sw.epilog.i153.i
 
-sw.epilog.i160.i:                                 ; preds = %if.then79.i
+sw.epilog.i153.i:                                 ; preds = %if.then79.i
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
   unreachable
 
-switch.lookup29:                                  ; preds = %if.then79.i
-  %34 = zext nneg i8 %axis to i64
-  %switch.gep30 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.16, i64 0, i64 %34
-  %switch.load31 = load i64, ptr %switch.gep30, align 8
-  %measuredDimensions_.i162.i = getelementptr inbounds i8, ptr %containingNode, i64 500
-  %arrayidx.i.i.i164.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i162.i, i64 0, i64 %switch.load31
-  %35 = load float, ptr %arrayidx.i.i.i164.i, align 4
-  %call83.i = tail call noundef float @_ZNK8facebook4yoga4Node20getFlexStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %35)
+switch.lookup36:                                  ; preds = %if.then79.i
+  %31 = zext nneg i8 %axis to i64
+  %switch.gep37 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 0, i64 %31
+  %switch.load38 = load i64, ptr %switch.gep37, align 8
+  %measuredDimensions_.i155.i = getelementptr inbounds i8, ptr %containingNode, i64 500
+  %arrayidx.i.i.i157.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i155.i, i64 0, i64 %switch.load38
+  %32 = load float, ptr %arrayidx.i.i.i157.i, align 4
+  %call83.i = tail call noundef float @_ZNK8facebook4yoga4Node20getFlexStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %32)
   %call84.i = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %containingNode, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
   %add.i = fadd float %call83.i, %call84.i
   %cond89.i = select i1 %2, float %containingBlockWidth, float %containingBlockHeight
   %call90.i = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %cond89.i)
   %add91.i = fadd float %add.i, %call90.i
-  %36 = shl nuw nsw i8 %axis, 3
-  %switch.shiftamt58 = zext nneg i8 %36 to i32
-  %switch.downshift59 = lshr i32 33555201, %switch.shiftamt58
-  %switch.masked60 = trunc i32 %switch.downshift59 to i8
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %add91.i, i8 noundef zeroext %switch.masked60)
+  %33 = shl nuw nsw i8 %axis, 3
+  %switch.shiftamt83 = zext nneg i8 %33 to i32
+  %switch.downshift84 = lshr i32 33555201, %switch.shiftamt83
+  %switch.masked85 = trunc i32 %switch.downshift84 to i8
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %add91.i, i8 noundef zeroext %switch.masked85)
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -791,58 +758,55 @@ if.then.i19:                                      ; preds = %cond.false
   %add6.i = fadd float %add.i20, %call5.i
   %cmp.i.i21 = icmp eq i8 %direction, 2
   %cond.i.i22 = select i1 %cmp.i.i21, i8 2, i8 0
-  switch i8 %axis, label %sw.epilog.i.i26 [
-    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit62.i
+  %retval.0.i.i23 = select i1 %2, i8 %cond.i.i22, i8 1
+  switch i8 %axis, label %sw.epilog.i.i29 [
+    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i25
     i8 1, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i
-    i8 2, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i23
-    i8 3, label %sw.bb3.i.i
+    i8 2, label %sw.bb2.i.i28
+    i8 3, label %sw.bb3.i.i24
   ]
 
-sw.bb3.i.i:                                       ; preds = %if.then.i19
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i23
+sw.bb2.i.i28:                                     ; preds = %if.then.i19
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i25
 
-sw.epilog.i.i26:                                  ; preds = %if.then.i19
+sw.bb3.i.i24:                                     ; preds = %if.then.i19
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i25
+
+sw.epilog.i.i29:                                  ; preds = %if.then.i19
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
   unreachable
 
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i23: ; preds = %sw.bb3.i.i, %if.then.i19
-  %retval.0.i56.i = phi i8 [ 2, %sw.bb3.i.i ], [ 0, %if.then.i19 ]
-  %cmp.not.i = icmp eq i8 %cond.i.i22, %retval.0.i56.i
-  br i1 %cmp.not.i, label %cond.end12.i, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i25: ; preds = %sw.bb3.i.i24, %sw.bb2.i.i28, %if.then.i19
+  %retval.0.i56.i = phi i8 [ 2, %sw.bb3.i.i24 ], [ 0, %sw.bb2.i.i28 ], [ 1, %if.then.i19 ]
+  %cmp.not.i = icmp eq i8 %retval.0.i.i23, %retval.0.i56.i
+  br i1 %cmp.not.i, label %switch.lookup39, label %cond.true9.i
 
-_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i: ; preds = %if.then.i19, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i23
-  %.sink.i.i = phi i64 [ 500, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i23 ], [ 504, %if.then.i19 ]
-  %retval.0.i4.i.i = phi i64 [ 0, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i23 ], [ 1, %if.then.i19 ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %containingNode, i64 %.sink.i.i
-  %37 = load float, ptr %arrayidx.i.i.i.i.i, align 4
-  %measuredDimensions_.i8.i.i = getelementptr inbounds i8, ptr %child, i64 500
-  %arrayidx.i.i.i10.i.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i8.i.i, i64 0, i64 %retval.0.i4.i.i
-  %38 = load float, ptr %arrayidx.i.i.i10.i.i, align 4
-  %sub.i.i = fsub float %37, %38
+cond.true9.i:                                     ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i25
+  %switch.i26 = icmp samesign ult i8 %axis, 2
+  %spec.select.i = zext i1 %switch.i26 to i64
+  br label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i
+
+_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i: ; preds = %if.then.i19, %cond.true9.i
+  %retval.0.i.i.i = phi i64 [ %spec.select.i, %cond.true9.i ], [ 1, %if.then.i19 ]
+  %measuredDimensions_.i.i.i = getelementptr inbounds i8, ptr %containingNode, i64 500
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i.i.i, i64 0, i64 %retval.0.i.i.i
+  %34 = load float, ptr %arrayidx.i.i.i.i.i, align 4
+  %switch.i.i = icmp samesign ult i8 %axis, 2
+  %measuredDimensions_.i7.i.i = getelementptr inbounds i8, ptr %child, i64 500
+  %conv.i8.i.i = zext i1 %switch.i.i to i64
+  %arrayidx.i.i.i9.i.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i7.i.i, i64 0, i64 %conv.i8.i.i
+  %35 = load float, ptr %arrayidx.i.i.i9.i.i, align 4
+  %sub.i.i = fsub float %34, %35
   %sub6.i.i = fsub float %sub.i.i, %add6.i
-  br label %cond.end12.i
+  br label %switch.lookup39
 
-cond.end12.i:                                     ; preds = %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i23
-  %cond13.i = phi float [ %sub6.i.i, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i ], [ %add6.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i23 ]
-  switch i8 %axis, label %default.unreachable.i25 [
-    i8 3, label %sw.bb3.i57.i
-    i8 1, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit62.i
-    i8 2, label %sw.bb2.i59.i
-  ]
-
-sw.bb2.i59.i:                                     ; preds = %cond.end12.i
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit62.i
-
-sw.bb3.i57.i:                                     ; preds = %cond.end12.i
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit62.i
-
-default.unreachable.i25:                          ; preds = %cond.end12.i
-  unreachable
-
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit62.i: ; preds = %cond.end12.i, %sw.bb3.i57.i, %sw.bb2.i59.i, %if.then.i19
-  %cond13149.i = phi float [ %cond13.i, %sw.bb3.i57.i ], [ %cond13.i, %sw.bb2.i59.i ], [ %add6.i, %if.then.i19 ], [ %cond13.i, %cond.end12.i ]
-  %retval.0.i58.i = phi i8 [ 2, %sw.bb3.i57.i ], [ 0, %sw.bb2.i59.i ], [ 1, %if.then.i19 ], [ 3, %cond.end12.i ]
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %cond13149.i, i8 noundef zeroext %retval.0.i58.i)
+switch.lookup39:                                  ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i25, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i
+  %cond13.i = phi float [ %sub6.i.i, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i ], [ %add6.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit.i25 ]
+  %switch.cast = zext i8 %axis to i32
+  %switch.shiftamt = shl nuw nsw i32 %switch.cast, 3
+  %switch.downshift = lshr i32 33555201, %switch.shiftamt
+  %switch.masked = trunc i32 %switch.downshift to i8
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %cond13.i, i8 noundef zeroext %switch.masked)
   br label %cond.end
 
 if.else.i10:                                      ; preds = %cond.false
@@ -850,84 +814,72 @@ if.else.i10:                                      ; preds = %cond.false
   br i1 %call15.i, label %if.then16.i, label %if.else40.i
 
 if.then16.i:                                      ; preds = %if.else.i10
-  %39 = icmp ult i8 %axis, 4
-  br i1 %39, label %switch.lookup32, label %sw.epilog.i66.i
+  %36 = icmp ult i8 %axis, 4
+  br i1 %36, label %switch.lookup40, label %sw.epilog.i65.i
 
-sw.epilog.i66.i:                                  ; preds = %if.then16.i
+sw.epilog.i65.i:                                  ; preds = %if.then16.i
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
   unreachable
 
-switch.lookup32:                                  ; preds = %if.then16.i
-  %40 = zext nneg i8 %axis to i64
-  %switch.gep33 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.15, i64 0, i64 %40
-  %switch.load34 = load i64, ptr %switch.gep33, align 8
-  %41 = zext nneg i8 %axis to i64
-  %switch.gep35 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.16, i64 0, i64 %41
-  %switch.load36 = load i64, ptr %switch.gep35, align 8
-  %arrayidx.i.i.i.i14 = getelementptr inbounds i8, ptr %containingNode, i64 %switch.load34
-  %42 = load float, ptr %arrayidx.i.i.i.i14, align 4
-  %measuredDimensions_.i73.i = getelementptr inbounds i8, ptr %child, i64 500
-  %arrayidx.i.i.i75.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i73.i, i64 0, i64 %switch.load36
-  %43 = load float, ptr %arrayidx.i.i.i75.i, align 4
-  %sub.i15 = fsub float %42, %43
-  %call24.i16 = tail call noundef float @_ZNK8facebook4yoga4Node18getInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %containingNode, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
-  %sub25.i = fsub float %sub.i15, %call24.i16
+switch.lookup40:                                  ; preds = %if.then16.i
+  %37 = zext nneg i8 %axis to i64
+  %switch.gep41 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 0, i64 %37
+  %switch.load42 = load i64, ptr %switch.gep41, align 8
+  %measuredDimensions_.i.i14 = getelementptr inbounds i8, ptr %containingNode, i64 500
+  %arrayidx.i.i.i.i15 = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i.i14, i64 0, i64 %switch.load42
+  %38 = load float, ptr %arrayidx.i.i.i.i15, align 4
+  %switch130.i = icmp samesign ult i8 %axis, 2
+  %measuredDimensions_.i71.i = getelementptr inbounds i8, ptr %child, i64 500
+  %conv.i72.i = zext i1 %switch130.i to i64
+  %arrayidx.i.i.i73.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i71.i, i64 0, i64 %conv.i72.i
+  %39 = load float, ptr %arrayidx.i.i.i73.i, align 4
+  %sub.i16 = fsub float %38, %39
+  %call24.i17 = tail call noundef float @_ZNK8facebook4yoga4Node18getInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %containingNode, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
+  %sub25.i = fsub float %sub.i16, %call24.i17
   %call26.i = tail call noundef float @_ZNK8facebook4yoga4Node18getInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %cond.i)
   %sub27.i = fsub float %sub25.i, %call26.i
   %call28.i = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %cond.i)
   %sub29.i = fsub float %sub27.i, %call28.i
-  %cmp.i76.i = icmp eq i8 %direction, 2
-  %cond.i77.i = select i1 %cmp.i76.i, i8 2, i8 0
-  switch i8 %axis, label %default.unreachable141.i [
-    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit100.i
+  %cmp.i74.i = icmp eq i8 %direction, 2
+  %cond.i75.i = select i1 %cmp.i74.i, i8 2, i8 0
+  %retval.0.i76.i = select i1 %2, i8 %cond.i75.i, i8 1
+  switch i8 %axis, label %default.unreachable127.i [
+    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit82.i
     i8 1, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit94.i
-    i8 2, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit84.i
-    i8 3, label %sw.bb3.i79.i
+    i8 2, label %sw.bb2.i79.i
+    i8 3, label %sw.bb3.i77.i
   ]
 
-sw.bb3.i79.i:                                     ; preds = %switch.lookup32
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit84.i
+sw.bb2.i79.i:                                     ; preds = %switch.lookup40
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit82.i
 
-default.unreachable141.i:                         ; preds = %switch.lookup32
+sw.bb3.i77.i:                                     ; preds = %switch.lookup40
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit82.i
+
+default.unreachable127.i:                         ; preds = %switch.lookup40
   unreachable
 
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit84.i: ; preds = %sw.bb3.i79.i, %switch.lookup32
-  %retval.0.i80.i = phi i8 [ 2, %sw.bb3.i79.i ], [ 0, %switch.lookup32 ]
-  %cmp33.not.i = icmp eq i8 %cond.i77.i, %retval.0.i80.i
-  br i1 %cmp33.not.i, label %cond.end37.i, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit94.i
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit82.i: ; preds = %sw.bb3.i77.i, %sw.bb2.i79.i, %switch.lookup40
+  %retval.0.i78.i = phi i8 [ 2, %sw.bb3.i77.i ], [ 0, %sw.bb2.i79.i ], [ 1, %switch.lookup40 ]
+  %cmp33.not.i = icmp eq i8 %retval.0.i76.i, %retval.0.i78.i
+  br i1 %cmp33.not.i, label %switch.lookup43, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit94.i
 
-_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit94.i: ; preds = %switch.lookup32, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit84.i
-  %.sink.i85.i = phi i64 [ 500, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit84.i ], [ 504, %switch.lookup32 ]
-  %retval.0.i4.i86.i = phi i64 [ 0, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit84.i ], [ 1, %switch.lookup32 ]
-  %arrayidx.i.i.i.i87.i = getelementptr inbounds i8, ptr %containingNode, i64 %.sink.i85.i
-  %44 = load float, ptr %arrayidx.i.i.i.i87.i, align 4
-  %arrayidx.i.i.i10.i89.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i73.i, i64 0, i64 %retval.0.i4.i86.i
-  %45 = load float, ptr %arrayidx.i.i.i10.i89.i, align 4
-  %sub.i90.i = fsub float %44, %45
-  %sub6.i91.i = fsub float %sub.i90.i, %sub29.i
-  br label %cond.end37.i
+_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit94.i: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit82.i, %switch.lookup40
+  %retval.0.i.i84.i = phi i64 [ 1, %switch.lookup40 ], [ %conv.i72.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit82.i ]
+  %arrayidx.i.i.i.i86.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i.i14, i64 0, i64 %retval.0.i.i84.i
+  %40 = load float, ptr %arrayidx.i.i.i.i86.i, align 4
+  %41 = load float, ptr %arrayidx.i.i.i73.i, align 4
+  %sub.i91.i = fsub float %40, %41
+  %sub6.i92.i = fsub float %sub.i91.i, %sub29.i
+  br label %switch.lookup43
 
-cond.end37.i:                                     ; preds = %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit94.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit84.i
-  %cond38.i17 = phi float [ %sub6.i91.i, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit94.i ], [ %sub29.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit84.i ]
-  switch i8 %axis, label %default.unreachable142.i [
-    i8 3, label %sw.bb3.i95.i
-    i8 1, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit100.i
-    i8 2, label %sw.bb2.i97.i
-  ]
-
-sw.bb2.i97.i:                                     ; preds = %cond.end37.i
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit100.i
-
-sw.bb3.i95.i:                                     ; preds = %cond.end37.i
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit100.i
-
-default.unreachable142.i:                         ; preds = %cond.end37.i
-  unreachable
-
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit100.i: ; preds = %cond.end37.i, %sw.bb3.i95.i, %sw.bb2.i97.i, %switch.lookup32
-  %cond38154.i = phi float [ %cond38.i17, %sw.bb3.i95.i ], [ %cond38.i17, %sw.bb2.i97.i ], [ %sub29.i, %switch.lookup32 ], [ %cond38.i17, %cond.end37.i ]
-  %retval.0.i96.i = phi i8 [ 2, %sw.bb3.i95.i ], [ 0, %sw.bb2.i97.i ], [ 1, %switch.lookup32 ], [ 3, %cond.end37.i ]
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %cond38154.i, i8 noundef zeroext %retval.0.i96.i)
+switch.lookup43:                                  ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit82.i, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit94.i
+  %cond38.i18 = phi float [ %sub6.i92.i, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit94.i ], [ %sub29.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit82.i ]
+  %42 = shl nuw nsw i8 %axis, 3
+  %switch.shiftamt45 = zext nneg i8 %42 to i32
+  %switch.downshift46 = lshr i32 33555201, %switch.shiftamt45
+  %switch.masked47 = trunc i32 %switch.downshift46 to i8
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %cond38.i18, i8 noundef zeroext %switch.masked47)
   br label %cond.end
 
 if.else40.i:                                      ; preds = %if.else.i10
@@ -949,33 +901,33 @@ cond.true42.i:                                    ; preds = %if.else40.i
 
 sw.bb.i.i:                                        ; preds = %cond.true42.i, %cond.true42.i
   %call.i.i.i = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %containingBlockWidth)
-  %46 = icmp ult i8 %axis, 4
-  br i1 %46, label %switch.lookup37, label %sw.epilog.i.i.i.i
+  %43 = icmp ult i8 %axis, 4
+  br i1 %43, label %switch.lookup48, label %sw.epilog.i.i.i.i
 
 sw.epilog.i.i.i.i:                                ; preds = %sw.bb.i.i
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
   unreachable
 
-switch.lookup37:                                  ; preds = %sw.bb.i.i
-  %47 = zext nneg i8 %axis to i64
-  %switch.gep38 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff.7, i64 0, i64 %47
-  %switch.load39 = load i64, ptr %switch.gep38, align 8
-  %48 = zext nneg i8 %axis to i64
-  %switch.gep40 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff.8, i64 0, i64 %48
-  %switch.load41 = load i64, ptr %switch.gep40, align 8
-  %49 = shl nuw nsw i8 %axis, 3
-  %switch.shiftamt = zext nneg i8 %49 to i32
-  %switch.downshift = lshr i32 33555201, %switch.shiftamt
-  %switch.masked = trunc i32 %switch.downshift to i8
+switch.lookup48:                                  ; preds = %sw.bb.i.i
+  %44 = zext nneg i8 %axis to i64
+  %switch.gep49 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff.7, i64 0, i64 %44
+  %switch.load50 = load i64, ptr %switch.gep49, align 8
+  %45 = zext nneg i8 %axis to i64
+  %switch.gep51 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff.8, i64 0, i64 %45
+  %switch.load52 = load i64, ptr %switch.gep51, align 8
+  %46 = shl nuw nsw i8 %axis, 3
+  %switch.shiftamt54 = zext nneg i8 %46 to i32
+  %switch.downshift55 = lshr i32 33555201, %switch.shiftamt54
+  %switch.masked56 = trunc i32 %switch.downshift55 to i8
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i24.i.i.i = getelementptr inbounds i8, ptr %parent, i64 %switch.load39
-  %50 = load float, ptr %arrayidx.i.i.i24.i.i.i, align 4
-  %add25.i.i.i = fadd float %call.i.i.i, %50
+  %arrayidx.i.i.i24.i.i.i = getelementptr inbounds i8, ptr %parent, i64 %switch.load50
+  %47 = load float, ptr %arrayidx.i.i.i24.i.i.i, align 4
+  %add25.i.i.i = fadd float %call.i.i.i, %47
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i1445.i.i.i = getelementptr inbounds i8, ptr %parent, i64 %switch.load41
-  %51 = load float, ptr %arrayidx.i.i.i1445.i.i.i, align 4
-  %add746.i.i.i = fadd float %add25.i.i.i, %51
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %add746.i.i.i, i8 noundef zeroext %switch.masked)
+  %arrayidx.i.i.i1445.i.i.i = getelementptr inbounds i8, ptr %parent, i64 %switch.load52
+  %48 = load float, ptr %arrayidx.i.i.i1445.i.i.i, align 4
+  %add746.i.i.i = fadd float %add25.i.i.i, %48
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %add746.i.i.i, i8 noundef zeroext %switch.masked56)
   br label %cond.end
 
 sw.bb2.i103.i:                                    ; preds = %cond.true42.i
@@ -990,20 +942,20 @@ cond.false43.i:                                   ; preds = %if.else40.i
   %alignSelf_.i.i.i.i = getelementptr inbounds i8, ptr %child, i64 49
   %bf.load.i.i.i.i = load i24, ptr %alignSelf_.i.i.i.i, align 1
   %bf.lshr.i.i.i.i = lshr i24 %bf.load.i.i.i.i, 8
-  %52 = trunc i24 %bf.lshr.i.i.i.i to i8
-  %bf.cast.i.i.i.i = and i8 %52, 15
+  %49 = trunc i24 %bf.lshr.i.i.i.i to i8
+  %bf.cast.i.i.i.i = and i8 %49, 15
   %cmp.i.i.i = icmp eq i8 %bf.cast.i.i.i.i, 0
   br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %cond.end.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.false43.i
   %alignItems_.i.i.i.i = getelementptr inbounds i8, ptr %parent, i64 49
   %bf.load.i5.i.i.i = load i24, ptr %alignItems_.i.i.i.i, align 1
-  %53 = trunc i24 %bf.load.i5.i.i.i to i8
-  %54 = lshr i8 %53, 4
+  %50 = trunc i24 %bf.load.i5.i.i.i to i8
+  %51 = lshr i8 %50, 4
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %cond.true.i.i.i, %cond.false43.i
-  %cond.i.i.i = phi i8 [ %54, %cond.true.i.i.i ], [ %bf.cast.i.i.i.i, %cond.false43.i ]
+  %cond.i.i.i = phi i8 [ %51, %cond.true.i.i.i ], [ %bf.cast.i.i.i.i, %cond.false43.i ]
   %cond.i.fr.i.i = freeze i8 %cond.i.i.i
   %cmp6.i.i.i = icmp eq i8 %cond.i.fr.i.i, 5
   br i1 %cmp6.i.i.i, label %land.lhs.true.i.i.i, label %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i.i
@@ -1011,22 +963,22 @@ cond.end.i.i.i:                                   ; preds = %cond.true.i.i.i, %c
 land.lhs.true.i.i.i:                              ; preds = %cond.end.i.i.i
   %style_.i11.i.i.i = getelementptr inbounds i8, ptr %parent, i64 48
   %bf.load.i12.i.i.i = load i8, ptr %style_.i11.i.i.i, align 4
-  %55 = and i8 %bf.load.i12.i.i.i, 8
-  %.not.not.i.i.i = icmp eq i8 %55, 0
+  %52 = and i8 %bf.load.i12.i.i.i, 8
+  %.not.not.i.i.i = icmp eq i8 %52, 0
   br i1 %.not.not.i.i.i, label %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i.i, label %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i.i
 
 _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i.i: ; preds = %land.lhs.true.i.i.i, %cond.end.i.i.i
   %flexWrap_.i.i.i = getelementptr inbounds i8, ptr %parent, i64 49
   %bf.load.i.i104.i = load i24, ptr %flexWrap_.i.i.i, align 1
-  %56 = and i24 %bf.load.i.i104.i, 49152
-  %cmp.i105.i = icmp eq i24 %56, 32768
+  %53 = and i24 %bf.load.i.i104.i, 49152
+  %cmp.i105.i = icmp eq i24 %53, 32768
   br i1 %cmp.i105.i, label %if.then.i.i, label %if.end8.i.i
 
 _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i.i: ; preds = %land.lhs.true.i.i.i
   %flexWrap_.i18.i.i = getelementptr inbounds i8, ptr %parent, i64 49
   %bf.load.i19.i.i = load i24, ptr %flexWrap_.i18.i.i, align 1
-  %57 = and i24 %bf.load.i19.i.i, 49152
-  %cmp22.i.i = icmp eq i24 %57, 32768
+  %54 = and i24 %bf.load.i19.i.i, 49152
+  %cmp22.i.i = icmp eq i24 %54, 32768
   br i1 %cmp22.i.i, label %sw.bb9.i.i, label %sw.bb.i107.i
 
 if.then.i.i:                                      ; preds = %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i.i
@@ -1050,33 +1002,33 @@ if.end8.i.i:                                      ; preds = %_ZN8facebook4yoga21
 
 sw.bb.i107.i:                                     ; preds = %if.end8.i.i, %if.end8.i.i, %if.end8.i.i, %if.end8.i.i, %if.end8.i.i, %if.end8.i.i, %if.end8.i.i, %if.then.i.i, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i.i
   %call.i.i108.i = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %containingBlockWidth)
-  %58 = icmp ult i8 %axis, 4
-  br i1 %58, label %switch.lookup42, label %sw.epilog.i.i.i120.i
+  %55 = icmp ult i8 %axis, 4
+  br i1 %55, label %switch.lookup57, label %sw.epilog.i.i.i120.i
 
 sw.epilog.i.i.i120.i:                             ; preds = %sw.bb.i107.i
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
   unreachable
 
-switch.lookup42:                                  ; preds = %sw.bb.i107.i
-  %59 = zext nneg i8 %axis to i64
-  %switch.gep43 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff.7, i64 0, i64 %59
-  %switch.load44 = load i64, ptr %switch.gep43, align 8
-  %60 = zext nneg i8 %axis to i64
-  %switch.gep45 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff.8, i64 0, i64 %60
-  %switch.load46 = load i64, ptr %switch.gep45, align 8
-  %61 = shl nuw nsw i8 %axis, 3
-  %switch.shiftamt48 = zext nneg i8 %61 to i32
-  %switch.downshift49 = lshr i32 33555201, %switch.shiftamt48
-  %switch.masked50 = trunc i32 %switch.downshift49 to i8
+switch.lookup57:                                  ; preds = %sw.bb.i107.i
+  %56 = zext nneg i8 %axis to i64
+  %switch.gep58 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff.7, i64 0, i64 %56
+  %switch.load59 = load i64, ptr %switch.gep58, align 8
+  %57 = zext nneg i8 %axis to i64
+  %switch.gep60 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff.8, i64 0, i64 %57
+  %switch.load61 = load i64, ptr %switch.gep60, align 8
+  %58 = shl nuw nsw i8 %axis, 3
+  %switch.shiftamt63 = zext nneg i8 %58 to i32
+  %switch.downshift64 = lshr i32 33555201, %switch.shiftamt63
+  %switch.masked65 = trunc i32 %switch.downshift64 to i8
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i24.i.i114.i = getelementptr inbounds i8, ptr %parent, i64 %switch.load44
-  %62 = load float, ptr %arrayidx.i.i.i24.i.i114.i, align 4
-  %add25.i.i115.i = fadd float %call.i.i108.i, %62
+  %arrayidx.i.i.i24.i.i114.i = getelementptr inbounds i8, ptr %parent, i64 %switch.load59
+  %59 = load float, ptr %arrayidx.i.i.i24.i.i114.i, align 4
+  %add25.i.i115.i = fadd float %call.i.i108.i, %59
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i1445.i.i116.i = getelementptr inbounds i8, ptr %parent, i64 %switch.load46
-  %63 = load float, ptr %arrayidx.i.i.i1445.i.i116.i, align 4
-  %add746.i.i117.i = fadd float %add25.i.i115.i, %63
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %add746.i.i117.i, i8 noundef zeroext %switch.masked50)
+  %arrayidx.i.i.i1445.i.i116.i = getelementptr inbounds i8, ptr %parent, i64 %switch.load61
+  %60 = load float, ptr %arrayidx.i.i.i1445.i.i116.i, align 4
+  %add746.i.i117.i = fadd float %add25.i.i115.i, %60
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %add746.i.i117.i, i8 noundef zeroext %switch.masked65)
   br label %cond.end
 
 sw.bb9.i.i:                                       ; preds = %if.end8.i.i, %if.then.i.i, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i.i
@@ -1087,7 +1039,7 @@ sw.bb10.i.i:                                      ; preds = %if.end8.i.i, %if.th
   tail call fastcc void @_ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull readonly %parent, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
   br label %cond.end
 
-cond.end:                                         ; preds = %sw.bb10.i.i, %sw.bb9.i.i, %switch.lookup42, %if.end8.i.i, %sw.bb3.i101.i, %sw.bb2.i103.i, %switch.lookup37, %cond.true42.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit100.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit62.i, %switch.lookup29, %land.lhs.true77.i, %if.else74.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit155.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit131.i, %switch.lookup
+cond.end:                                         ; preds = %sw.bb10.i.i, %sw.bb9.i.i, %switch.lookup57, %if.end8.i.i, %sw.bb3.i101.i, %sw.bb2.i103.i, %switch.lookup48, %cond.true42.i, %switch.lookup43, %switch.lookup39, %switch.lookup36, %land.lhs.true77.i, %if.else74.i, %switch.lookup33, %switch.lookup30, %switch.lookup
   ret void
 }
 
@@ -1096,147 +1048,142 @@ define hidden void @_ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_N
 entry:
   %style_.i = getelementptr inbounds i8, ptr %currentNode, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
-  %bf.load.i.fr = freeze i8 %bf.load.i
-  %bf.lshr.i = lshr i8 %bf.load.i.fr, 2
+  %bf.lshr.i = lshr i8 %bf.load.i, 2
   %bf.clear.i = and i8 %bf.lshr.i, 3
   %cmp.i = icmp eq i8 %currentNodeDirection, 2
-  br i1 %cmp.i, label %if.then.i, label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit
+  br i1 %cmp.i, label %if.then.i, label %if.end6.i
 
 if.then.i:                                        ; preds = %entry
-  switch i8 %bf.clear.i, label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread182 [
-    i8 2, label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
+  switch i8 %bf.clear.i, label %if.end6.i [
+    i8 2, label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit
     i8 3, label %if.then4.i
   ]
 
-_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread182: ; preds = %if.then.i
-  br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
-
 if.then4.i:                                       ; preds = %if.then.i
-  br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
+  br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit
 
-_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %entry
-  %0 = icmp samesign ult i8 %bf.clear.i, 2
-  %spec.select = select i1 %0, i8 2, i8 0
-  br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
+if.end6.i:                                        ; preds = %if.then.i, %entry
+  br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit
 
-_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread: ; preds = %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit, %if.then.i, %if.then4.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread182
-  %retval.0.i181 = phi i8 [ %bf.clear.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread182 ], [ 3, %if.then.i ], [ 2, %if.then4.i ], [ %bf.clear.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
-  %1 = phi i8 [ 3, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread182 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ %spec.select, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
+_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %if.then.i, %if.then4.i, %if.end6.i
+  %retval.0.i = phi i8 [ 2, %if.then4.i ], [ %bf.clear.i, %if.end6.i ], [ 3, %if.then.i ]
+  %0 = icmp samesign ult i8 %retval.0.i, 2
+  %spec.select.i = select i1 %cmp.i, i8 3, i8 2
+  %cond.i = select i1 %0, i8 %spec.select.i, i8 0
   %children_.i = getelementptr inbounds i8, ptr %currentNode, i64 592
-  %2 = load ptr, ptr %children_.i, align 8
+  %1 = load ptr, ptr %children_.i, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %currentNode, i64 600
-  %3 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i52260 = icmp eq ptr %2, %3
-  br i1 %cmp.i52260, label %for.end, label %for.body.lr.ph
+  %2 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i52263 = icmp eq ptr %1, %2
+  br i1 %cmp.i52263, label %for.end, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
+for.body.lr.ph:                                   ; preds = %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit
   %add83 = add i32 %currentDepth, 1
   %measuredDimensions_.i = getelementptr inbounds i8, ptr %containingNode, i64 500
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %containingNode, i64 504
-  %.not = icmp samesign ult i8 %retval.0.i181, 2
-  %4 = and i8 %retval.0.i181, 1
-  %.not253 = icmp eq i8 %4, 0
-  %arrayidx.i.i.i.i.i218 = getelementptr inbounds i8, ptr %currentNode, i64 500
-  %arrayidx.i.i.i.i.i209 = getelementptr inbounds i8, ptr %currentNode, i64 504
-  %5 = and i8 %1, 1
-  %.not256 = icmp eq i8 %5, 0
-  %6 = zext nneg i8 %retval.0.i181 to i64
-  %switch.gep277 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %6
-  %7 = zext nneg i8 %1 to i64
-  %switch.gep285 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %7
-  %8 = zext nneg i8 %retval.0.i181 to i64
-  %switch.gep267 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %8
-  %9 = zext nneg i8 %retval.0.i181 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %9
-  %10 = zext nneg i8 %1 to i64
+  %3 = and i8 %retval.0.i, 1
+  %.not256 = icmp eq i8 %3, 0
+  %measuredDimensions_.i.i.i213 = getelementptr inbounds i8, ptr %currentNode, i64 500
+  %arrayidx.i.i.i.i.i204 = getelementptr inbounds i8, ptr %currentNode, i64 504
+  %4 = and i8 %cond.i, 1
+  %.not259 = icmp eq i8 %4, 0
+  %5 = zext nneg i8 %retval.0.i to i64
+  %switch.gep280 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %5
+  %6 = zext nneg i8 %cond.i to i64
+  %switch.gep288 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %6
+  %7 = zext nneg i8 %retval.0.i to i64
+  %switch.gep270 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %7
+  %8 = zext nneg i8 %retval.0.i to i64
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %8
+  %9 = zext nneg i8 %cond.i to i64
+  %switch.gep276 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %9
+  %10 = zext nneg i8 %cond.i to i64
   %switch.gep273 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %10
-  %11 = zext nneg i8 %1 to i64
-  %switch.gep270 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff.13, i64 0, i64 %11
-  %12 = shl nuw nsw i8 %retval.0.i181, 3
-  %switch.shiftamt = zext nneg i8 %12 to i32
+  %11 = shl nuw nsw i8 %retval.0.i, 3
+  %switch.shiftamt = zext nneg i8 %11 to i32
   %switch.downshift = lshr i32 33555201, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %13 = shl nuw nsw i8 %1, 3
-  %switch.shiftamt281 = zext nneg i8 %13 to i32
-  %switch.downshift282 = lshr i32 33555201, %switch.shiftamt281
-  %switch.masked283 = trunc i32 %switch.downshift282 to i8
+  %12 = shl nuw nsw i8 %cond.i, 3
+  %switch.shiftamt284 = zext nneg i8 %12 to i32
+  %switch.downshift285 = lshr i32 33555201, %switch.shiftamt284
+  %switch.masked286 = trunc i32 %switch.downshift285 to i8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.sroa.0.0261 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %14 = load ptr, ptr %__begin2.sroa.0.0261, align 8
-  %style_.i53 = getelementptr inbounds i8, ptr %14, i64 48
-  %display_.i = getelementptr inbounds i8, ptr %14, i64 49
+  %__begin2.sroa.0.0264 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %13 = load ptr, ptr %__begin2.sroa.0.0264, align 8
+  %style_.i53 = getelementptr inbounds i8, ptr %13, i64 48
+  %display_.i = getelementptr inbounds i8, ptr %13, i64 49
   %bf.load.i54 = load i24, ptr %display_.i, align 1
-  %15 = and i24 %bf.load.i54, 262144
-  %cmp.not = icmp eq i24 %15, 0
+  %14 = and i24 %bf.load.i54, 262144
+  %cmp.not = icmp eq i24 %14, 0
   br i1 %cmp.not, label %if.else, label %for.inc
 
 if.else:                                          ; preds = %for.body
   %bf.lshr.i58 = lshr i24 %bf.load.i54, 12
-  %16 = trunc i24 %bf.lshr.i58 to i8
-  %bf.cast.i59 = and i8 %16, 3
+  %15 = trunc i24 %bf.lshr.i58 to i8
+  %bf.cast.i59 = and i8 %15, 3
   switch i8 %bf.cast.i59, label %for.inc [
     i8 2, label %if.then15
     i8 0, label %if.then74
   ]
 
 if.then15:                                        ; preds = %if.else
-  %17 = load float, ptr %measuredDimensions_.i, align 4
+  %16 = load float, ptr %measuredDimensions_.i, align 4
   %call18 = tail call noundef float @_ZNK8facebook4yoga4Node16getBorderForAxisENS0_13FlexDirectionE(ptr noundef nonnull align 8 dereferenceable(640) %containingNode, i8 noundef zeroext 2)
-  %sub = fsub float %17, %call18
-  %18 = load float, ptr %arrayidx.i.i.i, align 4
+  %sub = fsub float %16, %call18
+  %17 = load float, ptr %arrayidx.i.i.i, align 4
   %call21 = tail call noundef float @_ZNK8facebook4yoga4Node16getBorderForAxisENS0_13FlexDirectionE(ptr noundef nonnull align 8 dereferenceable(640) %containingNode, i8 noundef zeroext 0)
-  %sub22 = fsub float %18, %call21
-  tail call void @_ZN8facebook4yoga19layoutAbsoluteChildEPKNS0_4NodeES3_PS1_ffNS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjj(ptr noundef nonnull %containingNode, ptr noundef nonnull %currentNode, ptr noundef nonnull %14, float noundef %sub, float noundef %sub22, i32 noundef %widthSizingMode, i8 noundef zeroext %currentNodeDirection, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %currentDepth, i32 noundef %generationCount)
-  br i1 %.not, label %cond.false, label %cond.true30
+  %sub22 = fsub float %17, %call21
+  tail call void @_ZN8facebook4yoga19layoutAbsoluteChildEPKNS0_4NodeES3_PS1_ffNS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjj(ptr noundef nonnull %containingNode, ptr noundef nonnull %currentNode, ptr noundef nonnull %13, float noundef %sub, float noundef %sub22, i32 noundef %widthSizingMode, i8 noundef zeroext %currentNodeDirection, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %currentDepth, i32 noundef %generationCount)
+  br i1 %0, label %cond.false, label %cond.true30
 
 cond.false:                                       ; preds = %if.then15
-  %arrayidx.i.i.i64 = getelementptr inbounds i8, ptr %14, i64 108
-  %19 = load i32, ptr %arrayidx.i.i.i64, align 4
-  switch i32 %19, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i [
+  %arrayidx.i.i.i64 = getelementptr inbounds i8, ptr %13, i64 108
+  %18 = load i32, ptr %arrayidx.i.i.i64, align 4
+  switch i32 %18, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i [
     i32 2141891242, label %cond.false33.thread
     i32 2140081935, label %cond.false33.thread
     i32 2139156720, label %cond.false33.thread
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i: ; preds = %cond.false
-  %20 = bitcast i32 %19 to float
-  %21 = fcmp ord float %20, 0.000000e+00
-  br i1 %21, label %cond.false33.thread, label %lor.lhs.false.i
+  %19 = bitcast i32 %18 to float
+  %20 = fcmp ord float %19, 0.000000e+00
+  br i1 %20, label %cond.false33.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i
-  %arrayidx.i.i1.i = getelementptr inbounds i8, ptr %14, i64 116
-  %22 = load i32, ptr %arrayidx.i.i1.i, align 4
-  switch i32 %22, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i [
+  %arrayidx.i.i1.i = getelementptr inbounds i8, ptr %13, i64 116
+  %21 = load i32, ptr %arrayidx.i.i1.i, align 4
+  switch i32 %21, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i [
     i32 2141891242, label %cond.false33.thread
     i32 2140081935, label %cond.false33.thread
     i32 2139156720, label %cond.false33.thread
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i: ; preds = %lor.lhs.false.i
-  %23 = bitcast i32 %22 to float
-  %24 = fcmp ord float %23, 0.000000e+00
-  br i1 %24, label %cond.false33.thread, label %lor.lhs.false6.i
+  %22 = bitcast i32 %21 to float
+  %23 = fcmp ord float %22, 0.000000e+00
+  br i1 %23, label %cond.false33.thread, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i
-  %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %14, i64 136
-  %25 = load i32, ptr %arrayidx.i.i5.i, align 4
-  switch i32 %25, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i [
+  %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %13, i64 136
+  %24 = load i32, ptr %arrayidx.i.i5.i, align 4
+  switch i32 %24, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i [
     i32 2141891242, label %cond.false33.thread
     i32 2140081935, label %cond.false33.thread
     i32 2139156720, label %cond.false33.thread
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i: ; preds = %lor.lhs.false6.i
-  %26 = bitcast i32 %25 to float
-  %27 = fcmp ord float %26, 0.000000e+00
-  br i1 %27, label %cond.false33.thread, label %lor.rhs.i
+  %25 = bitcast i32 %24 to float
+  %26 = fcmp ord float %25, 0.000000e+00
+  br i1 %26, label %cond.false33.thread, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i
-  %arrayidx.i.i9.i = getelementptr inbounds i8, ptr %14, i64 132
-  %28 = load i32, ptr %arrayidx.i.i9.i, align 4
-  switch i32 %28, label %cond.false33 [
+  %arrayidx.i.i9.i = getelementptr inbounds i8, ptr %13, i64 132
+  %27 = load i32, ptr %arrayidx.i.i9.i, align 4
+  switch i32 %27, label %cond.false33 [
     i32 2141891242, label %cond.false33.thread
     i32 2140081935, label %cond.false33.thread
     i32 2139156720, label %cond.false33.thread
@@ -1244,128 +1191,128 @@ lor.rhs.i:                                        ; preds = %_ZNK8facebook4yoga1
 
 cond.true30:                                      ; preds = %if.then15
   %call25 = tail call noundef zeroext i1 @_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv(ptr noundef nonnull align 4 dereferenceable(204) %style_.i53)
-  %arrayidx.i.i.i66 = getelementptr inbounds i8, ptr %14, i64 108
-  %29 = load i32, ptr %arrayidx.i.i.i66, align 4
-  switch i32 %29, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i67 [
+  %arrayidx.i.i.i66 = getelementptr inbounds i8, ptr %13, i64 108
+  %28 = load i32, ptr %arrayidx.i.i.i66, align 4
+  switch i32 %28, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i67 [
     i32 2141891242, label %cond.end36
     i32 2140081935, label %cond.end36
     i32 2139156720, label %cond.end36
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i67: ; preds = %cond.true30
-  %30 = bitcast i32 %29 to float
-  %31 = fcmp ord float %30, 0.000000e+00
-  br i1 %31, label %cond.end36, label %lor.lhs.false.i68
+  %29 = bitcast i32 %28 to float
+  %30 = fcmp ord float %29, 0.000000e+00
+  br i1 %30, label %cond.end36, label %lor.lhs.false.i68
 
 lor.lhs.false.i68:                                ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i67
-  %arrayidx.i.i1.i69 = getelementptr inbounds i8, ptr %14, i64 116
-  %32 = load i32, ptr %arrayidx.i.i1.i69, align 4
-  switch i32 %32, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i70 [
+  %arrayidx.i.i1.i69 = getelementptr inbounds i8, ptr %13, i64 116
+  %31 = load i32, ptr %arrayidx.i.i1.i69, align 4
+  switch i32 %31, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i70 [
     i32 2141891242, label %cond.end36
     i32 2140081935, label %cond.end36
     i32 2139156720, label %cond.end36
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i70: ; preds = %lor.lhs.false.i68
-  %33 = bitcast i32 %32 to float
-  %34 = fcmp ord float %33, 0.000000e+00
-  br i1 %34, label %cond.end36, label %lor.lhs.false6.i71
+  %32 = bitcast i32 %31 to float
+  %33 = fcmp ord float %32, 0.000000e+00
+  br i1 %33, label %cond.end36, label %lor.lhs.false6.i71
 
 lor.lhs.false6.i71:                               ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i70
-  %arrayidx.i.i5.i72 = getelementptr inbounds i8, ptr %14, i64 136
-  %35 = load i32, ptr %arrayidx.i.i5.i72, align 4
-  switch i32 %35, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i73 [
+  %arrayidx.i.i5.i72 = getelementptr inbounds i8, ptr %13, i64 136
+  %34 = load i32, ptr %arrayidx.i.i5.i72, align 4
+  switch i32 %34, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i73 [
     i32 2141891242, label %cond.end36
     i32 2140081935, label %cond.end36
     i32 2139156720, label %cond.end36
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i73: ; preds = %lor.lhs.false6.i71
-  %36 = bitcast i32 %35 to float
-  %37 = fcmp ord float %36, 0.000000e+00
-  br i1 %37, label %cond.end36, label %lor.rhs.i74
+  %35 = bitcast i32 %34 to float
+  %36 = fcmp ord float %35, 0.000000e+00
+  br i1 %36, label %cond.end36, label %lor.rhs.i74
 
 lor.rhs.i74:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i73
-  %arrayidx.i.i9.i75 = getelementptr inbounds i8, ptr %14, i64 132
-  %38 = load i32, ptr %arrayidx.i.i9.i75, align 4
-  switch i32 %38, label %land.rhs.i.i11.i76 [
+  %arrayidx.i.i9.i75 = getelementptr inbounds i8, ptr %13, i64 132
+  %37 = load i32, ptr %arrayidx.i.i9.i75, align 4
+  switch i32 %37, label %land.rhs.i.i11.i76 [
     i32 2141891242, label %cond.end36
     i32 2140081935, label %cond.end36
     i32 2139156720, label %cond.end36
   ]
 
 land.rhs.i.i11.i76:                               ; preds = %lor.rhs.i74
-  %39 = bitcast i32 %38 to float
-  %40 = fcmp ord float %39, 0.000000e+00
-  br i1 %call25, label %switch.lookup, label %switch.lookup266
+  %38 = bitcast i32 %37 to float
+  %39 = fcmp ord float %38, 0.000000e+00
+  br i1 %call25, label %switch.lookup, label %switch.lookup269
 
 cond.false33.thread:                              ; preds = %lor.lhs.false6.i, %lor.lhs.false6.i, %lor.lhs.false6.i, %lor.lhs.false.i, %lor.lhs.false.i, %lor.lhs.false.i, %cond.false, %cond.false, %cond.false, %lor.rhs.i, %lor.rhs.i, %lor.rhs.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i
-  %call35248 = tail call noundef zeroext i1 @_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv(ptr noundef nonnull align 4 dereferenceable(204) %style_.i53)
+  %call35251 = tail call noundef zeroext i1 @_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv(ptr noundef nonnull align 4 dereferenceable(204) %style_.i53)
   br label %switch.lookup
 
 cond.false33:                                     ; preds = %lor.rhs.i
-  %41 = bitcast i32 %28 to float
-  %42 = fcmp ord float %41, 0.000000e+00
+  %40 = bitcast i32 %27 to float
+  %41 = fcmp ord float %40, 0.000000e+00
   %call35 = tail call noundef zeroext i1 @_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv(ptr noundef nonnull align 4 dereferenceable(204) %style_.i53)
-  br i1 %42, label %switch.lookup, label %switch.lookup266
+  br i1 %41, label %switch.lookup, label %switch.lookup269
 
 cond.end36:                                       ; preds = %lor.rhs.i74, %lor.rhs.i74, %lor.rhs.i74, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit8.i73, %lor.lhs.false6.i71, %lor.lhs.false6.i71, %lor.lhs.false6.i71, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit4.i70, %lor.lhs.false.i68, %lor.lhs.false.i68, %lor.lhs.false.i68, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i67, %cond.true30, %cond.true30, %cond.true30
-  br i1 %call25, label %switch.lookup, label %switch.lookup266
+  br i1 %call25, label %switch.lookup, label %switch.lookup269
 
 switch.lookup:                                    ; preds = %cond.end36, %cond.false33, %land.rhs.i.i11.i76, %cond.false33.thread
-  %cond37191 = phi i1 [ %call35, %cond.false33 ], [ true, %cond.end36 ], [ %40, %land.rhs.i.i11.i76 ], [ %call35248, %cond.false33.thread ]
+  %cond37185 = phi i1 [ %call35, %cond.false33 ], [ true, %cond.end36 ], [ %39, %land.rhs.i.i11.i76 ], [ %call35251, %cond.false33.thread ]
   %switch.load = load i64, ptr %switch.gep, align 8
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %position_.i = getelementptr inbounds i8, ptr %14, i64 508
+  %position_.i = getelementptr inbounds i8, ptr %13, i64 508
   %arrayidx.i.i.i82 = getelementptr inbounds [4 x float], ptr %position_.i, i64 0, i64 %switch.load
-  %43 = load float, ptr %arrayidx.i.i.i82, align 4
-  %sub44 = fsub float %43, %currentNodeMainOffsetFromContainingBlock
-  br i1 %cond37191, label %switch.lookup269, label %switch.lookup272
+  %42 = load float, ptr %arrayidx.i.i.i82, align 4
+  %sub44 = fsub float %42, %currentNodeMainOffsetFromContainingBlock
+  br i1 %cond37185, label %switch.lookup272, label %switch.lookup275
 
-switch.lookup266:                                 ; preds = %cond.end36, %cond.false33, %land.rhs.i.i11.i76
-  %cond37190 = phi i1 [ %call35, %cond.false33 ], [ true, %cond.end36 ], [ %40, %land.rhs.i.i11.i76 ]
-  %switch.load268 = load i64, ptr %switch.gep267, align 8
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %position_.i91 = getelementptr inbounds i8, ptr %14, i64 508
-  %arrayidx.i.i.i93 = getelementptr inbounds [4 x float], ptr %position_.i91, i64 0, i64 %switch.load268
-  %44 = load float, ptr %arrayidx.i.i.i93, align 4
-  br i1 %cond37190, label %switch.lookup269, label %switch.lookup272
-
-switch.lookup269:                                 ; preds = %switch.lookup266, %switch.lookup
-  %cond50194 = phi float [ %sub44, %switch.lookup ], [ %44, %switch.lookup266 ]
+switch.lookup269:                                 ; preds = %cond.end36, %cond.false33, %land.rhs.i.i11.i76
+  %cond37184 = phi i1 [ %call35, %cond.false33 ], [ true, %cond.end36 ], [ %39, %land.rhs.i.i11.i76 ]
   %switch.load271 = load i64, ptr %switch.gep270, align 8
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %position_.i102 = getelementptr inbounds i8, ptr %14, i64 508
-  %arrayidx.i.i.i104 = getelementptr inbounds [4 x float], ptr %position_.i102, i64 0, i64 %switch.load271
-  %45 = load float, ptr %arrayidx.i.i.i104, align 4
-  %sub56 = fsub float %45, %currentNodeCrossOffsetFromContainingBlock
-  br label %switch.lookup275
+  %position_.i91 = getelementptr inbounds i8, ptr %13, i64 508
+  %arrayidx.i.i.i93 = getelementptr inbounds [4 x float], ptr %position_.i91, i64 0, i64 %switch.load271
+  %43 = load float, ptr %arrayidx.i.i.i93, align 4
+  br i1 %cond37184, label %switch.lookup272, label %switch.lookup275
 
-switch.lookup272:                                 ; preds = %switch.lookup266, %switch.lookup
-  %cond50193 = phi float [ %sub44, %switch.lookup ], [ %44, %switch.lookup266 ]
+switch.lookup272:                                 ; preds = %switch.lookup269, %switch.lookup
+  %cond50188 = phi float [ %sub44, %switch.lookup ], [ %43, %switch.lookup269 ]
   %switch.load274 = load i64, ptr %switch.gep273, align 8
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %position_.i113 = getelementptr inbounds i8, ptr %14, i64 508
-  %arrayidx.i.i.i115 = getelementptr inbounds [4 x float], ptr %position_.i113, i64 0, i64 %switch.load274
-  %46 = load float, ptr %arrayidx.i.i.i115, align 4
-  br label %switch.lookup275
+  %position_.i102 = getelementptr inbounds i8, ptr %13, i64 508
+  %arrayidx.i.i.i104 = getelementptr inbounds [4 x float], ptr %position_.i102, i64 0, i64 %switch.load274
+  %44 = load float, ptr %arrayidx.i.i.i104, align 4
+  %sub56 = fsub float %44, %currentNodeCrossOffsetFromContainingBlock
+  br label %switch.lookup278
 
-switch.lookup275:                                 ; preds = %switch.lookup269, %switch.lookup272
-  %cond50192 = phi float [ %cond50194, %switch.lookup269 ], [ %cond50193, %switch.lookup272 ]
-  %cond62 = phi float [ %sub56, %switch.lookup269 ], [ %46, %switch.lookup272 ]
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %14, float noundef %cond50192, i8 noundef zeroext %switch.masked)
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %14, float noundef %cond62, i8 noundef zeroext %switch.masked283)
-  br i1 %.not253, label %if.end, label %if.then66
-
-if.then66:                                        ; preds = %switch.lookup275
+switch.lookup275:                                 ; preds = %switch.lookup269, %switch.lookup
+  %cond50187 = phi float [ %sub44, %switch.lookup ], [ %43, %switch.lookup269 ]
+  %switch.load277 = load i64, ptr %switch.gep276, align 8
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  switch i8 %retval.0.i181, label %default.unreachable250 [
+  %position_.i113 = getelementptr inbounds i8, ptr %13, i64 508
+  %arrayidx.i.i.i115 = getelementptr inbounds [4 x float], ptr %position_.i113, i64 0, i64 %switch.load277
+  %45 = load float, ptr %arrayidx.i.i.i115, align 4
+  br label %switch.lookup278
+
+switch.lookup278:                                 ; preds = %switch.lookup272, %switch.lookup275
+  %cond50186 = phi float [ %cond50188, %switch.lookup272 ], [ %cond50187, %switch.lookup275 ]
+  %cond62 = phi float [ %sub56, %switch.lookup272 ], [ %45, %switch.lookup275 ]
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %13, float noundef %cond50186, i8 noundef zeroext %switch.masked)
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %13, float noundef %cond62, i8 noundef zeroext %switch.masked286)
+  br i1 %.not256, label %if.end, label %if.then66
+
+if.then66:                                        ; preds = %switch.lookup278
+  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  switch i8 %retval.0.i, label %default.unreachable253 [
     i8 3, label %sw.bb3.i5.i
     i8 1, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit
     i8 2, label %sw.bb2.i7.i
   ]
 
-default.unreachable250:                           ; preds = %if.then66
+default.unreachable253:                           ; preds = %if.then66
   unreachable
 
 sw.bb2.i7.i:                                      ; preds = %if.then66
@@ -1375,77 +1322,77 @@ sw.bb3.i5.i:                                      ; preds = %if.then66
   br label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit
 
 _ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit: ; preds = %if.then66, %sw.bb2.i7.i, %sw.bb3.i5.i
-  %.sink263 = phi i64 [ 508, %sw.bb2.i7.i ], [ 516, %sw.bb3.i5.i ], [ 520, %if.then66 ]
+  %.sink266 = phi i64 [ 508, %sw.bb2.i7.i ], [ 516, %sw.bb3.i5.i ], [ 520, %if.then66 ]
   %.sink = phi i64 [ 500, %sw.bb2.i7.i ], [ 500, %sw.bb3.i5.i ], [ 504, %if.then66 ]
-  %.in254 = phi ptr [ %arrayidx.i.i.i.i.i218, %sw.bb2.i7.i ], [ %arrayidx.i.i.i.i.i218, %sw.bb3.i5.i ], [ %arrayidx.i.i.i.i.i209, %if.then66 ]
-  %retval.0.i6.i = phi i8 [ %retval.0.i181, %sw.bb2.i7.i ], [ 0, %sw.bb3.i5.i ], [ %retval.0.i181, %if.then66 ]
-  %arrayidx.i.i.i.i208 = getelementptr inbounds i8, ptr %14, i64 %.sink263
-  %arrayidx.i.i.i10.i.i211 = getelementptr inbounds i8, ptr %14, i64 %.sink
-  %47 = load float, ptr %arrayidx.i.i.i.i208, align 4
-  %48 = load float, ptr %.in254, align 4
-  %49 = load float, ptr %arrayidx.i.i.i10.i.i211, align 4
-  %sub.i.i = fsub float %48, %49
-  %sub6.i.i = fsub float %sub.i.i, %47
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %14, float noundef %sub6.i.i, i8 noundef zeroext %retval.0.i6.i)
+  %.in257 = phi ptr [ %measuredDimensions_.i.i.i213, %sw.bb2.i7.i ], [ %measuredDimensions_.i.i.i213, %sw.bb3.i5.i ], [ %arrayidx.i.i.i.i.i204, %if.then66 ]
+  %retval.0.i6.i = phi i8 [ %retval.0.i, %sw.bb2.i7.i ], [ 0, %sw.bb3.i5.i ], [ %retval.0.i, %if.then66 ]
+  %arrayidx.i.i.i13.i202 = getelementptr inbounds i8, ptr %13, i64 %.sink266
+  %arrayidx.i.i.i9.i.i207 = getelementptr inbounds i8, ptr %13, i64 %.sink
+  %46 = load float, ptr %arrayidx.i.i.i13.i202, align 4
+  %47 = load float, ptr %.in257, align 4
+  %48 = load float, ptr %arrayidx.i.i.i9.i.i207, align 4
+  %sub.i.i = fsub float %47, %48
+  %sub6.i.i = fsub float %sub.i.i, %46
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %13, float noundef %sub6.i.i, i8 noundef zeroext %retval.0.i6.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit, %switch.lookup275
-  br i1 %.not256, label %for.inc, label %if.then68
+if.end:                                           ; preds = %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit, %switch.lookup278
+  br i1 %.not259, label %for.inc, label %if.then68
 
 if.then68:                                        ; preds = %if.end
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  switch i8 %1, label %default.unreachable251 [
-    i8 3, label %sw.bb3.i5.i138
-    i8 1, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit148
-    i8 2, label %sw.bb2.i7.i142
+  switch i8 %cond.i, label %default.unreachable254 [
+    i8 3, label %sw.bb3.i5.i140
+    i8 1, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit150
+    i8 2, label %sw.bb2.i7.i144
   ]
 
-default.unreachable251:                           ; preds = %if.then68
+default.unreachable254:                           ; preds = %if.then68
   unreachable
 
-sw.bb2.i7.i142:                                   ; preds = %if.then68
-  br label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit148
+sw.bb2.i7.i144:                                   ; preds = %if.then68
+  br label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit150
 
-sw.bb3.i5.i138:                                   ; preds = %if.then68
-  br label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit148
+sw.bb3.i5.i140:                                   ; preds = %if.then68
+  br label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit150
 
-_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit148: ; preds = %if.then68, %sw.bb2.i7.i142, %sw.bb3.i5.i138
-  %.sink265 = phi i64 [ 508, %sw.bb2.i7.i142 ], [ 516, %sw.bb3.i5.i138 ], [ 520, %if.then68 ]
-  %.sink264 = phi i64 [ 500, %sw.bb2.i7.i142 ], [ 500, %sw.bb3.i5.i138 ], [ 504, %if.then68 ]
-  %.in258 = phi ptr [ %arrayidx.i.i.i.i.i218, %sw.bb2.i7.i142 ], [ %arrayidx.i.i.i.i.i218, %sw.bb3.i5.i138 ], [ %arrayidx.i.i.i.i.i209, %if.then68 ]
-  %retval.0.i6.i139 = phi i8 [ %1, %sw.bb2.i7.i142 ], [ 0, %sw.bb3.i5.i138 ], [ %1, %if.then68 ]
-  %arrayidx.i.i.i.i134234 = getelementptr inbounds i8, ptr %14, i64 %.sink265
-  %arrayidx.i.i.i10.i.i137237 = getelementptr inbounds i8, ptr %14, i64 %.sink264
-  %50 = load float, ptr %arrayidx.i.i.i.i134234, align 4
-  %51 = load float, ptr %.in258, align 4
-  %52 = load float, ptr %arrayidx.i.i.i10.i.i137237, align 4
-  %sub.i.i140 = fsub float %51, %52
-  %sub6.i.i141 = fsub float %sub.i.i140, %50
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %14, float noundef %sub6.i.i141, i8 noundef zeroext %retval.0.i6.i139)
+_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit150: ; preds = %if.then68, %sw.bb2.i7.i144, %sw.bb3.i5.i140
+  %.sink268 = phi i64 [ 508, %sw.bb2.i7.i144 ], [ 516, %sw.bb3.i5.i140 ], [ 520, %if.then68 ]
+  %.sink267 = phi i64 [ 500, %sw.bb2.i7.i144 ], [ 500, %sw.bb3.i5.i140 ], [ 504, %if.then68 ]
+  %.in261 = phi ptr [ %measuredDimensions_.i.i.i213, %sw.bb2.i7.i144 ], [ %measuredDimensions_.i.i.i213, %sw.bb3.i5.i140 ], [ %arrayidx.i.i.i.i.i204, %if.then68 ]
+  %retval.0.i6.i141 = phi i8 [ %cond.i, %sw.bb2.i7.i144 ], [ 0, %sw.bb3.i5.i140 ], [ %cond.i, %if.then68 ]
+  %arrayidx.i.i.i13.i133232 = getelementptr inbounds i8, ptr %13, i64 %.sink268
+  %arrayidx.i.i.i9.i.i139238 = getelementptr inbounds i8, ptr %13, i64 %.sink267
+  %49 = load float, ptr %arrayidx.i.i.i13.i133232, align 4
+  %50 = load float, ptr %.in261, align 4
+  %51 = load float, ptr %arrayidx.i.i.i9.i.i139238, align 4
+  %sub.i.i142 = fsub float %50, %51
+  %sub6.i.i143 = fsub float %sub.i.i142, %49
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %13, float noundef %sub6.i.i143, i8 noundef zeroext %retval.0.i6.i141)
   br label %for.inc
 
 if.then74:                                        ; preds = %if.else
-  %call75 = tail call noundef zeroext i8 @_ZN8facebook4yoga4Node16resolveDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %14, i8 noundef zeroext %currentNodeDirection)
-  %switch.load278 = load i64, ptr %switch.gep277, align 8
+  %call75 = tail call noundef zeroext i8 @_ZN8facebook4yoga4Node16resolveDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %13, i8 noundef zeroext %currentNodeDirection)
+  %switch.load281 = load i64, ptr %switch.gep280, align 8
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %position_.i162 = getelementptr inbounds i8, ptr %14, i64 508
-  %arrayidx.i.i.i164 = getelementptr inbounds [4 x float], ptr %position_.i162, i64 0, i64 %switch.load278
-  %53 = load float, ptr %arrayidx.i.i.i164, align 4
-  %add = fadd float %currentNodeMainOffsetFromContainingBlock, %53
-  %switch.load286 = load i64, ptr %switch.gep285, align 8
+  %position_.i164 = getelementptr inbounds i8, ptr %13, i64 508
+  %arrayidx.i.i.i166 = getelementptr inbounds [4 x float], ptr %position_.i164, i64 0, i64 %switch.load281
+  %52 = load float, ptr %arrayidx.i.i.i166, align 4
+  %add = fadd float %currentNodeMainOffsetFromContainingBlock, %52
+  %switch.load289 = load i64, ptr %switch.gep288, align 8
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i175 = getelementptr inbounds [4 x float], ptr %position_.i162, i64 0, i64 %switch.load286
-  %54 = load float, ptr %arrayidx.i.i.i175, align 4
-  %add82 = fadd float %currentNodeCrossOffsetFromContainingBlock, %54
-  tail call void @_ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff(ptr noundef %containingNode, ptr noundef nonnull %14, i32 noundef %widthSizingMode, i8 noundef zeroext %call75, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %add83, i32 noundef %generationCount, float noundef %add, float noundef %add82)
+  %arrayidx.i.i.i177 = getelementptr inbounds [4 x float], ptr %position_.i164, i64 0, i64 %switch.load289
+  %53 = load float, ptr %arrayidx.i.i.i177, align 4
+  %add82 = fadd float %currentNodeCrossOffsetFromContainingBlock, %53
+  tail call void @_ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjff(ptr noundef %containingNode, ptr noundef nonnull %13, i32 noundef %widthSizingMode, i8 noundef zeroext %call75, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %add83, i32 noundef %generationCount, float noundef %add, float noundef %add82)
   br label %for.inc
 
-for.inc:                                          ; preds = %if.else, %if.then74, %if.end, %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit148, %for.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0261, i64 8
-  %cmp.i52 = icmp eq ptr %incdec.ptr.i, %3
+for.inc:                                          ; preds = %if.else, %if.then74, %if.end, %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit150, %for.body
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0264, i64 8
+  %cmp.i52 = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i52, label %for.end, label %for.body
 
-for.end:                                          ; preds = %for.inc, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
+for.end:                                          ; preds = %for.inc, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit
   ret void
 }
 
@@ -1594,35 +1541,35 @@ switch.lookup:                                    ; preds = %entry
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %axis to i64
-  %switch.gep49 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.14, i64 0, i64 %2
-  %switch.load50 = load i64, ptr %switch.gep49, align 8
+  %switch.gep47 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.14, i64 0, i64 %2
+  %switch.load48 = load i64, ptr %switch.gep47, align 8
   %3 = zext nneg i8 %axis to i64
-  %switch.gep51 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.15, i64 0, i64 %3
-  %switch.load52 = load i64, ptr %switch.gep51, align 8
-  %4 = zext nneg i8 %axis to i64
-  %switch.gep53 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.16, i64 0, i64 %4
-  %switch.load54 = load i64, ptr %switch.gep53, align 8
+  %switch.gep49 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 0, i64 %3
+  %switch.load50 = load i64, ptr %switch.gep49, align 8
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i36 = getelementptr inbounds i8, ptr %parent, i64 %switch.load
-  %5 = load float, ptr %arrayidx.i.i.i36, align 4
+  %arrayidx.i.i.i26 = getelementptr inbounds i8, ptr %parent, i64 %switch.load
+  %.ph = load float, ptr %arrayidx.i.i.i26, align 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %padding_.i = getelementptr inbounds i8, ptr %parent, i64 556
-  %arrayidx.i.i.i17 = getelementptr inbounds [4 x float], ptr %padding_.i, i64 0, i64 %switch.load50
-  %6 = load float, ptr %arrayidx.i.i.i17, align 4
-  %call6 = tail call noundef float @_ZNK8facebook4yoga4Node16getFlexEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %containingBlockWidth)
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %parent, i64 %switch.load52
-  %7 = load float, ptr %arrayidx.i.i.i.i, align 4
-  %measuredDimensions_.i8.i = getelementptr inbounds i8, ptr %child, i64 500
-  %arrayidx.i.i.i10.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i8.i, i64 0, i64 %switch.load54
-  %8 = load float, ptr %arrayidx.i.i.i10.i, align 4
-  %9 = shl nuw nsw i8 %axis, 3
-  %switch.shiftamt = zext nneg i8 %9 to i32
+  %padding_.i38 = getelementptr inbounds i8, ptr %parent, i64 556
+  %arrayidx.i.i.i1740 = getelementptr inbounds [4 x float], ptr %padding_.i38, i64 0, i64 %switch.load48
+  %4 = load float, ptr %arrayidx.i.i.i1740, align 4
+  %call642 = tail call noundef float @_ZNK8facebook4yoga4Node16getFlexEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %containingBlockWidth)
+  %measuredDimensions_.i.i = getelementptr inbounds i8, ptr %parent, i64 500
+  %arrayidx.i.i.i.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i.i, i64 0, i64 %switch.load50
+  %5 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %switch.i = icmp samesign ult i8 %axis, 2
+  %measuredDimensions_.i7.i = getelementptr inbounds i8, ptr %child, i64 500
+  %conv.i8.i = zext i1 %switch.i to i64
+  %arrayidx.i.i.i9.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i7.i, i64 0, i64 %conv.i8.i
+  %6 = load float, ptr %arrayidx.i.i.i9.i, align 4
+  %7 = shl nuw nsw i8 %axis, 3
+  %switch.shiftamt = zext nneg i8 %7 to i32
   %switch.downshift = lshr i32 33555201, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %add = fadd float %5, %6
-  %add7 = fadd float %add, %call6
-  %sub.i = fsub float %7, %8
-  %sub6.i = fsub float %sub.i, %add7
+  %add41 = fadd float %.ph, %4
+  %add743 = fadd float %add41, %call642
+  %sub.i = fsub float %5, %6
+  %sub6.i = fsub float %sub.i, %add743
   tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %sub6.i, i8 noundef zeroext %switch.masked)
   ret void
 }
@@ -1630,144 +1577,166 @@ switch.lookup:                                    ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr nocapture noundef readonly %parent, ptr noundef %child, i8 noundef zeroext %direction, i8 noundef zeroext %axis, float noundef %containingBlockWidth) unnamed_addr #0 {
 entry:
-  switch i8 %axis, label %sw.epilog.i [
-    i8 0, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit
-    i8 1, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit
-    i8 2, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread
-    i8 3, label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95
-  ]
-
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread: ; preds = %entry
-  %measuredDimensions_.i92 = getelementptr inbounds i8, ptr %parent, i64 500
-  %0 = load float, ptr %measuredDimensions_.i92, align 4
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %border_.i101 = getelementptr inbounds i8, ptr %parent, i64 540
-  %1 = load float, ptr %border_.i101, align 4
-  %sub104 = fsub float %0, %1
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i36147 = getelementptr inbounds i8, ptr %parent, i64 548
-  %2 = load float, ptr %arrayidx.i.i.i36147, align 4
-  %sub9148 = fsub float %sub104, %2
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %padding_.i176 = getelementptr inbounds i8, ptr %parent, i64 556
-  %3 = load float, ptr %padding_.i176, align 4
-  %sub13179 = fsub float %sub9148, %3
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i55201 = getelementptr inbounds i8, ptr %parent, i64 564
-  %4 = load float, ptr %arrayidx.i.i.i55201, align 4
-  %sub17202 = fsub float %sub13179, %4
-  %measuredDimensions_.i62213 = getelementptr inbounds i8, ptr %child, i64 500
-  %5 = load float, ptr %measuredDimensions_.i62213, align 4
-  %call21216 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 2, float noundef %containingBlockWidth)
-  %add217 = fadd float %5, %call21216
-  %sub22218 = fsub float %sub17202, %add217
-  %div219 = fmul float %sub22218, 5.000000e-01
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %6 = load float, ptr %border_.i101, align 4
-  %add26248 = fadd float %6, %div219
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %7 = load float, ptr %padding_.i176, align 4
-  %add30300 = fadd float %add26248, %7
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90
-
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95: ; preds = %entry
-  %measuredDimensions_.i97 = getelementptr inbounds i8, ptr %parent, i64 500
-  %8 = load float, ptr %measuredDimensions_.i97, align 4
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %border_.i113 = getelementptr inbounds i8, ptr %parent, i64 540
-  %arrayidx.i.i.i27115 = getelementptr inbounds i8, ptr %parent, i64 548
-  %9 = load float, ptr %arrayidx.i.i.i27115, align 4
-  %sub116 = fsub float %8, %9
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %10 = load float, ptr %border_.i113, align 4
-  %sub9 = fsub float %sub116, %10
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %padding_.i = getelementptr inbounds i8, ptr %parent, i64 556
-  %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %parent, i64 564
-  %11 = load float, ptr %arrayidx.i.i.i45, align 4
-  %sub13 = fsub float %sub9, %11
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %12 = load float, ptr %padding_.i, align 4
-  %sub17 = fsub float %sub13, %12
-  %measuredDimensions_.i62232 = getelementptr inbounds i8, ptr %child, i64 500
-  %13 = load float, ptr %measuredDimensions_.i62232, align 4
-  %call21235 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 3, float noundef %containingBlockWidth)
-  %add236 = fadd float %13, %call21235
-  %sub22237 = fsub float %sub17, %add236
-  %div238 = fmul float %sub22237, 5.000000e-01
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %14 = load float, ptr %arrayidx.i.i.i27115, align 4
-  %add26264 = fadd float %14, %div238
-  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %15 = load float, ptr %arrayidx.i.i.i45, align 4
-  %add30 = fadd float %add26264, %15
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90
+  %0 = icmp ult i8 %axis, 4
+  br i1 %0, label %switch.lookup, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %entry
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str) #5
   unreachable
 
-_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit: ; preds = %entry, %entry
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %parent, i64 504
-  %16 = load float, ptr %arrayidx.i.i.i, align 4
-  %switch = icmp eq i8 %axis, 0
+switch.lookup:                                    ; preds = %entry
+  %1 = zext nneg i8 %axis to i64
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 0, i64 %1
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %measuredDimensions_.i = getelementptr inbounds i8, ptr %parent, i64 500
+  %arrayidx.i.i.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i, i64 0, i64 %switch.load
+  %2 = load float, ptr %arrayidx.i.i.i, align 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %. = select i1 %switch, i64 544, i64 552
-  %.311 = select i1 %switch, i64 552, i64 544
-  %.312 = select i1 %switch, i64 560, i64 568
-  %.313 = select i1 %switch, i64 3, i64 1
-  %arrayidx.i.i.i27123 = getelementptr inbounds i8, ptr %parent, i64 %.
-  %17 = load float, ptr %arrayidx.i.i.i27123, align 4
-  %sub124 = fsub float %16, %17
+  switch i8 %axis, label %default.unreachable [
+    i8 0, label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit51.thread
+    i8 1, label %sw.bb1.i49
+    i8 2, label %sw.bb2.i48
+    i8 3, label %sw.bb3.i46
+  ]
+
+default.unreachable:                              ; preds = %switch.lookup
+  unreachable
+
+sw.bb1.i49:                                       ; preds = %switch.lookup
+  br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit51.thread
+
+sw.bb2.i48:                                       ; preds = %switch.lookup
+  %border_.i106 = getelementptr inbounds i8, ptr %parent, i64 540
+  %3 = load float, ptr %border_.i106, align 4
+  %sub109 = fsub float %2, %3
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i36129 = getelementptr inbounds i8, ptr %parent, i64 %.311
-  %18 = load float, ptr %arrayidx.i.i.i36129, align 4
-  %sub9130 = fsub float %sub124, %18
+  %arrayidx.i.i.i35134 = getelementptr inbounds i8, ptr %parent, i64 548
+  %4 = load float, ptr %arrayidx.i.i.i35134, align 4
+  %sub9135 = fsub float %sub109, %4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i45156 = getelementptr inbounds i8, ptr %parent, i64 %.312
-  %19 = load float, ptr %arrayidx.i.i.i45156, align 4
-  %sub13157 = fsub float %sub9130, %19
-  %padding_.i159.ph = getelementptr inbounds i8, ptr %parent, i64 556
+  %padding_.i163 = getelementptr inbounds i8, ptr %parent, i64 556
+  %5 = load float, ptr %padding_.i163, align 4
+  %sub13166 = fsub float %sub9135, %5
+  br label %sw.bb2.i56
+
+sw.bb3.i46:                                       ; preds = %switch.lookup
+  %border_.i = getelementptr inbounds i8, ptr %parent, i64 540
+  %arrayidx.i.i.i26 = getelementptr inbounds i8, ptr %parent, i64 548
+  %6 = load float, ptr %arrayidx.i.i.i26, align 4
+  %sub = fsub float %2, %6
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i55188 = getelementptr inbounds [4 x float], ptr %padding_.i159.ph, i64 0, i64 %.313
-  %20 = load float, ptr %arrayidx.i.i.i55188, align 4
-  %sub17189 = fsub float %sub13157, %20
-  %arrayidx.i.i.i64 = getelementptr inbounds i8, ptr %child, i64 504
-  %21 = load float, ptr %arrayidx.i.i.i64, align 4
+  %7 = load float, ptr %border_.i, align 4
+  %sub9 = fsub float %sub, %7
+  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  %padding_.i = getelementptr inbounds i8, ptr %parent, i64 556
+  %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %parent, i64 564
+  %8 = load float, ptr %arrayidx.i.i.i44, align 4
+  %sub13 = fsub float %sub9, %8
+  br label %sw.bb2.i56
+
+_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit51.thread: ; preds = %switch.lookup, %sw.bb1.i49
+  %.sink229 = phi i64 [ 552, %sw.bb1.i49 ], [ 544, %switch.lookup ]
+  %.sink227 = phi i64 [ 544, %sw.bb1.i49 ], [ 552, %switch.lookup ]
+  %.sink = phi i64 [ 568, %sw.bb1.i49 ], [ 560, %switch.lookup ]
+  %retval.0.i47.ph = phi i64 [ 1, %sw.bb1.i49 ], [ 3, %switch.lookup ]
+  %arrayidx.i.i.i2692 = getelementptr inbounds i8, ptr %parent, i64 %.sink229
+  %9 = load float, ptr %arrayidx.i.i.i2692, align 4
+  %sub93 = fsub float %2, %9
+  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  %arrayidx.i.i.i35116 = getelementptr inbounds i8, ptr %parent, i64 %.sink227
+  %10 = load float, ptr %arrayidx.i.i.i35116, align 4
+  %sub9117 = fsub float %sub93, %10
+  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  %arrayidx.i.i.i44143 = getelementptr inbounds i8, ptr %parent, i64 %.sink
+  %11 = load float, ptr %arrayidx.i.i.i44143, align 4
+  %sub13144 = fsub float %sub9117, %11
+  %border_.i94118145.ph = getelementptr inbounds i8, ptr %parent, i64 540
+  %padding_.i146.ph = getelementptr inbounds i8, ptr %parent, i64 556
+  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  %arrayidx.i.i.i54175 = getelementptr inbounds [4 x float], ptr %padding_.i146.ph, i64 0, i64 %retval.0.i47.ph
+  %12 = load float, ptr %arrayidx.i.i.i54175, align 4
+  %sub17176 = fsub float %sub13144, %12
+  br label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit59
+
+sw.bb2.i56:                                       ; preds = %sw.bb3.i46, %sw.bb2.i48
+  %sub13147 = phi float [ %sub13, %sw.bb3.i46 ], [ %sub13166, %sw.bb2.i48 ]
+  %padding_.i146 = phi ptr [ %padding_.i, %sw.bb3.i46 ], [ %padding_.i163, %sw.bb2.i48 ]
+  %border_.i94118145 = phi ptr [ %border_.i, %sw.bb3.i46 ], [ %border_.i106, %sw.bb2.i48 ]
+  %retval.0.i47 = phi i64 [ 0, %sw.bb3.i46 ], [ 2, %sw.bb2.i48 ]
+  %13 = getelementptr inbounds i8, ptr %parent, i64 556
+  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  %arrayidx.i.i.i54 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 %retval.0.i47
+  %14 = load float, ptr %arrayidx.i.i.i54, align 4
+  %sub17 = fsub float %sub13147, %14
+  br label %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit59
+
+_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit59: ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit51.thread, %sw.bb2.i56
+  %sub17180 = phi float [ %sub17, %sw.bb2.i56 ], [ %sub17176, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit51.thread ]
+  %border_.i94118145179 = phi ptr [ %border_.i94118145, %sw.bb2.i56 ], [ %border_.i94118145.ph, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit51.thread ]
+  %padding_.i146178 = phi ptr [ %padding_.i146, %sw.bb2.i56 ], [ %padding_.i146.ph, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit51.thread ]
+  %retval.0.i57 = phi i64 [ 0, %sw.bb2.i56 ], [ 1, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit51.thread ]
+  %measuredDimensions_.i60 = getelementptr inbounds i8, ptr %child, i64 500
+  %arrayidx.i.i.i62 = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i60, i64 0, i64 %retval.0.i57
+  %15 = load float, ptr %arrayidx.i.i.i62, align 4
   %call21 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, float noundef %containingBlockWidth)
-  %add = fadd float %21, %call21
-  %sub22 = fsub float %sub17189, %add
+  %add = fadd float %15, %call21
+  %sub22 = fsub float %sub17180, %add
   %div = fmul float %sub22, 5.000000e-01
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  br i1 %switch, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread, label %sw.bb1.i88
+  switch i8 %axis, label %default.unreachable225 [
+    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit79.thread
+    i8 1, label %sw.bb1.i86
+    i8 2, label %sw.bb2.i85
+    i8 3, label %sw.bb3.i83
+  ]
 
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit
-  %arrayidx.i.i.i74273 = getelementptr inbounds i8, ptr %parent, i64 544
-  %22 = load float, ptr %arrayidx.i.i.i74273, align 4
-  %add26274 = fadd float %div, %22
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit79.thread: ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit59
+  %arrayidx.i.i.i72184 = getelementptr inbounds i8, ptr %border_.i94118145179, i64 4
+  %16 = load float, ptr %arrayidx.i.i.i72184, align 4
+  %add26185 = fadd float %div, %16
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i84279 = getelementptr inbounds i8, ptr %parent, i64 560
-  %23 = load float, ptr %arrayidx.i.i.i84279, align 4
-  %add30280 = fadd float %add26274, %23
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90
+  %arrayidx.i.i.i82202 = getelementptr inbounds i8, ptr %padding_.i146178, i64 4
+  %17 = load float, ptr %arrayidx.i.i.i82202, align 4
+  %add30203 = fadd float %add26185, %17
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit88
 
-sw.bb1.i88:                                       ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit
-  %arrayidx.i.i.i74 = getelementptr inbounds i8, ptr %parent, i64 552
-  %24 = load float, ptr %arrayidx.i.i.i74, align 4
-  %add26 = fadd float %div, %24
+default.unreachable225:                           ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit59
+  unreachable
+
+sw.bb1.i86:                                       ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit59
+  %arrayidx.i.i.i72190 = getelementptr inbounds i8, ptr %border_.i94118145179, i64 12
+  %18 = load float, ptr %arrayidx.i.i.i72190, align 4
+  %add26191 = fadd float %div, %18
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
-  %arrayidx.i.i.i84289 = getelementptr inbounds i8, ptr %parent, i64 568
-  %25 = load float, ptr %arrayidx.i.i.i84289, align 4
-  %add30290 = fadd float %add26, %25
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90
+  %arrayidx.i.i.i82211 = getelementptr inbounds i8, ptr %padding_.i146178, i64 12
+  %19 = load float, ptr %arrayidx.i.i.i82211, align 4
+  %add30212 = fadd float %add26191, %19
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit88
 
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit90: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread, %sw.bb1.i88, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95
-  %.sink310 = phi i8 [ 0, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread ], [ %axis, %sw.bb1.i88 ], [ 2, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread ], [ 3, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95 ]
-  %add30280.sink = phi float [ %add30280, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread ], [ %add30290, %sw.bb1.i88 ], [ %add30300, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread ], [ %add30, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95 ]
-  %retval.0.i86 = phi i8 [ 1, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit81.thread ], [ 3, %sw.bb1.i88 ], [ 0, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread ], [ 2, %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit.thread95 ]
-  %call31281 = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %.sink310, i8 noundef zeroext %direction, float noundef %containingBlockWidth)
-  %add32282 = fadd float %add30280.sink, %call31281
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %add32282, i8 noundef zeroext %retval.0.i86)
+sw.bb2.i85:                                       ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit59
+  %20 = load float, ptr %border_.i94118145179, align 4
+  %add26197 = fadd float %div, %20
+  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  %21 = load float, ptr %padding_.i146178, align 4
+  %add30221 = fadd float %add26197, %21
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit88
+
+sw.bb3.i83:                                       ; preds = %_ZN8facebook4yoga9dimensionENS0_13FlexDirectionE.exit59
+  %arrayidx.i.i.i72 = getelementptr inbounds i8, ptr %border_.i94118145179, i64 8
+  %22 = load float, ptr %arrayidx.i.i.i72, align 4
+  %add26 = fadd float %div, %22
+  tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str.1)
+  %arrayidx.i.i.i82 = getelementptr inbounds i8, ptr %padding_.i146178, i64 8
+  %23 = load float, ptr %arrayidx.i.i.i82, align 4
+  %add30 = fadd float %add26, %23
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit88
+
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit88: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit79.thread, %sw.bb1.i86, %sw.bb2.i85, %sw.bb3.i83
+  %add30203.sink = phi float [ %add30203, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit79.thread ], [ %add30212, %sw.bb1.i86 ], [ %add30221, %sw.bb2.i85 ], [ %add30, %sw.bb3.i83 ]
+  %retval.0.i84 = phi i8 [ 1, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit79.thread ], [ 3, %sw.bb1.i86 ], [ 0, %sw.bb2.i85 ], [ 2, %sw.bb3.i83 ]
+  %call31204 = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %containingBlockWidth)
+  %add32205 = fadd float %add30203.sink, %call31204
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640) %child, float noundef %add32205, i8 noundef zeroext %retval.0.i84)
   ret void
 }
 

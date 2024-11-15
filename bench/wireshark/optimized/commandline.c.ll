@@ -528,8 +528,8 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
 6:                                                ; preds = %.backedge, %5
   %.015 = phi i32 [ 0, %5 ], [ %.015.be, %.backedge ]
   %7 = tail call i32 @ws_getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @optstring, ptr noundef nonnull @long_options, ptr noundef null) #10
-  switch i32 %7, label %41 [
-    i32 -1, label %42
+  switch i32 %7, label %37 [
+    i32 -1, label %38
     i32 97, label %8
     i32 98, label %8
     i32 99, label %8
@@ -548,34 +548,30 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
     i32 106, label %9
     i32 103, label %10
     i32 74, label %13
-    i32 107, label %15
-    i32 108, label %16
-    i32 76, label %17
-    i32 1001, label %18
+    i32 4001, label %36
+    i32 2006, label %32
+    i32 2005, label %32
+    i32 2004, label %32
     i32 111, label %.backedge
     i32 80, label %.backedge
-    i32 114, label %19
-    i32 82, label %22
+    i32 114, label %15
+    i32 82, label %18
     i32 88, label %.backedge
-    i32 89, label %24
-    i32 122, label %26
-    i32 100, label %36
-    i32 75, label %36
-    i32 110, label %36
-    i32 78, label %36
-    i32 116, label %36
-    i32 117, label %36
-    i32 2001, label %36
-    i32 2002, label %36
-    i32 2003, label %36
-    i32 2004, label %36
-    i32 2005, label %36
-    i32 2006, label %36
-    i32 4001, label %40
+    i32 89, label %20
+    i32 122, label %22
+    i32 100, label %32
+    i32 75, label %32
+    i32 110, label %32
+    i32 78, label %32
+    i32 116, label %32
+    i32 117, label %32
+    i32 2001, label %32
+    i32 2002, label %32
+    i32 2003, label %32
   ]
 
-.backedge:                                        ; preds = %6, %6, %6, %6, %36, %33, %41, %40, %24, %22, %19, %18, %17, %16, %15, %13, %10, %9, %8
-  %.015.be = phi i32 [ 1, %41 ], [ %.015, %40 ], [ %.015, %36 ], [ %.015, %33 ], [ %.015, %24 ], [ %.015, %22 ], [ %.015, %19 ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 1, %15 ], [ %.015, %13 ], [ %.015, %10 ], [ %.015, %9 ], [ 1, %8 ], [ %.015, %6 ], [ %.015, %6 ], [ %.015, %6 ], [ %.015, %6 ]
+.backedge:                                        ; preds = %6, %6, %6, %6, %32, %29, %37, %36, %20, %18, %15, %13, %10, %9, %8
+  %.015.be = phi i32 [ 1, %37 ], [ %.015, %36 ], [ %.015, %32 ], [ %.015, %29 ], [ %.015, %20 ], [ %.015, %18 ], [ %.015, %15 ], [ %.015, %13 ], [ %.015, %10 ], [ %.015, %9 ], [ 1, %8 ], [ %.015, %6 ], [ %.015, %6 ], [ %.015, %6 ], [ %.015, %6 ]
   br label %6, !llvm.loop !7
 
 8:                                                ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
@@ -597,127 +593,115 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
   br label %.backedge
 
 15:                                               ; preds = %6
-  br label %.backedge
-
-16:                                               ; preds = %6
-  br label %.backedge
-
-17:                                               ; preds = %6
+  %16 = load ptr, ptr @ws_optarg, align 8
+  %17 = tail call noalias ptr @g_strdup(ptr noundef %16) #10
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 24), align 8
   br label %.backedge
 
 18:                                               ; preds = %6
+  %19 = load ptr, ptr @ws_optarg, align 8
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 32), align 8
   br label %.backedge
 
-19:                                               ; preds = %6
-  %20 = load ptr, ptr @ws_optarg, align 8
-  %21 = tail call noalias ptr @g_strdup(ptr noundef %20) #10
-  store ptr %21, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 24), align 8
+20:                                               ; preds = %6
+  %21 = load ptr, ptr @ws_optarg, align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 40), align 8
   br label %.backedge
 
 22:                                               ; preds = %6
   %23 = load ptr, ptr @ws_optarg, align 8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 32), align 8
-  br label %.backedge
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.70, ptr noundef nonnull dereferenceable(1) %23) #14
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %29
 
-24:                                               ; preds = %6
-  %25 = load ptr, ptr @ws_optarg, align 8
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 40), align 8
-  br label %.backedge
-
-26:                                               ; preds = %6
-  %27 = load ptr, ptr @ws_optarg, align 8
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.70, ptr noundef nonnull dereferenceable(1) %27) #14
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %33
-
-30:                                               ; preds = %26
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 61, i64 1, ptr %31) #15
+26:                                               ; preds = %22
+  %27 = load ptr, ptr @stderr, align 8
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 61, i64 1, ptr %27) #15
   tail call void @list_stat_cmd_args() #10
   tail call void @exit_application(i32 noundef 0) #13
   unreachable
 
-33:                                               ; preds = %26
-  %34 = tail call i32 @process_stat_cmd_arg(ptr noundef %27) #10
-  %.not28 = icmp eq i32 %34, 0
-  br i1 %.not28, label %35, label %.backedge
+29:                                               ; preds = %22
+  %30 = tail call i32 @process_stat_cmd_arg(ptr noundef %23) #10
+  %.not28 = icmp eq i32 %30, 0
+  br i1 %.not28, label %31, label %.backedge
 
-35:                                               ; preds = %33
+31:                                               ; preds = %29
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.72) #10
   tail call void (ptr, ...) @cmdarg_err_cont(ptr noundef nonnull @.str.73) #10
   tail call void @list_stat_cmd_args() #10
   tail call void @exit_application(i32 noundef 1) #13
   unreachable
 
-36:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
-  %37 = load ptr, ptr @ws_optarg, align 8
-  %38 = tail call i32 @dissect_opts_handle_opt(i32 noundef %7, ptr noundef %37) #10
-  %.not27 = icmp eq i32 %38, 0
-  br i1 %.not27, label %39, label %.backedge
+32:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
+  %33 = load ptr, ptr @ws_optarg, align 8
+  %34 = tail call i32 @dissect_opts_handle_opt(i32 noundef %7, ptr noundef %33) #10
+  %.not27 = icmp eq i32 %34, 0
+  br i1 %.not27, label %35, label %.backedge
 
-39:                                               ; preds = %36
+35:                                               ; preds = %32
   tail call void @exit_application(i32 noundef 1) #13
   unreachable
 
-40:                                               ; preds = %6
+36:                                               ; preds = %6
   store i32 1, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 48), align 8
   br label %.backedge
 
-41:                                               ; preds = %6
+37:                                               ; preds = %6
   br label %.backedge
 
-42:                                               ; preds = %6
+38:                                               ; preds = %6
   %.not23 = icmp eq i32 %.015, 0
-  br i1 %.not23, label %43, label %.thread
+  br i1 %.not23, label %39, label %.thread
 
-43:                                               ; preds = %42
-  %44 = load i32, ptr @ws_optind, align 4
-  %45 = sub i32 %0, %44
-  %46 = sext i32 %44 to i64
-  %47 = getelementptr ptr, ptr %1, i64 %46
-  %48 = icmp sgt i32 %45, 0
-  br i1 %48, label %49, label %.thread37
+39:                                               ; preds = %38
+  %40 = load i32, ptr @ws_optind, align 4
+  %41 = sub i32 %0, %40
+  %42 = sext i32 %40 to i64
+  %43 = getelementptr ptr, ptr %1, i64 %42
+  %44 = icmp sgt i32 %41, 0
+  br i1 %44, label %45, label %.thread37
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 24), align 8
-  %.not24 = icmp eq ptr %50, null
-  br i1 %.not24, label %52, label %51
+45:                                               ; preds = %39
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 24), align 8
+  %.not24 = icmp eq ptr %46, null
+  br i1 %.not24, label %48, label %47
 
-51:                                               ; preds = %49
+47:                                               ; preds = %45
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.74) #10
-  br label %55
+  br label %51
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %47, align 8
-  %54 = tail call noalias ptr @g_strdup(ptr noundef %53) #10
-  store ptr %54, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 24), align 8
-  br label %55
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %43, align 8
+  %50 = tail call noalias ptr @g_strdup(ptr noundef %49) #10
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 24), align 8
+  br label %51
 
-55:                                               ; preds = %51, %52
-  %56 = getelementptr i8, ptr %47, i64 8
-  %.not25 = icmp eq i32 %45, 1
-  br i1 %.not25, label %59, label %57
+51:                                               ; preds = %47, %48
+  %52 = getelementptr i8, ptr %43, i64 8
+  %.not25 = icmp eq i32 %41, 1
+  br i1 %.not25, label %55, label %53
 
-.thread37:                                        ; preds = %43
-  %.not2541 = icmp eq i32 %0, %44
-  br i1 %.not2541, label %.thread44, label %57
+.thread37:                                        ; preds = %39
+  %.not2541 = icmp eq i32 %0, %40
+  br i1 %.not2541, label %.thread44, label %53
 
-57:                                               ; preds = %.thread37, %55
-  %.01842 = phi ptr [ %47, %.thread37 ], [ %56, %55 ]
-  %58 = load ptr, ptr %.01842, align 8
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.75, ptr noundef %58) #10
+53:                                               ; preds = %.thread37, %51
+  %.01842 = phi ptr [ %43, %.thread37 ], [ %52, %51 ]
+  %54 = load ptr, ptr %.01842, align 8
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.75, ptr noundef %54) #10
   br label %.thread
 
-59:                                               ; preds = %55
+55:                                               ; preds = %51
   br i1 %.not24, label %.thread44, label %.thread
 
-.thread:                                          ; preds = %57, %42, %59
+.thread:                                          ; preds = %53, %38, %55
   tail call fastcc void @print_no_capture_support_error()
   tail call void @commandline_print_usage(i32 noundef 0)
   tail call void @exit_application(i32 noundef 1) #13
   unreachable
 
-.thread44:                                        ; preds = %.thread37, %59
+.thread44:                                        ; preds = %.thread37, %55
   ret void
 }
 

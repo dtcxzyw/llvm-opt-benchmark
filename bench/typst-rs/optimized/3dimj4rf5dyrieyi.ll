@@ -107601,8 +107601,8 @@ define hidden noundef i8 @"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT
   %.sroa.4.0.extract.trunc = trunc nuw i16 %.sroa.4.0.extract.shift to i8
   %2 = and i16 %0, 255
   %switch = icmp eq i16 %2, 4
-  %spec.select = select i1 %switch, i8 4, i8 %.sroa.4.0.extract.trunc
-  ret i8 %spec.select
+  %.04 = select i1 %switch, i8 4, i8 %.sroa.4.0.extract.trunc
+  ret i8 %.04
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -107611,8 +107611,8 @@ define hidden noundef i8 @"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT
   %.sroa.4.0.extract.trunc = trunc nuw i16 %.sroa.4.0.extract.shift to i8
   %2 = and i16 %0, 255
   %switch = icmp eq i16 %2, 3
-  %spec.select = select i1 %switch, i8 5, i8 %.sroa.4.0.extract.trunc
-  ret i8 %spec.select
+  %.04 = select i1 %switch, i8 5, i8 %.sroa.4.0.extract.trunc
+  ret i8 %.04
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -107722,15 +107722,15 @@ default.unreachable:                              ; preds = %"_ZN92_$LT$typst..l
   br label %"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit"
 
 "_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit": ; preds = %"_ZN92_$LT$typst..layout..align..OuterHAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h89efc6d63fe484a6E.exit", %11
-  %.04.i = phi i8 [ %.sroa.02.0.extract.trunc.i, %11 ], [ %.sroa.4.0.extract.trunc.i, %"_ZN92_$LT$typst..layout..align..OuterHAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h89efc6d63fe484a6E.exit" ]
-  %12 = icmp eq i8 %.04.i, 3
+  %.04.i13 = phi i8 [ %.sroa.02.0.extract.trunc.i, %11 ], [ %.sroa.4.0.extract.trunc.i, %"_ZN92_$LT$typst..layout..align..OuterHAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h89efc6d63fe484a6E.exit" ]
+  %12 = icmp eq i8 %.04.i13, 3
   br i1 %12, label %"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit.thread", label %13
 
 "_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit.thread": ; preds = %"_ZN92_$LT$typst..layout..align..OuterHAlignment$u20$as$u20$typst..layout..align..FixAlignment$GT$3fix17h89efc6d63fe484a6E.exit", %"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit"
   br label %13
 
 13:                                               ; preds = %"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit", %"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit.thread"
-  %.0 = phi i8 [ 0, %"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit.thread" ], [ %.04.i, %"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit" ]
+  %.0 = phi i8 [ 0, %"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit.thread" ], [ %.04.i13, %"_ZN5typst6layout5align30SpecificAlignment$LT$H$C$V$GT$1y17ha83ef2be0f3d6e82E.llvm.2456044669961016091.exit" ]
   %14 = insertvalue { i8, i8 } poison, i8 %.0.i, 0
   %15 = insertvalue { i8, i8 } %14, i8 %.0, 1
   ret { i8, i8 } %15

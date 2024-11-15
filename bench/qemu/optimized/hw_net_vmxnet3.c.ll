@@ -1214,17 +1214,14 @@ entry:
   %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 61)
   switch i64 %0, label %sw.epilog [
     i64 0, label %do.end
-    i64 1, label %do.end3
+    i64 1, label %do.end
     i64 4, label %do.end6
     i64 5, label %do.end9
     i64 6, label %do.end13
     i64 7, label %do.end19
   ]
 
-do.end:                                           ; preds = %entry
-  br label %sw.epilog
-
-do.end3:                                          ; preds = %entry
+do.end:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 do.end6:                                          ; preds = %entry
@@ -1242,7 +1239,7 @@ do.end6:                                          ; preds = %entry
     i32 -267583480, label %sw.epilog
     i32 -267583479, label %sw.bb13.i
     i32 -267583483, label %sw.bb14.i
-    i32 -267583482, label %sw.bb15.i
+    i32 -267583482, label %sw.bb13.i
   ]
 
 sw.bb.i:                                          ; preds = %do.end6
@@ -1270,13 +1267,10 @@ sw.bb7.i:                                         ; preds = %do.end6
   %7 = zext i16 %perm_mac8.val.i to i64
   br label %sw.epilog
 
-sw.bb13.i:                                        ; preds = %do.end6
+sw.bb13.i:                                        ; preds = %do.end6, %do.end6
   br label %sw.epilog
 
 sw.bb14.i:                                        ; preds = %do.end6
-  br label %sw.epilog
-
-sw.bb15.i:                                        ; preds = %do.end6
   br label %sw.epilog
 
 do.body16.i:                                      ; preds = %do.end6
@@ -1318,8 +1312,8 @@ vmxnet3_clear_interrupt.exit:                     ; preds = %if.then, %if.then.i
   tail call fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef nonnull %opaque, i32 noundef 0)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %do.body16.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb7.i, %sw.bb6.i, %sw.bb2.i, %sw.bb.i, %do.end6, %do.end6, %do.end6, %do.end6, %do.end6, %do.end19, %entry, %vmxnet3_clear_interrupt.exit, %do.end13, %do.end9, %do.end3, %do.end
-  %ret.0 = phi i64 [ 0, %entry ], [ 1, %vmxnet3_clear_interrupt.exit ], [ %11, %do.end13 ], [ %9, %do.end9 ], [ 1, %do.end3 ], [ 1, %do.end ], [ 0, %do.end19 ], [ 0, %do.body16.i ], [ 1, %sw.bb15.i ], [ 1968, %sw.bb14.i ], [ 1, %sw.bb13.i ], [ %7, %sw.bb7.i ], [ %5, %sw.bb6.i ], [ %conv3.i, %sw.bb2.i ], [ %conv.i, %sw.bb.i ], [ 0, %do.end6 ], [ 0, %do.end6 ], [ 0, %do.end6 ], [ 0, %do.end6 ], [ 0, %do.end6 ]
+sw.epilog:                                        ; preds = %do.body16.i, %sw.bb14.i, %sw.bb13.i, %sw.bb7.i, %sw.bb6.i, %sw.bb2.i, %sw.bb.i, %do.end6, %do.end6, %do.end6, %do.end6, %do.end6, %do.end19, %entry, %vmxnet3_clear_interrupt.exit, %do.end13, %do.end9, %do.end
+  %ret.0 = phi i64 [ 0, %entry ], [ 1, %vmxnet3_clear_interrupt.exit ], [ %11, %do.end13 ], [ %9, %do.end9 ], [ 1, %do.end ], [ 0, %do.end19 ], [ 0, %do.body16.i ], [ 1968, %sw.bb14.i ], [ 1, %sw.bb13.i ], [ %7, %sw.bb7.i ], [ %5, %sw.bb6.i ], [ %conv3.i, %sw.bb2.i ], [ %conv.i, %sw.bb.i ], [ 0, %do.end6 ], [ 0, %do.end6 ], [ 0, %do.end6 ], [ 0, %do.end6 ], [ 0, %do.end6 ]
   ret i64 %ret.0
 }
 

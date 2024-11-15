@@ -7622,38 +7622,38 @@ define dso_local range(i32 0, 4) i32 @psql_scan(ptr nocapture noundef %0, ptr no
   %10 = tail call i32 @psql_yylex(ptr noundef null, ptr noundef %9)
   switch i32 %10, label %default.unreachable30 [
     i32 0, label %11
-    i32 1, label %33
-    i32 2, label %32
+    i32 1, label %32
+    i32 2, label %31
   ]
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
-  switch i32 %13, label %29 [
+  switch i32 %13, label %28 [
     i32 0, label %14
     i32 6, label %14
-    i32 1, label %33
+    i32 1, label %32
     i32 2, label %25
     i32 3, label %26
-    i32 4, label %33
-    i32 7, label %33
-    i32 5, label %33
+    i32 4, label %32
+    i32 7, label %32
+    i32 5, label %32
     i32 8, label %27
-    i32 9, label %28
-    i32 10, label %33
+    i32 9, label %26
+    i32 10, label %32
   ]
 
 14:                                               ; preds = %11, %11
   %15 = getelementptr inbounds i8, ptr %0, i64 80
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %33, label %18
+  br i1 %17, label %32, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 104
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %33, label %22
+  br i1 %21, label %32, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7661,35 +7661,32 @@ define dso_local range(i32 0, 4) i32 @psql_scan(ptr nocapture noundef %0, ptr no
   %.not29 = icmp ne i64 %24, 0
   %. = zext i1 %.not29 to i32
   %.33 = select i1 %.not29, i32 3, i32 2
-  br label %33
+  br label %32
 
 25:                                               ; preds = %11
-  br label %33
+  br label %32
 
-26:                                               ; preds = %11
-  br label %33
+26:                                               ; preds = %11, %11
+  br label %32
 
 27:                                               ; preds = %11
-  br label %33
+  br label %32
 
 28:                                               ; preds = %11
-  br label %33
-
-29:                                               ; preds = %11
-  %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %30, ptr noundef nonnull @.str.19) #27
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %29, ptr noundef nonnull @.str.19) #27
   tail call void @exit(i32 noundef 1) #30
   unreachable
 
-32:                                               ; preds = %3
-  br label %33
+31:                                               ; preds = %3
+  br label %32
 
 default.unreachable30:                            ; preds = %3
   unreachable
 
-33:                                               ; preds = %3, %11, %11, %11, %11, %11, %22, %18, %14, %25, %26, %27, %28, %32
-  %.sink32 = phi i32 [ 2, %25 ], [ 4, %26 ], [ 5, %27 ], [ 4, %28 ], [ 0, %32 ], [ 6, %14 ], [ 1, %18 ], [ %., %22 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 0, %3 ]
-  %.0 = phi i32 [ 2, %25 ], [ 2, %26 ], [ 2, %27 ], [ 2, %28 ], [ 1, %32 ], [ 2, %14 ], [ 2, %18 ], [ %.33, %22 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 0, %3 ]
+32:                                               ; preds = %3, %11, %11, %11, %11, %11, %22, %18, %14, %25, %26, %27, %31
+  %.sink32 = phi i32 [ 2, %25 ], [ 4, %26 ], [ 5, %27 ], [ 0, %31 ], [ 6, %14 ], [ 1, %18 ], [ %., %22 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 0, %3 ]
+  %.0 = phi i32 [ 2, %25 ], [ 2, %26 ], [ 2, %27 ], [ 1, %31 ], [ 2, %14 ], [ 2, %18 ], [ %.33, %22 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 0, %3 ]
   store i32 %.sink32, ptr %2, align 4
   ret i32 %.0
 }

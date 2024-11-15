@@ -7546,186 +7546,174 @@ define internal fastcc range(i32 -2147483648, -1073741824) i32 @skl_plane_ctl(pt
   %68 = or i32 %67, %38
   %69 = getelementptr inbounds i8, ptr %5, i64 120
   %70 = load i64, ptr %69, align 8
-  switch i64 %70, label %84 [
-    i64 0, label %85
-    i64 72057594037927937, label %86
+  switch i64 %70, label %80 [
+    i64 0, label %81
+    i64 72057594037927937, label %82
     i64 72057594037927938, label %71
     i64 72057594037927945, label %72
     i64 72057594037927946, label %73
     i64 72057594037927947, label %74
     i64 72057594037927948, label %75
-    i64 72057594037927949, label %76
-    i64 72057594037927951, label %77
-    i64 72057594037927950, label %78
-    i64 72057594037927940, label %79
-    i64 72057594037927944, label %79
-    i64 72057594037927942, label %80
-    i64 72057594037927943, label %81
-    i64 72057594037927939, label %82
-    i64 72057594037927941, label %83
+    i64 72057594037927949, label %73
+    i64 72057594037927951, label %75
+    i64 72057594037927950, label %76
+    i64 72057594037927940, label %77
+    i64 72057594037927944, label %77
+    i64 72057594037927942, label %78
+    i64 72057594037927943, label %79
+    i64 72057594037927939, label %72
+    i64 72057594037927941, label %75
   ]
 
 71:                                               ; preds = %66
-  br label %86
+  br label %82
 
-72:                                               ; preds = %66
-  br label %86
+72:                                               ; preds = %66, %66
+  br label %82
 
-73:                                               ; preds = %66
-  br label %86
+73:                                               ; preds = %66, %66
+  br label %82
 
 74:                                               ; preds = %66
-  br label %86
+  br label %82
 
-75:                                               ; preds = %66
-  br label %86
+75:                                               ; preds = %66, %66, %66
+  br label %82
 
 76:                                               ; preds = %66
-  br label %86
+  br label %82
 
-77:                                               ; preds = %66
-  br label %86
+77:                                               ; preds = %66, %66
+  br label %82
 
 78:                                               ; preds = %66
-  br label %86
+  br label %82
 
-79:                                               ; preds = %66, %66
-  br label %86
+79:                                               ; preds = %66
+  br label %82
 
 80:                                               ; preds = %66
-  br label %86
-
-81:                                               ; preds = %66
-  br label %86
-
-82:                                               ; preds = %66
-  br label %86
-
-83:                                               ; preds = %66
-  br label %86
-
-84:                                               ; preds = %66
   tail call void asm sideeffect "925: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 925b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 925) #11, !srcloc !119
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.39, i64 noundef %70) #11
   tail call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #11, !srcloc !120
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 828, i32 2313, i64 12) #11, !srcloc !121
   tail call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_end\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #11, !srcloc !122
   tail call void asm sideeffect "928: nop\0A\09.pushsection .discard.instr_end\0A\09.long 928b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 928) #11, !srcloc !123
-  br label %85
+  br label %81
 
-85:                                               ; preds = %84, %66
-  br label %86
+81:                                               ; preds = %80, %66
+  br label %82
 
-86:                                               ; preds = %85, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %66
-  %87 = phi i32 [ 0, %85 ], [ 37888, %83 ], [ 5120, %82 ], [ 4112, %81 ], [ 45056, %80 ], [ 36864, %79 ], [ 5136, %78 ], [ 37888, %77 ], [ 46080, %76 ], [ 37888, %75 ], [ 13328, %74 ], [ 46080, %73 ], [ 5120, %72 ], [ 4096, %71 ], [ 1024, %66 ]
-  %88 = or i32 %68, %87
-  %89 = and i32 %7, 15
-  switch i32 %89, label %92 [
-    i32 1, label %94
-    i32 2, label %95
-    i32 4, label %90
-    i32 8, label %91
+82:                                               ; preds = %81, %79, %78, %77, %76, %75, %74, %73, %72, %71, %66
+  %83 = phi i32 [ 0, %81 ], [ 4112, %79 ], [ 45056, %78 ], [ 36864, %77 ], [ 5136, %76 ], [ 37888, %75 ], [ 13328, %74 ], [ 46080, %73 ], [ 5120, %72 ], [ 4096, %71 ], [ 1024, %66 ]
+  %84 = or i32 %68, %83
+  %85 = and i32 %7, 15
+  switch i32 %85, label %88 [
+    i32 1, label %90
+    i32 2, label %91
+    i32 4, label %86
+    i32 8, label %87
   ]
 
-90:                                               ; preds = %86
-  br label %95
+86:                                               ; preds = %82
+  br label %91
 
-91:                                               ; preds = %86
-  br label %95
+87:                                               ; preds = %82
+  br label %91
 
-92:                                               ; preds = %86
+88:                                               ; preds = %82
   tail call void asm sideeffect "929: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 929b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 929) #11, !srcloc !124
-  %93 = zext nneg i32 %89 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.40, i64 noundef %93) #11
+  %89 = zext nneg i32 %85 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.40, i64 noundef %89) #11
   tail call void asm sideeffect "930: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 930b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 930) #11, !srcloc !125
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 850, i32 2313, i64 12) #11, !srcloc !126
   tail call void asm sideeffect "931: nop\0A\09.pushsection .discard.instr_end\0A\09.long 931b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 931) #11, !srcloc !127
   tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_end\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #11, !srcloc !128
-  br label %94
+  br label %90
 
-94:                                               ; preds = %92, %86
-  br label %95
+90:                                               ; preds = %88, %82
+  br label %91
 
-95:                                               ; preds = %94, %91, %90, %86
-  %96 = phi i32 [ 0, %94 ], [ 1, %91 ], [ 2, %90 ], [ 3, %86 ]
-  %97 = or i32 %88, %96
-  %98 = load i16, ptr %8, align 8
-  %99 = icmp ugt i16 %98, 10
-  br i1 %99, label %100, label %109
+91:                                               ; preds = %90, %87, %86, %82
+  %92 = phi i32 [ 0, %90 ], [ 1, %87 ], [ 2, %86 ], [ 3, %82 ]
+  %93 = or i32 %84, %92
+  %94 = load i16, ptr %8, align 8
+  %95 = icmp ugt i16 %94, 10
+  br i1 %95, label %96, label %105
 
-100:                                              ; preds = %95
-  %101 = and i32 %7, 48
-  switch i32 %101, label %102 [
-    i32 0, label %104
-    i32 16, label %105
+96:                                               ; preds = %91
+  %97 = and i32 %7, 48
+  switch i32 %97, label %98 [
+    i32 0, label %100
+    i32 16, label %101
   ]
 
-102:                                              ; preds = %100
+98:                                               ; preds = %96
   tail call void asm sideeffect "933: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 933b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 933) #11, !srcloc !129
-  %103 = zext nneg i32 %101 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.41, i64 noundef %103) #11
+  %99 = zext nneg i32 %97 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.41, i64 noundef %99) #11
   tail call void asm sideeffect "934: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 934b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 934) #11, !srcloc !130
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 865, i32 2313, i64 12) #11, !srcloc !131
   tail call void asm sideeffect "935: nop\0A\09.pushsection .discard.instr_end\0A\09.long 935b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 935) #11, !srcloc !132
   tail call void asm sideeffect "936: nop\0A\09.pushsection .discard.instr_end\0A\09.long 936b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 936) #11, !srcloc !133
   %.pre.pre.pre = load i16, ptr %8, align 8
+  br label %101
+
+100:                                              ; preds = %96
+  br label %101
+
+101:                                              ; preds = %98, %100, %96
+  %.pre = phi i16 [ %94, %96 ], [ %.pre.pre.pre, %98 ], [ %94, %100 ]
+  %102 = phi i32 [ 256, %96 ], [ 0, %98 ], [ 0, %100 ]
+  %103 = or i32 %102, %93
+  %104 = icmp eq i16 %.pre, 13
   br label %105
 
-104:                                              ; preds = %100
-  br label %105
+105:                                              ; preds = %101, %91
+  %106 = phi i1 [ %104, %101 ], [ false, %91 ]
+  %107 = phi i32 [ %103, %101 ], [ %93, %91 ]
+  %108 = getelementptr inbounds i8, ptr %0, i64 428
+  %109 = load i32, ptr %108, align 4
+  %110 = and i32 %109, 2
+  %111 = icmp eq i32 %110, 0
+  %112 = shl i32 %109, 19
+  %113 = and i32 %112, 2097152
+  %114 = select i1 %111, i32 %113, i32 4194304
+  %115 = or i32 %114, %107
+  br i1 %106, label %116, label %137
 
-105:                                              ; preds = %102, %104, %100
-  %.pre = phi i16 [ %98, %100 ], [ %.pre.pre.pre, %102 ], [ %98, %104 ]
-  %106 = phi i32 [ 256, %100 ], [ 0, %102 ], [ 0, %104 ]
-  %107 = or i32 %106, %97
-  %108 = icmp eq i16 %.pre, 13
-  br label %109
+116:                                              ; preds = %105
+  %117 = load ptr, ptr %4, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 72
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %117, i64 120
+  %121 = load i64, ptr %120, align 8
+  %122 = tail call zeroext i1 @intel_format_info_is_yuv_semiplanar(ptr noundef %119, i64 noundef %121) #11
+  %123 = load ptr, ptr %118, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 6
+  %125 = load i8, ptr %124, align 2
+  br i1 %122, label %126, label %129
 
-109:                                              ; preds = %105, %95
-  %110 = phi i1 [ %108, %105 ], [ false, %95 ]
-  %111 = phi i32 [ %107, %105 ], [ %97, %95 ]
-  %112 = getelementptr inbounds i8, ptr %0, i64 428
-  %113 = load i32, ptr %112, align 4
-  %114 = and i32 %113, 2
-  %115 = icmp eq i32 %114, 0
-  %116 = shl i32 %113, 19
-  %117 = and i32 %116, 2097152
-  %118 = select i1 %115, i32 %117, i32 4194304
-  %119 = or i32 %118, %111
-  br i1 %110, label %120, label %141
+126:                                              ; preds = %116
+  %127 = icmp eq i8 %125, 2
+  %128 = select i1 %127, i32 268435456, i32 0
+  br label %134
 
-120:                                              ; preds = %109
-  %121 = load ptr, ptr %4, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 72
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %121, i64 120
-  %125 = load i64, ptr %124, align 8
-  %126 = tail call zeroext i1 @intel_format_info_is_yuv_semiplanar(ptr noundef %123, i64 noundef %125) #11
-  %127 = load ptr, ptr %122, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 6
-  %129 = load i8, ptr %128, align 2
-  br i1 %126, label %130, label %133
+129:                                              ; preds = %116
+  %130 = icmp eq i8 %125, 4
+  %131 = select i1 %130, i32 268435456, i32 0
+  %132 = icmp eq i8 %125, 8
+  %133 = select i1 %132, i32 805306368, i32 %131
+  br label %134
 
-130:                                              ; preds = %120
-  %131 = icmp eq i8 %129, 2
-  %132 = select i1 %131, i32 268435456, i32 0
-  br label %138
+134:                                              ; preds = %129, %126
+  %135 = phi i32 [ %128, %126 ], [ %133, %129 ]
+  %136 = or i32 %135, %115
+  br label %137
 
-133:                                              ; preds = %120
-  %134 = icmp eq i8 %129, 4
-  %135 = select i1 %134, i32 268435456, i32 0
-  %136 = icmp eq i8 %129, 8
-  %137 = select i1 %136, i32 805306368, i32 %135
-  br label %138
-
-138:                                              ; preds = %133, %130
-  %139 = phi i32 [ %132, %130 ], [ %137, %133 ]
-  %140 = or i32 %139, %119
-  br label %141
-
-141:                                              ; preds = %138, %109
-  %142 = phi i32 [ %140, %138 ], [ %119, %109 ]
-  ret i32 %142
+137:                                              ; preds = %134, %105
+  %138 = phi i32 [ %136, %134 ], [ %115, %105 ]
+  ret i32 %138
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

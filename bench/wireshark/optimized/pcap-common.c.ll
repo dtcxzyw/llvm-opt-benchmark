@@ -1944,95 +1944,89 @@ define range(i32 0, 2) i32 @wtap_encap_requires_phdr(i32 noundef %0) local_unnam
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden range(i32 8, 6) i32 @pcap_get_phdr_size(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
-  switch i32 %0, label %27 [
-    i32 13, label %28
+  switch i32 %0, label %25 [
+    i32 13, label %26
     i32 44, label %3
-    i32 75, label %28
-    i32 88, label %4
-    i32 100, label %5
-    i32 99, label %28
-    i32 159, label %28
-    i32 140, label %6
-    i32 19, label %7
-    i32 98, label %8
-    i32 112, label %26
+    i32 75, label %26
+    i32 88, label %3
+    i32 100, label %4
+    i32 99, label %26
+    i32 159, label %26
+    i32 140, label %5
+    i32 19, label %6
+    i32 98, label %7
+    i32 112, label %4
   ]
 
-3:                                                ; preds = %2
-  br label %28
+3:                                                ; preds = %2, %2
+  br label %26
 
-4:                                                ; preds = %2
-  br label %28
+4:                                                ; preds = %2, %2
+  br label %26
 
 5:                                                ; preds = %2
-  br label %28
+  br label %26
 
 6:                                                ; preds = %2
-  br label %28
+  br label %26
 
 7:                                                ; preds = %2
-  br label %28
-
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load i8, ptr %9, align 8
-  %.not = icmp sgt i8 %10, -1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load i8, ptr %8, align 8
+  %.not = icmp sgt i8 %9, -1
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
-  br label %12
+.preheader:                                       ; preds = %7
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  br label %11
 
-12:                                               ; preds = %.preheader, %12
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
-  %.2 = phi i32 [ 16, %.preheader ], [ %15, %12 ]
-  %13 = getelementptr [16 x %struct.erf_ehdr], ptr %11, i64 0, i64 %indvars.iv
-  %14 = load i64, ptr %13, align 8
-  %15 = add nuw nsw i32 %.2, 8
+11:                                               ; preds = %.preheader, %11
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
+  %.2 = phi i32 [ 16, %.preheader ], [ %14, %11 ]
+  %12 = getelementptr [16 x %struct.erf_ehdr], ptr %10, i64 0, i64 %indvars.iv
+  %13 = load i64, ptr %12, align 8
+  %14 = add nuw nsw i32 %.2, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = icmp slt i64 %14, 0
-  %17 = icmp samesign ult i64 %indvars.iv, 15
-  %18 = and i1 %17, %16
-  br i1 %18, label %12, label %.loopexit, !llvm.loop !11
+  %15 = icmp slt i64 %13, 0
+  %16 = icmp samesign ult i64 %indvars.iv, 15
+  %17 = and i1 %16, %15
+  br i1 %17, label %11, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %12, %8
-  %.1 = phi i32 [ 16, %8 ], [ %15, %12 ]
-  %19 = and i8 %10, 127
-  switch i8 %19, label %28 [
-    i8 5, label %20
-    i8 6, label %20
-    i8 7, label %20
-    i8 8, label %20
-    i8 9, label %20
-    i8 12, label %20
-    i8 17, label %20
-    i8 18, label %22
-    i8 2, label %24
-    i8 11, label %24
-    i8 16, label %24
-    i8 20, label %24
+.loopexit:                                        ; preds = %11, %7
+  %.1 = phi i32 [ 16, %7 ], [ %14, %11 ]
+  %18 = and i8 %9, 127
+  switch i8 %18, label %26 [
+    i8 5, label %19
+    i8 6, label %19
+    i8 7, label %19
+    i8 8, label %19
+    i8 9, label %19
+    i8 12, label %19
+    i8 17, label %19
+    i8 18, label %21
+    i8 2, label %23
+    i8 11, label %23
+    i8 16, label %23
+    i8 20, label %23
   ]
 
-20:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
-  %21 = add i32 %.1, 4
-  br label %28
+19:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
+  %20 = add i32 %.1, 4
+  br label %26
 
-22:                                               ; preds = %.loopexit
-  %23 = add i32 %.1, 4
-  br label %28
+21:                                               ; preds = %.loopexit
+  %22 = add i32 %.1, 4
+  br label %26
 
-24:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit
-  %25 = add i32 %.1, 2
-  br label %28
+23:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit
+  %24 = add i32 %.1, 2
+  br label %26
 
-26:                                               ; preds = %2
-  br label %28
+25:                                               ; preds = %2
+  br label %26
 
-27:                                               ; preds = %2
-  br label %28
-
-28:                                               ; preds = %2, %2, %2, %2, %20, %22, %24, %.loopexit, %27, %26, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ 0, %27 ], [ 5, %26 ], [ %.1, %.loopexit ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ 1, %7 ], [ 2, %6 ], [ 5, %5 ], [ 16, %4 ], [ 16, %3 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ]
+26:                                               ; preds = %2, %2, %2, %2, %19, %21, %23, %.loopexit, %25, %6, %5, %4, %3
+  %.0 = phi i32 [ 0, %25 ], [ %.1, %.loopexit ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ 1, %6 ], [ 2, %5 ], [ 5, %4 ], [ 16, %3 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ]
   ret i32 %.0
 }
 

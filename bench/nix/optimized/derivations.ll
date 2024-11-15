@@ -1882,13 +1882,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3nix14DerivationType4isCAEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %0) local_unnamed_addr #7 align 2 {
-switch.lookup:
-  %1 = getelementptr inbounds i8, ptr %0, i64 2
-  %.val = load i8, ptr %1, align 1
-  %switch.cast = trunc i8 %.val to i3
-  %switch.downshift = lshr i3 -2, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = getelementptr inbounds i8, ptr %0, i64 2
+  %.val = load i8, ptr %2, align 1
+  %switch.i.i = icmp ne i8 %.val, 0
+  ret i1 %switch.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

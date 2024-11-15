@@ -395,7 +395,7 @@ define void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind noalias n
   store i32 1, ptr %5, align 4, !noalias !4
   %switch.tableidx = add i32 %1, -1
   %6 = icmp ult i32 %switch.tableidx, 5
-  br i1 %6, label %switch.lookup, label %_ZN2cv3PtrINS_16DefaultFormatterEED2Ev.exit
+  br i1 %6, label %switch.lookup, label %_ZN2cv3PtrINS_15MatlabFormatterEED2Ev.exit
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %switch.tableidx to i64
@@ -404,11 +404,11 @@ switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %switch.tableidx to i64
   %switch.gep58 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE.3, i64 0, i64 %8
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
-  br label %_ZN2cv3PtrINS_16DefaultFormatterEED2Ev.exit
+  br label %_ZN2cv3PtrINS_15MatlabFormatterEED2Ev.exit
 
-_ZN2cv3PtrINS_16DefaultFormatterEED2Ev.exit:      ; preds = %switch.lookup, %2
-  %.sink57 = phi ptr [ getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16DefaultFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %2 ], [ %switch.load, %switch.lookup ]
-  %.sink = phi ptr [ getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv16DefaultFormatterE, i64 16), %2 ], [ %switch.load59, %switch.lookup ]
+_ZN2cv3PtrINS_15MatlabFormatterEED2Ev.exit:       ; preds = %2, %switch.lookup
+  %.sink57 = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16DefaultFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %2 ]
+  %.sink = phi ptr [ %switch.load59, %switch.lookup ], [ getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv16DefaultFormatterE, i64 16), %2 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %3, i64 36
   %11 = getelementptr inbounds i8, ptr %3, i64 32

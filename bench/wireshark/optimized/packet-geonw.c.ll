@@ -1629,7 +1629,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.427, i32 noundef %68) #12
   %73 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %67, ptr noundef nonnull @ei_geonw_version_err, ptr noundef nonnull @.str.428) #12
   %74 = call i32 @tvb_captured_length(ptr noundef %0) #12
-  br label %1019
+  br label %1018
 
 75:                                               ; preds = %61
   %76 = load i32, ptr @hf_geonw_bh_next_header, align 4
@@ -1675,7 +1675,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
 104:                                              ; preds = %83, %102, %56
   %.0513 = phi ptr [ null, %56 ], [ %96, %102 ], [ %96, %83 ]
   %.0510 = phi i32 [ 0, %56 ], [ 4, %102 ], [ 4, %83 ]
-  switch i8 %.0509, label %1017 [
+  switch i8 %.0509, label %1016 [
     i8 2, label %105
     i8 1, label %.thread
   ]
@@ -2076,7 +2076,7 @@ dissect_secured_message.exit:                     ; preds = %.lr.ph20.i, %112, %
   %318 = load i32, ptr @proto_geonw, align 4
   %319 = call ptr @p_get_proto_data(ptr noundef %317, ptr noundef %1, i32 noundef %318, i32 noundef 0) #12
   %.not546 = icmp eq ptr %319, null
-  br i1 %.not546, label %1017, label %320
+  br i1 %.not546, label %1016, label %320
 
 320:                                              ; preds = %dissect_secured_message.exit
   %321 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %319, i32 noundef 1) #12
@@ -2084,1221 +2084,1218 @@ dissect_secured_message.exit:                     ; preds = %.lr.ph20.i, %112, %
   store i32 %322, ptr %17, align 4
   %323 = add nsw i32 %322, -16
   %324 = lshr i32 %323, 4
-  switch i32 %324, label %331 [
+  switch i32 %324, label %330 [
     i32 0, label %.thread
     i32 1, label %325
     i32 2, label %326
-    i32 3, label %327
-    i32 4, label %328
-    i32 5, label %329
+    i32 3, label %326
+    i32 4, label %327
+    i32 5, label %328
   ]
 
 325:                                              ; preds = %320
   br label %.thread
 
-326:                                              ; preds = %320
+326:                                              ; preds = %320, %320
   br label %.thread
 
 327:                                              ; preds = %320
   br label %.thread
 
 328:                                              ; preds = %320
+  %329 = icmp eq i8 %321, 97
+  %spec.select563 = select i1 %329, i32 56, i32 44
   br label %.thread
 
-329:                                              ; preds = %320
-  %330 = icmp eq i8 %321, 97
-  %spec.select563 = select i1 %330, i32 56, i32 44
+330:                                              ; preds = %320
   br label %.thread
 
-331:                                              ; preds = %320
-  br label %.thread
+.thread:                                          ; preds = %104, %328, %320, %325, %326, %327, %330
+  %.05087 = phi ptr [ %319, %330 ], [ %319, %327 ], [ %319, %326 ], [ %319, %325 ], [ %319, %320 ], [ %319, %328 ], [ %0, %104 ]
+  %.15116 = phi i32 [ 0, %330 ], [ 0, %327 ], [ 0, %326 ], [ 0, %325 ], [ %324, %320 ], [ 0, %328 ], [ %.0510, %104 ]
+  %.25165 = phi i32 [ -1, %330 ], [ 36, %327 ], [ 52, %326 ], [ 56, %325 ], [ 32, %320 ], [ %spec.select563, %328 ], [ %.1515, %104 ]
+  %331 = load i32, ptr @hf_geonw_ch, align 4
+  %332 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %331, ptr noundef %.05087, i32 noundef %.15116, i32 noundef 8, i32 noundef 0) #12
+  %333 = load i32, ptr @ett_geonw_ch, align 4
+  %334 = call ptr @proto_item_add_subtree(ptr noundef %332, i32 noundef %333) #12
+  %335 = load i32, ptr @hf_geonw_ch_next_header, align 4
+  %336 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %334, i32 noundef %335, ptr noundef %.05087, i32 noundef %.15116, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %16) #12
+  %337 = load i32, ptr %16, align 4
+  %338 = trunc i32 %337 to i8
+  %339 = getelementptr inbounds i8, ptr %27, i64 3
+  store i8 %338, ptr %339, align 1
+  %340 = load i32, ptr @hf_geonw_ch_reserved1, align 4
+  %341 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %334, i32 noundef %340, ptr noundef %.05087, i32 noundef %.15116, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21) #12
+  %342 = load i32, ptr %21, align 4
+  %.not547 = icmp eq i32 %342, 0
+  br i1 %.not547, label %345, label %343
 
-.thread:                                          ; preds = %104, %329, %320, %325, %326, %327, %328, %331
-  %.05087 = phi ptr [ %319, %331 ], [ %319, %328 ], [ %319, %327 ], [ %319, %326 ], [ %319, %325 ], [ %319, %320 ], [ %319, %329 ], [ %0, %104 ]
-  %.15116 = phi i32 [ 0, %331 ], [ 0, %328 ], [ 0, %327 ], [ 0, %326 ], [ 0, %325 ], [ %324, %320 ], [ 0, %329 ], [ %.0510, %104 ]
-  %.25165 = phi i32 [ -1, %331 ], [ 36, %328 ], [ 52, %327 ], [ 52, %326 ], [ 56, %325 ], [ 32, %320 ], [ %spec.select563, %329 ], [ %.1515, %104 ]
-  %332 = load i32, ptr @hf_geonw_ch, align 4
-  %333 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %332, ptr noundef %.05087, i32 noundef %.15116, i32 noundef 8, i32 noundef 0) #12
-  %334 = load i32, ptr @ett_geonw_ch, align 4
-  %335 = call ptr @proto_item_add_subtree(ptr noundef %333, i32 noundef %334) #12
-  %336 = load i32, ptr @hf_geonw_ch_next_header, align 4
-  %337 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %335, i32 noundef %336, ptr noundef %.05087, i32 noundef %.15116, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %16) #12
-  %338 = load i32, ptr %16, align 4
-  %339 = trunc i32 %338 to i8
-  %340 = getelementptr inbounds i8, ptr %27, i64 3
-  store i8 %339, ptr %340, align 1
-  %341 = load i32, ptr @hf_geonw_ch_reserved1, align 4
-  %342 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %335, i32 noundef %341, ptr noundef %.05087, i32 noundef %.15116, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21) #12
-  %343 = load i32, ptr %21, align 4
-  %.not547 = icmp eq i32 %343, 0
-  br i1 %.not547, label %346, label %344
+343:                                              ; preds = %.thread
+  %344 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %341, ptr noundef nonnull @ei_geonw_nz_reserved) #12
+  br label %345
 
-344:                                              ; preds = %.thread
-  %345 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %342, ptr noundef nonnull @ei_geonw_nz_reserved) #12
-  br label %346
+345:                                              ; preds = %343, %.thread
+  %346 = add nuw nsw i32 %.15116, 1
+  %347 = load i32, ptr @hf_geonw_ch_header_type, align 4
+  %348 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %334, i32 noundef %347, ptr noundef %.05087, i32 noundef %346, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %17) #12
+  %349 = load i32, ptr %17, align 4
+  %350 = trunc i32 %349 to i8
+  %351 = getelementptr inbounds i8, ptr %27, i64 4
+  store i8 %350, ptr %351, align 4
+  %352 = load ptr, ptr %28, align 8
+  %353 = call ptr @val_to_str(i32 noundef %349, ptr noundef nonnull @ch_header_type_names, ptr noundef nonnull @.str.430) #12
+  call void @col_add_str(ptr noundef %352, i32 noundef 25, ptr noundef %353) #12
+  %354 = add nuw nsw i32 %.15116, 2
+  br i1 %.not, label %355, label %367
 
-346:                                              ; preds = %344, %.thread
-  %347 = add nuw nsw i32 %.15116, 1
-  %348 = load i32, ptr @hf_geonw_ch_header_type, align 4
-  %349 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %335, i32 noundef %348, ptr noundef %.05087, i32 noundef %347, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %17) #12
-  %350 = load i32, ptr %17, align 4
-  %351 = trunc i32 %350 to i8
-  %352 = getelementptr inbounds i8, ptr %27, i64 4
-  store i8 %351, ptr %352, align 4
-  %353 = load ptr, ptr %28, align 8
-  %354 = call ptr @val_to_str(i32 noundef %350, ptr noundef nonnull @ch_header_type_names, ptr noundef nonnull @.str.430) #12
-  call void @col_add_str(ptr noundef %353, i32 noundef 25, ptr noundef %354) #12
-  %355 = add nuw nsw i32 %.15116, 2
-  br i1 %.not, label %356, label %368
+355:                                              ; preds = %345
+  %356 = load i32, ptr %17, align 4
+  %357 = and i32 %356, -65
+  %or.cond4 = icmp eq i32 %357, 16
+  %358 = load i32, ptr %18, align 4
+  br i1 %or.cond4, label %359, label %363
 
-356:                                              ; preds = %346
-  %357 = load i32, ptr %17, align 4
-  %358 = and i32 %357, -65
-  %or.cond4 = icmp eq i32 %358, 16
-  %359 = load i32, ptr %18, align 4
-  br i1 %or.cond4, label %360, label %364
+359:                                              ; preds = %355
+  %360 = icmp ugt i32 %358, 1
+  br i1 %360, label %361, label %367
 
-360:                                              ; preds = %356
-  %361 = icmp ugt i32 %359, 1
-  br i1 %361, label %362, label %368
+361:                                              ; preds = %359
+  %362 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.0513, ptr noundef nonnull @ei_geonw_rhl_lncb, ptr noundef nonnull @.str.431, i32 noundef %358) #12
+  br label %367
 
-362:                                              ; preds = %360
-  %363 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.0513, ptr noundef nonnull @ei_geonw_rhl_lncb, ptr noundef nonnull @.str.431, i32 noundef %359) #12
-  br label %368
+363:                                              ; preds = %355
+  %364 = icmp ult i32 %358, 5
+  br i1 %364, label %365, label %367
 
-364:                                              ; preds = %356
-  %365 = icmp ult i32 %359, 5
-  br i1 %365, label %366, label %368
+365:                                              ; preds = %363
+  %366 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.0513, ptr noundef nonnull @ei_geonw_rhl_too_low, ptr noundef nonnull @.str.429, i32 noundef %358) #12
+  br label %367
 
-366:                                              ; preds = %364
-  %367 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.0513, ptr noundef nonnull @ei_geonw_rhl_too_low, ptr noundef nonnull @.str.429, i32 noundef %359) #12
-  br label %368
+367:                                              ; preds = %361, %359, %365, %363, %345
+  %368 = load i32, ptr @hf_geonw_ch_traffic_class, align 4
+  %369 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %334, i32 noundef %368, ptr noundef %.05087, i32 noundef %354, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %19) #12
+  %370 = load i32, ptr %19, align 4
+  %371 = trunc i32 %370 to i8
+  %372 = getelementptr inbounds i8, ptr %27, i64 5
+  store i8 %371, ptr %372, align 1
+  %373 = load i32, ptr @ett_geonw_ch_tc, align 4
+  %374 = call ptr @proto_item_add_subtree(ptr noundef %369, i32 noundef %373) #12
+  %375 = load i32, ptr @hf_geonw_ch_tc_scf, align 4
+  %376 = call ptr @proto_tree_add_item(ptr noundef %374, i32 noundef %375, ptr noundef %.05087, i32 noundef %354, i32 noundef 1, i32 noundef 0) #12
+  %377 = load i32, ptr @hf_geonw_ch_tc_offload, align 4
+  %378 = call ptr @proto_tree_add_item(ptr noundef %374, i32 noundef %377, ptr noundef %.05087, i32 noundef %354, i32 noundef 1, i32 noundef 0) #12
+  %379 = load i32, ptr @hf_geonw_ch_tc_id, align 4
+  %380 = call ptr @proto_tree_add_item(ptr noundef %374, i32 noundef %379, ptr noundef %.05087, i32 noundef %354, i32 noundef 1, i32 noundef 0) #12
+  %381 = add nuw nsw i32 %.15116, 3
+  %382 = load i32, ptr @hf_geonw_ch_flags, align 4
+  %383 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %382, ptr noundef %.05087, i32 noundef %381, i32 noundef 1, i32 noundef 0) #12
+  %384 = load i32, ptr @ett_geonw_ch_tc, align 4
+  %385 = call ptr @proto_item_add_subtree(ptr noundef %383, i32 noundef %384) #12
+  %386 = load i32, ptr @hf_geonw_ch_flags_mob, align 4
+  %387 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %385, i32 noundef %386, ptr noundef %.05087, i32 noundef %381, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %19) #12
+  %388 = load i32, ptr %19, align 4
+  %389 = trunc i32 %388 to i8
+  %390 = getelementptr inbounds i8, ptr %27, i64 6
+  store i8 %389, ptr %390, align 2
+  %391 = load i32, ptr @hf_geonw_ch_flags_reserved, align 4
+  %392 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %385, i32 noundef %391, ptr noundef %.05087, i32 noundef %381, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21) #12
+  %393 = load i32, ptr %21, align 4
+  %394 = and i32 %393, 127
+  %.not548 = icmp eq i32 %394, 0
+  br i1 %.not548, label %397, label %395
 
-368:                                              ; preds = %362, %360, %366, %364, %346
-  %369 = load i32, ptr @hf_geonw_ch_traffic_class, align 4
-  %370 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %335, i32 noundef %369, ptr noundef %.05087, i32 noundef %355, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %19) #12
-  %371 = load i32, ptr %19, align 4
-  %372 = trunc i32 %371 to i8
-  %373 = getelementptr inbounds i8, ptr %27, i64 5
-  store i8 %372, ptr %373, align 1
-  %374 = load i32, ptr @ett_geonw_ch_tc, align 4
-  %375 = call ptr @proto_item_add_subtree(ptr noundef %370, i32 noundef %374) #12
-  %376 = load i32, ptr @hf_geonw_ch_tc_scf, align 4
-  %377 = call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %376, ptr noundef %.05087, i32 noundef %355, i32 noundef 1, i32 noundef 0) #12
-  %378 = load i32, ptr @hf_geonw_ch_tc_offload, align 4
-  %379 = call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %378, ptr noundef %.05087, i32 noundef %355, i32 noundef 1, i32 noundef 0) #12
-  %380 = load i32, ptr @hf_geonw_ch_tc_id, align 4
-  %381 = call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %380, ptr noundef %.05087, i32 noundef %355, i32 noundef 1, i32 noundef 0) #12
-  %382 = add nuw nsw i32 %.15116, 3
-  %383 = load i32, ptr @hf_geonw_ch_flags, align 4
-  %384 = call ptr @proto_tree_add_item(ptr noundef %335, i32 noundef %383, ptr noundef %.05087, i32 noundef %382, i32 noundef 1, i32 noundef 0) #12
-  %385 = load i32, ptr @ett_geonw_ch_tc, align 4
-  %386 = call ptr @proto_item_add_subtree(ptr noundef %384, i32 noundef %385) #12
-  %387 = load i32, ptr @hf_geonw_ch_flags_mob, align 4
-  %388 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %386, i32 noundef %387, ptr noundef %.05087, i32 noundef %382, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %19) #12
-  %389 = load i32, ptr %19, align 4
-  %390 = trunc i32 %389 to i8
-  %391 = getelementptr inbounds i8, ptr %27, i64 6
-  store i8 %390, ptr %391, align 2
-  %392 = load i32, ptr @hf_geonw_ch_flags_reserved, align 4
-  %393 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %386, i32 noundef %392, ptr noundef %.05087, i32 noundef %382, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21) #12
-  %394 = load i32, ptr %21, align 4
-  %395 = and i32 %394, 127
-  %.not548 = icmp eq i32 %395, 0
-  br i1 %.not548, label %398, label %396
+395:                                              ; preds = %367
+  %396 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %392, ptr noundef nonnull @ei_geonw_nz_reserved) #12
+  br label %397
 
-396:                                              ; preds = %368
-  %397 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %393, ptr noundef nonnull @ei_geonw_nz_reserved) #12
-  br label %398
+397:                                              ; preds = %395, %367
+  %398 = add nuw nsw i32 %.15116, 4
+  %399 = load i32, ptr @hf_geonw_ch_payload_length, align 4
+  %400 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %334, i32 noundef %399, ptr noundef %.05087, i32 noundef %398, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %20) #12
+  %401 = load i32, ptr %20, align 4
+  %402 = trunc i32 %401 to i16
+  %403 = getelementptr inbounds i8, ptr %27, i64 8
+  store i16 %402, ptr %403, align 8
+  %404 = icmp sgt i32 %.25165, 0
+  br i1 %404, label %405, label %423
 
-398:                                              ; preds = %396, %368
-  %399 = add nuw nsw i32 %.15116, 4
-  %400 = load i32, ptr @hf_geonw_ch_payload_length, align 4
-  %401 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %335, i32 noundef %400, ptr noundef %.05087, i32 noundef %399, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %20) #12
-  %402 = load i32, ptr %20, align 4
-  %403 = trunc i32 %402 to i16
-  %404 = getelementptr inbounds i8, ptr %27, i64 8
-  store i16 %403, ptr %404, align 8
-  %405 = icmp sgt i32 %.25165, 0
-  br i1 %405, label %406, label %424
+405:                                              ; preds = %397
+  %.not549 = icmp eq i32 %401, 0
+  br i1 %.not549, label %422, label %406
 
-406:                                              ; preds = %398
-  %.not549 = icmp eq i32 %402, 0
-  br i1 %.not549, label %423, label %407
+406:                                              ; preds = %405
+  %407 = load i32, ptr %17, align 4
+  %408 = and i32 %407, 240
+  %409 = icmp eq i32 %408, 96
+  %410 = icmp eq i32 %407, 16
+  %or.cond6 = or i1 %410, %409
+  br i1 %or.cond6, label %411, label %413
 
-407:                                              ; preds = %406
-  %408 = load i32, ptr %17, align 4
-  %409 = and i32 %408, 240
-  %410 = icmp eq i32 %409, 96
-  %411 = icmp eq i32 %408, 16
-  %or.cond6 = or i1 %411, %410
-  br i1 %or.cond6, label %412, label %414
+411:                                              ; preds = %406
+  %412 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %400, ptr noundef nonnull @ei_geonw_nz_reserved) #12
+  br label %423
 
-412:                                              ; preds = %407
-  %413 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %401, ptr noundef nonnull @ei_geonw_nz_reserved) #12
-  br label %424
+413:                                              ; preds = %406
+  %414 = add i32 %401, %.25165
+  %415 = call i32 @tvb_reported_length(ptr noundef %.05087) #12
+  %416 = icmp ugt i32 %414, %415
+  br i1 %416, label %417, label %419
 
-414:                                              ; preds = %407
-  %415 = add i32 %402, %.25165
-  %416 = call i32 @tvb_reported_length(ptr noundef %.05087) #12
-  %417 = icmp ugt i32 %415, %416
-  br i1 %417, label %418, label %420
+417:                                              ; preds = %413
+  %418 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %400, ptr noundef nonnull @ei_geonw_payload_len) #12
+  br label %423
 
-418:                                              ; preds = %414
-  %419 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %401, ptr noundef nonnull @ei_geonw_payload_len) #12
-  br label %424
+419:                                              ; preds = %413
+  %420 = load i32, ptr %20, align 4
+  %421 = add i32 %420, %.25165
+  call void @set_actual_length(ptr noundef %.05087, i32 noundef %421) #12
+  br label %423
 
-420:                                              ; preds = %414
-  %421 = load i32, ptr %20, align 4
-  %422 = add i32 %421, %.25165
-  call void @set_actual_length(ptr noundef %.05087, i32 noundef %422) #12
-  br label %424
-
-423:                                              ; preds = %406
+422:                                              ; preds = %405
   call void @set_actual_length(ptr noundef %.05087, i32 noundef %.25165) #12
-  br label %424
+  br label %423
 
-424:                                              ; preds = %423, %418, %420, %412, %398
-  %425 = add nuw nsw i32 %.15116, 6
-  %426 = load i32, ptr @hf_geonw_ch_max_hop_limit, align 4
-  %427 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %335, i32 noundef %426, ptr noundef %.05087, i32 noundef %425, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %19) #12
-  %428 = load i32, ptr %19, align 4
-  %429 = trunc i32 %428 to i8
-  %430 = getelementptr inbounds i8, ptr %27, i64 7
-  store i8 %429, ptr %430, align 1
-  %431 = add nuw nsw i32 %.15116, 7
-  %432 = load i32, ptr %18, align 4
-  %433 = icmp ult i32 %428, %432
-  %or.cond11 = select i1 %.not, i1 %433, i1 false
-  br i1 %or.cond11, label %434, label %436
+423:                                              ; preds = %422, %417, %419, %411, %397
+  %424 = add nuw nsw i32 %.15116, 6
+  %425 = load i32, ptr @hf_geonw_ch_max_hop_limit, align 4
+  %426 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %334, i32 noundef %425, ptr noundef %.05087, i32 noundef %424, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %19) #12
+  %427 = load i32, ptr %19, align 4
+  %428 = trunc i32 %427 to i8
+  %429 = getelementptr inbounds i8, ptr %27, i64 7
+  store i8 %428, ptr %429, align 1
+  %430 = add nuw nsw i32 %.15116, 7
+  %431 = load i32, ptr %18, align 4
+  %432 = icmp ult i32 %427, %431
+  %or.cond11 = select i1 %.not, i1 %432, i1 false
+  br i1 %or.cond11, label %433, label %435
 
-434:                                              ; preds = %424
-  %435 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.0513, ptr noundef nonnull @ei_geonw_mhl_lt_rhl, ptr noundef nonnull @.str.432, i32 noundef %428) #12
-  br label %436
+433:                                              ; preds = %423
+  %434 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.0513, ptr noundef nonnull @ei_geonw_mhl_lt_rhl, ptr noundef nonnull @.str.432, i32 noundef %427) #12
+  br label %435
 
-436:                                              ; preds = %434, %424
-  %437 = load i32, ptr @hf_geonw_ch_reserved2, align 4
-  %438 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %335, i32 noundef %437, ptr noundef %.05087, i32 noundef %431, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21) #12
-  %439 = load i32, ptr %21, align 4
-  %.not550 = icmp eq i32 %439, 0
-  br i1 %.not550, label %442, label %440
+435:                                              ; preds = %433, %423
+  %436 = load i32, ptr @hf_geonw_ch_reserved2, align 4
+  %437 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %334, i32 noundef %436, ptr noundef %.05087, i32 noundef %430, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21) #12
+  %438 = load i32, ptr %21, align 4
+  %.not550 = icmp eq i32 %438, 0
+  br i1 %.not550, label %441, label %439
 
-440:                                              ; preds = %436
-  %441 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %438, ptr noundef nonnull @ei_geonw_nz_reserved) #12
-  br label %442
+439:                                              ; preds = %435
+  %440 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %437, ptr noundef nonnull @ei_geonw_nz_reserved) #12
+  br label %441
 
-442:                                              ; preds = %440, %436
-  %443 = add nuw nsw i32 %.15116, 8
-  %444 = load i32, ptr %17, align 4
-  %445 = icmp ugt i32 %444, 97
-  br i1 %445, label %446, label %459
+441:                                              ; preds = %439, %435
+  %442 = add nuw nsw i32 %.15116, 8
+  %443 = load i32, ptr %17, align 4
+  %444 = icmp ugt i32 %443, 97
+  br i1 %444, label %445, label %458
 
-446:                                              ; preds = %442
-  %447 = and i32 %444, 15
-  %448 = icmp samesign ult i32 %447, 3
-  br i1 %448, label %449, label %459
+445:                                              ; preds = %441
+  %446 = and i32 %443, 15
+  %447 = icmp samesign ult i32 %446, 3
+  br i1 %447, label %448, label %458
 
-449:                                              ; preds = %446
-  %450 = icmp eq i32 %447, 0
-  br i1 %450, label %457, label %451
+448:                                              ; preds = %445
+  %449 = icmp eq i32 %446, 0
+  br i1 %449, label %456, label %450
 
-451:                                              ; preds = %449
-  %452 = and i32 %444, 240
-  %453 = icmp samesign ugt i32 %452, 48
-  br i1 %453, label %454, label %459
+450:                                              ; preds = %448
+  %451 = and i32 %443, 240
+  %452 = icmp samesign ugt i32 %451, 48
+  br i1 %452, label %453, label %458
 
-454:                                              ; preds = %451
-  %455 = icmp eq i32 %447, 1
-  %456 = icmp samesign ult i32 %452, 67
-  %or.cond564 = select i1 %455, i1 true, i1 %456
-  br i1 %or.cond564, label %457, label %459
+453:                                              ; preds = %450
+  %454 = icmp eq i32 %446, 1
+  %455 = icmp samesign ult i32 %451, 67
+  %or.cond564 = select i1 %454, i1 true, i1 %455
+  br i1 %or.cond564, label %456, label %458
 
-457:                                              ; preds = %454, %449
-  call void @proto_item_set_end(ptr noundef %58, ptr noundef %.05087, i32 noundef %443) #12
-  %458 = call i32 @tvb_reported_length(ptr noundef %.05087) #12
-  br label %1019
+456:                                              ; preds = %453, %448
+  call void @proto_item_set_end(ptr noundef %58, ptr noundef %.05087, i32 noundef %442) #12
+  %457 = call i32 @tvb_reported_length(ptr noundef %.05087) #12
+  br label %1018
 
-459:                                              ; preds = %454, %451, %446, %442
-  %460 = getelementptr inbounds i8, ptr %27, i64 12
-  store i32 65536, ptr %460, align 4
-  %461 = and i32 %444, 240
-  %462 = add nsw i32 %461, -16
-  %463 = icmp ult i32 %462, 96
-  br i1 %463, label %switch.lookup, label %464
+458:                                              ; preds = %453, %450, %445, %441
+  %459 = getelementptr inbounds i8, ptr %27, i64 12
+  store i32 65536, ptr %459, align 4
+  %460 = and i32 %443, 240
+  %461 = add nsw i32 %460, -16
+  %462 = icmp ult i32 %461, 96
+  br i1 %462, label %switch.lookup, label %463
 
-464:                                              ; preds = %459
-  %465 = call i32 @tvb_captured_length(ptr noundef %.05087) #12
-  br label %1019
+463:                                              ; preds = %458
+  %464 = call i32 @tvb_captured_length(ptr noundef %.05087) #12
+  br label %1018
 
-switch.lookup:                                    ; preds = %459
-  %466 = lshr exact i32 %462, 4
-  %467 = zext nneg i32 %466 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_geonw_internal, i64 0, i64 %467
+switch.lookup:                                    ; preds = %458
+  %465 = lshr exact i32 %461, 4
+  %466 = zext nneg i32 %465 to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_geonw_internal, i64 0, i64 %466
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %468 = load i32, ptr %switch.load, align 4
-  %469 = sub nsw i32 %.25165, %443
-  %470 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %468, ptr noundef %.05087, i32 noundef %443, i32 noundef %469, i32 noundef 0) #12
-  %471 = load i32, ptr @ett_geonw_sh, align 4
-  %472 = call ptr @proto_item_add_subtree(ptr noundef %470, i32 noundef %471) #12
-  %473 = load i32, ptr %17, align 4
-  switch i32 %473, label %486 [
-    i32 32, label %474
-    i32 48, label %474
-    i32 49, label %474
-    i32 50, label %474
-    i32 64, label %474
-    i32 65, label %474
-    i32 66, label %474
-    i32 81, label %474
-    i32 96, label %474
-    i32 97, label %474
+  %467 = load i32, ptr %switch.load, align 4
+  %468 = sub nsw i32 %.25165, %442
+  %469 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %467, ptr noundef %.05087, i32 noundef %442, i32 noundef %468, i32 noundef 0) #12
+  %470 = load i32, ptr @ett_geonw_sh, align 4
+  %471 = call ptr @proto_item_add_subtree(ptr noundef %469, i32 noundef %470) #12
+  %472 = load i32, ptr %17, align 4
+  switch i32 %472, label %485 [
+    i32 32, label %473
+    i32 48, label %473
+    i32 49, label %473
+    i32 50, label %473
+    i32 64, label %473
+    i32 65, label %473
+    i32 66, label %473
+    i32 81, label %473
+    i32 96, label %473
+    i32 97, label %473
   ]
 
-474:                                              ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
-  %475 = load i32, ptr @hf_geonw_seq_num, align 4
-  %476 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %472, i32 noundef %475, ptr noundef %.05087, i32 noundef %443, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %23) #12
-  %477 = load i32, ptr %23, align 4
-  store i32 %477, ptr %460, align 4
-  %478 = add nuw nsw i32 %.15116, 10
-  %479 = load i32, ptr @hf_geonw_reserved, align 4
-  %480 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %472, i32 noundef %479, ptr noundef %.05087, i32 noundef %478, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
-  %481 = load i32, ptr %21, align 4
-  %.not551 = icmp eq i32 %481, 0
-  br i1 %.not551, label %484, label %482
+473:                                              ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
+  %474 = load i32, ptr @hf_geonw_seq_num, align 4
+  %475 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %471, i32 noundef %474, ptr noundef %.05087, i32 noundef %442, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %23) #12
+  %476 = load i32, ptr %23, align 4
+  store i32 %476, ptr %459, align 4
+  %477 = add nuw nsw i32 %.15116, 10
+  %478 = load i32, ptr @hf_geonw_reserved, align 4
+  %479 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %471, i32 noundef %478, ptr noundef %.05087, i32 noundef %477, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
+  %480 = load i32, ptr %21, align 4
+  %.not551 = icmp eq i32 %480, 0
+  br i1 %.not551, label %483, label %481
 
-482:                                              ; preds = %474
-  %483 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %480, ptr noundef nonnull @ei_geonw_nz_reserved) #12
-  br label %484
+481:                                              ; preds = %473
+  %482 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %479, ptr noundef nonnull @ei_geonw_nz_reserved) #12
+  br label %483
 
-484:                                              ; preds = %482, %474
-  %485 = add nuw nsw i32 %.15116, 12
-  br label %486
+483:                                              ; preds = %481, %473
+  %484 = add nuw nsw i32 %.15116, 12
+  br label %485
 
-486:                                              ; preds = %484, %switch.lookup
-  %.2 = phi i32 [ %443, %switch.lookup ], [ %485, %484 ]
-  %487 = load i32, ptr @hf_geonw_so_pv, align 4
-  %488 = call ptr @proto_tree_add_item(ptr noundef %472, i32 noundef %487, ptr noundef %.05087, i32 noundef %.2, i32 noundef 24, i32 noundef 0) #12
-  %489 = load i32, ptr @ett_geonw_so, align 4
-  %490 = call ptr @proto_item_add_subtree(ptr noundef %488, i32 noundef %489) #12
-  %491 = load i32, ptr @hf_geonw_so_pv_addr, align 4
-  %492 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %491, ptr noundef %.05087, i32 noundef %.2, i32 noundef 8, i32 noundef 0) #12
-  %493 = load i32, ptr @ett_geonw_so, align 4
-  %494 = call ptr @proto_item_add_subtree(ptr noundef %492, i32 noundef %493) #12
-  %495 = getelementptr inbounds i8, ptr %1, i64 160
-  %496 = load i32, ptr @geonw_address_type, align 4
-  %497 = call ptr @tvb_get_ptr(ptr noundef %.05087, i32 noundef range(i32 8, 41) %.2, i32 noundef 8) #12
-  store i32 %496, ptr %495, align 8
-  %498 = getelementptr inbounds i8, ptr %1, i64 164
-  store i32 8, ptr %498, align 4
-  %499 = getelementptr inbounds i8, ptr %1, i64 168
-  store ptr %497, ptr %499, align 8
-  %500 = getelementptr inbounds i8, ptr %1, i64 176
-  store ptr null, ptr %500, align 8
-  %501 = getelementptr inbounds i8, ptr %1, i64 208
-  store i32 %496, ptr %501, align 8
-  %502 = getelementptr inbounds i8, ptr %1, i64 212
-  store i32 8, ptr %502, align 4
-  %503 = getelementptr inbounds i8, ptr %1, i64 216
-  store ptr %497, ptr %503, align 8
-  %504 = getelementptr inbounds i8, ptr %1, i64 224
-  store ptr null, ptr %504, align 8
-  %505 = getelementptr inbounds i8, ptr %27, i64 24
-  store i32 %496, ptr %505, align 8
-  %506 = getelementptr inbounds i8, ptr %27, i64 28
-  store i32 8, ptr %506, align 4
-  %507 = getelementptr inbounds i8, ptr %27, i64 32
-  store ptr %497, ptr %507, align 8
-  %508 = getelementptr inbounds i8, ptr %27, i64 40
-  store ptr null, ptr %508, align 8
-  %509 = load i32, ptr @hf_geonw_so_pv_addr_manual, align 4
-  %510 = call ptr @proto_tree_add_item(ptr noundef %494, i32 noundef %509, ptr noundef %.05087, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #12
-  %511 = load i32, ptr @hf_geonw_so_pv_addr_type, align 4
-  %512 = call ptr @proto_tree_add_item(ptr noundef %494, i32 noundef %511, ptr noundef %.05087, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #12
-  %513 = load i32, ptr @hf_geonw_so_pv_addr_country, align 4
-  %514 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %494, i32 noundef %513, ptr noundef %.05087, i32 noundef %.2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
-  %515 = load i32, ptr %21, align 4
-  %516 = icmp ugt i32 %515, 999
-  br i1 %516, label %517, label %519
+485:                                              ; preds = %483, %switch.lookup
+  %.2 = phi i32 [ %442, %switch.lookup ], [ %484, %483 ]
+  %486 = load i32, ptr @hf_geonw_so_pv, align 4
+  %487 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %486, ptr noundef %.05087, i32 noundef %.2, i32 noundef 24, i32 noundef 0) #12
+  %488 = load i32, ptr @ett_geonw_so, align 4
+  %489 = call ptr @proto_item_add_subtree(ptr noundef %487, i32 noundef %488) #12
+  %490 = load i32, ptr @hf_geonw_so_pv_addr, align 4
+  %491 = call ptr @proto_tree_add_item(ptr noundef %489, i32 noundef %490, ptr noundef %.05087, i32 noundef %.2, i32 noundef 8, i32 noundef 0) #12
+  %492 = load i32, ptr @ett_geonw_so, align 4
+  %493 = call ptr @proto_item_add_subtree(ptr noundef %491, i32 noundef %492) #12
+  %494 = getelementptr inbounds i8, ptr %1, i64 160
+  %495 = load i32, ptr @geonw_address_type, align 4
+  %496 = call ptr @tvb_get_ptr(ptr noundef %.05087, i32 noundef range(i32 8, 41) %.2, i32 noundef 8) #12
+  store i32 %495, ptr %494, align 8
+  %497 = getelementptr inbounds i8, ptr %1, i64 164
+  store i32 8, ptr %497, align 4
+  %498 = getelementptr inbounds i8, ptr %1, i64 168
+  store ptr %496, ptr %498, align 8
+  %499 = getelementptr inbounds i8, ptr %1, i64 176
+  store ptr null, ptr %499, align 8
+  %500 = getelementptr inbounds i8, ptr %1, i64 208
+  store i32 %495, ptr %500, align 8
+  %501 = getelementptr inbounds i8, ptr %1, i64 212
+  store i32 8, ptr %501, align 4
+  %502 = getelementptr inbounds i8, ptr %1, i64 216
+  store ptr %496, ptr %502, align 8
+  %503 = getelementptr inbounds i8, ptr %1, i64 224
+  store ptr null, ptr %503, align 8
+  %504 = getelementptr inbounds i8, ptr %27, i64 24
+  store i32 %495, ptr %504, align 8
+  %505 = getelementptr inbounds i8, ptr %27, i64 28
+  store i32 8, ptr %505, align 4
+  %506 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr %496, ptr %506, align 8
+  %507 = getelementptr inbounds i8, ptr %27, i64 40
+  store ptr null, ptr %507, align 8
+  %508 = load i32, ptr @hf_geonw_so_pv_addr_manual, align 4
+  %509 = call ptr @proto_tree_add_item(ptr noundef %493, i32 noundef %508, ptr noundef %.05087, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #12
+  %510 = load i32, ptr @hf_geonw_so_pv_addr_type, align 4
+  %511 = call ptr @proto_tree_add_item(ptr noundef %493, i32 noundef %510, ptr noundef %.05087, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #12
+  %512 = load i32, ptr @hf_geonw_so_pv_addr_country, align 4
+  %513 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %493, i32 noundef %512, ptr noundef %.05087, i32 noundef %.2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
+  %514 = load i32, ptr %21, align 4
+  %515 = icmp ugt i32 %514, 999
+  br i1 %515, label %516, label %518
 
-517:                                              ; preds = %486
-  %518 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %514, ptr noundef nonnull @ei_geonw_scc_too_big) #12
-  br label %519
+516:                                              ; preds = %485
+  %517 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %513, ptr noundef nonnull @ei_geonw_scc_too_big) #12
+  br label %518
 
-519:                                              ; preds = %517, %486
-  %520 = add nuw nsw i32 %.2, 2
-  %521 = load i32, ptr @hf_geonw_so_pv_addr_mid, align 4
-  %522 = call ptr @proto_tree_add_item(ptr noundef %494, i32 noundef %521, ptr noundef %.05087, i32 noundef %520, i32 noundef 6, i32 noundef 0) #12
-  %523 = add nuw nsw i32 %.2, 8
-  %524 = load i32, ptr @hf_geonw_so_pv_time, align 4
-  %525 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %490, i32 noundef %524, ptr noundef %.05087, i32 noundef %523, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %22) #12
-  %526 = load i32, ptr %22, align 4
-  %527 = getelementptr inbounds i8, ptr %27, i64 16
-  store i32 %526, ptr %527, align 8
-  %528 = load i32, ptr @geonw_analyze_seq, align 4
-  %.not552 = icmp eq i32 %528, 0
-  br i1 %.not552, label %615, label %529
+518:                                              ; preds = %516, %485
+  %519 = add nuw nsw i32 %.2, 2
+  %520 = load i32, ptr @hf_geonw_so_pv_addr_mid, align 4
+  %521 = call ptr @proto_tree_add_item(ptr noundef %493, i32 noundef %520, ptr noundef %.05087, i32 noundef %519, i32 noundef 6, i32 noundef 0) #12
+  %522 = add nuw nsw i32 %.2, 8
+  %523 = load i32, ptr @hf_geonw_so_pv_time, align 4
+  %524 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %489, i32 noundef %523, ptr noundef %.05087, i32 noundef %522, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %22) #12
+  %525 = load i32, ptr %22, align 4
+  %526 = getelementptr inbounds i8, ptr %27, i64 16
+  store i32 %525, ptr %526, align 8
+  %527 = load i32, ptr @geonw_analyze_seq, align 4
+  %.not552 = icmp eq i32 %527, 0
+  br i1 %.not552, label %614, label %528
 
-529:                                              ; preds = %519
-  %530 = load i8, ptr %27, align 8
-  %531 = icmp eq i8 %530, 0
-  br i1 %531, label %532, label %615
+528:                                              ; preds = %518
+  %529 = load i8, ptr %27, align 8
+  %530 = icmp eq i8 %529, 0
+  br i1 %530, label %531, label %614
 
-532:                                              ; preds = %529
-  %533 = getelementptr inbounds i8, ptr %1, i64 80
-  %534 = load ptr, ptr %533, align 8
-  %535 = getelementptr inbounds i8, ptr %534, i64 50
-  %536 = load i16, ptr %535, align 2
-  %537 = and i16 %536, 8
-  %.not553 = icmp eq i16 %537, 0
-  br i1 %.not553, label %538, label %615
+531:                                              ; preds = %528
+  %532 = getelementptr inbounds i8, ptr %1, i64 80
+  %533 = load ptr, ptr %532, align 8
+  %534 = getelementptr inbounds i8, ptr %533, i64 50
+  %535 = load i16, ptr %534, align 2
+  %536 = and i16 %535, 8
+  %.not553 = icmp eq i16 %536, 0
+  br i1 %.not553, label %537, label %614
 
-538:                                              ; preds = %532
-  %539 = load ptr, ptr @geonw_hashtable, align 8
-  %540 = load ptr, ptr %499, align 8
-  %541 = call ptr @wmem_map_lookup(ptr noundef %539, ptr noundef %540) #12
-  %542 = icmp eq ptr %541, null
-  br i1 %542, label %543, label %550
+537:                                              ; preds = %531
+  %538 = load ptr, ptr @geonw_hashtable, align 8
+  %539 = load ptr, ptr %498, align 8
+  %540 = call ptr @wmem_map_lookup(ptr noundef %538, ptr noundef %539) #12
+  %541 = icmp eq ptr %540, null
+  br i1 %541, label %542, label %549
 
-543:                                              ; preds = %538
-  %544 = load ptr, ptr %499, align 8
-  %545 = call fastcc ptr @geonw_hash_new_entry(ptr noundef %544, i32 noundef 0)
-  %546 = load i32, ptr %23, align 4
-  %547 = getelementptr inbounds i8, ptr %545, i64 108
-  store i32 %546, ptr %547, align 4
-  %548 = load i32, ptr %22, align 4
-  %549 = getelementptr inbounds i8, ptr %545, i64 104
-  store i32 %548, ptr %549, align 4
-  br label %615
+542:                                              ; preds = %537
+  %543 = load ptr, ptr %498, align 8
+  %544 = call fastcc ptr @geonw_hash_new_entry(ptr noundef %543, i32 noundef 0)
+  %545 = load i32, ptr %23, align 4
+  %546 = getelementptr inbounds i8, ptr %544, i64 108
+  store i32 %545, ptr %546, align 4
+  %547 = load i32, ptr %22, align 4
+  %548 = getelementptr inbounds i8, ptr %544, i64 104
+  store i32 %547, ptr %548, align 4
+  br label %614
 
-550:                                              ; preds = %538
-  %551 = load i32, ptr %23, align 4
-  %552 = icmp ult i32 %551, 65536
-  br i1 %552, label %553, label %593
+549:                                              ; preds = %537
+  %550 = load i32, ptr %23, align 4
+  %551 = icmp ult i32 %550, 65536
+  br i1 %551, label %552, label %592
 
-553:                                              ; preds = %550
-  %554 = getelementptr inbounds i8, ptr %541, i64 108
-  %555 = load i32, ptr %554, align 4
-  %556 = icmp ugt i32 %555, 65535
-  br i1 %556, label %557, label %560
+552:                                              ; preds = %549
+  %553 = getelementptr inbounds i8, ptr %540, i64 108
+  %554 = load i32, ptr %553, align 4
+  %555 = icmp ugt i32 %554, 65535
+  br i1 %555, label %556, label %559
 
-557:                                              ; preds = %553
-  store i32 %551, ptr %554, align 4
-  %558 = load i32, ptr %22, align 4
-  %559 = getelementptr inbounds i8, ptr %541, i64 104
-  store i32 %558, ptr %559, align 4
-  br label %615
+556:                                              ; preds = %552
+  store i32 %550, ptr %553, align 4
+  %557 = load i32, ptr %22, align 4
+  %558 = getelementptr inbounds i8, ptr %540, i64 104
+  store i32 %557, ptr %558, align 4
+  br label %614
 
-560:                                              ; preds = %553
-  %561 = load i32, ptr %22, align 4
-  %562 = getelementptr inbounds i8, ptr %541, i64 104
-  %563 = load i32, ptr %562, align 4
-  %564 = icmp ugt i32 %561, %563
-  %narrow555 = sub nuw i32 %561, %563
-  %565 = icmp sgt i32 %narrow555, -1
-  %or.cond565 = select i1 %564, i1 %565, i1 false
-  br i1 %or.cond565, label %569, label %566
+559:                                              ; preds = %552
+  %560 = load i32, ptr %22, align 4
+  %561 = getelementptr inbounds i8, ptr %540, i64 104
+  %562 = load i32, ptr %561, align 4
+  %563 = icmp ugt i32 %560, %562
+  %narrow555 = sub nuw i32 %560, %562
+  %564 = icmp sgt i32 %narrow555, -1
+  %or.cond565 = select i1 %563, i1 %564, i1 false
+  br i1 %or.cond565, label %568, label %565
 
-566:                                              ; preds = %560
-  %567 = icmp ugt i32 %563, %561
-  %narrow556 = sub nuw i32 %563, %561
-  %568 = icmp slt i32 %narrow556, 0
-  %or.cond566 = select i1 %567, i1 %568, i1 false
-  br i1 %or.cond566, label %569, label %570
+565:                                              ; preds = %559
+  %566 = icmp ugt i32 %562, %560
+  %narrow556 = sub nuw i32 %562, %560
+  %567 = icmp slt i32 %narrow556, 0
+  %or.cond566 = select i1 %566, i1 %567, i1 false
+  br i1 %or.cond566, label %568, label %569
 
-569:                                              ; preds = %566, %560
-  store i32 %551, ptr %554, align 4
-  store i32 %561, ptr %562, align 4
-  br label %615
+568:                                              ; preds = %565, %559
+  store i32 %550, ptr %553, align 4
+  store i32 %560, ptr %561, align 4
+  br label %614
 
-570:                                              ; preds = %566
-  %571 = icmp eq i32 %561, %563
-  br i1 %571, label %572, label %615
+569:                                              ; preds = %565
+  %570 = icmp eq i32 %560, %562
+  br i1 %570, label %571, label %614
 
-572:                                              ; preds = %570
-  %573 = icmp samesign ugt i32 %551, %555
-  %574 = sub nuw nsw i32 %551, %555
-  %575 = icmp samesign ult i32 %574, 32768
-  %or.cond568 = select i1 %573, i1 %575, i1 false
-  br i1 %or.cond568, label %580, label %576
+571:                                              ; preds = %569
+  %572 = icmp samesign ugt i32 %550, %554
+  %573 = sub nuw nsw i32 %550, %554
+  %574 = icmp samesign ult i32 %573, 32768
+  %or.cond568 = select i1 %572, i1 %574, i1 false
+  br i1 %or.cond568, label %579, label %575
 
-576:                                              ; preds = %572
-  %577 = icmp samesign ugt i32 %555, %551
-  %578 = sub nuw nsw i32 %555, %551
-  %579 = icmp samesign ugt i32 %578, 32767
-  %or.cond570 = select i1 %577, i1 %579, i1 false
-  br i1 %or.cond570, label %580, label %581
+575:                                              ; preds = %571
+  %576 = icmp samesign ugt i32 %554, %550
+  %577 = sub nuw nsw i32 %554, %550
+  %578 = icmp samesign ugt i32 %577, 32767
+  %or.cond570 = select i1 %576, i1 %578, i1 false
+  br i1 %or.cond570, label %579, label %580
 
-580:                                              ; preds = %576, %572
-  store i32 %561, ptr %562, align 4
-  store i32 %551, ptr %554, align 4
-  br label %615
+579:                                              ; preds = %575, %571
+  store i32 %560, ptr %561, align 4
+  store i32 %550, ptr %553, align 4
+  br label %614
 
-581:                                              ; preds = %576
-  %582 = load i32, ptr @hf_geonw_analysis_flags, align 4
-  %583 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %582, ptr noundef %.05087, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  %.not.i573 = icmp eq ptr %583, null
-  br i1 %.not.i573, label %proto_item_set_generated.exit, label %584
+580:                                              ; preds = %575
+  %581 = load i32, ptr @hf_geonw_analysis_flags, align 4
+  %582 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %581, ptr noundef %.05087, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  %.not.i573 = icmp eq ptr %582, null
+  br i1 %.not.i573, label %proto_item_set_generated.exit, label %583
 
-584:                                              ; preds = %581
-  %585 = getelementptr inbounds i8, ptr %583, i64 32
-  %586 = load ptr, ptr %585, align 8
-  %.not5.i = icmp eq ptr %586, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %587
+583:                                              ; preds = %580
+  %584 = getelementptr inbounds i8, ptr %582, i64 32
+  %585 = load ptr, ptr %584, align 8
+  %.not5.i = icmp eq ptr %585, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %586
 
-587:                                              ; preds = %584
-  %588 = getelementptr inbounds i8, ptr %586, i64 28
-  %589 = load i32, ptr %588, align 4
-  %590 = or i32 %589, 2
-  store i32 %590, ptr %588, align 4
+586:                                              ; preds = %583
+  %587 = getelementptr inbounds i8, ptr %585, i64 28
+  %588 = load i32, ptr %587, align 4
+  %589 = or i32 %588, 2
+  store i32 %589, ptr %587, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %581, %584, %587
-  %591 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %583, ptr noundef nonnull @ei_geonw_analysis_duplicate) #12
-  %592 = load ptr, ptr %28, align 8
-  call void (ptr, i32, ptr, ...) @col_prepend_fence_fstr(ptr noundef %592, i32 noundef 25, ptr noundef nonnull @.str.433) #12
-  br label %615
+proto_item_set_generated.exit:                    ; preds = %580, %583, %586
+  %590 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %582, ptr noundef nonnull @ei_geonw_analysis_duplicate) #12
+  %591 = load ptr, ptr %28, align 8
+  call void (ptr, i32, ptr, ...) @col_prepend_fence_fstr(ptr noundef %591, i32 noundef 25, ptr noundef nonnull @.str.433) #12
+  br label %614
 
-593:                                              ; preds = %550
-  %594 = load i32, ptr %22, align 4
-  %595 = getelementptr inbounds i8, ptr %541, i64 104
-  %596 = load i32, ptr %595, align 4
-  %597 = icmp ugt i32 %594, %596
-  %narrow = sub nuw i32 %594, %596
-  %598 = icmp sgt i32 %narrow, -1
-  %or.cond571 = select i1 %597, i1 %598, i1 false
-  br i1 %or.cond571, label %602, label %599
+592:                                              ; preds = %549
+  %593 = load i32, ptr %22, align 4
+  %594 = getelementptr inbounds i8, ptr %540, i64 104
+  %595 = load i32, ptr %594, align 4
+  %596 = icmp ugt i32 %593, %595
+  %narrow = sub nuw i32 %593, %595
+  %597 = icmp sgt i32 %narrow, -1
+  %or.cond571 = select i1 %596, i1 %597, i1 false
+  br i1 %or.cond571, label %601, label %598
 
-599:                                              ; preds = %593
-  %600 = icmp ugt i32 %596, %594
-  %narrow554 = sub nuw i32 %596, %594
-  %601 = icmp slt i32 %narrow554, 0
-  %or.cond572 = select i1 %600, i1 %601, i1 false
-  br i1 %or.cond572, label %602, label %603
+598:                                              ; preds = %592
+  %599 = icmp ugt i32 %595, %593
+  %narrow554 = sub nuw i32 %595, %593
+  %600 = icmp slt i32 %narrow554, 0
+  %or.cond572 = select i1 %599, i1 %600, i1 false
+  br i1 %or.cond572, label %601, label %602
 
-602:                                              ; preds = %599, %593
-  store i32 %594, ptr %595, align 4
-  br label %615
+601:                                              ; preds = %598, %592
+  store i32 %593, ptr %594, align 4
+  br label %614
 
-603:                                              ; preds = %599
-  %604 = load i32, ptr @hf_geonw_analysis_flags, align 4
-  %605 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %604, ptr noundef %.05087, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  %.not.i574 = icmp eq ptr %605, null
-  br i1 %.not.i574, label %proto_item_set_generated.exit576, label %606
+602:                                              ; preds = %598
+  %603 = load i32, ptr @hf_geonw_analysis_flags, align 4
+  %604 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %603, ptr noundef %.05087, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  %.not.i574 = icmp eq ptr %604, null
+  br i1 %.not.i574, label %proto_item_set_generated.exit576, label %605
 
-606:                                              ; preds = %603
-  %607 = getelementptr inbounds i8, ptr %605, i64 32
-  %608 = load ptr, ptr %607, align 8
-  %.not5.i575 = icmp eq ptr %608, null
-  br i1 %.not5.i575, label %proto_item_set_generated.exit576, label %609
+605:                                              ; preds = %602
+  %606 = getelementptr inbounds i8, ptr %604, i64 32
+  %607 = load ptr, ptr %606, align 8
+  %.not5.i575 = icmp eq ptr %607, null
+  br i1 %.not5.i575, label %proto_item_set_generated.exit576, label %608
 
-609:                                              ; preds = %606
-  %610 = getelementptr inbounds i8, ptr %608, i64 28
-  %611 = load i32, ptr %610, align 4
-  %612 = or i32 %611, 2
-  store i32 %612, ptr %610, align 4
+608:                                              ; preds = %605
+  %609 = getelementptr inbounds i8, ptr %607, i64 28
+  %610 = load i32, ptr %609, align 4
+  %611 = or i32 %610, 2
+  store i32 %611, ptr %609, align 4
   br label %proto_item_set_generated.exit576
 
-proto_item_set_generated.exit576:                 ; preds = %603, %606, %609
-  %613 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %605, ptr noundef nonnull @ei_geonw_analysis_duplicate) #12
-  %614 = load ptr, ptr %28, align 8
-  call void (ptr, i32, ptr, ...) @col_prepend_fence_fstr(ptr noundef %614, i32 noundef 25, ptr noundef nonnull @.str.433) #12
-  br label %615
+proto_item_set_generated.exit576:                 ; preds = %602, %605, %608
+  %612 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %604, ptr noundef nonnull @ei_geonw_analysis_duplicate) #12
+  %613 = load ptr, ptr %28, align 8
+  call void (ptr, i32, ptr, ...) @col_prepend_fence_fstr(ptr noundef %613, i32 noundef 25, ptr noundef nonnull @.str.433) #12
+  br label %614
 
-615:                                              ; preds = %543, %570, %proto_item_set_generated.exit, %580, %569, %proto_item_set_generated.exit576, %602, %557, %532, %529, %519
-  %616 = add nuw nsw i32 %.2, 12
-  %617 = load i32, ptr @hf_geonw_so_pv_lat, align 4
-  %618 = call ptr @proto_tree_add_item_ret_int(ptr noundef %490, i32 noundef %617, ptr noundef %.05087, i32 noundef %616, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
-  %619 = load i32, ptr %24, align 4
-  %620 = add i32 %619, -900000001
-  %or.cond10 = icmp ult i32 %620, -1800000001
-  br i1 %or.cond10, label %621, label %626
+614:                                              ; preds = %542, %569, %proto_item_set_generated.exit, %579, %568, %proto_item_set_generated.exit576, %601, %556, %531, %528, %518
+  %615 = add nuw nsw i32 %.2, 12
+  %616 = load i32, ptr @hf_geonw_so_pv_lat, align 4
+  %617 = call ptr @proto_tree_add_item_ret_int(ptr noundef %489, i32 noundef %616, ptr noundef %.05087, i32 noundef %615, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
+  %618 = load i32, ptr %24, align 4
+  %619 = add i32 %618, -900000001
+  %or.cond10 = icmp ult i32 %619, -1800000001
+  br i1 %or.cond10, label %620, label %625
 
-621:                                              ; preds = %615
-  %622 = sitofp i32 %619 to float
-  %623 = fdiv float %622, 1.000000e+07
-  %624 = fpext float %623 to double
-  %625 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %618, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.434, double noundef %624) #12
+620:                                              ; preds = %614
+  %621 = sitofp i32 %618 to float
+  %622 = fdiv float %621, 1.000000e+07
+  %623 = fpext float %622 to double
+  %624 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %617, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.434, double noundef %623) #12
   %.pre = load i32, ptr %24, align 4
-  br label %626
+  br label %625
 
-626:                                              ; preds = %615, %621
-  %627 = phi i32 [ %619, %615 ], [ %.pre, %621 ]
-  %628 = getelementptr inbounds i8, ptr %27, i64 72
-  store i32 %627, ptr %628, align 8
-  %629 = add nuw nsw i32 %.2, 16
-  %630 = load i32, ptr @hf_geonw_so_pv_lon, align 4
-  %631 = call ptr @proto_tree_add_item_ret_int(ptr noundef %490, i32 noundef %630, ptr noundef %.05087, i32 noundef %629, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
-  %632 = load i32, ptr %24, align 4
-  %633 = add i32 %632, -1800000001
-  %or.cond12 = icmp ult i32 %633, 694967295
-  br i1 %or.cond12, label %634, label %639
+625:                                              ; preds = %614, %620
+  %626 = phi i32 [ %618, %614 ], [ %.pre, %620 ]
+  %627 = getelementptr inbounds i8, ptr %27, i64 72
+  store i32 %626, ptr %627, align 8
+  %628 = add nuw nsw i32 %.2, 16
+  %629 = load i32, ptr @hf_geonw_so_pv_lon, align 4
+  %630 = call ptr @proto_tree_add_item_ret_int(ptr noundef %489, i32 noundef %629, ptr noundef %.05087, i32 noundef %628, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
+  %631 = load i32, ptr %24, align 4
+  %632 = add i32 %631, -1800000001
+  %or.cond12 = icmp ult i32 %632, 694967295
+  br i1 %or.cond12, label %633, label %638
 
-634:                                              ; preds = %626
-  %635 = sitofp i32 %632 to float
-  %636 = fdiv float %635, 1.000000e+07
-  %637 = fpext float %636 to double
-  %638 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %631, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.435, double noundef %637) #12
+633:                                              ; preds = %625
+  %634 = sitofp i32 %631 to float
+  %635 = fdiv float %634, 1.000000e+07
+  %636 = fpext float %635 to double
+  %637 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %630, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.435, double noundef %636) #12
   %.pre23 = load i32, ptr %24, align 4
-  br label %639
+  br label %638
 
-639:                                              ; preds = %626, %634
-  %640 = phi i32 [ %632, %626 ], [ %.pre23, %634 ]
-  %641 = getelementptr inbounds i8, ptr %27, i64 76
-  store i32 %640, ptr %641, align 4
-  %642 = add nuw nsw i32 %.2, 20
-  %643 = load i32, ptr @hf_geonw_so_pv_pai, align 4
-  %644 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %643, ptr noundef %.05087, i32 noundef %642, i32 noundef 1, i32 noundef 0) #12
-  %645 = load i32, ptr @hf_geonw_so_pv_speed, align 4
-  %646 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %645, ptr noundef %.05087, i32 noundef %642, i32 noundef 2, i32 noundef 0) #12
-  %647 = add nuw nsw i32 %.2, 22
-  %648 = load i32, ptr @hf_geonw_so_pv_heading, align 4
-  %649 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %490, i32 noundef %648, ptr noundef %.05087, i32 noundef %647, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19) #12
-  %650 = load i32, ptr %19, align 4
-  %651 = icmp ugt i32 %650, 3600
-  br i1 %651, label %652, label %657
+638:                                              ; preds = %625, %633
+  %639 = phi i32 [ %631, %625 ], [ %.pre23, %633 ]
+  %640 = getelementptr inbounds i8, ptr %27, i64 76
+  store i32 %639, ptr %640, align 4
+  %641 = add nuw nsw i32 %.2, 20
+  %642 = load i32, ptr @hf_geonw_so_pv_pai, align 4
+  %643 = call ptr @proto_tree_add_item(ptr noundef %489, i32 noundef %642, ptr noundef %.05087, i32 noundef %641, i32 noundef 1, i32 noundef 0) #12
+  %644 = load i32, ptr @hf_geonw_so_pv_speed, align 4
+  %645 = call ptr @proto_tree_add_item(ptr noundef %489, i32 noundef %644, ptr noundef %.05087, i32 noundef %641, i32 noundef 2, i32 noundef 0) #12
+  %646 = add nuw nsw i32 %.2, 22
+  %647 = load i32, ptr @hf_geonw_so_pv_heading, align 4
+  %648 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %489, i32 noundef %647, ptr noundef %.05087, i32 noundef %646, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19) #12
+  %649 = load i32, ptr %19, align 4
+  %650 = icmp ugt i32 %649, 3600
+  br i1 %650, label %651, label %656
 
-652:                                              ; preds = %639
-  %653 = uitofp i32 %650 to float
-  %654 = fdiv float %653, 1.000000e+01
-  %655 = fpext float %654 to double
-  %656 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %649, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.436, double noundef %655) #12
-  br label %657
+651:                                              ; preds = %638
+  %652 = uitofp i32 %649 to float
+  %653 = fdiv float %652, 1.000000e+01
+  %654 = fpext float %653 to double
+  %655 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %648, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.436, double noundef %654) #12
+  br label %656
 
-657:                                              ; preds = %652, %639
-  %658 = add nuw nsw i32 %.2, 24
-  %659 = load i32, ptr %17, align 4
-  switch i32 %659, label %997 [
-    i32 32, label %660
-    i32 97, label %660
-    i32 80, label %795
-    i32 48, label %820
-    i32 49, label %820
-    i32 50, label %820
-    i32 64, label %820
-    i32 65, label %820
-    i32 66, label %820
-    i32 96, label %888
+656:                                              ; preds = %651, %638
+  %657 = add nuw nsw i32 %.2, 24
+  %658 = load i32, ptr %17, align 4
+  switch i32 %658, label %996 [
+    i32 32, label %659
+    i32 97, label %659
+    i32 80, label %794
+    i32 48, label %819
+    i32 49, label %819
+    i32 50, label %819
+    i32 64, label %819
+    i32 65, label %819
+    i32 66, label %819
+    i32 96, label %887
   ]
 
-660:                                              ; preds = %657, %657
-  %661 = load i32, ptr @hf_geonw_de_pv, align 4
-  %662 = call ptr @proto_tree_add_item(ptr noundef %472, i32 noundef %661, ptr noundef %.05087, i32 noundef %658, i32 noundef 20, i32 noundef 0) #12
-  %663 = load i32, ptr @ett_geonw_de, align 4
-  %664 = call ptr @proto_item_add_subtree(ptr noundef %662, i32 noundef %663) #12
-  %665 = load i32, ptr @hf_geonw_de_pv_addr, align 4
-  %666 = call ptr @proto_tree_add_item(ptr noundef %664, i32 noundef %665, ptr noundef %.05087, i32 noundef %658, i32 noundef 8, i32 noundef 0) #12
-  %667 = load i32, ptr @ett_geonw_de, align 4
-  %668 = call ptr @proto_item_add_subtree(ptr noundef %666, i32 noundef %667) #12
-  %669 = getelementptr inbounds i8, ptr %1, i64 184
-  %670 = load i32, ptr @geonw_address_type, align 4
-  %671 = call ptr @tvb_get_ptr(ptr noundef %.05087, i32 noundef range(i32 8, 41) %658, i32 noundef 8) #12
-  store i32 %670, ptr %669, align 8
-  %672 = getelementptr inbounds i8, ptr %1, i64 188
-  store i32 8, ptr %672, align 4
-  %673 = getelementptr inbounds i8, ptr %1, i64 192
-  store ptr %671, ptr %673, align 8
-  %674 = getelementptr inbounds i8, ptr %1, i64 200
-  store ptr null, ptr %674, align 8
-  %675 = getelementptr inbounds i8, ptr %1, i64 232
-  store i32 %670, ptr %675, align 8
-  %676 = getelementptr inbounds i8, ptr %1, i64 236
-  store i32 8, ptr %676, align 4
-  %677 = getelementptr inbounds i8, ptr %1, i64 240
-  store ptr %671, ptr %677, align 8
-  %678 = getelementptr inbounds i8, ptr %1, i64 248
-  store ptr null, ptr %678, align 8
-  %679 = getelementptr inbounds i8, ptr %27, i64 48
-  store i32 %670, ptr %679, align 8
-  %680 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 8, ptr %680, align 4
-  %681 = getelementptr inbounds i8, ptr %27, i64 56
-  store ptr %671, ptr %681, align 8
-  %682 = getelementptr inbounds i8, ptr %27, i64 64
-  store ptr null, ptr %682, align 8
-  %683 = load i32, ptr %17, align 4
-  %684 = icmp eq i32 %683, 97
-  br i1 %684, label %685, label %754
+659:                                              ; preds = %656, %656
+  %660 = load i32, ptr @hf_geonw_de_pv, align 4
+  %661 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %660, ptr noundef %.05087, i32 noundef %657, i32 noundef 20, i32 noundef 0) #12
+  %662 = load i32, ptr @ett_geonw_de, align 4
+  %663 = call ptr @proto_item_add_subtree(ptr noundef %661, i32 noundef %662) #12
+  %664 = load i32, ptr @hf_geonw_de_pv_addr, align 4
+  %665 = call ptr @proto_tree_add_item(ptr noundef %663, i32 noundef %664, ptr noundef %.05087, i32 noundef %657, i32 noundef 8, i32 noundef 0) #12
+  %666 = load i32, ptr @ett_geonw_de, align 4
+  %667 = call ptr @proto_item_add_subtree(ptr noundef %665, i32 noundef %666) #12
+  %668 = getelementptr inbounds i8, ptr %1, i64 184
+  %669 = load i32, ptr @geonw_address_type, align 4
+  %670 = call ptr @tvb_get_ptr(ptr noundef %.05087, i32 noundef range(i32 8, 41) %657, i32 noundef 8) #12
+  store i32 %669, ptr %668, align 8
+  %671 = getelementptr inbounds i8, ptr %1, i64 188
+  store i32 8, ptr %671, align 4
+  %672 = getelementptr inbounds i8, ptr %1, i64 192
+  store ptr %670, ptr %672, align 8
+  %673 = getelementptr inbounds i8, ptr %1, i64 200
+  store ptr null, ptr %673, align 8
+  %674 = getelementptr inbounds i8, ptr %1, i64 232
+  store i32 %669, ptr %674, align 8
+  %675 = getelementptr inbounds i8, ptr %1, i64 236
+  store i32 8, ptr %675, align 4
+  %676 = getelementptr inbounds i8, ptr %1, i64 240
+  store ptr %670, ptr %676, align 8
+  %677 = getelementptr inbounds i8, ptr %1, i64 248
+  store ptr null, ptr %677, align 8
+  %678 = getelementptr inbounds i8, ptr %27, i64 48
+  store i32 %669, ptr %678, align 8
+  %679 = getelementptr inbounds i8, ptr %27, i64 52
+  store i32 8, ptr %679, align 4
+  %680 = getelementptr inbounds i8, ptr %27, i64 56
+  store ptr %670, ptr %680, align 8
+  %681 = getelementptr inbounds i8, ptr %27, i64 64
+  store ptr null, ptr %681, align 8
+  %682 = load i32, ptr %17, align 4
+  %683 = icmp eq i32 %682, 97
+  br i1 %683, label %684, label %753
 
-685:                                              ; preds = %660
+684:                                              ; preds = %659
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %686 = getelementptr inbounds i8, ptr %1, i64 20
-  %687 = load i32, ptr %686, align 4
-  %688 = getelementptr inbounds i8, ptr %1, i64 280
-  %689 = load i32, ptr %688, align 8
-  %690 = call i32 @conversation_pt_to_conversation_type(i32 noundef %689) #12
-  %691 = call ptr @find_conversation(i32 noundef %687, ptr noundef nonnull %501, ptr noundef nonnull %675, i32 noundef %690, i32 noundef 96, i32 noundef 96, i32 noundef 0) #12
-  %692 = icmp eq ptr %691, null
-  br i1 %692, label %transaction_end.exit, label %693
+  %685 = getelementptr inbounds i8, ptr %1, i64 20
+  %686 = load i32, ptr %685, align 4
+  %687 = getelementptr inbounds i8, ptr %1, i64 280
+  %688 = load i32, ptr %687, align 8
+  %689 = call i32 @conversation_pt_to_conversation_type(i32 noundef %688) #12
+  %690 = call ptr @find_conversation(i32 noundef %686, ptr noundef nonnull %500, ptr noundef nonnull %674, i32 noundef %689, i32 noundef 96, i32 noundef 96, i32 noundef 0) #12
+  %691 = icmp eq ptr %690, null
+  br i1 %691, label %transaction_end.exit, label %692
 
-693:                                              ; preds = %685
-  %694 = load i32, ptr @proto_geonw, align 4
-  %695 = call ptr @conversation_get_proto_data(ptr noundef nonnull %691, i32 noundef %694) #12
-  %696 = icmp eq ptr %695, null
-  br i1 %696, label %transaction_end.exit, label %697
+692:                                              ; preds = %684
+  %693 = load i32, ptr @proto_geonw, align 4
+  %694 = call ptr @conversation_get_proto_data(ptr noundef nonnull %690, i32 noundef %693) #12
+  %695 = icmp eq ptr %694, null
+  br i1 %695, label %transaction_end.exit, label %696
 
-697:                                              ; preds = %693
-  %698 = getelementptr inbounds i8, ptr %1, i64 80
-  %699 = load ptr, ptr %698, align 8
-  %700 = getelementptr inbounds i8, ptr %699, i64 50
-  %701 = load i16, ptr %700, align 2
-  %702 = and i16 %701, 8
-  %.not.i577 = icmp eq i16 %702, 0
-  br i1 %.not.i577, label %703, label %720
+696:                                              ; preds = %692
+  %697 = getelementptr inbounds i8, ptr %1, i64 80
+  %698 = load ptr, ptr %697, align 8
+  %699 = getelementptr inbounds i8, ptr %698, i64 50
+  %700 = load i16, ptr %699, align 2
+  %701 = and i16 %700, 8
+  %.not.i577 = icmp eq i16 %701, 0
+  br i1 %.not.i577, label %702, label %719
 
-703:                                              ; preds = %697
-  %704 = load ptr, ptr %695, align 8
-  %705 = call ptr @wmem_stack_peek(ptr noundef %704) #12
-  %706 = icmp eq ptr %705, null
-  br i1 %706, label %transaction_end.exit, label %707
+702:                                              ; preds = %696
+  %703 = load ptr, ptr %694, align 8
+  %704 = call ptr @wmem_stack_peek(ptr noundef %703) #12
+  %705 = icmp eq ptr %704, null
+  br i1 %705, label %transaction_end.exit, label %706
 
-707:                                              ; preds = %703
-  %708 = getelementptr inbounds i8, ptr %705, i64 4
-  %709 = load i32, ptr %708, align 4
-  %.not41.i = icmp eq i32 %709, 0
-  br i1 %.not41.i, label %710, label %transaction_end.exit
+706:                                              ; preds = %702
+  %707 = getelementptr inbounds i8, ptr %704, i64 4
+  %708 = load i32, ptr %707, align 4
+  %.not41.i = icmp eq i32 %708, 0
+  br i1 %.not41.i, label %709, label %transaction_end.exit
 
-710:                                              ; preds = %707
-  %711 = load i32, ptr %686, align 4
-  store i32 %711, ptr %708, align 4
+709:                                              ; preds = %706
+  %710 = load i32, ptr %685, align 4
+  store i32 %710, ptr %707, align 4
   store i32 1, ptr %7, align 16
-  %712 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %9, ptr %712, align 8
-  %713 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 0, ptr %713, align 16
-  %714 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr null, ptr %714, align 8
-  %715 = load i32, ptr %705, align 8
-  store i32 %715, ptr %9, align 4
-  %716 = getelementptr inbounds i8, ptr %695, i64 8
-  %717 = load ptr, ptr %716, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %717, ptr noundef nonnull %7, ptr noundef nonnull %705) #12
-  %718 = load i32, ptr %708, align 4
-  store i32 %718, ptr %9, align 4
-  %719 = load ptr, ptr %716, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %719, ptr noundef nonnull %7, ptr noundef nonnull %705) #12
-  br label %729
+  %711 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %9, ptr %711, align 8
+  %712 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 0, ptr %712, align 16
+  %713 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr null, ptr %713, align 8
+  %714 = load i32, ptr %704, align 8
+  store i32 %714, ptr %9, align 4
+  %715 = getelementptr inbounds i8, ptr %694, i64 8
+  %716 = load ptr, ptr %715, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %716, ptr noundef nonnull %7, ptr noundef nonnull %704) #12
+  %717 = load i32, ptr %707, align 4
+  store i32 %717, ptr %9, align 4
+  %718 = load ptr, ptr %715, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %718, ptr noundef nonnull %7, ptr noundef nonnull %704) #12
+  br label %728
 
-720:                                              ; preds = %697
-  %721 = load i32, ptr %686, align 4
-  store i32 %721, ptr %10, align 4
+719:                                              ; preds = %696
+  %720 = load i32, ptr %685, align 4
+  store i32 %720, ptr %10, align 4
   store i32 1, ptr %7, align 16
-  %722 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %10, ptr %722, align 8
-  %723 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 0, ptr %723, align 16
-  %724 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr null, ptr %724, align 8
-  %725 = getelementptr inbounds i8, ptr %695, i64 8
-  %726 = load ptr, ptr %725, align 8
-  %727 = call ptr @wmem_tree_lookup32_array(ptr noundef %726, ptr noundef nonnull %7) #12
-  %728 = icmp eq ptr %727, null
-  br i1 %728, label %transaction_end.exit, label %729
+  %721 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %10, ptr %721, align 8
+  %722 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 0, ptr %722, align 16
+  %723 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr null, ptr %723, align 8
+  %724 = getelementptr inbounds i8, ptr %694, i64 8
+  %725 = load ptr, ptr %724, align 8
+  %726 = call ptr @wmem_tree_lookup32_array(ptr noundef %725, ptr noundef nonnull %7) #12
+  %727 = icmp eq ptr %726, null
+  br i1 %727, label %transaction_end.exit, label %728
 
-729:                                              ; preds = %720, %710
-  %.036.i = phi ptr [ %727, %720 ], [ %705, %710 ]
-  %730 = load i32, ptr @hf_geonw_resp_to, align 4
-  %731 = load i32, ptr %.036.i, align 8
-  %732 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %730, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %731) #12
-  %.not.i.i = icmp eq ptr %732, null
-  br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %733
+728:                                              ; preds = %719, %709
+  %.036.i = phi ptr [ %726, %719 ], [ %704, %709 ]
+  %729 = load i32, ptr @hf_geonw_resp_to, align 4
+  %730 = load i32, ptr %.036.i, align 8
+  %731 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %729, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %730) #12
+  %.not.i.i = icmp eq ptr %731, null
+  br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %732
 
-733:                                              ; preds = %729
-  %734 = getelementptr inbounds i8, ptr %732, i64 32
-  %735 = load ptr, ptr %734, align 8
-  %.not5.i.i = icmp eq ptr %735, null
-  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %736
+732:                                              ; preds = %728
+  %733 = getelementptr inbounds i8, ptr %731, i64 32
+  %734 = load ptr, ptr %733, align 8
+  %.not5.i.i = icmp eq ptr %734, null
+  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %735
 
-736:                                              ; preds = %733
-  %737 = getelementptr inbounds i8, ptr %735, i64 28
-  %738 = load i32, ptr %737, align 4
-  %739 = or i32 %738, 2
-  store i32 %739, ptr %737, align 4
+735:                                              ; preds = %732
+  %736 = getelementptr inbounds i8, ptr %734, i64 28
+  %737 = load i32, ptr %736, align 4
+  %738 = or i32 %737, 2
+  store i32 %738, ptr %736, align 4
   br label %proto_item_set_generated.exit.i
 
-proto_item_set_generated.exit.i:                  ; preds = %736, %733, %729
-  %740 = getelementptr inbounds i8, ptr %1, i64 24
-  %741 = getelementptr inbounds i8, ptr %.036.i, i64 8
-  call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %740, ptr noundef nonnull %741) #12
-  %742 = getelementptr inbounds i8, ptr %.036.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %742, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %743 = call double @nstime_to_msec(ptr noundef nonnull %8) #12
-  %744 = load i32, ptr @hf_geonw_resptime, align 4
-  %745 = call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %60, i32 noundef %744, ptr noundef null, i32 noundef 0, i32 noundef 0, double noundef %743, ptr noundef nonnull @.str.453, double noundef %743) #12
-  %.not.i42.i = icmp eq ptr %745, null
-  br i1 %.not.i42.i, label %proto_item_set_generated.exit44.i, label %746
+proto_item_set_generated.exit.i:                  ; preds = %735, %732, %728
+  %739 = getelementptr inbounds i8, ptr %1, i64 24
+  %740 = getelementptr inbounds i8, ptr %.036.i, i64 8
+  call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %739, ptr noundef nonnull %740) #12
+  %741 = getelementptr inbounds i8, ptr %.036.i, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %741, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  %742 = call double @nstime_to_msec(ptr noundef nonnull %8) #12
+  %743 = load i32, ptr @hf_geonw_resptime, align 4
+  %744 = call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %60, i32 noundef %743, ptr noundef null, i32 noundef 0, i32 noundef 0, double noundef %742, ptr noundef nonnull @.str.453, double noundef %742) #12
+  %.not.i42.i = icmp eq ptr %744, null
+  br i1 %.not.i42.i, label %proto_item_set_generated.exit44.i, label %745
 
-746:                                              ; preds = %proto_item_set_generated.exit.i
-  %747 = getelementptr inbounds i8, ptr %745, i64 32
-  %748 = load ptr, ptr %747, align 8
-  %.not5.i43.i = icmp eq ptr %748, null
-  br i1 %.not5.i43.i, label %proto_item_set_generated.exit44.i, label %749
+745:                                              ; preds = %proto_item_set_generated.exit.i
+  %746 = getelementptr inbounds i8, ptr %744, i64 32
+  %747 = load ptr, ptr %746, align 8
+  %.not5.i43.i = icmp eq ptr %747, null
+  br i1 %.not5.i43.i, label %proto_item_set_generated.exit44.i, label %748
 
-749:                                              ; preds = %746
-  %750 = getelementptr inbounds i8, ptr %748, i64 28
-  %751 = load i32, ptr %750, align 4
-  %752 = or i32 %751, 2
-  store i32 %752, ptr %750, align 4
+748:                                              ; preds = %745
+  %749 = getelementptr inbounds i8, ptr %747, i64 28
+  %750 = load i32, ptr %749, align 4
+  %751 = or i32 %750, 2
+  store i32 %751, ptr %749, align 4
   br label %proto_item_set_generated.exit44.i
 
-proto_item_set_generated.exit44.i:                ; preds = %749, %746, %proto_item_set_generated.exit.i
-  %753 = load i32, ptr %.036.i, align 8
-  call void @col_append_frame_number(ptr noundef nonnull %1, i32 noundef 25, ptr noundef nonnull @.str.454, i32 noundef %753) #12
+proto_item_set_generated.exit44.i:                ; preds = %748, %745, %proto_item_set_generated.exit.i
+  %752 = load i32, ptr %.036.i, align 8
+  call void @col_append_frame_number(ptr noundef nonnull %1, i32 noundef 25, ptr noundef nonnull @.str.454, i32 noundef %752) #12
   br label %transaction_end.exit
 
-transaction_end.exit:                             ; preds = %685, %693, %703, %707, %720, %proto_item_set_generated.exit44.i
+transaction_end.exit:                             ; preds = %684, %692, %702, %706, %719, %proto_item_set_generated.exit44.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %754
+  br label %753
 
-754:                                              ; preds = %transaction_end.exit, %660
-  %755 = load i32, ptr @hf_geonw_de_pv_addr_manual, align 4
-  %756 = call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %755, ptr noundef %.05087, i32 noundef %658, i32 noundef 1, i32 noundef 0) #12
-  %757 = load i32, ptr @hf_geonw_de_pv_addr_type, align 4
-  %758 = call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %757, ptr noundef %.05087, i32 noundef %658, i32 noundef 1, i32 noundef 0) #12
-  %759 = load i32, ptr @hf_geonw_de_pv_addr_country, align 4
-  %760 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %668, i32 noundef %759, ptr noundef %.05087, i32 noundef %658, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
-  %761 = load i32, ptr %21, align 4
-  %762 = icmp ugt i32 %761, 999
-  br i1 %762, label %763, label %765
+753:                                              ; preds = %transaction_end.exit, %659
+  %754 = load i32, ptr @hf_geonw_de_pv_addr_manual, align 4
+  %755 = call ptr @proto_tree_add_item(ptr noundef %667, i32 noundef %754, ptr noundef %.05087, i32 noundef %657, i32 noundef 1, i32 noundef 0) #12
+  %756 = load i32, ptr @hf_geonw_de_pv_addr_type, align 4
+  %757 = call ptr @proto_tree_add_item(ptr noundef %667, i32 noundef %756, ptr noundef %.05087, i32 noundef %657, i32 noundef 1, i32 noundef 0) #12
+  %758 = load i32, ptr @hf_geonw_de_pv_addr_country, align 4
+  %759 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %667, i32 noundef %758, ptr noundef %.05087, i32 noundef %657, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
+  %760 = load i32, ptr %21, align 4
+  %761 = icmp ugt i32 %760, 999
+  br i1 %761, label %762, label %764
 
-763:                                              ; preds = %754
-  %764 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %760, ptr noundef nonnull @ei_geonw_scc_too_big) #12
-  br label %765
+762:                                              ; preds = %753
+  %763 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %759, ptr noundef nonnull @ei_geonw_scc_too_big) #12
+  br label %764
 
-765:                                              ; preds = %763, %754
-  %766 = add nuw nsw i32 %.2, 26
-  %767 = load i32, ptr @hf_geonw_de_pv_addr_mid, align 4
-  %768 = call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %767, ptr noundef %.05087, i32 noundef %766, i32 noundef 6, i32 noundef 0) #12
-  %769 = add nuw nsw i32 %.2, 32
-  %770 = load i32, ptr @hf_geonw_de_pv_time, align 4
-  %771 = call ptr @proto_tree_add_item(ptr noundef %664, i32 noundef %770, ptr noundef %.05087, i32 noundef %769, i32 noundef 4, i32 noundef 0) #12
-  %772 = add nuw nsw i32 %.2, 36
-  %773 = load i32, ptr @hf_geonw_de_pv_lat, align 4
-  %774 = call ptr @proto_tree_add_item_ret_int(ptr noundef %664, i32 noundef %773, ptr noundef %.05087, i32 noundef %772, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
-  %775 = load i32, ptr %24, align 4
-  %776 = add i32 %775, -900000001
-  %or.cond14 = icmp ult i32 %776, -1800000001
-  br i1 %or.cond14, label %777, label %782
+764:                                              ; preds = %762, %753
+  %765 = add nuw nsw i32 %.2, 26
+  %766 = load i32, ptr @hf_geonw_de_pv_addr_mid, align 4
+  %767 = call ptr @proto_tree_add_item(ptr noundef %667, i32 noundef %766, ptr noundef %.05087, i32 noundef %765, i32 noundef 6, i32 noundef 0) #12
+  %768 = add nuw nsw i32 %.2, 32
+  %769 = load i32, ptr @hf_geonw_de_pv_time, align 4
+  %770 = call ptr @proto_tree_add_item(ptr noundef %663, i32 noundef %769, ptr noundef %.05087, i32 noundef %768, i32 noundef 4, i32 noundef 0) #12
+  %771 = add nuw nsw i32 %.2, 36
+  %772 = load i32, ptr @hf_geonw_de_pv_lat, align 4
+  %773 = call ptr @proto_tree_add_item_ret_int(ptr noundef %663, i32 noundef %772, ptr noundef %.05087, i32 noundef %771, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
+  %774 = load i32, ptr %24, align 4
+  %775 = add i32 %774, -900000001
+  %or.cond14 = icmp ult i32 %775, -1800000001
+  br i1 %or.cond14, label %776, label %781
 
-777:                                              ; preds = %765
-  %778 = sitofp i32 %775 to float
-  %779 = fdiv float %778, 1.000000e+07
-  %780 = fpext float %779 to double
-  %781 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %774, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.434, double noundef %780) #12
-  br label %782
+776:                                              ; preds = %764
+  %777 = sitofp i32 %774 to float
+  %778 = fdiv float %777, 1.000000e+07
+  %779 = fpext float %778 to double
+  %780 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %773, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.434, double noundef %779) #12
+  br label %781
 
-782:                                              ; preds = %765, %777
-  %783 = add nuw nsw i32 %.2, 40
-  %784 = load i32, ptr @hf_geonw_de_pv_lon, align 4
-  %785 = call ptr @proto_tree_add_item_ret_int(ptr noundef %664, i32 noundef %784, ptr noundef %.05087, i32 noundef %783, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
-  %786 = load i32, ptr %24, align 4
-  %787 = add i32 %786, -1800000001
-  %or.cond16 = icmp ult i32 %787, 694967295
-  br i1 %or.cond16, label %788, label %793
+781:                                              ; preds = %764, %776
+  %782 = add nuw nsw i32 %.2, 40
+  %783 = load i32, ptr @hf_geonw_de_pv_lon, align 4
+  %784 = call ptr @proto_tree_add_item_ret_int(ptr noundef %663, i32 noundef %783, ptr noundef %.05087, i32 noundef %782, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
+  %785 = load i32, ptr %24, align 4
+  %786 = add i32 %785, -1800000001
+  %or.cond16 = icmp ult i32 %786, 694967295
+  br i1 %or.cond16, label %787, label %792
 
-788:                                              ; preds = %782
-  %789 = sitofp i32 %786 to float
-  %790 = fdiv float %789, 1.000000e+07
-  %791 = fpext float %790 to double
-  %792 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %785, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.435, double noundef %791) #12
-  br label %793
+787:                                              ; preds = %781
+  %788 = sitofp i32 %785 to float
+  %789 = fdiv float %788, 1.000000e+07
+  %790 = fpext float %789 to double
+  %791 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %784, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.435, double noundef %790) #12
+  br label %792
 
-793:                                              ; preds = %782, %788
-  %794 = add nuw nsw i32 %.2, 44
-  br label %997
+792:                                              ; preds = %781, %787
+  %793 = add nuw nsw i32 %.2, 44
+  br label %996
 
-795:                                              ; preds = %657
-  %796 = call i32 @tvb_get_guint32(ptr noundef %.05087, i32 noundef %658, i32 noundef 0) #12
-  store i32 %796, ptr %21, align 4
-  %.not560 = icmp eq i32 %796, 0
-  br i1 %.not560, label %815, label %797
+794:                                              ; preds = %656
+  %795 = call i32 @tvb_get_guint32(ptr noundef %.05087, i32 noundef %657, i32 noundef 0) #12
+  store i32 %795, ptr %21, align 4
+  %.not560 = icmp eq i32 %795, 0
+  br i1 %.not560, label %814, label %796
 
-797:                                              ; preds = %795
-  %798 = load i32, ptr @hf_geonw_dccmco, align 4
-  %799 = call ptr @proto_tree_add_item(ptr noundef %472, i32 noundef %798, ptr noundef %.05087, i32 noundef %658, i32 noundef 4, i32 noundef 0) #12
-  %800 = load i32, ptr @ett_geonw_dccmco, align 4
-  %801 = call ptr @proto_item_add_subtree(ptr noundef %799, i32 noundef %800) #12
-  %802 = load i32, ptr @hf_geonw_dccmco_cbr_l_0_hop, align 4
-  %803 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %802, ptr noundef %.05087, i32 noundef %658, i32 noundef 1, i32 noundef 0) #12
-  %804 = load i32, ptr @hf_geonw_dccmco_cbr_l_1_hop, align 4
-  %805 = add nuw nsw i32 %.2, 25
-  %806 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %804, ptr noundef %.05087, i32 noundef %805, i32 noundef 1, i32 noundef 0) #12
-  %807 = load i32, ptr @hf_geonw_dccmco_output_power, align 4
-  %808 = add nuw nsw i32 %.2, 26
-  %809 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %807, ptr noundef %.05087, i32 noundef %808, i32 noundef 1, i32 noundef 0) #12
-  %810 = load i32, ptr @hf_geonw_dccmco_reserved, align 4
-  %811 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %810, ptr noundef %.05087, i32 noundef %808, i32 noundef 1, i32 noundef 0) #12
-  %812 = load i32, ptr @hf_geonw_shb_reserved, align 4
-  %813 = add nuw nsw i32 %.2, 27
-  %814 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %812, ptr noundef %.05087, i32 noundef %813, i32 noundef 1, i32 noundef 0) #12
-  br label %818
+796:                                              ; preds = %794
+  %797 = load i32, ptr @hf_geonw_dccmco, align 4
+  %798 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %797, ptr noundef %.05087, i32 noundef %657, i32 noundef 4, i32 noundef 0) #12
+  %799 = load i32, ptr @ett_geonw_dccmco, align 4
+  %800 = call ptr @proto_item_add_subtree(ptr noundef %798, i32 noundef %799) #12
+  %801 = load i32, ptr @hf_geonw_dccmco_cbr_l_0_hop, align 4
+  %802 = call ptr @proto_tree_add_item(ptr noundef %800, i32 noundef %801, ptr noundef %.05087, i32 noundef %657, i32 noundef 1, i32 noundef 0) #12
+  %803 = load i32, ptr @hf_geonw_dccmco_cbr_l_1_hop, align 4
+  %804 = add nuw nsw i32 %.2, 25
+  %805 = call ptr @proto_tree_add_item(ptr noundef %800, i32 noundef %803, ptr noundef %.05087, i32 noundef %804, i32 noundef 1, i32 noundef 0) #12
+  %806 = load i32, ptr @hf_geonw_dccmco_output_power, align 4
+  %807 = add nuw nsw i32 %.2, 26
+  %808 = call ptr @proto_tree_add_item(ptr noundef %800, i32 noundef %806, ptr noundef %.05087, i32 noundef %807, i32 noundef 1, i32 noundef 0) #12
+  %809 = load i32, ptr @hf_geonw_dccmco_reserved, align 4
+  %810 = call ptr @proto_tree_add_item(ptr noundef %800, i32 noundef %809, ptr noundef %.05087, i32 noundef %807, i32 noundef 1, i32 noundef 0) #12
+  %811 = load i32, ptr @hf_geonw_shb_reserved, align 4
+  %812 = add nuw nsw i32 %.2, 27
+  %813 = call ptr @proto_tree_add_item(ptr noundef %800, i32 noundef %811, ptr noundef %.05087, i32 noundef %812, i32 noundef 1, i32 noundef 0) #12
+  br label %817
 
-815:                                              ; preds = %795
-  %816 = load i32, ptr @hf_geonw_shb_reserved, align 4
-  %817 = call ptr @proto_tree_add_item(ptr noundef %472, i32 noundef %816, ptr noundef %.05087, i32 noundef %658, i32 noundef 4, i32 noundef 0) #12
-  br label %818
+814:                                              ; preds = %794
+  %815 = load i32, ptr @hf_geonw_shb_reserved, align 4
+  %816 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %815, ptr noundef %.05087, i32 noundef %657, i32 noundef 4, i32 noundef 0) #12
+  br label %817
 
-818:                                              ; preds = %815, %797
-  %819 = add nuw nsw i32 %.2, 28
-  br label %997
+817:                                              ; preds = %814, %796
+  %818 = add nuw nsw i32 %.2, 28
+  br label %996
 
-820:                                              ; preds = %657, %657, %657, %657, %657, %657
-  %821 = load i32, ptr @hf_geonw_gxc_latitude, align 4
-  %822 = call ptr @proto_tree_add_item_ret_int(ptr noundef %472, i32 noundef %821, ptr noundef %.05087, i32 noundef %658, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
-  %823 = load i32, ptr %24, align 4
-  %824 = add i32 %823, -900000001
-  %or.cond18 = icmp ult i32 %824, -1800000001
-  br i1 %or.cond18, label %825, label %830
+819:                                              ; preds = %656, %656, %656, %656, %656, %656
+  %820 = load i32, ptr @hf_geonw_gxc_latitude, align 4
+  %821 = call ptr @proto_tree_add_item_ret_int(ptr noundef %471, i32 noundef %820, ptr noundef %.05087, i32 noundef %657, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
+  %822 = load i32, ptr %24, align 4
+  %823 = add i32 %822, -900000001
+  %or.cond18 = icmp ult i32 %823, -1800000001
+  br i1 %or.cond18, label %824, label %829
 
-825:                                              ; preds = %820
-  %826 = sitofp i32 %823 to float
-  %827 = fdiv float %826, 1.000000e+07
-  %828 = fpext float %827 to double
-  %829 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %822, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.434, double noundef %828) #12
-  br label %830
+824:                                              ; preds = %819
+  %825 = sitofp i32 %822 to float
+  %826 = fdiv float %825, 1.000000e+07
+  %827 = fpext float %826 to double
+  %828 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %821, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.434, double noundef %827) #12
+  br label %829
 
-830:                                              ; preds = %820, %825
-  %831 = add nuw nsw i32 %.2, 28
-  %832 = load i32, ptr @hf_geonw_gxc_longitude, align 4
-  %833 = call ptr @proto_tree_add_item_ret_int(ptr noundef %472, i32 noundef %832, ptr noundef %.05087, i32 noundef %831, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
-  %834 = load i32, ptr %24, align 4
-  %835 = add i32 %834, -1800000001
-  %or.cond20 = icmp ult i32 %835, 694967295
-  br i1 %or.cond20, label %836, label %841
+829:                                              ; preds = %819, %824
+  %830 = add nuw nsw i32 %.2, 28
+  %831 = load i32, ptr @hf_geonw_gxc_longitude, align 4
+  %832 = call ptr @proto_tree_add_item_ret_int(ptr noundef %471, i32 noundef %831, ptr noundef %.05087, i32 noundef %830, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %24) #12
+  %833 = load i32, ptr %24, align 4
+  %834 = add i32 %833, -1800000001
+  %or.cond20 = icmp ult i32 %834, 694967295
+  br i1 %or.cond20, label %835, label %840
 
-836:                                              ; preds = %830
-  %837 = sitofp i32 %834 to float
-  %838 = fdiv float %837, 1.000000e+07
-  %839 = fpext float %838 to double
-  %840 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %833, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.435, double noundef %839) #12
-  br label %841
+835:                                              ; preds = %829
+  %836 = sitofp i32 %833 to float
+  %837 = fdiv float %836, 1.000000e+07
+  %838 = fpext float %837 to double
+  %839 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %832, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.435, double noundef %838) #12
+  br label %840
 
-841:                                              ; preds = %830, %836
-  %842 = add nuw nsw i32 %.2, 32
-  %843 = load i32, ptr %17, align 4
-  %844 = and i32 %843, 15
-  switch i32 %844, label %880 [
-    i32 0, label %845
-    i32 1, label %863
-    i32 2, label %863
+840:                                              ; preds = %829, %835
+  %841 = add nuw nsw i32 %.2, 32
+  %842 = load i32, ptr %17, align 4
+  %843 = and i32 %842, 15
+  switch i32 %843, label %879 [
+    i32 0, label %844
+    i32 1, label %862
+    i32 2, label %862
   ]
 
-845:                                              ; preds = %841
-  %846 = load i32, ptr @hf_geonw_gxc_radius, align 4
-  %847 = call ptr @proto_tree_add_item(ptr noundef %472, i32 noundef %846, ptr noundef %.05087, i32 noundef %842, i32 noundef 2, i32 noundef 0) #12
-  %848 = add nuw nsw i32 %.2, 34
-  %849 = load i32, ptr @hf_geonw_gxc_distanceb, align 4
-  %850 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %472, i32 noundef %849, ptr noundef %.05087, i32 noundef %848, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
-  %851 = load i32, ptr %21, align 4
-  %.not557 = icmp eq i32 %851, 0
-  br i1 %.not557, label %854, label %852
+844:                                              ; preds = %840
+  %845 = load i32, ptr @hf_geonw_gxc_radius, align 4
+  %846 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %845, ptr noundef %.05087, i32 noundef %841, i32 noundef 2, i32 noundef 0) #12
+  %847 = add nuw nsw i32 %.2, 34
+  %848 = load i32, ptr @hf_geonw_gxc_distanceb, align 4
+  %849 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %471, i32 noundef %848, ptr noundef %.05087, i32 noundef %847, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
+  %850 = load i32, ptr %21, align 4
+  %.not557 = icmp eq i32 %850, 0
+  br i1 %.not557, label %853, label %851
 
-852:                                              ; preds = %845
-  %853 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %850, ptr noundef nonnull @ei_geonw_nz_reserved) #12
-  br label %854
+851:                                              ; preds = %844
+  %852 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %849, ptr noundef nonnull @ei_geonw_nz_reserved) #12
+  br label %853
 
-854:                                              ; preds = %852, %845
-  %855 = add nuw nsw i32 %.2, 36
-  %856 = load i32, ptr @hf_geonw_gxc_angle, align 4
-  %857 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %472, i32 noundef %856, ptr noundef %.05087, i32 noundef %855, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
-  %858 = load i32, ptr %21, align 4
-  %.not558 = icmp eq i32 %858, 0
-  br i1 %.not558, label %861, label %859
+853:                                              ; preds = %851, %844
+  %854 = add nuw nsw i32 %.2, 36
+  %855 = load i32, ptr @hf_geonw_gxc_angle, align 4
+  %856 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %471, i32 noundef %855, ptr noundef %.05087, i32 noundef %854, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
+  %857 = load i32, ptr %21, align 4
+  %.not558 = icmp eq i32 %857, 0
+  br i1 %.not558, label %860, label %858
 
-859:                                              ; preds = %854
-  %860 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %857, ptr noundef nonnull @ei_geonw_nz_reserved) #12
-  br label %861
+858:                                              ; preds = %853
+  %859 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %856, ptr noundef nonnull @ei_geonw_nz_reserved) #12
+  br label %860
 
-861:                                              ; preds = %859, %854
-  %862 = add nuw nsw i32 %.2, 38
-  br label %880
+860:                                              ; preds = %858, %853
+  %861 = add nuw nsw i32 %.2, 38
+  br label %879
 
-863:                                              ; preds = %841, %841
-  %864 = load i32, ptr @hf_geonw_gxc_distancea, align 4
-  %865 = call ptr @proto_tree_add_item(ptr noundef %472, i32 noundef %864, ptr noundef %.05087, i32 noundef %842, i32 noundef 2, i32 noundef 0) #12
-  %866 = add nuw nsw i32 %.2, 34
-  %867 = load i32, ptr @hf_geonw_gxc_distanceb, align 4
-  %868 = call ptr @proto_tree_add_item(ptr noundef %472, i32 noundef %867, ptr noundef %.05087, i32 noundef %866, i32 noundef 2, i32 noundef 0) #12
-  %869 = add nuw nsw i32 %.2, 36
-  %870 = load i32, ptr @hf_geonw_gxc_angle, align 4
-  %871 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %472, i32 noundef %870, ptr noundef %.05087, i32 noundef %869, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19) #12
-  %872 = load i32, ptr %19, align 4
-  %873 = icmp ugt i32 %872, 360
-  br i1 %873, label %874, label %878
+862:                                              ; preds = %840, %840
+  %863 = load i32, ptr @hf_geonw_gxc_distancea, align 4
+  %864 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %863, ptr noundef %.05087, i32 noundef %841, i32 noundef 2, i32 noundef 0) #12
+  %865 = add nuw nsw i32 %.2, 34
+  %866 = load i32, ptr @hf_geonw_gxc_distanceb, align 4
+  %867 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %866, ptr noundef %.05087, i32 noundef %865, i32 noundef 2, i32 noundef 0) #12
+  %868 = add nuw nsw i32 %.2, 36
+  %869 = load i32, ptr @hf_geonw_gxc_angle, align 4
+  %870 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %471, i32 noundef %869, ptr noundef %.05087, i32 noundef %868, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19) #12
+  %871 = load i32, ptr %19, align 4
+  %872 = icmp ugt i32 %871, 360
+  br i1 %872, label %873, label %877
 
-874:                                              ; preds = %863
-  %875 = uitofp i32 %872 to float
-  %876 = fpext float %875 to double
-  %877 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %871, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.436, double noundef %876) #12
-  br label %878
+873:                                              ; preds = %862
+  %874 = uitofp i32 %871 to float
+  %875 = fpext float %874 to double
+  %876 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %870, ptr noundef nonnull @ei_geonw_out_of_range, ptr noundef nonnull @.str.436, double noundef %875) #12
+  br label %877
 
-878:                                              ; preds = %874, %863
-  %879 = add nuw nsw i32 %.2, 38
-  br label %880
+877:                                              ; preds = %873, %862
+  %878 = add nuw nsw i32 %.2, 38
+  br label %879
 
-880:                                              ; preds = %878, %861, %841
-  %.4 = phi i32 [ %842, %841 ], [ %879, %878 ], [ %862, %861 ]
-  %881 = load i32, ptr @hf_geonw_gxc_reserved, align 4
-  %882 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %472, i32 noundef %881, ptr noundef %.05087, i32 noundef %.4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
-  %883 = load i32, ptr %21, align 4
-  %.not559 = icmp eq i32 %883, 0
-  br i1 %.not559, label %886, label %884
+879:                                              ; preds = %877, %860, %840
+  %.4 = phi i32 [ %841, %840 ], [ %878, %877 ], [ %861, %860 ]
+  %880 = load i32, ptr @hf_geonw_gxc_reserved, align 4
+  %881 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %471, i32 noundef %880, ptr noundef %.05087, i32 noundef %.4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
+  %882 = load i32, ptr %21, align 4
+  %.not559 = icmp eq i32 %882, 0
+  br i1 %.not559, label %885, label %883
 
-884:                                              ; preds = %880
-  %885 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %882, ptr noundef nonnull @ei_geonw_nz_reserved) #12
-  br label %886
+883:                                              ; preds = %879
+  %884 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %881, ptr noundef nonnull @ei_geonw_nz_reserved) #12
+  br label %885
 
-886:                                              ; preds = %884, %880
-  %887 = add nuw nsw i32 %.4, 2
-  br label %997
+885:                                              ; preds = %883, %879
+  %886 = add nuw nsw i32 %.4, 2
+  br label %996
 
-888:                                              ; preds = %657
-  %889 = load i32, ptr @hf_geonw_lsrq_addr, align 4
-  %890 = call ptr @proto_tree_add_item(ptr noundef %472, i32 noundef %889, ptr noundef %.05087, i32 noundef %658, i32 noundef 8, i32 noundef 0) #12
-  %891 = load i32, ptr @ett_geonw_lsrq_add, align 4
-  %892 = call ptr @proto_item_add_subtree(ptr noundef %890, i32 noundef %891) #12
-  %893 = getelementptr inbounds i8, ptr %1, i64 184
-  %894 = load i32, ptr @geonw_address_type, align 4
-  %895 = call ptr @tvb_get_ptr(ptr noundef %.05087, i32 noundef range(i32 8, 41) %658, i32 noundef 8) #12
-  store i32 %894, ptr %893, align 8
-  %896 = getelementptr inbounds i8, ptr %1, i64 188
-  store i32 8, ptr %896, align 4
-  %897 = getelementptr inbounds i8, ptr %1, i64 192
-  store ptr %895, ptr %897, align 8
-  %898 = getelementptr inbounds i8, ptr %1, i64 200
-  store ptr null, ptr %898, align 8
-  %899 = getelementptr inbounds i8, ptr %1, i64 232
-  store i32 %894, ptr %899, align 8
-  %900 = getelementptr inbounds i8, ptr %1, i64 236
-  store i32 8, ptr %900, align 4
-  %901 = getelementptr inbounds i8, ptr %1, i64 240
-  store ptr %895, ptr %901, align 8
-  %902 = getelementptr inbounds i8, ptr %1, i64 248
-  store ptr null, ptr %902, align 8
-  %903 = load i32, ptr @hf_geonw_lsrq_addr_manual, align 4
-  %904 = call ptr @proto_tree_add_item(ptr noundef %892, i32 noundef %903, ptr noundef %.05087, i32 noundef %658, i32 noundef 1, i32 noundef 0) #12
-  %905 = load i32, ptr @hf_geonw_lsrq_addr_type, align 4
-  %906 = call ptr @proto_tree_add_item(ptr noundef %892, i32 noundef %905, ptr noundef %.05087, i32 noundef %658, i32 noundef 1, i32 noundef 0) #12
-  %907 = load i32, ptr @hf_geonw_lsrq_addr_country, align 4
-  %908 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %892, i32 noundef %907, ptr noundef %.05087, i32 noundef %658, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
-  %909 = load i32, ptr %21, align 4
-  %910 = icmp ugt i32 %909, 999
-  br i1 %910, label %911, label %913
+887:                                              ; preds = %656
+  %888 = load i32, ptr @hf_geonw_lsrq_addr, align 4
+  %889 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %888, ptr noundef %.05087, i32 noundef %657, i32 noundef 8, i32 noundef 0) #12
+  %890 = load i32, ptr @ett_geonw_lsrq_add, align 4
+  %891 = call ptr @proto_item_add_subtree(ptr noundef %889, i32 noundef %890) #12
+  %892 = getelementptr inbounds i8, ptr %1, i64 184
+  %893 = load i32, ptr @geonw_address_type, align 4
+  %894 = call ptr @tvb_get_ptr(ptr noundef %.05087, i32 noundef range(i32 8, 41) %657, i32 noundef 8) #12
+  store i32 %893, ptr %892, align 8
+  %895 = getelementptr inbounds i8, ptr %1, i64 188
+  store i32 8, ptr %895, align 4
+  %896 = getelementptr inbounds i8, ptr %1, i64 192
+  store ptr %894, ptr %896, align 8
+  %897 = getelementptr inbounds i8, ptr %1, i64 200
+  store ptr null, ptr %897, align 8
+  %898 = getelementptr inbounds i8, ptr %1, i64 232
+  store i32 %893, ptr %898, align 8
+  %899 = getelementptr inbounds i8, ptr %1, i64 236
+  store i32 8, ptr %899, align 4
+  %900 = getelementptr inbounds i8, ptr %1, i64 240
+  store ptr %894, ptr %900, align 8
+  %901 = getelementptr inbounds i8, ptr %1, i64 248
+  store ptr null, ptr %901, align 8
+  %902 = load i32, ptr @hf_geonw_lsrq_addr_manual, align 4
+  %903 = call ptr @proto_tree_add_item(ptr noundef %891, i32 noundef %902, ptr noundef %.05087, i32 noundef %657, i32 noundef 1, i32 noundef 0) #12
+  %904 = load i32, ptr @hf_geonw_lsrq_addr_type, align 4
+  %905 = call ptr @proto_tree_add_item(ptr noundef %891, i32 noundef %904, ptr noundef %.05087, i32 noundef %657, i32 noundef 1, i32 noundef 0) #12
+  %906 = load i32, ptr @hf_geonw_lsrq_addr_country, align 4
+  %907 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %891, i32 noundef %906, ptr noundef %.05087, i32 noundef %657, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
+  %908 = load i32, ptr %21, align 4
+  %909 = icmp ugt i32 %908, 999
+  br i1 %909, label %910, label %912
 
-911:                                              ; preds = %888
-  %912 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %908, ptr noundef nonnull @ei_geonw_scc_too_big) #12
-  br label %913
+910:                                              ; preds = %887
+  %911 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %907, ptr noundef nonnull @ei_geonw_scc_too_big) #12
+  br label %912
 
-913:                                              ; preds = %911, %888
-  %914 = add nuw nsw i32 %.2, 26
-  %915 = load i32, ptr @hf_geonw_lsrq_addr_mid, align 4
-  %916 = call ptr @proto_tree_add_item(ptr noundef %892, i32 noundef %915, ptr noundef %.05087, i32 noundef %914, i32 noundef 6, i32 noundef 0) #12
-  %917 = add nuw nsw i32 %.2, 32
+912:                                              ; preds = %910, %887
+  %913 = add nuw nsw i32 %.2, 26
+  %914 = load i32, ptr @hf_geonw_lsrq_addr_mid, align 4
+  %915 = call ptr @proto_tree_add_item(ptr noundef %891, i32 noundef %914, ptr noundef %.05087, i32 noundef %913, i32 noundef 6, i32 noundef 0) #12
+  %916 = add nuw nsw i32 %.2, 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %918 = getelementptr inbounds i8, ptr %1, i64 20
-  %919 = load i32, ptr %918, align 4
-  %920 = getelementptr inbounds i8, ptr %1, i64 280
-  %921 = load i32, ptr %920, align 8
-  %922 = call i32 @conversation_pt_to_conversation_type(i32 noundef %921) #12
-  %923 = call ptr @find_conversation(i32 noundef %919, ptr noundef nonnull %501, ptr noundef nonnull %899, i32 noundef %922, i32 noundef 96, i32 noundef 96, i32 noundef 0) #12
-  %924 = icmp eq ptr %923, null
-  br i1 %924, label %925, label %930
+  %917 = getelementptr inbounds i8, ptr %1, i64 20
+  %918 = load i32, ptr %917, align 4
+  %919 = getelementptr inbounds i8, ptr %1, i64 280
+  %920 = load i32, ptr %919, align 8
+  %921 = call i32 @conversation_pt_to_conversation_type(i32 noundef %920) #12
+  %922 = call ptr @find_conversation(i32 noundef %918, ptr noundef nonnull %500, ptr noundef nonnull %898, i32 noundef %921, i32 noundef 96, i32 noundef 96, i32 noundef 0) #12
+  %923 = icmp eq ptr %922, null
+  br i1 %923, label %924, label %929
 
-925:                                              ; preds = %913
-  %926 = load i32, ptr %918, align 4
-  %927 = load i32, ptr %920, align 8
-  %928 = call i32 @conversation_pt_to_conversation_type(i32 noundef %927) #12
-  %929 = call nonnull ptr @conversation_new(i32 noundef %926, ptr noundef nonnull %501, ptr noundef nonnull %899, i32 noundef %928, i32 noundef 96, i32 noundef 96, i32 noundef 0) #12
-  br label %930
+924:                                              ; preds = %912
+  %925 = load i32, ptr %917, align 4
+  %926 = load i32, ptr %919, align 8
+  %927 = call i32 @conversation_pt_to_conversation_type(i32 noundef %926) #12
+  %928 = call nonnull ptr @conversation_new(i32 noundef %925, ptr noundef nonnull %500, ptr noundef nonnull %898, i32 noundef %927, i32 noundef 96, i32 noundef 96, i32 noundef 0) #12
+  br label %929
 
-930:                                              ; preds = %925, %913
-  %.042.i = phi ptr [ %929, %925 ], [ %923, %913 ]
-  %931 = load i32, ptr @proto_geonw, align 4
-  %932 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.042.i, i32 noundef %931) #12
-  %933 = icmp eq ptr %932, null
-  br i1 %933, label %934, label %943
+929:                                              ; preds = %924, %912
+  %.042.i = phi ptr [ %928, %924 ], [ %922, %912 ]
+  %930 = load i32, ptr @proto_geonw, align 4
+  %931 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.042.i, i32 noundef %930) #12
+  %932 = icmp eq ptr %931, null
+  br i1 %932, label %933, label %942
 
-934:                                              ; preds = %930
-  %935 = call ptr @wmem_file_scope() #12
-  %936 = call noalias ptr @wmem_alloc(ptr noundef %935, i64 noundef 16) #12
-  %937 = call ptr @wmem_file_scope() #12
-  %938 = call noalias ptr @wmem_list_new(ptr noundef %937) #12
-  store ptr %938, ptr %936, align 8
-  %939 = call ptr @wmem_file_scope() #12
-  %940 = call noalias ptr @wmem_tree_new(ptr noundef %939) #12
-  %941 = getelementptr inbounds i8, ptr %936, i64 8
-  store ptr %940, ptr %941, align 8
-  %942 = load i32, ptr @proto_geonw, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %.042.i, i32 noundef %942, ptr noundef nonnull %936) #12
-  br label %943
+933:                                              ; preds = %929
+  %934 = call ptr @wmem_file_scope() #12
+  %935 = call noalias ptr @wmem_alloc(ptr noundef %934, i64 noundef 16) #12
+  %936 = call ptr @wmem_file_scope() #12
+  %937 = call noalias ptr @wmem_list_new(ptr noundef %936) #12
+  store ptr %937, ptr %935, align 8
+  %938 = call ptr @wmem_file_scope() #12
+  %939 = call noalias ptr @wmem_tree_new(ptr noundef %938) #12
+  %940 = getelementptr inbounds i8, ptr %935, i64 8
+  store ptr %939, ptr %940, align 8
+  %941 = load i32, ptr @proto_geonw, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %.042.i, i32 noundef %941, ptr noundef nonnull %935) #12
+  br label %942
 
-943:                                              ; preds = %934, %930
-  %.041.i = phi ptr [ %936, %934 ], [ %932, %930 ]
-  %944 = getelementptr inbounds i8, ptr %1, i64 80
-  %945 = load ptr, ptr %944, align 8
-  %946 = getelementptr inbounds i8, ptr %945, i64 50
-  %947 = load i16, ptr %946, align 2
-  %948 = and i16 %947, 8
-  %.not.i579 = icmp eq i16 %948, 0
-  br i1 %.not.i579, label %.thread.i, label %957
+942:                                              ; preds = %933, %929
+  %.041.i = phi ptr [ %935, %933 ], [ %931, %929 ]
+  %943 = getelementptr inbounds i8, ptr %1, i64 80
+  %944 = load ptr, ptr %943, align 8
+  %945 = getelementptr inbounds i8, ptr %944, i64 50
+  %946 = load i16, ptr %945, align 2
+  %947 = and i16 %946, 8
+  %.not.i579 = icmp eq i16 %947, 0
+  br i1 %.not.i579, label %.thread.i, label %956
 
-.thread.i:                                        ; preds = %943
-  %949 = call ptr @wmem_file_scope() #12
-  %950 = call noalias ptr @wmem_alloc(ptr noundef %949, i64 noundef 40) #12
-  %951 = load i32, ptr %918, align 4
-  store i32 %951, ptr %950, align 8
-  %952 = getelementptr inbounds i8, ptr %950, i64 4
-  store i32 0, ptr %952, align 4
-  %953 = getelementptr inbounds i8, ptr %950, i64 8
-  %954 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %953, ptr noundef nonnull align 8 dereferenceable(16) %954, i64 16, i1 false)
-  %955 = getelementptr inbounds i8, ptr %950, i64 24
-  call void @nstime_set_zero(ptr noundef nonnull %955) #12
-  %956 = load ptr, ptr %.041.i, align 8
-  call void @wmem_list_prepend(ptr noundef %956, ptr noundef nonnull %950) #12
-  br label %983
+.thread.i:                                        ; preds = %942
+  %948 = call ptr @wmem_file_scope() #12
+  %949 = call noalias ptr @wmem_alloc(ptr noundef %948, i64 noundef 40) #12
+  %950 = load i32, ptr %917, align 4
+  store i32 %950, ptr %949, align 8
+  %951 = getelementptr inbounds i8, ptr %949, i64 4
+  store i32 0, ptr %951, align 4
+  %952 = getelementptr inbounds i8, ptr %949, i64 8
+  %953 = getelementptr inbounds i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %952, ptr noundef nonnull align 8 dereferenceable(16) %953, i64 16, i1 false)
+  %954 = getelementptr inbounds i8, ptr %949, i64 24
+  call void @nstime_set_zero(ptr noundef nonnull %954) #12
+  %955 = load ptr, ptr %.041.i, align 8
+  call void @wmem_list_prepend(ptr noundef %955, ptr noundef nonnull %949) #12
+  br label %982
 
-957:                                              ; preds = %943
-  %958 = load i32, ptr %918, align 4
-  store i32 %958, ptr %6, align 4
+956:                                              ; preds = %942
+  %957 = load i32, ptr %917, align 4
+  store i32 %957, ptr %6, align 4
   store i32 1, ptr %5, align 16
-  %959 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %6, ptr %959, align 8
-  %960 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 0, ptr %960, align 16
-  %961 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr null, ptr %961, align 8
-  %962 = getelementptr inbounds i8, ptr %.041.i, i64 8
-  %963 = load ptr, ptr %962, align 8
-  %964 = call ptr @wmem_tree_lookup32_array(ptr noundef %963, ptr noundef nonnull %5) #12
-  %965 = icmp eq ptr %964, null
-  br i1 %965, label %966, label %983
+  %958 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %6, ptr %958, align 8
+  %959 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 0, ptr %959, align 16
+  %960 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr null, ptr %960, align 8
+  %961 = getelementptr inbounds i8, ptr %.041.i, i64 8
+  %962 = load ptr, ptr %961, align 8
+  %963 = call ptr @wmem_tree_lookup32_array(ptr noundef %962, ptr noundef nonnull %5) #12
+  %964 = icmp eq ptr %963, null
+  br i1 %964, label %965, label %982
 
-966:                                              ; preds = %957
-  %967 = load ptr, ptr %944, align 8
-  %968 = getelementptr inbounds i8, ptr %967, i64 50
-  %969 = load i16, ptr %968, align 2
-  %970 = and i16 %969, 8
-  %.not48.i = icmp eq i16 %970, 0
-  br i1 %.not48.i, label %transaction_start.exit, label %971
+965:                                              ; preds = %956
+  %966 = load ptr, ptr %943, align 8
+  %967 = getelementptr inbounds i8, ptr %966, i64 50
+  %968 = load i16, ptr %967, align 2
+  %969 = and i16 %968, 8
+  %.not48.i = icmp eq i16 %969, 0
+  br i1 %.not48.i, label %transaction_start.exit, label %970
 
-971:                                              ; preds = %966
-  %972 = load i32, ptr @hf_geonw_no_resp, align 4
-  %973 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %972, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  %.not.i.i580 = icmp eq ptr %973, null
-  br i1 %.not.i.i580, label %proto_item_set_generated.exit.i582, label %974
+970:                                              ; preds = %965
+  %971 = load i32, ptr @hf_geonw_no_resp, align 4
+  %972 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %971, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  %.not.i.i580 = icmp eq ptr %972, null
+  br i1 %.not.i.i580, label %proto_item_set_generated.exit.i582, label %973
 
-974:                                              ; preds = %971
-  %975 = getelementptr inbounds i8, ptr %973, i64 32
-  %976 = load ptr, ptr %975, align 8
-  %.not5.i.i581 = icmp eq ptr %976, null
-  br i1 %.not5.i.i581, label %proto_item_set_generated.exit.i582, label %977
+973:                                              ; preds = %970
+  %974 = getelementptr inbounds i8, ptr %972, i64 32
+  %975 = load ptr, ptr %974, align 8
+  %.not5.i.i581 = icmp eq ptr %975, null
+  br i1 %.not5.i.i581, label %proto_item_set_generated.exit.i582, label %976
 
-977:                                              ; preds = %974
-  %978 = getelementptr inbounds i8, ptr %976, i64 28
-  %979 = load i32, ptr %978, align 4
-  %980 = or i32 %979, 2
-  store i32 %980, ptr %978, align 4
+976:                                              ; preds = %973
+  %977 = getelementptr inbounds i8, ptr %975, i64 28
+  %978 = load i32, ptr %977, align 4
+  %979 = or i32 %978, 2
+  store i32 %979, ptr %977, align 4
   br label %proto_item_set_generated.exit.i582
 
-proto_item_set_generated.exit.i582:               ; preds = %977, %974, %971
-  %981 = load ptr, ptr %28, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %981, i32 noundef 25, ptr noundef nonnull @.str.455) #12
-  %982 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %973, ptr noundef nonnull @ei_geonw_resp_not_found, ptr noundef nonnull @.str.456) #12
+proto_item_set_generated.exit.i582:               ; preds = %976, %973, %970
+  %980 = load ptr, ptr %28, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %980, i32 noundef 25, ptr noundef nonnull @.str.455) #12
+  %981 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %972, ptr noundef nonnull @ei_geonw_resp_not_found, ptr noundef nonnull @.str.456) #12
   br label %transaction_start.exit
 
-983:                                              ; preds = %957, %.thread.i
-  %.053.i = phi ptr [ %950, %.thread.i ], [ %964, %957 ]
-  %984 = getelementptr inbounds i8, ptr %.053.i, i64 4
-  %985 = load i32, ptr %984, align 4
-  %.not47.i = icmp eq i32 %985, 0
-  br i1 %.not47.i, label %transaction_start.exit, label %986
+982:                                              ; preds = %956, %.thread.i
+  %.053.i = phi ptr [ %949, %.thread.i ], [ %963, %956 ]
+  %983 = getelementptr inbounds i8, ptr %.053.i, i64 4
+  %984 = load i32, ptr %983, align 4
+  %.not47.i = icmp eq i32 %984, 0
+  br i1 %.not47.i, label %transaction_start.exit, label %985
 
-986:                                              ; preds = %983
-  %987 = load i32, ptr @hf_geonw_resp_in, align 4
-  %988 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %987, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %985) #12
-  %.not.i49.i = icmp eq ptr %988, null
-  br i1 %.not.i49.i, label %proto_item_set_generated.exit51.i, label %989
+985:                                              ; preds = %982
+  %986 = load i32, ptr @hf_geonw_resp_in, align 4
+  %987 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %986, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %984) #12
+  %.not.i49.i = icmp eq ptr %987, null
+  br i1 %.not.i49.i, label %proto_item_set_generated.exit51.i, label %988
 
-989:                                              ; preds = %986
-  %990 = getelementptr inbounds i8, ptr %988, i64 32
-  %991 = load ptr, ptr %990, align 8
-  %.not5.i50.i = icmp eq ptr %991, null
-  br i1 %.not5.i50.i, label %proto_item_set_generated.exit51.i, label %992
+988:                                              ; preds = %985
+  %989 = getelementptr inbounds i8, ptr %987, i64 32
+  %990 = load ptr, ptr %989, align 8
+  %.not5.i50.i = icmp eq ptr %990, null
+  br i1 %.not5.i50.i, label %proto_item_set_generated.exit51.i, label %991
 
-992:                                              ; preds = %989
-  %993 = getelementptr inbounds i8, ptr %991, i64 28
-  %994 = load i32, ptr %993, align 4
-  %995 = or i32 %994, 2
-  store i32 %995, ptr %993, align 4
+991:                                              ; preds = %988
+  %992 = getelementptr inbounds i8, ptr %990, i64 28
+  %993 = load i32, ptr %992, align 4
+  %994 = or i32 %993, 2
+  store i32 %994, ptr %992, align 4
   br label %proto_item_set_generated.exit51.i
 
-proto_item_set_generated.exit51.i:                ; preds = %992, %989, %986
-  %996 = load i32, ptr %984, align 4
-  call void @col_append_frame_number(ptr noundef nonnull %1, i32 noundef 25, ptr noundef nonnull @.str.457, i32 noundef %996) #12
+proto_item_set_generated.exit51.i:                ; preds = %991, %988, %985
+  %995 = load i32, ptr %983, align 4
+  call void @col_append_frame_number(ptr noundef nonnull %1, i32 noundef 25, ptr noundef nonnull @.str.457, i32 noundef %995) #12
   br label %transaction_start.exit
 
-transaction_start.exit:                           ; preds = %966, %proto_item_set_generated.exit.i582, %983, %proto_item_set_generated.exit51.i
+transaction_start.exit:                           ; preds = %965, %proto_item_set_generated.exit.i582, %982, %proto_item_set_generated.exit51.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %997
+  br label %996
 
-997:                                              ; preds = %transaction_start.exit, %886, %818, %793, %657
-  %.3 = phi i32 [ %658, %657 ], [ %917, %transaction_start.exit ], [ %887, %886 ], [ %819, %818 ], [ %794, %793 ]
+996:                                              ; preds = %transaction_start.exit, %885, %817, %792, %656
+  %.3 = phi i32 [ %657, %656 ], [ %916, %transaction_start.exit ], [ %886, %885 ], [ %818, %817 ], [ %793, %792 ]
   call void @proto_item_set_end(ptr noundef %58, ptr noundef %.05087, i32 noundef %.3) #12
-  %998 = load i32, ptr @geonw_tap, align 4
-  call void @tap_queue_packet(i32 noundef %998, ptr noundef nonnull %1, ptr noundef nonnull %27) #12
-  %999 = load i32, ptr %20, align 4
-  %.not561 = icmp eq i32 %999, 0
-  br i1 %.not561, label %1017, label %1000
+  %997 = load i32, ptr @geonw_tap, align 4
+  call void @tap_queue_packet(i32 noundef %997, ptr noundef nonnull %1, ptr noundef nonnull %27) #12
+  %998 = load i32, ptr %20, align 4
+  %.not561 = icmp eq i32 %998, 0
+  br i1 %.not561, label %1016, label %999
 
-1000:                                             ; preds = %997
-  %1001 = call ptr @tvb_new_subset_length(ptr noundef %.05087, i32 noundef %.3, i32 noundef %999) #12
-  %1002 = load i32, ptr %16, align 4
-  switch i32 %1002, label %1012 [
-    i32 1, label %1003
-    i32 2, label %1006
-    i32 3, label %1009
+999:                                              ; preds = %996
+  %1000 = call ptr @tvb_new_subset_length(ptr noundef %.05087, i32 noundef %.3, i32 noundef %998) #12
+  %1001 = load i32, ptr %16, align 4
+  switch i32 %1001, label %1011 [
+    i32 1, label %1002
+    i32 2, label %1005
+    i32 3, label %1008
   ]
 
-1003:                                             ; preds = %1000
-  %1004 = load ptr, ptr @btpa_handle, align 8
-  %1005 = call i32 @call_dissector(ptr noundef %1004, ptr noundef %1001, ptr noundef nonnull %1, ptr noundef %2) #12
-  br label %1017
+1002:                                             ; preds = %999
+  %1003 = load ptr, ptr @btpa_handle, align 8
+  %1004 = call i32 @call_dissector(ptr noundef %1003, ptr noundef %1000, ptr noundef nonnull %1, ptr noundef %2) #12
+  br label %1016
 
-1006:                                             ; preds = %1000
-  %1007 = load ptr, ptr @btpb_handle, align 8
-  %1008 = call i32 @call_dissector(ptr noundef %1007, ptr noundef %1001, ptr noundef nonnull %1, ptr noundef %2) #12
-  br label %1017
+1005:                                             ; preds = %999
+  %1006 = load ptr, ptr @btpb_handle, align 8
+  %1007 = call i32 @call_dissector(ptr noundef %1006, ptr noundef %1000, ptr noundef nonnull %1, ptr noundef %2) #12
+  br label %1016
 
-1009:                                             ; preds = %1000
-  %1010 = load ptr, ptr @ipv6_handle, align 8
-  %1011 = call i32 @call_dissector(ptr noundef %1010, ptr noundef %1001, ptr noundef nonnull %1, ptr noundef %2) #12
-  br label %1017
+1008:                                             ; preds = %999
+  %1009 = load ptr, ptr @ipv6_handle, align 8
+  %1010 = call i32 @call_dissector(ptr noundef %1009, ptr noundef %1000, ptr noundef nonnull %1, ptr noundef %2) #12
+  br label %1016
 
-1012:                                             ; preds = %1000
-  %1013 = load ptr, ptr @geonw_subdissector_table, align 8
-  %1014 = call i32 @dissector_try_uint(ptr noundef %1013, i32 noundef %1002, ptr noundef %1001, ptr noundef nonnull %1, ptr noundef %2) #12
-  %.not562 = icmp eq i32 %1014, 0
-  br i1 %.not562, label %1015, label %1017
+1011:                                             ; preds = %999
+  %1012 = load ptr, ptr @geonw_subdissector_table, align 8
+  %1013 = call i32 @dissector_try_uint(ptr noundef %1012, i32 noundef %1001, ptr noundef %1000, ptr noundef nonnull %1, ptr noundef %2) #12
+  %.not562 = icmp eq i32 %1013, 0
+  br i1 %.not562, label %1014, label %1016
 
-1015:                                             ; preds = %1012
-  %1016 = call i32 @call_data_dissector(ptr noundef %1001, ptr noundef nonnull %1, ptr noundef %2) #12
-  br label %1017
+1014:                                             ; preds = %1011
+  %1015 = call i32 @call_data_dissector(ptr noundef %1000, ptr noundef nonnull %1, ptr noundef %2) #12
+  br label %1016
 
-1017:                                             ; preds = %dissect_secured_message.exit, %104, %997, %1012, %1015, %1009, %1006, %1003
-  %.05088 = phi ptr [ %.05087, %997 ], [ %.05087, %1012 ], [ %.05087, %1015 ], [ %.05087, %1009 ], [ %.05087, %1006 ], [ %.05087, %1003 ], [ %0, %104 ], [ %0, %dissect_secured_message.exit ]
-  %1018 = call i32 @tvb_captured_length(ptr noundef %.05088) #12
-  br label %1019
+1016:                                             ; preds = %dissect_secured_message.exit, %104, %996, %1011, %1014, %1008, %1005, %1002
+  %.05088 = phi ptr [ %.05087, %996 ], [ %.05087, %1011 ], [ %.05087, %1014 ], [ %.05087, %1008 ], [ %.05087, %1005 ], [ %.05087, %1002 ], [ %0, %104 ], [ %0, %dissect_secured_message.exit ]
+  %1017 = call i32 @tvb_captured_length(ptr noundef %.05088) #12
+  br label %1018
 
-1019:                                             ; preds = %1017, %464, %457, %71
-  %.0 = phi i32 [ %458, %457 ], [ %465, %464 ], [ %1018, %1017 ], [ %74, %71 ]
+1018:                                             ; preds = %1016, %463, %456, %71
+  %.0 = phi i32 [ %457, %456 ], [ %464, %463 ], [ %1017, %1016 ], [ %74, %71 ]
   ret i32 %.0
 }
 

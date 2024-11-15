@@ -89,17 +89,14 @@ if.then:                                          ; preds = %entry
   switch i32 %type, label %if.end [
     i32 0, label %sw.bb
     i32 1, label %sw.bb2
-    i32 2, label %sw.bb3
+    i32 2, label %sw.bb
     i32 3, label %do.body
   ]
 
-sw.bb:                                            ; preds = %if.then
+sw.bb:                                            ; preds = %if.then, %if.then
   br label %if.end
 
 sw.bb2:                                           ; preds = %if.then
-  br label %if.end
-
-sw.bb3:                                           ; preds = %if.then
   br label %if.end
 
 do.body:                                          ; preds = %if.then
@@ -134,8 +131,8 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s) #20
   resume { ptr, i32 } %.pn
 
-if.end:                                           ; preds = %if.then, %sw.bb, %sw.bb2, %sw.bb3, %entry
-  %xStride.addr.0 = phi i64 [ 0, %if.then ], [ 4, %sw.bb3 ], [ 2, %sw.bb2 ], [ 4, %sw.bb ], [ %xStride, %entry ]
+if.end:                                           ; preds = %if.then, %sw.bb, %sw.bb2, %entry
+  %xStride.addr.0 = phi i64 [ 0, %if.then ], [ 2, %sw.bb2 ], [ 4, %sw.bb ], [ %xStride, %entry ]
   %cmp7 = icmp eq i64 %yStride, 0
   %conv = sext i32 %xSampling to i64
   br i1 %cmp7, label %if.then8, label %if.end9

@@ -3974,7 +3974,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 9:                                                ; preds = %4
   %10 = call fastcc i32 @jsmn_parse(ptr noundef %5, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0)
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %961, label %12
+  br i1 %11, label %960, label %12
 
 12:                                               ; preds = %9
   %13 = zext nneg i32 %10 to i64
@@ -3991,7 +3991,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %21 = add i64 %20, 32
   %22 = tail call ptr %17(ptr noundef %19, i64 noundef %21) #53
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %961, label %23
+  br i1 %.not, label %960, label %23
 
 23:                                               ; preds = %14
   store i64 0, ptr %5, align 8
@@ -4009,7 +4009,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %18, align 8
   tail call void %31(ptr noundef %32, ptr noundef nonnull %22) #53
-  br label %961
+  br label %960
 
 33:                                               ; preds = %23
   %34 = zext nneg i32 %27 to i64
@@ -4026,7 +4026,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %18, align 8
   tail call void %41(ptr noundef %42, ptr noundef nonnull %22) #53
-  br label %961
+  br label %960
 
 43:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(488) %38, i8 0, i64 488, i1 false)
@@ -4049,7 +4049,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %switch.select = select i1 %switch.selectcmp, i32 9, i32 4
   %switch.selectcmp55 = icmp eq i32 %47, -2
   %switch.select56 = select i1 %switch.selectcmp55, i32 8, i32 %switch.select
-  br label %961
+  br label %960
 
 53:                                               ; preds = %43
   %54 = getelementptr inbounds i8, ptr %38, i64 96
@@ -4364,7 +4364,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %236 = icmp ult i64 %235, %232
   br i1 %236, label %.preheader910.i, label %.preheader901.i
 
-.preheader899.i:                                  ; preds = %317, %.preheader901.i
+.preheader899.i:                                  ; preds = %316, %.preheader901.i
   %237 = getelementptr inbounds i8, ptr %38, i64 192
   %238 = load i64, ptr %237, align 8
   %.not1004.i = icmp eq i64 %238, 0
@@ -4376,10 +4376,10 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %241 = getelementptr inbounds i8, ptr %38, i64 168
   %242 = getelementptr inbounds i8, ptr %38, i64 208
   %243 = getelementptr inbounds i8, ptr %38, i64 200
-  br label %326
+  br label %325
 
-244:                                              ; preds = %317, %.lr.ph959.i
-  %.0709958.i = phi i64 [ 0, %.lr.ph959.i ], [ %318, %317 ]
+244:                                              ; preds = %316, %.lr.ph959.i
+  %.0709958.i = phi i64 [ 0, %.lr.ph959.i ], [ %317, %316 ]
   %245 = load ptr, ptr %70, align 8
   %246 = getelementptr inbounds %struct.cgltf_accessor, ptr %245, i64 %.0709958.i, i32 7
   %247 = load ptr, ptr %246, align 8
@@ -4467,7 +4467,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %295 = getelementptr inbounds i8, ptr %294, i64 40
   %296 = load i64, ptr %295, align 8
   %297 = icmp eq i64 %296, 0
-  br i1 %297, label %298, label %317
+  br i1 %297, label %298, label %316
 
 298:                                              ; preds = %292
   %299 = getelementptr inbounds i8, ptr %294, i64 16
@@ -4495,19 +4495,19 @@ cgltf_component_size.exit.i.i:                    ; preds = %298, %298
 
 cgltf_component_size.exit.thread.i.i:             ; preds = %cgltf_component_size.exit.i.i, %304, %303, %298, %298
   %.0.i21.i.i = phi i64 [ 1, %cgltf_component_size.exit.i.i ], [ 4, %303 ], [ 0, %304 ], [ 2, %298 ], [ 2, %298 ]
-  switch i32 %300, label %310 [
-    i32 6, label %311
+  switch i32 %300, label %309 [
+    i32 6, label %310
     i32 2, label %cgltf_num_components.exit.i.i
     i32 3, label %306
     i32 4, label %307
-    i32 5, label %308
-    i32 7, label %309
+    i32 5, label %307
+    i32 7, label %308
   ]
 
 306:                                              ; preds = %cgltf_component_size.exit.thread.i.i
   br label %cgltf_num_components.exit.i.i
 
-307:                                              ; preds = %cgltf_component_size.exit.thread.i.i
+307:                                              ; preds = %cgltf_component_size.exit.thread.i.i, %cgltf_component_size.exit.thread.i.i
   br label %cgltf_num_components.exit.i.i
 
 308:                                              ; preds = %cgltf_component_size.exit.thread.i.i
@@ -4517,1168 +4517,1165 @@ cgltf_component_size.exit.thread.i.i:             ; preds = %cgltf_component_siz
   br label %cgltf_num_components.exit.i.i
 
 310:                                              ; preds = %cgltf_component_size.exit.thread.i.i
-  br label %cgltf_num_components.exit.i.i
+  %311 = add nsw i64 %.0.i21.i.i, -1
+  %or.cond3.i.i = icmp ult i64 %311, 2
+  br i1 %or.cond3.i.i, label %312, label %cgltf_num_components.exit.i.i
 
-311:                                              ; preds = %cgltf_component_size.exit.thread.i.i
-  %312 = add nsw i64 %.0.i21.i.i, -1
-  %or.cond3.i.i = icmp ult i64 %312, 2
-  br i1 %or.cond3.i.i, label %313, label %cgltf_num_components.exit.i.i
-
-313:                                              ; preds = %311
-  %314 = mul nuw nsw i64 %.0.i21.i.i, 12
+312:                                              ; preds = %310
+  %313 = mul nuw nsw i64 %.0.i21.i.i, 12
   br label %cgltf_calc_size.exit.i
 
-cgltf_num_components.exit.i.i:                    ; preds = %311, %310, %309, %308, %307, %306, %cgltf_component_size.exit.thread.i.i
-  %phi.call.i.i = phi i64 [ 1, %310 ], [ 16, %309 ], [ 4, %308 ], [ 4, %307 ], [ 3, %306 ], [ 9, %311 ], [ 2, %cgltf_component_size.exit.thread.i.i ]
-  %315 = mul nuw nsw i64 %phi.call.i.i, %.0.i21.i.i
+cgltf_num_components.exit.i.i:                    ; preds = %310, %309, %308, %307, %306, %cgltf_component_size.exit.thread.i.i
+  %phi.call.i.i = phi i64 [ 1, %309 ], [ 16, %308 ], [ 4, %307 ], [ 3, %306 ], [ 9, %310 ], [ 2, %cgltf_component_size.exit.thread.i.i ]
+  %314 = mul nuw nsw i64 %phi.call.i.i, %.0.i21.i.i
   br label %cgltf_calc_size.exit.i
 
-cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_components.exit.i.i, %313, %cgltf_component_size.exit.i.i
-  %.0.i.i = phi i64 [ %314, %313 ], [ %315, %cgltf_num_components.exit.i.i ], [ 8, %cgltf_component_size.exit.i.i ]
-  %316 = getelementptr inbounds %struct.cgltf_accessor, ptr %293, i64 %.0709958.i, i32 6
-  store i64 %.0.i.i, ptr %316, align 8
-  br label %317
+cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_components.exit.i.i, %312, %cgltf_component_size.exit.i.i
+  %.0.i.i = phi i64 [ %313, %312 ], [ %314, %cgltf_num_components.exit.i.i ], [ 8, %cgltf_component_size.exit.i.i ]
+  %315 = getelementptr inbounds %struct.cgltf_accessor, ptr %293, i64 %.0709958.i, i32 6
+  store i64 %.0.i.i, ptr %315, align 8
+  br label %316
 
-317:                                              ; preds = %cgltf_calc_size.exit.i, %292
-  %318 = add nuw i64 %.0709958.i, 1
-  %319 = load i64, ptr %68, align 8
-  %320 = icmp ult i64 %318, %319
-  br i1 %320, label %244, label %.preheader899.i
+316:                                              ; preds = %cgltf_calc_size.exit.i, %292
+  %317 = add nuw i64 %.0709958.i, 1
+  %318 = load i64, ptr %68, align 8
+  %319 = icmp ult i64 %317, %318
+  br i1 %319, label %244, label %.preheader899.i
 
-.preheader897.i:                                  ; preds = %362, %.preheader899.i
-  %321 = getelementptr inbounds i8, ptr %38, i64 176
-  %322 = load i64, ptr %321, align 8
-  %.not1005.i = icmp eq i64 %322, 0
+.preheader897.i:                                  ; preds = %361, %.preheader899.i
+  %320 = getelementptr inbounds i8, ptr %38, i64 176
+  %321 = load i64, ptr %320, align 8
+  %.not1005.i = icmp eq i64 %321, 0
   br i1 %.not1005.i, label %.preheader895.i, label %.lr.ph963.i
 
 .lr.ph963.i:                                      ; preds = %.preheader897.i
-  %323 = getelementptr inbounds i8, ptr %38, i64 168
-  %324 = getelementptr inbounds i8, ptr %38, i64 144
-  %325 = getelementptr inbounds i8, ptr %38, i64 136
-  br label %370
+  %322 = getelementptr inbounds i8, ptr %38, i64 168
+  %323 = getelementptr inbounds i8, ptr %38, i64 144
+  %324 = getelementptr inbounds i8, ptr %38, i64 136
+  br label %369
 
-326:                                              ; preds = %362, %.lr.ph961.i
-  %.0708960.i = phi i64 [ 0, %.lr.ph961.i ], [ %363, %362 ]
-  %327 = load ptr, ptr %239, align 8
-  %328 = getelementptr inbounds %struct.cgltf_texture, ptr %327, i64 %.0708960.i, i32 1
-  %329 = load ptr, ptr %328, align 8
-  %.not860.i = icmp eq ptr %329, null
-  br i1 %.not860.i, label %338, label %330
+325:                                              ; preds = %361, %.lr.ph961.i
+  %.0708960.i = phi i64 [ 0, %.lr.ph961.i ], [ %362, %361 ]
+  %326 = load ptr, ptr %239, align 8
+  %327 = getelementptr inbounds %struct.cgltf_texture, ptr %326, i64 %.0708960.i, i32 1
+  %328 = load ptr, ptr %327, align 8
+  %.not860.i = icmp eq ptr %328, null
+  br i1 %.not860.i, label %337, label %329
 
-330:                                              ; preds = %326
-  %331 = ptrtoint ptr %329 to i64
-  %332 = load i64, ptr %240, align 8
-  %333 = icmp ult i64 %332, %331
-  br i1 %333, label %.loopexit, label %334
+329:                                              ; preds = %325
+  %330 = ptrtoint ptr %328 to i64
+  %331 = load i64, ptr %240, align 8
+  %332 = icmp ult i64 %331, %330
+  br i1 %332, label %.loopexit, label %333
 
-334:                                              ; preds = %330
-  %335 = load ptr, ptr %241, align 8
-  %336 = getelementptr %struct.cgltf_image, ptr %335, i64 %331
-  %337 = getelementptr i8, ptr %336, i64 -72
-  store ptr %337, ptr %328, align 8
+333:                                              ; preds = %329
+  %334 = load ptr, ptr %241, align 8
+  %335 = getelementptr %struct.cgltf_image, ptr %334, i64 %330
+  %336 = getelementptr i8, ptr %335, i64 -72
+  store ptr %336, ptr %327, align 8
   %.pre1052.i = load ptr, ptr %239, align 8
-  br label %338
+  br label %337
 
-338:                                              ; preds = %334, %326
-  %339 = phi ptr [ %.pre1052.i, %334 ], [ %327, %326 ]
-  %340 = getelementptr inbounds %struct.cgltf_texture, ptr %339, i64 %.0708960.i, i32 4
-  %341 = load ptr, ptr %340, align 8
-  %.not861.i = icmp eq ptr %341, null
-  br i1 %.not861.i, label %350, label %342
+337:                                              ; preds = %333, %325
+  %338 = phi ptr [ %.pre1052.i, %333 ], [ %326, %325 ]
+  %339 = getelementptr inbounds %struct.cgltf_texture, ptr %338, i64 %.0708960.i, i32 4
+  %340 = load ptr, ptr %339, align 8
+  %.not861.i = icmp eq ptr %340, null
+  br i1 %.not861.i, label %349, label %341
 
-342:                                              ; preds = %338
-  %343 = ptrtoint ptr %341 to i64
-  %344 = load i64, ptr %240, align 8
-  %345 = icmp ult i64 %344, %343
-  br i1 %345, label %.loopexit, label %346
+341:                                              ; preds = %337
+  %342 = ptrtoint ptr %340 to i64
+  %343 = load i64, ptr %240, align 8
+  %344 = icmp ult i64 %343, %342
+  br i1 %344, label %.loopexit, label %345
 
-346:                                              ; preds = %342
-  %347 = load ptr, ptr %241, align 8
-  %348 = getelementptr %struct.cgltf_image, ptr %347, i64 %343
-  %349 = getelementptr i8, ptr %348, i64 -72
-  store ptr %349, ptr %340, align 8
+345:                                              ; preds = %341
+  %346 = load ptr, ptr %241, align 8
+  %347 = getelementptr %struct.cgltf_image, ptr %346, i64 %342
+  %348 = getelementptr i8, ptr %347, i64 -72
+  store ptr %348, ptr %339, align 8
   %.pre1053.i = load ptr, ptr %239, align 8
-  br label %350
+  br label %349
 
-350:                                              ; preds = %346, %338
-  %351 = phi ptr [ %.pre1053.i, %346 ], [ %339, %338 ]
-  %352 = getelementptr inbounds %struct.cgltf_texture, ptr %351, i64 %.0708960.i, i32 2
-  %353 = load ptr, ptr %352, align 8
-  %.not862.i = icmp eq ptr %353, null
-  br i1 %.not862.i, label %362, label %354
+349:                                              ; preds = %345, %337
+  %350 = phi ptr [ %.pre1053.i, %345 ], [ %338, %337 ]
+  %351 = getelementptr inbounds %struct.cgltf_texture, ptr %350, i64 %.0708960.i, i32 2
+  %352 = load ptr, ptr %351, align 8
+  %.not862.i = icmp eq ptr %352, null
+  br i1 %.not862.i, label %361, label %353
 
-354:                                              ; preds = %350
-  %355 = ptrtoint ptr %353 to i64
-  %356 = load i64, ptr %242, align 8
-  %357 = icmp ult i64 %356, %355
-  br i1 %357, label %.loopexit, label %358
+353:                                              ; preds = %349
+  %354 = ptrtoint ptr %352 to i64
+  %355 = load i64, ptr %242, align 8
+  %356 = icmp ult i64 %355, %354
+  br i1 %356, label %.loopexit, label %357
 
-358:                                              ; preds = %354
-  %359 = load ptr, ptr %243, align 8
-  %360 = getelementptr %struct.cgltf_sampler, ptr %359, i64 %355
-  %361 = getelementptr i8, ptr %360, i64 -64
-  store ptr %361, ptr %352, align 8
-  br label %362
+357:                                              ; preds = %353
+  %358 = load ptr, ptr %243, align 8
+  %359 = getelementptr %struct.cgltf_sampler, ptr %358, i64 %354
+  %360 = getelementptr i8, ptr %359, i64 -64
+  store ptr %360, ptr %351, align 8
+  br label %361
 
-362:                                              ; preds = %358, %350
-  %363 = add nuw i64 %.0708960.i, 1
-  %364 = load i64, ptr %237, align 8
-  %365 = icmp ult i64 %363, %364
-  br i1 %365, label %326, label %.preheader897.i
+361:                                              ; preds = %357, %349
+  %362 = add nuw i64 %.0708960.i, 1
+  %363 = load i64, ptr %237, align 8
+  %364 = icmp ult i64 %362, %363
+  br i1 %364, label %325, label %.preheader897.i
 
-.preheader895.i:                                  ; preds = %383, %.preheader897.i
-  %366 = getelementptr inbounds i8, ptr %38, i64 112
-  %367 = load i64, ptr %366, align 8
-  %.not1006.i = icmp eq i64 %367, 0
+.preheader895.i:                                  ; preds = %382, %.preheader897.i
+  %365 = getelementptr inbounds i8, ptr %38, i64 112
+  %366 = load i64, ptr %365, align 8
+  %.not1006.i = icmp eq i64 %366, 0
   br i1 %.not1006.i, label %.preheader893.i, label %.lr.ph965.i
 
 .lr.ph965.i:                                      ; preds = %.preheader895.i
-  %368 = getelementptr inbounds i8, ptr %38, i64 104
-  %369 = getelementptr inbounds i8, ptr %38, i64 184
-  br label %392
+  %367 = getelementptr inbounds i8, ptr %38, i64 104
+  %368 = getelementptr inbounds i8, ptr %38, i64 184
+  br label %391
 
-370:                                              ; preds = %383, %.lr.ph963.i
-  %371 = phi i64 [ %322, %.lr.ph963.i ], [ %384, %383 ]
-  %.0707962.i = phi i64 [ 0, %.lr.ph963.i ], [ %385, %383 ]
-  %372 = load ptr, ptr %323, align 8
-  %373 = getelementptr inbounds %struct.cgltf_image, ptr %372, i64 %.0707962.i, i32 2
-  %374 = load ptr, ptr %373, align 8
-  %.not859.i = icmp eq ptr %374, null
-  br i1 %.not859.i, label %383, label %375
+369:                                              ; preds = %382, %.lr.ph963.i
+  %370 = phi i64 [ %321, %.lr.ph963.i ], [ %383, %382 ]
+  %.0707962.i = phi i64 [ 0, %.lr.ph963.i ], [ %384, %382 ]
+  %371 = load ptr, ptr %322, align 8
+  %372 = getelementptr inbounds %struct.cgltf_image, ptr %371, i64 %.0707962.i, i32 2
+  %373 = load ptr, ptr %372, align 8
+  %.not859.i = icmp eq ptr %373, null
+  br i1 %.not859.i, label %382, label %374
 
-375:                                              ; preds = %370
-  %376 = ptrtoint ptr %374 to i64
-  %377 = load i64, ptr %324, align 8
-  %378 = icmp ult i64 %377, %376
-  br i1 %378, label %.loopexit, label %379
+374:                                              ; preds = %369
+  %375 = ptrtoint ptr %373 to i64
+  %376 = load i64, ptr %323, align 8
+  %377 = icmp ult i64 %376, %375
+  br i1 %377, label %.loopexit, label %378
 
-379:                                              ; preds = %375
-  %380 = load ptr, ptr %325, align 8
-  %381 = getelementptr %struct.cgltf_buffer_view, ptr %380, i64 %376
-  %382 = getelementptr i8, ptr %381, i64 -152
-  store ptr %382, ptr %373, align 8
-  %.pre1054.i = load i64, ptr %321, align 8
-  br label %383
+378:                                              ; preds = %374
+  %379 = load ptr, ptr %324, align 8
+  %380 = getelementptr %struct.cgltf_buffer_view, ptr %379, i64 %375
+  %381 = getelementptr i8, ptr %380, i64 -152
+  store ptr %381, ptr %372, align 8
+  %.pre1054.i = load i64, ptr %320, align 8
+  br label %382
 
-383:                                              ; preds = %379, %370
-  %384 = phi i64 [ %371, %370 ], [ %.pre1054.i, %379 ]
-  %385 = add nuw i64 %.0707962.i, 1
-  %386 = icmp ult i64 %385, %384
-  br i1 %386, label %370, label %.preheader895.i
+382:                                              ; preds = %378, %369
+  %383 = phi i64 [ %370, %369 ], [ %.pre1054.i, %378 ]
+  %384 = add nuw i64 %.0707962.i, 1
+  %385 = icmp ult i64 %384, %383
+  br i1 %385, label %369, label %.preheader895.i
 
-.preheader893.i:                                  ; preds = %620, %.preheader895.i
-  %387 = getelementptr inbounds i8, ptr %38, i64 144
-  %388 = load i64, ptr %387, align 8
-  %.not1007.i = icmp eq i64 %388, 0
+.preheader893.i:                                  ; preds = %619, %.preheader895.i
+  %386 = getelementptr inbounds i8, ptr %38, i64 144
+  %387 = load i64, ptr %386, align 8
+  %.not1007.i = icmp eq i64 %387, 0
   br i1 %.not1007.i, label %.preheader891.i, label %.lr.ph967.i
 
 .lr.ph967.i:                                      ; preds = %.preheader893.i
-  %389 = getelementptr inbounds i8, ptr %38, i64 136
-  %390 = getelementptr inbounds i8, ptr %38, i64 160
-  %391 = getelementptr inbounds i8, ptr %38, i64 152
-  br label %630
+  %388 = getelementptr inbounds i8, ptr %38, i64 136
+  %389 = getelementptr inbounds i8, ptr %38, i64 160
+  %390 = getelementptr inbounds i8, ptr %38, i64 152
+  br label %629
 
-392:                                              ; preds = %620, %.lr.ph965.i
-  %.0706964.i = phi i64 [ 0, %.lr.ph965.i ], [ %621, %620 ]
-  %393 = load ptr, ptr %368, align 8
-  %394 = getelementptr inbounds %struct.cgltf_material, ptr %393, i64 %.0706964.i, i32 23
-  %395 = load ptr, ptr %394, align 8
-  %.not840.i = icmp eq ptr %395, null
-  br i1 %.not840.i, label %404, label %396
+391:                                              ; preds = %619, %.lr.ph965.i
+  %.0706964.i = phi i64 [ 0, %.lr.ph965.i ], [ %620, %619 ]
+  %392 = load ptr, ptr %367, align 8
+  %393 = getelementptr inbounds %struct.cgltf_material, ptr %392, i64 %.0706964.i, i32 23
+  %394 = load ptr, ptr %393, align 8
+  %.not840.i = icmp eq ptr %394, null
+  br i1 %.not840.i, label %403, label %395
 
-396:                                              ; preds = %392
-  %397 = ptrtoint ptr %395 to i64
-  %398 = load i64, ptr %237, align 8
-  %399 = icmp ult i64 %398, %397
-  br i1 %399, label %.loopexit, label %400
+395:                                              ; preds = %391
+  %396 = ptrtoint ptr %394 to i64
+  %397 = load i64, ptr %237, align 8
+  %398 = icmp ult i64 %397, %396
+  br i1 %398, label %.loopexit, label %399
 
-400:                                              ; preds = %396
-  %401 = load ptr, ptr %369, align 8
-  %402 = getelementptr %struct.cgltf_texture, ptr %401, i64 %397
-  %403 = getelementptr i8, ptr %402, i64 -80
-  store ptr %403, ptr %394, align 8
-  %.pre1055.i = load ptr, ptr %368, align 8
-  br label %404
+399:                                              ; preds = %395
+  %400 = load ptr, ptr %368, align 8
+  %401 = getelementptr %struct.cgltf_texture, ptr %400, i64 %396
+  %402 = getelementptr i8, ptr %401, i64 -80
+  store ptr %402, ptr %393, align 8
+  %.pre1055.i = load ptr, ptr %367, align 8
+  br label %403
 
-404:                                              ; preds = %400, %392
-  %405 = phi ptr [ %.pre1055.i, %400 ], [ %393, %392 ]
-  %406 = getelementptr inbounds %struct.cgltf_material, ptr %405, i64 %.0706964.i, i32 25
-  %407 = load ptr, ptr %406, align 8
-  %.not841.i = icmp eq ptr %407, null
-  br i1 %.not841.i, label %416, label %408
+403:                                              ; preds = %399, %391
+  %404 = phi ptr [ %.pre1055.i, %399 ], [ %392, %391 ]
+  %405 = getelementptr inbounds %struct.cgltf_material, ptr %404, i64 %.0706964.i, i32 25
+  %406 = load ptr, ptr %405, align 8
+  %.not841.i = icmp eq ptr %406, null
+  br i1 %.not841.i, label %415, label %407
 
-408:                                              ; preds = %404
-  %409 = ptrtoint ptr %407 to i64
-  %410 = load i64, ptr %237, align 8
-  %411 = icmp ult i64 %410, %409
-  br i1 %411, label %.loopexit, label %412
+407:                                              ; preds = %403
+  %408 = ptrtoint ptr %406 to i64
+  %409 = load i64, ptr %237, align 8
+  %410 = icmp ult i64 %409, %408
+  br i1 %410, label %.loopexit, label %411
 
-412:                                              ; preds = %408
-  %413 = load ptr, ptr %369, align 8
-  %414 = getelementptr %struct.cgltf_texture, ptr %413, i64 %409
-  %415 = getelementptr i8, ptr %414, i64 -80
-  store ptr %415, ptr %406, align 8
-  %.pre1056.i = load ptr, ptr %368, align 8
-  br label %416
+411:                                              ; preds = %407
+  %412 = load ptr, ptr %368, align 8
+  %413 = getelementptr %struct.cgltf_texture, ptr %412, i64 %408
+  %414 = getelementptr i8, ptr %413, i64 -80
+  store ptr %414, ptr %405, align 8
+  %.pre1056.i = load ptr, ptr %367, align 8
+  br label %415
 
-416:                                              ; preds = %412, %404
-  %417 = phi ptr [ %.pre1056.i, %412 ], [ %405, %404 ]
-  %418 = getelementptr inbounds %struct.cgltf_material, ptr %417, i64 %.0706964.i, i32 24
-  %419 = load ptr, ptr %418, align 8
-  %.not842.i = icmp eq ptr %419, null
-  br i1 %.not842.i, label %428, label %420
+415:                                              ; preds = %411, %403
+  %416 = phi ptr [ %.pre1056.i, %411 ], [ %404, %403 ]
+  %417 = getelementptr inbounds %struct.cgltf_material, ptr %416, i64 %.0706964.i, i32 24
+  %418 = load ptr, ptr %417, align 8
+  %.not842.i = icmp eq ptr %418, null
+  br i1 %.not842.i, label %427, label %419
 
-420:                                              ; preds = %416
-  %421 = ptrtoint ptr %419 to i64
-  %422 = load i64, ptr %237, align 8
-  %423 = icmp ult i64 %422, %421
-  br i1 %423, label %.loopexit, label %424
+419:                                              ; preds = %415
+  %420 = ptrtoint ptr %418 to i64
+  %421 = load i64, ptr %237, align 8
+  %422 = icmp ult i64 %421, %420
+  br i1 %422, label %.loopexit, label %423
 
-424:                                              ; preds = %420
-  %425 = load ptr, ptr %369, align 8
-  %426 = getelementptr %struct.cgltf_texture, ptr %425, i64 %421
-  %427 = getelementptr i8, ptr %426, i64 -80
-  store ptr %427, ptr %418, align 8
-  %.pre1057.i = load ptr, ptr %368, align 8
-  br label %428
+423:                                              ; preds = %419
+  %424 = load ptr, ptr %368, align 8
+  %425 = getelementptr %struct.cgltf_texture, ptr %424, i64 %420
+  %426 = getelementptr i8, ptr %425, i64 -80
+  store ptr %426, ptr %417, align 8
+  %.pre1057.i = load ptr, ptr %367, align 8
+  br label %427
 
-428:                                              ; preds = %424, %416
-  %429 = phi ptr [ %.pre1057.i, %424 ], [ %417, %416 ]
-  %430 = getelementptr inbounds %struct.cgltf_material, ptr %429, i64 %.0706964.i, i32 12
-  %431 = load ptr, ptr %430, align 8
-  %.not843.i = icmp eq ptr %431, null
-  br i1 %.not843.i, label %440, label %432
+427:                                              ; preds = %423, %415
+  %428 = phi ptr [ %.pre1057.i, %423 ], [ %416, %415 ]
+  %429 = getelementptr inbounds %struct.cgltf_material, ptr %428, i64 %.0706964.i, i32 12
+  %430 = load ptr, ptr %429, align 8
+  %.not843.i = icmp eq ptr %430, null
+  br i1 %.not843.i, label %439, label %431
 
-432:                                              ; preds = %428
-  %433 = ptrtoint ptr %431 to i64
-  %434 = load i64, ptr %237, align 8
-  %435 = icmp ult i64 %434, %433
-  br i1 %435, label %.loopexit, label %436
+431:                                              ; preds = %427
+  %432 = ptrtoint ptr %430 to i64
+  %433 = load i64, ptr %237, align 8
+  %434 = icmp ult i64 %433, %432
+  br i1 %434, label %.loopexit, label %435
 
-436:                                              ; preds = %432
-  %437 = load ptr, ptr %369, align 8
-  %438 = getelementptr %struct.cgltf_texture, ptr %437, i64 %433
-  %439 = getelementptr i8, ptr %438, i64 -80
-  store ptr %439, ptr %430, align 8
-  %.pre1058.i = load ptr, ptr %368, align 8
-  br label %440
+435:                                              ; preds = %431
+  %436 = load ptr, ptr %368, align 8
+  %437 = getelementptr %struct.cgltf_texture, ptr %436, i64 %432
+  %438 = getelementptr i8, ptr %437, i64 -80
+  store ptr %438, ptr %429, align 8
+  %.pre1058.i = load ptr, ptr %367, align 8
+  br label %439
 
-440:                                              ; preds = %436, %428
-  %441 = phi ptr [ %.pre1058.i, %436 ], [ %429, %428 ]
-  %442 = getelementptr inbounds %struct.cgltf_material, ptr %441, i64 %.0706964.i, i32 12, i32 1
-  %443 = load ptr, ptr %442, align 8
-  %.not844.i = icmp eq ptr %443, null
-  br i1 %.not844.i, label %452, label %444
+439:                                              ; preds = %435, %427
+  %440 = phi ptr [ %.pre1058.i, %435 ], [ %428, %427 ]
+  %441 = getelementptr inbounds %struct.cgltf_material, ptr %440, i64 %.0706964.i, i32 12, i32 1
+  %442 = load ptr, ptr %441, align 8
+  %.not844.i = icmp eq ptr %442, null
+  br i1 %.not844.i, label %451, label %443
 
-444:                                              ; preds = %440
-  %445 = ptrtoint ptr %443 to i64
-  %446 = load i64, ptr %237, align 8
-  %447 = icmp ult i64 %446, %445
-  br i1 %447, label %.loopexit, label %448
+443:                                              ; preds = %439
+  %444 = ptrtoint ptr %442 to i64
+  %445 = load i64, ptr %237, align 8
+  %446 = icmp ult i64 %445, %444
+  br i1 %446, label %.loopexit, label %447
 
-448:                                              ; preds = %444
-  %449 = load ptr, ptr %369, align 8
-  %450 = getelementptr %struct.cgltf_texture, ptr %449, i64 %445
-  %451 = getelementptr i8, ptr %450, i64 -80
-  store ptr %451, ptr %442, align 8
-  %.pre1059.i = load ptr, ptr %368, align 8
-  br label %452
+447:                                              ; preds = %443
+  %448 = load ptr, ptr %368, align 8
+  %449 = getelementptr %struct.cgltf_texture, ptr %448, i64 %444
+  %450 = getelementptr i8, ptr %449, i64 -80
+  store ptr %450, ptr %441, align 8
+  %.pre1059.i = load ptr, ptr %367, align 8
+  br label %451
 
-452:                                              ; preds = %448, %440
-  %453 = phi ptr [ %.pre1059.i, %448 ], [ %441, %440 ]
-  %454 = getelementptr inbounds %struct.cgltf_material, ptr %453, i64 %.0706964.i, i32 13
-  %455 = load ptr, ptr %454, align 8
-  %.not845.i = icmp eq ptr %455, null
-  br i1 %.not845.i, label %464, label %456
+451:                                              ; preds = %447, %439
+  %452 = phi ptr [ %.pre1059.i, %447 ], [ %440, %439 ]
+  %453 = getelementptr inbounds %struct.cgltf_material, ptr %452, i64 %.0706964.i, i32 13
+  %454 = load ptr, ptr %453, align 8
+  %.not845.i = icmp eq ptr %454, null
+  br i1 %.not845.i, label %463, label %455
 
-456:                                              ; preds = %452
-  %457 = ptrtoint ptr %455 to i64
-  %458 = load i64, ptr %237, align 8
-  %459 = icmp ult i64 %458, %457
-  br i1 %459, label %.loopexit, label %460
+455:                                              ; preds = %451
+  %456 = ptrtoint ptr %454 to i64
+  %457 = load i64, ptr %237, align 8
+  %458 = icmp ult i64 %457, %456
+  br i1 %458, label %.loopexit, label %459
 
-460:                                              ; preds = %456
-  %461 = load ptr, ptr %369, align 8
-  %462 = getelementptr %struct.cgltf_texture, ptr %461, i64 %457
-  %463 = getelementptr i8, ptr %462, i64 -80
-  store ptr %463, ptr %454, align 8
-  %.pre1060.i = load ptr, ptr %368, align 8
-  br label %464
+459:                                              ; preds = %455
+  %460 = load ptr, ptr %368, align 8
+  %461 = getelementptr %struct.cgltf_texture, ptr %460, i64 %456
+  %462 = getelementptr i8, ptr %461, i64 -80
+  store ptr %462, ptr %453, align 8
+  %.pre1060.i = load ptr, ptr %367, align 8
+  br label %463
 
-464:                                              ; preds = %460, %452
-  %465 = phi ptr [ %.pre1060.i, %460 ], [ %453, %452 ]
-  %466 = getelementptr inbounds %struct.cgltf_material, ptr %465, i64 %.0706964.i, i32 13, i32 1
-  %467 = load ptr, ptr %466, align 8
-  %.not846.i = icmp eq ptr %467, null
-  br i1 %.not846.i, label %476, label %468
+463:                                              ; preds = %459, %451
+  %464 = phi ptr [ %.pre1060.i, %459 ], [ %452, %451 ]
+  %465 = getelementptr inbounds %struct.cgltf_material, ptr %464, i64 %.0706964.i, i32 13, i32 1
+  %466 = load ptr, ptr %465, align 8
+  %.not846.i = icmp eq ptr %466, null
+  br i1 %.not846.i, label %475, label %467
 
-468:                                              ; preds = %464
-  %469 = ptrtoint ptr %467 to i64
-  %470 = load i64, ptr %237, align 8
-  %471 = icmp ult i64 %470, %469
-  br i1 %471, label %.loopexit, label %472
+467:                                              ; preds = %463
+  %468 = ptrtoint ptr %466 to i64
+  %469 = load i64, ptr %237, align 8
+  %470 = icmp ult i64 %469, %468
+  br i1 %470, label %.loopexit, label %471
 
-472:                                              ; preds = %468
-  %473 = load ptr, ptr %369, align 8
-  %474 = getelementptr %struct.cgltf_texture, ptr %473, i64 %469
-  %475 = getelementptr i8, ptr %474, i64 -80
-  store ptr %475, ptr %466, align 8
-  %.pre1061.i = load ptr, ptr %368, align 8
-  br label %476
+471:                                              ; preds = %467
+  %472 = load ptr, ptr %368, align 8
+  %473 = getelementptr %struct.cgltf_texture, ptr %472, i64 %468
+  %474 = getelementptr i8, ptr %473, i64 -80
+  store ptr %474, ptr %465, align 8
+  %.pre1061.i = load ptr, ptr %367, align 8
+  br label %475
 
-476:                                              ; preds = %472, %464
-  %477 = phi ptr [ %.pre1061.i, %472 ], [ %465, %464 ]
-  %478 = getelementptr inbounds %struct.cgltf_material, ptr %477, i64 %.0706964.i, i32 14
-  %479 = load ptr, ptr %478, align 8
-  %.not847.i = icmp eq ptr %479, null
-  br i1 %.not847.i, label %488, label %480
+475:                                              ; preds = %471, %463
+  %476 = phi ptr [ %.pre1061.i, %471 ], [ %464, %463 ]
+  %477 = getelementptr inbounds %struct.cgltf_material, ptr %476, i64 %.0706964.i, i32 14
+  %478 = load ptr, ptr %477, align 8
+  %.not847.i = icmp eq ptr %478, null
+  br i1 %.not847.i, label %487, label %479
 
-480:                                              ; preds = %476
-  %481 = ptrtoint ptr %479 to i64
-  %482 = load i64, ptr %237, align 8
-  %483 = icmp ult i64 %482, %481
-  br i1 %483, label %.loopexit, label %484
+479:                                              ; preds = %475
+  %480 = ptrtoint ptr %478 to i64
+  %481 = load i64, ptr %237, align 8
+  %482 = icmp ult i64 %481, %480
+  br i1 %482, label %.loopexit, label %483
 
-484:                                              ; preds = %480
-  %485 = load ptr, ptr %369, align 8
-  %486 = getelementptr %struct.cgltf_texture, ptr %485, i64 %481
-  %487 = getelementptr i8, ptr %486, i64 -80
-  store ptr %487, ptr %478, align 8
-  %.pre1062.i = load ptr, ptr %368, align 8
-  br label %488
+483:                                              ; preds = %479
+  %484 = load ptr, ptr %368, align 8
+  %485 = getelementptr %struct.cgltf_texture, ptr %484, i64 %480
+  %486 = getelementptr i8, ptr %485, i64 -80
+  store ptr %486, ptr %477, align 8
+  %.pre1062.i = load ptr, ptr %367, align 8
+  br label %487
 
-488:                                              ; preds = %484, %476
-  %489 = phi ptr [ %.pre1062.i, %484 ], [ %477, %476 ]
-  %490 = getelementptr inbounds %struct.cgltf_material, ptr %489, i64 %.0706964.i, i32 14, i32 1
-  %491 = load ptr, ptr %490, align 8
-  %.not848.i = icmp eq ptr %491, null
-  br i1 %.not848.i, label %500, label %492
+487:                                              ; preds = %483, %475
+  %488 = phi ptr [ %.pre1062.i, %483 ], [ %476, %475 ]
+  %489 = getelementptr inbounds %struct.cgltf_material, ptr %488, i64 %.0706964.i, i32 14, i32 1
+  %490 = load ptr, ptr %489, align 8
+  %.not848.i = icmp eq ptr %490, null
+  br i1 %.not848.i, label %499, label %491
 
-492:                                              ; preds = %488
-  %493 = ptrtoint ptr %491 to i64
-  %494 = load i64, ptr %237, align 8
-  %495 = icmp ult i64 %494, %493
-  br i1 %495, label %.loopexit, label %496
+491:                                              ; preds = %487
+  %492 = ptrtoint ptr %490 to i64
+  %493 = load i64, ptr %237, align 8
+  %494 = icmp ult i64 %493, %492
+  br i1 %494, label %.loopexit, label %495
 
-496:                                              ; preds = %492
-  %497 = load ptr, ptr %369, align 8
-  %498 = getelementptr %struct.cgltf_texture, ptr %497, i64 %493
-  %499 = getelementptr i8, ptr %498, i64 -80
-  store ptr %499, ptr %490, align 8
-  %.pre1063.i = load ptr, ptr %368, align 8
-  br label %500
+495:                                              ; preds = %491
+  %496 = load ptr, ptr %368, align 8
+  %497 = getelementptr %struct.cgltf_texture, ptr %496, i64 %492
+  %498 = getelementptr i8, ptr %497, i64 -80
+  store ptr %498, ptr %489, align 8
+  %.pre1063.i = load ptr, ptr %367, align 8
+  br label %499
 
-500:                                              ; preds = %496, %488
-  %501 = phi ptr [ %.pre1063.i, %496 ], [ %489, %488 ]
-  %502 = getelementptr inbounds %struct.cgltf_material, ptr %501, i64 %.0706964.i, i32 14, i32 2
-  %503 = load ptr, ptr %502, align 8
-  %.not849.i = icmp eq ptr %503, null
-  br i1 %.not849.i, label %512, label %504
+499:                                              ; preds = %495, %487
+  %500 = phi ptr [ %.pre1063.i, %495 ], [ %488, %487 ]
+  %501 = getelementptr inbounds %struct.cgltf_material, ptr %500, i64 %.0706964.i, i32 14, i32 2
+  %502 = load ptr, ptr %501, align 8
+  %.not849.i = icmp eq ptr %502, null
+  br i1 %.not849.i, label %511, label %503
 
-504:                                              ; preds = %500
-  %505 = ptrtoint ptr %503 to i64
-  %506 = load i64, ptr %237, align 8
-  %507 = icmp ult i64 %506, %505
-  br i1 %507, label %.loopexit, label %508
+503:                                              ; preds = %499
+  %504 = ptrtoint ptr %502 to i64
+  %505 = load i64, ptr %237, align 8
+  %506 = icmp ult i64 %505, %504
+  br i1 %506, label %.loopexit, label %507
 
-508:                                              ; preds = %504
-  %509 = load ptr, ptr %369, align 8
-  %510 = getelementptr %struct.cgltf_texture, ptr %509, i64 %505
-  %511 = getelementptr i8, ptr %510, i64 -80
-  store ptr %511, ptr %502, align 8
-  %.pre1064.i = load ptr, ptr %368, align 8
-  br label %512
+507:                                              ; preds = %503
+  %508 = load ptr, ptr %368, align 8
+  %509 = getelementptr %struct.cgltf_texture, ptr %508, i64 %504
+  %510 = getelementptr i8, ptr %509, i64 -80
+  store ptr %510, ptr %501, align 8
+  %.pre1064.i = load ptr, ptr %367, align 8
+  br label %511
 
-512:                                              ; preds = %508, %500
-  %513 = phi ptr [ %.pre1064.i, %508 ], [ %501, %500 ]
-  %514 = getelementptr inbounds %struct.cgltf_material, ptr %513, i64 %.0706964.i, i32 16
-  %515 = load ptr, ptr %514, align 8
-  %.not850.i = icmp eq ptr %515, null
-  br i1 %.not850.i, label %524, label %516
+511:                                              ; preds = %507, %499
+  %512 = phi ptr [ %.pre1064.i, %507 ], [ %500, %499 ]
+  %513 = getelementptr inbounds %struct.cgltf_material, ptr %512, i64 %.0706964.i, i32 16
+  %514 = load ptr, ptr %513, align 8
+  %.not850.i = icmp eq ptr %514, null
+  br i1 %.not850.i, label %523, label %515
 
-516:                                              ; preds = %512
-  %517 = ptrtoint ptr %515 to i64
-  %518 = load i64, ptr %237, align 8
-  %519 = icmp ult i64 %518, %517
-  br i1 %519, label %.loopexit, label %520
+515:                                              ; preds = %511
+  %516 = ptrtoint ptr %514 to i64
+  %517 = load i64, ptr %237, align 8
+  %518 = icmp ult i64 %517, %516
+  br i1 %518, label %.loopexit, label %519
 
-520:                                              ; preds = %516
-  %521 = load ptr, ptr %369, align 8
-  %522 = getelementptr %struct.cgltf_texture, ptr %521, i64 %517
-  %523 = getelementptr i8, ptr %522, i64 -80
-  store ptr %523, ptr %514, align 8
-  %.pre1065.i = load ptr, ptr %368, align 8
-  br label %524
+519:                                              ; preds = %515
+  %520 = load ptr, ptr %368, align 8
+  %521 = getelementptr %struct.cgltf_texture, ptr %520, i64 %516
+  %522 = getelementptr i8, ptr %521, i64 -80
+  store ptr %522, ptr %513, align 8
+  %.pre1065.i = load ptr, ptr %367, align 8
+  br label %523
 
-524:                                              ; preds = %520, %512
-  %525 = phi ptr [ %.pre1065.i, %520 ], [ %513, %512 ]
-  %526 = getelementptr inbounds %struct.cgltf_material, ptr %525, i64 %.0706964.i, i32 16, i32 1
-  %527 = load ptr, ptr %526, align 8
-  %.not851.i = icmp eq ptr %527, null
-  br i1 %.not851.i, label %536, label %528
+523:                                              ; preds = %519, %511
+  %524 = phi ptr [ %.pre1065.i, %519 ], [ %512, %511 ]
+  %525 = getelementptr inbounds %struct.cgltf_material, ptr %524, i64 %.0706964.i, i32 16, i32 1
+  %526 = load ptr, ptr %525, align 8
+  %.not851.i = icmp eq ptr %526, null
+  br i1 %.not851.i, label %535, label %527
 
-528:                                              ; preds = %524
-  %529 = ptrtoint ptr %527 to i64
-  %530 = load i64, ptr %237, align 8
-  %531 = icmp ult i64 %530, %529
-  br i1 %531, label %.loopexit, label %532
+527:                                              ; preds = %523
+  %528 = ptrtoint ptr %526 to i64
+  %529 = load i64, ptr %237, align 8
+  %530 = icmp ult i64 %529, %528
+  br i1 %530, label %.loopexit, label %531
 
-532:                                              ; preds = %528
-  %533 = load ptr, ptr %369, align 8
-  %534 = getelementptr %struct.cgltf_texture, ptr %533, i64 %529
-  %535 = getelementptr i8, ptr %534, i64 -80
-  store ptr %535, ptr %526, align 8
-  %.pre1066.i = load ptr, ptr %368, align 8
-  br label %536
+531:                                              ; preds = %527
+  %532 = load ptr, ptr %368, align 8
+  %533 = getelementptr %struct.cgltf_texture, ptr %532, i64 %528
+  %534 = getelementptr i8, ptr %533, i64 -80
+  store ptr %534, ptr %525, align 8
+  %.pre1066.i = load ptr, ptr %367, align 8
+  br label %535
 
-536:                                              ; preds = %532, %524
-  %537 = phi ptr [ %.pre1066.i, %532 ], [ %525, %524 ]
-  %538 = getelementptr inbounds %struct.cgltf_material, ptr %537, i64 %.0706964.i, i32 18
-  %539 = load ptr, ptr %538, align 8
-  %.not852.i = icmp eq ptr %539, null
-  br i1 %.not852.i, label %548, label %540
+535:                                              ; preds = %531, %523
+  %536 = phi ptr [ %.pre1066.i, %531 ], [ %524, %523 ]
+  %537 = getelementptr inbounds %struct.cgltf_material, ptr %536, i64 %.0706964.i, i32 18
+  %538 = load ptr, ptr %537, align 8
+  %.not852.i = icmp eq ptr %538, null
+  br i1 %.not852.i, label %547, label %539
 
-540:                                              ; preds = %536
-  %541 = ptrtoint ptr %539 to i64
-  %542 = load i64, ptr %237, align 8
-  %543 = icmp ult i64 %542, %541
-  br i1 %543, label %.loopexit, label %544
+539:                                              ; preds = %535
+  %540 = ptrtoint ptr %538 to i64
+  %541 = load i64, ptr %237, align 8
+  %542 = icmp ult i64 %541, %540
+  br i1 %542, label %.loopexit, label %543
 
-544:                                              ; preds = %540
-  %545 = load ptr, ptr %369, align 8
-  %546 = getelementptr %struct.cgltf_texture, ptr %545, i64 %541
-  %547 = getelementptr i8, ptr %546, i64 -80
-  store ptr %547, ptr %538, align 8
-  %.pre1067.i = load ptr, ptr %368, align 8
-  br label %548
+543:                                              ; preds = %539
+  %544 = load ptr, ptr %368, align 8
+  %545 = getelementptr %struct.cgltf_texture, ptr %544, i64 %540
+  %546 = getelementptr i8, ptr %545, i64 -80
+  store ptr %546, ptr %537, align 8
+  %.pre1067.i = load ptr, ptr %367, align 8
+  br label %547
 
-548:                                              ; preds = %544, %536
-  %549 = phi ptr [ %.pre1067.i, %544 ], [ %537, %536 ]
-  %550 = getelementptr inbounds %struct.cgltf_material, ptr %549, i64 %.0706964.i, i32 19
-  %551 = load ptr, ptr %550, align 8
-  %.not853.i = icmp eq ptr %551, null
-  br i1 %.not853.i, label %560, label %552
+547:                                              ; preds = %543, %535
+  %548 = phi ptr [ %.pre1067.i, %543 ], [ %536, %535 ]
+  %549 = getelementptr inbounds %struct.cgltf_material, ptr %548, i64 %.0706964.i, i32 19
+  %550 = load ptr, ptr %549, align 8
+  %.not853.i = icmp eq ptr %550, null
+  br i1 %.not853.i, label %559, label %551
 
-552:                                              ; preds = %548
-  %553 = ptrtoint ptr %551 to i64
-  %554 = load i64, ptr %237, align 8
-  %555 = icmp ult i64 %554, %553
-  br i1 %555, label %.loopexit, label %556
+551:                                              ; preds = %547
+  %552 = ptrtoint ptr %550 to i64
+  %553 = load i64, ptr %237, align 8
+  %554 = icmp ult i64 %553, %552
+  br i1 %554, label %.loopexit, label %555
 
-556:                                              ; preds = %552
-  %557 = load ptr, ptr %369, align 8
-  %558 = getelementptr %struct.cgltf_texture, ptr %557, i64 %553
-  %559 = getelementptr i8, ptr %558, i64 -80
-  store ptr %559, ptr %550, align 8
-  %.pre1068.i = load ptr, ptr %368, align 8
-  br label %560
+555:                                              ; preds = %551
+  %556 = load ptr, ptr %368, align 8
+  %557 = getelementptr %struct.cgltf_texture, ptr %556, i64 %552
+  %558 = getelementptr i8, ptr %557, i64 -80
+  store ptr %558, ptr %549, align 8
+  %.pre1068.i = load ptr, ptr %367, align 8
+  br label %559
 
-560:                                              ; preds = %556, %548
-  %561 = phi ptr [ %.pre1068.i, %556 ], [ %549, %548 ]
-  %562 = getelementptr inbounds %struct.cgltf_material, ptr %561, i64 %.0706964.i, i32 17
-  %563 = load ptr, ptr %562, align 8
-  %.not854.i = icmp eq ptr %563, null
-  br i1 %.not854.i, label %572, label %564
+559:                                              ; preds = %555, %547
+  %560 = phi ptr [ %.pre1068.i, %555 ], [ %548, %547 ]
+  %561 = getelementptr inbounds %struct.cgltf_material, ptr %560, i64 %.0706964.i, i32 17
+  %562 = load ptr, ptr %561, align 8
+  %.not854.i = icmp eq ptr %562, null
+  br i1 %.not854.i, label %571, label %563
 
-564:                                              ; preds = %560
-  %565 = ptrtoint ptr %563 to i64
-  %566 = load i64, ptr %237, align 8
-  %567 = icmp ult i64 %566, %565
-  br i1 %567, label %.loopexit, label %568
+563:                                              ; preds = %559
+  %564 = ptrtoint ptr %562 to i64
+  %565 = load i64, ptr %237, align 8
+  %566 = icmp ult i64 %565, %564
+  br i1 %566, label %.loopexit, label %567
 
-568:                                              ; preds = %564
-  %569 = load ptr, ptr %369, align 8
-  %570 = getelementptr %struct.cgltf_texture, ptr %569, i64 %565
-  %571 = getelementptr i8, ptr %570, i64 -80
-  store ptr %571, ptr %562, align 8
-  %.pre1069.i = load ptr, ptr %368, align 8
-  br label %572
+567:                                              ; preds = %563
+  %568 = load ptr, ptr %368, align 8
+  %569 = getelementptr %struct.cgltf_texture, ptr %568, i64 %564
+  %570 = getelementptr i8, ptr %569, i64 -80
+  store ptr %570, ptr %561, align 8
+  %.pre1069.i = load ptr, ptr %367, align 8
+  br label %571
 
-572:                                              ; preds = %568, %560
-  %573 = phi ptr [ %.pre1069.i, %568 ], [ %561, %560 ]
-  %574 = getelementptr inbounds %struct.cgltf_material, ptr %573, i64 %.0706964.i, i32 17, i32 2
-  %575 = load ptr, ptr %574, align 8
-  %.not855.i = icmp eq ptr %575, null
-  br i1 %.not855.i, label %584, label %576
+571:                                              ; preds = %567, %559
+  %572 = phi ptr [ %.pre1069.i, %567 ], [ %560, %559 ]
+  %573 = getelementptr inbounds %struct.cgltf_material, ptr %572, i64 %.0706964.i, i32 17, i32 2
+  %574 = load ptr, ptr %573, align 8
+  %.not855.i = icmp eq ptr %574, null
+  br i1 %.not855.i, label %583, label %575
 
-576:                                              ; preds = %572
-  %577 = ptrtoint ptr %575 to i64
-  %578 = load i64, ptr %237, align 8
-  %579 = icmp ult i64 %578, %577
-  br i1 %579, label %.loopexit, label %580
+575:                                              ; preds = %571
+  %576 = ptrtoint ptr %574 to i64
+  %577 = load i64, ptr %237, align 8
+  %578 = icmp ult i64 %577, %576
+  br i1 %578, label %.loopexit, label %579
 
-580:                                              ; preds = %576
-  %581 = load ptr, ptr %369, align 8
-  %582 = getelementptr %struct.cgltf_texture, ptr %581, i64 %577
-  %583 = getelementptr i8, ptr %582, i64 -80
-  store ptr %583, ptr %574, align 8
-  %.pre1070.i = load ptr, ptr %368, align 8
-  br label %584
+579:                                              ; preds = %575
+  %580 = load ptr, ptr %368, align 8
+  %581 = getelementptr %struct.cgltf_texture, ptr %580, i64 %576
+  %582 = getelementptr i8, ptr %581, i64 -80
+  store ptr %582, ptr %573, align 8
+  %.pre1070.i = load ptr, ptr %367, align 8
+  br label %583
 
-584:                                              ; preds = %580, %572
-  %585 = phi ptr [ %.pre1070.i, %580 ], [ %573, %572 ]
-  %586 = getelementptr inbounds %struct.cgltf_material, ptr %585, i64 %.0706964.i, i32 21, i32 1
-  %587 = load ptr, ptr %586, align 8
-  %.not856.i = icmp eq ptr %587, null
-  br i1 %.not856.i, label %596, label %588
+583:                                              ; preds = %579, %571
+  %584 = phi ptr [ %.pre1070.i, %579 ], [ %572, %571 ]
+  %585 = getelementptr inbounds %struct.cgltf_material, ptr %584, i64 %.0706964.i, i32 21, i32 1
+  %586 = load ptr, ptr %585, align 8
+  %.not856.i = icmp eq ptr %586, null
+  br i1 %.not856.i, label %595, label %587
 
-588:                                              ; preds = %584
-  %589 = ptrtoint ptr %587 to i64
-  %590 = load i64, ptr %237, align 8
-  %591 = icmp ult i64 %590, %589
-  br i1 %591, label %.loopexit, label %592
+587:                                              ; preds = %583
+  %588 = ptrtoint ptr %586 to i64
+  %589 = load i64, ptr %237, align 8
+  %590 = icmp ult i64 %589, %588
+  br i1 %590, label %.loopexit, label %591
 
-592:                                              ; preds = %588
-  %593 = load ptr, ptr %369, align 8
-  %594 = getelementptr %struct.cgltf_texture, ptr %593, i64 %589
-  %595 = getelementptr i8, ptr %594, i64 -80
-  store ptr %595, ptr %586, align 8
-  %.pre1071.i = load ptr, ptr %368, align 8
-  br label %596
+591:                                              ; preds = %587
+  %592 = load ptr, ptr %368, align 8
+  %593 = getelementptr %struct.cgltf_texture, ptr %592, i64 %588
+  %594 = getelementptr i8, ptr %593, i64 -80
+  store ptr %594, ptr %585, align 8
+  %.pre1071.i = load ptr, ptr %367, align 8
+  br label %595
 
-596:                                              ; preds = %592, %584
-  %597 = phi ptr [ %.pre1071.i, %592 ], [ %585, %584 ]
-  %598 = getelementptr inbounds %struct.cgltf_material, ptr %597, i64 %.0706964.i, i32 21, i32 5
-  %599 = load ptr, ptr %598, align 8
-  %.not857.i = icmp eq ptr %599, null
-  br i1 %.not857.i, label %608, label %600
+595:                                              ; preds = %591, %583
+  %596 = phi ptr [ %.pre1071.i, %591 ], [ %584, %583 ]
+  %597 = getelementptr inbounds %struct.cgltf_material, ptr %596, i64 %.0706964.i, i32 21, i32 5
+  %598 = load ptr, ptr %597, align 8
+  %.not857.i = icmp eq ptr %598, null
+  br i1 %.not857.i, label %607, label %599
 
-600:                                              ; preds = %596
-  %601 = ptrtoint ptr %599 to i64
-  %602 = load i64, ptr %237, align 8
-  %603 = icmp ult i64 %602, %601
-  br i1 %603, label %.loopexit, label %604
+599:                                              ; preds = %595
+  %600 = ptrtoint ptr %598 to i64
+  %601 = load i64, ptr %237, align 8
+  %602 = icmp ult i64 %601, %600
+  br i1 %602, label %.loopexit, label %603
 
-604:                                              ; preds = %600
-  %605 = load ptr, ptr %369, align 8
-  %606 = getelementptr %struct.cgltf_texture, ptr %605, i64 %601
-  %607 = getelementptr i8, ptr %606, i64 -80
-  store ptr %607, ptr %598, align 8
-  %.pre1072.i = load ptr, ptr %368, align 8
-  br label %608
+603:                                              ; preds = %599
+  %604 = load ptr, ptr %368, align 8
+  %605 = getelementptr %struct.cgltf_texture, ptr %604, i64 %600
+  %606 = getelementptr i8, ptr %605, i64 -80
+  store ptr %606, ptr %597, align 8
+  %.pre1072.i = load ptr, ptr %367, align 8
+  br label %607
 
-608:                                              ; preds = %604, %596
-  %609 = phi ptr [ %.pre1072.i, %604 ], [ %597, %596 ]
-  %610 = getelementptr inbounds %struct.cgltf_material, ptr %609, i64 %.0706964.i, i32 22, i32 2
-  %611 = load ptr, ptr %610, align 8
-  %.not858.i = icmp eq ptr %611, null
-  br i1 %.not858.i, label %620, label %612
+607:                                              ; preds = %603, %595
+  %608 = phi ptr [ %.pre1072.i, %603 ], [ %596, %595 ]
+  %609 = getelementptr inbounds %struct.cgltf_material, ptr %608, i64 %.0706964.i, i32 22, i32 2
+  %610 = load ptr, ptr %609, align 8
+  %.not858.i = icmp eq ptr %610, null
+  br i1 %.not858.i, label %619, label %611
 
-612:                                              ; preds = %608
-  %613 = ptrtoint ptr %611 to i64
-  %614 = load i64, ptr %237, align 8
-  %615 = icmp ult i64 %614, %613
-  br i1 %615, label %.loopexit, label %616
+611:                                              ; preds = %607
+  %612 = ptrtoint ptr %610 to i64
+  %613 = load i64, ptr %237, align 8
+  %614 = icmp ult i64 %613, %612
+  br i1 %614, label %.loopexit, label %615
 
-616:                                              ; preds = %612
-  %617 = load ptr, ptr %369, align 8
-  %618 = getelementptr %struct.cgltf_texture, ptr %617, i64 %613
-  %619 = getelementptr i8, ptr %618, i64 -80
-  store ptr %619, ptr %610, align 8
-  br label %620
+615:                                              ; preds = %611
+  %616 = load ptr, ptr %368, align 8
+  %617 = getelementptr %struct.cgltf_texture, ptr %616, i64 %612
+  %618 = getelementptr i8, ptr %617, i64 -80
+  store ptr %618, ptr %609, align 8
+  br label %619
 
-620:                                              ; preds = %616, %608
-  %621 = add nuw i64 %.0706964.i, 1
-  %622 = load i64, ptr %366, align 8
-  %623 = icmp ult i64 %621, %622
-  br i1 %623, label %392, label %.preheader893.i
+619:                                              ; preds = %615, %607
+  %620 = add nuw i64 %.0706964.i, 1
+  %621 = load i64, ptr %365, align 8
+  %622 = icmp ult i64 %620, %621
+  br i1 %622, label %391, label %.preheader893.i
 
-.preheader891.i:                                  ; preds = %657, %.preheader893.i
-  %624 = getelementptr inbounds i8, ptr %38, i64 224
-  %625 = load i64, ptr %624, align 8
-  %.not1008.i = icmp eq i64 %625, 0
+.preheader891.i:                                  ; preds = %656, %.preheader893.i
+  %623 = getelementptr inbounds i8, ptr %38, i64 224
+  %624 = load i64, ptr %623, align 8
+  %.not1008.i = icmp eq i64 %624, 0
   br i1 %.not1008.i, label %.preheader887.i, label %.preheader889.lr.ph.i
 
 .preheader889.lr.ph.i:                            ; preds = %.preheader891.i
-  %626 = getelementptr inbounds i8, ptr %38, i64 216
-  %627 = getelementptr inbounds i8, ptr %38, i64 272
-  %628 = getelementptr inbounds i8, ptr %38, i64 264
-  %629 = getelementptr inbounds i8, ptr %38, i64 120
+  %625 = getelementptr inbounds i8, ptr %38, i64 216
+  %626 = getelementptr inbounds i8, ptr %38, i64 272
+  %627 = getelementptr inbounds i8, ptr %38, i64 264
+  %628 = getelementptr inbounds i8, ptr %38, i64 120
   br label %.preheader889.i
 
-630:                                              ; preds = %657, %.lr.ph967.i
-  %.0705966.i = phi i64 [ 0, %.lr.ph967.i ], [ %658, %657 ]
-  %631 = load ptr, ptr %389, align 8
-  %632 = getelementptr inbounds %struct.cgltf_buffer_view, ptr %631, i64 %.0705966.i, i32 1
-  %633 = load ptr, ptr %632, align 8
-  %.not837.i = icmp eq ptr %633, null
-  br i1 %.not837.i, label %.loopexit, label %634
+629:                                              ; preds = %656, %.lr.ph967.i
+  %.0705966.i = phi i64 [ 0, %.lr.ph967.i ], [ %657, %656 ]
+  %630 = load ptr, ptr %388, align 8
+  %631 = getelementptr inbounds %struct.cgltf_buffer_view, ptr %630, i64 %.0705966.i, i32 1
+  %632 = load ptr, ptr %631, align 8
+  %.not837.i = icmp eq ptr %632, null
+  br i1 %.not837.i, label %.loopexit, label %633
 
-634:                                              ; preds = %630
-  %635 = ptrtoint ptr %633 to i64
-  %636 = load i64, ptr %390, align 8
-  %637 = icmp ult i64 %636, %635
-  br i1 %637, label %.loopexit, label %638
+633:                                              ; preds = %629
+  %634 = ptrtoint ptr %632 to i64
+  %635 = load i64, ptr %389, align 8
+  %636 = icmp ult i64 %635, %634
+  br i1 %636, label %.loopexit, label %637
 
-638:                                              ; preds = %634
-  %639 = load ptr, ptr %391, align 8
-  %640 = getelementptr %struct.cgltf_buffer, ptr %639, i64 %635
-  %641 = getelementptr i8, ptr %640, i64 -80
-  store ptr %641, ptr %632, align 8
-  %642 = load ptr, ptr %389, align 8
-  %643 = getelementptr inbounds %struct.cgltf_buffer_view, ptr %642, i64 %.0705966.i
-  %644 = getelementptr inbounds i8, ptr %643, i64 56
-  %645 = load i32, ptr %644, align 8
-  %.not838.i = icmp eq i32 %645, 0
-  br i1 %.not838.i, label %657, label %646
+637:                                              ; preds = %633
+  %638 = load ptr, ptr %390, align 8
+  %639 = getelementptr %struct.cgltf_buffer, ptr %638, i64 %634
+  %640 = getelementptr i8, ptr %639, i64 -80
+  store ptr %640, ptr %631, align 8
+  %641 = load ptr, ptr %388, align 8
+  %642 = getelementptr inbounds %struct.cgltf_buffer_view, ptr %641, i64 %.0705966.i
+  %643 = getelementptr inbounds i8, ptr %642, i64 56
+  %644 = load i32, ptr %643, align 8
+  %.not838.i = icmp eq i32 %644, 0
+  br i1 %.not838.i, label %656, label %645
 
-646:                                              ; preds = %638
-  %647 = getelementptr inbounds i8, ptr %643, i64 64
-  %648 = load ptr, ptr %647, align 8
-  %.not839.i = icmp eq ptr %648, null
-  br i1 %.not839.i, label %.loopexit, label %649
+645:                                              ; preds = %637
+  %646 = getelementptr inbounds i8, ptr %642, i64 64
+  %647 = load ptr, ptr %646, align 8
+  %.not839.i = icmp eq ptr %647, null
+  br i1 %.not839.i, label %.loopexit, label %648
 
-649:                                              ; preds = %646
-  %650 = ptrtoint ptr %648 to i64
-  %651 = load i64, ptr %390, align 8
-  %652 = icmp ult i64 %651, %650
-  br i1 %652, label %.loopexit, label %653
+648:                                              ; preds = %645
+  %649 = ptrtoint ptr %647 to i64
+  %650 = load i64, ptr %389, align 8
+  %651 = icmp ult i64 %650, %649
+  br i1 %651, label %.loopexit, label %652
 
-653:                                              ; preds = %649
-  %654 = load ptr, ptr %391, align 8
-  %655 = getelementptr %struct.cgltf_buffer, ptr %654, i64 %650
-  %656 = getelementptr i8, ptr %655, i64 -80
-  store ptr %656, ptr %647, align 8
-  br label %657
+652:                                              ; preds = %648
+  %653 = load ptr, ptr %390, align 8
+  %654 = getelementptr %struct.cgltf_buffer, ptr %653, i64 %649
+  %655 = getelementptr i8, ptr %654, i64 -80
+  store ptr %655, ptr %646, align 8
+  br label %656
 
-657:                                              ; preds = %653, %638
-  %658 = add nuw i64 %.0705966.i, 1
-  %659 = load i64, ptr %387, align 8
-  %660 = icmp ult i64 %658, %659
-  br i1 %660, label %630, label %.preheader891.i
+656:                                              ; preds = %652, %637
+  %657 = add nuw i64 %.0705966.i, 1
+  %658 = load i64, ptr %386, align 8
+  %659 = icmp ult i64 %657, %658
+  br i1 %659, label %629, label %.preheader891.i
 
-.preheader889.i:                                  ; preds = %715, %.preheader889.lr.ph.i
-  %.0704972.i = phi i64 [ 0, %.preheader889.lr.ph.i ], [ %716, %715 ]
-  %661 = load ptr, ptr %626, align 8
-  %662 = getelementptr inbounds %struct.cgltf_skin, ptr %661, i64 %.0704972.i, i32 2
-  %663 = load i64, ptr %662, align 8
-  %.not1009.i = icmp eq i64 %663, 0
+.preheader889.i:                                  ; preds = %714, %.preheader889.lr.ph.i
+  %.0704972.i = phi i64 [ 0, %.preheader889.lr.ph.i ], [ %715, %714 ]
+  %660 = load ptr, ptr %625, align 8
+  %661 = getelementptr inbounds %struct.cgltf_skin, ptr %660, i64 %.0704972.i, i32 2
+  %662 = load i64, ptr %661, align 8
+  %.not1009.i = icmp eq i64 %662, 0
   br i1 %.not1009.i, label %._crit_edge970.i, label %.lr.ph969.i
 
-.preheader887.i:                                  ; preds = %715, %.preheader891.i
-  %664 = getelementptr inbounds i8, ptr %38, i64 272
-  %665 = load i64, ptr %664, align 8
-  %.not1010.i = icmp eq i64 %665, 0
+.preheader887.i:                                  ; preds = %714, %.preheader891.i
+  %663 = getelementptr inbounds i8, ptr %38, i64 272
+  %664 = load i64, ptr %663, align 8
+  %.not1010.i = icmp eq i64 %664, 0
   br i1 %.not1010.i, label %.preheader881.i, label %.preheader885.lr.ph.i
 
 .preheader885.lr.ph.i:                            ; preds = %.preheader887.i
-  %666 = getelementptr inbounds i8, ptr %38, i64 264
-  %667 = getelementptr inbounds i8, ptr %38, i64 88
-  %668 = getelementptr inbounds i8, ptr %38, i64 216
-  %669 = getelementptr inbounds i8, ptr %38, i64 240
-  %670 = getelementptr inbounds i8, ptr %38, i64 232
-  %671 = getelementptr inbounds i8, ptr %38, i64 256
-  %672 = getelementptr inbounds i8, ptr %38, i64 248
-  %673 = getelementptr inbounds i8, ptr %38, i64 120
-  %.pre1074.i = load ptr, ptr %666, align 8
+  %665 = getelementptr inbounds i8, ptr %38, i64 264
+  %666 = getelementptr inbounds i8, ptr %38, i64 88
+  %667 = getelementptr inbounds i8, ptr %38, i64 216
+  %668 = getelementptr inbounds i8, ptr %38, i64 240
+  %669 = getelementptr inbounds i8, ptr %38, i64 232
+  %670 = getelementptr inbounds i8, ptr %38, i64 256
+  %671 = getelementptr inbounds i8, ptr %38, i64 248
+  %672 = getelementptr inbounds i8, ptr %38, i64 120
+  %.pre1074.i = load ptr, ptr %665, align 8
   br label %.preheader885.i
 
-.lr.ph969.i:                                      ; preds = %.preheader889.i, %683
-  %674 = phi ptr [ %688, %683 ], [ %661, %.preheader889.i ]
-  %.0703968.i = phi i64 [ %687, %683 ], [ 0, %.preheader889.i ]
-  %675 = getelementptr inbounds %struct.cgltf_skin, ptr %674, i64 %.0704972.i, i32 1
-  %676 = load ptr, ptr %675, align 8
-  %677 = getelementptr inbounds ptr, ptr %676, i64 %.0703968.i
-  %678 = load ptr, ptr %677, align 8
-  %.not836.i = icmp eq ptr %678, null
-  br i1 %.not836.i, label %.loopexit, label %679
+.lr.ph969.i:                                      ; preds = %.preheader889.i, %682
+  %673 = phi ptr [ %687, %682 ], [ %660, %.preheader889.i ]
+  %.0703968.i = phi i64 [ %686, %682 ], [ 0, %.preheader889.i ]
+  %674 = getelementptr inbounds %struct.cgltf_skin, ptr %673, i64 %.0704972.i, i32 1
+  %675 = load ptr, ptr %674, align 8
+  %676 = getelementptr inbounds ptr, ptr %675, i64 %.0703968.i
+  %677 = load ptr, ptr %676, align 8
+  %.not836.i = icmp eq ptr %677, null
+  br i1 %.not836.i, label %.loopexit, label %678
 
-679:                                              ; preds = %.lr.ph969.i
-  %680 = ptrtoint ptr %678 to i64
-  %681 = load i64, ptr %627, align 8
-  %682 = icmp ult i64 %681, %680
-  br i1 %682, label %.loopexit, label %683
+678:                                              ; preds = %.lr.ph969.i
+  %679 = ptrtoint ptr %677 to i64
+  %680 = load i64, ptr %626, align 8
+  %681 = icmp ult i64 %680, %679
+  br i1 %681, label %.loopexit, label %682
 
-683:                                              ; preds = %679
-  %684 = load ptr, ptr %628, align 8
-  %685 = getelementptr %struct.cgltf_node, ptr %684, i64 %680
-  %686 = getelementptr i8, ptr %685, i64 -264
-  store ptr %686, ptr %677, align 8
-  %687 = add nuw i64 %.0703968.i, 1
-  %688 = load ptr, ptr %626, align 8
-  %689 = getelementptr inbounds %struct.cgltf_skin, ptr %688, i64 %.0704972.i, i32 2
-  %690 = load i64, ptr %689, align 8
-  %691 = icmp ult i64 %687, %690
-  br i1 %691, label %.lr.ph969.i, label %._crit_edge970.i
+682:                                              ; preds = %678
+  %683 = load ptr, ptr %627, align 8
+  %684 = getelementptr %struct.cgltf_node, ptr %683, i64 %679
+  %685 = getelementptr i8, ptr %684, i64 -264
+  store ptr %685, ptr %676, align 8
+  %686 = add nuw i64 %.0703968.i, 1
+  %687 = load ptr, ptr %625, align 8
+  %688 = getelementptr inbounds %struct.cgltf_skin, ptr %687, i64 %.0704972.i, i32 2
+  %689 = load i64, ptr %688, align 8
+  %690 = icmp ult i64 %686, %689
+  br i1 %690, label %.lr.ph969.i, label %._crit_edge970.i
 
-._crit_edge970.i:                                 ; preds = %683, %.preheader889.i
-  %692 = phi ptr [ %661, %.preheader889.i ], [ %688, %683 ]
-  %693 = getelementptr inbounds %struct.cgltf_skin, ptr %692, i64 %.0704972.i, i32 3
-  %694 = load ptr, ptr %693, align 8
-  %.not834.i = icmp eq ptr %694, null
-  br i1 %.not834.i, label %703, label %695
+._crit_edge970.i:                                 ; preds = %682, %.preheader889.i
+  %691 = phi ptr [ %660, %.preheader889.i ], [ %687, %682 ]
+  %692 = getelementptr inbounds %struct.cgltf_skin, ptr %691, i64 %.0704972.i, i32 3
+  %693 = load ptr, ptr %692, align 8
+  %.not834.i = icmp eq ptr %693, null
+  br i1 %.not834.i, label %702, label %694
 
-695:                                              ; preds = %._crit_edge970.i
-  %696 = ptrtoint ptr %694 to i64
-  %697 = load i64, ptr %627, align 8
-  %698 = icmp ult i64 %697, %696
-  br i1 %698, label %.loopexit, label %699
+694:                                              ; preds = %._crit_edge970.i
+  %695 = ptrtoint ptr %693 to i64
+  %696 = load i64, ptr %626, align 8
+  %697 = icmp ult i64 %696, %695
+  br i1 %697, label %.loopexit, label %698
 
-699:                                              ; preds = %695
-  %700 = load ptr, ptr %628, align 8
-  %701 = getelementptr %struct.cgltf_node, ptr %700, i64 %696
-  %702 = getelementptr i8, ptr %701, i64 -264
-  store ptr %702, ptr %693, align 8
-  %.pre1073.i = load ptr, ptr %626, align 8
-  br label %703
+698:                                              ; preds = %694
+  %699 = load ptr, ptr %627, align 8
+  %700 = getelementptr %struct.cgltf_node, ptr %699, i64 %695
+  %701 = getelementptr i8, ptr %700, i64 -264
+  store ptr %701, ptr %692, align 8
+  %.pre1073.i = load ptr, ptr %625, align 8
+  br label %702
 
-703:                                              ; preds = %699, %._crit_edge970.i
-  %704 = phi ptr [ %.pre1073.i, %699 ], [ %692, %._crit_edge970.i ]
-  %705 = getelementptr inbounds %struct.cgltf_skin, ptr %704, i64 %.0704972.i, i32 4
-  %706 = load ptr, ptr %705, align 8
-  %.not835.i = icmp eq ptr %706, null
-  br i1 %.not835.i, label %715, label %707
+702:                                              ; preds = %698, %._crit_edge970.i
+  %703 = phi ptr [ %.pre1073.i, %698 ], [ %691, %._crit_edge970.i ]
+  %704 = getelementptr inbounds %struct.cgltf_skin, ptr %703, i64 %.0704972.i, i32 4
+  %705 = load ptr, ptr %704, align 8
+  %.not835.i = icmp eq ptr %705, null
+  br i1 %.not835.i, label %714, label %706
 
-707:                                              ; preds = %703
-  %708 = ptrtoint ptr %706 to i64
-  %709 = load i64, ptr %68, align 8
-  %710 = icmp ult i64 %709, %708
-  br i1 %710, label %.loopexit, label %711
+706:                                              ; preds = %702
+  %707 = ptrtoint ptr %705 to i64
+  %708 = load i64, ptr %68, align 8
+  %709 = icmp ult i64 %708, %707
+  br i1 %709, label %.loopexit, label %710
 
-711:                                              ; preds = %707
-  %712 = load ptr, ptr %629, align 8
-  %713 = getelementptr %struct.cgltf_accessor, ptr %712, i64 %708
-  %714 = getelementptr i8, ptr %713, i64 -288
-  store ptr %714, ptr %705, align 8
-  br label %715
+710:                                              ; preds = %706
+  %711 = load ptr, ptr %628, align 8
+  %712 = getelementptr %struct.cgltf_accessor, ptr %711, i64 %707
+  %713 = getelementptr i8, ptr %712, i64 -288
+  store ptr %713, ptr %704, align 8
+  br label %714
 
-715:                                              ; preds = %711, %703
-  %716 = add nuw i64 %.0704972.i, 1
-  %717 = load i64, ptr %624, align 8
-  %718 = icmp ult i64 %716, %717
-  br i1 %718, label %.preheader889.i, label %.preheader887.i
+714:                                              ; preds = %710, %702
+  %715 = add nuw i64 %.0704972.i, 1
+  %716 = load i64, ptr %623, align 8
+  %717 = icmp ult i64 %715, %716
+  br i1 %717, label %.preheader889.i, label %.preheader887.i
 
 .preheader885.i:                                  ; preds = %.loopexit883.i, %.preheader885.lr.ph.i
+  %718 = phi ptr [ %.pre1074.i, %.preheader885.lr.ph.i ], [ %829, %.loopexit883.i ]
   %719 = phi ptr [ %.pre1074.i, %.preheader885.lr.ph.i ], [ %830, %.loopexit883.i ]
-  %720 = phi ptr [ %.pre1074.i, %.preheader885.lr.ph.i ], [ %831, %.loopexit883.i ]
-  %.0702980.i = phi i64 [ 0, %.preheader885.lr.ph.i ], [ %832, %.loopexit883.i ]
-  %721 = getelementptr inbounds %struct.cgltf_node, ptr %720, i64 %.0702980.i, i32 3
-  %722 = load i64, ptr %721, align 8
-  %.not1011.i = icmp eq i64 %722, 0
+  %.0702980.i = phi i64 [ 0, %.preheader885.lr.ph.i ], [ %831, %.loopexit883.i ]
+  %720 = getelementptr inbounds %struct.cgltf_node, ptr %719, i64 %.0702980.i, i32 3
+  %721 = load i64, ptr %720, align 8
+  %.not1011.i = icmp eq i64 %721, 0
   br i1 %.not1011.i, label %._crit_edge975.i, label %.lr.ph974.i
 
 .preheader881.i:                                  ; preds = %.loopexit883.i, %.preheader887.i
-  %723 = getelementptr inbounds i8, ptr %38, i64 288
-  %724 = load i64, ptr %723, align 8
-  %.not1013.i = icmp eq i64 %724, 0
+  %722 = getelementptr inbounds i8, ptr %38, i64 288
+  %723 = load i64, ptr %722, align 8
+  %.not1013.i = icmp eq i64 %723, 0
   br i1 %.not1013.i, label %._crit_edge987.i, label %.preheader879.lr.ph.i
 
 .preheader879.lr.ph.i:                            ; preds = %.preheader881.i
-  %725 = getelementptr inbounds i8, ptr %38, i64 280
-  %726 = getelementptr inbounds i8, ptr %38, i64 264
-  %.pre1079.i = load ptr, ptr %725, align 8
+  %724 = getelementptr inbounds i8, ptr %38, i64 280
+  %725 = getelementptr inbounds i8, ptr %38, i64 264
+  %.pre1079.i = load ptr, ptr %724, align 8
   br label %.preheader879.i
 
-.lr.ph974.i:                                      ; preds = %.preheader885.i, %747
-  %727 = phi ptr [ %749, %747 ], [ %720, %.preheader885.i ]
-  %.0701973.i = phi i64 [ %748, %747 ], [ 0, %.preheader885.i ]
-  %728 = getelementptr inbounds %struct.cgltf_node, ptr %727, i64 %.0702980.i, i32 2
-  %729 = load ptr, ptr %728, align 8
-  %730 = getelementptr inbounds ptr, ptr %729, i64 %.0701973.i
-  %731 = load ptr, ptr %730, align 8
-  %.not832.i = icmp eq ptr %731, null
-  br i1 %.not832.i, label %.loopexit, label %732
+.lr.ph974.i:                                      ; preds = %.preheader885.i, %746
+  %726 = phi ptr [ %748, %746 ], [ %719, %.preheader885.i ]
+  %.0701973.i = phi i64 [ %747, %746 ], [ 0, %.preheader885.i ]
+  %727 = getelementptr inbounds %struct.cgltf_node, ptr %726, i64 %.0702980.i, i32 2
+  %728 = load ptr, ptr %727, align 8
+  %729 = getelementptr inbounds ptr, ptr %728, i64 %.0701973.i
+  %730 = load ptr, ptr %729, align 8
+  %.not832.i = icmp eq ptr %730, null
+  br i1 %.not832.i, label %.loopexit, label %731
 
-732:                                              ; preds = %.lr.ph974.i
-  %733 = ptrtoint ptr %731 to i64
-  %734 = load i64, ptr %664, align 8
-  %735 = icmp ult i64 %734, %733
-  br i1 %735, label %.loopexit, label %736
+731:                                              ; preds = %.lr.ph974.i
+  %732 = ptrtoint ptr %730 to i64
+  %733 = load i64, ptr %663, align 8
+  %734 = icmp ult i64 %733, %732
+  br i1 %734, label %.loopexit, label %735
 
-736:                                              ; preds = %732
-  %737 = getelementptr %struct.cgltf_node, ptr %727, i64 %733
-  %738 = getelementptr i8, ptr %737, i64 -264
-  store ptr %738, ptr %730, align 8
-  %739 = load ptr, ptr %666, align 8
-  %740 = getelementptr inbounds %struct.cgltf_node, ptr %739, i64 %.0702980.i
-  %741 = getelementptr inbounds i8, ptr %740, i64 16
-  %742 = load ptr, ptr %741, align 8
-  %743 = getelementptr inbounds ptr, ptr %742, i64 %.0701973.i
-  %744 = load ptr, ptr %743, align 8
-  %745 = getelementptr inbounds i8, ptr %744, i64 8
-  %746 = load ptr, ptr %745, align 8
-  %.not833.i = icmp eq ptr %746, null
-  br i1 %.not833.i, label %747, label %.loopexit
+735:                                              ; preds = %731
+  %736 = getelementptr %struct.cgltf_node, ptr %726, i64 %732
+  %737 = getelementptr i8, ptr %736, i64 -264
+  store ptr %737, ptr %729, align 8
+  %738 = load ptr, ptr %665, align 8
+  %739 = getelementptr inbounds %struct.cgltf_node, ptr %738, i64 %.0702980.i
+  %740 = getelementptr inbounds i8, ptr %739, i64 16
+  %741 = load ptr, ptr %740, align 8
+  %742 = getelementptr inbounds ptr, ptr %741, i64 %.0701973.i
+  %743 = load ptr, ptr %742, align 8
+  %744 = getelementptr inbounds i8, ptr %743, i64 8
+  %745 = load ptr, ptr %744, align 8
+  %.not833.i = icmp eq ptr %745, null
+  br i1 %.not833.i, label %746, label %.loopexit
 
-747:                                              ; preds = %736
-  store ptr %740, ptr %745, align 8
-  %748 = add nuw i64 %.0701973.i, 1
-  %749 = load ptr, ptr %666, align 8
-  %750 = getelementptr inbounds %struct.cgltf_node, ptr %749, i64 %.0702980.i, i32 3
-  %751 = load i64, ptr %750, align 8
-  %752 = icmp ult i64 %748, %751
-  br i1 %752, label %.lr.ph974.i, label %._crit_edge975.i
+746:                                              ; preds = %735
+  store ptr %739, ptr %744, align 8
+  %747 = add nuw i64 %.0701973.i, 1
+  %748 = load ptr, ptr %665, align 8
+  %749 = getelementptr inbounds %struct.cgltf_node, ptr %748, i64 %.0702980.i, i32 3
+  %750 = load i64, ptr %749, align 8
+  %751 = icmp ult i64 %747, %750
+  br i1 %751, label %.lr.ph974.i, label %._crit_edge975.i
 
-._crit_edge975.i:                                 ; preds = %747, %.preheader885.i
-  %753 = phi ptr [ %719, %.preheader885.i ], [ %749, %747 ]
-  %754 = phi ptr [ %720, %.preheader885.i ], [ %749, %747 ]
-  %755 = getelementptr inbounds %struct.cgltf_node, ptr %754, i64 %.0702980.i, i32 5
-  %756 = load ptr, ptr %755, align 8
-  %.not826.i = icmp eq ptr %756, null
-  br i1 %.not826.i, label %765, label %757
+._crit_edge975.i:                                 ; preds = %746, %.preheader885.i
+  %752 = phi ptr [ %718, %.preheader885.i ], [ %748, %746 ]
+  %753 = phi ptr [ %719, %.preheader885.i ], [ %748, %746 ]
+  %754 = getelementptr inbounds %struct.cgltf_node, ptr %753, i64 %.0702980.i, i32 5
+  %755 = load ptr, ptr %754, align 8
+  %.not826.i = icmp eq ptr %755, null
+  br i1 %.not826.i, label %764, label %756
 
-757:                                              ; preds = %._crit_edge975.i
-  %758 = ptrtoint ptr %756 to i64
-  %759 = load i64, ptr %54, align 8
-  %760 = icmp ult i64 %759, %758
-  br i1 %760, label %.loopexit, label %761
+756:                                              ; preds = %._crit_edge975.i
+  %757 = ptrtoint ptr %755 to i64
+  %758 = load i64, ptr %54, align 8
+  %759 = icmp ult i64 %758, %757
+  br i1 %759, label %.loopexit, label %760
 
-761:                                              ; preds = %757
-  %762 = load ptr, ptr %667, align 8
-  %763 = getelementptr %struct.cgltf_mesh, ptr %762, i64 %758
-  %764 = getelementptr i8, ptr %763, i64 -96
-  store ptr %764, ptr %755, align 8
-  %.pre1075.i = load ptr, ptr %666, align 8
-  br label %765
+760:                                              ; preds = %756
+  %761 = load ptr, ptr %666, align 8
+  %762 = getelementptr %struct.cgltf_mesh, ptr %761, i64 %757
+  %763 = getelementptr i8, ptr %762, i64 -96
+  store ptr %763, ptr %754, align 8
+  %.pre1075.i = load ptr, ptr %665, align 8
+  br label %764
 
-765:                                              ; preds = %761, %._crit_edge975.i
-  %766 = phi ptr [ %.pre1075.i, %761 ], [ %753, %._crit_edge975.i ]
-  %767 = phi ptr [ %.pre1075.i, %761 ], [ %754, %._crit_edge975.i ]
-  %768 = getelementptr inbounds %struct.cgltf_node, ptr %767, i64 %.0702980.i, i32 4
-  %769 = load ptr, ptr %768, align 8
-  %.not827.i = icmp eq ptr %769, null
-  br i1 %.not827.i, label %778, label %770
+764:                                              ; preds = %760, %._crit_edge975.i
+  %765 = phi ptr [ %.pre1075.i, %760 ], [ %752, %._crit_edge975.i ]
+  %766 = phi ptr [ %.pre1075.i, %760 ], [ %753, %._crit_edge975.i ]
+  %767 = getelementptr inbounds %struct.cgltf_node, ptr %766, i64 %.0702980.i, i32 4
+  %768 = load ptr, ptr %767, align 8
+  %.not827.i = icmp eq ptr %768, null
+  br i1 %.not827.i, label %777, label %769
 
-770:                                              ; preds = %765
-  %771 = ptrtoint ptr %769 to i64
-  %772 = load i64, ptr %624, align 8
-  %773 = icmp ult i64 %772, %771
-  br i1 %773, label %.loopexit, label %774
+769:                                              ; preds = %764
+  %770 = ptrtoint ptr %768 to i64
+  %771 = load i64, ptr %623, align 8
+  %772 = icmp ult i64 %771, %770
+  br i1 %772, label %.loopexit, label %773
 
-774:                                              ; preds = %770
-  %775 = load ptr, ptr %668, align 8
-  %776 = getelementptr %struct.cgltf_skin, ptr %775, i64 %771
-  %777 = getelementptr i8, ptr %776, i64 -80
-  store ptr %777, ptr %768, align 8
-  %.pre1076.i = load ptr, ptr %666, align 8
-  br label %778
+773:                                              ; preds = %769
+  %774 = load ptr, ptr %667, align 8
+  %775 = getelementptr %struct.cgltf_skin, ptr %774, i64 %770
+  %776 = getelementptr i8, ptr %775, i64 -80
+  store ptr %776, ptr %767, align 8
+  %.pre1076.i = load ptr, ptr %665, align 8
+  br label %777
 
-778:                                              ; preds = %774, %765
-  %779 = phi ptr [ %.pre1076.i, %774 ], [ %766, %765 ]
-  %780 = phi ptr [ %.pre1076.i, %774 ], [ %767, %765 ]
-  %781 = getelementptr inbounds %struct.cgltf_node, ptr %780, i64 %.0702980.i, i32 6
-  %782 = load ptr, ptr %781, align 8
-  %.not828.i = icmp eq ptr %782, null
-  br i1 %.not828.i, label %791, label %783
+777:                                              ; preds = %773, %764
+  %778 = phi ptr [ %.pre1076.i, %773 ], [ %765, %764 ]
+  %779 = phi ptr [ %.pre1076.i, %773 ], [ %766, %764 ]
+  %780 = getelementptr inbounds %struct.cgltf_node, ptr %779, i64 %.0702980.i, i32 6
+  %781 = load ptr, ptr %780, align 8
+  %.not828.i = icmp eq ptr %781, null
+  br i1 %.not828.i, label %790, label %782
 
-783:                                              ; preds = %778
-  %784 = ptrtoint ptr %782 to i64
-  %785 = load i64, ptr %669, align 8
-  %786 = icmp ult i64 %785, %784
-  br i1 %786, label %.loopexit, label %787
+782:                                              ; preds = %777
+  %783 = ptrtoint ptr %781 to i64
+  %784 = load i64, ptr %668, align 8
+  %785 = icmp ult i64 %784, %783
+  br i1 %785, label %.loopexit, label %786
 
-787:                                              ; preds = %783
-  %788 = load ptr, ptr %670, align 8
-  %789 = getelementptr %struct.cgltf_camera, ptr %788, i64 %784
-  %790 = getelementptr i8, ptr %789, i64 -104
-  store ptr %790, ptr %781, align 8
-  %.pre1077.i = load ptr, ptr %666, align 8
-  br label %791
+786:                                              ; preds = %782
+  %787 = load ptr, ptr %669, align 8
+  %788 = getelementptr %struct.cgltf_camera, ptr %787, i64 %783
+  %789 = getelementptr i8, ptr %788, i64 -104
+  store ptr %789, ptr %780, align 8
+  %.pre1077.i = load ptr, ptr %665, align 8
+  br label %790
 
-791:                                              ; preds = %787, %778
-  %792 = phi ptr [ %.pre1077.i, %787 ], [ %779, %778 ]
-  %793 = phi ptr [ %.pre1077.i, %787 ], [ %780, %778 ]
-  %794 = getelementptr inbounds %struct.cgltf_node, ptr %793, i64 %.0702980.i, i32 7
-  %795 = load ptr, ptr %794, align 8
-  %.not829.i = icmp eq ptr %795, null
-  br i1 %.not829.i, label %804, label %796
+790:                                              ; preds = %786, %777
+  %791 = phi ptr [ %.pre1077.i, %786 ], [ %778, %777 ]
+  %792 = phi ptr [ %.pre1077.i, %786 ], [ %779, %777 ]
+  %793 = getelementptr inbounds %struct.cgltf_node, ptr %792, i64 %.0702980.i, i32 7
+  %794 = load ptr, ptr %793, align 8
+  %.not829.i = icmp eq ptr %794, null
+  br i1 %.not829.i, label %803, label %795
 
-796:                                              ; preds = %791
-  %797 = ptrtoint ptr %795 to i64
-  %798 = load i64, ptr %671, align 8
-  %799 = icmp ult i64 %798, %797
-  br i1 %799, label %.loopexit, label %800
+795:                                              ; preds = %790
+  %796 = ptrtoint ptr %794 to i64
+  %797 = load i64, ptr %670, align 8
+  %798 = icmp ult i64 %797, %796
+  br i1 %798, label %.loopexit, label %799
 
-800:                                              ; preds = %796
-  %801 = load ptr, ptr %672, align 8
-  %802 = getelementptr %struct.cgltf_light, ptr %801, i64 %797
-  %803 = getelementptr i8, ptr %802, i64 -64
-  store ptr %803, ptr %794, align 8
-  %.pre1078.i = load ptr, ptr %666, align 8
-  br label %804
+799:                                              ; preds = %795
+  %800 = load ptr, ptr %671, align 8
+  %801 = getelementptr %struct.cgltf_light, ptr %800, i64 %796
+  %802 = getelementptr i8, ptr %801, i64 -64
+  store ptr %802, ptr %793, align 8
+  %.pre1078.i = load ptr, ptr %665, align 8
+  br label %803
 
-804:                                              ; preds = %800, %791
-  %805 = phi ptr [ %.pre1078.i, %800 ], [ %792, %791 ]
-  %806 = phi ptr [ %.pre1078.i, %800 ], [ %793, %791 ]
-  %807 = getelementptr inbounds %struct.cgltf_node, ptr %806, i64 %.0702980.i, i32 19
-  %808 = load i32, ptr %807, align 8
-  %.not830.i = icmp eq i32 %808, 0
+803:                                              ; preds = %799, %790
+  %804 = phi ptr [ %.pre1078.i, %799 ], [ %791, %790 ]
+  %805 = phi ptr [ %.pre1078.i, %799 ], [ %792, %790 ]
+  %806 = getelementptr inbounds %struct.cgltf_node, ptr %805, i64 %.0702980.i, i32 19
+  %807 = load i32, ptr %806, align 8
+  %.not830.i = icmp eq i32 %807, 0
   br i1 %.not830.i, label %.loopexit883.i, label %.preheader882.i
 
-.preheader882.i:                                  ; preds = %804
-  %809 = getelementptr inbounds %struct.cgltf_node, ptr %805, i64 %.0702980.i, i32 20
-  %810 = getelementptr inbounds i8, ptr %809, i64 8
-  %811 = load i64, ptr %810, align 8
-  %.not1012.i = icmp eq i64 %811, 0
+.preheader882.i:                                  ; preds = %803
+  %808 = getelementptr inbounds %struct.cgltf_node, ptr %804, i64 %.0702980.i, i32 20
+  %809 = getelementptr inbounds i8, ptr %808, i64 8
+  %810 = load i64, ptr %809, align 8
+  %.not1012.i = icmp eq i64 %810, 0
   br i1 %.not1012.i, label %.loopexit883.i, label %.lr.ph979.i
 
-.lr.ph979.i:                                      ; preds = %.preheader882.i, %820
-  %812 = phi ptr [ %826, %820 ], [ %809, %.preheader882.i ]
-  %.0700978.i = phi i64 [ %824, %820 ], [ 0, %.preheader882.i ]
-  %813 = load ptr, ptr %812, align 8
-  %814 = getelementptr inbounds %struct.cgltf_attribute, ptr %813, i64 %.0700978.i, i32 3
-  %815 = load ptr, ptr %814, align 8
-  %.not831.i = icmp eq ptr %815, null
-  br i1 %.not831.i, label %.loopexit, label %816
+.lr.ph979.i:                                      ; preds = %.preheader882.i, %819
+  %811 = phi ptr [ %825, %819 ], [ %808, %.preheader882.i ]
+  %.0700978.i = phi i64 [ %823, %819 ], [ 0, %.preheader882.i ]
+  %812 = load ptr, ptr %811, align 8
+  %813 = getelementptr inbounds %struct.cgltf_attribute, ptr %812, i64 %.0700978.i, i32 3
+  %814 = load ptr, ptr %813, align 8
+  %.not831.i = icmp eq ptr %814, null
+  br i1 %.not831.i, label %.loopexit, label %815
 
-816:                                              ; preds = %.lr.ph979.i
-  %817 = ptrtoint ptr %815 to i64
-  %818 = load i64, ptr %68, align 8
-  %819 = icmp ult i64 %818, %817
-  br i1 %819, label %.loopexit, label %820
+815:                                              ; preds = %.lr.ph979.i
+  %816 = ptrtoint ptr %814 to i64
+  %817 = load i64, ptr %68, align 8
+  %818 = icmp ult i64 %817, %816
+  br i1 %818, label %.loopexit, label %819
 
-820:                                              ; preds = %816
-  %821 = load ptr, ptr %673, align 8
-  %822 = getelementptr %struct.cgltf_accessor, ptr %821, i64 %817
-  %823 = getelementptr i8, ptr %822, i64 -288
-  store ptr %823, ptr %814, align 8
-  %824 = add nuw i64 %.0700978.i, 1
-  %825 = load ptr, ptr %666, align 8
-  %826 = getelementptr inbounds %struct.cgltf_node, ptr %825, i64 %.0702980.i, i32 20
-  %827 = getelementptr inbounds i8, ptr %826, i64 8
-  %828 = load i64, ptr %827, align 8
-  %829 = icmp ult i64 %824, %828
-  br i1 %829, label %.lr.ph979.i, label %.loopexit883.i
+819:                                              ; preds = %815
+  %820 = load ptr, ptr %672, align 8
+  %821 = getelementptr %struct.cgltf_accessor, ptr %820, i64 %816
+  %822 = getelementptr i8, ptr %821, i64 -288
+  store ptr %822, ptr %813, align 8
+  %823 = add nuw i64 %.0700978.i, 1
+  %824 = load ptr, ptr %665, align 8
+  %825 = getelementptr inbounds %struct.cgltf_node, ptr %824, i64 %.0702980.i, i32 20
+  %826 = getelementptr inbounds i8, ptr %825, i64 8
+  %827 = load i64, ptr %826, align 8
+  %828 = icmp ult i64 %823, %827
+  br i1 %828, label %.lr.ph979.i, label %.loopexit883.i
 
-.loopexit883.i:                                   ; preds = %820, %.preheader882.i, %804
-  %830 = phi ptr [ %805, %.preheader882.i ], [ %805, %804 ], [ %825, %820 ]
-  %831 = phi ptr [ %805, %.preheader882.i ], [ %806, %804 ], [ %825, %820 ]
-  %832 = add nuw i64 %.0702980.i, 1
-  %833 = load i64, ptr %664, align 8
-  %834 = icmp ult i64 %832, %833
-  br i1 %834, label %.preheader885.i, label %.preheader881.i
+.loopexit883.i:                                   ; preds = %819, %.preheader882.i, %803
+  %829 = phi ptr [ %804, %.preheader882.i ], [ %804, %803 ], [ %824, %819 ]
+  %830 = phi ptr [ %804, %.preheader882.i ], [ %805, %803 ], [ %824, %819 ]
+  %831 = add nuw i64 %.0702980.i, 1
+  %832 = load i64, ptr %663, align 8
+  %833 = icmp ult i64 %831, %832
+  br i1 %833, label %.preheader885.i, label %.preheader881.i
 
 .preheader879.i:                                  ; preds = %._crit_edge985.i, %.preheader879.lr.ph.i
-  %835 = phi i64 [ %724, %.preheader879.lr.ph.i ], [ %862, %._crit_edge985.i ]
-  %836 = phi ptr [ %.pre1079.i, %.preheader879.lr.ph.i ], [ %863, %._crit_edge985.i ]
-  %.0699986.i = phi i64 [ 0, %.preheader879.lr.ph.i ], [ %864, %._crit_edge985.i ]
-  %837 = getelementptr inbounds %struct.cgltf_scene, ptr %836, i64 %.0699986.i, i32 2
-  %838 = load i64, ptr %837, align 8
-  %.not1014.i = icmp eq i64 %838, 0
+  %834 = phi i64 [ %723, %.preheader879.lr.ph.i ], [ %861, %._crit_edge985.i ]
+  %835 = phi ptr [ %.pre1079.i, %.preheader879.lr.ph.i ], [ %862, %._crit_edge985.i ]
+  %.0699986.i = phi i64 [ 0, %.preheader879.lr.ph.i ], [ %863, %._crit_edge985.i ]
+  %836 = getelementptr inbounds %struct.cgltf_scene, ptr %835, i64 %.0699986.i, i32 2
+  %837 = load i64, ptr %836, align 8
+  %.not1014.i = icmp eq i64 %837, 0
   br i1 %.not1014.i, label %._crit_edge985.i, label %.lr.ph984.preheader.i
 
 .lr.ph984.preheader.i:                            ; preds = %.preheader879.i
-  %.phi.trans.insert1086.i = getelementptr inbounds %struct.cgltf_scene, ptr %836, i64 %.0699986.i, i32 1
+  %.phi.trans.insert1086.i = getelementptr inbounds %struct.cgltf_scene, ptr %835, i64 %.0699986.i, i32 1
   %.pre1087.i = load ptr, ptr %.phi.trans.insert1086.i, align 8
   br label %.lr.ph984.i
 
-839:                                              ; preds = %851
-  %840 = add nuw i64 %.0698983.i, 1
-  %841 = getelementptr inbounds %struct.cgltf_scene, ptr %855, i64 %.0699986.i, i32 2
-  %842 = load i64, ptr %841, align 8
-  %843 = icmp ult i64 %840, %842
-  br i1 %843, label %.lr.ph984.i, label %._crit_edge985.loopexit.i
+838:                                              ; preds = %850
+  %839 = add nuw i64 %.0698983.i, 1
+  %840 = getelementptr inbounds %struct.cgltf_scene, ptr %854, i64 %.0699986.i, i32 2
+  %841 = load i64, ptr %840, align 8
+  %842 = icmp ult i64 %839, %841
+  br i1 %842, label %.lr.ph984.i, label %._crit_edge985.loopexit.i
 
-.lr.ph984.i:                                      ; preds = %839, %.lr.ph984.preheader.i
-  %844 = phi ptr [ %857, %839 ], [ %.pre1087.i, %.lr.ph984.preheader.i ]
-  %.0698983.i = phi i64 [ %840, %839 ], [ 0, %.lr.ph984.preheader.i ]
-  %845 = getelementptr inbounds ptr, ptr %844, i64 %.0698983.i
-  %846 = load ptr, ptr %845, align 8
-  %.not824.i = icmp eq ptr %846, null
-  br i1 %.not824.i, label %.loopexit, label %847
+.lr.ph984.i:                                      ; preds = %838, %.lr.ph984.preheader.i
+  %843 = phi ptr [ %856, %838 ], [ %.pre1087.i, %.lr.ph984.preheader.i ]
+  %.0698983.i = phi i64 [ %839, %838 ], [ 0, %.lr.ph984.preheader.i ]
+  %844 = getelementptr inbounds ptr, ptr %843, i64 %.0698983.i
+  %845 = load ptr, ptr %844, align 8
+  %.not824.i = icmp eq ptr %845, null
+  br i1 %.not824.i, label %.loopexit, label %846
 
-847:                                              ; preds = %.lr.ph984.i
-  %848 = ptrtoint ptr %846 to i64
-  %849 = load i64, ptr %664, align 8
-  %850 = icmp ult i64 %849, %848
-  br i1 %850, label %.loopexit, label %851
+846:                                              ; preds = %.lr.ph984.i
+  %847 = ptrtoint ptr %845 to i64
+  %848 = load i64, ptr %663, align 8
+  %849 = icmp ult i64 %848, %847
+  br i1 %849, label %.loopexit, label %850
 
-851:                                              ; preds = %847
-  %852 = load ptr, ptr %726, align 8
-  %853 = getelementptr %struct.cgltf_node, ptr %852, i64 %848
-  %854 = getelementptr i8, ptr %853, i64 -264
-  store ptr %854, ptr %845, align 8
-  %855 = load ptr, ptr %725, align 8
-  %856 = getelementptr inbounds %struct.cgltf_scene, ptr %855, i64 %.0699986.i, i32 1
-  %857 = load ptr, ptr %856, align 8
-  %858 = getelementptr inbounds ptr, ptr %857, i64 %.0698983.i
-  %859 = load ptr, ptr %858, align 8
-  %860 = getelementptr inbounds i8, ptr %859, i64 8
-  %861 = load ptr, ptr %860, align 8
-  %.not825.i = icmp eq ptr %861, null
-  br i1 %.not825.i, label %839, label %.loopexit
+850:                                              ; preds = %846
+  %851 = load ptr, ptr %725, align 8
+  %852 = getelementptr %struct.cgltf_node, ptr %851, i64 %847
+  %853 = getelementptr i8, ptr %852, i64 -264
+  store ptr %853, ptr %844, align 8
+  %854 = load ptr, ptr %724, align 8
+  %855 = getelementptr inbounds %struct.cgltf_scene, ptr %854, i64 %.0699986.i, i32 1
+  %856 = load ptr, ptr %855, align 8
+  %857 = getelementptr inbounds ptr, ptr %856, i64 %.0698983.i
+  %858 = load ptr, ptr %857, align 8
+  %859 = getelementptr inbounds i8, ptr %858, i64 8
+  %860 = load ptr, ptr %859, align 8
+  %.not825.i = icmp eq ptr %860, null
+  br i1 %.not825.i, label %838, label %.loopexit
 
-._crit_edge985.loopexit.i:                        ; preds = %839
-  %.pre1080.i = load i64, ptr %723, align 8
+._crit_edge985.loopexit.i:                        ; preds = %838
+  %.pre1080.i = load i64, ptr %722, align 8
   br label %._crit_edge985.i
 
 ._crit_edge985.i:                                 ; preds = %._crit_edge985.loopexit.i, %.preheader879.i
-  %862 = phi i64 [ %.pre1080.i, %._crit_edge985.loopexit.i ], [ %835, %.preheader879.i ]
-  %863 = phi ptr [ %855, %._crit_edge985.loopexit.i ], [ %836, %.preheader879.i ]
-  %864 = add nuw i64 %.0699986.i, 1
-  %865 = icmp ult i64 %864, %862
-  br i1 %865, label %.preheader879.i, label %._crit_edge987.i
+  %861 = phi i64 [ %.pre1080.i, %._crit_edge985.loopexit.i ], [ %834, %.preheader879.i ]
+  %862 = phi ptr [ %854, %._crit_edge985.loopexit.i ], [ %835, %.preheader879.i ]
+  %863 = add nuw i64 %.0699986.i, 1
+  %864 = icmp ult i64 %863, %861
+  br i1 %864, label %.preheader879.i, label %._crit_edge987.i
 
 ._crit_edge987.i:                                 ; preds = %._crit_edge985.i, %.preheader881.i
-  %.lcssa913.i = phi i64 [ 0, %.preheader881.i ], [ %862, %._crit_edge985.i ]
-  %866 = getelementptr inbounds i8, ptr %38, i64 296
-  %867 = load ptr, ptr %866, align 8
-  %.not.i = icmp eq ptr %867, null
-  br i1 %.not.i, label %876, label %868
+  %.lcssa913.i = phi i64 [ 0, %.preheader881.i ], [ %861, %._crit_edge985.i ]
+  %865 = getelementptr inbounds i8, ptr %38, i64 296
+  %866 = load ptr, ptr %865, align 8
+  %.not.i = icmp eq ptr %866, null
+  br i1 %.not.i, label %875, label %867
 
-868:                                              ; preds = %._crit_edge987.i
-  %869 = ptrtoint ptr %867 to i64
-  %870 = icmp ult i64 %.lcssa913.i, %869
-  br i1 %870, label %.loopexit, label %871
+867:                                              ; preds = %._crit_edge987.i
+  %868 = ptrtoint ptr %866 to i64
+  %869 = icmp ult i64 %.lcssa913.i, %868
+  br i1 %869, label %.loopexit, label %870
 
-871:                                              ; preds = %868
-  %872 = getelementptr inbounds i8, ptr %38, i64 280
-  %873 = load ptr, ptr %872, align 8
-  %874 = getelementptr %struct.cgltf_scene, ptr %873, i64 %869
-  %875 = getelementptr i8, ptr %874, i64 -64
-  store ptr %875, ptr %866, align 8
-  br label %876
+870:                                              ; preds = %867
+  %871 = getelementptr inbounds i8, ptr %38, i64 280
+  %872 = load ptr, ptr %871, align 8
+  %873 = getelementptr %struct.cgltf_scene, ptr %872, i64 %868
+  %874 = getelementptr i8, ptr %873, i64 -64
+  store ptr %874, ptr %865, align 8
+  br label %875
 
-876:                                              ; preds = %871, %._crit_edge987.i
-  %877 = getelementptr inbounds i8, ptr %38, i64 312
-  %878 = load i64, ptr %877, align 8
-  %.not1015.i = icmp eq i64 %878, 0
+875:                                              ; preds = %870, %._crit_edge987.i
+  %876 = getelementptr inbounds i8, ptr %38, i64 312
+  %877 = load i64, ptr %876, align 8
+  %.not1015.i = icmp eq i64 %877, 0
   br i1 %.not1015.i, label %cgltf_fixup_pointers.exit, label %.preheader876.lr.ph.i
 
-.preheader876.lr.ph.i:                            ; preds = %876
-  %879 = getelementptr inbounds i8, ptr %38, i64 304
-  %880 = getelementptr inbounds i8, ptr %38, i64 120
-  %881 = getelementptr inbounds i8, ptr %38, i64 264
-  %.pre1081.i = load ptr, ptr %879, align 8
+.preheader876.lr.ph.i:                            ; preds = %875
+  %878 = getelementptr inbounds i8, ptr %38, i64 304
+  %879 = getelementptr inbounds i8, ptr %38, i64 120
+  %880 = getelementptr inbounds i8, ptr %38, i64 264
+  %.pre1081.i = load ptr, ptr %878, align 8
   br label %.preheader876.i
 
 .preheader876.i:                                  ; preds = %._crit_edge994.i, %.preheader876.lr.ph.i
-  %882 = phi ptr [ %.pre1081.i, %.preheader876.lr.ph.i ], [ %955, %._crit_edge994.i ]
-  %.0697995.i = phi i64 [ 0, %.preheader876.lr.ph.i ], [ %956, %._crit_edge994.i ]
-  %883 = getelementptr inbounds %struct.cgltf_animation, ptr %882, i64 %.0697995.i, i32 2
-  %884 = load i64, ptr %883, align 8
-  %.not1016.i = icmp eq i64 %884, 0
+  %881 = phi ptr [ %.pre1081.i, %.preheader876.lr.ph.i ], [ %954, %._crit_edge994.i ]
+  %.0697995.i = phi i64 [ 0, %.preheader876.lr.ph.i ], [ %955, %._crit_edge994.i ]
+  %882 = getelementptr inbounds %struct.cgltf_animation, ptr %881, i64 %.0697995.i, i32 2
+  %883 = load i64, ptr %882, align 8
+  %.not1016.i = icmp eq i64 %883, 0
   br i1 %.not1016.i, label %.preheader.i, label %.lr.ph990.i
 
-.preheader.i:                                     ; preds = %911, %.preheader876.i
-  %885 = phi ptr [ %882, %.preheader876.i ], [ %916, %911 ]
-  %886 = getelementptr inbounds %struct.cgltf_animation, ptr %885, i64 %.0697995.i
-  %887 = getelementptr inbounds i8, ptr %886, i64 32
-  %888 = load i64, ptr %887, align 8
-  %.not1017.i = icmp eq i64 %888, 0
+.preheader.i:                                     ; preds = %910, %.preheader876.i
+  %884 = phi ptr [ %881, %.preheader876.i ], [ %915, %910 ]
+  %885 = getelementptr inbounds %struct.cgltf_animation, ptr %884, i64 %.0697995.i
+  %886 = getelementptr inbounds i8, ptr %885, i64 32
+  %887 = load i64, ptr %886, align 8
+  %.not1017.i = icmp eq i64 %887, 0
   br i1 %.not1017.i, label %._crit_edge994.i, label %.lr.ph993.i
 
-.lr.ph990.i:                                      ; preds = %.preheader876.i, %911
-  %889 = phi ptr [ %916, %911 ], [ %882, %.preheader876.i ]
-  %.0696989.i = phi i64 [ %915, %911 ], [ 0, %.preheader876.i ]
-  %890 = getelementptr inbounds %struct.cgltf_animation, ptr %889, i64 %.0697995.i, i32 1
-  %891 = load ptr, ptr %890, align 8
-  %892 = getelementptr inbounds %struct.cgltf_animation_sampler, ptr %891, i64 %.0696989.i
-  %893 = load ptr, ptr %892, align 8
-  %.not822.i = icmp eq ptr %893, null
-  br i1 %.not822.i, label %.loopexit, label %894
+.lr.ph990.i:                                      ; preds = %.preheader876.i, %910
+  %888 = phi ptr [ %915, %910 ], [ %881, %.preheader876.i ]
+  %.0696989.i = phi i64 [ %914, %910 ], [ 0, %.preheader876.i ]
+  %889 = getelementptr inbounds %struct.cgltf_animation, ptr %888, i64 %.0697995.i, i32 1
+  %890 = load ptr, ptr %889, align 8
+  %891 = getelementptr inbounds %struct.cgltf_animation_sampler, ptr %890, i64 %.0696989.i
+  %892 = load ptr, ptr %891, align 8
+  %.not822.i = icmp eq ptr %892, null
+  br i1 %.not822.i, label %.loopexit, label %893
 
-894:                                              ; preds = %.lr.ph990.i
-  %895 = ptrtoint ptr %893 to i64
-  %896 = load i64, ptr %68, align 8
-  %897 = icmp ult i64 %896, %895
-  br i1 %897, label %.loopexit, label %898
+893:                                              ; preds = %.lr.ph990.i
+  %894 = ptrtoint ptr %892 to i64
+  %895 = load i64, ptr %68, align 8
+  %896 = icmp ult i64 %895, %894
+  br i1 %896, label %.loopexit, label %897
 
-898:                                              ; preds = %894
-  %899 = load ptr, ptr %880, align 8
-  %900 = getelementptr %struct.cgltf_accessor, ptr %899, i64 %895
-  %901 = getelementptr i8, ptr %900, i64 -288
-  store ptr %901, ptr %892, align 8
-  %902 = load ptr, ptr %879, align 8
-  %903 = getelementptr inbounds %struct.cgltf_animation, ptr %902, i64 %.0697995.i, i32 1
-  %904 = load ptr, ptr %903, align 8
-  %905 = getelementptr inbounds %struct.cgltf_animation_sampler, ptr %904, i64 %.0696989.i, i32 1
-  %906 = load ptr, ptr %905, align 8
-  %.not823.i = icmp eq ptr %906, null
-  br i1 %.not823.i, label %.loopexit, label %907
+897:                                              ; preds = %893
+  %898 = load ptr, ptr %879, align 8
+  %899 = getelementptr %struct.cgltf_accessor, ptr %898, i64 %894
+  %900 = getelementptr i8, ptr %899, i64 -288
+  store ptr %900, ptr %891, align 8
+  %901 = load ptr, ptr %878, align 8
+  %902 = getelementptr inbounds %struct.cgltf_animation, ptr %901, i64 %.0697995.i, i32 1
+  %903 = load ptr, ptr %902, align 8
+  %904 = getelementptr inbounds %struct.cgltf_animation_sampler, ptr %903, i64 %.0696989.i, i32 1
+  %905 = load ptr, ptr %904, align 8
+  %.not823.i = icmp eq ptr %905, null
+  br i1 %.not823.i, label %.loopexit, label %906
 
-907:                                              ; preds = %898
-  %908 = ptrtoint ptr %906 to i64
-  %909 = load i64, ptr %68, align 8
-  %910 = icmp ult i64 %909, %908
-  br i1 %910, label %.loopexit, label %911
+906:                                              ; preds = %897
+  %907 = ptrtoint ptr %905 to i64
+  %908 = load i64, ptr %68, align 8
+  %909 = icmp ult i64 %908, %907
+  br i1 %909, label %.loopexit, label %910
 
-911:                                              ; preds = %907
-  %912 = load ptr, ptr %880, align 8
-  %913 = getelementptr %struct.cgltf_accessor, ptr %912, i64 %908
-  %914 = getelementptr i8, ptr %913, i64 -288
-  store ptr %914, ptr %905, align 8
-  %915 = add nuw i64 %.0696989.i, 1
-  %916 = load ptr, ptr %879, align 8
-  %917 = getelementptr inbounds %struct.cgltf_animation, ptr %916, i64 %.0697995.i, i32 2
-  %918 = load i64, ptr %917, align 8
-  %919 = icmp ult i64 %915, %918
-  br i1 %919, label %.lr.ph990.i, label %.preheader.i
+910:                                              ; preds = %906
+  %911 = load ptr, ptr %879, align 8
+  %912 = getelementptr %struct.cgltf_accessor, ptr %911, i64 %907
+  %913 = getelementptr i8, ptr %912, i64 -288
+  store ptr %913, ptr %904, align 8
+  %914 = add nuw i64 %.0696989.i, 1
+  %915 = load ptr, ptr %878, align 8
+  %916 = getelementptr inbounds %struct.cgltf_animation, ptr %915, i64 %.0697995.i, i32 2
+  %917 = load i64, ptr %916, align 8
+  %918 = icmp ult i64 %914, %917
+  br i1 %918, label %.lr.ph990.i, label %.preheader.i
 
-.lr.ph993.i:                                      ; preds = %.preheader.i, %948
-  %920 = phi ptr [ %951, %948 ], [ %886, %.preheader.i ]
-  %.0992.i = phi i64 [ %950, %948 ], [ 0, %.preheader.i ]
-  %921 = getelementptr inbounds i8, ptr %920, i64 24
-  %922 = load ptr, ptr %921, align 8
-  %923 = getelementptr inbounds %struct.cgltf_animation_channel, ptr %922, i64 %.0992.i
-  %924 = load ptr, ptr %923, align 8
-  %.not820.i = icmp eq ptr %924, null
-  br i1 %.not820.i, label %.loopexit, label %925
+.lr.ph993.i:                                      ; preds = %.preheader.i, %947
+  %919 = phi ptr [ %950, %947 ], [ %885, %.preheader.i ]
+  %.0992.i = phi i64 [ %949, %947 ], [ 0, %.preheader.i ]
+  %920 = getelementptr inbounds i8, ptr %919, i64 24
+  %921 = load ptr, ptr %920, align 8
+  %922 = getelementptr inbounds %struct.cgltf_animation_channel, ptr %921, i64 %.0992.i
+  %923 = load ptr, ptr %922, align 8
+  %.not820.i = icmp eq ptr %923, null
+  br i1 %.not820.i, label %.loopexit, label %924
 
-925:                                              ; preds = %.lr.ph993.i
-  %926 = ptrtoint ptr %924 to i64
-  %927 = getelementptr inbounds i8, ptr %920, i64 16
-  %928 = load i64, ptr %927, align 8
-  %929 = icmp ult i64 %928, %926
-  br i1 %929, label %.loopexit, label %930
+924:                                              ; preds = %.lr.ph993.i
+  %925 = ptrtoint ptr %923 to i64
+  %926 = getelementptr inbounds i8, ptr %919, i64 16
+  %927 = load i64, ptr %926, align 8
+  %928 = icmp ult i64 %927, %925
+  br i1 %928, label %.loopexit, label %929
 
-930:                                              ; preds = %925
-  %931 = getelementptr inbounds i8, ptr %920, i64 8
-  %932 = load ptr, ptr %931, align 8
-  %933 = getelementptr %struct.cgltf_animation_sampler, ptr %932, i64 %926
-  %934 = getelementptr i8, ptr %933, i64 -64
-  store ptr %934, ptr %923, align 8
-  %935 = load ptr, ptr %879, align 8
-  %936 = getelementptr inbounds %struct.cgltf_animation, ptr %935, i64 %.0697995.i, i32 3
-  %937 = load ptr, ptr %936, align 8
-  %938 = getelementptr inbounds %struct.cgltf_animation_channel, ptr %937, i64 %.0992.i, i32 1
-  %939 = load ptr, ptr %938, align 8
-  %.not821.i = icmp eq ptr %939, null
-  br i1 %.not821.i, label %948, label %940
+929:                                              ; preds = %924
+  %930 = getelementptr inbounds i8, ptr %919, i64 8
+  %931 = load ptr, ptr %930, align 8
+  %932 = getelementptr %struct.cgltf_animation_sampler, ptr %931, i64 %925
+  %933 = getelementptr i8, ptr %932, i64 -64
+  store ptr %933, ptr %922, align 8
+  %934 = load ptr, ptr %878, align 8
+  %935 = getelementptr inbounds %struct.cgltf_animation, ptr %934, i64 %.0697995.i, i32 3
+  %936 = load ptr, ptr %935, align 8
+  %937 = getelementptr inbounds %struct.cgltf_animation_channel, ptr %936, i64 %.0992.i, i32 1
+  %938 = load ptr, ptr %937, align 8
+  %.not821.i = icmp eq ptr %938, null
+  br i1 %.not821.i, label %947, label %939
 
-940:                                              ; preds = %930
-  %941 = ptrtoint ptr %939 to i64
-  %942 = load i64, ptr %664, align 8
-  %943 = icmp ult i64 %942, %941
-  br i1 %943, label %.loopexit, label %944
+939:                                              ; preds = %929
+  %940 = ptrtoint ptr %938 to i64
+  %941 = load i64, ptr %663, align 8
+  %942 = icmp ult i64 %941, %940
+  br i1 %942, label %.loopexit, label %943
 
-944:                                              ; preds = %940
-  %945 = load ptr, ptr %881, align 8
-  %946 = getelementptr %struct.cgltf_node, ptr %945, i64 %941
-  %947 = getelementptr i8, ptr %946, i64 -264
-  store ptr %947, ptr %938, align 8
-  %.pre1082.i = load ptr, ptr %879, align 8
-  br label %948
+943:                                              ; preds = %939
+  %944 = load ptr, ptr %880, align 8
+  %945 = getelementptr %struct.cgltf_node, ptr %944, i64 %940
+  %946 = getelementptr i8, ptr %945, i64 -264
+  store ptr %946, ptr %937, align 8
+  %.pre1082.i = load ptr, ptr %878, align 8
+  br label %947
 
-948:                                              ; preds = %944, %930
-  %949 = phi ptr [ %935, %930 ], [ %.pre1082.i, %944 ]
-  %950 = add nuw i64 %.0992.i, 1
-  %951 = getelementptr inbounds %struct.cgltf_animation, ptr %949, i64 %.0697995.i
-  %952 = getelementptr inbounds i8, ptr %951, i64 32
-  %953 = load i64, ptr %952, align 8
-  %954 = icmp ult i64 %950, %953
-  br i1 %954, label %.lr.ph993.i, label %._crit_edge994.i
+947:                                              ; preds = %943, %929
+  %948 = phi ptr [ %934, %929 ], [ %.pre1082.i, %943 ]
+  %949 = add nuw i64 %.0992.i, 1
+  %950 = getelementptr inbounds %struct.cgltf_animation, ptr %948, i64 %.0697995.i
+  %951 = getelementptr inbounds i8, ptr %950, i64 32
+  %952 = load i64, ptr %951, align 8
+  %953 = icmp ult i64 %949, %952
+  br i1 %953, label %.lr.ph993.i, label %._crit_edge994.i
 
-._crit_edge994.i:                                 ; preds = %948, %.preheader.i
-  %955 = phi ptr [ %885, %.preheader.i ], [ %949, %948 ]
-  %956 = add nuw i64 %.0697995.i, 1
-  %957 = load i64, ptr %877, align 8
-  %958 = icmp ult i64 %956, %957
-  br i1 %958, label %.preheader876.i, label %cgltf_fixup_pointers.exit
+._crit_edge994.i:                                 ; preds = %947, %.preheader.i
+  %954 = phi ptr [ %884, %.preheader.i ], [ %948, %947 ]
+  %955 = add nuw i64 %.0697995.i, 1
+  %956 = load i64, ptr %876, align 8
+  %957 = icmp ult i64 %955, %956
+  br i1 %957, label %.preheader876.i, label %cgltf_fixup_pointers.exit
 
-.loopexit:                                        ; preds = %79, %92, %170, %167, %115, %.lr.ph.i, %188, %.lr.ph949.i, %212, %.lr.ph952.i, %140, %.lr.ph944.i, %248, %264, %261, %275, %268, %330, %342, %354, %375, %396, %408, %420, %432, %444, %456, %468, %480, %492, %504, %516, %528, %540, %552, %564, %576, %588, %600, %612, %634, %630, %649, %646, %695, %707, %679, %.lr.ph969.i, %757, %770, %783, %796, %732, %.lr.ph974.i, %736, %816, %.lr.ph979.i, %847, %.lr.ph984.i, %851, %894, %.lr.ph990.i, %907, %898, %925, %.lr.ph993.i, %940, %868
+.loopexit:                                        ; preds = %79, %92, %170, %167, %115, %.lr.ph.i, %188, %.lr.ph949.i, %212, %.lr.ph952.i, %140, %.lr.ph944.i, %248, %264, %261, %275, %268, %329, %341, %353, %374, %395, %407, %419, %431, %443, %455, %467, %479, %491, %503, %515, %527, %539, %551, %563, %575, %587, %599, %611, %633, %629, %648, %645, %694, %706, %678, %.lr.ph969.i, %756, %769, %782, %795, %731, %.lr.ph974.i, %735, %815, %.lr.ph979.i, %846, %.lr.ph984.i, %850, %893, %.lr.ph990.i, %906, %897, %924, %.lr.ph993.i, %939, %867
   tail call void @cgltf_free(ptr noundef nonnull %38)
-  br label %961
+  br label %960
 
-cgltf_fixup_pointers.exit:                        ; preds = %._crit_edge994.i, %876
-  %959 = getelementptr inbounds i8, ptr %38, i64 408
-  store ptr %1, ptr %959, align 8
-  %960 = getelementptr inbounds i8, ptr %38, i64 416
-  store i64 %2, ptr %960, align 8
+cgltf_fixup_pointers.exit:                        ; preds = %._crit_edge994.i, %875
+  %958 = getelementptr inbounds i8, ptr %38, i64 408
+  store ptr %1, ptr %958, align 8
+  %959 = getelementptr inbounds i8, ptr %38, i64 416
+  store i64 %2, ptr %959, align 8
   store ptr %38, ptr %3, align 8
-  br label %961
+  br label %960
 
-961:                                              ; preds = %52, %14, %9, %cgltf_fixup_pointers.exit, %.loopexit, %39, %29
+960:                                              ; preds = %52, %14, %9, %cgltf_fixup_pointers.exit, %.loopexit, %39, %29
   %.0 = phi i32 [ 3, %29 ], [ 4, %.loopexit ], [ 0, %cgltf_fixup_pointers.exit ], [ 8, %39 ], [ 3, %9 ], [ 8, %14 ], [ %switch.select56, %52 ]
   ret i32 %.0
 }
@@ -6580,7 +6577,7 @@ define hidden range(i32 0, 5) i32 @cgltf_validate(ptr nocapture noundef readonly
   %5 = load ptr, ptr %4, align 8
   br label %10
 
-.preheader352:                                    ; preds = %101, %1
+.preheader352:                                    ; preds = %100, %1
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   %7 = load i64, ptr %6, align 8
   %.not404 = icmp eq i64 %7, 0
@@ -6589,10 +6586,10 @@ define hidden range(i32 0, 5) i32 @cgltf_validate(ptr nocapture noundef readonly
 .lr.ph369:                                        ; preds = %.preheader352
   %8 = getelementptr inbounds i8, ptr %0, i64 136
   %9 = load ptr, ptr %8, align 8
-  br label %108
+  br label %107
 
-10:                                               ; preds = %.lr.ph, %101
-  %.0229367 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
+10:                                               ; preds = %.lr.ph, %100
+  %.0229367 = phi i64 [ 0, %.lr.ph ], [ %101, %100 ]
   %11 = getelementptr inbounds %struct.cgltf_accessor, ptr %5, i64 %.0229367
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
@@ -6619,19 +6616,19 @@ cgltf_component_size.exit.i:                      ; preds = %10, %10
 
 cgltf_component_size.exit.thread.i:               ; preds = %cgltf_component_size.exit.i, %17, %16, %10, %10
   %.0.i21.i = phi i64 [ 1, %cgltf_component_size.exit.i ], [ 4, %16 ], [ 0, %17 ], [ 2, %10 ], [ 2, %10 ]
-  switch i32 %13, label %23 [
-    i32 6, label %24
+  switch i32 %13, label %22 [
+    i32 6, label %23
     i32 2, label %cgltf_num_components.exit.i
     i32 3, label %19
     i32 4, label %20
-    i32 5, label %21
-    i32 7, label %22
+    i32 5, label %20
+    i32 7, label %21
   ]
 
 19:                                               ; preds = %cgltf_component_size.exit.thread.i
   br label %cgltf_num_components.exit.i
 
-20:                                               ; preds = %cgltf_component_size.exit.thread.i
+20:                                               ; preds = %cgltf_component_size.exit.thread.i, %cgltf_component_size.exit.thread.i
   br label %cgltf_num_components.exit.i
 
 21:                                               ; preds = %cgltf_component_size.exit.thread.i
@@ -6641,744 +6638,741 @@ cgltf_component_size.exit.thread.i:               ; preds = %cgltf_component_siz
   br label %cgltf_num_components.exit.i
 
 23:                                               ; preds = %cgltf_component_size.exit.thread.i
-  br label %cgltf_num_components.exit.i
+  %24 = add nsw i64 %.0.i21.i, -1
+  %or.cond3.i = icmp ult i64 %24, 2
+  br i1 %or.cond3.i, label %25, label %cgltf_num_components.exit.i
 
-24:                                               ; preds = %cgltf_component_size.exit.thread.i
-  %25 = add nsw i64 %.0.i21.i, -1
-  %or.cond3.i = icmp ult i64 %25, 2
-  br i1 %or.cond3.i, label %26, label %cgltf_num_components.exit.i
-
-26:                                               ; preds = %24
-  %27 = mul nuw nsw i64 %.0.i21.i, 12
+25:                                               ; preds = %23
+  %26 = mul nuw nsw i64 %.0.i21.i, 12
   br label %cgltf_calc_size.exit
 
-cgltf_num_components.exit.i:                      ; preds = %24, %23, %22, %21, %20, %19, %cgltf_component_size.exit.thread.i
-  %phi.call.i = phi i64 [ 1, %23 ], [ 16, %22 ], [ 4, %21 ], [ 4, %20 ], [ 3, %19 ], [ 9, %24 ], [ 2, %cgltf_component_size.exit.thread.i ]
-  %28 = mul nuw nsw i64 %phi.call.i, %.0.i21.i
+cgltf_num_components.exit.i:                      ; preds = %23, %22, %21, %20, %19, %cgltf_component_size.exit.thread.i
+  %phi.call.i = phi i64 [ 1, %22 ], [ 16, %21 ], [ 4, %20 ], [ 3, %19 ], [ 9, %23 ], [ 2, %cgltf_component_size.exit.thread.i ]
+  %27 = mul nuw nsw i64 %phi.call.i, %.0.i21.i
   br label %cgltf_calc_size.exit
 
-cgltf_calc_size.exit:                             ; preds = %cgltf_component_size.exit.i, %26, %cgltf_num_components.exit.i
-  %.0.i = phi i64 [ %27, %26 ], [ %28, %cgltf_num_components.exit.i ], [ 8, %cgltf_component_size.exit.i ]
-  %29 = getelementptr inbounds i8, ptr %11, i64 48
-  %30 = load ptr, ptr %29, align 8
-  %.not303 = icmp eq ptr %30, null
-  br i1 %.not303, label %45, label %31
+cgltf_calc_size.exit:                             ; preds = %cgltf_component_size.exit.i, %25, %cgltf_num_components.exit.i
+  %.0.i = phi i64 [ %26, %25 ], [ %27, %cgltf_num_components.exit.i ], [ 8, %cgltf_component_size.exit.i ]
+  %28 = getelementptr inbounds i8, ptr %11, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %.not303 = icmp eq ptr %29, null
+  br i1 %.not303, label %44, label %30
 
-31:                                               ; preds = %cgltf_calc_size.exit
-  %32 = getelementptr inbounds i8, ptr %11, i64 24
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %11, i64 40
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 32
-  %37 = load i64, ptr %36, align 8
-  %38 = add i64 %37, -1
-  %39 = mul i64 %38, %35
-  %40 = add i64 %33, %.0.i
-  %41 = add i64 %40, %39
-  %42 = getelementptr inbounds i8, ptr %30, i64 24
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp ult i64 %43, %41
-  br i1 %44, label %.loopexit, label %45
+30:                                               ; preds = %cgltf_calc_size.exit
+  %31 = getelementptr inbounds i8, ptr %11, i64 24
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %11, i64 40
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %11, i64 32
+  %36 = load i64, ptr %35, align 8
+  %37 = add i64 %36, -1
+  %38 = mul i64 %37, %34
+  %39 = add i64 %32, %.0.i
+  %40 = add i64 %39, %38
+  %41 = getelementptr inbounds i8, ptr %29, i64 24
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp ult i64 %42, %40
+  br i1 %43, label %.loopexit, label %44
 
-45:                                               ; preds = %31, %cgltf_calc_size.exit
-  %46 = getelementptr inbounds i8, ptr %11, i64 192
-  %47 = load i32, ptr %46, align 8
-  %.not304 = icmp eq i32 %47, 0
-  br i1 %.not304, label %101, label %48
+44:                                               ; preds = %30, %cgltf_calc_size.exit
+  %45 = getelementptr inbounds i8, ptr %11, i64 192
+  %46 = load i32, ptr %45, align 8
+  %.not304 = icmp eq i32 %46, 0
+  br i1 %.not304, label %100, label %47
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %11, i64 200
-  %50 = getelementptr inbounds i8, ptr %11, i64 224
-  %51 = load i32, ptr %50, align 8
-  %switch.tableidx = add i32 %51, -1
-  %52 = icmp ult i32 %switch.tableidx, 6
-  br i1 %52, label %switch.lookup, label %cgltf_calc_size.exit321
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %11, i64 200
+  %49 = getelementptr inbounds i8, ptr %11, i64 224
+  %50 = load i32, ptr %49, align 8
+  %switch.tableidx = add i32 %50, -1
+  %51 = icmp ult i32 %switch.tableidx, 6
+  br i1 %51, label %switch.lookup, label %cgltf_calc_size.exit321
 
-switch.lookup:                                    ; preds = %48
-  %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.cgltf_accessor_read_uint, i64 0, i64 %53
+switch.lookup:                                    ; preds = %47
+  %52 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.cgltf_accessor_read_uint, i64 0, i64 %52
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %cgltf_calc_size.exit321
 
-cgltf_calc_size.exit321:                          ; preds = %48, %switch.lookup
-  %.0.i21.i316 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %48 ]
-  %54 = getelementptr inbounds i8, ptr %11, i64 216
-  %55 = load i64, ptr %54, align 8
-  %56 = load i64, ptr %49, align 8
-  %57 = mul i64 %56, %.0.i21.i316
-  %58 = add i64 %57, %55
-  %59 = getelementptr inbounds i8, ptr %11, i64 208
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
-  %62 = load i64, ptr %61, align 8
-  %63 = icmp ult i64 %62, %58
-  br i1 %63, label %.loopexit, label %64
+cgltf_calc_size.exit321:                          ; preds = %47, %switch.lookup
+  %.0.i21.i316 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %47 ]
+  %53 = getelementptr inbounds i8, ptr %11, i64 216
+  %54 = load i64, ptr %53, align 8
+  %55 = load i64, ptr %48, align 8
+  %56 = mul i64 %55, %.0.i21.i316
+  %57 = add i64 %56, %54
+  %58 = getelementptr inbounds i8, ptr %11, i64 208
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %61 = load i64, ptr %60, align 8
+  %62 = icmp ult i64 %61, %57
+  br i1 %62, label %.loopexit, label %63
 
-64:                                               ; preds = %cgltf_calc_size.exit321
-  %65 = getelementptr inbounds i8, ptr %11, i64 240
-  %66 = load i64, ptr %65, align 8
-  %67 = mul i64 %56, %.0.i
-  %68 = add i64 %66, %67
-  %69 = getelementptr inbounds i8, ptr %11, i64 232
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 24
-  %72 = load i64, ptr %71, align 8
-  %73 = icmp ult i64 %72, %68
-  br i1 %73, label %.loopexit, label %74
+63:                                               ; preds = %cgltf_calc_size.exit321
+  %64 = getelementptr inbounds i8, ptr %11, i64 240
+  %65 = load i64, ptr %64, align 8
+  %66 = mul i64 %55, %.0.i
+  %67 = add i64 %65, %66
+  %68 = getelementptr inbounds i8, ptr %11, i64 232
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %71 = load i64, ptr %70, align 8
+  %72 = icmp ult i64 %71, %67
+  br i1 %72, label %.loopexit, label %73
 
-74:                                               ; preds = %64
-  switch i32 %51, label %.loopexit [
-    i32 2, label %75
-    i32 4, label %75
-    i32 5, label %75
+73:                                               ; preds = %63
+  switch i32 %50, label %.loopexit [
+    i32 2, label %74
+    i32 4, label %74
+    i32 5, label %74
   ]
 
-75:                                               ; preds = %74, %74, %74
-  %76 = getelementptr inbounds i8, ptr %60, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %.not308 = icmp eq ptr %79, null
-  br i1 %.not308, label %101, label %80
+74:                                               ; preds = %73, %73, %73
+  %75 = getelementptr inbounds i8, ptr %59, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %.not308 = icmp eq ptr %78, null
+  br i1 %.not308, label %100, label %79
 
-80:                                               ; preds = %75
-  %81 = getelementptr i8, ptr %60, i64 16
-  %.val312 = load i64, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 %55
-  %83 = getelementptr inbounds i8, ptr %82, i64 %.val312
-  switch i32 %51, label %cgltf_calc_index_bound.exit [
+79:                                               ; preds = %74
+  %80 = getelementptr i8, ptr %59, i64 16
+  %.val312 = load i64, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %78, i64 %54
+  %82 = getelementptr inbounds i8, ptr %81, i64 %.val312
+  switch i32 %50, label %cgltf_calc_index_bound.exit [
     i32 2, label %.preheader.i
     i32 4, label %.preheader1.i
     i32 5, label %.preheader3.i
   ]
 
-.preheader3.i:                                    ; preds = %80
-  %.not.i = icmp eq i64 %56, 0
+.preheader3.i:                                    ; preds = %79
+  %.not.i = icmp eq i64 %55, 0
   br i1 %.not.i, label %cgltf_calc_index_bound.exit, label %.lr.ph.i
 
-.preheader1.i:                                    ; preds = %80
-  %.not15.i = icmp eq i64 %56, 0
+.preheader1.i:                                    ; preds = %79
+  %.not15.i = icmp eq i64 %55, 0
   br i1 %.not15.i, label %cgltf_calc_index_bound.exit, label %.lr.ph9.i
 
-.preheader.i:                                     ; preds = %80
-  %.not16.i = icmp eq i64 %56, 0
+.preheader.i:                                     ; preds = %79
+  %.not16.i = icmp eq i64 %55, 0
   br i1 %.not16.i, label %cgltf_calc_index_bound.exit, label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %.preheader.i, %.lr.ph13.i
-  %.012.i = phi i64 [ %87, %.lr.ph13.i ], [ 0, %.preheader.i ]
-  %.03211.i = phi i64 [ %88, %.lr.ph13.i ], [ 0, %.preheader.i ]
-  %84 = getelementptr inbounds i8, ptr %83, i64 %.03211.i
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i64
-  %87 = tail call i64 @llvm.umax.i64(i64 %.012.i, i64 %86)
-  %88 = add nuw i64 %.03211.i, 1
-  %exitcond22.not.i = icmp eq i64 %88, %56
+  %.012.i = phi i64 [ %86, %.lr.ph13.i ], [ 0, %.preheader.i ]
+  %.03211.i = phi i64 [ %87, %.lr.ph13.i ], [ 0, %.preheader.i ]
+  %83 = getelementptr inbounds i8, ptr %82, i64 %.03211.i
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i64
+  %86 = tail call i64 @llvm.umax.i64(i64 %.012.i, i64 %85)
+  %87 = add nuw i64 %.03211.i, 1
+  %exitcond22.not.i = icmp eq i64 %87, %55
   br i1 %exitcond22.not.i, label %cgltf_calc_index_bound.exit, label %.lr.ph13.i
 
 .lr.ph9.i:                                        ; preds = %.preheader1.i, %.lr.ph9.i
-  %.28.i = phi i64 [ %92, %.lr.ph9.i ], [ 0, %.preheader1.i ]
-  %.0337.i = phi i64 [ %93, %.lr.ph9.i ], [ 0, %.preheader1.i ]
-  %89 = getelementptr inbounds i16, ptr %83, i64 %.0337.i
-  %90 = load i16, ptr %89, align 2
-  %91 = zext i16 %90 to i64
-  %92 = tail call i64 @llvm.umax.i64(i64 %.28.i, i64 %91)
-  %93 = add nuw i64 %.0337.i, 1
-  %exitcond21.not.i = icmp eq i64 %93, %56
+  %.28.i = phi i64 [ %91, %.lr.ph9.i ], [ 0, %.preheader1.i ]
+  %.0337.i = phi i64 [ %92, %.lr.ph9.i ], [ 0, %.preheader1.i ]
+  %88 = getelementptr inbounds i16, ptr %82, i64 %.0337.i
+  %89 = load i16, ptr %88, align 2
+  %90 = zext i16 %89 to i64
+  %91 = tail call i64 @llvm.umax.i64(i64 %.28.i, i64 %90)
+  %92 = add nuw i64 %.0337.i, 1
+  %exitcond21.not.i = icmp eq i64 %92, %55
   br i1 %exitcond21.not.i, label %cgltf_calc_index_bound.exit, label %.lr.ph9.i
 
 .lr.ph.i:                                         ; preds = %.preheader3.i, %.lr.ph.i
-  %.36.i = phi i64 [ %97, %.lr.ph.i ], [ 0, %.preheader3.i ]
-  %.0315.i = phi i64 [ %98, %.lr.ph.i ], [ 0, %.preheader3.i ]
-  %94 = getelementptr inbounds i32, ptr %83, i64 %.0315.i
-  %95 = load i32, ptr %94, align 4
-  %96 = zext i32 %95 to i64
-  %97 = tail call i64 @llvm.umax.i64(i64 %.36.i, i64 %96)
-  %98 = add nuw i64 %.0315.i, 1
-  %exitcond.not.i = icmp eq i64 %98, %56
+  %.36.i = phi i64 [ %96, %.lr.ph.i ], [ 0, %.preheader3.i ]
+  %.0315.i = phi i64 [ %97, %.lr.ph.i ], [ 0, %.preheader3.i ]
+  %93 = getelementptr inbounds i32, ptr %82, i64 %.0315.i
+  %94 = load i32, ptr %93, align 4
+  %95 = zext i32 %94 to i64
+  %96 = tail call i64 @llvm.umax.i64(i64 %.36.i, i64 %95)
+  %97 = add nuw i64 %.0315.i, 1
+  %exitcond.not.i = icmp eq i64 %97, %55
   br i1 %exitcond.not.i, label %cgltf_calc_index_bound.exit, label %.lr.ph.i
 
-cgltf_calc_index_bound.exit:                      ; preds = %.lr.ph.i, %.lr.ph9.i, %.lr.ph13.i, %80, %.preheader3.i, %.preheader1.i, %.preheader.i
-  %.1.i = phi i64 [ 0, %80 ], [ 0, %.preheader.i ], [ 0, %.preheader1.i ], [ 0, %.preheader3.i ], [ %87, %.lr.ph13.i ], [ %92, %.lr.ph9.i ], [ %97, %.lr.ph.i ]
-  %99 = getelementptr inbounds i8, ptr %11, i64 32
-  %100 = load i64, ptr %99, align 8
-  %.not309 = icmp ult i64 %.1.i, %100
-  br i1 %.not309, label %101, label %.loopexit
+cgltf_calc_index_bound.exit:                      ; preds = %.lr.ph.i, %.lr.ph9.i, %.lr.ph13.i, %79, %.preheader3.i, %.preheader1.i, %.preheader.i
+  %.1.i = phi i64 [ 0, %79 ], [ 0, %.preheader.i ], [ 0, %.preheader1.i ], [ 0, %.preheader3.i ], [ %86, %.lr.ph13.i ], [ %91, %.lr.ph9.i ], [ %96, %.lr.ph.i ]
+  %98 = getelementptr inbounds i8, ptr %11, i64 32
+  %99 = load i64, ptr %98, align 8
+  %.not309 = icmp ult i64 %.1.i, %99
+  br i1 %.not309, label %100, label %.loopexit
 
-101:                                              ; preds = %45, %cgltf_calc_index_bound.exit, %75
-  %102 = add nuw i64 %.0229367, 1
-  %exitcond.not = icmp eq i64 %102, %3
+100:                                              ; preds = %44, %cgltf_calc_index_bound.exit, %74
+  %101 = add nuw i64 %.0229367, 1
+  %exitcond.not = icmp eq i64 %101, %3
   br i1 %exitcond.not, label %.preheader352, label %10
 
 .preheader350:                                    ; preds = %.thread332, %.preheader352
-  %103 = getelementptr inbounds i8, ptr %0, i64 96
-  %104 = load i64, ptr %103, align 8
-  %.not405 = icmp eq i64 %104, 0
+  %102 = getelementptr inbounds i8, ptr %0, i64 96
+  %103 = load i64, ptr %102, align 8
+  %.not405 = icmp eq i64 %103, 0
   br i1 %.not405, label %.preheader340, label %.lr.ph385
 
 .lr.ph385:                                        ; preds = %.preheader350
-  %105 = getelementptr inbounds i8, ptr %0, i64 88
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 328
-  br label %170
+  %104 = getelementptr inbounds i8, ptr %0, i64 88
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 328
+  br label %169
 
-108:                                              ; preds = %.lr.ph369, %.thread332
-  %.0239368 = phi i64 [ 0, %.lr.ph369 ], [ %165, %.thread332 ]
-  %109 = getelementptr inbounds %struct.cgltf_buffer_view, ptr %9, i64 %.0239368
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %.not291 = icmp eq ptr %111, null
-  br i1 %.not291, label %121, label %112
+107:                                              ; preds = %.lr.ph369, %.thread332
+  %.0239368 = phi i64 [ 0, %.lr.ph369 ], [ %164, %.thread332 ]
+  %108 = getelementptr inbounds %struct.cgltf_buffer_view, ptr %9, i64 %.0239368
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %.not291 = icmp eq ptr %110, null
+  br i1 %.not291, label %120, label %111
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %109, i64 16
-  %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %109, i64 24
-  %116 = load i64, ptr %115, align 8
-  %117 = add i64 %116, %114
-  %118 = getelementptr inbounds i8, ptr %111, i64 8
-  %119 = load i64, ptr %118, align 8
-  %120 = icmp ult i64 %119, %117
-  br i1 %120, label %.loopexit, label %121
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds i8, ptr %108, i64 16
+  %113 = load i64, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %108, i64 24
+  %115 = load i64, ptr %114, align 8
+  %116 = add i64 %115, %113
+  %117 = getelementptr inbounds i8, ptr %110, i64 8
+  %118 = load i64, ptr %117, align 8
+  %119 = icmp ult i64 %118, %116
+  br i1 %119, label %.loopexit, label %120
 
-121:                                              ; preds = %112, %108
-  %122 = getelementptr inbounds i8, ptr %109, i64 56
-  %123 = load i32, ptr %122, align 8
-  %.not292 = icmp eq i32 %123, 0
-  br i1 %.not292, label %.thread332, label %124
+120:                                              ; preds = %111, %107
+  %121 = getelementptr inbounds i8, ptr %108, i64 56
+  %122 = load i32, ptr %121, align 8
+  %.not292 = icmp eq i32 %122, 0
+  br i1 %.not292, label %.thread332, label %123
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %109, i64 64
-  %126 = load ptr, ptr %125, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %.loopexit, label %128
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %108, i64 64
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %.loopexit, label %127
 
-128:                                              ; preds = %124
-  %129 = getelementptr inbounds i8, ptr %126, i64 8
-  %130 = load i64, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %109, i64 72
-  %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %109, i64 80
-  %134 = load i64, ptr %133, align 8
-  %135 = add i64 %134, %132
-  %136 = icmp ult i64 %130, %135
-  br i1 %136, label %.loopexit, label %137
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds i8, ptr %125, i64 8
+  %129 = load i64, ptr %128, align 8
+  %130 = getelementptr inbounds i8, ptr %108, i64 72
+  %131 = load i64, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %108, i64 80
+  %133 = load i64, ptr %132, align 8
+  %134 = add i64 %133, %131
+  %135 = icmp ult i64 %129, %134
+  br i1 %135, label %.loopexit, label %136
 
-137:                                              ; preds = %128
-  %138 = getelementptr inbounds i8, ptr %109, i64 32
-  %139 = load i64, ptr %138, align 8
-  %.not293 = icmp eq i64 %139, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %109, i64 88
+136:                                              ; preds = %127
+  %137 = getelementptr inbounds i8, ptr %108, i64 32
+  %138 = load i64, ptr %137, align 8
+  %.not293 = icmp eq i64 %138, 0
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %108, i64 88
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %.not293, label %._crit_edge448, label %140
+  br i1 %.not293, label %._crit_edge448, label %139
 
-140:                                              ; preds = %137
-  %.not294 = icmp eq i64 %.pre, %139
+139:                                              ; preds = %136
+  %.not294 = icmp eq i64 %.pre, %138
   br i1 %.not294, label %._crit_edge448, label %.loopexit
 
-._crit_edge448:                                   ; preds = %137, %140
-  %141 = phi i64 [ %139, %140 ], [ %.pre, %137 ]
-  %142 = getelementptr inbounds %struct.cgltf_buffer_view, ptr %9, i64 %.0239368, i32 3
-  %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %109, i64 96
-  %145 = load i64, ptr %144, align 8
-  %146 = mul i64 %145, %141
-  %.not295 = icmp eq i64 %143, %146
-  br i1 %.not295, label %147, label %.loopexit
+._crit_edge448:                                   ; preds = %136, %139
+  %140 = phi i64 [ %138, %139 ], [ %.pre, %136 ]
+  %141 = getelementptr inbounds %struct.cgltf_buffer_view, ptr %9, i64 %.0239368, i32 3
+  %142 = load i64, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %108, i64 96
+  %144 = load i64, ptr %143, align 8
+  %145 = mul i64 %144, %140
+  %.not295 = icmp eq i64 %142, %145
+  br i1 %.not295, label %146, label %.loopexit
 
-147:                                              ; preds = %._crit_edge448
-  %148 = getelementptr inbounds i8, ptr %109, i64 104
-  %149 = load i32, ptr %148, align 8
-  switch i32 %149, label %156 [
+146:                                              ; preds = %._crit_edge448
+  %147 = getelementptr inbounds i8, ptr %108, i64 104
+  %148 = load i32, ptr %147, align 8
+  switch i32 %148, label %155 [
     i32 0, label %.loopexit
-    i32 1, label %150
-    i32 2, label %154
+    i32 1, label %149
+    i32 2, label %153
   ]
 
-150:                                              ; preds = %147
-  %151 = and i64 %141, 3
-  %152 = icmp eq i64 %151, 0
-  %153 = icmp ult i64 %141, 257
-  %or.cond = and i1 %153, %152
+149:                                              ; preds = %146
+  %150 = and i64 %140, 3
+  %151 = icmp eq i64 %150, 0
+  %152 = icmp ult i64 %140, 257
+  %or.cond = and i1 %152, %151
   br i1 %or.cond, label %.thread330, label %.loopexit
 
-154:                                              ; preds = %147
-  %155 = urem i64 %145, 3
-  %.not296 = icmp eq i64 %155, 0
+153:                                              ; preds = %146
+  %154 = urem i64 %144, 3
+  %.not296 = icmp eq i64 %154, 0
   br i1 %.not296, label %.thread322, label %.loopexit
 
-156:                                              ; preds = %147
-  %157 = and i32 %149, -2
-  %switch = icmp eq i32 %157, 2
+155:                                              ; preds = %146
+  %156 = and i32 %148, -2
+  %switch = icmp eq i32 %156, 2
   br i1 %switch, label %.thread322, label %.thread330
 
-.thread322:                                       ; preds = %154, %156
-  switch i64 %141, label %.loopexit [
-    i64 2, label %158
-    i64 4, label %158
+.thread322:                                       ; preds = %153, %155
+  switch i64 %140, label %.loopexit [
+    i64 2, label %157
+    i64 4, label %157
   ]
 
-158:                                              ; preds = %.thread322, %.thread322
-  %159 = getelementptr inbounds i8, ptr %109, i64 108
-  %160 = load i32, ptr %159, align 4
-  %.not299 = icmp eq i32 %160, 0
+157:                                              ; preds = %.thread322, %.thread322
+  %158 = getelementptr inbounds i8, ptr %108, i64 108
+  %159 = load i32, ptr %158, align 4
+  %.not299 = icmp eq i32 %159, 0
   br i1 %.not299, label %.thread330, label %.loopexit
 
-.thread330:                                       ; preds = %150, %156, %158
-  %161 = getelementptr inbounds i8, ptr %109, i64 108
-  %162 = load i32, ptr %161, align 4
-  switch i32 %162, label %.thread332 [
-    i32 1, label %163
-    i32 2, label %164
+.thread330:                                       ; preds = %149, %155, %157
+  %160 = getelementptr inbounds i8, ptr %108, i64 108
+  %161 = load i32, ptr %160, align 4
+  switch i32 %161, label %.thread332 [
+    i32 1, label %162
+    i32 2, label %163
   ]
 
-163:                                              ; preds = %.thread330
-  switch i64 %141, label %.loopexit [
+162:                                              ; preds = %.thread330
+  switch i64 %140, label %.loopexit [
     i64 4, label %.thread332
     i64 8, label %.thread332
   ]
 
-164:                                              ; preds = %.thread330
-  %.not302 = icmp eq i64 %141, 8
+163:                                              ; preds = %.thread330
+  %.not302 = icmp eq i64 %140, 8
   br i1 %.not302, label %.thread332, label %.loopexit
 
-.thread332:                                       ; preds = %.thread330, %163, %163, %121, %164
-  %165 = add nuw i64 %.0239368, 1
-  %exitcond435.not = icmp eq i64 %165, %7
-  br i1 %exitcond435.not, label %.preheader350, label %108
+.thread332:                                       ; preds = %.thread330, %162, %162, %120, %163
+  %164 = add nuw i64 %.0239368, 1
+  %exitcond435.not = icmp eq i64 %164, %7
+  br i1 %exitcond435.not, label %.preheader350, label %107
 
 .preheader340:                                    ; preds = %._crit_edge383, %.preheader350
-  %166 = getelementptr inbounds i8, ptr %0, i64 272
-  %167 = load i64, ptr %166, align 8
-  %.not411 = icmp eq i64 %167, 0
+  %165 = getelementptr inbounds i8, ptr %0, i64 272
+  %166 = load i64, ptr %165, align 8
+  %.not411 = icmp eq i64 %166, 0
   br i1 %.not411, label %.preheader337, label %.lr.ph387
 
 .lr.ph387:                                        ; preds = %.preheader340
-  %168 = getelementptr inbounds i8, ptr %0, i64 264
-  %169 = load ptr, ptr %168, align 8
-  br label %272
+  %167 = getelementptr inbounds i8, ptr %0, i64 264
+  %168 = load ptr, ptr %167, align 8
+  br label %271
 
-170:                                              ; preds = %.lr.ph385, %._crit_edge383
-  %.0240384 = phi i64 [ 0, %.lr.ph385 ], [ %269, %._crit_edge383 ]
-  %171 = getelementptr inbounds %struct.cgltf_mesh, ptr %106, i64 %.0240384
-  %172 = getelementptr inbounds i8, ptr %171, i64 24
-  %173 = load ptr, ptr %172, align 8
-  %.not273 = icmp eq ptr %173, null
-  br i1 %.not273, label %184, label %174
+169:                                              ; preds = %.lr.ph385, %._crit_edge383
+  %.0240384 = phi i64 [ 0, %.lr.ph385 ], [ %268, %._crit_edge383 ]
+  %170 = getelementptr inbounds %struct.cgltf_mesh, ptr %105, i64 %.0240384
+  %171 = getelementptr inbounds i8, ptr %170, i64 24
+  %172 = load ptr, ptr %171, align 8
+  %.not273 = icmp eq ptr %172, null
+  br i1 %.not273, label %183, label %173
 
-174:                                              ; preds = %170
-  %175 = getelementptr inbounds i8, ptr %171, i64 16
-  %176 = load i64, ptr %175, align 8
-  %.not274 = icmp eq i64 %176, 0
-  br i1 %.not274, label %184, label %177
+173:                                              ; preds = %169
+  %174 = getelementptr inbounds i8, ptr %170, i64 16
+  %175 = load i64, ptr %174, align 8
+  %.not274 = icmp eq i64 %175, 0
+  br i1 %.not274, label %183, label %176
 
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %171, i64 8
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 48
-  %181 = load i64, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %171, i64 32
-  %183 = load i64, ptr %182, align 8
-  %.not275 = icmp eq i64 %181, %183
-  br i1 %.not275, label %184, label %.loopexit
+176:                                              ; preds = %173
+  %177 = getelementptr inbounds i8, ptr %170, i64 8
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds i8, ptr %178, i64 48
+  %180 = load i64, ptr %179, align 8
+  %181 = getelementptr inbounds i8, ptr %170, i64 32
+  %182 = load i64, ptr %181, align 8
+  %.not275 = icmp eq i64 %180, %182
+  br i1 %.not275, label %183, label %.loopexit
 
-184:                                              ; preds = %174, %177, %170
-  %185 = getelementptr inbounds i8, ptr %171, i64 40
-  %186 = load ptr, ptr %185, align 8
-  %.not276 = icmp eq ptr %186, null
-  %.phi.trans.insert450 = getelementptr inbounds i8, ptr %171, i64 16
+183:                                              ; preds = %173, %176, %169
+  %184 = getelementptr inbounds i8, ptr %170, i64 40
+  %185 = load ptr, ptr %184, align 8
+  %.not276 = icmp eq ptr %185, null
+  %.phi.trans.insert450 = getelementptr inbounds i8, ptr %170, i64 16
   %.pre451 = load i64, ptr %.phi.trans.insert450, align 8
   %.not406 = icmp eq i64 %.pre451, 0
-  br i1 %.not276, label %195, label %187
+  br i1 %.not276, label %194, label %186
 
-187:                                              ; preds = %184
-  br i1 %.not406, label %._crit_edge383, label %188
+186:                                              ; preds = %183
+  br i1 %.not406, label %._crit_edge383, label %187
 
-188:                                              ; preds = %187
-  %189 = getelementptr inbounds i8, ptr %171, i64 8
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 48
-  %192 = load i64, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %171, i64 48
-  %194 = load i64, ptr %193, align 8
-  %.not278 = icmp eq i64 %192, %194
+187:                                              ; preds = %186
+  %188 = getelementptr inbounds i8, ptr %170, i64 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 48
+  %191 = load i64, ptr %190, align 8
+  %192 = getelementptr inbounds i8, ptr %170, i64 48
+  %193 = load i64, ptr %192, align 8
+  %.not278 = icmp eq i64 %191, %193
   br i1 %.not278, label %.lr.ph382, label %.loopexit
 
-195:                                              ; preds = %184
+194:                                              ; preds = %183
   br i1 %.not406, label %._crit_edge383, label %.lr.ph382
 
-.lr.ph382:                                        ; preds = %188, %195
-  %196 = getelementptr inbounds i8, ptr %171, i64 8
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 48
-  %199 = load i64, ptr %198, align 8
-  %.not408 = icmp eq i64 %199, 0
-  br label %200
+.lr.ph382:                                        ; preds = %187, %194
+  %195 = getelementptr inbounds i8, ptr %170, i64 8
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %196, i64 48
+  %198 = load i64, ptr %197, align 8
+  %.not408 = icmp eq i64 %198, 0
+  br label %199
 
-200:                                              ; preds = %.lr.ph382, %.loopexit344
-  %.0244379 = phi i64 [ 0, %.lr.ph382 ], [ %268, %.loopexit344 ]
-  %201 = getelementptr inbounds %struct.cgltf_primitive, ptr %197, i64 %.0244379
-  %202 = getelementptr inbounds i8, ptr %201, i64 48
-  %203 = load i64, ptr %202, align 8
-  %.not279 = icmp eq i64 %203, %199
-  br i1 %.not279, label %204, label %.loopexit
+199:                                              ; preds = %.lr.ph382, %.loopexit344
+  %.0244379 = phi i64 [ 0, %.lr.ph382 ], [ %267, %.loopexit344 ]
+  %200 = getelementptr inbounds %struct.cgltf_primitive, ptr %196, i64 %.0244379
+  %201 = getelementptr inbounds i8, ptr %200, i64 48
+  %202 = load i64, ptr %201, align 8
+  %.not279 = icmp eq i64 %202, %198
+  br i1 %.not279, label %203, label %.loopexit
 
-204:                                              ; preds = %200
-  %205 = getelementptr inbounds i8, ptr %201, i64 32
-  %206 = load i64, ptr %205, align 8
-  %.not280 = icmp eq i64 %206, 0
+203:                                              ; preds = %199
+  %204 = getelementptr inbounds i8, ptr %200, i64 32
+  %205 = load i64, ptr %204, align 8
+  %.not280 = icmp eq i64 %205, 0
   br i1 %.not280, label %.loopexit344, label %.lr.ph371
 
-.lr.ph371:                                        ; preds = %204
-  %207 = getelementptr inbounds i8, ptr %201, i64 24
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 16
-  %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 32
-  %212 = load i64, ptr %211, align 8
-  br label %218
+.lr.ph371:                                        ; preds = %203
+  %206 = getelementptr inbounds i8, ptr %200, i64 24
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr inbounds i8, ptr %207, i64 16
+  %209 = load ptr, ptr %208, align 8
+  %210 = getelementptr inbounds i8, ptr %209, i64 32
+  %211 = load i64, ptr %210, align 8
+  br label %217
 
-213:                                              ; preds = %218
-  %214 = add nuw i64 %.0243370, 1
-  %exitcond436.not = icmp eq i64 %214, %206
-  br i1 %exitcond436.not, label %.preheader346, label %218
+212:                                              ; preds = %217
+  %213 = add nuw i64 %.0243370, 1
+  %exitcond436.not = icmp eq i64 %213, %205
+  br i1 %exitcond436.not, label %.preheader346, label %217
 
-.preheader346:                                    ; preds = %213
+.preheader346:                                    ; preds = %212
   br i1 %.not408, label %._crit_edge376, label %.preheader342.lr.ph
 
 .preheader342.lr.ph:                              ; preds = %.preheader346
-  %215 = getelementptr inbounds %struct.cgltf_primitive, ptr %197, i64 %.0244379, i32 5
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %210, i64 32
+  %214 = getelementptr inbounds %struct.cgltf_primitive, ptr %196, i64 %.0244379, i32 5
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds i8, ptr %209, i64 32
   br label %.preheader342
 
-218:                                              ; preds = %.lr.ph371, %213
-  %.0243370 = phi i64 [ 0, %.lr.ph371 ], [ %214, %213 ]
-  %219 = getelementptr inbounds %struct.cgltf_attribute, ptr %208, i64 %.0243370, i32 3
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 32
-  %222 = load i64, ptr %221, align 8
-  %.not290 = icmp eq i64 %222, %212
-  br i1 %.not290, label %213, label %.loopexit
+217:                                              ; preds = %.lr.ph371, %212
+  %.0243370 = phi i64 [ 0, %.lr.ph371 ], [ %213, %212 ]
+  %218 = getelementptr inbounds %struct.cgltf_attribute, ptr %207, i64 %.0243370, i32 3
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 32
+  %221 = load i64, ptr %220, align 8
+  %.not290 = icmp eq i64 %221, %211
+  br i1 %.not290, label %212, label %.loopexit
 
 .preheader342:                                    ; preds = %.preheader342.lr.ph, %._crit_edge
-  %.0242375 = phi i64 [ 0, %.preheader342.lr.ph ], [ %235, %._crit_edge ]
-  %223 = getelementptr inbounds %struct.cgltf_morph_target, ptr %216, i64 %.0242375
-  %224 = getelementptr inbounds i8, ptr %223, i64 8
-  %225 = load i64, ptr %224, align 8
-  %.not409 = icmp eq i64 %225, 0
+  %.0242375 = phi i64 [ 0, %.preheader342.lr.ph ], [ %234, %._crit_edge ]
+  %222 = getelementptr inbounds %struct.cgltf_morph_target, ptr %215, i64 %.0242375
+  %223 = getelementptr inbounds i8, ptr %222, i64 8
+  %224 = load i64, ptr %223, align 8
+  %.not409 = icmp eq i64 %224, 0
   br i1 %.not409, label %._crit_edge, label %.lr.ph374
 
 .lr.ph374:                                        ; preds = %.preheader342
-  %226 = load ptr, ptr %223, align 8
-  %227 = load i64, ptr %217, align 8
-  br label %230
+  %225 = load ptr, ptr %222, align 8
+  %226 = load i64, ptr %216, align 8
+  br label %229
 
-228:                                              ; preds = %230
-  %229 = add nuw i64 %.0241373, 1
-  %exitcond437.not = icmp eq i64 %229, %225
-  br i1 %exitcond437.not, label %._crit_edge, label %230
+227:                                              ; preds = %229
+  %228 = add nuw i64 %.0241373, 1
+  %exitcond437.not = icmp eq i64 %228, %224
+  br i1 %exitcond437.not, label %._crit_edge, label %229
 
-230:                                              ; preds = %.lr.ph374, %228
-  %.0241373 = phi i64 [ 0, %.lr.ph374 ], [ %229, %228 ]
-  %231 = getelementptr inbounds %struct.cgltf_attribute, ptr %226, i64 %.0241373, i32 3
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 32
-  %234 = load i64, ptr %233, align 8
-  %.not289 = icmp eq i64 %234, %227
-  br i1 %.not289, label %228, label %.loopexit
+229:                                              ; preds = %.lr.ph374, %227
+  %.0241373 = phi i64 [ 0, %.lr.ph374 ], [ %228, %227 ]
+  %230 = getelementptr inbounds %struct.cgltf_attribute, ptr %225, i64 %.0241373, i32 3
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr inbounds i8, ptr %231, i64 32
+  %233 = load i64, ptr %232, align 8
+  %.not289 = icmp eq i64 %233, %226
+  br i1 %.not289, label %227, label %.loopexit
 
-._crit_edge:                                      ; preds = %228, %.preheader342
-  %235 = add nuw i64 %.0242375, 1
-  %exitcond438.not = icmp eq i64 %235, %199
+._crit_edge:                                      ; preds = %227, %.preheader342
+  %234 = add nuw i64 %.0242375, 1
+  %exitcond438.not = icmp eq i64 %234, %198
   br i1 %exitcond438.not, label %._crit_edge376, label %.preheader342
 
 ._crit_edge376:                                   ; preds = %._crit_edge, %.preheader346
-  %236 = getelementptr inbounds i8, ptr %201, i64 8
-  %237 = load ptr, ptr %236, align 8
-  %.not281 = icmp eq ptr %237, null
-  br i1 %.not281, label %.critedge, label %238
+  %235 = getelementptr inbounds i8, ptr %200, i64 8
+  %236 = load ptr, ptr %235, align 8
+  %.not281 = icmp eq ptr %236, null
+  br i1 %.not281, label %.critedge, label %237
 
-238:                                              ; preds = %._crit_edge376
-  %239 = getelementptr inbounds i8, ptr %237, i64 8
-  %240 = load i32, ptr %239, align 8
-  switch i32 %240, label %.loopexit [
-    i32 2, label %241
-    i32 4, label %241
-    i32 5, label %241
+237:                                              ; preds = %._crit_edge376
+  %238 = getelementptr inbounds i8, ptr %236, i64 8
+  %239 = load i32, ptr %238, align 8
+  switch i32 %239, label %.loopexit [
+    i32 2, label %240
+    i32 4, label %240
+    i32 5, label %240
   ]
 
-241:                                              ; preds = %238, %238, %238
-  %242 = getelementptr inbounds i8, ptr %237, i64 48
-  %243 = load ptr, ptr %242, align 8
-  %.not285 = icmp eq ptr %243, null
-  br i1 %.not285, label %.critedge, label %244
+240:                                              ; preds = %237, %237, %237
+  %241 = getelementptr inbounds i8, ptr %236, i64 48
+  %242 = load ptr, ptr %241, align 8
+  %.not285 = icmp eq ptr %242, null
+  br i1 %.not285, label %.critedge, label %243
 
-244:                                              ; preds = %241
-  %245 = getelementptr inbounds i8, ptr %243, i64 8
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 24
-  %248 = load ptr, ptr %247, align 8
-  %.not286 = icmp eq ptr %248, null
-  br i1 %.not286, label %.critedge, label %249
+243:                                              ; preds = %240
+  %244 = getelementptr inbounds i8, ptr %242, i64 8
+  %245 = load ptr, ptr %244, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 24
+  %247 = load ptr, ptr %246, align 8
+  %.not286 = icmp eq ptr %247, null
+  br i1 %.not286, label %.critedge, label %248
 
-249:                                              ; preds = %244
-  %250 = getelementptr inbounds i8, ptr %237, i64 24
-  %251 = load i64, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %237, i64 32
-  %253 = load i64, ptr %252, align 8
-  %254 = getelementptr i8, ptr %243, i64 16
-  %.val314 = load i64, ptr %254, align 8
-  %255 = tail call fastcc i64 @cgltf_calc_index_bound(ptr nonnull %248, i64 %.val314, i64 noundef %251, i32 noundef %240, i64 noundef %253)
-  %256 = getelementptr inbounds i8, ptr %210, i64 32
-  %257 = load i64, ptr %256, align 8
-  %.not287 = icmp ult i64 %255, %257
+248:                                              ; preds = %243
+  %249 = getelementptr inbounds i8, ptr %236, i64 24
+  %250 = load i64, ptr %249, align 8
+  %251 = getelementptr inbounds i8, ptr %236, i64 32
+  %252 = load i64, ptr %251, align 8
+  %253 = getelementptr i8, ptr %242, i64 16
+  %.val314 = load i64, ptr %253, align 8
+  %254 = tail call fastcc i64 @cgltf_calc_index_bound(ptr nonnull %247, i64 %.val314, i64 noundef %250, i32 noundef %239, i64 noundef %252)
+  %255 = getelementptr inbounds i8, ptr %209, i64 32
+  %256 = load i64, ptr %255, align 8
+  %.not287 = icmp ult i64 %254, %256
   br i1 %.not287, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %._crit_edge376, %249, %244, %241
-  %258 = getelementptr inbounds i8, ptr %201, i64 120
-  %259 = load i64, ptr %258, align 8
-  %.not410 = icmp eq i64 %259, 0
+.critedge:                                        ; preds = %._crit_edge376, %248, %243, %240
+  %257 = getelementptr inbounds i8, ptr %200, i64 120
+  %258 = load i64, ptr %257, align 8
+  %.not410 = icmp eq i64 %258, 0
   br i1 %.not410, label %.loopexit344, label %.lr.ph378
 
 .lr.ph378:                                        ; preds = %.critedge
-  %260 = getelementptr inbounds i8, ptr %201, i64 112
-  %261 = load ptr, ptr %260, align 8
-  %262 = load i64, ptr %107, align 8
-  br label %265
+  %259 = getelementptr inbounds i8, ptr %200, i64 112
+  %260 = load ptr, ptr %259, align 8
+  %261 = load i64, ptr %106, align 8
+  br label %264
 
-263:                                              ; preds = %265
-  %264 = add nuw i64 %.0238377, 1
-  %exitcond439.not = icmp eq i64 %264, %259
-  br i1 %exitcond439.not, label %.loopexit344, label %265
+262:                                              ; preds = %264
+  %263 = add nuw i64 %.0238377, 1
+  %exitcond439.not = icmp eq i64 %263, %258
+  br i1 %exitcond439.not, label %.loopexit344, label %264
 
-265:                                              ; preds = %.lr.ph378, %263
-  %.0238377 = phi i64 [ 0, %.lr.ph378 ], [ %264, %263 ]
-  %266 = getelementptr inbounds %struct.cgltf_material_mapping, ptr %261, i64 %.0238377
-  %267 = load i64, ptr %266, align 8
-  %.not288 = icmp ult i64 %267, %262
-  br i1 %.not288, label %263, label %.loopexit
+264:                                              ; preds = %.lr.ph378, %262
+  %.0238377 = phi i64 [ 0, %.lr.ph378 ], [ %263, %262 ]
+  %265 = getelementptr inbounds %struct.cgltf_material_mapping, ptr %260, i64 %.0238377
+  %266 = load i64, ptr %265, align 8
+  %.not288 = icmp ult i64 %266, %261
+  br i1 %.not288, label %262, label %.loopexit
 
-.loopexit344:                                     ; preds = %263, %.critedge, %204
-  %268 = add nuw i64 %.0244379, 1
-  %exitcond440.not = icmp eq i64 %268, %.pre451
-  br i1 %exitcond440.not, label %._crit_edge383, label %200
+.loopexit344:                                     ; preds = %262, %.critedge, %203
+  %267 = add nuw i64 %.0244379, 1
+  %exitcond440.not = icmp eq i64 %267, %.pre451
+  br i1 %exitcond440.not, label %._crit_edge383, label %199
 
-._crit_edge383:                                   ; preds = %.loopexit344, %187, %195
-  %269 = add nuw i64 %.0240384, 1
-  %exitcond441.not = icmp eq i64 %269, %104
-  br i1 %exitcond441.not, label %.preheader340, label %170
+._crit_edge383:                                   ; preds = %.loopexit344, %186, %194
+  %268 = add nuw i64 %.0240384, 1
+  %exitcond441.not = icmp eq i64 %268, %103
+  br i1 %exitcond441.not, label %.preheader340, label %169
 
-.lr.ph394:                                        ; preds = %289
-  %270 = getelementptr inbounds i8, ptr %0, i64 264
-  %271 = load ptr, ptr %270, align 8
-  br label %295
+.lr.ph394:                                        ; preds = %288
+  %269 = getelementptr inbounds i8, ptr %0, i64 264
+  %270 = load ptr, ptr %269, align 8
+  br label %294
 
-272:                                              ; preds = %.lr.ph387, %289
-  %.0237386 = phi i64 [ 0, %.lr.ph387 ], [ %290, %289 ]
-  %273 = getelementptr inbounds %struct.cgltf_node, ptr %169, i64 %.0237386
-  %274 = getelementptr inbounds i8, ptr %273, i64 64
-  %275 = load ptr, ptr %274, align 8
-  %.not269 = icmp eq ptr %275, null
-  br i1 %.not269, label %289, label %276
+271:                                              ; preds = %.lr.ph387, %288
+  %.0237386 = phi i64 [ 0, %.lr.ph387 ], [ %289, %288 ]
+  %272 = getelementptr inbounds %struct.cgltf_node, ptr %168, i64 %.0237386
+  %273 = getelementptr inbounds i8, ptr %272, i64 64
+  %274 = load ptr, ptr %273, align 8
+  %.not269 = icmp eq ptr %274, null
+  br i1 %.not269, label %288, label %275
 
-276:                                              ; preds = %272
-  %277 = getelementptr inbounds i8, ptr %273, i64 40
-  %278 = load ptr, ptr %277, align 8
-  %.not270 = icmp eq ptr %278, null
-  br i1 %.not270, label %289, label %279
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds i8, ptr %272, i64 40
+  %277 = load ptr, ptr %276, align 8
+  %.not270 = icmp eq ptr %277, null
+  br i1 %.not270, label %288, label %278
 
-279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %278, i64 16
-  %281 = load i64, ptr %280, align 8
-  %.not271 = icmp eq i64 %281, 0
-  br i1 %.not271, label %289, label %282
+278:                                              ; preds = %275
+  %279 = getelementptr inbounds i8, ptr %277, i64 16
+  %280 = load i64, ptr %279, align 8
+  %.not271 = icmp eq i64 %280, 0
+  br i1 %.not271, label %288, label %281
 
-282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %278, i64 8
-  %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 48
-  %286 = load i64, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %273, i64 72
-  %288 = load i64, ptr %287, align 8
-  %.not272 = icmp eq i64 %286, %288
-  br i1 %.not272, label %289, label %.loopexit
+281:                                              ; preds = %278
+  %282 = getelementptr inbounds i8, ptr %277, i64 8
+  %283 = load ptr, ptr %282, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 48
+  %285 = load i64, ptr %284, align 8
+  %286 = getelementptr inbounds i8, ptr %272, i64 72
+  %287 = load i64, ptr %286, align 8
+  %.not272 = icmp eq i64 %285, %287
+  br i1 %.not272, label %288, label %.loopexit
 
-289:                                              ; preds = %272, %276, %282, %279
-  %290 = add nuw i64 %.0237386, 1
-  %exitcond442.not = icmp eq i64 %290, %167
-  br i1 %exitcond442.not, label %.lr.ph394, label %272
+288:                                              ; preds = %271, %275, %281, %278
+  %289 = add nuw i64 %.0237386, 1
+  %exitcond442.not = icmp eq i64 %289, %166
+  br i1 %exitcond442.not, label %.lr.ph394, label %271
 
 .preheader337:                                    ; preds = %._crit_edge392, %.preheader340
-  %291 = getelementptr inbounds i8, ptr %0, i64 288
-  %292 = load i64, ptr %291, align 8
-  %.not413 = icmp eq i64 %292, 0
+  %290 = getelementptr inbounds i8, ptr %0, i64 288
+  %291 = load i64, ptr %290, align 8
+  %.not413 = icmp eq i64 %291, 0
   br i1 %.not413, label %.preheader333, label %.preheader335.lr.ph
 
 .preheader335.lr.ph:                              ; preds = %.preheader337
-  %293 = getelementptr inbounds i8, ptr %0, i64 280
-  %294 = load ptr, ptr %293, align 8
+  %292 = getelementptr inbounds i8, ptr %0, i64 280
+  %293 = load ptr, ptr %292, align 8
   br label %.preheader335
 
-295:                                              ; preds = %.lr.ph394, %._crit_edge392
-  %.0236393 = phi i64 [ 0, %.lr.ph394 ], [ %313, %._crit_edge392 ]
-  %296 = getelementptr inbounds %struct.cgltf_node, ptr %271, i64 %.0236393, i32 1
-  %297 = load ptr, ptr %296, align 8
-  %.not267 = icmp eq ptr %297, null
-  br i1 %.not267, label %._crit_edge392, label %298
+294:                                              ; preds = %.lr.ph394, %._crit_edge392
+  %.0236393 = phi i64 [ 0, %.lr.ph394 ], [ %312, %._crit_edge392 ]
+  %295 = getelementptr inbounds %struct.cgltf_node, ptr %270, i64 %.0236393, i32 1
+  %296 = load ptr, ptr %295, align 8
+  %.not267 = icmp eq ptr %296, null
+  br i1 %.not267, label %._crit_edge392, label %297
 
-298:                                              ; preds = %295
-  %299 = getelementptr inbounds i8, ptr %297, i64 8
-  %300 = load ptr, ptr %299, align 8
-  %.not475 = icmp eq ptr %300, null
+297:                                              ; preds = %294
+  %298 = getelementptr inbounds i8, ptr %296, i64 8
+  %299 = load ptr, ptr %298, align 8
+  %.not475 = icmp eq ptr %299, null
   br i1 %.not475, label %._crit_edge392, label %.lr.ph391
 
-.lr.ph391:                                        ; preds = %298, %305
-  %.0234389 = phi ptr [ %309, %305 ], [ %300, %298 ]
-  %.0235388 = phi ptr [ %307, %305 ], [ %297, %298 ]
-  %301 = icmp eq ptr %.0235388, %.0234389
-  br i1 %301, label %.loopexit, label %302
+.lr.ph391:                                        ; preds = %297, %304
+  %.0234389 = phi ptr [ %308, %304 ], [ %299, %297 ]
+  %.0235388 = phi ptr [ %306, %304 ], [ %296, %297 ]
+  %300 = icmp eq ptr %.0235388, %.0234389
+  br i1 %300, label %.loopexit, label %301
 
-302:                                              ; preds = %.lr.ph391
-  %303 = getelementptr inbounds i8, ptr %.0234389, i64 8
-  %304 = load ptr, ptr %303, align 8
-  %.not268 = icmp eq ptr %304, null
-  br i1 %.not268, label %._crit_edge392, label %305
+301:                                              ; preds = %.lr.ph391
+  %302 = getelementptr inbounds i8, ptr %.0234389, i64 8
+  %303 = load ptr, ptr %302, align 8
+  %.not268 = icmp eq ptr %303, null
+  br i1 %.not268, label %._crit_edge392, label %304
 
-305:                                              ; preds = %302
-  %306 = getelementptr inbounds i8, ptr %.0235388, i64 8
-  %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %304, i64 8
-  %309 = load ptr, ptr %308, align 8
-  %310 = icmp ne ptr %307, null
-  %311 = icmp ne ptr %309, null
-  %312 = select i1 %310, i1 %311, i1 false
-  br i1 %312, label %.lr.ph391, label %._crit_edge392
+304:                                              ; preds = %301
+  %305 = getelementptr inbounds i8, ptr %.0235388, i64 8
+  %306 = load ptr, ptr %305, align 8
+  %307 = getelementptr inbounds i8, ptr %303, i64 8
+  %308 = load ptr, ptr %307, align 8
+  %309 = icmp ne ptr %306, null
+  %310 = icmp ne ptr %308, null
+  %311 = select i1 %309, i1 %310, i1 false
+  br i1 %311, label %.lr.ph391, label %._crit_edge392
 
-._crit_edge392:                                   ; preds = %302, %305, %295, %298
-  %313 = add nuw i64 %.0236393, 1
-  %exitcond443.not = icmp eq i64 %313, %167
-  br i1 %exitcond443.not, label %.preheader337, label %295
+._crit_edge392:                                   ; preds = %301, %304, %294, %297
+  %312 = add nuw i64 %.0236393, 1
+  %exitcond443.not = icmp eq i64 %312, %166
+  br i1 %exitcond443.not, label %.preheader337, label %294
 
 .preheader335:                                    ; preds = %.preheader335.lr.ph, %._crit_edge397
-  %.0233398 = phi i64 [ 0, %.preheader335.lr.ph ], [ %330, %._crit_edge397 ]
-  %314 = getelementptr inbounds %struct.cgltf_scene, ptr %294, i64 %.0233398
-  %315 = getelementptr inbounds i8, ptr %314, i64 16
-  %316 = load i64, ptr %315, align 8
-  %.not414 = icmp eq i64 %316, 0
+  %.0233398 = phi i64 [ 0, %.preheader335.lr.ph ], [ %329, %._crit_edge397 ]
+  %313 = getelementptr inbounds %struct.cgltf_scene, ptr %293, i64 %.0233398
+  %314 = getelementptr inbounds i8, ptr %313, i64 16
+  %315 = load i64, ptr %314, align 8
+  %.not414 = icmp eq i64 %315, 0
   br i1 %.not414, label %._crit_edge397, label %.lr.ph396
 
 .lr.ph396:                                        ; preds = %.preheader335
-  %317 = getelementptr inbounds i8, ptr %314, i64 8
-  %318 = load ptr, ptr %317, align 8
-  br label %325
+  %316 = getelementptr inbounds i8, ptr %313, i64 8
+  %317 = load ptr, ptr %316, align 8
+  br label %324
 
 .preheader333:                                    ; preds = %._crit_edge397, %.preheader337
-  %319 = getelementptr inbounds i8, ptr %0, i64 312
-  %320 = load i64, ptr %319, align 8
-  %.not415 = icmp eq i64 %320, 0
+  %318 = getelementptr inbounds i8, ptr %0, i64 312
+  %319 = load i64, ptr %318, align 8
+  %.not415 = icmp eq i64 %319, 0
   br i1 %.not415, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader333
-  %321 = getelementptr inbounds i8, ptr %0, i64 304
-  %322 = load ptr, ptr %321, align 8
+  %320 = getelementptr inbounds i8, ptr %0, i64 304
+  %321 = load ptr, ptr %320, align 8
   br label %.preheader
 
-323:                                              ; preds = %325
-  %324 = add nuw i64 %.0232395, 1
-  %exitcond444.not = icmp eq i64 %324, %316
-  br i1 %exitcond444.not, label %._crit_edge397, label %325
+322:                                              ; preds = %324
+  %323 = add nuw i64 %.0232395, 1
+  %exitcond444.not = icmp eq i64 %323, %315
+  br i1 %exitcond444.not, label %._crit_edge397, label %324
 
-325:                                              ; preds = %.lr.ph396, %323
-  %.0232395 = phi i64 [ 0, %.lr.ph396 ], [ %324, %323 ]
-  %326 = getelementptr inbounds ptr, ptr %318, i64 %.0232395
-  %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %327, i64 8
-  %329 = load ptr, ptr %328, align 8
-  %.not266 = icmp eq ptr %329, null
-  br i1 %.not266, label %323, label %.loopexit
+324:                                              ; preds = %.lr.ph396, %322
+  %.0232395 = phi i64 [ 0, %.lr.ph396 ], [ %323, %322 ]
+  %325 = getelementptr inbounds ptr, ptr %317, i64 %.0232395
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr inbounds i8, ptr %326, i64 8
+  %328 = load ptr, ptr %327, align 8
+  %.not266 = icmp eq ptr %328, null
+  br i1 %.not266, label %322, label %.loopexit
 
-._crit_edge397:                                   ; preds = %323, %.preheader335
-  %330 = add nuw i64 %.0233398, 1
-  %exitcond445.not = icmp eq i64 %330, %292
+._crit_edge397:                                   ; preds = %322, %.preheader335
+  %329 = add nuw i64 %.0233398, 1
+  %exitcond445.not = icmp eq i64 %329, %291
   br i1 %exitcond445.not, label %.preheader333, label %.preheader335
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge401
-  %.0231402 = phi i64 [ 0, %.preheader.lr.ph ], [ %372, %._crit_edge401 ]
-  %331 = getelementptr inbounds %struct.cgltf_animation, ptr %322, i64 %.0231402
-  %332 = getelementptr inbounds i8, ptr %331, i64 32
-  %333 = load i64, ptr %332, align 8
-  %.not416 = icmp eq i64 %333, 0
+  %.0231402 = phi i64 [ 0, %.preheader.lr.ph ], [ %371, %._crit_edge401 ]
+  %330 = getelementptr inbounds %struct.cgltf_animation, ptr %321, i64 %.0231402
+  %331 = getelementptr inbounds i8, ptr %330, i64 32
+  %332 = load i64, ptr %331, align 8
+  %.not416 = icmp eq i64 %332, 0
   br i1 %.not416, label %._crit_edge401, label %.lr.ph400
 
 .lr.ph400:                                        ; preds = %.preheader
-  %334 = getelementptr inbounds i8, ptr %331, i64 24
-  %335 = load ptr, ptr %334, align 8
-  br label %336
+  %333 = getelementptr inbounds i8, ptr %330, i64 24
+  %334 = load ptr, ptr %333, align 8
+  br label %335
 
-336:                                              ; preds = %.lr.ph400, %370
-  %.0230399 = phi i64 [ 0, %.lr.ph400 ], [ %371, %370 ]
-  %337 = getelementptr inbounds %struct.cgltf_animation_channel, ptr %335, i64 %.0230399
-  %338 = getelementptr inbounds i8, ptr %337, i64 8
-  %339 = load ptr, ptr %338, align 8
-  %.not = icmp eq ptr %339, null
-  br i1 %.not, label %370, label %340
+335:                                              ; preds = %.lr.ph400, %369
+  %.0230399 = phi i64 [ 0, %.lr.ph400 ], [ %370, %369 ]
+  %336 = getelementptr inbounds %struct.cgltf_animation_channel, ptr %334, i64 %.0230399
+  %337 = getelementptr inbounds i8, ptr %336, i64 8
+  %338 = load ptr, ptr %337, align 8
+  %.not = icmp eq ptr %338, null
+  br i1 %.not, label %369, label %339
 
-340:                                              ; preds = %336
-  %341 = getelementptr inbounds i8, ptr %337, i64 16
-  %342 = load i32, ptr %341, align 8
-  %343 = icmp eq i32 %342, 4
-  br i1 %343, label %344, label %355
+339:                                              ; preds = %335
+  %340 = getelementptr inbounds i8, ptr %336, i64 16
+  %341 = load i32, ptr %340, align 8
+  %342 = icmp eq i32 %341, 4
+  br i1 %342, label %343, label %354
 
-344:                                              ; preds = %340
-  %345 = getelementptr inbounds i8, ptr %339, i64 40
-  %346 = load ptr, ptr %345, align 8
-  %.not263 = icmp eq ptr %346, null
-  br i1 %.not263, label %.loopexit, label %347
+343:                                              ; preds = %339
+  %344 = getelementptr inbounds i8, ptr %338, i64 40
+  %345 = load ptr, ptr %344, align 8
+  %.not263 = icmp eq ptr %345, null
+  br i1 %.not263, label %.loopexit, label %346
 
-347:                                              ; preds = %344
-  %348 = getelementptr inbounds i8, ptr %346, i64 16
-  %349 = load i64, ptr %348, align 8
-  %.not264 = icmp eq i64 %349, 0
-  br i1 %.not264, label %.loopexit, label %350
+346:                                              ; preds = %343
+  %347 = getelementptr inbounds i8, ptr %345, i64 16
+  %348 = load i64, ptr %347, align 8
+  %.not264 = icmp eq i64 %348, 0
+  br i1 %.not264, label %.loopexit, label %349
 
-350:                                              ; preds = %347
-  %351 = getelementptr inbounds i8, ptr %346, i64 8
-  %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 48
-  %354 = load i64, ptr %353, align 8
-  br label %355
+349:                                              ; preds = %346
+  %350 = getelementptr inbounds i8, ptr %345, i64 8
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds i8, ptr %351, i64 48
+  %353 = load i64, ptr %352, align 8
+  br label %354
 
-355:                                              ; preds = %350, %340
-  %.0228 = phi i64 [ %354, %350 ], [ 1, %340 ]
-  %356 = load ptr, ptr %337, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 16
-  %358 = load i32, ptr %357, align 8
-  %359 = icmp eq i32 %358, 2
-  %360 = select i1 %359, i64 3, i64 1
-  %361 = load ptr, ptr %356, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 32
-  %363 = load i64, ptr %362, align 8
-  %364 = mul i64 %363, %.0228
-  %365 = mul i64 %364, %360
-  %366 = getelementptr inbounds i8, ptr %356, i64 8
-  %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds i8, ptr %367, i64 32
-  %369 = load i64, ptr %368, align 8
-  %.not265 = icmp eq i64 %365, %369
-  br i1 %.not265, label %370, label %.loopexit
+354:                                              ; preds = %349, %339
+  %.0228 = phi i64 [ %353, %349 ], [ 1, %339 ]
+  %355 = load ptr, ptr %336, align 8
+  %356 = getelementptr inbounds i8, ptr %355, i64 16
+  %357 = load i32, ptr %356, align 8
+  %358 = icmp eq i32 %357, 2
+  %359 = select i1 %358, i64 3, i64 1
+  %360 = load ptr, ptr %355, align 8
+  %361 = getelementptr inbounds i8, ptr %360, i64 32
+  %362 = load i64, ptr %361, align 8
+  %363 = mul i64 %362, %.0228
+  %364 = mul i64 %363, %359
+  %365 = getelementptr inbounds i8, ptr %355, i64 8
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i64 32
+  %368 = load i64, ptr %367, align 8
+  %.not265 = icmp eq i64 %364, %368
+  br i1 %.not265, label %369, label %.loopexit
 
-370:                                              ; preds = %355, %336
-  %371 = add nuw i64 %.0230399, 1
-  %exitcond446.not = icmp eq i64 %371, %333
-  br i1 %exitcond446.not, label %._crit_edge401, label %336
+369:                                              ; preds = %354, %335
+  %370 = add nuw i64 %.0230399, 1
+  %exitcond446.not = icmp eq i64 %370, %332
+  br i1 %exitcond446.not, label %._crit_edge401, label %335
 
-._crit_edge401:                                   ; preds = %370, %.preheader
-  %372 = add nuw i64 %.0231402, 1
-  %exitcond447.not = icmp eq i64 %372, %320
+._crit_edge401:                                   ; preds = %369, %.preheader
+  %371 = add nuw i64 %.0231402, 1
+  %exitcond447.not = icmp eq i64 %371, %319
   br i1 %exitcond447.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %cgltf_calc_index_bound.exit, %74, %cgltf_calc_size.exit321, %64, %31, %147, %164, %163, %158, %.thread322, %154, %150, %._crit_edge448, %140, %124, %128, %112, %188, %177, %249, %238, %200, %218, %265, %230, %282, %.lr.ph391, %325, %._crit_edge401, %355, %344, %347, %.preheader333
-  %.0 = phi i32 [ 0, %.preheader333 ], [ 1, %355 ], [ 4, %344 ], [ 4, %347 ], [ 0, %._crit_edge401 ], [ 4, %325 ], [ 4, %.lr.ph391 ], [ 4, %282 ], [ 4, %230 ], [ 4, %265 ], [ 4, %218 ], [ 1, %249 ], [ 4, %238 ], [ 4, %200 ], [ 4, %177 ], [ 4, %188 ], [ 4, %164 ], [ 4, %163 ], [ 4, %158 ], [ 4, %.thread322 ], [ 4, %154 ], [ 4, %150 ], [ 4, %147 ], [ 4, %._crit_edge448 ], [ 4, %140 ], [ 1, %124 ], [ 1, %128 ], [ 1, %112 ], [ 1, %cgltf_calc_index_bound.exit ], [ 4, %74 ], [ 1, %cgltf_calc_size.exit321 ], [ 1, %64 ], [ 1, %31 ]
+.loopexit:                                        ; preds = %cgltf_calc_index_bound.exit, %73, %cgltf_calc_size.exit321, %63, %30, %146, %163, %162, %157, %.thread322, %153, %149, %._crit_edge448, %139, %123, %127, %111, %187, %176, %248, %237, %199, %217, %264, %229, %281, %.lr.ph391, %324, %._crit_edge401, %354, %343, %346, %.preheader333
+  %.0 = phi i32 [ 0, %.preheader333 ], [ 1, %354 ], [ 4, %343 ], [ 4, %346 ], [ 0, %._crit_edge401 ], [ 4, %324 ], [ 4, %.lr.ph391 ], [ 4, %281 ], [ 4, %229 ], [ 4, %264 ], [ 4, %217 ], [ 1, %248 ], [ 4, %237 ], [ 4, %199 ], [ 4, %176 ], [ 4, %187 ], [ 4, %163 ], [ 4, %162 ], [ 4, %157 ], [ 4, %.thread322 ], [ 4, %153 ], [ 4, %149 ], [ 4, %146 ], [ 4, %._crit_edge448 ], [ 4, %139 ], [ 1, %123 ], [ 1, %127 ], [ 1, %111 ], [ 1, %cgltf_calc_index_bound.exit ], [ 4, %73 ], [ 1, %cgltf_calc_size.exit321 ], [ 1, %63 ], [ 1, %30 ]
   ret i32 %.0
 }
 
@@ -7401,23 +7395,23 @@ define hidden range(i64 0, 65) i64 @cgltf_calc_size(i32 noundef %0, i32 noundef 
 
 cgltf_component_size.exit:                        ; preds = %2, %2
   %5 = icmp eq i32 %0, 5
-  br i1 %5, label %16, label %cgltf_component_size.exit.thread
+  br i1 %5, label %15, label %cgltf_component_size.exit.thread
 
 cgltf_component_size.exit.thread:                 ; preds = %2, %2, %3, %4, %cgltf_component_size.exit
   %.0.i21 = phi i64 [ 1, %cgltf_component_size.exit ], [ 4, %3 ], [ 0, %4 ], [ 2, %2 ], [ 2, %2 ]
-  switch i32 %0, label %10 [
-    i32 6, label %11
+  switch i32 %0, label %9 [
+    i32 6, label %10
     i32 2, label %cgltf_num_components.exit
     i32 3, label %6
     i32 4, label %7
-    i32 5, label %8
-    i32 7, label %9
+    i32 5, label %7
+    i32 7, label %8
   ]
 
 6:                                                ; preds = %cgltf_component_size.exit.thread
   br label %cgltf_num_components.exit
 
-7:                                                ; preds = %cgltf_component_size.exit.thread
+7:                                                ; preds = %cgltf_component_size.exit.thread, %cgltf_component_size.exit.thread
   br label %cgltf_num_components.exit
 
 8:                                                ; preds = %cgltf_component_size.exit.thread
@@ -7427,24 +7421,21 @@ cgltf_component_size.exit.thread:                 ; preds = %2, %2, %3, %4, %cgl
   br label %cgltf_num_components.exit
 
 10:                                               ; preds = %cgltf_component_size.exit.thread
-  br label %cgltf_num_components.exit
+  %11 = add nsw i64 %.0.i21, -1
+  %or.cond3 = icmp ult i64 %11, 2
+  br i1 %or.cond3, label %12, label %cgltf_num_components.exit
 
-11:                                               ; preds = %cgltf_component_size.exit.thread
-  %12 = add nsw i64 %.0.i21, -1
-  %or.cond3 = icmp ult i64 %12, 2
-  br i1 %or.cond3, label %13, label %cgltf_num_components.exit
+12:                                               ; preds = %10
+  %13 = mul nuw nsw i64 %.0.i21, 12
+  br label %15
 
-13:                                               ; preds = %11
-  %14 = mul nuw nsw i64 %.0.i21, 12
-  br label %16
+cgltf_num_components.exit:                        ; preds = %cgltf_component_size.exit.thread, %10, %9, %8, %7, %6
+  %phi.call = phi i64 [ 1, %9 ], [ 16, %8 ], [ 4, %7 ], [ 3, %6 ], [ 9, %10 ], [ 2, %cgltf_component_size.exit.thread ]
+  %14 = mul nuw nsw i64 %phi.call, %.0.i21
+  br label %15
 
-cgltf_num_components.exit:                        ; preds = %cgltf_component_size.exit.thread, %11, %10, %9, %8, %7, %6
-  %phi.call = phi i64 [ 1, %10 ], [ 16, %9 ], [ 4, %8 ], [ 4, %7 ], [ 3, %6 ], [ 9, %11 ], [ 2, %cgltf_component_size.exit.thread ]
-  %15 = mul nuw nsw i64 %phi.call, %.0.i21
-  br label %16
-
-16:                                               ; preds = %cgltf_component_size.exit, %cgltf_num_components.exit, %13
-  %.0 = phi i64 [ %14, %13 ], [ %15, %cgltf_num_components.exit ], [ 8, %cgltf_component_size.exit ]
+15:                                               ; preds = %cgltf_component_size.exit, %cgltf_num_components.exit, %12
+  %.0 = phi i64 [ %13, %12 ], [ %14, %cgltf_num_components.exit ], [ 8, %cgltf_component_size.exit ]
   ret i64 %.0
 }
 
@@ -10452,7 +10443,7 @@ cgltf_buffer_view_data.exit.thread18:             ; preds = %cgltf_buffer_view_d
     i32 2, label %cgltf_num_components.exit.i
     i32 3, label %33
     i32 4, label %34
-    i32 5, label %cgltf_element_read_uint.exit
+    i32 5, label %34
     i32 6, label %cgltf_element_read_uint.exit
     i32 7, label %cgltf_element_read_uint.exit
   ]
@@ -10460,7 +10451,7 @@ cgltf_buffer_view_data.exit.thread18:             ; preds = %cgltf_buffer_view_d
 33:                                               ; preds = %cgltf_buffer_view_data.exit.thread18
   br label %cgltf_num_components.exit.i
 
-34:                                               ; preds = %cgltf_buffer_view_data.exit.thread18
+34:                                               ; preds = %cgltf_buffer_view_data.exit.thread18, %cgltf_buffer_view_data.exit.thread18
   br label %cgltf_num_components.exit.i
 
 35:                                               ; preds = %cgltf_buffer_view_data.exit.thread18
@@ -10469,21 +10460,24 @@ cgltf_buffer_view_data.exit.thread18:             ; preds = %cgltf_buffer_view_d
 cgltf_num_components.exit.i:                      ; preds = %35, %34, %33, %cgltf_buffer_view_data.exit.thread18
   %.0.i.i = phi i64 [ 1, %35 ], [ 4, %34 ], [ 3, %33 ], [ 2, %cgltf_buffer_view_data.exit.thread18 ]
   %36 = icmp ult i64 %3, %.0.i.i
-  br i1 %36, label %cgltf_element_read_uint.exit, label %37
+  %37 = add i32 %30, -5
+  %or.cond3.i = icmp ult i32 %37, 3
+  %or.cond.i = or i1 %or.cond3.i, %36
+  br i1 %or.cond.i, label %cgltf_element_read_uint.exit, label %38
 
-37:                                               ; preds = %cgltf_num_components.exit.i
+38:                                               ; preds = %cgltf_num_components.exit.i
   %switch.tableidx = add i32 %32, -1
-  %38 = icmp ult i32 %switch.tableidx, 6
-  br i1 %38, label %switch.lookup, label %cgltf_component_size.exit.i
+  %39 = icmp ult i32 %switch.tableidx, 6
+  br i1 %39, label %switch.lookup, label %cgltf_component_size.exit.i
 
-switch.lookup:                                    ; preds = %37
-  %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.cgltf_accessor_read_uint, i64 0, i64 %39
+switch.lookup:                                    ; preds = %38
+  %40 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.cgltf_accessor_read_uint, i64 0, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %cgltf_component_size.exit.i
 
-cgltf_component_size.exit.i:                      ; preds = %37, %switch.lookup
-  %.0.i21.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %37 ]
+cgltf_component_size.exit.i:                      ; preds = %38, %switch.lookup
+  %.0.i21.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %38 ]
   switch i32 %32, label %cgltf_element_read_uint.exit.sink.split [
     i32 1, label %cgltf_component_read_uint.exit.us.i
     i32 2, label %cgltf_component_read_uint.exit.us29.i
@@ -10493,72 +10487,72 @@ cgltf_component_size.exit.i:                      ; preds = %37, %switch.lookup
   ]
 
 cgltf_component_read_uint.exit.us.i:              ; preds = %cgltf_component_size.exit.i, %cgltf_component_read_uint.exit.us.i
-  %.026.us.i = phi i64 [ %45, %cgltf_component_read_uint.exit.us.i ], [ 0, %cgltf_component_size.exit.i ]
-  %40 = mul nuw nsw i64 %.026.us.i, %.0.i21.i
-  %41 = getelementptr inbounds i8, ptr %28, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = sext i8 %42 to i32
-  %44 = getelementptr inbounds i32, ptr %2, i64 %.026.us.i
-  store i32 %43, ptr %44, align 4
-  %45 = add nuw nsw i64 %.026.us.i, 1
-  %exitcond51.not.i = icmp eq i64 %45, %.0.i.i
+  %.026.us.i = phi i64 [ %46, %cgltf_component_read_uint.exit.us.i ], [ 0, %cgltf_component_size.exit.i ]
+  %41 = mul nuw nsw i64 %.026.us.i, %.0.i21.i
+  %42 = getelementptr inbounds i8, ptr %28, i64 %41
+  %43 = load i8, ptr %42, align 1
+  %44 = sext i8 %43 to i32
+  %45 = getelementptr inbounds i32, ptr %2, i64 %.026.us.i
+  store i32 %44, ptr %45, align 4
+  %46 = add nuw nsw i64 %.026.us.i, 1
+  %exitcond51.not.i = icmp eq i64 %46, %.0.i.i
   br i1 %exitcond51.not.i, label %cgltf_element_read_uint.exit, label %cgltf_component_read_uint.exit.us.i
 
 cgltf_component_read_uint.exit.us29.i:            ; preds = %cgltf_component_size.exit.i, %cgltf_component_read_uint.exit.us29.i
-  %.026.us28.i = phi i64 [ %51, %cgltf_component_read_uint.exit.us29.i ], [ 0, %cgltf_component_size.exit.i ]
-  %46 = mul nuw nsw i64 %.026.us28.i, %.0.i21.i
-  %47 = getelementptr inbounds i8, ptr %28, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = getelementptr inbounds i32, ptr %2, i64 %.026.us28.i
-  store i32 %49, ptr %50, align 4
-  %51 = add nuw nsw i64 %.026.us28.i, 1
-  %exitcond50.not.i = icmp eq i64 %51, %.0.i.i
+  %.026.us28.i = phi i64 [ %52, %cgltf_component_read_uint.exit.us29.i ], [ 0, %cgltf_component_size.exit.i ]
+  %47 = mul nuw nsw i64 %.026.us28.i, %.0.i21.i
+  %48 = getelementptr inbounds i8, ptr %28, i64 %47
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  %51 = getelementptr inbounds i32, ptr %2, i64 %.026.us28.i
+  store i32 %50, ptr %51, align 4
+  %52 = add nuw nsw i64 %.026.us28.i, 1
+  %exitcond50.not.i = icmp eq i64 %52, %.0.i.i
   br i1 %exitcond50.not.i, label %cgltf_element_read_uint.exit, label %cgltf_component_read_uint.exit.us29.i
 
 cgltf_component_read_uint.exit.us33.i:            ; preds = %cgltf_component_size.exit.i, %cgltf_component_read_uint.exit.us33.i
-  %.026.us32.i = phi i64 [ %57, %cgltf_component_read_uint.exit.us33.i ], [ 0, %cgltf_component_size.exit.i ]
-  %52 = mul nuw nsw i64 %.026.us32.i, %.0.i21.i
-  %53 = getelementptr inbounds i8, ptr %28, i64 %52
-  %54 = load i16, ptr %53, align 2
-  %55 = sext i16 %54 to i32
-  %56 = getelementptr inbounds i32, ptr %2, i64 %.026.us32.i
-  store i32 %55, ptr %56, align 4
-  %57 = add nuw nsw i64 %.026.us32.i, 1
-  %exitcond49.not.i = icmp eq i64 %57, %.0.i.i
+  %.026.us32.i = phi i64 [ %58, %cgltf_component_read_uint.exit.us33.i ], [ 0, %cgltf_component_size.exit.i ]
+  %53 = mul nuw nsw i64 %.026.us32.i, %.0.i21.i
+  %54 = getelementptr inbounds i8, ptr %28, i64 %53
+  %55 = load i16, ptr %54, align 2
+  %56 = sext i16 %55 to i32
+  %57 = getelementptr inbounds i32, ptr %2, i64 %.026.us32.i
+  store i32 %56, ptr %57, align 4
+  %58 = add nuw nsw i64 %.026.us32.i, 1
+  %exitcond49.not.i = icmp eq i64 %58, %.0.i.i
   br i1 %exitcond49.not.i, label %cgltf_element_read_uint.exit, label %cgltf_component_read_uint.exit.us33.i
 
 cgltf_component_read_uint.exit.us37.i:            ; preds = %cgltf_component_size.exit.i, %cgltf_component_read_uint.exit.us37.i
-  %.026.us36.i = phi i64 [ %63, %cgltf_component_read_uint.exit.us37.i ], [ 0, %cgltf_component_size.exit.i ]
-  %58 = mul nuw nsw i64 %.026.us36.i, %.0.i21.i
-  %59 = getelementptr inbounds i8, ptr %28, i64 %58
-  %60 = load i16, ptr %59, align 2
-  %61 = zext i16 %60 to i32
-  %62 = getelementptr inbounds i32, ptr %2, i64 %.026.us36.i
-  store i32 %61, ptr %62, align 4
-  %63 = add nuw nsw i64 %.026.us36.i, 1
-  %exitcond48.not.i = icmp eq i64 %63, %.0.i.i
+  %.026.us36.i = phi i64 [ %64, %cgltf_component_read_uint.exit.us37.i ], [ 0, %cgltf_component_size.exit.i ]
+  %59 = mul nuw nsw i64 %.026.us36.i, %.0.i21.i
+  %60 = getelementptr inbounds i8, ptr %28, i64 %59
+  %61 = load i16, ptr %60, align 2
+  %62 = zext i16 %61 to i32
+  %63 = getelementptr inbounds i32, ptr %2, i64 %.026.us36.i
+  store i32 %62, ptr %63, align 4
+  %64 = add nuw nsw i64 %.026.us36.i, 1
+  %exitcond48.not.i = icmp eq i64 %64, %.0.i.i
   br i1 %exitcond48.not.i, label %cgltf_element_read_uint.exit, label %cgltf_component_read_uint.exit.us37.i
 
 cgltf_component_read_uint.exit.us41.i:            ; preds = %cgltf_component_size.exit.i, %cgltf_component_read_uint.exit.us41.i
-  %.026.us40.i = phi i64 [ %68, %cgltf_component_read_uint.exit.us41.i ], [ 0, %cgltf_component_size.exit.i ]
-  %64 = mul nuw nsw i64 %.026.us40.i, %.0.i21.i
-  %65 = getelementptr inbounds i8, ptr %28, i64 %64
-  %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i32, ptr %2, i64 %.026.us40.i
-  store i32 %66, ptr %67, align 4
-  %68 = add nuw nsw i64 %.026.us40.i, 1
-  %exitcond.not.i = icmp eq i64 %68, %.0.i.i
+  %.026.us40.i = phi i64 [ %69, %cgltf_component_read_uint.exit.us41.i ], [ 0, %cgltf_component_size.exit.i ]
+  %65 = mul nuw nsw i64 %.026.us40.i, %.0.i21.i
+  %66 = getelementptr inbounds i8, ptr %28, i64 %65
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds i32, ptr %2, i64 %.026.us40.i
+  store i32 %67, ptr %68, align 4
+  %69 = add nuw nsw i64 %.026.us40.i, 1
+  %exitcond.not.i = icmp eq i64 %69, %.0.i.i
   br i1 %exitcond.not.i, label %cgltf_element_read_uint.exit, label %cgltf_component_read_uint.exit.us41.i
 
 cgltf_element_read_uint.exit.sink.split:          ; preds = %cgltf_component_size.exit.i, %7
   %.0.i.i.sink = phi i64 [ %3, %7 ], [ %.0.i.i, %cgltf_component_size.exit.i ]
-  %69 = shl i64 %.0.i.i.sink, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %69, i1 false)
+  %70 = shl i64 %.0.i.i.sink, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %70, i1 false)
   br label %cgltf_element_read_uint.exit
 
-cgltf_element_read_uint.exit:                     ; preds = %cgltf_component_read_uint.exit.us41.i, %cgltf_component_read_uint.exit.us37.i, %cgltf_component_read_uint.exit.us33.i, %cgltf_component_read_uint.exit.us29.i, %cgltf_component_read_uint.exit.us.i, %cgltf_element_read_uint.exit.sink.split, %14, %cgltf_num_components.exit.i, %cgltf_buffer_view_data.exit.thread18, %cgltf_buffer_view_data.exit.thread18, %cgltf_buffer_view_data.exit.thread18, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %cgltf_num_components.exit.i ], [ 0, %cgltf_buffer_view_data.exit.thread18 ], [ 0, %cgltf_buffer_view_data.exit.thread18 ], [ 0, %cgltf_buffer_view_data.exit.thread18 ], [ 0, %14 ], [ 1, %cgltf_element_read_uint.exit.sink.split ], [ 1, %cgltf_component_read_uint.exit.us.i ], [ 1, %cgltf_component_read_uint.exit.us29.i ], [ 1, %cgltf_component_read_uint.exit.us33.i ], [ 1, %cgltf_component_read_uint.exit.us37.i ], [ 1, %cgltf_component_read_uint.exit.us41.i ]
+cgltf_element_read_uint.exit:                     ; preds = %cgltf_component_read_uint.exit.us41.i, %cgltf_component_read_uint.exit.us37.i, %cgltf_component_read_uint.exit.us33.i, %cgltf_component_read_uint.exit.us29.i, %cgltf_component_read_uint.exit.us.i, %cgltf_element_read_uint.exit.sink.split, %14, %cgltf_num_components.exit.i, %cgltf_buffer_view_data.exit.thread18, %cgltf_buffer_view_data.exit.thread18, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %cgltf_num_components.exit.i ], [ 0, %cgltf_buffer_view_data.exit.thread18 ], [ 0, %cgltf_buffer_view_data.exit.thread18 ], [ 0, %14 ], [ 1, %cgltf_element_read_uint.exit.sink.split ], [ 1, %cgltf_component_read_uint.exit.us.i ], [ 1, %cgltf_component_read_uint.exit.us29.i ], [ 1, %cgltf_component_read_uint.exit.us33.i ], [ 1, %cgltf_component_read_uint.exit.us37.i ], [ 1, %cgltf_component_read_uint.exit.us41.i ]
   ret i32 %.0
 }
 

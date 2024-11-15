@@ -29189,9 +29189,9 @@ define noundef range(i32 0, -2147483648) i32 @"_ZN60_$LT$span..HirFileId$u20$as$
   call void %11(ptr noalias nocapture noundef nonnull sret({ { i8, [23 x i8] }, i32, i32, { { i8, [15 x i8] }, i32, i8, i8, i8, [1 x i8] } }) align 8 dereferenceable(56) %4, ptr noundef nonnull align 1 %1, i32 noundef %10), !noalias !5732
   %12 = load i8, ptr %4, align 8, !range !291, !noundef !7
   %switch.i = icmp samesign ult i8 %12, 2
-  %spec.select.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 4, i64 8
-  %spec.select.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %spec.select.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %.0.i = load i32, ptr %spec.select.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !alias.scope !5733, !noundef !7
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 4, i64 8
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %.0.i = load i32, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !alias.scope !5733, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !5736)
   call void @llvm.experimental.noalias.scope.decl(metadata !5739)
   switch i8 %12, label %13 [
@@ -29256,7 +29256,7 @@ define noundef i32 @"_ZN60_$LT$span..HirFileId$u20$as$u20$hir_expand..HirFileIdE
   %9 = getelementptr inbounds i8, ptr %5, i64 33
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %spec.select.i.sroa.sel.v.sroa.sel34 = getelementptr inbounds i8, ptr %5, i64 4
+  %..i.sroa.sel.v.sroa.sel34 = getelementptr inbounds i8, ptr %5, i64 4
   br label %14
 
 _ZN4span9HirFileId4repr17hf34457ea0a381a16E.exit.thread: ; preds = %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit21", %3, %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
@@ -29292,7 +29292,7 @@ _ZN4span9HirFileId4repr17hf34457ea0a381a16E.exit.thread: ; preds = %"_ZN4core3pt
   br i1 %.not, label %.thread, label %26
 
 .thread:                                          ; preds = %24
-  %.0.i1035 = load i32, ptr %spec.select.i.sroa.sel.v.sroa.sel34, align 4, !alias.scope !5767, !noundef !7
+  %.0.i1035 = load i32, ptr %..i.sroa.sel.v.sroa.sel34, align 4, !alias.scope !5767, !noundef !7
   br label %80
 
 26:                                               ; preds = %24
@@ -30277,9 +30277,9 @@ define noundef i32 @"_ZN64_$LT$span..MacroFileId$u20$as$u20$hir_expand..MacroFil
   call void %6(ptr noalias nocapture noundef nonnull sret({ { i8, [23 x i8] }, i32, i32, { { i8, [15 x i8] }, i32, i8, i8, i8, [1 x i8] } }) align 8 dereferenceable(56) %4, ptr noundef nonnull align 1 %1, i32 noundef %0), !noalias !6091
   %7 = load i8, ptr %4, align 8, !range !291, !noundef !7
   %switch.i = icmp samesign ult i8 %7, 2
-  %spec.select.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 4, i64 8
-  %spec.select.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %spec.select.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %.0.i = load i32, ptr %spec.select.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !alias.scope !6092, !noundef !7
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %switch.i, i64 4, i64 8
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %.0.i = load i32, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !alias.scope !6092, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6095)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6098)
   switch i8 %7, label %8 [

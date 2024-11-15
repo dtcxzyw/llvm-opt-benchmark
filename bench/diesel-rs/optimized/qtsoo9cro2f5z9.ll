@@ -574,8 +574,8 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
   %26 = load i64, ptr %24, align 8, !range !36, !alias.scope !63, !noalias !66, !noundef !5
   %27 = add nsw i64 %26, -39
   %switch.i.i = icmp ult i64 %27, 2
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 176
-  %28 = getelementptr inbounds i8, ptr %24, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %28 = getelementptr inbounds i8, ptr %24, i64 %..i.i
   %29 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN3syn4path4Path9get_ident17hd052d54130953d06E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !66
   %30 = icmp eq ptr %29, null
   br i1 %30, label %"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hd19b4a66119bc535E.exit.thread.i", label %"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hd19b4a66119bc535E.exit.i"
@@ -894,8 +894,8 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   %26 = load i64, ptr %24, align 8, !range !36, !alias.scope !101, !noalias !104, !noundef !5
   %27 = add nsw i64 %26, -39
   %switch.i.i = icmp ult i64 %27, 2
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 176
-  %28 = getelementptr inbounds i8, ptr %24, i64 %spec.select.i.i
+  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %28 = getelementptr inbounds i8, ptr %24, i64 %..i.i
   %29 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN3syn4path4Path9get_ident17hd052d54130953d06E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !104
   %30 = icmp eq ptr %29, null
   br i1 %30, label %"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hb928ac29e79f69e7E.exit.thread.i", label %"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$closure$u7d$$u7d$17hb928ac29e79f69e7E.exit.i"

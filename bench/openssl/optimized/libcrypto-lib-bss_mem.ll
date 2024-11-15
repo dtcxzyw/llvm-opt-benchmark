@@ -435,10 +435,9 @@ entry:
     i32 115, label %sw.bb67
     i32 8, label %sw.bb79
     i32 9, label %sw.bb82
-    i32 13, label %sw.bb85
+    i32 11, label %sw.bb88
     i32 10, label %sw.bb86
     i32 12, label %sw.bb88
-    i32 11, label %sw.bb88
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -606,9 +605,6 @@ sw.bb82:                                          ; preds = %entry
   store i32 %conv83, ptr %shutdown84, align 4
   br label %return
 
-sw.bb85:                                          ; preds = %entry
-  br label %return
-
 sw.bb86:                                          ; preds = %entry
   br label %return
 
@@ -618,8 +614,8 @@ sw.bb88:                                          ; preds = %entry, %entry
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %sw.bb48, %sw.bb52, %mem_buf_free.exit, %sw.bb79, %sw.bb82, %sw.bb85, %sw.bb86, %sw.bb88, %sw.default, %if.end21, %if.else24, %sw.bb, %if.then59, %sw.bb55, %if.end76, %sw.bb67, %if.end33, %entry, %sw.bb29
-  %retval.0 = phi i64 [ -1, %sw.bb29 ], [ 0, %sw.default ], [ 1, %sw.bb88 ], [ %4, %sw.bb86 ], [ 0, %sw.bb85 ], [ 1, %sw.bb82 ], [ %conv81, %sw.bb79 ], [ 1, %if.end76 ], [ 1, %sw.bb67 ], [ 1, %mem_buf_free.exit ], [ %4, %if.then59 ], [ %4, %sw.bb55 ], [ 1, %sw.bb52 ], [ %conv51, %sw.bb48 ], [ 1, %if.else24 ], [ 1, %if.end21 ], [ 1, %sw.bb ], [ %cond, %entry ], [ %num, %if.end33 ]
+return:                                           ; preds = %sw.bb48, %sw.bb52, %mem_buf_free.exit, %sw.bb79, %sw.bb82, %sw.bb86, %sw.bb88, %sw.default, %if.end21, %if.else24, %sw.bb, %if.then59, %sw.bb55, %if.end76, %sw.bb67, %if.end33, %entry, %sw.bb29
+  %retval.0 = phi i64 [ -1, %sw.bb29 ], [ 0, %sw.default ], [ 1, %sw.bb88 ], [ %4, %sw.bb86 ], [ 1, %sw.bb82 ], [ %conv81, %sw.bb79 ], [ 1, %if.end76 ], [ 1, %sw.bb67 ], [ 1, %mem_buf_free.exit ], [ %4, %if.then59 ], [ %4, %sw.bb55 ], [ 1, %sw.bb52 ], [ %conv51, %sw.bb48 ], [ 1, %if.else24 ], [ 1, %if.end21 ], [ 1, %sw.bb ], [ %cond, %entry ], [ %num, %if.end33 ]
   ret i64 %retval.0
 }
 

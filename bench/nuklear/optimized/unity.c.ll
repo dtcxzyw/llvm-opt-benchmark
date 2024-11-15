@@ -37821,7 +37821,7 @@ if.end20:                                         ; preds = %nk_zero.exit
   %scrollbar_size.sroa.2.0.scrollbar_size28.sroa_idx = getelementptr inbounds i8, ptr %ctx, i64 9408
   %scrollbar_size.sroa.2.0.copyload = load float, ptr %scrollbar_size.sroa.2.0.scrollbar_size28.sroa_idx, align 4
   switch i32 %panel_type, label %nk_panel_get_padding.exit [
-    i32 64, label %sw.bb9.i
+    i32 64, label %sw.bb11.i
     i32 2, label %sw.bb1.i
     i32 4, label %sw.bb3.i
     i32 16, label %sw.bb5.i
@@ -37840,11 +37840,11 @@ sw.bb5.i:                                         ; preds = %if.end20
 sw.bb7.i:                                         ; preds = %if.end20
   br label %nk_panel_get_padding.exit
 
-sw.bb9.i:                                         ; preds = %if.end20
+sw.bb11.i:                                        ; preds = %if.end20
   br label %nk_panel_get_padding.exit
 
-nk_panel_get_padding.exit:                        ; preds = %if.end20, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i
-  %.sink.i = phi i64 [ 9100, %sw.bb9.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.end20 ]
+nk_panel_get_padding.exit:                        ; preds = %if.end20, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb11.i
+  %.sink.i = phi i64 [ 9100, %sw.bb11.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.end20 ]
   %menu_padding13.i = getelementptr inbounds i8, ptr %style21, i64 %.sink.i
   %retval.sroa.0.0.i = load <2 x float>, ptr %menu_padding13.i, align 4
   %12 = and i32 %4, 4098
@@ -37958,7 +37958,7 @@ if.end100:                                        ; preds = %if.end.i.i, %nk_inp
 
 if.then.i:                                        ; preds = %if.end100
   switch i32 %panel_type, label %nk_panel_get_border.exit [
-    i32 64, label %sw.bb9.i355
+    i32 64, label %sw.bb9.i
     i32 2, label %sw.bb1.i354
     i32 4, label %sw.bb3.i353
     i32 16, label %sw.bb5.i352
@@ -37977,11 +37977,11 @@ sw.bb5.i352:                                      ; preds = %if.then.i
 sw.bb7.i350:                                      ; preds = %if.then.i
   br label %nk_panel_get_border.exit
 
-sw.bb9.i355:                                      ; preds = %if.then.i
+sw.bb9.i:                                         ; preds = %if.then.i
   br label %nk_panel_get_border.exit
 
-nk_panel_get_border.exit:                         ; preds = %if.then.i, %sw.bb1.i354, %sw.bb3.i353, %sw.bb5.i352, %sw.bb7.i350, %sw.bb9.i355
-  %.sink = phi i64 [ 9376, %sw.bb1.i354 ], [ 9384, %sw.bb3.i353 ], [ 9368, %sw.bb5.i352 ], [ 9364, %sw.bb7.i350 ], [ 9372, %sw.bb9.i355 ], [ 9360, %if.then.i ]
+nk_panel_get_border.exit:                         ; preds = %if.then.i, %sw.bb1.i354, %sw.bb3.i353, %sw.bb5.i352, %sw.bb7.i350, %sw.bb9.i
+  %.sink = phi i64 [ 9376, %sw.bb1.i354 ], [ 9384, %sw.bb3.i353 ], [ 9368, %sw.bb5.i352 ], [ 9364, %sw.bb7.i350 ], [ 9372, %sw.bb9.i ], [ 9360, %if.then.i ]
   %border.i = getelementptr inbounds i8, ptr %ctx, i64 %.sink
   %retval.0.i351 = load float, ptr %border.i, align 4
   %border = getelementptr inbounds i8, ptr %11, i64 60
@@ -37990,8 +37990,8 @@ nk_panel_get_border.exit:                         ; preds = %if.then.i, %sw.bb1.
   %40 = load <2 x float>, ptr %w112, align 8
   %r.sroa.3.8.vec.extract.i = extractelement <2 x float> %40, i64 0
   %mul.i = fmul float %retval.0.i351, 2.000000e+00
-  %cmp.i356 = fcmp olt float %r.sroa.3.8.vec.extract.i, %mul.i
-  %cond.i = select i1 %cmp.i356, float %mul.i, float %r.sroa.3.8.vec.extract.i
+  %cmp.i355 = fcmp olt float %r.sroa.3.8.vec.extract.i, %mul.i
+  %cond.i = select i1 %cmp.i355, float %mul.i, float %r.sroa.3.8.vec.extract.i
   %r.sroa.3.12.vec.extract.i = extractelement <2 x float> %40, i64 1
   %cmp5.i = fcmp olt float %r.sroa.3.12.vec.extract.i, %mul.i
   %cond11.i = select i1 %cmp5.i, float %mul.i, float %r.sroa.3.12.vec.extract.i
@@ -38037,8 +38037,8 @@ lor.lhs.false.i:                                  ; preds = %nk_panel_get_border
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %layout4.i = getelementptr inbounds i8, ptr %45, i64 168
   %46 = load ptr, ptr %layout4.i, align 8
-  %tobool5.not.i358 = icmp eq ptr %46, null
-  br i1 %tobool5.not.i358, label %nk_layout_reset_min_row_height.exit, label %if.end.i
+  %tobool5.not.i357 = icmp eq ptr %46, null
+  br i1 %tobool5.not.i357, label %nk_layout_reset_min_row_height.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false2.i
   %47 = load ptr, ptr %style21, align 8
@@ -38084,8 +38084,8 @@ if.then141:                                       ; preds = %nk_layout_reset_min
   br label %if.end145
 
 if.end145:                                        ; preds = %if.then141, %nk_layout_reset_min_row_height.exit
-  %tobool.not.i359 = icmp samesign ult i32 %panel_type, 16
-  br i1 %tobool.not.i359, label %if.then148, label %if.end165
+  %tobool.not.i358 = icmp samesign ult i32 %panel_type, 16
+  br i1 %tobool.not.i358, label %if.then148, label %if.end165
 
 if.then148:                                       ; preds = %if.end145
   store float 0.000000e+00, ptr %footer_height, align 4
@@ -38103,13 +38103,13 @@ if.then148:                                       ; preds = %if.end145
 if.end165:                                        ; preds = %if.then148, %if.end145
   %58 = load i32, ptr %flags, align 8
   %59 = and i32 %58, 88
-  %.not.i361 = icmp eq i32 %59, 0
-  %and4.i362 = and i32 %58, 8192
-  %tobool5.not.i363 = icmp ne i32 %and4.i362, 0
-  %or.cond.i364.not417 = or i1 %.not.i361, %tobool5.not.i363
-  %tobool6.i365 = icmp eq ptr %title, null
-  %narrow.i366.not = or i1 %tobool6.i365, %or.cond.i364.not417
-  br i1 %narrow.i366.not, label %if.end503, label %if.then169
+  %.not.i360 = icmp eq i32 %59, 0
+  %and4.i361 = and i32 %58, 8192
+  %tobool5.not.i362 = icmp ne i32 %and4.i361, 0
+  %or.cond.i363.not416 = or i1 %.not.i360, %tobool5.not.i362
+  %tobool6.i364 = icmp eq ptr %title, null
+  %narrow.i365.not = or i1 %tobool6.i364, %or.cond.i363.not416
+  br i1 %narrow.i365.not, label %if.end503, label %if.then169
 
 if.then169:                                       ; preds = %if.end165
   %60 = load float, ptr %bounds105, align 4
@@ -38144,37 +38144,37 @@ if.then169:                                       ; preds = %if.end165
   %active = getelementptr inbounds i8, ptr %ctx, i64 18296
   %71 = load ptr, ptr %active, align 8
   %cmp = icmp eq ptr %71, %3
-  br i1 %cmp, label %if.then204, label %if.end.i369
+  br i1 %cmp, label %if.then204, label %if.end.i368
 
 if.then204:                                       ; preds = %if.then169
   %active207 = getelementptr inbounds i8, ptr %ctx, i64 8720
   br label %if.end228
 
-if.end.i369:                                      ; preds = %if.then169
+if.end.i368:                                      ; preds = %if.then169
   %pos.i = getelementptr inbounds i8, ptr %ctx, i64 324
   %72 = load float, ptr %pos.i, align 4
-  %cmp.i370 = fcmp ole float %60, %72
-  %add.i371 = fadd float %60, %62
-  %cmp6.i = fcmp olt float %72, %add.i371
-  %or.cond.i372 = select i1 %cmp.i370, i1 %cmp6.i, i1 false
-  br i1 %or.cond.i372, label %land.rhs.i374, label %if.end228
+  %cmp.i369 = fcmp ole float %60, %72
+  %add.i370 = fadd float %60, %62
+  %cmp6.i = fcmp olt float %72, %add.i370
+  %or.cond.i371 = select i1 %cmp.i369, i1 %cmp6.i, i1 false
+  br i1 %or.cond.i371, label %land.rhs.i373, label %if.end228
 
-land.rhs.i374:                                    ; preds = %if.end.i369
+land.rhs.i373:                                    ; preds = %if.end.i368
   %y9.i = getelementptr inbounds i8, ptr %ctx, i64 328
   %73 = load float, ptr %y9.i, align 4
   %cmp10.i = fcmp ugt float %61, %73
   %add16.i = fadd float %61, %67
   %cmp17.i = fcmp uge float %73, %add16.i
-  %or.cond418 = select i1 %cmp10.i, i1 true, i1 %cmp17.i
+  %or.cond417 = select i1 %cmp10.i, i1 true, i1 %cmp17.i
   %hover = getelementptr inbounds i8, ptr %ctx, i64 8680
-  %spec.select = select i1 %or.cond418, i64 9204, i64 9208
-  %spec.select428 = select i1 %or.cond418, ptr %window, ptr %hover
+  %spec.select = select i1 %or.cond417, i64 9204, i64 9208
+  %spec.select427 = select i1 %or.cond417, ptr %window, ptr %hover
   br label %if.end228
 
-if.end228:                                        ; preds = %land.rhs.i374, %if.end.i369, %if.then204
-  %.sink426 = phi i64 [ 9212, %if.then204 ], [ 9204, %if.end.i369 ], [ %spec.select, %land.rhs.i374 ]
-  %background.0 = phi ptr [ %active207, %if.then204 ], [ %window, %if.end.i369 ], [ %spec.select428, %land.rhs.i374 ]
-  %label_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink426
+if.end228:                                        ; preds = %land.rhs.i373, %if.end.i368, %if.then204
+  %.sink425 = phi i64 [ 9212, %if.then204 ], [ 9204, %if.end.i368 ], [ %spec.select, %land.rhs.i373 ]
+  %background.0 = phi ptr [ %active207, %if.then204 ], [ %window, %if.end.i368 ], [ %spec.select427, %land.rhs.i373 ]
+  %label_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink425
   %text.sroa.7.0 = load i32, ptr %label_hover, align 4
   %add230 = fadd float %67, 1.000000e+00
   %header170.sroa.21.12.vec.insert133 = insertelement <2 x float> %header170.sroa.21.8.vec.insert, float %add230, i64 1
@@ -38257,28 +38257,28 @@ if.end313:                                        ; preds = %if.else292, %if.the
   %86 = load ptr, ptr %style21, align 8
   %call320 = call fastcc i32 @nk_do_button_symbol(ptr noundef %ws, ptr noundef nonnull %buffer, <2 x float> %button.sroa.0.1, <2 x float> %button.sroa.9.8.vec.insert, i32 noundef %85, i32 noundef 0, ptr noundef nonnull %close_button, ptr noundef %cond, ptr noundef %86)
   %tobool321.not = icmp ne i32 %call320, 0
-  %.pre424 = load i32, ptr %flags, align 8
-  %and324 = and i32 %.pre424, 4096
+  %.pre423 = load i32, ptr %flags, align 8
+  %and324 = and i32 %.pre423, 4096
   %tobool325.not = icmp eq i32 %and324, 0
-  %or.cond427 = select i1 %tobool321.not, i1 %tobool325.not, i1 false
-  br i1 %or.cond427, label %if.then326, label %if.end331
+  %or.cond426 = select i1 %tobool321.not, i1 %tobool325.not, i1 false
+  br i1 %or.cond426, label %if.then326, label %if.end331
 
 if.then326:                                       ; preds = %if.end313
   %87 = load i32, ptr %flags103, align 4
   %or = and i32 %87, -40961
   %and329 = or disjoint i32 %or, 8192
   store i32 %and329, ptr %flags103, align 4
-  %.pre423 = load i32, ptr %flags, align 8
+  %.pre422 = load i32, ptr %flags, align 8
   br label %if.end331
 
 if.end331:                                        ; preds = %if.end313, %if.then326, %sw.epilog
-  %88 = phi i32 [ %.pre423, %if.then326 ], [ %.pre424, %if.end313 ], [ %79, %sw.epilog ]
+  %88 = phi i32 [ %.pre422, %if.then326 ], [ %.pre423, %if.end313 ], [ %79, %sw.epilog ]
   %header170.sroa.0.0 = phi <2 x float> [ %header170.sroa.0.1, %if.then326 ], [ %header170.sroa.0.1, %if.end313 ], [ %header170.sroa.0.4.vec.insert, %sw.epilog ]
   %header170.sroa.21.0 = phi <2 x float> [ %header170.sroa.21.1, %if.then326 ], [ %header170.sroa.21.1, %if.end313 ], [ %header170.sroa.21.12.vec.insert133, %sw.epilog ]
   %button.sroa.0.0 = phi <2 x float> [ %button.sroa.0.1, %if.then326 ], [ %button.sroa.0.1, %if.end313 ], [ %button.sroa.0.4.vec.insert, %sw.epilog ]
   %and333 = and i32 %88, 16
   %tobool334.not = icmp eq i32 %and333, 0
-  br i1 %tobool334.not, label %land.rhs.i375.preheader, label %if.then335
+  br i1 %tobool334.not, label %land.rhs.i374.preheader, label %if.then335
 
 if.then335:                                       ; preds = %if.end331
   store i32 0, ptr %ws336, align 4
@@ -38342,38 +38342,38 @@ if.end389:                                        ; preds = %if.else373, %if.end
   %96 = load ptr, ptr %style21, align 8
   %call405 = call fastcc i32 @nk_do_button_symbol(ptr noundef %ws336, ptr noundef nonnull %buffer, <2 x float> %button.sroa.0.3, <2 x float> %button.sroa.9.8.vec.insert, i32 noundef %cond401, i32 noundef 0, ptr noundef nonnull %minimize_button, ptr noundef %cond, ptr noundef %96)
   %tobool406.not = icmp eq i32 %call405, 0
-  br i1 %tobool406.not, label %land.rhs.i375.preheader, label %land.lhs.true407
+  br i1 %tobool406.not, label %land.rhs.i374.preheader, label %land.lhs.true407
 
 land.lhs.true407:                                 ; preds = %if.end389
   %97 = load i32, ptr %flags, align 8
   %and409 = and i32 %97, 4096
   %tobool410.not = icmp eq i32 %and409, 0
-  br i1 %tobool410.not, label %if.then411, label %land.rhs.i375.preheader
+  br i1 %tobool410.not, label %if.then411, label %land.rhs.i374.preheader
 
 if.then411:                                       ; preds = %land.lhs.true407
   %98 = load i32, ptr %flags103, align 4
   %cond422 = xor i32 %98, 32768
   store i32 %cond422, ptr %flags103, align 4
-  br label %land.rhs.i375.preheader
+  br label %land.rhs.i374.preheader
 
-land.rhs.i375.preheader:                          ; preds = %if.end331, %if.then411, %land.lhs.true407, %if.end389
+land.rhs.i374.preheader:                          ; preds = %if.end331, %if.then411, %land.lhs.true407, %if.end389
   %header170.sroa.0.2 = phi <2 x float> [ %header170.sroa.0.3, %land.lhs.true407 ], [ %header170.sroa.0.3, %if.then411 ], [ %header170.sroa.0.3, %if.end389 ], [ %header170.sroa.0.0, %if.end331 ]
   %header170.sroa.21.2 = phi <2 x float> [ %header170.sroa.21.4, %land.lhs.true407 ], [ %header170.sroa.21.4, %if.then411 ], [ %header170.sroa.21.4, %if.end389 ], [ %header170.sroa.21.0, %if.end331 ]
   %99 = load i8, ptr %title, align 1
-  %cmp.not.i419 = icmp eq i8 %99, 0
-  br i1 %cmp.not.i419, label %nk_strlen.exit, label %while.body.i
+  %cmp.not.i418 = icmp eq i8 %99, 0
+  br i1 %cmp.not.i418, label %nk_strlen.exit, label %while.body.i
 
-while.body.i:                                     ; preds = %land.rhs.i375.preheader, %while.body.i
-  %str.addr.04.i421 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %title, %land.rhs.i375.preheader ]
-  %siz.05.i420 = phi i32 [ %inc.i, %while.body.i ], [ 0, %land.rhs.i375.preheader ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i421, i64 1
-  %inc.i = add nuw nsw i32 %siz.05.i420, 1
+while.body.i:                                     ; preds = %land.rhs.i374.preheader, %while.body.i
+  %str.addr.04.i420 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %title, %land.rhs.i374.preheader ]
+  %siz.05.i419 = phi i32 [ %inc.i, %while.body.i ], [ 0, %land.rhs.i374.preheader ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i420, i64 1
+  %inc.i = add nuw nsw i32 %siz.05.i419, 1
   %100 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.not.i = icmp eq i8 %100, 0
   br i1 %cmp.not.i, label %nk_strlen.exit, label %while.body.i
 
-nk_strlen.exit:                                   ; preds = %while.body.i, %land.rhs.i375.preheader
-  %siz.05.i.lcssa = phi i32 [ 0, %land.rhs.i375.preheader ], [ %inc.i, %while.body.i ]
+nk_strlen.exit:                                   ; preds = %while.body.i, %land.rhs.i374.preheader
+  %siz.05.i.lcssa = phi i32 [ 0, %land.rhs.i374.preheader ], [ %inc.i, %while.body.i ]
   %width = getelementptr inbounds i8, ptr %10, i64 16
   %101 = load ptr, ptr %width, align 8
   %102 = load float, ptr %height180, align 8
@@ -38399,8 +38399,8 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   %.sub468 = select i1 %cmp469, float %110, float %sub468
   %cmp480 = fcmp olt float %.sub468, 0.000000e+00
   %cond501 = select i1 %cmp480, float 0.000000e+00, float %.sub468
-  %cmp.i380 = fcmp olt float %108, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i380, float 0.000000e+00, float %108
+  %cmp.i379 = fcmp olt float %108, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i379, float 0.000000e+00, float %108
   %112 = load ptr, ptr %width, align 8
   %113 = load ptr, ptr %10, align 8
   %call.i = tail call float %112(ptr %113, float noundef %107, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa) #52
@@ -38480,19 +38480,19 @@ if.end543:                                        ; preds = %if.then511, %sw.bb5
   %129 = load float, ptr %h560, align 4
   %add561 = fadd float %127, %129
   %130 = load float, ptr %clip547, align 4
-  %cmp.i383 = fcmp olt float %130, %126
-  %x0..i = select i1 %cmp.i383, float %126, float %130
+  %cmp.i382 = fcmp olt float %130, %126
+  %x0..i = select i1 %cmp.i382, float %126, float %130
   %clip.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %x0..i, i64 0
-  %y.i384 = getelementptr inbounds i8, ptr %3, i64 116
-  %131 = load float, ptr %y.i384, align 4
+  %y.i383 = getelementptr inbounds i8, ptr %3, i64 116
+  %131 = load float, ptr %y.i383, align 4
   %cmp4.i = fcmp olt float %131, %127
   %cond9.i = select i1 %cmp4.i, float %127, float %131
   %clip.sroa.0.4.vec.insert = insertelement <2 x float> %clip.sroa.0.0.vec.insert, float %cond9.i, i64 1
   %w.i = getelementptr inbounds i8, ptr %3, i64 120
   %132 = load float, ptr %w.i, align 4
-  %add.i385 = fadd float %130, %132
-  %cmp12.i = fcmp olt float %add.i385, %add556
-  %cond19.i = select i1 %cmp12.i, float %add.i385, float %add556
+  %add.i384 = fadd float %130, %132
+  %cmp12.i = fcmp olt float %add.i384, %add556
+  %cond19.i = select i1 %cmp12.i, float %add.i384, float %add556
   %sub.i = fsub float %cond19.i, %x0..i
   %h.i = getelementptr inbounds i8, ptr %3, i64 124
   %133 = load float, ptr %h.i, align 4
@@ -38502,14 +38502,14 @@ if.end543:                                        ; preds = %if.then511, %sw.bb5
   %sub33.i = fsub float %cond31.i, %cond9.i
   %cmp36.i = fcmp ogt float %sub.i, 0.000000e+00
   %cond41.i = select i1 %cmp36.i, float %sub.i, float 0.000000e+00
-  %clip.sroa.4.8.vec.insert398 = insertelement <2 x float> poison, float %cond41.i, i64 0
+  %clip.sroa.4.8.vec.insert397 = insertelement <2 x float> poison, float %cond41.i, i64 0
   %cmp44.i = fcmp ogt float %sub33.i, 0.000000e+00
-  %cond49.i386 = select i1 %cmp44.i, float %sub33.i, float 0.000000e+00
-  %clip.sroa.4.12.vec.insert = insertelement <2 x float> %clip.sroa.4.8.vec.insert398, float %cond49.i386, i64 1
+  %cond49.i385 = select i1 %cmp44.i, float %sub33.i, float 0.000000e+00
+  %clip.sroa.4.12.vec.insert = insertelement <2 x float> %clip.sroa.4.8.vec.insert397, float %cond49.i385, i64 1
   store float %x0..i, ptr %clip547, align 8
-  store float %cond9.i, ptr %y.i384, align 4
+  store float %cond9.i, ptr %y.i383, align 4
   store float %cond41.i, ptr %w.i, align 8
-  store float %cond49.i386, ptr %h.i, align 4
+  store float %cond49.i385, ptr %h.i, align 4
   %134 = load ptr, ptr %buffer, align 8
   %call.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %134, i32 noundef 0, i64 noundef 24, i64 noundef 8)
   %tobool1.not.i.i = icmp eq ptr %call.i.i, null
@@ -38527,18 +38527,18 @@ if.end10.i:                                       ; preds = %if.end543
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 31
   %137 = ptrtoint ptr %add.ptr6.i.i to i64
-  %and.i.i391 = and i64 %137, -8
+  %and.i.i390 = and i64 %137, -8
   %sub.ptr.rhs.cast8.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub9.i.i = sub i64 %and.i.i391, %sub.ptr.rhs.cast8.i.i
+  %sub.ptr.sub9.i.i = sub i64 %and.i.i390, %sub.ptr.rhs.cast8.i.i
   store i32 1, ptr %call.i.i, align 8
   %138 = load ptr, ptr %buffer, align 8
   %allocated.i.i = getelementptr inbounds i8, ptr %138, i64 88
   %139 = load i64, ptr %allocated.i.i, align 8
-  %add.i.i392 = add i64 %139, %sub.ptr.sub9.i.i
+  %add.i.i391 = add i64 %139, %sub.ptr.sub9.i.i
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  store i64 %add.i.i392, ptr %next.i.i, align 8
+  store i64 %add.i.i391, ptr %next.i.i, align 8
   %end.i.i = getelementptr inbounds i8, ptr %3, i64 152
-  store i64 %add.i.i392, ptr %end.i.i, align 8
+  store i64 %add.i.i391, ptr %end.i.i, align 8
   %conv.i = fptosi float %x0..i to i16
   %x12.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i16 %conv.i, ptr %x12.i, align 8
@@ -38548,7 +38548,7 @@ if.end10.i:                                       ; preds = %if.end543
   %conv19.i = fptoui float %cond41.i to i16
   %w20.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
   store i16 %conv19.i, ptr %w20.i, align 4
-  %conv29.i = fptoui float %cond49.i386 to i16
+  %conv29.i = fptoui float %cond49.i385 to i16
   %h30.i = getelementptr inbounds i8, ptr %call.i.i, i64 22
   store i16 %conv29.i, ptr %h30.i, align 2
   br label %nk_push_scissor.exit
@@ -38705,7 +38705,7 @@ if.end16.i:                                       ; preds = %if.end16thread-pre-
     i32 4, label %sw.bb3.i.i
     i32 16, label %sw.bb5.i.i
     i32 32, label %sw.bb7.i.i
-    i32 64, label %sw.bb9.i.i
+    i32 64, label %sw.bb11.i.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end16.i
@@ -38720,14 +38720,11 @@ sw.bb5.i.i:                                       ; preds = %if.end16.i
 sw.bb7.i.i:                                       ; preds = %if.end16.i
   br label %nk_panel_get_padding.exit.i
 
-sw.bb9.i.i:                                       ; preds = %if.end16.i
+sw.bb11.i.i:                                      ; preds = %if.end16.i, %if.end16.i
   br label %nk_panel_get_padding.exit.i
 
-sw.bb11.i.i:                                      ; preds = %if.end16.i
-  br label %nk_panel_get_padding.exit.i
-
-nk_panel_get_padding.exit.i:                      ; preds = %sw.bb11.i.i, %sw.bb9.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.end16.i
-  %.sink.i.i = phi i64 [ 9100, %sw.bb11.i.i ], [ 9100, %sw.bb9.i.i ], [ 9084, %sw.bb7.i.i ], [ 9092, %sw.bb5.i.i ], [ 9076, %sw.bb3.i.i ], [ 9068, %sw.bb1.i.i ], [ 9060, %if.end16.i ]
+nk_panel_get_padding.exit.i:                      ; preds = %sw.bb11.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.end16.i
+  %.sink.i.i = phi i64 [ 9100, %sw.bb11.i.i ], [ 9084, %sw.bb7.i.i ], [ 9092, %sw.bb5.i.i ], [ 9076, %sw.bb3.i.i ], [ 9068, %sw.bb1.i.i ], [ 9060, %if.end16.i ]
   %menu_padding13.i.i = getelementptr inbounds i8, ptr %style8.i24, i64 %.sink.i.i
   %retval.sroa.0.0.i.i = load <2 x float>, ptr %menu_padding13.i.i, align 4
   %height.i = getelementptr inbounds i8, ptr %1, i64 120
@@ -38906,8 +38903,8 @@ land.rhs.i.i:                                     ; preds = %if.end.i.i
   %61 = fadd <2 x float> %53, %55
   %add16.i.i = extractelement <2 x float> %61, i64 1
   %cmp17.i.i = fcmp uge float %60, %add16.i.i
-  %or.cond468.i = select i1 %cmp10.i.i, i1 true, i1 %cmp17.i.i
-  br i1 %or.cond468.i, label %if.end212.i, label %land.lhs.true140.i
+  %or.cond467.i = select i1 %cmp10.i.i, i1 true, i1 %cmp17.i.i
+  br i1 %or.cond467.i, label %if.end212.i, label %land.lhs.true140.i
 
 land.lhs.true140.i:                               ; preds = %land.rhs.i.i
   %clip.i = getelementptr inbounds i8, ptr %root_panel.0.i, i64 68
@@ -38936,17 +38933,17 @@ land.lhs.true166.i:                               ; preds = %land.lhs.true157.i
   br i1 %cmp174.i, label %while.cond177.preheader.i, label %if.end212.i
 
 while.cond177.preheader.i:                        ; preds = %land.lhs.true166.i
-  %parent178471.i = getelementptr inbounds i8, ptr %48, i64 440
-  %66 = load ptr, ptr %parent178471.i, align 8
-  %tobool179.not472.i = icmp eq ptr %66, null
-  br i1 %tobool179.not472.i, label %while.end183.i, label %while.body180.i
+  %parent178470.i = getelementptr inbounds i8, ptr %48, i64 440
+  %66 = load ptr, ptr %parent178470.i, align 8
+  %tobool179.not471.i = icmp eq ptr %66, null
+  br i1 %tobool179.not471.i, label %while.end183.i, label %while.body180.i
 
 while.body180.i:                                  ; preds = %while.cond177.preheader.i, %while.body180.i
-  %parent178474.i = phi ptr [ %parent178.i, %while.body180.i ], [ %parent178471.i, %while.cond177.preheader.i ]
-  %root_panel.1473.i = phi ptr [ %root_panel.1.i, %while.body180.i ], [ %48, %while.cond177.preheader.i ]
-  %has_scrolling181.i = getelementptr inbounds i8, ptr %root_panel.1473.i, i64 64
+  %parent178473.i = phi ptr [ %parent178.i, %while.body180.i ], [ %parent178470.i, %while.cond177.preheader.i ]
+  %root_panel.1472.i = phi ptr [ %root_panel.1.i, %while.body180.i ], [ %48, %while.cond177.preheader.i ]
+  %has_scrolling181.i = getelementptr inbounds i8, ptr %root_panel.1472.i, i64 64
   store i32 0, ptr %has_scrolling181.i, align 8
-  %root_panel.1.i = load ptr, ptr %parent178474.i, align 8
+  %root_panel.1.i = load ptr, ptr %parent178473.i, align 8
   %parent178.i = getelementptr inbounds i8, ptr %root_panel.1.i, i64 440
   %67 = load ptr, ptr %parent178.i, align 8
   %tobool179.not.i = icmp eq ptr %67, null
@@ -39292,12 +39289,12 @@ nk_window_is_hovered.exit.i:                      ; preds = %land.rhs.i.i.i
   br i1 %or.cond4.i, label %if.then311.i, label %lor.lhs.false307.i
 
 lor.lhs.false307.i:                               ; preds = %nk_window_is_hovered.exit.i, %land.rhs.i.i.i, %if.end.i.i.i, %lor.lhs.false2.i.i, %lor.end.i
-  %tobool306453.i = phi i1 [ %cmp17.i.i.i, %nk_window_is_hovered.exit.i ], [ false, %lor.lhs.false2.i.i ], [ false, %lor.end.i ], [ false, %if.end.i.i.i ], [ false, %land.rhs.i.i.i ]
+  %tobool306452.i = phi i1 [ %cmp17.i.i.i, %nk_window_is_hovered.exit.i ], [ false, %lor.lhs.false2.i.i ], [ false, %lor.end.i ], [ false, %if.end.i.i.i ], [ false, %land.rhs.i.i.i ]
   %last_widget_state.i = getelementptr inbounds i8, ptr %ctx, i64 9624
   %125 = load i32, ptr %last_widget_state.i, align 8
   %and303.i = and i32 %125, 2
   %tobool310.i = icmp ne i32 %and303.i, 0
-  %or.cond6.i = select i1 %tobool306453.i, i1 true, i1 %tobool310.i
+  %or.cond6.i = select i1 %tobool306452.i, i1 true, i1 %tobool310.i
   br i1 %or.cond6.i, label %if.else314.i, label %if.then311.i
 
 if.then311.i:                                     ; preds = %lor.lhs.false307.i, %nk_window_is_hovered.exit.i
@@ -39328,12 +39325,12 @@ if.end319.i:                                      ; preds = %if.else317.i, %if.e
 if.then323.i:                                     ; preds = %if.end319.i
   %129 = load i32, ptr %1, align 8
   switch i32 %129, label %nk_panel_get_border_color.exit.i [
-    i32 128, label %sw.bb11.i417.i
+    i32 128, label %sw.bb11.i410.i
     i32 2, label %sw.bb1.i416.i
     i32 4, label %sw.bb3.i415.i
     i32 16, label %sw.bb5.i414.i
     i32 32, label %sw.bb7.i413.i
-    i32 64, label %sw.bb9.i410.i
+    i32 64, label %sw.bb11.i410.i
   ]
 
 sw.bb1.i416.i:                                    ; preds = %if.then323.i
@@ -39348,14 +39345,11 @@ sw.bb5.i414.i:                                    ; preds = %if.then323.i
 sw.bb7.i413.i:                                    ; preds = %if.then323.i
   br label %nk_panel_get_border_color.exit.i
 
-sw.bb9.i410.i:                                    ; preds = %if.then323.i
+sw.bb11.i410.i:                                   ; preds = %if.then323.i, %if.then323.i
   br label %nk_panel_get_border_color.exit.i
 
-sw.bb11.i417.i:                                   ; preds = %if.then323.i
-  br label %nk_panel_get_border_color.exit.i
-
-nk_panel_get_border_color.exit.i:                 ; preds = %sw.bb11.i417.i, %sw.bb9.i410.i, %sw.bb7.i413.i, %sw.bb5.i414.i, %sw.bb3.i415.i, %sw.bb1.i416.i, %if.then323.i
-  %.sink.i411.i = phi i64 [ 8948, %sw.bb11.i417.i ], [ 8948, %sw.bb9.i410.i ], [ 8940, %sw.bb7.i413.i ], [ 8944, %sw.bb5.i414.i ], [ 8936, %sw.bb3.i415.i ], [ 8952, %sw.bb1.i416.i ], [ 8932, %if.then323.i ]
+nk_panel_get_border_color.exit.i:                 ; preds = %sw.bb11.i410.i, %sw.bb7.i413.i, %sw.bb5.i414.i, %sw.bb3.i415.i, %sw.bb1.i416.i, %if.then323.i
+  %.sink.i411.i = phi i64 [ 8948, %sw.bb11.i410.i ], [ 8940, %sw.bb7.i413.i ], [ 8944, %sw.bb5.i414.i ], [ 8936, %sw.bb3.i415.i ], [ 8952, %sw.bb1.i416.i ], [ 8932, %if.then323.i ]
   %menu_border_color13.i.i = getelementptr inbounds i8, ptr %style8.i24, i64 %.sink.i411.i
   %retval.sroa.0.0.i412.i = load i32, ptr %menu_border_color13.i.i, align 4
   %and327.i = and i32 %128, 32768
@@ -39490,9 +39484,9 @@ if.end453.i:                                      ; preds = %if.else436.i, %if.t
   %151 = load i32, ptr %flags280.i, align 8
   %and455.i = and i32 %151, 4096
   %tobool456.not.i = icmp eq i32 %and455.i, 0
-  br i1 %tobool456.not.i, label %if.end.i.i419.i, label %if.end580.i
+  br i1 %tobool456.not.i, label %if.end.i.i418.i, label %if.end580.i
 
-if.end.i.i419.i:                                  ; preds = %if.end453.i
+if.end.i.i418.i:                                  ; preds = %if.end453.i
   %min_size.i = getelementptr inbounds i8, ptr %ctx, i64 9412
   %window_size.sroa.0.0.copyload.i = load float, ptr %min_size.i, align 4
   %window_size.sroa.2.0.min_size.sroa_idx.i = getelementptr inbounds i8, ptr %ctx, i64 9416
@@ -39500,13 +39494,13 @@ if.end.i.i419.i:                                  ; preds = %if.end453.i
   %b.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %scaler.sroa.0.1.i, i64 0
   %152 = getelementptr i8, ptr %ctx, i64 268
   %153 = load float, ptr %152, align 4
-  %cmp.i.i420.i = fcmp ole float %b.sroa.0.0.vec.extract.i.i.i, %153
-  %add.i.i421.i = fadd float %scrollbar_size.sroa.0.0.copyload.i, %b.sroa.0.0.vec.extract.i.i.i
-  %cmp5.i.i.i = fcmp olt float %153, %add.i.i421.i
-  %or.cond.i.i422.i = select i1 %cmp.i.i420.i, i1 %cmp5.i.i.i, i1 false
-  br i1 %or.cond.i.i422.i, label %nk_input_has_mouse_click_in_rect.exit.i.i, label %if.end580.i
+  %cmp.i.i419.i = fcmp ole float %b.sroa.0.0.vec.extract.i.i.i, %153
+  %add.i.i420.i = fadd float %scrollbar_size.sroa.0.0.copyload.i, %b.sroa.0.0.vec.extract.i.i.i
+  %cmp5.i.i.i = fcmp olt float %153, %add.i.i420.i
+  %or.cond.i.i421.i = select i1 %cmp.i.i419.i, i1 %cmp5.i.i.i, i1 false
+  br i1 %or.cond.i.i421.i, label %nk_input_has_mouse_click_in_rect.exit.i.i, label %if.end580.i
 
-nk_input_has_mouse_click_in_rect.exit.i.i:        ; preds = %if.end.i.i419.i
+nk_input_has_mouse_click_in_rect.exit.i.i:        ; preds = %if.end.i.i418.i
   %mouse459.i = getelementptr inbounds i8, ptr %ctx, i64 260
   %154 = load i32, ptr %mouse459.i, align 4
   %b.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %scaler.sroa.0.1.i, i64 1
@@ -39515,10 +39509,10 @@ nk_input_has_mouse_click_in_rect.exit.i.i:        ; preds = %if.end.i.i419.i
   %cmp9.i.i.i = fcmp ole float %b.sroa.0.4.vec.extract.i.i.i, %155
   %add14.i.i.i = fadd float %scrollbar_size.sroa.4.0.copyload.i, %b.sroa.0.4.vec.extract.i.i.i
   %cmp15.i.i.i = fcmp olt float %155, %add14.i.i.i
-  %or.cond10.i.not.i.not475.i = select i1 %cmp9.i.i.i, i1 %cmp15.i.i.i, i1 false
-  %cmp.i425.i = icmp eq i32 %154, 1
-  %or.cond469.i = select i1 %or.cond10.i.not.i.not475.i, i1 %cmp.i425.i, i1 false
-  br i1 %or.cond469.i, label %if.then464.i, label %if.end580.i
+  %or.cond10.i.not.i.not474.i = select i1 %cmp9.i.i.i, i1 %cmp15.i.i.i, i1 false
+  %cmp.i424.i = icmp eq i32 %154, 1
+  %or.cond468.i = select i1 %or.cond10.i.not.i.not474.i, i1 %cmp.i424.i, i1 false
+  br i1 %or.cond468.i, label %if.then464.i, label %if.end580.i
 
 if.then464.i:                                     ; preds = %nk_input_has_mouse_click_in_rect.exit.i.i
   %delta466.i = getelementptr inbounds i8, ptr %ctx, i64 340
@@ -39586,7 +39580,7 @@ if.then523.i:                                     ; preds = %if.then513.i
   br i1 %cmp527.i, label %if.then523.if.then542_crit_edge.i, label %lor.lhs.false529.i
 
 if.then523.if.then542_crit_edge.i:                ; preds = %if.then523.i
-  %.pre480.i = extractelement <2 x float> %scaler.sroa.0.2.i, i64 1
+  %.pre479.i = extractelement <2 x float> %scaler.sroa.0.2.i, i64 1
   br label %if.then542.i
 
 lor.lhs.false529.i:                               ; preds = %if.then523.i
@@ -39601,7 +39595,7 @@ land.lhs.true535.i:                               ; preds = %lor.lhs.false529.i
   br i1 %cmp540.i, label %if.end558.i, label %if.then542.i
 
 if.then542.i:                                     ; preds = %land.lhs.true535.i, %if.then523.if.then542_crit_edge.i
-  %scaler.sroa.0.4.vec.extract59.pre-phi.i = phi float [ %.pre480.i, %if.then523.if.then542_crit_edge.i ], [ %scaler.sroa.0.4.vec.extract57.i, %land.lhs.true535.i ]
+  %scaler.sroa.0.4.vec.extract59.pre-phi.i = phi float [ %.pre479.i, %if.then523.if.then542_crit_edge.i ], [ %scaler.sroa.0.4.vec.extract57.i, %land.lhs.true535.i ]
   store float %add520.i, ptr %h516.i, align 4
   %166 = load float, ptr %y519.i, align 4
   %add555.i = fadd float %scaler.sroa.0.4.vec.extract59.pre-phi.i, %166
@@ -39624,11 +39618,11 @@ if.end558.i:                                      ; preds = %if.then542.i, %land
   store float %add572.i, ptr %y8.i.i.i, align 4
   br label %if.end580.i
 
-if.end580.i:                                      ; preds = %if.end558.i, %nk_input_has_mouse_click_in_rect.exit.i.i, %if.end.i.i419.i, %if.end453.i, %if.end364.i
+if.end580.i:                                      ; preds = %if.end558.i, %nk_input_has_mouse_click_in_rect.exit.i.i, %if.end.i.i418.i, %if.end453.i, %if.end364.i
   %168 = load i32, ptr %1, align 8
-  %and.i426.i = and i32 %168, 246
-  %tobool.not.i427.not.i = icmp eq i32 %and.i426.i, 0
-  br i1 %tobool.not.i427.not.i, label %if.then584.i, label %if.end592.i
+  %and.i425.i = and i32 %168, 246
+  %tobool.not.i426.not.i = icmp eq i32 %and.i425.i, 0
+  br i1 %tobool.not.i426.not.i, label %if.then584.i, label %if.end592.i
 
 if.then584.i:                                     ; preds = %if.end580.i
   %169 = load i32, ptr %flags.i28, align 4
@@ -39637,17 +39631,17 @@ if.then584.i:                                     ; preds = %if.end580.i
   br i1 %tobool587.not.i, label %if.else590.i, label %if.then588.i
 
 if.then588.i:                                     ; preds = %if.then584.i
-  %begin.i429.i = getelementptr inbounds i8, ptr %0, i64 144
-  %clip.i430.i = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %begin.i429.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %clip.i430.i, ptr noundef nonnull align 4 dereferenceable(16) @nk_null_rect, i64 16, i1 false)
+  %begin.i428.i = getelementptr inbounds i8, ptr %0, i64 144
+  %clip.i429.i = getelementptr inbounds i8, ptr %0, i64 112
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %begin.i428.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %clip.i429.i, ptr noundef nonnull align 4 dereferenceable(16) @nk_null_rect, i64 16, i1 false)
   br label %if.end592.i
 
 if.else590.i:                                     ; preds = %if.then584.i
   %170 = getelementptr i8, ptr %ctx, i64 9568
   %ctx.val.i.i = load i64, ptr %170, align 8
-  %end.i.i431.i = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %ctx.val.i.i, ptr %end.i.i431.i, align 8
+  %end.i.i430.i = getelementptr inbounds i8, ptr %0, i64 152
+  store i64 %ctx.val.i.i, ptr %end.i.i430.i, align 8
   %active.i.i = getelementptr inbounds i8, ptr %0, i64 336
   %171 = load i32, ptr %active.i.i, align 8
   %tobool3.not.i.i = icmp eq i32 %171, 0
@@ -39686,7 +39680,7 @@ if.end601.i:                                      ; preds = %if.then596.i, %if.e
 
 if.end601.if.else619_crit_edge.i:                 ; preds = %if.end601.i
   %seq621.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 272
-  %.pre477.i = load i32, ptr %seq621.phi.trans.insert.i, align 4
+  %.pre476.i = load i32, ptr %seq621.phi.trans.insert.i, align 4
   br label %if.else619.i
 
 land.lhs.true606.i:                               ; preds = %if.end601.i
@@ -39705,8 +39699,8 @@ land.lhs.true611.i:                               ; preds = %land.lhs.true606.i
 
 if.then617.i:                                     ; preds = %land.lhs.true611.i
   %181 = ptrtoint ptr %property.i to i64
-  %and.i.i432.i = and i64 %181, 3
-  %cmp10.not.i.i.i = icmp eq i64 %and.i.i432.i, 0
+  %and.i.i431.i = and i64 %181, 3
+  %cmp10.not.i.i.i = icmp eq i64 %and.i.i431.i, 0
   br i1 %cmp10.not.i.i.i, label %if.end19.i.i.thread.i, label %if.end19.i.i.i
 
 if.end19.i.i.thread.i:                            ; preds = %if.then617.i
@@ -39714,16 +39708,16 @@ if.end19.i.i.thread.i:                            ; preds = %if.then617.i
   br label %if.end630.i
 
 if.end19.i.i.i:                                   ; preds = %if.then617.i
-  %sub.i.i.i = sub nuw nsw i64 4, %and.i.i432.i
+  %sub.i.i.i = sub nuw nsw i64 4, %and.i.i431.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %property.i, i8 0, i64 %sub.i.i.i, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %property.i, i64 %sub.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %scevgep.i.i.i, i8 0, i64 100, i1 false)
   %scevgep29.i.i.i = getelementptr i8, ptr %scevgep.i.i.i, i64 100
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep29.i.i.i, i8 0, i64 %and.i.i432.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep29.i.i.i, i8 0, i64 %and.i.i431.i, i1 false)
   br label %if.end630.i
 
 if.else619.i:                                     ; preds = %land.lhs.true611.i, %land.lhs.true606.i, %if.end601.if.else619_crit_edge.i
-  %182 = phi i32 [ %.pre477.i, %if.end601.if.else619_crit_edge.i ], [ %179, %land.lhs.true611.i ], [ %178, %land.lhs.true606.i ]
+  %182 = phi i32 [ %.pre476.i, %if.end601.if.else619_crit_edge.i ], [ %179, %land.lhs.true611.i ], [ %178, %land.lhs.true606.i ]
   %seq621.i = getelementptr inbounds i8, ptr %0, i64 272
   %old623.i = getelementptr inbounds i8, ptr %0, i64 276
   store i32 %182, ptr %old623.i, align 4
@@ -39741,7 +39735,7 @@ if.end630.i:                                      ; preds = %if.else619.i, %if.e
 
 if.end630.if.else649_crit_edge.i:                 ; preds = %if.end630.i
   %seq651.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 388
-  %.pre478.i = load i32, ptr %seq651.phi.trans.insert.i, align 4
+  %.pre477.i = load i32, ptr %seq651.phi.trans.insert.i, align 4
   br label %if.else649.i
 
 land.lhs.true633.i:                               ; preds = %if.end630.i
@@ -39760,25 +39754,25 @@ land.lhs.true640.i:                               ; preds = %land.lhs.true633.i
 
 if.then647.i:                                     ; preds = %land.lhs.true640.i
   %187 = ptrtoint ptr %edit.i to i64
-  %and.i.i433.i = and i64 %187, 3
-  %cmp10.not.i.i434.i = icmp eq i64 %and.i.i433.i, 0
-  br i1 %cmp10.not.i.i434.i, label %if.end19.i.i439.thread.i, label %if.end19.i.i439.i
+  %and.i.i432.i = and i64 %187, 3
+  %cmp10.not.i.i433.i = icmp eq i64 %and.i.i432.i, 0
+  br i1 %cmp10.not.i.i433.i, label %if.end19.i.i438.thread.i, label %if.end19.i.i438.i
 
-if.end19.i.i439.thread.i:                         ; preds = %if.then647.i
+if.end19.i.i438.thread.i:                         ; preds = %if.then647.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %edit.i, i8 0, i64 44, i1 false)
   br label %if.end660.i
 
-if.end19.i.i439.i:                                ; preds = %if.then647.i
-  %sub.i.i436.i = sub nuw nsw i64 4, %and.i.i433.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %edit.i, i8 0, i64 %sub.i.i436.i, i1 false)
-  %scevgep.i.i438.i = getelementptr i8, ptr %edit.i, i64 %sub.i.i436.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %scevgep.i.i438.i, i8 0, i64 40, i1 false)
-  %scevgep29.i.i446.i = getelementptr i8, ptr %scevgep.i.i438.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep29.i.i446.i, i8 0, i64 %and.i.i433.i, i1 false)
+if.end19.i.i438.i:                                ; preds = %if.then647.i
+  %sub.i.i435.i = sub nuw nsw i64 4, %and.i.i432.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %edit.i, i8 0, i64 %sub.i.i435.i, i1 false)
+  %scevgep.i.i437.i = getelementptr i8, ptr %edit.i, i64 %sub.i.i435.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %scevgep.i.i437.i, i8 0, i64 40, i1 false)
+  %scevgep29.i.i445.i = getelementptr i8, ptr %scevgep.i.i437.i, i64 40
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep29.i.i445.i, i8 0, i64 %and.i.i432.i, i1 false)
   br label %if.end660.i
 
 if.else649.i:                                     ; preds = %land.lhs.true640.i, %land.lhs.true633.i, %if.end630.if.else649_crit_edge.i
-  %188 = phi i32 [ %.pre478.i, %if.end630.if.else649_crit_edge.i ], [ %185, %land.lhs.true640.i ], [ %184, %land.lhs.true633.i ]
+  %188 = phi i32 [ %.pre477.i, %if.end630.if.else649_crit_edge.i ], [ %185, %land.lhs.true640.i ], [ %184, %land.lhs.true633.i ]
   %seq651.i = getelementptr inbounds i8, ptr %0, i64 388
   %old653.i = getelementptr inbounds i8, ptr %0, i64 392
   store i32 %188, ptr %old653.i, align 8
@@ -39787,7 +39781,7 @@ if.else649.i:                                     ; preds = %land.lhs.true640.i,
   store i32 0, ptr %seq651.i, align 4
   br label %if.end660.i
 
-if.end660.i:                                      ; preds = %if.else649.i, %if.end19.i.i439.i, %if.end19.i.i439.thread.i
+if.end660.i:                                      ; preds = %if.else649.i, %if.end19.i.i438.i, %if.end19.i.i438.thread.i
   %active_con.i = getelementptr inbounds i8, ptr %0, i64 364
   %189 = load i32, ptr %active_con.i, align 4
   %tobool661.not.i = icmp eq i32 %189, 0
@@ -39795,7 +39789,7 @@ if.end660.i:                                      ; preds = %if.else649.i, %if.e
 
 if.end660.if.else674_crit_edge.i:                 ; preds = %if.end660.i
   %con_count676.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 356
-  %.pre479.i = load i32, ptr %con_count676.phi.trans.insert.i, align 4
+  %.pre478.i = load i32, ptr %con_count676.phi.trans.insert.i, align 4
   br label %if.else674.i
 
 land.lhs.true662.i:                               ; preds = %if.end660.i
@@ -39813,7 +39807,7 @@ if.then667.i:                                     ; preds = %land.lhs.true662.i
   br label %nk_panel_end.exit
 
 if.else674.i:                                     ; preds = %land.lhs.true662.i, %if.end660.if.else674_crit_edge.i
-  %192 = phi i32 [ %.pre479.i, %if.end660.if.else674_crit_edge.i ], [ %190, %land.lhs.true662.i ]
+  %192 = phi i32 [ %.pre478.i, %if.end660.if.else674_crit_edge.i ], [ %190, %land.lhs.true662.i ]
   %con_count676.i = getelementptr inbounds i8, ptr %0, i64 356
   %con_old678.i = getelementptr inbounds i8, ptr %0, i64 360
   store i32 %192, ptr %con_old678.i, align 8
@@ -44621,7 +44615,7 @@ if.then6:                                         ; preds = %if.then4
     i32 4, label %sw.bb3.i
     i32 16, label %sw.bb5.i
     i32 32, label %sw.bb7.i
-    i32 64, label %sw.bb9.i
+    i32 64, label %sw.bb11.i
   ]
 
 sw.bb1.i:                                         ; preds = %if.then6
@@ -44636,14 +44630,11 @@ sw.bb5.i:                                         ; preds = %if.then6
 sw.bb7.i:                                         ; preds = %if.then6
   br label %nk_panel_get_padding.exit
 
-sw.bb9.i:                                         ; preds = %if.then6
+sw.bb11.i:                                        ; preds = %if.then6, %if.then6
   br label %nk_panel_get_padding.exit
 
-sw.bb11.i:                                        ; preds = %if.then6
-  br label %nk_panel_get_padding.exit
-
-nk_panel_get_padding.exit:                        ; preds = %if.then6, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i
-  %.sink.i = phi i64 [ 9100, %sw.bb11.i ], [ 9100, %sw.bb9.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.then6 ]
+nk_panel_get_padding.exit:                        ; preds = %if.then6, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb11.i
+  %.sink.i = phi i64 [ 9100, %sw.bb11.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.then6 ]
   %menu_padding13.i = getelementptr inbounds i8, ptr %style, i64 %.sink.i
   %body.sroa.0.0.copyload = load <2 x float>, ptr %bounds, align 8
   %body.sroa.5.0.bounds7.sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -46152,7 +46143,7 @@ if.then6.i:                                       ; preds = %if.then4.i
     i32 4, label %sw.bb3.i.i
     i32 16, label %sw.bb5.i.i
     i32 32, label %sw.bb7.i.i
-    i32 64, label %sw.bb9.i.i
+    i32 64, label %sw.bb11.i.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.then6.i
@@ -46167,14 +46158,11 @@ sw.bb5.i.i:                                       ; preds = %if.then6.i
 sw.bb7.i.i:                                       ; preds = %if.then6.i
   br label %nk_panel_get_padding.exit.i
 
-sw.bb9.i.i:                                       ; preds = %if.then6.i
+sw.bb11.i.i:                                      ; preds = %if.then6.i, %if.then6.i
   br label %nk_panel_get_padding.exit.i
 
-sw.bb11.i.i:                                      ; preds = %if.then6.i
-  br label %nk_panel_get_padding.exit.i
-
-nk_panel_get_padding.exit.i:                      ; preds = %sw.bb11.i.i, %sw.bb9.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.then6.i
-  %.sink.i.i = phi i64 [ 9100, %sw.bb11.i.i ], [ 9100, %sw.bb9.i.i ], [ 9084, %sw.bb7.i.i ], [ 9092, %sw.bb5.i.i ], [ 9076, %sw.bb3.i.i ], [ 9068, %sw.bb1.i.i ], [ 9060, %if.then6.i ]
+nk_panel_get_padding.exit.i:                      ; preds = %sw.bb11.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.then6.i
+  %.sink.i.i = phi i64 [ 9100, %sw.bb11.i.i ], [ 9084, %sw.bb7.i.i ], [ 9092, %sw.bb5.i.i ], [ 9076, %sw.bb3.i.i ], [ 9068, %sw.bb1.i.i ], [ 9060, %if.then6.i ]
   %menu_padding13.i.i = getelementptr inbounds i8, ptr %style.i, i64 %.sink.i.i
   %body.sroa.0.0.copyload.i = load <2 x float>, ptr %bounds.i, align 8
   %body.sroa.5.0.bounds7.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -70517,7 +70505,7 @@ if.then6.i:                                       ; preds = %if.then4.i
     i32 4, label %sw.bb3.i.i
     i32 16, label %sw.bb5.i.i
     i32 32, label %sw.bb7.i.i
-    i32 64, label %sw.bb9.i.i
+    i32 64, label %sw.bb11.i.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.then6.i
@@ -70532,14 +70520,11 @@ sw.bb5.i.i:                                       ; preds = %if.then6.i
 sw.bb7.i.i:                                       ; preds = %if.then6.i
   br label %nk_panel_get_padding.exit.i
 
-sw.bb9.i.i:                                       ; preds = %if.then6.i
+sw.bb11.i.i:                                      ; preds = %if.then6.i, %if.then6.i
   br label %nk_panel_get_padding.exit.i
 
-sw.bb11.i.i:                                      ; preds = %if.then6.i
-  br label %nk_panel_get_padding.exit.i
-
-nk_panel_get_padding.exit.i:                      ; preds = %sw.bb11.i.i, %sw.bb9.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.then6.i
-  %.sink.i.i = phi i64 [ 9100, %sw.bb11.i.i ], [ 9100, %sw.bb9.i.i ], [ 9084, %sw.bb7.i.i ], [ 9092, %sw.bb5.i.i ], [ 9076, %sw.bb3.i.i ], [ 9068, %sw.bb1.i.i ], [ 9060, %if.then6.i ]
+nk_panel_get_padding.exit.i:                      ; preds = %sw.bb11.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.then6.i
+  %.sink.i.i = phi i64 [ 9100, %sw.bb11.i.i ], [ 9084, %sw.bb7.i.i ], [ 9092, %sw.bb5.i.i ], [ 9076, %sw.bb3.i.i ], [ 9068, %sw.bb1.i.i ], [ 9060, %if.then6.i ]
   %menu_padding13.i.i = getelementptr inbounds i8, ptr %style.i, i64 %.sink.i.i
   %body.sroa.0.0.copyload.i = load <2 x float>, ptr %bounds.i, align 8
   %body.sroa.5.0.bounds7.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -70684,7 +70669,7 @@ if.end:                                           ; preds = %entry
     i32 4, label %sw.bb3.i
     i32 16, label %sw.bb5.i
     i32 32, label %sw.bb7.i
-    i32 64, label %sw.bb9.i
+    i32 64, label %sw.bb11.i
   ]
 
 sw.bb1.i:                                         ; preds = %if.end
@@ -70699,14 +70684,11 @@ sw.bb5.i:                                         ; preds = %if.end
 sw.bb7.i:                                         ; preds = %if.end
   br label %nk_panel_get_padding.exit
 
-sw.bb9.i:                                         ; preds = %if.end
+sw.bb11.i:                                        ; preds = %if.end, %if.end
   br label %nk_panel_get_padding.exit
 
-sw.bb11.i:                                        ; preds = %if.end
-  br label %nk_panel_get_padding.exit
-
-nk_panel_get_padding.exit:                        ; preds = %if.end, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i
-  %.sink.i = phi i64 [ 9100, %sw.bb11.i ], [ 9100, %sw.bb9.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.end ]
+nk_panel_get_padding.exit:                        ; preds = %if.end, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb11.i
+  %.sink.i = phi i64 [ 9100, %sw.bb11.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.end ]
   %menu_padding13.i = getelementptr inbounds i8, ptr %style, i64 %.sink.i
   %conv = fptosi float %item_spacing.sroa.1.0.copyload to i32
   %mul526 = add i32 %item_height, %conv
@@ -70885,7 +70867,7 @@ if.then6.i.i:                                     ; preds = %if.then4.i.i
     i32 4, label %sw.bb3.i.i.i
     i32 16, label %sw.bb5.i.i.i
     i32 32, label %sw.bb7.i.i.i
-    i32 64, label %sw.bb9.i.i.i
+    i32 64, label %sw.bb11.i.i.i
   ]
 
 sw.bb1.i.i.i:                                     ; preds = %if.then6.i.i
@@ -70900,14 +70882,11 @@ sw.bb5.i.i.i:                                     ; preds = %if.then6.i.i
 sw.bb7.i.i.i:                                     ; preds = %if.then6.i.i
   br label %nk_panel_get_padding.exit.i.i
 
-sw.bb9.i.i.i:                                     ; preds = %if.then6.i.i
+sw.bb11.i.i.i:                                    ; preds = %if.then6.i.i, %if.then6.i.i
   br label %nk_panel_get_padding.exit.i.i
 
-sw.bb11.i.i.i:                                    ; preds = %if.then6.i.i
-  br label %nk_panel_get_padding.exit.i.i
-
-nk_panel_get_padding.exit.i.i:                    ; preds = %sw.bb11.i.i.i, %sw.bb9.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb1.i.i.i, %if.then6.i.i
-  %.sink.i.i.i = phi i64 [ 9100, %sw.bb11.i.i.i ], [ 9100, %sw.bb9.i.i.i ], [ 9084, %sw.bb7.i.i.i ], [ 9092, %sw.bb5.i.i.i ], [ 9076, %sw.bb3.i.i.i ], [ 9068, %sw.bb1.i.i.i ], [ 9060, %if.then6.i.i ]
+nk_panel_get_padding.exit.i.i:                    ; preds = %sw.bb11.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb1.i.i.i, %if.then6.i.i
+  %.sink.i.i.i = phi i64 [ 9100, %sw.bb11.i.i.i ], [ 9084, %sw.bb7.i.i.i ], [ 9092, %sw.bb5.i.i.i ], [ 9076, %sw.bb3.i.i.i ], [ 9068, %sw.bb1.i.i.i ], [ 9060, %if.then6.i.i ]
   %menu_padding13.i.i.i = getelementptr inbounds i8, ptr %style, i64 %.sink.i.i.i
   %body.sroa.0.0.copyload.i.i = load <2 x float>, ptr %bounds.i.i, align 8
   %body.sroa.5.0.bounds7.sroa_idx.i.i = getelementptr inbounds i8, ptr %23, i64 16
@@ -71023,7 +71002,7 @@ if.end:                                           ; preds = %entry
     i32 4, label %sw.bb3.i
     i32 16, label %sw.bb5.i
     i32 32, label %sw.bb7.i
-    i32 64, label %sw.bb9.i
+    i32 64, label %sw.bb11.i
   ]
 
 sw.bb1.i:                                         ; preds = %if.end
@@ -71038,14 +71017,11 @@ sw.bb5.i:                                         ; preds = %if.end
 sw.bb7.i:                                         ; preds = %if.end
   br label %nk_panel_get_padding.exit
 
-sw.bb9.i:                                         ; preds = %if.end
+sw.bb11.i:                                        ; preds = %if.end, %if.end
   br label %nk_panel_get_padding.exit
 
-sw.bb11.i:                                        ; preds = %if.end
-  br label %nk_panel_get_padding.exit
-
-nk_panel_get_padding.exit:                        ; preds = %if.end, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i
-  %.sink.i = phi i64 [ 9100, %sw.bb11.i ], [ 9100, %sw.bb9.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.end ]
+nk_panel_get_padding.exit:                        ; preds = %if.end, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb11.i
+  %.sink.i = phi i64 [ 9100, %sw.bb11.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.end ]
   %menu_padding13.i = getelementptr inbounds i8, ptr %style, i64 %.sink.i
   %conv = fptosi float %item_spacing.sroa.1.0.copyload to i32
   %mul344 = add i32 %item_height, %conv
@@ -71321,7 +71297,7 @@ if.then6.i.i:                                     ; preds = %if.then4.i.i
     i32 4, label %sw.bb3.i.i.i
     i32 16, label %sw.bb5.i.i.i
     i32 32, label %sw.bb7.i.i.i
-    i32 64, label %sw.bb9.i.i.i
+    i32 64, label %sw.bb11.i.i.i
   ]
 
 sw.bb1.i.i.i:                                     ; preds = %if.then6.i.i
@@ -71336,14 +71312,11 @@ sw.bb5.i.i.i:                                     ; preds = %if.then6.i.i
 sw.bb7.i.i.i:                                     ; preds = %if.then6.i.i
   br label %nk_panel_get_padding.exit.i.i
 
-sw.bb9.i.i.i:                                     ; preds = %if.then6.i.i
+sw.bb11.i.i.i:                                    ; preds = %if.then6.i.i, %if.then6.i.i
   br label %nk_panel_get_padding.exit.i.i
 
-sw.bb11.i.i.i:                                    ; preds = %if.then6.i.i
-  br label %nk_panel_get_padding.exit.i.i
-
-nk_panel_get_padding.exit.i.i:                    ; preds = %sw.bb11.i.i.i, %sw.bb9.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb1.i.i.i, %if.then6.i.i
-  %.sink.i.i.i = phi i64 [ 9100, %sw.bb11.i.i.i ], [ 9100, %sw.bb9.i.i.i ], [ 9084, %sw.bb7.i.i.i ], [ 9092, %sw.bb5.i.i.i ], [ 9076, %sw.bb3.i.i.i ], [ 9068, %sw.bb1.i.i.i ], [ 9060, %if.then6.i.i ]
+nk_panel_get_padding.exit.i.i:                    ; preds = %sw.bb11.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb1.i.i.i, %if.then6.i.i
+  %.sink.i.i.i = phi i64 [ 9100, %sw.bb11.i.i.i ], [ 9084, %sw.bb7.i.i.i ], [ 9092, %sw.bb5.i.i.i ], [ 9076, %sw.bb3.i.i.i ], [ 9068, %sw.bb1.i.i.i ], [ 9060, %if.then6.i.i ]
   %menu_padding13.i.i.i = getelementptr inbounds i8, ptr %style, i64 %.sink.i.i.i
   %body.sroa.0.0.copyload.i.i = load <2 x float>, ptr %bounds.i.i65, align 8
   %body.sroa.5.0.bounds7.sroa_idx.i.i = getelementptr inbounds i8, ptr %32, i64 16
@@ -71466,7 +71439,7 @@ if.end:                                           ; preds = %entry
     i32 4, label %sw.bb3.i
     i32 16, label %sw.bb5.i
     i32 32, label %sw.bb7.i
-    i32 64, label %sw.bb9.i
+    i32 64, label %sw.bb11.i
   ]
 
 sw.bb1.i:                                         ; preds = %if.end
@@ -71481,14 +71454,11 @@ sw.bb5.i:                                         ; preds = %if.end
 sw.bb7.i:                                         ; preds = %if.end
   br label %nk_panel_get_padding.exit
 
-sw.bb9.i:                                         ; preds = %if.end
+sw.bb11.i:                                        ; preds = %if.end, %if.end
   br label %nk_panel_get_padding.exit
 
-sw.bb11.i:                                        ; preds = %if.end
-  br label %nk_panel_get_padding.exit
-
-nk_panel_get_padding.exit:                        ; preds = %if.end, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i
-  %.sink.i = phi i64 [ 9100, %sw.bb11.i ], [ 9100, %sw.bb9.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.end ]
+nk_panel_get_padding.exit:                        ; preds = %if.end, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb11.i
+  %.sink.i = phi i64 [ 9100, %sw.bb11.i ], [ 9084, %sw.bb7.i ], [ 9092, %sw.bb5.i ], [ 9076, %sw.bb3.i ], [ 9068, %sw.bb1.i ], [ 9060, %if.end ]
   %menu_padding13.i = getelementptr inbounds i8, ptr %style, i64 %.sink.i
   %conv = fptosi float %item_spacing.sroa.1.0.copyload to i32
   %mul325 = add i32 %item_height, %conv
@@ -71661,7 +71631,7 @@ if.then6.i.i:                                     ; preds = %if.then4.i.i
     i32 4, label %sw.bb3.i.i.i
     i32 16, label %sw.bb5.i.i.i
     i32 32, label %sw.bb7.i.i.i
-    i32 64, label %sw.bb9.i.i.i
+    i32 64, label %sw.bb11.i.i.i
   ]
 
 sw.bb1.i.i.i:                                     ; preds = %if.then6.i.i
@@ -71676,14 +71646,11 @@ sw.bb5.i.i.i:                                     ; preds = %if.then6.i.i
 sw.bb7.i.i.i:                                     ; preds = %if.then6.i.i
   br label %nk_panel_get_padding.exit.i.i
 
-sw.bb9.i.i.i:                                     ; preds = %if.then6.i.i
+sw.bb11.i.i.i:                                    ; preds = %if.then6.i.i, %if.then6.i.i
   br label %nk_panel_get_padding.exit.i.i
 
-sw.bb11.i.i.i:                                    ; preds = %if.then6.i.i
-  br label %nk_panel_get_padding.exit.i.i
-
-nk_panel_get_padding.exit.i.i:                    ; preds = %sw.bb11.i.i.i, %sw.bb9.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb1.i.i.i, %if.then6.i.i
-  %.sink.i.i.i = phi i64 [ 9100, %sw.bb11.i.i.i ], [ 9100, %sw.bb9.i.i.i ], [ 9084, %sw.bb7.i.i.i ], [ 9092, %sw.bb5.i.i.i ], [ 9076, %sw.bb3.i.i.i ], [ 9068, %sw.bb1.i.i.i ], [ 9060, %if.then6.i.i ]
+nk_panel_get_padding.exit.i.i:                    ; preds = %sw.bb11.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb1.i.i.i, %if.then6.i.i
+  %.sink.i.i.i = phi i64 [ 9100, %sw.bb11.i.i.i ], [ 9084, %sw.bb7.i.i.i ], [ 9092, %sw.bb5.i.i.i ], [ 9076, %sw.bb3.i.i.i ], [ 9068, %sw.bb1.i.i.i ], [ 9060, %if.then6.i.i ]
   %menu_padding13.i.i.i = getelementptr inbounds i8, ptr %style, i64 %.sink.i.i.i
   %body.sroa.0.0.copyload.i.i = load <2 x float>, ptr %bounds.i.i, align 8
   %body.sroa.5.0.bounds7.sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 16

@@ -22545,8 +22545,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h1630262398f0befcE.llvm.
   %2 = load i8, ptr %0, align 8, !range !5291, !alias.scope !6992, !noundef !4
   %switch.i = icmp eq i8 %2, 13
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select.i = select i1 %switch.i, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select.i, 0
+  %.sroa.0.0.i = select i1 %switch.i, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.7b98d0e137aa99e52c98ecdb2a3212e0.227.llvm.4982356907791861978, 1
   ret { ptr, ptr } %5
 }
@@ -24601,8 +24601,8 @@ define hidden { ptr, ptr } @"_ZN65_$LT$async_zip..error..ZipError$u20$as$u20$cor
   %2 = load i8, ptr %0, align 8, !range !5291, !noundef !4
   %switch = icmp eq i8 %2, 13
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %.sroa.0.0 = select i1 %switch, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.7b98d0e137aa99e52c98ecdb2a3212e0.227.llvm.4982356907791861978, 1
   ret { ptr, ptr } %5
 }

@@ -4744,9 +4744,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 0, 16) i32 @hex_digit_to_int(i8 noundef signext %c) local_unnamed_addr #20 {
 entry:
-  switch i8 %c, label %return [
+  switch i8 %c, label %sw.default [
     i8 70, label %sw.bb15
-    i8 49, label %sw.bb1
+    i8 49, label %return
     i8 50, label %sw.bb2
     i8 51, label %sw.bb3
     i8 52, label %sw.bb4
@@ -4767,9 +4767,6 @@ entry:
     i8 69, label %sw.bb14
     i8 102, label %sw.bb15
   ]
-
-sw.bb1:                                           ; preds = %entry
-  br label %return
 
 sw.bb2:                                           ; preds = %entry
   br label %return
@@ -4813,8 +4810,11 @@ sw.bb14:                                          ; preds = %entry, %entry
 sw.bb15:                                          ; preds = %entry, %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 15, %sw.bb15 ], [ 14, %sw.bb14 ], [ 13, %sw.bb13 ], [ 12, %sw.bb12 ], [ 11, %sw.bb11 ], [ 10, %sw.bb10 ], [ 9, %sw.bb9 ], [ 8, %sw.bb8 ], [ 7, %sw.bb7 ], [ 6, %sw.bb6 ], [ 5, %sw.bb5 ], [ 4, %sw.bb4 ], [ 3, %sw.bb3 ], [ 2, %sw.bb2 ], [ 1, %sw.bb1 ], [ 0, %entry ]
+sw.default:                                       ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %entry, %sw.default, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2
+  %retval.0 = phi i32 [ 0, %sw.default ], [ 15, %sw.bb15 ], [ 14, %sw.bb14 ], [ 13, %sw.bb13 ], [ 12, %sw.bb12 ], [ 11, %sw.bb11 ], [ 10, %sw.bb10 ], [ 9, %sw.bb9 ], [ 8, %sw.bb8 ], [ 7, %sw.bb7 ], [ 6, %sw.bb6 ], [ 5, %sw.bb5 ], [ 4, %sw.bb4 ], [ 3, %sw.bb3 ], [ 2, %sw.bb2 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

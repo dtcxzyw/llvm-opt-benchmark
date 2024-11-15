@@ -6941,204 +6941,198 @@ _ZN4llvmeqENS_9StringRefES0_.exit36.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 1, 605) i32 @_ZN5clang20getCursorKindForDeclEPKNS_4DeclE(ptr noundef readonly %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %60, label %2
+  br i1 %.not, label %58, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 127
-  switch i32 %5, label %51 [
-    i32 59, label %60
+  switch i32 %5, label %49 [
+    i32 59, label %58
     i32 30, label %6
     i32 46, label %7
     i32 31, label %8
     i32 20, label %9
     i32 19, label %10
-    i32 18, label %11
-    i32 17, label %12
-    i32 47, label %13
-    i32 15, label %14
-    i32 32, label %19
-    i32 35, label %20
-    i32 33, label %21
-    i32 34, label %22
-    i32 72, label %23
-    i32 16, label %24
-    i32 40, label %25
-    i32 61, label %26
-    i32 62, label %27
-    i32 67, label %28
-    i32 37, label %29
-    i32 21, label %30
-    i32 74, label %31
-    i32 64, label %32
-    i32 44, label %33
-    i32 65, label %34
-    i32 68, label %35
-    i32 69, label %36
-    i32 85, label %37
-    i32 58, label %38
-    i32 53, label %39
-    i32 8, label %40
-    i32 82, label %41
-    i32 0, label %42
-    i32 77, label %43
-    i32 25, label %43
-    i32 60, label %43
-    i32 76, label %60
-    i32 11, label %44
-    i32 79, label %47
-    i32 63, label %48
-    i32 70, label %49
-    i32 3, label %50
+    i32 18, label %10
+    i32 17, label %11
+    i32 47, label %12
+    i32 15, label %13
+    i32 32, label %18
+    i32 35, label %19
+    i32 33, label %20
+    i32 34, label %21
+    i32 72, label %22
+    i32 16, label %23
+    i32 40, label %24
+    i32 61, label %25
+    i32 62, label %26
+    i32 67, label %27
+    i32 37, label %28
+    i32 21, label %29
+    i32 74, label %30
+    i32 64, label %31
+    i32 44, label %32
+    i32 65, label %33
+    i32 68, label %34
+    i32 69, label %35
+    i32 85, label %36
+    i32 58, label %37
+    i32 53, label %38
+    i32 8, label %39
+    i32 82, label %40
+    i32 0, label %41
+    i32 77, label %42
+    i32 25, label %42
+    i32 60, label %42
+    i32 76, label %58
+    i32 11, label %43
+    i32 79, label %46
+    i32 63, label %31
+    i32 70, label %47
+    i32 3, label %48
   ]
 
 6:                                                ; preds = %2
-  br label %60
+  br label %58
 
 7:                                                ; preds = %2
-  br label %60
+  br label %58
 
 8:                                                ; preds = %2
-  br label %60
+  br label %58
 
 9:                                                ; preds = %2
-  br label %60
+  br label %58
 
-10:                                               ; preds = %2
-  br label %60
+10:                                               ; preds = %2, %2
+  br label %58
 
 11:                                               ; preds = %2
-  br label %60
+  br label %58
 
 12:                                               ; preds = %2
-  br label %60
+  br label %58
 
 13:                                               ; preds = %2
-  br label %60
+  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = load i24, ptr %14, align 8
+  %16 = and i24 %15, 131072
+  %.not10 = icmp eq i24 %16, 0
+  %17 = select i1 %.not10, i32 17, i32 16
+  br label %58
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load i24, ptr %15, align 8
-  %17 = and i24 %16, 131072
-  %.not10 = icmp eq i24 %17, 0
-  %18 = select i1 %.not10, i32 17, i32 16
-  br label %60
+18:                                               ; preds = %2
+  br label %58
 
 19:                                               ; preds = %2
-  br label %60
+  br label %58
 
 20:                                               ; preds = %2
-  br label %60
+  br label %58
 
 21:                                               ; preds = %2
-  br label %60
+  br label %58
 
 22:                                               ; preds = %2
-  br label %60
+  br label %58
 
 23:                                               ; preds = %2
-  br label %60
+  br label %58
 
 24:                                               ; preds = %2
-  br label %60
+  br label %58
 
 25:                                               ; preds = %2
-  br label %60
+  br label %58
 
 26:                                               ; preds = %2
-  br label %60
+  br label %58
 
 27:                                               ; preds = %2
-  br label %60
+  br label %58
 
 28:                                               ; preds = %2
-  br label %60
+  br label %58
 
 29:                                               ; preds = %2
-  br label %60
+  br label %58
 
 30:                                               ; preds = %2
-  br label %60
+  br label %58
 
-31:                                               ; preds = %2
-  br label %60
+31:                                               ; preds = %2, %2
+  br label %58
 
 32:                                               ; preds = %2
-  br label %60
+  br label %58
 
 33:                                               ; preds = %2
-  br label %60
+  br label %58
 
 34:                                               ; preds = %2
-  br label %60
+  br label %58
 
 35:                                               ; preds = %2
-  br label %60
+  br label %58
 
 36:                                               ; preds = %2
-  br label %60
+  br label %58
 
 37:                                               ; preds = %2
-  br label %60
+  br label %58
 
 38:                                               ; preds = %2
-  br label %60
+  br label %58
 
 39:                                               ; preds = %2
-  br label %60
+  br label %58
 
 40:                                               ; preds = %2
-  br label %60
+  br label %58
 
 41:                                               ; preds = %2
-  br label %60
+  br label %58
 
-42:                                               ; preds = %2
-  br label %60
+42:                                               ; preds = %2, %2, %2
+  br label %58
 
-43:                                               ; preds = %2, %2, %2
-  br label %60
-
-44:                                               ; preds = %2
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %46 = load ptr, ptr %45, align 8
-  %.not.i.not = icmp eq ptr %46, null
+43:                                               ; preds = %2
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %45 = load ptr, ptr %44, align 8
+  %.not.i.not = icmp eq ptr %45, null
   %. = select i1 %.not.i.not, i32 38, i32 37
-  br label %60
+  br label %58
+
+46:                                               ; preds = %2
+  br label %58
 
 47:                                               ; preds = %2
-  br label %60
+  br label %58
 
 48:                                               ; preds = %2
-  br label %60
+  br label %58
 
 49:                                               ; preds = %2
-  br label %60
+  %50 = add nsw i32 %5, -60
+  %51 = icmp ult i32 %50, -5
+  br i1 %51, label %58, label %52
 
-50:                                               ; preds = %2
-  br label %60
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %0, i64 72
+  %54 = load i16, ptr %53, align 8
+  %55 = icmp ult i16 %54, -24576
+  br i1 %55, label %switch.lookup, label %58
 
-51:                                               ; preds = %2
-  %52 = add nsw i32 %5, -60
-  %53 = icmp ult i32 %52, -5
-  br i1 %53, label %60, label %54
-
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %0, i64 72
-  %56 = load i16, ptr %55, align 8
-  %57 = icmp ult i16 %56, -24576
-  br i1 %57, label %switch.lookup, label %60
-
-switch.lookup:                                    ; preds = %54
-  %58 = lshr i16 %56, 13
-  %59 = zext nneg i16 %58 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang20getCursorKindForDeclEPKNS_4DeclE, i64 0, i64 %59
+switch.lookup:                                    ; preds = %52
+  %56 = lshr i16 %54, 13
+  %57 = zext nneg i16 %56 to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang20getCursorKindForDeclEPKNS_4DeclE, i64 0, i64 %57
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %60
+  br label %58
 
-60:                                               ; preds = %51, %54, %switch.lookup, %44, %2, %2, %1, %50, %49, %48, %47, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ 23, %50 ], [ 604, %49 ], [ 27, %48 ], [ 600, %47 ], [ 35, %43 ], [ 350, %42 ], [ 603, %41 ], [ 602, %40 ], [ 34, %39 ], [ 32, %38 ], [ 39, %37 ], [ 31, %36 ], [ 30, %35 ], [ 29, %34 ], [ 28, %33 ], [ 27, %32 ], [ 33, %31 ], [ 22, %30 ], [ 9, %29 ], [ 601, %28 ], [ 36, %27 ], [ 20, %26 ], [ 10, %25 ], [ 13, %24 ], [ 14, %23 ], [ 26, %22 ], [ 25, %21 ], [ 24, %20 ], [ 21, %19 ], [ %18, %14 ], [ 15, %13 ], [ 11, %12 ], [ %5, %11 ], [ %5, %10 ], [ 12, %9 ], [ 8, %8 ], [ 6, %7 ], [ 7, %6 ], [ 1, %1 ], [ 5, %2 ], [ 5, %2 ], [ %., %44 ], [ %switch.load, %switch.lookup ], [ 1, %54 ], [ 1, %51 ]
+58:                                               ; preds = %49, %52, %switch.lookup, %43, %2, %2, %1, %48, %47, %46, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %13, %12, %11, %10, %9, %8, %7, %6
+  %.0 = phi i32 [ 23, %48 ], [ 604, %47 ], [ 600, %46 ], [ 35, %42 ], [ 350, %41 ], [ 603, %40 ], [ 602, %39 ], [ 34, %38 ], [ 32, %37 ], [ 39, %36 ], [ 31, %35 ], [ 30, %34 ], [ 29, %33 ], [ 28, %32 ], [ 27, %31 ], [ 33, %30 ], [ 22, %29 ], [ 9, %28 ], [ 601, %27 ], [ 36, %26 ], [ 20, %25 ], [ 10, %24 ], [ 13, %23 ], [ 14, %22 ], [ 26, %21 ], [ 25, %20 ], [ 24, %19 ], [ 21, %18 ], [ %17, %13 ], [ 15, %12 ], [ 11, %11 ], [ %5, %10 ], [ 12, %9 ], [ 8, %8 ], [ 6, %7 ], [ 7, %6 ], [ 1, %1 ], [ 5, %2 ], [ 5, %2 ], [ %., %43 ], [ %switch.load, %switch.lookup ], [ 1, %52 ], [ 1, %49 ]
   ret i32 %.0
 }
 
@@ -63925,11 +63919,8 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit52.us100: ; preds = %
   %50 = zext i32 %.039 to i64
   %51 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %4, i64 %50
   %.sroa.08.0.copyload = load ptr, ptr %51, align 8
-  %magicptr137 = ptrtoint ptr %.sroa.08.0.copyload to i64
-  switch i64 %magicptr137, label %52 [
-    i64 -1, label %.split59.us
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit52
-  ]
+  %switch = icmp ugt ptr %.sroa.08.0.copyload, inttoptr (i64 -3 to ptr)
+  br i1 %switch, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47, label %52
 
 52:                                               ; preds = %.split.split.split
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 8
@@ -63942,18 +63933,18 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %52
   %53 = icmp eq i32 %bcmp.i.i, 0
   br i1 %53, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47: ; preds = %52, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47: ; preds = %.split.split.split, %52, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
   %54 = icmp eq ptr %.sroa.08.0.copyload, inttoptr (i64 -1 to ptr)
   br i1 %54, label %.split59.us, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit52
 
-.split59.us:                                      ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47, %.split.split.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us99, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us74, %.split.split.us.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us.us
-  %.us-phi60 = phi ptr [ %.038.us.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us.us ], [ %.038.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us ], [ %.038.us67, %.split.split.us.split ], [ %.038.us67, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us74 ], [ %.038.us90, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us99 ], [ %.038, %.split.split.split ], [ %.038, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47 ]
-  %.us-phi61 = phi ptr [ %15, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us.us ], [ %24, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us ], [ %33, %.split.split.us.split ], [ %33, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us74 ], [ %42, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us99 ], [ %51, %.split.split.split ], [ %51, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47 ]
+.split59.us:                                      ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us99, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us74, %.split.split.us.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us.us
+  %.us-phi60 = phi ptr [ %.038.us.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us.us ], [ %.038.us, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us ], [ %.038.us67, %.split.split.us.split ], [ %.038.us67, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us74 ], [ %.038.us90, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us99 ], [ %.038, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47 ]
+  %.us-phi61 = phi ptr [ %15, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us.us ], [ %24, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us ], [ %33, %.split.split.us.split ], [ %33, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us74 ], [ %42, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47.us99 ], [ %51, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47 ]
   %.not = icmp eq ptr %.us-phi60, null
   %55 = select i1 %.not, ptr %.us-phi61, ptr %.us-phi60
   br label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit52: ; preds = %.split.split.split, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit52: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit47
   %56 = icmp eq ptr %.sroa.08.0.copyload, inttoptr (i64 -2 to ptr)
   %57 = icmp eq ptr %.038, null
   %or.cond.not = select i1 %56, i1 %57, i1 false
@@ -71183,29 +71174,29 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
     i8 25, label %42
     i8 26, label %43
     i8 27, label %tailrecurse.backedge
-    i8 53, label %70
-    i8 29, label %45
+    i8 53, label %68
+    i8 29, label %42
     i8 30, label %tailrecurse.backedge
-    i8 31, label %46
-    i8 32, label %48
+    i8 31, label %45
+    i8 32, label %47
     i8 33, label %tailrecurse.backedge
-    i8 34, label %50
-    i8 51, label %69
-    i8 50, label %65
+    i8 34, label %49
+    i8 51, label %42
+    i8 50, label %64
     i8 37, label %tailrecurse.backedge
-    i8 38, label %52
+    i8 38, label %51
     i8 39, label %tailrecurse.backedge
     i8 40, label %tailrecurse.backedge
     i8 41, label %tailrecurse.backedge
-    i8 42, label %54
-    i8 43, label %56
-    i8 44, label %58
-    i8 45, label %60
-    i8 48, label %63
+    i8 42, label %53
+    i8 43, label %55
+    i8 44, label %57
+    i8 45, label %59
+    i8 48, label %62
   ]
 
-tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %42, %45, %60, %69
-  %.sink = phi i64 [ 24, %42 ], [ 24, %45 ], [ %.sroa.0.0.in.v.i.i, %60 ], [ 24, %69 ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ]
+tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %42, %59
+  %.sink = phi i64 [ 24, %42 ], [ %.sroa.0.0.in.v.i.i, %59 ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ]
   %8 = getelementptr i8, ptr %5, i64 %.sink
   %.tr139.be = load i64, ptr %8, align 8
   %.not.i.i = icmp ult i64 %.tr139.be, 16
@@ -71274,7 +71265,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   %41 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE22TraverseElaboratedTypeEPNS_14ElaboratedTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-42:                                               ; preds = %.lr.ph
+42:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   br label %tailrecurse.backedge
 
 43:                                               ; preds = %.lr.ph
@@ -71282,62 +71273,56 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 45:                                               ; preds = %.lr.ph
-  br label %tailrecurse.backedge
-
-46:                                               ; preds = %.lr.ph
-  %47 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE32TraverseDependentSizedMatrixTypeEPNS_24DependentSizedMatrixTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  %46 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE32TraverseDependentSizedMatrixTypeEPNS_24DependentSizedMatrixTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-48:                                               ; preds = %.lr.ph
-  %49 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE25TraverseMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+47:                                               ; preds = %.lr.ph
+  %48 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE25TraverseMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-50:                                               ; preds = %.lr.ph
-  %51 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE22TraverseObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+49:                                               ; preds = %.lr.ph
+  %50 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE22TraverseObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-52:                                               ; preds = %.lr.ph
-  %53 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE24TraversePackIndexingTypeEPNS_16PackIndexingTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+51:                                               ; preds = %.lr.ph
+  %52 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE24TraversePackIndexingTypeEPNS_16PackIndexingTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-54:                                               ; preds = %.lr.ph
-  %55 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE27TraverseLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+53:                                               ; preds = %.lr.ph
+  %54 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE27TraverseLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-56:                                               ; preds = %.lr.ph
-  %57 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE27TraverseRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+55:                                               ; preds = %.lr.ph
+  %56 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE27TraverseRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-58:                                               ; preds = %.lr.ph
-  %59 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE37TraverseSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %5)
+57:                                               ; preds = %.lr.ph
+  %58 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE37TraverseSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %5)
   br label %.loopexit
 
-60:                                               ; preds = %.lr.ph
-  %61 = load i64, ptr %6, align 16
-  %62 = and i64 %61, 524288
-  %.not.i.i138 = icmp eq i64 %62, 0
+59:                                               ; preds = %.lr.ph
+  %60 = load i64, ptr %6, align 16
+  %61 = and i64 %60, 524288
+  %.not.i.i138 = icmp eq i64 %61, 0
   %.sroa.0.0.in.v.i.i = select i1 %.not.i.i138, i64 8, i64 48
   br label %tailrecurse.backedge
 
-63:                                               ; preds = %.lr.ph
-  %64 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE34TraverseTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+62:                                               ; preds = %.lr.ph
+  %63 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE34TraverseTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %67, ptr noundef null)
+64:                                               ; preds = %.lr.ph
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %66, ptr noundef null)
   br label %.loopexit
 
-69:                                               ; preds = %.lr.ph
-  br label %tailrecurse.backedge
-
-70:                                               ; preds = %.lr.ph
-  %71 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE26TraverseUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+68:                                               ; preds = %.lr.ph
+  %69 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111ConceptInfo12ValidVisitorEE26TraverseUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %70, %65, %63, %58, %56, %54, %52, %50, %48, %46, %43, %40, %38, %36, %34, %32, %29, %27, %25, %23, %19, %17, %15, %13, %11, %9
-  %.0 = phi i1 [ %71, %70 ], [ %68, %65 ], [ %64, %63 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %44, %43 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %68, %64, %62, %57, %55, %53, %51, %49, %47, %45, %43, %40, %38, %36, %34, %32, %29, %27, %25, %23, %19, %17, %15, %13, %11, %9
+  %.0 = phi i1 [ %69, %68 ], [ %67, %64 ], [ %63, %62 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 

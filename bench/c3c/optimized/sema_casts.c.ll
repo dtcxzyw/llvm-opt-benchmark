@@ -1125,8 +1125,8 @@ define dso_local ptr @type_infer_len_from_actual_type(ptr noundef %0, ptr nounde
   %4 = load i32, ptr %0, align 8
   br label %6
 
-thread-pre-split:                                 ; preds = %6, %8, %9, %10
-  %.sink = phi i64 [ 56, %8 ], [ 56, %9 ], [ 56, %10 ], [ 8, %6 ]
+thread-pre-split:                                 ; preds = %6, %8, %9
+  %.sink = phi i64 [ 56, %8 ], [ 56, %9 ], [ 8, %6 ]
   %5 = getelementptr inbounds i8, ptr %.093, i64 %.sink
   %.093.ph = load ptr, ptr %5, align 8
   %.pr = load i32, ptr %.093.ph, align 8
@@ -1142,246 +1142,240 @@ thread-pre-split:                                 ; preds = %6, %8, %9, %10
     i32 34, label %9
     i32 35, label %9
     i32 37, label %9
-    i32 36, label %11
-    i32 38, label %11
-    i32 23, label %10
+    i32 36, label %10
+    i32 38, label %10
+    i32 23, label %8
   ]
 
-8:                                                ; preds = %6
+8:                                                ; preds = %6, %6
   br label %thread-pre-split
 
 9:                                                ; preds = %6, %6, %6, %6
   br label %thread-pre-split
 
-10:                                               ; preds = %6
-  br label %thread-pre-split
+10:                                               ; preds = %6, %6
+  %11 = icmp eq i32 %4, 31
+  br i1 %11, label %12, label %.critedge111
 
-11:                                               ; preds = %6, %6
-  %12 = icmp eq i32 %4, 31
-  br i1 %12, label %13, label %.critedge111
-
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr %15, align 8
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %14, align 8
   br label %.critedge111
 
-.critedge111:                                     ; preds = %11, %13
-  %.0100 = phi i32 [ %16, %13 ], [ %4, %11 ]
-  %17 = icmp eq i32 %.0100, 40
-  br i1 %17, label %18, label %.critedge111.thread
+.critedge111:                                     ; preds = %10, %12
+  %.0100 = phi i32 [ %15, %12 ], [ %4, %10 ]
+  %16 = icmp eq i32 %.0100, 40
+  br i1 %16, label %17, label %.critedge111.thread
 
-18:                                               ; preds = %.critedge111
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %20 = load ptr, ptr %19, align 8
+17:                                               ; preds = %.critedge111
+  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = load ptr, ptr %18, align 8
   br label %.critedge111.thread
 
-.critedge111.thread:                              ; preds = %2, %18, %.critedge111
-  %.098119 = phi i1 [ true, %18 ], [ false, %.critedge111 ], [ false, %2 ]
-  %.091 = phi ptr [ %20, %18 ], [ %0, %.critedge111 ], [ null, %2 ]
+.critedge111.thread:                              ; preds = %2, %17, %.critedge111
+  %.098119 = phi i1 [ true, %17 ], [ false, %.critedge111 ], [ false, %2 ]
+  %.091 = phi ptr [ %19, %17 ], [ %0, %.critedge111 ], [ null, %2 ]
   %.not108 = icmp eq ptr %1, null
-  br i1 %.not108, label %27, label %21
+  br i1 %.not108, label %26, label %20
 
-21:                                               ; preds = %.critedge111.thread
-  %22 = load i32, ptr %1, align 8
-  %23 = icmp eq i32 %22, 40
-  br i1 %23, label %24, label %27
+20:                                               ; preds = %.critedge111.thread
+  %21 = load i32, ptr %1, align 8
+  %22 = icmp eq i32 %21, 40
+  br i1 %22, label %23, label %26
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
-  %26 = load ptr, ptr %25, align 8
-  br label %27
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = load ptr, ptr %24, align 8
+  br label %26
 
-27:                                               ; preds = %21, %.critedge111.thread, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %.critedge111.thread ], [ %1, %21 ]
-  %28 = tail call ptr @type_get_indexed_type(ptr noundef %.091) #10
-  %29 = tail call ptr @type_get_indexed_type(ptr noundef %.0) #10
-  %.not109 = icmp eq ptr %28, null
+26:                                               ; preds = %20, %.critedge111.thread, %23
+  %.0 = phi ptr [ %25, %23 ], [ null, %.critedge111.thread ], [ %1, %20 ]
+  %27 = tail call ptr @type_get_indexed_type(ptr noundef %.091) #10
+  %28 = tail call ptr @type_get_indexed_type(ptr noundef %.0) #10
+  %.not109 = icmp eq ptr %27, null
   br i1 %.not109, label %.loopexit, label %.preheader123
 
-thread-pre-split120:                              ; preds = %.preheader123, %32, %33, %34
-  %.sink133 = phi i64 [ 56, %32 ], [ 56, %33 ], [ 56, %34 ], [ 8, %.preheader123 ]
-  %30 = getelementptr inbounds i8, ptr %.in, i64 %.sink133
-  %.096.ph = load ptr, ptr %30, align 8
+thread-pre-split120:                              ; preds = %.preheader123, %31, %32
+  %.sink133 = phi i64 [ 56, %31 ], [ 56, %32 ], [ 8, %.preheader123 ]
+  %29 = getelementptr inbounds i8, ptr %.in, i64 %.sink133
+  %.096.ph = load ptr, ptr %29, align 8
   br label %.preheader123
 
-.preheader123:                                    ; preds = %27, %thread-pre-split120
-  %.in = phi ptr [ %.096.ph, %thread-pre-split120 ], [ %28, %27 ]
-  %31 = load i32, ptr %.in, align 8
-  switch i32 %31, label %.critedge113 [
+.preheader123:                                    ; preds = %26, %thread-pre-split120
+  %.in = phi ptr [ %.096.ph, %thread-pre-split120 ], [ %27, %26 ]
+  %30 = load i32, ptr %.in, align 8
+  switch i32 %30, label %.critedge113 [
     i32 31, label %thread-pre-split120
-    i32 40, label %32
-    i32 33, label %33
-    i32 34, label %33
-    i32 35, label %33
-    i32 37, label %33
+    i32 40, label %31
+    i32 33, label %32
+    i32 34, label %32
+    i32 35, label %32
+    i32 37, label %32
     i32 36, label %.loopexit
     i32 38, label %.loopexit
-    i32 23, label %34
+    i32 23, label %31
   ]
 
-32:                                               ; preds = %.preheader123
+31:                                               ; preds = %.preheader123, %.preheader123
   br label %thread-pre-split120
 
-33:                                               ; preds = %.preheader123, %.preheader123, %.preheader123, %.preheader123
+32:                                               ; preds = %.preheader123, %.preheader123, %.preheader123, %.preheader123
   br label %thread-pre-split120
 
-34:                                               ; preds = %.preheader123
-  br label %thread-pre-split120
-
-.loopexit:                                        ; preds = %.preheader123, %.preheader123, %27
-  %35 = tail call ptr @type_infer_len_from_actual_type(ptr noundef %28, ptr noundef %29)
+.loopexit:                                        ; preds = %.preheader123, %.preheader123, %26
+  %33 = tail call ptr @type_infer_len_from_actual_type(ptr noundef %27, ptr noundef %28)
   br label %.critedge113
 
 .critedge113:                                     ; preds = %.preheader123, %.loopexit
-  %.089 = phi ptr [ %35, %.loopexit ], [ %28, %.preheader123 ]
-  %36 = load i32, ptr %.091, align 8
-  switch i32 %36, label %99 [
-    i32 23, label %37
-    i32 33, label %42
+  %.089 = phi ptr [ %33, %.loopexit ], [ %27, %.preheader123 ]
+  %34 = load i32, ptr %.091, align 8
+  switch i32 %34, label %97 [
+    i32 23, label %35
+    i32 33, label %40
     i32 36, label %.preheader
     i32 38, label %.preheader122
-    i32 34, label %87
-    i32 37, label %92
+    i32 34, label %85
+    i32 37, label %90
   ]
 
-37:                                               ; preds = %.critedge113
-  %38 = tail call ptr @type_get_ptr(ptr noundef %.089) #10
-  br i1 %.098119, label %39, label %.critedge
+35:                                               ; preds = %.critedge113
+  %36 = tail call ptr @type_get_ptr(ptr noundef %.089) #10
+  br i1 %.098119, label %37, label %.critedge
 
-39:                                               ; preds = %37
-  %40 = load i32, ptr %38, align 8
-  %41 = icmp eq i32 %40, 40
-  br i1 %41, label %.critedge, label %.critedge.sink.split
+37:                                               ; preds = %35
+  %38 = load i32, ptr %36, align 8
+  %39 = icmp eq i32 %38, 40
+  br i1 %39, label %.critedge, label %.critedge.sink.split
 
-42:                                               ; preds = %.critedge113
-  %43 = getelementptr inbounds i8, ptr %.091, i64 64
-  %44 = load i32, ptr %43, align 8
-  %45 = tail call ptr @type_get_array(ptr noundef %.089, i32 noundef %44) #10
-  br i1 %.098119, label %46, label %.critedge
+40:                                               ; preds = %.critedge113
+  %41 = getelementptr inbounds i8, ptr %.091, i64 64
+  %42 = load i32, ptr %41, align 8
+  %43 = tail call ptr @type_get_array(ptr noundef %.089, i32 noundef %42) #10
+  br i1 %.098119, label %44, label %.critedge
 
-46:                                               ; preds = %42
-  %47 = load i32, ptr %45, align 8
-  %48 = icmp eq i32 %47, 40
-  br i1 %48, label %.critedge, label %.critedge.sink.split
+44:                                               ; preds = %40
+  %45 = load i32, ptr %43, align 8
+  %46 = icmp eq i32 %45, 40
+  br i1 %46, label %.critedge, label %.critedge.sink.split
 
-.preheader:                                       ; preds = %.critedge113, %61
-  %.0.i = phi ptr [ %.1.i, %61 ], [ %.0, %.critedge113 ]
-  %49 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %50, align 8
-  switch i32 %51, label %type_flatten.exit [
-    i32 32, label %52
-    i32 40, label %58
-    i32 31, label %60
+.preheader:                                       ; preds = %.critedge113, %59
+  %.0.i = phi ptr [ %.1.i, %59 ], [ %.0, %.critedge113 ]
+  %47 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %48, align 8
+  switch i32 %49, label %type_flatten.exit [
+    i32 32, label %50
+    i32 40, label %56
+    i32 31, label %58
   ]
 
-52:                                               ; preds = %.preheader
-  %53 = getelementptr inbounds i8, ptr %50, i64 56
+50:                                               ; preds = %.preheader
+  %51 = getelementptr inbounds i8, ptr %48, i64 56
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 96
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 96
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  br label %61
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  br label %59
+
+56:                                               ; preds = %.preheader
+  %57 = getelementptr inbounds i8, ptr %48, i64 56
+  br label %59
 
 58:                                               ; preds = %.preheader
-  %59 = getelementptr inbounds i8, ptr %50, i64 56
-  br label %61
-
-60:                                               ; preds = %.preheader
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
   unreachable
 
-61:                                               ; preds = %58, %52
-  %.1.in.i = phi ptr [ %59, %58 ], [ %57, %52 ]
+59:                                               ; preds = %56, %50
+  %.1.in.i = phi ptr [ %57, %56 ], [ %55, %50 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
 type_flatten.exit:                                ; preds = %.preheader
-  %62 = getelementptr inbounds i8, ptr %50, i64 64
-  %63 = load i32, ptr %62, align 8
-  %64 = tail call ptr @type_get_array(ptr noundef %.089, i32 noundef %63) #10
-  br i1 %.098119, label %65, label %.critedge
+  %60 = getelementptr inbounds i8, ptr %48, i64 64
+  %61 = load i32, ptr %60, align 8
+  %62 = tail call ptr @type_get_array(ptr noundef %.089, i32 noundef %61) #10
+  br i1 %.098119, label %63, label %.critedge
 
-65:                                               ; preds = %type_flatten.exit
-  %66 = load i32, ptr %64, align 8
-  %67 = icmp eq i32 %66, 40
-  br i1 %67, label %.critedge, label %.critedge.sink.split
+63:                                               ; preds = %type_flatten.exit
+  %64 = load i32, ptr %62, align 8
+  %65 = icmp eq i32 %64, 40
+  br i1 %65, label %.critedge, label %.critedge.sink.split
 
-.preheader122:                                    ; preds = %.critedge113, %80
-  %.0.i114 = phi ptr [ %.1.i116, %80 ], [ %.0, %.critedge113 ]
-  %68 = getelementptr inbounds i8, ptr %.0.i114, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i32, ptr %69, align 8
-  switch i32 %70, label %type_flatten.exit117 [
-    i32 32, label %71
-    i32 40, label %77
-    i32 31, label %79
+.preheader122:                                    ; preds = %.critedge113, %78
+  %.0.i114 = phi ptr [ %.1.i116, %78 ], [ %.0, %.critedge113 ]
+  %66 = getelementptr inbounds i8, ptr %.0.i114, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i32, ptr %67, align 8
+  switch i32 %68, label %type_flatten.exit117 [
+    i32 32, label %69
+    i32 40, label %75
+    i32 31, label %77
   ]
 
-71:                                               ; preds = %.preheader122
-  %72 = getelementptr inbounds i8, ptr %69, i64 56
+69:                                               ; preds = %.preheader122
+  %70 = getelementptr inbounds i8, ptr %67, i64 56
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 96
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 96
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
-  br label %80
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  br label %78
+
+75:                                               ; preds = %.preheader122
+  %76 = getelementptr inbounds i8, ptr %67, i64 56
+  br label %78
 
 77:                                               ; preds = %.preheader122
-  %78 = getelementptr inbounds i8, ptr %69, i64 56
-  br label %80
-
-79:                                               ; preds = %.preheader122
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
   unreachable
 
-80:                                               ; preds = %77, %71
-  %.1.in.i115 = phi ptr [ %78, %77 ], [ %76, %71 ]
+78:                                               ; preds = %75, %69
+  %.1.in.i115 = phi ptr [ %76, %75 ], [ %74, %69 ]
   %.1.i116 = load ptr, ptr %.1.in.i115, align 8
   br label %.preheader122
 
 type_flatten.exit117:                             ; preds = %.preheader122
-  %81 = getelementptr inbounds i8, ptr %69, i64 64
-  %82 = load i32, ptr %81, align 8
-  %83 = tail call ptr @type_get_vector(ptr noundef %.089, i32 noundef %82) #10
-  br i1 %.098119, label %84, label %.critedge
+  %79 = getelementptr inbounds i8, ptr %67, i64 64
+  %80 = load i32, ptr %79, align 8
+  %81 = tail call ptr @type_get_vector(ptr noundef %.089, i32 noundef %80) #10
+  br i1 %.098119, label %82, label %.critedge
 
-84:                                               ; preds = %type_flatten.exit117
-  %85 = load i32, ptr %83, align 8
-  %86 = icmp eq i32 %85, 40
-  br i1 %86, label %.critedge, label %.critedge.sink.split
+82:                                               ; preds = %type_flatten.exit117
+  %83 = load i32, ptr %81, align 8
+  %84 = icmp eq i32 %83, 40
+  br i1 %84, label %.critedge, label %.critedge.sink.split
 
-87:                                               ; preds = %.critedge113
-  %88 = tail call ptr @type_get_subarray(ptr noundef %.089) #10
-  br i1 %.098119, label %89, label %.critedge
+85:                                               ; preds = %.critedge113
+  %86 = tail call ptr @type_get_subarray(ptr noundef %.089) #10
+  br i1 %.098119, label %87, label %.critedge
 
-89:                                               ; preds = %87
-  %90 = load i32, ptr %88, align 8
-  %91 = icmp eq i32 %90, 40
-  br i1 %91, label %.critedge, label %.critedge.sink.split
+87:                                               ; preds = %85
+  %88 = load i32, ptr %86, align 8
+  %89 = icmp eq i32 %88, 40
+  br i1 %89, label %.critedge, label %.critedge.sink.split
 
-92:                                               ; preds = %.critedge113
-  %93 = getelementptr inbounds i8, ptr %.091, i64 64
-  %94 = load i32, ptr %93, align 8
-  %95 = tail call ptr @type_get_vector(ptr noundef %.089, i32 noundef %94) #10
-  br i1 %.098119, label %96, label %.critedge
+90:                                               ; preds = %.critedge113
+  %91 = getelementptr inbounds i8, ptr %.091, i64 64
+  %92 = load i32, ptr %91, align 8
+  %93 = tail call ptr @type_get_vector(ptr noundef %.089, i32 noundef %92) #10
+  br i1 %.098119, label %94, label %.critedge
 
-96:                                               ; preds = %92
-  %97 = load i32, ptr %95, align 8
-  %98 = icmp eq i32 %97, 40
-  br i1 %98, label %.critedge, label %.critedge.sink.split
+94:                                               ; preds = %90
+  %95 = load i32, ptr %93, align 8
+  %96 = icmp eq i32 %95, 40
+  br i1 %96, label %.critedge, label %.critedge.sink.split
 
-99:                                               ; preds = %.critedge113
+97:                                               ; preds = %.critedge113
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_infer_len_from_actual_type, ptr noundef nonnull @.str.4, i32 noundef 270) #11
   unreachable
 
-.critedge.sink.split:                             ; preds = %96, %89, %84, %65, %46, %39
-  %.sink134 = phi ptr [ %38, %39 ], [ %45, %46 ], [ %64, %65 ], [ %83, %84 ], [ %88, %89 ], [ %95, %96 ]
-  %100 = tail call ptr @type_get_optional(ptr noundef nonnull %.sink134) #10
+.critedge.sink.split:                             ; preds = %94, %87, %82, %63, %44, %37
+  %.sink134 = phi ptr [ %36, %37 ], [ %43, %44 ], [ %62, %63 ], [ %81, %82 ], [ %86, %87 ], [ %93, %94 ]
+  %98 = tail call ptr @type_get_optional(ptr noundef nonnull %.sink134) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %6, %.critedge.sink.split, %96, %92, %89, %87, %84, %type_flatten.exit117, %65, %type_flatten.exit, %46, %42, %39, %37
-  %.092 = phi ptr [ %38, %39 ], [ %38, %37 ], [ %45, %46 ], [ %45, %42 ], [ %64, %65 ], [ %64, %type_flatten.exit ], [ %83, %84 ], [ %83, %type_flatten.exit117 ], [ %88, %89 ], [ %88, %87 ], [ %95, %96 ], [ %95, %92 ], [ %100, %.critedge.sink.split ], [ %0, %6 ]
+.critedge:                                        ; preds = %6, %.critedge.sink.split, %94, %90, %87, %85, %82, %type_flatten.exit117, %63, %type_flatten.exit, %44, %40, %37, %35
+  %.092 = phi ptr [ %36, %37 ], [ %36, %35 ], [ %43, %44 ], [ %43, %40 ], [ %62, %63 ], [ %62, %type_flatten.exit ], [ %81, %82 ], [ %81, %type_flatten.exit117 ], [ %86, %87 ], [ %86, %85 ], [ %93, %94 ], [ %93, %90 ], [ %98, %.critedge.sink.split ], [ %0, %6 ]
   ret ptr %.092
 }
 

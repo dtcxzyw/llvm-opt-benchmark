@@ -6863,9 +6863,9 @@ Abc_Clock.exit:                                   ; preds = %12, %11
   %14 = call ptr @Abc_NtkMiterSatCreate(ptr noundef %0, i32 noundef 0) #12
   store ptr %14, ptr @Abc_NtkMiterSatBm.pSat, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %52, label %Abc_Clock.exit34
+  br i1 %15, label %53, label %Abc_Clock.exit36
 
-Abc_Clock.exit34:                                 ; preds = %Abc_Clock.exit
+Abc_Clock.exit36:                                 ; preds = %Abc_Clock.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %16 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -6873,9 +6873,9 @@ Abc_Clock.exit34:                                 ; preds = %Abc_Clock.exit
   %18 = call i32 @sat_solver_simplify(ptr noundef %17) #12
   %sext.mask = and i32 %18, 255
   %19 = icmp eq i32 %sext.mask, 0
-  br i1 %19, label %.sink.split, label %Abc_Clock.exit36
+  br i1 %19, label %.sink.split, label %Abc_Clock.exit38
 
-Abc_Clock.exit36:                                 ; preds = %Abc_Clock.exit34
+Abc_Clock.exit38:                                 ; preds = %Abc_Clock.exit36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %20 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -6883,27 +6883,22 @@ Abc_Clock.exit36:                                 ; preds = %Abc_Clock.exit34
   %.pre = load ptr, ptr @Abc_NtkMiterSatBm.pSat, align 8
   br i1 %.not30, label %23, label %21
 
-21:                                               ; preds = %Abc_Clock.exit36
+21:                                               ; preds = %Abc_Clock.exit38
   %22 = getelementptr inbounds i8, ptr %.pre, i64 384
   store i32 1, ptr %22, align 8
   br label %23
 
-23:                                               ; preds = %21, %Abc_Clock.exit36
+23:                                               ; preds = %21, %Abc_Clock.exit38
   %24 = call i32 @sat_solver_solve(ptr noundef %.pre, ptr noundef null, ptr noundef null, i64 noundef %1, i64 noundef %2, i64 noundef 0, i64 noundef 0) #12
-  %trunc = trunc i32 %24 to i8
-  switch i8 %trunc, label %26 [
-    i8 0, label %.thread
-    i8 1, label %.thread39
-    i8 -1, label %25
-  ]
-
-25:                                               ; preds = %23
-  br label %.thread
+  %sext = shl i32 %24, 24
+  %switch.selectcmp = icmp eq i32 %sext, -16777216
+  %switch.select = zext i1 %switch.selectcmp to i32
+  %switch.selectcmp33 = icmp eq i32 %sext, 0
+  %switch.select34 = select i1 %switch.selectcmp33, i32 -1, i32 %switch.select
+  %25 = icmp eq i32 %sext, 16777216
+  br i1 %25, label %26, label %37
 
 26:                                               ; preds = %23
-  br label %.thread
-
-.thread39:                                        ; preds = %23
   %27 = call ptr @Abc_NtkGetCiSatVarNums(ptr noundef %0) #12
   %28 = load ptr, ptr @Abc_NtkMiterSatBm.pSat, align 8
   %29 = getelementptr inbounds i8, ptr %27, i64 8
@@ -6917,58 +6912,57 @@ Abc_Clock.exit36:                                 ; preds = %Abc_Clock.exit34
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %36
 
-36:                                               ; preds = %.thread39
+36:                                               ; preds = %26
   call void @free(ptr noundef nonnull %35) #12
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.thread39, %36
+Vec_IntFree.exit:                                 ; preds = %26, %36
   call void @free(ptr noundef nonnull %27) #12
-  br label %.thread
+  br label %37
 
-.thread:                                          ; preds = %26, %25, %23, %Vec_IntFree.exit
-  %.02438 = phi i32 [ 0, %Vec_IntFree.exit ], [ 0, %26 ], [ -1, %23 ], [ 1, %25 ]
-  br i1 %.not30, label %40, label %37
+37:                                               ; preds = %Vec_IntFree.exit, %23
+  br i1 %.not30, label %41, label %38
 
-37:                                               ; preds = %.thread
-  %38 = load ptr, ptr @stdout, align 8
-  %39 = load ptr, ptr @Abc_NtkMiterSatBm.pSat, align 8
-  call void @Sat_SolverPrintStats(ptr noundef %38, ptr noundef %39) #12
-  br label %40
+38:                                               ; preds = %37
+  %39 = load ptr, ptr @stdout, align 8
+  %40 = load ptr, ptr @Abc_NtkMiterSatBm.pSat, align 8
+  call void @Sat_SolverPrintStats(ptr noundef %39, ptr noundef %40) #12
+  br label %41
 
-40:                                               ; preds = %37, %.thread
-  %.pre42.pre = load ptr, ptr @Abc_NtkMiterSatBm.pSat, align 8
-  br i1 %.not, label %45, label %41
+41:                                               ; preds = %38, %37
+  %.pre39.pre = load ptr, ptr @Abc_NtkMiterSatBm.pSat, align 8
+  br i1 %.not, label %46, label %42
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %.pre42.pre, i64 440
-  %43 = load i64, ptr %42, align 8
-  %sext31 = shl i64 %43, 32
-  %44 = ashr exact i64 %sext31, 32
-  store i64 %44, ptr %4, align 8
-  br label %45
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds i8, ptr %.pre39.pre, i64 440
+  %44 = load i64, ptr %43, align 8
+  %sext31 = shl i64 %44, 32
+  %45 = ashr exact i64 %sext31, 32
+  store i64 %45, ptr %4, align 8
+  br label %46
 
-45:                                               ; preds = %41, %40
-  br i1 %.not29, label %50, label %46
+46:                                               ; preds = %42, %41
+  br i1 %.not29, label %51, label %47
 
-46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %.pre42.pre, i64 432
-  %48 = load i64, ptr %47, align 8
-  %sext32 = shl i64 %48, 32
-  %49 = ashr exact i64 %sext32, 32
-  store i64 %49, ptr %5, align 8
-  br label %50
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds i8, ptr %.pre39.pre, i64 432
+  %49 = load i64, ptr %48, align 8
+  %sext32 = shl i64 %49, 32
+  %50 = ashr exact i64 %sext32, 32
+  store i64 %50, ptr %5, align 8
+  br label %51
 
-50:                                               ; preds = %46, %45
-  call void @sat_solver_store_free(ptr noundef %.pre42.pre) #12
+51:                                               ; preds = %47, %46
+  call void @sat_solver_store_free(ptr noundef %.pre39.pre) #12
   br label %.sink.split
 
-.sink.split:                                      ; preds = %Abc_Clock.exit34, %50
-  %.0.ph = phi i32 [ %.02438, %50 ], [ 1, %Abc_Clock.exit34 ]
-  %51 = load ptr, ptr @Abc_NtkMiterSatBm.pSat, align 8
-  call void @sat_solver_delete(ptr noundef %51) #12
-  br label %52
+.sink.split:                                      ; preds = %Abc_Clock.exit36, %51
+  %.0.ph = phi i32 [ %switch.select34, %51 ], [ 1, %Abc_Clock.exit36 ]
+  %52 = load ptr, ptr @Abc_NtkMiterSatBm.pSat, align 8
+  call void @sat_solver_delete(ptr noundef %52) #12
+  br label %53
 
-52:                                               ; preds = %.sink.split, %Abc_Clock.exit
+53:                                               ; preds = %.sink.split, %Abc_Clock.exit
   %.0 = phi i32 [ 1, %Abc_Clock.exit ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

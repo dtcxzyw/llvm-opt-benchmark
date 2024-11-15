@@ -2460,7 +2460,7 @@ define internal fastcc void @set_rel_consider_parallel(ptr noundef %0, ptr nound
   store i8 1, ptr %57, align 2
   br label %58
 
-58:                                               ; preds = %50, %46, %3, %3, %42, %3, %38, %3, %34, %32, %27, %18, %14, %6, %56
+58:                                               ; preds = %50, %46, %42, %38, %3, %3, %3, %3, %34, %32, %27, %18, %14, %6, %56
   ret void
 }
 

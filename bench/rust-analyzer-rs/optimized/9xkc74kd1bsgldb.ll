@@ -96705,7 +96705,7 @@ define hidden void @_ZN7hir_def3hir11format_args5parse17h9e8a53a48a3fb96aE(ptr n
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   br label %419
 
-419:                                              ; preds = %416, %417, %418
+419:                                              ; preds = %418, %417, %416
   %cond = icmp eq i64 %352, 1
   br i1 %cond, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6af37a01786a8d3aE.exit431", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6af37a01786a8d3aE.exit459.thread"
 

@@ -770,13 +770,13 @@ entry:
 define internal range(i64 -2147483648, 2147483648) i64 @mempacket_test_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr nocapture readnone %ptr) #0 {
 entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %bio) #13
-  switch i32 %cmd, label %sw.epilog [
+  switch i32 %cmd, label %sw.default [
     i32 2, label %sw.bb
     i32 8, label %sw.bb3
     i32 9, label %sw.bb6
     i32 131072, label %sw.bb23
     i32 10, label %sw.bb9
-    i32 11, label %sw.bb15
+    i32 11, label %sw.epilog
     i32 32768, label %sw.bb16
     i32 65536, label %sw.bb18
     i32 98304, label %sw.bb20
@@ -811,9 +811,6 @@ if.else:                                          ; preds = %sw.bb9
   %conv14 = sext i32 %2 to i64
   br label %sw.epilog
 
-sw.bb15:                                          ; preds = %entry
-  br label %sw.epilog
-
 sw.bb16:                                          ; preds = %entry
   %conv17 = trunc i64 %num to i32
   %dropepoch = getelementptr inbounds i8, ptr %call, i64 32
@@ -838,8 +835,11 @@ sw.bb23:                                          ; preds = %entry
   store i32 %conv24, ptr %duprec, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %sw.bb9, %if.else, %sw.bb23, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb15, %sw.bb6, %sw.bb3, %sw.bb
-  %ret.0 = phi i64 [ 1, %sw.bb23 ], [ %conv22, %sw.bb20 ], [ 1, %sw.bb18 ], [ 1, %sw.bb16 ], [ 1, %sw.bb15 ], [ %conv14, %if.else ], [ 1, %sw.bb6 ], [ %conv5, %sw.bb3 ], [ %conv2, %sw.bb ], [ 0, %sw.bb9 ], [ 0, %entry ]
+sw.default:                                       ; preds = %entry
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb9, %if.else, %sw.default, %sw.bb23, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb6, %sw.bb3, %sw.bb
+  %ret.0 = phi i64 [ 0, %sw.default ], [ 1, %sw.bb23 ], [ %conv22, %sw.bb20 ], [ 1, %sw.bb18 ], [ 1, %sw.bb16 ], [ %conv14, %if.else ], [ 1, %sw.bb6 ], [ %conv5, %sw.bb3 ], [ %conv2, %sw.bb ], [ 0, %sw.bb9 ], [ 1, %entry ]
   ret i64 %ret.0
 }
 

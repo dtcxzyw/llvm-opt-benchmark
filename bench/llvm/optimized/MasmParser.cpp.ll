@@ -47042,7 +47042,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser13parseB
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %15
 
-15:                                               ; preds = %146, %4
+15:                                               ; preds = %137, %4
   %16 = load ptr, ptr %9, align 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 2
@@ -47380,101 +47380,74 @@ _ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1
     i32 29, label %126
     i32 36, label %127
     i32 42, label %127
-    i32 39, label %128
-    i32 40, label %129
-    i32 43, label %130
-    i32 44, label %131
-    i32 12, label %132
-    i32 13, label %133
-    i32 30, label %134
-    i32 32, label %135
-    i32 33, label %136
-    i32 24, label %137
-    i32 15, label %138
-    i32 37, label %139
-    i32 41, label %140
-    i32 45, label %141
+    i32 39, label %126
+    i32 40, label %126
+    i32 43, label %128
+    i32 44, label %126
+    i32 12, label %129
+    i32 13, label %129
+    i32 30, label %130
+    i32 32, label %130
+    i32 33, label %130
+    i32 24, label %131
+    i32 15, label %131
+    i32 37, label %131
+    i32 41, label %131
+    i32 45, label %132
   ]
 
 125:                                              ; preds = %122
   br label %.sink.split.i.i55
 
-126:                                              ; preds = %122
+126:                                              ; preds = %122, %122, %122, %122
   br label %.sink.split.i.i55
 
 127:                                              ; preds = %122, %122
   br label %.sink.split.i.i55
 
 128:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-129:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-130:                                              ; preds = %122
   br i1 %.not.i53, label %.sink.split.i.i55, label %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58
 
-131:                                              ; preds = %122
+129:                                              ; preds = %122, %122
+  br label %.sink.split.i.i55
+
+130:                                              ; preds = %122, %122, %122
+  br label %.sink.split.i.i55
+
+131:                                              ; preds = %122, %122, %122, %122
   br label %.sink.split.i.i55
 
 132:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-133:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-134:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-135:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-136:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-137:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-138:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-139:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-140:                                              ; preds = %122
-  br label %.sink.split.i.i55
-
-141:                                              ; preds = %122
   br i1 %.not.i53, label %.sink.split.i.i55, label %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58
 
-.sink.split.i.i55:                                ; preds = %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %122
-  %.0.ph.i.i57 = phi i32 [ 6, %140 ], [ 6, %139 ], [ 6, %138 ], [ 6, %137 ], [ 5, %136 ], [ 5, %135 ], [ 5, %134 ], [ 4, %133 ], [ 4, %132 ], [ 3, %131 ], [ 3, %129 ], [ 3, %128 ], [ 3, %127 ], [ 3, %126 ], [ 1, %125 ], [ 2, %122 ], [ 3, %130 ], [ 6, %141 ]
+.sink.split.i.i55:                                ; preds = %132, %131, %130, %129, %128, %127, %126, %125, %122
+  %.0.ph.i.i57 = phi i32 [ 6, %131 ], [ 5, %130 ], [ 4, %129 ], [ 3, %127 ], [ 3, %126 ], [ 1, %125 ], [ 2, %122 ], [ 3, %128 ], [ 6, %132 ]
   br label %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58
 
-_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58: ; preds = %122, %130, %141, %.sink.split.i.i55
-  %.0.i.i54 = phi i32 [ 0, %122 ], [ 0, %130 ], [ 0, %141 ], [ %.0.ph.i.i57, %.sink.split.i.i55 ]
-  %142 = icmp samesign ult i32 %.0.ph.i.i94, %.0.i.i54
-  br i1 %142, label %143, label %146
+_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58: ; preds = %122, %128, %132, %.sink.split.i.i55
+  %.0.i.i54 = phi i32 [ 0, %122 ], [ 0, %128 ], [ 0, %132 ], [ %.0.ph.i.i57, %.sink.split.i.i55 ]
+  %133 = icmp samesign ult i32 %.0.ph.i.i94, %.0.i.i54
+  br i1 %133, label %134, label %137
 
-143:                                              ; preds = %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58
-  %144 = add nuw nsw i32 %.0.ph.i.i94, 1
-  %145 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser13parseBinOpRHSEjRPKN4llvm6MCExprERNS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(1144) %0, i32 noundef %144, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %145, label %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread, label %146
+134:                                              ; preds = %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58
+  %135 = add nuw nsw i32 %.0.ph.i.i94, 1
+  %136 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser13parseBinOpRHSEjRPKN4llvm6MCExprERNS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(1144) %0, i32 noundef %135, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br i1 %136, label %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread, label %137
 
-146:                                              ; preds = %143, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58
-  %147 = load ptr, ptr %2, align 8
-  %148 = load ptr, ptr %6, align 8
-  %149 = load ptr, ptr %0, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 48
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef nonnull align 8 dereferenceable(2432) ptr %151(ptr noundef nonnull align 8 dereferenceable(1144) %0) #24
-  %153 = call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef %.sink.i.i93, ptr noundef %147, ptr noundef %148, ptr noundef nonnull align 8 dereferenceable(2432) %152, ptr %8) #24
-  store ptr %153, ptr %2, align 8
+137:                                              ; preds = %134, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit58
+  %138 = load ptr, ptr %2, align 8
+  %139 = load ptr, ptr %6, align 8
+  %140 = load ptr, ptr %0, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 48
+  %142 = load ptr, ptr %141, align 8
+  %143 = call noundef nonnull align 8 dereferenceable(2432) ptr %142(ptr noundef nonnull align 8 dereferenceable(1144) %0) #24
+  %144 = call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef %.sink.i.i93, ptr noundef %138, ptr noundef %139, ptr noundef nonnull align 8 dereferenceable(2432) %143, ptr %8) #24
+  store ptr %144, ptr %2, align 8
   br label %15, !llvm.loop !1023
 
-_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread: ; preds = %_ZN4llvm12StringSwitchINS_8AsmToken9TokenKindES2_E9CaseLowerENS_13StringLiteralES2_.exit52, %110, %100, %select.unfold, %143, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread90, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit
-  %154 = phi i1 [ true, %143 ], [ true, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread90 ], [ false, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit ], [ false, %select.unfold ], [ false, %100 ], [ false, %110 ], [ false, %_ZN4llvm12StringSwitchINS_8AsmToken9TokenKindES2_E9CaseLowerENS_13StringLiteralES2_.exit52 ]
-  ret i1 %154
+_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread: ; preds = %_ZN4llvm12StringSwitchINS_8AsmToken9TokenKindES2_E9CaseLowerENS_13StringLiteralES2_.exit52, %110, %100, %select.unfold, %134, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread90, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit
+  %145 = phi i1 [ true, %134 ], [ true, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit.thread90 ], [ false, %_ZN12_GLOBAL__N_110MasmParser18getBinOpPrecedenceEN4llvm8AsmToken9TokenKindERNS1_12MCBinaryExpr6OpcodeE.exit ], [ false, %select.unfold ], [ false, %100 ], [ false, %110 ], [ false, %_ZN4llvm12StringSwitchINS_8AsmToken9TokenKindES2_E9CaseLowerENS_13StringLiteralES2_.exit52 ]
+  ret i1 %145
 }
 
 declare noundef zeroext i1 @_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3

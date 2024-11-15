@@ -8128,7 +8128,7 @@ _ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit:    ; preds = %.thread, %72
     i32 54, label %154
     i32 62, label %155
     i32 63, label %156
-    i32 61, label %292
+    i32 61, label %155
   ]
 
 77:                                               ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
@@ -8296,7 +8296,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %_ZNK4llvm4Type13get
 154:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
   br label %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit
 
-155:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
+155:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
   br label %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit
 
 156:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
@@ -8565,25 +8565,22 @@ _ZNK4llvm4Type13getScalarTypeEv.exit391:          ; preds = %279, %284
   %291 = call noundef zeroext i1 @_ZNK4llvm17ShuffleVectorInst8isSpliceERi(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 4 dereferenceable(4) %16)
   br label %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit
 
-292:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
-  br label %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit
-
 _ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit.thread: ; preds = %71, %93, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
-  %293 = icmp eq i32 %4, 0
-  %294 = select i1 %293, i64 -1, i64 1
+  %292 = icmp eq i32 %4, 0
+  %293 = select i1 %292, i64 -1, i64 1
   br label %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit
 
 switch.hole_check:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
   %switch.shifted = lshr i8 47, %trunc.i.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %295 = and i32 %122, 5
-  %spec.select.i.i365 = icmp eq i32 %295, 4
+  %294 = and i32 %122, 5
+  %spec.select.i.i365 = icmp eq i32 %294, 4
   %or.cond600 = or i1 %spec.select.i.i365, %switch.lobit
   br i1 %or.cond600, label %_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit, label %124
 
-_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit: ; preds = %switch.hole_check, %134, %292, %155, %154, %131, %138, %124, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %109, %105, %105, %105, %105, %105, %105, %290, %275, %273, %271, %269, %267, %265, %228, %225, %._crit_edge597, %183, %181, %156, %93, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit.thread, %_ZNK4llvm4Type13getScalarTypeEv.exit391, %264, %_ZNK4llvm4Type13getScalarTypeEv.exit, %.critedge, %125, %95, %90, %77, %55, %50
-  %.sroa.0519.0 = phi i64 [ %294, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit.thread ], [ 1, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %.sroa.0519.1, %264 ], [ 1, %_ZNK4llvm4Type13getScalarTypeEv.exit391 ], [ %.fca.0.extract168, %.critedge ], [ %.fca.0.extract203, %125 ], [ %.fca.0.extract216, %95 ], [ %spec.select.i, %90 ], [ %.fca.0.extract229, %77 ], [ %68, %55 ], [ %54, %50 ], [ 1, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ], [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ], [ 0, %93 ], [ 1, %156 ], [ 0, %181 ], [ 1, %183 ], [ 1, %._crit_edge597 ], [ 1, %225 ], [ 1, %228 ], [ 0, %265 ], [ 1, %267 ], [ 1, %269 ], [ 1, %271 ], [ 1, %273 ], [ 1, %275 ], [ 1, %290 ], [ 1, %124 ], [ 4, %105 ], [ 4, %105 ], [ 4, %105 ], [ 4, %105 ], [ 4, %105 ], [ 4, %105 ], [ 0, %109 ], [ 3, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ 1, %131 ], [ 1, %138 ], [ 1, %154 ], [ 1, %155 ], [ 1, %292 ], [ %spec.select, %134 ], [ 3, %switch.hole_check ]
-  %.sroa.38.0 = phi i32 [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit.thread ], [ 0, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ 0, %264 ], [ 0, %_ZNK4llvm4Type13getScalarTypeEv.exit391 ], [ %.fca.1.extract169, %.critedge ], [ %.fca.1.extract204, %125 ], [ %.fca.1.extract217, %95 ], [ 0, %90 ], [ %.fca.1.extract230, %77 ], [ 0, %55 ], [ 0, %50 ], [ 0, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ], [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ], [ 0, %93 ], [ 0, %156 ], [ 0, %181 ], [ 0, %183 ], [ 0, %._crit_edge597 ], [ 0, %225 ], [ 0, %228 ], [ 0, %265 ], [ 0, %267 ], [ 0, %269 ], [ 0, %271 ], [ 0, %273 ], [ 0, %275 ], [ 0, %290 ], [ 0, %124 ], [ 0, %105 ], [ 0, %105 ], [ 0, %105 ], [ 0, %105 ], [ 0, %105 ], [ 0, %105 ], [ 0, %109 ], [ 0, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ 0, %131 ], [ 0, %138 ], [ 0, %154 ], [ 0, %155 ], [ 0, %292 ], [ 0, %134 ], [ 0, %switch.hole_check ]
+_ZNK4llvm9StoreInst22getPointerAddressSpaceEv.exit: ; preds = %switch.hole_check, %134, %155, %154, %131, %138, %124, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %109, %105, %105, %105, %105, %105, %105, %290, %275, %273, %271, %269, %267, %265, %228, %225, %._crit_edge597, %183, %181, %156, %93, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit.thread, %_ZNK4llvm4Type13getScalarTypeEv.exit391, %264, %_ZNK4llvm4Type13getScalarTypeEv.exit, %.critedge, %125, %95, %90, %77, %55, %50
+  %.sroa.0519.0 = phi i64 [ %293, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit.thread ], [ 1, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %.sroa.0519.1, %264 ], [ 1, %_ZNK4llvm4Type13getScalarTypeEv.exit391 ], [ %.fca.0.extract168, %.critedge ], [ %.fca.0.extract203, %125 ], [ %.fca.0.extract216, %95 ], [ %spec.select.i, %90 ], [ %.fca.0.extract229, %77 ], [ %68, %55 ], [ %54, %50 ], [ 1, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ], [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ], [ 0, %93 ], [ 1, %156 ], [ 0, %181 ], [ 1, %183 ], [ 1, %._crit_edge597 ], [ 1, %225 ], [ 1, %228 ], [ 0, %265 ], [ 1, %267 ], [ 1, %269 ], [ 1, %271 ], [ 1, %273 ], [ 1, %275 ], [ 1, %290 ], [ 1, %124 ], [ 4, %105 ], [ 4, %105 ], [ 4, %105 ], [ 4, %105 ], [ 4, %105 ], [ 4, %105 ], [ 0, %109 ], [ 3, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ 1, %131 ], [ 1, %138 ], [ 1, %154 ], [ 1, %155 ], [ %spec.select, %134 ], [ 3, %switch.hole_check ]
+  %.sroa.38.0 = phi i32 [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit.thread ], [ 0, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ 0, %264 ], [ 0, %_ZNK4llvm4Type13getScalarTypeEv.exit391 ], [ %.fca.1.extract169, %.critedge ], [ %.fca.1.extract204, %125 ], [ %.fca.1.extract217, %95 ], [ 0, %90 ], [ %.fca.1.extract230, %77 ], [ 0, %55 ], [ 0, %50 ], [ 0, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ], [ 0, %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit ], [ 0, %93 ], [ 0, %156 ], [ 0, %181 ], [ 0, %183 ], [ 0, %._crit_edge597 ], [ 0, %225 ], [ 0, %228 ], [ 0, %265 ], [ 0, %267 ], [ 0, %269 ], [ 0, %271 ], [ 0, %273 ], [ 0, %275 ], [ 0, %290 ], [ 0, %124 ], [ 0, %105 ], [ 0, %105 ], [ 0, %105 ], [ 0, %105 ], [ 0, %105 ], [ 0, %105 ], [ 0, %109 ], [ 0, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ 0, %131 ], [ 0, %138 ], [ 0, %154 ], [ 0, %155 ], [ 0, %134 ], [ 0, %switch.hole_check ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0519.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.38.0, 1
   ret { i64, i32 } %.fca.1.insert

@@ -22,14 +22,10 @@ define noundef range(i32 0, 10) i32 @_Z36alts_tsi_utils_convert_to_tsi_result16g
 entry:
   switch i32 %code, label %sw.default [
     i32 0, label %return
-    i32 2, label %sw.bb1
+    i32 13, label %sw.bb4
     i32 3, label %sw.bb2
     i32 5, label %sw.bb3
-    i32 13, label %sw.bb4
   ]
-
-sw.bb1:                                           ; preds = %entry
-  br label %return
 
 sw.bb2:                                           ; preds = %entry
   br label %return
@@ -43,8 +39,8 @@ sw.bb4:                                           ; preds = %entry
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.default, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 1, %sw.default ], [ 7, %sw.bb4 ], [ 9, %sw.bb3 ], [ 2, %sw.bb2 ], [ 1, %sw.bb1 ], [ %code, %entry ]
+return:                                           ; preds = %entry, %sw.default, %sw.bb4, %sw.bb3, %sw.bb2
+  %retval.0 = phi i32 [ 1, %sw.default ], [ 7, %sw.bb4 ], [ 9, %sw.bb3 ], [ 2, %sw.bb2 ], [ %code, %entry ]
   ret i32 %retval.0
 }
 

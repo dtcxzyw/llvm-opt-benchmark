@@ -64,8 +64,8 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef nonnull align 4 dereferenceable(20) ptr @"_ZN2tt13Leaf$LT$S$GT$4span17h31a2afde2bde4f73E"(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !range !4, !noundef !5
   %switch = icmp eq i32 %2, 1
-  %spec.select = select i1 %switch, i64 8, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 32
+  %3 = getelementptr inbounds i8, ptr %0, i64 %.
   ret ptr %3
 }
 
@@ -76,8 +76,8 @@ define hidden void @"_ZN2tt18TokenTree$LT$S$GT$10first_span17h5b5a6337f04b24a8E"
   %5 = icmp eq i8 %4, 4
   %6 = load i32, ptr %1, align 8, !range !4
   %switch.i = icmp eq i32 %6, 1
-  %spec.select.i = select i1 %switch.i, i64 8, i64 32
-  %.sink1 = select i1 %5, i64 %spec.select.i, i64 16
+  %..i = select i1 %switch.i, i64 8, i64 32
+  %.sink1 = select i1 %5, i64 %..i, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 %.sink1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %7, i64 20, i1 false)
   ret void

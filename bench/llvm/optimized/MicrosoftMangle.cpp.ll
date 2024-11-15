@@ -15588,7 +15588,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler23mangleM
   %.val24.val = load ptr, ptr %23, align 8
   %24 = tail call i64 @_ZNK5clang10ASTContext24getOffsetOfBaseWithVBPtrEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %.val24.val, ptr noundef nonnull %1) #21
   %25 = sub nsw i64 %21, %24
-  br label %34
+  br label %33
 
 26:                                               ; preds = %6
   %27 = tail call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl21nullFieldOffsetIsZeroEv(ptr noundef nonnull align 8 dereferenceable(144) %1) #21
@@ -15599,212 +15599,209 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler23mangleM
 29:                                               ; preds = %11, %26
   %.019 = phi i64 [ 0, %11 ], [ -1, %26 ]
   %.0 = phi i64 [ %21, %11 ], [ %28, %26 ]
-  switch i32 %10, label %34 [
+  switch i32 %10, label %33 [
     i32 0, label %30
-    i32 1, label %31
-    i32 2, label %32
-    i32 3, label %33
+    i32 1, label %30
+    i32 2, label %31
+    i32 3, label %32
   ]
 
-30:                                               ; preds = %29
-  br label %34
+30:                                               ; preds = %29, %29
+  br label %33
 
 31:                                               ; preds = %29
-  br label %34
+  br label %33
 
 32:                                               ; preds = %29
-  br label %34
+  br label %33
 
-33:                                               ; preds = %29
-  br label %34
-
-34:                                               ; preds = %.thread, %33, %32, %31, %30, %29
-  %.039 = phi i64 [ %.0, %29 ], [ %.0, %33 ], [ %.0, %31 ], [ %.0, %30 ], [ %25, %.thread ], [ %.0, %32 ]
-  %.01937 = phi i64 [ %.019, %29 ], [ %.019, %33 ], [ %.019, %31 ], [ %.019, %30 ], [ 0, %.thread ], [ %.019, %32 ]
-  %.020 = phi i8 [ 0, %29 ], [ 71, %33 ], [ 48, %31 ], [ 48, %30 ], [ 70, %.thread ], [ 70, %32 ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
+33:                                               ; preds = %.thread, %32, %31, %30, %29
+  %.039 = phi i64 [ %.0, %29 ], [ %.0, %32 ], [ %.0, %30 ], [ %25, %.thread ], [ %.0, %31 ]
+  %.01937 = phi i64 [ %.019, %29 ], [ %.019, %32 ], [ %.019, %30 ], [ 0, %.thread ], [ %.019, %31 ]
+  %.020 = phi i8 [ 0, %29 ], [ 71, %32 ], [ 48, %30 ], [ 70, %.thread ], [ 70, %31 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
   %.sroa.02.0.copyload = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %41 = ptrtoint ptr %38 to i64
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = icmp ugt i64 %.sroa.2.0.copyload, %43
-  br i1 %44, label %45, label %47
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %39 = load ptr, ptr %38, align 8
+  %40 = ptrtoint ptr %37 to i64
+  %41 = ptrtoint ptr %39 to i64
+  %42 = sub i64 %40, %41
+  %43 = icmp ugt i64 %.sroa.2.0.copyload, %42
+  br i1 %43, label %44, label %46
 
-45:                                               ; preds = %34
-  %46 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef %.sroa.02.0.copyload, i64 noundef %.sroa.2.0.copyload) #21
+44:                                               ; preds = %33
+  %45 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef %.sroa.02.0.copyload, i64 noundef %.sroa.2.0.copyload) #21
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
-47:                                               ; preds = %34
+46:                                               ; preds = %33
   %.not.i = icmp eq i64 %.sroa.2.0.copyload, 0
-  br i1 %.not.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %48
+  br i1 %.not.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %47
 
-48:                                               ; preds = %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %.sroa.02.0.copyload, i64 %.sroa.2.0.copyload, i1 false)
-  %49 = load ptr, ptr %39, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 %.sroa.2.0.copyload
-  store ptr %50, ptr %39, align 8
+47:                                               ; preds = %46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %.sroa.02.0.copyload, i64 %.sroa.2.0.copyload, i1 false)
+  %48 = load ptr, ptr %38, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 %.sroa.2.0.copyload
+  store ptr %49, ptr %38, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %45, %47, %48
-  br i1 %.not, label %.critedge, label %51
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %44, %46, %47
+  br i1 %.not, label %.critedge, label %50
 
-51:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
+50:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   %.val25 = load ptr, ptr %0, align 8
-  %52 = getelementptr i8, ptr %.val25, i64 8
-  %.val25.val = load ptr, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %.val25.val, i64 2112
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 144
-  %56 = load i64, ptr %55, align 8
-  %57 = icmp ugt i64 %56, 824633720831999999
-  %58 = icmp ne ptr %3, null
-  %or.cond = and i1 %58, %57
-  br i1 %or.cond, label %59, label %.critedge
+  %51 = getelementptr i8, ptr %.val25, i64 8
+  %.val25.val = load ptr, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %.val25.val, i64 2112
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 144
+  %55 = load i64, ptr %54, align 8
+  %56 = icmp ugt i64 %55, 824633720831999999
+  %57 = icmp ne ptr %3, null
+  %or.cond = and i1 %57, %56
+  br i1 %or.cond, label %58, label %.critedge
 
-59:                                               ; preds = %51
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.0.0.copyload.i = load i64, ptr %60, align 8
-  %61 = and i64 %.sroa.0.0.copyload.i, -16
-  %62 = inttoptr i64 %61 to ptr
-  %63 = load ptr, ptr %62, align 16
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load i8, ptr %64, align 16
-  %66 = icmp ne i8 %65, 16
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %.sroa.0.0.copyload.i = load i64, ptr %59, align 8
+  %60 = and i64 %.sroa.0.0.copyload.i, -16
+  %61 = inttoptr i64 %60 to ptr
+  %62 = load ptr, ptr %61, align 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load i8, ptr %63, align 16
+  %65 = icmp ne i8 %64, 16
   %.not.i.i = icmp ult i64 %4, 16
-  %or.cond41 = select i1 %66, i1 true, i1 %.not.i.i
-  br i1 %or.cond41, label %.critedge, label %67
+  %or.cond41 = select i1 %65, i1 true, i1 %.not.i.i
+  br i1 %or.cond41, label %.critedge, label %66
 
-67:                                               ; preds = %59
-  %68 = load ptr, ptr %35, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %70, %72
-  br i1 %73, label %74, label %76
+66:                                               ; preds = %58
+  %67 = load ptr, ptr %34, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %69, %71
+  br i1 %72, label %73, label %75
 
-74:                                               ; preds = %67
-  %75 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull @.str.24, i64 noundef 1) #21
+73:                                               ; preds = %66
+  %74 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull @.str.24, i64 noundef 1) #21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-76:                                               ; preds = %67
-  store i8 77, ptr %72, align 1
-  %77 = load ptr, ptr %71, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 1
-  store ptr %78, ptr %71, align 8
+75:                                               ; preds = %66
+  store i8 77, ptr %71, align 1
+  %76 = load ptr, ptr %70, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 1
+  store ptr %77, ptr %70, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %74, %76
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %73, %75
   tail call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEN5clang8QualTypeENS1_11SourceRangeENS0_19QualifierMangleModeE(ptr noundef nonnull align 8 dereferenceable(593) %0, i64 %4, i64 0, i32 noundef 0)
   br label %.critedge
 
-.critedge:                                        ; preds = %59, %51, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %79 = load ptr, ptr %35, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = load ptr, ptr %82, align 8
-  %.not.i26 = icmp ult ptr %81, %83
-  br i1 %.not.i26, label %86, label %84
+.critedge:                                        ; preds = %58, %50, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit
+  %78 = load ptr, ptr %34, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %82 = load ptr, ptr %81, align 8
+  %.not.i26 = icmp ult ptr %80, %82
+  br i1 %.not.i26, label %85, label %83
 
-84:                                               ; preds = %.critedge
-  %85 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %79, i8 noundef zeroext %.020) #21
+83:                                               ; preds = %.critedge
+  %84 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %78, i8 noundef zeroext %.020) #21
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds i8, ptr %81, i64 1
-  store ptr %87, ptr %80, align 8
-  store i8 %.020, ptr %81, align 1
+85:                                               ; preds = %.critedge
+  %86 = getelementptr inbounds i8, ptr %80, i64 1
+  store ptr %86, ptr %79, align 8
+  store i8 %.020, ptr %80, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %84, %86
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %83, %85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 64, ptr %88, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 64, ptr %87, align 8
   store i64 %.039, ptr %9, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i8 0, ptr %89, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i8 0, ptr %88, align 4
   call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEN4llvm6APSIntE(ptr noundef nonnull readonly align 8 dereferenceable(593) %0, ptr noundef %9)
-  %90 = load i32, ptr %88, align 8
-  %91 = icmp ugt i32 %90, 64
-  br i1 %91, label %92, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit
+  %89 = load i32, ptr %87, align 8
+  %90 = icmp ugt i32 %89, 64
+  br i1 %90, label %91, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit
 
-92:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %93 = load ptr, ptr %9, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit, label %95
+91:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
+  %92 = load ptr, ptr %9, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit, label %94
 
-95:                                               ; preds = %92
-  call void @_ZdaPv(ptr noundef nonnull %93) #22
+94:                                               ; preds = %91
+  call void @_ZdaPv(ptr noundef nonnull %92) #22
   br label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit
 
-_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %92, %95
+_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %91, %94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %96 = icmp eq i32 %10, 3
-  br i1 %96, label %97, label %106
+  %95 = icmp eq i32 %10, 3
+  br i1 %95, label %96, label %105
 
-97:                                               ; preds = %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit
+96:                                               ; preds = %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 64, ptr %98, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 64, ptr %97, align 8
   store i64 0, ptr %8, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i8 0, ptr %99, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i8 0, ptr %98, align 4
   call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEN4llvm6APSIntE(ptr noundef nonnull readonly align 8 dereferenceable(593) %0, ptr noundef %8)
-  %100 = load i32, ptr %98, align 8
-  %101 = icmp ugt i32 %100, 64
-  br i1 %101, label %102, label %.thread40
+  %99 = load i32, ptr %97, align 8
+  %100 = icmp ugt i32 %99, 64
+  br i1 %100, label %101, label %.thread40
 
-102:                                              ; preds = %97
-  %103 = load ptr, ptr %8, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %.thread40, label %105
+101:                                              ; preds = %96
+  %102 = load ptr, ptr %8, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %.thread40, label %104
 
-105:                                              ; preds = %102
-  call void @_ZdaPv(ptr noundef nonnull %103) #22
+104:                                              ; preds = %101
+  call void @_ZdaPv(ptr noundef nonnull %102) #22
   br label %.thread40
 
-.thread40:                                        ; preds = %105, %102, %97
+.thread40:                                        ; preds = %104, %101, %96
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %108
+  br label %107
 
-106:                                              ; preds = %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit
-  %107 = icmp sgt i32 %10, 1
-  br i1 %107, label %108, label %117
+105:                                              ; preds = %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit
+  %106 = icmp sgt i32 %10, 1
+  br i1 %106, label %107, label %116
 
-108:                                              ; preds = %.thread40, %106
+107:                                              ; preds = %.thread40, %105
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %109 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 64, ptr %109, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 64, ptr %108, align 8
   store i64 %.01937, ptr %7, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i8 0, ptr %110, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i8 0, ptr %109, align 4
   call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEN4llvm6APSIntE(ptr noundef nonnull readonly align 8 dereferenceable(593) %0, ptr noundef %7)
-  %111 = load i32, ptr %109, align 8
-  %112 = icmp ugt i32 %111, 64
-  br i1 %112, label %113, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit29
+  %110 = load i32, ptr %108, align 8
+  %111 = icmp ugt i32 %110, 64
+  br i1 %111, label %112, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit29
 
-113:                                              ; preds = %108
-  %114 = load ptr, ptr %7, align 8
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit29, label %116
+112:                                              ; preds = %107
+  %113 = load ptr, ptr %7, align 8
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit29, label %115
 
-116:                                              ; preds = %113
-  call void @_ZdaPv(ptr noundef nonnull %114) #22
+115:                                              ; preds = %112
+  call void @_ZdaPv(ptr noundef nonnull %113) #22
   br label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit29
 
-_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit29: ; preds = %108, %113, %116
+_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit29: ; preds = %107, %112, %115
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %117
+  br label %116
 
-117:                                              ; preds = %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit29, %106
+116:                                              ; preds = %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit29, %105
   ret void
 }
 

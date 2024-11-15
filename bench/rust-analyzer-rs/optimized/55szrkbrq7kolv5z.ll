@@ -951,8 +951,8 @@ define hidden void @"_ZN10hir_expand5attrs4Attr27parse_path_comma_token_tree28_$
 16:                                               ; preds = %6
   %17 = icmp eq i8 %8, 4
   %switch.i.i = icmp eq i32 %9, 1
-  %spec.select.i.i = select i1 %switch.i.i, i64 8, i64 32
-  %.sink1.i = select i1 %17, i64 %spec.select.i.i, i64 16
+  %..i.i = select i1 %switch.i.i, i64 8, i64 32
+  %.sink1.i = select i1 %17, i64 %..i.i, i64 16
   %18 = getelementptr inbounds i8, ptr %2, i64 %.sink1.i
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.4.0..sroa_idx, i64 39, i1 false)
@@ -1835,8 +1835,8 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 17:                                               ; preds = %7
   %18 = icmp eq i8 %9, 4
   %switch.i.i.i = icmp eq i32 %10, 1
-  %spec.select.i.i.i = select i1 %switch.i.i.i, i64 8, i64 32
-  %.sink1.i.i = select i1 %18, i64 %spec.select.i.i.i, i64 16
+  %..i.i.i = select i1 %switch.i.i.i, i64 8, i64 32
+  %.sink1.i.i = select i1 %18, i64 %..i.i.i, i64 16
   %19 = getelementptr inbounds i8, ptr %2, i64 %.sink1.i.i
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.4.0..sroa_idx.i, i64 39, i1 false), !noalias !443
@@ -52329,9 +52329,9 @@ define { i32, i32 } @_ZN7hir_def10item_scope8ItemInNs5krate17h183b83fd25d17dc3E(
   %6 = alloca { i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }, align 4
   %7 = alloca { i32, [3 x i32] }, align 4
   %8 = load i32, ptr %0, align 4, !range !209, !noundef !25
-  %switch1 = icmp samesign ult i32 %8, 2
+  %switch = icmp samesign ult i32 %8, 2
   %.0 = getelementptr inbounds i8, ptr %0, i64 4
-  br i1 %switch1, label %23, label %9
+  br i1 %switch, label %23, label %9
 
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15082)

@@ -10008,7 +10008,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86FrameLowering17has128ByteRedZ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12X86Subtarget18isCallingConvWin64Ej(ptr noundef nonnull align 8 dereferenceable(409248) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  switch i32 %1, label %12 [
+  switch i32 %1, label %11 [
     i32 0, label %3
     i32 8, label %3
     i32 18, label %3
@@ -10019,8 +10019,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12X86Subtarget18isCallin
     i32 70, label %3
     i32 80, label %3
     i32 77, label %3
-    i32 79, label %13
-    i32 78, label %11
+    i32 79, label %12
   ]
 
 3:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
@@ -10031,16 +10030,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12X86Subtarget18isCallin
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 14
   %10 = select i1 %6, i1 %9, i1 false
-  br label %13
+  br label %12
 
 11:                                               ; preds = %2
-  br label %13
+  br label %12
 
-12:                                               ; preds = %2
-  br label %13
-
-13:                                               ; preds = %2, %12, %11, %3
-  %.0 = phi i1 [ false, %12 ], [ false, %11 ], [ %10, %3 ], [ true, %2 ]
+12:                                               ; preds = %2, %11, %3
+  %.0 = phi i1 [ false, %11 ], [ %10, %3 ], [ true, %2 ]
   ret i1 %.0
 }
 

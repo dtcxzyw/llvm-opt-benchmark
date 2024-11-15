@@ -5519,16 +5519,16 @@ if.end:                                           ; preds = %entry
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr [256 x i8], ptr %type, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
-  switch i8 %1, label %return.sink.split [
-    i8 30, label %sw.bb47
+  switch i8 %1, label %sw.default [
+    i8 30, label %return.sink.split
     i8 22, label %sw.epilog
     i8 24, label %sw.epilog
     i8 5, label %sw.bb2
     i8 6, label %sw.bb15
     i8 7, label %sw.bb31
-    i8 21, label %sw.bb47
-    i8 10, label %sw.bb47
-    i8 9, label %sw.bb47
+    i8 21, label %return.sink.split
+    i8 10, label %return.sink.split
+    i8 9, label %return.sink.split
   ]
 
 sw.bb2:                                           ; preds = %if.end
@@ -5585,7 +5585,7 @@ lor.lhs.false41:                                  ; preds = %if.end38
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %return.sink.split, label %sw.epilog
 
-sw.bb47:                                          ; preds = %if.end, %if.end, %if.end, %if.end
+sw.default:                                       ; preds = %if.end
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %lor.lhs.false41, %lor.lhs.false25, %lor.lhs.false, %if.end, %if.end
@@ -5684,9 +5684,9 @@ sw.epilog114:                                     ; preds = %lor.lhs.false105, %
   %cmp51 = icmp sgt i64 %sub.ptr.sub50, 0
   br i1 %cmp51, label %while.body, label %return, !llvm.loop !33
 
-return.sink.split:                                ; preds = %while.body, %if.end101, %lor.lhs.false105, %if.end84, %lor.lhs.false88, %if.end67, %lor.lhs.false71, %if.end, %if.end38, %lor.lhs.false41, %if.end22, %lor.lhs.false25, %if.end9, %lor.lhs.false, %sw.bb47, %sw.bb111
-  %ptr.addr.194.lcssa.sink = phi ptr [ %add.ptr112, %sw.bb111 ], [ %ptr, %sw.bb47 ], [ %ptr, %lor.lhs.false ], [ %ptr, %if.end9 ], [ %ptr, %lor.lhs.false25 ], [ %ptr, %if.end22 ], [ %ptr, %lor.lhs.false41 ], [ %ptr, %if.end38 ], [ %ptr, %if.end ], [ %ptr.addr.194, %lor.lhs.false71 ], [ %ptr.addr.194, %if.end67 ], [ %ptr.addr.194, %lor.lhs.false88 ], [ %ptr.addr.194, %if.end84 ], [ %ptr.addr.194, %lor.lhs.false105 ], [ %ptr.addr.194, %if.end101 ], [ %ptr.addr.194, %while.body ]
-  %retval.0.ph = phi i32 [ 28, %sw.bb111 ], [ 22, %sw.bb47 ], [ 0, %lor.lhs.false ], [ 0, %if.end9 ], [ 0, %lor.lhs.false25 ], [ 0, %if.end22 ], [ 0, %lor.lhs.false41 ], [ 0, %if.end38 ], [ 0, %if.end ], [ 0, %lor.lhs.false71 ], [ 0, %if.end67 ], [ 0, %lor.lhs.false88 ], [ 0, %if.end84 ], [ 0, %lor.lhs.false105 ], [ 0, %if.end101 ], [ 0, %while.body ]
+return.sink.split:                                ; preds = %while.body, %if.end101, %lor.lhs.false105, %if.end84, %lor.lhs.false88, %if.end67, %lor.lhs.false71, %if.end, %if.end, %if.end, %if.end, %if.end38, %lor.lhs.false41, %if.end22, %lor.lhs.false25, %if.end9, %lor.lhs.false, %sw.default, %sw.bb111
+  %ptr.addr.194.lcssa.sink = phi ptr [ %add.ptr112, %sw.bb111 ], [ %ptr, %sw.default ], [ %ptr, %lor.lhs.false ], [ %ptr, %if.end9 ], [ %ptr, %lor.lhs.false25 ], [ %ptr, %if.end22 ], [ %ptr, %lor.lhs.false41 ], [ %ptr, %if.end38 ], [ %ptr, %if.end ], [ %ptr, %if.end ], [ %ptr, %if.end ], [ %ptr, %if.end ], [ %ptr.addr.194, %lor.lhs.false71 ], [ %ptr.addr.194, %if.end67 ], [ %ptr.addr.194, %lor.lhs.false88 ], [ %ptr.addr.194, %if.end84 ], [ %ptr.addr.194, %lor.lhs.false105 ], [ %ptr.addr.194, %if.end101 ], [ %ptr.addr.194, %while.body ]
+  %retval.0.ph = phi i32 [ 28, %sw.bb111 ], [ 0, %sw.default ], [ 0, %lor.lhs.false ], [ 0, %if.end9 ], [ 0, %lor.lhs.false25 ], [ 0, %if.end22 ], [ 0, %lor.lhs.false41 ], [ 0, %if.end38 ], [ 22, %if.end ], [ 22, %if.end ], [ 22, %if.end ], [ 22, %if.end ], [ 0, %lor.lhs.false71 ], [ 0, %if.end67 ], [ 0, %lor.lhs.false88 ], [ 0, %if.end84 ], [ 0, %lor.lhs.false105 ], [ 0, %if.end101 ], [ 0, %while.body ]
   store ptr %ptr.addr.194.lcssa.sink, ptr %nextTokPtr, align 8
   br label %return
 

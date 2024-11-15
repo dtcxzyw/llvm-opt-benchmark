@@ -3556,8 +3556,8 @@ c_unknowntagnext.exit:                            ; preds = %.preheader, %160
   %.not.i = icmp eq i32 %162, 0
   br i1 %.not.i, label %c_unknowntagnext.exit.thread, label %c_unknowntagnext.exit, !llvm.loop !7
 
-c_unknowntagnext.exit.thread:                     ; preds = %c_unknowntagnext.exit, %160, %.preheader, %122, %140, %122, %133, %126, %111, %10, %155, %153, %143, %136, %129, %120, %118, %114
-  %.0 = phi i32 [ %156, %155 ], [ %154, %153 ], [ %152, %143 ], [ %139, %136 ], [ %132, %129 ], [ %121, %120 ], [ %117, %114 ], [ %119, %118 ], [ -1, %10 ], [ -1, %111 ], [ -1, %126 ], [ -1, %133 ], [ %123, %122 ], [ -1, %140 ], [ %123, %122 ], [ %123, %.preheader ], [ %.07389, %c_unknowntagnext.exit ], [ %161, %160 ]
+c_unknowntagnext.exit.thread:                     ; preds = %c_unknowntagnext.exit, %160, %.preheader, %140, %122, %122, %133, %126, %111, %10, %155, %153, %143, %136, %129, %120, %118, %114
+  %.0 = phi i32 [ %156, %155 ], [ %154, %153 ], [ %152, %143 ], [ %139, %136 ], [ %132, %129 ], [ %121, %120 ], [ %117, %114 ], [ %119, %118 ], [ -1, %10 ], [ -1, %111 ], [ -1, %126 ], [ -1, %133 ], [ %123, %122 ], [ %123, %122 ], [ -1, %140 ], [ %123, %.preheader ], [ %.07389, %c_unknowntagnext.exit ], [ %161, %160 ]
   ret i32 %.0
 }
 

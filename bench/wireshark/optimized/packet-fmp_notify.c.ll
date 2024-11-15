@@ -160,8 +160,10 @@ define internal i32 @dissect_FMP_NOTIFY_DownGrade_request(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_DownGrade_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+dissect_fmp_notify_status.exit:
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %5 = load i32, ptr @hf_fmp_status, align 4
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   ret i32 %6
 }
 
@@ -182,8 +184,10 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeList_request(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_RevokeList_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+dissect_fmp_notify_status.exit:
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %5 = load i32, ptr @hf_fmp_status, align 4
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   ret i32 %6
 }
 
@@ -200,8 +204,10 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeAll_request(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_RevokeAll_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+dissect_fmp_notify_status.exit:
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %5 = load i32, ptr @hf_fmp_status, align 4
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   ret i32 %6
 }
 
@@ -220,66 +226,84 @@ define internal i32 @dissect_FMP_NOTIFY_FileSetEof_request(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_FileSetEof_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+dissect_fmp_notify_status.exit:
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %5 = load i32, ptr @hf_fmp_status, align 4
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_RequestDone_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %dissect_fmp_notify_extentList.exit
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  switch i32 %5, label %dissect_fmp_notify_status.exit [
+    i32 0, label %8
+    i32 511, label %8
+    i32 509, label %8
+    i32 507, label %8
+    i32 506, label %8
+    i32 28, label %8
+    i32 504, label %8
+    i32 503, label %8
+    i32 502, label %8
+  ]
 
-9:                                                ; preds = %4
-  %10 = load i32, ptr @hf_fmp_sessionHandle, align 4
-  %11 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %6) #2
-  %12 = load i32, ptr @hf_fmp_fmpFHandle, align 4
-  %13 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11) #2
-  %14 = load i32, ptr @hf_fmp_msgNum, align 4
-  %15 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13) #2
-  %16 = load i32, ptr @hf_fmp_cookie, align 4
-  %17 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %16, i32 noundef %15) #2
-  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %17) #2
-  %19 = mul i32 %18, 20
-  %20 = add i32 %19, 4
-  %21 = load i32, ptr @ett_fmp_extList, align 4
-  %22 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %17, i32 noundef %20, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.74) #2
-  %23 = load i32, ptr @hf_fmp_extentList_len, align 4
-  %24 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %22, i32 noundef %23, i32 noundef %17) #2
-  %.not.i = icmp eq i32 %18, 0
+dissect_fmp_notify_status.exit:                   ; preds = %4
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  br label %dissect_fmp_notify_extentList.exit
+
+8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
+  %9 = load i32, ptr @hf_fmp_status, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0) #2
+  %11 = load i32, ptr @hf_fmp_sessionHandle, align 4
+  %12 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #2
+  %13 = load i32, ptr @hf_fmp_fmpFHandle, align 4
+  %14 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12) #2
+  %15 = load i32, ptr @hf_fmp_msgNum, align 4
+  %16 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14) #2
+  %17 = load i32, ptr @hf_fmp_cookie, align 4
+  %18 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16) #2
+  %19 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %18) #2
+  %20 = mul i32 %19, 20
+  %21 = add i32 %20, 4
+  %22 = load i32, ptr @ett_fmp_extList, align 4
+  %23 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %18, i32 noundef %21, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.74) #2
+  %24 = load i32, ptr @hf_fmp_extentList_len, align 4
+  %25 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %23, i32 noundef %24, i32 noundef %18) #2
+  %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %dissect_fmp_notify_extentList.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %9, %.lr.ph.i
-  %.02.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %9 ]
-  %.0181.i = phi i32 [ %37, %.lr.ph.i ], [ %24, %9 ]
-  %25 = add nuw i32 %.02.i, 1
-  %26 = load i32, ptr @ett_fmp_ext, align 4
-  %27 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %22, ptr noundef %0, i32 noundef %.0181.i, i32 noundef 20, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef %25) #2
-  %28 = load i32, ptr @hf_fmp_firstLogBlk, align 4
-  %29 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %27, i32 noundef %28, i32 noundef %.0181.i) #2
-  %30 = load i32, ptr @hf_fmp_numBlks, align 4
-  %31 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %27, i32 noundef %30, i32 noundef %29) #2
-  %32 = load i32, ptr @hf_fmp_volID, align 4
-  %33 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %27, i32 noundef %32, i32 noundef %31) #2
-  %34 = load i32, ptr @hf_fmp_startOffset, align 4
-  %35 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %27, i32 noundef %34, i32 noundef %33) #2
-  %36 = load i32, ptr @hf_fmp_extent_state, align 4
-  %37 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %27, i32 noundef %36, i32 noundef %35) #2
-  %exitcond.not.i = icmp eq i32 %25, %18
+.lr.ph.i:                                         ; preds = %8, %.lr.ph.i
+  %.02.i = phi i32 [ %26, %.lr.ph.i ], [ 0, %8 ]
+  %.0181.i = phi i32 [ %38, %.lr.ph.i ], [ %25, %8 ]
+  %26 = add nuw i32 %.02.i, 1
+  %27 = load i32, ptr @ett_fmp_ext, align 4
+  %28 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %23, ptr noundef %0, i32 noundef %.0181.i, i32 noundef 20, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef %26) #2
+  %29 = load i32, ptr @hf_fmp_firstLogBlk, align 4
+  %30 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %28, i32 noundef %29, i32 noundef %.0181.i) #2
+  %31 = load i32, ptr @hf_fmp_numBlks, align 4
+  %32 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %28, i32 noundef %31, i32 noundef %30) #2
+  %33 = load i32, ptr @hf_fmp_volID, align 4
+  %34 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %28, i32 noundef %33, i32 noundef %32) #2
+  %35 = load i32, ptr @hf_fmp_startOffset, align 4
+  %36 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %28, i32 noundef %35, i32 noundef %34) #2
+  %37 = load i32, ptr @hf_fmp_extent_state, align 4
+  %38 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %28, i32 noundef %37, i32 noundef %36) #2
+  %exitcond.not.i = icmp eq i32 %26, %19
   br i1 %exitcond.not.i, label %dissect_fmp_notify_extentList.exit, label %.lr.ph.i, !llvm.loop !4
 
-dissect_fmp_notify_extentList.exit:               ; preds = %.lr.ph.i, %9, %4
-  %.0 = phi i32 [ %6, %4 ], [ %24, %9 ], [ %37, %.lr.ph.i ]
+dissect_fmp_notify_extentList.exit:               ; preds = %.lr.ph.i, %8, %dissect_fmp_notify_status.exit
+  %.0 = phi i32 [ %7, %dissect_fmp_notify_status.exit ], [ %25, %8 ], [ %38, %.lr.ph.i ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_RequestDone_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+dissect_fmp_notify_status.exit:
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %5 = load i32, ptr @hf_fmp_status, align 4
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   ret i32 %6
 }
 
@@ -294,8 +318,10 @@ define internal i32 @dissect_FMP_NOTIFY_volFreeze_request(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_volFreeze_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+dissect_fmp_notify_status.exit:
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %5 = load i32, ptr @hf_fmp_status, align 4
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   ret i32 %6
 }
 
@@ -345,88 +371,16 @@ dissect_handleList.exit:                          ; preds = %.lr.ph6.i, %._crit_
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+dissect_fmp_notify_status.exit:
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %5 = load i32, ptr @hf_fmp_status, align 4
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   ret i32 %6
 }
 
 declare i32 @dissect_rpc_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
-  switch i32 %4, label %17 [
-    i32 0, label %18
-    i32 5, label %5
-    i32 12, label %6
-    i32 13, label %7
-    i32 22, label %8
-    i32 28, label %18
-    i32 79, label %9
-    i32 500, label %10
-    i32 501, label %11
-    i32 502, label %18
-    i32 503, label %18
-    i32 504, label %18
-    i32 505, label %12
-    i32 506, label %18
-    i32 507, label %18
-    i32 508, label %13
-    i32 509, label %18
-    i32 510, label %14
-    i32 511, label %18
-    i32 512, label %15
-    i32 600, label %16
-  ]
-
-5:                                                ; preds = %3
-  br label %18
-
-6:                                                ; preds = %3
-  br label %18
-
-7:                                                ; preds = %3
-  br label %18
-
-8:                                                ; preds = %3
-  br label %18
-
-9:                                                ; preds = %3
-  br label %18
-
-10:                                               ; preds = %3
-  br label %18
-
-11:                                               ; preds = %3
-  br label %18
-
-12:                                               ; preds = %3
-  br label %18
-
-13:                                               ; preds = %3
-  br label %18
-
-14:                                               ; preds = %3
-  br label %18
-
-15:                                               ; preds = %3
-  br label %18
-
-16:                                               ; preds = %3
-  br label %18
-
-17:                                               ; preds = %3
-  br label %18
-
-18:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.sink = phi i32 [ 1, %17 ], [ 1, %16 ], [ 1, %15 ], [ 1, %14 ], [ 1, %13 ], [ 1, %12 ], [ 1, %11 ], [ 1, %10 ], [ 1, %9 ], [ 1, %8 ], [ 1, %7 ], [ 1, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
-  store i32 %.sink, ptr %2, align 4
-  %19 = load i32, ptr @hf_fmp_status, align 4
-  %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %19, i32 noundef 0) #2
-  ret i32 %20
-}
 
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 

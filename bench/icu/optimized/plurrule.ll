@@ -6493,7 +6493,7 @@ entry:
     i32 24, label %sw.bb3.i
     i32 25, label %sw.bb4.i
     i32 26, label %sw.bb5.i
-    i32 27, label %sw.bb6.i
+    i32 27, label %sw.bb5.i
   ]
 
 sw.bb1.i:                                         ; preds = %entry
@@ -6508,18 +6508,15 @@ sw.bb3.i:                                         ; preds = %entry
 sw.bb4.i:                                         ; preds = %entry
   br label %_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit
 
-sw.bb5.i:                                         ; preds = %entry
-  br label %_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit
-
-sw.bb6.i:                                         ; preds = %entry
+sw.bb5.i:                                         ; preds = %entry, %entry
   br label %_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit
 
 sw.default.i:                                     ; preds = %entry
   tail call void @abort() #29
   unreachable
 
-_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit: ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i
-  %retval.0.i = phi i32 [ 6, %sw.bb6.i ], [ 6, %sw.bb5.i ], [ 3, %sw.bb4.i ], [ 4, %sw.bb3.i ], [ 2, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 0, %entry ]
+_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit: ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i
+  %retval.0.i = phi i32 [ 6, %sw.bb5.i ], [ 3, %sw.bb4.i ], [ 4, %sw.bb3.i ], [ 2, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 0, %entry ]
   %vtable = load ptr, ptr %number, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
@@ -6797,7 +6794,7 @@ while.body7:                                      ; preds = %while.body, %_ZN6ic
     i32 24, label %sw.bb3.i.i
     i32 25, label %sw.bb4.i.i
     i32 26, label %sw.bb5.i.i
-    i32 27, label %sw.bb6.i.i
+    i32 27, label %sw.bb5.i.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %while.body7
@@ -6812,18 +6809,15 @@ sw.bb3.i.i:                                       ; preds = %while.body7
 sw.bb4.i.i:                                       ; preds = %while.body7
   br label %_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit.i
 
-sw.bb5.i.i:                                       ; preds = %while.body7
-  br label %_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit.i
-
-sw.bb6.i.i:                                       ; preds = %while.body7
+sw.bb5.i.i:                                       ; preds = %while.body7, %while.body7
   br label %_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit.i
 
 sw.default.i.i:                                   ; preds = %while.body7
   tail call void @abort() #29
   unreachable
 
-_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit.i: ; preds = %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %while.body7
-  %retval.0.i.i = phi i32 [ 6, %sw.bb6.i.i ], [ 6, %sw.bb5.i.i ], [ 3, %sw.bb4.i.i ], [ 4, %sw.bb3.i.i ], [ 2, %sw.bb2.i.i ], [ 1, %sw.bb1.i.i ], [ 0, %while.body7 ]
+_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE.exit.i: ; preds = %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %while.body7
+  %retval.0.i.i = phi i32 [ 6, %sw.bb5.i.i ], [ 3, %sw.bb4.i.i ], [ 4, %sw.bb3.i.i ], [ 2, %sw.bb2.i.i ], [ 1, %sw.bb1.i.i ], [ 0, %while.body7 ]
   %vtable.i = load ptr, ptr %number, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8

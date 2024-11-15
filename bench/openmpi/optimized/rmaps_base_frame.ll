@@ -371,8 +371,8 @@ switch.lookup:                                    ; preds = %26
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %32
 
-32:                                               ; preds = %switch.lookup, %26
-  %.sink70 = phi i16 [ 9, %26 ], [ %switch.load, %switch.lookup ]
+32:                                               ; preds = %26, %switch.lookup
+  %.sink70 = phi i16 [ %switch.load, %switch.lookup ], [ 9, %26 ]
   %33 = or disjoint i16 %29, %.sink70
   store i16 %33, ptr %27, align 8
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4

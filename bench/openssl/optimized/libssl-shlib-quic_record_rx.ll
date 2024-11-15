@@ -964,14 +964,11 @@ ossl_list_rxe_insert_tail.exit.i.i.i.i:           ; preds = %if.then8.i.i.i.i.i,
 
 if.end52.i.i.i.i:                                 ; preds = %if.end26.i.i.i.i
   %trunc.i.i.i.i.i = trunc i32 %bf.load.i.i.i.i.i to i8
-  switch i8 %trunc.i.i.i.i.i, label %qrx_determine_enc_level.exit.i.i.i.i [
+  switch i8 %trunc.i.i.i.i.i, label %sw.bb4.i.i.i.i.i [
     i8 5, label %sw.bb3.i.i.i.i.i
-    i8 3, label %sw.bb1.i.i.i.i.i
+    i8 3, label %qrx_determine_enc_level.exit.i.i.i.i
     i8 2, label %sw.bb2.i.i.i.i.i
   ]
-
-sw.bb1.i.i.i.i.i:                                 ; preds = %if.end52.i.i.i.i
-  br label %qrx_determine_enc_level.exit.i.i.i.i
 
 sw.bb2.i.i.i.i.i:                                 ; preds = %if.end52.i.i.i.i
   br label %qrx_determine_enc_level.exit.i.i.i.i
@@ -979,9 +976,12 @@ sw.bb2.i.i.i.i.i:                                 ; preds = %if.end52.i.i.i.i
 sw.bb3.i.i.i.i.i:                                 ; preds = %if.end52.i.i.i.i
   br label %qrx_determine_enc_level.exit.i.i.i.i
 
-qrx_determine_enc_level.exit.i.i.i.i:             ; preds = %sw.bb3.i.i.i.i.i, %sw.bb2.i.i.i.i.i, %sw.bb1.i.i.i.i.i, %if.end52.i.i.i.i
-  %cmp56.i.i.i.i = phi i1 [ true, %sw.bb3.i.i.i.i.i ], [ false, %sw.bb2.i.i.i.i.i ], [ false, %sw.bb1.i.i.i.i.i ], [ false, %if.end52.i.i.i.i ]
-  %retval.0.i90.i.i.i.i = phi i32 [ 3, %sw.bb3.i.i.i.i.i ], [ 2, %sw.bb2.i.i.i.i.i ], [ 1, %sw.bb1.i.i.i.i.i ], [ 0, %if.end52.i.i.i.i ]
+sw.bb4.i.i.i.i.i:                                 ; preds = %if.end52.i.i.i.i
+  br label %qrx_determine_enc_level.exit.i.i.i.i
+
+qrx_determine_enc_level.exit.i.i.i.i:             ; preds = %sw.bb4.i.i.i.i.i, %sw.bb3.i.i.i.i.i, %sw.bb2.i.i.i.i.i, %if.end52.i.i.i.i
+  %cmp56.i.i.i.i = phi i1 [ false, %sw.bb4.i.i.i.i.i ], [ true, %sw.bb3.i.i.i.i.i ], [ false, %sw.bb2.i.i.i.i.i ], [ false, %if.end52.i.i.i.i ]
+  %retval.0.i90.i.i.i.i = phi i32 [ 0, %sw.bb4.i.i.i.i.i ], [ 3, %sw.bb3.i.i.i.i.i ], [ 2, %sw.bb2.i.i.i.i.i ], [ 1, %if.end52.i.i.i.i ]
   %call55.i.i.i.i = call i32 @ossl_qrl_enc_level_set_have_el(ptr noundef nonnull %el_set.i.i.i.i, i32 noundef %retval.0.i90.i.i.i.i) #12
   switch i32 %call55.i.i.i.i, label %malformed.i.i.i.i [
     i32 1, label %sw.bb.i.i.i.i

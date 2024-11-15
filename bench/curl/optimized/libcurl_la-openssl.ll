@@ -4679,13 +4679,10 @@ if.then11.i:                                      ; preds = %if.end10.i
     i32 2, label %ossl_connect_step2.exit.thread.sink.split
     i32 3, label %ossl_connect_step2.exit.thread.sink.split
     i32 9, label %if.then22.i
-    i32 12, label %if.then26.i
+    i32 12, label %if.then22.i
   ]
 
-if.then22.i:                                      ; preds = %if.then11.i
-  br label %ossl_connect_step2.exit.thread.sink.split
-
-if.then26.i:                                      ; preds = %if.then11.i
+if.then22.i:                                      ; preds = %if.then11.i, %if.then11.i
   br label %ossl_connect_step2.exit.thread.sink.split
 
 if.end28.i:                                       ; preds = %if.then11.i
@@ -4848,8 +4845,8 @@ do.end104.i:                                      ; preds = %if.then91.i, %land.
   %tobool105.not.i = icmp eq ptr %104, null
   br i1 %tobool105.not.i, label %ossl_connect_step2.exit.thread, label %ossl_connect_step2.exit
 
-ossl_connect_step2.exit.thread.sink.split:        ; preds = %if.then11.i, %if.then11.i, %if.then26.i, %if.then22.i
-  %.sink = phi i32 [ 1, %if.then22.i ], [ 1, %if.then26.i ], [ %call13.i, %if.then11.i ], [ %call13.i, %if.then11.i ]
+ossl_connect_step2.exit.thread.sink.split:        ; preds = %if.then11.i, %if.then11.i, %if.then22.i
+  %.sink = phi i32 [ 1, %if.then22.i ], [ %call13.i, %if.then11.i ], [ %call13.i, %if.then11.i ]
   %connecting_state.i50 = getelementptr inbounds i8, ptr %83, i64 4
   store i32 %.sink, ptr %connecting_state.i50, align 4
   br label %ossl_connect_step2.exit.thread

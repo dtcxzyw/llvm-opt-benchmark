@@ -1875,8 +1875,8 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   %117 = load i64, ptr %54, align 8, !range !16, !noundef !4
   %118 = add nsw i64 %117, -39
   %switch = icmp ult i64 %118, 2
-  %spec.select334 = select i1 %switch, i64 8, i64 176
-  %119 = getelementptr inbounds i8, ptr %54, i64 %spec.select334
+  %. = select i1 %switch, i64 8, i64 176
+  %119 = getelementptr inbounds i8, ptr %54, i64 %.
   invoke void @_ZN12darling_core4util14path_to_string14path_to_string17hf5dbc0d1542ee303E(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %38, ptr nonnull align 8 %119)
           to label %121 unwind label %.thread180.loopexit.split-lp
 

@@ -1864,8 +1864,8 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %626 = load i64, ptr %621, align 8
   %627 = add i64 %626, -39
   %switch = icmp ult i64 %627, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %628 = getelementptr inbounds i8, ptr %621, i64 %spec.select
+  %.329 = select i1 %switch, i64 8, i64 176
+  %628 = getelementptr inbounds i8, ptr %621, i64 %.329
   %629 = invoke align 8 ptr @_ZN3syn4path4Path9get_ident17h480e867a0c181d3eE(ptr nonnull align 8 %628)
           to label %630 unwind label %.loopexit303
 

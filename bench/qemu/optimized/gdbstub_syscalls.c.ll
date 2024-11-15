@@ -309,14 +309,13 @@ if.end:                                           ; preds = %if.then
     i32 19, label %sw.epilog
     i32 20, label %sw.epilog
     i32 21, label %sw.epilog
-    i32 22, label %sw.epilog
+    i32 91, label %sw.bb24
     i32 23, label %sw.epilog
     i32 24, label %sw.epilog
     i32 27, label %sw.epilog
     i32 28, label %sw.epilog
     i32 29, label %sw.epilog
     i32 30, label %sw.epilog
-    i32 91, label %sw.bb24
   ]
 
 sw.bb24:                                          ; preds = %if.end
@@ -325,8 +324,8 @@ sw.bb24:                                          ; preds = %if.end
 sw.default:                                       ; preds = %if.end
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.then, %if.end, %sw.default, %sw.bb24
-  %err.1 = phi i32 [ 22, %sw.default ], [ 36, %sw.bb24 ], [ %conv, %if.end ], [ 0, %if.then ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ]
+sw.epilog:                                        ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.then, %if.end, %sw.default, %sw.bb24
+  %err.1 = phi i32 [ 22, %sw.default ], [ 36, %sw.bb24 ], [ %conv, %if.end ], [ 0, %if.then ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ]
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
   tail call void %1(ptr noundef %5, i64 noundef %3, i32 noundef %err.1) #5
   store ptr null, ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256), align 8

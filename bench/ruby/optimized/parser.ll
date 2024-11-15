@@ -644,7 +644,7 @@ define internal i64 @cParser_parse(i64 noundef %0) #0 {
   ]
 
 .backedge95:                                      ; preds = %52, %48, %.lr.ph147, %.lr.ph147, %32
-  %.14.be = phi ptr [ %28, %.lr.ph147 ], [ %28, %.lr.ph147 ], [ %28, %32 ], [ %46, %48 ], [ %50, %52 ]
+  %.14.be = phi ptr [ %28, %32 ], [ %28, %.lr.ph147 ], [ %28, %.lr.ph147 ], [ %46, %48 ], [ %50, %52 ]
   %30 = getelementptr inbounds i8, ptr %.14.be, i64 1
   %31 = icmp eq ptr %30, %12
   br i1 %31, label %.loopexit93, label %.lr.ph147
@@ -2170,71 +2170,71 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
 24:                                               ; preds = %21
   %25 = load i8, ptr %1, align 1
   %26 = icmp eq i8 %25, 91
-  br i1 %26, label %.preheader168, label %.loopexit
+  br i1 %26, label %.preheader167, label %.loopexit
 
-.preheader168:                                    ; preds = %24
+.preheader167:                                    ; preds = %24
   %27 = getelementptr inbounds i8, ptr %1, i64 1
   %28 = icmp eq ptr %27, %2
-  br i1 %28, label %.loopexit, label %.lr.ph239
+  br i1 %28, label %.loopexit, label %.lr.ph238
 
-.lr.ph239:                                        ; preds = %.preheader168, %.backedge172
-  %29 = phi ptr [ %31, %.backedge172 ], [ %27, %.preheader168 ]
-  %.15238 = phi ptr [ %.15.be, %.backedge172 ], [ %1, %.preheader168 ]
+.lr.ph238:                                        ; preds = %.preheader167, %.backedge171
+  %29 = phi ptr [ %31, %.backedge171 ], [ %27, %.preheader167 ]
+  %.15237 = phi ptr [ %.15.be, %.backedge171 ], [ %1, %.preheader167 ]
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %33 [
-    i8 13, label %.backedge172
-    i8 32, label %.backedge172
-    i8 34, label %.preheader154
-    i8 45, label %.preheader154
+    i8 13, label %.backedge171
+    i8 32, label %.backedge171
+    i8 34, label %.preheader153
+    i8 45, label %.preheader153
     i8 47, label %117
-    i8 73, label %.preheader154
-    i8 78, label %.preheader154
-    i8 91, label %.preheader154
-    i8 93, label %.loopexit152
-    i8 102, label %.preheader154
-    i8 110, label %.preheader154
-    i8 116, label %.preheader154
-    i8 123, label %.preheader154
+    i8 73, label %.preheader153
+    i8 78, label %.preheader153
+    i8 91, label %.preheader153
+    i8 93, label %.loopexit151
+    i8 102, label %.preheader153
+    i8 110, label %.preheader153
+    i8 116, label %.preheader153
+    i8 123, label %.preheader153
   ]
 
-.backedge172:                                     ; preds = %135, %131, %.lr.ph239, %.lr.ph239, %39
-  %.15.be = phi ptr [ %29, %39 ], [ %29, %.lr.ph239 ], [ %29, %.lr.ph239 ], [ %129, %131 ], [ %133, %135 ]
+.backedge171:                                     ; preds = %135, %131, %.lr.ph238, %.lr.ph238, %39
+  %.15.be = phi ptr [ %29, %39 ], [ %29, %.lr.ph238 ], [ %29, %.lr.ph238 ], [ %129, %131 ], [ %133, %135 ]
   %31 = getelementptr inbounds i8, ptr %.15.be, i64 1
   %32 = icmp eq ptr %31, %2
-  br i1 %32, label %.loopexit, label %.lr.ph239
+  br i1 %32, label %.loopexit, label %.lr.ph238
 
-33:                                               ; preds = %.lr.ph239
+33:                                               ; preds = %.lr.ph238
   %34 = icmp sgt i8 %30, 10
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
   %36 = add nsw i8 %30, -48
   %or.cond124 = icmp ult i8 %36, 10
-  br i1 %or.cond124, label %.preheader154, label %.loopexit
+  br i1 %or.cond124, label %.preheader153, label %.loopexit
 
-.preheader154:                                    ; preds = %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %.lr.ph239, %35
+.preheader153:                                    ; preds = %.lr.ph238, %.lr.ph238, %.lr.ph238, %.lr.ph238, %.lr.ph238, %.lr.ph238, %.lr.ph238, %.lr.ph238, %.lr.ph238, %35
   store i64 4, ptr %7, align 8
   %37 = call fastcc ptr @JSON_parse_value(ptr noundef %0, ptr noundef nonnull %29, ptr noundef %2, ptr noundef %7, i32 noundef %4)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit, label %.lr.ph274
+  br i1 %38, label %.loopexit, label %.lr.ph273
 
 39:                                               ; preds = %33
   %40 = icmp sgt i8 %30, 8
-  br i1 %40, label %.backedge172, label %.loopexit
+  br i1 %40, label %.backedge171, label %.loopexit
 
-.lr.ph274:                                        ; preds = %.preheader154, %.backedge157
-  %41 = phi ptr [ %71, %.backedge157 ], [ %37, %.preheader154 ]
+.lr.ph273:                                        ; preds = %.preheader153, %.backedge156
+  %41 = phi ptr [ %67, %.backedge156 ], [ %37, %.preheader153 ]
   %42 = load i64, ptr %8, align 8
   %43 = icmp eq i64 %42, 4
   %44 = load i64, ptr %3, align 8
   br i1 %43, label %45, label %48
 
-45:                                               ; preds = %.lr.ph274
+45:                                               ; preds = %.lr.ph273
   %46 = load i64, ptr %7, align 8
   %47 = tail call i64 @rb_ary_push(i64 noundef %44, i64 noundef %46) #13
   br label %52
 
-48:                                               ; preds = %.lr.ph274
+48:                                               ; preds = %.lr.ph273
   %49 = load i64, ptr @i_leftshift, align 8
   %50 = load i64, ptr %7, align 8
   %51 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %44, i64 noundef %49, i32 noundef 1, i64 noundef %50) #13
@@ -2242,86 +2242,86 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
 
 52:                                               ; preds = %48, %45
   %53 = icmp eq ptr %41, %2
-  br i1 %53, label %.loopexit, label %.lr.ph251.preheader
+  br i1 %53, label %.loopexit, label %.lr.ph250.preheader
 
-.lr.ph251.preheader:                              ; preds = %52
+.lr.ph250.preheader:                              ; preds = %52
   %54 = getelementptr inbounds i8, ptr %41, i64 -1
-  br label %.lr.ph251
+  br label %.lr.ph250
 
-.lr.ph251:                                        ; preds = %.lr.ph251.preheader, %.backedge153
-  %55 = phi ptr [ %57, %.backedge153 ], [ %41, %.lr.ph251.preheader ]
-  %.21250 = phi ptr [ %.21.be, %.backedge153 ], [ %54, %.lr.ph251.preheader ]
+.lr.ph250:                                        ; preds = %.lr.ph250.preheader, %.backedge152
+  %55 = phi ptr [ %59, %.backedge152 ], [ %41, %.lr.ph250.preheader ]
+  %.21249 = phi ptr [ %.21.be, %.backedge152 ], [ %54, %.lr.ph250.preheader ]
   %56 = load i8, ptr %55, align 1
   switch i8 %56, label %61 [
-    i8 13, label %.backedge153
-    i8 32, label %.backedge153
+    i8 13, label %.backedge152
+    i8 32, label %.backedge152
     i8 44, label %.preheader146
     i8 47, label %96
-    i8 93, label %.loopexit152
+    i8 93, label %.loopexit151
   ]
 
-.backedge153:                                     ; preds = %114, %110, %.lr.ph251, %.lr.ph251, %61
-  %.21.be = phi ptr [ %55, %.lr.ph251 ], [ %55, %.lr.ph251 ], [ %55, %61 ], [ %108, %110 ], [ %112, %114 ]
-  %57 = getelementptr inbounds i8, ptr %.21.be, i64 1
+.preheader146:                                    ; preds = %.lr.ph250
+  %57 = getelementptr inbounds i8, ptr %55, i64 1
   %58 = icmp eq ptr %57, %2
-  br i1 %58, label %.loopexit, label %.lr.ph251
+  br i1 %58, label %.loopexit, label %.lr.ph264
 
-.preheader146:                                    ; preds = %.lr.ph251
-  %59 = getelementptr inbounds i8, ptr %55, i64 1
+.backedge152:                                     ; preds = %114, %110, %.lr.ph250, %.lr.ph250, %61
+  %.21.be = phi ptr [ %55, %61 ], [ %55, %.lr.ph250 ], [ %55, %.lr.ph250 ], [ %108, %110 ], [ %112, %114 ]
+  %59 = getelementptr inbounds i8, ptr %.21.be, i64 1
   %60 = icmp eq ptr %59, %2
-  br i1 %60, label %.loopexit, label %.lr.ph265
+  br i1 %60, label %.loopexit, label %.lr.ph250
 
-61:                                               ; preds = %.lr.ph251
+61:                                               ; preds = %.lr.ph250
   %62 = add i8 %56, -9
   %or.cond125 = icmp ult i8 %62, 2
-  br i1 %or.cond125, label %.backedge153, label %.loopexit
+  br i1 %or.cond125, label %.backedge152, label %.loopexit
 
-.lr.ph265:                                        ; preds = %.preheader146, %.backedge149
-  %63 = phi ptr [ %65, %.backedge149 ], [ %59, %.preheader146 ]
-  %.22264 = phi ptr [ %.22.be, %.backedge149 ], [ %55, %.preheader146 ]
+.lr.ph264:                                        ; preds = %.preheader146, %.backedge148
+  %63 = phi ptr [ %65, %.backedge148 ], [ %57, %.preheader146 ]
+  %.22263 = phi ptr [ %.22.be, %.backedge148 ], [ %55, %.preheader146 ]
   %64 = load i8, ptr %63, align 1
-  switch i8 %64, label %67 [
-    i8 13, label %.backedge149
-    i8 32, label %.backedge149
-    i8 34, label %.backedge157
-    i8 45, label %.backedge157
+  switch i8 %64, label %69 [
+    i8 13, label %.backedge148
+    i8 32, label %.backedge148
+    i8 34, label %.backedge156
+    i8 45, label %.backedge156
     i8 47, label %75
-    i8 73, label %.backedge157
-    i8 78, label %.backedge157
-    i8 91, label %.backedge157
-    i8 102, label %.backedge157
-    i8 110, label %.backedge157
-    i8 116, label %.backedge157
-    i8 123, label %.backedge157
+    i8 73, label %.backedge156
+    i8 78, label %.backedge156
+    i8 91, label %.backedge156
+    i8 102, label %.backedge156
+    i8 110, label %.backedge156
+    i8 116, label %.backedge156
+    i8 123, label %.backedge156
   ]
 
-.backedge149:                                     ; preds = %93, %89, %.lr.ph265, %.lr.ph265, %73
-  %.22.be = phi ptr [ %63, %73 ], [ %63, %.lr.ph265 ], [ %63, %.lr.ph265 ], [ %87, %89 ], [ %91, %93 ]
+.backedge148:                                     ; preds = %93, %89, %.lr.ph264, %.lr.ph264, %73
+  %.22.be = phi ptr [ %63, %73 ], [ %63, %.lr.ph264 ], [ %63, %.lr.ph264 ], [ %87, %89 ], [ %91, %93 ]
   %65 = getelementptr inbounds i8, ptr %.22.be, i64 1
   %66 = icmp eq ptr %65, %2
-  br i1 %66, label %.loopexit, label %.lr.ph265
+  br i1 %66, label %.loopexit, label %.lr.ph264
 
-67:                                               ; preds = %.lr.ph265
-  %68 = icmp sgt i8 %64, 10
-  br i1 %68, label %69, label %73
-
-69:                                               ; preds = %67
-  %70 = add nsw i8 %64, -48
-  %or.cond126 = icmp ult i8 %70, 10
-  br i1 %or.cond126, label %.backedge157, label %.loopexit
-
-.backedge157:                                     ; preds = %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %.lr.ph265, %69
+.backedge156:                                     ; preds = %.lr.ph264, %.lr.ph264, %.lr.ph264, %.lr.ph264, %.lr.ph264, %.lr.ph264, %.lr.ph264, %.lr.ph264, %.lr.ph264, %71
   store i64 4, ptr %7, align 8
-  %71 = call fastcc ptr @JSON_parse_value(ptr noundef %0, ptr noundef nonnull %63, ptr noundef %2, ptr noundef %7, i32 noundef %4)
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %.loopexit, label %.lr.ph274
+  %67 = call fastcc ptr @JSON_parse_value(ptr noundef %0, ptr noundef nonnull %63, ptr noundef %2, ptr noundef %7, i32 noundef %4)
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %.loopexit, label %.lr.ph273
 
-73:                                               ; preds = %67
+69:                                               ; preds = %.lr.ph264
+  %70 = icmp sgt i8 %64, 10
+  br i1 %70, label %71, label %73
+
+71:                                               ; preds = %69
+  %72 = add nsw i8 %64, -48
+  %or.cond126 = icmp ult i8 %72, 10
+  br i1 %or.cond126, label %.backedge156, label %.loopexit
+
+73:                                               ; preds = %69
   %74 = icmp sgt i8 %64, 8
-  br i1 %74, label %.backedge149, label %.loopexit
+  br i1 %74, label %.backedge148, label %.loopexit
 
-75:                                               ; preds = %.lr.ph265
-  %76 = getelementptr inbounds i8, ptr %.22264, i64 2
+75:                                               ; preds = %.lr.ph264
+  %76 = getelementptr inbounds i8, ptr %.22263, i64 2
   %77 = icmp eq ptr %76, %2
   br i1 %77, label %.loopexit, label %78
 
@@ -2333,24 +2333,24 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
   ]
 
 .preheader135:                                    ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %.22264, i64 3
+  %80 = getelementptr inbounds i8, ptr %.22263, i64 3
   %81 = icmp eq ptr %80, %2
-  br i1 %81, label %.loopexit, label %.lr.ph261
+  br i1 %81, label %.loopexit, label %.lr.ph260
 
-.lr.ph261:                                        ; preds = %.preheader135, %.backedge
+.lr.ph260:                                        ; preds = %.preheader135, %.backedge
   %82 = phi ptr [ %85, %.backedge ], [ %80, %.preheader135 ]
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, 42
   br i1 %84, label %.preheader, label %.backedge
 
-.backedge:                                        ; preds = %89, %.lr.ph261
-  %.23.be = phi ptr [ %82, %.lr.ph261 ], [ %87, %89 ]
+.backedge:                                        ; preds = %89, %.lr.ph260
+  %.23.be = phi ptr [ %82, %.lr.ph260 ], [ %87, %89 ]
   %85 = getelementptr inbounds i8, ptr %.23.be, i64 1
   %86 = icmp eq ptr %85, %2
-  br i1 %86, label %.loopexit, label %.lr.ph261
+  br i1 %86, label %.loopexit, label %.lr.ph260
 
-.preheader:                                       ; preds = %.lr.ph261, %89
-  %.25 = phi ptr [ %87, %89 ], [ %82, %.lr.ph261 ]
+.preheader:                                       ; preds = %.lr.ph260, %89
+  %.25 = phi ptr [ %87, %89 ], [ %82, %.lr.ph260 ]
   %87 = getelementptr inbounds i8, ptr %.25, i64 1
   %88 = icmp eq ptr %87, %2
   br i1 %88, label %.loopexit.sink.split, label %89
@@ -2359,7 +2359,7 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
   %90 = load i8, ptr %87, align 1
   switch i8 %90, label %.backedge [
     i8 42, label %.preheader
-    i8 47, label %.backedge149
+    i8 47, label %.backedge148
   ]
 
 .preheader137:                                    ; preds = %78, %93
@@ -2371,10 +2371,10 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
 93:                                               ; preds = %.preheader137
   %94 = load i8, ptr %91, align 1
   %95 = icmp eq i8 %94, 10
-  br i1 %95, label %.backedge149, label %.preheader137
+  br i1 %95, label %.backedge148, label %.preheader137
 
-96:                                               ; preds = %.lr.ph251
-  %97 = getelementptr inbounds i8, ptr %.21250, i64 2
+96:                                               ; preds = %.lr.ph250
+  %97 = getelementptr inbounds i8, ptr %.21249, i64 2
   %98 = icmp eq ptr %97, %2
   br i1 %98, label %.loopexit, label %99
 
@@ -2386,24 +2386,24 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
   ]
 
 .preheader140:                                    ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.21250, i64 3
+  %101 = getelementptr inbounds i8, ptr %.21249, i64 3
   %102 = icmp eq ptr %101, %2
-  br i1 %102, label %.loopexit, label %.lr.ph247
+  br i1 %102, label %.loopexit, label %.lr.ph246
 
-.lr.ph247:                                        ; preds = %.preheader140, %.backedge142
+.lr.ph246:                                        ; preds = %.preheader140, %.backedge142
   %103 = phi ptr [ %106, %.backedge142 ], [ %101, %.preheader140 ]
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 42
   br i1 %105, label %.preheader131, label %.backedge142
 
-.backedge142:                                     ; preds = %110, %.lr.ph247
-  %.26.be = phi ptr [ %103, %.lr.ph247 ], [ %108, %110 ]
+.backedge142:                                     ; preds = %110, %.lr.ph246
+  %.26.be = phi ptr [ %103, %.lr.ph246 ], [ %108, %110 ]
   %106 = getelementptr inbounds i8, ptr %.26.be, i64 1
   %107 = icmp eq ptr %106, %2
-  br i1 %107, label %.loopexit, label %.lr.ph247
+  br i1 %107, label %.loopexit, label %.lr.ph246
 
-.preheader131:                                    ; preds = %.lr.ph247, %110
-  %.28 = phi ptr [ %108, %110 ], [ %103, %.lr.ph247 ]
+.preheader131:                                    ; preds = %.lr.ph246, %110
+  %.28 = phi ptr [ %108, %110 ], [ %103, %.lr.ph246 ]
   %108 = getelementptr inbounds i8, ptr %.28, i64 1
   %109 = icmp eq ptr %108, %2
   br i1 %109, label %.loopexit.sink.split, label %110
@@ -2412,7 +2412,7 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
   %111 = load i8, ptr %108, align 1
   switch i8 %111, label %.backedge142 [
     i8 42, label %.preheader131
-    i8 47, label %.backedge153
+    i8 47, label %.backedge152
   ]
 
 .preheader143:                                    ; preds = %99, %114
@@ -2424,76 +2424,76 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
 114:                                              ; preds = %.preheader143
   %115 = load i8, ptr %112, align 1
   %116 = icmp eq i8 %115, 10
-  br i1 %116, label %.backedge153, label %.preheader143
+  br i1 %116, label %.backedge152, label %.preheader143
 
-117:                                              ; preds = %.lr.ph239
-  %118 = getelementptr inbounds i8, ptr %.15238, i64 2
+117:                                              ; preds = %.lr.ph238
+  %118 = getelementptr inbounds i8, ptr %.15237, i64 2
   %119 = icmp eq ptr %118, %2
   br i1 %119, label %.loopexit, label %120
 
 120:                                              ; preds = %117
   %121 = load i8, ptr %118, align 1
   switch i8 %121, label %.loopexit [
-    i8 42, label %.preheader162
-    i8 47, label %.preheader165
+    i8 42, label %.preheader161
+    i8 47, label %.preheader164
   ]
 
-.preheader162:                                    ; preds = %120
-  %122 = getelementptr inbounds i8, ptr %.15238, i64 3
+.preheader161:                                    ; preds = %120
+  %122 = getelementptr inbounds i8, ptr %.15237, i64 3
   %123 = icmp eq ptr %122, %2
   br i1 %123, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader162, %.backedge164
-  %124 = phi ptr [ %127, %.backedge164 ], [ %122, %.preheader162 ]
+.lr.ph:                                           ; preds = %.preheader161, %.backedge163
+  %124 = phi ptr [ %127, %.backedge163 ], [ %122, %.preheader161 ]
   %125 = load i8, ptr %124, align 1
   %126 = icmp eq i8 %125, 42
-  br i1 %126, label %.preheader158, label %.backedge164
+  br i1 %126, label %.preheader157, label %.backedge163
 
-.backedge164:                                     ; preds = %131, %.lr.ph
+.backedge163:                                     ; preds = %131, %.lr.ph
   %.29.be = phi ptr [ %124, %.lr.ph ], [ %129, %131 ]
   %127 = getelementptr inbounds i8, ptr %.29.be, i64 1
   %128 = icmp eq ptr %127, %2
   br i1 %128, label %.loopexit, label %.lr.ph
 
-.preheader158:                                    ; preds = %.lr.ph, %131
+.preheader157:                                    ; preds = %.lr.ph, %131
   %.31 = phi ptr [ %129, %131 ], [ %124, %.lr.ph ]
   %129 = getelementptr inbounds i8, ptr %.31, i64 1
   %130 = icmp eq ptr %129, %2
   br i1 %130, label %.loopexit.sink.split, label %131
 
-131:                                              ; preds = %.preheader158
+131:                                              ; preds = %.preheader157
   %132 = load i8, ptr %129, align 1
-  switch i8 %132, label %.backedge164 [
-    i8 42, label %.preheader158
-    i8 47, label %.backedge172
+  switch i8 %132, label %.backedge163 [
+    i8 42, label %.preheader157
+    i8 47, label %.backedge171
   ]
 
-.preheader165:                                    ; preds = %120, %135
+.preheader164:                                    ; preds = %120, %135
   %.30 = phi ptr [ %133, %135 ], [ %118, %120 ]
   %133 = getelementptr inbounds i8, ptr %.30, i64 1
   %134 = icmp eq ptr %133, %2
   br i1 %134, label %.loopexit.sink.split, label %135
 
-135:                                              ; preds = %.preheader165
+135:                                              ; preds = %.preheader164
   %136 = load i8, ptr %133, align 1
   %137 = icmp eq i8 %136, 10
-  br i1 %137, label %.backedge172, label %.preheader165
+  br i1 %137, label %.backedge171, label %.preheader164
 
-.loopexit152:                                     ; preds = %.lr.ph239, %.lr.ph251
-  %138 = phi ptr [ %.21250, %.lr.ph251 ], [ %.15238, %.lr.ph239 ]
+.loopexit151:                                     ; preds = %.lr.ph238, %.lr.ph250
+  %138 = phi ptr [ %.21249, %.lr.ph250 ], [ %.15237, %.lr.ph238 ]
   %139 = getelementptr inbounds i8, ptr %138, i64 2
   ret ptr %139
 
-.loopexit.sink.split:                             ; preds = %.preheader165, %.preheader158, %.preheader143, %.preheader137, %.preheader131, %.preheader
-  %.15238.lcssa456.sink469 = phi ptr [ %82, %.preheader ], [ %103, %.preheader131 ], [ %.22264, %.preheader137 ], [ %.21250, %.preheader143 ], [ %124, %.preheader158 ], [ %.15238, %.preheader165 ]
-  %.15238357.le = ptrtoint ptr %.15238.lcssa456.sink469 to i64
-  %scevgep.le = getelementptr i8, ptr %.15238.lcssa456.sink469, i64 %6
-  %140 = sub i64 0, %.15238357.le
-  %scevgep358.le = getelementptr i8, ptr %scevgep.le, i64 %140
+.loopexit.sink.split:                             ; preds = %.preheader164, %.preheader157, %.preheader143, %.preheader137, %.preheader131, %.preheader
+  %.15237.lcssa455.sink468 = phi ptr [ %82, %.preheader ], [ %103, %.preheader131 ], [ %.22263, %.preheader137 ], [ %.21249, %.preheader143 ], [ %124, %.preheader157 ], [ %.15237, %.preheader164 ]
+  %.15237356.le = ptrtoint ptr %.15237.lcssa455.sink468 to i64
+  %scevgep.le = getelementptr i8, ptr %.15237.lcssa455.sink468, i64 %6
+  %140 = sub i64 0, %.15237356.le
+  %scevgep357.le = getelementptr i8, ptr %scevgep.le, i64 %140
   br label %.loopexit
 
-.loopexit:                                        ; preds = %117, %.backedge172, %39, %120, %.preheader162, %.backedge164, %.backedge157, %69, %52, %.preheader146, %96, %.backedge153, %61, %99, %.preheader140, %75, %.backedge149, %73, %78, %.preheader135, %.backedge142, %.backedge, %.loopexit.sink.split, %.preheader168, %.preheader154, %21, %35, %24
-  %.17.ph = phi ptr [ %1, %24 ], [ %29, %35 ], [ %1, %21 ], [ %29, %.preheader154 ], [ %27, %.preheader168 ], [ %scevgep358.le, %.loopexit.sink.split ], [ %85, %.backedge ], [ %106, %.backedge142 ], [ %80, %.preheader135 ], [ %76, %75 ], [ %65, %.backedge149 ], [ %63, %73 ], [ %76, %78 ], [ %101, %.preheader140 ], [ %97, %96 ], [ %57, %.backedge153 ], [ %55, %61 ], [ %97, %99 ], [ %59, %.preheader146 ], [ %41, %52 ], [ %63, %.backedge157 ], [ %63, %69 ], [ %127, %.backedge164 ], [ %122, %.preheader162 ], [ %118, %117 ], [ %31, %.backedge172 ], [ %29, %39 ], [ %118, %120 ]
+.loopexit:                                        ; preds = %117, %.backedge171, %39, %120, %.preheader161, %.backedge163, %.backedge156, %71, %52, %.preheader146, %96, %.backedge152, %61, %99, %.preheader140, %75, %.backedge148, %73, %78, %.preheader135, %.backedge142, %.backedge, %.loopexit.sink.split, %.preheader167, %.preheader153, %21, %35, %24
+  %.17.ph = phi ptr [ %1, %24 ], [ %29, %35 ], [ %1, %21 ], [ %29, %.preheader153 ], [ %27, %.preheader167 ], [ %scevgep357.le, %.loopexit.sink.split ], [ %85, %.backedge ], [ %106, %.backedge142 ], [ %80, %.preheader135 ], [ %76, %75 ], [ %65, %.backedge148 ], [ %63, %73 ], [ %76, %78 ], [ %101, %.preheader140 ], [ %97, %96 ], [ %59, %.backedge152 ], [ %55, %61 ], [ %97, %99 ], [ %57, %.preheader146 ], [ %41, %52 ], [ %63, %.backedge156 ], [ %63, %71 ], [ %127, %.backedge163 ], [ %122, %.preheader161 ], [ %118, %117 ], [ %31, %.backedge171 ], [ %29, %39 ], [ %118, %120 ]
   %141 = tail call nonnull ptr @rb_utf8_encoding() #13
   %142 = load i64, ptr @eParserError, align 8
   tail call void (ptr, i64, ptr, ...) @rb_enc_raise(ptr noundef nonnull %141, i64 noundef %142, ptr noundef nonnull @.str.39, ptr noundef %.17.ph) #15
@@ -2546,7 +2546,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   br i1 %or.cond362, label %.thread, label %.lr.ph328
 
 .lr.ph328:                                        ; preds = %24, %.backedge273
-  %29 = phi ptr [ %31, %.backedge273 ], [ %27, %24 ]
+  %29 = phi ptr [ %34, %.backedge273 ], [ %27, %24 ]
   %.25327 = phi ptr [ %.25.be, %.backedge273 ], [ %1, %24 ]
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %36 [
@@ -2557,19 +2557,19 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
     i8 125, label %.loopexit250
   ]
 
-.backedge273:                                     ; preds = %196, %192, %.lr.ph328, %.lr.ph328, %36
-  %.25.be = phi ptr [ %29, %.lr.ph328 ], [ %29, %.lr.ph328 ], [ %29, %36 ], [ %190, %192 ], [ %194, %196 ]
-  %31 = getelementptr inbounds i8, ptr %.25.be, i64 1
-  %32 = icmp eq ptr %31, %2
-  br i1 %32, label %.thread, label %.lr.ph328
-
 .preheader258:                                    ; preds = %.lr.ph328
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 1, ptr %33, align 8
-  %34 = call fastcc ptr @JSON_parse_string(ptr noundef %0, ptr noundef nonnull %29, ptr noundef %2, ptr noundef %6)
-  store i32 0, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread, label %.lr.ph358
+  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 1, ptr %31, align 8
+  %32 = call fastcc ptr @JSON_parse_string(ptr noundef %0, ptr noundef nonnull %29, ptr noundef %2, ptr noundef %6)
+  store i32 0, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %.thread, label %.lr.ph358
+
+.backedge273:                                     ; preds = %196, %192, %.lr.ph328, %.lr.ph328, %36
+  %.25.be = phi ptr [ %29, %36 ], [ %29, %.lr.ph328 ], [ %29, %.lr.ph328 ], [ %190, %192 ], [ %194, %196 ]
+  %34 = getelementptr inbounds i8, ptr %.25.be, i64 1
+  %35 = icmp eq ptr %34, %2
+  br i1 %35, label %.thread, label %.lr.ph328
 
 36:                                               ; preds = %.lr.ph328
   %37 = add i8 %30, -9
@@ -2577,14 +2577,14 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   br i1 %or.cond202, label %.backedge273, label %.thread
 
 .loopexit247:                                     ; preds = %.lr.ph354
-  store i32 1, ptr %33, align 8
+  store i32 1, ptr %31, align 8
   %38 = call fastcc ptr @JSON_parse_string(ptr noundef %0, ptr noundef nonnull %109, ptr noundef %2, ptr noundef %6)
-  store i32 0, ptr %33, align 8
+  store i32 0, ptr %31, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %.lr.ph358
 
 .lr.ph358:                                        ; preds = %.preheader258, %.loopexit247
-  %40 = phi ptr [ %38, %.loopexit247 ], [ %34, %.preheader258 ]
+  %40 = phi ptr [ %38, %.loopexit247 ], [ %32, %.preheader258 ]
   %41 = icmp eq ptr %40, %2
   br i1 %41, label %.thread, label %.lr.ph334.preheader
 
@@ -2593,7 +2593,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   br label %.lr.ph334
 
 .lr.ph334:                                        ; preds = %.lr.ph334.preheader, %.backedge257
-  %43 = phi ptr [ %45, %.backedge257 ], [ %40, %.lr.ph334.preheader ]
+  %43 = phi ptr [ %47, %.backedge257 ], [ %40, %.lr.ph334.preheader ]
   %.31333 = phi ptr [ %.31.be, %.backedge257 ], [ %42, %.lr.ph334.preheader ]
   %44 = load i8, ptr %43, align 1
   switch i8 %44, label %49 [
@@ -2603,16 +2603,16 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
     i8 58, label %.preheader252
   ]
 
-.backedge257:                                     ; preds = %69, %65, %.lr.ph334, %.lr.ph334, %49
-  %.31.be = phi ptr [ %43, %.lr.ph334 ], [ %43, %.lr.ph334 ], [ %43, %49 ], [ %63, %65 ], [ %67, %69 ]
-  %45 = getelementptr inbounds i8, ptr %.31.be, i64 1
-  %46 = icmp eq ptr %45, %2
-  br i1 %46, label %.thread, label %.lr.ph334
-
 .preheader252:                                    ; preds = %.lr.ph334
-  %47 = getelementptr inbounds i8, ptr %43, i64 1
+  %45 = getelementptr inbounds i8, ptr %43, i64 1
+  %46 = icmp eq ptr %45, %2
+  br i1 %46, label %.thread, label %.lr.ph341
+
+.backedge257:                                     ; preds = %69, %65, %.lr.ph334, %.lr.ph334, %49
+  %.31.be = phi ptr [ %43, %49 ], [ %43, %.lr.ph334 ], [ %43, %.lr.ph334 ], [ %63, %65 ], [ %67, %69 ]
+  %47 = getelementptr inbounds i8, ptr %.31.be, i64 1
   %48 = icmp eq ptr %47, %2
-  br i1 %48, label %.thread, label %.lr.ph341
+  br i1 %48, label %.thread, label %.lr.ph334
 
 49:                                               ; preds = %.lr.ph334
   %50 = add i8 %44, -9
@@ -2673,7 +2673,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   br i1 %71, label %.backedge257, label %.preheader242
 
 .lr.ph341:                                        ; preds = %.preheader252, %.backedge255
-  %72 = phi ptr [ %74, %.backedge255 ], [ %47, %.preheader252 ]
+  %72 = phi ptr [ %74, %.backedge255 ], [ %45, %.preheader252 ]
   %.32340 = phi ptr [ %.32.be, %.backedge255 ], [ %43, %.preheader252 ]
   %73 = load i8, ptr %72, align 1
   switch i8 %73, label %76 [
@@ -2746,7 +2746,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   br label %.lr.ph347
 
 .lr.ph347:                                        ; preds = %.lr.ph347.preheader, %.backedge251
-  %101 = phi ptr [ %103, %.backedge251 ], [ %82, %.lr.ph347.preheader ]
+  %101 = phi ptr [ %105, %.backedge251 ], [ %82, %.lr.ph347.preheader ]
   %.36346 = phi ptr [ %.36.be, %.backedge251 ], [ %100, %.lr.ph347.preheader ]
   %102 = load i8, ptr %101, align 1
   switch i8 %102, label %107 [
@@ -2757,16 +2757,16 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
     i8 125, label %.loopexit250
   ]
 
-.backedge251:                                     ; preds = %154, %150, %.lr.ph347, %.lr.ph347, %107
-  %.36.be = phi ptr [ %101, %.lr.ph347 ], [ %101, %.lr.ph347 ], [ %101, %107 ], [ %148, %150 ], [ %152, %154 ]
-  %103 = getelementptr inbounds i8, ptr %.36.be, i64 1
-  %104 = icmp eq ptr %103, %2
-  br i1 %104, label %.thread, label %.lr.ph347
-
 .preheader245:                                    ; preds = %.lr.ph347
-  %105 = getelementptr inbounds i8, ptr %101, i64 1
+  %103 = getelementptr inbounds i8, ptr %101, i64 1
+  %104 = icmp eq ptr %103, %2
+  br i1 %104, label %.thread, label %.lr.ph354
+
+.backedge251:                                     ; preds = %154, %150, %.lr.ph347, %.lr.ph347, %107
+  %.36.be = phi ptr [ %101, %107 ], [ %101, %.lr.ph347 ], [ %101, %.lr.ph347 ], [ %148, %150 ], [ %152, %154 ]
+  %105 = getelementptr inbounds i8, ptr %.36.be, i64 1
   %106 = icmp eq ptr %105, %2
-  br i1 %106, label %.thread, label %.lr.ph354
+  br i1 %106, label %.thread, label %.lr.ph347
 
 107:                                              ; preds = %.lr.ph347
   %108 = add i8 %102, -9
@@ -2774,7 +2774,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   br i1 %or.cond205, label %.backedge251, label %.thread
 
 .lr.ph354:                                        ; preds = %.preheader245, %.backedge248
-  %109 = phi ptr [ %111, %.backedge248 ], [ %105, %.preheader245 ]
+  %109 = phi ptr [ %111, %.backedge248 ], [ %103, %.preheader245 ]
   %.37353 = phi ptr [ %.37.be, %.backedge248 ], [ %101, %.preheader245 ]
   %110 = load i8, ptr %109, align 1
   switch i8 %110, label %113 [
@@ -2785,7 +2785,7 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   ]
 
 .backedge248:                                     ; preds = %133, %129, %.lr.ph354, %.lr.ph354, %113
-  %.37.be = phi ptr [ %109, %.lr.ph354 ], [ %109, %.lr.ph354 ], [ %109, %113 ], [ %127, %129 ], [ %131, %133 ]
+  %.37.be = phi ptr [ %109, %113 ], [ %109, %.lr.ph354 ], [ %109, %.lr.ph354 ], [ %127, %129 ], [ %131, %133 ]
   %111 = getelementptr inbounds i8, ptr %.37.be, i64 1
   %112 = icmp eq ptr %111, %2
   br i1 %112, label %.thread, label %.lr.ph354

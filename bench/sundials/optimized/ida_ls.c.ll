@@ -828,7 +828,7 @@ define i32 @idaLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .thread:                                          ; preds = %101
   %102 = getelementptr inbounds i8, ptr %8, i64 248
   store i32 0, ptr %102, align 8
-  br label %112
+  br label %111
 
 103:                                              ; preds = %101
   %104 = getelementptr inbounds i8, ptr %8, i64 160
@@ -837,38 +837,38 @@ define i32 @idaLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   store i64 %106, ptr %104, align 8
   %107 = getelementptr inbounds i8, ptr %8, i64 248
   store i32 %70, ptr %107, align 8
-  switch i32 %70, label %112 [
-    i32 -808, label %111
-    i32 801, label %108
-    i32 802, label %108
-    i32 805, label %108
-    i32 806, label %108
-    i32 807, label %108
-    i32 808, label %108
-    i32 -9999, label %109
-    i32 -9998, label %109
-    i32 -9989, label %109
-    i32 -810, label %109
-    i32 -811, label %109
-    i32 -9987, label %110
+  switch i32 %70, label %111 [
+    i32 -808, label %110
+    i32 801, label %112
+    i32 802, label %112
+    i32 805, label %112
+    i32 806, label %112
+    i32 807, label %112
+    i32 808, label %112
+    i32 -9999, label %108
+    i32 -9998, label %108
+    i32 -9989, label %108
+    i32 -810, label %108
+    i32 -811, label %108
+    i32 -9987, label %109
   ]
 
-108:                                              ; preds = %103, %103, %103, %103, %103, %103
+108:                                              ; preds = %103, %103, %103, %103, %103
   br label %112
 
-109:                                              ; preds = %103, %103, %103, %103, %103
-  br label %112
-
-110:                                              ; preds = %103
+109:                                              ; preds = %103
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -9987, i32 noundef 1576, ptr noundef nonnull @__func__.idaLsSolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.37) #12
   br label %112
 
-111:                                              ; preds = %103
+110:                                              ; preds = %103
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -808, i32 noundef 1581, ptr noundef nonnull @__func__.idaLsSolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.38) #12
   br label %112
 
-112:                                              ; preds = %.thread, %103, %43, %111, %110, %109, %108, %63, %34, %10
-  %.0 = phi i32 [ -2, %10 ], [ -9, %34 ], [ %64, %63 ], [ -1, %111 ], [ -1, %110 ], [ -1, %109 ], [ 1, %108 ], [ -1, %43 ], [ 0, %103 ], [ 0, %.thread ]
+111:                                              ; preds = %.thread, %103
+  br label %112
+
+112:                                              ; preds = %103, %103, %103, %103, %103, %103, %43, %111, %110, %109, %108, %63, %34, %10
+  %.0 = phi i32 [ -2, %10 ], [ -9, %34 ], [ %64, %63 ], [ 0, %111 ], [ -1, %110 ], [ -1, %109 ], [ -1, %108 ], [ -1, %43 ], [ 1, %103 ], [ 1, %103 ], [ 1, %103 ], [ 1, %103 ], [ 1, %103 ], [ 1, %103 ]
   ret i32 %.0
 }
 

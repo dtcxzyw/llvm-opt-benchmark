@@ -10745,7 +10745,7 @@ default.unreachable205:                           ; preds = %"_ZN61_$LT$ockam_ab
   br label %128
 
 128:                                              ; preds = %97, %119, %58, %113
-  %.1 = phi i8 [ %., %97 ], [ %.0.i.i.i, %58 ], [ %118, %113 ], [ %.0.i.i.i77, %119 ]
+  %.1 = phi i8 [ %118, %113 ], [ %., %97 ], [ %.0.i.i.i, %58 ], [ %.0.i.i.i77, %119 ]
   %.not56 = icmp eq i8 %.1, 0
   br i1 %.not56, label %thread-pre-split, label %.thread130
 

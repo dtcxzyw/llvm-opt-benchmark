@@ -182,8 +182,8 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
-4:                                                ; preds = %switch.lookup, %1
-  %.0 = phi i32 [ 0, %1 ], [ %switch.load, %switch.lookup ]
+4:                                                ; preds = %1, %switch.lookup
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1 ]
   ret i32 %.0
 }
 

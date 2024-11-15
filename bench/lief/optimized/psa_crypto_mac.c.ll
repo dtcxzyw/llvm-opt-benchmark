@@ -133,66 +133,75 @@ mac_init.exit:                                    ; preds = %12
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   store i64 %3, ptr %6, align 8
   switch i32 %32, label %33 [
-    i32 33554435, label %.thread84.thread.i
+    i32 33554435, label %.thread.thread.i
     i32 33554436, label %.fold.split81.i
     i32 33554437, label %.fold.split81.i
-    i32 33554440, label %.thread84.thread.i
-    i32 33554441, label %.thread84.thread.i
-    i32 33554442, label %.fold.split80.i
+    i32 33554440, label %.fold.split.i
+    i32 33554441, label %.fold.split66.i
+    i32 33554442, label %.fold.split67.i
     i32 33554443, label %.fold.split80.i
-    i32 33554444, label %.fold.split80.i
-    i32 33554445, label %.fold.split80.i
-    i32 33554448, label %.thread91.i
-    i32 33554449, label %.thread91.i
-    i32 33554450, label %.fold.split79.i
+    i32 33554444, label %.fold.split.i
+    i32 33554445, label %.fold.split66.i
+    i32 33554448, label %.fold.split.i
+    i32 33554449, label %.fold.split66.i
+    i32 33554450, label %.fold.split67.i
   ]
 
 33:                                               ; preds = %30
   %34 = icmp eq i32 %32, 33554451
   %35 = select i1 %34, i64 64, i64 0
-  br label %.fold.split81.i
+  br label %.fold.split.i
 
-.fold.split81.i:                                  ; preds = %33, %30, %30
-  %36 = phi i64 [ %35, %33 ], [ 20, %30 ], [ 20, %30 ]
-  switch i32 %32, label %.thread84.i [
-    i32 33554441, label %.thread84.thread.i
-    i32 33554440, label %.thread84.thread.i
-    i32 33554437, label %.thread84.thread.i
-    i32 33554436, label %.thread84.thread.i
-    i32 33554435, label %.thread84.thread.i
+.fold.split66.i:                                  ; preds = %30, %30, %30
+  br label %.fold.split.i
+
+.fold.split67.i:                                  ; preds = %30, %30
+  br label %.fold.split.i
+
+.fold.split81.i:                                  ; preds = %30, %30
+  br label %.fold.split.i
+
+.fold.split.i:                                    ; preds = %.fold.split81.i, %.fold.split67.i, %.fold.split66.i, %33, %30, %30, %30
+  %36 = phi i64 [ %35, %33 ], [ 32, %.fold.split66.i ], [ 48, %.fold.split67.i ], [ 20, %.fold.split81.i ], [ 28, %30 ], [ 28, %30 ], [ 28, %30 ]
+  switch i32 %32, label %.thread.i [
+    i32 33554441, label %.thread.thread.i
+    i32 33554440, label %.thread.thread.i
+    i32 33554437, label %.thread.thread.i
+    i32 33554436, label %.thread.thread.i
+    i32 33554435, label %.thread.thread.i
     i32 33554442, label %.fold.split80.i
     i32 33554443, label %.fold.split80.i
     i32 33554444, label %.fold.split80.i
     i32 33554445, label %.fold.split80.i
-    i32 33554448, label %.thread91.i
-    i32 33554449, label %.thread91.i
+    i32 33554448, label %.thread83.i
+    i32 33554449, label %.thread83.i
     i32 33554450, label %.fold.split79.i
   ]
 
-.fold.split79.i:                                  ; preds = %.fold.split81.i, %30
-  br label %.thread84.thread.i
+.fold.split79.i:                                  ; preds = %.fold.split.i
+  br label %.thread.thread.i
 
-.fold.split80.i:                                  ; preds = %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %30, %30, %30, %30
-  br label %.thread84.thread.i
+.fold.split80.i:                                  ; preds = %.fold.split.i, %.fold.split.i, %.fold.split.i, %.fold.split.i, %30
+  br label %.thread.thread.i
 
-.thread91.i:                                      ; preds = %.fold.split81.i, %.fold.split81.i, %30, %30
+.thread83.i:                                      ; preds = %.fold.split.i, %.fold.split.i
   store i32 %32, ptr %31, align 8
   br label %psa_hmac_setup_internal.exit
 
-.thread84.thread.i:                               ; preds = %.fold.split80.i, %.fold.split79.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %.fold.split81.i, %30, %30, %30
-  %.ph102.i = phi i64 [ 64, %30 ], [ 128, %.fold.split80.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 64, %.fold.split81.i ], [ 104, %.fold.split79.i ], [ 64, %.fold.split81.i ], [ 64, %30 ], [ 64, %30 ]
+.thread.thread.i:                                 ; preds = %.fold.split80.i, %.fold.split79.i, %.fold.split.i, %.fold.split.i, %.fold.split.i, %.fold.split.i, %.fold.split.i, %30
+  %.ph94.i = phi i64 [ 64, %30 ], [ 128, %.fold.split80.i ], [ 64, %.fold.split.i ], [ 64, %.fold.split.i ], [ 64, %.fold.split.i ], [ 64, %.fold.split.i ], [ 104, %.fold.split79.i ], [ 64, %.fold.split.i ]
   store i32 %32, ptr %31, align 8
   br label %40
 
-.thread84.i:                                      ; preds = %.fold.split81.i
+.thread.i:                                        ; preds = %.fold.split.i
   %37 = icmp eq i32 %32, 33554451
   %38 = select i1 %37, i64 72, i64 0
   store i32 %32, ptr %31, align 8
   %39 = icmp samesign ult i64 %38, %36
   br i1 %39, label %psa_hmac_setup_internal.exit, label %40
 
-40:                                               ; preds = %.thread84.i, %.thread84.thread.i
-  %41 = phi i64 [ %.ph102.i, %.thread84.thread.i ], [ %38, %.thread84.i ]
+40:                                               ; preds = %.thread.i, %.thread.thread.i
+  %41 = phi i64 [ %.ph94.i, %.thread.thread.i ], [ %38, %.thread.i ]
   %42 = icmp ugt i64 %3, %41
   br i1 %42, label %43, label %45
 
@@ -203,34 +212,34 @@ mac_init.exit:                                    ; preds = %12
 
 45:                                               ; preds = %40
   %.not.i21 = icmp eq i64 %3, 0
-  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread105.i
+  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread98.i
 
-.thread105.i:                                     ; preds = %45
+.thread98.i:                                      ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %2, i64 %3, i1 false)
   br label %.lr.ph.preheader.i
 
 46:                                               ; preds = %43
   %.pre.i = load i64, ptr %6, align 8
-  %.not98.i = icmp eq i64 %.pre.i, 0
-  br i1 %.not98.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+  %.not90.i = icmp eq i64 %.pre.i, 0
+  br i1 %.not90.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %46, %.thread105.i
-  %47 = phi i64 [ %3, %.thread105.i ], [ %.pre.i, %46 ]
+.lr.ph.preheader.i:                               ; preds = %46, %.thread98.i
+  %47 = phi i64 [ %3, %.thread98.i ], [ %.pre.i, %46 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05593.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %48 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.05593.i
+  %.05585.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %48 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.05585.i
   %49 = load i8, ptr %48, align 1
   %50 = xor i8 %49, 54
   store i8 %50, ptr %48, align 1
-  %51 = add nuw i64 %.05593.i, 1
+  %51 = add nuw i64 %.05585.i, 1
   %exitcond.not.i = icmp eq i64 %51, %47
   br i1 %exitcond.not.i, label %._crit_edge.i22, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.thread.i:                             ; preds = %46, %45
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 54, i64 %41, i1 false)
-  br label %._crit_edge97.i
+  br label %._crit_edge89.i
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i
   %52 = getelementptr inbounds i8, ptr %7, i64 %47
@@ -240,17 +249,17 @@ mac_init.exit:                                    ; preds = %12
   br label %55
 
 55:                                               ; preds = %55, %._crit_edge.i22
-  %.194.i = phi i64 [ 0, %._crit_edge.i22 ], [ %60, %55 ]
-  %56 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.194.i
+  %.186.i = phi i64 [ 0, %._crit_edge.i22 ], [ %60, %55 ]
+  %56 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.186.i
   %57 = load i8, ptr %56, align 1
   %58 = xor i8 %57, 106
-  %59 = getelementptr inbounds [128 x i8], ptr %54, i64 0, i64 %.194.i
+  %59 = getelementptr inbounds [128 x i8], ptr %54, i64 0, i64 %.186.i
   store i8 %58, ptr %59, align 1
-  %60 = add nuw i64 %.194.i, 1
-  %exitcond100.not.i = icmp eq i64 %60, %47
-  br i1 %exitcond100.not.i, label %._crit_edge97.i, label %55, !llvm.loop !6
+  %60 = add nuw i64 %.186.i, 1
+  %exitcond92.not.i = icmp eq i64 %60, %47
+  br i1 %exitcond92.not.i, label %._crit_edge89.i, label %55, !llvm.loop !6
 
-._crit_edge97.i:                                  ; preds = %55, %._crit_edge.thread.i
+._crit_edge89.i:                                  ; preds = %55, %._crit_edge.thread.i
   %61 = phi i64 [ %41, %._crit_edge.thread.i ], [ %53, %55 ]
   %62 = phi i64 [ 0, %._crit_edge.thread.i ], [ %47, %55 ]
   %63 = getelementptr inbounds i8, ptr %0, i64 248
@@ -261,17 +270,17 @@ mac_init.exit:                                    ; preds = %12
   %.not65.i = icmp eq i32 %66, 0
   br i1 %.not65.i, label %67, label %69
 
-67:                                               ; preds = %._crit_edge97.i
+67:                                               ; preds = %._crit_edge89.i
   %68 = call i32 @psa_hash_update(ptr noundef nonnull %65, ptr noundef nonnull %7, i64 noundef %41) #5
   br label %69
 
-69:                                               ; preds = %67, %._crit_edge97.i, %43
-  %.0.i23 = phi i32 [ %44, %43 ], [ %66, %._crit_edge97.i ], [ %68, %67 ]
+69:                                               ; preds = %67, %._crit_edge89.i, %43
+  %.0.i23 = phi i32 [ %44, %43 ], [ %66, %._crit_edge89.i ], [ %68, %67 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 128) #5
   br label %psa_hmac_setup_internal.exit
 
-psa_hmac_setup_internal.exit:                     ; preds = %.thread91.i, %.thread84.i, %69
-  %.054.i = phi i32 [ %.0.i23, %69 ], [ -134, %.thread84.i ], [ -134, %.thread91.i ]
+psa_hmac_setup_internal.exit:                     ; preds = %.thread83.i, %.thread.i, %69
+  %.054.i = phi i32 [ %.0.i23, %69 ], [ -134, %.thread.i ], [ -134, %.thread83.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   br label %cmac_setup.exit

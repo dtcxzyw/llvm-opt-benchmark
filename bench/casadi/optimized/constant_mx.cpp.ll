@@ -9418,316 +9418,44 @@ declare double @hypot(double noundef, double noundef) local_unnamed_addr #19
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6casadi16operation_getterINS_10F0XCheckerEbEET0_x(i64 noundef %0) local_unnamed_addr #4 comdat {
   %2 = trunc i64 %0 to i32
-  switch i32 %2, label %71 [
-    i32 0, label %72
-    i32 1, label %3
-    i32 2, label %4
-    i32 3, label %72
-    i32 4, label %72
-    i32 5, label %72
-    i32 6, label %5
-    i32 7, label %6
-    i32 8, label %72
-    i32 9, label %72
-    i32 10, label %72
-    i32 11, label %72
-    i32 12, label %72
-    i32 13, label %72
-    i32 14, label %7
-    i32 15, label %72
-    i32 16, label %72
-    i32 17, label %8
-    i32 18, label %72
-    i32 19, label %9
-    i32 20, label %10
-    i32 21, label %11
-    i32 22, label %12
-    i32 23, label %13
-    i32 24, label %72
-    i32 25, label %14
-    i32 26, label %72
-    i32 27, label %72
-    i32 28, label %72
-    i32 97, label %72
-    i32 29, label %72
-    i32 30, label %72
-    i32 31, label %72
-    i32 32, label %72
-    i32 33, label %72
-    i32 34, label %15
-    i32 35, label %16
-    i32 36, label %17
-    i32 37, label %72
-    i32 38, label %18
-    i32 39, label %72
-    i32 40, label %72
-    i32 41, label %19
-    i32 42, label %72
-    i32 43, label %20
-    i32 44, label %21
-    i32 45, label %22
-    i32 46, label %23
-    i32 47, label %24
-    i32 48, label %25
-    i32 49, label %26
-    i32 50, label %27
-    i32 51, label %28
-    i32 52, label %29
-    i32 53, label %30
-    i32 54, label %31
-    i32 55, label %32
-    i32 56, label %33
-    i32 57, label %34
-    i32 58, label %35
-    i32 59, label %36
-    i32 60, label %37
-    i32 61, label %38
-    i32 62, label %39
-    i32 63, label %40
-    i32 64, label %41
-    i32 65, label %42
-    i32 66, label %43
-    i32 92, label %44
-    i32 67, label %45
-    i32 68, label %46
-    i32 69, label %47
-    i32 70, label %48
-    i32 71, label %49
-    i32 72, label %50
-    i32 73, label %51
-    i32 74, label %52
-    i32 75, label %53
-    i32 76, label %54
-    i32 77, label %55
-    i32 78, label %56
-    i32 79, label %57
-    i32 80, label %58
-    i32 81, label %59
-    i32 82, label %60
-    i32 83, label %61
-    i32 84, label %62
-    i32 85, label %63
-    i32 86, label %72
-    i32 87, label %64
-    i32 88, label %65
-    i32 89, label %66
-    i32 90, label %67
-    i32 91, label %68
-    i32 93, label %72
-    i32 94, label %72
-    i32 95, label %69
-    i32 96, label %70
+  switch i32 %2, label %3 [
+    i32 0, label %4
+    i32 94, label %4
+    i32 93, label %4
+    i32 3, label %4
+    i32 4, label %4
+    i32 5, label %4
+    i32 86, label %4
+    i32 42, label %4
+    i32 8, label %4
+    i32 9, label %4
+    i32 10, label %4
+    i32 11, label %4
+    i32 12, label %4
+    i32 13, label %4
+    i32 40, label %4
+    i32 15, label %4
+    i32 16, label %4
+    i32 39, label %4
+    i32 18, label %4
+    i32 37, label %4
+    i32 33, label %4
+    i32 32, label %4
+    i32 31, label %4
+    i32 30, label %4
+    i32 24, label %4
+    i32 29, label %4
+    i32 26, label %4
+    i32 27, label %4
+    i32 28, label %4
+    i32 97, label %4
   ]
 
 3:                                                ; preds = %1
-  br label %72
+  br label %4
 
-4:                                                ; preds = %1
-  br label %72
-
-5:                                                ; preds = %1
-  br label %72
-
-6:                                                ; preds = %1
-  br label %72
-
-7:                                                ; preds = %1
-  br label %72
-
-8:                                                ; preds = %1
-  br label %72
-
-9:                                                ; preds = %1
-  br label %72
-
-10:                                               ; preds = %1
-  br label %72
-
-11:                                               ; preds = %1
-  br label %72
-
-12:                                               ; preds = %1
-  br label %72
-
-13:                                               ; preds = %1
-  br label %72
-
-14:                                               ; preds = %1
-  br label %72
-
-15:                                               ; preds = %1
-  br label %72
-
-16:                                               ; preds = %1
-  br label %72
-
-17:                                               ; preds = %1
-  br label %72
-
-18:                                               ; preds = %1
-  br label %72
-
-19:                                               ; preds = %1
-  br label %72
-
-20:                                               ; preds = %1
-  br label %72
-
-21:                                               ; preds = %1
-  br label %72
-
-22:                                               ; preds = %1
-  br label %72
-
-23:                                               ; preds = %1
-  br label %72
-
-24:                                               ; preds = %1
-  br label %72
-
-25:                                               ; preds = %1
-  br label %72
-
-26:                                               ; preds = %1
-  br label %72
-
-27:                                               ; preds = %1
-  br label %72
-
-28:                                               ; preds = %1
-  br label %72
-
-29:                                               ; preds = %1
-  br label %72
-
-30:                                               ; preds = %1
-  br label %72
-
-31:                                               ; preds = %1
-  br label %72
-
-32:                                               ; preds = %1
-  br label %72
-
-33:                                               ; preds = %1
-  br label %72
-
-34:                                               ; preds = %1
-  br label %72
-
-35:                                               ; preds = %1
-  br label %72
-
-36:                                               ; preds = %1
-  br label %72
-
-37:                                               ; preds = %1
-  br label %72
-
-38:                                               ; preds = %1
-  br label %72
-
-39:                                               ; preds = %1
-  br label %72
-
-40:                                               ; preds = %1
-  br label %72
-
-41:                                               ; preds = %1
-  br label %72
-
-42:                                               ; preds = %1
-  br label %72
-
-43:                                               ; preds = %1
-  br label %72
-
-44:                                               ; preds = %1
-  br label %72
-
-45:                                               ; preds = %1
-  br label %72
-
-46:                                               ; preds = %1
-  br label %72
-
-47:                                               ; preds = %1
-  br label %72
-
-48:                                               ; preds = %1
-  br label %72
-
-49:                                               ; preds = %1
-  br label %72
-
-50:                                               ; preds = %1
-  br label %72
-
-51:                                               ; preds = %1
-  br label %72
-
-52:                                               ; preds = %1
-  br label %72
-
-53:                                               ; preds = %1
-  br label %72
-
-54:                                               ; preds = %1
-  br label %72
-
-55:                                               ; preds = %1
-  br label %72
-
-56:                                               ; preds = %1
-  br label %72
-
-57:                                               ; preds = %1
-  br label %72
-
-58:                                               ; preds = %1
-  br label %72
-
-59:                                               ; preds = %1
-  br label %72
-
-60:                                               ; preds = %1
-  br label %72
-
-61:                                               ; preds = %1
-  br label %72
-
-62:                                               ; preds = %1
-  br label %72
-
-63:                                               ; preds = %1
-  br label %72
-
-64:                                               ; preds = %1
-  br label %72
-
-65:                                               ; preds = %1
-  br label %72
-
-66:                                               ; preds = %1
-  br label %72
-
-67:                                               ; preds = %1
-  br label %72
-
-68:                                               ; preds = %1
-  br label %72
-
-69:                                               ; preds = %1
-  br label %72
-
-70:                                               ; preds = %1
-  br label %72
-
-71:                                               ; preds = %1
-  br label %72
-
-72:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i1 [ false, %71 ], [ false, %70 ], [ false, %69 ], [ false, %68 ], [ false, %67 ], [ false, %66 ], [ false, %65 ], [ false, %64 ], [ false, %63 ], [ false, %62 ], [ false, %61 ], [ false, %60 ], [ false, %59 ], [ false, %58 ], [ false, %57 ], [ false, %56 ], [ false, %55 ], [ false, %54 ], [ false, %53 ], [ false, %52 ], [ false, %51 ], [ false, %50 ], [ false, %49 ], [ false, %48 ], [ false, %47 ], [ false, %46 ], [ false, %45 ], [ false, %44 ], [ false, %43 ], [ false, %42 ], [ false, %41 ], [ false, %40 ], [ false, %39 ], [ false, %38 ], [ false, %37 ], [ false, %36 ], [ false, %35 ], [ false, %34 ], [ false, %33 ], [ false, %32 ], [ false, %31 ], [ false, %30 ], [ false, %29 ], [ false, %28 ], [ false, %27 ], [ false, %26 ], [ false, %25 ], [ false, %24 ], [ false, %23 ], [ false, %22 ], [ false, %21 ], [ false, %20 ], [ false, %19 ], [ false, %18 ], [ false, %17 ], [ false, %16 ], [ false, %15 ], [ false, %14 ], [ false, %13 ], [ false, %12 ], [ false, %11 ], [ false, %10 ], [ false, %9 ], [ false, %8 ], [ false, %7 ], [ false, %6 ], [ false, %5 ], [ false, %4 ], [ false, %3 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }
 

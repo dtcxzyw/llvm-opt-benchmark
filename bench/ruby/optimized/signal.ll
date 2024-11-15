@@ -2333,38 +2333,35 @@ declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define internal fastcc noundef ptr @default_handler(i32 noundef %0) unnamed_addr #0 {
-  switch i32 %0, label %6 [
-    i32 2, label %7
-    i32 1, label %7
-    i32 3, label %7
-    i32 15, label %7
-    i32 14, label %7
-    i32 10, label %7
-    i32 12, label %7
-    i32 17, label %7
+  switch i32 %0, label %5 [
+    i32 2, label %6
+    i32 1, label %6
+    i32 3, label %6
+    i32 15, label %6
+    i32 14, label %6
+    i32 10, label %6
+    i32 12, label %6
+    i32 17, label %6
     i32 7, label %2
     i32 11, label %3
     i32 13, label %4
-    i32 31, label %5
+    i32 31, label %4
   ]
 
 2:                                                ; preds = %1
-  br label %7
+  br label %6
 
 3:                                                ; preds = %1
-  br label %7
+  br label %6
 
-4:                                                ; preds = %1
-  br label %7
+4:                                                ; preds = %1, %1
+  br label %6
 
 5:                                                ; preds = %1
-  br label %7
+  br label %6
 
-6:                                                ; preds = %1
-  br label %7
-
-7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %6 ], [ @sig_do_nothing, %5 ], [ @sig_do_nothing, %4 ], [ @sigsegv, %3 ], [ @sigbus, %2 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ]
+6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %5, %4, %3, %2
+  %.0 = phi ptr [ null, %5 ], [ @sig_do_nothing, %4 ], [ @sigsegv, %3 ], [ @sigbus, %2 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ]
   ret ptr %.0
 }
 

@@ -970,12 +970,12 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.llvm.1734546477400346
   %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %89, 2
   %90 = getelementptr inbounds i8, ptr %28, i64 -64
   %91 = load ptr, ptr %90, align 8, !alias.scope !365, !noalias !366, !nonnull !19, !noundef !19
-  %spec.select.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %91, i64 %spec.select.idx.i.i.i.i.i.i.i.i
+  %.sroa.05.0.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.05.0.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %91, i64 %.sroa.05.0.idx.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !368
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !368
   store i64 1, ptr %6, align 8, !noalias !375
-  store ptr %spec.select.i.i.i.i.i.i.i.i, ptr %.sroa.4.sroa.6.0..sroa_idx.i.i.i.i.i.i.i, align 8, !noalias !375
+  store ptr %.sroa.05.0.i.i.i.i.i.i.i.i, ptr %.sroa.4.sroa.6.0..sroa_idx.i.i.i.i.i.i.i, align 8, !noalias !375
   store i64 %.sroa.66.0.i.i.i.i.i.i.i.i, ptr %.sroa.4.sroa.7.0..sroa_idx.i.i.i.i.i.i.i, align 8, !noalias !375
   store ptr %.sroa.31.i.sroa.0.0.copyload13.i.i.i.i.i.i.i, ptr %5, align 8, !noalias !375
   store i64 %.sroa.31.i.sroa.6.0.copyload15.i.i.i.i.i.i.i, ptr %.sroa.4.sroa.8.sroa.6.0..sroa_idx.i.i.i.i.i.i.i, align 8, !noalias !375
@@ -22738,11 +22738,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !9419, !noalias !9420, !nonnull !19, !noundef !19
   %switch.i.i.i.i = icmp samesign ult i64 %17, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !9419, !noalias !9420, !noundef !19
-  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !9426
+  call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !9426
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7), !noalias !9427
   store i8 -1, ptr %7, align 1, !noalias !9427
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 1), !noalias !9426
@@ -23054,11 +23054,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h02
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !9526, !noalias !9527, !nonnull !19, !noundef !19
   %switch.i.i.i.i = icmp samesign ult i64 %17, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !9526, !noalias !9527, !noundef !19
-  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %4
@@ -23365,11 +23365,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h1d
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !9634, !noalias !9635, !nonnull !19, !noundef !19
   %switch.i.i.i.i = icmp samesign ult i64 %17, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !9634, !noalias !9635, !noundef !19
-  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %4
@@ -23676,11 +23676,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h3b
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !9742, !noalias !9743, !nonnull !19, !noundef !19
   %switch.i.i.i.i = icmp samesign ult i64 %17, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !9742, !noalias !9743, !noundef !19
-  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %4
@@ -24701,11 +24701,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf8
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !10011, !noalias !10012, !nonnull !19, !noundef !19
   %switch.i.i.i.i = icmp samesign ult i64 %17, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !10011, !noalias !10012, !noundef !19
-  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  invoke void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h21c1e97697ff9205E.llvm.13033308200869021913"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %4

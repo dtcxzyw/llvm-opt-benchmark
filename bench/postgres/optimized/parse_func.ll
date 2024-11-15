@@ -2189,7 +2189,7 @@ define dso_local void @check_srf_call_placement(ptr noundef %0, ptr noundef read
   store i8 1, ptr %44, align 2
   br label %45
 
-45:                                               ; preds = %.sink.split, %6, %3
+45:                                               ; preds = %.sink.split, %3, %6
   ret void
 }
 

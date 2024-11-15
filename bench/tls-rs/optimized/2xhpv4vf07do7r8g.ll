@@ -5306,8 +5306,8 @@ define internal fastcc void @_ZN6rustls6crypto9aws_lc_rs4quic19HeaderProtectionK
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !1252
   store <16 x i8> %17, ptr %13, align 16, !alias.scope !1254, !noalias !1258
   %18 = load i8, ptr %16, align 8, !range !580, !alias.scope !1259, !noalias !1260, !noundef !14
-  %switch25.i.i = icmp samesign ult i8 %18, 2
-  br i1 %switch25.i.i, label %19, label %20
+  %switch.i.i = icmp samesign ult i8 %18, 2
+  br i1 %switch.i.i, label %19, label %20
 
 19:                                               ; preds = %15
   %.0.i.i = getelementptr inbounds i8, ptr %1, i64 12

@@ -57399,7 +57399,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL24Aff_transformation_repC3INS_1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef double @_ZNK4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEE9cartesianEii(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 comdat align 2 {
-  switch i32 %1, label %45 [
+  switch i32 %1, label %44 [
     i32 0, label %4
     i32 1, label %17
     i32 2, label %30
@@ -57416,22 +57416,22 @@ define linkonce_odr noundef double @_ZNK4CGAL24Aff_transformation_repC3INS_16Sim
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load double, ptr %6, align 8
-  br label %45
+  br label %44
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load double, ptr %9, align 8
-  br label %45
+  br label %44
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load double, ptr %12, align 8
-  br label %45
+  br label %44
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load double, ptr %15, align 8
-  br label %45
+  br label %44
 
 17:                                               ; preds = %3
   switch i32 %2, label %27 [
@@ -57443,22 +57443,22 @@ define linkonce_odr noundef double @_ZNK4CGAL24Aff_transformation_repC3INS_16Sim
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %0, i64 48
   %20 = load double, ptr %19, align 8
-  br label %45
+  br label %44
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 56
   %23 = load double, ptr %22, align 8
-  br label %45
+  br label %44
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %0, i64 64
   %26 = load double, ptr %25, align 8
-  br label %45
+  br label %44
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds i8, ptr %0, i64 72
   %29 = load double, ptr %28, align 8
-  br label %45
+  br label %44
 
 30:                                               ; preds = %3
   switch i32 %2, label %40 [
@@ -57470,32 +57470,30 @@ define linkonce_odr noundef double @_ZNK4CGAL24Aff_transformation_repC3INS_16Sim
 31:                                               ; preds = %30
   %32 = getelementptr inbounds i8, ptr %0, i64 80
   %33 = load double, ptr %32, align 8
-  br label %45
+  br label %44
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %0, i64 88
   %36 = load double, ptr %35, align 8
-  br label %45
+  br label %44
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds i8, ptr %0, i64 96
   %39 = load double, ptr %38, align 8
-  br label %45
+  br label %44
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds i8, ptr %0, i64 104
   %42 = load double, ptr %41, align 8
-  br label %45
+  br label %44
 
 43:                                               ; preds = %3
   %switch = icmp ult i32 %2, 3
-  br i1 %switch, label %45, label %44
+  %. = select i1 %switch, double 0.000000e+00, double 1.000000e+00
+  br label %44
 
-44:                                               ; preds = %43
-  br label %45
-
-45:                                               ; preds = %43, %3, %44, %40, %37, %34, %31, %27, %24, %21, %18, %14, %11, %8, %5
-  %.0 = phi double [ 1.000000e+00, %44 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ 0.000000e+00, %43 ], [ 0.000000e+00, %3 ]
+44:                                               ; preds = %3, %43, %40, %37, %34, %31, %27, %24, %21, %18, %14, %11, %8, %5
+  %.0 = phi double [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ %., %43 ], [ 0.000000e+00, %3 ]
   ret double %.0
 }
 

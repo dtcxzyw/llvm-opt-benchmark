@@ -25,7 +25,6 @@ $_ZN4Luau6FValueIbE4listE = comdat any
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.2 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_IrRegAllocA64.cpp, ptr null }]
-@switch.table._ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyBuilderA64ERjRNS0_10IrFunctionERKNS1_13IrRegAllocA645SpillENS1_11RegisterA64E.3 = private unnamed_addr constant [5 x i32] [i32 12, i32 0, i32 0, i32 0, i32 0], align 4
 
 @_ZN4Luau7CodeGen3A6413IrRegAllocA64C1ERNS0_10IrFunctionEPNS0_13LoweringStatsESt16initializer_listISt4pairINS1_11RegisterA64ES9_EE = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr, i64), ptr @_ZN4Luau7CodeGen3A6413IrRegAllocA64C2ERNS0_10IrFunctionEPNS0_13LoweringStatsESt16initializer_listISt4pairINS1_11RegisterA64ES9_EE
 
@@ -936,16 +935,16 @@ _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i: ; preds = %
   %92 = load i32, ptr %91, align 4
   %93 = and i32 %92, 15
   switch i32 %93, label %.critedge [
-    i32 6, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
+    i32 6, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
     i32 7, label %94
   ]
 
 94:                                               ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i
   %95 = and i32 %92, -16
   %96 = icmp ult i32 %95, 4093
-  br i1 %96, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit, label %.critedge
+  br i1 %96, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i, label %.critedge
 
-_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit: ; preds = %94, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i
+_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i: ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i, %94
   %97 = load i8, ptr %61, align 4
   %98 = tail call noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext %97)
   %99 = getelementptr inbounds i8, ptr %61, i64 39
@@ -955,7 +954,7 @@ _ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit:
   %.not.i = icmp eq ptr %101, %102
   br i1 %.not.i, label %106, label %103
 
-103:                                              ; preds = %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
+103:                                              ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
   %.sroa.3139.0.insert.ext = zext i8 %100 to i64
   %.sroa.3139.0.insert.shift = shl nuw nsw i64 %.sroa.3139.0.insert.ext, 32
   %.sroa.3139.0.insert.insert = or disjoint i64 %.sroa.3139.0.insert.shift, %59
@@ -966,7 +965,7 @@ _ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit:
   store ptr %105, ptr %7, align 8
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit
 
-106:                                              ; preds = %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
+106:                                              ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
   %107 = load ptr, ptr %6, align 8
   %108 = ptrtoint ptr %101 to i64
   %109 = ptrtoint ptr %107 to i64
@@ -1347,7 +1346,7 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyB
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.41.0.insert.shift, 16447489
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3, i64 %.sroa.0.0.insert.insert)
   %.not = icmp eq i8 %.5.val, 64
-  br i1 %.not, label %44, label %14
+  br i1 %.not, label %45, label %14
 
 14:                                               ; preds = %10
   %15 = and i8 %3, 7
@@ -1357,7 +1356,7 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyB
   %19 = load i32, ptr %1, align 4
   %20 = or i32 %19, %18
   store i32 %20, ptr %1, align 4
-  br label %44
+  br label %45
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds i8, ptr %2, i64 152
@@ -1376,49 +1375,47 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyB
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 15
   switch i32 %33, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit [
-    i32 6, label %switch.lookup
-    i32 7, label %35
+    i32 6, label %34
+    i32 7, label %36
   ]
 
-switch.lookup:                                    ; preds = %30
-  %34 = and i32 %32, -16
-  br label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.sink.split
+34:                                               ; preds = %30
+  %35 = and i32 %32, -16
+  br label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
 
-35:                                               ; preds = %30
-  %36 = and i32 %32, -16
-  %37 = icmp ult i32 %36, 4093
-  br i1 %37, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.sink.split, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
+36:                                               ; preds = %30
+  %37 = and i32 %32, -16
+  %38 = icmp ult i32 %37, 4093
+  br i1 %38, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
 
-_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.sink.split: ; preds = %35, %switch.lookup
-  %switch.table._ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyBuilderA64ERjRNS0_10IrFunctionERKNS1_13IrRegAllocA645SpillENS1_11RegisterA64E.sink = phi ptr [ @switch.table._ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyBuilderA64ERjRNS0_10IrFunctionERKNS1_13IrRegAllocA645SpillENS1_11RegisterA64E.3, %switch.lookup ], [ @switch.table._ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyBuilderA64ERjRNS0_10IrFunctionERKNS1_13IrRegAllocA645SpillENS1_11RegisterA64E.3, %35 ]
-  %.sink = phi i32 [ %34, %switch.lookup ], [ %36, %35 ]
-  %.sroa.4.0.i.ph = phi i64 [ 51712, %switch.lookup ], [ 45568, %35 ]
-  %38 = load i8, ptr %8, align 4
-  %39 = tail call noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext %38)
-  %switch.tableidx = add nsw i8 %39, -2
-  %40 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr %switch.table._ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyBuilderA64ERjRNS0_10IrFunctionERKNS1_13IrRegAllocA645SpillENS1_11RegisterA64E.sink, i64 0, i64 %40
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %41 = or disjoint i32 %switch.load, %.sink
+_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i: ; preds = %36, %34
+  %.sink.i = phi i32 [ %35, %34 ], [ %37, %36 ]
+  %.sroa.4.0.ph.i = phi i64 [ 51712, %34 ], [ 45568, %36 ]
+  %39 = load i8, ptr %8, align 4
+  %40 = tail call noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext %39)
+  %.off.i14.i = add i8 %40, -3
+  %switch.i15.i = icmp ult i8 %.off.i14.i, 4
+  %..i16.i = select i1 %switch.i15.i, i32 0, i32 12
+  %41 = or disjoint i32 %..i16.i, %.sink.i
   %42 = zext i32 %41 to i64
   %43 = shl nuw i64 %42, 32
+  %44 = or disjoint i64 %43, 16384001
   br label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
 
-_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit: ; preds = %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.sink.split, %21, %30, %35
-  %.sroa.1016.0.i = phi i64 [ 0, %30 ], [ 0, %35 ], [ 0, %21 ], [ %43, %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.sink.split ]
-  %.sroa.4.0.i = phi i64 [ 64000, %30 ], [ 64000, %35 ], [ 64000, %21 ], [ %.sroa.4.0.i.ph, %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.sink.split ]
-  %.sroa.7.0.insert.insert.i = or disjoint i64 %.sroa.1016.0.i, %.sroa.4.0.i
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.7.0.insert.insert.i, 16384001
+_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit: ; preds = %21, %30, %36, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
+  %.sroa.1017.0.i = phi i64 [ 16384001, %30 ], [ 16384001, %36 ], [ 16384001, %21 ], [ %44, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i ]
+  %.sroa.4.0.i = phi i64 [ 64000, %30 ], [ 64000, %36 ], [ 64000, %21 ], [ %.sroa.4.0.ph.i, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i ]
+  %.sroa.0.0.insert.insert.i = or i64 %.sroa.1017.0.i, %.sroa.4.0.i
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3, i64 %.sroa.0.0.insert.insert.i)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %10, %14, %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
-  %45 = getelementptr inbounds i8, ptr %8, i64 41
-  store i8 0, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %8, i64 42
-  store i8 0, ptr %46, align 2
-  %47 = getelementptr inbounds i8, ptr %8, i64 39
-  store i8 %3, ptr %47, align 1
+45:                                               ; preds = %10, %14, %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
+  %46 = getelementptr inbounds i8, ptr %8, i64 41
+  store i8 0, ptr %46, align 1
+  %47 = getelementptr inbounds i8, ptr %8, i64 42
+  store i8 0, ptr %47, align 2
+  %48 = getelementptr inbounds i8, ptr %8, i64 39
+  store i8 %3, ptr %48, align 1
   ret void
 }
 

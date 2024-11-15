@@ -1613,8 +1613,8 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN3syn4attr9Attribute4p
   %2 = load i64, ptr %0, align 8, !range !257, !alias.scope !258, !noundef !4
   %3 = add nsw i64 %2, -39
   %switch.i = icmp ult i64 %3, 2
-  %spec.select.i = select i1 %switch.i, i64 8, i64 176
-  %4 = getelementptr inbounds i8, ptr %0, i64 %spec.select.i
+  %..i = select i1 %switch.i, i64 8, i64 176
+  %4 = getelementptr inbounds i8, ptr %0, i64 %..i
   ret ptr %4
 }
 
@@ -1798,8 +1798,8 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN3syn4attr4Meta4path17
   %2 = load i64, ptr %0, align 8, !range !257, !noundef !4
   %3 = add nsw i64 %2, -39
   %switch = icmp ult i64 %3, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %4 = getelementptr inbounds i8, ptr %0, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.
   ret ptr %4
 }
 

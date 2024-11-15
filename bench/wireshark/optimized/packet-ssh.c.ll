@@ -5394,15 +5394,15 @@ ssh_debug_flush.exit70.i:                         ; preds = %390, %388, %ssh_deb
   %spec.select.i = call i32 @llvm.umax.i32(i32 %.06472.i, i32 %.1.i)
   br i1 %374, label %373, label %.preheader.i, !llvm.loop !17
 
-392:                                              ; preds = %484, %.preheader.i
-  %indvars.iv75.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next76.i, %484 ]
+392:                                              ; preds = %485, %.preheader.i
+  %indvars.iv75.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next76.i, %485 ]
   %393 = trunc i64 %indvars.iv75.i to i8
   %394 = add nuw nsw i8 %393, 65
   %395 = getelementptr [6 x %struct.ssh_bignum], ptr %371, i64 0, i64 %indvars.iv75.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %396 = load ptr, ptr %37, align 8
   %.not.i.i.i = icmp eq ptr %396, null
-  br i1 %.not.i.i.i, label %.fold.split.i.i, label %397
+  br i1 %.not.i.i.i, label %ssh_kex_hash_type.exit.thread64.i.i, label %397
 
 397:                                              ; preds = %392
   %398 = call i32 @g_str_has_suffix(ptr noundef nonnull %396, ptr noundef nonnull @.str.471) #21
@@ -5412,162 +5412,162 @@ ssh_debug_flush.exit70.i:                         ; preds = %390, %388, %ssh_deb
 399:                                              ; preds = %397
   %400 = call i32 @g_str_has_suffix(ptr noundef nonnull %396, ptr noundef nonnull @.str.472) #21
   %.not8.i.i.i = icmp eq i32 %400, 0
-  br i1 %.not8.i.i.i, label %.critedge.i.i.i, label %ssh_kex_hash_type.exit.i.i
+  br i1 %.not8.i.i.i, label %.critedge.i.i.i, label %ssh_kex_hash_type.exit.thread64.i.i
 
 .critedge.i.i.i:                                  ; preds = %399
   %401 = call i32 @g_str_has_suffix(ptr noundef nonnull %396, ptr noundef nonnull @.str.473) #21
   %.not9.i.i.i = icmp eq i32 %401, 0
-  br i1 %.not9.i.i.i, label %.fold.split.i.i, label %ssh_kex_hash_type.exit.i.i
+  br i1 %.not9.i.i.i, label %ssh_kex_hash_type.exit.thread64.i.i, label %ssh_kex_hash_type.exit.i.i
 
-.fold.split.i.i:                                  ; preds = %.critedge.i.i.i, %392
+ssh_kex_hash_type.exit.thread64.i.i:              ; preds = %.critedge.i.i.i, %399, %392
   br label %ssh_kex_hash_type.exit.i.i
 
-ssh_kex_hash_type.exit.i.i:                       ; preds = %.fold.split.i.i, %.critedge.i.i.i, %399, %397
-  %.0.i.i = phi i32 [ 8, %.fold.split.i.i ], [ 8, %399 ], [ 10, %.critedge.i.i.i ], [ 2, %397 ]
-  %402 = call i32 @gcry_md_get_algo_dlen(i32 noundef %.0.i.i) #21
-  %403 = call ptr @wmem_file_scope() #21
-  %404 = call noalias ptr @wmem_alloc(ptr noundef %403, i64 noundef %372) #21
-  store ptr %404, ptr %395, align 8
-  %405 = load ptr, ptr %.0167223, align 8
-  %406 = load i32, ptr %116, align 8
-  %407 = call ptr @wmem_packet_scope() #21
-  %408 = add i32 %406, 4
-  %409 = zext i32 %408 to i64
-  %410 = call noalias ptr @wmem_alloc(ptr noundef %407, i64 noundef %409) #21
-  %411 = lshr i32 %406, 24
-  %412 = trunc nuw i32 %411 to i8
-  store i8 %412, ptr %410, align 1
-  %413 = lshr i32 %406, 16
-  %414 = trunc i32 %413 to i8
-  %415 = getelementptr i8, ptr %410, i64 1
-  store i8 %414, ptr %415, align 1
-  %416 = lshr i32 %406, 8
-  %417 = trunc i32 %416 to i8
-  %418 = getelementptr i8, ptr %410, i64 2
-  store i8 %417, ptr %418, align 1
-  %419 = trunc i32 %406 to i8
-  %420 = getelementptr i8, ptr %410, i64 3
-  store i8 %419, ptr %420, align 1
-  %421 = getelementptr i8, ptr %410, i64 4
-  %422 = zext i32 %406 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %421, ptr readonly align 1 %405, i64 %422, i1 false)
-  %423 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %.0.i.i, i32 noundef 0) #21
-  %424 = icmp eq i32 %423, 0
-  br i1 %424, label %425, label %452
+ssh_kex_hash_type.exit.i.i:                       ; preds = %ssh_kex_hash_type.exit.thread64.i.i, %.critedge.i.i.i, %397
+  %402 = phi i32 [ 8, %ssh_kex_hash_type.exit.thread64.i.i ], [ 2, %397 ], [ 10, %.critedge.i.i.i ]
+  %403 = call i32 @gcry_md_get_algo_dlen(i32 noundef %402) #21
+  %404 = call ptr @wmem_file_scope() #21
+  %405 = call noalias ptr @wmem_alloc(ptr noundef %404, i64 noundef %372) #21
+  store ptr %405, ptr %395, align 8
+  %406 = load ptr, ptr %.0167223, align 8
+  %407 = load i32, ptr %116, align 8
+  %408 = call ptr @wmem_packet_scope() #21
+  %409 = add i32 %407, 4
+  %410 = zext i32 %409 to i64
+  %411 = call noalias ptr @wmem_alloc(ptr noundef %408, i64 noundef %410) #21
+  %412 = lshr i32 %407, 24
+  %413 = trunc nuw i32 %412 to i8
+  store i8 %413, ptr %411, align 1
+  %414 = lshr i32 %407, 16
+  %415 = trunc i32 %414 to i8
+  %416 = getelementptr i8, ptr %411, i64 1
+  store i8 %415, ptr %416, align 1
+  %417 = lshr i32 %407, 8
+  %418 = trunc i32 %417 to i8
+  %419 = getelementptr i8, ptr %411, i64 2
+  store i8 %418, ptr %419, align 1
+  %420 = trunc i32 %407 to i8
+  %421 = getelementptr i8, ptr %411, i64 3
+  store i8 %420, ptr %421, align 1
+  %422 = getelementptr i8, ptr %411, i64 4
+  %423 = zext i32 %407 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %422, ptr readonly align 1 %406, i64 %423, i1 false)
+  %424 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %402, i32 noundef 0) #21
+  %425 = icmp eq i32 %424, 0
+  br i1 %425, label %426, label %453
 
-425:                                              ; preds = %ssh_kex_hash_type.exit.i.i
-  %426 = load ptr, ptr %2, align 8
-  %427 = load i32, ptr %116, align 8
-  %428 = add i32 %427, 4
-  %429 = zext i32 %428 to i64
-  call void @gcry_md_write(ptr noundef %426, ptr noundef nonnull %410, i64 noundef %429) #21
-  %430 = load ptr, ptr %2, align 8
-  call void @gcry_md_write(ptr noundef %430, ptr noundef %356, i64 noundef %355) #21
+426:                                              ; preds = %ssh_kex_hash_type.exit.i.i
+  %427 = load ptr, ptr %2, align 8
+  %428 = load i32, ptr %116, align 8
+  %429 = add i32 %428, 4
+  %430 = zext i32 %429 to i64
+  call void @gcry_md_write(ptr noundef %427, ptr noundef nonnull %411, i64 noundef %430) #21
   %431 = load ptr, ptr %2, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 8
-  %433 = load i32, ptr %432, align 8
-  %434 = getelementptr inbounds i8, ptr %431, i64 12
-  %435 = load i32, ptr %434, align 4
-  %436 = icmp eq i32 %433, %435
-  br i1 %436, label %437, label %438
+  call void @gcry_md_write(ptr noundef %431, ptr noundef %356, i64 noundef %355) #21
+  %432 = load ptr, ptr %2, align 8
+  %433 = getelementptr inbounds i8, ptr %432, i64 8
+  %434 = load i32, ptr %433, align 8
+  %435 = getelementptr inbounds i8, ptr %432, i64 12
+  %436 = load i32, ptr %435, align 4
+  %437 = icmp eq i32 %434, %436
+  br i1 %437, label %438, label %439
 
-437:                                              ; preds = %425
-  call void @gcry_md_write(ptr noundef nonnull %431, ptr noundef null, i64 noundef 0) #21
-  %.pre.i.i = load i32, ptr %432, align 8
-  br label %438
+438:                                              ; preds = %426
+  call void @gcry_md_write(ptr noundef nonnull %432, ptr noundef null, i64 noundef 0) #21
+  %.pre.i.i = load i32, ptr %433, align 8
+  br label %439
 
-438:                                              ; preds = %437, %425
-  %439 = phi i32 [ %.pre.i.i, %437 ], [ %433, %425 ]
-  %440 = getelementptr inbounds i8, ptr %431, i64 16
-  %441 = add i32 %439, 1
-  store i32 %441, ptr %432, align 8
-  %442 = sext i32 %439 to i64
-  %443 = getelementptr [1 x i8], ptr %440, i64 0, i64 %442
-  store i8 %394, ptr %443, align 1
-  %444 = load ptr, ptr %2, align 8
-  %445 = load ptr, ptr %365, align 8
-  call void @gcry_md_write(ptr noundef %444, ptr noundef %445, i64 noundef %355) #21
-  %446 = call i32 @llvm.umin.i32(i32 %402, i32 range(i32 0, 65) %spec.select.i)
-  %447 = load ptr, ptr %395, align 8
-  %448 = load ptr, ptr %2, align 8
-  %449 = call ptr @gcry_md_read(ptr noundef %448, i32 noundef 0) #21
-  %450 = zext nneg i32 %446 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %447, ptr align 1 %449, i64 %450, i1 false)
-  %451 = load ptr, ptr %2, align 8
-  call void @gcry_md_close(ptr noundef %451) #21
-  br label %452
+439:                                              ; preds = %438, %426
+  %440 = phi i32 [ %.pre.i.i, %438 ], [ %434, %426 ]
+  %441 = getelementptr inbounds i8, ptr %432, i64 16
+  %442 = add i32 %440, 1
+  store i32 %442, ptr %433, align 8
+  %443 = sext i32 %440 to i64
+  %444 = getelementptr [1 x i8], ptr %441, i64 0, i64 %443
+  store i8 %394, ptr %444, align 1
+  %445 = load ptr, ptr %2, align 8
+  %446 = load ptr, ptr %365, align 8
+  call void @gcry_md_write(ptr noundef %445, ptr noundef %446, i64 noundef %355) #21
+  %447 = call i32 @llvm.umin.i32(i32 %403, i32 range(i32 0, 65) %spec.select.i)
+  %448 = load ptr, ptr %395, align 8
+  %449 = load ptr, ptr %2, align 8
+  %450 = call ptr @gcry_md_read(ptr noundef %449, i32 noundef 0) #21
+  %451 = zext nneg i32 %447 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %448, ptr align 1 %450, i64 %451, i1 false)
+  %452 = load ptr, ptr %2, align 8
+  call void @gcry_md_close(ptr noundef %452) #21
+  br label %453
 
-452:                                              ; preds = %438, %ssh_kex_hash_type.exit.i.i
-  %453 = icmp ult i32 %402, %spec.select.i
-  br i1 %453, label %.lr.ph.i.i, label %ssh_derive_symmetric_key.exit.i
+453:                                              ; preds = %439, %ssh_kex_hash_type.exit.i.i
+  %454 = icmp ult i32 %403, %spec.select.i
+  br i1 %454, label %.lr.ph.i.i, label %ssh_derive_symmetric_key.exit.i
 
-.lr.ph.i.i:                                       ; preds = %452
-  %454 = zext nneg i32 %402 to i64
-  %455 = sub nsw i64 0, %454
-  br label %456
+.lr.ph.i.i:                                       ; preds = %453
+  %455 = zext nneg i32 %403 to i64
+  %456 = sub nsw i64 0, %455
+  br label %457
 
-456:                                              ; preds = %478, %.lr.ph.i.i
-  %.05260.i.i = phi i32 [ %402, %.lr.ph.i.i ], [ %479, %478 ]
-  %457 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %.0.i.i, i32 noundef 0) #21
-  %458 = icmp eq i32 %457, 0
-  br i1 %458, label %459, label %478
+457:                                              ; preds = %479, %.lr.ph.i.i
+  %.05267.i.i = phi i32 [ %403, %.lr.ph.i.i ], [ %480, %479 ]
+  %458 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %402, i32 noundef 0) #21
+  %459 = icmp eq i32 %458, 0
+  br i1 %459, label %460, label %479
 
-459:                                              ; preds = %456
-  %460 = load ptr, ptr %2, align 8
-  %461 = load i32, ptr %116, align 8
-  %462 = add i32 %461, 4
-  %463 = zext i32 %462 to i64
-  call void @gcry_md_write(ptr noundef %460, ptr noundef nonnull %410, i64 noundef %463) #21
-  %464 = load ptr, ptr %2, align 8
-  call void @gcry_md_write(ptr noundef %464, ptr noundef %356, i64 noundef %355) #21
+460:                                              ; preds = %457
+  %461 = load ptr, ptr %2, align 8
+  %462 = load i32, ptr %116, align 8
+  %463 = add i32 %462, 4
+  %464 = zext i32 %463 to i64
+  call void @gcry_md_write(ptr noundef %461, ptr noundef nonnull %411, i64 noundef %464) #21
   %465 = load ptr, ptr %2, align 8
-  %466 = load ptr, ptr %395, align 8
-  %467 = zext nneg i32 %.05260.i.i to i64
-  %468 = getelementptr i8, ptr %466, i64 %467
-  %469 = getelementptr i8, ptr %468, i64 %455
-  call void @gcry_md_write(ptr noundef %465, ptr noundef %469, i64 noundef %454) #21
-  %470 = sub nsw i32 %spec.select.i, %.05260.i.i
-  %471 = call i32 @llvm.umin.i32(i32 %402, i32 %470)
-  %472 = load ptr, ptr %395, align 8
-  %473 = getelementptr i8, ptr %472, i64 %467
-  %474 = load ptr, ptr %2, align 8
-  %475 = call ptr @gcry_md_read(ptr noundef %474, i32 noundef 0) #21
-  %476 = zext i32 %471 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %473, ptr align 1 %475, i64 %476, i1 false)
-  %477 = load ptr, ptr %2, align 8
-  call void @gcry_md_close(ptr noundef %477) #21
-  br label %478
+  call void @gcry_md_write(ptr noundef %465, ptr noundef %356, i64 noundef %355) #21
+  %466 = load ptr, ptr %2, align 8
+  %467 = load ptr, ptr %395, align 8
+  %468 = zext nneg i32 %.05267.i.i to i64
+  %469 = getelementptr i8, ptr %467, i64 %468
+  %470 = getelementptr i8, ptr %469, i64 %456
+  call void @gcry_md_write(ptr noundef %466, ptr noundef %470, i64 noundef %455) #21
+  %471 = sub nsw i32 %spec.select.i, %.05267.i.i
+  %472 = call i32 @llvm.umin.i32(i32 %403, i32 %471)
+  %473 = load ptr, ptr %395, align 8
+  %474 = getelementptr i8, ptr %473, i64 %468
+  %475 = load ptr, ptr %2, align 8
+  %476 = call ptr @gcry_md_read(ptr noundef %475, i32 noundef 0) #21
+  %477 = zext i32 %472 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %474, ptr align 1 %476, i64 %477, i1 false)
+  %478 = load ptr, ptr %2, align 8
+  call void @gcry_md_close(ptr noundef %478) #21
+  br label %479
 
-478:                                              ; preds = %459, %456
-  %479 = add i32 %.05260.i.i, %402
-  %480 = icmp ult i32 %479, %spec.select.i
-  br i1 %480, label %456, label %ssh_derive_symmetric_key.exit.i, !llvm.loop !18
+479:                                              ; preds = %460, %457
+  %480 = add i32 %.05267.i.i, %403
+  %481 = icmp ult i32 %480, %spec.select.i
+  br i1 %481, label %457, label %ssh_derive_symmetric_key.exit.i, !llvm.loop !18
 
-ssh_derive_symmetric_key.exit.i:                  ; preds = %478, %452
-  %481 = getelementptr inbounds i8, ptr %395, i64 8
-  store i32 %spec.select.i, ptr %481, align 8
+ssh_derive_symmetric_key.exit.i:                  ; preds = %479, %453
+  %482 = getelementptr inbounds i8, ptr %395, i64 8
+  store i32 %spec.select.i, ptr %482, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %482 = icmp samesign ult i64 %indvars.iv75.i, 6
-  br i1 %482, label %switch.lookup, label %484
+  %483 = icmp samesign ult i64 %indvars.iv75.i, 6
+  br i1 %483, label %switch.lookup, label %485
 
 switch.lookup:                                    ; preds = %ssh_derive_symmetric_key.exit.i
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.ssh_keylog_hash_write_secret, i64 0, i64 %indvars.iv75.i
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %483 = load ptr, ptr %395, align 8
-  call fastcc void @ssh_print_data(ptr noundef nonnull %switch.load, ptr noundef %483, i64 noundef %372)
-  br label %484
+  %484 = load ptr, ptr %395, align 8
+  call fastcc void @ssh_print_data(ptr noundef nonnull %switch.load, ptr noundef %484, i64 noundef %372)
+  br label %485
 
-484:                                              ; preds = %ssh_derive_symmetric_key.exit.i, %switch.lookup
+485:                                              ; preds = %ssh_derive_symmetric_key.exit.i, %switch.lookup
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next76.i, 6
   br i1 %exitcond.not.i, label %ssh_derive_symmetric_keys.exit, label %392, !llvm.loop !19
 
 ssh_derive_symmetric_keys.exit.sink.split:        ; preds = %ssh_kex_make_bignum.exit, %76, %73, %63
-  %485 = getelementptr inbounds i8, ptr %0, i64 728
-  store i32 0, ptr %485, align 8
+  %486 = getelementptr inbounds i8, ptr %0, i64 728
+  store i32 0, ptr %486, align 8
   br label %ssh_derive_symmetric_keys.exit
 
-ssh_derive_symmetric_keys.exit:                   ; preds = %484, %ssh_derive_symmetric_keys.exit.sink.split, %337
+ssh_derive_symmetric_keys.exit:                   ; preds = %485, %ssh_derive_symmetric_keys.exit.sink.split, %337
   ret void
 }
 

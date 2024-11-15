@@ -236,12 +236,9 @@ define dso_local noundef zeroext i1 @_Z28cmFileSetVisibilityIsForSelf19cmFileSet
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_Z33cmFileSetVisibilityIsForInterface19cmFileSetVisibility(i32 noundef %0) local_unnamed_addr #3 {
-  %2 = icmp ult i32 %0, 3
-  %switch.cast = trunc i32 %0 to i3
-  %switch.downshift = lshr i3 -2, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
-  %.0 = select i1 %2, i1 %switch.masked, i1 false
-  ret i1 %.0
+  %.off = add i32 %0, -1
+  %switch = icmp ult i32 %.off, 2
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

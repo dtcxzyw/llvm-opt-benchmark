@@ -252,14 +252,11 @@ for.body:                                         ; preds = %if.end, %if.end5
     i8 60, label %return.sink.split.i
     i8 62, label %return.sink.split.i
     i8 34, label %sw.bb2.i
-    i8 39, label %sw.bb3.i
+    i8 39, label %sw.bb2.i
     i8 38, label %sw.bb4.i
   ]
 
-sw.bb2.i:                                         ; preds = %for.body
-  br label %html_replace.exit
-
-sw.bb3.i:                                         ; preds = %for.body
+sw.bb2.i:                                         ; preds = %for.body, %for.body
   br label %html_replace.exit
 
 sw.bb4.i:                                         ; preds = %for.body
@@ -268,8 +265,8 @@ sw.bb4.i:                                         ; preds = %for.body
 return.sink.split.i:                              ; preds = %for.body, %for.body
   br label %html_replace.exit
 
-html_replace.exit:                                ; preds = %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %for.body, %return.sink.split.i
-  %retval.0.i = phi i64 [ 1, %for.body ], [ 5, %sw.bb4.i ], [ 6, %sw.bb3.i ], [ 6, %sw.bb2.i ], [ 4, %return.sink.split.i ]
+html_replace.exit:                                ; preds = %sw.bb2.i, %sw.bb4.i, %for.body, %return.sink.split.i
+  %retval.0.i = phi i64 [ 1, %for.body ], [ 5, %sw.bb4.i ], [ 6, %sw.bb2.i ], [ 4, %return.sink.split.i ]
   %sub = xor i64 %new_size.032, -1
   %cmp3 = icmp ugt i64 %retval.0.i, %sub
   br i1 %cmp3, label %if.then4, label %if.end5

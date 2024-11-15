@@ -11563,11 +11563,11 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %22, %26
   %.sroa.0.0.i.i = phi ptr [ %30, %26 ], [ %24, %22 ]
   %.idx = shl nsw i64 %.sroa.3.0.i.i, 3
   %33 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.idx
-  %.not2368 = icmp eq i64 %.sroa.3.0.i.i, 1
-  br i1 %.not2368, label %.loopexit, label %.lr.ph
+  %.not2366 = icmp eq i64 %.sroa.3.0.i.i, 1
+  br i1 %.not2366, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm6MDNode8operandsEv.exit
-  %.067 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
+  %.065 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
   %.idx1.i = shl nsw i64 %3, 4
   %34 = getelementptr inbounds i8, ptr %2, i64 %.idx1.i
   %35 = ashr i64 %3, 2
@@ -11577,281 +11577,282 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %22, %26
   %38 = and i64 %3, 3
   br label %39
 
-39:                                               ; preds = %.lr.ph, %134
-  %.069 = phi ptr [ %.067, %.lr.ph ], [ %.0, %134 ]
-  %40 = load ptr, ptr %.069, align 8
+39:                                               ; preds = %.lr.ph, %136
+  %.067 = phi ptr [ %.065, %.lr.ph ], [ %.0, %136 ]
+  %40 = load ptr, ptr %.067, align 8
   %41 = load i8, ptr %40, align 4
-  %.off = add i8 %41, -5
-  %switch = icmp ult i8 %.off, 31
-  br i1 %switch, label %42, label %.critedge
+  %42 = zext i8 %41 to i32
+  %43 = add nsw i32 %42, -36
+  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %43, -31
+  br i1 %switch.i.i.i.i.i.i.i.i, label %.critedge, label %44
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %40, i64 -16
-  %44 = load i64, ptr %43, align 8
-  %45 = and i64 %44, 2
-  %.not.i.i29 = icmp eq i64 %45, 0
-  br i1 %.not.i.i29, label %50, label %46
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds i8, ptr %40, i64 -16
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, 2
+  %.not.i.i29 = icmp eq i64 %47, 0
+  br i1 %.not.i.i29, label %52, label %48
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %40, i64 -32
-  %48 = load ptr, ptr %47, align 8
-  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #19
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %40, i64 -32
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #19
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
-50:                                               ; preds = %42
-  %51 = lshr i64 %44, 2
-  %52 = and i64 %51, 15
-  %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds %"class.llvm::MDOperand", ptr %43, i64 %53
+52:                                               ; preds = %44
+  %53 = lshr i64 %46, 2
+  %54 = and i64 %53, 15
+  %55 = sub nsw i64 0, %54
+  %56 = getelementptr inbounds %"class.llvm::MDOperand", ptr %45, i64 %55
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
-_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %46, %50
-  %.sroa.0.0.i.i30 = phi ptr [ %54, %50 ], [ %48, %46 ]
-  %55 = load ptr, ptr %.sroa.0.0.i.i30, align 8
-  %56 = load i8, ptr %55, align 4
-  %.not46 = icmp eq i8 %56, 0
-  br i1 %.not46, label %57, label %.critedge
+_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %48, %52
+  %.sroa.0.0.i.i30 = phi ptr [ %56, %52 ], [ %50, %48 ]
+  %57 = load ptr, ptr %.sroa.0.0.i.i30, align 8
+  %58 = load i8, ptr %57, align 4
+  %.not44 = icmp eq i8 %58, 0
+  br i1 %.not44, label %59, label %.critedge
 
-57:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
+59:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
   br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i"
-  %.094.i.i.i.i.i.i = phi i64 [ %90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i" ], [ %35, %57 ]
-  %.02993.i.i.i.i.i.i = phi ptr [ %89, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i" ], [ %2, %57 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i"
+  %.094.i.i.i.i.i.i = phi i64 [ %92, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i" ], [ %35, %59 ]
+  %.02993.i.i.i.i.i.i = phi ptr [ %91, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i" ], [ %2, %59 ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02993.i.i.i.i.i.i, align 8
-  %58 = getelementptr i8, ptr %.02993.i.i.i.i.i.i, i64 8
-  %.029.val30.i.i.i.i.i.i = load i64, ptr %58, align 8
-  %59 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
-  %60 = extractvalue { ptr, i64 } %59, 0
-  %61 = extractvalue { ptr, i64 } %59, 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %61, %.029.val30.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.thread65.i.i.i.i.i.i", label %62
+  %60 = getelementptr i8, ptr %.02993.i.i.i.i.i.i, i64 8
+  %.029.val30.i.i.i.i.i.i = load i64, ptr %60, align 8
+  %61 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
+  %62 = extractvalue { ptr, i64 } %61, 0
+  %63 = extractvalue { ptr, i64 } %61, 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %63, %.029.val30.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.thread65.i.i.i.i.i.i", label %64
 
-62:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %63 = icmp eq i64 %.029.val30.i.i.i.i.i.i, 0
-  br i1 %63, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.i.i.i.i.i.i"
+64:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %65 = icmp eq i64 %.029.val30.i.i.i.i.i.i, 0
+  br i1 %65, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.i.i.i.i.i.i": ; preds = %62
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %60, ptr readonly %.029.val.i.i.i.i.i.i, i64 %.029.val30.i.i.i.i.i.i)
-  %64 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
-  br i1 %64, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.thread65.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.i.i.i.i.i.i": ; preds = %64
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %62, ptr readonly %.029.val.i.i.i.i.i.i, i64 %.029.val30.i.i.i.i.i.i)
+  %66 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
+  br i1 %66, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.thread65.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.thread65.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %65 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 16
-  %.val32.i.i.i.i.i.i = load ptr, ptr %65, align 8
-  %66 = getelementptr i8, ptr %.02993.i.i.i.i.i.i, i64 24
-  %.val33.i.i.i.i.i.i = load i64, ptr %66, align 8
-  %67 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
-  %68 = extractvalue { ptr, i64 } %67, 0
-  %69 = extractvalue { ptr, i64 } %67, 1
-  %.not.i.i.i47.i.i.i.i.i.i = icmp ult i64 %69, %.val33.i.i.i.i.i.i
-  br i1 %.not.i.i.i47.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.thread66.i.i.i.i.i.i", label %70
+  %67 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 16
+  %.val32.i.i.i.i.i.i = load ptr, ptr %67, align 8
+  %68 = getelementptr i8, ptr %.02993.i.i.i.i.i.i, i64 24
+  %.val33.i.i.i.i.i.i = load i64, ptr %68, align 8
+  %69 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
+  %70 = extractvalue { ptr, i64 } %69, 0
+  %71 = extractvalue { ptr, i64 } %69, 1
+  %.not.i.i.i47.i.i.i.i.i.i = icmp ult i64 %71, %.val33.i.i.i.i.i.i
+  br i1 %.not.i.i.i47.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.thread66.i.i.i.i.i.i", label %72
 
-70:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.thread65.i.i.i.i.i.i"
-  %71 = icmp eq i64 %.val33.i.i.i.i.i.i, 0
-  br i1 %71, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.i.i.i.i.i.i"
+72:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.thread65.i.i.i.i.i.i"
+  %73 = icmp eq i64 %.val33.i.i.i.i.i.i, 0
+  br i1 %73, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.i.i.i.i.i.i": ; preds = %70
-  %bcmp.i.i.i48.i.i.i.i.i.i = call i32 @bcmp(ptr %68, ptr readonly %.val32.i.i.i.i.i.i, i64 %.val33.i.i.i.i.i.i)
-  %72 = icmp eq i32 %bcmp.i.i.i48.i.i.i.i.i.i, 0
-  br i1 %72, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.thread66.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.i.i.i.i.i.i": ; preds = %72
+  %bcmp.i.i.i48.i.i.i.i.i.i = call i32 @bcmp(ptr %70, ptr readonly %.val32.i.i.i.i.i.i, i64 %.val33.i.i.i.i.i.i)
+  %74 = icmp eq i32 %bcmp.i.i.i48.i.i.i.i.i.i, 0
+  br i1 %74, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.thread66.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.thread66.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.thread65.i.i.i.i.i.i"
-  %73 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 32
-  %.val35.i.i.i.i.i.i = load ptr, ptr %73, align 8
-  %74 = getelementptr i8, ptr %.02993.i.i.i.i.i.i, i64 40
-  %.val36.i.i.i.i.i.i = load i64, ptr %74, align 8
-  %75 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
-  %76 = extractvalue { ptr, i64 } %75, 0
-  %77 = extractvalue { ptr, i64 } %75, 1
-  %.not.i.i.i50.i.i.i.i.i.i = icmp ult i64 %77, %.val36.i.i.i.i.i.i
-  br i1 %.not.i.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.thread67.i.i.i.i.i.i", label %78
+  %75 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 32
+  %.val35.i.i.i.i.i.i = load ptr, ptr %75, align 8
+  %76 = getelementptr i8, ptr %.02993.i.i.i.i.i.i, i64 40
+  %.val36.i.i.i.i.i.i = load i64, ptr %76, align 8
+  %77 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
+  %78 = extractvalue { ptr, i64 } %77, 0
+  %79 = extractvalue { ptr, i64 } %77, 1
+  %.not.i.i.i50.i.i.i.i.i.i = icmp ult i64 %79, %.val36.i.i.i.i.i.i
+  br i1 %.not.i.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.thread67.i.i.i.i.i.i", label %80
 
-78:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.thread66.i.i.i.i.i.i"
-  %79 = icmp eq i64 %.val36.i.i.i.i.i.i, 0
-  br i1 %79, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.i.i.i.i.i.i"
+80:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.thread66.i.i.i.i.i.i"
+  %81 = icmp eq i64 %.val36.i.i.i.i.i.i, 0
+  br i1 %81, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.i.i.i.i.i.i": ; preds = %78
-  %bcmp.i.i.i51.i.i.i.i.i.i = call i32 @bcmp(ptr %76, ptr readonly %.val35.i.i.i.i.i.i, i64 %.val36.i.i.i.i.i.i)
-  %80 = icmp eq i32 %bcmp.i.i.i51.i.i.i.i.i.i, 0
-  br i1 %80, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.thread67.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.i.i.i.i.i.i": ; preds = %80
+  %bcmp.i.i.i51.i.i.i.i.i.i = call i32 @bcmp(ptr %78, ptr readonly %.val35.i.i.i.i.i.i, i64 %.val36.i.i.i.i.i.i)
+  %82 = icmp eq i32 %bcmp.i.i.i51.i.i.i.i.i.i, 0
+  br i1 %82, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit75", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.thread67.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.thread67.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.thread66.i.i.i.i.i.i"
-  %81 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 48
-  %.val38.i.i.i.i.i.i = load ptr, ptr %81, align 8
-  %82 = getelementptr i8, ptr %.02993.i.i.i.i.i.i, i64 56
-  %.val39.i.i.i.i.i.i = load i64, ptr %82, align 8
-  %83 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
-  %84 = extractvalue { ptr, i64 } %83, 0
-  %85 = extractvalue { ptr, i64 } %83, 1
-  %.not.i.i.i53.i.i.i.i.i.i = icmp ult i64 %85, %.val39.i.i.i.i.i.i
-  br i1 %.not.i.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i", label %86
+  %83 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 48
+  %.val38.i.i.i.i.i.i = load ptr, ptr %83, align 8
+  %84 = getelementptr i8, ptr %.02993.i.i.i.i.i.i, i64 56
+  %.val39.i.i.i.i.i.i = load i64, ptr %84, align 8
+  %85 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
+  %86 = extractvalue { ptr, i64 } %85, 0
+  %87 = extractvalue { ptr, i64 } %85, 1
+  %.not.i.i.i53.i.i.i.i.i.i = icmp ult i64 %87, %.val39.i.i.i.i.i.i
+  br i1 %.not.i.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i", label %88
 
-86:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.thread67.i.i.i.i.i.i"
-  %87 = icmp eq i64 %.val39.i.i.i.i.i.i, 0
-  br i1 %87, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit85", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.i.i.i.i.i.i"
+88:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.thread67.i.i.i.i.i.i"
+  %89 = icmp eq i64 %.val39.i.i.i.i.i.i, 0
+  br i1 %89, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.i.i.i.i.i.i": ; preds = %86
-  %bcmp.i.i.i54.i.i.i.i.i.i = call i32 @bcmp(ptr %84, ptr readonly %.val38.i.i.i.i.i.i, i64 %.val39.i.i.i.i.i.i)
-  %88 = icmp eq i32 %bcmp.i.i.i54.i.i.i.i.i.i, 0
-  br i1 %88, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.i.i.i.i.i.i": ; preds = %88
+  %bcmp.i.i.i54.i.i.i.i.i.i = call i32 @bcmp(ptr %86, ptr readonly %.val38.i.i.i.i.i.i, i64 %.val39.i.i.i.i.i.i)
+  %90 = icmp eq i32 %bcmp.i.i.i54.i.i.i.i.i.i, 0
+  br i1 %90, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.thread67.i.i.i.i.i.i"
-  %89 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 64
-  %90 = add nsw i64 %.094.i.i.i.i.i.i, -1
-  %91 = icmp sgt i64 %.094.i.i.i.i.i.i, 1
-  br i1 %91, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !241
+  %91 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 64
+  %92 = add nsw i64 %.094.i.i.i.i.i.i, -1
+  %93 = icmp sgt i64 %.094.i.i.i.i.i.i, 1
+  br i1 %93, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !241
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i", %57
-  %.pre-phi103.i.i.i.i.i.i = phi i64 [ %3, %57 ], [ %38, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i" ]
-  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %2, %57 ], [ %scevgep.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i" ]
+._crit_edge.i.i.i.i.i.i:                          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i", %59
+  %.pre-phi103.i.i.i.i.i.i = phi i64 [ %3, %59 ], [ %38, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i" ]
+  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %2, %59 ], [ %scevgep.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.thread68.i.i.i.i.i.i" ]
   switch i64 %.pre-phi103.i.i.i.i.i.i, label %.critedge [
-    i64 3, label %92
-    i64 2, label %101
-    i64 1, label %110
+    i64 3, label %94
+    i64 2, label %103
+    i64 1, label %112
   ]
 
-92:                                               ; preds = %._crit_edge.i.i.i.i.i.i
+94:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   %.029.val41.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8
-  %93 = getelementptr i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
-  %.029.val42.i.i.i.i.i.i = load i64, ptr %93, align 8
-  %94 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
-  %95 = extractvalue { ptr, i64 } %94, 0
-  %96 = extractvalue { ptr, i64 } %94, 1
-  %.not.i.i.i56.i.i.i.i.i.i = icmp ult i64 %96, %.029.val42.i.i.i.i.i.i
-  br i1 %.not.i.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i", label %97
+  %95 = getelementptr i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
+  %.029.val42.i.i.i.i.i.i = load i64, ptr %95, align 8
+  %96 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
+  %97 = extractvalue { ptr, i64 } %96, 0
+  %98 = extractvalue { ptr, i64 } %96, 1
+  %.not.i.i.i56.i.i.i.i.i.i = icmp ult i64 %98, %.029.val42.i.i.i.i.i.i
+  br i1 %.not.i.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i", label %99
 
-97:                                               ; preds = %92
-  %98 = icmp eq i64 %.029.val42.i.i.i.i.i.i, 0
-  br i1 %98, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i"
+99:                                               ; preds = %94
+  %100 = icmp eq i64 %.029.val42.i.i.i.i.i.i, 0
+  br i1 %100, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i": ; preds = %97
-  %bcmp.i.i.i57.i.i.i.i.i.i = call i32 @bcmp(ptr %95, ptr readonly %.029.val41.i.i.i.i.i.i, i64 %.029.val42.i.i.i.i.i.i)
-  %99 = icmp eq i32 %bcmp.i.i.i57.i.i.i.i.i.i, 0
-  br i1 %99, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i": ; preds = %99
+  %bcmp.i.i.i57.i.i.i.i.i.i = call i32 @bcmp(ptr %97, ptr readonly %.029.val41.i.i.i.i.i.i, i64 %.029.val42.i.i.i.i.i.i)
+  %101 = icmp eq i32 %bcmp.i.i.i57.i.i.i.i.i.i, 0
+  br i1 %101, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i", %92
-  %100 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
-  br label %101
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i", %94
+  %102 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
+  br label %103
 
-101:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %100, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i" ]
+103:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %102, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.thread69.i.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
-  %102 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
-  %.1.val44.i.i.i.i.i.i = load i64, ptr %102, align 8
-  %103 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
-  %104 = extractvalue { ptr, i64 } %103, 0
-  %105 = extractvalue { ptr, i64 } %103, 1
-  %.not.i.i.i59.i.i.i.i.i.i = icmp ult i64 %105, %.1.val44.i.i.i.i.i.i
-  br i1 %.not.i.i.i59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i", label %106
+  %104 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
+  %.1.val44.i.i.i.i.i.i = load i64, ptr %104, align 8
+  %105 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
+  %106 = extractvalue { ptr, i64 } %105, 0
+  %107 = extractvalue { ptr, i64 } %105, 1
+  %.not.i.i.i59.i.i.i.i.i.i = icmp ult i64 %107, %.1.val44.i.i.i.i.i.i
+  br i1 %.not.i.i.i59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i", label %108
 
-106:                                              ; preds = %101
-  %107 = icmp eq i64 %.1.val44.i.i.i.i.i.i, 0
-  br i1 %107, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i"
+108:                                              ; preds = %103
+  %109 = icmp eq i64 %.1.val44.i.i.i.i.i.i, 0
+  br i1 %109, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i": ; preds = %106
-  %bcmp.i.i.i60.i.i.i.i.i.i = call i32 @bcmp(ptr %104, ptr readonly %.1.val.i.i.i.i.i.i, i64 %.1.val44.i.i.i.i.i.i)
-  %108 = icmp eq i32 %bcmp.i.i.i60.i.i.i.i.i.i, 0
-  br i1 %108, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i": ; preds = %108
+  %bcmp.i.i.i60.i.i.i.i.i.i = call i32 @bcmp(ptr %106, ptr readonly %.1.val.i.i.i.i.i.i, i64 %.1.val44.i.i.i.i.i.i)
+  %110 = icmp eq i32 %bcmp.i.i.i60.i.i.i.i.i.i, 0
+  br i1 %110, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i", %101
-  %109 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 16
-  br label %110
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i", %103
+  %111 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 16
+  br label %112
 
-110:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %109, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i" ]
+112:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %111, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.thread70.i.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
-  %111 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
-  %.2.val46.i.i.i.i.i.i = load i64, ptr %111, align 8
-  %112 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #19
-  %113 = extractvalue { ptr, i64 } %112, 0
-  %114 = extractvalue { ptr, i64 } %112, 1
-  %.not.i.i.i62.i.i.i.i.i.i = icmp ult i64 %114, %.2.val46.i.i.i.i.i.i
-  br i1 %.not.i.i.i62.i.i.i.i.i.i, label %.critedge, label %115
+  %113 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
+  %.2.val46.i.i.i.i.i.i = load i64, ptr %113, align 8
+  %114 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
+  %115 = extractvalue { ptr, i64 } %114, 0
+  %116 = extractvalue { ptr, i64 } %114, 1
+  %.not.i.i.i62.i.i.i.i.i.i = icmp ult i64 %116, %.2.val46.i.i.i.i.i.i
+  br i1 %.not.i.i.i62.i.i.i.i.i.i, label %.critedge, label %117
 
-115:                                              ; preds = %110
-  %116 = icmp eq i64 %.2.val46.i.i.i.i.i.i, 0
-  br i1 %116, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i"
+117:                                              ; preds = %112
+  %118 = icmp eq i64 %.2.val46.i.i.i.i.i.i, 0
+  br i1 %118, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i": ; preds = %115
-  %bcmp.i.i.i63.i.i.i.i.i.i = call i32 @bcmp(ptr %113, ptr readonly %.2.val.i.i.i.i.i.i, i64 %.2.val46.i.i.i.i.i.i)
-  %117 = icmp eq i32 %bcmp.i.i.i63.i.i.i.i.i.i, 0
-  br i1 %117, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %.critedge
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i": ; preds = %117
+  %bcmp.i.i.i63.i.i.i.i.i.i = call i32 @bcmp(ptr %115, ptr readonly %.2.val.i.i.i.i.i.i, i64 %.2.val46.i.i.i.i.i.i)
+  %119 = icmp eq i32 %bcmp.i.i.i63.i.i.i.i.i.i, 0
+  br i1 %119, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", label %.critedge
 
 "_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit49.i.i.i.i.i.i"
-  %118 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 16
+  %120 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.i.i.i.i.i.i"
-  %119 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 32
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit75": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit52.i.i.i.i.i.i"
+  %121 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 32
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.i.i.i.i.i.i"
-  %120 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 48
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit55.i.i.i.i.i.i"
+  %122 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81": ; preds = %70
-  %121 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 16
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79": ; preds = %72
+  %123 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83": ; preds = %78
-  %122 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 32
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81": ; preds = %80
+  %124 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 32
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit85": ; preds = %86
-  %123 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 48
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83": ; preds = %88
+  %125 = getelementptr inbounds i8, ptr %.02993.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit": ; preds = %62, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit85", %97, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i", %106, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i", %115, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %97 ], [ %.1.i.i.i.i.i.i, %106 ], [ %.2.i.i.i.i.i.i, %115 ], [ %118, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %119, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77" ], [ %120, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79" ], [ %121, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81" ], [ %122, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83" ], [ %123, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit85" ], [ %.02993.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.i.i.i.i.i.i" ], [ %.02993.i.i.i.i.i.i, %62 ]
-  %.not47 = icmp eq ptr %34, %.028.i.i.i.i.i.i
-  br i1 %.not47, label %.critedge, label %134
+"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit": ; preds = %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit75", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81", %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83", %99, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i", %108, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i", %117, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit58.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit61.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %99 ], [ %.1.i.i.i.i.i.i, %108 ], [ %.2.i.i.i.i.i.i, %117 ], [ %120, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %121, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit75" ], [ %122, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77" ], [ %123, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79" ], [ %124, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81" ], [ %125, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83" ], [ %.02993.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit.i.i.i.i.i.i" ], [ %.02993.i.i.i.i.i.i, %64 ]
+  %.not45 = icmp eq ptr %34, %.028.i.i.i.i.i.i
+  br i1 %.not45, label %.critedge, label %136
 
-.critedge:                                        ; preds = %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i", %110, %._crit_edge.i.i.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit"
-  %124 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
-  %125 = add i64 %124, 1
-  %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
-  %.not.i.i.i31 = icmp ugt i64 %125, %126
-  br i1 %.not.i.i.i31, label %127, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit32
+.critedge:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm30makePostTransformationMetadataERNS2_11LLVMContextEPNS2_6MDNodeENS2_8ArrayRefINS2_9StringRefEEENS7_IS6_EEE3$_0EclIPKS8_EEbT_.exit64.i.i.i.i.i.i", %112, %._crit_edge.i.i.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit, %39, %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit"
+  %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  %127 = add i64 %126, 1
+  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  %.not.i.i.i31 = icmp ugt i64 %127, %128
+  br i1 %.not.i.i.i31, label %129, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit32
 
-127:                                              ; preds = %.critedge
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef %125, i64 noundef 8) #19
+129:                                              ; preds = %.critedge
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef %127, i64 noundef 8) #19
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit32
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit32: ; preds = %.critedge, %127
-  %128 = load ptr, ptr %7, align 8
-  %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
-  %130 = getelementptr inbounds ptr, ptr %128, i64 %129
-  %131 = ptrtoint ptr %40 to i64
-  store i64 %131, ptr %130, align 1
-  %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
-  %133 = add i64 %132, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %133) #19
-  br label %134
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit32: ; preds = %.critedge, %129
+  %130 = load ptr, ptr %7, align 8
+  %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  %132 = getelementptr inbounds ptr, ptr %130, i64 %131
+  %133 = ptrtoint ptr %40 to i64
+  store i64 %133, ptr %132, align 1
+  %134 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  %135 = add i64 %134, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %135) #19
+  br label %136
 
-134:                                              ; preds = %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit32
-  %.0 = getelementptr inbounds i8, ptr %.069, i64 8
+136:                                              ; preds = %"_ZN4llvm6any_ofIRNS_8ArrayRefINS_9StringRefEEEZNS_30makePostTransformationMetadataERNS_11LLVMContextEPNS_6MDNodeES3_NS1_IS8_EEE3$_0EEbOT_T0_.exit", %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit32
+  %.0 = getelementptr inbounds i8, ptr %.067, i64 8
   %.not23 = icmp eq ptr %.0, %33
   br i1 %.not23, label %.loopexit, label %39
 
-.loopexit:                                        ; preds = %134, %_ZNK4llvm6MDNode8operandsEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit
-  %135 = getelementptr inbounds ptr, ptr %4, i64 %5
-  call void @_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKPNS_6MDNodeEvEEvT_S9_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %4, ptr noundef %135)
-  %136 = load ptr, ptr %7, align 8
-  %137 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
-  %138 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %136, i64 %137, i32 noundef 1, i1 noundef zeroext true) #19
-  call void @_ZN4llvm6MDNode18replaceOperandWithEjPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(16) %138, i32 noundef 0, ptr noundef %138) #19
-  %139 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #19
-  %140 = load ptr, ptr %7, align 8
-  %141 = icmp eq ptr %140, %8
-  br i1 %141, label %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit, label %142
+.loopexit:                                        ; preds = %136, %_ZNK4llvm6MDNode8operandsEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit
+  %137 = getelementptr inbounds ptr, ptr %4, i64 %5
+  call void @_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKPNS_6MDNodeEvEEvT_S9_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %4, ptr noundef %137)
+  %138 = load ptr, ptr %7, align 8
+  %139 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  %140 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %138, i64 %139, i32 noundef 1, i1 noundef zeroext true) #19
+  call void @_ZN4llvm6MDNode18replaceOperandWithEjPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(16) %140, i32 noundef 0, ptr noundef %140) #19
+  %141 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #19
+  %142 = load ptr, ptr %7, align 8
+  %143 = icmp eq ptr %142, %8
+  br i1 %143, label %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit, label %144
 
-142:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %140) #19
+144:                                              ; preds = %.loopexit
+  call void @free(ptr noundef %142) #19
   br label %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit: ; preds = %.loopexit, %142
-  ret ptr %138
+_ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit: ; preds = %.loopexit, %144
+  ret ptr %140
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14999,7 +15000,7 @@ declare noundef zeroext i1 @_ZN4llvm18forcePrintModuleIREv() local_unnamed_addr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm21findOptionMDForLoopIDEPNS_6MDNodeENS_9StringRefE(ptr noundef %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 {
-  %.fr50 = freeze i64 %2
+  %.fr49 = freeze i64 %2
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %4
 
@@ -15030,160 +15031,162 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %8, %12
   %.sroa.0.0.i.i = phi ptr [ %16, %12 ], [ %10, %8 ]
   %.idx = shl nsw i64 %.sroa.3.0.i.i, 3
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.idx
-  %.not2443 = icmp eq i64 %.sroa.3.0.i.i, 1
-  br i1 %.not2443, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
+  %.not2442 = icmp eq i64 %.sroa.3.0.i.i, 1
+  br i1 %.not2442, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm6MDNode8operandsEv.exit
-  %.02042 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
-  %20 = icmp eq i64 %.fr50, 0
+  %.02041 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
+  %20 = icmp eq i64 %.fr49, 0
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us
-  %.02044.us = phi ptr [ %.020.us, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us ], [ %.02042, %.lr.ph ]
-  %21 = load ptr, ptr %.02044.us, align 8
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread36.us
+  %.02043.us = phi ptr [ %.020.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread36.us ], [ %.02041, %.lr.ph ]
+  %21 = load ptr, ptr %.02043.us, align 8
   %22 = load i8, ptr %21, align 4
-  %.off.us = add i8 %22, -5
-  %switch.us = icmp ult i8 %.off.us, 31
-  br i1 %switch.us, label %23, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us
+  %23 = zext i8 %22 to i32
+  %24 = add nsw i32 %23, -36
+  %switch.i.i.i.i.i.i.i.i.i.us = icmp ult i32 %24, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36.us, label %25
 
-23:                                               ; preds = %.lr.ph.split.us
-  %24 = getelementptr inbounds i8, ptr %21, i64 -16
-  %25 = load i64, ptr %24, align 8
-  %26 = and i64 %25, 2
-  %.not.i.i29.us = icmp eq i64 %26, 0
-  br i1 %.not.i.i29.us, label %31, label %27
+25:                                               ; preds = %.lr.ph.split.us
+  %26 = getelementptr inbounds i8, ptr %21, i64 -16
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, 2
+  %.not.i.i29.us = icmp eq i64 %28, 0
+  br i1 %.not.i.i29.us, label %33, label %29
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %21, i64 -32
-  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #19
-  %30 = trunc i64 %29 to i32
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %21, i64 -32
+  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #19
+  %32 = trunc i64 %31 to i32
   br label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.us
 
-31:                                               ; preds = %23
-  %32 = trunc i64 %25 to i32
-  %33 = lshr i32 %32, 6
-  %34 = and i32 %33, 15
+33:                                               ; preds = %25
+  %34 = trunc i64 %27 to i32
+  %35 = lshr i32 %34, 6
+  %36 = and i32 %35, 15
   br label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.us
 
-_ZNK4llvm6MDNode14getNumOperandsEv.exit.us:       ; preds = %31, %27
-  %.0.i.i.us = phi i32 [ %30, %27 ], [ %34, %31 ]
-  %35 = icmp eq i32 %.0.i.i.us, 0
-  br i1 %35, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us, label %36
+_ZNK4llvm6MDNode14getNumOperandsEv.exit.us:       ; preds = %33, %29
+  %.0.i.i.us = phi i32 [ %32, %29 ], [ %36, %33 ]
+  %37 = icmp eq i32 %.0.i.i.us, 0
+  br i1 %37, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36.us, label %38
 
-36:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.us
-  %37 = load i64, ptr %24, align 8
-  %38 = and i64 %37, 2
-  %.not.i.i30.us = icmp eq i64 %38, 0
-  br i1 %.not.i.i30.us, label %43, label %39
+38:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.us
+  %39 = load i64, ptr %26, align 8
+  %40 = and i64 %39, 2
+  %.not.i.i30.us = icmp eq i64 %40, 0
+  br i1 %.not.i.i30.us, label %45, label %41
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %21, i64 -32
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #19
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds i8, ptr %21, i64 -32
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #19
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.us
 
-43:                                               ; preds = %36
-  %44 = lshr i64 %37, 2
-  %45 = and i64 %44, 15
-  %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds %"class.llvm::MDOperand", ptr %24, i64 %46
+45:                                               ; preds = %38
+  %46 = lshr i64 %39, 2
+  %47 = and i64 %46, 15
+  %48 = sub nsw i64 0, %47
+  %49 = getelementptr inbounds %"class.llvm::MDOperand", ptr %26, i64 %48
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.us
 
-_ZNK4llvm6MDNode10getOperandEj.exit.us:           ; preds = %43, %39
-  %.sroa.0.0.i.i31.us = phi ptr [ %47, %43 ], [ %41, %39 ]
-  %48 = load ptr, ptr %.sroa.0.0.i.i31.us, align 8
-  %49 = load i8, ptr %48, align 4
-  %.not41.us = icmp eq i8 %49, 0
-  br i1 %.not41.us, label %50, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us
+_ZNK4llvm6MDNode10getOperandEj.exit.us:           ; preds = %45, %41
+  %.sroa.0.0.i.i31.us = phi ptr [ %49, %45 ], [ %43, %41 ]
+  %50 = load ptr, ptr %.sroa.0.0.i.i31.us, align 8
+  %51 = load i8, ptr %50, align 4
+  %.not40.us = icmp eq i8 %51, 0
+  br i1 %.not40.us, label %52, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36.us
 
-50:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.us
-  %51 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #19
-  %52 = extractvalue { ptr, i64 } %51, 1
-  %.not.i.us = icmp eq i64 %52, 0
-  br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us
+52:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.us
+  %53 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #19
+  %54 = extractvalue { ptr, i64 } %53, 1
+  %.not.i.us = icmp eq i64 %54, 0
+  br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36.us
 
-_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us: ; preds = %50, %_ZNK4llvm6MDNode10getOperandEj.exit.us, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.us, %.lr.ph.split.us
-  %.020.us = getelementptr inbounds i8, ptr %.02044.us, i64 8
+_ZN4llvmeqENS_9StringRefES0_.exit.thread36.us:    ; preds = %52, %_ZNK4llvm6MDNode10getOperandEj.exit.us, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.us, %.lr.ph.split.us
+  %.020.us = getelementptr inbounds i8, ptr %.02043.us, i64 8
   %.not24.us = icmp eq ptr %.020.us, %19
   br i1 %.not24.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
-  %.02044 = phi ptr [ %.020, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit ], [ %.02042, %.lr.ph ]
-  %53 = load ptr, ptr %.02044, align 8
-  %54 = load i8, ptr %53, align 4
-  %.off = add i8 %54, -5
-  %switch = icmp ult i8 %.off, 31
-  br i1 %switch, label %55, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread36
+  %.02043 = phi ptr [ %.020, %_ZN4llvmeqENS_9StringRefES0_.exit.thread36 ], [ %.02041, %.lr.ph ]
+  %55 = load ptr, ptr %.02043, align 8
+  %56 = load i8, ptr %55, align 4
+  %57 = zext i8 %56 to i32
+  %58 = add nsw i32 %57, -36
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %58, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36, label %59
 
-55:                                               ; preds = %.lr.ph.split
-  %56 = getelementptr inbounds i8, ptr %53, i64 -16
-  %57 = load i64, ptr %56, align 8
-  %58 = and i64 %57, 2
-  %.not.i.i29 = icmp eq i64 %58, 0
-  br i1 %.not.i.i29, label %59, label %63
+59:                                               ; preds = %.lr.ph.split
+  %60 = getelementptr inbounds i8, ptr %55, i64 -16
+  %61 = load i64, ptr %60, align 8
+  %62 = and i64 %61, 2
+  %.not.i.i29 = icmp eq i64 %62, 0
+  br i1 %.not.i.i29, label %63, label %67
 
-59:                                               ; preds = %55
-  %60 = trunc i64 %57 to i32
-  %61 = lshr i32 %60, 6
-  %62 = and i32 %61, 15
+63:                                               ; preds = %59
+  %64 = trunc i64 %61 to i32
+  %65 = lshr i32 %64, 6
+  %66 = and i32 %65, 15
   br label %_ZNK4llvm6MDNode14getNumOperandsEv.exit
 
-63:                                               ; preds = %55
-  %64 = getelementptr inbounds i8, ptr %53, i64 -32
-  %65 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #19
-  %66 = trunc i64 %65 to i32
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds i8, ptr %55, i64 -32
+  %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #19
+  %70 = trunc i64 %69 to i32
   br label %_ZNK4llvm6MDNode14getNumOperandsEv.exit
 
-_ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %59, %63
-  %.0.i.i = phi i32 [ %66, %63 ], [ %62, %59 ]
-  %67 = icmp eq i32 %.0.i.i, 0
-  br i1 %67, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit, label %68
+_ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %63, %67
+  %.0.i.i = phi i32 [ %70, %67 ], [ %66, %63 ]
+  %71 = icmp eq i32 %.0.i.i, 0
+  br i1 %71, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36, label %72
 
-68:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit
-  %69 = load i64, ptr %56, align 8
-  %70 = and i64 %69, 2
-  %.not.i.i30 = icmp eq i64 %70, 0
-  br i1 %.not.i.i30, label %75, label %71
+72:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit
+  %73 = load i64, ptr %60, align 8
+  %74 = and i64 %73, 2
+  %.not.i.i30 = icmp eq i64 %74, 0
+  br i1 %.not.i.i30, label %79, label %75
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %53, i64 -32
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #19
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds i8, ptr %55, i64 -32
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #19
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
-75:                                               ; preds = %68
-  %76 = lshr i64 %69, 2
-  %77 = and i64 %76, 15
-  %78 = sub nsw i64 0, %77
-  %79 = getelementptr inbounds %"class.llvm::MDOperand", ptr %56, i64 %78
+79:                                               ; preds = %72
+  %80 = lshr i64 %73, 2
+  %81 = and i64 %80, 15
+  %82 = sub nsw i64 0, %81
+  %83 = getelementptr inbounds %"class.llvm::MDOperand", ptr %60, i64 %82
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
-_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %71, %75
-  %.sroa.0.0.i.i31 = phi ptr [ %79, %75 ], [ %73, %71 ]
-  %80 = load ptr, ptr %.sroa.0.0.i.i31, align 8
-  %81 = load i8, ptr %80, align 4
-  %.not41 = icmp eq i8 %81, 0
-  br i1 %.not41, label %82, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
+_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %75, %79
+  %.sroa.0.0.i.i31 = phi ptr [ %83, %79 ], [ %77, %75 ]
+  %84 = load ptr, ptr %.sroa.0.0.i.i31, align 8
+  %85 = load i8, ptr %84, align 4
+  %.not40 = icmp eq i8 %85, 0
+  br i1 %.not40, label %86, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36
 
-82:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
-  %83 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %80) #19
-  %84 = extractvalue { ptr, i64 } %83, 1
-  %.not.i = icmp eq i64 %.fr50, %84
-  br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
+86:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
+  %87 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %84) #19
+  %88 = extractvalue { ptr, i64 } %87, 1
+  %.not.i = icmp eq i64 %.fr49, %88
+  br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %82
-  %85 = extractvalue { ptr, i64 } %83, 0
-  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %85, i64 %.fr50)
-  %86 = icmp eq i32 %bcmp.i, 0
-  br i1 %86, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %86
+  %89 = extractvalue { ptr, i64 } %87, 0
+  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %89, i64 %.fr49)
+  %90 = icmp eq i32 %bcmp.i, 0
+  br i1 %90, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36
 
-_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit: ; preds = %.lr.ph.split, %82, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit
-  %.020 = getelementptr inbounds i8, ptr %.02044, i64 8
+_ZN4llvmeqENS_9StringRefES0_.exit.thread36:       ; preds = %86, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm6MDNode10getOperandEj.exit, %.lr.ph.split, %_ZNK4llvm6MDNode14getNumOperandsEv.exit
+  %.020 = getelementptr inbounds i8, ptr %.02043, i64 8
   %.not24 = icmp eq ptr %.020, %19
   br i1 %.not24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph.split
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us, %50, %_ZNK4llvm6MDNode8operandsEv.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %_ZNK4llvm6MDNode8operandsEv.exit ], [ null, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.us ], [ %21, %50 ], [ %53, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ null, %_ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread36, %_ZN4llvmeqENS_9StringRefES0_.exit.thread36.us, %52, %_ZNK4llvm6MDNode8operandsEv.exit, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %_ZNK4llvm6MDNode8operandsEv.exit ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread36.us ], [ %21, %52 ], [ %55, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread36 ]
   ret ptr %.0
 }
 

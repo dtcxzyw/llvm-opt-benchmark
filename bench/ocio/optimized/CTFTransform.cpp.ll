@@ -24666,7 +24666,7 @@ entry:
   switch i32 %bitDepth, label %sw.epilog [
     i32 1, label %sw.epilog.sink.split
     i32 2, label %sw.bb3
-    i32 3, label %sw.bb9
+    i32 3, label %sw.bb3
     i32 5, label %sw.bb15
     i32 7, label %sw.bb21
     i32 8, label %sw.bb32
@@ -24675,10 +24675,7 @@ entry:
     i32 0, label %sw.bb37
   ]
 
-sw.bb3:                                           ; preds = %entry
-  br label %sw.epilog.sink.split
-
-sw.bb9:                                           ; preds = %entry
+sw.bb3:                                           ; preds = %entry, %entry
   br label %sw.epilog.sink.split
 
 sw.bb15:                                          ; preds = %entry
@@ -24742,9 +24739,9 @@ lpad39:                                           ; preds = %sw.bb37
   call void @__cxa_free_exception(ptr %exception38) #27
   br label %ehcleanup90
 
-sw.epilog.sink.split:                             ; preds = %entry, %sw.bb3, %sw.bb9, %sw.bb15, %sw.bb21, %sw.bb32
-  %.sink29 = phi i64 [ 8, %sw.bb32 ], [ 8, %sw.bb21 ], [ 16, %sw.bb15 ], [ 16, %sw.bb9 ], [ 16, %sw.bb3 ], [ 16, %entry ]
-  %.sink = phi i64 [ 8, %sw.bb32 ], [ 5, %sw.bb21 ], [ 5, %sw.bb15 ], [ 4, %sw.bb9 ], [ 4, %sw.bb3 ], [ 3, %entry ]
+sw.epilog.sink.split:                             ; preds = %entry, %sw.bb3, %sw.bb15, %sw.bb21, %sw.bb32
+  %.sink29 = phi i64 [ 8, %sw.bb32 ], [ 8, %sw.bb21 ], [ 16, %sw.bb15 ], [ 16, %sw.bb3 ], [ 16, %entry ]
+  %.sink = phi i64 [ 8, %sw.bb32 ], [ 5, %sw.bb21 ], [ 5, %sw.bb15 ], [ 4, %sw.bb3 ], [ 3, %entry ]
   %vtable1.i = load ptr, ptr %oss, align 8
   %vbase.offset.ptr2.i = getelementptr i8, ptr %vtable1.i, i64 -24
   %vbase.offset3.i = load i64, ptr %vbase.offset.ptr2.i, align 8

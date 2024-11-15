@@ -1243,89 +1243,86 @@ define dso_local i32 @e1000e_setup_fiber_serdes_link(ptr noundef %0) local_unnam
   tail call void %6(ptr noundef %0) #6
   %7 = getelementptr inbounds i8, ptr %0, i64 808
   %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %49 [
-    i32 0, label %12
+  switch i32 %8, label %48 [
+    i32 0, label %11
     i32 1, label %9
     i32 2, label %10
-    i32 3, label %11
+    i32 3, label %9
   ]
 
-9:                                                ; preds = %1
-  br label %12
+9:                                                ; preds = %1, %1
+  br label %11
 
 10:                                               ; preds = %1
-  br label %12
+  br label %11
 
-11:                                               ; preds = %1
-  br label %12
-
-12:                                               ; preds = %1, %9, %10, %11
-  %13 = phi i32 [ -2147483232, %11 ], [ -2147483360, %10 ], [ -2147483232, %9 ], [ -2147483616, %1 ]
-  tail call void @__ew32(ptr noundef %0, i64 noundef 376, i32 noundef %13) #6
-  %14 = getelementptr inbounds i8, ptr %0, i64 248
-  store i32 %13, ptr %14, align 8
-  %15 = and i32 %4, -9
-  tail call void @__ew32(ptr noundef %0, i64 noundef 0, i32 noundef %15) #6
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr i8, ptr %16, i64 8
-  %18 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17) #6, !srcloc !6
+11:                                               ; preds = %1, %9, %10
+  %12 = phi i32 [ -2147483360, %10 ], [ -2147483232, %9 ], [ -2147483616, %1 ]
+  tail call void @__ew32(ptr noundef %0, i64 noundef 376, i32 noundef %12) #6
+  %13 = getelementptr inbounds i8, ptr %0, i64 248
+  store i32 %12, ptr %13, align 8
+  %14 = and i32 %4, -9
+  tail call void @__ew32(ptr noundef %0, i64 noundef 0, i32 noundef %14) #6
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr i8, ptr %15, i64 8
+  %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #6, !srcloc !6
   tail call void @usleep_range_state(i64 noundef 1000, i64 noundef 2000, i32 noundef 2) #6
-  %19 = getelementptr inbounds i8, ptr %0, i64 1036
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, 3
-  br i1 %21, label %.preheader, label %22
+  %18 = getelementptr inbounds i8, ptr %0, i64 1036
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp eq i32 %19, 3
+  br i1 %20, label %.preheader, label %21
 
-22:                                               ; preds = %12
-  %23 = load ptr, ptr %2, align 8
-  %24 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23) #6, !srcloc !6
-  %25 = and i32 %24, 524288
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %49, label %.preheader
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %2, align 8
+  %23 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22) #6, !srcloc !6
+  %24 = and i32 %23, 524288
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %48, label %.preheader
 
-.preheader:                                       ; preds = %22, %12
-  br label %27
+.preheader:                                       ; preds = %21, %11
+  br label %26
 
-27:                                               ; preds = %.preheader, %34
-  %28 = phi i32 [ %35, %34 ], [ 0, %.preheader ]
+26:                                               ; preds = %.preheader, %33
+  %27 = phi i32 [ %34, %33 ], [ 0, %.preheader ]
   tail call void @usleep_range_state(i64 noundef 10000, i64 noundef 11000, i32 noundef 2) #6
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr i8, ptr %29, i64 8
-  %31 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30) #6, !srcloc !6
-  %32 = and i32 %31, 2
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %38
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr i8, ptr %28, i64 8
+  %30 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29) #6, !srcloc !6
+  %31 = and i32 %30, 2
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %37
 
-34:                                               ; preds = %27
-  %35 = add nuw nsw i32 %28, 1
-  %36 = icmp eq i32 %35, 50
-  br i1 %36, label %.thread2, label %27, !llvm.loop !18
+33:                                               ; preds = %26
+  %34 = add nuw nsw i32 %27, 1
+  %35 = icmp eq i32 %34, 50
+  br i1 %35, label %.thread2, label %26, !llvm.loop !18
 
-.thread2:                                         ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 783
-  br label %41
+.thread2:                                         ; preds = %33
+  %36 = getelementptr inbounds i8, ptr %0, i64 783
+  br label %40
 
-38:                                               ; preds = %27
-  %39 = icmp eq i32 %28, 50
-  %40 = getelementptr inbounds i8, ptr %0, i64 783
-  br i1 %39, label %41, label %47
+37:                                               ; preds = %26
+  %38 = icmp eq i32 %27, 50
+  %39 = getelementptr inbounds i8, ptr %0, i64 783
+  br i1 %38, label %40, label %46
 
-41:                                               ; preds = %.thread2, %38
-  %42 = phi ptr [ %37, %.thread2 ], [ %40, %38 ]
-  store i8 1, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 %44(ptr noundef %0) #6
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %49
+40:                                               ; preds = %.thread2, %37
+  %41 = phi ptr [ %36, %.thread2 ], [ %39, %37 ]
+  store i8 1, ptr %41, align 1
+  %42 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call i32 %43(ptr noundef %0) #6
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %48
 
-47:                                               ; preds = %41, %38
-  %48 = phi ptr [ %42, %41 ], [ %40, %38 ]
-  store i8 0, ptr %48, align 1
-  br label %49
+46:                                               ; preds = %40, %37
+  %47 = phi ptr [ %41, %40 ], [ %39, %37 ]
+  store i8 0, ptr %47, align 1
+  br label %48
 
-49:                                               ; preds = %1, %47, %41, %22
-  %50 = phi i32 [ 0, %22 ], [ %45, %41 ], [ 0, %47 ], [ -3, %1 ]
-  ret i32 %50
+48:                                               ; preds = %1, %46, %40, %21
+  %49 = phi i32 [ 0, %21 ], [ %44, %40 ], [ 0, %46 ], [ -3, %1 ]
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

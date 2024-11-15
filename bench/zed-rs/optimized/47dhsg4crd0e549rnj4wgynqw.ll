@@ -70241,11 +70241,11 @@ define hidden void @"_ZN10zbus_names11member_name1_87_$LT$impl$u20$serde..ser..S
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !16914, !noalias !16915, !nonnull !4, !noundef !4
   %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !16914, !noalias !16915, !noundef !4
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !16918
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !16918
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !16920, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hef787234060ec8b1E.exit", label %10
@@ -70275,11 +70275,11 @@ define hidden void @"_ZN10zbus_names11member_name1_87_$LT$impl$u20$serde..ser..S
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !16942, !noalias !16943, !nonnull !4, !noundef !4
   %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !16942, !noalias !16943, !noundef !4
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !16946
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !16946
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !16947, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h58c311b762ba9b26E.exit", label %10
@@ -70309,11 +70309,11 @@ define hidden void @"_ZN10zbus_names11member_name1_87_$LT$impl$u20$serde..ser..S
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !16969, !noalias !16970, !nonnull !4, !noundef !4
   %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !16969, !noalias !16970, !noundef !4
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !16973
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !16973
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !16974, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8d09e8b0c4ddf33fE.exit", label %10
@@ -70343,11 +70343,11 @@ define hidden void @"_ZN10zbus_names11member_name1_87_$LT$impl$u20$serde..ser..S
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !16996, !noalias !16997, !nonnull !4, !noundef !4
   %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !16996, !noalias !16997, !noundef !4
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !17000
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !17000
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !17001, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17he6e7b9dae5e66f2bE.exit", label %10
@@ -70379,11 +70379,11 @@ define hidden void @"_ZN10zbus_names11member_name1_92_$LT$impl$u20$serde..ser..S
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17033, !noalias !17034, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !17033, !noalias !17034, !noundef !4
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17037
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17037
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !17038, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9e47abc8ac2d2026E.exit", label %10
@@ -70415,11 +70415,11 @@ define hidden void @"_ZN10zbus_names11member_name1_92_$LT$impl$u20$serde..ser..S
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17070, !noalias !17071, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !17070, !noalias !17071, !noundef !4
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17074
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17074
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !17075, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h862c332540376e25E.exit", label %10
@@ -70451,11 +70451,11 @@ define hidden void @"_ZN10zbus_names11member_name1_92_$LT$impl$u20$serde..ser..S
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17107, !noalias !17108, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !17107, !noalias !17108, !noundef !4
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17111
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17111
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !17112, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hf4b083fdc2469626E.exit", label %10
@@ -70487,11 +70487,11 @@ define hidden void @"_ZN10zbus_names11member_name1_92_$LT$impl$u20$serde..ser..S
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17144, !noalias !17145, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !17144, !noalias !17145, !noundef !4
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17148
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17148
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !17149, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h22f69451aeef7475E.exit", label %10
@@ -115529,21 +115529,21 @@ define internal fastcc void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4send28_$
   %18 = xor i64 %17, -1
   %19 = and i64 %11, %18
   %20 = icmp eq i64 %15, %19
-  br i1 %20, label %24, label %21
+  br i1 %20, label %23, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
 
-21:                                               ; preds = %24, %2
-  %22 = getelementptr inbounds i8, ptr %.val1, i64 24
-  %23 = cmpxchg ptr %22, i64 0, i64 1 acq_rel acquire, align 8, !noalias !24329
-  br label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
+_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit: ; preds = %23, %2
+  %21 = getelementptr inbounds i8, ptr %.val1, i64 24
+  %22 = cmpxchg ptr %21, i64 0, i64 1 acq_rel acquire, align 8, !noalias !24329
+  br label %28
 
-24:                                               ; preds = %2
-  %25 = load atomic i64, ptr %10 seq_cst, align 128
-  %26 = load i64, ptr %16, align 16, !noundef !4
-  %27 = and i64 %26, %25
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, label %21
+23:                                               ; preds = %2
+  %24 = load atomic i64, ptr %10 seq_cst, align 128
+  %25 = load i64, ptr %16, align 16, !noundef !4
+  %26 = and i64 %25, %24
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
 
-_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit: ; preds = %21, %24
+28:                                               ; preds = %23, %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !align !27, !noundef !4
   %31 = load i64, ptr %30, align 8
@@ -115555,7 +115555,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.284093984
   %36 = icmp eq i32 %33, 1000000000
   br i1 %36, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, %38
+.split.us.i:                                      ; preds = %28, %38
   %37 = load atomic i64, ptr %35 acquire, align 8
   switch i64 %37, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread6 [
     i64 0, label %38
@@ -115567,7 +115567,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.284093984
   tail call void @_ZN3std6thread4park17he169a6d7b9792c73E()
   br label %.split.us.i
 
-.split.i:                                         ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, %50
+.split.i:                                         ; preds = %28, %50
   %39 = load atomic i64, ptr %35 acquire, align 8
   switch i64 %39, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread6 [
     i64 0, label %40
@@ -115668,21 +115668,21 @@ define internal fastcc void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4send28_$
   %18 = xor i64 %17, -1
   %19 = and i64 %11, %18
   %20 = icmp eq i64 %15, %19
-  br i1 %20, label %24, label %21
+  br i1 %20, label %23, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
 
-21:                                               ; preds = %24, %2
-  %22 = getelementptr inbounds i8, ptr %.val1, i64 24
-  %23 = cmpxchg ptr %22, i64 0, i64 1 acq_rel acquire, align 8, !noalias !24348
-  br label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
+_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit: ; preds = %23, %2
+  %21 = getelementptr inbounds i8, ptr %.val1, i64 24
+  %22 = cmpxchg ptr %21, i64 0, i64 1 acq_rel acquire, align 8, !noalias !24348
+  br label %28
 
-24:                                               ; preds = %2
-  %25 = load atomic i64, ptr %10 seq_cst, align 128
-  %26 = load i64, ptr %16, align 16, !noundef !4
-  %27 = and i64 %26, %25
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, label %21
+23:                                               ; preds = %2
+  %24 = load atomic i64, ptr %10 seq_cst, align 128
+  %25 = load i64, ptr %16, align 16, !noundef !4
+  %26 = and i64 %25, %24
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
 
-_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit: ; preds = %21, %24
+28:                                               ; preds = %23, %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !align !27, !noundef !4
   %31 = load i64, ptr %30, align 8
@@ -115694,7 +115694,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.284093984
   %36 = icmp eq i32 %33, 1000000000
   br i1 %36, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, %38
+.split.us.i:                                      ; preds = %28, %38
   %37 = load atomic i64, ptr %35 acquire, align 8
   switch i64 %37, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread6 [
     i64 0, label %38
@@ -115706,7 +115706,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.284093984
   tail call void @_ZN3std6thread4park17he169a6d7b9792c73E()
   br label %.split.us.i
 
-.split.i:                                         ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, %50
+.split.i:                                         ; preds = %28, %50
   %39 = load atomic i64, ptr %35 acquire, align 8
   switch i64 %39, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread6 [
     i64 0, label %40
@@ -115807,21 +115807,21 @@ define internal fastcc void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4send28_$
   %18 = xor i64 %17, -1
   %19 = and i64 %11, %18
   %20 = icmp eq i64 %15, %19
-  br i1 %20, label %24, label %21
+  br i1 %20, label %23, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
 
-21:                                               ; preds = %24, %2
-  %22 = getelementptr inbounds i8, ptr %.val1, i64 24
-  %23 = cmpxchg ptr %22, i64 0, i64 1 acq_rel acquire, align 8, !noalias !24367
-  br label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
+_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit: ; preds = %23, %2
+  %21 = getelementptr inbounds i8, ptr %.val1, i64 24
+  %22 = cmpxchg ptr %21, i64 0, i64 1 acq_rel acquire, align 8, !noalias !24367
+  br label %28
 
-24:                                               ; preds = %2
-  %25 = load atomic i64, ptr %10 seq_cst, align 128
-  %26 = load i64, ptr %16, align 16, !noundef !4
-  %27 = and i64 %26, %25
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, label %21
+23:                                               ; preds = %2
+  %24 = load atomic i64, ptr %10 seq_cst, align 128
+  %25 = load i64, ptr %16, align 16, !noundef !4
+  %26 = and i64 %25, %24
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
 
-_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit: ; preds = %21, %24
+28:                                               ; preds = %23, %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !align !27, !noundef !4
   %31 = load i64, ptr %30, align 8
@@ -115833,7 +115833,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.284093984
   %36 = icmp eq i32 %33, 1000000000
   br i1 %36, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, %38
+.split.us.i:                                      ; preds = %28, %38
   %37 = load atomic i64, ptr %35 acquire, align 8
   switch i64 %37, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread6 [
     i64 0, label %38
@@ -115845,7 +115845,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.284093984
   tail call void @_ZN3std6thread4park17he169a6d7b9792c73E()
   br label %.split.us.i
 
-.split.i:                                         ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, %50
+.split.i:                                         ; preds = %28, %50
   %39 = load atomic i64, ptr %35 acquire, align 8
   switch i64 %39, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread6 [
     i64 0, label %40
@@ -115946,21 +115946,21 @@ define internal fastcc void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4send28_$
   %18 = xor i64 %17, -1
   %19 = and i64 %11, %18
   %20 = icmp eq i64 %15, %19
-  br i1 %20, label %24, label %21
+  br i1 %20, label %23, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
 
-21:                                               ; preds = %24, %2
-  %22 = getelementptr inbounds i8, ptr %.val1, i64 24
-  %23 = cmpxchg ptr %22, i64 0, i64 1 acq_rel acquire, align 8, !noalias !24386
-  br label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
+_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit: ; preds = %23, %2
+  %21 = getelementptr inbounds i8, ptr %.val1, i64 24
+  %22 = cmpxchg ptr %21, i64 0, i64 1 acq_rel acquire, align 8, !noalias !24386
+  br label %28
 
-24:                                               ; preds = %2
-  %25 = load atomic i64, ptr %10 seq_cst, align 128
-  %26 = load i64, ptr %16, align 16, !noundef !4
-  %27 = and i64 %26, %25
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, label %21
+23:                                               ; preds = %2
+  %24 = load atomic i64, ptr %10 seq_cst, align 128
+  %25 = load i64, ptr %16, align 16, !noundef !4
+  %26 = and i64 %25, %24
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
 
-_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit: ; preds = %21, %24
+28:                                               ; preds = %23, %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !align !27, !noundef !4
   %31 = load i64, ptr %30, align 8
@@ -115972,7 +115972,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.284093984
   %36 = icmp eq i32 %33, 1000000000
   br i1 %36, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, %38
+.split.us.i:                                      ; preds = %28, %38
   %37 = load atomic i64, ptr %35 acquire, align 8
   switch i64 %37, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread6 [
     i64 0, label %38
@@ -115984,7 +115984,7 @@ _ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.284093984
   tail call void @_ZN3std6thread4park17he169a6d7b9792c73E()
   br label %.split.us.i
 
-.split.i:                                         ; preds = %_ZN3std4sync4mpmc7context7Context10try_select17h1e298a5f9848307cE.llvm.2840939845381089846.exit, %50
+.split.i:                                         ; preds = %28, %50
   %39 = load atomic i64, ptr %35 acquire, align 8
   switch i64 %39, label %_ZN3std4sync4mpmc7context7Context10wait_until17h517f4728b5aacb24E.exit.thread6 [
     i64 0, label %40
@@ -132628,11 +132628,11 @@ define hidden void @"_ZN5ashpd7desktop12handle_token1_93_$LT$impl$u20$serde..ser
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !29613, !noalias !29614, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !29613, !noalias !29614, !noundef !4
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29617
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29617
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !29618, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h7fafe381339c0897E.exit", label %10
@@ -132666,11 +132666,11 @@ define hidden void @"_ZN5ashpd7desktop12handle_token1_93_$LT$impl$u20$serde..ser
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !29660, !noalias !29661, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !29660, !noalias !29661, !noundef !4
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29664
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29664
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !29665, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17had3e9d31a7e7628aE.exit", label %10
@@ -132704,11 +132704,11 @@ define hidden void @"_ZN5ashpd7desktop12handle_token1_93_$LT$impl$u20$serde..ser
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !29707, !noalias !29708, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !29707, !noalias !29708, !noundef !4
-  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29711
+  call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29711
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !29712, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8ac26743a9af9c9eE.exit", label %10
@@ -132742,11 +132742,11 @@ define hidden void @"_ZN5ashpd7desktop12handle_token1_93_$LT$impl$u20$serde..ser
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !29754, !noalias !29755, !nonnull !4, !noundef !4
   %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %spec.select.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
-  %spec.select.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %spec.select.idx.i.i.i.i.i.i.i.i
+  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %.sroa.0.0.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !29754, !noalias !29755, !noundef !4
-  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %spec.select.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29758
+  call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29758
   %8 = load i64, ptr %4, align 8, !range !16919, !noalias !29759, !noundef !4
   %9 = icmp eq i64 %8, 14
   br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9c11decb0588493dE.exit", label %10

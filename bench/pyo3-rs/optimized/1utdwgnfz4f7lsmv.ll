@@ -350,8 +350,8 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
   %3 = load i64, ptr %.val, align 8
   %4 = add i64 %3, -39
   %switch.i = icmp ult i64 %4, 2
-  %spec.select.i = select i1 %switch.i, i64 8, i64 176
-  %5 = getelementptr inbounds i8, ptr %.val, i64 %spec.select.i
+  %..i = select i1 %switch.i, i64 8, i64 176
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %..i
   %6 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %5, ptr nonnull align 1 @anon.6c0ad817666e2a82a3eac92b1b77cc2d.18, i64 3)
   ret i1 %6
 }
@@ -413,8 +413,8 @@ define hidden void @"_ZN19pyo3_macros_backend6module13get_pyfn_attr28_$u7b$$u7b$
   %7 = load i64, ptr %2, align 8
   %8 = add i64 %7, -39
   %switch = icmp ult i64 %8, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %9 = getelementptr inbounds i8, ptr %2, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %9 = getelementptr inbounds i8, ptr %2, i64 %.
   %10 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %9, ptr nonnull align 1 @anon.6c0ad817666e2a82a3eac92b1b77cc2d.16, i64 4)
   br i1 %10, label %13, label %11
 
@@ -488,8 +488,8 @@ define hidden noundef zeroext i1 @"_ZN19pyo3_macros_backend6module25find_and_rem
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, -39
   %switch = icmp ult i64 %4, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %5 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
@@ -512,8 +512,8 @@ define hidden zeroext i1 @"_ZN19pyo3_macros_backend6module13has_attribute28_$u7b
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, -39
   %switch = icmp ult i64 %4, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %5 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8

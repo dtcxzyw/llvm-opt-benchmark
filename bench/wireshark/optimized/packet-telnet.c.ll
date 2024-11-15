@@ -1842,7 +1842,7 @@ define internal void @dissect_encryption_subopt(ptr noundef %0, ptr nocapture re
   %52 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_enc_cmd_unknown) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %46, %48, %7, %41, %43, %7, %33, %35, %15, %17, %51
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %46, %48, %41, %43, %7, %7, %33, %35, %15, %17, %51
   ret void
 }
 

@@ -33885,7 +33885,7 @@ define dso_local noundef range(i32 -5, 1) i32 @_ZN5boost9unit_test19unit_test_mo
 
 _ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit: ; preds = %46, %50, %52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #56
-  br label %80
+  br label %78
 
 58:                                               ; preds = %30, %22, %14, %3
   %59 = landingpad { ptr, i32 }
@@ -33897,7 +33897,7 @@ _ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit: ; preds = %46,
   %60 = extractvalue { ptr, i32 } %eh.lpad-body, 1
   %61 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost19execution_exceptionE) #56
   %62 = icmp eq i32 %60, %61
-  br i1 %62, label %63, label %81
+  br i1 %62, label %63, label %79
 
 63:                                               ; preds = %.body
   %64 = extractvalue { ptr, i32 } %eh.lpad-body, 0
@@ -33915,58 +33915,50 @@ _ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit: ; preds = %46,
 
 69:                                               ; preds = %68
   %70 = load i32, ptr %65, align 8, !tbaa !201
-  switch i32 %70, label %78 [
-    i32 0, label %79
-    i32 200, label %73
-    i32 205, label %74
-    i32 210, label %75
-    i32 215, label %76
-    i32 220, label %77
-    i32 225, label %77
+  switch i32 %70, label %76 [
+    i32 0, label %77
+    i32 225, label %75
+    i32 220, label %75
+    i32 210, label %73
+    i32 215, label %74
   ]
 
 71:                                               ; preds = %68, %66, %63
   %72 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %81 unwind label %82
+          to label %79 unwind label %80
 
 73:                                               ; preds = %69
-  br label %79
+  br label %77
 
 74:                                               ; preds = %69
-  br label %79
+  br label %77
 
-75:                                               ; preds = %69
-  br label %79
+75:                                               ; preds = %69, %69
+  br label %77
 
 76:                                               ; preds = %69
-  br label %79
+  br label %77
 
-77:                                               ; preds = %69, %69
-  br label %79
-
-78:                                               ; preds = %69
-  br label %79
-
-79:                                               ; preds = %69, %78, %77, %76, %75, %74, %73
-  %.0 = phi i32 [ -2, %78 ], [ -5, %77 ], [ -4, %76 ], [ -3, %75 ], [ -2, %74 ], [ -2, %73 ], [ %70, %69 ]
+77:                                               ; preds = %69, %76, %75, %74, %73
+  %.0 = phi i32 [ -2, %76 ], [ -5, %75 ], [ -4, %74 ], [ -3, %73 ], [ %70, %69 ]
   call void @__cxa_end_catch()
-  br label %80
+  br label %78
 
-80:                                               ; preds = %_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit, %79
-  %.1 = phi i32 [ %.0, %79 ], [ 0, %_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit ]
+78:                                               ; preds = %_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit, %77
+  %.1 = phi i32 [ %.0, %77 ], [ 0, %_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit ]
   ret i32 %.1
 
-81:                                               ; preds = %71, %.body
+79:                                               ; preds = %71, %.body
   %.merged = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %72, %71 ]
   resume { ptr, i32 } %.merged
 
-82:                                               ; preds = %71
-  %83 = landingpad { ptr, i32 }
+80:                                               ; preds = %71
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #57
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #57
   unreachable
 }
 
@@ -163122,30 +163114,30 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay32turn_info_ve
   br i1 %7, label %30, label %9
 
 9:                                                ; preds = %6
-  switch i64 %3, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit [
-    i64 2, label %11
-    i64 1, label %10
+  switch i64 %3, label %18 [
+    i64 2, label %10
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit
   ]
 
 10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = load i8, ptr %11, align 8, !tbaa !2678, !range !17, !noundef !18
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit, label %14
+
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !2720
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(25) %17)
+  store i8 1, ptr %11, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load i8, ptr %12, align 8, !tbaa !2678, !range !17, !noundef !18
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !2720
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(25) %18)
-  store i8 1, ptr %12, align 8, !tbaa !2678
+18:                                               ; preds = %9
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit: ; preds = %9, %10, %11, %15
-  %.sink.i = phi i64 [ 24, %10 ], [ 32, %11 ], [ 32, %15 ], [ 16, %9 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit: ; preds = %9, %10, %14, %18
+  %.sink.i = phi i64 [ 16, %18 ], [ 24, %9 ], [ 32, %10 ], [ 32, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %.0.i = load ptr, ptr %19, align 8, !tbaa !173
   %20 = load double, ptr %5, align 8, !tbaa !2306
@@ -163173,30 +163165,30 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sec
   br label %.critedge
 
 35:                                               ; preds = %30
-  switch i64 %4, label %45 [
-    i64 2, label %37
-    i64 1, label %36
+  switch i64 %4, label %44 [
+    i64 2, label %36
+    i64 1, label %45
   ]
 
 36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %38 = load i8, ptr %37, align 8, !tbaa !2678, !range !17, !noundef !18
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %45, label %40
+
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !2720
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(25) %43)
+  store i8 1, ptr %37, align 8, !tbaa !2678
   br label %45
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %39 = load i8, ptr %38, align 8, !tbaa !2678, !range !17, !noundef !18
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %45, label %41
-
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !2720
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(25) %44)
-  store i8 1, ptr %38, align 8, !tbaa !2678
+44:                                               ; preds = %35
   br label %45
 
-45:                                               ; preds = %41, %37, %36, %35
-  %.sink.i43 = phi i64 [ 24, %36 ], [ 32, %37 ], [ 32, %41 ], [ 16, %35 ]
+45:                                               ; preds = %44, %40, %36, %35
+  %.sink.i43 = phi i64 [ 16, %44 ], [ 24, %35 ], [ 32, %36 ], [ 32, %40 ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i43
   %.0.i44 = load ptr, ptr %46, align 8, !tbaa !173
   %47 = load double, ptr %5, align 8, !tbaa !2306
@@ -163224,56 +163216,56 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sec
   %spec.select = select i1 %cond, i64 24, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
   %.0.i47 = load ptr, ptr %62, align 8, !tbaa !173
-  switch i64 %4, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51 [
-    i64 2, label %64
-    i64 1, label %63
+  switch i64 %4, label %71 [
+    i64 2, label %63
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
   ]
 
 63:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %65 = load i8, ptr %64, align 8, !tbaa !2678, !range !17, !noundef !18
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51, label %67
+
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %69 = load ptr, ptr %68, align 8, !tbaa !2720
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(25) %70)
+  store i8 1, ptr %64, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
 
-64:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %66 = load i8, ptr %65, align 8, !tbaa !2678, !range !17, !noundef !18
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51, label %68
-
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !2720
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(25) %71)
-  store i8 1, ptr %65, align 8, !tbaa !2678
+71:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48, %63, %64, %68
-  %.sink.i49 = phi i64 [ 24, %63 ], [ 32, %64 ], [ 32, %68 ], [ 16, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48, %63, %67, %71
+  %.sink.i49 = phi i64 [ 16, %71 ], [ 24, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48 ], [ 32, %63 ], [ 32, %67 ]
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i49
   %.0.i50 = load ptr, ptr %72, align 8, !tbaa !173
-  switch i64 %3, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54 [
-    i64 2, label %74
-    i64 1, label %73
+  switch i64 %3, label %81 [
+    i64 2, label %73
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54
   ]
 
 73:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %75 = load i8, ptr %74, align 8, !tbaa !2678, !range !17, !noundef !18
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54, label %77
+
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !2720
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(25) %80)
+  store i8 1, ptr %74, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54
 
-74:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %76 = load i8, ptr %75, align 8, !tbaa !2678, !range !17, !noundef !18
-  %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54, label %78
-
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !2720
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(25) %81)
-  store i8 1, ptr %75, align 8, !tbaa !2678
+81:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51, %73, %74, %78
-  %.sink.i52 = phi i64 [ 24, %73 ], [ 32, %74 ], [ 32, %78 ], [ 16, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51, %73, %77, %81
+  %.sink.i52 = phi i64 [ 16, %81 ], [ 24, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51 ], [ 32, %73 ], [ 32, %77 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i52
   %.0.i53 = load ptr, ptr %82, align 8, !tbaa !173
   %83 = load double, ptr %.0.i47, align 8, !tbaa !2306
@@ -163301,56 +163293,56 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sec
   %spec.select79 = select i1 %cond78, i64 24, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select79
   %.0.i56 = load ptr, ptr %99, align 8, !tbaa !173
-  switch i64 %3, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60 [
-    i64 2, label %101
-    i64 1, label %100
+  switch i64 %3, label %108 [
+    i64 2, label %100
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
   ]
 
 100:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %102 = load i8, ptr %101, align 8, !tbaa !2678, !range !17, !noundef !18
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60, label %104
+
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %106 = load ptr, ptr %105, align 8, !tbaa !2720
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(25) %107)
+  store i8 1, ptr %101, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
 
-101:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %103 = load i8, ptr %102, align 8, !tbaa !2678, !range !17, !noundef !18
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60, label %105
-
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %107 = load ptr, ptr %106, align 8, !tbaa !2720
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(25) %108)
-  store i8 1, ptr %102, align 8, !tbaa !2678
+108:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57, %100, %101, %105
-  %.sink.i58 = phi i64 [ 24, %100 ], [ 32, %101 ], [ 32, %105 ], [ 16, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57, %100, %104, %108
+  %.sink.i58 = phi i64 [ 16, %108 ], [ 24, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57 ], [ 32, %100 ], [ 32, %104 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i58
   %.0.i59 = load ptr, ptr %109, align 8, !tbaa !173
-  switch i64 %4, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63 [
-    i64 2, label %111
-    i64 1, label %110
+  switch i64 %4, label %118 [
+    i64 2, label %110
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63
   ]
 
 110:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %112 = load i8, ptr %111, align 8, !tbaa !2678, !range !17, !noundef !18
+  %113 = trunc nuw i8 %112 to i1
+  br i1 %113, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63, label %114
+
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %116 = load ptr, ptr %115, align 8, !tbaa !2720
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(25) %117)
+  store i8 1, ptr %111, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63
 
-111:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %113 = load i8, ptr %112, align 8, !tbaa !2678, !range !17, !noundef !18
-  %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63, label %115
-
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %117 = load ptr, ptr %116, align 8, !tbaa !2720
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(25) %118)
-  store i8 1, ptr %112, align 8, !tbaa !2678
+118:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60, %110, %111, %115
-  %.sink.i61 = phi i64 [ 24, %110 ], [ 32, %111 ], [ 32, %115 ], [ 16, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60, %110, %114, %118
+  %.sink.i61 = phi i64 [ 16, %118 ], [ 24, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60 ], [ 32, %110 ], [ 32, %114 ]
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i61
   %.0.i62 = load ptr, ptr %119, align 8, !tbaa !173
   %120 = load double, ptr %.0.i56, align 8, !tbaa !2306
@@ -163624,30 +163616,30 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay32turn_info_ve
   br i1 %7, label %30, label %9
 
 9:                                                ; preds = %6
-  switch i64 %3, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit [
-    i64 2, label %11
-    i64 1, label %10
+  switch i64 %3, label %18 [
+    i64 2, label %10
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit
   ]
 
 10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = load i8, ptr %11, align 8, !tbaa !2678, !range !17, !noundef !18
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit, label %14
+
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !2720
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(25) %17)
+  store i8 1, ptr %11, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load i8, ptr %12, align 8, !tbaa !2678, !range !17, !noundef !18
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !2720
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(25) %18)
-  store i8 1, ptr %12, align 8, !tbaa !2678
+18:                                               ; preds = %9
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit: ; preds = %9, %10, %11, %15
-  %.sink.i = phi i64 [ 24, %10 ], [ 32, %11 ], [ 32, %15 ], [ 16, %9 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit: ; preds = %9, %10, %14, %18
+  %.sink.i = phi i64 [ 16, %18 ], [ 24, %9 ], [ 32, %10 ], [ 32, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %.0.i = load ptr, ptr %19, align 8, !tbaa !173
   %20 = load double, ptr %5, align 8, !tbaa !2306
@@ -163676,30 +163668,30 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sec
   br label %.critedge
 
 36:                                               ; preds = %30
-  switch i64 %4, label %46 [
-    i64 2, label %38
-    i64 1, label %37
+  switch i64 %4, label %45 [
+    i64 2, label %37
+    i64 1, label %46
   ]
 
 37:                                               ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %39 = load i8, ptr %38, align 8, !tbaa !2678, !range !17, !noundef !18
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %46, label %41
+
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !2720
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(25) %44)
+  store i8 1, ptr %38, align 8, !tbaa !2678
   br label %46
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %40 = load i8, ptr %39, align 8, !tbaa !2678, !range !17, !noundef !18
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %46, label %42
-
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !2720
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(25) %45)
-  store i8 1, ptr %39, align 8, !tbaa !2678
+45:                                               ; preds = %36
   br label %46
 
-46:                                               ; preds = %42, %38, %37, %36
-  %.sink.i43 = phi i64 [ 24, %37 ], [ 32, %38 ], [ 32, %42 ], [ 16, %36 ]
+46:                                               ; preds = %45, %41, %37, %36
+  %.sink.i43 = phi i64 [ 16, %45 ], [ 24, %36 ], [ 32, %37 ], [ 32, %41 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i43
   %.0.i44 = load ptr, ptr %47, align 8, !tbaa !173
   %48 = load double, ptr %5, align 8, !tbaa !2306
@@ -163726,56 +163718,56 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sec
   %spec.select = select i1 %cond, i64 24, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
   %.0.i47 = load ptr, ptr %62, align 8, !tbaa !173
-  switch i64 %4, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51 [
-    i64 2, label %64
-    i64 1, label %63
+  switch i64 %4, label %71 [
+    i64 2, label %63
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
   ]
 
 63:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %65 = load i8, ptr %64, align 8, !tbaa !2678, !range !17, !noundef !18
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51, label %67
+
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %69 = load ptr, ptr %68, align 8, !tbaa !2720
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(25) %70)
+  store i8 1, ptr %64, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
 
-64:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %66 = load i8, ptr %65, align 8, !tbaa !2678, !range !17, !noundef !18
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51, label %68
-
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !2720
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(25) %71)
-  store i8 1, ptr %65, align 8, !tbaa !2678
+71:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48, %63, %64, %68
-  %.sink.i49 = phi i64 [ 24, %63 ], [ 32, %64 ], [ 32, %68 ], [ 16, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48, %63, %67, %71
+  %.sink.i49 = phi i64 [ 16, %71 ], [ 24, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit48 ], [ 32, %63 ], [ 32, %67 ]
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i49
   %.0.i50 = load ptr, ptr %72, align 8, !tbaa !173
-  switch i64 %3, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54 [
-    i64 2, label %74
-    i64 1, label %73
+  switch i64 %3, label %81 [
+    i64 2, label %73
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54
   ]
 
 73:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %75 = load i8, ptr %74, align 8, !tbaa !2678, !range !17, !noundef !18
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54, label %77
+
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !2720
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(25) %80)
+  store i8 1, ptr %74, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54
 
-74:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %76 = load i8, ptr %75, align 8, !tbaa !2678, !range !17, !noundef !18
-  %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54, label %78
-
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !2720
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(25) %81)
-  store i8 1, ptr %75, align 8, !tbaa !2678
+81:                                               ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51, %73, %74, %78
-  %.sink.i52 = phi i64 [ 24, %73 ], [ 32, %74 ], [ 32, %78 ], [ 16, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit54: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51, %73, %77, %81
+  %.sink.i52 = phi i64 [ 16, %81 ], [ 24, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit51 ], [ 32, %73 ], [ 32, %77 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i52
   %.0.i53 = load ptr, ptr %82, align 8, !tbaa !173
   %83 = load double, ptr %.0.i47, align 8, !tbaa !2306
@@ -163803,56 +163795,56 @@ _ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sec
   %spec.select79 = select i1 %cond78, i64 24, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select79
   %.0.i56 = load ptr, ptr %99, align 8, !tbaa !173
-  switch i64 %3, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60 [
-    i64 2, label %101
-    i64 1, label %100
+  switch i64 %3, label %108 [
+    i64 2, label %100
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
   ]
 
 100:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %102 = load i8, ptr %101, align 8, !tbaa !2678, !range !17, !noundef !18
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60, label %104
+
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %106 = load ptr, ptr %105, align 8, !tbaa !2720
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(25) %107)
+  store i8 1, ptr %101, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
 
-101:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %103 = load i8, ptr %102, align 8, !tbaa !2678, !range !17, !noundef !18
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60, label %105
-
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %107 = load ptr, ptr %106, align 8, !tbaa !2720
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(25) %108)
-  store i8 1, ptr %102, align 8, !tbaa !2678
+108:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57, %100, %101, %105
-  %.sink.i58 = phi i64 [ 24, %100 ], [ 32, %101 ], [ 32, %105 ], [ 16, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57, %100, %104, %108
+  %.sink.i58 = phi i64 [ 16, %108 ], [ 24, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit57 ], [ 32, %100 ], [ 32, %104 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i58
   %.0.i59 = load ptr, ptr %109, align 8, !tbaa !173
-  switch i64 %4, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63 [
-    i64 2, label %111
-    i64 1, label %110
+  switch i64 %4, label %118 [
+    i64 2, label %110
+    i64 1, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63
   ]
 
 110:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %112 = load i8, ptr %111, align 8, !tbaa !2678, !range !17, !noundef !18
+  %113 = trunc nuw i8 %112 to i1
+  br i1 %113, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63, label %114
+
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %116 = load ptr, ptr %115, align 8, !tbaa !2720
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(25) %117)
+  store i8 1, ptr %111, align 8, !tbaa !2678
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63
 
-111:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %113 = load i8, ptr %112, align 8, !tbaa !2678, !range !17, !noundef !18
-  %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63, label %115
-
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %117 = load ptr, ptr %116, align 8, !tbaa !2720
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE29advance_to_non_duplicate_nextERSG_RSM_(ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(25) %118)
-  store i8 1, ptr %112, align 8, !tbaa !2678
+118:                                              ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60
   br label %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63
 
-_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60, %110, %111, %115
-  %.sink.i61 = phi i64 [ 24, %110 ], [ 32, %111 ], [ 32, %115 ], [ 16, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60 ]
+_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit63: ; preds = %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60, %110, %114, %118
+  %.sink.i61 = phi i64 [ 16, %118 ], [ 24, %_ZNK5boost8geometry6detail9get_turns29unique_sub_range_from_sectionILb1ENS0_7sectionINS0_5model3boxINS5_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESA_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSA_St6vectorISA_SaISA_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEE2atEm.exit60 ], [ 32, %110 ], [ 32, %114 ]
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i61
   %.0.i62 = load ptr, ptr %119, align 8, !tbaa !173
   %120 = load double, ptr %.0.i56, align 8, !tbaa !2306

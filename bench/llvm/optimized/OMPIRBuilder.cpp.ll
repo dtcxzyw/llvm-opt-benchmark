@@ -24786,10 +24786,10 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder13createBarrierERKNS0_19Location
   br label %85
 
 16:                                               ; preds = %6
-  switch i32 %3, label %20 [
-    i32 5, label %19
-    i32 64, label %17
-    i32 66, label %18
+  switch i32 %3, label %19 [
+    i32 5, label %18
+    i32 64, label %20
+    i32 66, label %17
   ]
 
 17:                                               ; preds = %16
@@ -24802,7 +24802,7 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder13createBarrierERKNS0_19Location
   br label %20
 
 20:                                               ; preds = %16, %19, %18, %17
-  %.0 = phi i32 [ 32, %19 ], [ 320, %18 ], [ 192, %17 ], [ 64, %16 ]
+  %.0 = phi i32 [ 64, %19 ], [ 32, %18 ], [ 320, %17 ], [ 192, %16 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load ptr, ptr %21, align 8

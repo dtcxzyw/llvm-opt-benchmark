@@ -6995,17 +6995,14 @@ entry:
   switch i32 %type, label %sw.default [
     i32 64, label %return
     i32 1, label %sw.bb1
-    i32 2, label %sw.bb2
+    i32 2, label %sw.bb1
     i32 4, label %sw.bb3
     i32 8, label %sw.bb4
     i32 16, label %sw.bb5
     i32 32, label %sw.bb6
   ]
 
-sw.bb1:                                           ; preds = %entry
-  br label %return
-
-sw.bb2:                                           ; preds = %entry
+sw.bb1:                                           ; preds = %entry, %entry
   br label %return
 
 sw.bb3:                                           ; preds = %entry
@@ -7023,8 +7020,8 @@ sw.bb6:                                           ; preds = %entry
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.default, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ -1, %sw.default ], [ 6, %sw.bb6 ], [ 5, %sw.bb5 ], [ 4, %sw.bb4 ], [ 3, %sw.bb3 ], [ %type, %sw.bb2 ], [ %type, %sw.bb1 ], [ 0, %entry ]
+return:                                           ; preds = %entry, %sw.default, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb1
+  %retval.0 = phi i32 [ -1, %sw.default ], [ 6, %sw.bb6 ], [ 5, %sw.bb5 ], [ 4, %sw.bb4 ], [ 3, %sw.bb3 ], [ %type, %sw.bb1 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

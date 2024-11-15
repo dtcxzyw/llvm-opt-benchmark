@@ -2471,27 +2471,27 @@ define dso_local noundef zeroext i1 @_ZN4llvm25CC_AArch64_Arm64EC_VarArgEjNS_3MV
     i16 38, label %.thread384
     i16 510, label %.thread384
     i16 15, label %.thread384.fold.split482
-    i16 128, label %.thread384.fold.split483
-    i16 78, label %.thread384.fold.split484
-    i16 60, label %.thread384.fold.split485
-    i16 110, label %.thread384.fold.split486
-    i16 50, label %.thread384.fold.split487
-    i16 92, label %.thread384.fold.split488
-    i16 102, label %.thread384.fold.split489
-    i16 39, label %.thread384.fold.split490
-    i16 148, label %.thread384.fold.split491
-    i16 154, label %.thread384.fold.split492
-    i16 159, label %.thread384.fold.split493
-    i16 164, label %.thread384.fold.split494
-    i16 170, label %.thread384.fold.split495
-    i16 171, label %.thread384.fold.split496
-    i16 172, label %.thread384.fold.split497
-    i16 176, label %.thread384.fold.split498
-    i16 177, label %.thread384.fold.split499
-    i16 178, label %.thread384.fold.split500
-    i16 182, label %.thread384.fold.split501
-    i16 183, label %.thread384.fold.split502
-    i16 187, label %.thread384.fold.split503
+    i16 128, label %.thread384.fold.split482
+    i16 78, label %.thread384.fold.split482
+    i16 60, label %.thread384.fold.split482
+    i16 110, label %.thread384.fold.split482
+    i16 50, label %.thread384.fold.split482
+    i16 92, label %.thread384.fold.split482
+    i16 102, label %.thread384.fold.split482
+    i16 39, label %.thread384.fold.split482
+    i16 148, label %.thread384.fold.split482
+    i16 154, label %.thread384.fold.split482
+    i16 159, label %.thread384.fold.split482
+    i16 164, label %.thread384.fold.split482
+    i16 170, label %.thread384.fold.split482
+    i16 171, label %.thread384.fold.split482
+    i16 172, label %.thread384.fold.split482
+    i16 176, label %.thread384.fold.split482
+    i16 177, label %.thread384.fold.split482
+    i16 178, label %.thread384.fold.split482
+    i16 182, label %.thread384.fold.split482
+    i16 183, label %.thread384.fold.split482
+    i16 187, label %.thread384.fold.split482
     i16 138, label %.thread387
     i16 139, label %.thread387
     i16 140, label %.thread387
@@ -2501,78 +2501,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm25CC_AArch64_Arm64EC_VarArgEjNS_3MV
 .thread384.fold.split:                            ; preds = %7
   br label %.thread384._ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread_crit_edge
 
-.thread384.fold.split482:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split483:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split484:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split485:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split486:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split487:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split488:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split489:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split490:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split491:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split492:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split493:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split494:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split495:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split496:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split497:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split498:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split499:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split500:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split501:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split502:                         ; preds = %7
-  br label %.thread384
-
-.thread384.fold.split503:                         ; preds = %7
+.thread384.fold.split482:                         ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
   br label %.thread384
 
 .thread384.fold.split504:                         ; preds = %7
   br label %.thread384
 
-.thread384:                                       ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %.thread384.fold.split504, %.thread384.fold.split503, %.thread384.fold.split502, %.thread384.fold.split501, %.thread384.fold.split500, %.thread384.fold.split499, %.thread384.fold.split498, %.thread384.fold.split497, %.thread384.fold.split496, %.thread384.fold.split495, %.thread384.fold.split494, %.thread384.fold.split493, %.thread384.fold.split492, %.thread384.fold.split491, %.thread384.fold.split490, %.thread384.fold.split489, %.thread384.fold.split488, %.thread384.fold.split487, %.thread384.fold.split486, %.thread384.fold.split485, %.thread384.fold.split484, %.thread384.fold.split483, %.thread384.fold.split482
-  %.sroa.0155.5 = phi i16 [ 8, %.thread384.fold.split482 ], [ 8, %.thread384.fold.split483 ], [ 8, %.thread384.fold.split484 ], [ 8, %.thread384.fold.split485 ], [ 8, %.thread384.fold.split486 ], [ 8, %.thread384.fold.split487 ], [ 8, %.thread384.fold.split488 ], [ 8, %.thread384.fold.split489 ], [ 8, %.thread384.fold.split490 ], [ 8, %.thread384.fold.split491 ], [ 8, %.thread384.fold.split492 ], [ 8, %.thread384.fold.split493 ], [ 8, %.thread384.fold.split494 ], [ 8, %.thread384.fold.split495 ], [ 8, %.thread384.fold.split496 ], [ 8, %.thread384.fold.split497 ], [ 8, %.thread384.fold.split498 ], [ 8, %.thread384.fold.split499 ], [ 8, %.thread384.fold.split500 ], [ 8, %.thread384.fold.split501 ], [ 8, %.thread384.fold.split502 ], [ 8, %.thread384.fold.split503 ], [ %2, %.thread384.fold.split504 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ]
-  %.5 = phi i32 [ 11, %.thread384.fold.split482 ], [ 11, %.thread384.fold.split483 ], [ 11, %.thread384.fold.split484 ], [ 11, %.thread384.fold.split485 ], [ 11, %.thread384.fold.split486 ], [ 11, %.thread384.fold.split487 ], [ 11, %.thread384.fold.split488 ], [ 11, %.thread384.fold.split489 ], [ 11, %.thread384.fold.split490 ], [ 11, %.thread384.fold.split491 ], [ 11, %.thread384.fold.split492 ], [ 11, %.thread384.fold.split493 ], [ 11, %.thread384.fold.split494 ], [ 11, %.thread384.fold.split495 ], [ 11, %.thread384.fold.split496 ], [ 11, %.thread384.fold.split497 ], [ 11, %.thread384.fold.split498 ], [ 11, %.thread384.fold.split499 ], [ 11, %.thread384.fold.split500 ], [ 11, %.thread384.fold.split501 ], [ 11, %.thread384.fold.split502 ], [ 11, %.thread384.fold.split503 ], [ %3, %.thread384.fold.split504 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ]
+.thread384:                                       ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %.thread384.fold.split504, %.thread384.fold.split482
+  %.sroa.0155.5 = phi i16 [ 8, %.thread384.fold.split482 ], [ %2, %.thread384.fold.split504 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ], [ 8, %7 ]
+  %.5 = phi i32 [ 11, %.thread384.fold.split482 ], [ %3, %.thread384.fold.split504 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ], [ 7, %7 ]
   %14 = and i64 %4, 4
   %15 = icmp ne i64 %14, 0
   %16 = icmp eq i16 %.sroa.0155.5, 8
@@ -3856,8 +3793,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm33CC_AArch64_DarwinPCS_ILP32_VarArg
   switch i16 %2, label %.thread151.fold.split162 [
     i16 108, label %.thread151
     i16 128, label %.thread151.fold.split
-    i16 110, label %.thread151.fold.split160
-    i16 15, label %.thread151.fold.split161
+    i16 110, label %.thread151.fold.split
+    i16 15, label %.thread151.fold.split
     i16 5, label %.critedge2
     i16 6, label %.critedge2
     i16 11, label %.critedge4
@@ -3878,21 +3815,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm33CC_AArch64_DarwinPCS_ILP32_VarArg
 .critedge4:                                       ; preds = %7, %7
   br label %.thread151
 
-.thread151.fold.split:                            ; preds = %7
-  br label %.thread151
-
-.thread151.fold.split160:                         ; preds = %7
-  br label %.thread151
-
-.thread151.fold.split161:                         ; preds = %7
+.thread151.fold.split:                            ; preds = %7, %7, %7
   br label %.thread151
 
 .thread151.fold.split162:                         ; preds = %7
   br label %.thread151
 
-.thread151:                                       ; preds = %7, %.thread151.fold.split162, %.thread151.fold.split161, %.thread151.fold.split160, %.thread151.fold.split, %.critedge2, %13, %.critedge4
-  %.sroa.092.3 = phi i16 [ 12, %.critedge4 ], [ 7, %13 ], [ 7, %.critedge2 ], [ 58, %7 ], [ 78, %.thread151.fold.split ], [ 78, %.thread151.fold.split160 ], [ 78, %.thread151.fold.split161 ], [ %2, %.thread151.fold.split162 ]
-  %.3 = phi i32 [ 10, %.critedge4 ], [ %., %13 ], [ 1, %.critedge2 ], [ 7, %7 ], [ 7, %.thread151.fold.split ], [ 7, %.thread151.fold.split160 ], [ 7, %.thread151.fold.split161 ], [ %3, %.thread151.fold.split162 ]
+.thread151:                                       ; preds = %7, %.thread151.fold.split162, %.thread151.fold.split, %.critedge2, %13, %.critedge4
+  %.sroa.092.3 = phi i16 [ 12, %.critedge4 ], [ 7, %13 ], [ 7, %.critedge2 ], [ 58, %7 ], [ 78, %.thread151.fold.split ], [ %2, %.thread151.fold.split162 ]
+  %.3 = phi i32 [ 10, %.critedge4 ], [ %., %13 ], [ 1, %.critedge2 ], [ 7, %7 ], [ 7, %.thread151.fold.split ], [ %3, %.thread151.fold.split162 ]
   %15 = and i64 %4, 8589934592
   %.not164 = icmp eq i64 %15, 0
   br i1 %.not164, label %22, label %16
@@ -4178,14 +4109,14 @@ _ZL29CC_AArch64_Custom_Stack_BlockRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERN
     i16 12, label %.critedge6
     i16 8, label %.thread159.thread
     i16 13, label %.critedge6.fold.split
-    i16 77, label %.critedge6.fold.split236
-    i16 58, label %.critedge6.fold.split237
-    i16 49, label %.critedge6.fold.split238
-    i16 38, label %.critedge6.fold.split239
-    i16 127, label %.critedge6.fold.split240
-    i16 108, label %.critedge6.fold.split241
-    i16 91, label %.critedge6.fold.split242
-    i16 101, label %.critedge6.fold.split243
+    i16 77, label %.critedge6.fold.split
+    i16 58, label %.critedge6.fold.split
+    i16 49, label %.critedge6.fold.split
+    i16 38, label %.critedge6.fold.split
+    i16 127, label %.critedge6.fold.split
+    i16 108, label %.critedge6.fold.split
+    i16 91, label %.critedge6.fold.split
+    i16 101, label %.critedge6.fold.split
     i16 78, label %.critedge8
     i16 60, label %.critedge8
     i16 50, label %.critedge8
@@ -4260,36 +4191,12 @@ _ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit: ; preds = %39, %43
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(26) %10)
   br label %93
 
-.critedge6.fold.split:                            ; preds = %28
+.critedge6.fold.split:                            ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28
   br label %.critedge6
 
-.critedge6.fold.split236:                         ; preds = %28
-  br label %.critedge6
-
-.critedge6.fold.split237:                         ; preds = %28
-  br label %.critedge6
-
-.critedge6.fold.split238:                         ; preds = %28
-  br label %.critedge6
-
-.critedge6.fold.split239:                         ; preds = %28
-  br label %.critedge6
-
-.critedge6.fold.split240:                         ; preds = %28
-  br label %.critedge6
-
-.critedge6.fold.split241:                         ; preds = %28
-  br label %.critedge6
-
-.critedge6.fold.split242:                         ; preds = %28
-  br label %.critedge6
-
-.critedge6.fold.split243:                         ; preds = %28
-  br label %.critedge6
-
-.critedge6:                                       ; preds = %28, %28, %28, %.critedge6.fold.split243, %.critedge6.fold.split242, %.critedge6.fold.split241, %.critedge6.fold.split240, %.critedge6.fold.split239, %.critedge6.fold.split238, %.critedge6.fold.split237, %.critedge6.fold.split236, %.critedge6.fold.split, %.thread159.thread
-  %.4165174 = phi i32 [ %.4180, %.thread159.thread ], [ 10, %28 ], [ 10, %28 ], [ 10, %28 ], [ %.2, %.critedge6.fold.split ], [ %.2, %.critedge6.fold.split236 ], [ %.2, %.critedge6.fold.split237 ], [ %.2, %.critedge6.fold.split238 ], [ %.2, %.critedge6.fold.split239 ], [ %.2, %.critedge6.fold.split240 ], [ %.2, %.critedge6.fold.split241 ], [ %.2, %.critedge6.fold.split242 ], [ %.2, %.critedge6.fold.split243 ]
-  %.sroa.073.4166172 = phi i16 [ 8, %.thread159.thread ], [ 13, %28 ], [ 13, %28 ], [ 13, %28 ], [ %.sroa.073.2, %.critedge6.fold.split ], [ %.sroa.073.2, %.critedge6.fold.split236 ], [ %.sroa.073.2, %.critedge6.fold.split237 ], [ %.sroa.073.2, %.critedge6.fold.split238 ], [ %.sroa.073.2, %.critedge6.fold.split239 ], [ %.sroa.073.2, %.critedge6.fold.split240 ], [ %.sroa.073.2, %.critedge6.fold.split241 ], [ %.sroa.073.2, %.critedge6.fold.split242 ], [ %.sroa.073.2, %.critedge6.fold.split243 ]
+.critedge6:                                       ; preds = %28, %28, %28, %.critedge6.fold.split, %.thread159.thread
+  %.4165174 = phi i32 [ %.4180, %.thread159.thread ], [ 10, %28 ], [ 10, %28 ], [ 10, %28 ], [ %.2, %.critedge6.fold.split ]
+  %.sroa.073.4166172 = phi i16 [ 8, %.thread159.thread ], [ 13, %28 ], [ 13, %28 ], [ 13, %28 ], [ %.sroa.073.2, %.critedge6.fold.split ]
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %59 = load i8, ptr %58, align 8
   %60 = trunc i8 %59 to i1

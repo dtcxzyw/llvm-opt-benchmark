@@ -385,14 +385,13 @@ switch.lookup:
 define dso_local void @LLVMTargetMachineOptionsSetCodeModel(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i8 0, ptr %3, align 1
-  switch i32 %1, label %10 [
+  switch i32 %1, label %9 [
     i32 1, label %4
     i32 0, label %_ZN4llvm6unwrapE13LLVMCodeModelRb.exit
     i32 2, label %5
-    i32 3, label %6
-    i32 4, label %7
-    i32 5, label %8
-    i32 6, label %9
+    i32 6, label %8
+    i32 4, label %6
+    i32 5, label %7
   ]
 
 4:                                                ; preds = %2
@@ -414,15 +413,12 @@ define dso_local void @LLVMTargetMachineOptionsSetCodeModel(ptr nocapture nounde
 9:                                                ; preds = %2
   br label %_ZN4llvm6unwrapE13LLVMCodeModelRb.exit
 
-10:                                               ; preds = %2
-  br label %_ZN4llvm6unwrapE13LLVMCodeModelRb.exit
-
-_ZN4llvm6unwrapE13LLVMCodeModelRb.exit:           ; preds = %2, %4, %5, %6, %7, %8, %9, %10
-  %.sroa.0.0.i = phi i64 [ 1, %10 ], [ 4, %9 ], [ 3, %8 ], [ 2, %7 ], [ 1, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %2 ]
-  %.sroa.7.0.i = phi i64 [ 4294967296, %10 ], [ 4294967296, %9 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ 4294967296, %6 ], [ 4294967296, %5 ], [ 0, %4 ], [ 0, %2 ]
+_ZN4llvm6unwrapE13LLVMCodeModelRb.exit:           ; preds = %2, %4, %5, %6, %7, %8, %9
+  %.sroa.0.0.i = phi i64 [ 1, %9 ], [ 4, %8 ], [ 3, %7 ], [ 2, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %2 ]
+  %.sroa.7.0.i = phi i64 [ 4294967296, %9 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ 4294967296, %6 ], [ 4294967296, %5 ], [ 0, %4 ], [ 0, %2 ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.7.0.i, %.sroa.0.0.i
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i64 %.sroa.0.0.insert.insert.i, ptr %11, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i64 %.sroa.0.0.insert.insert.i, ptr %10, align 4
   ret void
 }
 
@@ -688,14 +684,13 @@ LLVMTargetMachineOptionsSetCodeGenOptLevel.exit:
   store i64 %.sroa.041.0.insert.insert.i, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 116
   store i8 0, ptr %18, align 1
-  switch i32 %6, label %25 [
+  switch i32 %6, label %24 [
     i32 1, label %19
     i32 0, label %LLVMTargetMachineOptionsSetCodeModel.exit
     i32 2, label %20
-    i32 3, label %21
-    i32 4, label %22
-    i32 5, label %23
-    i32 6, label %24
+    i32 6, label %23
+    i32 4, label %21
+    i32 5, label %22
   ]
 
 19:                                               ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit
@@ -717,21 +712,18 @@ LLVMTargetMachineOptionsSetCodeGenOptLevel.exit:
 24:                                               ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
-25:                                               ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit
-  br label %LLVMTargetMachineOptionsSetCodeModel.exit
-
-LLVMTargetMachineOptionsSetCodeModel.exit:        ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit, %19, %20, %21, %22, %23, %24, %25
-  %.sroa.0.0.i.i = phi i64 [ 1, %25 ], [ 4, %24 ], [ 3, %23 ], [ 2, %22 ], [ 1, %21 ], [ 0, %20 ], [ 0, %19 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
-  %.sroa.7.0.i.i = phi i64 [ 4294967296, %25 ], [ 4294967296, %24 ], [ 4294967296, %23 ], [ 4294967296, %22 ], [ 4294967296, %21 ], [ 4294967296, %20 ], [ 0, %19 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
+LLVMTargetMachineOptionsSetCodeModel.exit:        ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit, %19, %20, %21, %22, %23, %24
+  %.sroa.0.0.i.i = phi i64 [ 1, %24 ], [ 4, %23 ], [ 3, %22 ], [ 2, %21 ], [ 0, %20 ], [ 0, %19 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
+  %.sroa.7.0.i.i = phi i64 [ 4294967296, %24 ], [ 4294967296, %23 ], [ 4294967296, %22 ], [ 4294967296, %21 ], [ 4294967296, %20 ], [ 0, %19 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.7.0.i.i, %.sroa.0.0.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 108
-  store i64 %.sroa.0.0.insert.insert.i.i, ptr %26, align 4
-  %27 = tail call ptr @LLVMCreateTargetMachineWithOptions(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7)
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 108
+  store i64 %.sroa.0.0.insert.insert.i.i, ptr %25, align 4
+  %26 = tail call ptr @LLVMCreateTargetMachineWithOptions(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(117) %7) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 120) #17
-  ret ptr %27
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

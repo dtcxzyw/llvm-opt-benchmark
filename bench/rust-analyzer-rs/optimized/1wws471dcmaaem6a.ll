@@ -46715,7 +46715,7 @@ switch.lookup:
 define noundef range(i8 2, 29) i8 @"_ZN86_$LT$ide_db..SymbolKind$u20$as$u20$core..convert..From$LT$hir_def..ModuleDefId$GT$$GT$4from17h5c6ea5ec559f006aE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0) unnamed_addr #19 {
   %2 = load i8, ptr %0, align 4, !range !10841, !noundef !11
   switch i8 %2, label %default.unreachable1 [
-    i8 0, label %17
+    i8 0, label %16
     i8 1, label %3
     i8 2, label %switch.lookup
     i8 3, label %6
@@ -46724,15 +46724,15 @@ define noundef range(i8 2, 29) i8 @"_ZN86_$LT$ide_db..SymbolKind$u20$as$u20$core
     i8 6, label %9
     i8 7, label %10
     i8 8, label %11
-    i8 9, label %12
-    i8 10, label %13
+    i8 9, label %11
+    i8 10, label %12
   ]
 
 default.unreachable1:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
-  br label %17
+  br label %16
 
 switch.lookup:                                    ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -46741,38 +46741,35 @@ switch.lookup:                                    ; preds = %1
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 399892, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  br label %17
+  br label %16
 
 6:                                                ; preds = %1
-  br label %17
+  br label %16
 
 7:                                                ; preds = %1
-  br label %17
+  br label %16
 
 8:                                                ; preds = %1
-  br label %17
+  br label %16
 
 9:                                                ; preds = %1
-  br label %17
+  br label %16
 
 10:                                               ; preds = %1
-  br label %17
+  br label %16
 
-11:                                               ; preds = %1
-  br label %17
+11:                                               ; preds = %1, %1
+  br label %16
 
 12:                                               ; preds = %1
-  br label %17
+  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = load i32, ptr %13, align 4, !range !5154, !noundef !11
+  %15 = icmp eq i32 %14, 2
+  %. = select i1 %15, i8 15, i8 14
+  br label %16
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4, !range !5154, !noundef !11
-  %16 = icmp eq i32 %15, 2
-  %. = select i1 %16, i8 15, i8 14
-  br label %17
-
-17:                                               ; preds = %switch.lookup, %13, %1, %12, %11, %10, %9, %8, %7, %6, %3
-  %.0 = phi i8 [ 24, %12 ], [ 24, %11 ], [ 23, %10 ], [ 22, %9 ], [ 19, %8 ], [ 2, %7 ], [ 28, %6 ], [ 8, %3 ], [ 16, %1 ], [ %., %13 ], [ %switch.masked, %switch.lookup ]
+16:                                               ; preds = %switch.lookup, %12, %1, %11, %10, %9, %8, %7, %6, %3
+  %.0 = phi i8 [ 24, %11 ], [ 23, %10 ], [ 22, %9 ], [ 19, %8 ], [ 2, %7 ], [ 28, %6 ], [ 8, %3 ], [ 16, %1 ], [ %., %12 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.0
 }
 

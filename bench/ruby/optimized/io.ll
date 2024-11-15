@@ -32776,56 +32776,38 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define internal range(i64 1, 257) i64 @fcntl_narg_len(i64 noundef %0) #10 {
-  switch i64 %0, label %10 [
-    i64 0, label %11
-    i64 1030, label %11
+  switch i64 %0, label %4 [
+    i64 0, label %5
+    i64 1030, label %5
     i64 1, label %2
-    i64 2, label %11
-    i64 3, label %3
-    i64 4, label %11
-    i64 9, label %4
-    i64 8, label %11
-    i64 16, label %11
-    i64 15, label %11
-    i64 5, label %5
-    i64 6, label %6
-    i64 7, label %7
-    i64 11, label %8
-    i64 10, label %11
-    i64 1025, label %9
-    i64 1024, label %11
-    i64 1026, label %11
+    i64 2, label %5
+    i64 3, label %2
+    i64 4, label %5
+    i64 9, label %2
+    i64 8, label %5
+    i64 16, label %5
+    i64 15, label %5
+    i64 5, label %3
+    i64 6, label %3
+    i64 7, label %3
+    i64 11, label %2
+    i64 10, label %5
+    i64 1025, label %2
+    i64 1024, label %5
+    i64 1026, label %5
   ]
 
-2:                                                ; preds = %1
-  br label %11
+2:                                                ; preds = %1, %1, %1, %1, %1
+  br label %5
 
-3:                                                ; preds = %1
-  br label %11
+3:                                                ; preds = %1, %1, %1
+  br label %5
 
 4:                                                ; preds = %1
-  br label %11
+  br label %5
 
-5:                                                ; preds = %1
-  br label %11
-
-6:                                                ; preds = %1
-  br label %11
-
-7:                                                ; preds = %1
-  br label %11
-
-8:                                                ; preds = %1
-  br label %11
-
-9:                                                ; preds = %1
-  br label %11
-
-10:                                               ; preds = %1
-  br label %11
-
-11:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i64 [ 256, %10 ], [ 1, %9 ], [ 1, %8 ], [ 32, %7 ], [ 32, %6 ], [ 32, %5 ], [ 1, %4 ], [ 1, %3 ], [ 1, %2 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ]
+5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4, %3, %2
+  %.0 = phi i64 [ 256, %4 ], [ 32, %3 ], [ 1, %2 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ]
   ret i64 %.0
 }
 

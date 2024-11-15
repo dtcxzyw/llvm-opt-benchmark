@@ -45648,8 +45648,8 @@ _ZN14language_model5model11cloud_model10CloudModel2id17h22fdc9e0e5970133E.exit: 
 define noundef range(i32 0, 2) i32 @"_ZN101_$LT$language_model..provider..cloud..CloudLanguageModel$u20$as$u20$language_model..LanguageModel$GT$12availability17h6e68518a7f7f9979E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(168) %0) unnamed_addr #22 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !3877, !alias.scope !11827, !noundef !5
-  %switch.i = icmp ne i64 %3, -9223372036854775808
-  %.sroa.0.0.i = zext i1 %switch.i to i32
+  %switch1.i = icmp ne i64 %3, -9223372036854775808
+  %.sroa.0.0.i = zext i1 %switch1.i to i32
   ret i32 %.sroa.0.0.i
 }
 

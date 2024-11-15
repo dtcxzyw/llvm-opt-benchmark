@@ -2524,7 +2524,6 @@ $_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVe
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_filter_voronoi.cpp, ptr null }]
 @switch.table._ZThn16_NK19FilterVoronoiPlugin8getClassEPK7QAction = private unnamed_addr constant [4 x i32] [i32 4096, i32 4096, i32 4096, i32 4], align 4
 @switch.table._ZThn16_NK19FilterVoronoiPlugin11filterArityEPK7QAction = private unnamed_addr constant [4 x i32] [i32 1, i32 3, i32 1, i32 3], align 4
-@switch.table._ZThn16_NK19FilterVoronoiPlugin13postConditionEPK7QAction = private unnamed_addr constant [4 x i32] [i32 24, i32 24, i32 24, i32 0], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -13864,18 +13863,9 @@ define noundef range(i32 0, 25) i32 @_ZNK19FilterVoronoiPlugin13postConditionEPK
   %5 = getelementptr inbounds i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
-  %8 = icmp ult i32 %7, 4
-  br i1 %8, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZThn16_NK19FilterVoronoiPlugin13postConditionEPK7QAction, i64 0, i64 %9
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %10
-
-10:                                               ; preds = %2, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
-  ret i32 %.0
+  %switch = icmp ult i32 %7, 3
+  %. = select i1 %switch, i32 24, i32 0
+  ret i32 %.
 }
 
 ; Function Attrs: uwtable
@@ -13884,18 +13874,9 @@ define noundef range(i32 0, 25) i32 @_ZThn16_NK19FilterVoronoiPlugin13postCondit
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 4
-  br i1 %7, label %switch.lookup, label %_ZNK19FilterVoronoiPlugin13postConditionEPK7QAction.exit
-
-switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZThn16_NK19FilterVoronoiPlugin13postConditionEPK7QAction, i64 0, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZNK19FilterVoronoiPlugin13postConditionEPK7QAction.exit
-
-_ZNK19FilterVoronoiPlugin13postConditionEPK7QAction.exit: ; preds = %2, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
-  ret i32 %.0.i
+  %switch.i = icmp ult i32 %6, 3
+  %..i = select i1 %switch.i, i32 24, i32 0
+  ret i32 %..i
 }
 
 declare noundef ptr @_ZN12MeshDocument12addOrGetMeshERK7QStringS2_b(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #0

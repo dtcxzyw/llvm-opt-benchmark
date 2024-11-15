@@ -848,8 +848,8 @@ switch.lookup90:                                  ; preds = %163
   %switch.load93 = load i32, ptr %switch.gep92, align 4
   br label %185
 
-185:                                              ; preds = %163, %switch.lookup90, %152, %switch.lookup86, %147, %switch.lookup82, %switch.lookup80, %54, %switch.lookup76, %25, %14, %switch.lookup72, %3, %switch.lookup, %69, %59, %85, %2, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %165, %160, %157, %154, %149, %143, %139, %136, %132, %127, %122, %121, %120, %117, %114, %111, %108, %103, %98, %95, %92, %89, %86, %82, %79, %76, %73, %70, %66, %63, %60, %56, %51, %48, %45, %42, %39, %36, %33, %30, %27, %22, %19, %16, %11, %8, %5
-  %.0 = phi i32 [ 0, %178 ], [ 317, %177 ], [ 316, %176 ], [ 152, %175 ], [ 149, %174 ], [ 382, %173 ], [ 429, %172 ], [ 426, %171 ], [ 417, %170 ], [ 415, %169 ], [ 413, %168 ], [ %167, %165 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %151, %149 ], [ %146, %143 ], [ %142, %139 ], [ %138, %136 ], [ %135, %132 ], [ %131, %127 ], [ %126, %122 ], [ 279, %121 ], [ 278, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %103 ], [ %102, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %58, %56 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ 0, %25 ], [ 472, %2 ], [ 0, %54 ], [ %., %85 ], [ %spec.select, %59 ], [ %spec.select65, %69 ], [ %switch.load, %switch.lookup ], [ 0, %3 ], [ %switch.load75, %switch.lookup72 ], [ 0, %14 ], [ %switch.load79, %switch.lookup76 ], [ %switch.offset, %switch.lookup80 ], [ %switch.load85, %switch.lookup82 ], [ 0, %147 ], [ %switch.load89, %switch.lookup86 ], [ 0, %152 ], [ %switch.load93, %switch.lookup90 ], [ 0, %163 ]
+185:                                              ; preds = %163, %switch.lookup90, %152, %switch.lookup86, %147, %switch.lookup82, %switch.lookup80, %54, %25, %switch.lookup76, %14, %switch.lookup72, %3, %switch.lookup, %69, %59, %85, %2, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %165, %160, %157, %154, %149, %143, %139, %136, %132, %127, %122, %121, %120, %117, %114, %111, %108, %103, %98, %95, %92, %89, %86, %82, %79, %76, %73, %70, %66, %63, %60, %56, %51, %48, %45, %42, %39, %36, %33, %30, %27, %22, %19, %16, %11, %8, %5
+  %.0 = phi i32 [ 0, %178 ], [ 317, %177 ], [ 316, %176 ], [ 152, %175 ], [ 149, %174 ], [ 382, %173 ], [ 429, %172 ], [ 426, %171 ], [ 417, %170 ], [ 415, %169 ], [ 413, %168 ], [ %167, %165 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %151, %149 ], [ %146, %143 ], [ %142, %139 ], [ %138, %136 ], [ %135, %132 ], [ %131, %127 ], [ %126, %122 ], [ 279, %121 ], [ 278, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %103 ], [ %102, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %58, %56 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ 472, %2 ], [ 0, %54 ], [ %., %85 ], [ %spec.select, %59 ], [ %spec.select65, %69 ], [ %switch.load, %switch.lookup ], [ 0, %3 ], [ %switch.load75, %switch.lookup72 ], [ 0, %14 ], [ %switch.load79, %switch.lookup76 ], [ 0, %25 ], [ %switch.offset, %switch.lookup80 ], [ %switch.load85, %switch.lookup82 ], [ 0, %147 ], [ %switch.load89, %switch.lookup86 ], [ 0, %152 ], [ %switch.load93, %switch.lookup90 ], [ 0, %163 ]
   ret i32 %.0
 }
 
@@ -9827,7 +9827,7 @@ _ZN4NodenwEm.exit45:                              ; preds = %174, %176
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 25, 21) i32 @_ZN13ReductionNode6opcodeEi9BasicType(i32 noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  switch i32 %0, label %39 [
+  switch i32 %0, label %35 [
     i32 23, label %3
     i32 24, label %6
     i32 22, label %7
@@ -9838,27 +9838,27 @@ define hidden noundef range(i32 25, 21) i32 @_ZN13ReductionNode6opcodeEi9BasicTy
     i32 242, label %14
     i32 224, label %15
     i32 225, label %18
-    i32 226, label %19
-    i32 227, label %20
-    i32 209, label %21
-    i32 210, label %24
-    i32 212, label %25
-    i32 211, label %26
-    i32 28, label %27
-    i32 29, label %30
-    i32 262, label %31
-    i32 263, label %34
-    i32 353, label %35
-    i32 354, label %38
+    i32 226, label %18
+    i32 227, label %18
+    i32 209, label %19
+    i32 210, label %22
+    i32 212, label %22
+    i32 211, label %22
+    i32 28, label %23
+    i32 29, label %26
+    i32 262, label %27
+    i32 263, label %30
+    i32 353, label %31
+    i32 354, label %34
   ]
 
 3:                                                ; preds = %2
   switch i8 %1, label %4 [
-    i8 4, label %40
-    i8 5, label %40
-    i8 8, label %39
-    i8 9, label %39
-    i8 10, label %39
+    i8 4, label %36
+    i8 5, label %36
+    i8 8, label %35
+    i8 9, label %35
+    i8 10, label %35
   ]
 
 4:                                                ; preds = %3
@@ -9868,21 +9868,21 @@ define hidden noundef range(i32 25, 21) i32 @_ZN13ReductionNode6opcodeEi9BasicTy
   unreachable
 
 6:                                                ; preds = %2
-  br label %39
+  br label %35
 
 7:                                                ; preds = %2
-  br label %39
+  br label %35
 
 8:                                                ; preds = %2
-  br label %39
+  br label %35
 
 9:                                                ; preds = %2
   switch i8 %1, label %10 [
-    i8 4, label %40
-    i8 5, label %40
-    i8 8, label %39
-    i8 9, label %39
-    i8 10, label %39
+    i8 4, label %36
+    i8 5, label %36
+    i8 8, label %35
+    i8 9, label %35
+    i8 10, label %35
   ]
 
 10:                                               ; preds = %9
@@ -9892,21 +9892,21 @@ define hidden noundef range(i32 25, 21) i32 @_ZN13ReductionNode6opcodeEi9BasicTy
   unreachable
 
 12:                                               ; preds = %2
-  br label %39
+  br label %35
 
 13:                                               ; preds = %2
-  br label %39
+  br label %35
 
 14:                                               ; preds = %2
-  br label %39
+  br label %35
 
 15:                                               ; preds = %2
   switch i8 %1, label %16 [
-    i8 4, label %40
-    i8 5, label %40
-    i8 8, label %39
-    i8 9, label %39
-    i8 10, label %39
+    i8 4, label %36
+    i8 5, label %36
+    i8 8, label %35
+    i8 9, label %35
+    i8 10, label %35
   ]
 
 16:                                               ; preds = %15
@@ -9915,99 +9915,87 @@ define hidden noundef range(i32 25, 21) i32 @_ZN13ReductionNode6opcodeEi9BasicTy
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1253) #9
   unreachable
 
-18:                                               ; preds = %2
-  br label %39
+18:                                               ; preds = %2, %2, %2
+  br label %35
 
 19:                                               ; preds = %2
-  br label %39
-
-20:                                               ; preds = %2
-  br label %39
-
-21:                                               ; preds = %2
-  switch i8 %1, label %22 [
-    i8 4, label %40
-    i8 5, label %40
-    i8 8, label %39
-    i8 9, label %39
-    i8 10, label %39
+  switch i8 %1, label %20 [
+    i8 4, label %36
+    i8 5, label %36
+    i8 8, label %35
+    i8 9, label %35
+    i8 10, label %35
   ]
 
-22:                                               ; preds = %21
-  %23 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %23, align 1
+20:                                               ; preds = %19
+  %21 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %21, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1277) #9
   unreachable
 
-24:                                               ; preds = %2
-  br label %39
+22:                                               ; preds = %2, %2, %2
+  br label %35
 
-25:                                               ; preds = %2
-  br label %39
+23:                                               ; preds = %2
+  switch i8 %1, label %24 [
+    i8 4, label %36
+    i8 5, label %36
+    i8 8, label %35
+    i8 9, label %35
+    i8 10, label %35
+  ]
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %25, align 1
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1301) #9
+  unreachable
 
 26:                                               ; preds = %2
-  br label %39
+  br label %35
 
 27:                                               ; preds = %2
   switch i8 %1, label %28 [
-    i8 4, label %40
-    i8 5, label %40
-    i8 8, label %39
-    i8 9, label %39
-    i8 10, label %39
+    i8 4, label %36
+    i8 5, label %36
+    i8 8, label %35
+    i8 9, label %35
+    i8 10, label %35
   ]
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %29, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1301) #9
+  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1317) #9
   unreachable
 
 30:                                               ; preds = %2
-  br label %39
+  br label %35
 
 31:                                               ; preds = %2
   switch i8 %1, label %32 [
-    i8 4, label %40
-    i8 5, label %40
-    i8 8, label %39
-    i8 9, label %39
-    i8 10, label %39
+    i8 4, label %36
+    i8 5, label %36
+    i8 8, label %35
+    i8 9, label %35
+    i8 10, label %35
   ]
 
 32:                                               ; preds = %31
   %33 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %33, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1317) #9
-  unreachable
-
-34:                                               ; preds = %2
-  br label %39
-
-35:                                               ; preds = %2
-  switch i8 %1, label %36 [
-    i8 4, label %40
-    i8 5, label %40
-    i8 8, label %39
-    i8 9, label %39
-    i8 10, label %39
-  ]
-
-36:                                               ; preds = %35
-  %37 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %37, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 1333) #9
   unreachable
 
-38:                                               ; preds = %2
-  br label %39
+34:                                               ; preds = %2
+  br label %35
 
-39:                                               ; preds = %35, %35, %35, %31, %31, %31, %27, %27, %27, %21, %21, %21, %15, %15, %15, %9, %9, %9, %3, %3, %3, %2, %38, %34, %30, %26, %25, %24, %20, %19, %18, %14, %13, %12, %8, %7, %6
-  %.0 = phi i32 [ %0, %2 ], [ 418, %38 ], [ 416, %34 ], [ 414, %30 ], [ 422, %26 ], [ 422, %25 ], [ 422, %24 ], [ 421, %20 ], [ 421, %19 ], [ 421, %18 ], [ 381, %14 ], [ 379, %13 ], [ 377, %12 ], [ 365, %8 ], [ 363, %7 ], [ 361, %6 ], [ 359, %3 ], [ 359, %3 ], [ 359, %3 ], [ 375, %9 ], [ 375, %9 ], [ 375, %9 ], [ 421, %15 ], [ 421, %15 ], [ 421, %15 ], [ 422, %21 ], [ 422, %21 ], [ 422, %21 ], [ 414, %27 ], [ 414, %27 ], [ 414, %27 ], [ 416, %31 ], [ 416, %31 ], [ 416, %31 ], [ 418, %35 ], [ 418, %35 ], [ 418, %35 ]
-  br label %40
+35:                                               ; preds = %31, %31, %31, %27, %27, %27, %23, %23, %23, %19, %19, %19, %15, %15, %15, %9, %9, %9, %3, %3, %3, %2, %34, %30, %26, %22, %18, %14, %13, %12, %8, %7, %6
+  %.0 = phi i32 [ %0, %2 ], [ 418, %34 ], [ 416, %30 ], [ 414, %26 ], [ 422, %22 ], [ 421, %18 ], [ 381, %14 ], [ 379, %13 ], [ 377, %12 ], [ 365, %8 ], [ 363, %7 ], [ 361, %6 ], [ 359, %3 ], [ 359, %3 ], [ 359, %3 ], [ 375, %9 ], [ 375, %9 ], [ 375, %9 ], [ 421, %15 ], [ 421, %15 ], [ 421, %15 ], [ 422, %19 ], [ 422, %19 ], [ 422, %19 ], [ 414, %23 ], [ 414, %23 ], [ 414, %23 ], [ 416, %27 ], [ 416, %27 ], [ 416, %27 ], [ 418, %31 ], [ 418, %31 ], [ 418, %31 ]
+  br label %36
 
-40:                                               ; preds = %35, %35, %31, %31, %27, %27, %21, %21, %15, %15, %9, %9, %3, %3, %39
-  %.011 = phi i32 [ %.0, %39 ], [ 0, %3 ], [ 0, %3 ], [ 0, %9 ], [ 0, %9 ], [ 0, %15 ], [ 0, %15 ], [ 0, %21 ], [ 0, %21 ], [ 0, %27 ], [ 0, %27 ], [ 0, %31 ], [ 0, %31 ], [ 0, %35 ], [ 0, %35 ]
+36:                                               ; preds = %31, %31, %27, %27, %23, %23, %19, %19, %15, %15, %9, %9, %3, %3, %35
+  %.011 = phi i32 [ %.0, %35 ], [ 0, %3 ], [ 0, %3 ], [ 0, %9 ], [ 0, %9 ], [ 0, %15 ], [ 0, %15 ], [ 0, %19 ], [ 0, %19 ], [ 0, %23 ], [ 0, %23 ], [ 0, %27 ], [ 0, %27 ], [ 0, %31 ], [ 0, %31 ]
   ret i32 %.011
 }
 

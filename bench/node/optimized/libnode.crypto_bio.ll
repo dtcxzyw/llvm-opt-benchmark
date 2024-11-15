@@ -1117,7 +1117,7 @@ do.body3.i:                                       ; preds = %entry
 
 _ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit:    ; preds = %entry
   %call5.i = tail call noundef ptr @BIO_get_data(ptr noundef %bio) #16
-  switch i32 %cmd, label %sw.epilog [
+  switch i32 %cmd, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb1
     i32 130, label %sw.bb3
@@ -1126,9 +1126,9 @@ _ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit:    ; preds = %entry
     i32 115, label %do.body10
     i32 8, label %sw.bb12
     i32 9, label %sw.bb15
-    i32 11, label %sw.bb20
+    i32 11, label %sw.epilog
     i32 10, label %sw.bb18
-    i32 12, label %sw.bb20
+    i32 12, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit
@@ -1243,11 +1243,11 @@ sw.bb18:                                          ; preds = %_ZN4node6crypto7Nod
   %14 = load i64, ptr %length_.i11, align 8
   br label %sw.epilog
 
-sw.bb20:                                          ; preds = %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit
+sw.default:                                       ; preds = %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %while.end.i, %sw.bb, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit, %sw.bb5, %if.then, %sw.bb20, %sw.bb18, %sw.bb15, %sw.bb12, %sw.bb3, %sw.bb1
-  %ret.0 = phi i64 [ 1, %sw.bb20 ], [ %14, %sw.bb18 ], [ 1, %sw.bb15 ], [ %conv14, %sw.bb12 ], [ %13, %if.then ], [ %13, %sw.bb5 ], [ 1, %sw.bb3 ], [ %conv, %sw.bb1 ], [ 0, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %sw.bb ], [ 1, %while.end.i ]
+sw.epilog:                                        ; preds = %while.end.i, %sw.bb, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit, %sw.bb5, %if.then, %sw.default, %sw.bb18, %sw.bb15, %sw.bb12, %sw.bb3, %sw.bb1
+  %ret.0 = phi i64 [ 0, %sw.default ], [ %14, %sw.bb18 ], [ 1, %sw.bb15 ], [ %conv14, %sw.bb12 ], [ %13, %if.then ], [ %13, %sw.bb5 ], [ 1, %sw.bb3 ], [ %conv, %sw.bb1 ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %sw.bb ], [ 1, %while.end.i ]
   ret i64 %ret.0
 }
 

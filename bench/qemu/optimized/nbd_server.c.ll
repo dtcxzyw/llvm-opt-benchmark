@@ -3158,42 +3158,30 @@ entry:
     i32 1, label %sw.bb1.i
     i32 30, label %sw.bb1.i
     i32 5, label %sw.bb2.i
-    i32 12, label %sw.bb3.i
+    i32 12, label %sw.bb2.i
     i32 122, label %sw.bb4.i
     i32 27, label %sw.bb4.i
     i32 28, label %sw.bb4.i
-    i32 75, label %sw.bb5.i
-    i32 95, label %sw.bb6.i
-    i32 108, label %sw.bb7.i
+    i32 75, label %sw.bb2.i
+    i32 95, label %sw.bb2.i
+    i32 108, label %sw.bb2.i
   ]
 
 sw.bb1.i:                                         ; preds = %entry, %entry
   br label %system_errno_to_nbd_errno.exit
 
-sw.bb2.i:                                         ; preds = %entry
-  br label %system_errno_to_nbd_errno.exit
-
-sw.bb3.i:                                         ; preds = %entry
+sw.bb2.i:                                         ; preds = %entry, %entry, %entry, %entry, %entry
   br label %system_errno_to_nbd_errno.exit
 
 sw.bb4.i:                                         ; preds = %entry, %entry, %entry
   br label %system_errno_to_nbd_errno.exit
 
-sw.bb5.i:                                         ; preds = %entry
-  br label %system_errno_to_nbd_errno.exit
-
-sw.bb6.i:                                         ; preds = %entry
-  br label %system_errno_to_nbd_errno.exit
-
-sw.bb7.i:                                         ; preds = %entry
-  br label %system_errno_to_nbd_errno.exit
-
 sw.default.i:                                     ; preds = %entry
   br label %system_errno_to_nbd_errno.exit
 
-system_errno_to_nbd_errno.exit:                   ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.default.i
-  %tobool7.not = phi i1 [ false, %sw.default.i ], [ false, %sw.bb7.i ], [ false, %sw.bb6.i ], [ false, %sw.bb5.i ], [ false, %sw.bb4.i ], [ false, %sw.bb3.i ], [ false, %sw.bb2.i ], [ false, %sw.bb1.i ], [ true, %entry ]
-  %retval.0.i = phi i32 [ 22, %sw.default.i ], [ %error, %sw.bb7.i ], [ %error, %sw.bb6.i ], [ %error, %sw.bb5.i ], [ 28, %sw.bb4.i ], [ %error, %sw.bb3.i ], [ %error, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ %error, %entry ]
+system_errno_to_nbd_errno.exit:                   ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb4.i, %sw.default.i
+  %tobool7.not = phi i1 [ false, %sw.default.i ], [ false, %sw.bb4.i ], [ false, %sw.bb2.i ], [ false, %sw.bb1.i ], [ true, %entry ]
+  %retval.0.i = phi i32 [ 22, %sw.default.i ], [ 28, %sw.bb4.i ], [ %error, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ %error, %entry ]
   store ptr %hdr, ptr %iov, align 16
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 0, ptr %iov_len, align 8
@@ -3462,13 +3450,13 @@ entry:
     i32 1, label %system_errno_to_nbd_errno.exit
     i32 30, label %system_errno_to_nbd_errno.exit
     i32 5, label %sw.bb2.i
-    i32 12, label %sw.bb3.i
+    i32 12, label %sw.bb2.i
     i32 122, label %sw.bb4.i
     i32 27, label %sw.bb4.i
     i32 28, label %sw.bb4.i
-    i32 75, label %sw.bb5.i
-    i32 95, label %sw.bb6.i
-    i32 108, label %sw.bb7.i
+    i32 75, label %sw.bb2.i
+    i32 95, label %sw.bb2.i
+    i32 108, label %sw.bb2.i
   ]
 
 system_errno_to_nbd_errno.exit.thread:            ; preds = %entry
@@ -3481,29 +3469,17 @@ system_errno_to_nbd_errno.exit.thread:            ; preds = %entry
   store i64 %len, ptr %iov_len215, align 8
   br label %if.end
 
-sw.bb2.i:                                         ; preds = %entry
-  br label %system_errno_to_nbd_errno.exit
-
-sw.bb3.i:                                         ; preds = %entry
+sw.bb2.i:                                         ; preds = %entry, %entry, %entry, %entry, %entry
   br label %system_errno_to_nbd_errno.exit
 
 sw.bb4.i:                                         ; preds = %entry, %entry, %entry
   br label %system_errno_to_nbd_errno.exit
 
-sw.bb5.i:                                         ; preds = %entry
-  br label %system_errno_to_nbd_errno.exit
-
-sw.bb6.i:                                         ; preds = %entry
-  br label %system_errno_to_nbd_errno.exit
-
-sw.bb7.i:                                         ; preds = %entry
-  br label %system_errno_to_nbd_errno.exit
-
 sw.default.i:                                     ; preds = %entry
   br label %system_errno_to_nbd_errno.exit
 
-system_errno_to_nbd_errno.exit:                   ; preds = %entry, %entry, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.default.i
-  %retval.0.i = phi i32 [ 22, %sw.default.i ], [ %error, %sw.bb7.i ], [ %error, %sw.bb6.i ], [ %error, %sw.bb5.i ], [ 28, %sw.bb4.i ], [ %error, %sw.bb3.i ], [ %error, %sw.bb2.i ], [ 1, %entry ], [ 1, %entry ]
+system_errno_to_nbd_errno.exit:                   ; preds = %entry, %entry, %sw.bb2.i, %sw.bb4.i, %sw.default.i
+  %retval.0.i = phi i32 [ 22, %sw.default.i ], [ 28, %sw.bb4.i ], [ %error, %sw.bb2.i ], [ 1, %entry ], [ 1, %entry ]
   store ptr %reply, ptr %iov, align 16
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 16, ptr %iov_len, align 8

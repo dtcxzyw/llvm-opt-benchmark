@@ -6545,14 +6545,14 @@ tailrecurse:                                      ; preds = %31, %2
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 7
   switch i32 %6, label %.critedge [
-    i32 2, label %.critedge.loopexit60
+    i32 2, label %.critedge.loopexit58
     i32 5, label %21
     i32 4, label %.preheader
   ]
 
 .preheader:                                       ; preds = %tailrecurse
-  %.not43 = icmp ult i32 %5, 134217728
-  br i1 %.not43, label %.critedge, label %.lr.ph
+  %.not41 = icmp ult i32 %5, 134217728
+  br i1 %.not41, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = lshr i32 %5, 27
@@ -6607,11 +6607,11 @@ tailrecurse:                                      ; preds = %31, %2
   %37 = load ptr, ptr %36, align 8
   br label %tailrecurse
 
-.critedge.loopexit60:                             ; preds = %tailrecurse
+.critedge.loopexit58:                             ; preds = %tailrecurse
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %11, %12, %21, %tailrecurse, %.critedge.loopexit60, %.preheader
-  %.020 = phi i32 [ 0, %.preheader ], [ 1, %.critedge.loopexit60 ], [ 0, %tailrecurse ], [ 0, %21 ], [ 1, %19 ], [ 0, %11 ], [ 0, %12 ]
+.critedge:                                        ; preds = %19, %11, %12, %21, %tailrecurse, %.critedge.loopexit58, %.preheader
+  %.020 = phi i32 [ 0, %.preheader ], [ 1, %.critedge.loopexit58 ], [ 0, %tailrecurse ], [ 0, %21 ], [ 1, %19 ], [ 0, %11 ], [ 0, %12 ]
   ret i32 %.020
 }
 

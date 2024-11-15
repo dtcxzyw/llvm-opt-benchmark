@@ -21954,8 +21954,8 @@ _ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit138.loopexit.i: ;
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 6) i8 @_ZN5image6codecs4webp3vp88LumaMode7from_i817h6f1fe8f8e25e8059E(i8 noundef %0) unnamed_addr #6 {
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %0, i8 5)
-  ret i8 %spec.select
+  %.0 = tail call i8 @llvm.umin.i8(i8 %0, i8 5)
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -21970,14 +21970,14 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 5) i8 @_ZN5image6codecs4webp3vp810ChromaMode7from_i817h3ddb81aff279b464E(i8 noundef %0) unnamed_addr #6 {
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %0, i8 4)
-  ret i8 %spec.select
+  %.0 = tail call i8 @llvm.umin.i8(i8 %0, i8 4)
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 11) i8 @_ZN5image6codecs4webp3vp89IntraMode7from_i817hd26bcb845102b554E(i8 noundef %0) unnamed_addr #6 {
-  %spec.select = tail call i8 @llvm.umin.i8(i8 %0, i8 10)
-  ret i8 %spec.select
+  %.0 = tail call i8 @llvm.umin.i8(i8 %0, i8 10)
+  ret i8 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

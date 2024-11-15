@@ -7496,8 +7496,8 @@ if.else:                                          ; preds = %memory_access_is_di
   %call11 = call ptr @qemu_map_ram_ptr(ptr noundef %10, i64 noundef %11)
   %cond = icmp eq i32 %endian, 1
   %12 = call i32 @llvm.bswap.i32(i32 %val)
-  %spec.select = select i1 %cond, i32 %12, i32 %val
-  store i32 %spec.select, ptr %call11, align 1
+  %val.sink = select i1 %cond, i32 %12, i32 %val
+  store i32 %val.sink, ptr %call11, align 1
   call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %section.sroa.1.0.copyload.i.i, i64 noundef %11, i64 noundef 4)
   br label %if.end
 
@@ -7797,8 +7797,8 @@ if.else:                                          ; preds = %memory_access_is_di
   %call11 = call ptr @qemu_map_ram_ptr(ptr noundef %10, i64 noundef %11)
   %cond = icmp eq i32 %endian, 1
   %12 = call i16 @llvm.bswap.i16(i16 %val)
-  %spec.select = select i1 %cond, i16 %12, i16 %val
-  store i16 %spec.select, ptr %call11, align 1
+  %val.sink = select i1 %cond, i16 %12, i16 %val
+  store i16 %val.sink, ptr %call11, align 1
   call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %section.sroa.1.0.copyload.i.i, i64 noundef %11, i64 noundef 2)
   br label %if.end
 
@@ -7962,8 +7962,8 @@ if.else:                                          ; preds = %memory_access_is_di
   %call10 = call ptr @qemu_map_ram_ptr(ptr noundef %10, i64 noundef %11)
   %cond = icmp eq i32 %endian, 1
   %12 = call i64 @llvm.bswap.i64(i64 %val)
-  %spec.select = select i1 %cond, i64 %12, i64 %val
-  store i64 %spec.select, ptr %call10, align 1
+  %val.sink = select i1 %cond, i64 %12, i64 %val
+  store i64 %val.sink, ptr %call10, align 1
   call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %section.sroa.1.0.copyload.i.i, i64 noundef %11, i64 noundef 8)
   br label %if.end
 
@@ -9152,8 +9152,8 @@ if.else:                                          ; preds = %memory_access_is_di
   %call11 = tail call ptr @qemu_map_ram_ptr(ptr noundef %5, i64 noundef %6)
   %cond = icmp eq i32 %endian, 1
   %7 = tail call i32 @llvm.bswap.i32(i32 %val)
-  %spec.select = select i1 %cond, i32 %7, i32 %val
-  store i32 %spec.select, ptr %call11, align 1
+  %val.sink = select i1 %cond, i32 %7, i32 %val
+  store i32 %val.sink, ptr %call11, align 1
   tail call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %call, i64 noundef %6, i64 noundef 4)
   br label %if.end
 
@@ -9329,8 +9329,8 @@ if.else:                                          ; preds = %memory_access_is_di
   %call11 = tail call ptr @qemu_map_ram_ptr(ptr noundef %5, i64 noundef %6)
   %cond = icmp eq i32 %endian, 1
   %7 = tail call i16 @llvm.bswap.i16(i16 %val)
-  %spec.select = select i1 %cond, i16 %7, i16 %val
-  store i16 %spec.select, ptr %call11, align 1
+  %val.sink = select i1 %cond, i16 %7, i16 %val
+  store i16 %val.sink, ptr %call11, align 1
   tail call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %call, i64 noundef %6, i64 noundef 2)
   br label %if.end
 
@@ -9432,8 +9432,8 @@ if.else:                                          ; preds = %memory_access_is_di
   %call10 = tail call ptr @qemu_map_ram_ptr(ptr noundef %5, i64 noundef %6)
   %cond = icmp eq i32 %endian, 1
   %7 = tail call i64 @llvm.bswap.i64(i64 %val)
-  %spec.select = select i1 %cond, i64 %7, i64 %val
-  store i64 %spec.select, ptr %call10, align 1
+  %val.sink = select i1 %cond, i64 %7, i64 %val
+  store i64 %val.sink, ptr %call10, align 1
   tail call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %call, i64 noundef %6, i64 noundef 8)
   br label %if.end
 

@@ -259,23 +259,22 @@ _ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit: ; preds = %13, %19
   %41 = add i64 %40, -1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %41) #17
   %42 = call noundef i32 @_ZN4llvm23DetermineUseCaptureKindERKNS_3UseENS_12function_refIFbPNS_5ValueERKNS_10DataLayoutEEEE(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr nonnull @"_ZN4llvm12function_refIFbPNS_5ValueERKNS_10DataLayoutEEE11callback_fnIZNS_20PointerMayBeCapturedEPKS1_PNS_14CaptureTrackerEjE3$_1EEblS2_S5_", i64 %33)
-  switch i32 %42, label %default.unreachable7 [
-    i32 0, label %.backedge
-    i32 1, label %44
+  switch i32 %42, label %.backedge [
     i32 2, label %50
+    i32 1, label %43
   ]
 
-.backedge:                                        ; preds = %34, %44, %50
-  %43 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
-  br i1 %43, label %.loopexit, label %34, !llvm.loop !4
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %4, align 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %47 = load ptr, ptr %46, align 8
+  %48 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %39) #17
+  br i1 %48, label %.loopexit, label %.backedge
 
-44:                                               ; preds = %34
-  %45 = load ptr, ptr %4, align 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 32
-  %48 = load ptr, ptr %47, align 8
-  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull %39) #17
-  br i1 %49, label %.loopexit, label %.backedge
+.backedge:                                        ; preds = %43, %50, %34
+  %49 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
+  br i1 %49, label %.loopexit, label %34, !llvm.loop !4
 
 50:                                               ; preds = %34
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -285,10 +284,7 @@ _ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit: ; preds = %13, %19
   %54 = call fastcc noundef zeroext i1 @"_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr %.val4)
   br i1 %54, label %.backedge, label %.loopexit
 
-default.unreachable7:                             ; preds = %34
-  unreachable
-
-.loopexit:                                        ; preds = %44, %50, %.backedge, %30, %_ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit
+.loopexit:                                        ; preds = %43, %50, %.backedge, %30, %_ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit
   %55 = load ptr, ptr %21, align 8
   %56 = load ptr, ptr %7, align 8
   %57 = icmp eq ptr %55, %56

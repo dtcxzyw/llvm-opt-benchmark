@@ -76,7 +76,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11SemaSystemZ31CheckSystemZBuiltin
   %6 = alloca %"class.clang::SourceRange", align 8
   switch i32 %1, label %.thread27 [
     i32 1411, label %7
-    i32 1416, label %72
+    i32 1416, label %69
     i32 1483, label %55
     i32 1484, label %55
     i32 1485, label %55
@@ -97,33 +97,33 @@ define dso_local noundef zeroext i1 @_ZN5clang11SemaSystemZ31CheckSystemZBuiltin
     i32 1622, label %57
     i32 1650, label %63
     i32 1628, label %63
-    i32 1417, label %72
+    i32 1417, label %69
     i32 1421, label %64
-    i32 1553, label %65
-    i32 1607, label %66
-    i32 1609, label %66
-    i32 1611, label %66
-    i32 1613, label %66
-    i32 1615, label %66
-    i32 1617, label %66
-    i32 1608, label %66
-    i32 1610, label %66
-    i32 1612, label %66
-    i32 1614, label %66
-    i32 1616, label %66
-    i32 1618, label %66
-    i32 1632, label %67
-    i32 1642, label %68
-    i32 1641, label %68
-    i32 1634, label %68
-    i32 1633, label %68
-    i32 1651, label %69
-    i32 1652, label %70
-    i32 1662, label %72
-    i32 1663, label %72
-    i32 1665, label %72
-    i32 1666, label %72
-    i32 1664, label %71
+    i32 1553, label %64
+    i32 1607, label %65
+    i32 1609, label %65
+    i32 1611, label %65
+    i32 1613, label %65
+    i32 1615, label %65
+    i32 1617, label %65
+    i32 1608, label %65
+    i32 1610, label %65
+    i32 1612, label %65
+    i32 1614, label %65
+    i32 1616, label %65
+    i32 1618, label %65
+    i32 1632, label %66
+    i32 1642, label %67
+    i32 1641, label %67
+    i32 1634, label %67
+    i32 1633, label %67
+    i32 1651, label %68
+    i32 1652, label %68
+    i32 1662, label %69
+    i32 1663, label %69
+    i32 1665, label %69
+    i32 1666, label %69
+    i32 1664, label %64
   ]
 
 7:                                                ; preds = %3
@@ -213,10 +213,10 @@ _ZNK4llvm5APInt12getSExtValueEv.exit20.thread:    ; preds = %26, %_ZNK4llvm5APIn
   br label %.thread27
 
 55:                                               ; preds = %3, %3, %3, %3
-  br label %72
+  br label %69
 
 56:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  br label %72
+  br label %69
 
 57:                                               ; preds = %3, %3
   %58 = load ptr, ptr %0, align 8
@@ -229,41 +229,32 @@ _ZNK4llvm5APInt12getSExtValueEv.exit20.thread:    ; preds = %26, %_ZNK4llvm5APIn
   br label %.thread27
 
 63:                                               ; preds = %3, %3
-  br label %72
+  br label %69
 
-64:                                               ; preds = %3
-  br label %72
+64:                                               ; preds = %3, %3, %3
+  br label %69
 
-65:                                               ; preds = %3
-  br label %72
+65:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %69
 
-66:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  br label %72
+66:                                               ; preds = %3
+  br label %69
 
-67:                                               ; preds = %3
-  br label %72
+67:                                               ; preds = %3, %3, %3, %3
+  br label %69
 
-68:                                               ; preds = %3, %3, %3, %3
-  br label %72
+68:                                               ; preds = %3, %3
+  br label %69
 
-69:                                               ; preds = %3
-  br label %72
-
-70:                                               ; preds = %3
-  br label %72
-
-71:                                               ; preds = %3
-  br label %72
-
-72:                                               ; preds = %3, %3, %3, %3, %3, %3, %71, %70, %69, %68, %67, %66, %65, %64, %63, %56, %55
-  %.015 = phi i32 [ 2, %71 ], [ 2, %70 ], [ 2, %69 ], [ 2, %68 ], [ 3, %67 ], [ 3, %66 ], [ 2, %65 ], [ 2, %64 ], [ 1, %63 ], [ 2, %56 ], [ 3, %55 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
-  %.0 = phi i32 [ 15, %71 ], [ 7, %70 ], [ 7, %69 ], [ 15, %68 ], [ 15, %67 ], [ 15, %66 ], [ 15, %65 ], [ 15, %64 ], [ 4095, %63 ], [ 15, %56 ], [ 255, %55 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ]
-  %73 = load ptr, ptr %0, align 8
-  %74 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17560) %73, ptr noundef %2, i32 noundef %.015, i32 noundef 0, i32 noundef %.0, i1 noundef zeroext true) #11
+69:                                               ; preds = %3, %3, %3, %3, %3, %3, %68, %67, %66, %65, %64, %63, %56, %55
+  %.015 = phi i32 [ 2, %68 ], [ 2, %67 ], [ 3, %66 ], [ 3, %65 ], [ 2, %64 ], [ 1, %63 ], [ 2, %56 ], [ 3, %55 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  %.0 = phi i32 [ 7, %68 ], [ 15, %67 ], [ 15, %66 ], [ 15, %65 ], [ 15, %64 ], [ 4095, %63 ], [ 15, %56 ], [ 255, %55 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ]
+  %70 = load ptr, ptr %0, align 8
+  %71 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17560) %70, ptr noundef %2, i32 noundef %.015, i32 noundef 0, i32 noundef %.0, i1 noundef zeroext true) #11
   br label %.thread27
 
-.thread27:                                        ; preds = %54, %51, %47, %44, %3, %57, %60, %72
-  %.1 = phi i1 [ %74, %72 ], [ true, %57 ], [ %62, %60 ], [ false, %3 ], [ %not.switch, %44 ], [ %not.switch, %47 ], [ %not.switch, %51 ], [ %not.switch, %54 ]
+.thread27:                                        ; preds = %54, %51, %47, %44, %3, %57, %60, %69
+  %.1 = phi i1 [ %71, %69 ], [ true, %57 ], [ %62, %60 ], [ false, %3 ], [ %not.switch, %44 ], [ %not.switch, %47 ], [ %not.switch, %51 ], [ %not.switch, %54 ]
   ret i1 %.1
 }
 

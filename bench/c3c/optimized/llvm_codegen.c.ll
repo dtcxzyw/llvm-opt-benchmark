@@ -3152,8 +3152,8 @@ switch.lookup:                                    ; preds = %125
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %llvm_call_convention_from_call.exit
 
-llvm_call_convention_from_call.exit:              ; preds = %switch.lookup, %125
-  %.0.i = phi i32 [ 0, %125 ], [ %switch.load, %switch.lookup ]
+llvm_call_convention_from_call.exit:              ; preds = %125, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %125 ]
   tail call void @LLVMSetFunctionCallConv(ptr noundef %7, i32 noundef %.0.i) #10
   ret void
 }

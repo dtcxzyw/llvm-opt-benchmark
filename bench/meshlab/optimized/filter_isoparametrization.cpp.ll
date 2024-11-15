@@ -10171,8 +10171,8 @@ switch.lookup:                                    ; preds = %_ZN17IsoParametriza
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %142
 
-142:                                              ; preds = %switch.lookup, %_ZN17IsoParametrizatorC2Ev.exit
-  %.sink523 = phi i32 [ 0, %_ZN17IsoParametrizatorC2Ev.exit ], [ %switch.load, %switch.lookup ]
+142:                                              ; preds = %_ZN17IsoParametrizatorC2Ev.exit, %switch.lookup
+  %.sink523 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %_ZN17IsoParametrizatorC2Ev.exit ]
   store i32 %.sink523, ptr %128, align 4
   store i32 %.sink523, ptr @_ZZN17IsoParametrizator8ParaInfo2SMEvE1S, align 4
   store ptr %6, ptr %132, align 8

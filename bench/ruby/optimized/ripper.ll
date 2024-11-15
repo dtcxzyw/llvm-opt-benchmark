@@ -46834,7 +46834,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr96 = phi i32 [ %1, %2 ], [ %6, %tailrecurse.backedge ]
   %7 = tail call fastcc i32 @nextc0(ptr noundef %0)
   switch i32 %7, label %149 [
-    i32 92, label %.loopexit
+    i32 -1, label %.loopexit97
     i32 110, label %.loopexit155
     i32 116, label %tok_hex.exit.loopexit
     i32 114, label %tok_hex.exit.loopexit270
@@ -46856,7 +46856,6 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 77, label %56
     i32 67, label %91
     i32 99, label %94
-    i32 -1, label %.loopexit97
   ]
 
 8:                                                ; preds = %tailrecurse
@@ -47147,9 +47146,6 @@ tailrecurse.backedge:                             ; preds = %61, %64
 149:                                              ; preds = %tailrecurse
   br label %tok_hex.exit
 
-.loopexit:                                        ; preds = %tailrecurse
-  br label %tok_hex.exit
-
 .loopexit155:                                     ; preds = %tailrecurse
   br label %tok_hex.exit
 
@@ -47162,8 +47158,8 @@ tok_hex.exit.loopexit270:                         ; preds = %tailrecurse
 tok_hex.exit.loopexit328:                         ; preds = %tailrecurse
   br label %tok_hex.exit
 
-tok_hex.exit:                                     ; preds = %tailrecurse, %tok_hex.exit.loopexit328, %tok_hex.exit.loopexit270, %tok_hex.exit.loopexit, %50, %37, %.loopexit155, %.loopexit, %95, %149, %.loopexit97, %135, %89, %55, %54, %pushback.exit, %9, %8
-  %.0 = phi i32 [ %7, %149 ], [ 0, %.loopexit97 ], [ %136, %135 ], [ %90, %89 ], [ 32, %55 ], [ 8, %54 ], [ %29, %pushback.exit ], [ 27, %9 ], [ 7, %8 ], [ 127, %95 ], [ %7, %.loopexit ], [ 10, %.loopexit155 ], [ %51, %50 ], [ 0, %37 ], [ 9, %tok_hex.exit.loopexit ], [ 13, %tok_hex.exit.loopexit270 ], [ 12, %tok_hex.exit.loopexit328 ], [ 11, %tailrecurse ]
+tok_hex.exit:                                     ; preds = %tailrecurse, %tok_hex.exit.loopexit328, %tok_hex.exit.loopexit270, %tok_hex.exit.loopexit, %50, %37, %.loopexit155, %95, %149, %.loopexit97, %135, %89, %55, %54, %pushback.exit, %9, %8
+  %.0 = phi i32 [ %7, %149 ], [ 0, %.loopexit97 ], [ %136, %135 ], [ %90, %89 ], [ 32, %55 ], [ 8, %54 ], [ %29, %pushback.exit ], [ 27, %9 ], [ 7, %8 ], [ 127, %95 ], [ 10, %.loopexit155 ], [ %51, %50 ], [ 0, %37 ], [ 9, %tok_hex.exit.loopexit ], [ 13, %tok_hex.exit.loopexit270 ], [ 12, %tok_hex.exit.loopexit328 ], [ 11, %tailrecurse ]
   %accumulator.ret.tr = or i32 %.0, %accumulator.tr
   ret i32 %accumulator.ret.tr
 }

@@ -340,7 +340,7 @@ define noundef range(i32 -5, 1) i32 @_ZN5boost9unit_test19unit_test_monitor_t21e
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %43, ptr %44, align 4, !tbaa !29
   invoke void @_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %67 unwind label %45
+          to label %65 unwind label %45
 
 45:                                               ; preds = %.noexc19, %32, %.noexc16, %23, %.noexc13, %14, %.noexc, %3, %41
   %46 = landingpad { ptr, i32 }
@@ -348,7 +348,7 @@ define noundef range(i32 -5, 1) i32 @_ZN5boost9unit_test19unit_test_monitor_t21e
   %47 = extractvalue { ptr, i32 } %46, 1
   %48 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost19execution_exceptionE) #20
   %49 = icmp eq i32 %47, %48
-  br i1 %49, label %50, label %68
+  br i1 %49, label %50, label %66
 
 50:                                               ; preds = %45
   %51 = extractvalue { ptr, i32 } %46, 0
@@ -366,58 +366,50 @@ define noundef range(i32 -5, 1) i32 @_ZN5boost9unit_test19unit_test_monitor_t21e
 
 56:                                               ; preds = %55
   %57 = load i32, ptr %52, align 8, !tbaa !32
-  switch i32 %57, label %65 [
-    i32 0, label %66
-    i32 200, label %60
-    i32 205, label %61
-    i32 210, label %62
-    i32 215, label %63
-    i32 220, label %64
-    i32 225, label %64
+  switch i32 %57, label %63 [
+    i32 0, label %64
+    i32 225, label %62
+    i32 220, label %62
+    i32 210, label %60
+    i32 215, label %61
   ]
 
 58:                                               ; preds = %55, %53, %50
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %68 unwind label %69
+          to label %66 unwind label %67
 
 60:                                               ; preds = %56
-  br label %66
+  br label %64
 
 61:                                               ; preds = %56
-  br label %66
+  br label %64
 
-62:                                               ; preds = %56
-  br label %66
+62:                                               ; preds = %56, %56
+  br label %64
 
 63:                                               ; preds = %56
-  br label %66
+  br label %64
 
-64:                                               ; preds = %56, %56
-  br label %66
-
-65:                                               ; preds = %56
-  br label %66
-
-66:                                               ; preds = %56, %65, %64, %63, %62, %61, %60
-  %.0 = phi i32 [ -2, %65 ], [ -5, %64 ], [ -4, %63 ], [ -3, %62 ], [ -2, %61 ], [ -2, %60 ], [ %57, %56 ]
+64:                                               ; preds = %56, %63, %62, %61, %60
+  %.0 = phi i32 [ -2, %63 ], [ -5, %62 ], [ -4, %61 ], [ -3, %60 ], [ %57, %56 ]
   call void @__cxa_end_catch()
-  br label %67
+  br label %65
 
-67:                                               ; preds = %41, %66
-  %.1 = phi i32 [ %.0, %66 ], [ 0, %41 ]
+65:                                               ; preds = %41, %64
+  %.1 = phi i32 [ %.0, %64 ], [ 0, %41 ]
   ret i32 %.1
 
-68:                                               ; preds = %58, %45
+66:                                               ; preds = %58, %45
   %.merged = phi { ptr, i32 } [ %46, %45 ], [ %59, %58 ]
   resume { ptr, i32 } %.merged
 
-69:                                               ; preds = %58
-  %70 = landingpad { ptr, i32 }
+67:                                               ; preds = %58
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #22
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #22
   unreachable
 }
 

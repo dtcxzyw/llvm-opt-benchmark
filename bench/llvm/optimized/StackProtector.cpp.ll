@@ -3211,7 +3211,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit: ; preds = %._crit_edg
   %92 = call fastcc noundef zeroext i1 @_ZL15HasAddressTakenPKN4llvm11InstructionENS_8TypeSizeEPNS_6ModuleERNS_11SmallPtrSetIPKNS_7PHINodeELj16EEE(ptr noundef nonnull %19, i64 %1, i8 %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(160) %4)
   br i1 %92, label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGEERKS3_S5_.exit.thread, label %.critedge124
 
-.critedge124:                                     ; preds = %.lr.ph.i.i, %71, %.critedge, %_ZN4llvm5APIntD2Ev.exit, %30, %34, %38, %44, %42, %72, %91, %_ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit, %.critedge, %.critedge
+.critedge124:                                     ; preds = %.lr.ph.i.i, %71, %_ZN4llvm5APIntD2Ev.exit, %.critedge, %30, %34, %38, %44, %42, %72, %91, %_ZN4llvm15SmallPtrSetImplIPKNS_7PHINodeEE6insertES3_.exit, %.critedge, %.critedge
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.075.094, i64 8
   %.sroa.075.0 = load ptr, ptr %93, align 8
   %.not112 = icmp eq ptr %.sroa.075.0, null

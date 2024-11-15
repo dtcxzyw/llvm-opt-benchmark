@@ -448,8 +448,6 @@ $_ZTVN4llvm13format_objectIJjEEE = comdat any
 @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE = private unnamed_addr constant [14 x i64] [i64 2, i64 2, i64 2, i64 2, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 6, i64 6, i64 13, i64 8], align 8
 @switch.table._ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE.134 = private unnamed_addr constant [14 x ptr] [ptr @.str.43, ptr @.str.44, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54], align 8
 @switch.table._ZN5clang13UnaryOperator21getOverloadedOperatorENS_17UnaryOperatorKindE = private unnamed_addr constant [14 x i32] [i32 37, i32 38, i32 37, i32 38, i32 11, i32 7, i32 5, i32 6, i32 13, i32 14, i32 0, i32 0, i32 0, i32 45], align 4
-@switch.table._ZN5clang8CallExpr23offsetToTrailingObjectsENS_4Stmt9StmtClassE = private unnamed_addr constant [5 x i32] [i32 24, i32 32, i32 32, i32 24, i32 24], align 4
-@switch.table._ZN5clang8CallExprC2ENS_4Stmt9StmtClassEjjbNS1_10EmptyShellE = private unnamed_addr constant [5 x i32] [i32 402653184, i32 536870912, i32 536870912, i32 402653184, i32 402653184], align 4
 @switch.table._ZN5clang8CastExpr15getCastKindNameENS_8CastKindE = private unnamed_addr constant [67 x ptr] [ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120, ptr @.str.121], align 8
 @switch.table._ZN5clang8CastExpr11path_bufferEv = private unnamed_addr constant [10 x i64] [i64 24, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 40, i64 40, i64 40], align 8
 @switch.table._ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE = private unnamed_addr constant [33 x i64] [i64 2, i64 3, i64 1, i64 1, i64 1, i64 1, i64 1, i64 2, i64 2, i64 3, i64 1, i64 1, i64 2, i64 2, i64 2, i64 2, i64 1, i64 1, i64 1, i64 2, i64 2, i64 1, i64 2, i64 2, i64 2, i64 2, i64 2, i64 3, i64 3, i64 2, i64 2, i64 2, i64 1], align 8
@@ -1454,28 +1452,25 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %.lr.ph.i.i.i, %_ZNK
   switch i8 %52, label %_ZNK5clang4Expr12IgnoreParensEv.exit.thread [
     i8 46, label %_ZNK5clang4Expr12IgnoreParensEv.exit.thread.sink.split
     i8 71, label %53
-    i8 34, label %54
+    i8 34, label %53
   ]
 
-53:                                               ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
+53:                                               ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit.thread.sink.split
 
-54:                                               ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
-  br label %_ZNK5clang4Expr12IgnoreParensEv.exit.thread.sink.split
-
-_ZNK5clang4Expr12IgnoreParensEv.exit.thread.sink.split: ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit, %54, %53
-  %.sink37 = phi i64 [ 16, %53 ], [ 16, %54 ], [ 24, %_ZNK5clang4Expr12IgnoreParensEv.exit ]
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 %.sink37
-  %56 = load ptr, ptr %55, align 8
+_ZNK5clang4Expr12IgnoreParensEv.exit.thread.sink.split: ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit, %53
+  %.sink37 = phi i64 [ 16, %53 ], [ 24, %_ZNK5clang4Expr12IgnoreParensEv.exit ]
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 %.sink37
+  %55 = load ptr, ptr %54, align 8
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit.thread
 
 _ZNK5clang4Expr12IgnoreParensEv.exit.thread:      ; preds = %16, %30, %_ZNK5clang4Expr12IgnoreParensEv.exit.thread.sink.split, %_ZNK5clang4Expr12IgnoreParensEv.exit
   %.0.i3.i.i27 = phi ptr [ %.0.i3.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ %.0.i3.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.thread.sink.split ], [ %.068.i.i.i, %30 ], [ %.068.i.i.i, %16 ]
-  %.0 = phi ptr [ null, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ %56, %_ZNK5clang4Expr12IgnoreParensEv.exit.thread.sink.split ], [ null, %30 ], [ null, %16 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i27, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %57, align 8
-  %58 = tail call noundef zeroext i1 @_ZN5clang4Decl25isFlexibleArrayMemberLikeERNS_10ASTContextEPKS0_NS_8QualTypeENS_15LangOptionsBase25StrictFlexArraysLevelKindEb(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %.0, i64 %.sroa.0.0.copyload.i, i32 noundef %2, i1 noundef zeroext %3) #28
-  ret i1 %58
+  %.0 = phi ptr [ null, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ %55, %_ZNK5clang4Expr12IgnoreParensEv.exit.thread.sink.split ], [ null, %30 ], [ null, %16 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i27, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %56, align 8
+  %57 = tail call noundef zeroext i1 @_ZN5clang4Decl25isFlexibleArrayMemberLikeERNS_10ASTContextEPKS0_NS_8QualTypeENS_15LangOptionsBase25StrictFlexArraysLevelKindEb(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %.0, i64 %.sroa.0.0.copyload.i, i32 noundef %2, i1 noundef zeroext %3) #28
+  ret i1 %57
 }
 
 declare noundef zeroext i1 @_ZN5clang4Decl25isFlexibleArrayMemberLikeERNS_10ASTContextEPKS0_NS_8QualTypeENS_15LangOptionsBase25StrictFlexArraysLevelKindEb(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef, i64, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
@@ -8841,32 +8836,31 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %31 = shl i32 %29, 18
   %32 = and i32 %31, 262144
   %33 = and i32 %30, 15990783
-  %34 = or disjoint i32 %33, %32
-  %switch.tableidx = add nsw i32 %1, -89
-  %35 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang8CallExprC2ENS_4Stmt9StmtClassEjjbNS1_10EmptyShellE, i64 0, i64 %35
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %36 = select i1 %11, i32 524288, i32 0
-  %37 = or disjoint i32 %34, %36
-  %38 = or disjoint i32 %37, %switch.load
+  %34 = and i32 %1, -2
+  %switch.i = icmp eq i32 %34, 90
+  %..i27 = select i1 %switch.i, i32 536870912, i32 402653184
+  %35 = select i1 %11, i32 524288, i32 0
+  %36 = or disjoint i32 %32, %35
+  %37 = or disjoint i32 %36, %33
+  %38 = or disjoint i32 %37, %..i27
   store i32 %38, ptr %0, align 8
-  %39 = lshr exact i32 %switch.load, 24
+  %39 = lshr exact i32 %..i27, 24
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %0, i64 %40
   store ptr %2, ptr %41, align 8
-  %.not34 = icmp eq i32 %29, 0
-  br i1 %.not34, label %.preheader33, label %.lr.ph.preheader
+  %.not35 = icmp eq i32 %29, 0
+  br i1 %.not35, label %.preheader34, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
   %42 = and i64 %4, 4294967295
   br label %.lr.ph
 
-.preheader33:                                     ; preds = %.lr.ph, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
-  %.not2536 = icmp eq i64 %26, 0
+.preheader34:                                     ; preds = %.lr.ph, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
+  %.not2537 = icmp eq i64 %26, 0
   %.pre.pre = load i32, ptr %0, align 8
-  br i1 %.not2536, label %.preheader, label %.lr.ph38
+  br i1 %.not2537, label %.preheader, label %.lr.ph39
 
-.lr.ph38:                                         ; preds = %.preheader33
+.lr.ph39:                                         ; preds = %.preheader34
   %43 = load ptr, ptr %5, align 8
   %44 = lshr i32 %.pre.pre, 24
   %45 = zext nneg i32 %44 to i64
@@ -8889,56 +8883,56 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv.next
   store ptr %51, ptr %56, align 8
   %.not = icmp eq i64 %indvars.iv.next, %42
-  br i1 %.not, label %.preheader33, label %.lr.ph, !llvm.loop !92
+  br i1 %.not, label %.preheader34, label %.lr.ph, !llvm.loop !92
 
-.preheader:                                       ; preds = %62, %.preheader33
+.preheader:                                       ; preds = %62, %.preheader34
   %57 = load i32, ptr %28, align 8
-  %.not2641 = icmp eq i32 %57, %27
+  %.not2642 = icmp eq i32 %57, %27
   %.pre = lshr i32 %.pre.pre, 24
-  %.pre45 = zext nneg i32 %.pre to i64
-  br i1 %.not2641, label %.preheader.._crit_edge_crit_edge, label %.lr.ph43
+  %.pre46 = zext nneg i32 %.pre to i64
+  br i1 %.not2642, label %.preheader.._crit_edge_crit_edge, label %.lr.ph44
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.pre47 = lshr i32 %.pre.pre, 18
-  %.pre49 = and i32 %.pre47, 1
-  %.pre51 = zext nneg i32 %.pre49 to i64
+  %.pre48 = lshr i32 %.pre.pre, 18
+  %.pre50 = and i32 %.pre48, 1
+  %.pre52 = zext nneg i32 %.pre50 to i64
   br label %._crit_edge
 
-.lr.ph43:                                         ; preds = %.preheader
-  %gep40 = getelementptr inbounds i8, ptr %17, i64 %.pre45
+.lr.ph44:                                         ; preds = %.preheader
+  %gep41 = getelementptr inbounds i8, ptr %17, i64 %.pre46
   %58 = lshr i32 %.pre.pre, 18
   %59 = and i32 %58, 1
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %gep40, i64 %60
+  %61 = getelementptr inbounds ptr, ptr %gep41, i64 %60
   br label %69
 
-62:                                               ; preds = %.lr.ph38, %62
-  %63 = phi i64 [ 0, %.lr.ph38 ], [ %68, %62 ]
-  %.02337 = phi i32 [ 0, %.lr.ph38 ], [ %67, %62 ]
+62:                                               ; preds = %.lr.ph39, %62
+  %63 = phi i64 [ 0, %.lr.ph39 ], [ %68, %62 ]
+  %.02338 = phi i32 [ 0, %.lr.ph39 ], [ %67, %62 ]
   %64 = getelementptr inbounds ptr, ptr %43, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds ptr, ptr %49, i64 %63
   store ptr %65, ptr %66, align 8
-  %67 = add i32 %.02337, 1
+  %67 = add i32 %.02338, 1
   %68 = zext i32 %67 to i64
   %.not25 = icmp eq i64 %26, %68
   br i1 %.not25, label %.preheader, label %62, !llvm.loop !93
 
-69:                                               ; preds = %.lr.ph43, %69
-  %.02242 = phi i32 [ %27, %.lr.ph43 ], [ %72, %69 ]
-  %70 = zext i32 %.02242 to i64
+69:                                               ; preds = %.lr.ph44, %69
+  %.02243 = phi i32 [ %27, %.lr.ph44 ], [ %72, %69 ]
+  %70 = zext i32 %.02243 to i64
   %71 = getelementptr inbounds ptr, ptr %61, i64 %70
   store ptr null, ptr %71, align 8
-  %72 = add i32 %.02242, 1
+  %72 = add i32 %.02243, 1
   %73 = load i32, ptr %28, align 8
   %.not26 = icmp eq i32 %72, %73
   br i1 %.not26, label %._crit_edge, label %69, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %69, %.preheader.._crit_edge_crit_edge
-  %.pre-phi52 = phi i64 [ %.pre51, %.preheader.._crit_edge_crit_edge ], [ %60, %69 ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 %.pre45
+  %.pre-phi53 = phi i64 [ %.pre52, %.preheader.._crit_edge_crit_edge ], [ %60, %69 ]
+  %74 = getelementptr inbounds i8, ptr %0, i64 %.pre46
   %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %76 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_8CallExprEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %75, i64 %.pre-phi52) #28
+  %76 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_8CallExprEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %75, i64 %.pre-phi53) #28
   %77 = load i16, ptr %18, align 1
   %78 = and i8 %76, 31
   %79 = zext nneg i8 %78 to i16
@@ -8946,13 +8940,13 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %81 = and i16 %77, -993
   %82 = or disjoint i16 %80, %81
   store i16 %82, ptr %18, align 1
-  %.not32 = icmp ult i64 %9, 4294967296
+  %.not33 = icmp ult i64 %9, 4294967296
   %83 = load i32, ptr %0, align 8
-  %84 = select i1 %.not32, i32 0, i32 1048576
+  %84 = select i1 %.not33, i32 0, i32 1048576
   %85 = and i32 %83, -1048577
   %86 = or disjoint i32 %85, %84
   store i32 %86, ptr %0, align 8
-  br i1 %.not32, label %99, label %87
+  br i1 %.not33, label %99, label %87
 
 87:                                               ; preds = %._crit_edge
   %88 = lshr i32 %83, 24
@@ -8975,12 +8969,10 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 24, 33) i32 @_ZN5clang8CallExpr23offsetToTrailingObjectsENS_4Stmt9StmtClassE(i32 noundef %0) local_unnamed_addr #8 align 2 {
-switch.lookup:
-  %switch.tableidx = add nsw i32 %0, -89
-  %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang8CallExpr23offsetToTrailingObjectsENS_4Stmt9StmtClassE, i64 0, i64 %1
-  %switch.load = load i32, ptr %switch.gep, align 4
-  ret i32 %switch.load
+  %2 = and i32 %0, -2
+  %switch = icmp eq i32 %2, 90
+  %. = select i1 %switch, i32 32, i32 24
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9003,17 +8995,16 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS1_10EmptyShellE.exit: ; preds = %5, %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %12, align 4
   %13 = load i32, ptr %0, align 8
-  %switch.tableidx = add nsw i32 %1, -89
-  %14 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang8CallExprC2ENS_4Stmt9StmtClassEjjbNS1_10EmptyShellE, i64 0, i64 %14
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %15 = and i32 %13, 15466495
-  %16 = shl i32 %2, 18
-  %17 = and i32 %16, 262144
-  %18 = or disjoint i32 %15, %17
-  %19 = select i1 %4, i32 1048576, i32 0
-  %20 = or disjoint i32 %18, %19
-  %21 = or disjoint i32 %20, %switch.load
+  %14 = shl i32 %2, 18
+  %15 = and i32 %14, 262144
+  %16 = and i32 %13, 15466495
+  %17 = and i32 %1, -2
+  %switch.i = icmp eq i32 %17, 90
+  %..i = select i1 %switch.i, i32 536870912, i32 402653184
+  %18 = select i1 %4, i32 1048576, i32 0
+  %19 = or disjoint i32 %..i, %15
+  %20 = or disjoint i32 %19, %18
+  %21 = or disjoint i32 %20, %16
   store i32 %21, ptr %0, align 8
   ret void
 }

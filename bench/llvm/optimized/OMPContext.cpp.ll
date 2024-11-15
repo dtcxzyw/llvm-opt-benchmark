@@ -2512,8 +2512,8 @@ _ZN4llvm12StringSwitchINS_3omp13TraitPropertyES2_E4CaseENS_13StringLiteralES2_.e
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm3omp33getOpenMPContextTraitPropertyNameENS0_13TraitPropertyENS_9StringRefE(i32 noundef %0, ptr %1, i64 %2) local_unnamed_addr #3 {
-  switch i32 %0, label %59 [
-    i32 50, label %60
+  switch i32 %0, label %57 [
+    i32 50, label %58
     i32 0, label %4
     i32 1, label %5
     i32 2, label %6
@@ -2541,207 +2541,201 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp33getOpenMPContextTraitPropertyNameEN
     i32 24, label %28
     i32 25, label %29
     i32 26, label %30
-    i32 27, label %31
-    i32 28, label %32
-    i32 29, label %33
-    i32 30, label %34
-    i32 31, label %35
-    i32 32, label %36
-    i32 33, label %37
-    i32 34, label %38
-    i32 35, label %39
-    i32 36, label %40
-    i32 37, label %41
-    i32 38, label %42
-    i32 39, label %43
-    i32 40, label %44
-    i32 41, label %45
-    i32 42, label %46
-    i32 43, label %47
-    i32 44, label %48
-    i32 45, label %49
-    i32 46, label %50
-    i32 47, label %51
-    i32 48, label %52
-    i32 49, label %53
-    i32 55, label %58
-    i32 51, label %54
-    i32 52, label %55
-    i32 53, label %56
-    i32 54, label %57
+    i32 27, label %16
+    i32 28, label %31
+    i32 29, label %32
+    i32 30, label %33
+    i32 31, label %34
+    i32 32, label %35
+    i32 33, label %36
+    i32 34, label %37
+    i32 35, label %38
+    i32 36, label %39
+    i32 37, label %40
+    i32 38, label %41
+    i32 39, label %42
+    i32 40, label %43
+    i32 41, label %44
+    i32 42, label %45
+    i32 43, label %46
+    i32 44, label %47
+    i32 45, label %48
+    i32 46, label %49
+    i32 47, label %50
+    i32 48, label %42
+    i32 49, label %51
+    i32 55, label %56
+    i32 51, label %52
+    i32 52, label %53
+    i32 53, label %54
+    i32 54, label %55
   ]
 
 4:                                                ; preds = %3
-  br label %60
+  br label %58
 
 5:                                                ; preds = %3
-  br label %60
+  br label %58
 
 6:                                                ; preds = %3
-  br label %60
+  br label %58
 
 7:                                                ; preds = %3
-  br label %60
+  br label %58
 
 8:                                                ; preds = %3
-  br label %60
+  br label %58
 
 9:                                                ; preds = %3
-  br label %60
+  br label %58
 
 10:                                               ; preds = %3
-  br label %60
+  br label %58
 
 11:                                               ; preds = %3
-  br label %60
+  br label %58
 
 12:                                               ; preds = %3
-  br label %60
+  br label %58
 
 13:                                               ; preds = %3
-  br label %60
+  br label %58
 
 14:                                               ; preds = %3
-  br label %60
+  br label %58
 
 15:                                               ; preds = %3
-  br label %60
+  br label %58
 
-16:                                               ; preds = %3
-  br label %60
+16:                                               ; preds = %3, %3
+  br label %58
 
 17:                                               ; preds = %3
-  br label %60
+  br label %58
 
 18:                                               ; preds = %3
-  br label %60
+  br label %58
 
 19:                                               ; preds = %3
-  br label %60
+  br label %58
 
 20:                                               ; preds = %3
-  br label %60
+  br label %58
 
 21:                                               ; preds = %3
-  br label %60
+  br label %58
 
 22:                                               ; preds = %3
-  br label %60
+  br label %58
 
 23:                                               ; preds = %3
-  br label %60
+  br label %58
 
 24:                                               ; preds = %3
-  br label %60
+  br label %58
 
 25:                                               ; preds = %3
-  br label %60
+  br label %58
 
 26:                                               ; preds = %3
-  br label %60
+  br label %58
 
 27:                                               ; preds = %3
-  br label %60
+  br label %58
 
 28:                                               ; preds = %3
-  br label %60
+  br label %58
 
 29:                                               ; preds = %3
-  br label %60
+  br label %58
 
 30:                                               ; preds = %3
-  br label %60
+  br label %58
 
 31:                                               ; preds = %3
-  br label %60
+  br label %58
 
 32:                                               ; preds = %3
-  br label %60
+  br label %58
 
 33:                                               ; preds = %3
-  br label %60
+  br label %58
 
 34:                                               ; preds = %3
-  br label %60
+  br label %58
 
 35:                                               ; preds = %3
-  br label %60
+  br label %58
 
 36:                                               ; preds = %3
-  br label %60
+  br label %58
 
 37:                                               ; preds = %3
-  br label %60
+  br label %58
 
 38:                                               ; preds = %3
-  br label %60
+  br label %58
 
 39:                                               ; preds = %3
-  br label %60
+  br label %58
 
 40:                                               ; preds = %3
-  br label %60
+  br label %58
 
 41:                                               ; preds = %3
-  br label %60
+  br label %58
 
-42:                                               ; preds = %3
-  br label %60
+42:                                               ; preds = %3, %3
+  br label %58
 
 43:                                               ; preds = %3
-  br label %60
+  br label %58
 
 44:                                               ; preds = %3
-  br label %60
+  br label %58
 
 45:                                               ; preds = %3
-  br label %60
+  br label %58
 
 46:                                               ; preds = %3
-  br label %60
+  br label %58
 
 47:                                               ; preds = %3
-  br label %60
+  br label %58
 
 48:                                               ; preds = %3
-  br label %60
+  br label %58
 
 49:                                               ; preds = %3
-  br label %60
+  br label %58
 
 50:                                               ; preds = %3
-  br label %60
+  br label %58
 
 51:                                               ; preds = %3
-  br label %60
+  br label %58
 
 52:                                               ; preds = %3
-  br label %60
+  br label %58
 
 53:                                               ; preds = %3
-  br label %60
+  br label %58
 
 54:                                               ; preds = %3
-  br label %60
+  br label %58
 
 55:                                               ; preds = %3
-  br label %60
+  br label %58
 
 56:                                               ; preds = %3
-  br label %60
+  br label %58
 
 57:                                               ; preds = %3
-  br label %60
-
-58:                                               ; preds = %3
-  br label %60
-
-59:                                               ; preds = %3
   unreachable
 
-60:                                               ; preds = %3, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.sroa.57.0 = phi i64 [ 18, %57 ], [ 15, %56 ], [ 21, %55 ], [ 15, %54 ], [ 24, %58 ], [ 8, %53 ], [ 7, %52 ], [ 5, %51 ], [ 4, %50 ], [ 19, %49 ], [ 15, %48 ], [ 21, %47 ], [ 10, %46 ], [ 9, %45 ], [ 9, %44 ], [ 7, %43 ], [ 2, %42 ], [ 3, %41 ], [ 6, %40 ], [ 3, %39 ], [ 4, %38 ], [ 5, %37 ], [ 3, %36 ], [ 3, %35 ], [ 7, %34 ], [ 4, %33 ], [ 3, %32 ], [ 3, %31 ], [ 3, %30 ], [ 7, %29 ], [ 5, %28 ], [ 6, %27 ], [ 6, %26 ], [ 3, %25 ], [ 7, %24 ], [ 5, %23 ], [ 5, %22 ], [ 3, %21 ], [ 10, %20 ], [ 10, %19 ], [ 7, %18 ], [ 5, %17 ], [ 3, %16 ], [ 3, %15 ], [ 4, %14 ], [ 3, %13 ], [ 3, %12 ], [ 6, %11 ], [ 4, %10 ], [ 4, %9 ], [ 3, %8 ], [ 8, %7 ], [ 5, %6 ], [ 6, %5 ], [ 7, %4 ], [ %2, %3 ]
-  %.sroa.0.0 = phi ptr [ @.str.34, %57 ], [ @.str.33, %56 ], [ @.str.32, %55 ], [ @.str.31, %54 ], [ @.str.35, %58 ], [ @.str.29, %53 ], [ @.str.54, %52 ], [ @.str.62, %51 ], [ @.str.61, %50 ], [ @.str.60, %49 ], [ @.str.59, %48 ], [ @.str.58, %47 ], [ @.str.57, %46 ], [ @.str.56, %45 ], [ @.str.55, %44 ], [ @.str.54, %43 ], [ @.str.53, %42 ], [ @.str.52, %41 ], [ @.str.51, %40 ], [ @.str.50, %39 ], [ @.str.49, %38 ], [ @.str.48, %37 ], [ @.str.47, %36 ], [ @.str.46, %35 ], [ @.str.45, %34 ], [ @.str.44, %33 ], [ @.str.43, %32 ], [ @.str, %31 ], [ @.str.42, %30 ], [ @.str.13, %29 ], [ @.str.12, %28 ], [ @.str.11, %27 ], [ @.str.1, %26 ], [ @.str.10, %25 ], [ @.str.9, %24 ], [ @.str.8, %23 ], [ @.str.7, %22 ], [ @.str.6, %21 ], [ @.str.5, %20 ], [ @.str.4, %19 ], [ @.str.3, %18 ], [ @.str.2, %17 ], [ @.str, %16 ], [ @.str.41, %15 ], [ @.str.40, %14 ], [ @.str.39, %13 ], [ @.str.38, %12 ], [ @.str.37, %11 ], [ @.str.36, %10 ], [ @.str.23, %9 ], [ @.str.22, %8 ], [ @.str.21, %7 ], [ @.str.20, %6 ], [ @.str.19, %5 ], [ @.str.14, %4 ], [ %1, %3 ]
+58:                                               ; preds = %3, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
+  %.sroa.57.0 = phi i64 [ 18, %55 ], [ 15, %54 ], [ 21, %53 ], [ 15, %52 ], [ 24, %56 ], [ 8, %51 ], [ 5, %50 ], [ 4, %49 ], [ 19, %48 ], [ 15, %47 ], [ 21, %46 ], [ 10, %45 ], [ 9, %44 ], [ 9, %43 ], [ 7, %42 ], [ 2, %41 ], [ 3, %40 ], [ 6, %39 ], [ 3, %38 ], [ 4, %37 ], [ 5, %36 ], [ 3, %35 ], [ 3, %34 ], [ 7, %33 ], [ 4, %32 ], [ 3, %31 ], [ 3, %30 ], [ 7, %29 ], [ 5, %28 ], [ 6, %27 ], [ 6, %26 ], [ 3, %25 ], [ 7, %24 ], [ 5, %23 ], [ 5, %22 ], [ 3, %21 ], [ 10, %20 ], [ 10, %19 ], [ 7, %18 ], [ 5, %17 ], [ 3, %16 ], [ 3, %15 ], [ 4, %14 ], [ 3, %13 ], [ 3, %12 ], [ 6, %11 ], [ 4, %10 ], [ 4, %9 ], [ 3, %8 ], [ 8, %7 ], [ 5, %6 ], [ 6, %5 ], [ 7, %4 ], [ %2, %3 ]
+  %.sroa.0.0 = phi ptr [ @.str.34, %55 ], [ @.str.33, %54 ], [ @.str.32, %53 ], [ @.str.31, %52 ], [ @.str.35, %56 ], [ @.str.29, %51 ], [ @.str.62, %50 ], [ @.str.61, %49 ], [ @.str.60, %48 ], [ @.str.59, %47 ], [ @.str.58, %46 ], [ @.str.57, %45 ], [ @.str.56, %44 ], [ @.str.55, %43 ], [ @.str.54, %42 ], [ @.str.53, %41 ], [ @.str.52, %40 ], [ @.str.51, %39 ], [ @.str.50, %38 ], [ @.str.49, %37 ], [ @.str.48, %36 ], [ @.str.47, %35 ], [ @.str.46, %34 ], [ @.str.45, %33 ], [ @.str.44, %32 ], [ @.str.43, %31 ], [ @.str.42, %30 ], [ @.str.13, %29 ], [ @.str.12, %28 ], [ @.str.11, %27 ], [ @.str.1, %26 ], [ @.str.10, %25 ], [ @.str.9, %24 ], [ @.str.8, %23 ], [ @.str.7, %22 ], [ @.str.6, %21 ], [ @.str.5, %20 ], [ @.str.4, %19 ], [ @.str.3, %18 ], [ @.str.2, %17 ], [ @.str, %16 ], [ @.str.41, %15 ], [ @.str.40, %14 ], [ @.str.39, %13 ], [ @.str.38, %12 ], [ @.str.37, %11 ], [ @.str.36, %10 ], [ @.str.23, %9 ], [ @.str.22, %8 ], [ @.str.21, %7 ], [ @.str.20, %6 ], [ @.str.19, %5 ], [ @.str.14, %4 ], [ %1, %3 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.57.0, 1
   ret { ptr, i64 } %.fca.1.insert

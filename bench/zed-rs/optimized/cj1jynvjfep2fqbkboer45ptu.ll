@@ -113476,8 +113476,10 @@ define void @_ZN4gpui5taffy14AvailableSpace8min_size17hdd6658538dec50ecE(ptr dea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, float } @"_ZN114_$LT$gpui..taffy..AvailableSpace$u20$as$u20$core..convert..From$LT$taffy..style..dimension..AvailableSpace$GT$$GT$4from17h2dea8272e95be3dfE"(i32 noundef %0, float %1) unnamed_addr #8 {
+  %switch = icmp eq i32 %0, 0
+  %. = select i1 %switch, float %1, float undef
   %3 = insertvalue { i32, float } poison, i32 %0, 0
-  %4 = insertvalue { i32, float } %3, float %1, 1
+  %4 = insertvalue { i32, float } %3, float %., 1
   ret { i32, float } %4
 }
 
@@ -143751,17 +143753,21 @@ define void @_ZN4gpui6window13WindowContext14compute_layout17h765b94fbdb8cdccbE(
   %93 = load i32, ptr %2, align 4, !range !5584, !alias.scope !27635, !noalias !27636, !noundef !9
   %94 = getelementptr inbounds i8, ptr %2, i64 4
   %95 = load float, ptr %94, align 4, !alias.scope !27635, !noalias !27636
+  %switch.i.i.i.i = icmp eq i32 %93, 0
+  %..i.i.i.i = select i1 %switch.i.i.i.i, float %95, float undef
   %96 = getelementptr inbounds i8, ptr %2, i64 8
   %97 = load i32, ptr %96, align 4, !range !5584, !alias.scope !27635, !noalias !27636, !noundef !9
   %98 = getelementptr inbounds i8, ptr %2, i64 12
   %99 = load float, ptr %98, align 4, !alias.scope !27635, !noalias !27636
+  %switch.i.i3.i.i = icmp eq i32 %97, 0
+  %..i.i4.i.i = select i1 %switch.i.i3.i.i, float %99, float undef
   store i32 %93, ptr %12, align 4, !alias.scope !27630, !noalias !27637
   %100 = getelementptr inbounds i8, ptr %12, i64 4
-  store float %95, ptr %100, align 4, !alias.scope !27630, !noalias !27637
+  store float %..i.i.i.i, ptr %100, align 4, !alias.scope !27630, !noalias !27637
   %101 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %97, ptr %101, align 4, !alias.scope !27630, !noalias !27637
   %102 = getelementptr inbounds i8, ptr %12, i64 12
-  store float %99, ptr %102, align 4, !alias.scope !27630, !noalias !27637
+  store float %..i.i4.i.i, ptr %102, align 4, !alias.scope !27630, !noalias !27637
   %103 = getelementptr inbounds i8, ptr %18, i64 280
   call void @llvm.experimental.noalias.scope.decl(metadata !27638)
   %104 = getelementptr inbounds i8, ptr %18, i64 144

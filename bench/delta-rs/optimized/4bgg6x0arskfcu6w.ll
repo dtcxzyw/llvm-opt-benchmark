@@ -7957,7 +7957,7 @@ define { ptr, ptr } @"_ZN66_$LT$deltalake_gcp..error..Error$u20$as$u20$core..err
     i64 6, label %31
     i64 7, label %36
     i64 8, label %41
-    i64 9, label %42
+    i64 9, label %41
   ]
 
 8:                                                ; preds = %4
@@ -8009,18 +8009,15 @@ define { ptr, ptr } @"_ZN66_$LT$deltalake_gcp..error..Error$u20$as$u20$core..err
   %40 = load ptr, ptr %39, align 8, !alias.scope !1325, !nonnull !8, !align !9, !noundef !8
   br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
 
-41:                                               ; preds = %4
+41:                                               ; preds = %4, %4
   br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
 
-42:                                               ; preds = %4
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
-
-"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit": ; preds = %42, %41, %36, %31, %26, %21, %19, %14, %9, %4, %1
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %42 ], [ undef, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %26 ], [ %25, %21 ], [ @anon.ce01e364a3d3c6ae31f51731403c352c.85, %19 ], [ %18, %14 ], [ %13, %9 ], [ @anon.ce01e364a3d3c6ae31f51731403c352c.83, %4 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %42 ], [ null, %41 ], [ %38, %36 ], [ %33, %31 ], [ %28, %26 ], [ %23, %21 ], [ %20, %19 ], [ %16, %14 ], [ %11, %9 ], [ %0, %4 ]
-  %43 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %44 = insertvalue { ptr, ptr } %43, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %44
+"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit": ; preds = %41, %36, %31, %26, %21, %19, %14, %9, %4, %1
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %26 ], [ %25, %21 ], [ @anon.ce01e364a3d3c6ae31f51731403c352c.85, %19 ], [ %18, %14 ], [ %13, %9 ], [ @anon.ce01e364a3d3c6ae31f51731403c352c.83, %4 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %41 ], [ %38, %36 ], [ %33, %31 ], [ %28, %26 ], [ %23, %21 ], [ %20, %19 ], [ %16, %14 ], [ %11, %9 ], [ %0, %4 ]
+  %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %43
 }
 
 ; Function Attrs: nonlazybind uwtable

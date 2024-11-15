@@ -879,63 +879,60 @@ define dso_local { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr nocap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %trunc = trunc i32 %3 to i8
-  switch i8 %trunc, label %24 [
-    i8 0, label %25
-    i8 1, label %25
+  switch i8 %trunc, label %23 [
+    i8 0, label %24
+    i8 1, label %24
     i8 2, label %4
     i8 3, label %5
     i8 4, label %6
     i8 5, label %7
-    i8 6, label %8
-    i8 10, label %9
-    i8 12, label %10
-    i8 17, label %13
-    i8 18, label %13
+    i8 6, label %7
+    i8 10, label %8
+    i8 12, label %9
+    i8 17, label %12
+    i8 18, label %12
   ]
 
 4:                                                ; preds = %1
-  br label %25
+  br label %24
 
 5:                                                ; preds = %1
-  br label %25
+  br label %24
 
 6:                                                ; preds = %1
-  br label %25
+  br label %24
 
-7:                                                ; preds = %1
-  br label %25
+7:                                                ; preds = %1, %1
+  br label %24
 
 8:                                                ; preds = %1
-  br label %25
+  br label %24
 
 9:                                                ; preds = %1
-  br label %25
+  %10 = lshr i32 %3, 8
+  %11 = zext nneg i32 %10 to i64
+  br label %24
 
-10:                                               ; preds = %1
-  %11 = lshr i32 %3, 8
-  %12 = zext nneg i32 %11 to i64
-  br label %25
+12:                                               ; preds = %1, %1
+  %13 = and i32 %3, 255
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %13, 18
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #23
+  %.fca.0.extract1 = extractvalue { i64, i8 } %19, 0
+  %20 = zext i32 %15 to i64
+  %21 = mul i64 %.fca.0.extract1, %20
+  %22 = zext i1 %16 to i8
+  br label %24
 
-13:                                               ; preds = %1, %1
-  %14 = and i32 %3, 255
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %14, 18
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #23
-  %.fca.0.extract1 = extractvalue { i64, i8 } %20, 0
-  %21 = zext i32 %16 to i64
-  %22 = mul i64 %.fca.0.extract1, %21
-  %23 = zext i1 %17 to i8
-  br label %25
+23:                                               ; preds = %1
+  br label %24
 
-24:                                               ; preds = %1
-  br label %25
-
-25:                                               ; preds = %1, %1, %24, %13, %10, %9, %8, %7, %6, %5, %4
-  %.sroa.045.0 = phi i64 [ 0, %24 ], [ %22, %13 ], [ %12, %10 ], [ 8192, %9 ], [ 128, %8 ], [ 128, %7 ], [ 80, %6 ], [ 64, %5 ], [ 32, %4 ], [ 16, %1 ], [ 16, %1 ]
-  %.sroa.12.0 = phi i8 [ 0, %24 ], [ %23, %13 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %1 ], [ 0, %1 ]
+24:                                               ; preds = %1, %1, %23, %12, %9, %8, %7, %6, %5, %4
+  %.sroa.045.0 = phi i64 [ 0, %23 ], [ %21, %12 ], [ %11, %9 ], [ 8192, %8 ], [ 128, %7 ], [ 80, %6 ], [ 64, %5 ], [ 32, %4 ], [ 16, %1 ], [ 16, %1 ]
+  %.sroa.12.0 = phi i8 [ 0, %23 ], [ %22, %12 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %1 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.045.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.12.0, 1
   ret { i64, i8 } %.fca.1.insert

@@ -2904,10 +2904,10 @@ define void @post_process_smoothing(i32 noundef %0, ptr noundef %1, ptr nocaptur
   switch i32 %7, label %TriangleSmoother_delete.exit [
     i32 6, label %8
     i32 5, label %8
-    i32 4, label %54
-    i32 1, label %34
+    i32 1, label %32
+    i32 3, label %32
     i32 2, label %32
-    i32 3, label %33
+    i32 4, label %52
   ]
 
 8:                                                ; preds = %4, %4
@@ -2961,83 +2961,80 @@ define void @post_process_smoothing(i32 noundef %0, ptr noundef %1, ptr nocaptur
   tail call void @free(ptr noundef nonnull %13) #18
   br label %TriangleSmoother_delete.exit
 
-32:                                               ; preds = %4
-  br label %34
+32:                                               ; preds = %4, %4, %4
+  %switch.selectcmp = icmp eq i32 %7, 3
+  %switch.select = select i1 %switch.selectcmp, i32 2, i32 1
+  %switch.selectcmp34 = icmp eq i32 %7, 1
+  %switch.select35 = select i1 %switch.selectcmp34, i32 0, i32 %switch.select
+  %33 = tail call ptr @StressMajorizationSmoother2_new(ptr noundef %1, i32 noundef %0, double noundef 5.000000e-02, ptr noundef %3, i32 noundef %switch.select35)
+  %34 = tail call double @StressMajorizationSmoother_smooth(ptr noundef %33, i32 noundef %0, ptr noundef %3, i32 noundef 50)
+  %.not.i = icmp eq ptr %33, null
+  br i1 %.not.i, label %TriangleSmoother_delete.exit, label %35
 
-33:                                               ; preds = %4
-  br label %34
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not13.i = icmp eq ptr %37, null
+  br i1 %.not13.i, label %39, label %38
 
-34:                                               ; preds = %4, %32, %33
-  %.032 = phi i32 [ 1, %32 ], [ 2, %33 ], [ 0, %4 ]
-  %35 = tail call ptr @StressMajorizationSmoother2_new(ptr noundef %1, i32 noundef %0, double noundef 5.000000e-02, ptr noundef %3, i32 noundef %.032)
-  %36 = tail call double @StressMajorizationSmoother_smooth(ptr noundef %35, i32 noundef %0, ptr noundef %3, i32 noundef 50)
-  %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %TriangleSmoother_delete.exit, label %37
+38:                                               ; preds = %35
+  tail call void @SparseMatrix_delete(ptr noundef nonnull %37) #18
+  br label %39
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %.not13.i = icmp eq ptr %39, null
-  br i1 %.not13.i, label %41, label %40
+39:                                               ; preds = %38, %35
+  %40 = getelementptr inbounds i8, ptr %33, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %.not14.i = icmp eq ptr %41, null
+  br i1 %.not14.i, label %43, label %42
 
-40:                                               ; preds = %37
-  tail call void @SparseMatrix_delete(ptr noundef nonnull %39) #18
-  br label %41
+42:                                               ; preds = %39
+  tail call void @SparseMatrix_delete(ptr noundef nonnull %41) #18
+  br label %43
 
-41:                                               ; preds = %40, %37
-  %42 = getelementptr inbounds i8, ptr %35, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %.not14.i = icmp eq ptr %43, null
-  br i1 %.not14.i, label %45, label %44
-
-44:                                               ; preds = %41
-  tail call void @SparseMatrix_delete(ptr noundef nonnull %43) #18
-  br label %45
-
-45:                                               ; preds = %44, %41
-  %46 = getelementptr inbounds i8, ptr %35, i64 24
+43:                                               ; preds = %42, %39
+  %44 = getelementptr inbounds i8, ptr %33, i64 24
+  %45 = load ptr, ptr %44, align 8
+  tail call void @free(ptr noundef %45) #18
+  %46 = getelementptr inbounds i8, ptr %33, i64 40
   %47 = load ptr, ptr %46, align 8
-  tail call void @free(ptr noundef %47) #18
-  %48 = getelementptr inbounds i8, ptr %35, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %.not15.i = icmp eq ptr %49, null
-  br i1 %.not15.i, label %53, label %50
+  %.not15.i = icmp eq ptr %47, null
+  br i1 %.not15.i, label %51, label %48
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %35, i64 32
-  %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull %49) #18
-  br label %53
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds i8, ptr %33, i64 32
+  %50 = load ptr, ptr %49, align 8
+  tail call void %50(ptr noundef nonnull %47) #18
+  br label %51
 
-53:                                               ; preds = %50, %45
-  tail call void @free(ptr noundef nonnull %35) #18
+51:                                               ; preds = %48, %43
+  tail call void @free(ptr noundef nonnull %33) #18
   br label %TriangleSmoother_delete.exit
 
-54:                                               ; preds = %4
-  %55 = tail call ptr @SpringSmoother_new(ptr noundef %1, i32 noundef %0, ptr noundef nonnull %2, ptr noundef %3)
+52:                                               ; preds = %4
+  %53 = tail call ptr @SpringSmoother_new(ptr noundef %1, i32 noundef %0, ptr noundef nonnull %2, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %53, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
-  %58 = load ptr, ptr %57, align 8
-  call void @spring_electrical_spring_embedding(i32 noundef %0, ptr noundef %1, ptr noundef %56, ptr noundef %58, ptr noundef %3, ptr noundef nonnull %5) #18
+  call void @spring_electrical_spring_embedding(i32 noundef %0, ptr noundef %1, ptr noundef %54, ptr noundef %56, ptr noundef %3, ptr noundef nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %.not7.i = icmp eq ptr %56, null
-  br i1 %.not7.i, label %60, label %59
+  %.not7.i = icmp eq ptr %54, null
+  br i1 %.not7.i, label %58, label %57
 
-59:                                               ; preds = %54
-  call void @SparseMatrix_delete(ptr noundef nonnull %56) #18
-  br label %60
+57:                                               ; preds = %52
+  call void @SparseMatrix_delete(ptr noundef nonnull %54) #18
+  br label %58
 
-60:                                               ; preds = %59, %54
-  %.not8.i = icmp eq ptr %58, null
-  br i1 %.not8.i, label %TriangleSmoother_delete.exit, label %61
+58:                                               ; preds = %57, %52
+  %.not8.i = icmp eq ptr %56, null
+  br i1 %.not8.i, label %TriangleSmoother_delete.exit, label %59
 
-61:                                               ; preds = %60
-  call void @spring_electrical_control_delete(ptr noundef nonnull %58) #18
+59:                                               ; preds = %58
+  call void @spring_electrical_control_delete(ptr noundef nonnull %56) #18
   br label %TriangleSmoother_delete.exit
 
-TriangleSmoother_delete.exit:                     ; preds = %4, %61, %60, %53, %34, %31, %11, %8
+TriangleSmoother_delete.exit:                     ; preds = %59, %58, %51, %32, %31, %11, %8, %4
   ret void
 }
 

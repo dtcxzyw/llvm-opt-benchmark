@@ -4583,19 +4583,19 @@ define hidden noundef ptr @_ZNK10MethodData7data_atEi(ptr noundef nonnull align 
 define hidden noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %3 [
-    i8 13, label %89
-    i8 1, label %90
-    i8 2, label %5
-    i8 3, label %6
-    i8 4, label %7
-    i8 5, label %12
-    i8 6, label %17
-    i8 7, label %18
-    i8 8, label %19
-    i8 9, label %26
-    i8 10, label %33
-    i8 11, label %51
-    i8 12, label %76
+    i8 13, label %88
+    i8 1, label %89
+    i8 2, label %88
+    i8 3, label %5
+    i8 4, label %6
+    i8 5, label %11
+    i8 6, label %16
+    i8 7, label %17
+    i8 8, label %18
+    i8 9, label %25
+    i8 10, label %32
+    i8 11, label %50
+    i8 12, label %75
   ]
 
 3:                                                ; preds = %1
@@ -4605,141 +4605,138 @@ define hidden noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull ali
   unreachable
 
 5:                                                ; preds = %1
-  br label %90
+  br label %89
 
 6:                                                ; preds = %1
-  br label %90
+  %7 = load i64, ptr @TypeProfileWidth, align 8
+  %8 = trunc i64 %7 to i32
+  %9 = shl i32 %8, 1
+  %10 = or disjoint i32 %9, 1
+  br label %89
 
-7:                                                ; preds = %1
-  %8 = load i64, ptr @TypeProfileWidth, align 8
-  %9 = trunc i64 %8 to i32
-  %10 = shl i32 %9, 1
-  %11 = or disjoint i32 %10, 1
-  br label %90
+11:                                               ; preds = %1
+  %12 = load i64, ptr @TypeProfileWidth, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = shl i32 %13, 1
+  %15 = or disjoint i32 %14, 1
+  br label %89
 
-12:                                               ; preds = %1
-  %13 = load i64, ptr @TypeProfileWidth, align 8
-  %14 = trunc i64 %13 to i32
-  %15 = shl i32 %14, 1
-  %16 = or disjoint i32 %15, 1
-  br label %90
+16:                                               ; preds = %1
+  br label %89
 
 17:                                               ; preds = %1
-  br label %90
+  br label %89
 
 18:                                               ; preds = %1
-  br label %90
+  %19 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %0, ptr %20, align 8
+  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV15MultiBranchData, i64 16), ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = trunc i64 %22 to i32
+  %24 = add nsw i32 %23, 1
+  br label %89
 
-19:                                               ; preds = %1
-  %20 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %0, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV15MultiBranchData, i64 16), ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load i64, ptr %22, align 8
-  %24 = trunc i64 %23 to i32
-  %25 = add nsw i32 %24, 1
-  br label %90
+25:                                               ; preds = %1
+  %26 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr %0, ptr %27, align 8
+  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = trunc i64 %29 to i32
+  %31 = add nsw i32 %30, 1
+  br label %89
 
-26:                                               ; preds = %1
-  %27 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %0, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = trunc i64 %30 to i32
-  %32 = add nsw i32 %31, 1
-  br label %90
+32:                                               ; preds = %1
+  %33 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %0, ptr %34, align 8
+  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV12CallTypeData, i64 16), ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = load i64, ptr %36, align 8
+  %38 = trunc i64 %37 to i32
+  %39 = sdiv i32 %38, 2
+  store ptr null, ptr %35, align 8
+  %40 = getelementptr inbounds i8, ptr %33, i64 24
+  store i32 2, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %33, i64 28
+  store i32 %39, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %33, i64 32
+  %43 = load i64, ptr %36, align 8
+  %44 = trunc i64 %43 to i32
+  %45 = add nsw i32 %44, 1
+  %46 = getelementptr inbounds i8, ptr %33, i64 40
+  store i32 %45, ptr %46, align 8
+  store ptr %33, ptr %35, align 8
+  store ptr %33, ptr %42, align 8
+  %47 = load i64, ptr %36, align 8
+  %48 = trunc i64 %47 to i32
+  %49 = add nsw i32 %48, 2
+  br label %89
 
-33:                                               ; preds = %1
-  %34 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %0, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV12CallTypeData, i64 16), ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 16
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = load i64, ptr %37, align 8
-  %39 = trunc i64 %38 to i32
-  %40 = sdiv i32 %39, 2
-  store ptr null, ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %34, i64 24
-  store i32 2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %34, i64 28
-  store i32 %40, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %34, i64 32
-  %44 = load i64, ptr %37, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = add nsw i32 %45, 1
-  %47 = getelementptr inbounds i8, ptr %34, i64 40
-  store i32 %46, ptr %47, align 8
-  store ptr %34, ptr %36, align 8
-  store ptr %34, ptr %43, align 8
-  %48 = load i64, ptr %37, align 8
-  %49 = trunc i64 %48 to i32
-  %50 = add nsw i32 %49, 2
-  br label %90
+50:                                               ; preds = %1
+  %51 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %0, ptr %52, align 8
+  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19VirtualCallTypeData, i64 16), ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %51, i64 16
+  %54 = load i64, ptr @TypeProfileWidth, align 8
+  %55 = trunc i64 %54 to i32
+  %56 = shl i32 %55, 1
+  %57 = or disjoint i32 %56, 1
+  %58 = add nsw i32 %56, 2
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = sext i32 %57 to i64
+  %61 = getelementptr inbounds [1 x i64], ptr %59, i64 0, i64 %60
+  %62 = load i64, ptr %61, align 8
+  %63 = trunc i64 %62 to i32
+  %64 = sdiv i32 %63, 2
+  store ptr null, ptr %53, align 8
+  %65 = getelementptr inbounds i8, ptr %51, i64 24
+  store i32 %58, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %51, i64 28
+  store i32 %64, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %51, i64 32
+  %68 = load i64, ptr %61, align 8
+  %69 = trunc i64 %68 to i32
+  %70 = add i32 %57, %69
+  %71 = getelementptr inbounds i8, ptr %51, i64 40
+  store i32 %70, ptr %71, align 8
+  store ptr %51, ptr %53, align 8
+  store ptr %51, ptr %67, align 8
+  %72 = load i64, ptr %61, align 8
+  %73 = trunc i64 %72 to i32
+  %74 = add nsw i32 %58, %73
+  br label %89
 
-51:                                               ; preds = %1
-  %52 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr %0, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19VirtualCallTypeData, i64 16), ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %52, i64 16
-  %55 = load i64, ptr @TypeProfileWidth, align 8
-  %56 = trunc i64 %55 to i32
-  %57 = shl i32 %56, 1
-  %58 = or disjoint i32 %57, 1
-  %59 = add nsw i32 %57, 2
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
-  %61 = sext i32 %58 to i64
-  %62 = getelementptr inbounds [1 x i64], ptr %60, i64 0, i64 %61
-  %63 = load i64, ptr %62, align 8
-  %64 = trunc i64 %63 to i32
-  %65 = sdiv i32 %64, 2
-  store ptr null, ptr %54, align 8
-  %66 = getelementptr inbounds i8, ptr %52, i64 24
-  store i32 %59, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %52, i64 28
-  store i32 %65, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %52, i64 32
-  %69 = load i64, ptr %62, align 8
-  %70 = trunc i64 %69 to i32
-  %71 = add i32 %58, %70
-  %72 = getelementptr inbounds i8, ptr %52, i64 40
-  store i32 %71, ptr %72, align 8
-  store ptr %52, ptr %54, align 8
-  store ptr %52, ptr %68, align 8
-  %73 = load i64, ptr %62, align 8
-  %74 = trunc i64 %73 to i32
-  %75 = add nsw i32 %59, %74
-  br label %90
+75:                                               ; preds = %1
+  %76 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #20
+  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  store ptr %0, ptr %77, align 8
+  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV18ParametersTypeData, i64 16), ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %76, i64 16
+  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %80 = load i64, ptr %79, align 8
+  %81 = trunc i64 %80 to i32
+  %82 = sdiv i32 %81, 2
+  %83 = getelementptr inbounds i8, ptr %76, i64 24
+  store i32 1, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %76, i64 28
+  store i32 %82, ptr %84, align 4
+  store ptr %76, ptr %78, align 8
+  %85 = load i64, ptr %79, align 8
+  %86 = trunc i64 %85 to i32
+  %87 = add nsw i32 %86, 1
+  br label %89
 
-76:                                               ; preds = %1
-  %77 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #20
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
-  store ptr %0, ptr %78, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV18ParametersTypeData, i64 16), ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 16
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
-  %81 = load i64, ptr %80, align 8
-  %82 = trunc i64 %81 to i32
-  %83 = sdiv i32 %82, 2
-  %84 = getelementptr inbounds i8, ptr %77, i64 24
-  store i32 1, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %77, i64 28
-  store i32 %83, ptr %85, align 4
-  store ptr %77, ptr %79, align 8
-  %86 = load i64, ptr %80, align 8
-  %87 = trunc i64 %86 to i32
-  %88 = add nsw i32 %87, 1
-  br label %90
+88:                                               ; preds = %1, %1
+  br label %89
 
-89:                                               ; preds = %1
-  br label %90
-
-90:                                               ; preds = %1, %89, %76, %51, %33, %26, %19, %18, %17, %12, %7, %6, %5
-  %.0 = phi i32 [ %88, %76 ], [ %75, %51 ], [ %50, %33 ], [ %32, %26 ], [ %25, %19 ], [ 3, %18 ], [ 7, %17 ], [ %16, %12 ], [ %11, %7 ], [ 2, %6 ], [ 1, %5 ], [ 1, %89 ], [ 0, %1 ]
+89:                                               ; preds = %1, %88, %75, %50, %32, %25, %18, %17, %16, %11, %6, %5
+  %.0 = phi i32 [ %87, %75 ], [ %74, %50 ], [ %49, %32 ], [ %31, %25 ], [ %24, %18 ], [ 3, %17 ], [ 7, %16 ], [ %15, %11 ], [ %10, %6 ], [ 2, %5 ], [ 1, %88 ], [ 0, %1 ]
   ret i32 %.0
 }
 

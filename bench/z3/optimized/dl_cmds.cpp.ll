@@ -443,7 +443,6 @@ $_ZTI18dl_declare_var_cmd = comdat any
 @.str.44 = private unnamed_addr constant [16 x i8] c"<symbol> <sort>\00", align 1
 @.str.45 = private unnamed_addr constant [29 x i8] c"declare constant as variable\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_dl_cmds.cpp, ptr null }]
-@switch.table._ZNK11dl_rule_cmd13next_arg_kindER11cmd_context = private unnamed_addr constant [3 x i32] [i32 12, i32 8, i32 0], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -889,18 +888,11 @@ define linkonce_odr hidden noundef i32 @_ZNK11dl_rule_cmd13next_arg_kindER11cmd_
 entry:
   %m_arg_idx = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %m_arg_idx, align 8
-  %1 = icmp ult i32 %0, 3
-  br i1 %1, label %switch.lookup, label %return
-
-switch.lookup:                                    ; preds = %entry
-  %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK11dl_rule_cmd13next_arg_kindER11cmd_context, i64 0, i64 %2
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %return
-
-return:                                           ; preds = %entry, %switch.lookup
-  %retval.0 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %entry ]
-  ret i32 %retval.0
+  %switch.selectcmp = icmp eq i32 %0, 2
+  %switch.select = select i1 %switch.selectcmp, i32 0, i32 8
+  %switch.selectcmp1 = icmp eq i32 %0, 0
+  %switch.select2 = select i1 %switch.selectcmp1, i32 12, i32 %switch.select
+  ret i32 %switch.select2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

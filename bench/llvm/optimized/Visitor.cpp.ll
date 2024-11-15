@@ -2015,30 +2015,30 @@ define dso_local void @_ZN5clang10installapi17InstallAPIVisitor27recordObjCInsta
   switch i32 %12, label %13 [
     i32 1, label %16
     i32 4, label %16
-    i32 0, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit.thread
-    i32 5, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit.thread
-    i32 6, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit.thread
-    i32 2, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit.thread
-    i32 3, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit.thread
+    i32 0, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit
+    i32 5, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit
+    i32 6, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit
+    i32 2, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit
+    i32 3, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit
   ]
 
 13:                                               ; preds = %6
   unreachable
 
-_ZNK5clang11ObjCRuntime9isFragileEv.exit.thread:  ; preds = %6, %6, %6, %6, %6
+_ZNK5clang11ObjCRuntime9isFragileEv.exit:         ; preds = %6, %6, %6, %6, %6
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i8, ptr %14, align 8
-  %.not31 = icmp eq i8 %15, 0
-  %spec.select32 = select i1 %.not31, i8 4, i8 %15
+  %.not = icmp eq i8 %15, 0
+  %spec.select = select i1 %.not, i8 4, i8 %15
   br label %16
 
-16:                                               ; preds = %6, %6, %_ZNK5clang11ObjCRuntime9isFragileEv.exit.thread
-  %17 = phi i8 [ %spec.select32, %_ZNK5clang11ObjCRuntime9isFragileEv.exit.thread ], [ 0, %6 ], [ 0, %6 ]
+16:                                               ; preds = %6, %6, %_ZNK5clang11ObjCRuntime9isFragileEv.exit
+  %17 = phi i8 [ %spec.select, %_ZNK5clang11ObjCRuntime9isFragileEv.exit ], [ 0, %6 ], [ 0, %6 ]
   %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.0.0.copyload.i23 = load ptr, ptr %18, align 8
-  %.not34 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i23
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.not3335 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i23
+  br i1 %.not3335, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2049,14 +2049,14 @@ _ZNK5clang11ObjCRuntime9isFragileEv.exit.thread:  ; preds = %6, %6, %6, %6, %6
   br label %24
 
 24:                                               ; preds = %.lr.ph, %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit
-  %.sroa.029.035 = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.029.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit ]
-  %25 = call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.sroa.029.035)
+  %.sroa.029.036 = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.029.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit ]
+  %25 = call i64 @_ZNK5clang10installapi17InstallAPIVisitor16getAccessForDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.sroa.029.036)
   %.sroa.026.0.extract.trunc = trunc i64 %25 to i32
-  %.not33 = icmp samesign ult i64 %25, 4294967296
-  br i1 %.not33, label %_ZN5clang16AvailabilityInfoD2Ev.exit25, label %26
+  %.not34 = icmp samesign ult i64 %25, 4294967296
+  br i1 %.not34, label %_ZN5clang16AvailabilityInfoD2Ev.exit25, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.029.035, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.029.036, i64 40
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 7
   %30 = icmp ne i64 %29, 0
@@ -2077,8 +2077,8 @@ _ZNK5clang11ObjCRuntime9isFragileEv.exit.thread:  ; preds = %6, %6, %6, %6, %6
 _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %26, %32
   %.sroa.3.0.i = phi i64 [ %38, %32 ], [ 0, %26 ]
   %.sroa.0.0.i = phi ptr [ %36, %32 ], [ @.str, %26 ]
-  call void @_ZN5clang16AvailabilityInfo14createFromDeclEPKNS_4DeclE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::AvailabilityInfo") align 8 %7, ptr noundef nonnull %.sroa.029.035) #16
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.029.035, i64 88
+  call void @_ZN5clang16AvailabilityInfo14createFromDeclEPKNS_4DeclE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::AvailabilityInfo") align 8 %7, ptr noundef nonnull %.sroa.029.036) #16
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.029.036, i64 88
   %40 = load i8, ptr %39, align 8
   %41 = and i8 %40, 7
   %42 = icmp eq i8 %41, 0
@@ -2097,7 +2097,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %26, %32
 
 _ZN5clang16AvailabilityInfoC2ERKS0_.exit:         ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit, %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %21, ptr noundef nonnull align 8 dereferenceable(51) %22, i64 51, i1 false)
-  %49 = call { ptr, ptr } @_ZN5clang10installapi20FrontendRecordsSlice11addObjCIVarEPN4llvm5MachO19ObjCContainerRecordENS2_9StringRefENS3_13RecordLinkageENS_16AvailabilityInfoEPKNS_4DeclENS0_10HeaderTypeENS_12ObjCIvarDecl13AccessControlE(ptr noundef nonnull align 8 dereferenceable(328) %45, ptr noundef nonnull %2, ptr nonnull %.sroa.0.0.i, i64 %.sroa.3.0.i, i8 noundef zeroext %17, ptr noundef nonnull %8, ptr noundef nonnull %.sroa.029.035, i32 noundef %.sroa.026.0.extract.trunc, i32 noundef %spec.select.i) #16
+  %49 = call { ptr, ptr } @_ZN5clang10installapi20FrontendRecordsSlice11addObjCIVarEPN4llvm5MachO19ObjCContainerRecordENS2_9StringRefENS3_13RecordLinkageENS_16AvailabilityInfoEPKNS_4DeclENS0_10HeaderTypeENS_12ObjCIvarDecl13AccessControlE(ptr noundef nonnull align 8 dereferenceable(328) %45, ptr noundef nonnull %2, ptr nonnull %.sroa.0.0.i, i64 %.sroa.3.0.i, i8 noundef zeroext %17, ptr noundef nonnull %8, ptr noundef nonnull %.sroa.029.036, i32 noundef %.sroa.026.0.extract.trunc, i32 noundef %spec.select.i) #16
   %50 = extractvalue { ptr, ptr } %49, 0
   %51 = extractvalue { ptr, ptr } %49, 1
   %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(107) %8) #16
@@ -2124,7 +2124,7 @@ _ZN5clang16AvailabilityInfoD2Ev.exit:             ; preds = %_ZN5clang16Availabi
   br label %_ZN5clang16AvailabilityInfoD2Ev.exit25
 
 _ZN5clang16AvailabilityInfoD2Ev.exit25:           ; preds = %63, %_ZN5clang16AvailabilityInfoD2Ev.exit, %24
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.029.035, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.029.036, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %64, align 8
   %65 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %66 = inttoptr i64 %65 to ptr
@@ -2149,8 +2149,8 @@ _ZN5clang16AvailabilityInfoD2Ev.exit25:           ; preds = %63, %_ZN5clang16Ava
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit: ; preds = %.lr.ph.i.i, %71, %_ZN5clang16AvailabilityInfoD2Ev.exit25
   %.sroa.029.2 = phi ptr [ %66, %_ZN5clang16AvailabilityInfoD2Ev.exit25 ], [ %74, %71 ], [ %.sroa.029.1, %.lr.ph.i.i ]
-  %.not = icmp eq ptr %.sroa.029.2, %.sroa.0.0.copyload.i23
-  br i1 %.not, label %._crit_edge, label %24
+  %.not33 = icmp eq ptr %.sroa.029.2, %.sroa.0.0.copyload.i23
+  br i1 %.not33, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit, %16
   ret void
@@ -2255,8 +2255,8 @@ _ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit: ; preds = %_
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 352
   %35 = load i32, ptr %34, align 4
   switch i32 %35, label %36 [
-    i32 1, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit
-    i32 4, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit
+    i32 1, label %_ZN5clang10installapiL25hasObjCExceptionAttributeEPKNS_17ObjCInterfaceDeclE.exit
+    i32 4, label %_ZN5clang10installapiL25hasObjCExceptionAttributeEPKNS_17ObjCInterfaceDeclE.exit
     i32 0, label %.lr.ph.i.preheader
     i32 5, label %.lr.ph.i.preheader
     i32 6, label %.lr.ph.i.preheader
@@ -2320,14 +2320,14 @@ _ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.i: ; preds = %.lr.ph.i4
   %.sroa.07.0.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %42, %.lr.ph.i4.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i, %.lr.ph.i4.i.i.i.i.i ]
   %.not8.i = icmp eq ptr %.sroa.07.0.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i
-  br i1 %.not8.i, label %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit
+  br i1 %.not8.i, label %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i, label %_ZN5clang10installapiL25hasObjCExceptionAttributeEPKNS_17ObjCInterfaceDeclE.exit
 
 _ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i: ; preds = %57, %50, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.i, %52, %.lr.ph.i
   %59 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.014.i) #16
   %.not.not.i = icmp eq ptr %59, null
-  br i1 %.not.not.i, label %_ZNK5clang11ObjCRuntime9isFragileEv.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.not.i, label %_ZN5clang10installapiL25hasObjCExceptionAttributeEPKNS_17ObjCInterfaceDeclE.exit, label %.lr.ph.i, !llvm.loop !12
 
-_ZNK5clang11ObjCRuntime9isFragileEv.exit:         ; preds = %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.i, %21, %21
+_ZN5clang10installapiL25hasObjCExceptionAttributeEPKNS_17ObjCInterfaceDeclE.exit: ; preds = %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.i, %21, %21
   %60 = phi i1 [ false, %21 ], [ false, %21 ], [ true, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.i ], [ false, %_ZNK5clang4Decl7hasAttrINS_17ObjCExceptionAttrEEEbv.exit.thread.i ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
@@ -2338,11 +2338,11 @@ _ZNK5clang11ObjCRuntime9isFragileEv.exit:         ; preds = %_ZNK5clang4Decl7has
   %66 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(107) %3) #16
   br i1 %66, label %_ZN5clang16AvailabilityInfoC2ERKS0_.exit, label %67
 
-67:                                               ; preds = %_ZNK5clang11ObjCRuntime9isFragileEv.exit
+67:                                               ; preds = %_ZN5clang10installapiL25hasObjCExceptionAttributeEPKNS_17ObjCInterfaceDeclE.exit
   %68 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIcEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(107) %4, ptr noundef nonnull align 8 dereferenceable(107) %3)
   br label %_ZN5clang16AvailabilityInfoC2ERKS0_.exit
 
-_ZN5clang16AvailabilityInfoC2ERKS0_.exit:         ; preds = %_ZNK5clang11ObjCRuntime9isFragileEv.exit, %67
+_ZN5clang16AvailabilityInfoC2ERKS0_.exit:         ; preds = %_ZN5clang10installapiL25hasObjCExceptionAttributeEPKNS_17ObjCInterfaceDeclE.exit, %67
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %69, ptr noundef nonnull align 8 dereferenceable(51) %70, i64 51, i1 false)
@@ -17461,29 +17461,29 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i8 25, label %44
     i8 26, label %45
     i8 27, label %tailrecurse.backedge
-    i8 53, label %72
-    i8 29, label %47
+    i8 53, label %70
+    i8 29, label %44
     i8 30, label %tailrecurse.backedge
-    i8 31, label %48
-    i8 32, label %50
+    i8 31, label %47
+    i8 32, label %49
     i8 33, label %tailrecurse.backedge
-    i8 34, label %52
-    i8 51, label %71
-    i8 50, label %67
+    i8 34, label %51
+    i8 51, label %44
+    i8 50, label %66
     i8 37, label %tailrecurse.backedge
-    i8 38, label %54
+    i8 38, label %53
     i8 39, label %tailrecurse.backedge
     i8 40, label %tailrecurse.backedge
     i8 41, label %tailrecurse.backedge
-    i8 42, label %56
-    i8 43, label %58
-    i8 44, label %60
-    i8 45, label %62
-    i8 48, label %65
+    i8 42, label %55
+    i8 43, label %57
+    i8 44, label %59
+    i8 45, label %61
+    i8 48, label %64
   ]
 
-tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %44, %47, %62, %71
-  %.sink = phi i64 [ 24, %44 ], [ 24, %47 ], [ %.sroa.0.0.in.v.i.i, %62 ], [ 24, %71 ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ]
+tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %44, %61
+  %.sink = phi i64 [ 24, %44 ], [ %.sroa.0.0.in.v.i.i, %61 ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ], [ 32, %.lr.ph ]
   %8 = getelementptr inbounds i8, ptr %5, i64 %.sink
   %.tr139.be = load i64, ptr %8, align 8
   %.not.i.i = icmp ult i64 %.tr139.be, 16
@@ -17554,7 +17554,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   %43 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE22TraverseElaboratedTypeEPNS_14ElaboratedTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-44:                                               ; preds = %.lr.ph
+44:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   br label %tailrecurse.backedge
 
 45:                                               ; preds = %.lr.ph
@@ -17562,62 +17562,56 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 47:                                               ; preds = %.lr.ph
-  br label %tailrecurse.backedge
-
-48:                                               ; preds = %.lr.ph
-  %49 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE32TraverseDependentSizedMatrixTypeEPNS_24DependentSizedMatrixTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+  %48 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE32TraverseDependentSizedMatrixTypeEPNS_24DependentSizedMatrixTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-50:                                               ; preds = %.lr.ph
-  %51 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE25TraverseMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+49:                                               ; preds = %.lr.ph
+  %50 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE25TraverseMemberPointerTypeEPNS_17MemberPointerTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-52:                                               ; preds = %.lr.ph
-  %53 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE22TraverseObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+51:                                               ; preds = %.lr.ph
+  %52 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE22TraverseObjCObjectTypeEPNS_14ObjCObjectTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-54:                                               ; preds = %.lr.ph
-  %55 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE24TraversePackIndexingTypeEPNS_16PackIndexingTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+53:                                               ; preds = %.lr.ph
+  %54 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE24TraversePackIndexingTypeEPNS_16PackIndexingTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-56:                                               ; preds = %.lr.ph
-  %57 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+55:                                               ; preds = %.lr.ph
+  %56 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseLValueReferenceTypeEPNS_19LValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-58:                                               ; preds = %.lr.ph
-  %59 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+57:                                               ; preds = %.lr.ph
+  %58 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseRValueReferenceTypeEPNS_19RValueReferenceTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-60:                                               ; preds = %.lr.ph
-  %61 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE37TraverseSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+59:                                               ; preds = %.lr.ph
+  %60 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE37TraverseSubstTemplateTypeParmPackTypeEPNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-62:                                               ; preds = %.lr.ph
-  %63 = load i64, ptr %6, align 16
-  %64 = and i64 %63, 524288
-  %.not.i.i135 = icmp eq i64 %64, 0
+61:                                               ; preds = %.lr.ph
+  %62 = load i64, ptr %6, align 16
+  %63 = and i64 %62, 524288
+  %.not.i.i135 = icmp eq i64 %63, 0
   %.sroa.0.0.in.v.i.i = select i1 %.not.i.i135, i64 8, i64 48
   br label %tailrecurse.backedge
 
-65:                                               ; preds = %.lr.ph
-  %66 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+64:                                               ; preds = %.lr.ph
+  %65 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateSpecializationTypeEPNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-67:                                               ; preds = %.lr.ph
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %69, ptr noundef null)
+66:                                               ; preds = %.lr.ph
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %68, ptr noundef null)
   br label %.loopexit
 
-71:                                               ; preds = %.lr.ph
-  br label %tailrecurse.backedge
-
-72:                                               ; preds = %.lr.ph
-  %73 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
+70:                                               ; preds = %.lr.ph
+  %71 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE26TraverseUnaryTransformTypeEPNS_18UnaryTransformTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %72, %67, %65, %60, %58, %56, %54, %52, %50, %48, %45, %42, %40, %38, %36, %32, %29, %27, %25, %23, %19, %17, %15, %13, %11, %9
-  %.0 = phi i1 [ %73, %72 ], [ %70, %67 ], [ %66, %65 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %46, %45 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %32 ], [ %31, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %70, %66, %64, %59, %57, %55, %53, %51, %49, %47, %45, %42, %40, %38, %36, %32, %29, %27, %25, %23, %19, %17, %15, %13, %11, %9
+  %.0 = phi i1 [ %71, %70 ], [ %69, %66 ], [ %65, %64 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %32 ], [ %31, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 

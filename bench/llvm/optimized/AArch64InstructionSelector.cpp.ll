@@ -29317,9 +29317,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571: ; preds = %114
     i64 4194372, label %.critedge8
     i64 4194436, label %.critedge8
     i64 8388644, label %.critedge8.fold.split
-    i64 8388676, label %.critedge8.fold.split1766
+    i64 8388676, label %.critedge8.fold.split
     i64 16777236, label %.critedge8.fold.split1767
-    i64 16777252, label %.critedge8.fold.split1768
+    i64 16777252, label %.critedge8.fold.split1767
   ]
 
 .thread1378:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571, %114, %110
@@ -29340,20 +29340,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571: ; preds = %114
   tail call void @llvm.assume(i1 %spec.select.i581)
   br label %.critedge8
 
-.critedge8.fold.split:                            ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571
+.critedge8.fold.split:                            ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571
   br label %.critedge8
 
-.critedge8.fold.split1766:                        ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571
+.critedge8.fold.split1767:                        ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571
   br label %.critedge8
 
-.critedge8.fold.split1767:                        ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571
-  br label %.critedge8
-
-.critedge8.fold.split1768:                        ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571
-  br label %.critedge8
-
-.critedge8:                                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571, %.critedge8.fold.split1768, %.critedge8.fold.split1767, %.critedge8.fold.split1766, %.critedge8.fold.split, %126, %.thread1378, %124
-  %.0506 = phi i32 [ 4073, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571 ], [ 4071, %124 ], [ 4071, %.thread1378 ], [ 4071, %126 ], [ 4073, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571 ], [ 4067, %.critedge8.fold.split ], [ 4067, %.critedge8.fold.split1766 ], [ 4069, %.critedge8.fold.split1767 ], [ 4069, %.critedge8.fold.split1768 ]
+.critedge8:                                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571, %.critedge8.fold.split1767, %.critedge8.fold.split, %126, %.thread1378, %124
+  %.0506 = phi i32 [ 4073, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571 ], [ 4071, %124 ], [ 4071, %.thread1378 ], [ 4071, %126 ], [ 4073, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit571 ], [ 4067, %.critedge8.fold.split ], [ 4069, %.critedge8.fold.split1767 ]
   %127 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126AArch64InstructionSelector29selectVectorLoadLaneIntrinsicEjjRN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1480) %0, i32 noundef %.0506, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(70) %1)
   br i1 %127, label %445, label %446
 
@@ -29513,9 +29507,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607: ; preds = %168
     i64 4194372, label %.critedge20
     i64 4194436, label %.critedge20
     i64 8388644, label %.critedge20.fold.split
-    i64 8388676, label %.critedge20.fold.split1777
+    i64 8388676, label %.critedge20.fold.split
     i64 16777236, label %.critedge20.fold.split1778
-    i64 16777252, label %.critedge20.fold.split1779
+    i64 16777252, label %.critedge20.fold.split1778
   ]
 
 .thread1447:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607, %168, %164
@@ -29536,20 +29530,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607: ; preds = %168
   tail call void @llvm.assume(i1 %spec.select.i617)
   br label %.critedge20
 
-.critedge20.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607
+.critedge20.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607
   br label %.critedge20
 
-.critedge20.fold.split1777:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607
+.critedge20.fold.split1778:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607
   br label %.critedge20
 
-.critedge20.fold.split1778:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607
-  br label %.critedge20
-
-.critedge20.fold.split1779:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607
-  br label %.critedge20
-
-.critedge20:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607, %.critedge20.fold.split1779, %.critedge20.fold.split1778, %.critedge20.fold.split1777, %.critedge20.fold.split, %180, %.thread1447, %178
-  %.0509 = phi i32 [ 4121, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607 ], [ 4119, %178 ], [ 4119, %.thread1447 ], [ 4119, %180 ], [ 4121, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607 ], [ 4115, %.critedge20.fold.split ], [ 4115, %.critedge20.fold.split1777 ], [ 4117, %.critedge20.fold.split1778 ], [ 4117, %.critedge20.fold.split1779 ]
+.critedge20:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607, %.critedge20.fold.split1778, %.critedge20.fold.split, %180, %.thread1447, %178
+  %.0509 = phi i32 [ 4121, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607 ], [ 4119, %178 ], [ 4119, %.thread1447 ], [ 4119, %180 ], [ 4121, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit607 ], [ 4115, %.critedge20.fold.split ], [ 4117, %.critedge20.fold.split1778 ]
   %181 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126AArch64InstructionSelector29selectVectorLoadLaneIntrinsicEjjRN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1480) %0, i32 noundef %.0509, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(70) %1)
   br i1 %181, label %445, label %446
 
@@ -29709,9 +29697,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643: ; preds = %222
     i64 4194372, label %.critedge32
     i64 4194436, label %.critedge32
     i64 8388644, label %.critedge32.fold.split
-    i64 8388676, label %.critedge32.fold.split1789
+    i64 8388676, label %.critedge32.fold.split
     i64 16777236, label %.critedge32.fold.split1790
-    i64 16777252, label %.critedge32.fold.split1791
+    i64 16777252, label %.critedge32.fold.split1790
   ]
 
 .thread1516:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643, %222, %218
@@ -29732,20 +29720,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643: ; preds = %222
   tail call void @llvm.assume(i1 %spec.select.i653)
   br label %.critedge32
 
-.critedge32.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643
+.critedge32.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643
   br label %.critedge32
 
-.critedge32.fold.split1789:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643
+.critedge32.fold.split1790:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643
   br label %.critedge32
 
-.critedge32.fold.split1790:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643
-  br label %.critedge32
-
-.critedge32.fold.split1791:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643
-  br label %.critedge32
-
-.critedge32:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643, %.critedge32.fold.split1791, %.critedge32.fold.split1790, %.critedge32.fold.split1789, %.critedge32.fold.split, %234, %.thread1516, %232
-  %.0512 = phi i32 [ 4169, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643 ], [ 4167, %232 ], [ 4167, %.thread1516 ], [ 4167, %234 ], [ 4169, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643 ], [ 4163, %.critedge32.fold.split ], [ 4163, %.critedge32.fold.split1789 ], [ 4165, %.critedge32.fold.split1790 ], [ 4165, %.critedge32.fold.split1791 ]
+.critedge32:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643, %.critedge32.fold.split1790, %.critedge32.fold.split, %234, %.thread1516, %232
+  %.0512 = phi i32 [ 4169, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643 ], [ 4167, %232 ], [ 4167, %.thread1516 ], [ 4167, %234 ], [ 4169, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit643 ], [ 4163, %.critedge32.fold.split ], [ 4165, %.critedge32.fold.split1790 ]
   %235 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126AArch64InstructionSelector29selectVectorLoadLaneIntrinsicEjjRN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1480) %0, i32 noundef %.0512, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(70) %1)
   br i1 %235, label %445, label %446
 
@@ -30240,9 +30222,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739: ; preds = %366
     i64 4194372, label %.critedge54
     i64 4194436, label %.critedge54
     i64 8388644, label %.critedge54.fold.split
-    i64 8388676, label %.critedge54.fold.split1821
+    i64 8388676, label %.critedge54.fold.split
     i64 16777236, label %.critedge54.fold.split1822
-    i64 16777252, label %.critedge54.fold.split1823
+    i64 16777252, label %.critedge54.fold.split1822
   ]
 
 .thread1700:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739, %366, %362
@@ -30263,20 +30245,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739: ; preds = %366
   tail call void @llvm.assume(i1 %spec.select.i749)
   br label %.critedge54
 
-.critedge54.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739
+.critedge54.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739
   br label %.critedge54
 
-.critedge54.fold.split1821:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739
+.critedge54.fold.split1822:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739
   br label %.critedge54
 
-.critedge54.fold.split1822:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739
-  br label %.critedge54
-
-.critedge54.fold.split1823:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739
-  br label %.critedge54
-
-.critedge54:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739, %.critedge54.fold.split1823, %.critedge54.fold.split1822, %.critedge54.fold.split1821, %.critedge54.fold.split, %378, %.thread1700, %376
-  %.0521 = phi i32 [ 6579, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739 ], [ 6577, %376 ], [ 6577, %.thread1700 ], [ 6577, %378 ], [ 6579, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739 ], [ 6573, %.critedge54.fold.split ], [ 6573, %.critedge54.fold.split1821 ], [ 6575, %.critedge54.fold.split1822 ], [ 6575, %.critedge54.fold.split1823 ]
+.critedge54:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739, %.critedge54.fold.split1822, %.critedge54.fold.split, %378, %.thread1700, %376
+  %.0521 = phi i32 [ 6579, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739 ], [ 6577, %376 ], [ 6577, %.thread1700 ], [ 6577, %378 ], [ 6579, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit739 ], [ 6573, %.critedge54.fold.split ], [ 6575, %.critedge54.fold.split1822 ]
   %379 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126AArch64InstructionSelector30selectVectorStoreLaneIntrinsicERN4llvm12MachineInstrEjj(ptr noundef nonnull align 8 dereferenceable(1480) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef 2, i32 noundef %.0521)
   br i1 %379, label %445, label %446
 
@@ -30302,9 +30278,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751: ; preds = %384
     i64 4194372, label %.critedge62
     i64 4194436, label %.critedge62
     i64 8388644, label %.critedge62.fold.split
-    i64 8388676, label %.critedge62.fold.split1825
+    i64 8388676, label %.critedge62.fold.split
     i64 16777236, label %.critedge62.fold.split1826
-    i64 16777252, label %.critedge62.fold.split1827
+    i64 16777252, label %.critedge62.fold.split1826
   ]
 
 .thread1723:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751, %384, %380
@@ -30325,20 +30301,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751: ; preds = %384
   tail call void @llvm.assume(i1 %spec.select.i761)
   br label %.critedge62
 
-.critedge62.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751
+.critedge62.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751
   br label %.critedge62
 
-.critedge62.fold.split1825:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751
+.critedge62.fold.split1826:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751
   br label %.critedge62
 
-.critedge62.fold.split1826:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751
-  br label %.critedge62
-
-.critedge62.fold.split1827:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751
-  br label %.critedge62
-
-.critedge62:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751, %.critedge62.fold.split1827, %.critedge62.fold.split1826, %.critedge62.fold.split1825, %.critedge62.fold.split, %396, %.thread1723, %394
-  %.0522 = phi i32 [ 6611, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751 ], [ 6609, %394 ], [ 6609, %.thread1723 ], [ 6609, %396 ], [ 6611, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751 ], [ 6605, %.critedge62.fold.split ], [ 6605, %.critedge62.fold.split1825 ], [ 6607, %.critedge62.fold.split1826 ], [ 6607, %.critedge62.fold.split1827 ]
+.critedge62:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751, %.critedge62.fold.split1826, %.critedge62.fold.split, %396, %.thread1723, %394
+  %.0522 = phi i32 [ 6611, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751 ], [ 6609, %394 ], [ 6609, %.thread1723 ], [ 6609, %396 ], [ 6611, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit751 ], [ 6605, %.critedge62.fold.split ], [ 6607, %.critedge62.fold.split1826 ]
   %397 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126AArch64InstructionSelector30selectVectorStoreLaneIntrinsicERN4llvm12MachineInstrEjj(ptr noundef nonnull align 8 dereferenceable(1480) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef 3, i32 noundef %.0522)
   br i1 %397, label %445, label %446
 
@@ -30364,9 +30334,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763: ; preds = %402
     i64 4194372, label %.critedge70
     i64 4194436, label %.critedge70
     i64 8388644, label %.critedge70.fold.split
-    i64 8388676, label %.critedge70.fold.split1829
+    i64 8388676, label %.critedge70.fold.split
     i64 16777236, label %.critedge70.fold.split1830
-    i64 16777252, label %.critedge70.fold.split1831
+    i64 16777252, label %.critedge70.fold.split1830
   ]
 
 .thread1746:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763, %402, %398
@@ -30387,20 +30357,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763: ; preds = %402
   tail call void @llvm.assume(i1 %spec.select.i773)
   br label %.critedge70
 
-.critedge70.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763
+.critedge70.fold.split:                           ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763
   br label %.critedge70
 
-.critedge70.fold.split1829:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763
+.critedge70.fold.split1830:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763
   br label %.critedge70
 
-.critedge70.fold.split1830:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763
-  br label %.critedge70
-
-.critedge70.fold.split1831:                       ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763
-  br label %.critedge70
-
-.critedge70:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763, %.critedge70.fold.split1831, %.critedge70.fold.split1830, %.critedge70.fold.split1829, %.critedge70.fold.split, %414, %.thread1746, %412
-  %.0520 = phi i32 [ 6643, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763 ], [ 6641, %412 ], [ 6641, %.thread1746 ], [ 6641, %414 ], [ 6643, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763 ], [ 6637, %.critedge70.fold.split ], [ 6637, %.critedge70.fold.split1829 ], [ 6639, %.critedge70.fold.split1830 ], [ 6639, %.critedge70.fold.split1831 ]
+.critedge70:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763, %.critedge70.fold.split1830, %.critedge70.fold.split, %414, %.thread1746, %412
+  %.0520 = phi i32 [ 6643, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763 ], [ 6641, %412 ], [ 6641, %.thread1746 ], [ 6641, %414 ], [ 6643, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit763 ], [ 6637, %.critedge70.fold.split ], [ 6639, %.critedge70.fold.split1830 ]
   %415 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126AArch64InstructionSelector30selectVectorStoreLaneIntrinsicERN4llvm12MachineInstrEjj(ptr noundef nonnull align 8 dereferenceable(1480) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef 4, i32 noundef %.0520)
   br i1 %415, label %445, label %446
 

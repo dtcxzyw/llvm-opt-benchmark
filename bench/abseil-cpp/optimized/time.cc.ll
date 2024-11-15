@@ -167,9 +167,9 @@ if.end13:                                         ; preds = %if.end
   %switch.tableidx = add i32 %3, -1
   %4 = icmp ult i32 %switch.tableidx, 6
   %switch.offset = add i32 %3, 1
-  %spec.select = select i1 %4, i32 %switch.offset, i32 1
+  %retval.0.i = select i1 %4, i32 %switch.offset, i32 1
   %weekday = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store i32 %spec.select, ptr %weekday, align 8
+  store i32 %retval.0.i, ptr %weekday, align 8
   %cmp.i27 = icmp sgt i8 %ref.tmp41.sroa.2.8.extract.trunc, 2
   %5 = and i64 %cs.sroa.0.0.copyload, 3
   %cmp.i.i34 = icmp eq i64 %5, 0

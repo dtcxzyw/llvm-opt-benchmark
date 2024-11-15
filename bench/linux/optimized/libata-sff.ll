@@ -3923,9 +3923,9 @@ define dso_local i32 @ata_sff_wait_after_reset(ptr noundef %0, i32 noundef %1, i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 304
   %14 = load ptr, ptr %13, align 8
-  br i1 %10, label %.thread2, label %15
+  br i1 %10, label %.thread1, label %15
 
-.thread2:                                         ; preds = %8
+.thread1:                                         ; preds = %8
   tail call void %14(ptr noundef %4, i32 noundef 0) #13
   br label %39
 
@@ -3970,8 +3970,8 @@ define dso_local i32 @ata_sff_wait_after_reset(ptr noundef %0, i32 noundef %1, i
   tail call void %38(ptr noundef %4, i32 noundef 1) #13
   br label %39
 
-39:                                               ; preds = %.thread2, %32
-  %40 = phi i32 [ 0, %.thread2 ], [ %31, %32 ]
+39:                                               ; preds = %.thread1, %32
+  %40 = phi i32 [ 0, %.thread1 ], [ %31, %32 ]
   %41 = icmp eq i32 %5, 0
   br i1 %41, label %46, label %42
 

@@ -6912,100 +6912,79 @@ define internal fastcc noundef i32 @_ZL21ARMCountOfUnwindCodesN4llvm8ArrayRefINS
   %.not35 = icmp eq i64 %1, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %28
-  %.02937 = phi i32 [ %.1, %28 ], [ 0, %2 ]
-  %.03036 = phi ptr [ %29, %28 ], [ %0, %2 ]
+.lr.ph:                                           ; preds = %2, %21
+  %.02937 = phi i32 [ %.1, %21 ], [ 0, %2 ]
+  %.03036 = phi ptr [ %22, %21 ], [ %0, %2 ]
   %4 = getelementptr inbounds nuw i8, ptr %.03036, i64 16
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %8 [
-    i32 2, label %28
+    i32 2, label %21
     i32 1, label %9
     i32 46, label %10
     i32 47, label %11
-    i32 48, label %12
-    i32 49, label %13
-    i32 50, label %14
-    i32 51, label %28
-    i32 52, label %28
-    i32 53, label %28
-    i32 54, label %28
-    i32 55, label %15
-    i32 56, label %16
-    i32 57, label %17
-    i32 58, label %18
-    i32 26, label %28
-    i32 59, label %28
-    i32 27, label %28
-    i32 60, label %28
-    i32 61, label %28
+    i32 48, label %9
+    i32 49, label %10
+    i32 50, label %11
+    i32 51, label %21
+    i32 52, label %21
+    i32 53, label %21
+    i32 54, label %21
+    i32 55, label %11
+    i32 56, label %11
+    i32 57, label %11
+    i32 58, label %11
+    i32 26, label %21
+    i32 59, label %21
+    i32 27, label %21
+    i32 60, label %21
+    i32 61, label %21
     i32 62, label %.preheader
   ]
 
 .preheader:                                       ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.03036, i64 8
   %7 = load i32, ptr %6, align 8
-  br label %19
+  br label %12
 
 8:                                                ; preds = %.lr.ph
   unreachable
 
-9:                                                ; preds = %.lr.ph
-  br label %28
+9:                                                ; preds = %.lr.ph, %.lr.ph
+  br label %21
 
-10:                                               ; preds = %.lr.ph
-  br label %28
+10:                                               ; preds = %.lr.ph, %.lr.ph
+  br label %21
 
-11:                                               ; preds = %.lr.ph
-  br label %28
+11:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  br label %21
 
-12:                                               ; preds = %.lr.ph
-  br label %28
+12:                                               ; preds = %.preheader, %16
+  %.034 = phi i32 [ 3, %.preheader ], [ %17, %16 ]
+  %13 = shl nsw i32 %.034, 3
+  %14 = shl i32 255, %13
+  %15 = and i32 %7, %14
+  %.not31 = icmp eq i32 %15, 0
+  br i1 %.not31, label %16, label %19
 
-13:                                               ; preds = %.lr.ph
-  br label %28
+16:                                               ; preds = %12
+  %17 = add nsw i32 %.034, -1
+  %18 = icmp ugt i32 %.034, 1
+  br i1 %18, label %12, label %19, !llvm.loop !182
 
-14:                                               ; preds = %.lr.ph
-  br label %28
+19:                                               ; preds = %12, %16
+  %.0.lcssa = phi i32 [ %.034, %12 ], [ 0, %16 ]
+  %20 = add nuw nsw i32 %.0.lcssa, 1
+  br label %21
 
-15:                                               ; preds = %.lr.ph
-  br label %28
-
-16:                                               ; preds = %.lr.ph
-  br label %28
-
-17:                                               ; preds = %.lr.ph
-  br label %28
-
-18:                                               ; preds = %.lr.ph
-  br label %28
-
-19:                                               ; preds = %.preheader, %23
-  %.034 = phi i32 [ 3, %.preheader ], [ %24, %23 ]
-  %20 = shl nsw i32 %.034, 3
-  %21 = shl i32 255, %20
-  %22 = and i32 %7, %21
-  %.not31 = icmp eq i32 %22, 0
-  br i1 %.not31, label %23, label %26
-
-23:                                               ; preds = %19
-  %24 = add nsw i32 %.034, -1
-  %25 = icmp ugt i32 %.034, 1
-  br i1 %25, label %19, label %26, !llvm.loop !182
-
-26:                                               ; preds = %19, %23
-  %.0.lcssa = phi i32 [ %.034, %19 ], [ 0, %23 ]
-  %27 = add nuw nsw i32 %.0.lcssa, 1
-  br label %28
-
-28:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %26
-  %.pn = phi i32 [ %27, %26 ], [ 2, %18 ], [ 2, %17 ], [ 2, %16 ], [ 2, %15 ], [ 2, %14 ], [ 4, %13 ], [ 3, %12 ], [ 2, %11 ], [ 4, %10 ], [ 3, %9 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
+21:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %9, %10, %11, %19
+  %.pn = phi i32 [ %20, %19 ], [ 2, %11 ], [ 4, %10 ], [ 3, %9 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
   %.1 = add i32 %.pn, %.02937
-  %29 = getelementptr inbounds i8, ptr %.03036, i64 24
-  %.not = icmp eq ptr %29, %3
+  %22 = getelementptr inbounds i8, ptr %.03036, i64 24
+  %.not = icmp eq ptr %22, %3
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %28, %2
-  %.029.lcssa = phi i32 [ 0, %2 ], [ %.1, %28 ]
+._crit_edge:                                      ; preds = %21, %2
+  %.029.lcssa = phi i32 [ 0, %2 ], [ %.1, %21 ]
   ret i32 %.029.lcssa
 }
 

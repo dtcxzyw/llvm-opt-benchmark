@@ -22944,27 +22944,21 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %_ZNK4llvm3EVT16isSc
 _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit:    ; preds = %16, %23
   %.sroa.0.0.i46 = phi i16 [ %.sroa.0.0.i47, %16 ], [ %15, %23 ]
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i.i, %16 ], [ %24, %23 ]
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.in.i.i to i32
   switch i16 %.sroa.0.0.i46, label %_ZNK4llvm3EVTneES0_.exit18.thread [
     i16 10, label %_ZNK4llvm3EVTneES0_.exit12
     i16 11, label %_ZNK4llvm3EVTneES0_.exit12.fold.split
-    i16 12, label %_ZNK4llvm3EVTneES0_.exit12.fold.split42
-    i16 13, label %_ZNK4llvm3EVTneES0_.exit12.fold.split43
+    i16 12, label %_ZNK4llvm3EVTneES0_.exit12.fold.split
+    i16 13, label %_ZNK4llvm3EVTneES0_.exit12.fold.split
   ]
 
-_ZNK4llvm3EVTneES0_.exit12.fold.split:            ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
+_ZNK4llvm3EVTneES0_.exit12.fold.split:            ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.in.i.i to i32
+  %25 = add i32 %.sroa.0.0.extract.trunc.i, -2
   br label %_ZNK4llvm3EVTneES0_.exit12
 
-_ZNK4llvm3EVTneES0_.exit12.fold.split42:          ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
-  br label %_ZNK4llvm3EVTneES0_.exit12
-
-_ZNK4llvm3EVTneES0_.exit12.fold.split43:          ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
-  br label %_ZNK4llvm3EVTneES0_.exit12
-
-_ZNK4llvm3EVTneES0_.exit12:                       ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVTneES0_.exit12.fold.split43, %_ZNK4llvm3EVTneES0_.exit12.fold.split42, %_ZNK4llvm3EVTneES0_.exit12.fold.split
-  %.04 = phi i32 [ 16, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ], [ %.sroa.0.0.extract.trunc.i, %_ZNK4llvm3EVTneES0_.exit12.fold.split ], [ %.sroa.0.0.extract.trunc.i, %_ZNK4llvm3EVTneES0_.exit12.fold.split42 ], [ %.sroa.0.0.extract.trunc.i, %_ZNK4llvm3EVTneES0_.exit12.fold.split43 ]
-  %25 = add i32 %.04, -2
-  %26 = call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 31)
+_ZNK4llvm3EVTneES0_.exit12:                       ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit, %_ZNK4llvm3EVTneES0_.exit12.fold.split
+  %.04 = phi i32 [ 14, %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit ], [ %25, %_ZNK4llvm3EVTneES0_.exit12.fold.split ]
+  %26 = call i32 @llvm.fshl.i32(i32 %.04, i32 %.04, i32 31)
   %27 = icmp ult i32 %26, 8
   br i1 %27, label %switch.hole_check, label %_ZNK4llvm3EVTneES0_.exit18.thread
 

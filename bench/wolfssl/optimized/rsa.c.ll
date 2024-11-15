@@ -1222,8 +1222,8 @@ switch.lookup:                                    ; preds = %entry
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
-return:                                           ; preds = %switch.lookup, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %switch.load, %switch.lookup ]
+return:                                           ; preds = %entry, %switch.lookup
+  %retval.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1954,8 +1954,8 @@ switch.lookup:                                    ; preds = %if.end
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %wc_hash2mgf.exit
 
-wc_hash2mgf.exit:                                 ; preds = %switch.lookup, %if.end
-  %retval.0.i = phi i32 [ 0, %if.end ], [ %switch.load, %switch.lookup ]
+wc_hash2mgf.exit:                                 ; preds = %if.end, %switch.lookup
+  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %if.end ]
   %call2 = tail call fastcc i32 @RsaPrivateDecryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef null, ptr noundef nonnull %key, i32 noundef 1, i8 noundef zeroext 1, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %retval.0.i, ptr noundef null, i32 noundef 0, i32 noundef -1, ptr noundef %0)
   br label %return
 

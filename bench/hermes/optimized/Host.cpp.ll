@@ -1613,18 +1613,19 @@ if.then6:                                         ; preds = %_ZL20getAvailableFe
 if.end.i123:                                      ; preds = %if.then6
   switch i32 %Family.1, label %_ZN4llvh9StringRefC2EPKc.exit745 [
     i32 3, label %return
-    i32 4, label %_ZN4llvh9StringRefC2EPKc.exit545
+    i32 4, label %sw.bb1.i
     i32 5, label %sw.bb2.i
     i32 6, label %sw.bb5.i
     i32 15, label %sw.bb102.i
   ]
 
+sw.bb1.i:                                         ; preds = %if.end.i123
+  br label %return
+
 sw.bb2.i:                                         ; preds = %if.end.i123
   %and.i125 = and i32 %Features.27.i, 2
   %tobool.not.i = icmp eq i32 %and.i125, 0
-  %spec.select = select i1 %tobool.not.i, i64 7, i64 11
-  %spec.select290 = select i1 %tobool.not.i, ptr @.str.138, ptr @.str.139
-  br label %return
+  br i1 %tobool.not.i, label %_ZN4llvh9StringRefC2EPKc.exit555, label %return
 
 sw.bb5.i:                                         ; preds = %if.end.i123
   switch i32 %Model.0, label %sw.default.i [
@@ -1644,10 +1645,10 @@ sw.bb5.i:                                         ; preds = %if.end.i123
     i32 22, label %sw.bb11.i
     i32 23, label %sw.bb12.i
     i32 29, label %sw.bb12.i
-    i32 26, label %if.end10.thread156
-    i32 30, label %if.end10.thread156
-    i32 31, label %if.end10.thread156
-    i32 46, label %if.end10.thread156
+    i32 26, label %if.end10.thread160
+    i32 30, label %if.end10.thread160
+    i32 31, label %if.end10.thread160
+    i32 46, label %if.end10.thread160
     i32 37, label %return
     i32 44, label %return
     i32 47, label %return
@@ -1669,11 +1670,11 @@ sw.bb5.i:                                         ; preds = %if.end.i123
     i32 158, label %sw.bb19.i
     i32 85, label %sw.bb20.i
     i32 102, label %sw.bb21.i
-    i32 28, label %if.end79.thread228
-    i32 38, label %if.end79.thread228
-    i32 39, label %if.end79.thread228
-    i32 53, label %if.end79.thread228
-    i32 54, label %if.end79.thread228
+    i32 28, label %if.end79.thread223
+    i32 38, label %if.end79.thread223
+    i32 39, label %if.end79.thread223
+    i32 53, label %if.end79.thread223
+    i32 54, label %if.end79.thread223
     i32 55, label %sw.bb23.i
     i32 74, label %sw.bb23.i
     i32 77, label %sw.bb23.i
@@ -1755,8 +1756,8 @@ if.end39.i:                                       ; preds = %if.end35.i
 if.then42.i:                                      ; preds = %if.end39.i
   %and43.i = and i32 %Features2.4.i, 16
   %tobool44.not.i = icmp eq i32 %and43.i, 0
-  %spec.select291 = select i1 %tobool44.not.i, i64 7, i64 8
-  %spec.select292 = select i1 %tobool44.not.i, ptr @.str.121, ptr @.str.152
+  %spec.select = select i1 %tobool44.not.i, i64 7, i64 8
+  %spec.select283 = select i1 %tobool44.not.i, ptr @.str.121, ptr @.str.152
   br label %return
 
 if.end47.i:                                       ; preds = %if.end39.i
@@ -1782,7 +1783,7 @@ if.end59.i:                                       ; preds = %if.end55.i
 if.then62.i:                                      ; preds = %if.end59.i
   %and63.i = and i32 %Features2.4.i, 1
   %tobool64.not.i = icmp eq i32 %and63.i, 0
-  br i1 %tobool64.not.i, label %if.end10.thread156, label %return
+  br i1 %tobool64.not.i, label %if.end10.thread160, label %return
 
 if.end68.i:                                       ; preds = %if.end59.i
   %and69.i = and i32 %Features.27.i, 128
@@ -1797,7 +1798,7 @@ if.end72.i:                                       ; preds = %if.end68.i
 if.then75.i:                                      ; preds = %if.end72.i
   %and76.i = and i32 %Features2.4.i, 1
   %tobool77.not.i = icmp eq i32 %and76.i, 0
-  br i1 %tobool77.not.i, label %return, label %if.end79.thread228
+  br i1 %tobool77.not.i, label %return, label %if.end79.thread223
 
 if.end81.i:                                       ; preds = %if.end72.i
   %and82.i = and i32 %Features2.4.i, 4
@@ -1832,12 +1833,12 @@ sw.bb102.i:                                       ; preds = %if.end.i123
 if.end106.i:                                      ; preds = %sw.bb102.i
   %and107.i = and i32 %Features.27.i, 32
   %tobool108.not.i = icmp eq i32 %and107.i, 0
-  %spec.select293 = select i1 %tobool108.not.i, ptr @.str.143, ptr @.str.147
+  %spec.select284 = select i1 %tobool108.not.i, ptr @.str.143, ptr @.str.147
   br label %return
 
 if.then8:                                         ; preds = %_ZL20getAvailableFeaturesjjjPjS_.exit
   switch i32 %Family.1, label %_ZN4llvh9StringRefC2EPKc.exit745 [
-    i32 4, label %_ZN4llvh9StringRefC2EPKc.exit655
+    i32 4, label %sw.bb.i141
     i32 5, label %sw.bb1.i138
     i32 6, label %sw.bb6.i134
     i32 15, label %sw.bb7.i133
@@ -1848,23 +1849,26 @@ if.then8:                                         ; preds = %_ZL20getAvailableFe
     i32 23, label %return
   ]
 
+sw.bb.i141:                                       ; preds = %if.then8
+  br label %return
+
 sw.bb1.i138:                                      ; preds = %if.then8
   %switch.tableidx = add nsw i32 %Model.0, -6
   %35 = icmp ult i32 %switch.tableidx, 8
-  br i1 %35, label %switch.lookup, label %return
+  br i1 %35, label %switch.lookup, label %_ZN4llvh9StringRefC2EPKc.exit555
 
 sw.bb6.i134:                                      ; preds = %if.then8
   %and.i135 = and i32 %Features.27.i, 8
   %tobool.not.i136 = icmp eq i32 %and.i135, 0
-  %spec.select294 = select i1 %tobool.not.i136, i64 6, i64 9
-  %spec.select295 = select i1 %tobool.not.i136, ptr @.str.148, ptr @.str.149
+  %spec.select285 = select i1 %tobool.not.i136, i64 6, i64 9
+  %spec.select286 = select i1 %tobool.not.i136, ptr @.str.148, ptr @.str.149
   br label %return
 
 sw.bb7.i133:                                      ; preds = %if.then8
   %and8.i = and i32 %Features.27.i, 32
   %tobool9.not.i = icmp eq i32 %and8.i, 0
-  %spec.select296 = select i1 %tobool9.not.i, i64 2, i64 7
-  %spec.select297 = select i1 %tobool9.not.i, ptr @.str.150, ptr @.str.151
+  %spec.select287 = select i1 %tobool9.not.i, i64 2, i64 7
+  %spec.select288 = select i1 %tobool9.not.i, ptr @.str.150, ptr @.str.151
   br label %return
 
 sw.bb12.i129:                                     ; preds = %if.then8
@@ -1884,16 +1888,16 @@ if.end26.i:                                       ; preds = %if.end21.i
   %or.cond2.i = icmp eq i32 %37, 16
   %cmp30.i = icmp eq i32 %Model.0, 2
   %or.cond3.i = or i1 %cmp30.i, %or.cond2.i
-  %spec.select298 = select i1 %or.cond3.i, ptr @.str.114, ptr @.str.113
+  %spec.select289 = select i1 %or.cond3.i, ptr @.str.114, ptr @.str.113
   br label %return
 
-if.end10.thread156:                               ; preds = %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %if.then62.i
+if.end10.thread160:                               ; preds = %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %if.then62.i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit305:                 ; preds = %sw.bb5.i, %sw.bb5.i
   br label %return
 
-if.end79.thread228:                               ; preds = %if.then75.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i
+if.end79.thread223:                               ; preds = %if.then75.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit495:                 ; preds = %if.then8
@@ -1905,13 +1909,10 @@ _ZN4llvh9StringRefC2EPKc.exit505:                 ; preds = %if.then8
 _ZN4llvh9StringRefC2EPKc.exit525:                 ; preds = %sw.bb5.i
   br label %return
 
-_ZN4llvh9StringRefC2EPKc.exit545:                 ; preds = %if.end.i123
+_ZN4llvh9StringRefC2EPKc.exit555:                 ; preds = %sw.bb1.i138, %sw.bb2.i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit575:                 ; preds = %if.end97.i, %sw.bb5.i
-  br label %return
-
-_ZN4llvh9StringRefC2EPKc.exit655:                 ; preds = %if.then8
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit725:                 ; preds = %sw.bb5.i
@@ -1925,13 +1926,13 @@ switch.lookup:                                    ; preds = %sw.bb1.i138
   %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv, i64 0, i64 %38
   %switch.load = load i64, ptr %switch.gep, align 8
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep299 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 0, i64 %39
-  %switch.load300 = load ptr, ptr %switch.gep299, align 8
+  %switch.gep290 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 0, i64 %39
+  %switch.load291 = load ptr, ptr %switch.gep290, align 8
   br label %return
 
-return:                                           ; preds = %sw.bb1.i138, %switch.lookup, %if.end26.i, %sw.bb7.i133, %sw.bb6.i134, %if.end106.i, %if.then42.i, %sw.bb2.i, %sw.bb12.i129, %if.then75.i, %sw.bb24.i, %sw.bb102.i, %sw.bb10.i, %if.end85.i, %sw.bb9.i, %if.end89.i, %sw.bb8.i, %if.end93.i, %sw.bb7.i, %if.end97.i, %if.end.i123, %sw.bb26.i, %if.end35.i, %sw.bb23.i, %if.then62.i, %if.end79.thread228, %if.end68.i, %sw.bb12.i, %if.end81.i, %sw.bb11.i, %sw.default.i, %sw.bb21.i, %if.end31.i, %sw.bb20.i, %sw.bb19.i, %if.end47.i, %sw.bb18.i, %if.end51.i, %sw.bb17.i, %if.then8, %sw.bb18.i126, %if.end21.i, %if.end55.i, %sw.bb15.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %if.end10.thread156, %entry, %_ZN4llvh9StringRefC2EPKc.exit745, %_ZN4llvh9StringRefC2EPKc.exit725, %_ZN4llvh9StringRefC2EPKc.exit655, %_ZN4llvh9StringRefC2EPKc.exit575, %_ZN4llvh9StringRefC2EPKc.exit545, %_ZN4llvh9StringRefC2EPKc.exit525, %_ZN4llvh9StringRefC2EPKc.exit505, %_ZN4llvh9StringRefC2EPKc.exit495, %_ZN4llvh9StringRefC2EPKc.exit305
-  %retval.sroa.59.0 = phi i64 [ 9, %_ZN4llvh9StringRefC2EPKc.exit305 ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit495 ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit505 ], [ 3, %_ZN4llvh9StringRefC2EPKc.exit525 ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit545 ], [ 10, %_ZN4llvh9StringRefC2EPKc.exit575 ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit655 ], [ 13, %_ZN4llvh9StringRefC2EPKc.exit725 ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit745 ], [ 7, %entry ], [ 7, %if.end10.thread156 ], [ 8, %sw.bb5.i ], [ 8, %sw.bb5.i ], [ 8, %sw.bb5.i ], [ 11, %sw.bb15.i ], [ 11, %if.end55.i ], [ 6, %if.end21.i ], [ 6, %sw.bb18.i126 ], [ 6, %if.then8 ], [ 7, %sw.bb17.i ], [ 7, %if.end51.i ], [ 9, %sw.bb18.i ], [ 9, %if.end47.i ], [ 7, %sw.bb19.i ], [ 14, %sw.bb20.i ], [ 14, %if.end31.i ], [ 10, %sw.bb21.i ], [ 10, %sw.default.i ], [ 5, %sw.bb11.i ], [ 5, %if.end81.i ], [ 6, %sw.bb12.i ], [ 6, %if.end68.i ], [ 7, %if.end79.thread228 ], [ 8, %sw.bb12.i129 ], [ 10, %if.then62.i ], [ 10, %sw.bb23.i ], [ 3, %if.end35.i ], [ 3, %sw.bb26.i ], [ 4, %if.end.i123 ], [ 8, %if.end97.i ], [ 8, %sw.bb7.i ], [ 8, %if.end93.i ], [ 8, %sw.bb8.i ], [ 9, %if.end89.i ], [ 9, %sw.bb9.i ], [ 5, %if.end85.i ], [ 5, %sw.bb10.i ], [ 6, %sw.bb102.i ], [ 8, %sw.bb24.i ], [ 5, %if.then75.i ], [ %spec.select291, %if.then42.i ], [ 6, %if.end26.i ], [ %spec.select, %sw.bb2.i ], [ 8, %if.end106.i ], [ %spec.select294, %sw.bb6.i134 ], [ %spec.select296, %sw.bb7.i133 ], [ %switch.load, %switch.lookup ], [ 7, %sw.bb1.i138 ]
-  %retval.sroa.0.0 = phi ptr [ @.str.118, %_ZN4llvh9StringRefC2EPKc.exit305 ], [ @.str.133, %_ZN4llvh9StringRefC2EPKc.exit495 ], [ @.str.134, %_ZN4llvh9StringRefC2EPKc.exit505 ], [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit525 ], [ @.str.137, %_ZN4llvh9StringRefC2EPKc.exit545 ], [ @.str.140, %_ZN4llvh9StringRefC2EPKc.exit575 ], [ @.str.137, %_ZN4llvh9StringRefC2EPKc.exit655 ], [ @.str.153, %_ZN4llvh9StringRefC2EPKc.exit725 ], [ @.str.1, %_ZN4llvh9StringRefC2EPKc.exit745 ], [ @.str.1, %entry ], [ @.str.109, %if.end10.thread156 ], [ @.str.110, %sw.bb5.i ], [ @.str.110, %sw.bb5.i ], [ @.str.110, %sw.bb5.i ], [ @.str.111, %sw.bb15.i ], [ @.str.111, %if.end55.i ], [ @.str.115, %if.end21.i ], [ @.str.116, %sw.bb18.i126 ], [ @.str.117, %if.then8 ], [ @.str.119, %sw.bb17.i ], [ @.str.119, %if.end51.i ], [ @.str.120, %sw.bb18.i ], [ @.str.120, %if.end47.i ], [ @.str.121, %sw.bb19.i ], [ @.str.122, %sw.bb20.i ], [ @.str.122, %if.end31.i ], [ @.str.123, %sw.bb21.i ], [ @.str.123, %sw.default.i ], [ @.str.124, %sw.bb11.i ], [ @.str.124, %if.end81.i ], [ @.str.125, %sw.bb12.i ], [ @.str.125, %if.end68.i ], [ @.str.130, %if.end79.thread228 ], [ @.str.112, %sw.bb12.i129 ], [ @.str.131, %if.then62.i ], [ @.str.131, %sw.bb23.i ], [ @.str.132, %if.end35.i ], [ @.str.132, %sw.bb26.i ], [ @.str.136, %if.end.i123 ], [ @.str.141, %if.end97.i ], [ @.str.141, %sw.bb7.i ], [ @.str.142, %if.end93.i ], [ @.str.142, %sw.bb8.i ], [ @.str.144, %if.end89.i ], [ @.str.144, %sw.bb9.i ], [ @.str.145, %if.end85.i ], [ @.str.145, %sw.bb10.i ], [ @.str.146, %sw.bb102.i ], [ @.str.152, %sw.bb24.i ], [ @.str.124, %if.then75.i ], [ %spec.select292, %if.then42.i ], [ %spec.select298, %if.end26.i ], [ %spec.select290, %sw.bb2.i ], [ %spec.select293, %if.end106.i ], [ %spec.select295, %sw.bb6.i134 ], [ %spec.select297, %sw.bb7.i133 ], [ %switch.load300, %switch.lookup ], [ @.str.138, %sw.bb1.i138 ]
+return:                                           ; preds = %switch.lookup, %if.end26.i, %sw.bb7.i133, %sw.bb6.i134, %if.end106.i, %if.then42.i, %sw.bb12.i129, %if.then75.i, %sw.bb24.i, %sw.bb102.i, %sw.bb10.i, %if.end85.i, %sw.bb9.i, %if.end89.i, %sw.bb8.i, %if.end93.i, %sw.bb7.i, %if.end97.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i141, %if.end.i123, %sw.bb26.i, %if.end35.i, %sw.bb23.i, %if.then62.i, %if.end79.thread223, %if.end68.i, %sw.bb12.i, %if.end81.i, %sw.bb11.i, %sw.default.i, %sw.bb21.i, %if.end31.i, %sw.bb20.i, %sw.bb19.i, %if.end47.i, %sw.bb18.i, %if.end51.i, %sw.bb17.i, %if.then8, %sw.bb18.i126, %if.end21.i, %if.end55.i, %sw.bb15.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %if.end10.thread160, %entry, %_ZN4llvh9StringRefC2EPKc.exit745, %_ZN4llvh9StringRefC2EPKc.exit725, %_ZN4llvh9StringRefC2EPKc.exit575, %_ZN4llvh9StringRefC2EPKc.exit555, %_ZN4llvh9StringRefC2EPKc.exit525, %_ZN4llvh9StringRefC2EPKc.exit505, %_ZN4llvh9StringRefC2EPKc.exit495, %_ZN4llvh9StringRefC2EPKc.exit305
+  %retval.sroa.59.0 = phi i64 [ 9, %_ZN4llvh9StringRefC2EPKc.exit305 ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit495 ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit505 ], [ 3, %_ZN4llvh9StringRefC2EPKc.exit525 ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit555 ], [ 10, %_ZN4llvh9StringRefC2EPKc.exit575 ], [ 13, %_ZN4llvh9StringRefC2EPKc.exit725 ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit745 ], [ 7, %entry ], [ 7, %if.end10.thread160 ], [ 8, %sw.bb5.i ], [ 8, %sw.bb5.i ], [ 8, %sw.bb5.i ], [ 11, %sw.bb15.i ], [ 11, %if.end55.i ], [ 6, %if.end21.i ], [ 6, %sw.bb18.i126 ], [ 6, %if.then8 ], [ 7, %sw.bb17.i ], [ 7, %if.end51.i ], [ 9, %sw.bb18.i ], [ 9, %if.end47.i ], [ 7, %sw.bb19.i ], [ 14, %sw.bb20.i ], [ 14, %if.end31.i ], [ 10, %sw.bb21.i ], [ 10, %sw.default.i ], [ 5, %sw.bb11.i ], [ 5, %if.end81.i ], [ 6, %sw.bb12.i ], [ 6, %if.end68.i ], [ 7, %if.end79.thread223 ], [ 10, %if.then62.i ], [ 10, %sw.bb23.i ], [ 3, %if.end35.i ], [ 3, %sw.bb26.i ], [ 4, %if.end.i123 ], [ 4, %sw.bb.i141 ], [ 4, %sw.bb1.i ], [ 11, %sw.bb2.i ], [ 8, %if.end97.i ], [ 8, %sw.bb7.i ], [ 8, %if.end93.i ], [ 8, %sw.bb8.i ], [ 9, %if.end89.i ], [ 9, %sw.bb9.i ], [ 5, %if.end85.i ], [ 5, %sw.bb10.i ], [ 6, %sw.bb102.i ], [ 8, %sw.bb24.i ], [ 5, %if.then75.i ], [ 8, %sw.bb12.i129 ], [ %spec.select, %if.then42.i ], [ 6, %if.end26.i ], [ 8, %if.end106.i ], [ %spec.select285, %sw.bb6.i134 ], [ %spec.select287, %sw.bb7.i133 ], [ %switch.load, %switch.lookup ]
+  %retval.sroa.0.0 = phi ptr [ @.str.118, %_ZN4llvh9StringRefC2EPKc.exit305 ], [ @.str.133, %_ZN4llvh9StringRefC2EPKc.exit495 ], [ @.str.134, %_ZN4llvh9StringRefC2EPKc.exit505 ], [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit525 ], [ @.str.138, %_ZN4llvh9StringRefC2EPKc.exit555 ], [ @.str.140, %_ZN4llvh9StringRefC2EPKc.exit575 ], [ @.str.153, %_ZN4llvh9StringRefC2EPKc.exit725 ], [ @.str.1, %_ZN4llvh9StringRefC2EPKc.exit745 ], [ @.str.1, %entry ], [ @.str.109, %if.end10.thread160 ], [ @.str.110, %sw.bb5.i ], [ @.str.110, %sw.bb5.i ], [ @.str.110, %sw.bb5.i ], [ @.str.111, %sw.bb15.i ], [ @.str.111, %if.end55.i ], [ @.str.115, %if.end21.i ], [ @.str.116, %sw.bb18.i126 ], [ @.str.117, %if.then8 ], [ @.str.119, %sw.bb17.i ], [ @.str.119, %if.end51.i ], [ @.str.120, %sw.bb18.i ], [ @.str.120, %if.end47.i ], [ @.str.121, %sw.bb19.i ], [ @.str.122, %sw.bb20.i ], [ @.str.122, %if.end31.i ], [ @.str.123, %sw.bb21.i ], [ @.str.123, %sw.default.i ], [ @.str.124, %sw.bb11.i ], [ @.str.124, %if.end81.i ], [ @.str.125, %sw.bb12.i ], [ @.str.125, %if.end68.i ], [ @.str.130, %if.end79.thread223 ], [ @.str.131, %if.then62.i ], [ @.str.131, %sw.bb23.i ], [ @.str.132, %if.end35.i ], [ @.str.132, %sw.bb26.i ], [ @.str.136, %if.end.i123 ], [ @.str.137, %sw.bb.i141 ], [ @.str.137, %sw.bb1.i ], [ @.str.139, %sw.bb2.i ], [ @.str.141, %if.end97.i ], [ @.str.141, %sw.bb7.i ], [ @.str.142, %if.end93.i ], [ @.str.142, %sw.bb8.i ], [ @.str.144, %if.end89.i ], [ @.str.144, %sw.bb9.i ], [ @.str.145, %if.end85.i ], [ @.str.145, %sw.bb10.i ], [ @.str.146, %sw.bb102.i ], [ @.str.152, %sw.bb24.i ], [ @.str.124, %if.then75.i ], [ @.str.112, %sw.bb12.i129 ], [ %spec.select283, %if.then42.i ], [ %spec.select289, %if.end26.i ], [ %spec.select284, %if.end106.i ], [ %spec.select286, %sw.bb6.i134 ], [ %spec.select288, %sw.bb7.i133 ], [ %switch.load291, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.59.0, 1
   ret { ptr, i64 } %.fca.1.insert

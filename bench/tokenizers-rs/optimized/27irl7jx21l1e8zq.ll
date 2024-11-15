@@ -30813,8 +30813,8 @@ define hidden noundef range(i8 0, -118) i8 @_ZN10tokenizers14pre_tokenizers15uni
     i32 32, label %4
   ]
 
-3:                                                ; preds = %1, %4, %5, %6, %7
-  %.0 = phi i8 [ %2, %5 ], [ 42, %7 ], [ 42, %6 ], [ 0, %4 ], [ 42, %1 ]
+3:                                                ; preds = %1, %4, %5, %6
+  %.0 = phi i8 [ %2, %5 ], [ 42, %6 ], [ 0, %4 ], [ 42, %1 ]
   ret i8 %.0
 
 4:                                                ; preds = %1
@@ -30823,13 +30823,10 @@ define hidden noundef range(i8 0, -118) i8 @_ZN10tokenizers14pre_tokenizers15uni
 5:                                                ; preds = %1
   switch i8 %2, label %3 [
     i8 47, label %6
-    i8 55, label %7
+    i8 55, label %6
   ]
 
-6:                                                ; preds = %5
-  br label %3
-
-7:                                                ; preds = %5
+6:                                                ; preds = %5, %5
   br label %3
 }
 

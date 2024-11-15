@@ -27771,10 +27771,10 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115X86DAGToDAGISel18
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit.thread [
     i32 49, label %14
-    i32 508, label %54
-    i32 510, label %54
+    i32 508, label %53
+    i32 510, label %53
     i32 514, label %52
-    i32 515, label %53
+    i32 515, label %52
   ]
 
 14:                                               ; preds = %9
@@ -27857,29 +27857,26 @@ _ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit:    ; preds = %_ZNK12_GLOBAL__N_11
   %.not34 = icmp eq ptr %.sroa.012.0, null
   br i1 %.not34, label %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11, label %.lr.ph, !llvm.loop !67
 
-52:                                               ; preds = %9
-  br label %54
+52:                                               ; preds = %9, %9
+  br label %53
 
-53:                                               ; preds = %9
-  br label %54
-
-54:                                               ; preds = %9, %9, %53, %52
-  %.06 = phi i64 [ 2, %53 ], [ 2, %52 ], [ 0, %9 ], [ 0, %9 ]
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %"class.llvm::SDUse", ptr %56, i64 %.06
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 88
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp ult i32 %63, 65
-  %65 = load ptr, ptr %61, align 8
-  %.0.in.i.i.i.i = select i1 %64, ptr %61, ptr %65
+53:                                               ; preds = %9, %9, %52
+  %.06 = phi i64 [ 2, %52 ], [ 0, %9 ], [ 0, %9 ]
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds %"class.llvm::SDUse", ptr %55, i64 %.06
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp ult i32 %62, 65
+  %64 = load ptr, ptr %60, align 8
+  %.0.in.i.i.i.i = select i1 %63, ptr %60, ptr %64
   %.0.i.i.i.i = load i64, ptr %.0.in.i.i.i.i, align 8
-  %66 = trunc i64 %.0.i.i.i.i to i32
-  switch i32 %66, label %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit.thread [
+  %65 = trunc i64 %.0.i.i.i.i to i32
+  switch i32 %65, label %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit.thread [
     i32 0, label %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11
     i32 1, label %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11
     i32 4, label %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11
@@ -27894,14 +27891,14 @@ _ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit:    ; preds = %_ZNK12_GLOBAL__N_11
     i32 14, label %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11
   ]
 
-_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11:  ; preds = %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit, %20, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %6
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.019.043, i64 32
-  %.sroa.019.0 = load ptr, ptr %67, align 8
+_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11:  ; preds = %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit, %20, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %6
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.019.043, i64 32
+  %.sroa.019.0 = load ptr, ptr %66, align 8
   %.not32 = icmp eq ptr %.sroa.019.0, null
   br i1 %.not32, label %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit.thread, label %6, !llvm.loop !68
 
-_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit.thread: ; preds = %14, %9, %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11, %54, %30, %_ZNK12_GLOBAL__N_115X86DAGToDAGISel15getCondFromNodeEPN4llvm6SDNodeE.exit, %24, %3
-  %.not3237 = phi i1 [ true, %3 ], [ false, %24 ], [ false, %_ZNK12_GLOBAL__N_115X86DAGToDAGISel15getCondFromNodeEPN4llvm6SDNodeE.exit ], [ false, %30 ], [ false, %14 ], [ false, %9 ], [ true, %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11 ], [ false, %54 ]
+_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit.thread: ; preds = %14, %9, %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11, %53, %30, %_ZNK12_GLOBAL__N_115X86DAGToDAGISel15getCondFromNodeEPN4llvm6SDNodeE.exit, %24, %3
+  %.not3237 = phi i1 [ true, %3 ], [ false, %24 ], [ false, %_ZNK12_GLOBAL__N_115X86DAGToDAGISel15getCondFromNodeEPN4llvm6SDNodeE.exit ], [ false, %30 ], [ false, %14 ], [ false, %9 ], [ true, %_ZL15mayUseCarryFlagN4llvm3X868CondCodeE.exit11 ], [ false, %53 ]
   ret i1 %.not3237
 }
 

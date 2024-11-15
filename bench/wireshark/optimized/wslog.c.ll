@@ -2575,48 +2575,42 @@ domain_to_string.exit:                            ; preds = %27, %29
   br i1 %1, label %33, label %level_color_on.exit
 
 33:                                               ; preds = %domain_to_string.exit
-  switch i32 %6, label %35 [
+  switch i32 %6, label %36 [
     i32 1, label %level_color_on.exit
     i32 2, label %level_color_on.exit
     i32 3, label %34
     i32 4, label %34
-    i32 5, label %ws_log_level_to_string.exit
-    i32 6, label %level_color_on.exit.thread45
-    i32 7, label %level_color_on.exit.thread42
-    i32 8, label %level_color_on.exit.thread
+    i32 5, label %35
+    i32 6, label %ws_log_level_to_string.exit
+    i32 7, label %level_color_on.exit.thread
+    i32 8, label %35
   ]
 
 34:                                               ; preds = %33, %33
   br label %level_color_on.exit
 
-level_color_on.exit.thread45:                     ; preds = %33
-  br label %ws_log_level_to_string.exit
-
-level_color_on.exit.thread42:                     ; preds = %33
-  br label %ws_log_level_to_string.exit
+35:                                               ; preds = %33, %33
+  br label %level_color_on.exit
 
 level_color_on.exit.thread:                       ; preds = %33
   br label %ws_log_level_to_string.exit
 
-35:                                               ; preds = %33
+36:                                               ; preds = %33
   br label %level_color_on.exit
 
-level_color_on.exit:                              ; preds = %domain_to_string.exit, %33, %33, %34, %35
-  %.0.i = phi ptr [ @.str.67, %35 ], [ @.str.79, %34 ], [ @.str.67, %domain_to_string.exit ], [ @.str.78, %33 ], [ @.str.78, %33 ]
-  switch i32 %6, label %44 [
+level_color_on.exit:                              ; preds = %domain_to_string.exit, %33, %33, %34, %35, %36
+  %.0.i = phi ptr [ @.str.67, %36 ], [ @.str.80, %35 ], [ @.str.79, %34 ], [ @.str.67, %domain_to_string.exit ], [ @.str.78, %33 ], [ @.str.78, %33 ]
+  switch i32 %6, label %45 [
     i32 0, label %ws_log_level_to_string.exit
-    i32 8, label %36
-    i32 7, label %37
-    i32 6, label %38
-    i32 5, label %39
-    i32 4, label %40
-    i32 3, label %41
-    i32 2, label %42
-    i32 1, label %43
+    i32 8, label %37
+    i32 7, label %38
+    i32 6, label %39
+    i32 5, label %40
+    i32 4, label %41
+    i32 3, label %42
+    i32 2, label %43
+    i32 1, label %44
   ]
-
-36:                                               ; preds = %level_color_on.exit
-  br label %ws_log_level_to_string.exit
 
 37:                                               ; preds = %level_color_on.exit
   br label %ws_log_level_to_string.exit
@@ -2642,37 +2636,40 @@ level_color_on.exit:                              ; preds = %domain_to_string.ex
 44:                                               ; preds = %level_color_on.exit
   br label %ws_log_level_to_string.exit
 
-ws_log_level_to_string.exit:                      ; preds = %33, %level_color_on.exit.thread45, %level_color_on.exit.thread42, %level_color_on.exit.thread, %level_color_on.exit, %36, %37, %38, %39, %40, %41, %42, %43, %44
-  %.0.i41 = phi ptr [ %.0.i, %44 ], [ %.0.i, %43 ], [ %.0.i, %42 ], [ %.0.i, %41 ], [ %.0.i, %40 ], [ %.0.i, %level_color_on.exit ], [ @.str.80, %level_color_on.exit.thread ], [ %.0.i, %36 ], [ @.str.82, %level_color_on.exit.thread42 ], [ %.0.i, %37 ], [ @.str.81, %level_color_on.exit.thread45 ], [ %.0.i, %38 ], [ %.0.i, %39 ], [ @.str.80, %33 ]
-  %.0.i38 = phi ptr [ @.str.9, %44 ], [ @.str.8, %43 ], [ @.str.7, %42 ], [ @.str.6, %41 ], [ @.str.5, %40 ], [ @.str, %level_color_on.exit ], [ @.str.1, %level_color_on.exit.thread ], [ @.str.1, %36 ], [ @.str.2, %level_color_on.exit.thread42 ], [ @.str.2, %37 ], [ @.str.3, %level_color_on.exit.thread45 ], [ @.str.3, %38 ], [ @.str.4, %39 ], [ @.str.4, %33 ]
-  %45 = select i1 %1, ptr @.str.83, ptr @.str.67
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.72, ptr noundef nonnull %32, ptr noundef nonnull %.0.i41, ptr noundef nonnull %.0.i38, ptr noundef nonnull %45) #20
+45:                                               ; preds = %level_color_on.exit
+  br label %ws_log_level_to_string.exit
+
+ws_log_level_to_string.exit:                      ; preds = %33, %level_color_on.exit.thread, %level_color_on.exit, %37, %38, %39, %40, %41, %42, %43, %44, %45
+  %.0.i41 = phi ptr [ %.0.i, %45 ], [ %.0.i, %44 ], [ %.0.i, %43 ], [ %.0.i, %42 ], [ %.0.i, %41 ], [ %.0.i, %40 ], [ %.0.i, %37 ], [ %.0.i, %level_color_on.exit ], [ @.str.82, %level_color_on.exit.thread ], [ %.0.i, %38 ], [ %.0.i, %39 ], [ @.str.81, %33 ]
+  %.0.i38 = phi ptr [ @.str.9, %45 ], [ @.str.8, %44 ], [ @.str.7, %43 ], [ @.str.6, %42 ], [ @.str.5, %41 ], [ @.str.4, %40 ], [ @.str.1, %37 ], [ @.str, %level_color_on.exit ], [ @.str.2, %level_color_on.exit.thread ], [ @.str.2, %38 ], [ @.str.3, %39 ], [ @.str.3, %33 ]
+  %46 = select i1 %1, ptr @.str.83, ptr @.str.67
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.72, ptr noundef nonnull %32, ptr noundef nonnull %.0.i41, ptr noundef nonnull %.0.i38, ptr noundef nonnull %46) #20
   %.not36 = icmp eq ptr %7, null
-  br i1 %.not36, label %52, label %47
+  br i1 %.not36, label %53, label %48
 
-47:                                               ; preds = %ws_log_level_to_string.exit
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.73, ptr noundef nonnull %7) #20
-  %49 = icmp sgt i64 %8, -1
-  br i1 %49, label %50, label %52
+48:                                               ; preds = %ws_log_level_to_string.exit
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.73, ptr noundef nonnull %7) #20
+  %50 = icmp sgt i64 %8, -1
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %47
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef %8) #20
-  br label %52
+51:                                               ; preds = %48
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef %8) #20
+  br label %53
 
-52:                                               ; preds = %47, %50, %ws_log_level_to_string.exit
-  %53 = tail call i64 @fwrite(ptr nonnull @.str.75, i64 3, i64 1, ptr %0)
+53:                                               ; preds = %48, %51, %ws_log_level_to_string.exit
+  %54 = tail call i64 @fwrite(ptr nonnull @.str.75, i64 3, i64 1, ptr %0)
   %.not37 = icmp eq ptr %9, null
-  br i1 %.not37, label %56, label %54
+  br i1 %.not37, label %57, label %55
 
-54:                                               ; preds = %52
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.76, ptr noundef nonnull %9) #20
-  br label %56
+55:                                               ; preds = %53
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.76, ptr noundef nonnull %9) #20
+  br label %57
 
-56:                                               ; preds = %54, %52
-  %57 = tail call i32 @fputc(i32 noundef 32, ptr noundef %0)
-  %58 = tail call i32 @vfprintf(ptr noundef %0, ptr noundef %10, ptr noundef %11) #20
-  %59 = tail call i32 @fputc(i32 noundef 10, ptr noundef %0)
-  %60 = tail call i32 @fflush(ptr noundef %0)
+57:                                               ; preds = %55, %53
+  %58 = tail call i32 @fputc(i32 noundef 32, ptr noundef %0)
+  %59 = tail call i32 @vfprintf(ptr noundef %0, ptr noundef %10, ptr noundef %11) #20
+  %60 = tail call i32 @fputc(i32 noundef 10, ptr noundef %0)
+  %61 = tail call i32 @fflush(ptr noundef %0)
   ret void
 }
 

@@ -34,6 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [41 x i8] c"Number of Flag objects created unmatched\00", align 1
 @.str.17 = private unnamed_addr constant [35 x i8] c"com/sun/management/VMOption$Origin\00", align 1
 @.str.18 = private unnamed_addr constant [37 x i8] c"Lcom/sun/management/VMOption$Origin;\00", align 1
+@switch.table.Java_com_sun_management_internal_Flag_getFlags = private unnamed_addr constant [7 x ptr] [ptr @default_origin, ptr @vm_creation_origin, ptr @mgmt_origin, ptr @envvar_origin, ptr @config_file_origin, ptr @ergo_origin, ptr @attach_origin], align 8
 
 ; Function Attrs: nounwind uwtable
 define i32 @Java_com_sun_management_internal_Flag_getInternalFlagCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
@@ -122,7 +123,7 @@ define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr n
 
 7:                                                ; preds = %5
   tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef null) #4
-  br label %79
+  br label %73
 
 8:                                                ; preds = %5
   %9 = icmp slt i32 %4, 1
@@ -130,7 +131,7 @@ define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr n
 
 10:                                               ; preds = %8
   tail call void @JNU_ThrowIllegalArgumentException(ptr noundef %0, ptr noundef null) #4
-  br label %79
+  br label %73
 
 11:                                               ; preds = %8
   %12 = zext nneg i32 %4 to i64
@@ -141,7 +142,7 @@ define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr n
 
 15:                                               ; preds = %11
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #4
-  br label %79
+  br label %73
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @jmm_interface_management_ext, align 8
@@ -153,20 +154,20 @@ define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr n
 
 22:                                               ; preds = %16
   tail call void @free(ptr noundef nonnull %calloc) #4
-  br label %79
+  br label %73
 
-.lr.ph:                                           ; preds = %16, %76
-  %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %16 ]
-  %.07079 = phi i32 [ %.1, %76 ], [ 0, %16 ]
+.lr.ph:                                           ; preds = %16, %70
+  %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %16 ]
+  %.07079 = phi i32 [ %.1, %70 ], [ 0, %16 ]
   %23 = getelementptr inbounds %struct.jmmVMGlobal, ptr %calloc, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %76, label %26
+  br i1 %25, label %70, label %26
 
 26:                                               ; preds = %.lr.ph
   %27 = getelementptr inbounds i8, ptr %23, i64 16
   %28 = load i32, ptr %27, align 8
-  switch i32 %28, label %76 [
+  switch i32 %28, label %70 [
     i32 1, label %29
     i32 2, label %34
     i32 3, label %37
@@ -210,93 +211,68 @@ define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr n
 49:                                               ; preds = %47
   tail call void @free(ptr noundef nonnull %calloc) #4
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #4
-  br label %79
+  br label %73
 
 50:                                               ; preds = %47, %45
   %51 = getelementptr inbounds i8, ptr %23, i64 20
   %52 = load i32, ptr %51, align 4
-  switch i32 %52, label %60 [
-    i32 1, label %61
-    i32 2, label %53
-    i32 3, label %54
-    i32 4, label %55
-    i32 5, label %56
-    i32 6, label %57
-    i32 7, label %58
-    i32 99, label %59
-  ]
+  %switch.tableidx = add i32 %52, -1
+  %53 = icmp ult i32 %switch.tableidx, 7
+  br i1 %53, label %switch.lookup, label %55
 
-53:                                               ; preds = %50
-  br label %61
+switch.lookup:                                    ; preds = %50
+  %54 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.Java_com_sun_management_internal_Flag_getFlags, i64 0, i64 %54
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %55
 
-54:                                               ; preds = %50
-  br label %61
-
-55:                                               ; preds = %50
-  br label %61
-
-56:                                               ; preds = %50
-  br label %61
-
-57:                                               ; preds = %50
-  br label %61
-
-58:                                               ; preds = %50
-  br label %61
-
-59:                                               ; preds = %50
-  br label %61
-
-60:                                               ; preds = %50
-  br label %61
-
-61:                                               ; preds = %50, %60, %59, %58, %57, %56, %55, %54, %53
-  %.068.in = phi ptr [ @other_origin, %60 ], [ @other_origin, %59 ], [ @attach_origin, %58 ], [ @ergo_origin, %57 ], [ @config_file_origin, %56 ], [ @envvar_origin, %55 ], [ @mgmt_origin, %54 ], [ @vm_creation_origin, %53 ], [ @default_origin, %50 ]
+55:                                               ; preds = %50, %switch.lookup
+  %.068.in = phi ptr [ %switch.load, %switch.lookup ], [ @other_origin, %50 ]
   %.068 = load ptr, ptr %.068.in, align 8
-  %62 = load ptr, ptr %23, align 8
-  %63 = getelementptr inbounds i8, ptr %23, i64 24
-  %64 = load i32, ptr %63, align 8
-  %65 = and i32 %64, 1
-  %66 = lshr i32 %64, 1
-  %67 = and i32 %66, 1
-  %68 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %62, ptr noundef %.067, i32 noundef %65, i32 noundef %67, ptr noundef %.068) #4
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %71
+  %56 = load ptr, ptr %23, align 8
+  %57 = getelementptr inbounds i8, ptr %23, i64 24
+  %58 = load i32, ptr %57, align 8
+  %59 = and i32 %58, 1
+  %60 = lshr i32 %58, 1
+  %61 = and i32 %60, 1
+  %62 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %56, ptr noundef %.067, i32 noundef %59, i32 noundef %61, ptr noundef %.068) #4
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %65
 
-70:                                               ; preds = %61
+64:                                               ; preds = %55
   tail call void @free(ptr noundef nonnull %calloc) #4
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #4
-  br label %79
+  br label %73
 
-71:                                               ; preds = %61
-  %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1392
-  %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %.07079, ptr noundef nonnull %68) #4
-  %75 = add nsw i32 %.07079, 1
-  br label %76
+65:                                               ; preds = %55
+  %66 = load ptr, ptr %0, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 1392
+  %68 = load ptr, ptr %67, align 8
+  tail call void %68(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %.07079, ptr noundef nonnull %62) #4
+  %69 = add nsw i32 %.07079, 1
+  br label %70
 
-76:                                               ; preds = %26, %.lr.ph, %71
-  %.1 = phi i32 [ %.07079, %.lr.ph ], [ %.07079, %26 ], [ %75, %71 ]
+70:                                               ; preds = %26, %.lr.ph, %65
+  %.1 = phi i32 [ %.07079, %.lr.ph ], [ %.07079, %26 ], [ %69, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %76
+._crit_edge:                                      ; preds = %70
   %.not = icmp eq i32 %.1, %20
-  br i1 %.not, label %78, label %77
+  br i1 %.not, label %72, label %71
 
-77:                                               ; preds = %._crit_edge
+71:                                               ; preds = %._crit_edge
   tail call void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.16) #4
   tail call void @free(ptr noundef nonnull %calloc) #4
-  br label %79
+  br label %73
 
-78:                                               ; preds = %._crit_edge
+72:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %calloc) #4
-  br label %79
+  br label %73
 
-79:                                               ; preds = %78, %77, %70, %49, %22, %15, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 0, %15 ], [ 0, %22 ], [ 0, %49 ], [ 0, %70 ], [ 0, %77 ], [ %20, %78 ]
+73:                                               ; preds = %72, %71, %64, %49, %22, %15, %10, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 0, %15 ], [ 0, %22 ], [ 0, %49 ], [ 0, %64 ], [ 0, %71 ], [ %20, %72 ]
   ret i32 %.0
 }
 
