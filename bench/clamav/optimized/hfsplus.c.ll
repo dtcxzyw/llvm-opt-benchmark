@@ -2420,7 +2420,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   %70 = select i1 %68, i64 %22, i64 0
   %.069 = add nuw nsw i64 %70, %67
   %71 = add i32 %.070, %.06717
-  %72 = icmp samesign ugt i32 %71, %35
+  %72 = icmp ugt i32 %71, %35
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %64

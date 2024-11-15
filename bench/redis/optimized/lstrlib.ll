@@ -2083,7 +2083,7 @@ if.then20.i.i:                                    ; preds = %land.lhs.true.i.i
 
 land.lhs.true26.i.i:                              ; preds = %if.then20.i.i
   %71 = load i8, ptr %add.ptr17.i.i, align 1, !tbaa !8
-  %cmp28.not.i.i = icmp samesign ult i8 %71, %64
+  %cmp28.not.i.i = icmp ult i8 %71, %64
   br i1 %cmp28.not.i.i, label %if.end39.i.i, label %land.end
 
 if.else32.i.i:                                    ; preds = %land.lhs.true.i.i, %if.else.i.i
@@ -2202,7 +2202,7 @@ if.then20.i.i53:                                  ; preds = %land.lhs.true.i.i50
 
 land.lhs.true26.i.i56:                            ; preds = %if.then20.i.i53
   %81 = load i8, ptr %add.ptr17.i.i51, align 1, !tbaa !8
-  %cmp28.not.i.i57 = icmp samesign ult i8 %81, %76
+  %cmp28.not.i.i57 = icmp ult i8 %81, %76
   br i1 %cmp28.not.i.i57, label %if.end39.i.i46, label %matchbracketclass.exit.i31
 
 if.else32.i.i43:                                  ; preds = %land.lhs.true.i.i50, %if.else.i.i41
@@ -2325,7 +2325,7 @@ if.then20.i.i101:                                 ; preds = %land.lhs.true.i.i98
 
 land.lhs.true26.i.i104:                           ; preds = %if.then20.i.i101
   %90 = load i8, ptr %add.ptr17.i.i99, align 1, !tbaa !8
-  %cmp28.not.i.i105 = icmp samesign ult i8 %90, %85
+  %cmp28.not.i.i105 = icmp ult i8 %90, %85
   br i1 %cmp28.not.i.i105, label %if.end39.i.i94, label %matchbracketclass.exit.i79
 
 if.else32.i.i91:                                  ; preds = %land.lhs.true.i.i98, %if.else.i.i89
@@ -2442,7 +2442,7 @@ if.then20.i.i149:                                 ; preds = %land.lhs.true.i.i14
 
 land.lhs.true26.i.i152:                           ; preds = %if.then20.i.i149
   %98 = load i8, ptr %add.ptr17.i.i147, align 1, !tbaa !8
-  %cmp28.not.i.i153 = icmp samesign ult i8 %98, %92
+  %cmp28.not.i.i153 = icmp ult i8 %98, %92
   br i1 %cmp28.not.i.i153, label %if.end39.i.i142, label %matchbracketclass.exit.i127
 
 if.else32.i.i139:                                 ; preds = %land.lhs.true.i.i146, %if.else.i.i137

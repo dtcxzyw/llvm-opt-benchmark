@@ -32223,7 +32223,7 @@ default.unreachable:                              ; preds = %_ZN5image6codecs3pn
 55:                                               ; preds = %53
   %56 = getelementptr inbounds i8, ptr %54, i64 2
   %.val3.i6.i = load i16, ptr %54, align 2, !noalias !3900, !noundef !19
-  %57 = icmp samesign ugt i16 %.val3.i6.i, %52
+  %57 = icmp ugt i16 %.val3.i6.i, %52
   br i1 %57, label %_ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.thread, label %53
 
 _ZN5image6codecs3pnm7encoder11FlatSamples11all_smaller17hbc2a65a2911c8527E.exit.thread: ; preds = %46, %55, %31

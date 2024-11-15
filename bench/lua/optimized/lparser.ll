@@ -3089,7 +3089,7 @@ if.then.i26:                                      ; preds = %localdebuginfo.exit
 
 if.end.i:                                         ; preds = %if.then.i26, %localdebuginfo.exit.i, %while.body.i24
   %18 = phi i8 [ %dec.i25, %while.body.i24 ], [ %.pre.i, %if.then.i26 ], [ %dec.i25, %localdebuginfo.exit.i ]
-  %cmp.i28 = icmp samesign ugt i8 %18, %2
+  %cmp.i28 = icmp ugt i8 %18, %2
   br i1 %cmp.i28, label %while.body.i24, label %removevars.exit, !llvm.loop !17
 
 removevars.exit:                                  ; preds = %if.end.i, %reglevel.exit
@@ -3525,7 +3525,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %idxprom = zext nneg i32 %op.062 to i64
   %arrayidx = getelementptr inbounds [21 x %struct.anon.13], ptr @priority, i64 0, i64 %idxprom
   %13 = load i8, ptr %arrayidx, align 2
-  %cmp6 = icmp samesign ugt i8 %13, %12
+  %cmp6 = icmp ugt i8 %13, %12
   br i1 %cmp6, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs

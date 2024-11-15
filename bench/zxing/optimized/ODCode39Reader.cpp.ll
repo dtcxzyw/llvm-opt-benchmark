@@ -407,7 +407,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %_ZN5ZXing11PatternV
 
 _ZN5ZXing11PatternView10skipSingleEi.exit:        ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i
   %107 = load i16, ptr %102, align 2
-  %.not101 = icmp samesign ult i16 %.05.lcssa.i.i.i59, %107
+  %.not101 = icmp ult i16 %.05.lcssa.i.i.i59, %107
   br i1 %.not101, label %_ZN5ZXing11PatternView10skipSymbolEv.exit.thread, label %125
 
 _ZN5ZXing11PatternView10skipSymbolEv.exit.thread: ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i, %.preheader, %_ZN5ZXing11PatternView10skipSingleEi.exit, %_ZN5ZXing11PatternView10skipSymbolEv.exit

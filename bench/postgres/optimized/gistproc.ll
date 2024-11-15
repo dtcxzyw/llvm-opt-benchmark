@@ -543,7 +543,7 @@ float8_gt.exit17.i:                               ; preds = %float8_lt.exit16.th
 
 adjustBox.exit:                                   ; preds = %float8_gt.exit17.i, %float8_lt.exit16.thread.i, %30
   %61 = add i16 %.0236309, 1
-  %.not = icmp samesign ugt i16 %61, %23
+  %.not = icmp ugt i16 %61, %23
   br i1 %.not, label %._crit_edge, label %24, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %adjustBox.exit, %1
@@ -581,7 +581,7 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   %80 = getelementptr i8, ptr %77, i64 -8
   store double %79, ptr %80, align 8
   %81 = add i16 %.1237311.us, 1
-  %.not252.us = icmp samesign ugt i16 %81, %69
+  %.not252.us = icmp ugt i16 %81, %69
   br i1 %.not252.us, label %._crit_edge313, label %.lr.ph312.split.us, !llvm.loop !8
 
 .lr.ph312.split:                                  ; preds = %.lr.ph312, %.lr.ph312.split
@@ -600,7 +600,7 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   %92 = getelementptr i8, ptr %88, i64 -8
   store double %91, ptr %92, align 8
   %93 = add i16 %.1237311, 1
-  %.not252 = icmp samesign ugt i16 %93, %68
+  %.not252 = icmp ugt i16 %93, %68
   br i1 %.not252, label %._crit_edge313, label %.lr.ph312.split, !llvm.loop !8
 
 ._crit_edge313:                                   ; preds = %.lr.ph312.split, %.lr.ph312.split.us
@@ -1014,7 +1014,7 @@ adjustBox.exit50.i:                               ; preds = %273, %float8_gt.exi
   %.2.i = phi ptr [ %.1.i, %adjustBox.exit.i ], [ %.03653.i, %adjustBox.exit50.i ]
   %277 = add i16 %.054.i, 1
   %278 = zext i16 %277 to i32
-  %.not.i = icmp samesign ugt i16 %277, %179
+  %.not.i = icmp ugt i16 %277, %179
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %180, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %276
@@ -1265,7 +1265,7 @@ adjustBox.exit270:                                ; preds = %395, %float8_gt.exi
   %.1242 = phi i32 [ %323, %322 ], [ %.0241345, %adjustBox.exit262 ], [ %.0241345, %adjustBox.exit270 ]
   %403 = add i16 %.2238346, 1
   %404 = zext i16 %403 to i32
-  %.not249 = icmp samesign ugt i16 %403, %306
+  %.not249 = icmp ugt i16 %403, %306
   br i1 %.not249, label %._crit_edge349, label %307, !llvm.loop !15
 
 ._crit_edge349:                                   ; preds = %402

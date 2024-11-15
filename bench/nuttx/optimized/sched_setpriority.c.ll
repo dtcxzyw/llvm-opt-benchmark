@@ -58,7 +58,7 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
   %23 = load ptr, ptr %0, align 16
   %24 = getelementptr inbounds i8, ptr %23, i64 28
   %25 = load i8, ptr %24, align 4
-  %26 = icmp samesign ugt i8 %25, %19
+  %26 = icmp ugt i8 %25, %19
   br i1 %26, label %.preheader.i, label %27, !llvm.loop !8
 
 27:                                               ; preds = %.preheader.i

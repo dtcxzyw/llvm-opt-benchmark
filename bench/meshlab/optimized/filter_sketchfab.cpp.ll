@@ -913,7 +913,7 @@ define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef read
   %53 = add nuw i32 %.05870, 8
   %54 = getelementptr inbounds i8, ptr %.16269, i64 8
   %55 = or disjoint i32 %53, 7
-  %56 = icmp samesign ult i32 %55, %10
+  %56 = icmp ult i32 %55, %10
   br i1 %56, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !10
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
@@ -5365,7 +5365,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %1152 = add nuw i32 %.08751954, 8
   %1153 = getelementptr inbounds i8, ptr %.18791953, i64 8
   %1154 = or disjoint i32 %1152, 7
-  %1155 = icmp samesign ult i32 %1154, %1109
+  %1155 = icmp ult i32 %1154, %1109
   br i1 %1155, label %.lr.ph1957, label %.preheader.loopexit, !llvm.loop !88
 
 .lr.ph1966:                                       ; preds = %.lr.ph1966.preheader, %.lr.ph1966

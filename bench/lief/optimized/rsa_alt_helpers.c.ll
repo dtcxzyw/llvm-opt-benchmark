@@ -110,7 +110,7 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
 
 58:                                               ; preds = %78
   %59 = add i16 %.03871, 1
-  %.not61 = icmp samesign ugt i16 %59, %47
+  %.not61 = icmp ugt i16 %59, %47
   br i1 %.not61, label %._crit_edge, label %.preheader, !llvm.loop !4
 
 .preheader:                                       ; preds = %56, %58

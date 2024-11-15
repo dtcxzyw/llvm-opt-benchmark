@@ -9872,7 +9872,7 @@ define internal fastcc void @Ins_FLIPRGON(ptr nocapture noundef %0, ptr nocaptur
   %42 = or i8 %41, 1
   store i8 %42, ptr %40, align 1
   %43 = add i16 %.027, 1
-  %.not23 = icmp samesign ugt i16 %43, %31
+  %.not23 = icmp ugt i16 %43, %31
   br i1 %.not23, label %.loopexit, label %37, !llvm.loop !37
 
 .loopexit:                                        ; preds = %37, %.preheader, %32, %35, %15
@@ -9953,7 +9953,7 @@ define internal fastcc void @Ins_FLIPRGOFF(ptr nocapture noundef %0, ptr nocaptu
   %42 = and i8 %41, -2
   store i8 %42, ptr %40, align 1
   %43 = add i16 %.027, 1
-  %.not23 = icmp samesign ugt i16 %43, %31
+  %.not23 = icmp ugt i16 %43, %31
   br i1 %.not23, label %.loopexit, label %37, !llvm.loop !38
 
 .loopexit:                                        ; preds = %37, %.preheader, %32, %35, %15
@@ -11206,7 +11206,7 @@ define internal fastcc void @Ins_PUSHB(ptr nocapture noundef %0, ptr nocapture n
   %gep = getelementptr i64, ptr %invariant.gep, i64 %23
   store i64 %27, ptr %gep, align 8
   %28 = add i16 %.016, 1
-  %.not14 = icmp samesign ugt i16 %28, %17
+  %.not14 = icmp ugt i16 %28, %17
   br i1 %.not14, label %.loopexit, label %20, !llvm.loop !43
 
 .loopexit:                                        ; preds = %20, %.preheader, %18

@@ -21972,7 +21972,7 @@ if.end65.i.i:                                     ; preds = %invoke.cont62.i.i, 
   %arrayidx.i.i325 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i115, i64 %.pre562.i.i
   %291 = load i8, ptr %arrayidx.i.i325, align 1, !noalias !391
   store i8 %291, ptr %current_index.i.i93, align 1, !noalias !391
-  %cmp70.not.i.i = icmp samesign ult i8 %291, %275
+  %cmp70.not.i.i = icmp ult i8 %291, %275
   br i1 %cmp70.not.i.i, label %invoke.cont76.i.i, label %if.then71.i.i
 
 if.then71.i.i:                                    ; preds = %if.end65.i.i
@@ -24763,7 +24763,7 @@ if.end65.i.i1413:                                 ; preds = %invoke.cont62.i.i14
   %arrayidx.i.i1415 = getelementptr inbounds i16, ptr %retval.0.i.i.i.i1150, i64 %.pre562.i.i1414
   %686 = load i16, ptr %arrayidx.i.i1415, align 2, !noalias !523
   store i16 %686, ptr %current_index.i.i1119, align 2, !noalias !523
-  %cmp70.not.i.i1416 = icmp samesign ult i16 %686, %670
+  %cmp70.not.i.i1416 = icmp ult i16 %686, %670
   br i1 %cmp70.not.i.i1416, label %invoke.cont76.i.i1422, label %if.then71.i.i1417
 
 if.then71.i.i1417:                                ; preds = %if.end65.i.i1413

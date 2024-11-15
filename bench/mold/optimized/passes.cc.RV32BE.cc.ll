@@ -25085,7 +25085,7 @@ land.lhs.true.i554:                               ; preds = %if.then.i552
   %x.0.copyload.i11.i = load i32, ptr %p_memsz.i, align 1
   %187 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i11.i)
   %add.i555 = add i32 %187, %186
-  %cmp13.i = icmp samesign ugt i32 %add.i555, %183
+  %cmp13.i = icmp ugt i32 %add.i555, %183
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i548
 
 if.then14.i:                                      ; preds = %land.lhs.true.i554

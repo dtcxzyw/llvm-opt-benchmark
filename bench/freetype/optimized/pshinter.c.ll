@@ -1006,7 +1006,7 @@ psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %437
   store ptr %482, ptr %488, align 8
   store ptr %477, ptr %481, align 8
   %.046.i.i = add i32 %.0468.i.i, -1
-  %489 = icmp samesign ult i32 %.046.i.i, %478
+  %489 = icmp ult i32 %.046.i.i, %478
   br i1 %489, label %.lr.ph10.i.i, label %._crit_edge11.i.i, !llvm.loop !26
 
 ._crit_edge11.i.i:                                ; preds = %486, %.lr.ph10.i.i
@@ -1168,7 +1168,7 @@ psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.t
   store ptr %543, ptr %549, align 8
   store ptr %538, ptr %542, align 8
   %.046.i109.i = add i32 %.0468.i107.i, -1
-  %550 = icmp samesign ult i32 %.046.i109.i, %539
+  %550 = icmp ult i32 %.046.i109.i, %539
   br i1 %550, label %.lr.ph10.i106.i, label %._crit_edge11.i110.i, !llvm.loop !26
 
 ._crit_edge11.i110.i:                             ; preds = %547, %.lr.ph10.i106.i

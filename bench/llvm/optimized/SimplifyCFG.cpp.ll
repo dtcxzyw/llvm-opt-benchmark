@@ -21531,7 +21531,7 @@ _ZN4llvm5APIntD2Ev.exit105.i:                     ; preds = %_ZNK4llvm5APInt8pop
 .lr.ph.i.i:                                       ; preds = %836, %.lr.ph.i.preheader.i
   %.0912.i.i = phi ptr [ %837, %836 ], [ %832, %.lr.ph.i.preheader.i ]
   %838 = load i8, ptr %.0912.i.i, align 1
-  %.not10.not.i.i = icmp samesign ult i8 %838, %835
+  %.not10.not.i.i = icmp ult i8 %838, %835
   br i1 %.not10.not.i.i, label %836, label %_ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit.i
 
 _ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit.i: ; preds = %.lr.ph.i.i
@@ -24568,7 +24568,7 @@ _ZL27forwardSwitchConditionToPHIPN4llvm10SwitchInstE.exit._crit_edge: ; preds = 
 .lr.ph.i.i126:                                    ; preds = %2174, %.lr.ph.i.preheader.i125
   %.0912.i.i127 = phi ptr [ %2175, %2174 ], [ %2170, %.lr.ph.i.preheader.i125 ]
   %2176 = load i8, ptr %.0912.i.i127, align 1
-  %.not10.not.i.i128 = icmp samesign ult i8 %2176, %2173
+  %.not10.not.i.i128 = icmp ult i8 %2176, %2173
   br i1 %.not10.not.i.i128, label %2174, label %_ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit.i129
 
 _ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit.i129: ; preds = %.lr.ph.i.i126
@@ -55753,7 +55753,7 @@ define internal fastcc noundef zeroext i1 @_ZL17reduceSwitchRangePN4llvm10Switch
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %26
   %.0912.i = phi ptr [ %27, %26 ], [ %22, %.lr.ph.i.preheader ]
   %28 = load i8, ptr %.0912.i, align 1
-  %.not10.not.i = icmp samesign ult i8 %28, %25
+  %.not10.not.i = icmp ult i8 %28, %25
   br i1 %.not10.not.i, label %26, label %_ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit
 
 _ZNK4llvm10DataLayout18fitsInLegalIntegerEj.exit: ; preds = %.lr.ph.i

@@ -22141,7 +22141,7 @@ while.cond14.us198:                               ; preds = %while.cond14.prehea
 land.rhs.us202:                                   ; preds = %while.cond14.us198
   %arrayidx4.i103.us = getelementptr i16, ptr %retval.0.i, i64 %collend.0.us200
   %11 = load i16, ptr %arrayidx4.i103.us, align 2
-  %cmp18.not.us205 = icmp samesign ult i16 %11, %4
+  %cmp18.not.us205 = icmp ult i16 %11, %4
   br i1 %cmp18.not.us205, label %while.end, label %while.cond14.us198, !llvm.loop !128
 
 if.then13:                                        ; preds = %PyUnicode_READ.exit

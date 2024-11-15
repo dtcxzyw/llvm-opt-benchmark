@@ -1904,7 +1904,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %1001 = load i8, ptr %879, align 8
   %1002 = add i8 %1001, -1
   store i8 %1002, ptr %879, align 8
-  %1003 = icmp samesign ugt i8 %1002, %896
+  %1003 = icmp ugt i8 %1002, %896
   br i1 %1003, label %897, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %897, %._crit_edge1246, %._crit_edge, %3, %._crit_edge1239

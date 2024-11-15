@@ -5343,7 +5343,7 @@ default.unreachable:                              ; preds = %458, %.lr.ph181.i
 
 464:                                              ; preds = %461
   %465 = load i8, ptr %.8.i, align 1
-  %.not142.i = icmp samesign ult i8 %465, %399
+  %.not142.i = icmp ult i8 %465, %399
   br i1 %.not142.i, label %466, label %pfr_glyph_load_simple.exit
 
 466:                                              ; preds = %464

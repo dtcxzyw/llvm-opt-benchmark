@@ -7266,7 +7266,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   %.75 = phi i16 [ %1230, %1222 ], [ %1220, %1204 ]
   %1232 = add i16 %.3408, 1
   %1233 = zext i16 %1232 to i32
-  %.not581 = icmp samesign ugt i16 %1232, %1203
+  %.not581 = icmp ugt i16 %1232, %1203
   br i1 %.not581, label %.critedge584, label %1204, !llvm.loop !43
 
 .critedge584:                                     ; preds = %1231, %1201, %1173, %1175

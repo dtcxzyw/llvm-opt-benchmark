@@ -1742,7 +1742,7 @@ while.body25.preheader:                           ; preds = %while.body
   br label %while.body25
 
 while.cond21:                                     ; preds = %while.body25
-  %cmp23.not = icmp samesign ugt i32 %inc27, %8
+  %cmp23.not = icmp ugt i32 %inc27, %8
   br i1 %cmp23.not, label %while.end, label %while.body25, !llvm.loop !51
 
 while.body25:                                     ; preds = %while.body25.preheader, %while.cond21
@@ -1903,7 +1903,7 @@ while.body24.preheader:                           ; preds = %while.body
   br label %while.body24
 
 while.cond20:                                     ; preds = %while.body24
-  %cmp22.not = icmp samesign ugt i32 %inc26, %6
+  %cmp22.not = icmp ugt i32 %inc26, %6
   br i1 %cmp22.not, label %while.end, label %while.body24, !llvm.loop !53
 
 while.body24:                                     ; preds = %while.body24.preheader, %while.cond20

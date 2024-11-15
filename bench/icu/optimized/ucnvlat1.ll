@@ -354,7 +354,7 @@ do.body:                                          ; preds = %do.cond, %if.then19
   %or122167 = or i16 %or115166, %24
   %conv124 = trunc i16 %24 to i8
   store i8 %conv124, ptr %incdec.ptr118, align 1
-  %cmp128 = icmp samesign ugt i16 %or122167, %8
+  %cmp128 = icmp ugt i16 %or122167, %8
   br i1 %cmp128, label %do.end, label %do.cond
 
 do.cond:                                          ; preds = %do.body
@@ -456,7 +456,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %targetCapacity.2176 = phi i32 [ %dec182, %while.body179 ], [ %targetCapacity.1, %land.rhs.preheader ]
   %incdec.ptr175 = getelementptr inbounds i8, ptr %source.4178, i64 2
   %26 = load i16, ptr %source.4178, align 2
-  %cmp178.not = icmp samesign ugt i16 %26, %25
+  %cmp178.not = icmp ugt i16 %26, %25
   br i1 %cmp178.not, label %while.end183, label %while.body179
 
 while.body179:                                    ; preds = %land.rhs

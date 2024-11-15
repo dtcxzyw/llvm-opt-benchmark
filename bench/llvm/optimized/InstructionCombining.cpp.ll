@@ -24651,7 +24651,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %198
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm16InstCombinerImpl15visitSwitchInstERNS2_10SwitchInstEE3$_0EclINS4_16CaseIteratorImplINS4_10CaseHandleEEEEEbT_.exit.i.i.i.i.i": ; preds = %237, %233
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %..i.i.i.i.i.i.i.i, %233 ], [ %238, %237 ]
-  %.not.i.i.i.i.i.i141 = icmp samesign ult i32 %.0.i.i.i.i.i.i.i.i, %222
+  %.not.i.i.i.i.i.i141 = icmp ult i32 %.0.i.i.i.i.i.i.i.i, %222
   br i1 %.not.i.i.i.i.i.i141, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_10SwitchInst16CaseIteratorImplINS2_10CaseHandleEEEEEZNS_16InstCombinerImpl15visitSwitchInstERS2_E3$_0EEbOT_T0_.exit", label %239
 
 239:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm16InstCombinerImpl15visitSwitchInstERNS2_10SwitchInstEE3$_0EclINS4_16CaseIteratorImplINS4_10CaseHandleEEEEEbT_.exit.i.i.i.i.i"
@@ -24680,7 +24680,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %198
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm16InstCombinerImpl15visitSwitchInstERNS2_10SwitchInstEE3$_0EclINS4_16CaseIteratorImplINS4_10CaseHandleEEEEEbT_.exit46.i.i.i.i.i": ; preds = %254, %250
   %.0.i.i.i43.i.i.i.i.i = phi i32 [ %..i.i.i45.i.i.i.i.i, %250 ], [ %255, %254 ]
-  %.not.i44.i.i.i.i.i = icmp samesign ult i32 %.0.i.i.i43.i.i.i.i.i, %222
+  %.not.i44.i.i.i.i.i = icmp ult i32 %.0.i.i.i43.i.i.i.i.i, %222
   br i1 %.not.i44.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_10SwitchInst16CaseIteratorImplINS2_10CaseHandleEEEEEZNS_16InstCombinerImpl15visitSwitchInstERS2_E3$_0EEbOT_T0_.exit", label %256
 
 256:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm16InstCombinerImpl15visitSwitchInstERNS2_10SwitchInstEE3$_0EclINS4_16CaseIteratorImplINS4_10CaseHandleEEEEEbT_.exit46.i.i.i.i.i"
@@ -24709,7 +24709,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %198
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm16InstCombinerImpl15visitSwitchInstERNS2_10SwitchInstEE3$_0EclINS4_16CaseIteratorImplINS4_10CaseHandleEEEEEbT_.exit51.i.i.i.i.i": ; preds = %271, %267
   %.0.i.i.i48.i.i.i.i.i = phi i32 [ %..i.i.i50.i.i.i.i.i, %267 ], [ %272, %271 ]
-  %.not.i49.i.i.i.i.i = icmp samesign ult i32 %.0.i.i.i48.i.i.i.i.i, %222
+  %.not.i49.i.i.i.i.i = icmp ult i32 %.0.i.i.i48.i.i.i.i.i, %222
   br i1 %.not.i49.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_10SwitchInst16CaseIteratorImplINS2_10CaseHandleEEEEEZNS_16InstCombinerImpl15visitSwitchInstERS2_E3$_0EEbOT_T0_.exit", label %273
 
 273:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm16InstCombinerImpl15visitSwitchInstERNS2_10SwitchInstEE3$_0EclINS4_16CaseIteratorImplINS4_10CaseHandleEEEEEbT_.exit51.i.i.i.i.i"
@@ -24738,7 +24738,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %198
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm16InstCombinerImpl15visitSwitchInstERNS2_10SwitchInstEE3$_0EclINS4_16CaseIteratorImplINS4_10CaseHandleEEEEEbT_.exit56.i.i.i.i.i": ; preds = %288, %284
   %.0.i.i.i53.i.i.i.i.i = phi i32 [ %..i.i.i55.i.i.i.i.i, %284 ], [ %289, %288 ]
-  %.not.i54.i.i.i.i.i = icmp samesign ult i32 %.0.i.i.i53.i.i.i.i.i, %222
+  %.not.i54.i.i.i.i.i = icmp ult i32 %.0.i.i.i53.i.i.i.i.i, %222
   br i1 %.not.i54.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_10SwitchInst16CaseIteratorImplINS2_10CaseHandleEEEEEZNS_16InstCombinerImpl15visitSwitchInstERS2_E3$_0EEbOT_T0_.exit", label %290
 
 290:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm16InstCombinerImpl15visitSwitchInstERNS2_10SwitchInstEE3$_0EclINS4_16CaseIteratorImplINS4_10CaseHandleEEEEEbT_.exit56.i.i.i.i.i"

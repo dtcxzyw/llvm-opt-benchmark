@@ -584,7 +584,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx8 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.next
   %7 = load i16, ptr %arrayidx8, align 2
-  %cmp10.not = icmp samesign ugt i16 %7, %6
+  %cmp10.not = icmp ugt i16 %7, %6
   br i1 %cmp10.not, label %for.cond.preheader, label %while.cond, !llvm.loop !6
 
 for.cond.preheader:                               ; preds = %while.cond

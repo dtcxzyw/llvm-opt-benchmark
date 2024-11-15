@@ -6892,7 +6892,7 @@ _ZN12_GLOBAL__N_18mam_impl9update_pcEhhPNS_4pathEP10quantifierP3app.exit131: ; p
 
 for.inc:                                          ; preds = %invoke.cont.i, %if.then.i49, %_ZN6vectorIPN12_GLOBAL__N_14pathELb0EjE9push_backERKS2_.exit.i, %for.end.i, %_ZN12_GLOBAL__N_18mam_impl9update_pcEhhPNS_4pathEP10quantifierP3app.exit131
   %inc = add nuw i16 %i.0302, 1
-  %cmp = icmp samesign ult i16 %inc, %11
+  %cmp = icmp ult i16 %inc, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !37
 
 for.end:                                          ; preds = %for.inc, %entry, %_ZN12_GLOBAL__N_18mam_impl14get_ground_argEP3appP10quantifierRj.exit

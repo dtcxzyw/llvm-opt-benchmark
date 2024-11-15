@@ -175,7 +175,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add36 = add nuw i32 %i.050, 8
   %add.ptr = getelementptr inbounds i8, ptr %ptr.addr.149, i64 8
   %add = or disjoint i32 %add36, 7
-  %cmp = icmp samesign ult i32 %add, %1
+  %cmp = icmp ult i32 %add, %1
   br i1 %cmp, label %for.body, label %for.cond37.preheader.loopexit, !llvm.loop !4
 
 for.body41:                                       ; preds = %for.body41.preheader, %for.body41
@@ -4630,7 +4630,7 @@ for.body2050:                                     ; preds = %for.body2050.prehea
   %add2084 = add nuw i32 %i2036.0907, 8
   %add.ptr2085 = getelementptr inbounds i8, ptr %ptr.1906, i64 8
   %add2046 = or disjoint i32 %add2084, 7
-  %cmp2048 = icmp samesign ult i32 %add2046, %144
+  %cmp2048 = icmp ult i32 %add2046, %144
   br i1 %cmp2048, label %for.body2050, label %for.cond2087.preheader.loopexit, !llvm.loop !52
 
 for.body2091:                                     ; preds = %for.body2091.preheader, %for.body2091

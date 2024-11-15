@@ -277,7 +277,7 @@ hemdist.exit:                                     ; preds = %31
   %.2109 = select i1 %36, i16 %25, i16 %.1108159
   %.2 = select i1 %36, i16 %.0116157, i16 %.1106160
   %37 = add i16 %.0116157, 1
-  %.not130 = icmp samesign ugt i16 %37, %21
+  %.not130 = icmp ugt i16 %37, %21
   br i1 %.not130, label %.loopexit, label %26, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit, %1

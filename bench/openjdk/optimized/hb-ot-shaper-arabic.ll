@@ -2931,7 +2931,7 @@ _ZNK11hb_ot_map_t10get_1_maskEj.exit.i.i:         ; preds = %172
   %221 = getelementptr inbounds %"struct.OT::HBGlyphID16", ptr %48, i64 %220
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %221, align 2
   %rev.i.i.i.i.i.i.i = call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i.i.i.i.i.i)
-  %222 = icmp samesign ult i16 %217, %rev.i.i.i.i.i.i.i
+  %222 = icmp ult i16 %217, %rev.i.i.i.i.i.i.i
   br i1 %222, label %218, label %.critedge.split.loop.exit6.i.i.i.i.i, !llvm.loop !38
 
 .critedge.split.loop.exit6.i.i.i.i.i:             ; preds = %219
@@ -3565,7 +3565,7 @@ _ZL42arabic_fallback_synthesize_lookup_ligatureIA1_16ligature_3_set_tEPN2OT6Layo
   %423 = getelementptr inbounds %"struct.OT::HBGlyphID16", ptr %19, i64 %422
   %.sroa.0.0.copyload.i.i.i105.i.i.i = load i16, ptr %423, align 2
   %rev.i.i.i.i106.i.i.i = call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i.i.i105.i.i.i)
-  %424 = icmp samesign ult i16 %419, %rev.i.i.i.i106.i.i.i
+  %424 = icmp ult i16 %419, %rev.i.i.i.i106.i.i.i
   br i1 %424, label %420, label %.critedge.split.loop.exit6.i.i107.i.i.i, !llvm.loop !59
 
 .critedge.split.loop.exit6.i.i107.i.i.i:          ; preds = %421

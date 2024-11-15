@@ -24961,7 +24961,7 @@ land.lhs.true.i554:                               ; preds = %if.then.i552
   %p_memsz.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.05.i, i64 20
   %x.0.copyload.i11.i = load i32, ptr %p_memsz.i, align 1
   %add.i555 = add i32 %x.0.copyload.i11.i, %x.0.copyload.i9.i
-  %cmp13.i = icmp samesign ugt i32 %add.i555, %x.0.copyload.i544
+  %cmp13.i = icmp ugt i32 %add.i555, %x.0.copyload.i544
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i548
 
 if.then14.i:                                      ; preds = %land.lhs.true.i554

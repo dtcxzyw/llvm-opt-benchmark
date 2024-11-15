@@ -1432,7 +1432,7 @@ _ZN5ropey4tree13node_children12NodeChildren3pop17hf88d853d71a22c8dE.exit: ; pred
   call void @_ZN5ropey4tree13node_children12NodeChildren6insert17h906c4f1d2270e952E(ptr noalias noundef nonnull align 8 dereferenceable(968) %1, i64 noundef 0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %30 = load i8, ptr %8, align 8, !noundef !4
-  %31 = icmp samesign ult i8 %30, %16
+  %31 = icmp ult i8 %30, %16
   br i1 %31, label %22, label %.preheader.loopexit
 
 ._crit_edge:                                      ; preds = %_ZN5ropey4tree13node_children12NodeChildren4push17hc832eca86c9debb6E.exit, %.preheader
@@ -1502,7 +1502,7 @@ _ZN5ropey4tree13node_children12NodeChildren4push17hc832eca86c9debb6E.exit: ; pre
   store i8 %54, ptr %5, align 8, !alias.scope !288, !noalias !289
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %55 = load i8, ptr %8, align 8, !alias.scope !298, !noundef !4
-  %56 = icmp samesign ugt i8 %55, %21
+  %56 = icmp ugt i8 %55, %21
   br i1 %56, label %32, label %._crit_edge
 }
 

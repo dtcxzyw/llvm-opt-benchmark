@@ -1913,7 +1913,7 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   %243 = getelementptr [6 x %struct.intel_bw_info], ptr %210, i64 0, i64 %242
   %244 = getelementptr inbounds i8, ptr %243, i64 76
   %245 = load i8, ptr %244, align 4
-  %246 = icmp samesign ugt i8 %245, %237
+  %246 = icmp ugt i8 %245, %237
   br i1 %246, label %247, label %.thread38
 
 247:                                              ; preds = %241
@@ -2084,7 +2084,7 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   %343 = getelementptr [6 x %struct.intel_bw_info], ptr %210, i64 0, i64 %342
   %344 = getelementptr inbounds i8, ptr %343, i64 76
   %345 = load i8, ptr %344, align 4
-  %346 = icmp samesign ugt i8 %345, %338
+  %346 = icmp ugt i8 %345, %338
   br i1 %346, label %347, label %.thread45
 
 347:                                              ; preds = %.preheader
@@ -2104,7 +2104,7 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   %356 = getelementptr [6 x %struct.intel_bw_info], ptr %210, i64 0, i64 %355
   %357 = getelementptr inbounds i8, ptr %356, i64 76
   %358 = load i8, ptr %357, align 4
-  %359 = icmp samesign ugt i8 %358, %338
+  %359 = icmp ugt i8 %358, %338
   br i1 %359, label %360, label %.thread45
 
 360:                                              ; preds = %.preheader51

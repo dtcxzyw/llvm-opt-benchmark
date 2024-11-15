@@ -545,7 +545,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #5 {
 52:                                               ; preds = %50
   %53 = getelementptr inbounds i8, ptr %.089, i64 -11
   %54 = load i8, ptr %53, align 1
-  %55 = icmp samesign ult i8 %54, %42
+  %55 = icmp ult i8 %54, %42
   br i1 %55, label %50, label %.critedge
 
 .critedge:                                        ; preds = %50, %52

@@ -693,7 +693,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = load i32, ptr %29, align 1
-  %.not115.us.not = icmp samesign ult i32 %22, %30
+  %.not115.us.not = icmp ult i32 %22, %30
   br i1 %.not115.us.not, label %31, label %.split.us
 
 31:                                               ; preds = %28, %25, %.lr.ph.split.us

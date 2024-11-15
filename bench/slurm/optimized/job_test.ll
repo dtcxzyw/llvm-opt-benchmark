@@ -6514,7 +6514,7 @@ _count_used_cpus.exit.us:                         ; preds = %302, %298
   %.8517.us = add i16 %.4505.pn.us, %.2511563.us
   %306 = load ptr, ptr %8, align 8
   call void @bit_set(ptr noundef %306, i64 noundef %296) #9
-  %307 = icmp samesign ult i16 %.1332, %storemerge.i.us
+  %307 = icmp ult i16 %.1332, %storemerge.i.us
   br i1 %307, label %.critedge.sink.split, label %308
 
 308:                                              ; preds = %_count_used_cpus.exit.us, %_check_ntasks_per_sock.exit.thread.us, %295
@@ -6583,7 +6583,7 @@ _count_used_cpus.exit:                            ; preds = %320, %323
   %.8517 = add i16 %.4505.pn, %.2511563
   %327 = load ptr, ptr %8, align 8
   call void @bit_set(ptr noundef %327, i64 noundef %312) #9
-  %328 = icmp samesign ult i16 %.1332, %321
+  %328 = icmp ult i16 %.1332, %321
   br i1 %328, label %.critedge.sink.split, label %329
 
 329:                                              ; preds = %_check_ntasks_per_sock.exit.thread, %_count_used_cpus.exit, %311

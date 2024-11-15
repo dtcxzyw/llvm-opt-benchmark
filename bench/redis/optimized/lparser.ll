@@ -2761,7 +2761,7 @@ land.rhs:                                         ; preds = %while.body, %land.r
   %idxprom = zext nneg i32 %op.067 to i64
   %arrayidx = getelementptr inbounds [15 x %struct.anon.1], ptr @priority, i64 0, i64 %idxprom
   %16 = load i8, ptr %arrayidx, align 2, !tbaa !98
-  %cmp6 = icmp samesign ugt i8 %16, %15
+  %cmp6 = icmp ugt i8 %16, %15
   br i1 %cmp6, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs

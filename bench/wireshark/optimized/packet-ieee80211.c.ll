@@ -34401,7 +34401,7 @@ define internal i32 @ieee80211_tag_supported_operating_classes(ptr noundef %0, p
   store i8 %14, ptr %18, align 1
   %19 = add nuw i8 %.04046, 1
   %20 = zext i8 %19 to i32
-  %21 = icmp samesign ult i8 %19, %12
+  %21 = icmp ult i8 %19, %12
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %.lr.ph

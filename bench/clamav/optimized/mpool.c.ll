@@ -317,7 +317,7 @@ from_bits.exit.thread:                            ; preds = %33
   %indvars.iv.i.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i.i, %59 ]
   %57 = getelementptr inbounds [100 x i32], ptr @fragsz, i64 0, i64 %indvars.iv.i.i
   %58 = load i32, ptr %57, align 4
-  %.not.i.i = icmp samesign ult i32 %58, %55
+  %.not.i.i = icmp ult i32 %58, %55
   br i1 %.not.i.i, label %59, label %to_bits.exit.i
 
 59:                                               ; preds = %56
@@ -399,7 +399,7 @@ allocate_aligned.exit:                            ; preds = %59, %to_bits.exit.i
   %indvars.iv.i.i70 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i.i75, %105 ]
   %103 = getelementptr inbounds [100 x i32], ptr @fragsz, i64 0, i64 %indvars.iv.i.i70
   %104 = load i32, ptr %103, align 4
-  %.not.i.i71 = icmp samesign ult i32 %104, %101
+  %.not.i.i71 = icmp ult i32 %104, %101
   br i1 %.not.i.i71, label %105, label %to_bits.exit.i72
 
 105:                                              ; preds = %102

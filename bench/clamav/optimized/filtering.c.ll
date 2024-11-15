@@ -1821,7 +1821,7 @@ get_score.exit.thread:                            ; preds = %466, %get_score.exi
 
 654:                                              ; preds = %650
   %655 = load i16, ptr %643, align 4
-  %656 = icmp samesign ugt i16 %655, %647
+  %656 = icmp ugt i16 %655, %647
   br i1 %656, label %658, label %657
 
 657:                                              ; preds = %654
@@ -2056,7 +2056,7 @@ filter_set_atpos.exit.us956:                      ; preds = %712, %.lr.ph952.spl
 
 757:                                              ; preds = %753
   %758 = load i16, ptr %750, align 4
-  %759 = icmp samesign ugt i16 %758, %748
+  %759 = icmp ugt i16 %758, %748
   br i1 %759, label %761, label %760
 
 760:                                              ; preds = %757

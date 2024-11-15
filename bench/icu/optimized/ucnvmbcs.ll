@@ -2569,7 +2569,7 @@ if.end37.i:                                       ; preds = %land.lhs.true31.i, 
   %idxprom47.i = zext nneg i32 %add46.i to i64
   %arrayidx48.i = getelementptr inbounds i16, ptr %results.0.i, i64 %idxprom47.i
   %25 = load i16, ptr %arrayidx48.i, align 2
-  %cmp51.not.i = icmp samesign ugt i16 %19, %25
+  %cmp51.not.i = icmp ugt i16 %19, %25
   br i1 %cmp51.not.i, label %if.else56.i, label %while.cond.backedge.i
 
 if.else56.i:                                      ; preds = %if.end37.i
@@ -7176,7 +7176,7 @@ if.then118:                                       ; preds = %land.lhs.true112
   %idxprom127 = zext nneg i32 %add126 to i64
   %arrayidx128 = getelementptr inbounds i16, ptr %results.0, i64 %idxprom127
   %30 = load i16, ptr %arrayidx128, align 2
-  %cmp131.not = icmp samesign ult i16 %30, %23
+  %cmp131.not = icmp ult i16 %30, %23
   br i1 %cmp131.not, label %if.end188, label %if.then132
 
 if.then132:                                       ; preds = %if.then118
@@ -7212,7 +7212,7 @@ if.then162:                                       ; preds = %land.lhs.true155
   %idxprom170 = zext nneg i32 %add169 to i64
   %arrayidx171 = getelementptr inbounds i16, ptr %results.0, i64 %idxprom170
   %35 = load i16, ptr %arrayidx171, align 2
-  %cmp174.not = icmp samesign ult i16 %35, %23
+  %cmp174.not = icmp ult i16 %35, %23
   br i1 %cmp174.not, label %if.else179, label %if.then175
 
 if.then175:                                       ; preds = %if.then162

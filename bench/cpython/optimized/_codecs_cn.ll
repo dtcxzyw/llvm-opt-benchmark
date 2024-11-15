@@ -1316,7 +1316,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %utr.0 = phi ptr [ %add.ptr83, %for.cond ], [ @gb18030_to_unibmp_ranges, %for.cond.preheader ]
   %base = getelementptr i8, ptr %utr.0, i64 20
   %12 = load i16, ptr %base, align 4
-  %cmp85.not = icmp samesign ugt i16 %12, %11
+  %cmp85.not = icmp ugt i16 %12, %11
   %add.ptr83 = getelementptr i8, ptr %utr.0, i64 12
   br i1 %cmp85.not, label %do.body87, label %for.cond, !llvm.loop !15
 

@@ -3282,7 +3282,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr nocapture
   %126 = phi i32 [ %124, %113 ], [ 63, %92 ]
   %127 = tail call i32 @llvm.umin.i32(i32 %126, i32 65535)
   %128 = trunc nuw i32 %127 to i16
-  %129 = icmp samesign ult i16 %59, %128
+  %129 = icmp ult i16 %59, %128
   br i1 %129, label %.thread, label %.thread42
 
 .thread42:                                        ; preds = %90, %125

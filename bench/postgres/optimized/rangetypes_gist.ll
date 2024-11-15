@@ -1253,7 +1253,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
   %47 = add i16 %.0104, 1
-  %.not = icmp samesign ugt i16 %47, %32
+  %.not = icmp ugt i16 %47, %32
   br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !7
 
 .preheader.preheader:                             ; preds = %get_gist_range_class.exit, %1
@@ -1327,7 +1327,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %80 = getelementptr i8, ptr %78, i64 -16
   call void @range_deserialize(ptr noundef %21, ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef nonnull %2) #10
   %81 = add i16 %.0244.i, 1
-  %.not.i77 = icmp samesign ugt i16 %81, %71
+  %.not.i77 = icmp ugt i16 %81, %71
   br i1 %.not.i77, label %._crit_edge.i, label %72, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %72
@@ -1725,7 +1725,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %.2172.i = phi ptr [ %.0170319.i, %222 ], [ %.1171.i, %230 ], [ %.0170319.i, %241 ]
   %248 = add i16 %.1320.i, 1
   %249 = zext i16 %248 to i32
-  %.not203.i = icmp samesign ugt i16 %248, %71
+  %.not203.i = icmp ugt i16 %248, %71
   br i1 %.not203.i, label %._crit_edge323.i, label %195, !llvm.loop !14
 
 ._crit_edge323.i:                                 ; preds = %247
@@ -1995,7 +1995,7 @@ get_gist_range_class.exit.i:                      ; preds = %352, %344
   %379 = getelementptr i16, ptr %.sink41.i, i64 %378
   store i16 %.03336.i, ptr %379, align 2
   %380 = add i16 %.03336.i, 1
-  %.not.i82 = icmp samesign ult i16 %343, %380
+  %.not.i82 = icmp ult i16 %343, %380
   br i1 %.not.i82, label %._crit_edge.loopexit.i, label %344, !llvm.loop !16
 
 ._crit_edge.loopexit.i:                           ; preds = %377
@@ -2248,7 +2248,7 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nocap
   store i16 %.03336, ptr %42, align 2
   %43 = add i16 %.03336, 1
   %44 = zext i16 %43 to i32
-  %.not = icmp samesign ugt i16 %43, %14
+  %.not = icmp ugt i16 %43, %14
   br i1 %.not, label %._crit_edge.loopexit, label %15, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %40

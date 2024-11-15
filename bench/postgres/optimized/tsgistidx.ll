@@ -1484,7 +1484,7 @@ hemdistcache.exit.us:                             ; preds = %.lr.ph.i.i.us, %hem
   %.2209.us = select i1 %190, i16 1, i16 %.1208317.us
   %.2206.us = select i1 %190, i16 %.1196319.us, i16 %.1205318.us
   %191 = add i16 %.1196319.us, 1
-  %.not232.us = icmp samesign ugt i16 %191, %108
+  %.not232.us = icmp ugt i16 %191, %108
   br i1 %.not232.us, label %.loopexit309, label %.lr.ph.split.us, !llvm.loop !20
 
 fillcache.exit247:                                ; preds = %fillcache.exit247.preheader, %hemdistcache.exit
@@ -1545,7 +1545,7 @@ hemdistcache.exit:                                ; preds = %.lr.ph.i.i, %198, %
   %.2209 = select i1 %220, i16 %113, i16 %.1208317
   %.2206 = select i1 %220, i16 %.1196319, i16 %.1205318
   %221 = add i16 %.1196319, 1
-  %.not232 = icmp samesign ugt i16 %221, %107
+  %.not232 = icmp ugt i16 %221, %107
   br i1 %.not232, label %.loopexit309, label %fillcache.exit247, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.loopexit309, %fillcache.exit

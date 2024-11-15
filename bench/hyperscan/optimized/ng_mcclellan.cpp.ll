@@ -4619,7 +4619,7 @@ lpad160.i:                                        ; preds = %if.else.i.i287.i
 
 if.end179.i:                                      ; preds = %if.else.i.i328.i, %if.then.i.i317.i, %if.then145.i, %land.lhs.true140.i, %land.lhs.true136.i, %if.then130.i, %if.then111.i
   %295 = load i16, ptr %succ_id.i, align 2
-  %cmp181.not.i = icmp samesign ult i16 %295, %151
+  %cmp181.not.i = icmp ult i16 %295, %151
   %296 = load ptr, ptr %states.i.i, align 8
   br i1 %cmp181.not.i, label %if.end186.i, label %do.end185.i
 
@@ -9358,7 +9358,7 @@ lpad160.i520:                                     ; preds = %if.else.i.i336.i
 
 if.end179.i505:                                   ; preds = %if.else.i.i400.i, %_ZNSt16allocator_traitsISaISt4pairIN5boost14dynamic_bitsetImSaImEEEtEEE9constructIS5_JRS4_RtEEEvRS6_PT_DpOT0_.exit.i.i.i, %if.then145.i530, %land.lhs.true140.i528, %land.lhs.true136.i524, %if.then130.i521, %if.then111.i537
   %811 = load i16, ptr %succ_id.i316, align 2
-  %cmp181.not.i506 = icmp samesign ult i16 %811, %523
+  %cmp181.not.i506 = icmp ult i16 %811, %523
   %812 = load ptr, ptr %states.i.i, align 8
   br i1 %cmp181.not.i506, label %if.end186.i517, label %do.end185.i507
 

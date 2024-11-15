@@ -2845,7 +2845,7 @@ _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_a
 for.inc:                                          ; preds = %.noexc347, %invoke.cont37
   %inc = add nuw i32 %i.0968, 1
   %conv = zext i32 %inc to i64
-  %cmp = icmp samesign ult i32 %inc, %14
+  %cmp = icmp ult i32 %inc, %14
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !131
 
 lpad:                                             ; preds = %entry

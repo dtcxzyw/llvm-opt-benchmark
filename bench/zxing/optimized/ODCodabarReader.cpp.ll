@@ -632,7 +632,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %_ZN5ZXing11PatternV
 
 _ZN5ZXing11PatternView10skipSingleEi.exit:        ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i
   %149 = load i16, ptr %144, align 2
-  %.not79 = icmp samesign ult i16 %.05.lcssa.i.i.i27, %149
+  %.not79 = icmp ult i16 %.05.lcssa.i.i.i27, %149
   br i1 %.not79, label %_ZN5ZXing11PatternView10skipSymbolEv.exit.thread, label %167
 
 _ZN5ZXing11PatternView10skipSymbolEv.exit.thread: ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i, %.preheader, %_ZN5ZXing11PatternView10skipSingleEi.exit, %_ZN5ZXing11PatternView10skipSymbolEv.exit

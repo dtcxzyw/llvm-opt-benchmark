@@ -1338,7 +1338,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %160
 
 188:                                              ; preds = %182
   %189 = shl i8 %.116.i.i, 1
-  %190 = icmp samesign ult i8 %189, %111
+  %190 = icmp ult i8 %189, %111
   br i1 %190, label %.lr.ph17.i.i, label %.preheader5.i.i, !llvm.loop !19
 
 .lr.ph19.i.i:                                     ; preds = %.lr.ph19.i.i, %.preheader5.i.i

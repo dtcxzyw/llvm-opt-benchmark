@@ -2080,7 +2080,7 @@ while.body.us28.us.i:                             ; preds = %for.cond.us45.i, %w
   %s.addr.1.us2440.us.i = phi ptr [ %add.ptr.us29.us.i, %while.body.us28.us.i ], [ %s.addr.0.us46.i, %for.cond.us45.i ]
   %add.ptr.us29.us.i = getelementptr i8, ptr %s.addr.1.us2440.us.i, i64 %conv
   %2 = load i16, ptr %add.ptr.us29.us.i, align 2
-  %cmp3.us27.us.i = icmp samesign ugt i16 %2, 10
+  %cmp3.us27.us.i = icmp ugt i16 %2, 10
   br i1 %cmp3.us27.us.i, label %while.body.us28.us.i, label %PyUnicode_READ.exit21.us52.i, !llvm.loop !9
 
 if.then.i:                                        ; preds = %if.then
@@ -2322,7 +2322,7 @@ while.body.us28.us.i128:                          ; preds = %for.cond.us45.i116,
   %s.addr.1.us2440.us.i129 = phi ptr [ %add.ptr.us29.us.i130, %while.body.us28.us.i128 ], [ %s.addr.0.us46.i117, %for.cond.us45.i116 ]
   %add.ptr.us29.us.i130 = getelementptr i8, ptr %s.addr.1.us2440.us.i129, i64 %conv
   %31 = load i16, ptr %add.ptr.us29.us.i130, align 2
-  %cmp3.us27.us.i131 = icmp samesign ugt i16 %31, %28
+  %cmp3.us27.us.i131 = icmp ugt i16 %31, %28
   br i1 %cmp3.us27.us.i131, label %while.body.us28.us.i128, label %PyUnicode_READ.exit21.us52.i120, !llvm.loop !9
 
 if.then.i132:                                     ; preds = %if.then54
@@ -2421,7 +2421,7 @@ while.body.us28.us.i170:                          ; preds = %for.cond.us45.i158,
   %s.addr.1.us2440.us.i171 = phi ptr [ %add.ptr.us29.us.i172, %while.body.us28.us.i170 ], [ %s.addr.0.us46.i159, %for.cond.us45.i158 ]
   %add.ptr.us29.us.i172 = getelementptr i8, ptr %s.addr.1.us2440.us.i171, i64 %conv
   %38 = load i16, ptr %add.ptr.us29.us.i172, align 2
-  %cmp3.us27.us.i173 = icmp samesign ugt i16 %38, %35
+  %cmp3.us27.us.i173 = icmp ugt i16 %38, %35
   br i1 %cmp3.us27.us.i173, label %while.body.us28.us.i170, label %PyUnicode_READ.exit21.us52.i162, !llvm.loop !9
 
 if.then.i174:                                     ; preds = %while.body80
@@ -2568,7 +2568,7 @@ while.body.us28.us.i221:                          ; preds = %for.cond.us45.i209,
   %s.addr.1.us2440.us.i222 = phi ptr [ %add.ptr.us29.us.i223, %while.body.us28.us.i221 ], [ %s.addr.0.us46.i210, %for.cond.us45.i209 ]
   %add.ptr.us29.us.i223 = getelementptr i8, ptr %s.addr.1.us2440.us.i222, i64 %conv
   %52 = load i16, ptr %add.ptr.us29.us.i223, align 2
-  %cmp3.us27.us.i224 = icmp samesign ugt i16 %52, %49
+  %cmp3.us27.us.i224 = icmp ugt i16 %52, %49
   br i1 %cmp3.us27.us.i224, label %while.body.us28.us.i221, label %PyUnicode_READ.exit21.us52.i213, !llvm.loop !9
 
 if.then.i225:                                     ; preds = %while.end113

@@ -21029,7 +21029,7 @@ if.end74.i:                                       ; preds = %for.body71.i
   %mul.i.i927 = mul i32 %and6.i.i, 16843009
   %shr7.i.i = lshr i32 %mul.i.i927, 24
   %add79.i = add i32 %shr7.i.i, %tot_cnt.0267.i
-  %cmp81.i = icmp samesign ult i32 %495, %add79.i
+  %cmp81.i = icmp ult i32 %495, %add79.i
   br i1 %cmp81.i, label %for.end112.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end74.i, %if.end109.i
@@ -48253,7 +48253,7 @@ if.end74.i:                                       ; preds = %for.body71.i
   %mul.i.i928 = mul i32 %and6.i.i, 16843009
   %shr7.i.i = lshr i32 %mul.i.i928, 24
   %add78.i = add i32 %shr7.i.i, %tot_cnt.0267.i
-  %cmp80.i = icmp samesign ult i32 %495, %add78.i
+  %cmp80.i = icmp ult i32 %495, %add78.i
   br i1 %cmp80.i, label %for.end111.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end74.i, %if.end108.i
@@ -54861,7 +54861,7 @@ if.end74.i:                                       ; preds = %for.body71.i
   %mul.i.i941 = mul i32 %and6.i.i, 16843009
   %shr7.i.i = lshr i32 %mul.i.i941, 24
   %add78.i = add i32 %shr7.i.i, %tot_cnt.0267.i
-  %cmp80.i = icmp samesign ult i32 %524, %add78.i
+  %cmp80.i = icmp ult i32 %524, %add78.i
   br i1 %cmp80.i, label %for.end111.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end74.i, %if.end108.i
@@ -61466,7 +61466,7 @@ if.end74.i:                                       ; preds = %for.body71.i
   %mul.i.i941 = mul i32 %and6.i.i, 16843009
   %shr7.i.i = lshr i32 %mul.i.i941, 24
   %add78.i = add i32 %shr7.i.i, %tot_cnt.0267.i
-  %cmp80.i = icmp samesign ult i32 %527, %add78.i
+  %cmp80.i = icmp ult i32 %527, %add78.i
   br i1 %cmp80.i, label %for.end111.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end74.i, %if.end108.i
@@ -68073,7 +68073,7 @@ if.end74.i:                                       ; preds = %for.body71.i
   %mul.i.i941 = mul i32 %and6.i.i, 16843009
   %shr7.i.i = lshr i32 %mul.i.i941, 24
   %add78.i = add i32 %shr7.i.i, %tot_cnt.0267.i
-  %cmp80.i = icmp samesign ult i32 %526, %add78.i
+  %cmp80.i = icmp ult i32 %526, %add78.i
   br i1 %cmp80.i, label %for.end111.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end74.i, %if.end108.i
@@ -74679,7 +74679,7 @@ if.end74.i:                                       ; preds = %for.body71.i
   %mul.i.i941 = mul i32 %and6.i.i, 16843009
   %shr7.i.i = lshr i32 %mul.i.i941, 24
   %add78.i = add i32 %shr7.i.i, %tot_cnt.0267.i
-  %cmp80.i = icmp samesign ult i32 %528, %add78.i
+  %cmp80.i = icmp ult i32 %528, %add78.i
   br i1 %cmp80.i, label %for.end111.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end74.i, %if.end108.i

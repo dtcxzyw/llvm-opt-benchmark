@@ -135,7 +135,7 @@ define hidden noundef zeroext i1 @dot11decrypt_prf(ptr noundef %0, i64 noundef %
 
 30:                                               ; preds = %32
   %31 = add i8 %.048, 1
-  %.not = icmp samesign ugt i8 %31, %27
+  %.not = icmp ugt i8 %31, %27
   br i1 %.not, label %38, label %32, !llvm.loop !4
 
 32:                                               ; preds = %24, %30

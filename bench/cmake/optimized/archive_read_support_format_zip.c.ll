@@ -3084,7 +3084,7 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %47 = add i32 %.0237342, 4
   %48 = zext i16 %46 to i32
   %49 = add i32 %47, %48
-  %50 = icmp samesign ugt i32 %49, %31
+  %50 = icmp ugt i32 %49, %31
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %38

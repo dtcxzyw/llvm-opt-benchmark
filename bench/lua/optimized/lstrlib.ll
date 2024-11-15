@@ -3432,7 +3432,7 @@ if.then20.i119:                                   ; preds = %land.lhs.true.i117
 
 land.lhs.true26.i:                                ; preds = %if.then20.i119
   %46 = load i8, ptr %add.ptr17.i, align 1
-  %cmp28.not.i = icmp samesign ult i8 %46, %43
+  %cmp28.not.i = icmp ult i8 %46, %43
   br i1 %cmp28.not.i, label %if.end39.i, label %matchbracketclass.exit
 
 if.else32.i:                                      ; preds = %land.lhs.true.i117, %if.else.i114
@@ -3485,7 +3485,7 @@ if.then20.i147:                                   ; preds = %land.lhs.true.i144
 
 land.lhs.true26.i150:                             ; preds = %if.then20.i147
   %50 = load i8, ptr %add.ptr17.i145, align 1
-  %cmp28.not.i151 = icmp samesign ult i8 %50, %47
+  %cmp28.not.i151 = icmp ult i8 %50, %47
   br i1 %cmp28.not.i151, label %if.end39.i140, label %matchbracketclass.exit156
 
 if.else32.i137:                                   ; preds = %land.lhs.true.i144, %if.else.i135
@@ -3666,7 +3666,7 @@ if.then20.i.i:                                    ; preds = %land.lhs.true.i.i
 
 land.lhs.true26.i.i:                              ; preds = %if.then20.i.i
   %70 = load i8, ptr %add.ptr17.i.i, align 1
-  %cmp28.not.i.i = icmp samesign ult i8 %70, %64
+  %cmp28.not.i.i = icmp ult i8 %70, %64
   br i1 %cmp28.not.i.i, label %if.end39.i.i, label %matchbracketclass.exit.i
 
 if.else32.i.i:                                    ; preds = %land.lhs.true.i.i, %if.else.i.i
@@ -3802,7 +3802,7 @@ if.then20.i.i269:                                 ; preds = %land.lhs.true.i.i26
 
 land.lhs.true26.i.i271:                           ; preds = %if.then20.i.i269
   %79 = load i8, ptr %add.ptr17.i.i267, align 1
-  %cmp28.not.i.i272 = icmp samesign ult i8 %79, %74
+  %cmp28.not.i.i272 = icmp ult i8 %79, %74
   br i1 %cmp28.not.i.i272, label %if.end39.i.i262, label %matchbracketclass.exit.i250
 
 if.else32.i.i260:                                 ; preds = %land.lhs.true.i.i266, %if.else.i.i258
@@ -3914,7 +3914,7 @@ if.then20.i.i316:                                 ; preds = %land.lhs.true.i.i31
 
 land.lhs.true26.i.i318:                           ; preds = %if.then20.i.i316
   %86 = load i8, ptr %add.ptr17.i.i314, align 1
-  %cmp28.not.i.i319 = icmp samesign ult i8 %86, %80
+  %cmp28.not.i.i319 = icmp ult i8 %86, %80
   br i1 %cmp28.not.i.i319, label %if.end39.i.i309, label %matchbracketclass.exit.i297
 
 if.else32.i.i307:                                 ; preds = %land.lhs.true.i.i313, %if.else.i.i305
