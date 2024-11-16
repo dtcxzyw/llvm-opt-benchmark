@@ -10981,7 +10981,7 @@ ipopt/IpProbingMuOracle.ll 1132770545
 ipopt/IpQualityFunctionMuOracle.ll 1668753994
 ipopt/IpRegOptions.ll 1499366926
 ipopt/IpRestoConvCheck.ll 369645164
-ipopt/IpRestoFilterConvCheck.ll 47290594
+ipopt/IpRestoFilterConvCheck.ll 47337887
 ipopt/IpRestoIpoptNLP.ll 1602922284
 ipopt/IpRestoIterateInitializer.ll 720125507
 ipopt/IpRestoIterationOutput.ll 924782191
@@ -22899,7 +22899,7 @@ openjdk/elfFuncDescTable.ll 48299403
 openjdk/elfStringTable.ll 50178119
 openjdk/elfSymbolTable.ll 90398528
 openjdk/endian.ll 66941583
-openjdk/epsilonArguments.ll 58660926
+openjdk/epsilonArguments.ll 58719750
 openjdk/epsilonBarrierSet.ll 51886503
 openjdk/epsilonHeap.ll 325984154
 openjdk/epsilonInitLogger.ll 67268957
