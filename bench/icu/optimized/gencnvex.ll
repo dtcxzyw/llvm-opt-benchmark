@@ -1752,7 +1752,7 @@ for.end:                                          ; preds = %cond.end26, %cond.e
   %uniqueCount.0.lcssa = phi i32 [ 1, %cond.end ], [ %spec.select, %cond.end26 ]
   %fromUTableUChars = getelementptr inbounds i8, ptr %extData, i64 56
   %13 = load ptr, ptr %fromUTableUChars, align 8
-  %add34 = add nsw i32 %uniqueCount.0.lcssa, 1
+  %add34 = add nuw nsw i32 %uniqueCount.0.lcssa, 1
   %call = tail call ptr @utm_allocN(ptr noundef %13, i32 noundef %add34) #15
   %fromUTableValues = getelementptr inbounds i8, ptr %extData, i64 64
   %14 = load ptr, ptr %fromUTableValues, align 8
@@ -1819,16 +1819,16 @@ for.inc73:                                        ; preds = %cond.end58, %if.the
 for.end75:                                        ; preds = %for.inc73, %for.end
   %21 = load i32, ptr %incdec.ptr38, align 4
   %add97 = add nsw i32 %unitIndex, 1
-  %22 = sext i32 %uniqueCount.0.lcssa to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %uniqueCount.0.lcssa, i32 1)
-  %wide.trip.count108 = zext nneg i32 %smax to i64
+  %22 = zext i32 %uniqueCount.0.lcssa to i64
+  %umax = tail call i32 @llvm.umax.i32(i32 %uniqueCount.0.lcssa, i32 1)
+  %wide.trip.count108 = zext i32 %umax to i64
   br label %for.body80
 
 for.body80:                                       ; preds = %for.end75, %for.inc136
   %indvars.iv105 = phi i64 [ 0, %for.end75 ], [ %indvars.iv.next106, %for.inc136 ]
   %subLimit.098 = phi i32 [ %21, %for.end75 ], [ %cond90, %for.inc136 ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %cmp82 = icmp slt i64 %indvars.iv.next106, %22
+  %cmp82 = icmp samesign ult i64 %indvars.iv.next106, %22
   br i1 %cmp82, label %cond.true84, label %cond.end89
 
 cond.true84:                                      ; preds = %for.body80
@@ -1928,6 +1928,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

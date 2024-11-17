@@ -11164,7 +11164,7 @@ define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvalues
   br label %43
 
 35:                                               ; preds = %31
-  %36 = sext i32 %.095.lcssa to i64
+  %36 = zext nneg i32 %.095.lcssa to i64
   %37 = getelementptr double, ptr %11, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -8
   %39 = load double, ptr %38, align 8
@@ -11196,8 +11196,8 @@ define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvalues
   invoke void @_ZN5Ipopt11DenseVectorC1EPKNS_16DenseVectorSpaceE(ptr noundef nonnull align 8 dereferenceable(248) %55, ptr noundef nonnull align 8 dereferenceable(160) %54)
           to label %_ZNK5Ipopt11DenseVector18MakeNewDenseVectorEv.exit unwind label %56, !noalias !140
 
-common.resume:                                    ; preds = %224, %103, %108, %170, %175, %.body, %295, %121, %56
-  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %122, %121 ], [ %225, %224 ], [ %104, %103 ], [ %104, %108 ], [ %171, %170 ], [ %171, %175 ], [ %.pn, %.body ], [ %.pn, %295 ]
+common.resume:                                    ; preds = %223, %103, %108, %170, %175, %.body, %295, %121, %56
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %122, %121 ], [ %224, %223 ], [ %104, %103 ], [ %104, %108 ], [ %171, %170 ], [ %171, %175 ], [ %.pn, %.body ], [ %.pn, %295 ]
   resume { ptr, i32 } %common.resume.op
 
 56:                                               ; preds = %52
@@ -11454,7 +11454,7 @@ _ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit125: ; preds = %.noexc123
 179:                                              ; preds = %112
   %180 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   invoke void @_ZN5Ipopt19DenseGenMatrixSpaceC1Eii(ptr noundef nonnull align 8 dereferenceable(20) %180, i32 noundef %9, i32 noundef %.095.lcssa)
-          to label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit unwind label %224
+          to label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit unwind label %223
 
 _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit: ; preds = %179
   %181 = getelementptr inbounds i8, ptr %180, i64 8
@@ -11462,7 +11462,7 @@ _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit: ; preds = %179
   %183 = add nsw i32 %182, 1
   store i32 %183, ptr %181, align 8
   %184 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #23
-          to label %.noexc137 unwind label %226
+          to label %.noexc137 unwind label %225
 
 .noexc137:                                        ; preds = %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit
   invoke void @_ZN5Ipopt14DenseGenMatrixC1EPKNS_19DenseGenMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(104) %184, ptr noundef nonnull align 8 dereferenceable(20) %180)
@@ -11506,239 +11506,236 @@ _ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit: ; preds = %.noexc
   %204 = getelementptr inbounds i8, ptr %184, i64 88
   store i8 1, ptr %204, align 8
   invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(104) %184)
-          to label %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit unwind label %226
+          to label %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit unwind label %225
 
 _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit:          ; preds = %203
   %205 = getelementptr inbounds i8, ptr %184, i64 80
   %206 = load ptr, ptr %205, align 8
-  %207 = icmp sgt i32 %.095.lcssa, 0
-  br i1 %207, label %.lr.ph196, label %._crit_edge197
+  br i1 %15, label %.lr.ph193.us.preheader, label %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split.preheader
 
-.lr.ph196:                                        ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit
-  br i1 %15, label %.lr.ph193.us.preheader, label %.lr.ph196.split.preheader
+_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split.preheader: ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit
+  %wide.trip.count209 = zext i32 %.095.lcssa to i64
+  br label %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split
 
-.lr.ph196.split.preheader:                        ; preds = %.lr.ph196
-  %wide.trip.count211 = zext nneg i32 %.095.lcssa to i64
-  br label %.lr.ph196.split
-
-.lr.ph193.us.preheader:                           ; preds = %.lr.ph196
-  %208 = zext nneg i32 %9 to i64
-  %wide.trip.count221 = zext nneg i32 %.095.lcssa to i64
+.lr.ph193.us.preheader:                           ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit
+  %207 = zext nneg i32 %9 to i64
+  %wide.trip.count220 = zext i32 %.095.lcssa to i64
   br label %.lr.ph193.us
 
 .lr.ph193.us:                                     ; preds = %.lr.ph193.us.preheader, %._crit_edge194.us
-  %indvars.iv218 = phi i64 [ 0, %.lr.ph193.us.preheader ], [ %indvars.iv.next219, %._crit_edge194.us ]
-  %209 = getelementptr inbounds double, ptr %11, i64 %indvars.iv218
-  %210 = load double, ptr %209, align 8
-  %211 = fneg double %210
-  %212 = tail call double @sqrt(double noundef %211) #21
-  %213 = mul nuw nsw i64 %indvars.iv218, %208
-  br label %214
+  %indvars.iv216 = phi i64 [ 0, %.lr.ph193.us.preheader ], [ %indvars.iv.next217, %._crit_edge194.us ]
+  %208 = getelementptr inbounds double, ptr %11, i64 %indvars.iv216
+  %209 = load double, ptr %208, align 8
+  %210 = fneg double %209
+  %211 = tail call double @sqrt(double noundef %210) #21
+  %212 = mul nuw nsw i64 %indvars.iv216, %207
+  br label %213
 
-214:                                              ; preds = %.lr.ph193.us, %214
-  %indvars.iv213 = phi i64 [ 0, %.lr.ph193.us ], [ %indvars.iv.next214, %214 ]
-  %215 = add nuw nsw i64 %indvars.iv213, %213
-  %216 = getelementptr inbounds double, ptr %14, i64 %215
-  %217 = load double, ptr %216, align 8
-  %218 = fdiv double %217, %212
-  %219 = getelementptr inbounds double, ptr %206, i64 %215
-  store double %218, ptr %219, align 8
-  %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
-  %exitcond217.not = icmp eq i64 %indvars.iv.next214, %208
-  br i1 %exitcond217.not, label %._crit_edge194.us, label %214, !llvm.loop !146
+213:                                              ; preds = %.lr.ph193.us, %213
+  %indvars.iv211 = phi i64 [ 0, %.lr.ph193.us ], [ %indvars.iv.next212, %213 ]
+  %214 = add nuw nsw i64 %indvars.iv211, %212
+  %215 = getelementptr inbounds double, ptr %14, i64 %214
+  %216 = load double, ptr %215, align 8
+  %217 = fdiv double %216, %211
+  %218 = getelementptr inbounds double, ptr %206, i64 %214
+  store double %217, ptr %218, align 8
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %exitcond215.not = icmp eq i64 %indvars.iv.next212, %207
+  br i1 %exitcond215.not, label %._crit_edge194.us, label %213, !llvm.loop !146
 
-._crit_edge194.us:                                ; preds = %214
-  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
-  br i1 %exitcond222.not, label %._crit_edge197, label %.lr.ph193.us, !llvm.loop !147
+._crit_edge194.us:                                ; preds = %213
+  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
+  %exitcond221.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count220
+  br i1 %exitcond221.not, label %.split.us, label %.lr.ph193.us, !llvm.loop !147
 
-.lr.ph196.split:                                  ; preds = %.lr.ph196.split.preheader, %.lr.ph196.split
-  %indvars.iv208 = phi i64 [ 0, %.lr.ph196.split.preheader ], [ %indvars.iv.next209, %.lr.ph196.split ]
-  %220 = getelementptr inbounds double, ptr %11, i64 %indvars.iv208
-  %221 = load double, ptr %220, align 8
-  %222 = fneg double %221
-  %223 = tail call double @sqrt(double noundef %222) #21
-  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %exitcond212.not = icmp eq i64 %indvars.iv.next209, %wide.trip.count211
-  br i1 %exitcond212.not, label %._crit_edge197, label %.lr.ph196.split, !llvm.loop !147
+_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split:    ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split.preheader, %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split
+  %indvars.iv206 = phi i64 [ 0, %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split.preheader ], [ %indvars.iv.next207, %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split ]
+  %219 = getelementptr inbounds double, ptr %11, i64 %indvars.iv206
+  %220 = load double, ptr %219, align 8
+  %221 = fneg double %220
+  %222 = tail call double @sqrt(double noundef %221) #21
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
+  br i1 %exitcond210.not, label %.split.us, label %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split, !llvm.loop !147
 
-224:                                              ; preds = %179
-  %225 = landingpad { ptr, i32 }
+223:                                              ; preds = %179
+  %224 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %180) #24
   br label %common.resume
 
-226:                                              ; preds = %203, %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit, %._crit_edge197
-  %227 = landingpad { ptr, i32 }
+225:                                              ; preds = %203, %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit, %.split.us
+  %226 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-._crit_edge197:                                   ; preds = %.lr.ph196.split, %._crit_edge194.us, %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit
-  %228 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-          to label %229 unwind label %226
+.split.us:                                        ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split, %._crit_edge194.us
+  %227 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+          to label %228 unwind label %225
 
-229:                                              ; preds = %._crit_edge197
-  %230 = sub nsw i32 %9, %.095.lcssa
-  invoke void @_ZN5Ipopt19DenseGenMatrixSpaceC1Eii(ptr noundef nonnull align 8 dereferenceable(20) %228, i32 noundef %9, i32 noundef %230)
-          to label %231 unwind label %271
+228:                                              ; preds = %.split.us
+  %229 = sub nsw i32 %9, %.095.lcssa
+  invoke void @_ZN5Ipopt19DenseGenMatrixSpaceC1Eii(ptr noundef nonnull align 8 dereferenceable(20) %227, i32 noundef %9, i32 noundef %229)
+          to label %230 unwind label %271
 
-231:                                              ; preds = %229
-  %232 = getelementptr inbounds i8, ptr %228, i64 8
-  %233 = load i32, ptr %232, align 8
-  %234 = add nsw i32 %233, 1
-  store i32 %234, ptr %232, align 8
-  %235 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #23
+230:                                              ; preds = %228
+  %231 = getelementptr inbounds i8, ptr %227, i64 8
+  %232 = load i32, ptr %231, align 8
+  %233 = add nsw i32 %232, 1
+  store i32 %233, ptr %231, align 8
+  %234 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #23
           to label %.noexc146 unwind label %273
 
-.noexc146:                                        ; preds = %231
-  invoke void @_ZN5Ipopt14DenseGenMatrixC1EPKNS_19DenseGenMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(104) %235, ptr noundef nonnull align 8 dereferenceable(20) %228)
-          to label %_ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit149 unwind label %236
+.noexc146:                                        ; preds = %230
+  invoke void @_ZN5Ipopt14DenseGenMatrixC1EPKNS_19DenseGenMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(104) %234, ptr noundef nonnull align 8 dereferenceable(20) %227)
+          to label %_ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit149 unwind label %235
 
-236:                                              ; preds = %.noexc146
-  %237 = landingpad { ptr, i32 }
+235:                                              ; preds = %.noexc146
+  %236 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %235) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %234) #24
   br label %.body147
 
 _ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit149: ; preds = %.noexc146
-  %238 = getelementptr inbounds i8, ptr %235, i64 8
-  %239 = load i32, ptr %238, align 8
-  %240 = add nsw i32 %239, 1
-  store i32 %240, ptr %238, align 8
-  %241 = load ptr, ptr %4, align 8
-  %.not.i.i.i151 = icmp eq ptr %241, null
-  br i1 %.not.i.i.i151, label %254, label %242
+  %237 = getelementptr inbounds i8, ptr %234, i64 8
+  %238 = load i32, ptr %237, align 8
+  %239 = add nsw i32 %238, 1
+  store i32 %239, ptr %237, align 8
+  %240 = load ptr, ptr %4, align 8
+  %.not.i.i.i151 = icmp eq ptr %240, null
+  br i1 %.not.i.i.i151, label %253, label %241
 
-242:                                              ; preds = %_ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit149
-  %243 = getelementptr inbounds i8, ptr %241, i64 8
-  %244 = load i32, ptr %243, align 8
-  %245 = add nsw i32 %244, -1
-  store i32 %245, ptr %243, align 8
-  %246 = load ptr, ptr %4, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 8
-  %248 = load i32, ptr %247, align 8
-  %249 = icmp eq i32 %248, 0
-  br i1 %249, label %250, label %254
+241:                                              ; preds = %_ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit149
+  %242 = getelementptr inbounds i8, ptr %240, i64 8
+  %243 = load i32, ptr %242, align 8
+  %244 = add nsw i32 %243, -1
+  store i32 %244, ptr %242, align 8
+  %245 = load ptr, ptr %4, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 8
+  %247 = load i32, ptr %246, align 8
+  %248 = icmp eq i32 %247, 0
+  br i1 %248, label %249, label %253
 
-250:                                              ; preds = %242
-  %251 = load ptr, ptr %246, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 8
-  %253 = load ptr, ptr %252, align 8
-  tail call void %253(ptr noundef nonnull align 8 dereferenceable(104) %246) #21
-  br label %254
+249:                                              ; preds = %241
+  %250 = load ptr, ptr %245, align 8
+  %251 = getelementptr inbounds i8, ptr %250, i64 8
+  %252 = load ptr, ptr %251, align 8
+  tail call void %252(ptr noundef nonnull align 8 dereferenceable(104) %245) #21
+  br label %253
 
-254:                                              ; preds = %250, %242, %_ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit149
-  store ptr %235, ptr %4, align 8
-  %255 = getelementptr inbounds i8, ptr %235, i64 88
-  store i8 1, ptr %255, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(104) %235)
+253:                                              ; preds = %249, %241, %_ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit149
+  store ptr %234, ptr %4, align 8
+  %254 = getelementptr inbounds i8, ptr %234, i64 88
+  store i8 1, ptr %254, align 8
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(104) %234)
           to label %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit154 unwind label %273
 
-_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit154:       ; preds = %254
-  %256 = getelementptr inbounds i8, ptr %235, i64 80
-  %257 = load ptr, ptr %256, align 8
-  %258 = icmp sgt i32 %230, 0
-  br i1 %258, label %.lr.ph203, label %._crit_edge204
+_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit154:       ; preds = %253
+  %255 = getelementptr inbounds i8, ptr %234, i64 80
+  %256 = load ptr, ptr %255, align 8
+  %257 = icmp sgt i32 %229, 0
+  br i1 %257, label %.lr.ph201, label %._crit_edge202
 
-.lr.ph203:                                        ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit154
+.lr.ph201:                                        ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit154
+  %wide.trip.count235 = zext nneg i32 %229 to i64
+  br i1 %15, label %.lr.ph198.us.preheader, label %.lr.ph201.split.preheader
+
+.lr.ph201.split.preheader:                        ; preds = %.lr.ph201
+  %258 = zext i32 %.095.lcssa to i64
+  %invariant.gep = getelementptr inbounds double, ptr %11, i64 %258
+  br label %.lr.ph201.split
+
+.lr.ph198.us.preheader:                           ; preds = %.lr.ph201
   %259 = sext i32 %.095.lcssa to i64
-  %wide.trip.count236 = zext nneg i32 %230 to i64
-  br i1 %15, label %.lr.ph200.us.preheader, label %.lr.ph203.split.preheader
+  %wide.trip.count230 = zext nneg i32 %9 to i64
+  br label %.lr.ph198.us
 
-.lr.ph203.split.preheader:                        ; preds = %.lr.ph203
-  %invariant.gep = getelementptr double, ptr %11, i64 %259
-  br label %.lr.ph203.split
-
-.lr.ph200.us.preheader:                           ; preds = %.lr.ph203
-  %wide.trip.count231 = zext nneg i32 %9 to i64
-  br label %.lr.ph200.us
-
-.lr.ph200.us:                                     ; preds = %.lr.ph200.us.preheader, %._crit_edge201.us
-  %indvars.iv233 = phi i64 [ 0, %.lr.ph200.us.preheader ], [ %indvars.iv.next234, %._crit_edge201.us ]
-  %260 = add nuw nsw i64 %indvars.iv233, %259
+.lr.ph198.us:                                     ; preds = %.lr.ph198.us.preheader, %._crit_edge199.us
+  %indvars.iv232 = phi i64 [ 0, %.lr.ph198.us.preheader ], [ %indvars.iv.next233, %._crit_edge199.us ]
+  %260 = add nuw nsw i64 %indvars.iv232, %259
   %261 = getelementptr inbounds double, ptr %11, i64 %260
   %262 = load double, ptr %261, align 8
   %263 = tail call double @sqrt(double noundef %262) #21
   %264 = mul nsw i64 %260, %22
-  %265 = mul nuw nsw i64 %indvars.iv233, %22
-  %invariant.gep240 = getelementptr double, ptr %14, i64 %264
-  %invariant.gep242 = getelementptr double, ptr %257, i64 %265
+  %265 = mul nuw nsw i64 %indvars.iv232, %22
+  %invariant.gep239 = getelementptr double, ptr %14, i64 %264
+  %invariant.gep241 = getelementptr double, ptr %256, i64 %265
   br label %266
 
-266:                                              ; preds = %.lr.ph200.us, %266
-  %indvars.iv228 = phi i64 [ 0, %.lr.ph200.us ], [ %indvars.iv.next229, %266 ]
-  %gep241 = getelementptr double, ptr %invariant.gep240, i64 %indvars.iv228
-  %267 = load double, ptr %gep241, align 8
+266:                                              ; preds = %.lr.ph198.us, %266
+  %indvars.iv227 = phi i64 [ 0, %.lr.ph198.us ], [ %indvars.iv.next228, %266 ]
+  %gep240 = getelementptr double, ptr %invariant.gep239, i64 %indvars.iv227
+  %267 = load double, ptr %gep240, align 8
   %268 = fdiv double %267, %263
-  %gep243 = getelementptr double, ptr %invariant.gep242, i64 %indvars.iv228
-  store double %268, ptr %gep243, align 8
-  %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %exitcond232.not = icmp eq i64 %indvars.iv.next229, %wide.trip.count231
-  br i1 %exitcond232.not, label %._crit_edge201.us, label %266, !llvm.loop !148
+  %gep242 = getelementptr double, ptr %invariant.gep241, i64 %indvars.iv227
+  store double %268, ptr %gep242, align 8
+  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
+  %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
+  br i1 %exitcond231.not, label %._crit_edge199.us, label %266, !llvm.loop !148
 
-._crit_edge201.us:                                ; preds = %266
-  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
-  br i1 %exitcond237.not, label %._crit_edge204, label %.lr.ph200.us, !llvm.loop !149
+._crit_edge199.us:                                ; preds = %266
+  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
+  %exitcond236.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count235
+  br i1 %exitcond236.not, label %._crit_edge202, label %.lr.ph198.us, !llvm.loop !149
 
-.lr.ph203.split:                                  ; preds = %.lr.ph203.split.preheader, %.lr.ph203.split
-  %indvars.iv223 = phi i64 [ 0, %.lr.ph203.split.preheader ], [ %indvars.iv.next224, %.lr.ph203.split ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv223
+.lr.ph201.split:                                  ; preds = %.lr.ph201.split.preheader, %.lr.ph201.split
+  %indvars.iv222 = phi i64 [ 0, %.lr.ph201.split.preheader ], [ %indvars.iv.next223, %.lr.ph201.split ]
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv222
   %269 = load double, ptr %gep, align 8
   %270 = tail call double @sqrt(double noundef %269) #21
-  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
-  %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count236
-  br i1 %exitcond227.not, label %._crit_edge204, label %.lr.ph203.split, !llvm.loop !149
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count235
+  br i1 %exitcond226.not, label %._crit_edge202, label %.lr.ph201.split, !llvm.loop !149
 
-271:                                              ; preds = %229
+271:                                              ; preds = %228
   %272 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %228) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %227) #24
   br label %.body
 
-273:                                              ; preds = %254, %231
+273:                                              ; preds = %253, %230
   %274 = landingpad { ptr, i32 }
           cleanup
   br label %.body147
 
-.body147:                                         ; preds = %273, %236
-  %eh.lpad-body148 = phi { ptr, i32 } [ %274, %273 ], [ %237, %236 ]
-  %275 = load i32, ptr %232, align 8
+.body147:                                         ; preds = %273, %235
+  %eh.lpad-body148 = phi { ptr, i32 } [ %274, %273 ], [ %236, %235 ]
+  %275 = load i32, ptr %231, align 8
   %276 = add nsw i32 %275, -1
-  store i32 %276, ptr %232, align 8
+  store i32 %276, ptr %231, align 8
   %277 = icmp eq i32 %276, 0
   br i1 %277, label %278, label %.body
 
 278:                                              ; preds = %.body147
-  %279 = load ptr, ptr %228, align 8
+  %279 = load ptr, ptr %227, align 8
   %280 = getelementptr inbounds i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8
-  tail call void %281(ptr noundef nonnull align 8 dereferenceable(20) %228) #21
+  tail call void %281(ptr noundef nonnull align 8 dereferenceable(20) %227) #21
   br label %.body
 
-._crit_edge204:                                   ; preds = %.lr.ph203.split, %._crit_edge201.us, %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit154
-  %282 = load i32, ptr %232, align 8
+._crit_edge202:                                   ; preds = %.lr.ph201.split, %._crit_edge199.us, %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit154
+  %282 = load i32, ptr %231, align 8
   %283 = add nsw i32 %282, -1
-  store i32 %283, ptr %232, align 8
+  store i32 %283, ptr %231, align 8
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %285, label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157
 
-285:                                              ; preds = %._crit_edge204
-  %286 = load ptr, ptr %228, align 8
+285:                                              ; preds = %._crit_edge202
+  %286 = load ptr, ptr %227, align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 8
   %288 = load ptr, ptr %287, align 8
-  tail call void %288(ptr noundef nonnull align 8 dereferenceable(20) %228) #21
+  tail call void %288(ptr noundef nonnull align 8 dereferenceable(20) %227) #21
   br label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157
 
-_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157: ; preds = %285, %._crit_edge204
+_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157: ; preds = %285, %._crit_edge202
   %289 = load i32, ptr %181, align 8
   %290 = add nsw i32 %289, -1
   store i32 %290, ptr %181, align 8
   %291 = icmp eq i32 %290, 0
   br i1 %291, label %_ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit.sink.split, label %_ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit
 
-.body:                                            ; preds = %271, %185, %226, %.body147, %278
-  %.pn = phi { ptr, i32 } [ %272, %271 ], [ %227, %226 ], [ %186, %185 ], [ %eh.lpad-body148, %.body147 ], [ %eh.lpad-body148, %278 ]
+.body:                                            ; preds = %271, %185, %225, %.body147, %278
+  %.pn = phi { ptr, i32 } [ %272, %271 ], [ %226, %225 ], [ %186, %185 ], [ %eh.lpad-body148, %.body147 ], [ %eh.lpad-body148, %278 ]
   %292 = load i32, ptr %181, align 8
   %293 = add nsw i32 %292, -1
   store i32 %293, ptr %181, align 8
@@ -11753,11 +11750,11 @@ _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157: ; preds = %285, %._cr
   br label %common.resume
 
 _ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit.sink.split: ; preds = %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157, %166, %99
-  %.sink247 = phi ptr [ %55, %99 ], [ %120, %166 ], [ %180, %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157 ]
-  %299 = load ptr, ptr %.sink247, align 8
+  %.sink246 = phi ptr [ %55, %99 ], [ %120, %166 ], [ %180, %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157 ]
+  %299 = load ptr, ptr %.sink246, align 8
   %300 = getelementptr inbounds i8, ptr %299, i64 8
   %301 = load ptr, ptr %300, align 8
-  tail call void %301(ptr noundef nonnull align 8 dereferenceable(20) %.sink247) #21
+  tail call void %301(ptr noundef nonnull align 8 dereferenceable(20) %.sink246) #21
   br label %_ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit:   ; preds = %_ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit.sink.split, %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157, %166, %99, %43, %._crit_edge

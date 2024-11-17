@@ -53,8 +53,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [4 x i8] c"tcg\00", align 1
 @.str.8 = private unnamed_addr constant [88 x i8] c"start >= ramblock->offset && start + length <= ramblock->offset + ramblock->used_length\00", align 1
 @__PRETTY_FUNCTION__.cpu_physical_memory_test_and_clear_dirty = private unnamed_addr constant [85 x i8] c"_Bool cpu_physical_memory_test_and_clear_dirty(ram_addr_t, ram_addr_t, unsigned int)\00", align 1
-@.str.9 = private unnamed_addr constant [44 x i8] c"QEMU_IS_ALIGNED(ofs, (1 << BITS_PER_LEVEL))\00", align 1
-@__PRETTY_FUNCTION__.cpu_physical_memory_snapshot_and_clear_dirty = private unnamed_addr constant [112 x i8] c"DirtyBitmapSnapshot *cpu_physical_memory_snapshot_and_clear_dirty(MemoryRegion *, hwaddr, hwaddr, unsigned int)\00", align 1
 @.str.11 = private unnamed_addr constant [21 x i8] c"start >= snap->start\00", align 1
 @__PRETTY_FUNCTION__.cpu_physical_memory_snapshot_get_dirty = private unnamed_addr constant [92 x i8] c"_Bool cpu_physical_memory_snapshot_get_dirty(DirtyBitmapSnapshot *, ram_addr_t, ram_addr_t)\00", align 1
 @.str.12 = private unnamed_addr constant [28 x i8] c"start + length <= snap->end\00", align 1
@@ -1580,20 +1578,11 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
 while.body14.lr.ph:                               ; preds = %rcu_read_auto_lock.exit
   %3 = inttoptr i64 %2 to ptr
   %blocks28 = getelementptr inbounds i8, ptr %3, i64 16
-  br label %while.body14
+  br label %if.end26
 
-while.body14:                                     ; preds = %while.body14.lr.ph, %if.end26
+if.end26:                                         ; preds = %if.end26, %while.body14.lr.ph
   %page.143 = phi i64 [ %shr10, %while.body14.lr.ph ], [ %add31, %if.end26 ]
   %dest.142 = phi i64 [ 0, %while.body14.lr.ph ], [ %add33, %if.end26 ]
-  %rem20 = and i64 %page.143, 63
-  %cmp21 = icmp eq i64 %rem20, 0
-  br i1 %cmp21, label %if.end26, label %if.else
-
-if.else:                                          ; preds = %while.body14
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 920, ptr noundef nonnull @__PRETTY_FUNCTION__.cpu_physical_memory_snapshot_and_clear_dirty) #27
-  unreachable
-
-if.end26:                                         ; preds = %while.body14
   %sub16 = sub nuw nsw i64 %shr11, %page.143
   %rem = and i64 %page.143, 2097088
   %sub17 = sub nuw nsw i64 2097152, %rem
@@ -1609,7 +1598,7 @@ if.end26:                                         ; preds = %while.body14
   %shr32 = lshr exact i64 %cond, 6
   %add33 = add i64 %shr32, %dest.142
   %cmp = icmp samesign ult i64 %add31, %shr11
-  br i1 %cmp, label %while.body14, label %for.inc, !llvm.loop !27
+  br i1 %cmp, label %if.end26, label %for.inc, !llvm.loop !27
 
 for.inc:                                          ; preds = %if.end26, %rcu_read_auto_lock.exit
   %call.i.i35 = tail call ptr @get_ptr_rcu_reader() #28

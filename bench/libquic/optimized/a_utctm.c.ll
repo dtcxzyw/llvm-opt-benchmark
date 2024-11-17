@@ -225,7 +225,6 @@ if.then109:                                       ; preds = %for.end, %for.end
   br i1 %cmp118, label %return, label %if.end121
 
 if.end121:                                        ; preds = %if.then109
-  %invariant.gep = getelementptr inbounds i8, ptr %2, i64 1
   %22 = add nuw nsw i64 %idxprom91, 1
   br i1 %tobool77.not, label %for.body125.us, label %for.body125
 
@@ -239,8 +238,8 @@ for.body125.us:                                   ; preds = %if.end121, %if.end1
   br i1 %or.cond92.us, label %return, label %if.end138.us
 
 if.end138.us:                                     ; preds = %for.body125.us
-  %gep.us = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv147
-  %25 = load i8, ptr %gep.us, align 1
+  %arrayidx145.us = getelementptr inbounds i8, ptr %arrayidx127.us, i64 1
+  %25 = load i8, ptr %arrayidx145.us, align 1
   %26 = add i8 %25, -58
   %or.cond93.us = icmp ult i8 %26, -10
   br i1 %or.cond93.us, label %return, label %if.end156.us
@@ -283,8 +282,8 @@ for.body125:                                      ; preds = %if.end121, %if.end1
   br i1 %or.cond92, label %return, label %if.end138
 
 if.end138:                                        ; preds = %for.body125
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv139
-  %33 = load i8, ptr %gep, align 1
+  %arrayidx145 = getelementptr inbounds i8, ptr %arrayidx127, i64 1
+  %33 = load i8, ptr %arrayidx145, align 1
   %34 = add i8 %33, -58
   %or.cond93 = icmp ult i8 %34, -10
   br i1 %or.cond93, label %return, label %if.end156

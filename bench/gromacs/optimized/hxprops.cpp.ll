@@ -1568,7 +1568,6 @@ _ZL9check_ahxiP4t_bbPiS1_.exit:                   ; preds = %71, %16, %.preheade
   %77 = getelementptr inbounds %struct.t_bb, ptr %1, i64 %76, i32 11
   %78 = load i32, ptr %77, align 4
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.21, i32 noundef %75, i32 noundef %78) #21
-  %invariant.gep = getelementptr inbounds i8, ptr %3, i64 16
   %.not72 = icmp sgt i32 %.266, %.2
   br i1 %.not72, label %._crit_edge, label %.lr.ph75.preheader
 
@@ -1599,27 +1598,27 @@ _ZL9check_ahxiP4t_bbPiS1_.exit:                   ; preds = %71, %16, %.preheade
   %94 = getelementptr inbounds i8, ptr %81, i64 68
   %95 = load i32, ptr %94, align 4
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 5
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv80
-  store i32 %95, ptr %gep, align 4
-  %96 = load i32, ptr %88, align 4
-  %97 = sub nsw i64 %indvars.iv82, %73
-  %98 = getelementptr inbounds i32, ptr %5, i64 %97
-  store i32 %96, ptr %98, align 4
+  %96 = getelementptr inbounds i8, ptr %84, i64 16
+  store i32 %95, ptr %96, align 4
+  %97 = load i32, ptr %88, align 4
+  %98 = sub nsw i64 %indvars.iv82, %73
+  %99 = getelementptr inbounds i32, ptr %5, i64 %98
+  store i32 %97, ptr %99, align 4
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next83 to i32
   %exitcond87.not = icmp eq i32 %80, %lftr.wideiv
   br i1 %exitcond87.not, label %._crit_edge.loopexit, label %.lr.ph75, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph75
-  %99 = trunc nuw i64 %indvars.iv.next81 to i32
+  %100 = trunc nuw i64 %indvars.iv.next81 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZL9check_ahxiP4t_bbPiS1_.exit
-  %.0.lcssa = phi i32 [ 0, %_ZL9check_ahxiP4t_bbPiS1_.exit ], [ %99, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %_ZL9check_ahxiP4t_bbPiS1_.exit ], [ %100, %._crit_edge.loopexit ]
   store i32 %.0.lcssa, ptr %2, align 4
   %reass.sub = sub i32 %.2, %.266
-  %100 = add i32 %reass.sub, 1
-  store i32 %100, ptr %4, align 4
+  %101 = add i32 %reass.sub, 1
+  store i32 %101, ptr %4, align 4
   ret void
 }
 

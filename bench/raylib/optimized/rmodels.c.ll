@@ -40111,7 +40111,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   %18 = fadd float %17, -5.000000e-01
   %19 = fmul float %2, %18
   %20 = mul nuw nsw i64 %indvars.iv175, %14
-  %invariant.gep220 = getelementptr inbounds %struct.Vector3, ptr %11, i64 %20
+  %invariant.gep = getelementptr inbounds %struct.Vector3, ptr %11, i64 %20
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
@@ -40121,11 +40121,11 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   %24 = fdiv float %23, %13
   %25 = fadd float %24, -5.000000e-01
   %26 = fmul float %1, %25
-  %gep221 = getelementptr inbounds %struct.Vector3, ptr %invariant.gep220, i64 %indvars.iv
-  store float %26, ptr %gep221, align 4
-  %.sroa.275.0..sroa_idx = getelementptr inbounds i8, ptr %gep221, i64 4
+  %gep = getelementptr inbounds %struct.Vector3, ptr %invariant.gep, i64 %indvars.iv
+  store float %26, ptr %gep, align 4
+  %.sroa.275.0..sroa_idx = getelementptr inbounds i8, ptr %gep, i64 4
   store float 0.000000e+00, ptr %.sroa.275.0..sroa_idx, align 4
-  %.sroa.376.0..sroa_idx = getelementptr inbounds i8, ptr %gep221, i64 8
+  %.sroa.376.0..sroa_idx = getelementptr inbounds i8, ptr %gep, i64 8
   store float %19, ptr %.sroa.376.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -40179,17 +40179,17 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   %36 = trunc nuw nsw i64 %indvars.iv190 to i32
   %37 = uitofp nneg i32 %36 to float
   %38 = fdiv float %37, %33
-  %invariant.gep222 = getelementptr inbounds %struct.Vector2, ptr %31, i64 %35
+  %invariant.gep220 = getelementptr inbounds %struct.Vector2, ptr %31, i64 %35
   br label %39
 
 39:                                               ; preds = %.preheader138, %39
   %indvars.iv185 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next186, %39 ]
-  %gep223 = getelementptr inbounds %struct.Vector2, ptr %invariant.gep222, i64 %indvars.iv185
+  %gep221 = getelementptr inbounds %struct.Vector2, ptr %invariant.gep220, i64 %indvars.iv185
   %40 = trunc nuw nsw i64 %indvars.iv185 to i32
   %41 = uitofp nneg i32 %40 to float
   %42 = fdiv float %41, %32
-  store float %42, ptr %gep223, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %gep223, i64 4
+  store float %42, ptr %gep221, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %gep221, i64 4
   store float %38, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %34
@@ -40206,13 +40206,12 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #55
-  %invariant.gep = getelementptr inbounds i8, ptr %47, i64 20
   %48 = icmp sgt i32 %43, 0
   br i1 %48, label %.lr.ph160, label %._crit_edge161
 
 .lr.ph160:                                        ; preds = %._crit_edge156, %.lr.ph160
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %.lr.ph160 ], [ 0, %._crit_edge156 ]
-  %.0122158 = phi i32 [ %59, %.lr.ph160 ], [ 0, %._crit_edge156 ]
+  %.0122158 = phi i32 [ %60, %.lr.ph160 ], [ 0, %._crit_edge156 ]
   %49 = sdiv i32 %.0122158, %3
   %50 = add nsw i32 %49, %.0122158
   %51 = add nsw i32 %50, %6
@@ -40229,36 +40228,36 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   %58 = getelementptr i8, ptr %52, i64 16
   store i32 %57, ptr %58, align 4
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 6
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv195
-  store i32 %53, ptr %gep, align 4
-  %59 = add nuw nsw i32 %.0122158, 1
-  %exitcond198.not = icmp eq i32 %59, %43
+  %59 = getelementptr inbounds i8, ptr %52, i64 20
+  store i32 %53, ptr %59, align 4
+  %60 = add nuw nsw i32 %.0122158, 1
+  %exitcond198.not = icmp eq i32 %60, %43
   br i1 %exitcond198.not, label %._crit_edge161, label %.lr.ph160
 
 ._crit_edge161:                                   ; preds = %.lr.ph160, %._crit_edge156
   store i32 %8, ptr %0, align 8
-  %60 = shl nsw i32 %43, 1
-  %61 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %60, ptr %61, align 4
-  %62 = mul nsw i32 %8, 3
-  %63 = sext i32 %62 to i64
-  %64 = shl nsw i64 %63, 2
-  %65 = tail call noalias ptr @malloc(i64 noundef %64) #55
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %65, ptr %66, align 8
-  %67 = shl nsw i32 %8, 1
-  %68 = sext i32 %67 to i64
-  %69 = shl nsw i64 %68, 2
-  %70 = tail call noalias ptr @malloc(i64 noundef %69) #55
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %70, ptr %71, align 8
-  %72 = tail call noalias ptr @malloc(i64 noundef %64) #55
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %72, ptr %73, align 8
-  %74 = shl nsw i64 %45, 1
-  %75 = tail call noalias ptr @malloc(i64 noundef %74) #55
-  %76 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %75, ptr %76, align 8
+  %61 = shl nsw i32 %43, 1
+  %62 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %61, ptr %62, align 4
+  %63 = mul nsw i32 %8, 3
+  %64 = sext i32 %63 to i64
+  %65 = shl nsw i64 %64, 2
+  %66 = tail call noalias ptr @malloc(i64 noundef %65) #55
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %66, ptr %67, align 8
+  %68 = shl nsw i32 %8, 1
+  %69 = sext i32 %68 to i64
+  %70 = shl nsw i64 %69, 2
+  %71 = tail call noalias ptr @malloc(i64 noundef %70) #55
+  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %71, ptr %72, align 8
+  %73 = tail call noalias ptr @malloc(i64 noundef %65) #55
+  %74 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %73, ptr %74, align 8
+  %75 = shl nsw i64 %45, 1
+  %76 = tail call noalias ptr @malloc(i64 noundef %75) #55
+  %77 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %76, ptr %77, align 8
   br i1 %28, label %.lr.ph164.preheader, label %.preheader
 
 .lr.ph164.preheader:                              ; preds = %._crit_edge161
@@ -40271,19 +40270,19 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
   %indvars.iv199 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next200, %.lr.ph164 ]
-  %77 = getelementptr inbounds %struct.Vector3, ptr %11, i64 %indvars.iv199
-  %78 = load float, ptr %77, align 4
+  %78 = getelementptr inbounds %struct.Vector3, ptr %11, i64 %indvars.iv199
+  %79 = load float, ptr %78, align 4
   %.idx = mul i64 %indvars.iv199, 12
-  %79 = getelementptr inbounds i8, ptr %65, i64 %.idx
-  store float %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %77, i64 4
-  %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %79, i64 4
-  store float %81, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %77, i64 8
-  %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %79, i64 8
-  store float %84, ptr %85, align 4
+  %80 = getelementptr inbounds i8, ptr %66, i64 %.idx
+  store float %79, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %78, i64 4
+  %82 = load float, ptr %81, align 4
+  %83 = getelementptr inbounds i8, ptr %80, i64 4
+  store float %82, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %78, i64 8
+  %85 = load float, ptr %84, align 4
+  %86 = getelementptr inbounds i8, ptr %80, i64 8
+  store float %85, ptr %86, align 4
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
   br i1 %exitcond203.not, label %.lr.ph166.preheader, label %.lr.ph164
@@ -40294,16 +40293,16 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %.lr.ph166
   %indvars.iv204 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next205, %.lr.ph166 ]
-  %86 = getelementptr inbounds %struct.Vector2, ptr %31, i64 %indvars.iv204
-  %87 = load float, ptr %86, align 4
-  %88 = shl nuw nsw i64 %indvars.iv204, 1
-  %89 = getelementptr inbounds float, ptr %70, i64 %88
-  store float %87, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %86, i64 4
-  %91 = load float, ptr %90, align 4
-  %92 = or disjoint i64 %88, 1
-  %93 = getelementptr inbounds float, ptr %70, i64 %92
-  store float %91, ptr %93, align 4
+  %87 = getelementptr inbounds %struct.Vector2, ptr %31, i64 %indvars.iv204
+  %88 = load float, ptr %87, align 4
+  %89 = shl nuw nsw i64 %indvars.iv204, 1
+  %90 = getelementptr inbounds float, ptr %71, i64 %89
+  store float %88, ptr %90, align 4
+  %91 = getelementptr inbounds i8, ptr %87, i64 4
+  %92 = load float, ptr %91, align 4
+  %93 = or disjoint i64 %89, 1
+  %94 = getelementptr inbounds float, ptr %71, i64 %93
+  store float %92, ptr %94, align 4
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
   br i1 %exitcond208.not, label %.lr.ph168.preheader, label %.lr.ph166
@@ -40318,30 +40317,30 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168
   %indvars.iv209 = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next210, %.lr.ph168 ]
-  %94 = getelementptr inbounds %struct.Vector3, ptr %27, i64 %indvars.iv209
-  %95 = load float, ptr %94, align 4
+  %95 = getelementptr inbounds %struct.Vector3, ptr %27, i64 %indvars.iv209
+  %96 = load float, ptr %95, align 4
   %.idx219 = mul i64 %indvars.iv209, 12
-  %96 = getelementptr inbounds i8, ptr %72, i64 %.idx219
-  store float %95, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %94, i64 4
-  %98 = load float, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %96, i64 4
-  store float %98, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %94, i64 8
-  %101 = load float, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %96, i64 8
-  store float %101, ptr %102, align 4
+  %97 = getelementptr inbounds i8, ptr %73, i64 %.idx219
+  store float %96, ptr %97, align 4
+  %98 = getelementptr inbounds i8, ptr %95, i64 4
+  %99 = load float, ptr %98, align 4
+  %100 = getelementptr inbounds i8, ptr %97, i64 4
+  store float %99, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %95, i64 8
+  %102 = load float, ptr %101, align 4
+  %103 = getelementptr inbounds i8, ptr %97, i64 8
+  store float %102, ptr %103, align 4
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
   br i1 %exitcond213.not, label %.preheader, label %.lr.ph168
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
   %indvars.iv214 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next215, %.lr.ph170 ]
-  %103 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv214
-  %104 = load i32, ptr %103, align 4
-  %105 = trunc i32 %104 to i16
-  %106 = getelementptr inbounds i16, ptr %75, i64 %indvars.iv214
-  store i16 %105, ptr %106, align 2
+  %104 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv214
+  %105 = load i32, ptr %104, align 4
+  %106 = trunc i32 %105 to i16
+  %107 = getelementptr inbounds i16, ptr %76, i64 %indvars.iv214
+  store i16 %106, ptr %107, align 2
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
   br i1 %exitcond218.not, label %._crit_edge171, label %.lr.ph170
