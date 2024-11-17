@@ -5079,7 +5079,7 @@ cpython/tracemalloc.ll 377824873
 cpython/transpose.ll 182464557
 cpython/tupleobject.ll 476735776
 cpython/typeobject.ll 5838429395
-cpython/typevarobject.ll 580141297
+cpython/typevarobject.ll 579561147
 cpython/unicodectype.ll 445392530
 cpython/unicodedata.ll 1886114785
 cpython/unicodeobject.ll 14064582615
