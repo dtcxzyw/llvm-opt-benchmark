@@ -5904,7 +5904,7 @@ darktable/KodakDecompressor.cpp.ll 280877749
 darktable/LJpegDecoder.cpp.ll 206558481
 darktable/LJpegDecompressor.cpp.ll 3663843819
 darktable/MefDecoder.cpp.ll 133967318
-darktable/MosDecoder.cpp.ll 407703529
+darktable/MosDecoder.cpp.ll 407295793
 darktable/MrwDecoder.cpp.ll 273776532
 darktable/NakedDecoder.cpp.ll 217414043
 darktable/NefDecoder.cpp.ll 946062245
@@ -39560,7 +39560,7 @@ z3/smt_conflict_resolution.cpp.ll 2285476813
 z3/smt_consequences.cpp.ll 4417335864
 z3/smt_context.cpp.ll 7475597640
 z3/smt_context_inv.cpp.ll 191668637
-z3/smt_context_pp.cpp.ll 1346621397
+z3/smt_context_pp.cpp.ll 1345274765
 z3/smt_context_stat.cpp.ll 317914834
 z3/smt_enode.cpp.ll 357826428
 z3/smt_farkas_util.cpp.ll 1032421891
@@ -41045,7 +41045,7 @@ zxing/DMDecoder.cpp.ll 1352433601
 zxing/DMDetector.cpp.ll 2481857856
 zxing/DMECEncoder.cpp.ll 390870217
 zxing/DMHighLevelEncoder.cpp.ll 558132297
-zxing/DMReader.cpp.ll 300525327
+zxing/DMReader.cpp.ll 300224742
 zxing/DMSymbolInfo.cpp.ll 97055630
 zxing/DMVersion.cpp.ll 43852094
 zxing/DMWriter.cpp.ll 252732151
