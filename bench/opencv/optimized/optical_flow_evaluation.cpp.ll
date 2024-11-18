@@ -4240,8 +4240,8 @@ define internal fastcc void @_ZL13endpointErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(p
   br i1 %20, label %.preheader, label %._crit_edge44
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %21 = phi i32 [ %71, %._crit_edge ], [ %10, %.preheader.lr.ph ]
-  %22 = phi i32 [ %72, %._crit_edge ], [ %19, %.preheader.lr.ph ]
+  %21 = phi i32 [ %69, %._crit_edge ], [ %10, %.preheader.lr.ph ]
+  %22 = phi i32 [ %70, %._crit_edge ], [ %19, %.preheader.lr.ph ]
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
@@ -4268,69 +4268,65 @@ define internal fastcc void @_ZL13endpointErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(p
 
 39:                                               ; preds = %.lr.ph
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %30, i64 1
-  %40 = fcmp ord float %.sroa.0.4.vec.extract.i, 0.000000e+00
-  %41 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i)
-  %42 = fcmp olt float %41, 1.000000e+09
-  %or.cond.i = and i1 %40, %42
-  %43 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i)
-  %44 = fcmp olt float %43, 1.000000e+09
-  %or.cond = and i1 %44, %or.cond.i
-  br i1 %or.cond, label %45, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread
+  %40 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i)
+  %41 = fcmp olt float %40, 1.000000e+09
+  %42 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i)
+  %43 = fcmp olt float %42, 1.000000e+09
+  %or.cond = and i1 %43, %41
+  br i1 %or.cond, label %44, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread
 
-45:                                               ; preds = %39
+44:                                               ; preds = %39
   %.sroa.0.0.vec.extract.i25 = extractelement <2 x float> %37, i64 0
-  %46 = fcmp ord float %.sroa.0.0.vec.extract.i25, 0.000000e+00
-  br i1 %46, label %47, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread
+  %45 = fcmp ord float %.sroa.0.0.vec.extract.i25, 0.000000e+00
+  br i1 %45, label %46, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread
 
-47:                                               ; preds = %45
+46:                                               ; preds = %44
   %.sroa.0.4.vec.extract.i26 = extractelement <2 x float> %37, i64 1
-  %48 = fcmp ord float %.sroa.0.4.vec.extract.i26, 0.000000e+00
-  %49 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i25)
+  %47 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i25)
+  %48 = fcmp olt float %47, 1.000000e+09
+  %49 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i26)
   %50 = fcmp olt float %49, 1.000000e+09
-  %or.cond.i27 = and i1 %48, %50
-  %51 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i26)
-  %52 = fcmp olt float %51, 1.000000e+09
-  %or.cond41 = and i1 %52, %or.cond.i27
-  br i1 %or.cond41, label %53, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread
+  %or.cond41 = and i1 %50, %48
+  br i1 %or.cond41, label %51, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread
 
-53:                                               ; preds = %47
-  %54 = fsub <2 x float> %30, %37
-  %55 = extractelement <2 x float> %54, i64 0
-  %56 = fsub float %.sroa.0.4.vec.extract.i, %.sroa.0.4.vec.extract.i26
-  %57 = fpext float %55 to double
-  %58 = fpext float %56 to double
-  %59 = fmul double %58, %58
-  %60 = tail call noundef double @llvm.fmuladd.f64(double %57, double %57, double %59)
-  %61 = fptrunc double %60 to float
-  %sqrt = tail call float @llvm.sqrt.f32(float %61)
+51:                                               ; preds = %46
+  %52 = fsub <2 x float> %30, %37
+  %53 = extractelement <2 x float> %52, i64 0
+  %54 = fsub float %.sroa.0.4.vec.extract.i, %.sroa.0.4.vec.extract.i26
+  %55 = fpext float %53 to double
+  %56 = fpext float %54 to double
+  %57 = fmul double %56, %56
+  %58 = tail call noundef double @llvm.fmuladd.f64(double %55, double %55, double %57)
+  %59 = fptrunc double %58 to float
+  %sqrt = tail call float @llvm.sqrt.f32(float %59)
   br label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread
 
-_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread:     ; preds = %39, %.lr.ph, %47, %45, %53
-  %sqrt.sink = phi float [ %sqrt, %53 ], [ 0x7FF8000000000000, %45 ], [ 0x7FF8000000000000, %47 ], [ 0x7FF8000000000000, %.lr.ph ], [ 0x7FF8000000000000, %39 ]
-  %62 = load ptr, ptr %17, align 8
-  %63 = load ptr, ptr %18, align 8
-  %64 = load i64, ptr %63, align 8
-  %65 = mul i64 %64, %indvars.iv47
-  %66 = getelementptr inbounds i8, ptr %62, i64 %65
-  %67 = getelementptr inbounds float, ptr %66, i64 %indvars.iv
-  store float %sqrt.sink, ptr %67, align 4
+_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread:     ; preds = %39, %.lr.ph, %46, %44, %51
+  %sqrt.sink = phi float [ %sqrt, %51 ], [ 0x7FF8000000000000, %44 ], [ 0x7FF8000000000000, %46 ], [ 0x7FF8000000000000, %.lr.ph ], [ 0x7FF8000000000000, %39 ]
+  %60 = load ptr, ptr %17, align 8
+  %61 = load ptr, ptr %18, align 8
+  %62 = load i64, ptr %61, align 8
+  %63 = mul i64 %62, %indvars.iv47
+  %64 = getelementptr inbounds i8, ptr %60, i64 %63
+  %65 = getelementptr inbounds float, ptr %64, i64 %indvars.iv
+  store float %sqrt.sink, ptr %65, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = load i32, ptr %12, align 4
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
+  %66 = load i32, ptr %12, align 4
+  %67 = sext i32 %66 to i64
+  %68 = icmp slt i64 %indvars.iv.next, %67
+  br i1 %68, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread
   %.pre = load i32, ptr %9, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %71 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %21, %.preheader ]
-  %72 = phi i32 [ %68, %._crit_edge.loopexit ], [ %22, %.preheader ]
+  %69 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %21, %.preheader ]
+  %70 = phi i32 [ %66, %._crit_edge.loopexit ], [ %22, %.preheader ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %73 = sext i32 %71 to i64
-  %74 = icmp slt i64 %indvars.iv.next48, %73
-  br i1 %74, label %.preheader, label %._crit_edge44, !llvm.loop !26
+  %71 = sext i32 %69 to i64
+  %72 = icmp slt i64 %indvars.iv.next48, %71
+  br i1 %72, label %.preheader, label %._crit_edge44, !llvm.loop !26
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %3
   ret void

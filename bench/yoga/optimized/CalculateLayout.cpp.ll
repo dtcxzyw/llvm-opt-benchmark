@@ -1813,19 +1813,15 @@ if.then8.i:                                       ; preds = %for.body.i1049
 
 lor.lhs.false.i1051:                              ; preds = %if.then8.i
   %call10.i1052 = tail call noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr noundef nonnull align 8 dereferenceable(640) %173)
-  %or.cond.i.i1053 = fcmp ord float %call10.i1052, 0.000000e+00
   %174 = tail call float @llvm.fabs.f32(float %call10.i1052)
   %cmp.i38.i = fcmp olt float %174, 0x3F1A36E2E0000000
-  %or.cond1942 = and i1 %or.cond.i.i1053, %cmp.i38.i
-  br i1 %or.cond1942, label %if.end18.i.loopexit, label %lor.lhs.false12.i
+  br i1 %cmp.i38.i, label %if.end18.i.loopexit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %lor.lhs.false.i1051
   %call13.i = tail call noundef float @_ZNK8facebook4yoga4Node17resolveFlexShrinkEv(ptr noundef nonnull align 8 dereferenceable(640) %173)
-  %or.cond.i39.i = fcmp ord float %call13.i, 0.000000e+00
   %175 = tail call float @llvm.fabs.f32(float %call13.i)
   %cmp.i45.i = fcmp olt float %175, 0x3F1A36E2E0000000
-  %or.cond1943 = and i1 %or.cond.i39.i, %cmp.i45.i
-  br i1 %or.cond1943, label %if.end18.i.loopexit, label %for.inc.i1050
+  br i1 %cmp.i45.i, label %if.end18.i.loopexit, label %for.inc.i1050
 
 for.inc.i1050:                                    ; preds = %lor.lhs.false12.i, %for.body.i1049
   %singleFlexChild.2.i = phi ptr [ %singleFlexChild.1.i2169, %for.body.i1049 ], [ %173, %lor.lhs.false12.i ]
